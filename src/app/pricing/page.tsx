@@ -3,60 +3,55 @@ import Link from "next/link";
 const TIERS = [
   {
     name: "Essentiel",
-    oldPrice: null,
-    price: "Gratuit",
-    description: "Tous les calculateurs de base",
+    description: "Calculateurs et simulateurs",
     features: [
       "Estimation instantanée",
-      "Carte des prix",
-      "Capital investi & loyer",
-      "Frais d'acquisition",
-      "Plus-values",
-      "Simulateur d'aides",
-      "Outils bancaires",
-      "Acheter ou louer",
-      "Données marché par commune",
+      "Carte des prix par commune",
+      "Capital investi & plafond de loyer",
+      "Frais d'acquisition (Bëllegen Akt)",
+      "Plus-values immobilières",
+      "Simulateur d'aides (5 couches)",
+      "Outils bancaires (LTV, amortissement, DSCR)",
+      "Comparateur acheter ou louer",
+      "Données marché par commune et quartier",
     ],
     cta: "Commencer",
     href: "/estimation",
-    highlight: false,
   },
   {
     name: "Pro",
-    oldPrice: "29 €/mois",
-    price: "Gratuit",
-    description: "Pour les professionnels de l'immobilier",
+    description: "Évaluation professionnelle",
     features: [
-      "Tout le plan Essentiel",
-      "Valorisation EVS 2025 (8 méthodes)",
-      "DCF multi-locataires",
-      "Bilan promoteur",
-      "Rapport PDF professionnel",
-      "Analyse narrative automatique",
-      "Sauvegarde cloud illimitée",
+      "Valorisation EVS 2025 — 8 méthodes",
+      "Comparaison, capitalisation, terme & réversion",
+      "DCF avec TRI et matrice de sensibilité",
+      "DCF multi-locataires (bail par bail)",
+      "Approche résiduelle énergétique + estimation auto des coûts",
+      "Valeur hypothécaire (MLV / CRR)",
+      "Section ESG et checklist conformité EVS",
+      "Bilan promoteur (compte à rebours)",
       "Portfolio multi-actifs",
-      "Section ESG / durabilité",
-      "Checklist conformité EVS",
+      "Rapport PDF et analyse narrative",
+      "Sauvegarde cloud",
     ],
-    cta: "Accéder gratuitement",
+    cta: "Accéder",
     href: "/valorisation",
     highlight: true,
   },
   {
     name: "Expert",
-    oldPrice: "99 €/mois",
-    price: "Gratuit",
-    description: "Pour les institutions et cabinets",
+    description: "Intégration et données avancées",
     features: [
-      "Tout le plan Pro",
-      "API REST (8 endpoints)",
-      "Données marché commerciales",
-      "Bureaux, commerces, hôtels, logistique",
+      "API REST (8 endpoints de calcul)",
+      "Données marché commerciales (bureaux, retail, logistique, hôtels)",
+      "9 types d'actifs avec paramètres contextuels",
+      "6 bases de valeur TEGOVA (EVS1–EVS6)",
+      "Guides d'ajustement statistiques",
+      "Données démographiques par commune",
       "Support par email",
     ],
-    cta: "Accéder gratuitement",
+    cta: "Accéder",
     href: "/valorisation",
-    highlight: false,
   },
 ];
 
@@ -64,15 +59,14 @@ export default function Pricing() {
   return (
     <div className="bg-background py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-4">
-          <span className="inline-block rounded-full bg-gold/20 px-4 py-1 text-sm font-semibold text-gold-dark mb-4">
-            Phase de lancement — tout est gratuit
-          </span>
-          <h1 className="text-2xl font-bold text-navy sm:text-3xl">Fonctionnalités</h1>
-          <p className="mt-3 text-muted">Tous les outils sont accessibles gratuitement pendant la phase de test</p>
+        <div className="text-center mb-12">
+          <h1 className="text-2xl font-bold text-navy sm:text-3xl">Tarifs</h1>
+          <p className="mt-3 text-muted">
+            Tous les outils sont en accès libre pendant la phase de lancement.
+          </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3 mt-10">
+        <div className="grid gap-6 lg:grid-cols-3">
           {TIERS.map((tier) => (
             <div
               key={tier.name}
@@ -82,19 +76,8 @@ export default function Pricing() {
                   : "border-card-border bg-card"
               }`}
             >
-              {tier.highlight && (
-                <span className="inline-block rounded-full bg-gold px-3 py-0.5 text-xs font-semibold text-navy-dark mb-4">
-                  Recommandé
-                </span>
-              )}
               <h2 className="text-xl font-bold text-navy">{tier.name}</h2>
-              <div className="mt-2">
-                {tier.oldPrice && (
-                  <span className="text-lg text-muted line-through mr-2">{tier.oldPrice}</span>
-                )}
-                <span className="text-3xl font-bold text-success">{tier.price}</span>
-              </div>
-              <p className="mt-2 text-sm text-muted">{tier.description}</p>
+              <p className="mt-1 text-sm text-muted">{tier.description}</p>
 
               <Link
                 href={tier.href}
@@ -110,7 +93,7 @@ export default function Pricing() {
               <ul className="mt-6 space-y-2">
                 {tier.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm text-slate">
-                    <svg className="h-4 w-4 shrink-0 text-success mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <svg className="h-4 w-4 shrink-0 text-navy/40 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                     </svg>
                     {f}
@@ -122,8 +105,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-12 text-center text-sm text-muted">
-          <p>Toutes les fonctionnalités sont gratuites pendant la phase de lancement.</p>
-          <p className="mt-1">Questions ou suggestions ? <a href="mailto:contact@tevaxia.lu" className="text-navy hover:underline">contact@tevaxia.lu</a></p>
+          Questions ou suggestions ? <a href="mailto:contact@tevaxia.lu" className="text-navy hover:underline">contact@tevaxia.lu</a>
         </div>
       </div>
     </div>

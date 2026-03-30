@@ -101,7 +101,7 @@ export default function Header() {
               </div>
             ))}
             <Link href="/pricing" className="rounded-lg px-3 py-2 text-xs font-medium text-gold/80 hover:text-gold hover:bg-white/10 transition-colors">
-              Fonctionnalités
+              Tarifs
             </Link>
           </nav>
 
