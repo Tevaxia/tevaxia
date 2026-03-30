@@ -5,8 +5,10 @@ import Link from "next/link";
 import { formatEUR } from "@/lib/calculations";
 import { rechercherCommune, type MarketDataCommune, type SearchResult } from "@/lib/market-data";
 import { PriceEvolutionChart, PriceIndexChart } from "@/components/PriceChart";
+import dynamic from "next/dynamic";
 
-// Import all commune data directly
+const LeafletMap = dynamic(() => import("@/components/LeafletMap"), { ssr: false });
+
 import { getAllCommunes, getMarketDataCommune } from "@/lib/market-data";
 
 function getPriceColor(prix: number | null): string {
@@ -113,6 +115,16 @@ export default function Carte() {
             <option value="prix">Par prix (décroissant)</option>
             <option value="nom">Par nom</option>
           </select>
+        </div>
+
+        {/* Carte Leaflet */}
+        <div className="mb-8">
+          <LeafletMap
+            communes={allCommunes}
+            onSelectCommune={setSelectedCommune}
+            selectedCommune={selectedCommune?.commune}
+          />
+          <p className="mt-2 text-xs text-muted text-center">Taille des cercles proportionnelle au volume de transactions. Cliquez pour voir le détail.</p>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-3">
