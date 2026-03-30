@@ -433,6 +433,7 @@ function TabCapitalisation({ onValeur }: { onValeur: (v: number) => void }) {
   const [fraisGestion, setFraisGestion] = useState(5);
   const [taxeFonciere, setTaxeFonciere] = useState(200);
   const [tauxCap, setTauxCap] = useState(4.0);
+  const [ervAnnuel, setErvAnnuel] = useState(0);
 
   const result = useMemo(() => {
     const r = calculerCapitalisation({
@@ -444,6 +445,7 @@ function TabCapitalisation({ onValeur }: { onValeur: (v: number) => void }) {
       fraisGestion: fraisGestion / 100,
       taxeFonciere,
       tauxCapitalisation: tauxCap / 100,
+      ervAnnuel: ervAnnuel > 0 ? ervAnnuel : undefined,
     });
     onValeur(r.valeur);
     return r;
@@ -469,6 +471,17 @@ function TabCapitalisation({ onValeur }: { onValeur: (v: number) => void }) {
             <InputField label="Frais de gestion" value={fraisGestion} onChange={(v) => setFraisGestion(Number(v))} suffix="% loyer" step={0.5} />
             <InputField label="Impôt foncier" value={taxeFonciere} onChange={(v) => setTaxeFonciere(Number(v))} suffix="€/an" hint="Très faible au Luxembourg vs France" />
           </div>
+        </div>
+
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Valeur locative de marché (optionnel)</h2>
+          <InputField
+            label="Loyer de marché annuel (ERV)"
+            value={ervAnnuel}
+            onChange={(v) => setErvAnnuel(Number(v))}
+            suffix="€"
+            hint="Si différent du loyer en place — permet de calculer le rendement réversionnaire et le potentiel de réversion"
+          />
         </div>
 
         <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
@@ -510,23 +523,26 @@ function TabCapitalisation({ onValeur }: { onValeur: (v: number) => void }) {
           lines={[
             { label: "Résultat net / Taux capitalisation", value: `${formatEUR(result.noi)} / ${tauxCap}%`, sub: true },
             { label: "Valeur estimée", value: formatEUR(result.valeur), highlight: true, large: true },
+            { label: "Rendement initial (loyer en place)", value: formatPct(result.rendementInitial) },
             { label: "Rendement brut", value: formatPct(result.rendementBrut), sub: true },
             { label: "Rendement net", value: formatPct(result.rendementNet), sub: true },
+            ...(result.rendementReversionnaire !== undefined ? [
+              { label: "Rendement réversionnaire (loyer de marché)", value: formatPct(result.rendementReversionnaire) },
+              { label: result.sousLoue ? "Sous-loué — potentiel de réversion" : "Sur-loué — risque de réversion", value: `${result.potentielReversion ? (result.potentielReversion > 0 ? "+" : "") + result.potentielReversion.toFixed(1) + "%" : "0%"}`, warning: !result.sousLoue },
+            ] : []),
           ]}
         />
 
-        {/* Sensibilité au taux de cap */}
+        {/* Sensibilité au taux de capitalisation */}
         <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-          <h3 className="mb-3 text-base font-semibold text-navy">Analyse de sensibilité</h3>
+          <h3 className="mb-3 text-base font-semibold text-navy">Analyse de sensibilité — Taux de capitalisation</h3>
           <div className="space-y-1">
-            {[-1.0, -0.5, 0, 0.5, 1.0].map((delta) => {
-              const t = tauxCap + delta;
-              const v = t > 0 ? result.noi / (t / 100) : 0;
-              const isActive = delta === 0;
+            {result.sensibilite.map((s) => {
+              const isActive = Math.abs(s.tauxCap - tauxCap) < 0.01;
               return (
-                <div key={delta} className={`flex justify-between py-1.5 px-2 rounded text-sm ${isActive ? "bg-navy/5 font-semibold" : ""}`}>
-                  <span className="text-muted">Cap rate {t.toFixed(1)}%</span>
-                  <span className="font-mono">{formatEUR(v)}</span>
+                <div key={s.tauxCap} className={`flex justify-between py-1.5 px-2 rounded text-sm ${isActive ? "bg-navy/5 font-semibold" : ""}`}>
+                  <span className="text-muted">Taux {s.tauxCap.toFixed(2)}%</span>
+                  <span className="font-mono">{formatEUR(s.valeur)}</span>
                 </div>
               );
             })}
@@ -628,8 +644,42 @@ function TabDCF({ onValeur }: { onValeur: (v: number) => void }) {
               { label: "Valeur de revente nette", value: formatEUR(result.valeurTerminaleNette), sub: true },
               { label: "Valeur de revente actualisée", value: formatEUR(result.valeurTerminaleActualisee) },
               { label: "Valeur DCF", value: formatEUR(result.valeurDCF), highlight: true, large: true },
+              { label: "Taux de rendement interne (TRI/IRR)", value: `${(result.irr * 100).toFixed(2)} %`, highlight: true },
             ]}
           />
+
+          {/* Matrice de sensibilité DCF */}
+          <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+            <h3 className="mb-3 text-sm font-semibold text-navy">Sensibilité — Taux d'actualisation × Taux de sortie</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs">
+                <thead>
+                  <tr className="border-b border-card-border">
+                    <th className="px-2 py-1.5 text-left text-navy">Actu. \ Sortie</th>
+                    {[...new Set(result.sensibilite.map((s) => s.tauxCapSortie))].map((tc) => (
+                      <th key={tc} className="px-2 py-1.5 text-right text-navy">{tc.toFixed(1)}%</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[...new Set(result.sensibilite.map((s) => s.tauxActu))].map((ta) => (
+                    <tr key={ta} className="border-b border-card-border/50">
+                      <td className="px-2 py-1.5 font-medium">{ta.toFixed(1)}%</td>
+                      {result.sensibilite.filter((s) => s.tauxActu === ta).map((s) => {
+                        const isBase = Math.abs(s.tauxActu - tauxActu) < 0.01 && Math.abs(s.tauxCapSortie - tauxCapSortie) < 0.01;
+                        return (
+                          <td key={s.tauxCapSortie} className={`px-2 py-1.5 text-right font-mono ${isBase ? "bg-navy/10 font-bold" : ""}`}>
+                            {formatEUR(s.valeur)}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-2 text-[10px] text-muted">La case en surbrillance correspond aux paramètres actuels. Variation de ±0,5%.</p>
+          </div>
 
           {/* Proportion cash flows vs terminal */}
           <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">

@@ -7,6 +7,8 @@ import { estimer } from "@/lib/estimation";
 import { rechercherCommune, type SearchResult } from "@/lib/market-data";
 import { AJUST_ETAGE, AJUST_ETAT, AJUST_EXTERIEUR } from "@/lib/adjustments";
 import { formatEUR } from "@/lib/calculations";
+import ConfidenceGauge from "@/components/ConfidenceGauge";
+import { PriceEvolutionChart } from "@/components/PriceChart";
 
 export default function Estimation() {
   const [communeSearch, setCommuneSearch] = useState("");
@@ -171,14 +173,10 @@ export default function Estimation() {
               </div>
 
               {/* Confiance */}
-              <div className={`rounded-xl border p-4 ${confianceBg}`}>
-                <div className="flex items-center gap-2">
-                  <span className={`text-sm font-semibold ${confianceColor}`}>
-                    Confiance : {result.confiance}
-                  </span>
-                </div>
-                <p className="mt-1 text-xs text-muted">{result.confianceNote}</p>
-              </div>
+              <ConfidenceGauge level={result.confiance} note={result.confianceNote} />
+
+              {/* Graphique évolution prix */}
+              <PriceEvolutionChart />
 
               {/* Détail */}
               <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">

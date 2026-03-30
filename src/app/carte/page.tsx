@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { formatEUR } from "@/lib/calculations";
 import { rechercherCommune, type MarketDataCommune, type SearchResult } from "@/lib/market-data";
+import { PriceEvolutionChart, PriceIndexChart } from "@/components/PriceChart";
 
 // Import all commune data directly
 import { getAllCommunes, getMarketDataCommune } from "@/lib/market-data";
@@ -253,9 +254,13 @@ export default function Carte() {
                   )}
                 </>
               ) : (
-                <div className="rounded-xl border-2 border-dashed border-card-border p-8 text-center">
-                  <p className="text-sm text-muted">Cliquez sur une commune pour voir le détail</p>
-                </div>
+                <>
+                  <div className="rounded-xl border-2 border-dashed border-card-border p-8 text-center">
+                    <p className="text-sm text-muted">Cliquez sur une commune pour voir le détail</p>
+                  </div>
+                  <PriceEvolutionChart />
+                  <PriceIndexChart />
+                </>
               )}
             </div>
           </div>

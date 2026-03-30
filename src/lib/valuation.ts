@@ -86,23 +86,31 @@ export function calculerComparaison(
 
 export interface CapitalisationInput {
   loyerBrutAnnuel: number;
-  chargesNonRecuperables: number; // Charges propriétaire
-  tauxVacance: number; // % ex: 0.05 = 5%
-  provisionGrosEntretien: number; // % du loyer brut
-  assurancePNO: number; // Montant annuel
-  fraisGestion: number; // % du loyer brut
-  taxeFonciere: number; // Montant annuel — impôt foncier LU
-  tauxCapitalisation: number; // % — SUBJECTIF → configurable
+  chargesNonRecuperables: number;
+  tauxVacance: number;
+  provisionGrosEntretien: number;
+  assurancePNO: number;
+  fraisGestion: number;
+  taxeFonciere: number;
+  tauxCapitalisation: number;
+  ervAnnuel?: number; // Valeur locative de marché (ERV) — pour rendement réversionnaire
 }
 
 export interface CapitalisationResult {
-  loyerBrutEffectif: number; // Après vacance
+  loyerBrutEffectif: number;
   totalCharges: number;
-  noi: number; // Net Operating Income
+  noi: number;
   tauxCapitalisation: number;
   valeur: number;
   rendementBrut: number;
   rendementNet: number;
+  // Rendement réversionnaire (si ERV fourni)
+  rendementInitial: number; // Loyer en place / valeur
+  rendementReversionnaire?: number; // ERV / valeur
+  sousLoue?: boolean; // true si loyer < ERV
+  potentielReversion?: number; // Différence ERV - loyer en %
+  // Sensibilité
+  sensibilite: { tauxCap: number; valeur: number }[];
 }
 
 export function calculerCapitalisation(input: CapitalisationInput): CapitalisationResult {
@@ -120,6 +128,26 @@ export function calculerCapitalisation(input: CapitalisationInput): Capitalisati
   const noi = loyerBrutEffectif - totalCharges;
   const valeur = input.tauxCapitalisation > 0 ? noi / input.tauxCapitalisation : 0;
 
+  // Rendement réversionnaire
+  const rendementInitial = valeur > 0 ? loyerBrutEffectif / valeur : 0;
+  let rendementReversionnaire: number | undefined;
+  let sousLoue: boolean | undefined;
+  let potentielReversion: number | undefined;
+  if (input.ervAnnuel && input.ervAnnuel > 0) {
+    const ervEffectif = input.ervAnnuel * (1 - input.tauxVacance);
+    rendementReversionnaire = valeur > 0 ? ervEffectif / valeur : 0;
+    sousLoue = input.loyerBrutAnnuel < input.ervAnnuel;
+    potentielReversion = input.loyerBrutAnnuel > 0
+      ? ((input.ervAnnuel - input.loyerBrutAnnuel) / input.loyerBrutAnnuel) * 100
+      : 0;
+  }
+
+  // Sensibilité cap rate ±25bps, ±50bps, ±100bps
+  const sensibilite = [-1.0, -0.5, -0.25, 0, 0.25, 0.5, 1.0].map((delta) => {
+    const t = input.tauxCapitalisation + delta / 100;
+    return { tauxCap: (input.tauxCapitalisation * 100 + delta), valeur: t > 0 ? noi / t : 0 };
+  });
+
   return {
     loyerBrutEffectif,
     totalCharges,
@@ -128,6 +156,11 @@ export function calculerCapitalisation(input: CapitalisationInput): Capitalisati
     valeur,
     rendementBrut: valeur > 0 ? input.loyerBrutAnnuel / valeur : 0,
     rendementNet: valeur > 0 ? noi / valeur : 0,
+    rendementInitial,
+    rendementReversionnaire,
+    sousLoue,
+    potentielReversion,
+    sensibilite,
   };
 }
 
@@ -161,12 +194,32 @@ export interface DCFCashFlow {
 export interface DCFResult {
   cashFlows: DCFCashFlow[];
   totalNOIActualise: number;
-  noiTerminal: number; // NOI de l'année n+1 pour la terminal value
+  noiTerminal: number;
   valeurTerminaleBrute: number;
   fraisCession: number;
   valeurTerminaleNette: number;
   valeurTerminaleActualisee: number;
   valeurDCF: number;
+  irr: number; // Taux de rendement interne
+  sensibilite: { tauxActu: number; tauxCapSortie: number; valeur: number }[];
+}
+
+// Calcul du TRI (IRR) par Newton-Raphson
+export function calculerIRR(cashFlows: number[], guess: number = 0.08, maxIter: number = 100, tol: number = 1e-7): number {
+  let rate = guess;
+  for (let i = 0; i < maxIter; i++) {
+    let npv = 0;
+    let dnpv = 0;
+    for (let t = 0; t < cashFlows.length; t++) {
+      const factor = Math.pow(1 + rate, t);
+      npv += cashFlows[t] / factor;
+      dnpv -= t * cashFlows[t] / (factor * (1 + rate));
+    }
+    if (Math.abs(npv) < tol) return rate;
+    if (dnpv === 0) break;
+    rate -= npv / dnpv;
+  }
+  return rate;
 }
 
 export function calculerDCF(input: DCFInput): DCFResult {
@@ -199,6 +252,33 @@ export function calculerDCF(input: DCFInput): DCFResult {
 
   const valeurDCF = totalNOIActualise + valeurTerminaleActualisee;
 
+  // IRR : cash flow initial = -valeurDCF (investissement), puis NOI annuels, dernière année + valeur terminale nette
+  const irrFlows = [-valeurDCF, ...cashFlows.map((cf) => cf.noi)];
+  irrFlows[irrFlows.length - 1] += valeurTerminaleNette;
+  const irr = calculerIRR(irrFlows);
+
+  // Sensibilité : matrice taux actualisation × taux de sortie
+  const sensibilite: { tauxActu: number; tauxCapSortie: number; valeur: number }[] = [];
+  for (const dActu of [-0.5, 0, 0.5]) {
+    for (const dCap of [-0.5, 0, 0.5]) {
+      const ta = input.tauxActualisation + dActu / 100;
+      const tc = input.tauxCapSortie + dCap / 100;
+      if (ta <= 0 || tc <= 0) continue;
+      let totNOI = 0;
+      for (const cf of cashFlows) {
+        totNOI += cf.noi / Math.pow(1 + ta, cf.annee);
+      }
+      const vtBrute = tc > 0 ? noiTerminal / tc : 0;
+      const vtNette = vtBrute - vtBrute * input.fraisCessionPct;
+      const vtActu = vtNette / Math.pow(1 + ta, input.periodeAnalyse);
+      sensibilite.push({
+        tauxActu: +(input.tauxActualisation * 100 + dActu).toFixed(1),
+        tauxCapSortie: +(input.tauxCapSortie * 100 + dCap).toFixed(1),
+        valeur: totNOI + vtActu,
+      });
+    }
+  }
+
   return {
     cashFlows,
     totalNOIActualise,
@@ -208,6 +288,8 @@ export function calculerDCF(input: DCFInput): DCFResult {
     valeurTerminaleNette,
     valeurTerminaleActualisee,
     valeurDCF,
+    irr,
+    sensibilite,
   };
 }
 
