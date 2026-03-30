@@ -11,9 +11,11 @@ import {
   calculerDCF,
   calculerMLV,
   calculerResiduelleEnergetique,
+  calculerTermeReversion,
   reconcilier,
   type Comparable,
 } from "@/lib/valuation";
+import { evaluerESG } from "@/lib/esg";
 import {
   rechercherCommune,
   DATA_SOURCES,
@@ -30,13 +32,16 @@ import {
 import AdjustmentGuidePanel from "@/components/AdjustmentGuide";
 import MarketDataPanel from "@/components/MarketDataPanel";
 import { calculerAjustDate } from "@/lib/adjustments";
+import { downloadReport } from "@/components/ValuationReport";
 
-type ActiveTab = "comparaison" | "capitalisation" | "dcf" | "energie" | "mlv" | "reconciliation";
+type ActiveTab = "comparaison" | "capitalisation" | "terme_reversion" | "dcf" | "esg" | "energie" | "mlv" | "reconciliation";
 
 const TABS: { id: ActiveTab; label: string }[] = [
   { id: "comparaison", label: "Comparaison" },
-  { id: "capitalisation", label: "Capitalisation directe" },
-  { id: "dcf", label: "Flux actualisés (DCF)" },
+  { id: "capitalisation", label: "Capitalisation" },
+  { id: "terme_reversion", label: "Terme & Réversion" },
+  { id: "dcf", label: "Flux actualisés" },
+  { id: "esg", label: "ESG" },
   { id: "energie", label: "Résiduelle énergie" },
   { id: "mlv", label: "Valeur hypothécaire" },
   { id: "reconciliation", label: "Réconciliation" },
@@ -736,7 +741,201 @@ function TabDCF({ onValeur }: { onValeur: (v: number) => void }) {
 }
 
 // ============================================================
-// TAB 4 — RÉSIDUELLE ÉNERGÉTIQUE
+// TAB — TERME & RÉVERSION
+// ============================================================
+
+function TabTermeReversion({ onValeur }: { onValeur: (v: number) => void }) {
+  const [loyerEnPlace, setLoyerEnPlace] = useState(36000);
+  const [erv, setErv] = useState(42000);
+  const [dureeRestante, setDureeRestante] = useState(5);
+  const [tauxTerme, setTauxTerme] = useState(4.0);
+  const [tauxReversion, setTauxReversion] = useState(5.0);
+
+  const result = useMemo(() => {
+    const r = calculerTermeReversion({
+      loyerEnPlace,
+      erv,
+      dureeRestanteBail: dureeRestante,
+      tauxTerme: tauxTerme / 100,
+      tauxReversion: tauxReversion / 100,
+    });
+    onValeur(r.valeur);
+    return r;
+  }, [loyerEnPlace, erv, dureeRestante, tauxTerme, tauxReversion, onValeur]);
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-2">
+      <div className="space-y-6">
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Revenus</h2>
+          <div className="space-y-4">
+            <InputField label="Loyer en place (annuel)" value={loyerEnPlace} onChange={(v) => setLoyerEnPlace(Number(v))} suffix="€" hint="Loyer actuellement perçu" />
+            <InputField label="Valeur locative de marché — ERV (annuel)" value={erv} onChange={(v) => setErv(Number(v))} suffix="€" hint="Loyer de marché estimé au renouvellement" />
+            <InputField label="Durée restante du bail" value={dureeRestante} onChange={(v) => setDureeRestante(Number(v))} suffix="ans" min={0} max={30} />
+          </div>
+        </div>
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Taux de rendement</h2>
+          <div className="space-y-4">
+            <InputField label="Taux terme (loyer en place — plus sécurisé)" value={tauxTerme} onChange={(v) => setTauxTerme(Number(v))} suffix="%" step={0.1} hint="Configurable — appliqué au loyer contractuel, plus faible car revenu garanti" />
+            <InputField label="Taux réversion (ERV — plus risqué)" value={tauxReversion} onChange={(v) => setTauxReversion(Number(v))} suffix="%" step={0.1} hint="Configurable — appliqué au loyer de marché futur, plus élevé car incertain" />
+          </div>
+          <div className="mt-3 rounded-lg bg-amber-50 border border-amber-200 p-3">
+            <p className="text-xs text-amber-800 leading-relaxed">
+              <strong>Méthode terme & réversion :</strong> Le loyer en place est capitalisé au taux terme pour la durée restante
+              du bail (revenu contractuel, plus sûr). L'ERV est capitalisé en perpétuité au taux de réversion, différé de la durée
+              restante (revenu futur, moins certain). La somme donne la valeur. Le taux terme est inférieur au taux de réversion.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="space-y-6">
+        <ResultPanel
+          title="Valeur par terme & réversion"
+          className="border-gold/30"
+          lines={[
+            { label: `Terme : ${formatEUR(loyerEnPlace)} × ${result.facteurTerme.toFixed(3)} (YP ${dureeRestante} ans à ${tauxTerme}%)`, value: formatEUR(result.valeurTerme) },
+            { label: `Réversion : ${formatEUR(erv)} × ${result.facteurReversionPerp.toFixed(2)} × ${result.facteurDiffere.toFixed(4)}`, value: formatEUR(result.valeurReversion) },
+            { label: "Valeur totale", value: formatEUR(result.valeur), highlight: true, large: true },
+            { label: "Rendement équivalent", value: formatPct(result.rendementEquivalent), sub: true },
+            { label: loyerEnPlace < erv ? "Sous-loué — potentiel de réversion" : "Sur-loué — risque à l'échéance", value: `${((erv - loyerEnPlace) / loyerEnPlace * 100).toFixed(1)}%`, warning: loyerEnPlace > erv },
+          ]}
+        />
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// TAB — ESG / DURABILITÉ
+// ============================================================
+
+function TabESG() {
+  const [classeEnergie, setClasseEnergie] = useState("D");
+  const [anneeConstruction, setAnneeConstruction] = useState(1990);
+  const [zoneInondable, setZoneInondable] = useState(false);
+  const [risqueSecheresse, setRisqueSecheresse] = useState(false);
+  const [risqueGlissement, setRisqueGlissement] = useState(false);
+  const [proximitePollue, setProximitePollue] = useState(false);
+  const [isolationRecente, setIsolationRecente] = useState(false);
+  const [panneauxSolaires, setPanneauxSolaires] = useState(false);
+  const [pompeAChaleur, setPompeAChaleur] = useState(false);
+  const [certifications, setCertifications] = useState<string[]>([]);
+
+  const result = useMemo(() =>
+    evaluerESG({
+      classeEnergie,
+      anneeConstruction,
+      zoneInondable,
+      risqueSecheresse,
+      risqueGlissementTerrain: risqueGlissement,
+      proximiteSitePollue: proximitePollue,
+      isolationRecente,
+      panneauxSolaires,
+      pompeAChaleur,
+      certifications,
+    }),
+  [classeEnergie, anneeConstruction, zoneInondable, risqueSecheresse, risqueGlissement, proximitePollue, isolationRecente, panneauxSolaires, pompeAChaleur, certifications]);
+
+  const scoreColor = result.score >= 60 ? "text-success" : result.score >= 40 ? "text-warning" : "text-error";
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-2">
+      <div className="space-y-6">
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Performance énergétique</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <InputField label="Classe énergie (CPE)" type="select" value={classeEnergie} onChange={setClasseEnergie} options={[
+              { value: "A", label: "A" }, { value: "B", label: "B" }, { value: "C", label: "C" },
+              { value: "D", label: "D" }, { value: "E", label: "E" }, { value: "F", label: "F" }, { value: "G", label: "G" },
+            ]} />
+            <InputField label="Année de construction" value={anneeConstruction} onChange={(v) => setAnneeConstruction(Number(v))} min={1800} max={2026} />
+          </div>
+        </div>
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Risques environnementaux</h2>
+          <div className="space-y-3">
+            <ToggleField label="Zone inondable" checked={zoneInondable} onChange={setZoneInondable} />
+            <ToggleField label="Risque sécheresse (retrait-gonflement)" checked={risqueSecheresse} onChange={setRisqueSecheresse} />
+            <ToggleField label="Risque glissement de terrain" checked={risqueGlissement} onChange={setRisqueGlissement} />
+            <ToggleField label="Proximité site pollué" checked={proximitePollue} onChange={setProximitePollue} />
+          </div>
+        </div>
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Équipements durables</h2>
+          <div className="space-y-3">
+            <ToggleField label="Isolation récente (< 10 ans)" checked={isolationRecente} onChange={setIsolationRecente} />
+            <ToggleField label="Panneaux solaires" checked={panneauxSolaires} onChange={setPanneauxSolaires} />
+            <ToggleField label="Pompe à chaleur" checked={pompeAChaleur} onChange={setPompeAChaleur} />
+          </div>
+          <div className="mt-4">
+            <label className="block text-sm font-medium text-slate mb-2">Certifications</label>
+            <div className="flex flex-wrap gap-2">
+              {["BREEAM", "DGNB", "WELL", "LEED", "HQE", "Minergie"].map((cert) => (
+                <button key={cert} onClick={() => setCertifications((prev) => prev.includes(cert) ? prev.filter((c) => c !== cert) : [...prev, cert])}
+                  className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${certifications.includes(cert) ? "bg-navy text-white" : "bg-background text-muted border border-card-border hover:bg-navy/5"}`}>
+                  {cert}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="space-y-6">
+        {/* Score ESG */}
+        <div className="rounded-2xl border border-card-border bg-card p-8 text-center shadow-sm">
+          <div className="text-sm text-muted">Score ESG</div>
+          <div className={`text-5xl font-bold mt-2 ${scoreColor}`}>{result.score}/100</div>
+          <div className={`mt-2 text-lg font-semibold ${scoreColor}`}>Niveau {result.niveau} — {result.niveauLabel}</div>
+          <div className="mt-3 text-sm font-medium">
+            Impact estimé sur la valeur : <span className={result.impactValeur >= 0 ? "text-success" : "text-error"}>{result.impactValeur > 0 ? "+" : ""}{result.impactValeur}%</span>
+          </div>
+        </div>
+        {/* Risques */}
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h3 className="text-base font-semibold text-navy mb-3">Risques identifiés</h3>
+          <div className="space-y-2">
+            {result.risques.map((r, i) => (
+              <div key={i} className="flex items-center gap-2 text-sm">
+                <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${r.niveau === "eleve" ? "bg-red-100 text-red-700" : r.niveau === "moyen" ? "bg-amber-100 text-amber-700" : "bg-green-100 text-green-700"}`}>
+                  {r.niveau}
+                </span>
+                <span className="text-slate">{r.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        {result.opportunites.length > 0 && (
+          <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+            <h3 className="text-base font-semibold text-navy mb-3">Points positifs</h3>
+            <ul className="space-y-1 text-sm text-slate">
+              {result.opportunites.map((o, i) => <li key={i}>+ {o}</li>)}
+            </ul>
+          </div>
+        )}
+        {result.recommandations.length > 0 && (
+          <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+            <h3 className="text-base font-semibold text-navy mb-3">Recommandations</h3>
+            <ul className="space-y-1 text-sm text-slate">
+              {result.recommandations.map((r, i) => <li key={i}>{r}</li>)}
+            </ul>
+          </div>
+        )}
+        <div className="rounded-lg bg-navy/5 border border-navy/10 p-3">
+          <p className="text-xs text-slate leading-relaxed">
+            <strong>EVS 2025 / Red Book 2025 :</strong> Les facteurs ESG doivent être pris en compte dans toute évaluation.
+            Le score ESG influence la valeur via la prime verte (green premium) pour les biens performants et la décote brune
+            (brown discount) pour les passoires énergétiques. Conformément à l'article 208 des orientations EBA, les facteurs
+            environnementaux doivent être intégrés dans l'évaluation des collatéraux immobiliers.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// TAB — RÉSIDUELLE ÉNERGÉTIQUE
 // ============================================================
 
 function TabEnergie({ valeurMarcheCible }: { valeurMarcheCible: number }) {
@@ -1282,7 +1481,16 @@ export default function Valorisation() {
             )}
             {(valeurComparaison > 0 || valeurCapitalisation > 0 || valeurDCF > 0) && (
               <button
-                onClick={() => window.print()}
+                onClick={() => downloadReport({
+                  dateRapport: new Date().toISOString().split("T")[0],
+                  commune: selectedCommune?.commune,
+                  assetType: assetConfig.label,
+                  evsType: evsInfo.label,
+                  surface: surfaceBien,
+                  valeurComparaison: valeurComparaison || undefined,
+                  valeurCapitalisation: valeurCapitalisation || undefined,
+                  valeurDCF: valeurDCF || undefined,
+                })}
                 className="rounded-lg bg-gold px-3 py-2 text-xs font-medium text-navy-dark hover:bg-gold-light transition-colors"
               >
                 Rapport PDF
@@ -1332,7 +1540,9 @@ export default function Valorisation() {
           />
         )}
         {activeTab === "capitalisation" && <TabCapitalisation onValeur={onValeurCap} />}
+        {activeTab === "terme_reversion" && <TabTermeReversion onValeur={onValeurCap} />}
         {activeTab === "dcf" && <TabDCF onValeur={onValeurDCF} />}
+        {activeTab === "esg" && <TabESG />}
         {activeTab === "energie" && <TabEnergie valeurMarcheCible={valeurMarchePourMLV} />}
         {activeTab === "mlv" && <TabMLV valeurMarche={valeurMarchePourMLV} />}
         {activeTab === "reconciliation" && (

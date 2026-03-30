@@ -453,6 +453,60 @@ export function reconcilier(input: ReconciliationInput): ReconciliationResult {
 }
 
 // ============================================================
+// 5b. TERME & RÉVERSION (UK/EMEA Standard)
+// ============================================================
+
+export interface TermeReversionInput {
+  loyerEnPlace: number; // Loyer actuel annuel
+  erv: number; // Estimated Rental Value annuel
+  dureeRestanteBail: number; // Années restantes du bail en cours
+  tauxTerme: number; // Yield appliqué au loyer en place (plus sûr)
+  tauxReversion: number; // Yield appliqué à l'ERV (plus risqué)
+}
+
+export interface TermeReversionResult {
+  // Terme : loyer en place capitalisé pour la durée restante
+  valeurTerme: number;
+  facteurTerme: number; // Years' Purchase pour la durée restante
+  // Réversion : ERV capitalisé en perpétuité, différé de la durée restante
+  valeurReversion: number;
+  facteurReversionPerp: number; // YP perpetuity
+  facteurDiffere: number; // PV factor
+  // Total
+  valeur: number;
+  rendementEquivalent: number; // Taux qui donne la même valeur en cap directe sur ERV
+}
+
+export function calculerTermeReversion(input: TermeReversionInput): TermeReversionResult {
+  // Terme : Years' Purchase pour n années au taux terme
+  const r1 = input.tauxTerme;
+  const n = input.dureeRestanteBail;
+  const facteurTerme = r1 > 0 ? (1 - Math.pow(1 + r1, -n)) / r1 : n;
+  const valeurTerme = input.loyerEnPlace * facteurTerme;
+
+  // Réversion : YP perpetuity au taux réversion × PV différé
+  const r2 = input.tauxReversion;
+  const facteurReversionPerp = r2 > 0 ? 1 / r2 : 0;
+  const facteurDiffere = Math.pow(1 + r2, -n);
+  const valeurReversion = input.erv * facteurReversionPerp * facteurDiffere;
+
+  const valeur = valeurTerme + valeurReversion;
+
+  // Rendement équivalent : taux qui donne valeur = ERV / taux
+  const rendementEquivalent = valeur > 0 ? input.erv / valeur : 0;
+
+  return {
+    valeurTerme,
+    facteurTerme,
+    valeurReversion,
+    facteurReversionPerp,
+    facteurDiffere,
+    valeur,
+    rendementEquivalent,
+  };
+}
+
+// ============================================================
 // 6. APPROCHE RÉSIDUELLE ÉNERGÉTIQUE (EVS 2025)
 // ============================================================
 

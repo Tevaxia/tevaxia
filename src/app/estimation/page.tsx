@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import InputField from "@/components/InputField";
 import ToggleField from "@/components/ToggleField";
 import { estimer } from "@/lib/estimation";
@@ -9,8 +9,10 @@ import { AJUST_ETAGE, AJUST_ETAT, AJUST_EXTERIEUR } from "@/lib/adjustments";
 import { formatEUR } from "@/lib/calculations";
 import ConfidenceGauge from "@/components/ConfidenceGauge";
 import { PriceEvolutionChart } from "@/components/PriceChart";
+import { updateUrlHash, readUrlHash } from "@/lib/url-state";
 
 export default function Estimation() {
+  const [linkCopied, setLinkCopied] = useState(false);
   const [communeSearch, setCommuneSearch] = useState("");
   const [selectedResult, setSelectedResult] = useState<SearchResult | null>(null);
   const [surface, setSurface] = useState(80);
@@ -212,6 +214,21 @@ export default function Estimation() {
                     <span className="text-navy font-mono">{formatEUR(result.prixM2Ajuste)}</span>
                   </div>
                 </div>
+              </div>
+
+              {/* Partager */}
+              <div className="flex justify-center">
+                <button
+                  onClick={() => {
+                    updateUrlHash({ c: communeSearch, s: surface, ch: nbChambres, et: etage, ea: etat, ex: exterieur, p: parking, e: classeEnergie, n: estNeuf });
+                    navigator.clipboard.writeText(window.location.href);
+                    setLinkCopied(true);
+                    setTimeout(() => setLinkCopied(false), 2000);
+                  }}
+                  className="rounded-lg border border-card-border px-4 py-2 text-xs font-medium text-muted hover:bg-background transition-colors"
+                >
+                  {linkCopied ? "Lien copié !" : "Copier le lien de cette estimation"}
+                </button>
               </div>
 
               {/* Disclaimer */}
