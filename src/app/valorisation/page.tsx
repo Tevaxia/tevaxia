@@ -18,6 +18,7 @@ import {
 import { evaluerESG } from "@/lib/esg";
 import {
   rechercherCommune,
+  suggestComparables,
   DATA_SOURCES,
   type MarketDataCommune,
   type SearchResult,
@@ -292,21 +293,71 @@ function TabComparaison({
             <h2 className="text-base font-semibold text-navy">Comparables</h2>
             <p className="text-xs text-muted">Saisissez vos références de transactions réelles</p>
           </div>
-          <button
-            onClick={addComp}
-            className="rounded-lg bg-navy px-3 py-1.5 text-xs font-medium text-white hover:bg-navy-light transition-colors"
-          >
-            + Ajouter un comparable
-          </button>
+          <div className="flex gap-2">
+            {selectedCommune && comparables.length === 0 && (
+              <button
+                onClick={() => {
+                  const suggested = suggestComparables(selectedCommune.commune, 4);
+                  const newComps: Comparable[] = suggested.map((s, i) => ({
+                    id: String(Date.now() + i),
+                    adresse: s.source,
+                    prixVente: s.prixM2 * surfaceBien,
+                    surface: surfaceBien,
+                    dateVente: "2025-01",
+                    ajustLocalisation: 0,
+                    ajustEtat: 0,
+                    ajustEtage: 0,
+                    ajustExterieur: 0,
+                    ajustParking: 0,
+                    ajustDate: 0,
+                    ajustAutre: 0,
+                    poids: Math.round(100 / suggested.length),
+                  }));
+                  setComparables(newComps);
+                }}
+                className="rounded-lg bg-gold px-3 py-1.5 text-xs font-medium text-navy-dark hover:bg-gold-light transition-colors"
+              >
+                Suggérer des comparables
+              </button>
+            )}
+            <button
+              onClick={addComp}
+              className="rounded-lg bg-navy px-3 py-1.5 text-xs font-medium text-white hover:bg-navy-light transition-colors"
+            >
+              + Ajouter
+            </button>
+          </div>
         </div>
 
         {comparables.length === 0 && (
           <div className="rounded-lg border-2 border-dashed border-card-border py-8 text-center">
             <p className="text-sm text-muted">Aucun comparable saisi</p>
-            <p className="text-xs text-muted mt-1">Ajoutez au moins 3 comparables pour une analyse fiable</p>
-            <button onClick={addComp} className="mt-3 rounded-lg bg-navy/10 px-4 py-2 text-sm font-medium text-navy hover:bg-navy/20 transition-colors">
-              + Ajouter un comparable
-            </button>
+            <p className="text-xs text-muted mt-1">{selectedCommune ? "Cliquez \"Suggérer\" ou ajoutez manuellement" : "Sélectionnez une commune puis ajoutez des comparables"}</p>
+            <div className="mt-3 flex gap-2 justify-center">
+              {selectedCommune && (
+                <button
+                  onClick={() => {
+                    const suggested = suggestComparables(selectedCommune.commune, 4);
+                    setComparables(suggested.map((s, i) => ({
+                      id: String(Date.now() + i),
+                      adresse: s.source,
+                      prixVente: s.prixM2 * surfaceBien,
+                      surface: surfaceBien,
+                      dateVente: "2025-01",
+                      ajustLocalisation: 0, ajustEtat: 0, ajustEtage: 0, ajustExterieur: 0,
+                      ajustParking: 0, ajustDate: 0, ajustAutre: 0,
+                      poids: Math.round(100 / suggested.length),
+                    })));
+                  }}
+                  className="rounded-lg bg-gold px-4 py-2 text-sm font-medium text-navy-dark hover:bg-gold-light transition-colors"
+                >
+                  Suggérer des comparables
+                </button>
+              )}
+              <button onClick={addComp} className="rounded-lg bg-navy/10 px-4 py-2 text-sm font-medium text-navy hover:bg-navy/20 transition-colors">
+                + Ajouter manuellement
+              </button>
+            </div>
           </div>
         )}
 
@@ -1235,92 +1286,140 @@ function TabReconciliation({
   const [poidsCap, setPoidsCap] = useState(25);
   const [poidsDCF, setPoidsDCF] = useState(25);
 
-  const result = useMemo(
-    () =>
-      reconcilier({
-        valeurComparaison: valeurComparaison || undefined,
-        poidsComparaison: poidsComp,
-        valeurCapitalisation: valeurCapitalisation || undefined,
-        poidsCapitalisation: poidsCap,
-        valeurDCF: valeurDCF || undefined,
-        poidsDCF,
-      }),
-    [valeurComparaison, valeurCapitalisation, valeurDCF, poidsComp, poidsCap, poidsDCF]
-  );
+  // Scénarios : ajustement en % sur chaque valeur
+  const [scenarioHautPct, setScenarioHautPct] = useState(10);
+  const [scenarioBasPct, setScenarioBasPct] = useState(10);
+
+  const makeReconc = useCallback((compAdj: number, capAdj: number, dcfAdj: number) => {
+    return reconcilier({
+      valeurComparaison: valeurComparaison ? valeurComparaison * (1 + compAdj / 100) : undefined,
+      poidsComparaison: poidsComp,
+      valeurCapitalisation: valeurCapitalisation ? valeurCapitalisation * (1 + capAdj / 100) : undefined,
+      poidsCapitalisation: poidsCap,
+      valeurDCF: valeurDCF ? valeurDCF * (1 + dcfAdj / 100) : undefined,
+      poidsDCF,
+    });
+  }, [valeurComparaison, valeurCapitalisation, valeurDCF, poidsComp, poidsCap, poidsDCF]);
+
+  const resultBase = useMemo(() => makeReconc(0, 0, 0), [makeReconc]);
+  const resultHaut = useMemo(() => makeReconc(scenarioHautPct, scenarioHautPct, scenarioHautPct), [makeReconc, scenarioHautPct]);
+  const resultBas = useMemo(() => makeReconc(-scenarioBasPct, -scenarioBasPct, -scenarioBasPct), [makeReconc, scenarioBasPct]);
 
   return (
-    <div className="grid gap-8 lg:grid-cols-2">
-      <div className="space-y-6">
-        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-          <h2 className="mb-4 text-base font-semibold text-navy">Valeurs par méthode</h2>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between rounded-lg bg-background p-3">
-              <div>
-                <div className="text-sm font-medium text-slate">Comparaison</div>
-                <div className="text-lg font-bold text-navy">{valeurComparaison ? formatEUR(valeurComparaison) : "—"}</div>
+    <div className="space-y-8">
+      <div className="grid gap-8 lg:grid-cols-2">
+        {/* Pondérations */}
+        <div className="space-y-6">
+          <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+            <h2 className="mb-4 text-base font-semibold text-navy">Valeurs par méthode et pondération</h2>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between rounded-lg bg-background p-3">
+                <div>
+                  <div className="text-sm font-medium text-slate">Comparaison</div>
+                  <div className="text-lg font-bold text-navy">{valeurComparaison ? formatEUR(valeurComparaison) : "—"}</div>
+                </div>
+                <InputField label="Poids" value={poidsComp} onChange={(v) => setPoidsComp(Number(v))} suffix="%" min={0} max={100} className="w-24" />
               </div>
-              <InputField label="Poids" value={poidsComp} onChange={(v) => setPoidsComp(Number(v))} suffix="%" min={0} max={100} className="w-24" />
-            </div>
-            <div className="flex items-center justify-between rounded-lg bg-background p-3">
-              <div>
-                <div className="text-sm font-medium text-slate">Capitalisation</div>
-                <div className="text-lg font-bold text-navy">{valeurCapitalisation ? formatEUR(valeurCapitalisation) : "—"}</div>
+              <div className="flex items-center justify-between rounded-lg bg-background p-3">
+                <div>
+                  <div className="text-sm font-medium text-slate">Capitalisation</div>
+                  <div className="text-lg font-bold text-navy">{valeurCapitalisation ? formatEUR(valeurCapitalisation) : "—"}</div>
+                </div>
+                <InputField label="Poids" value={poidsCap} onChange={(v) => setPoidsCap(Number(v))} suffix="%" min={0} max={100} className="w-24" />
               </div>
-              <InputField label="Poids" value={poidsCap} onChange={(v) => setPoidsCap(Number(v))} suffix="%" min={0} max={100} className="w-24" />
-            </div>
-            <div className="flex items-center justify-between rounded-lg bg-background p-3">
-              <div>
-                <div className="text-sm font-medium text-slate">DCF</div>
-                <div className="text-lg font-bold text-navy">{valeurDCF ? formatEUR(valeurDCF) : "—"}</div>
+              <div className="flex items-center justify-between rounded-lg bg-background p-3">
+                <div>
+                  <div className="text-sm font-medium text-slate">DCF</div>
+                  <div className="text-lg font-bold text-navy">{valeurDCF ? formatEUR(valeurDCF) : "—"}</div>
+                </div>
+                <InputField label="Poids" value={poidsDCF} onChange={(v) => setPoidsDCF(Number(v))} suffix="%" min={0} max={100} className="w-24" />
               </div>
-              <InputField label="Poids" value={poidsDCF} onChange={(v) => setPoidsDCF(Number(v))} suffix="%" min={0} max={100} className="w-24" />
             </div>
           </div>
-          <div className="mt-3 rounded-lg bg-amber-50 border border-amber-200 p-3">
-            <p className="text-xs text-amber-800 leading-relaxed">
-              <strong>Pondération :</strong> Paramètre subjectif — le poids de chaque méthode dépend de la qualité
-              des données disponibles, du type de bien et de l'usage de l'évaluation. Pour le résidentiel standard au
-              Luxembourg, la comparaison domine généralement (50-70%). Le DCF est plus pertinent pour le commercial.
-              L'évaluateur doit justifier ses pondérations dans le rapport.
-            </p>
+
+          {/* Paramètres scénarios */}
+          <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+            <h2 className="mb-4 text-base font-semibold text-navy">Scénarios</h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <InputField label="Scénario haut (+%)" value={scenarioHautPct} onChange={(v) => setScenarioHautPct(Number(v))} suffix="%" min={1} max={30} hint="Hypothèse optimiste" />
+              <InputField label="Scénario bas (−%)" value={scenarioBasPct} onChange={(v) => setScenarioBasPct(Number(v))} suffix="%" min={1} max={30} hint="Hypothèse prudente" />
+            </div>
+            <p className="mt-2 text-xs text-muted">Applique un ajustement uniforme sur les valeurs de chaque méthode avant réconciliation.</p>
           </div>
+        </div>
+
+        {/* Résultat base */}
+        <div className="space-y-6">
+          <div className="rounded-xl border-2 border-gold/40 bg-gradient-to-br from-card to-gold/5 p-8 shadow-sm text-center">
+            <div className="text-sm text-muted uppercase tracking-wider">Valeur de marché réconciliée</div>
+            <div className="mt-2 text-4xl font-bold text-navy">{formatEUR(resultBase.valeurReconciliee)}</div>
+            <div className="mt-2 text-sm text-muted">Scénario central — EVS1</div>
+          </div>
+
+          <ResultPanel
+            title="Contrôle qualité"
+            lines={[
+              { label: "Écart max entre méthodes", value: `${resultBase.ecartMaxPct.toFixed(1)}%`, warning: resultBase.ecartMaxPct > 20 },
+              { label: "Écart-type", value: formatEUR(resultBase.ecartType), sub: true },
+              ...(resultBase.ecartMaxPct > 20 ? [{ label: "Alerte", value: "Écart > 20% — analyser les divergences", warning: true }] : []),
+            ]}
+          />
         </div>
       </div>
 
-      <div className="space-y-6">
-        <div className="rounded-xl border-2 border-gold/40 bg-gradient-to-br from-card to-gold/5 p-8 shadow-sm text-center">
-          <div className="text-sm text-muted uppercase tracking-wider">Valeur de marché réconciliée</div>
-          <div className="mt-2 text-4xl font-bold text-navy">{formatEUR(result.valeurReconciliee)}</div>
-          <div className="mt-2 text-sm text-muted">EVS1 — Market Value</div>
-        </div>
+      {/* Tableau comparatif 3 scénarios */}
+      <div className="rounded-xl border border-card-border bg-card shadow-sm overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-card-border bg-background">
+              <th className="px-4 py-3 text-left font-semibold text-navy"></th>
+              <th className="px-4 py-3 text-center font-semibold text-error">Scénario bas (−{scenarioBasPct}%)</th>
+              <th className="px-4 py-3 text-center font-semibold text-navy bg-navy/5">Scénario central</th>
+              <th className="px-4 py-3 text-center font-semibold text-success">Scénario haut (+{scenarioHautPct}%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {valeurComparaison > 0 && (
+              <tr className="border-b border-card-border/50">
+                <td className="px-4 py-2 text-muted">Comparaison</td>
+                <td className="px-4 py-2 text-center font-mono">{formatEUR(valeurComparaison * (1 - scenarioBasPct / 100))}</td>
+                <td className="px-4 py-2 text-center font-mono bg-navy/5 font-semibold">{formatEUR(valeurComparaison)}</td>
+                <td className="px-4 py-2 text-center font-mono">{formatEUR(valeurComparaison * (1 + scenarioHautPct / 100))}</td>
+              </tr>
+            )}
+            {valeurCapitalisation > 0 && (
+              <tr className="border-b border-card-border/50">
+                <td className="px-4 py-2 text-muted">Capitalisation</td>
+                <td className="px-4 py-2 text-center font-mono">{formatEUR(valeurCapitalisation * (1 - scenarioBasPct / 100))}</td>
+                <td className="px-4 py-2 text-center font-mono bg-navy/5 font-semibold">{formatEUR(valeurCapitalisation)}</td>
+                <td className="px-4 py-2 text-center font-mono">{formatEUR(valeurCapitalisation * (1 + scenarioHautPct / 100))}</td>
+              </tr>
+            )}
+            {valeurDCF > 0 && (
+              <tr className="border-b border-card-border/50">
+                <td className="px-4 py-2 text-muted">DCF</td>
+                <td className="px-4 py-2 text-center font-mono">{formatEUR(valeurDCF * (1 - scenarioBasPct / 100))}</td>
+                <td className="px-4 py-2 text-center font-mono bg-navy/5 font-semibold">{formatEUR(valeurDCF)}</td>
+                <td className="px-4 py-2 text-center font-mono">{formatEUR(valeurDCF * (1 + scenarioHautPct / 100))}</td>
+              </tr>
+            )}
+            <tr className="bg-background font-semibold">
+              <td className="px-4 py-3 text-navy">Valeur réconciliée</td>
+              <td className="px-4 py-3 text-center font-mono text-error text-lg">{formatEUR(resultBas.valeurReconciliee)}</td>
+              <td className="px-4 py-3 text-center font-mono text-navy text-lg bg-navy/5">{formatEUR(resultBase.valeurReconciliee)}</td>
+              <td className="px-4 py-3 text-center font-mono text-success text-lg">{formatEUR(resultHaut.valeurReconciliee)}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-        <ResultPanel
-          title="Décomposition"
-          lines={result.methodes.map((m) => ({
-            label: `${m.nom} (${m.poids}%)`,
-            value: formatEUR(m.contribution),
-            sub: true,
-          }))}
-        />
-
-        <ResultPanel
-          title="Contrôle qualité"
-          lines={[
-            {
-              label: "Écart max entre méthodes",
-              value: `${result.ecartMaxPct.toFixed(1)}%`,
-              warning: result.ecartMaxPct > 20,
-            },
-            { label: "Écart-type", value: formatEUR(result.ecartType), sub: true },
-            ...(result.ecartMaxPct > 20
-              ? [{
-                  label: "Alerte",
-                  value: "Écart > 20% — analyser les divergences",
-                  warning: true,
-                }]
-              : []),
-          ]}
-        />
+      <div className="rounded-lg bg-amber-50 border border-amber-200 p-3">
+        <p className="text-xs text-amber-800 leading-relaxed">
+          <strong>Analyse par scénarios :</strong> Les scénarios haut et bas appliquent un ajustement uniforme
+          sur les valeurs de chaque méthode. En pratique, les variations peuvent être asymétriques
+          (ex: cap rate +50bps en scénario bas mais comparaison −5% seulement). Pour une analyse
+          plus fine, utilisez les matrices de sensibilité dans chaque onglet de méthode.
+        </p>
       </div>
     </div>
   );

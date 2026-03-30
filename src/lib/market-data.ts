@@ -639,3 +639,50 @@ export function getCommunesParCanton(): Record<string, string[]> {
   }
   return result;
 }
+
+// Auto-suggestion de comparables depuis les données marché
+// Retourne les communes du même canton + communes limitrophes avec prix similaire
+export function suggestComparables(communeName: string, nbMax: number = 5): {
+  commune: string;
+  prixM2: number;
+  source: string;
+  quartier?: string;
+}[] {
+  const target = MARKET_DATA.find((c) => c.commune.toLowerCase() === communeName.toLowerCase());
+  if (!target || !target.prixM2Existant) return [];
+
+  const targetPrix = target.prixM2Existant;
+  const suggestions: { commune: string; prixM2: number; source: string; quartier?: string; score: number }[] = [];
+
+  // 1. Quartiers de la même commune (meilleur match)
+  if (target.quartiers) {
+    for (const q of target.quartiers) {
+      suggestions.push({
+        commune: target.commune,
+        prixM2: q.prixM2,
+        source: `${q.nom}, ${target.commune} — ${target.periode}`,
+        quartier: q.nom,
+        score: 100 - Math.abs(q.prixM2 - targetPrix) / targetPrix * 50, // Proximité de prix
+      });
+    }
+  }
+
+  // 2. Communes du même canton
+  for (const c of MARKET_DATA) {
+    if (c.commune === target.commune || !c.prixM2Existant) continue;
+    const prixProximite = 1 - Math.abs(c.prixM2Existant - targetPrix) / targetPrix;
+    const memeCanton = c.canton === target.canton ? 30 : 0;
+    suggestions.push({
+      commune: c.commune,
+      prixM2: c.prixM2Existant,
+      source: `${c.commune} — ${c.periode}`,
+      score: prixProximite * 50 + memeCanton,
+    });
+  }
+
+  // Trier par score et prendre les N meilleurs
+  return suggestions
+    .sort((a, b) => b.score - a.score)
+    .slice(0, nbMax)
+    .map(({ score, ...rest }) => rest);
+}
