@@ -31,6 +31,8 @@ export default function Footer() {
               <li><Link href="/plus-values" className="hover:text-white transition-colors">Plus-values</Link></li>
               <li><Link href="/simulateur-aides" className="hover:text-white transition-colors">Simulateur d'aides</Link></li>
               <li><Link href="/valorisation" className="hover:text-white transition-colors">Valorisation EVS 2025</Link></li>
+              <li><Link href="/achat-vs-location" className="hover:text-white transition-colors">Acheter ou louer</Link></li>
+              <li><Link href="/bilan-promoteur" className="hover:text-white transition-colors">Bilan promoteur</Link></li>
               <li><Link href="/outils-bancaires" className="hover:text-white transition-colors">Outils bancaires</Link></li>
             </ul>
           </div>

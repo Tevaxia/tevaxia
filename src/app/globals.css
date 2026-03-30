@@ -64,3 +64,64 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 input[type="number"] { -moz-appearance: textfield; }
+
+/* ============================================================
+   PRINT STYLES — Rapport PDF
+   ============================================================ */
+@media print {
+  /* Masquer navigation, footer, cookie banner, boutons interactifs */
+  header, footer, .print\\:hidden,
+  button, select, input, textarea,
+  [role="switch"] {
+    display: none !important;
+  }
+
+  /* Forcer le fond blanc et texte noir */
+  body {
+    background: white !important;
+    color: #1a1a2e !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Pas de marges excessives */
+  .mx-auto { max-width: 100% !important; }
+  .px-4, .sm\\:px-6, .lg\\:px-8 { padding-left: 1rem !important; padding-right: 1rem !important; }
+  .py-8, .sm\\:py-12 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+
+  /* Enlever les ombres et arrondis excessifs */
+  .shadow-sm, .shadow-lg { box-shadow: none !important; }
+  .rounded-xl, .rounded-2xl { border-radius: 4px !important; }
+
+  /* Les cartes restent lisibles */
+  .bg-card { background: white !important; border: 1px solid #ddd !important; }
+  .bg-gradient-to-br { background: #1B2A4A !important; }
+
+  /* Les résultats panel restent visibles */
+  [class*="ResultPanel"], [class*="result"] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Tableaux */
+  table { font-size: 10px !important; }
+  th, td { padding: 4px 8px !important; }
+
+  /* En-tête rapport */
+  .print\\:block { display: block !important; }
+
+  /* Forcer les couleurs à l'impression */
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+  /* Saut de page avant les sections principales */
+  h1 { page-break-before: auto; }
+
+  /* Masquer les guides d'ajustement (trop verbeux pour le rapport) */
+  [class*="AdjustmentGuide"] { display: none !important; }
+
+  /* Page setup */
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+}

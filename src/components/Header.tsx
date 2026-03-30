@@ -11,6 +11,8 @@ const NAV_ITEMS = [
   { href: "/frais-acquisition", label: "Frais" },
   { href: "/plus-values", label: "Plus-Values" },
   { href: "/simulateur-aides", label: "Aides" },
+  { href: "/achat-vs-location", label: "Achat vs Location" },
+  { href: "/bilan-promoteur", label: "Bilan Promoteur" },
   { href: "/outils-bancaires", label: "Bancaire" },
 ];
 
