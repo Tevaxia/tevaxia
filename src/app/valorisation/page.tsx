@@ -1,0 +1,1102 @@
+"use client";
+
+import { useState, useMemo, useCallback } from "react";
+import InputField from "@/components/InputField";
+import ToggleField from "@/components/ToggleField";
+import ResultPanel from "@/components/ResultPanel";
+import { formatEUR, formatEUR2, formatPct } from "@/lib/calculations";
+import {
+  calculerComparaison,
+  calculerCapitalisation,
+  calculerDCF,
+  calculerMLV,
+  calculerResiduelleEnergetique,
+  reconcilier,
+  type Comparable,
+} from "@/lib/valuation";
+import {
+  rechercherCommune,
+  getMarketDataCommune,
+  DATA_SOURCES,
+  type MarketDataCommune,
+} from "@/lib/market-data";
+import {
+  ASSET_TYPES,
+  EVS_VALUE_TYPES,
+  getAssetTypeConfig,
+  type AssetType,
+  type EVSValueType,
+} from "@/lib/asset-types";
+
+type ActiveTab = "comparaison" | "capitalisation" | "dcf" | "energie" | "mlv" | "reconciliation";
+
+const TABS: { id: ActiveTab; label: string }[] = [
+  { id: "comparaison", label: "Comparaison" },
+  { id: "capitalisation", label: "Capitalisation" },
+  { id: "dcf", label: "DCF" },
+  { id: "energie", label: "Résiduelle Énergie" },
+  { id: "mlv", label: "MLV / CRR" },
+  { id: "reconciliation", label: "Réconciliation" },
+];
+
+// ============================================================
+// TAB 1 — COMPARAISON
+// ============================================================
+
+function TabComparaison({
+  surfaceBien,
+  onValeur,
+}: {
+  surfaceBien: number;
+  onValeur: (v: number) => void;
+}) {
+  const [comparables, setComparables] = useState<Comparable[]>([]);
+  const [communeSearch, setCommuneSearch] = useState("");
+  const [selectedCommune, setSelectedCommune] = useState<MarketDataCommune | null>(null);
+
+  const searchResults = useMemo(() => rechercherCommune(communeSearch), [communeSearch]);
+
+  const result = useMemo(() => {
+    if (comparables.length === 0) {
+      onValeur(0);
+      return null;
+    }
+    const r = calculerComparaison(comparables, surfaceBien);
+    onValeur(r.valeurEstimeePonderee);
+    return r;
+  }, [comparables, surfaceBien, onValeur]);
+
+  const updateComp = (index: number, field: keyof Comparable, value: string | number) => {
+    setComparables((prev) => {
+      const next = [...prev];
+      next[index] = { ...next[index], [field]: typeof next[index][field] === "number" ? Number(value) : value };
+      return next;
+    });
+  };
+
+  const addComp = () => {
+    setComparables((prev) => [
+      ...prev,
+      {
+        id: String(Date.now()), adresse: "", prixVente: 0, surface: 0,
+        dateVente: "2025-01", ajustLocalisation: 0, ajustEtat: 0, ajustEtage: 0,
+        ajustExterieur: 0, ajustParking: 0, ajustDate: 0, ajustAutre: 0, poids: 33,
+      },
+    ]);
+  };
+
+  const removeComp = (index: number) => {
+    setComparables((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const selectCommune = (c: MarketDataCommune) => {
+    setSelectedCommune(c);
+    setCommuneSearch(c.commune);
+  };
+
+  return (
+    <div className="space-y-6">
+      {/* Références de marché — données publiques */}
+      <div className="rounded-xl border-2 border-navy/20 bg-card p-6 shadow-sm">
+        <h2 className="text-base font-semibold text-navy mb-1">Références de marché par commune</h2>
+        <p className="text-xs text-muted mb-4">Source : Observatoire de l'Habitat / Publicité Foncière (actes notariés) — données ouvertes CC0</p>
+
+        <div className="relative">
+          <input
+            type="text"
+            value={communeSearch}
+            onChange={(e) => { setCommuneSearch(e.target.value); if (!e.target.value) setSelectedCommune(null); }}
+            placeholder="Rechercher une commune..."
+            className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2.5 text-sm shadow-sm focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
+          />
+          {communeSearch.length >= 2 && searchResults.length > 0 && !selectedCommune && (
+            <div className="absolute z-10 mt-1 w-full rounded-lg border border-card-border bg-card shadow-lg max-h-48 overflow-y-auto">
+              {searchResults.map((c) => (
+                <button
+                  key={c.commune}
+                  onClick={() => selectCommune(c)}
+                  className="w-full px-3 py-2 text-left text-sm hover:bg-background transition-colors"
+                >
+                  <span className="font-medium">{c.commune}</span>
+                  <span className="text-muted ml-2">({c.canton})</span>
+                  {c.prixM2Existant && <span className="float-right font-mono text-navy">{formatEUR(c.prixM2Existant)}/m²</span>}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {selectedCommune && (
+          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div className="rounded-lg bg-navy/5 p-3 text-center">
+              <div className="text-xs text-muted">Prix /m² transactions</div>
+              <div className="text-lg font-bold text-navy">{selectedCommune.prixM2Existant ? formatEUR(selectedCommune.prixM2Existant) : "—"}</div>
+              <div className="text-[10px] text-muted">Existant — actes notariés</div>
+            </div>
+            <div className="rounded-lg bg-navy/5 p-3 text-center">
+              <div className="text-xs text-muted">Prix /m² VEFA</div>
+              <div className="text-lg font-bold text-navy">{selectedCommune.prixM2VEFA ? formatEUR(selectedCommune.prixM2VEFA) : "—"}</div>
+              <div className="text-[10px] text-muted">Neuf — actes notariés</div>
+            </div>
+            <div className="rounded-lg bg-gold/10 p-3 text-center">
+              <div className="text-xs text-muted">Prix /m² annonces</div>
+              <div className="text-lg font-bold text-gold-dark">{selectedCommune.prixM2Annonces ? formatEUR(selectedCommune.prixM2Annonces) : "—"}</div>
+              <div className="text-[10px] text-muted">Annonces — données agrégées</div>
+            </div>
+            <div className="rounded-lg bg-teal/10 p-3 text-center">
+              <div className="text-xs text-muted">Loyer /m²/mois</div>
+              <div className="text-lg font-bold text-teal">{selectedCommune.loyerM2Annonces ? `${selectedCommune.loyerM2Annonces.toFixed(1)} €` : "—"}</div>
+              <div className="text-[10px] text-muted">Annonces — données agrégées</div>
+            </div>
+          </div>
+        )}
+
+        {selectedCommune && (
+          <div className="mt-3 flex items-center justify-between text-xs text-muted">
+            <span>{selectedCommune.nbTransactions} transactions — {selectedCommune.periode}</span>
+            <span>{selectedCommune.source}</span>
+          </div>
+        )}
+      </div>
+
+      {/* Sources de données */}
+      <div className="rounded-lg border border-card-border bg-card p-4 shadow-sm">
+        <h3 className="text-sm font-semibold text-navy mb-2">Sources de données ouvertes</h3>
+        <div className="grid gap-2 sm:grid-cols-2 text-xs">
+          <a href={DATA_SOURCES.prixTransactionsParCommune.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded px-2 py-1.5 hover:bg-background transition-colors">
+            <span className="shrink-0 rounded bg-navy/10 px-1.5 py-0.5 text-[10px] font-medium text-navy">{DATA_SOURCES.prixTransactionsParCommune.format}</span>
+            <span className="text-slate">{DATA_SOURCES.prixTransactionsParCommune.label}</span>
+          </a>
+          <a href={DATA_SOURCES.prixAffinesParCommune.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded px-2 py-1.5 hover:bg-background transition-colors">
+            <span className="shrink-0 rounded bg-navy/10 px-1.5 py-0.5 text-[10px] font-medium text-navy">{DATA_SOURCES.prixAffinesParCommune.format}</span>
+            <span className="text-slate">{DATA_SOURCES.prixAffinesParCommune.label}</span>
+          </a>
+          <a href={DATA_SOURCES.prixAnnoncesParCommune.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded px-2 py-1.5 hover:bg-background transition-colors">
+            <span className="shrink-0 rounded bg-navy/10 px-1.5 py-0.5 text-[10px] font-medium text-navy">{DATA_SOURCES.prixAnnoncesParCommune.format}</span>
+            <span className="text-slate">{DATA_SOURCES.prixAnnoncesParCommune.label}</span>
+          </a>
+          <a href={DATA_SOURCES.indicePrixSTATEC.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded px-2 py-1.5 hover:bg-background transition-colors">
+            <span className="shrink-0 rounded bg-navy/10 px-1.5 py-0.5 text-[10px] font-medium text-navy">SDMX</span>
+            <span className="text-slate">{DATA_SOURCES.indicePrixSTATEC.label}</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Comparables — saisie manuelle */}
+      <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h2 className="text-base font-semibold text-navy">Comparables</h2>
+            <p className="text-xs text-muted">Saisissez vos références de transactions réelles</p>
+          </div>
+          <button
+            onClick={addComp}
+            className="rounded-lg bg-navy px-3 py-1.5 text-xs font-medium text-white hover:bg-navy-light transition-colors"
+          >
+            + Ajouter un comparable
+          </button>
+        </div>
+
+        {comparables.length === 0 && (
+          <div className="rounded-lg border-2 border-dashed border-card-border py-8 text-center">
+            <p className="text-sm text-muted">Aucun comparable saisi</p>
+            <p className="text-xs text-muted mt-1">Ajoutez au moins 3 comparables pour une analyse fiable</p>
+            <button onClick={addComp} className="mt-3 rounded-lg bg-navy/10 px-4 py-2 text-sm font-medium text-navy hover:bg-navy/20 transition-colors">
+              + Ajouter un comparable
+            </button>
+          </div>
+        )}
+
+        <div className="space-y-4">
+          {comparables.map((comp, i) => (
+            <div key={comp.id} className="rounded-lg border border-card-border bg-background p-4">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-sm font-semibold text-navy">Comparable {i + 1}</span>
+                <button onClick={() => removeComp(i)} className="text-xs text-error hover:underline">
+                  Supprimer
+                </button>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-3">
+                <InputField label="Adresse" type="text" value={comp.adresse} onChange={(v) => updateComp(i, "adresse", v)} className="sm:col-span-3" />
+                <InputField label="Prix de vente" value={comp.prixVente} onChange={(v) => updateComp(i, "prixVente", v)} suffix="€" />
+                <InputField label="Surface" value={comp.surface} onChange={(v) => updateComp(i, "surface", v)} suffix="m²" />
+                <InputField label="Date vente" type="text" value={comp.dateVente} onChange={(v) => updateComp(i, "dateVente", v)} hint="AAAA-MM" />
+              </div>
+
+              <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                <InputField label="Localisation" value={comp.ajustLocalisation} onChange={(v) => updateComp(i, "ajustLocalisation", v)} suffix="%" step={0.5} />
+                <InputField label="État" value={comp.ajustEtat} onChange={(v) => updateComp(i, "ajustEtat", v)} suffix="%" step={0.5} />
+                <InputField label="Étage / Vue" value={comp.ajustEtage} onChange={(v) => updateComp(i, "ajustEtage", v)} suffix="%" step={0.5} />
+                <InputField label="Extérieur" value={comp.ajustExterieur} onChange={(v) => updateComp(i, "ajustExterieur", v)} suffix="%" step={0.5} />
+                <InputField label="Parking" value={comp.ajustParking} onChange={(v) => updateComp(i, "ajustParking", v)} suffix="%" step={0.5} />
+                <InputField label="Date (index.)" value={comp.ajustDate} onChange={(v) => updateComp(i, "ajustDate", v)} suffix="%" step={0.5} />
+                <InputField label="Autre" value={comp.ajustAutre} onChange={(v) => updateComp(i, "ajustAutre", v)} suffix="%" step={0.5} />
+                <InputField label="Poids" value={comp.poids} onChange={(v) => updateComp(i, "poids", v)} suffix="%" min={0} max={100} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Résultats — seulement si des comparables sont saisis */}
+      {result && result.comparables.length > 0 && (
+        <>
+          <div className="rounded-xl border border-card-border bg-card shadow-sm overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-card-border bg-background">
+                  <th className="px-3 py-2.5 text-left font-semibold text-navy">Comp.</th>
+                  <th className="px-3 py-2.5 text-right font-semibold text-navy">€/m² brut</th>
+                  <th className="px-3 py-2.5 text-right font-semibold text-navy">Ajust. total</th>
+                  <th className="px-3 py-2.5 text-right font-semibold text-navy">€/m² ajusté</th>
+                  <th className="px-3 py-2.5 text-right font-semibold text-navy">Poids</th>
+                </tr>
+              </thead>
+              <tbody>
+                {result.comparables.map((c, i) => (
+                  <tr key={c.id} className="border-b border-card-border/50">
+                    <td className="px-3 py-2 font-medium">{c.adresse || `Comp. ${i + 1}`}</td>
+                    <td className="px-3 py-2 text-right font-mono">{formatEUR(c.prixM2Brut)}</td>
+                    <td className="px-3 py-2 text-right font-mono text-muted">{c.totalAjustements > 0 ? "+" : ""}{c.totalAjustements.toFixed(1)}%</td>
+                    <td className="px-3 py-2 text-right font-mono font-semibold">{formatEUR(c.prixM2Ajuste)}</td>
+                    <td className="px-3 py-2 text-right font-mono text-muted">{c.poids}%</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <ResultPanel
+            title="Valeur par comparaison"
+            lines={[
+              { label: "Prix moyen ajusté /m²", value: formatEUR(result.prixM2Moyen), sub: true },
+              { label: "Prix moyen pondéré /m²", value: formatEUR(result.prixM2MoyenPondere) },
+              { label: "Surface du bien", value: `${surfaceBien} m²`, sub: true },
+              { label: "Valeur estimée (pondérée)", value: formatEUR(result.valeurEstimeePonderee), highlight: true, large: true },
+            ]}
+          />
+        </>
+      )}
+    </div>
+  );
+}
+
+// ============================================================
+// TAB 2 — CAPITALISATION DIRECTE
+// ============================================================
+
+function TabCapitalisation({ onValeur }: { onValeur: (v: number) => void }) {
+  const [loyerBrut, setLoyerBrut] = useState(36000);
+  const [chargesNonRecup, setChargesNonRecup] = useState(1800);
+  const [tauxVacance, setTauxVacance] = useState(5);
+  const [provisionEntretien, setProvisionEntretien] = useState(3);
+  const [assurancePNO, setAssurancePNO] = useState(400);
+  const [fraisGestion, setFraisGestion] = useState(5);
+  const [taxeFonciere, setTaxeFonciere] = useState(200);
+  const [tauxCap, setTauxCap] = useState(4.0);
+
+  const result = useMemo(() => {
+    const r = calculerCapitalisation({
+      loyerBrutAnnuel: loyerBrut,
+      chargesNonRecuperables: chargesNonRecup,
+      tauxVacance: tauxVacance / 100,
+      provisionGrosEntretien: provisionEntretien / 100,
+      assurancePNO,
+      fraisGestion: fraisGestion / 100,
+      taxeFonciere,
+      tauxCapitalisation: tauxCap / 100,
+    });
+    onValeur(r.valeur);
+    return r;
+  }, [loyerBrut, chargesNonRecup, tauxVacance, provisionEntretien, assurancePNO, fraisGestion, taxeFonciere, tauxCap, onValeur]);
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-2">
+      <div className="space-y-6">
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Revenus</h2>
+          <div className="space-y-4">
+            <InputField label="Loyer brut annuel" value={loyerBrut} onChange={(v) => setLoyerBrut(Number(v))} suffix="€" hint={`${formatEUR2(loyerBrut / 12)} /mois`} />
+            <InputField label="Taux de vacance" value={tauxVacance} onChange={(v) => setTauxVacance(Number(v))} suffix="%" step={0.5} hint="Configurable — dépend du marché local et du type de bien" />
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Charges propriétaire</h2>
+          <div className="space-y-4">
+            <InputField label="Charges non récupérables" value={chargesNonRecup} onChange={(v) => setChargesNonRecup(Number(v))} suffix="€/an" />
+            <InputField label="Provision gros entretien" value={provisionEntretien} onChange={(v) => setProvisionEntretien(Number(v))} suffix="% loyer" step={0.5} />
+            <InputField label="Assurance PNO" value={assurancePNO} onChange={(v) => setAssurancePNO(Number(v))} suffix="€/an" />
+            <InputField label="Frais de gestion" value={fraisGestion} onChange={(v) => setFraisGestion(Number(v))} suffix="% loyer" step={0.5} />
+            <InputField label="Impôt foncier" value={taxeFonciere} onChange={(v) => setTaxeFonciere(Number(v))} suffix="€/an" hint="Très faible au Luxembourg vs France" />
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Taux de capitalisation</h2>
+          <InputField
+            label="Taux de capitalisation"
+            value={tauxCap}
+            onChange={(v) => setTauxCap(Number(v))}
+            suffix="%"
+            step={0.1}
+            hint="Configurable — paramètre subjectif, dépend du marché, de la localisation et du risque"
+          />
+          <div className="mt-3 rounded-lg bg-amber-50 border border-amber-200 p-3">
+            <p className="text-xs text-amber-800 leading-relaxed">
+              <strong>Taux de capitalisation :</strong> Pas de valeur universelle. Au Luxembourg, les taux
+              résidentiels se situent entre 3% (prime, Luxembourg-Ville) et 5,5% (secondaire, nord).
+              Le choix du taux impacte fortement la valeur — un écart de 0,5% peut représenter
+              +15% de valeur. Justifier systématiquement.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="space-y-6">
+        <ResultPanel
+          title="Net Operating Income (NOI)"
+          lines={[
+            { label: "Loyer brut annuel", value: formatEUR(loyerBrut) },
+            { label: `Vacance (${tauxVacance}%)`, value: `- ${formatEUR(loyerBrut * tauxVacance / 100)}`, sub: true },
+            { label: "Loyer brut effectif", value: formatEUR(result.loyerBrutEffectif) },
+            { label: "Charges propriétaire", value: `- ${formatEUR(result.totalCharges)}` },
+            { label: "NOI", value: formatEUR(result.noi), highlight: true, large: true },
+          ]}
+        />
+
+        <ResultPanel
+          title="Valeur par capitalisation"
+          className="border-gold/30"
+          lines={[
+            { label: "NOI / Taux capitalisation", value: `${formatEUR(result.noi)} / ${tauxCap}%`, sub: true },
+            { label: "Valeur estimée", value: formatEUR(result.valeur), highlight: true, large: true },
+            { label: "Rendement brut", value: formatPct(result.rendementBrut), sub: true },
+            { label: "Rendement net", value: formatPct(result.rendementNet), sub: true },
+          ]}
+        />
+
+        {/* Sensibilité au taux de cap */}
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h3 className="mb-3 text-base font-semibold text-navy">Analyse de sensibilité</h3>
+          <div className="space-y-1">
+            {[-1.0, -0.5, 0, 0.5, 1.0].map((delta) => {
+              const t = tauxCap + delta;
+              const v = t > 0 ? result.noi / (t / 100) : 0;
+              const isActive = delta === 0;
+              return (
+                <div key={delta} className={`flex justify-between py-1.5 px-2 rounded text-sm ${isActive ? "bg-navy/5 font-semibold" : ""}`}>
+                  <span className="text-muted">Cap rate {t.toFixed(1)}%</span>
+                  <span className="font-mono">{formatEUR(v)}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// TAB 3 — DCF
+// ============================================================
+
+function TabDCF({ onValeur }: { onValeur: (v: number) => void }) {
+  const [loyerInitial, setLoyerInitial] = useState(36000);
+  const [tauxIndex, setTauxIndex] = useState(2.0);
+  const [tauxVacance, setTauxVacance] = useState(5);
+  const [chargesAnnuelles, setChargesAnnuelles] = useState(4500);
+  const [progressionCharges, setProgressionCharges] = useState(2.0);
+  const [periodeAnalyse, setPeriodeAnalyse] = useState(10);
+  const [tauxActu, setTauxActu] = useState(5.5);
+  const [tauxCapSortie, setTauxCapSortie] = useState(4.5);
+  const [fraisCession, setFraisCession] = useState(7);
+
+  const result = useMemo(() => {
+    const r = calculerDCF({
+      loyerAnnuelInitial: loyerInitial,
+      tauxIndexation: tauxIndex / 100,
+      tauxVacance: tauxVacance / 100,
+      chargesAnnuelles,
+      tauxProgressionCharges: progressionCharges / 100,
+      periodeAnalyse,
+      tauxActualisation: tauxActu / 100,
+      tauxCapSortie: tauxCapSortie / 100,
+      fraisCessionPct: fraisCession / 100,
+    });
+    onValeur(r.valeurDCF);
+    return r;
+  }, [loyerInitial, tauxIndex, tauxVacance, chargesAnnuelles, progressionCharges, periodeAnalyse, tauxActu, tauxCapSortie, fraisCession, onValeur]);
+
+  return (
+    <div className="space-y-6">
+      <div className="grid gap-8 lg:grid-cols-2">
+        <div className="space-y-6">
+          <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+            <h2 className="mb-4 text-base font-semibold text-navy">Cash flows</h2>
+            <div className="space-y-4">
+              <InputField label="Loyer annuel initial" value={loyerInitial} onChange={(v) => setLoyerInitial(Number(v))} suffix="€" />
+              <InputField label="Indexation annuelle" value={tauxIndex} onChange={(v) => setTauxIndex(Number(v))} suffix="%" step={0.1} hint="Configurable — croissance prévue des loyers" />
+              <InputField label="Taux de vacance" value={tauxVacance} onChange={(v) => setTauxVacance(Number(v))} suffix="%" step={0.5} />
+              <InputField label="Charges propriétaire (année 1)" value={chargesAnnuelles} onChange={(v) => setChargesAnnuelles(Number(v))} suffix="€" />
+              <InputField label="Progression annuelle charges" value={progressionCharges} onChange={(v) => setProgressionCharges(Number(v))} suffix="%" step={0.1} />
+              <InputField label="Période d'analyse" value={periodeAnalyse} onChange={(v) => setPeriodeAnalyse(Number(v))} suffix="ans" min={5} max={20} />
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+            <h2 className="mb-4 text-base font-semibold text-navy">Taux d'actualisation & sortie</h2>
+            <div className="space-y-4">
+              <InputField
+                label="Taux d'actualisation (discount rate)"
+                value={tauxActu}
+                onChange={(v) => setTauxActu(Number(v))}
+                suffix="%"
+                step={0.1}
+                hint="Configurable — coût d'opportunité du capital, intègre la prime de risque"
+              />
+              <InputField
+                label="Taux de capitalisation de sortie (exit cap)"
+                value={tauxCapSortie}
+                onChange={(v) => setTauxCapSortie(Number(v))}
+                suffix="%"
+                step={0.1}
+                hint="Configurable — généralement ≥ cap rate d'entrée pour refléter le vieillissement"
+              />
+              <InputField label="Frais de cession" value={fraisCession} onChange={(v) => setFraisCession(Number(v))} suffix="%" hint="Droits, notaire, agence (~7% au Luxembourg)" />
+            </div>
+            <div className="mt-3 rounded-lg bg-amber-50 border border-amber-200 p-3">
+              <p className="text-xs text-amber-800 leading-relaxed">
+                <strong>Taux d'actualisation et exit cap :</strong> Ces deux paramètres sont les plus sensibles du modèle DCF.
+                Le taux d'actualisation reflète le rendement attendu par l'investisseur (taux sans risque + prime de risque immobilier).
+                L'exit cap rate est généralement supérieur au cap rate d'entrée pour refléter le vieillissement du bien.
+                Un écart de 0,5% sur l'un ou l'autre peut modifier la valeur de 10-15%.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-6">
+          <ResultPanel
+            title="Valeur DCF"
+            className="border-gold/30"
+            lines={[
+              { label: "Somme des NOI actualisés", value: formatEUR(result.totalNOIActualise) },
+              { label: `NOI terminal (année ${periodeAnalyse + 1})`, value: formatEUR(result.noiTerminal), sub: true },
+              { label: "Valeur terminale brute", value: formatEUR(result.valeurTerminaleBrute), sub: true },
+              { label: `Frais de cession (${fraisCession}%)`, value: `- ${formatEUR(result.fraisCession)}`, sub: true },
+              { label: "Valeur terminale nette", value: formatEUR(result.valeurTerminaleNette), sub: true },
+              { label: "Valeur terminale actualisée", value: formatEUR(result.valeurTerminaleActualisee) },
+              { label: "Valeur DCF", value: formatEUR(result.valeurDCF), highlight: true, large: true },
+            ]}
+          />
+
+          {/* Proportion cash flows vs terminal */}
+          <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+            <h3 className="mb-3 text-sm font-semibold text-navy">Décomposition de la valeur</h3>
+            <div className="flex gap-1 h-6 rounded-full overflow-hidden">
+              <div
+                className="bg-navy rounded-l-full"
+                style={{ width: `${result.valeurDCF > 0 ? (result.totalNOIActualise / result.valeurDCF) * 100 : 50}%` }}
+              />
+              <div
+                className="bg-gold rounded-r-full"
+                style={{ width: `${result.valeurDCF > 0 ? (result.valeurTerminaleActualisee / result.valeurDCF) * 100 : 50}%` }}
+              />
+            </div>
+            <div className="mt-2 flex justify-between text-xs text-muted">
+              <span>Cash flows : {result.valeurDCF > 0 ? ((result.totalNOIActualise / result.valeurDCF) * 100).toFixed(0) : 0}%</span>
+              <span>Terminal value : {result.valeurDCF > 0 ? ((result.valeurTerminaleActualisee / result.valeurDCF) * 100).toFixed(0) : 0}%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Tableau des cash flows */}
+      <div className="rounded-xl border border-card-border bg-card shadow-sm overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-card-border bg-background">
+              <th className="px-3 py-2.5 text-left font-semibold text-navy">Année</th>
+              <th className="px-3 py-2.5 text-right font-semibold text-navy">Loyer brut</th>
+              <th className="px-3 py-2.5 text-right font-semibold text-navy">Vacance</th>
+              <th className="px-3 py-2.5 text-right font-semibold text-navy">Charges</th>
+              <th className="px-3 py-2.5 text-right font-semibold text-navy">NOI</th>
+              <th className="px-3 py-2.5 text-right font-semibold text-navy">Facteur actu.</th>
+              <th className="px-3 py-2.5 text-right font-semibold text-navy">NOI actualisé</th>
+            </tr>
+          </thead>
+          <tbody>
+            {result.cashFlows.map((cf) => (
+              <tr key={cf.annee} className="border-b border-card-border/50 hover:bg-background/50">
+                <td className="px-3 py-2 font-medium">{cf.annee}</td>
+                <td className="px-3 py-2 text-right font-mono">{formatEUR(cf.loyerBrut)}</td>
+                <td className="px-3 py-2 text-right font-mono text-muted">{formatEUR(cf.vacance)}</td>
+                <td className="px-3 py-2 text-right font-mono text-muted">{formatEUR(cf.charges)}</td>
+                <td className="px-3 py-2 text-right font-mono font-semibold">{formatEUR(cf.noi)}</td>
+                <td className="px-3 py-2 text-right font-mono text-muted">{cf.facteurActualisation.toFixed(4)}</td>
+                <td className="px-3 py-2 text-right font-mono">{formatEUR(cf.noiActualise)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// TAB 4 — RÉSIDUELLE ÉNERGÉTIQUE
+// ============================================================
+
+function TabEnergie({ valeurMarcheCible }: { valeurMarcheCible: number }) {
+  const [classeActuelle, setClasseActuelle] = useState("E");
+  const [classeCible, setClasseCible] = useState("B");
+  const [valeurApres, setValeurApres] = useState(valeurMarcheCible);
+  const [coutTravaux, setCoutTravaux] = useState(80000);
+  const [honoraires, setHonoraires] = useState(8000);
+  const [fraisFinancement, setFraisFinancement] = useState(3000);
+  const [margePrudentielle, setMargePrudentielle] = useState(10);
+  const [aidesPrevues, setAidesPrevues] = useState(40000);
+
+  const result = useMemo(
+    () =>
+      calculerResiduelleEnergetique({
+        classeActuelle,
+        classeCible,
+        valeurApresRenovation: valeurApres,
+        coutTravauxRenovation: coutTravaux,
+        honorairesEtudes: honoraires,
+        fraisFinancement,
+        margePrudentielle,
+        aidesPrevues,
+      }),
+    [classeActuelle, classeCible, valeurApres, coutTravaux, honoraires, fraisFinancement, margePrudentielle, aidesPrevues]
+  );
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-2">
+      <div className="space-y-6">
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Performance énergétique</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <InputField
+              label="Classe actuelle"
+              type="select"
+              value={classeActuelle}
+              onChange={setClasseActuelle}
+              options={[
+                { value: "A", label: "A — Très performant" },
+                { value: "B", label: "B — Performant" },
+                { value: "C", label: "C — Assez performant" },
+                { value: "D", label: "D — Moyen" },
+                { value: "E", label: "E — Peu performant" },
+                { value: "F", label: "F — Très peu performant" },
+                { value: "G", label: "G — Extrêmement peu performant" },
+              ]}
+            />
+            <InputField
+              label="Classe cible après rénovation"
+              type="select"
+              value={classeCible}
+              onChange={setClasseCible}
+              options={[
+                { value: "A", label: "A — Très performant" },
+                { value: "B", label: "B — Performant" },
+                { value: "C", label: "C — Assez performant" },
+                { value: "D", label: "D — Moyen" },
+              ]}
+            />
+          </div>
+          <InputField
+            label="Valeur estimée après rénovation"
+            value={valeurApres}
+            onChange={(v) => setValeurApres(Number(v))}
+            suffix="€"
+            className="mt-4"
+            hint="Valeur de marché si le bien était à la classe cible"
+          />
+        </div>
+
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Coûts de rénovation</h2>
+          <div className="space-y-4">
+            <InputField label="Travaux de rénovation énergétique" value={coutTravaux} onChange={(v) => setCoutTravaux(Number(v))} suffix="€" hint="Isolation, menuiseries, chauffage, ventilation..." />
+            <InputField label="Honoraires et études" value={honoraires} onChange={(v) => setHonoraires(Number(v))} suffix="€" hint="Audit énergétique, maîtrise d'œuvre, bureau d'études" />
+            <InputField label="Frais de financement" value={fraisFinancement} onChange={(v) => setFraisFinancement(Number(v))} suffix="€" hint="Intérêts intercalaires si financement" />
+            <InputField
+              label="Marge prudentielle (aléas)"
+              value={margePrudentielle}
+              onChange={(v) => setMargePrudentielle(Number(v))}
+              suffix="%"
+              step={1}
+              hint="Configurable — aléas chantier, surprises techniques. Typiquement 5-15%."
+            />
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Aides prévues</h2>
+          <InputField
+            label="Total des aides estimées"
+            value={aidesPrevues}
+            onChange={(v) => setAidesPrevues(Number(v))}
+            suffix="€"
+            hint="Klimabonus, Topup, Enoprimes, aides communales — utiliser le simulateur d'aides"
+          />
+        </div>
+      </div>
+
+      <div className="space-y-6">
+        {/* Diagramme visuel classe énergétique */}
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h3 className="mb-3 text-sm font-semibold text-navy">Transition énergétique</h3>
+          <div className="flex items-center justify-center gap-4">
+            <div className="text-center">
+              <div className={`mx-auto flex h-16 w-16 items-center justify-center rounded-xl text-2xl font-bold text-white ${
+                classeActuelle <= "C" ? "bg-green-500" : classeActuelle <= "E" ? "bg-amber-500" : "bg-red-500"
+              }`}>
+                {classeActuelle}
+              </div>
+              <div className="mt-1 text-xs text-muted">Actuelle</div>
+            </div>
+            <svg className="h-6 w-6 text-muted" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+            <div className="text-center">
+              <div className={`mx-auto flex h-16 w-16 items-center justify-center rounded-xl text-2xl font-bold text-white ${
+                classeCible <= "B" ? "bg-green-500" : "bg-green-400"
+              }`}>
+                {classeCible}
+              </div>
+              <div className="mt-1 text-xs text-muted">Cible</div>
+            </div>
+          </div>
+        </div>
+
+        <ResultPanel
+          title="Approche résiduelle énergétique"
+          className="border-gold/30"
+          lines={[
+            { label: `Valeur après rénovation (classe ${classeCible})`, value: formatEUR(result.valeurApresRenovation) },
+            { label: "Travaux + honoraires + financement", value: `- ${formatEUR(result.coutTotalBrut)}`, sub: true },
+            { label: `Marge prudentielle (${margePrudentielle}%)`, value: `- ${formatEUR(result.margePrudentielleMontant)}`, sub: true },
+            { label: "Coût total brut avec marge", value: `- ${formatEUR(result.coutTotalAvecMarge)}` },
+            { label: "Aides prévues", value: `+ ${formatEUR(result.aidesDeduites)}` },
+            { label: "Coût net après aides", value: `- ${formatEUR(result.coutNetApresAides)}` },
+            { label: "Valeur résiduelle (état actuel)", value: formatEUR(result.valeurResiduelle), highlight: true, large: true },
+            { label: "Décote énergétique", value: `${formatEUR(result.decoteEnergetique)} (${result.decoteEnergetiquePct.toFixed(1)}%)`, warning: result.decoteEnergetiquePct > 15 },
+          ]}
+        />
+
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h3 className="mb-3 text-base font-semibold text-navy">Méthode EVS 2025</h3>
+          <div className="space-y-2 text-sm text-muted leading-relaxed">
+            <p>
+              <strong className="text-slate">Principe :</strong> La valeur actuelle du bien se déduit de sa valeur
+              hypothétique une fois rénové, diminuée des coûts nécessaires pour atteindre la performance cible.
+            </p>
+            <p>
+              <strong className="text-slate">Valeur résiduelle</strong> = Valeur après rénovation − (Coûts travaux + Honoraires
+              + Financement + Marge aléas) + Aides publiques
+            </p>
+            <p>
+              <strong className="text-slate">Art. 208 EBA :</strong> Les facteurs ESG, notamment la performance
+              énergétique, doivent être intégrés dans l'évaluation du collatéral. La décote énergétique
+              reflète le coût de mise en conformité que l'acquéreur devra supporter.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// TAB 5 — MLV / CRR
+// ============================================================
+
+function TabMLV({ valeurMarche }: { valeurMarche: number }) {
+  const [decoteConj, setDecoteConj] = useState(5);
+  const [decoteComm, setDecoteComm] = useState(3);
+  const [decoteSpec, setDecoteSpec] = useState(2);
+
+  const result = useMemo(
+    () =>
+      calculerMLV({
+        valeurMarche,
+        decoteConjoncturelle: decoteConj,
+        decoteCommercialisation: decoteComm,
+        decoteSpecifique: decoteSpec,
+      }),
+    [valeurMarche, decoteConj, decoteComm, decoteSpec]
+  );
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-2">
+      <div className="space-y-6">
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Valeur de marché</h2>
+          <div className="text-center py-4">
+            <div className="text-sm text-muted">Valeur de marché (EVS1)</div>
+            <div className="text-3xl font-bold text-navy mt-1">{formatEUR(valeurMarche)}</div>
+            <p className="text-xs text-muted mt-2">Issue de la réconciliation ou saisie directe</p>
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Décotes prudentielles</h2>
+          <div className="space-y-4">
+            <InputField
+              label="Décote conjoncturelle"
+              value={decoteConj}
+              onChange={(v) => setDecoteConj(Number(v))}
+              suffix="%"
+              step={0.5}
+              hint="Configurable — marge vs conditions de marché actuelles. CRR Art. 229 : exclure éléments spéculatifs."
+            />
+            <InputField
+              label="Décote commercialisation"
+              value={decoteComm}
+              onChange={(v) => setDecoteComm(Number(v))}
+              suffix="%"
+              step={0.5}
+              hint="Configurable — risque de liquidité / délai de vente"
+            />
+            <InputField
+              label="Décote spécifique"
+              value={decoteSpec}
+              onChange={(v) => setDecoteSpec(Number(v))}
+              suffix="%"
+              step={0.5}
+              hint="Configurable — risques propres au bien (état, localisation secondaire, etc.)"
+            />
+          </div>
+          <div className="mt-3 rounded-lg bg-amber-50 border border-amber-200 p-3">
+            <p className="text-xs text-amber-800 leading-relaxed">
+              <strong>CRR Art. 229 / EVS3 :</strong> La Mortgage Lending Value doit refléter la valeur soutenable
+              à long terme, en excluant les éléments spéculatifs et les conditions de marché exceptionnelles.
+              L'évaluateur doit documenter et justifier chaque décote. Il n'existe pas de taux réglementaire fixe — les décotes
+              sont des jugements professionnels.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="space-y-6">
+        <ResultPanel
+          title="Mortgage Lending Value (MLV)"
+          className="border-gold/30"
+          lines={[
+            { label: "Valeur de marché (MV)", value: formatEUR(result.valeurMarche) },
+            { label: `Décote conjoncturelle (${decoteConj}%)`, value: `- ${formatEUR(result.valeurMarche * decoteConj / 100)}`, sub: true },
+            { label: `Décote commercialisation (${decoteComm}%)`, value: `- ${formatEUR(result.valeurMarche * decoteComm / 100)}`, sub: true },
+            { label: `Décote spécifique (${decoteSpec}%)`, value: `- ${formatEUR(result.valeurMarche * decoteSpec / 100)}`, sub: true },
+            { label: "Total décotes", value: `- ${formatEUR(result.totalDecotes)} (${result.totalDecotesPct.toFixed(1)}%)` },
+            { label: "MLV", value: formatEUR(result.mlv), highlight: true, large: true },
+            { label: "Ratio MLV / MV", value: `${(result.ratioMLVsurMV * 100).toFixed(1)}%`, sub: true },
+          ]}
+        />
+
+        {/* CRR Risk Weight bands */}
+        <div className="rounded-xl border border-card-border bg-card shadow-sm">
+          <div className="px-6 pt-5 pb-3">
+            <h3 className="text-base font-semibold text-navy">Pondérations CRR2 — Art. 125 (résidentiel)</h3>
+            <p className="text-xs text-muted mt-1">Montants maximaux de prêt par bande de LTV, basés sur la MLV</p>
+          </div>
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-y border-card-border bg-background">
+                <th className="px-4 py-2 text-left font-semibold text-navy">Bande LTV</th>
+                <th className="px-4 py-2 text-right font-semibold text-navy">Risk Weight</th>
+                <th className="px-4 py-2 text-right font-semibold text-navy">Prêt max</th>
+              </tr>
+            </thead>
+            <tbody>
+              {result.ltvBands.filter(b => b.ltvMax <= 1.0).map((band) => (
+                <tr key={band.label} className="border-b border-card-border/50">
+                  <td className="px-4 py-2">{band.label}</td>
+                  <td className="px-4 py-2 text-right font-mono">{(band.riskWeight * 100).toFixed(0)}%</td>
+                  <td className="px-4 py-2 text-right font-mono font-semibold">{formatEUR(band.montantMaxPret)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// TAB 5 — RÉCONCILIATION
+// ============================================================
+
+function TabReconciliation({
+  valeurComparaison,
+  valeurCapitalisation,
+  valeurDCF,
+}: {
+  valeurComparaison: number;
+  valeurCapitalisation: number;
+  valeurDCF: number;
+}) {
+  const [poidsComp, setPoidsComp] = useState(50);
+  const [poidsCap, setPoidsCap] = useState(25);
+  const [poidsDCF, setPoidsDCF] = useState(25);
+
+  const result = useMemo(
+    () =>
+      reconcilier({
+        valeurComparaison: valeurComparaison || undefined,
+        poidsComparaison: poidsComp,
+        valeurCapitalisation: valeurCapitalisation || undefined,
+        poidsCapitalisation: poidsCap,
+        valeurDCF: valeurDCF || undefined,
+        poidsDCF,
+      }),
+    [valeurComparaison, valeurCapitalisation, valeurDCF, poidsComp, poidsCap, poidsDCF]
+  );
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-2">
+      <div className="space-y-6">
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="mb-4 text-base font-semibold text-navy">Valeurs par méthode</h2>
+          <div className="space-y-4">
+            <div className="flex items-center justify-between rounded-lg bg-background p-3">
+              <div>
+                <div className="text-sm font-medium text-slate">Comparaison</div>
+                <div className="text-lg font-bold text-navy">{valeurComparaison ? formatEUR(valeurComparaison) : "—"}</div>
+              </div>
+              <InputField label="Poids" value={poidsComp} onChange={(v) => setPoidsComp(Number(v))} suffix="%" min={0} max={100} className="w-24" />
+            </div>
+            <div className="flex items-center justify-between rounded-lg bg-background p-3">
+              <div>
+                <div className="text-sm font-medium text-slate">Capitalisation</div>
+                <div className="text-lg font-bold text-navy">{valeurCapitalisation ? formatEUR(valeurCapitalisation) : "—"}</div>
+              </div>
+              <InputField label="Poids" value={poidsCap} onChange={(v) => setPoidsCap(Number(v))} suffix="%" min={0} max={100} className="w-24" />
+            </div>
+            <div className="flex items-center justify-between rounded-lg bg-background p-3">
+              <div>
+                <div className="text-sm font-medium text-slate">DCF</div>
+                <div className="text-lg font-bold text-navy">{valeurDCF ? formatEUR(valeurDCF) : "—"}</div>
+              </div>
+              <InputField label="Poids" value={poidsDCF} onChange={(v) => setPoidsDCF(Number(v))} suffix="%" min={0} max={100} className="w-24" />
+            </div>
+          </div>
+          <div className="mt-3 rounded-lg bg-amber-50 border border-amber-200 p-3">
+            <p className="text-xs text-amber-800 leading-relaxed">
+              <strong>Pondération :</strong> Paramètre subjectif — le poids de chaque méthode dépend de la qualité
+              des données disponibles, du type de bien et de l'usage de l'évaluation. Pour le résidentiel standard au
+              Luxembourg, la comparaison domine généralement (50-70%). Le DCF est plus pertinent pour le commercial.
+              L'évaluateur doit justifier ses pondérations dans le rapport.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="space-y-6">
+        <div className="rounded-xl border-2 border-gold/40 bg-gradient-to-br from-card to-gold/5 p-8 shadow-sm text-center">
+          <div className="text-sm text-muted uppercase tracking-wider">Valeur de marché réconciliée</div>
+          <div className="mt-2 text-4xl font-bold text-navy">{formatEUR(result.valeurReconciliee)}</div>
+          <div className="mt-2 text-sm text-muted">EVS1 — Market Value</div>
+        </div>
+
+        <ResultPanel
+          title="Décomposition"
+          lines={result.methodes.map((m) => ({
+            label: `${m.nom} (${m.poids}%)`,
+            value: formatEUR(m.contribution),
+            sub: true,
+          }))}
+        />
+
+        <ResultPanel
+          title="Contrôle qualité"
+          lines={[
+            {
+              label: "Écart max entre méthodes",
+              value: `${result.ecartMaxPct.toFixed(1)}%`,
+              warning: result.ecartMaxPct > 20,
+            },
+            { label: "Écart-type", value: formatEUR(result.ecartType), sub: true },
+            ...(result.ecartMaxPct > 20
+              ? [{
+                  label: "Alerte",
+                  value: "Écart > 20% — analyser les divergences",
+                  warning: true,
+                }]
+              : []),
+          ]}
+        />
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// PAGE PRINCIPALE
+// ============================================================
+
+export default function Valorisation() {
+  const [activeTab, setActiveTab] = useState<ActiveTab>("comparaison");
+  const [surfaceBien, setSurfaceBien] = useState(80);
+  const [assetType, setAssetType] = useState<AssetType>("residential_apartment");
+  const [evsValueType, setEvsValueType] = useState<EVSValueType>("market_value");
+
+  const assetConfig = useMemo(() => getAssetTypeConfig(assetType), [assetType]);
+  const evsInfo = useMemo(() => EVS_VALUE_TYPES.find((e) => e.id === evsValueType)!, [evsValueType]);
+
+  // Valeurs remontées par chaque onglet
+  const [valeurComparaison, setValeurComparaison] = useState(0);
+  const [valeurCapitalisation, setValeurCapitalisation] = useState(0);
+  const [valeurDCF, setValeurDCF] = useState(0);
+
+  // Stable callback refs
+  const onValeurComp = useCallback((v: number) => setValeurComparaison(v), []);
+  const onValeurCap = useCallback((v: number) => setValeurCapitalisation(v), []);
+  const onValeurDCF = useCallback((v: number) => setValeurDCF(v), []);
+
+  // Valeur de marché pour MLV (prend la réconciliée ou la meilleure dispo)
+  const valeurMarchePourMLV = valeurComparaison || valeurCapitalisation || valeurDCF || 750000;
+
+  return (
+    <div className="bg-background py-8 sm:py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-8">
+          <div className="flex items-center gap-3">
+            <h1 className="text-2xl font-bold text-navy sm:text-3xl">
+              Valorisation Immobilière
+            </h1>
+            <span className="rounded-full bg-navy/10 px-3 py-0.5 text-xs font-semibold text-navy">
+              EVS 2025
+            </span>
+          </div>
+          <p className="mt-2 text-muted">
+            Conforme TEGOVA European Valuation Standards 2025 (10e édition)
+          </p>
+        </div>
+
+        {/* Type d'actif + Base de valeur EVS + Surface */}
+        <div className="mb-6 space-y-4">
+          {/* Asset type selector */}
+          <div className="rounded-xl border border-card-border bg-card p-4 shadow-sm">
+            <div className="flex flex-wrap gap-1.5">
+              {ASSET_TYPES.map((at) => (
+                <button
+                  key={at.id}
+                  onClick={() => setAssetType(at.id)}
+                  className={`rounded-lg px-3 py-2 text-xs font-medium transition-colors ${
+                    assetType === at.id
+                      ? "bg-navy text-white shadow-sm"
+                      : "bg-background text-muted hover:bg-navy/5 hover:text-navy"
+                  }`}
+                >
+                  {at.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* EVS value type + asset context */}
+          <div className="grid gap-4 lg:grid-cols-3">
+            <div className="rounded-xl border border-card-border bg-card p-4 shadow-sm">
+              <InputField
+                label="Base de valeur (EVS 2025)"
+                type="select"
+                value={evsValueType}
+                onChange={(v) => setEvsValueType(v as EVSValueType)}
+                options={EVS_VALUE_TYPES.map((e) => ({ value: e.id, label: `${e.evs} — ${e.label}` }))}
+              />
+              <p className="mt-2 text-xs text-muted leading-relaxed">{evsInfo.description}</p>
+            </div>
+
+            <div className="rounded-xl border border-card-border bg-card p-4 shadow-sm">
+              <InputField
+                label="Surface du bien"
+                value={surfaceBien}
+                onChange={(v) => setSurfaceBien(Number(v))}
+                suffix="m²"
+              />
+              <div className="mt-3 text-xs text-muted">
+                <div className="font-medium text-slate mb-1">Méthodes recommandées :</div>
+                {assetConfig.recommendedMethods.map((m, i) => (
+                  <div key={i}>• {m}</div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-card-border bg-card p-4 shadow-sm">
+              <div className="text-xs font-medium text-slate mb-2">Paramètres de référence — {assetConfig.label}</div>
+              <div className="space-y-1 text-xs text-muted">
+                <div className="flex justify-between"><span>Taux de cap.</span><span className="font-mono">{assetConfig.defaults.capRateMin}–{assetConfig.defaults.capRateMax}%</span></div>
+                <div className="flex justify-between"><span>Vacance</span><span className="font-mono">{assetConfig.defaults.vacancyRate}%</span></div>
+                <div className="flex justify-between"><span>Discount rate</span><span className="font-mono">{assetConfig.defaults.discountRateDefault}%</span></div>
+                <div className="flex justify-between"><span>Exit cap</span><span className="font-mono">{assetConfig.defaults.exitCapDefault}%</span></div>
+                <div className="flex justify-between"><span>Décotes MLV</span><span className="font-mono">{assetConfig.defaults.mlvConjoncturelleDefault + assetConfig.defaults.mlvCommercialisationDefault + assetConfig.defaults.mlvSpecifiqueDefault}%</span></div>
+              </div>
+              {assetConfig.specificMetrics.length > 0 && (
+                <div className="mt-2 pt-2 border-t border-card-border text-xs text-muted">
+                  <span className="font-medium text-slate">Métriques clés : </span>
+                  {assetConfig.specificMetrics.join(", ")}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Asset type notes */}
+          <div className="rounded-lg bg-navy/5 border border-navy/10 px-4 py-3">
+            <p className="text-xs text-slate leading-relaxed">{assetConfig.notes}</p>
+          </div>
+
+          {/* Valeurs en cours */}
+          <div className="flex flex-wrap gap-4 text-sm">
+            {valeurComparaison > 0 && (
+              <div className="rounded-lg bg-card border border-card-border px-3 py-2"><span className="text-muted">Comparaison :</span> <span className="font-semibold text-navy">{formatEUR(valeurComparaison)}</span></div>
+            )}
+            {valeurCapitalisation > 0 && (
+              <div className="rounded-lg bg-card border border-card-border px-3 py-2"><span className="text-muted">Capitalisation :</span> <span className="font-semibold text-navy">{formatEUR(valeurCapitalisation)}</span></div>
+            )}
+            {valeurDCF > 0 && (
+              <div className="rounded-lg bg-card border border-card-border px-3 py-2"><span className="text-muted">DCF :</span> <span className="font-semibold text-navy">{formatEUR(valeurDCF)}</span></div>
+            )}
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="mb-8 flex gap-1 overflow-x-auto rounded-xl bg-card border border-card-border p-1">
+          {TABS.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`whitespace-nowrap rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
+                activeTab === tab.id
+                  ? "bg-navy text-white shadow-sm"
+                  : "text-muted hover:bg-background hover:text-foreground"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {activeTab === "comparaison" && <TabComparaison surfaceBien={surfaceBien} onValeur={onValeurComp} />}
+        {activeTab === "capitalisation" && <TabCapitalisation onValeur={onValeurCap} />}
+        {activeTab === "dcf" && <TabDCF onValeur={onValeurDCF} />}
+        {activeTab === "energie" && <TabEnergie valeurMarcheCible={valeurMarchePourMLV} />}
+        {activeTab === "mlv" && <TabMLV valeurMarche={valeurMarchePourMLV} />}
+        {activeTab === "reconciliation" && (
+          <TabReconciliation
+            valeurComparaison={valeurComparaison}
+            valeurCapitalisation={valeurCapitalisation}
+            valeurDCF={valeurDCF}
+          />
+        )}
+      </div>
+    </div>
+  );
+}
