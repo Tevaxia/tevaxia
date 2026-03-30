@@ -1,16 +1,23 @@
 {
   "nav": {
-    "estimation": "Estimation",
+    "estimation": "Estimation instantanée",
     "carte": "Carte des prix",
-    "valorisation": "Valorisation EVS",
-    "loyer": "Loyer",
-    "frais": "Frais",
-    "plusValues": "Plus-Values",
-    "aides": "Aides",
-    "achatLocation": "Achat vs Location",
-    "bilanPromoteur": "Bilan Promoteur",
-    "dcfMulti": "DCF Multi",
-    "bancaire": "Bancaire"
+    "valorisation": "Valorisation EVS 2025",
+    "loyer": "Capital investi & Loyer",
+    "frais": "Frais d'acquisition",
+    "plusValues": "Plus-values",
+    "aides": "Simulateur d'aides",
+    "achatLocation": "Acheter ou louer",
+    "bilanPromoteur": "Bilan promoteur",
+    "dcfMulti": "DCF multi-locataires",
+    "bancaire": "Outils bancaires",
+    "portfolio": "Portfolio",
+    "estimer": "Estimer",
+    "calculer": "Calculer",
+    "evaluer": "Évaluer",
+    "tarifs": "Tarifs",
+    "mesEval": "Mes éval.",
+    "connexion": "Connexion"
   },
   "common": {
     "language": "Langue",

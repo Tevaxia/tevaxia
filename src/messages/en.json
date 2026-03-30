@@ -1,16 +1,23 @@
 {
   "nav": {
-    "estimation": "Estimation",
+    "estimation": "Instant Estimation",
     "carte": "Price Map",
-    "valorisation": "Valuation EVS",
-    "loyer": "Rent Cap",
+    "valorisation": "EVS 2025 Valuation",
+    "loyer": "Rent Cap & Capital",
     "frais": "Acquisition Fees",
     "plusValues": "Capital Gains",
-    "aides": "Subsidies",
+    "aides": "Subsidies Simulator",
     "achatLocation": "Buy vs Rent",
-    "bilanPromoteur": "Developer P&L",
+    "bilanPromoteur": "Developer Feasibility",
     "dcfMulti": "Multi-tenant DCF",
-    "bancaire": "Banking"
+    "bancaire": "Banking Tools",
+    "portfolio": "Portfolio",
+    "estimer": "Estimate",
+    "calculer": "Calculate",
+    "evaluer": "Evaluate",
+    "tarifs": "Pricing",
+    "mesEval": "My valuations",
+    "connexion": "Sign in"
   },
   "common": {
     "language": "Language",

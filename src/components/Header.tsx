@@ -6,42 +6,47 @@ import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useAuth } from "./AuthProvider";
 
+interface MenuItem {
+  href: string;
+  key: string;
+}
+
 interface MenuGroup {
-  label: string;
-  items: { href: string; label: string }[];
+  key: string;
+  items: MenuItem[];
 }
 
 const MENU_GROUPS: MenuGroup[] = [
   {
-    label: "Estimer",
+    key: "estimer",
     items: [
-      { href: "/estimation", label: "Estimation instantanée" },
-      { href: "/carte", label: "Carte des prix" },
+      { href: "/estimation", key: "estimation" },
+      { href: "/carte", key: "carte" },
     ],
   },
   {
-    label: "Calculer",
+    key: "calculer",
     items: [
-      { href: "/calculateur-loyer", label: "Capital investi & Loyer" },
-      { href: "/frais-acquisition", label: "Frais d'acquisition" },
-      { href: "/plus-values", label: "Plus-values" },
-      { href: "/simulateur-aides", label: "Simulateur d'aides" },
-      { href: "/outils-bancaires", label: "Outils bancaires" },
-      { href: "/achat-vs-location", label: "Acheter ou louer" },
+      { href: "/calculateur-loyer", key: "loyer" },
+      { href: "/frais-acquisition", key: "frais" },
+      { href: "/plus-values", key: "plusValues" },
+      { href: "/simulateur-aides", key: "aides" },
+      { href: "/outils-bancaires", key: "bancaire" },
+      { href: "/achat-vs-location", key: "achatLocation" },
     ],
   },
   {
-    label: "Évaluer",
+    key: "evaluer",
     items: [
-      { href: "/valorisation", label: "Valorisation EVS 2025" },
-      { href: "/dcf-multi", label: "DCF multi-locataires" },
-      { href: "/bilan-promoteur", label: "Bilan promoteur" },
-      { href: "/portfolio", label: "Portfolio" },
+      { href: "/valorisation", key: "valorisation" },
+      { href: "/dcf-multi", key: "dcfMulti" },
+      { href: "/bilan-promoteur", key: "bilanPromoteur" },
+      { href: "/portfolio", key: "portfolio" },
     ],
   },
 ];
 
-function DropdownMenu({ group, onClose }: { group: MenuGroup; onClose: () => void }) {
+function DropdownMenu({ group, t, onClose }: { group: MenuGroup; t: (key: string) => string; onClose: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -61,7 +66,7 @@ function DropdownMenu({ group, onClose }: { group: MenuGroup; onClose: () => voi
           className="block px-4 py-2 text-sm text-white/70 hover:bg-white/10 hover:text-white transition-colors"
           onClick={onClose}
         >
-          {item.label}
+          {t(item.key)}
         </Link>
       ))}
     </div>
@@ -71,6 +76,7 @@ function DropdownMenu({ group, onClose }: { group: MenuGroup; onClose: () => voi
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const t = useTranslations("nav");
   const { user } = useAuth();
 
   return (
@@ -82,42 +88,40 @@ export default function Header() {
             <span className="text-xl font-bold tracking-tight">tevaxia<span className="text-gold">.lu</span></span>
           </Link>
 
-          {/* Desktop nav — grouped dropdowns */}
           <nav className="hidden lg:flex items-center gap-1">
             {MENU_GROUPS.map((group) => (
-              <div key={group.label} className="relative">
+              <div key={group.key} className="relative">
                 <button
-                  onClick={() => setOpenDropdown(openDropdown === group.label ? null : group.label)}
+                  onClick={() => setOpenDropdown(openDropdown === group.key ? null : group.key)}
                   className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white"
                 >
-                  {group.label}
+                  {t(group.key)}
                   <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>
                 </button>
-                {openDropdown === group.label && (
-                  <DropdownMenu group={group} onClose={() => setOpenDropdown(null)} />
+                {openDropdown === group.key && (
+                  <DropdownMenu group={group} t={t} onClose={() => setOpenDropdown(null)} />
                 )}
               </div>
             ))}
             <Link href="/pricing" className="rounded-lg bg-gold/15 border border-gold/30 px-3 py-2 text-sm font-medium text-gold hover:bg-gold/25 transition-colors">
-              Tarifs
+              {t("tarifs")}
             </Link>
           </nav>
 
           <div className="flex items-center gap-2">
             {user ? (
               <Link href="/mes-evaluations" className="rounded-lg px-2 py-1 text-xs text-white/60 hover:text-white hover:bg-white/10 transition-colors">
-                Mes éval.
+                {t("mesEval")}
               </Link>
             ) : (
               <Link href="/connexion" className="rounded-lg bg-gold/90 px-3 py-1 text-xs font-medium text-navy-dark hover:bg-gold transition-colors">
-                Connexion
+                {t("connexion")}
               </Link>
             )}
             <LanguageSwitcher />
 
-            {/* Mobile menu button */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="lg:hidden rounded-lg p-2 text-white/80 hover:bg-white/10 hover:text-white"
@@ -134,12 +138,11 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile nav */}
         {menuOpen && (
           <nav className="lg:hidden border-t border-white/10 py-3 space-y-3">
             {MENU_GROUPS.map((group) => (
-              <div key={group.label}>
-                <div className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white/40">{group.label}</div>
+              <div key={group.key}>
+                <div className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white/40">{t(group.key)}</div>
                 {group.items.map((item) => (
                   <Link
                     key={item.href}
@@ -147,7 +150,7 @@ export default function Header() {
                     className="block rounded-lg px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
                     onClick={() => setMenuOpen(false)}
                   >
-                    {item.label}
+                    {t(item.key)}
                   </Link>
                 ))}
               </div>
