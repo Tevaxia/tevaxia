@@ -297,9 +297,20 @@ export default function SimulateurAides() {
                   par le ministère du Logement et les organismes concernés.
                 </p>
                 <p>
-                  <strong className="text-slate">Aides communales</strong> — Chaque commune a ses propres règles
-                  et plafonds. Contactez votre commune pour connaître les aides exactes disponibles. Les aides
-                  communales peuvent représenter 30 à 50% de l'aide étatique.
+                  <strong className="text-slate">Aides communales</strong> — Chaque commune vote ses propres
+                  aides via règlement communal. Elles se cumulent aux aides étatiques. Exemples documentés :
+                </p>
+                <ul className="list-disc pl-5 space-y-1 text-xs text-muted mt-1">
+                  <li><strong>Luxembourg-Ville</strong> — Subvention rénovation de façade : 750 à 20 000 € par
+                  immeuble en secteur protégé, +10% en zone UNESCO (Service Urbanisme)</li>
+                  <li><strong>Lintgen</strong> — 50% de l'aide étatique, plafonnée à 1 500 €</li>
+                  <li><strong>Bertrange</strong> — Complément communal ~50% de l'aide étatique (plafond variable)</li>
+                  <li><strong>Beckerich</strong> — Suppléments énergie renouvelable et rénovation (commune Klimapakt)</li>
+                  <li><strong>Esch-sur-Alzette / Dudelange</strong> — Subventions façade en zones de rénovation urbaine</li>
+                </ul>
+                <p className="mt-2 text-xs text-muted">
+                  Contactez le service urbanisme/logement de votre commune pour les montants exacts en vigueur.
+                  Les règlements sont votés par le conseil communal et peuvent évoluer.
                 </p>
                 <p>
                   <strong className="text-slate">Cumul</strong> — Les 5 couches d'aides sont en principe

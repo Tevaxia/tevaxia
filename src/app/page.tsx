@@ -196,10 +196,10 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {[
-              { value: "7 %", label: "Droits d'enregistrement + transcription" },
-              { value: "5 %", label: "Plafond loyer / capital investi" },
-              { value: "40 000 €", label: "Bëllegen Akt par acquéreur" },
-              { value: "3 %", label: "TVA réduite résidence principale" },
+              { value: "100", label: "Communes couvertes" },
+              { value: "22", label: "Outils de calcul" },
+              { value: "8", label: "Méthodes de valorisation EVS" },
+              { value: "9", label: "Types d'actifs" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-3xl font-bold text-navy sm:text-4xl">{stat.value}</div>

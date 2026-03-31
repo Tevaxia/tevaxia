@@ -133,10 +133,10 @@ export default function HomeEN() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {[
-              { value: "7%", label: "Registration + transcription duties" },
-              { value: "5%", label: "Rent cap / invested capital" },
-              { value: "€40,000", label: "Bëllegen Akt per buyer" },
-              { value: "3%", label: "Reduced VAT (principal residence)" },
+              { value: "100", label: "Municipalities covered" },
+              { value: "22", label: "Calculation tools" },
+              { value: "8", label: "EVS valuation methods" },
+              { value: "9", label: "Asset types" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-3xl font-bold text-navy sm:text-4xl">{stat.value}</div>

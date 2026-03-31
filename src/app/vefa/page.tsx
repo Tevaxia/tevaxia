@@ -338,7 +338,7 @@ export default function VefaCalculator() {
                   );
                 })}
               </div>
-              <div className="mt-3 grid grid-cols-2 gap-1 text-xs text-muted sm:grid-cols-4">
+              <div className="mt-3 space-y-1.5">
                 {MILESTONES.map((m, i) => {
                   const colors = [
                     "bg-navy",
@@ -350,9 +350,10 @@ export default function VefaCalculator() {
                     "bg-emerald-400",
                   ];
                   return (
-                    <div key={i} className="flex items-center gap-1">
-                      <span className={`inline-block h-2.5 w-2.5 rounded-sm ${colors[i]}`} />
-                      <span>{(m.pct * 100).toFixed(0)}% {m.label.length > 18 ? m.label.slice(0, 18) + "..." : m.label}</span>
+                    <div key={i} className="flex items-center gap-3 text-xs">
+                      <span className={`inline-block h-3 w-3 shrink-0 rounded-sm ${colors[i]}`} />
+                      <span className="flex-1 text-slate">{m.label}</span>
+                      <span className="font-mono font-semibold text-navy">{(m.pct * 100).toFixed(0)} %</span>
                     </div>
                   );
                 })}
