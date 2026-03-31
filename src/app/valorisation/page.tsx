@@ -296,12 +296,40 @@ function TabComparaison({
         </div>
       </div>
 
-      {/* Comparables — saisie manuelle */}
+      {/* Évaluation rapide par ajustement du prix communal */}
+      {selectedCommune && selectedCommune.prixM2Existant && (
+        <div className="rounded-xl border-2 border-gold/30 bg-card p-6 shadow-sm">
+          <h2 className="text-base font-semibold text-navy mb-1">Évaluation par ajustement</h2>
+          <p className="text-xs text-muted mb-4">
+            Prix de base : <strong className="text-navy">{formatEUR(selectedCommune.prixM2Existant)}/m²</strong> ({selectedCommune.commune})
+            {selectedResult?.quartier && <> — quartier {selectedResult.quartier.nom} : <strong className="text-navy">{formatEUR(selectedResult.quartier.prixM2)}/m²</strong></>}
+            . Ajustez selon les caractéristiques du bien.
+          </p>
+
+          {/* Ajustements inline — sans avoir à créer de comparable */}
+          {comparables.length === 0 && (
+            <div>
+              <button
+                onClick={addComp}
+                className="w-full rounded-lg bg-navy px-4 py-3 text-sm font-medium text-white hover:bg-navy-light transition-colors"
+              >
+                Commencer l'évaluation — partir du prix moyen de {selectedCommune.commune}
+              </button>
+              <p className="mt-2 text-xs text-muted text-center">
+                Un comparable sera créé avec le prix moyen communal comme base. Vous ajusterez ensuite chaque critère.
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Comparables */}
+      {comparables.length > 0 && (
       <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-base font-semibold text-navy">Comparables</h2>
-            <p className="text-xs text-muted">Saisissez vos références de transactions réelles</p>
+            <h2 className="text-base font-semibold text-navy">Comparables ({comparables.length})</h2>
+            <p className="text-xs text-muted">Ajustez les critères par rapport au bien évalué</p>
           </div>
           <button
             onClick={addComp}
@@ -310,23 +338,6 @@ function TabComparaison({
             + Ajouter un comparable
           </button>
         </div>
-
-        {comparables.length === 0 && (
-          <div className="rounded-lg border-2 border-dashed border-card-border py-8 text-center">
-            <p className="text-sm text-muted">Aucun comparable saisi</p>
-            <p className="text-xs text-muted mt-1">
-              {selectedCommune
-                ? `Ajoutez vos références de transactions réelles. Le prix moyen de ${selectedCommune.commune} (${formatEUR(selectedCommune.prixM2Existant || 0)}/m²) sera utilisé comme point de départ.`
-                : "Sélectionnez une commune ci-dessus puis ajoutez des comparables."
-              }
-            </p>
-            <div className="mt-3 flex gap-2 justify-center">
-              <button onClick={addComp} className="rounded-lg bg-navy px-4 py-2 text-sm font-medium text-white hover:bg-navy-light transition-colors">
-                + Ajouter un comparable
-              </button>
-            </div>
-          </div>
-        )}
 
         <div className="space-y-4">
           {comparables.map((comp, i) => (
@@ -399,6 +410,13 @@ function TabComparaison({
           ))}
         </div>
       </div>
+      )}
+
+      {!selectedCommune && comparables.length === 0 && (
+        <div className="rounded-xl border-2 border-dashed border-card-border py-12 text-center">
+          <p className="text-sm text-muted">Sélectionnez une commune ci-dessus pour commencer l'évaluation</p>
+        </div>
+      )}
 
       {/* Résultats — seulement si des comparables sont saisis */}
       {result && result.comparables.length > 0 && (
