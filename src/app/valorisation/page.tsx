@@ -81,25 +81,6 @@ function TabComparaison({
   setComparables: React.Dispatch<React.SetStateAction<Comparable[]>>;
 }) {
 
-  // Auto-suggest comparables when commune is selected and none exist
-  useEffect(() => {
-    if (selectedCommune && comparables.length === 0) {
-      const suggested = suggestComparables(selectedCommune.commune, 4);
-      if (suggested.length > 0) {
-        setComparables(suggested.map((s, i) => ({
-          id: String(Date.now() + i),
-          adresse: s.source,
-          prixVente: s.prixM2 * surfaceBien,
-          surface: surfaceBien,
-          dateVente: "2025-01",
-          ajustLocalisation: 0, ajustEtat: 0, ajustEtage: 0, ajustExterieur: 0,
-          ajustParking: 0, ajustDate: 0, ajustAutre: 0,
-          poids: Math.round(100 / suggested.length),
-        })));
-      }
-    }
-  }, [selectedCommune]); // eslint-disable-line react-hooks/exhaustive-deps
-
   const result = useMemo(() => {
     if (comparables.length === 0) {
       onValeur(0);
@@ -119,12 +100,19 @@ function TabComparaison({
   };
 
   const addComp = () => {
+    // Pré-remplir avec le prix moyen communal si disponible
+    const prixM2Ref = selectedCommune?.prixM2Existant || 0;
     setComparables((prev) => [
       ...prev,
       {
-        id: String(Date.now()), adresse: "", prixVente: 0, surface: 0,
-        dateVente: "2025-01", ajustLocalisation: 0, ajustEtat: 0, ajustEtage: 0,
-        ajustExterieur: 0, ajustParking: 0, ajustDate: 0, ajustAutre: 0, poids: 33,
+        id: String(Date.now()),
+        adresse: selectedCommune ? `${selectedCommune.commune} — à compléter` : "",
+        prixVente: prixM2Ref > 0 ? prixM2Ref * surfaceBien : 0,
+        surface: surfaceBien,
+        dateVente: "2025-01",
+        ajustLocalisation: 0, ajustEtat: 0, ajustEtage: 0,
+        ajustExterieur: 0, ajustParking: 0, ajustDate: 0, ajustAutre: 0,
+        poids: 33,
       },
     ]);
   };
@@ -315,69 +303,26 @@ function TabComparaison({
             <h2 className="text-base font-semibold text-navy">Comparables</h2>
             <p className="text-xs text-muted">Saisissez vos références de transactions réelles</p>
           </div>
-          <div className="flex gap-2">
-            {selectedCommune && comparables.length === 0 && (
-              <button
-                onClick={() => {
-                  const suggested = suggestComparables(selectedCommune.commune, 4);
-                  const newComps: Comparable[] = suggested.map((s, i) => ({
-                    id: String(Date.now() + i),
-                    adresse: s.source,
-                    prixVente: s.prixM2 * surfaceBien,
-                    surface: surfaceBien,
-                    dateVente: "2025-01",
-                    ajustLocalisation: 0,
-                    ajustEtat: 0,
-                    ajustEtage: 0,
-                    ajustExterieur: 0,
-                    ajustParking: 0,
-                    ajustDate: 0,
-                    ajustAutre: 0,
-                    poids: Math.round(100 / suggested.length),
-                  }));
-                  setComparables(newComps);
-                }}
-                className="rounded-lg bg-gold px-3 py-1.5 text-xs font-medium text-navy-dark hover:bg-gold-light transition-colors"
-              >
-                Suggérer des comparables
-              </button>
-            )}
-            <button
-              onClick={addComp}
-              className="rounded-lg bg-navy px-3 py-1.5 text-xs font-medium text-white hover:bg-navy-light transition-colors"
-            >
-              + Ajouter
-            </button>
-          </div>
+          <button
+            onClick={addComp}
+            className="rounded-lg bg-navy px-3 py-1.5 text-xs font-medium text-white hover:bg-navy-light transition-colors"
+          >
+            + Ajouter un comparable
+          </button>
         </div>
 
         {comparables.length === 0 && (
           <div className="rounded-lg border-2 border-dashed border-card-border py-8 text-center">
             <p className="text-sm text-muted">Aucun comparable saisi</p>
-            <p className="text-xs text-muted mt-1">{selectedCommune ? "Cliquez \"Suggérer\" ou ajoutez manuellement" : "Sélectionnez une commune puis ajoutez des comparables"}</p>
+            <p className="text-xs text-muted mt-1">
+              {selectedCommune
+                ? `Ajoutez vos références de transactions réelles. Le prix moyen de ${selectedCommune.commune} (${formatEUR(selectedCommune.prixM2Existant || 0)}/m²) sera utilisé comme point de départ.`
+                : "Sélectionnez une commune ci-dessus puis ajoutez des comparables."
+              }
+            </p>
             <div className="mt-3 flex gap-2 justify-center">
-              {selectedCommune && (
-                <button
-                  onClick={() => {
-                    const suggested = suggestComparables(selectedCommune.commune, 4);
-                    setComparables(suggested.map((s, i) => ({
-                      id: String(Date.now() + i),
-                      adresse: s.source,
-                      prixVente: s.prixM2 * surfaceBien,
-                      surface: surfaceBien,
-                      dateVente: "2025-01",
-                      ajustLocalisation: 0, ajustEtat: 0, ajustEtage: 0, ajustExterieur: 0,
-                      ajustParking: 0, ajustDate: 0, ajustAutre: 0,
-                      poids: Math.round(100 / suggested.length),
-                    })));
-                  }}
-                  className="rounded-lg bg-gold px-4 py-2 text-sm font-medium text-navy-dark hover:bg-gold-light transition-colors"
-                >
-                  Suggérer des comparables
-                </button>
-              )}
-              <button onClick={addComp} className="rounded-lg bg-navy/10 px-4 py-2 text-sm font-medium text-navy hover:bg-navy/20 transition-colors">
-                + Ajouter manuellement
+              <button onClick={addComp} className="rounded-lg bg-navy px-4 py-2 text-sm font-medium text-white hover:bg-navy-light transition-colors">
+                + Ajouter un comparable
               </button>
             </div>
           </div>
