@@ -26,6 +26,19 @@ export const metadata: Metadata = {
   },
   description:
     "Plateforme de référence pour l'immobilier au Luxembourg. Calculateurs de loyer, frais d'acquisition, plus-values, aides étatiques, outils bancaires.",
+  openGraph: {
+    title: "tevaxia.lu — Outils Immobiliers Luxembourg",
+    description: "22 outils de calcul immobilier pour le Luxembourg. Estimation, frais, plus-values, aides, valorisation EVS 2025, DCF, MLV/CRR.",
+    url: "https://tevaxia.lu",
+    siteName: "tevaxia.lu",
+    locale: "fr_LU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "tevaxia.lu — Outils Immobiliers Luxembourg",
+    description: "22 outils de calcul immobilier pour le Luxembourg.",
+  },
 };
 
 export default async function RootLayout({

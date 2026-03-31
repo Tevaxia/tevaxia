@@ -6,9 +6,15 @@ import { formatEUR, formatPct } from "@/lib/calculations";
 // Styles PDF
 const s = StyleSheet.create({
   page: { padding: 40, fontSize: 9, fontFamily: "Helvetica", color: "#1a1a2e" },
-  header: { borderBottom: "2pt solid #1B2A4A", paddingBottom: 12, marginBottom: 20 },
-  title: { fontSize: 18, fontFamily: "Helvetica-Bold", color: "#1B2A4A" },
-  subtitle: { fontSize: 10, color: "#6B7280", marginTop: 4 },
+  header: { borderBottom: "2pt solid #1B2A4A", paddingBottom: 12, marginBottom: 20, flexDirection: "row" as const, justifyContent: "space-between", alignItems: "flex-end" },
+  headerLeft: {},
+  logo: { flexDirection: "row" as const, alignItems: "center", gap: 8, marginBottom: 8 },
+  logoBox: { width: 28, height: 28, borderRadius: 6, backgroundColor: "#C8A951", display: "flex" as const, alignItems: "center" as const, justifyContent: "center" as const },
+  logoText: { fontSize: 16, fontFamily: "Helvetica-Bold", color: "#0F1B33" },
+  logoName: { fontSize: 14, fontFamily: "Helvetica-Bold", color: "#1B2A4A" },
+  logoNameGold: { color: "#C8A951" },
+  title: { fontSize: 16, fontFamily: "Helvetica-Bold", color: "#1B2A4A" },
+  subtitle: { fontSize: 9, color: "#6B7280", marginTop: 2 },
   sectionTitle: { fontSize: 12, fontFamily: "Helvetica-Bold", color: "#1B2A4A", marginTop: 16, marginBottom: 8, paddingBottom: 4, borderBottom: "1pt solid #e5e2db" },
   row: { flexDirection: "row", justifyContent: "space-between", paddingVertical: 3, borderBottom: "0.5pt solid #f0f0f0" },
   rowHighlight: { flexDirection: "row", justifyContent: "space-between", paddingVertical: 5, borderTop: "1.5pt solid #C8A951", marginTop: 4, backgroundColor: "#FAFAF8" },
@@ -73,15 +79,29 @@ function ReportDocument({ data }: { data: ReportData }) {
   return (
     <Document>
       <Page size="A4" style={s.page}>
-        {/* En-tête */}
+        {/* En-tête avec logo */}
         <View style={s.header}>
-          <Text style={s.title}>RAPPORT DE VALORISATION</Text>
-          <Text style={s.subtitle}>tevaxia.lu — {data.dateRapport}</Text>
+          <View style={s.headerLeft}>
+            <View style={s.logo}>
+              <View style={s.logoBox}><Text style={s.logoText}>T</Text></View>
+              <Text style={s.logoName}>tevaxia<Text style={s.logoNameGold}>.lu</Text></Text>
+            </View>
+            <Text style={s.title}>RAPPORT DE VALORISATION</Text>
+            <Text style={s.subtitle}>{data.dateRapport} — Conforme EVS 2025 (indicatif)</Text>
+          </View>
+        </View>
+
+        {/* Périmètre de la mission */}
+        <View>
+          <Text style={s.sectionTitle}>1. Périmètre</Text>
+          <View style={s.row}><Text style={s.label}>Objet</Text><Text style={s.value}>Estimation de la {data.evsType}</Text></View>
+          <View style={s.row}><Text style={s.label}>Référentiel</Text><Text style={s.value}>European Valuation Standards 2025 (TEGOVA, 10e éd.)</Text></View>
+          <View style={s.row}><Text style={s.label}>Nature</Text><Text style={s.value}>Rapport indicatif — ne constitue pas une expertise</Text></View>
         </View>
 
         {/* Identification */}
         <View>
-          <Text style={s.sectionTitle}>1. Identification</Text>
+          <Text style={s.sectionTitle}>2. Identification du bien</Text>
           {data.adresse && <View style={s.row}><Text style={s.label}>Adresse</Text><Text style={s.value}>{data.adresse}</Text></View>}
           {data.commune && <View style={s.row}><Text style={s.label}>Commune</Text><Text style={s.value}>{data.commune}</Text></View>}
           <View style={s.row}><Text style={s.label}>Type d'actif</Text><Text style={s.value}>{data.assetType}</Text></View>
@@ -91,7 +111,7 @@ function ReportDocument({ data }: { data: ReportData }) {
 
         {/* Synthèse des valeurs */}
         <View>
-          <Text style={s.sectionTitle}>2. Synthèse des méthodes</Text>
+          <Text style={s.sectionTitle}>3. Synthèse des méthodes</Text>
           <View style={s.grid}>
             {data.valeurComparaison !== undefined && data.valeurComparaison > 0 && (
               <View style={s.gridCell}>
@@ -123,7 +143,7 @@ function ReportDocument({ data }: { data: ReportData }) {
         {/* Capitalisation */}
         {data.noi !== undefined && (
           <View>
-            <Text style={s.sectionTitle}>3. Capitalisation directe</Text>
+            <Text style={s.sectionTitle}>4. Capitalisation directe</Text>
             <View style={s.row}><Text style={s.label}>Résultat net d'exploitation (NOI)</Text><Text style={s.value}>{formatEUR(data.noi)}</Text></View>
             {data.tauxCap !== undefined && <View style={s.row}><Text style={s.label}>Taux de capitalisation</Text><Text style={s.value}>{data.tauxCap.toFixed(2)}%</Text></View>}
             {data.rendementInitial !== undefined && <View style={s.row}><Text style={s.label}>Rendement initial</Text><Text style={s.value}>{(data.rendementInitial * 100).toFixed(2)}%</Text></View>}
@@ -149,7 +169,7 @@ function ReportDocument({ data }: { data: ReportData }) {
         {/* DCF */}
         {data.irr !== undefined && (
           <View>
-            <Text style={s.sectionTitle}>4. Actualisation des flux futurs (DCF)</Text>
+            <Text style={s.sectionTitle}>5. Actualisation des flux futurs (DCF)</Text>
             <View style={s.row}><Text style={s.label}>Taux d'actualisation</Text><Text style={s.value}>{data.tauxActualisation?.toFixed(2)}%</Text></View>
             <View style={s.row}><Text style={s.label}>Taux de sortie</Text><Text style={s.value}>{data.tauxCapSortie?.toFixed(2)}%</Text></View>
             <View style={s.rowHighlight}><Text style={{ ...s.label, fontFamily: "Helvetica-Bold" }}>TRI (IRR)</Text><Text style={s.valueLarge}>{(data.irr * 100).toFixed(2)}%</Text></View>
@@ -176,7 +196,7 @@ function ReportDocument({ data }: { data: ReportData }) {
         {/* MLV */}
         {data.mlv !== undefined && data.mlv > 0 && (
           <View>
-            <Text style={s.sectionTitle}>5. Valeur hypothécaire (MLV)</Text>
+            <Text style={s.sectionTitle}>6. Valeur hypothécaire (MLV)</Text>
             <View style={s.rowHighlight}><Text style={{ ...s.label, fontFamily: "Helvetica-Bold" }}>Valeur hypothécaire</Text><Text style={s.valueLarge}>{formatEUR(data.mlv)}</Text></View>
             {data.ratioMLV !== undefined && <View style={s.row}><Text style={s.label}>Ratio MLV / Valeur de marché</Text><Text style={s.value}>{(data.ratioMLV * 100).toFixed(1)}%</Text></View>}
           </View>
@@ -185,7 +205,7 @@ function ReportDocument({ data }: { data: ReportData }) {
         {/* ESG */}
         {data.esgScore !== undefined && (
           <View>
-            <Text style={s.sectionTitle}>6. Facteurs ESG / Durabilité</Text>
+            <Text style={s.sectionTitle}>7. Facteurs ESG / Durabilité</Text>
             <View style={s.row}><Text style={s.label}>Classe énergie</Text><Text style={s.value}>{data.classeEnergie || "—"}</Text></View>
             <View style={s.row}><Text style={s.label}>Score ESG</Text><Text style={s.value}>{data.esgScore}/100 (Niveau {data.esgNiveau})</Text></View>
             <View style={s.row}><Text style={s.label}>Impact estimé sur la valeur</Text><Text style={s.value}>{data.esgImpact !== undefined ? `${data.esgImpact > 0 ? "+" : ""}${data.esgImpact}%` : "—"}</Text></View>
@@ -195,7 +215,7 @@ function ReportDocument({ data }: { data: ReportData }) {
         {/* Narrative */}
         {data.narrative && (
           <View>
-            <Text style={s.sectionTitle}>7. Analyse narrative</Text>
+            <Text style={s.sectionTitle}>8. Analyse narrative</Text>
             <Text style={{ ...s.note, fontSize: 8, lineHeight: 1.5 }}>{data.narrative}</Text>
           </View>
         )}
