@@ -134,9 +134,9 @@ export default function HomeEN() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {[
               { value: "100", label: "Municipalities covered" },
-              { value: "22", label: "Calculation tools" },
               { value: "8", label: "EVS valuation methods" },
               { value: "9", label: "Asset types" },
+              { value: "FR / EN", label: "Bilingual French and English" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-3xl font-bold text-navy sm:text-4xl">{stat.value}</div>
