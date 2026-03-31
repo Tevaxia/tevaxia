@@ -52,7 +52,7 @@ const TIERS = [
       "API REST (9 endpoints de calcul + données marché)",
       "Base de données marché (6 onglets, export CSV)",
       "Données commerciales (bureaux, retail, logistique, hôtels, terrains)",
-      "Sources : Observatoire, STATEC, JLL, C&W, CBRE, BCL",
+      "Sources : Observatoire de l'Habitat, STATEC, rapports de marché",
       "Données démographiques par commune",
       "9 types d'actifs avec paramètres contextuels",
       "6 bases de valeur TEGOVA (EVS1–EVS6)",

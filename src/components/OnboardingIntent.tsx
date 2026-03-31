@@ -16,7 +16,7 @@ const INTENTS: IntentCard[] = [
   {
     id: "acheter",
     title: "Acheter",
-    description: "Estimez, simulez les frais et trouvez les aides disponibles",
+    description: "Estimez, simulez les frais et découvrez les aides disponibles",
     color: "from-blue-600 to-blue-500",
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -33,7 +33,7 @@ const INTENTS: IntentCard[] = [
   {
     id: "vendre",
     title: "Vendre",
-    description: "Evaluez votre bien et anticipez la fiscalite",
+    description: "Évaluez votre bien et anticipez la fiscalité",
     color: "from-emerald-600 to-emerald-500",
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -42,13 +42,15 @@ const INTENTS: IntentCard[] = [
     ),
     links: [
       { href: "/estimation", label: "Estimation de prix" },
-      { href: "/plus-values", label: "Plus-values immobilieres" },
+      { href: "/plus-values", label: "Plus-values immobilières" },
+      { href: "/valorisation", label: "Valorisation professionnelle" },
+      { href: "/carte", label: "Prix du marché par commune" },
     ],
   },
   {
     id: "investir",
     title: "Investir",
-    description: "Analysez la rentabilite et gerez votre portefeuille",
+    description: "Analysez la rentabilité et gérez votre portefeuille",
     color: "from-gold-dark to-gold",
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -65,7 +67,7 @@ const INTENTS: IntentCard[] = [
   {
     id: "construire",
     title: "Construire",
-    description: "Montez votre operation et verifiez l'urbanisme",
+    description: "Montez votre opération et vérifiez l'urbanisme",
     color: "from-purple-700 to-purple-500",
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -94,7 +96,7 @@ export default function OnboardingIntent() {
           Que souhaitez-vous faire ?
         </h2>
         <p className="mt-2 text-center text-sm text-muted">
-          Cliquez pour decouvrir les outils adaptes a votre projet
+          Cliquez pour découvrir les outils adaptés à votre projet
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {INTENTS.map((intent) => {

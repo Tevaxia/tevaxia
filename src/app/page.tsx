@@ -126,7 +126,7 @@ const MODULES = [
   {
     href: "/marche",
     title: "Base de données marché",
-    description: "Prix résidentiel, bureaux, commerces, logistique, terrains par commune et sous-marché. Sources Observatoire de l'Habitat, JLL, Cushman & Wakefield.",
+    description: "Prix résidentiel, bureaux, commerces, logistique, terrains par commune et sous-marché. Sources publiques et rapports de marché.",
     icon: (
       <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5" />
@@ -284,8 +284,8 @@ export default function Home() {
                     <li>Observatoire de l'Habitat (data.public.lu)</li>
                     <li>STATEC — Indices de prix et coûts construction</li>
                     <li>Geoportail.lu — Cadastre et PAG</li>
-                    <li>JLL, Cushman & Wakefield, CBRE — Bureaux et commerces</li>
-                    <li>BCL — Taux hypothécaires</li>
+                    <li>Rapports de marché bureaux, commerces, logistique</li>
+                    <li>Taux hypothécaires et indices de construction</li>
                   </ul>
                 </div>
               </div>

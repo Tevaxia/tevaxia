@@ -184,8 +184,8 @@ export default function HomeEN() {
                     <li>Observatoire de l'Habitat (data.public.lu)</li>
                     <li>STATEC — Price indices & construction costs</li>
                     <li>Geoportail.lu — Cadastre & PAG zoning</li>
-                    <li>JLL, Cushman & Wakefield, CBRE — Office & retail</li>
-                    <li>BCL — Mortgage rates</li>
+                    <li>Office, retail & logistics market reports</li>
+                    <li>Mortgage rates and construction indices</li>
                   </ul>
                 </div>
               </div>

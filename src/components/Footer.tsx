@@ -33,6 +33,7 @@ export default function Footer() {
               <li><Link href="/simulateur-aides" className="hover:text-white transition-colors">{tn("aides")}</Link></li>
               <li><Link href="/plus-values" className="hover:text-white transition-colors">{tn("plusValues")}</Link></li>
               <li><Link href="/achat-vs-location" className="hover:text-white transition-colors">{tn("achatLocation")}</Link></li>
+              <li><Link href="/comparer" className="hover:text-white transition-colors">{tn("comparer")}</Link></li>
               <li><Link href="/vefa" className="hover:text-white transition-colors">{tn("vefa")}</Link></li>
             </ul>
           </div>
@@ -56,6 +57,7 @@ export default function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-3">{tn("donnees")}</h3>
             <ul className="space-y-1.5 text-sm">
               <li><Link href="/marche" className="hover:text-white transition-colors">{tn("marche")}</Link></li>
+              <li><Link href="/indices" className="hover:text-white transition-colors">{tn("indices")}</Link></li>
               <li><Link href="/pag-pap" className="hover:text-white transition-colors">{tn("pagPap")}</Link></li>
               <li><Link href="/terres-agricoles" className="hover:text-white transition-colors">{tn("terresAgricoles")}</Link></li>
             </ul>

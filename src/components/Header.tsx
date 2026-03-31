@@ -27,6 +27,7 @@ const MENU_GROUPS: MenuGroup[] = [
       { href: "/simulateur-aides", key: "aides" },
       { href: "/plus-values", key: "plusValues" },
       { href: "/achat-vs-location", key: "achatLocation" },
+      { href: "/comparer", key: "comparer" },
       { href: "/vefa", key: "vefa" },
     ],
   },
@@ -46,6 +47,7 @@ const MENU_GROUPS: MenuGroup[] = [
     key: "donnees",
     items: [
       { href: "/marche", key: "marche" },
+      { href: "/indices", key: "indices" },
       { href: "/pag-pap", key: "pagPap" },
       { href: "/terres-agricoles", key: "terresAgricoles" },
     ],
