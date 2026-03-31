@@ -53,14 +53,36 @@ function TabLTV() {
           <div className="mt-4 text-xs text-muted">Apport : {formatEUR(valeurBien - montantPret)} ({formatPct(1 - ltv)})</div>
         </div>
         <ResultPanel
-          title="Seuils prudentiels"
+          title="Seuils LTV — Réglementation luxembourgeoise"
           lines={[
-            { label: "LTV ≤ 80%", value: "Standard résidentiel", sub: true },
-            { label: "LTV ≤ 90%", value: "Primo-accédant (avec conditions)", sub: true },
-            { label: "LTV > 90%", value: "Nécessite garantie État", sub: true, warning: true },
-            { label: "Valeur prudente CRR/EBA", value: formatEUR(valeurBien * 0.85), sub: true },
+            { label: "LTV ≤ 80%", value: "Standard résidentiel — pondération 35% (CRR2 Art. 125)", sub: true },
+            { label: "LTV ≤ 90%", value: "Primo-accédant RP — toléré par la CSSF avec conditions", sub: true },
+            { label: "LTV > 90%", value: "Garantie de l'État requise (max 303 862 €)", sub: true, warning: true },
           ]}
         />
+
+        <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h3 className="text-base font-semibold text-navy mb-3">Valeur prudente — CRR Art. 229</h3>
+          <p className="text-xs text-muted leading-relaxed mb-3">
+            La valeur prudente (Prudent Value) n'est pas un pourcentage fixe de la valeur de marché.
+            C'est la <strong className="text-slate">valeur hypothécaire (MLV)</strong> déterminée par un évaluateur
+            indépendant selon l'article 229 du CRR, en excluant les éléments spéculatifs et les conditions
+            de marché exceptionnelles.
+          </p>
+          <div className="space-y-2 text-xs text-muted">
+            <p><strong className="text-slate">Méthode :</strong> L'évaluateur applique des décotes prudentielles
+            à la valeur de marché pour refléter la soutenabilité à long terme :
+            décote conjoncturelle (marge vs conditions actuelles), décote de commercialisation (délai/liquidité),
+            décote spécifique (risques propres au bien). Le résultat est typiquement 80-95% de la valeur de marché,
+            mais ce ratio n'est pas réglementaire — il dépend du bien et du contexte.</p>
+            <p><strong className="text-slate">Base légale :</strong> CRR Art. 4(1)(74) définit la MLV.
+            CRR Art. 229 impose une évaluation par un expert indépendant qualifié.
+            EBA GL/2020/06 précise les exigences de monitoring et réévaluation.</p>
+            <p><strong className="text-slate">Pour calculer :</strong> Utilisez l'onglet
+            <a href="/valorisation" className="text-navy font-medium hover:underline ml-1">Valeur hypothécaire</a>
+            dans le module de valorisation EVS — il applique les décotes CRR avec justification.</p>
+          </div>
+        </div>
       </div>
     </div>
   );
