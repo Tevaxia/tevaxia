@@ -107,8 +107,9 @@ input[type="number"] { -moz-appearance: textfield; }
   table { font-size: 10px !important; }
   th, td { padding: 4px 8px !important; }
 
-  /* En-tête rapport */
+  /* En-tête rapport & print-only elements */
   .print\\:block { display: block !important; }
+  .print\\:inline-block { display: inline-block !important; }
 
   /* Forcer les couleurs à l'impression */
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }

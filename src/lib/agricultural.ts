@@ -18,7 +18,8 @@ export interface TerreAgricoleInput {
   batimentsExistants: boolean;
   surfaceBatiments: number; // m²
   amiantePresume: boolean;
-  exploitationActive: boolean; // Si false, risque démolition
+  exploitationActive: boolean;
+  bailRuralEnCours: boolean; // Terre louée = décote ~30%
 }
 
 export interface TerreAgricoleResult {
@@ -42,7 +43,9 @@ const PRIX_HA: Record<string, Record<string, number>> = {
 
 export function evaluerTerreAgricole(input: TerreAgricoleInput): TerreAgricoleResult {
   const prixHaEstime = PRIX_HA[input.localisation]?.[input.qualiteSol] || 40000;
-  const valeurTerres = prixHaEstime * input.surfaceHa;
+  // Terres louées : décote ~30% (bail rural en cours = occupation, moindre liquidité)
+  const decoteBail = input.bailRuralEnCours ? 0.70 : 1.0;
+  const valeurTerres = prixHaEstime * input.surfaceHa * decoteBail;
   const alertes: string[] = [];
 
   // Bâtiments agricoles

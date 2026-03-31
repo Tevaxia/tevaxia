@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Link from "next/link";
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import { formatEUR, formatPct } from "@/lib/calculations";
@@ -46,6 +47,8 @@ export default function Portfolio() {
     const ltvGlobal = valeurTotale > 0 ? detteTotale / valeurTotale : 0;
     const rendementBrut = valeurTotale > 0 ? loyerTotal / valeurTotale : 0;
     const rendementEquity = equityTotale > 0 ? loyerTotal / equityTotale : 0;
+    const loyerNet = loyerTotal * 0.7; // 30% charges estimées
+    const rendementNet = valeurTotale > 0 ? loyerNet / valeurTotale : 0;
 
     // Répartition par type
     const parType: Record<string, { count: number; valeur: number }> = {};
@@ -55,7 +58,7 @@ export default function Portfolio() {
       parType[a.type].valeur += a.valeur;
     }
 
-    return { valeurTotale, detteTotale, loyerTotal, surfaceTotale, equityTotale, ltvGlobal, rendementBrut, rendementEquity, parType, nbActifs: assets.length };
+    return { valeurTotale, detteTotale, loyerTotal, loyerNet, surfaceTotale, equityTotale, ltvGlobal, rendementBrut, rendementNet, rendementEquity, parType, nbActifs: assets.length };
   }, [assets]);
 
   return (
@@ -85,6 +88,7 @@ export default function Portfolio() {
                 { label: "Surface totale", value: `${stats.surfaceTotale} m²` },
                 { label: "Loyer total annuel", value: formatEUR(stats.loyerTotal) },
                 { label: "Rendement brut", value: formatPct(stats.rendementBrut) },
+                { label: "Rendement net estimé (−30% charges)", value: formatPct(stats.rendementNet) },
                 { label: "Rendement sur equity", value: formatPct(stats.rendementEquity), highlight: true },
                 { label: "LTV global", value: formatPct(stats.ltvGlobal), warning: stats.ltvGlobal > 0.75 },
               ]}
@@ -118,7 +122,10 @@ export default function Portfolio() {
               <div key={asset.id} className="rounded-xl border border-card-border bg-card p-5 shadow-sm">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-sm font-semibold text-navy">{asset.nom || `Actif ${i + 1}`}</span>
-                  <button onClick={() => removeAsset(i)} className="text-xs text-error hover:underline">Supprimer</button>
+                  <div className="flex items-center gap-3">
+                    <Link href="/estimation" className="text-xs text-navy hover:underline font-medium">Re-estimer</Link>
+                    <button onClick={() => removeAsset(i)} className="text-xs text-error hover:underline">Supprimer</button>
+                  </div>
                 </div>
                 <div className="grid gap-3 sm:grid-cols-4">
                   <InputField label="Nom" type="text" value={asset.nom} onChange={(v) => updateAsset(i, "nom", v)} />

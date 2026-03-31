@@ -153,6 +153,69 @@ export default function PlusValues() {
               </span>
             </div>
 
+            {/* Timeline de détention */}
+            {(() => {
+              const maxYears = Math.max(5, result.dureeDetention + 1);
+              const pctUser = Math.min((result.dureeDetention / maxYears) * 100, 100);
+              const pctTwoYears = (2 / maxYears) * 100;
+              return (
+                <div className="rounded-xl border border-card-border bg-card p-5 shadow-sm">
+                  <h3 className="mb-3 text-sm font-semibold text-navy">Durée de détention — régime applicable</h3>
+                  {/* Bar */}
+                  <div className="relative h-7 w-full rounded-full overflow-hidden bg-gray-100">
+                    {/* Red zone: 0-2 years */}
+                    <div
+                      className="absolute inset-y-0 left-0 bg-red-400/70"
+                      style={{ width: `${pctTwoYears}%` }}
+                    />
+                    {/* Amber zone: 2+ years */}
+                    <div
+                      className="absolute inset-y-0 bg-amber-400/60"
+                      style={{ left: `${pctTwoYears}%`, right: 0 }}
+                    />
+                    {/* User dot */}
+                    <div
+                      className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 h-5 w-5 rounded-full border-2 border-white bg-navy shadow-md z-10"
+                      style={{ left: `${pctUser}%` }}
+                      title={`${result.dureeDetention} an${result.dureeDetention > 1 ? "s" : ""}`}
+                    />
+                  </div>
+                  {/* Labels under the bar */}
+                  <div className="relative mt-1.5 h-5 text-[10px] font-medium">
+                    <span className="absolute left-0 text-red-700">0</span>
+                    <span
+                      className="absolute -translate-x-1/2 text-red-700"
+                      style={{ left: `${pctTwoYears}%` }}
+                    >
+                      2 ans
+                    </span>
+                    <span className="absolute right-0 text-amber-700">{maxYears} ans</span>
+                  </div>
+                  {/* Legend */}
+                  <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-xs">
+                    <span className="flex items-center gap-1.5">
+                      <span className="inline-block h-2.5 w-2.5 rounded-sm bg-red-400" />
+                      <span className="text-muted">0–2 ans : Spéculation — taux global</span>
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="inline-block h-2.5 w-2.5 rounded-sm bg-amber-400" />
+                      <span className="text-muted">{"> "}2 ans : Cession — demi-taux global + réévaluation STATEC</span>
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="inline-block h-2.5 w-2.5 rounded-sm bg-green-500" />
+                      <span className="text-muted">Résidence principale = exonéré</span>
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="inline-block h-4 w-4 rounded-full border-2 border-navy bg-navy" />
+                      <span className="text-slate font-semibold">
+                        Votre détention : {result.dureeDetention} an{result.dureeDetention > 1 ? "s" : ""}
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              );
+            })()}
+
             {result.typeGain === "exonere" ? (
               <div className="rounded-xl border-2 border-green-200 bg-green-50 p-6">
                 <h3 className="text-lg font-semibold text-green-800">Exonération totale</h3>
@@ -209,6 +272,7 @@ export default function PlusValues() {
                       sub: true,
                     },
                     { label: "Impôt estimé", value: formatEUR(result.estimationImpot), highlight: true, large: true },
+                    { label: "Net après impôt", value: formatEUR(result.netApresImpot), highlight: true },
                   ]}
                 />
               </>
