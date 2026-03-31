@@ -1,17 +1,41 @@
 "use client";
 
-export default function ConfidenceGauge({ level, note }: { level: "forte" | "moyenne" | "faible"; note: string }) {
+interface ConfidenceGaugeProps {
+  level?: "forte" | "moyenne" | "faible";
+  percentage?: number;
+  note: string;
+}
+
+export default function ConfidenceGauge({ level, percentage, note }: ConfidenceGaugeProps) {
+  // Derive level from percentage when provided
+  const derivedLevel: "forte" | "moyenne" | "faible" =
+    percentage != null
+      ? percentage >= 75
+        ? "forte"
+        : percentage >= 50
+          ? "moyenne"
+          : "faible"
+      : level ?? "faible";
+
   const segments = [
     { key: "faible", label: "Faible", color: "#DC2626" },
     { key: "moyenne", label: "Moyenne", color: "#D97706" },
     { key: "forte", label: "Forte", color: "#059669" },
   ];
 
-  const activeIndex = segments.findIndex((s) => s.key === level);
+  const activeIndex = segments.findIndex((s) => s.key === derivedLevel);
 
   return (
     <div className="rounded-xl border border-card-border bg-card p-5 shadow-sm">
       <div className="text-xs text-muted mb-3">Indice de confiance</div>
+      {percentage != null && (
+        <div
+          className="text-3xl font-bold text-center mb-3"
+          style={{ color: segments[activeIndex]?.color }}
+        >
+          {Math.round(percentage)}%
+        </div>
+      )}
       <div className="flex gap-1.5 mb-2">
         {segments.map((s, i) => (
           <div key={s.key} className="flex-1">

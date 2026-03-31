@@ -6,8 +6,10 @@ import ToggleField from "@/components/ToggleField";
 import { estimer } from "@/lib/estimation";
 import { rechercherCommune, type SearchResult } from "@/lib/market-data";
 import { AJUST_ETAGE, AJUST_ETAT, AJUST_EXTERIEUR } from "@/lib/adjustments";
-import { formatEUR } from "@/lib/calculations";
+import { formatEUR, calculerMensualite } from "@/lib/calculations";
+import { getDemographics } from "@/lib/demographics";
 import ConfidenceGauge from "@/components/ConfidenceGauge";
+import Link from "next/link";
 import { estimerCoutsRenovation } from "@/lib/renovation-costs";
 import { calculerDecoteEmphyteose } from "@/lib/emphyteose";
 import { PriceEvolutionChart } from "@/components/PriceChart";
@@ -15,6 +17,7 @@ import { updateUrlHash, readUrlHash } from "@/lib/url-state";
 import { sauvegarderEvaluation } from "@/lib/storage";
 import { useToast, Toast } from "@/components/Toast";
 import RelatedTools from "@/components/RelatedTools";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default function Estimation() {
   const toast = useToast();
@@ -58,6 +61,7 @@ export default function Estimation() {
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs />
         <div className="mb-8 text-center">
           <h1 className="text-2xl font-bold text-navy sm:text-3xl">
             Estimation immobilière
@@ -224,6 +228,25 @@ export default function Estimation() {
                 </div>
               )}
 
+              {/* Marge de négociation */}
+              {result.ecartPct != null && result.ecartPct > 0 && (
+                <div className="rounded-xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 p-5 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-2xl font-bold text-amber-700 shrink-0">
+                      %
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold text-amber-900">
+                        Marge de négociation indicative : {result.ecartPct}%
+                      </div>
+                      <p className="mt-1 text-xs text-amber-700 leading-relaxed">
+                        Les prix affichés en annonces sont en moyenne <span className="font-semibold">{result.ecartPct}% plus élevés</span> que les prix réellement payés (actes notariés) dans cette commune. Cet écart constitue une indication de la marge de négociation possible.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Emphytéose */}
               {bailEmphyteotique && result && (() => {
                 const emph = calculerDecoteEmphyteose({
@@ -245,8 +268,91 @@ export default function Estimation() {
                 );
               })()}
 
+              {/* Coût mensuel total */}
+              {(() => {
+                const prixBien = result.estimationCentrale;
+                const apport = prixBien * 0.20;
+                const capitalEmprunte = prixBien - apport;
+                const mensualiteCredit = calculerMensualite(capitalEmprunte, 0.033, 25);
+                const chargesCopro = 250;
+                const impotFoncier = 15;
+                const totalMensuel = mensualiteCredit + chargesCopro + impotFoncier;
+                return (
+                  <div className="rounded-xl border border-card-border bg-card p-5 shadow-sm">
+                    <h3 className="text-sm font-semibold text-navy mb-1">Si vous achetez ce bien</h3>
+                    <p className="text-[10px] text-muted mb-3">Simulation indicative — 80% financement, 25 ans, taux 3,3%</p>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-muted">Mensualité crédit estimée</span>
+                        <span className="font-mono">{formatEUR(Math.round(mensualiteCredit))}/mois</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted">Charges copropriété estimées</span>
+                        <span className="font-mono">{formatEUR(chargesCopro)}/mois</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted">Impôt foncier estimé</span>
+                        <span className="font-mono">{formatEUR(impotFoncier)}/mois</span>
+                      </div>
+                      <div className="flex justify-between font-semibold border-t border-card-border pt-2 mt-2">
+                        <span className="text-navy">Total mensuel</span>
+                        <span className="text-navy font-mono">{formatEUR(Math.round(totalMensuel))}/mois</span>
+                      </div>
+                    </div>
+                    <p className="mt-2 text-[10px] text-muted">Charges copro ~250 €/mois pour un appartement au Luxembourg. Impôt foncier très faible au LU (~15 €/mois).</p>
+                    <div className="mt-3 text-center">
+                      <Link href="/achat-vs-location" className="text-xs font-medium text-navy hover:underline">
+                        Comparer avec la location →
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })()}
+
               {/* Confiance */}
               <ConfidenceGauge level={result.confiance} note={result.confianceNote} />
+
+              {/* Profil commune */}
+              {selectedResult && (() => {
+                const demo = getDemographics(selectedResult.commune.commune);
+                if (!demo) return null;
+                return (
+                  <div className="rounded-xl border border-card-border bg-card p-5 shadow-sm">
+                    <h3 className="text-sm font-semibold text-navy mb-3">Profil de {demo.commune}</h3>
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm sm:grid-cols-3">
+                      <div>
+                        <div className="text-[10px] text-muted uppercase tracking-wide">Population</div>
+                        <div className="font-semibold font-mono">{demo.population.toLocaleString("fr-LU")}</div>
+                      </div>
+                      <div>
+                        <div className="text-[10px] text-muted uppercase tracking-wide">Croissance</div>
+                        <div className="font-semibold font-mono">+{demo.croissancePct}%<span className="text-[10px] text-muted font-normal ml-1">/ 10 ans</span></div>
+                      </div>
+                      <div>
+                        <div className="text-[10px] text-muted uppercase tracking-wide">Densité</div>
+                        <div className="font-semibold font-mono">{demo.densiteHabKm2.toLocaleString("fr-LU")} hab/km²</div>
+                      </div>
+                      {demo.revenuMedian && (
+                        <div>
+                          <div className="text-[10px] text-muted uppercase tracking-wide">Revenu médian</div>
+                          <div className="font-semibold font-mono">{formatEUR(demo.revenuMedian)}/an</div>
+                        </div>
+                      )}
+                      <div>
+                        <div className="text-[10px] text-muted uppercase tracking-wide">% étrangers</div>
+                        <div className="font-semibold font-mono">{demo.pctEtrangers}%</div>
+                      </div>
+                      {demo.tauxEmploi && (
+                        <div>
+                          <div className="text-[10px] text-muted uppercase tracking-wide">Taux d'emploi</div>
+                          <div className="font-semibold font-mono">{demo.tauxEmploi}%</div>
+                        </div>
+                      )}
+                    </div>
+                    <p className="mt-3 text-[10px] text-muted">Sources : STATEC, data.public.lu — estimations 2025</p>
+                  </div>
+                );
+              })()}
 
               {/* Estimation rénovation si classe énergie faible */}
               {classeEnergie >= "E" && (() => {

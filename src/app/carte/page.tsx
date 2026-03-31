@@ -6,6 +6,7 @@ import { formatEUR } from "@/lib/calculations";
 import { rechercherCommune, type MarketDataCommune, type SearchResult } from "@/lib/market-data";
 import { PriceEvolutionChart, PriceIndexChart } from "@/components/PriceChart";
 import { getDemographics } from "@/lib/demographics";
+import { getMarketCycle } from "@/lib/market-cycle";
 import dynamic from "next/dynamic";
 
 const LeafletMap = dynamic(() => import("@/components/LeafletMap"), { ssr: false });
@@ -254,6 +255,31 @@ export default function Carte() {
                         <div className="text-[10px] text-muted">/m²/mois</div>
                       </div>
                     </div>
+
+                    {/* Cycle de marché badge */}
+                    {selectedCommune.quartiers && selectedCommune.quartiers.length > 0 && (() => {
+                      // Determine dominant trend from quartier data
+                      const counts = { hausse: 0, stable: 0, baisse: 0 };
+                      for (const q of selectedCommune.quartiers) {
+                        counts[q.tendance]++;
+                      }
+                      const dominant = (Object.entries(counts) as [keyof typeof counts, number][])
+                        .sort((a, b) => b[1] - a[1])[0][0];
+                      const cycle = getMarketCycle(dominant);
+                      return (
+                        <div className="mt-3 flex items-center gap-2">
+                          <span className="text-xs text-muted">Cycle de march\u00e9</span>
+                          <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold ${cycle.color} ${
+                            dominant === "hausse" ? "bg-green-100" :
+                            dominant === "baisse" ? "bg-red-100" :
+                            "bg-gray-100"
+                          }`}>
+                            <span>{cycle.icon}</span>
+                            <span>{cycle.phase}</span>
+                          </span>
+                        </div>
+                      );
+                    })()}
 
                     <div className="mt-3 text-xs text-muted">
                       {selectedCommune.nbTransactions} transactions — {selectedCommune.source}

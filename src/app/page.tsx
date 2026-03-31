@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SoftwareApplicationJsonLd } from "@/components/JsonLd";
 
 const MODULES = [
   {
@@ -150,6 +151,7 @@ const MODULES = [
 export default function Home() {
   return (
     <div className="bg-background">
+      <SoftwareApplicationJsonLd name="tevaxia.lu" description="Outils immobiliers Luxembourg" url="https://tevaxia.lu" />
       {/* Hero */}
       <section className="relative overflow-hidden bg-navy py-20 sm:py-28">
         <div className="absolute inset-0 bg-gradient-to-br from-navy-dark via-navy to-navy-light opacity-90" />

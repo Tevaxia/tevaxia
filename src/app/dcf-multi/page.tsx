@@ -175,34 +175,72 @@ export default function DCFMulti() {
               </table>
             </div>
 
-            {/* Résultats DCF */}
-            <ResultPanel
-              title="Valeur DCF multi-locataires"
-              className="border-gold/30"
-              lines={[
-                { label: "Revenus nets actualisés (cumul)", value: formatEUR(result.totalNOIActualise) },
-                { label: "Revenu net stabilisé (tous à ERV)", value: formatEUR(result.noiStabilise), sub: true },
-                { label: "Valeur de revente brute", value: formatEUR(result.valeurTerminaleBrute), sub: true },
-                { label: `Frais de cession (${fraisCession}%)`, value: `- ${formatEUR(result.fraisCession)}`, sub: true },
-                { label: "Valeur de revente actualisée", value: formatEUR(result.valeurTerminaleActualisee) },
-                { label: "Valeur DCF", value: formatEUR(result.valeurDCF), highlight: true, large: true },
-                { label: "TRI (IRR) property", value: `${(result.irr * 100).toFixed(2)} %`, highlight: true },
-                ...(montantDette > 0 ? [{
-                  label: "TRI equity (rendement fonds propres)",
-                  value: (() => {
-                    const equity = result.valeurDCF - montantDette;
-                    const serviceDetteAnnuel = montantDette * (tauxDette / 100);
-                    const equityFlows = [-equity, ...result.cashFlows.map((cf) => cf.noi - serviceDetteAnnuel - capexAnnuel)];
-                    equityFlows[equityFlows.length - 1] += result.valeurTerminaleNette - montantDette;
-                    const { calculerIRR } = require("@/lib/valuation");
-                    const equityIrr = calculerIRR(equityFlows);
-                    return `${(equityIrr * 100).toFixed(2)} %`;
-                  })(),
-                  highlight: true,
-                }] : []),
-                ...(capexAnnuel > 0 ? [{ label: "CAPEX annuel déduit", value: formatEUR(capexAnnuel), sub: true }] : []),
-              ]}
-            />
+            {/* Résultats DCF — Summary Card */}
+            <div className="rounded-xl border border-gold/30 bg-card p-6 shadow-sm">
+              <h3 className="mb-4 text-base font-semibold text-navy">Valeur DCF multi-locataires</h3>
+              <div className="grid grid-cols-2 gap-3 mb-5">
+                {/* Valeur DCF */}
+                <div className="rounded-lg bg-navy/5 border border-navy/10 p-4 text-center">
+                  <div className="text-xs font-medium text-navy/60 mb-1">Valeur DCF</div>
+                  <div className="text-2xl font-bold text-navy">{formatEUR(result.valeurDCF)}</div>
+                </div>
+                {/* TRI / IRR */}
+                <div className="rounded-lg bg-gold/10 border border-gold/20 p-4 text-center">
+                  <div className="text-xs font-medium text-gold-dark/70 mb-1">TRI (IRR)</div>
+                  <div className="text-2xl font-bold text-gold-dark">{(result.irr * 100).toFixed(2)} %</div>
+                </div>
+                {/* Rendement brut */}
+                <div className="rounded-lg bg-background border border-card-border p-3 text-center">
+                  <div className="text-xs font-medium text-muted mb-1">Rendement brut</div>
+                  <div className="text-lg font-semibold text-foreground">
+                    {result.valeurDCF > 0 ? ((result.loyerTotalAnnuel / result.valeurDCF) * 100).toFixed(2) : "0.00"} %
+                  </div>
+                </div>
+                {/* WAULT */}
+                <div className="rounded-lg bg-background border border-card-border p-3 text-center">
+                  <div className="text-xs font-medium text-muted mb-1">WAULT</div>
+                  <div className="text-lg font-semibold text-foreground">{result.wault.toFixed(1)} ans</div>
+                </div>
+              </div>
+              {/* Detailed breakdown */}
+              <div className="divide-y divide-card-border/50">
+                {[
+                  { label: "Revenus nets actualisés (cumul)", value: formatEUR(result.totalNOIActualise) },
+                  { label: "Revenu net stabilisé (tous à ERV)", value: formatEUR(result.noiStabilise), sub: true },
+                  { label: "Valeur de revente brute", value: formatEUR(result.valeurTerminaleBrute), sub: true },
+                  { label: `Frais de cession (${fraisCession}%)`, value: `- ${formatEUR(result.fraisCession)}`, sub: true },
+                  { label: "Valeur de revente actualisée", value: formatEUR(result.valeurTerminaleActualisee) },
+                  ...(montantDette > 0 ? [{
+                    label: "TRI equity (rendement fonds propres)",
+                    value: (() => {
+                      const equity = result.valeurDCF - montantDette;
+                      const serviceDetteAnnuel = montantDette * (tauxDette / 100);
+                      const equityFlows = [-equity, ...result.cashFlows.map((cf) => cf.noi - serviceDetteAnnuel - capexAnnuel)];
+                      equityFlows[equityFlows.length - 1] += result.valeurTerminaleNette - montantDette;
+                      const { calculerIRR } = require("@/lib/valuation");
+                      const equityIrr = calculerIRR(equityFlows);
+                      return `${(equityIrr * 100).toFixed(2)} %`;
+                    })(),
+                    highlight: true,
+                  }] : []),
+                  ...(capexAnnuel > 0 ? [{ label: "CAPEX annuel déduit", value: formatEUR(capexAnnuel), sub: true }] : []),
+                ].map((line, i) => (
+                  <div
+                    key={i}
+                    className={`flex items-center justify-between py-2 ${
+                      line.highlight ? "border-t-2 border-gold pt-3" : line.sub ? "pl-4" : ""
+                    } text-sm`}
+                  >
+                    <span className={`${line.sub ? "text-muted" : "text-slate"} ${line.highlight ? "font-semibold" : ""}`}>
+                      {line.label}
+                    </span>
+                    <span className={`font-mono font-semibold ${line.highlight ? "text-navy" : "text-foreground"}`}>
+                      {line.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
             {/* Cash flows annuels */}
             <div className="rounded-xl border border-card-border bg-card shadow-sm overflow-x-auto">

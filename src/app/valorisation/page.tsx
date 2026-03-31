@@ -38,6 +38,7 @@ import { downloadDocxReport } from "@/components/ValuationDocx";
 import { genererNarrative } from "@/lib/narrative";
 import { estimerCoutsRenovation } from "@/lib/renovation-costs";
 import { evaluerChecklist, scoreChecklist } from "@/lib/evs-checklist";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 type ActiveTab = "comparaison" | "capitalisation" | "terme_reversion" | "dcf" | "esg" | "energie" | "mlv" | "reconciliation";
 
@@ -1669,6 +1670,7 @@ export default function Valorisation() {
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs />
         <div className="mb-8">
           <div className="flex items-center gap-3">
             <h1 className="text-2xl font-bold text-navy sm:text-3xl">

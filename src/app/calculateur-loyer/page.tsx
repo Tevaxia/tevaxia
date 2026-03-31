@@ -8,6 +8,7 @@ import { calculerCapitalInvesti, formatEUR, formatEUR2 } from "@/lib/calculation
 import { sauvegarderEvaluation } from "@/lib/storage";
 import { useToast, Toast } from "@/components/Toast";
 import RelatedTools from "@/components/RelatedTools";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default function CalculateurLoyer() {
   const toast = useToast();
@@ -44,6 +45,7 @@ export default function CalculateurLoyer() {
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs />
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl font-bold text-navy sm:text-3xl">
