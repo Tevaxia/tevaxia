@@ -1,9 +1,38 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  ReferenceLine,
+} from "recharts";
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import { formatEUR, formatEUR2 } from "@/lib/calculations";
+
+/**
+ * Luxembourg "déduction des intérêts débiteurs" (art. 98bis LIR).
+ * Maximum deductible interest per person per year:
+ *   - Years 1-5  (première occupation): 2 000 €
+ *   - Years 6-10:                       1 500 €
+ *   - Year 11+:                         1 000 €
+ * Multiply by nbPersonnes (1 or 2 for a couple).
+ */
+function deductionInteretsMax(annee: number, nbPersonnes: number): number {
+  let plafond: number;
+  if (annee <= 5) {
+    plafond = 2000;
+  } else if (annee <= 10) {
+    plafond = 1500;
+  } else {
+    plafond = 1000;
+  }
+  return plafond * nbPersonnes;
+}
 
 export default function AchatVsLocation() {
   // Achat
@@ -16,6 +45,13 @@ export default function AchatVsLocation() {
   const [taxeFonciereAn, setTaxeFonciereAn] = useState(200);
   const [entretienAnPct, setEntretienAnPct] = useState(1);
   const [appreciationAn, setAppreciationAn] = useState(2);
+
+  // Assurance solde restant dû
+  const [tauxAssuranceSRD, setTauxAssuranceSRD] = useState(0.3);
+
+  // Déduction intérêts débiteurs
+  const [nbPersonnes, setNbPersonnes] = useState(2);
+  const [tauxMarginalIR, setTauxMarginalIR] = useState(39);
 
   // Location
   const [loyerMensuel, setLoyerMensuel] = useState(2000);
@@ -38,6 +74,9 @@ export default function AchatVsLocation() {
       ? montantCredit * (tauxMensuel * Math.pow(1 + tauxMensuel, nbMois)) / (Math.pow(1 + tauxMensuel, nbMois) - 1)
       : montantCredit / nbMois;
 
+    // Assurance SRD mensuelle (on the initial capital)
+    const assuranceSRDMensuel = montantCredit * (tauxAssuranceSRD / 100) / 12;
+
     // Tableaux année par année
     const annees: {
       annee: number;
@@ -47,6 +86,9 @@ export default function AchatVsLocation() {
       capitalRestant: number;
       valeurBien: number;
       patrimoineNetAchat: number;
+      deductionInterets: number;
+      economieFiscaleCumul: number;
+      assuranceSRDAnnuel: number;
       // Location
       coutLocationCumule: number;
       placementCapital: number;
@@ -58,6 +100,7 @@ export default function AchatVsLocation() {
     let coutLocationCumule = 0;
     let placementCapital = apport + fraisAcquisition; // Si on loue, on garde l'apport + frais
     let loyerAnnuel = loyerMensuel * 12;
+    let economieFiscaleCumul = 0;
 
     for (let a = 1; a <= horizon; a++) {
       // ACHAT
@@ -66,14 +109,41 @@ export default function AchatVsLocation() {
       const capitalAnnuel = Math.min(mensualiteCredit * 12 - interetsAnnuels, capitalRestant);
       capitalRestant = Math.max(0, capitalRestant - capitalAnnuel);
 
-      const coutAchatAnnuel = mensualiteCredit * 12 + chargesCoproMensuel * 12 + taxeFonciereAn + prixBien * (entretienAnPct / 100);
+      // Luxembourg interest deduction
+      const plafondDeduction = deductionInteretsMax(a, nbPersonnes);
+      const deductionInterets = Math.min(interetsAnnuels, plafondDeduction);
+      const economieFiscaleAnnuelle = deductionInterets * (tauxMarginalIR / 100);
+      economieFiscaleCumul += economieFiscaleAnnuelle;
+
+      // Assurance SRD (annual cost)
+      const assuranceSRDAnnuel = assuranceSRDMensuel * 12;
+
+      const coutAchatAnnuel =
+        mensualiteCredit * 12 +
+        chargesCoproMensuel * 12 +
+        taxeFonciereAn +
+        prixBien * (entretienAnPct / 100) +
+        assuranceSRDAnnuel -
+        economieFiscaleAnnuelle; // Interest deduction reduces effective cost
+
       coutAchatCumule += coutAchatAnnuel;
 
       const patrimoineNetAchat = valeurBien - capitalRestant;
 
       // LOCATION
       coutLocationCumule += loyerAnnuel;
-      const economieMensuelle = (mensualiteCredit + chargesCoproMensuel + taxeFonciereAn / 12 + prixBien * (entretienAnPct / 100) / 12) - loyerMensuel * Math.pow(1 + indexationLoyer / 100, a - 1);
+      const coutMensuelAchatPourComparaison =
+        mensualiteCredit +
+        chargesCoproMensuel +
+        taxeFonciereAn / 12 +
+        prixBien * (entretienAnPct / 100) / 12 +
+        assuranceSRDMensuel -
+        economieFiscaleAnnuelle / 12;
+
+      const economieMensuelle =
+        coutMensuelAchatPourComparaison -
+        loyerMensuel * Math.pow(1 + indexationLoyer / 100, a - 1);
+
       if (economieMensuelle > 0) {
         placementCapital += economieMensuelle * 12;
       }
@@ -87,6 +157,9 @@ export default function AchatVsLocation() {
         capitalRestant,
         valeurBien,
         patrimoineNetAchat,
+        deductionInterets,
+        economieFiscaleCumul,
+        assuranceSRDAnnuel,
         coutLocationCumule,
         placementCapital,
         patrimoineNetLocation: placementCapital,
@@ -96,17 +169,56 @@ export default function AchatVsLocation() {
     // Point de croisement : quand achat devient plus avantageux
     const croisement = annees.find((a) => a.patrimoineNetAchat > a.patrimoineNetLocation);
 
+    // Exact crossover year (fractional) for chart annotation
+    let crossoverYear: number | null = null;
+    for (let i = 1; i < annees.length; i++) {
+      const prev = annees[i - 1];
+      const curr = annees[i];
+      const diffPrev = prev.patrimoineNetAchat - prev.patrimoineNetLocation;
+      const diffCurr = curr.patrimoineNetAchat - curr.patrimoineNetLocation;
+      if (diffPrev <= 0 && diffCurr > 0) {
+        // Linear interpolation
+        crossoverYear = prev.annee + (-diffPrev) / (diffCurr - diffPrev);
+        break;
+      }
+    }
+
+    // Chart data
+    const chartData = annees.map((a) => ({
+      annee: a.annee,
+      achat: Math.round(a.patrimoineNetAchat),
+      location: Math.round(a.patrimoineNetLocation),
+    }));
+
     return {
       mensualiteCredit,
       fraisAcquisition,
       montantCredit,
+      assuranceSRDMensuel,
       annees,
       croisement,
+      crossoverYear,
+      chartData,
       derniere: annees[annees.length - 1],
     };
-  }, [prixBien, apport, tauxCredit, dureeCredit, fraisAcquisitionPct, chargesCoproMensuel, taxeFonciereAn, entretienAnPct, appreciationAn, loyerMensuel, indexationLoyer, rendementPlacement, horizon]);
+  }, [
+    prixBien, apport, tauxCredit, dureeCredit, fraisAcquisitionPct,
+    chargesCoproMensuel, taxeFonciereAn, entretienAnPct, appreciationAn,
+    tauxAssuranceSRD, nbPersonnes, tauxMarginalIR,
+    loyerMensuel, indexationLoyer, rendementPlacement, horizon,
+  ]);
 
-  const coutMensuelTotal = result.mensualiteCredit + chargesCoproMensuel + taxeFonciereAn / 12 + prixBien * (entretienAnPct / 100) / 12;
+  const coutMensuelTotal =
+    result.mensualiteCredit +
+    chargesCoproMensuel +
+    taxeFonciereAn / 12 +
+    prixBien * (entretienAnPct / 100) / 12 +
+    result.assuranceSRDMensuel;
+
+  // First year fiscal saving (for display)
+  const deductionAn1 = result.annees.length > 0 ? result.annees[0].deductionInterets : 0;
+  const economieFiscaleMensuelleAn1 = (deductionAn1 * (tauxMarginalIR / 100)) / 12;
+  const coutMensuelNetAchat = coutMensuelTotal - economieFiscaleMensuelleAn1;
 
   return (
     <div className="bg-background py-8 sm:py-12">
@@ -131,6 +243,52 @@ export default function AchatVsLocation() {
                 <InputField label="Impôt foncier" value={taxeFonciereAn} onChange={(v) => setTaxeFonciereAn(Number(v))} suffix="€/an" hint="Très faible au Luxembourg" />
                 <InputField label="Entretien annuel" value={entretienAnPct} onChange={(v) => setEntretienAnPct(Number(v))} suffix="% prix" hint="Configurable — typiquement 0,5-1,5%" step={0.1} />
                 <InputField label="Appréciation annuelle du bien" value={appreciationAn} onChange={(v) => setAppreciationAn(Number(v))} suffix="%" step={0.1} hint="Configurable — historique LU ~3-5%/an, récent ~2%" />
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+              <h2 className="mb-4 text-base font-semibold text-navy">Assurance solde restant dû</h2>
+              <div className="space-y-4">
+                <InputField
+                  label="Taux assurance SRD"
+                  value={tauxAssuranceSRD}
+                  onChange={(v) => setTauxAssuranceSRD(Number(v))}
+                  suffix="% capital"
+                  step={0.05}
+                  hint="Typiquement 0,20-0,40% du capital emprunté par an"
+                />
+                <div className="text-xs text-muted">
+                  Coût mensuel : <span className="font-semibold text-foreground">{formatEUR2(result.assuranceSRDMensuel)}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+              <h2 className="mb-4 text-base font-semibold text-navy">Déduction intérêts débiteurs</h2>
+              <p className="mb-3 text-xs text-muted">
+                Art. 98bis LIR — Résidence principale. Max 2 000 €/pers. (5 prem. années), 1 500 € (6-10), 1 000 € (11+).
+              </p>
+              <div className="space-y-4">
+                <InputField
+                  label="Nombre de personnes (foyer fiscal)"
+                  value={nbPersonnes}
+                  onChange={(v) => setNbPersonnes(Math.max(1, Math.min(2, Number(v))))}
+                  suffix="pers."
+                  min={1}
+                  max={2}
+                />
+                <InputField
+                  label="Taux marginal d'imposition"
+                  value={tauxMarginalIR}
+                  onChange={(v) => setTauxMarginalIR(Number(v))}
+                  suffix="%"
+                  step={1}
+                  hint="Pour estimer l'économie fiscale réelle"
+                />
+                <div className="text-xs text-muted">
+                  Plafond déduction an 1 : <span className="font-semibold text-foreground">{formatEUR(deductionInteretsMax(1, nbPersonnes))}</span>
+                  {" — "}Économie fiscale an 1 : <span className="font-semibold text-foreground">{formatEUR2(economieFiscaleMensuelleAn1 * 12)}/an</span>
+                </div>
               </div>
             </div>
 
@@ -174,9 +332,117 @@ export default function AchatVsLocation() {
               </div>
               {result.croisement && (
                 <div className="mt-4 text-sm text-white/70">
-                  L'achat devient plus avantageux à partir de l'année {result.croisement.annee}
+                  L&apos;achat devient plus avantageux à partir de l&apos;année {result.croisement.annee}
                 </div>
               )}
+            </div>
+
+            {/* Crossover chart */}
+            <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+              <div className="mb-4">
+                <h3 className="text-base font-semibold text-navy">Évolution du patrimoine net</h3>
+                <p className="text-xs text-muted mt-1">
+                  Patrimoine achat (valeur du bien − capital restant dû) vs capital accumulé si location + placement
+                </p>
+              </div>
+              <ResponsiveContainer width="100%" height={340}>
+                <LineChart
+                  data={result.chartData}
+                  margin={{ top: 10, right: 20, bottom: 5, left: 10 }}
+                >
+                  <defs>
+                    <linearGradient id="achatGrad" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="#1B2A4A" />
+                      <stop offset="100%" stopColor="#2D4A7A" />
+                    </linearGradient>
+                    <linearGradient id="locationGrad" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="#2A9D8F" />
+                      <stop offset="100%" stopColor="#4EC5B7" />
+                    </linearGradient>
+                  </defs>
+                  <XAxis
+                    dataKey="annee"
+                    tick={{ fontSize: 11 }}
+                    tickLine={false}
+                    axisLine={false}
+                    label={{ value: "Année", position: "insideBottomRight", offset: -5, fontSize: 11, fill: "#6B7280" }}
+                  />
+                  <YAxis
+                    tick={{ fontSize: 11 }}
+                    tickLine={false}
+                    axisLine={false}
+                    tickFormatter={(v) => {
+                      const n = Number(v);
+                      if (Math.abs(n) >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+                      if (Math.abs(n) >= 1_000) return `${(n / 1_000).toFixed(0)}k`;
+                      return `${n}`;
+                    }}
+                    width={55}
+                  />
+                  <Tooltip
+                    formatter={(value, name) => [
+                      formatEUR(Number(value)),
+                      name === "achat" ? "Patrimoine achat" : "Capital location",
+                    ]}
+                    labelFormatter={(label) => `Année ${label}`}
+                    contentStyle={{
+                      fontSize: 12,
+                      borderRadius: 8,
+                      border: "1px solid #e5e2db",
+                      backgroundColor: "rgba(255,255,255,0.95)",
+                    }}
+                  />
+                  {result.crossoverYear && (
+                    <ReferenceLine
+                      x={Math.round(result.crossoverYear)}
+                      stroke="#C8A951"
+                      strokeDasharray="6 4"
+                      strokeWidth={2}
+                      label={{
+                        value: `Croisement ~an ${result.crossoverYear.toFixed(1)}`,
+                        position: "top",
+                        fontSize: 11,
+                        fill: "#C8A951",
+                        fontWeight: 600,
+                      }}
+                    />
+                  )}
+                  <Line
+                    type="monotone"
+                    dataKey="achat"
+                    stroke="url(#achatGrad)"
+                    strokeWidth={3}
+                    dot={{ r: 3, fill: "#1B2A4A", strokeWidth: 0 }}
+                    activeDot={{ r: 5, fill: "#1B2A4A" }}
+                    name="achat"
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="location"
+                    stroke="url(#locationGrad)"
+                    strokeWidth={3}
+                    dot={{ r: 3, fill: "#2A9D8F", strokeWidth: 0 }}
+                    activeDot={{ r: 5, fill: "#2A9D8F" }}
+                    name="location"
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+              <div className="mt-3 flex items-center justify-center gap-6 text-xs text-muted">
+                <span className="flex items-center gap-1.5">
+                  <span className="inline-block h-2.5 w-5 rounded-sm" style={{ background: "#1B2A4A" }} />
+                  Patrimoine achat
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="inline-block h-2.5 w-5 rounded-sm" style={{ background: "#2A9D8F" }} />
+                  Capital location
+                </span>
+                {result.crossoverYear && (
+                  <span className="flex items-center gap-1.5">
+                    <span className="inline-block h-2.5 w-5 rounded-sm border-b-2 border-dashed" style={{ borderColor: "#C8A951" }} />
+                    Point de croisement
+                  </span>
+                )}
+              </div>
             </div>
 
             {/* Coûts mensuels comparés */}
@@ -188,7 +454,10 @@ export default function AchatVsLocation() {
                   { label: "Charges copropriété", value: formatEUR2(chargesCoproMensuel), sub: true },
                   { label: "Impôt foncier", value: formatEUR2(taxeFonciereAn / 12), sub: true },
                   { label: "Entretien", value: formatEUR2(prixBien * entretienAnPct / 100 / 12), sub: true },
-                  { label: "Total mensuel achat", value: formatEUR2(coutMensuelTotal), highlight: true },
+                  { label: "Assurance SRD", value: formatEUR2(result.assuranceSRDMensuel), sub: true },
+                  { label: "Total brut mensuel", value: formatEUR2(coutMensuelTotal), highlight: true },
+                  { label: "Économie fiscale intérêts (an 1)", value: `- ${formatEUR2(economieFiscaleMensuelleAn1)}`, sub: true },
+                  { label: "Coût net mensuel (an 1)", value: formatEUR2(coutMensuelNetAchat), highlight: true },
                 ]}
               />
               <ResultPanel
@@ -196,7 +465,27 @@ export default function AchatVsLocation() {
                 lines={[
                   { label: "Loyer (année 1)", value: formatEUR2(loyerMensuel) },
                   { label: `Loyer (année ${horizon})`, value: formatEUR2(loyerMensuel * Math.pow(1 + indexationLoyer / 100, horizon - 1)), sub: true },
-                  { label: "Différence mensuelle (an 1)", value: formatEUR2(coutMensuelTotal - loyerMensuel), highlight: true },
+                  { label: "Différence mensuelle nette (an 1)", value: formatEUR2(coutMensuelNetAchat - loyerMensuel), highlight: true },
+                ]}
+              />
+            </div>
+
+            {/* Déduction intérêts — résumé */}
+            <div className="grid gap-4 sm:grid-cols-2">
+              <ResultPanel
+                title="Déduction intérêts débiteurs"
+                lines={[
+                  { label: "Intérêts an 1", value: formatEUR2(result.annees.length > 0 ? result.annees[0].deductionInterets : 0) },
+                  { label: "Plafond an 1", value: formatEUR(deductionInteretsMax(1, nbPersonnes)), sub: true },
+                  { label: `Économie fiscale cumulée (${horizon} ans)`, value: formatEUR(result.derniere.economieFiscaleCumul), highlight: true },
+                ]}
+              />
+              <ResultPanel
+                title="Assurance solde restant dû"
+                lines={[
+                  { label: "Coût mensuel", value: formatEUR2(result.assuranceSRDMensuel) },
+                  { label: "Coût annuel", value: formatEUR2(result.assuranceSRDMensuel * 12), sub: true },
+                  { label: `Coût total (${Math.min(horizon, dureeCredit)} ans)`, value: formatEUR(result.assuranceSRDMensuel * 12 * Math.min(horizon, dureeCredit)), highlight: true },
                 ]}
               />
             </div>
@@ -236,10 +525,13 @@ export default function AchatVsLocation() {
 
             <div className="rounded-lg bg-amber-50 border border-amber-200 p-3">
               <p className="text-xs text-amber-800 leading-relaxed">
-                <strong>Hypothèses configurables :</strong> Le résultat dépend fortement de l'appréciation du bien
+                <strong>Hypothèses configurables :</strong> Le résultat dépend fortement de l&apos;appréciation du bien
                 ({appreciationAn}%/an) et du rendement du placement alternatif ({rendementPlacement}%/an).
-                Modifiez ces paramètres pour tester différents scénarios. Les frais d'acquisition au Luxembourg (Bëllegen Akt)
-                rendent l'achat plus attractif qu'en France grâce au crédit d'impôt.
+                Modifiez ces paramètres pour tester différents scénarios. Les frais d&apos;acquisition au Luxembourg (Bëllegen Akt)
+                rendent l&apos;achat plus attractif qu&apos;en France grâce au crédit d&apos;impôt.
+                La déduction des intérêts débiteurs (art. 98bis LIR) réduit le coût effectif de l&apos;achat,
+                surtout les 5 premières années (max {formatEUR(2000 * nbPersonnes)}/an pour {nbPersonnes} personne{nbPersonnes > 1 ? "s" : ""}).
+                L&apos;assurance solde restant dû ({tauxAssuranceSRD}%) est un coût souvent oublié.
               </p>
             </div>
           </div>

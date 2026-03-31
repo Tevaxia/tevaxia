@@ -17,6 +17,8 @@ export default function CalculateurLoyer() {
   const [tauxVetuste, setTauxVetuste] = useState(2);
   const [avecColocation, setAvecColocation] = useState(false);
   const [nbColocataires, setNbColocataires] = useState(3);
+  const [estMeuble, setEstMeuble] = useState(false);
+  const [showCoefficients, setShowCoefficients] = useState(false);
 
   const result = useMemo(
     () =>
@@ -30,8 +32,9 @@ export default function CalculateurLoyer() {
         nbColocataires: avecColocation ? nbColocataires : undefined,
         appliquerVetuste,
         tauxVetusteAnnuel: tauxVetuste / 100,
+        estMeuble,
       }),
-    [prixAcquisition, anneeAcquisition, travauxMontant, travauxAnnee, anneeBail, surfaceHabitable, avecColocation, nbColocataires, appliquerVetuste, tauxVetuste]
+    [prixAcquisition, anneeAcquisition, travauxMontant, travauxAnnee, anneeBail, surfaceHabitable, avecColocation, nbColocataires, appliquerVetuste, tauxVetuste, estMeuble]
   );
 
   return (
@@ -113,6 +116,12 @@ export default function CalculateurLoyer() {
               </div>
               <div className="mt-4 space-y-3">
                 <ToggleField
+                  label="Logement meublé"
+                  checked={estMeuble}
+                  onChange={setEstMeuble}
+                  hint="Supplément de 10% autorisé sur le loyer maximal"
+                />
+                <ToggleField
                   label="Colocation"
                   checked={avecColocation}
                   onChange={setAvecColocation}
@@ -161,6 +170,30 @@ export default function CalculateurLoyer() {
                   En pratique, les commissions des loyers l'apprécient au cas par cas.
                 </p>
               </div>
+            </div>
+
+            {/* Tableau coefficients STATEC */}
+            <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+              <button onClick={() => setShowCoefficients(!showCoefficients)} className="flex items-center justify-between w-full text-left">
+                <h2 className="text-base font-semibold text-navy">Coefficients de réévaluation STATEC</h2>
+                <svg className={`h-5 w-5 text-muted transition-transform ${showCoefficients ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </button>
+              {showCoefficients && (
+                <div className="mt-4 grid grid-cols-3 gap-1 text-xs sm:grid-cols-5">
+                  {Array.from({ length: 2026 - 1960 + 1 }, (_, i) => {
+                    const a = 1960 + i;
+                    const c = require("@/lib/constants").COEFFICIENTS_REEVALUATION[a];
+                    return c ? (
+                      <div key={a} className={`flex justify-between rounded px-2 py-1 ${a === anneeAcquisition ? "bg-navy/10 font-semibold text-navy" : ""}`}>
+                        <span className="text-muted">{a}</span>
+                        <span className="font-mono">{c.toFixed(2)}</span>
+                      </div>
+                    ) : null;
+                  })}
+                </div>
+              )}
             </div>
           </div>
 

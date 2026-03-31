@@ -94,6 +94,7 @@ function TabCapacite() {
   const [tauxEndettement, setTauxEndettement] = useState(40);
   const [tauxInteret, setTauxInteret] = useState(3.5);
   const [duree, setDuree] = useState(25);
+  const [tauxAssurance, setTauxAssurance] = useState(0.30); // % du capital
 
   const result = useMemo(
     () =>
@@ -117,6 +118,18 @@ function TabCapacite() {
           <InputField label="Taux d'endettement max" value={tauxEndettement} onChange={(v) => setTauxEndettement(Number(v))} suffix="%" min={10} max={50} />
           <InputField label="Taux d'intérêt" value={tauxInteret} onChange={(v) => setTauxInteret(Number(v))} suffix="%" step={0.1} />
           <InputField label="Durée du prêt" value={duree} onChange={(v) => setDuree(Number(v))} suffix="ans" min={5} max={35} />
+          <InputField label="Assurance solde restant dû" value={tauxAssurance} onChange={(v) => setTauxAssurance(Number(v))} suffix="% capital" step={0.05} hint="Typiquement 0.20-0.40%. Obligatoire au Luxembourg." />
+        </div>
+        <div className="mt-4 rounded-lg bg-navy/5 p-3">
+          <div className="text-xs font-semibold text-navy mb-2">Taux indicatifs Luxembourg (mars 2026)</div>
+          <div className="grid grid-cols-2 gap-1 text-xs text-muted">
+            <span>Fixe 10 ans</span><span className="font-mono text-right">2.90-3.20%</span>
+            <span>Fixe 15 ans</span><span className="font-mono text-right">3.00-3.30%</span>
+            <span>Fixe 20 ans</span><span className="font-mono text-right">3.10-3.50%</span>
+            <span>Fixe 25 ans</span><span className="font-mono text-right">3.20-3.60%</span>
+            <span>Variable</span><span className="font-mono text-right">2.80-3.10%</span>
+          </div>
+          <p className="mt-1 text-[10px] text-muted">Source : BCL / banques luxembourgeoises. Taux indicatifs, variables selon profil emprunteur.</p>
         </div>
       </div>
       <div className="space-y-6">
@@ -124,6 +137,7 @@ function TabCapacite() {
           title="Résultats"
           lines={[
             { label: "Mensualité max disponible", value: formatEUR2(result.mensualiteMax) },
+            { label: `Dont assurance (${tauxAssurance}%)`, value: formatEUR2(result.capaciteEmprunt * tauxAssurance / 100 / 12), sub: true },
             { label: "Capacité d'emprunt", value: formatEUR(result.capaciteEmprunt), highlight: true, large: true },
           ]}
         />

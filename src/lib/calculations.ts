@@ -63,16 +63,23 @@ export function formatPct(value: number, decimals = 2): string {
 // MODULE 1 — CAPITAL INVESTI / PLAFOND LOYER
 // ============================================================
 
+export interface TrancheTravauxInput {
+  montant: number;
+  annee: number;
+}
+
 export interface CapitalInvestiInput {
   prixAcquisition: number;
   anneeAcquisition: number;
-  travauxMontant: number;
+  travauxMontant: number; // Tranche principale (rétrocompatibilité)
   travauxAnnee: number;
+  tranchesSupplementaires?: TrancheTravauxInput[]; // Tranches additionnelles
   anneeBail: number;
-  surfaceHabitable: number; // m²
+  surfaceHabitable: number;
   nbColocataires?: number;
-  appliquerVetuste: boolean; // Vétusté optionnelle — pas de base légale explicite
-  tauxVetusteAnnuel: number; // Taux personnalisable (0 à 0.02 typiquement)
+  appliquerVetuste: boolean;
+  tauxVetusteAnnuel: number;
+  estMeuble?: boolean; // Logement meublé = +10% sur le loyer max
 }
 
 export interface CapitalInvestiResult {
@@ -97,7 +104,17 @@ export function calculerCapitalInvesti(input: CapitalInvestiInput): CapitalInves
   const prixReevalue = input.prixAcquisition * coeffAcquisition;
   const travauxReevalues = input.travauxMontant * coeffTravaux;
 
-  const valeurBrute = prixReevalue + travauxReevalues;
+  // Tranches supplémentaires de travaux
+  let tranchesSupReevaluees = 0;
+  if (input.tranchesSupplementaires) {
+    for (const t of input.tranchesSupplementaires) {
+      if (t.montant > 0) {
+        tranchesSupReevaluees += t.montant * getCoefficient(t.annee);
+      }
+    }
+  }
+
+  const valeurBrute = prixReevalue + travauxReevalues + tranchesSupReevaluees;
 
   // Vétusté — optionnelle et configurable
   // La loi de 2006 ne fixe pas de taux de vétusté précis.
@@ -113,7 +130,9 @@ export function calculerCapitalInvesti(input: CapitalInvestiInput): CapitalInves
 
   const capitalInvesti = valeurBrute - decoteVetuste;
   const loyerAnnuelMax = capitalInvesti * TAUX_PLAFOND_LOYER;
-  const loyerMensuelMax = loyerAnnuelMax / 12;
+  // Meublé : +10% autorisé par la loi
+  const loyerAnnuelMaxFinal = input.estMeuble ? loyerAnnuelMax * 1.10 : loyerAnnuelMax;
+  const loyerMensuelMax = loyerAnnuelMaxFinal / 12;
   const loyerM2Mensuel = input.surfaceHabitable > 0 ? loyerMensuelMax / input.surfaceHabitable : 0;
 
   const result: CapitalInvestiResult = {
@@ -125,7 +144,7 @@ export function calculerCapitalInvesti(input: CapitalInvestiInput): CapitalInves
     decoteVetuste,
     decoteVetustePct,
     capitalInvesti,
-    loyerAnnuelMax,
+    loyerAnnuelMax: loyerAnnuelMaxFinal,
     loyerMensuelMax,
     loyerM2Mensuel,
   };
@@ -144,11 +163,12 @@ export function calculerCapitalInvesti(input: CapitalInvestiInput): CapitalInves
 export interface FraisAcquisitionInput {
   prixBien: number;
   estNeuf: boolean;
-  partTerrain?: number; // Montant du terrain si neuf
-  partConstruction?: number; // Montant construction si neuf
+  partTerrain?: number;
+  partConstruction?: number;
   residencePrincipale: boolean;
   nbAcquereurs: 1 | 2;
   montantHypotheque?: number;
+  dateActe?: string; // YYYY-MM — pour taux temporaire réduit
 }
 
 export interface FraisAcquisitionResult {
@@ -194,16 +214,27 @@ export function calculerEmolumentsNotaire(montant: number): number {
 }
 
 export function calculerFraisAcquisition(input: FraisAcquisitionInput): FraisAcquisitionResult {
+  // Taux temporaire réduit (oct 2024 - juin 2025) : 3.5% au lieu de 7%
+  let tauxDroitsEffectif = TAUX_DROITS_TOTAL;
+  if (input.dateActe) {
+    const [y, m] = input.dateActe.split("-").map(Number);
+    if ((y === 2024 && m >= 10) || (y === 2025 && m <= 6)) {
+      tauxDroitsEffectif = 0.035; // 3.5% temporaire
+    }
+  }
+
   // Base des droits d'enregistrement
   let baseDroits: number;
   if (input.estNeuf && input.partTerrain) {
-    baseDroits = input.partTerrain; // Droits uniquement sur le terrain pour le neuf
+    baseDroits = input.partTerrain;
   } else {
     baseDroits = input.prixBien;
   }
 
-  const droitsEnregistrement = baseDroits * 0.06;
-  const droitsTranscription = baseDroits * 0.01;
+  const ratioEnreg = tauxDroitsEffectif * (6/7); // Proportion enregistrement
+  const ratioTransc = tauxDroitsEffectif * (1/7); // Proportion transcription
+  const droitsEnregistrement = baseDroits * ratioEnreg;
+  const droitsTranscription = baseDroits * ratioTransc;
   const droitsTotal = droitsEnregistrement + droitsTranscription;
 
   // Bëllegen Akt
@@ -296,6 +327,7 @@ export interface PlusValueResult {
   gainImposable: number;
   estimationImpot: number;
   tauxEffectif: number;
+  netApresImpot: number; // Produit net = prix cession - prix acquisition - impôt
   explication: string;
 }
 
@@ -315,6 +347,7 @@ export function calculerPlusValue(input: PlusValueInput): PlusValueResult {
       gainImposable: 0,
       estimationImpot: 0,
       tauxEffectif: 0,
+      netApresImpot: input.prixCession - input.prixAcquisition,
       explication: "Exonération totale : résidence principale occupée effectivement et de manière continue depuis l'acquisition ou pendant les 5 années précédant la cession.",
     };
   }
@@ -339,6 +372,7 @@ export function calculerPlusValue(input: PlusValueInput): PlusValueResult {
       gainImposable,
       estimationImpot,
       tauxEffectif: tauxEstime,
+      netApresImpot: input.prixCession - input.prixAcquisition - estimationImpot,
       explication: `Gain de spéculation (détention ≤ 2 ans). Imposé au taux global (barème progressif). Estimation au taux marginal de 40%.`,
     };
   }
@@ -365,6 +399,7 @@ export function calculerPlusValue(input: PlusValueInput): PlusValueResult {
     gainImposable,
     estimationImpot,
     tauxEffectif: tauxEstime,
+    netApresImpot: input.prixCession - input.prixAcquisition - estimationImpot,
     explication: `Gain de cession (détention > 2 ans). Prix d'acquisition revalorisé par le coefficient ${coefficient.toFixed(2)}. Abattement décennal de ${formatEUR(abattement)}. Imposé au demi-taux global (estimation ~20%).`,
   };
 }

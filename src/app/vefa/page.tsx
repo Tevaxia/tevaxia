@@ -1,26 +1,26 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import InputField from "@/components/InputField";
 import ToggleField from "@/components/ToggleField";
 import ResultPanel from "@/components/ResultPanel";
 import { calculerEmolumentsNotaire, formatEUR, formatPct } from "@/lib/calculations";
 
 // ── Luxembourg VEFA milestones ──────────────────────────────
-interface Milestone {
+interface MilestoneDef {
   label: string;
-  pct: number;       // % of purchase price
+  defaultPct: number;       // % of purchase price (default)
   monthsAfterStart: number;
 }
 
-const MILESTONES: Milestone[] = [
-  { label: "Signature du contrat",          pct: 0.05,  monthsAfterStart: 0 },
-  { label: "Fondations achevees",           pct: 0.15,  monthsAfterStart: 4 },
-  { label: "Hors d'eau (murs montes)",      pct: 0.20,  monthsAfterStart: 10 },
-  { label: "Hors d'air (toiture achevee)",  pct: 0.20,  monthsAfterStart: 14 },
-  { label: "Cloisons interieures",          pct: 0.15,  monthsAfterStart: 18 },
-  { label: "Travaux de finition",           pct: 0.15,  monthsAfterStart: 22 },
-  { label: "Livraison (remise des cles)",   pct: 0.10,  monthsAfterStart: 26 },
+const DEFAULT_MILESTONES: MilestoneDef[] = [
+  { label: "Signature du contrat",          defaultPct: 5,   monthsAfterStart: 0 },
+  { label: "Fondations achevees",           defaultPct: 15,  monthsAfterStart: 4 },
+  { label: "Hors d'eau (murs montes)",      defaultPct: 20,  monthsAfterStart: 10 },
+  { label: "Hors d'air (toiture achevee)",  defaultPct: 20,  monthsAfterStart: 14 },
+  { label: "Cloisons interieures",          defaultPct: 15,  monthsAfterStart: 18 },
+  { label: "Travaux de finition",           defaultPct: 15,  monthsAfterStart: 22 },
+  { label: "Livraison (remise des cles)",   defaultPct: 10,  monthsAfterStart: 26 },
 ];
 
 // ── TVA / duties constants ──────────────────────────────────
@@ -28,6 +28,12 @@ const TVA_NORMAL = 0.17;
 const TVA_REDUIT = 0.03;
 const TVA_FAVEUR_PLAFOND = 50_000;
 const TAUX_DROITS = 0.07; // 6% enregistrement + 1% transcription
+
+// ── Month names for timeline ─────────────────────────────────
+const MONTH_NAMES_SHORT = [
+  "Jan", "Fev", "Mar", "Avr", "Mai", "Jun",
+  "Jul", "Aou", "Sep", "Oct", "Nov", "Dec",
+];
 
 export default function VefaCalculator() {
   // ── Inputs ──────────────────────────────────────────────────
@@ -37,6 +43,30 @@ export default function VefaCalculator() {
   const [nbAcquereurs, setNbAcquereurs] = useState<1 | 2>(2);
   const [montantHypotheque, setMontantHypotheque] = useState(520000);
   const [moisDebut, setMoisDebut] = useState("2026-06");
+
+  // ── Intercalary interest inputs ─────────────────────────────
+  const [tauxHypotheque, setTauxHypotheque] = useState(3.5); // annual rate in %
+
+  // ── Customizable milestone percentages ──────────────────────
+  const [milestonePcts, setMilestonePcts] = useState<number[]>(
+    DEFAULT_MILESTONES.map((m) => m.defaultPct)
+  );
+
+  const handlePctChange = useCallback((index: number, value: string) => {
+    const num = parseFloat(value);
+    setMilestonePcts((prev) => {
+      const next = [...prev];
+      next[index] = isNaN(num) ? 0 : num;
+      return next;
+    });
+  }, []);
+
+  const resetPcts = useCallback(() => {
+    setMilestonePcts(DEFAULT_MILESTONES.map((m) => m.defaultPct));
+  }, []);
+
+  const totalPct = milestonePcts.reduce((s, p) => s + p, 0);
+  const pctValid = Math.abs(totalPct - 100) < 0.01;
 
   const partConstruction = Math.max(0, prixTotal - partTerrain);
 
@@ -77,21 +107,61 @@ export default function VefaCalculator() {
 
     // -- Appels de fonds (milestone schedule) --
     const [startYear, startMonth] = moisDebut.split("-").map(Number);
-    const milestoneRows = MILESTONES.map((m) => {
-      const montant = prixTotal * m.pct;
+    const tauxMensuel = (tauxHypotheque / 100) / 12;
+
+    let cumulVerse = 0;      // cumulative amount paid to promoter
+    let cumulIntercalaire = 0; // cumulative intercalary interest paid
+
+    const milestoneRows = DEFAULT_MILESTONES.map((m, i) => {
+      const pct = milestonePcts[i] / 100;
+      const montant = prixTotal * pct;
       const totalMonths = (startYear * 12 + (startMonth - 1)) + m.monthsAfterStart;
       const year = Math.floor(totalMonths / 12);
       const month = (totalMonths % 12) + 1;
       const dateStr = `${String(month).padStart(2, "0")}/${year}`;
-      return { ...m, montant, dateStr };
+
+      // Intercalary interest calculation:
+      // After this payment, the bank has disbursed cumulVerse + montant of the mortgage.
+      // But the disbursed amount from the mortgage is capped at the mortgage amount.
+      // Between this milestone and the next, the buyer pays interest on the drawn-down amount.
+      const prevCumulVerse = cumulVerse;
+      cumulVerse += montant;
+
+      // The amount drawn from the mortgage at this point:
+      // Typically the buyer's own funds (apport) are used first, then the mortgage.
+      // For simplicity, we assume the mortgage is drawn proportionally to payments.
+      // drawn = min(cumulVerse, montantHypotheque) * (montantHypotheque / prixTotal)
+      // A more standard approach: drawn = cumulVerse * (montantHypotheque / prixTotal)
+      // capped at montantHypotheque
+      const ratioMortgage = montantHypotheque > 0 && prixTotal > 0
+        ? Math.min(1, montantHypotheque / prixTotal)
+        : 0;
+      const drawnAfterPayment = Math.min(montantHypotheque, cumulVerse * ratioMortgage);
+
+      // Months until next milestone (or 0 for last)
+      const nextMonths = i < DEFAULT_MILESTONES.length - 1
+        ? DEFAULT_MILESTONES[i + 1].monthsAfterStart - m.monthsAfterStart
+        : 0;
+
+      // Intercalary interest for this phase = drawn amount * monthly rate * months
+      const interetPhase = drawnAfterPayment * tauxMensuel * nextMonths;
+      cumulIntercalaire += interetPhase;
+
+      return {
+        label: m.label,
+        pct,
+        montant,
+        cumul: cumulVerse,
+        dateStr,
+        monthsAfterStart: m.monthsAfterStart,
+        drawnMortgage: drawnAfterPayment,
+        monthsToNext: nextMonths,
+        interetPhase,
+        cumulIntercalaire,
+      };
     });
 
-    // -- Cumulative check --
-    let cumul = 0;
-    const milestoneWithCumul = milestoneRows.map((row) => {
-      cumul += row.montant;
-      return { ...row, cumul };
-    });
+    const totalIntercalaire = cumulIntercalaire;
 
     return {
       partConstruction,
@@ -105,9 +175,36 @@ export default function VefaCalculator() {
       fraisHypotheque,
       totalFrais,
       coutTotal,
-      milestones: milestoneWithCumul,
+      milestones: milestoneRows,
+      totalIntercalaire,
     };
-  }, [prixTotal, partTerrain, residencePrincipale, nbAcquereurs, montantHypotheque, moisDebut, partConstruction]);
+  }, [prixTotal, partTerrain, residencePrincipale, nbAcquereurs, montantHypotheque, moisDebut, partConstruction, milestonePcts, tauxHypotheque]);
+
+  // ── Timeline helpers ────────────────────────────────────────
+  const timelineData = useMemo(() => {
+    const [startYear, startMonth] = moisDebut.split("-").map(Number);
+    if (!startYear || !startMonth) return null;
+
+    const totalDuration = DEFAULT_MILESTONES[DEFAULT_MILESTONES.length - 1].monthsAfterStart;
+    if (totalDuration === 0) return null;
+
+    const points = DEFAULT_MILESTONES.map((m, i) => {
+      const absMonth = (startYear * 12 + (startMonth - 1)) + m.monthsAfterStart;
+      const year = Math.floor(absMonth / 12);
+      const month = (absMonth % 12) + 1;
+      const label = `${MONTH_NAMES_SHORT[month - 1]} ${year}`;
+      const position = (m.monthsAfterStart / totalDuration) * 100;
+      return {
+        label,
+        milestoneLabel: m.label,
+        pct: milestonePcts[i],
+        position,
+        monthsAfterStart: m.monthsAfterStart,
+      };
+    });
+
+    return { points, totalDuration };
+  }, [moisDebut, milestonePcts]);
 
   // ── Render ──────────────────────────────────────────────────
   return (
@@ -183,14 +280,26 @@ export default function VefaCalculator() {
             {/* Financing */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
               <h2 className="mb-4 text-base font-semibold text-navy">Financement</h2>
-              <InputField
-                label="Montant du pret hypothecaire"
-                value={montantHypotheque}
-                onChange={(v) => setMontantHypotheque(Number(v))}
-                suffix="EUR"
-                min={0}
-                hint="Pour le calcul des frais d'inscription hypothecaire"
-              />
+              <div className="space-y-4">
+                <InputField
+                  label="Montant du pret hypothecaire"
+                  value={montantHypotheque}
+                  onChange={(v) => setMontantHypotheque(Number(v))}
+                  suffix="EUR"
+                  min={0}
+                  hint="Pour le calcul des frais d'inscription hypothecaire"
+                />
+                <InputField
+                  label="Taux hypothecaire annuel"
+                  value={tauxHypotheque}
+                  onChange={(v) => setTauxHypotheque(Number(v))}
+                  suffix="%"
+                  min={0}
+                  max={15}
+                  step={0.1}
+                  hint="Pour le calcul des interets intercalaires pendant la construction"
+                />
+              </div>
             </div>
 
             {/* Timeline */}
@@ -204,10 +313,114 @@ export default function VefaCalculator() {
                 hint="Format AAAA-MM (ex : 2026-06)"
               />
             </div>
+
+            {/* Customizable milestone percentages */}
+            <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+              <div className="mb-4 flex items-center justify-between">
+                <h2 className="text-base font-semibold text-navy">Echeancier contractuel</h2>
+                <button
+                  onClick={resetPcts}
+                  className="rounded-lg border border-card-border px-3 py-1 text-xs font-medium text-muted transition-colors hover:bg-background hover:text-slate"
+                >
+                  Reinitialiser
+                </button>
+              </div>
+              <p className="mb-4 text-xs text-muted">
+                Adaptez les pourcentages a votre contrat VEFA. Le total doit etre egal a 100 %.
+              </p>
+              <div className="space-y-3">
+                {DEFAULT_MILESTONES.map((m, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <span className="flex-1 text-sm text-slate truncate" title={m.label}>
+                      {m.label}
+                    </span>
+                    <div className="relative w-24 shrink-0">
+                      <input
+                        type="number"
+                        value={milestonePcts[i]}
+                        onChange={(e) => handlePctChange(i, e.target.value)}
+                        min={0}
+                        max={100}
+                        step={1}
+                        className="w-full rounded-lg border border-input-border bg-input-bg py-1.5 pl-3 pr-8 text-right text-sm font-mono text-foreground shadow-sm transition-colors focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
+                      />
+                      <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-xs text-muted">
+                        %
+                      </span>
+                    </div>
+                  </div>
+                ))}
+                <div className="flex items-center justify-between border-t border-card-border pt-3">
+                  <span className="text-sm font-semibold text-slate">Total</span>
+                  <span
+                    className={`font-mono text-sm font-bold ${
+                      pctValid ? "text-emerald-600" : "text-red-500"
+                    }`}
+                  >
+                    {totalPct.toFixed(0)} %
+                  </span>
+                </div>
+                {!pctValid && (
+                  <p className="text-xs font-medium text-red-500">
+                    Le total des pourcentages doit etre egal a 100 %. Difference : {(totalPct - 100).toFixed(1)} %
+                  </p>
+                )}
+              </div>
+            </div>
           </div>
 
           {/* ── Right column: Results ───────────────────────── */}
           <div className="space-y-6">
+            {/* Visual Timeline */}
+            {timelineData && (
+              <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+                <h3 className="mb-4 text-base font-semibold text-navy">
+                  Chronologie du chantier
+                </h3>
+                {/* Timeline bar */}
+                <div className="relative mx-4 mb-2 mt-8">
+                  {/* Main horizontal line */}
+                  <div className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-blue-200" />
+                  {/* Milestone points */}
+                  {timelineData.points.map((pt, i) => (
+                    <div
+                      key={i}
+                      className="absolute -translate-x-1/2"
+                      style={{ left: `${pt.position}%`, top: "50%", transform: "translate(-50%, -50%)" }}
+                    >
+                      {/* Dot */}
+                      <div
+                        className={`h-4 w-4 rounded-full border-2 border-white shadow-sm ${
+                          i === 0
+                            ? "bg-navy"
+                            : i === timelineData.points.length - 1
+                            ? "bg-emerald-500"
+                            : "bg-blue-500"
+                        }`}
+                      />
+                      {/* Label above (even indices) or below (odd indices) to avoid overlap */}
+                      <div
+                        className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-center ${
+                          i % 2 === 0 ? "bottom-full mb-2" : "top-full mt-2"
+                        }`}
+                      >
+                        <div className="text-[10px] font-semibold text-navy">{pt.label}</div>
+                        <div className="text-[9px] text-muted leading-tight max-w-[80px] whitespace-normal">
+                          {pt.milestoneLabel}
+                        </div>
+                        <div className="text-[10px] font-mono font-bold text-blue-600">{pt.pct} %</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                {/* Spacer for labels */}
+                <div className="h-24" />
+                <p className="text-xs text-muted">
+                  Duree estimee : {timelineData.totalDuration} mois du contrat a la livraison. Les dates sont indicatives et dependent de l'avancement reel des travaux.
+                </p>
+              </div>
+            )}
+
             {/* Milestone schedule */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
               <h3 className="mb-4 text-base font-semibold text-navy">
@@ -237,9 +450,76 @@ export default function VefaCalculator() {
                   </tbody>
                 </table>
               </div>
+              {!pctValid && (
+                <p className="mt-3 text-xs font-medium text-red-500">
+                  Attention : le total des pourcentages n'est pas egal a 100 %.
+                </p>
+              )}
               <p className="mt-3 text-xs text-muted">
                 Echeancier indicatif selon l'avancement des travaux. Les appels de fonds sont emis par le promoteur sur constatation de l'achevement de chaque etape par un architecte independant.
               </p>
+            </div>
+
+            {/* Intercalary interest section */}
+            <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+              <h3 className="mb-2 text-base font-semibold text-navy">
+                Interets intercalaires
+              </h3>
+              <p className="mb-4 text-xs text-muted">
+                Pendant la construction, la banque debloque le pret progressivement. L'acquereur paie des interets sur le capital deja debourse, sans rembourser le capital. C'est le cout cache n°1 d'un achat en VEFA.
+              </p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-card-border text-left text-xs font-medium uppercase text-muted">
+                      <th className="pb-2 pr-2">Phase</th>
+                      <th className="pb-2 pr-2 text-right">Capital debourse</th>
+                      <th className="pb-2 pr-2 text-right">Duree</th>
+                      <th className="pb-2 pr-2 text-right">Interets phase</th>
+                      <th className="pb-2 text-right">Cumul interets</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-card-border/50">
+                    {calc.milestones.map((m, i) => (
+                      <tr
+                        key={i}
+                        className={
+                          i === calc.milestones.length - 1
+                            ? "font-semibold text-navy"
+                            : "text-foreground"
+                        }
+                      >
+                        <td className="py-2 pr-2">{m.label}</td>
+                        <td className="py-2 pr-2 text-right font-mono">{formatEUR(m.drawnMortgage)}</td>
+                        <td className="py-2 pr-2 text-right font-mono">
+                          {m.monthsToNext > 0 ? `${m.monthsToNext} mois` : "—"}
+                        </td>
+                        <td className="py-2 pr-2 text-right font-mono">
+                          {m.interetPhase > 0 ? formatEUR(m.interetPhase) : "—"}
+                        </td>
+                        <td className="py-2 text-right font-mono">
+                          {m.cumulIntercalaire > 0 ? formatEUR(m.cumulIntercalaire) : "—"}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                  <tfoot>
+                    <tr className="border-t-2 border-gold font-semibold text-navy">
+                      <td className="pt-3 pr-2" colSpan={3}>Total interets intercalaires</td>
+                      <td className="pt-3 pr-2 text-right font-mono" colSpan={2}>
+                        {formatEUR(calc.totalIntercalaire)}
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <div className="mt-4 rounded-lg bg-amber-50 border border-amber-200 p-3">
+                <p className="text-xs font-medium text-amber-800">
+                  Cout intercalaire estime : <span className="font-bold">{formatEUR(calc.totalIntercalaire)}</span> sur toute la duree de la construction
+                  ({tauxHypotheque.toFixed(1)} % annuel sur un pret de {formatEUR(montantHypotheque)}).
+                  Ce montant s'ajoute au cout total d'acquisition et represente {prixTotal > 0 ? formatPct(calc.totalIntercalaire / prixTotal) : "— %"} du prix du bien.
+                </p>
+              </div>
             </div>
 
             {/* Droits d'enregistrement */}
@@ -299,13 +579,14 @@ export default function VefaCalculator() {
                 { label: "Droits d'enregistrement nets", value: formatEUR(calc.droitsNets), sub: true },
                 { label: "TVA", value: formatEUR(calc.tvaMontant), sub: true },
                 { label: "Notaire + hypotheque", value: formatEUR(calc.emolumentsNotaire + calc.fraisHypotheque), sub: true },
+                { label: "Interets intercalaires", value: formatEUR(calc.totalIntercalaire), sub: true },
                 {
-                  label: `Total frais (${formatPct(prixTotal > 0 ? calc.totalFrais / prixTotal : 0)})`,
-                  value: formatEUR(calc.totalFrais),
+                  label: `Total frais (${formatPct(prixTotal > 0 ? (calc.totalFrais + calc.totalIntercalaire) / prixTotal : 0)})`,
+                  value: formatEUR(calc.totalFrais + calc.totalIntercalaire),
                 },
                 {
                   label: "Cout total d'acquisition",
-                  value: formatEUR(calc.coutTotal),
+                  value: formatEUR(calc.coutTotal + calc.totalIntercalaire),
                   highlight: true,
                   large: true,
                 },
@@ -316,7 +597,8 @@ export default function VefaCalculator() {
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
               <h3 className="mb-4 text-base font-semibold text-navy">Repartition des paiements</h3>
               <div className="flex h-8 w-full overflow-hidden rounded-lg">
-                {MILESTONES.map((m, i) => {
+                {DEFAULT_MILESTONES.map((m, i) => {
+                  const pct = milestonePcts[i] / 100;
                   const colors = [
                     "bg-navy",
                     "bg-blue-600",
@@ -330,16 +612,16 @@ export default function VefaCalculator() {
                     <div
                       key={i}
                       className={`${colors[i]} flex items-center justify-center text-xs font-semibold text-white`}
-                      style={{ width: `${m.pct * 100}%` }}
-                      title={`${m.label}: ${(m.pct * 100).toFixed(0)} %`}
+                      style={{ width: `${pct * 100}%` }}
+                      title={`${m.label}: ${milestonePcts[i].toFixed(0)} %`}
                     >
-                      {m.pct >= 0.10 ? `${(m.pct * 100).toFixed(0)}%` : ""}
+                      {pct >= 0.10 ? `${milestonePcts[i].toFixed(0)}%` : ""}
                     </div>
                   );
                 })}
               </div>
               <div className="mt-3 space-y-1.5">
-                {MILESTONES.map((m, i) => {
+                {DEFAULT_MILESTONES.map((m, i) => {
                   const colors = [
                     "bg-navy",
                     "bg-blue-600",
@@ -353,7 +635,7 @@ export default function VefaCalculator() {
                     <div key={i} className="flex items-center gap-3 text-xs">
                       <span className={`inline-block h-3 w-3 shrink-0 rounded-sm ${colors[i]}`} />
                       <span className="flex-1 text-slate">{m.label}</span>
-                      <span className="font-mono font-semibold text-navy">{(m.pct * 100).toFixed(0)} %</span>
+                      <span className="font-mono font-semibold text-navy">{milestonePcts[i].toFixed(0)} %</span>
                     </div>
                   );
                 })}
@@ -403,6 +685,12 @@ export default function VefaCalculator() {
                   <strong className="text-slate">Bellegen Akt</strong> — Credit d'impot de 40 000 EUR par acquereur
                   (80 000 EUR pour un couple) sur les droits d'enregistrement. Applicable uniquement pour la
                   residence principale et lors de la premiere utilisation.
+                </p>
+                <p>
+                  <strong className="text-slate">Interets intercalaires</strong> — Pendant la phase de construction
+                  (24 a 30 mois), la banque debloque le pret au fur et a mesure des appels de fonds. L'acquereur
+                  paie des interets mensuels sur le capital deja debourse, sans amortir le capital. Ce cout,
+                  souvent oublie, represente typiquement 15 000 a 25 000 EUR pour un pret standard.
                 </p>
                 <p>
                   <strong className="text-slate">Duree de construction</strong> — Comptez en moyenne 24 a 30 mois
