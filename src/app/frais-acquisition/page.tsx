@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import ToggleField from "@/components/ToggleField";
 import ResultPanel from "@/components/ResultPanel";
 import { calculerFraisAcquisition, formatEUR, formatPct } from "@/lib/calculations";
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 
 export default function FraisAcquisition() {
   const [prixBien, setPrixBien] = useState(750000);
@@ -179,6 +180,38 @@ export default function FraisAcquisition() {
             />
 
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+            {/* Camembert décomposition */}
+            {result.totalFrais > 0 && (() => {
+              const data = [
+                { name: "Droits nets", value: result.droitsApresCredit, color: "#1B2A4A" },
+                ...(result.montantTva > 0 ? [{ name: "TVA", value: result.montantTva, color: "#C8A951" }] : []),
+                { name: "Notaire", value: result.emolumentsNotaire, color: "#2A9D8F" },
+                ...(result.fraisHypotheque > 0 ? [{ name: "Hypothèque", value: result.fraisHypotheque, color: "#6B7280" }] : []),
+              ].filter((d) => d.value > 0);
+              return (
+                <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+                  <h3 className="mb-3 text-sm font-semibold text-navy">Décomposition des frais</h3>
+                  <ResponsiveContainer width="100%" height={180}>
+                    <PieChart>
+                      <Pie data={data} dataKey="value" cx="50%" cy="50%" innerRadius={40} outerRadius={70} paddingAngle={2}>
+                        {data.map((d, i) => <Cell key={i} fill={d.color} />)}
+                      </Pie>
+                      <Tooltip formatter={(v) => formatEUR(Number(v))} />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <div className="flex flex-wrap justify-center gap-3 mt-2">
+                    {data.map((d) => (
+                      <div key={d.name} className="flex items-center gap-1.5 text-xs">
+                        <div className="h-2.5 w-2.5 rounded-full" style={{ background: d.color }} />
+                        <span className="text-muted">{d.name}</span>
+                        <span className="font-mono font-semibold">{formatEUR(d.value)}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
+
               <h3 className="mb-3 text-base font-semibold text-navy">Bon à savoir</h3>
               <div className="space-y-2 text-sm text-muted leading-relaxed">
                 <p>

@@ -33,6 +33,9 @@ export default function BilanPromoteur() {
   const [fraisLotissement, setFraisLotissement] = useState(typeOperation !== "immeuble" ? 30000 : 0);
   const [nbLots, setNbLots] = useState(typeOperation !== "immeuble" ? 6 : 0);
 
+  // Pré-commercialisation
+  const [tauxPreCommercialisation, setTauxPreCommercialisation] = useState(50); // % pré-vendu
+
   // Frais promoteur
   const [fraisCommerciaux, setFraisCommerciaux] = useState(3); // % CA
   const [fraisFinanciers, setFraisFinanciers] = useState(3); // % coût total
@@ -171,6 +174,7 @@ export default function BilanPromoteur() {
                 <InputField label="Frais financiers" value={fraisFinanciers} onChange={(v) => setFraisFinanciers(Number(v))} suffix="% coûts" hint="Intérêts intercalaires" step={0.5} />
                 <InputField label="Assurances" value={assurances} onChange={(v) => setAssurances(Number(v))} suffix="% constr." step={0.5} />
                 <InputField label="Frais de gestion" value={fraisGestion} onChange={(v) => setFraisGestion(Number(v))} suffix="% CA" hint="Gestion de programme" step={0.5} />
+                <InputField label="Pré-commercialisation" value={tauxPreCommercialisation} onChange={(v) => setTauxPreCommercialisation(Number(v))} suffix="% vendu" min={0} max={100} hint="% pré-vendu avant construction. Impact coût financier." />
               </div>
             </div>
 

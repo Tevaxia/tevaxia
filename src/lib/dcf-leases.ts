@@ -17,6 +17,7 @@ export interface Lease {
   probabiliteRenouvellement: number; // 0-100%
   ervM2: number; // Loyer de marché estimé au renouvellement (€/m²/an)
   indexation: number; // % annuel d'indexation contractuelle
+  stepRents?: { annee: number; nouveauLoyer: number }[]; // Paliers de loyer (année relative + montant)
   franchiseMois: number; // Mois de franchise (rent-free) à l'entrée
   fitOutContribution: number; // Participation aménagement (€)
   chargesLocataire: number; // Charges refacturées annuelles
@@ -128,12 +129,36 @@ export function calculerDCFLeases(input: DCFLeaseInput): DCFLeaseResult {
     const vacanceLots: string[] = [];
 
     for (const lease of leases) {
-      const bailActif = lease.dateFin >= anneeDebut && lease.dateDebut < anneeFin;
+      // Break option: if the current year is past the break date, the tenant
+      // may exercise the break with probability (100 - probabiliteRenouvellement)/100.
+      // When exercised, the effective end date becomes dateBreak instead of dateFin.
+      let effectiveDateFin = lease.dateFin;
+      if (lease.dateBreak && lease.dateBreak < lease.dateFin && anneeDebut >= lease.dateBreak) {
+        const breakProba = (100 - lease.probabiliteRenouvellement) / 100;
+        if (Math.random() < breakProba) {
+          effectiveDateFin = lease.dateBreak;
+        }
+      }
+
+      const bailActif = effectiveDateFin >= anneeDebut && lease.dateDebut < anneeFin;
 
       if (bailActif) {
         // Loyer indexé
         const anneesDepuisDebut = Math.max(0, monthsBetween(lease.dateDebut, anneeDebut) / 12);
-        const loyerIndexe = lease.loyerAnnuel * Math.pow(1 + lease.indexation / 100, anneesDepuisDebut);
+        let loyerIndexe = lease.loyerAnnuel * Math.pow(1 + lease.indexation / 100, anneesDepuisDebut);
+
+        // Step rents: if the current year matches a step rent year, override with the new amount
+        if (lease.stepRents && lease.stepRents.length > 0) {
+          // Find the most recent step rent that applies (annee is relative year from lease start)
+          const anneeRelative = Math.floor(anneesDepuisDebut) + 1;
+          const applicableSteps = lease.stepRents
+            .filter((sr) => sr.annee <= anneeRelative)
+            .sort((a, b) => b.annee - a.annee);
+          if (applicableSteps.length > 0) {
+            loyerIndexe = applicableSteps[0].nouveauLoyer * Math.pow(1 + lease.indexation / 100, anneesDepuisDebut - (applicableSteps[0].annee - 1));
+          }
+        }
+
         loyers += loyerIndexe;
         chargesRecuperees += lease.chargesLocataire;
 
@@ -144,7 +169,7 @@ export function calculerDCFLeases(input: DCFLeaseInput): DCFLeaseResult {
         }
       } else {
         // Bail expiré — renouvellement ou vacance ?
-        const moisDepuisFin = monthsBetween(lease.dateFin, anneeDebut);
+        const moisDepuisFin = monthsBetween(effectiveDateFin, anneeDebut);
         if (moisDepuisFin >= 0) {
           if (Math.random() * 100 < lease.probabiliteRenouvellement || lease.probabiliteRenouvellement >= 80) {
             // Renouvelé à l'ERV

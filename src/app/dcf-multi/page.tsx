@@ -12,6 +12,7 @@ const EMPTY_LEASE: Omit<Lease, "id"> = {
   loyerAnnuel: 48000,
   dateDebut: "2022-01",
   dateFin: "2028-12",
+  dateBreak: "",
   probabiliteRenouvellement: 70,
   ervM2: 260,
   indexation: 2,
@@ -33,6 +34,11 @@ export default function DCFMulti() {
   const [chargesProprio, setChargesProprio] = useState(12000);
   const [vacanceERV, setVacanceERV] = useState(5);
   const [dateValeur, setDateValeur] = useState("2026-01");
+  // Leveraged IRR
+  const [montantDette, setMontantDette] = useState(0);
+  const [tauxDette, setTauxDette] = useState(3.5);
+  // CAPEX
+  const [capexAnnuel, setCapexAnnuel] = useState(0);
 
   const result = useMemo(() =>
     calculerDCFLeases({
@@ -84,6 +90,11 @@ export default function DCFMulti() {
                 <InputField label="Frais de cession" value={fraisCession} onChange={(v) => setFraisCession(Number(v))} suffix="%" />
                 <InputField label="Charges propriétaire (annuelles)" value={chargesProprio} onChange={(v) => setChargesProprio(Number(v))} suffix="€" />
                 <InputField label="Vacance sur ERV" value={vacanceERV} onChange={(v) => setVacanceERV(Number(v))} suffix="%" />
+                <InputField label="CAPEX annuel" value={capexAnnuel} onChange={(v) => setCapexAnnuel(Number(v))} suffix="€" hint="Gros entretien, rénovations (déduit du NOI)" />
+                <InputField label="Dette (montant emprunté)" value={montantDette} onChange={(v) => setMontantDette(Number(v))} suffix="€" hint="Pour calcul IRR equity (0 = pas de dette)" />
+                {montantDette > 0 && (
+                  <InputField label="Taux de la dette" value={tauxDette} onChange={(v) => setTauxDette(Number(v))} suffix="%" step={0.1} />
+                )}
               </div>
             </div>
 
@@ -121,6 +132,7 @@ export default function DCFMulti() {
                   <InputField label="Loyer annuel" value={lease.loyerAnnuel} onChange={(v) => updateLease(i, "loyerAnnuel", v)} suffix="€" />
                   <InputField label="Début bail" type="text" value={lease.dateDebut} onChange={(v) => updateLease(i, "dateDebut", v)} hint="AAAA-MM" />
                   <InputField label="Fin bail" type="text" value={lease.dateFin} onChange={(v) => updateLease(i, "dateFin", v)} hint="AAAA-MM" />
+                  <InputField label="Option break" type="text" value={lease.dateBreak || ""} onChange={(v) => updateLease(i, "dateBreak", v)} hint="AAAA-MM — sortie anticipée (active dans le DCF)" />
                   <InputField label="Indexation" value={lease.indexation} onChange={(v) => updateLease(i, "indexation", v)} suffix="%/an" step={0.5} />
                   <InputField label="ERV /m²/an" value={lease.ervM2} onChange={(v) => updateLease(i, "ervM2", v)} suffix="€" hint="Loyer marché au renouvellement" />
                   <InputField label="Proba. renouvellement" value={lease.probabiliteRenouvellement} onChange={(v) => updateLease(i, "probabiliteRenouvellement", v)} suffix="%" min={0} max={100} />
@@ -174,7 +186,21 @@ export default function DCFMulti() {
                 { label: `Frais de cession (${fraisCession}%)`, value: `- ${formatEUR(result.fraisCession)}`, sub: true },
                 { label: "Valeur de revente actualisée", value: formatEUR(result.valeurTerminaleActualisee) },
                 { label: "Valeur DCF", value: formatEUR(result.valeurDCF), highlight: true, large: true },
-                { label: "TRI (IRR)", value: `${(result.irr * 100).toFixed(2)} %`, highlight: true },
+                { label: "TRI (IRR) property", value: `${(result.irr * 100).toFixed(2)} %`, highlight: true },
+                ...(montantDette > 0 ? [{
+                  label: "TRI equity (rendement fonds propres)",
+                  value: (() => {
+                    const equity = result.valeurDCF - montantDette;
+                    const serviceDetteAnnuel = montantDette * (tauxDette / 100);
+                    const equityFlows = [-equity, ...result.cashFlows.map((cf) => cf.noi - serviceDetteAnnuel - capexAnnuel)];
+                    equityFlows[equityFlows.length - 1] += result.valeurTerminaleNette - montantDette;
+                    const { calculerIRR } = require("@/lib/valuation");
+                    const equityIrr = calculerIRR(equityFlows);
+                    return `${(equityIrr * 100).toFixed(2)} %`;
+                  })(),
+                  highlight: true,
+                }] : []),
+                ...(capexAnnuel > 0 ? [{ label: "CAPEX annuel déduit", value: formatEUR(capexAnnuel), sub: true }] : []),
               ]}
             />
 

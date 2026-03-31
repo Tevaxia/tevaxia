@@ -1473,6 +1473,128 @@ function TabReconciliation({
         </p>
       </div>
 
+      {/* Tornado / Sensitivity chart */}
+      {resultBase.valeurReconciliee > 0 && (() => {
+        const base = resultBase.valeurReconciliee;
+
+        // Build sensitivity items based on available methods
+        const items: { label: string; description: string; impactPos: number; impactNeg: number }[] = [];
+
+        // ERV +/- 10% => ~10% impact on all methods (weighted by their contribution)
+        items.push({
+          label: "ERV ± 10 %",
+          description: "Loyer de marché estimé (Estimated Rental Value)",
+          impactPos: base * 0.10,
+          impactNeg: -base * 0.10,
+        });
+
+        // Cap rate +/- 50bps => ~10% on capitalisation value (weighted)
+        if (valeurCapitalisation > 0) {
+          const capWeight = poidsCap / (poidsComp + poidsCap + poidsDCF || 1);
+          const capImpact = valeurCapitalisation * 0.10 * capWeight;
+          items.push({
+            label: "Taux de capitalisation ± 50 bps",
+            description: "Variation du rendement locatif",
+            impactPos: capImpact,
+            impactNeg: -capImpact,
+          });
+        }
+
+        // Discount rate +/- 50bps => ~5% on DCF value (weighted)
+        if (valeurDCF > 0) {
+          const dcfWeight = poidsDCF / (poidsComp + poidsCap + poidsDCF || 1);
+          const dcfImpact = valeurDCF * 0.05 * dcfWeight;
+          items.push({
+            label: "Taux d\u2019actualisation ± 50 bps",
+            description: "Co\u00fbt du capital / taux de rendement exig\u00e9",
+            impactPos: dcfImpact,
+            impactNeg: -dcfImpact,
+          });
+        }
+
+        // Vacancy +/- 200bps => ~3% on income methods (capitalisation + DCF weighted)
+        {
+          const incomeWeight = ((valeurCapitalisation > 0 ? poidsCap : 0) + (valeurDCF > 0 ? poidsDCF : 0))
+            / (poidsComp + poidsCap + poidsDCF || 1);
+          if (incomeWeight > 0) {
+            const vacImpact = base * 0.03 * incomeWeight;
+            items.push({
+              label: "Vacance ± 200 bps",
+              description: "Taux d\u2019inoccupation structurelle",
+              impactPos: vacImpact,
+              impactNeg: -vacImpact,
+            });
+          }
+        }
+
+        // Sort by absolute impact (largest first)
+        items.sort((a, b) => Math.abs(b.impactPos) - Math.abs(a.impactPos));
+
+        const maxAbsImpact = Math.max(...items.map((it) => Math.max(Math.abs(it.impactPos), Math.abs(it.impactNeg))));
+
+        return (
+          <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+            <h3 className="text-base font-semibold text-navy mb-1">Analyse de sensibilit\u00e9 \u2014 Variables cl\u00e9s</h3>
+            <p className="text-xs text-muted mb-6">
+              Impact estim\u00e9 sur la valeur r\u00e9concili\u00e9e ({formatEUR(base)}) d\u2019une variation unitaire de chaque param\u00e8tre,
+              toutes choses \u00e9gales par ailleurs. Les barres indiquent l\u2019amplitude de la variation \u00e0 la hausse (vert) et \u00e0 la baisse (rouge).
+            </p>
+            <div className="space-y-4">
+              {items.map((item) => {
+                const pctNeg = maxAbsImpact > 0 ? (Math.abs(item.impactNeg) / maxAbsImpact) * 100 : 0;
+                const pctPos = maxAbsImpact > 0 ? (Math.abs(item.impactPos) / maxAbsImpact) * 100 : 0;
+                return (
+                  <div key={item.label}>
+                    <div className="flex items-center justify-between mb-1">
+                      <div>
+                        <span className="text-sm font-medium text-navy">{item.label}</span>
+                        <span className="ml-2 text-xs text-muted hidden sm:inline">{item.description}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1 h-7">
+                      {/* Negative (left side) */}
+                      <div className="flex-1 flex justify-end">
+                        <div className="text-xs font-mono text-error mr-2 whitespace-nowrap min-w-[90px] text-right">
+                          {formatEUR(item.impactNeg)}
+                        </div>
+                        <div className="relative w-full max-w-[200px] flex justify-end">
+                          <div
+                            className="h-6 rounded-l bg-error/70 transition-all"
+                            style={{ width: `${pctNeg}%`, minWidth: pctNeg > 0 ? "4px" : "0px" }}
+                          />
+                        </div>
+                      </div>
+                      {/* Center line */}
+                      <div className="w-px h-7 bg-navy/30 flex-shrink-0" />
+                      {/* Positive (right side) */}
+                      <div className="flex-1 flex justify-start">
+                        <div className="relative w-full max-w-[200px] flex justify-start">
+                          <div
+                            className="h-6 rounded-r bg-success/70 transition-all"
+                            style={{ width: `${pctPos}%`, minWidth: pctPos > 0 ? "4px" : "0px" }}
+                          />
+                        </div>
+                        <div className="text-xs font-mono text-success ml-2 whitespace-nowrap min-w-[90px]">
+                          +{formatEUR(item.impactPos)}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="mt-5 pt-4 border-t border-card-border/50">
+              <p className="text-xs text-muted leading-relaxed">
+                <strong>Note :</strong> Ces sensibilit\u00e9s sont des estimations simplifi\u00e9es. Le taux de capitalisation \u00b150 bps
+                impacte \u2248 \u00b110 % la valeur par capitalisation ; le taux d\u2019actualisation \u00b150 bps impacte \u2248 \u00b15 % la valeur DCF ;
+                l\u2019ERV \u00b110 % impacte \u2248 \u00b110 % toutes les m\u00e9thodes ; la vacance \u00b1200 bps impacte \u2248 \u00b13 % les m\u00e9thodes
+                par revenus. L\u2019impact r\u00e9el d\u00e9pend des pond\u00e9rations et de la structure du bien.
+              </p>
+            </div>
+          </div>
+        );
+      })()}
+
       {/* Texte narratif */}
       {(valeurComparaison > 0 || valeurCapitalisation > 0 || valeurDCF > 0) && (
         <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
