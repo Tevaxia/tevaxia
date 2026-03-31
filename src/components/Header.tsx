@@ -18,34 +18,35 @@ interface MenuGroup {
 
 const MENU_GROUPS: MenuGroup[] = [
   {
-    key: "estimer",
+    key: "particuliers",
     items: [
       { href: "/estimation", key: "estimation" },
-      { href: "/hedonique", key: "hedonique" },
       { href: "/carte", key: "carte" },
-    ],
-  },
-  {
-    key: "calculer",
-    items: [
-      { href: "/calculateur-loyer", key: "loyer" },
       { href: "/frais-acquisition", key: "frais" },
-      { href: "/plus-values", key: "plusValues" },
+      { href: "/calculateur-loyer", key: "loyer" },
       { href: "/simulateur-aides", key: "aides" },
-      { href: "/vefa", key: "vefa" },
-      { href: "/outils-bancaires", key: "bancaire" },
+      { href: "/plus-values", key: "plusValues" },
       { href: "/achat-vs-location", key: "achatLocation" },
-      { href: "/aml-kyc", key: "amlKyc" },
-      { href: "/pag-pap", key: "pagPap" },
+      { href: "/vefa", key: "vefa" },
     ],
   },
   {
-    key: "evaluer",
+    key: "professionnels",
     items: [
       { href: "/valorisation", key: "valorisation" },
+      { href: "/hedonique", key: "hedonique" },
       { href: "/dcf-multi", key: "dcfMulti" },
+      { href: "/outils-bancaires", key: "bancaire" },
       { href: "/bilan-promoteur", key: "bilanPromoteur" },
       { href: "/portfolio", key: "portfolio" },
+      { href: "/aml-kyc", key: "amlKyc" },
+    ],
+  },
+  {
+    key: "donnees",
+    items: [
+      { href: "/marche", key: "marche" },
+      { href: "/pag-pap", key: "pagPap" },
     ],
   },
 ];
