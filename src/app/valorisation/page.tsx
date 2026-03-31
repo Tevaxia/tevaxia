@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import InputField from "@/components/InputField";
 import ToggleField from "@/components/ToggleField";
 import ResultPanel from "@/components/ResultPanel";
@@ -80,6 +80,25 @@ function TabComparaison({
   comparables: Comparable[];
   setComparables: React.Dispatch<React.SetStateAction<Comparable[]>>;
 }) {
+
+  // Auto-suggest comparables when commune is selected and none exist
+  useEffect(() => {
+    if (selectedCommune && comparables.length === 0) {
+      const suggested = suggestComparables(selectedCommune.commune, 4);
+      if (suggested.length > 0) {
+        setComparables(suggested.map((s, i) => ({
+          id: String(Date.now() + i),
+          adresse: s.source,
+          prixVente: s.prixM2 * surfaceBien,
+          surface: surfaceBien,
+          dateVente: "2025-01",
+          ajustLocalisation: 0, ajustEtat: 0, ajustEtage: 0, ajustExterieur: 0,
+          ajustParking: 0, ajustDate: 0, ajustAutre: 0,
+          poids: Math.round(100 / suggested.length),
+        })));
+      }
+    }
+  }, [selectedCommune]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const result = useMemo(() => {
     if (comparables.length === 0) {
