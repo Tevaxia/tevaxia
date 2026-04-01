@@ -18,7 +18,8 @@ public class CorsConfig {
                 "http://localhost:*",
                 "https://tevaxia.lu",
                 "https://*.tevaxia.lu",
-                "https://energy.tevaxia.lu"
+                "https://energy.tevaxia.lu",
+                "https://*.onrender.com"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
