@@ -65,7 +65,7 @@ export default function EnergyFooter() {
         </div>
 
         <div className="mt-8 border-t border-white/10 pt-6 text-center text-xs text-white/30">
-          energy.tevaxia.eu — {tc("disclaimer")}
+          energy.tevaxia.lu — {tc("disclaimer")}
         </div>
       </div>
     </footer>

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const ENERGY_HOST = "energy.tevaxia.eu";
+const ENERGY_HOST = "energy.tevaxia.lu";
 
 export function proxy(request: NextRequest) {
   const host = request.headers.get("host")?.replace(/:\d+$/, "") || "";

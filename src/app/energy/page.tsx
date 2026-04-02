@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
-  title: "energy.tevaxia.eu — Simulateurs Énergie Immobilier Luxembourg",
+  title: "energy.tevaxia.lu — Simulateurs Énergie Immobilier Luxembourg",
 };
 
 const SIMULATORS = [
@@ -54,7 +54,7 @@ export default async function EnergyHomePage() {
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
             </svg>
-            energy.tevaxia.eu
+            energy.tevaxia.lu
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
             {t("heroTitle")}
