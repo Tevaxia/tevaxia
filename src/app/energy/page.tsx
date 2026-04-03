@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const SIMULATORS = [
   {
-    href: "/energy/impact",
+    href: "/impact",
     titleKey: "impactTitle" as const,
     descKey: "impactDesc" as const,
     icon: (
@@ -19,7 +19,7 @@ const SIMULATORS = [
     color: "from-emerald-600 to-green-500",
   },
   {
-    href: "/energy/renovation",
+    href: "/renovation",
     titleKey: "renovationTitle" as const,
     descKey: "renovationDesc" as const,
     icon: (
@@ -30,7 +30,7 @@ const SIMULATORS = [
     color: "from-teal to-teal-light",
   },
   {
-    href: "/energy/communaute",
+    href: "/communaute",
     titleKey: "communauteTitle" as const,
     descKey: "communauteDesc" as const,
     icon: (

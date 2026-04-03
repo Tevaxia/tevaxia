@@ -6,9 +6,9 @@ import { useTranslations } from "next-intl";
 import LanguageSwitcher from "../LanguageSwitcher";
 
 const NAV_ITEMS = [
-  { href: "/energy/impact", key: "impact" },
-  { href: "/energy/renovation", key: "renovation" },
-  { href: "/energy/communaute", key: "communaute" },
+  { href: "/impact", key: "impact" },
+  { href: "/renovation", key: "renovation" },
+  { href: "/communaute", key: "communaute" },
 ];
 
 export default function EnergyHeader() {
@@ -19,7 +19,7 @@ export default function EnergyHeader() {
     <header className="sticky top-0 z-50 bg-navy text-white shadow-lg">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/energy" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-energy text-white font-bold text-lg">
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
