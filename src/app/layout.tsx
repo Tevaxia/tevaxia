@@ -8,7 +8,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import AuthProvider from "@/components/AuthProvider";
-import HreflangTags from "@/components/HreflangTags";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,34 +19,54 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "tevaxia.lu — Outils Immobiliers Luxembourg",
-    template: "%s | tevaxia.lu",
-  },
-  description:
-    "Plateforme de référence pour l'immobilier au Luxembourg. Calculateurs de loyer, frais d'acquisition, plus-values, aides étatiques, outils bancaires.",
-  openGraph: {
-    title: "tevaxia.lu — Outils Immobiliers Luxembourg",
-    description: "Outils de calcul immobilier pour le Luxembourg. Estimation, frais, plus-values, aides, valorisation EVS 2025, DCF, MLV/CRR.",
-    url: "https://tevaxia.lu",
-    siteName: "tevaxia.lu",
-    locale: "fr_LU",
-    type: "website",
-    images: [{
-      url: "https://tevaxia.lu/og-image.png",
-      width: 1200,
-      height: 630,
-      alt: "tevaxia.lu — Outils immobiliers Luxembourg",
-    }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "tevaxia.lu — Outils Immobiliers Luxembourg",
-    description: "Outils de calcul immobilier pour le Luxembourg.",
-    images: ["https://tevaxia.lu/og-image.png"],
-  },
-};
+const BASE = "https://tevaxia.lu";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const h = await headers();
+  const url = h.get("x-url") || "/";
+  const isEN = url === "/en" || url.startsWith("/en/");
+  const pathWithoutLocale = isEN ? url.replace(/^\/en/, "") || "/" : url;
+  const frUrl = `${BASE}${pathWithoutLocale}`;
+  const enUrl = `${BASE}/en${pathWithoutLocale === "/" ? "" : pathWithoutLocale}`;
+  const canonical = isEN ? enUrl : frUrl;
+
+  return {
+    title: {
+      default: "tevaxia.lu — Outils Immobiliers Luxembourg",
+      template: "%s | tevaxia.lu",
+    },
+    description:
+      "Plateforme de référence pour l'immobilier au Luxembourg. Calculateurs de loyer, frais d'acquisition, plus-values, aides étatiques, outils bancaires.",
+    alternates: {
+      canonical,
+      languages: {
+        fr: frUrl,
+        en: enUrl,
+        "x-default": frUrl,
+      },
+    },
+    openGraph: {
+      title: "tevaxia.lu — Outils Immobiliers Luxembourg",
+      description: "Outils de calcul immobilier pour le Luxembourg. Estimation, frais, plus-values, aides, valorisation EVS 2025, DCF, MLV/CRR.",
+      url: canonical,
+      siteName: "tevaxia.lu",
+      locale: isEN ? "en_GB" : "fr_LU",
+      type: "website",
+      images: [{
+        url: "https://tevaxia.lu/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "tevaxia.lu — Outils immobiliers Luxembourg",
+      }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "tevaxia.lu — Outils Immobiliers Luxembourg",
+      description: "Outils de calcul immobilier pour le Luxembourg.",
+      images: ["https://tevaxia.lu/og-image.png"],
+    },
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -70,7 +89,6 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        <HreflangTags />
         <script
           dangerouslySetInnerHTML={{
             __html: `

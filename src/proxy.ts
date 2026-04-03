@@ -2,12 +2,25 @@ import { NextRequest, NextResponse } from "next/server";
 
 const ENERGY_HOST = "energy.tevaxia.lu";
 
+function getHost(request: NextRequest): string {
+  return (
+    request.headers.get("x-forwarded-host")?.split(",")[0]?.trim() ||
+    request.headers.get("host") ||
+    request.nextUrl.hostname ||
+    ""
+  ).replace(/:\d+$/, "");
+}
+
+function isEnergyHost(host: string): boolean {
+  return host === ENERGY_HOST || host === "energy.localhost";
+}
+
 export function proxy(request: NextRequest) {
-  const host = request.headers.get("host")?.replace(/:\d+$/, "") || "";
+  const host = getHost(request);
   const { pathname } = request.nextUrl;
 
   // Sous-domaine energy : réécrire vers /energy/...
-  if (host === ENERGY_HOST || host === "energy.localhost") {
+  if (isEnergyHost(host)) {
     // Déjà sous /energy → on laisse passer
     if (!pathname.startsWith("/energy") && !pathname.startsWith("/en/energy")) {
       const locale = pathname.startsWith("/en") ? "/en" : "";
@@ -20,14 +33,15 @@ export function proxy(request: NextRequest) {
       response.headers.set("x-energy-subdomain", "1");
       return response;
     }
+
+    const response = NextResponse.next();
+    response.headers.set("x-url", pathname);
+    response.headers.set("x-energy-subdomain", "1");
+    return response;
   }
 
   const response = NextResponse.next();
-  // Pass the URL to the i18n request config
   response.headers.set("x-url", pathname);
-  if (host === ENERGY_HOST || host === "energy.localhost") {
-    response.headers.set("x-energy-subdomain", "1");
-  }
   return response;
 }
 
