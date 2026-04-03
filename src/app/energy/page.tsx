@@ -50,12 +50,6 @@ export default async function EnergyHomePage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-navy via-navy-dark to-navy py-16 sm:py-24 text-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-energy/20 border border-energy/30 px-4 py-1.5 text-sm text-energy-light mb-6">
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-            </svg>
-            energy.tevaxia.lu
-          </div>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
             {t("heroTitle")}
             <br />
