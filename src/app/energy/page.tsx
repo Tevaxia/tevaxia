@@ -99,15 +99,15 @@ export default async function EnergyHomePage() {
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-xl font-semibold text-foreground mb-4">{t("whyTitle")}</h2>
           <p className="text-muted leading-relaxed">
-            {t("whyDesc", { pct: "15%" })}
+            {t("whyDesc", { pct: "33%" })}
           </p>
           <div className="mt-8 grid grid-cols-3 gap-4 text-center">
             <div>
-              <div className="text-2xl font-bold text-energy">+15%</div>
+              <div className="text-2xl font-bold text-energy">+33%</div>
               <div className="text-xs text-muted mt-1">{t("statEcart")}</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-energy">50%</div>
+              <div className="text-2xl font-bold text-energy">62,5%</div>
               <div className="text-xs text-muted mt-1">{t("statKlimabonus")}</div>
             </div>
             <div>
