@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const CLASSES = ["A", "B", "C", "D", "E", "F", "G", "H", "I"] as const;
 type EnergyClass = (typeof CLASSES)[number];
@@ -21,8 +22,8 @@ const CLASS_COLORS: Record<string, string> = {
 /* ── EPBD milestones ── */
 interface Milestone {
   year: number;
-  label: string;
-  detail: string;
+  labelKey: string;
+  detailKey: string;
   /** Classes affected (red highlight when user selects one of these) */
   affectedClasses: EnergyClass[];
 }
@@ -30,62 +31,59 @@ interface Milestone {
 const MILESTONES: Milestone[] = [
   {
     year: 2026,
-    label: "Transposition directive EPBD",
-    detail: "Échéance : 29 mai 2026. Chaque État membre transpose la directive en droit national.",
+    labelKey: "milestone2026Label",
+    detailKey: "milestone2026Detail",
     affectedClasses: ["A", "B", "C", "D", "E", "F", "G", "H", "I"],
   },
   {
     year: 2028,
-    label: "Bâtiments publics neufs → zéro émission",
-    detail: "Tous les nouveaux bâtiments publics doivent être à zéro émission à partir de 2028.",
+    labelKey: "milestone2028Label",
+    detailKey: "milestone2028Detail",
     affectedClasses: [],
   },
   {
     year: 2030,
-    label: "Réduction 16 % — worst performers résidentiels",
-    detail:
-      "Réduction de 16 % de la consommation d'énergie primaire des bâtiments résidentiels les moins performants. Les classes G-I sont directement visées.",
+    labelKey: "milestone2030Label",
+    detailKey: "milestone2030Detail",
     affectedClasses: ["G", "H", "I"],
   },
   {
     year: 2033,
-    label: "Réduction 26 % — worst performers résidentiels",
-    detail:
-      "Réduction de 26 % de la consommation d'énergie primaire. Les classes E-I devront avoir fait l'objet de rénovations significatives.",
+    labelKey: "milestone2033Label",
+    detailKey: "milestone2033Detail",
     affectedClasses: ["E", "F", "G", "H", "I"],
   },
   {
     year: 2035,
-    label: "Tous bâtiments neufs → zéro émission",
-    detail: "Obligation d'émission nulle pour l'ensemble des bâtiments neufs (publics et privés).",
+    labelKey: "milestone2035Label",
+    detailKey: "milestone2035Detail",
     affectedClasses: [],
   },
   {
     year: 2040,
-    label: "Fin des chaudières fossiles",
-    detail:
-      "Interdiction totale des chaudières à combustibles fossiles (gaz, mazout). Les bâtiments encore dépendants seront fortement dévalorisés.",
+    labelKey: "milestone2040Label",
+    detailKey: "milestone2040Detail",
     affectedClasses: ["D", "E", "F", "G", "H", "I"],
   },
   {
     year: 2050,
-    label: "Parc immobilier zéro émission",
-    detail: "Objectif : l'ensemble du parc immobilier européen atteint zéro émission nette.",
+    labelKey: "milestone2050Label",
+    detailKey: "milestone2050Detail",
     affectedClasses: ["D", "E", "F", "G", "H", "I"],
   },
 ];
 
 /* ── Stranding risk profiles ── */
 interface RiskProfile {
-  level: string;
+  levelKey: string;
   color: string;
   bgColor: string;
   borderColor: string;
   textColor: string;
-  description: string;
-  nonComplianceYear: string;
-  actions: string[];
-  valueImpact: string;
+  descriptionKey: string;
+  nonComplianceYearKey: string;
+  actionKeys: string[];
+  valueImpactKey: string;
 }
 
 function getRiskProfile(classe: EnergyClass): RiskProfile {
@@ -93,90 +91,171 @@ function getRiskProfile(classe: EnergyClass): RiskProfile {
   if (idx <= 2) {
     // A-C
     return {
-      level: "Risque faible",
+      levelKey: "riskLow.level",
       color: "text-green-700",
       bgColor: "bg-green-50",
       borderColor: "border-green-200",
       textColor: "text-green-600",
-      description:
-        "Votre bien est conforme aux objectifs 2050. Aucune obligation de rénovation prévue par la directive EPBD. Valeur préservée voire bonifiée (green premium).",
-      nonComplianceYear: "Aucune échéance contraignante",
-      actions: [
-        "Maintenir les performances actuelles (entretien courant)",
-        "Envisager des améliorations ponctuelles pour maximiser le green premium",
-        "Surveiller l'évolution des standards zéro émission",
+      descriptionKey: "riskLow.description",
+      nonComplianceYearKey: "riskLow.nonComplianceYear",
+      actionKeys: [
+        "riskLow.action1",
+        "riskLow.action2",
+        "riskLow.action3",
       ],
-      valueImpact:
-        "Stable à positif. Les classes A-C bénéficient d'une prime verte croissante à mesure que la réglementation se durcit (+2 à +8 % de valeur par rapport à la classe D).",
+      valueImpactKey: "riskLow.valueImpact",
     };
   }
   if (idx === 3) {
     // D
     return {
-      level: "Risque modéré",
+      levelKey: "riskModerate.level",
       color: "text-yellow-700",
       bgColor: "bg-yellow-50",
       borderColor: "border-yellow-200",
       textColor: "text-yellow-600",
-      description:
-        "Classe D : votre bien n'est pas considéré comme « worst performer », mais l'interdiction des chaudières fossiles (2040) et l'objectif zéro émission (2050) vous concernent. Rénovation recommandée avant 2035.",
-      nonComplianceYear: "2040 (fin chaudières fossiles) — 2050 (zéro émission)",
-      actions: [
-        "Planifier une rénovation vers la classe B ou A avant 2035",
-        "Remplacer la chaudière fossile par une pompe à chaleur",
-        "Profiter du Klimabonus tant que les aides sont disponibles",
-        "Anticiper la décote croissante des classes moyennes",
+      descriptionKey: "riskModerate.description",
+      nonComplianceYearKey: "riskModerate.nonComplianceYear",
+      actionKeys: [
+        "riskModerate.action1",
+        "riskModerate.action2",
+        "riskModerate.action3",
+        "riskModerate.action4",
       ],
-      valueImpact:
-        "Décote progressive attendue. D'ici 2030, la classe D pourrait perdre 3 à 5 % de valeur relative. D'ici 2040, la décote pourrait atteindre 8 à 12 % si aucune rénovation n'est entreprise.",
+      valueImpactKey: "riskModerate.valueImpact",
     };
   }
   if (idx <= 5) {
     // E-F
     return {
-      level: "Risque élevé",
+      levelKey: "riskHigh.level",
       color: "text-orange-700",
       bgColor: "bg-orange-50",
       borderColor: "border-orange-200",
       textColor: "text-orange-600",
-      description:
-        "Classes E-F : votre bien est directement affecté par les objectifs de réduction 2030-2033. La directive EPBD cible les bâtiments les moins performants en priorité. Risque de non-conformité réglementaire et de décote significative.",
-      nonComplianceYear: "2033 (réduction 26 % worst performers)",
-      actions: [
-        "Engager une rénovation énergétique profonde rapidement",
-        "Viser au minimum la classe C, idéalement B ou A",
-        "Solliciter un audit énergétique complet",
-        "Maximiser les aides Klimabonus (taux majorés pour sauts importants)",
-        "Anticiper l'interdiction des chaudières fossiles (2040)",
+      descriptionKey: "riskHigh.description",
+      nonComplianceYearKey: "riskHigh.nonComplianceYear",
+      actionKeys: [
+        "riskHigh.action1",
+        "riskHigh.action2",
+        "riskHigh.action3",
+        "riskHigh.action4",
+        "riskHigh.action5",
       ],
-      valueImpact:
-        "Décote significative. Les classes E-F subissent déjà un brown discount de -3 à -7 %. D'ici 2033, la décote pourrait atteindre -10 à -18 % en l'absence de rénovation. Risque de stranding (bien invendable ou inlouable).",
+      valueImpactKey: "riskHigh.valueImpact",
     };
   }
   // G-I
   return {
-    level: "Risque critique",
+    levelKey: "riskCritical.level",
     color: "text-red-700",
     bgColor: "bg-red-50",
     borderColor: "border-red-200",
     textColor: "text-red-600",
-    description:
-      "Classes G-I : votre bien est classé « worst performer ». Il est impacté dès 2030 par les premières obligations de réduction (-16 %). La décote est déjà visible sur le marché et va s'accélérer considérablement.",
-    nonComplianceYear: "2030 (réduction 16 % — première échéance)",
-    actions: [
-      "Rénovation énergétique profonde URGENTE — chaque année d'attente augmente la décote",
-      "Viser la classe B ou A pour maximiser le retour sur investissement",
-      "Faire réaliser un audit énergétique immédiatement",
-      "Utiliser le Klimabonus : un saut de 4 classes ou plus = 62,5 % des travaux subventionnés",
-      "Envisager le Klimaprêt à taux préférentiel (1,5 %)",
-      "En cas de vente : anticiper une négociation très agressive des acheteurs",
+    descriptionKey: "riskCritical.description",
+    nonComplianceYearKey: "riskCritical.nonComplianceYear",
+    actionKeys: [
+      "riskCritical.action1",
+      "riskCritical.action2",
+      "riskCritical.action3",
+      "riskCritical.action4",
+      "riskCritical.action5",
+      "riskCritical.action6",
     ],
-    valueImpact:
-      "Décote critique et croissante. Brown discount actuel de -12 à -25 %. D'ici 2030, la décote pourrait dépasser -30 %. Risque majeur de stranding : bien potentiellement invendable au prix du marché, ou uniquement à prix « terrain ».",
+    valueImpactKey: "riskCritical.valueImpact",
   };
 }
 
+/* ── Projection labels ── */
+const PROJECTION_LABEL_KEYS = {
+  transposition: "projection.transposition",
+  target16: "projection.target16",
+  target26: "projection.target26",
+  fossilEnd: "projection.fossilEnd",
+  zeroEmission: "projection.zeroEmission",
+} as const;
+
+interface ProjectionRow {
+  year: number;
+  labelKey: string;
+  decotePct: number;
+}
+
+function getProjectionData(classe: EnergyClass): ProjectionRow[] {
+  const idx = CLASSES.indexOf(classe);
+  if (idx <= 2) {
+    // A-C: no brown discount, slight green premium
+    const premium = idx === 0 ? 8 : idx === 1 ? 5 : 2;
+    return [
+      { year: 2026, labelKey: PROJECTION_LABEL_KEYS.transposition, decotePct: premium },
+      { year: 2030, labelKey: PROJECTION_LABEL_KEYS.target16, decotePct: premium + 1 },
+      { year: 2033, labelKey: PROJECTION_LABEL_KEYS.target26, decotePct: premium + 2 },
+      { year: 2040, labelKey: PROJECTION_LABEL_KEYS.fossilEnd, decotePct: premium + 3 },
+      { year: 2050, labelKey: PROJECTION_LABEL_KEYS.zeroEmission, decotePct: premium + 4 },
+    ];
+  }
+  if (idx === 3) {
+    // D
+    return [
+      { year: 2026, labelKey: PROJECTION_LABEL_KEYS.transposition, decotePct: 0 },
+      { year: 2030, labelKey: PROJECTION_LABEL_KEYS.target16, decotePct: -3 },
+      { year: 2033, labelKey: PROJECTION_LABEL_KEYS.target26, decotePct: -5 },
+      { year: 2040, labelKey: PROJECTION_LABEL_KEYS.fossilEnd, decotePct: -10 },
+      { year: 2050, labelKey: PROJECTION_LABEL_KEYS.zeroEmission, decotePct: -15 },
+    ];
+  }
+  if (idx === 4) {
+    // E
+    return [
+      { year: 2026, labelKey: PROJECTION_LABEL_KEYS.transposition, decotePct: -3 },
+      { year: 2030, labelKey: PROJECTION_LABEL_KEYS.target16, decotePct: -7 },
+      { year: 2033, labelKey: PROJECTION_LABEL_KEYS.target26, decotePct: -12 },
+      { year: 2040, labelKey: PROJECTION_LABEL_KEYS.fossilEnd, decotePct: -18 },
+      { year: 2050, labelKey: PROJECTION_LABEL_KEYS.zeroEmission, decotePct: -25 },
+    ];
+  }
+  if (idx === 5) {
+    // F
+    return [
+      { year: 2026, labelKey: PROJECTION_LABEL_KEYS.transposition, decotePct: -7 },
+      { year: 2030, labelKey: PROJECTION_LABEL_KEYS.target16, decotePct: -12 },
+      { year: 2033, labelKey: PROJECTION_LABEL_KEYS.target26, decotePct: -18 },
+      { year: 2040, labelKey: PROJECTION_LABEL_KEYS.fossilEnd, decotePct: -25 },
+      { year: 2050, labelKey: PROJECTION_LABEL_KEYS.zeroEmission, decotePct: -32 },
+    ];
+  }
+  if (idx === 6) {
+    // G
+    return [
+      { year: 2026, labelKey: PROJECTION_LABEL_KEYS.transposition, decotePct: -12 },
+      { year: 2030, labelKey: PROJECTION_LABEL_KEYS.target16, decotePct: -20 },
+      { year: 2033, labelKey: PROJECTION_LABEL_KEYS.target26, decotePct: -28 },
+      { year: 2040, labelKey: PROJECTION_LABEL_KEYS.fossilEnd, decotePct: -35 },
+      { year: 2050, labelKey: PROJECTION_LABEL_KEYS.zeroEmission, decotePct: -40 },
+    ];
+  }
+  if (idx === 7) {
+    // H
+    return [
+      { year: 2026, labelKey: PROJECTION_LABEL_KEYS.transposition, decotePct: -18 },
+      { year: 2030, labelKey: PROJECTION_LABEL_KEYS.target16, decotePct: -26 },
+      { year: 2033, labelKey: PROJECTION_LABEL_KEYS.target26, decotePct: -33 },
+      { year: 2040, labelKey: PROJECTION_LABEL_KEYS.fossilEnd, decotePct: -40 },
+      { year: 2050, labelKey: PROJECTION_LABEL_KEYS.zeroEmission, decotePct: -45 },
+    ];
+  }
+  // I
+  return [
+    { year: 2026, labelKey: PROJECTION_LABEL_KEYS.transposition, decotePct: -25 },
+    { year: 2030, labelKey: PROJECTION_LABEL_KEYS.target16, decotePct: -32 },
+    { year: 2033, labelKey: PROJECTION_LABEL_KEYS.target26, decotePct: -38 },
+    { year: 2040, labelKey: PROJECTION_LABEL_KEYS.fossilEnd, decotePct: -45 },
+    { year: 2050, labelKey: PROJECTION_LABEL_KEYS.zeroEmission, decotePct: -50 },
+  ];
+}
+
 export default function EPBDPage() {
+  const t = useTranslations("energy.epbd");
   const [selectedClass, setSelectedClass] = useState<EnergyClass>("F");
   const risk = getRiskProfile(selectedClass);
 
@@ -186,22 +265,17 @@ export default function EPBDPage() {
         {/* ── Title + description ── */}
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
-            Directive EPBD — Chronologie et risque de stranding
+            {t("title")}
           </h1>
           <p className="mt-2 text-muted">
-            La directive européenne sur la performance énergétique des bâtiments
-            (EPBD recast 2024) impose un calendrier de décarbonation du parc
-            immobilier. Sélectionnez la classe énergétique de votre bien pour
-            visualiser les échéances qui vous concernent et évaluer votre risque
-            de stranding (perte de valeur liée à la non-conformité
-            réglementaire).
+            {t("description")}
           </p>
         </div>
 
         {/* ── Energy class selector ── */}
         <div className="rounded-2xl border border-card-border bg-card p-6 shadow-sm mb-8">
           <label className="block text-sm font-medium text-foreground mb-1.5">
-            Classe énergétique actuelle de votre bien
+            {t("selectorLabel")}
           </label>
           <div className="flex gap-1.5">
             {CLASSES.map((c) => (
@@ -229,10 +303,10 @@ export default function EPBDPage() {
           >
             <div>
               <h2 className="font-semibold text-foreground">
-                Risque de stranding — Classe {selectedClass}
+                {t("riskTitle", { classe: selectedClass })}
               </h2>
               <p className={`text-sm font-bold mt-0.5 ${risk.color}`}>
-                {risk.level}
+                {t(risk.levelKey)}
               </p>
             </div>
             <span
@@ -243,30 +317,30 @@ export default function EPBDPage() {
           </div>
           <div className="p-6 space-y-4">
             <p className="text-sm text-foreground leading-relaxed">
-              {risk.description}
+              {t(risk.descriptionKey)}
             </p>
 
             <div>
               <div className="text-xs text-muted uppercase tracking-wider mb-1">
-                Échéance de non-conformité estimée
+                {t("nonComplianceLabel")}
               </div>
               <div className={`text-sm font-semibold ${risk.color}`}>
-                {risk.nonComplianceYear}
+                {t(risk.nonComplianceYearKey)}
               </div>
             </div>
 
             <div>
               <div className="text-xs text-muted uppercase tracking-wider mb-2">
-                Actions recommandées
+                {t("actionsLabel")}
               </div>
               <ul className="space-y-1.5">
-                {risk.actions.map((action, i) => (
+                {risk.actionKeys.map((actionKey, i) => (
                   <li
                     key={i}
                     className="flex items-start gap-2 text-sm text-foreground"
                   >
                     <span className={`mt-1.5 h-1.5 w-1.5 rounded-full shrink-0 ${risk.textColor} bg-current`} />
-                    {action}
+                    {t(actionKey)}
                   </li>
                 ))}
               </ul>
@@ -274,10 +348,10 @@ export default function EPBDPage() {
 
             <div>
               <div className="text-xs text-muted uppercase tracking-wider mb-1">
-                Impact estimé sur la valeur
+                {t("valueImpactLabel")}
               </div>
               <p className="text-sm text-foreground leading-relaxed">
-                {risk.valueImpact}
+                {t(risk.valueImpactKey)}
               </p>
             </div>
           </div>
@@ -287,11 +361,10 @@ export default function EPBDPage() {
         <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden mb-8">
           <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
             <h2 className="font-semibold text-foreground">
-              Chronologie EPBD — Échéances clés
+              {t("timelineTitle")}
             </h2>
             <p className="text-xs text-muted mt-0.5">
-              Les jalons en rouge sont ceux qui concernent la classe{" "}
-              {selectedClass}
+              {t("timelineSubtitle", { classe: selectedClass })}
             </p>
           </div>
           <div className="p-6">
@@ -331,11 +404,11 @@ export default function EPBDPage() {
                               isAffected ? "text-red-800" : "text-foreground"
                             }`}
                           >
-                            {m.label}
+                            {t(m.labelKey)}
                           </h3>
                           {isAffected && (
                             <span className="shrink-0 text-xs bg-red-600 text-white rounded-full px-2 py-0.5">
-                              Vous concerne
+                              {t("affectsYou")}
                             </span>
                           )}
                         </div>
@@ -344,12 +417,12 @@ export default function EPBDPage() {
                             isAffected ? "text-red-700" : "text-muted"
                           }`}
                         >
-                          {m.detail}
+                          {t(m.detailKey)}
                         </p>
                         {isAffected && m.affectedClasses.length > 0 && m.affectedClasses.length < CLASSES.length && (
                           <div className="mt-2 flex items-center gap-1.5">
                             <span className="text-xs text-red-600">
-                              Classes concernées :
+                              {t("affectedClasses")}
                             </span>
                             {m.affectedClasses.map((ac) => (
                               <span
@@ -378,28 +451,27 @@ export default function EPBDPage() {
         <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden mb-8">
           <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
             <h2 className="font-semibold text-foreground">
-              Projection de la décote — Classe {selectedClass}
+              {t("projectionTitle", { classe: selectedClass })}
             </h2>
           </div>
           <div className="p-6">
-            <ValueProjection selectedClass={selectedClass} />
+            <ValueProjection selectedClass={selectedClass} t={t} />
           </div>
         </div>
 
         {/* ── Link to renovation simulator ── */}
         <div className="rounded-2xl border border-energy/30 bg-energy/5 p-6 text-center">
           <h3 className="font-semibold text-foreground text-lg">
-            Planifiez votre rénovation
+            {t("renovationCta")}
           </h3>
           <p className="mt-1 text-sm text-muted">
-            Estimez le coût, les aides (Klimabonus, Klimaprêt) et le retour sur
-            investissement d'une rénovation énergétique.
+            {t("renovationCtaDescription")}
           </p>
           <Link
             href={`/energy/renovation?classe=${selectedClass}`}
             className="mt-4 inline-flex items-center gap-2 rounded-xl bg-energy px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-energy/90"
           >
-            Simuler ma rénovation depuis la classe {selectedClass}
+            {t("renovationCtaButton", { classe: selectedClass })}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"
@@ -420,23 +492,13 @@ export default function EPBDPage() {
         {/* ── Sources ── */}
         <div className="mt-6 rounded-xl border border-card-border bg-gray-50 px-6 py-4">
           <h3 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2">
-            Sources
+            {t("sourcesTitle")}
           </h3>
           <ul className="space-y-0.5 text-xs text-muted">
-            <li>
-              Directive (UE) 2024/1275 du 24 avril 2024 sur la performance
-              énergétique des bâtiments (refonte)
-            </li>
-            <li>
-              Journal officiel de l'Union européenne, L 2024/1275, 8 mai 2024
-            </li>
-            <li>
-              Commission européenne — Fit for 55, Renovation Wave Strategy
-            </li>
-            <li>
-              Ministère de l'Énergie et de l'Aménagement du territoire,
-              Luxembourg
-            </li>
+            <li>{t("source1")}</li>
+            <li>{t("source2")}</li>
+            <li>{t("source3")}</li>
+            <li>{t("source4")}</li>
           </ul>
         </div>
       </div>
@@ -446,86 +508,13 @@ export default function EPBDPage() {
 
 /* ── Value projection sub-component ── */
 
-interface ProjectionRow {
-  year: number;
-  label: string;
-  decotePct: number;
-}
-
-function getProjectionData(classe: EnergyClass): ProjectionRow[] {
-  const idx = CLASSES.indexOf(classe);
-  if (idx <= 2) {
-    // A-C: no brown discount, slight green premium
-    const premium = idx === 0 ? 8 : idx === 1 ? 5 : 2;
-    return [
-      { year: 2026, label: "Transposition EPBD", decotePct: premium },
-      { year: 2030, label: "Objectif -16 %", decotePct: premium + 1 },
-      { year: 2033, label: "Objectif -26 %", decotePct: premium + 2 },
-      { year: 2040, label: "Fin chaudières fossiles", decotePct: premium + 3 },
-      { year: 2050, label: "Parc zéro émission", decotePct: premium + 4 },
-    ];
-  }
-  if (idx === 3) {
-    // D
-    return [
-      { year: 2026, label: "Transposition EPBD", decotePct: 0 },
-      { year: 2030, label: "Objectif -16 %", decotePct: -3 },
-      { year: 2033, label: "Objectif -26 %", decotePct: -5 },
-      { year: 2040, label: "Fin chaudières fossiles", decotePct: -10 },
-      { year: 2050, label: "Parc zéro émission", decotePct: -15 },
-    ];
-  }
-  if (idx === 4) {
-    // E
-    return [
-      { year: 2026, label: "Transposition EPBD", decotePct: -3 },
-      { year: 2030, label: "Objectif -16 %", decotePct: -7 },
-      { year: 2033, label: "Objectif -26 %", decotePct: -12 },
-      { year: 2040, label: "Fin chaudières fossiles", decotePct: -18 },
-      { year: 2050, label: "Parc zéro émission", decotePct: -25 },
-    ];
-  }
-  if (idx === 5) {
-    // F
-    return [
-      { year: 2026, label: "Transposition EPBD", decotePct: -7 },
-      { year: 2030, label: "Objectif -16 %", decotePct: -12 },
-      { year: 2033, label: "Objectif -26 %", decotePct: -18 },
-      { year: 2040, label: "Fin chaudières fossiles", decotePct: -25 },
-      { year: 2050, label: "Parc zéro émission", decotePct: -32 },
-    ];
-  }
-  if (idx === 6) {
-    // G
-    return [
-      { year: 2026, label: "Transposition EPBD", decotePct: -12 },
-      { year: 2030, label: "Objectif -16 %", decotePct: -20 },
-      { year: 2033, label: "Objectif -26 %", decotePct: -28 },
-      { year: 2040, label: "Fin chaudières fossiles", decotePct: -35 },
-      { year: 2050, label: "Parc zéro émission", decotePct: -40 },
-    ];
-  }
-  if (idx === 7) {
-    // H
-    return [
-      { year: 2026, label: "Transposition EPBD", decotePct: -18 },
-      { year: 2030, label: "Objectif -16 %", decotePct: -26 },
-      { year: 2033, label: "Objectif -26 %", decotePct: -33 },
-      { year: 2040, label: "Fin chaudières fossiles", decotePct: -40 },
-      { year: 2050, label: "Parc zéro émission", decotePct: -45 },
-    ];
-  }
-  // I
-  return [
-    { year: 2026, label: "Transposition EPBD", decotePct: -25 },
-    { year: 2030, label: "Objectif -16 %", decotePct: -32 },
-    { year: 2033, label: "Objectif -26 %", decotePct: -38 },
-    { year: 2040, label: "Fin chaudières fossiles", decotePct: -45 },
-    { year: 2050, label: "Parc zéro émission", decotePct: -50 },
-  ];
-}
-
-function ValueProjection({ selectedClass }: { selectedClass: EnergyClass }) {
+function ValueProjection({
+  selectedClass,
+  t,
+}: {
+  selectedClass: EnergyClass;
+  t: ReturnType<typeof useTranslations>;
+}) {
   const data = getProjectionData(selectedClass);
   const maxAbsDecote = Math.max(...data.map((d) => Math.abs(d.decotePct)));
   const isPositive = data.every((d) => d.decotePct >= 0);
@@ -534,8 +523,8 @@ function ValueProjection({ selectedClass }: { selectedClass: EnergyClass }) {
     <div className="space-y-3">
       <p className="text-xs text-muted mb-4">
         {isPositive
-          ? "Projection de la prime verte (green premium) si aucun changement de classe."
-          : "Projection de la décote (brown discount) si aucune rénovation n'est entreprise."}
+          ? t("projectionGreenPremium")
+          : t("projectionBrownDiscount")}
       </p>
       {data.map((row) => {
         const barWidth =
@@ -549,7 +538,7 @@ function ValueProjection({ selectedClass }: { selectedClass: EnergyClass }) {
             </span>
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-0.5">
-                <span className="text-xs text-muted">{row.label}</span>
+                <span className="text-xs text-muted">{t(row.labelKey)}</span>
               </div>
               <div className="h-5 w-full bg-gray-100 rounded-full overflow-hidden">
                 <div
@@ -580,8 +569,7 @@ function ValueProjection({ selectedClass }: { selectedClass: EnergyClass }) {
         );
       })}
       <p className="text-[10px] text-muted/70 mt-2">
-        Projections indicatives basées sur les tendances observées et le
-        calendrier EPBD. Ne constitue pas un conseil financier.
+        {t("projectionDisclaimer")}
       </p>
     </div>
   );

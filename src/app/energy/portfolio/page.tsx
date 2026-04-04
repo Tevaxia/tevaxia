@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
+import { useTranslations } from "next-intl";
 
 /* ------------------------------------------------------------------ */
 /*  Constants                                                          */
@@ -41,7 +42,8 @@ const BAR_COLORS: Record<string, string> = {
   I: "bg-red-900",
 };
 
-const TYPES = ["Appartement", "Maison", "Commercial"] as const;
+const TYPE_KEYS = ["apartment", "house", "commercial"] as const;
+const TYPE_VALUES = ["Appartement", "Maison", "Commercial"] as const;
 
 const STORAGE_KEY = "tevaxia_energy_portfolio";
 
@@ -100,6 +102,7 @@ type SortDir = "asc" | "desc";
 /* ------------------------------------------------------------------ */
 
 export default function PortfolioPage() {
+  const t = useTranslations("energy.portfolio");
   const [properties, setProperties] = useState<Property[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [showForm, setShowForm] = useState(false);
@@ -115,6 +118,13 @@ export default function PortfolioPage() {
   // Sort state
   const [sortKey, setSortKey] = useState<SortKey>("nom");
   const [sortDir, setSortDir] = useState<SortDir>("asc");
+
+  // Type options with translated labels
+  const TYPE_OPTIONS = TYPE_KEYS.map((key, i) => ({
+    key,
+    value: TYPE_VALUES[i],
+    label: t(`type_${key}`),
+  }));
 
   /* ---- localStorage persistence ---------------------------------- */
 
@@ -165,7 +175,7 @@ export default function PortfolioPage() {
   /* ---- Computed portfolio stats ---------------------------------- */
 
   const stats = useMemo(() => {
-    if (properties.length === 0) return null;
+    if (properties.length < 2) return null;
 
     const totalSurface = properties.reduce((s, p) => s + p.surface, 0);
     const totalValeur = properties.reduce((s, p) => s + p.valeur, 0);
@@ -266,6 +276,13 @@ export default function PortfolioPage() {
   const sortArrow = (key: SortKey) =>
     sortKey === key ? (sortDir === "asc" ? " \u25B2" : " \u25BC") : "";
 
+  /* ---- Helper to get translated type label ----------------------- */
+
+  function typeLabel(storedValue: string): string {
+    const opt = TYPE_OPTIONS.find((o) => o.value === storedValue);
+    return opt ? opt.label : storedValue;
+  }
+
   /* ---- Render ---------------------------------------------------- */
 
   if (!loaded) return null;
@@ -276,10 +293,10 @@ export default function PortfolioPage() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
-            Portfolio énergétique
+            {t("title")}
           </h1>
           <p className="mt-2 text-muted">
-            Analysez le profil énergétique de votre parc immobilier
+            {t("subtitle")}
           </p>
         </div>
 
@@ -290,17 +307,16 @@ export default function PortfolioPage() {
           <div className="rounded-2xl border border-card-border bg-card p-12 text-center shadow-sm">
             <div className="text-5xl mb-4">🏠</div>
             <h2 className="text-lg font-semibold text-foreground mb-2">
-              Aucun bien dans votre portfolio
+              {t("emptyTitle")}
             </h2>
             <p className="text-muted mb-6 max-w-md mx-auto">
-              Ajoutez votre premier bien pour commencer a analyser le profil
-              énergétique de votre parc immobilier.
+              {t("emptyDescription")}
             </p>
             <button
               onClick={() => setShowForm(true)}
               className="inline-flex items-center gap-2 rounded-xl bg-energy px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-energy/90 transition-colors"
             >
-              + Ajoutez votre premier bien
+              + {t("addFirstProperty")}
             </button>
           </div>
         )}
@@ -315,7 +331,7 @@ export default function PortfolioPage() {
                 onClick={() => setShowForm(true)}
                 className="inline-flex items-center gap-2 rounded-xl bg-energy px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-energy/90 transition-colors"
               >
-                + Ajouter un bien
+                + {t("addProperty")}
               </button>
             )}
 
@@ -323,13 +339,13 @@ export default function PortfolioPage() {
               <div className="rounded-2xl border border-card-border bg-card p-6 shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="font-semibold text-foreground">
-                    Ajouter un bien
+                    {t("addProperty")}
                   </h2>
                   <button
                     onClick={() => setShowForm(false)}
                     className="text-muted hover:text-foreground text-sm"
                   >
-                    Fermer
+                    {t("close")}
                   </button>
                 </div>
 
@@ -337,13 +353,13 @@ export default function PortfolioPage() {
                   {/* Nom / adresse */}
                   <div className="sm:col-span-2 lg:col-span-3">
                     <label className="block text-sm font-medium text-foreground mb-1.5">
-                      Nom / adresse
+                      {t("labelNom")}
                     </label>
                     <input
                       type="text"
                       value={nom}
                       onChange={(e) => setNom(e.target.value)}
-                      placeholder="ex. 12 rue de Gasperich, Luxembourg"
+                      placeholder={t("placeholderNom")}
                       className="w-full rounded-lg border border-input-border bg-input-bg px-4 py-2.5 text-foreground placeholder:text-muted/50"
                     />
                   </div>
@@ -351,7 +367,7 @@ export default function PortfolioPage() {
                   {/* Classe energie */}
                   <div className="sm:col-span-2 lg:col-span-3">
                     <label className="block text-sm font-medium text-foreground mb-1.5">
-                      Classe énergétique
+                      {t("labelClasse")}
                     </label>
                     <div className="flex gap-1.5">
                       {CLASSES.map((c) => (
@@ -373,7 +389,7 @@ export default function PortfolioPage() {
                   {/* Surface */}
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1.5">
-                      Surface (m²)
+                      {t("labelSurface")}
                     </label>
                     <input
                       type="number"
@@ -390,7 +406,7 @@ export default function PortfolioPage() {
                   {/* Valeur estimée */}
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1.5">
-                      Valeur estimée (EUR)
+                      {t("labelValeur")}
                     </label>
                     <div className="relative">
                       <input
@@ -413,20 +429,20 @@ export default function PortfolioPage() {
                   {/* Type */}
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1.5">
-                      Type de bien
+                      {t("labelType")}
                     </label>
                     <div className="flex gap-1.5">
-                      {TYPES.map((t) => (
+                      {TYPE_OPTIONS.map((opt) => (
                         <button
-                          key={t}
-                          onClick={() => setType(t)}
+                          key={opt.key}
+                          onClick={() => setType(opt.value)}
                           className={`flex-1 rounded-lg py-2.5 text-xs font-medium transition-all ${
-                            type === t
+                            type === opt.value
                               ? "bg-energy text-white ring-2 ring-offset-1 ring-energy"
                               : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                           }`}
                         >
-                          {t}
+                          {opt.label}
                         </button>
                       ))}
                     </div>
@@ -435,7 +451,7 @@ export default function PortfolioPage() {
                   {/* Annee construction */}
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1.5">
-                      Année de construction
+                      {t("labelAnnee")}
                     </label>
                     <input
                       type="number"
@@ -457,13 +473,13 @@ export default function PortfolioPage() {
                     disabled={!nom.trim() || !surface || !valeur || !annee}
                     className="inline-flex items-center gap-2 rounded-xl bg-energy px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-energy/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                   >
-                    Ajouter
+                    {t("btnAdd")}
                   </button>
                   <button
                     onClick={() => setShowForm(false)}
                     className="rounded-xl border border-card-border px-6 py-2.5 text-sm font-medium text-muted hover:bg-gray-50 transition-colors"
                   >
-                    Annuler
+                    {t("btnCancel")}
                   </button>
                 </div>
               </div>
@@ -477,7 +493,7 @@ export default function PortfolioPage() {
         {properties.length > 0 && (
           <div className="mb-8">
             <h2 className="font-semibold text-foreground mb-4">
-              Vos biens ({properties.length})
+              {t("yourProperties", { count: properties.length })}
             </h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {properties.map((p) => (
@@ -488,7 +504,7 @@ export default function PortfolioPage() {
                   <button
                     onClick={() => handleDelete(p.id)}
                     className="absolute top-3 right-3 text-gray-300 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100"
-                    title="Supprimer"
+                    title={t("delete")}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -515,7 +531,7 @@ export default function PortfolioPage() {
                         {p.nom}
                       </div>
                       <div className="text-xs text-muted">
-                        {p.type} · {p.annee}
+                        {typeLabel(p.type)} · {p.annee}
                       </div>
                     </div>
                   </div>
@@ -540,7 +556,7 @@ export default function PortfolioPage() {
             <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
               <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
                 <h2 className="font-semibold text-foreground">
-                  Score moyen pondéré
+                  {t("weightedScore")}
                 </h2>
               </div>
               <div className="p-6 flex items-center gap-6">
@@ -551,10 +567,10 @@ export default function PortfolioPage() {
                 </span>
                 <div>
                   <div className="text-sm text-muted">
-                    Score moyen : {fmtDec(stats.weightedIdx)}
+                    {t("averageScore", { score: fmtDec(stats.weightedIdx) })}
                   </div>
                   <div className="text-xs text-muted mt-1">
-                    Pondere par la surface ({fmt(stats.totalSurface)} m² total)
+                    {t("weightedBySurface", { surface: fmt(stats.totalSurface) })}
                   </div>
                 </div>
               </div>
@@ -564,7 +580,7 @@ export default function PortfolioPage() {
             <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
               <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
                 <h2 className="font-semibold text-foreground">
-                  Répartition par classe
+                  {t("distributionByClass")}
                 </h2>
               </div>
               <div className="p-6">
@@ -581,7 +597,7 @@ export default function PortfolioPage() {
                         key={c}
                         className={`${BAR_COLORS[c]} flex items-center justify-center text-xs font-bold text-white transition-all`}
                         style={{ width: `${pct}%` }}
-                        title={`Classe ${c} : ${fmtDec(pct)}%`}
+                        title={t("classPercent", { classe: c, percent: fmtDec(pct) })}
                       >
                         {pct >= 8 && `${c} ${Math.round(pct)}%`}
                       </div>
@@ -617,25 +633,25 @@ export default function PortfolioPage() {
             <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
               <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
                 <h2 className="font-semibold text-foreground">
-                  Valeur totale et impact énergétique
+                  {t("totalValueAndImpact")}
                 </h2>
               </div>
               <div className="p-6">
                 <div className="grid gap-4 sm:grid-cols-3">
                   <div className="rounded-xl border border-card-border p-4 text-center">
                     <div className="text-xs text-muted uppercase tracking-wider">
-                      Valeur totale
+                      {t("totalValue")}
                     </div>
                     <div className="mt-1 text-2xl font-bold text-foreground">
                       {fmt(stats.totalValeur)} EUR
                     </div>
                     <div className="text-xs text-muted mt-0.5">
-                      {properties.length} biens
+                      {t("propertiesCount", { count: properties.length })}
                     </div>
                   </div>
                   <div className="rounded-xl border border-card-border p-4 text-center">
                     <div className="text-xs text-muted uppercase tracking-wider">
-                      Impact énergétique
+                      {t("energyImpact")}
                     </div>
                     <div
                       className={`mt-1 text-2xl font-bold ${
@@ -646,12 +662,12 @@ export default function PortfolioPage() {
                       {fmt(Math.round(stats.impactTotal))} EUR
                     </div>
                     <div className="text-xs text-muted mt-0.5">
-                      Green premium / brown discount
+                      {t("greenPremiumBrownDiscount")}
                     </div>
                   </div>
                   <div className="rounded-xl border border-card-border p-4 text-center">
                     <div className="text-xs text-muted uppercase tracking-wider">
-                      Gain potentiel si classe B
+                      {t("potentialGainClassB")}
                     </div>
                     <div
                       className={`mt-1 text-2xl font-bold ${
@@ -662,7 +678,7 @@ export default function PortfolioPage() {
                       {fmt(Math.round(stats.gainSiB))} EUR
                     </div>
                     <div className="text-xs text-muted mt-0.5">
-                      Si tout le portfolio passe en classe B
+                      {t("ifAllClassB")}
                     </div>
                   </div>
                 </div>
@@ -673,33 +689,34 @@ export default function PortfolioPage() {
             <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
               <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
                 <h2 className="font-semibold text-foreground">
-                  Consommation totale estimée
+                  {t("estimatedTotalConsumption")}
                 </h2>
               </div>
               <div className="p-6">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="rounded-xl border border-card-border p-4 text-center">
                     <div className="text-xs text-muted uppercase tracking-wider">
-                      Consommation annuelle
+                      {t("annualConsumption")}
                     </div>
                     <div className="mt-1 text-2xl font-bold text-energy">
                       {fmt(stats.totalConsoKwh)} kWh/an
                     </div>
                     <div className="text-xs text-muted mt-0.5">
-                      {fmt(stats.totalSurface)} m² ·{" "}
-                      {fmt(Math.round(stats.totalConsoKwh / stats.totalSurface))}{" "}
-                      kWh/m²/an en moyenne
+                      {t("consumptionDetail", {
+                        surface: fmt(stats.totalSurface),
+                        average: fmt(Math.round(stats.totalConsoKwh / stats.totalSurface)),
+                      })}
                     </div>
                   </div>
                   <div className="rounded-xl border border-card-border p-4 text-center">
                     <div className="text-xs text-muted uppercase tracking-wider">
-                      Emissions CO2
+                      {t("co2Emissions")}
                     </div>
                     <div className="mt-1 text-2xl font-bold text-orange-600">
                       {fmt(Math.round(stats.totalCO2))} kg/an
                     </div>
                     <div className="text-xs text-muted mt-0.5">
-                      {fmtDec(stats.totalCO2 / 1000)} tonnes de CO2 par an
+                      {t("co2TonsPerYear", { tons: fmtDec(stats.totalCO2 / 1000) })}
                     </div>
                   </div>
                 </div>
@@ -710,7 +727,7 @@ export default function PortfolioPage() {
             {stats.worstPerformers.length > 0 && (
               <div className="rounded-2xl border border-red-200 bg-red-50 shadow-sm overflow-hidden">
                 <div className="px-6 py-4 border-b border-red-200 bg-gradient-to-r from-red-500/10 to-transparent">
-                  <h2 className="font-semibold text-red-800">Risque EPBD</h2>
+                  <h2 className="font-semibold text-red-800">{t("epbdRisk")}</h2>
                 </div>
                 <div className="p-6">
                   <div className="flex items-start gap-3">
@@ -730,15 +747,13 @@ export default function PortfolioPage() {
                     </div>
                     <div>
                       <div className="font-semibold text-red-800">
-                        {stats.worstPerformers.length} bien
-                        {stats.worstPerformers.length > 1 ? "s" : ""} sur{" "}
-                        {properties.length} sont classes worst performers et
-                        devront être rénovés avant 2033
+                        {t("epbdWarning", {
+                          worst: stats.worstPerformers.length,
+                          total: properties.length,
+                        })}
                       </div>
                       <div className="mt-2 text-sm text-red-700">
-                        La directive EPBD (Energy Performance of Buildings
-                        Directive) impose la renovation des batiments les moins
-                        performants (classes F, G, H, I) avant 2033.
+                        {t("epbdDescription")}
                       </div>
                       <div className="mt-3 flex flex-wrap gap-2">
                         {stats.worstPerformers.map((p) => (
@@ -768,11 +783,11 @@ export default function PortfolioPage() {
         {/* ============================================================ */}
         {/*  COMPARISON TABLE                                             */}
         {/* ============================================================ */}
-        {properties.length >= 1 && (
+        {properties.length >= 2 && (
           <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
             <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
               <h2 className="font-semibold text-foreground">
-                Comparaison des biens
+                {t("comparisonTitle")}
               </h2>
             </div>
             <div className="overflow-x-auto">
@@ -783,43 +798,43 @@ export default function PortfolioPage() {
                       className="px-4 py-3 font-medium text-muted cursor-pointer hover:text-foreground select-none"
                       onClick={() => toggleSort("nom")}
                     >
-                      Nom{sortArrow("nom")}
+                      {t("colNom")}{sortArrow("nom")}
                     </th>
                     <th
                       className="px-4 py-3 font-medium text-muted cursor-pointer hover:text-foreground select-none text-center"
                       onClick={() => toggleSort("classe")}
                     >
-                      Classe{sortArrow("classe")}
+                      {t("colClasse")}{sortArrow("classe")}
                     </th>
                     <th
                       className="px-4 py-3 font-medium text-muted cursor-pointer hover:text-foreground select-none text-right"
                       onClick={() => toggleSort("surface")}
                     >
-                      Surface{sortArrow("surface")}
+                      {t("colSurface")}{sortArrow("surface")}
                     </th>
                     <th
                       className="px-4 py-3 font-medium text-muted cursor-pointer hover:text-foreground select-none text-right"
                       onClick={() => toggleSort("valeur")}
                     >
-                      Valeur{sortArrow("valeur")}
+                      {t("colValeur")}{sortArrow("valeur")}
                     </th>
                     <th
                       className="px-4 py-3 font-medium text-muted cursor-pointer hover:text-foreground select-none text-right"
                       onClick={() => toggleSort("conso")}
                     >
-                      Conso kWh/an{sortArrow("conso")}
+                      {t("colConso")}{sortArrow("conso")}
                     </th>
                     <th
                       className="px-4 py-3 font-medium text-muted cursor-pointer hover:text-foreground select-none text-right"
                       onClick={() => toggleSort("co2")}
                     >
-                      CO2 kg/an{sortArrow("co2")}
+                      {t("colCO2")}{sortArrow("co2")}
                     </th>
                     <th
                       className="px-4 py-3 font-medium text-muted cursor-pointer hover:text-foreground select-none text-right"
                       onClick={() => toggleSort("impact")}
                     >
-                      Impact valeur{sortArrow("impact")}
+                      {t("colImpact")}{sortArrow("impact")}
                     </th>
                   </tr>
                 </thead>

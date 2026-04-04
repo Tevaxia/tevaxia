@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 /* ── Class colors (same as impact / renovation pages) ── */
 const CLASS_COLORS: Record<string, string> = {
@@ -41,73 +42,6 @@ interface Step {
   options: Option[];
 }
 
-const STEPS: Step[] = [
-  {
-    title: "Type de bien",
-    key: "type",
-    options: [
-      { label: "Appartement", points: 5 },
-      { label: "Maison mitoyenne", points: 3 },
-      { label: "Maison individuelle", points: 0 },
-    ],
-  },
-  {
-    title: "Année de construction",
-    key: "annee",
-    options: [
-      { label: "Avant 1945", points: 0 },
-      { label: "1945–1970", points: 2 },
-      { label: "1970–1990", points: 5 },
-      { label: "1990–2005", points: 10 },
-      { label: "2005–2015", points: 15 },
-      { label: "Après 2015", points: 20 },
-    ],
-  },
-  {
-    title: "Type de chauffage",
-    key: "chauffage",
-    options: [
-      { label: "Fioul / mazout", points: 0 },
-      { label: "Électrique direct", points: 2 },
-      { label: "Gaz naturel", points: 5 },
-      { label: "Bois / pellets", points: 8 },
-      { label: "Chauffage urbain", points: 10 },
-      { label: "Pompe à chaleur", points: 15 },
-    ],
-  },
-  {
-    title: "Isolation façade",
-    key: "isolation",
-    options: [
-      { label: "Aucune isolation", points: 0 },
-      { label: "Isolation partielle (< 8 cm)", points: 5 },
-      { label: "Bonne isolation (8–15 cm)", points: 10 },
-      { label: "Excellente isolation (> 15 cm / ITE récente)", points: 15 },
-    ],
-  },
-  {
-    title: "Type de fenêtres",
-    key: "fenetres",
-    options: [
-      { label: "Simple vitrage", points: 0 },
-      { label: "Double vitrage (avant 2000)", points: 3 },
-      { label: "Double vitrage récent", points: 8 },
-      { label: "Triple vitrage", points: 12 },
-    ],
-  },
-  {
-    title: "Ventilation",
-    key: "ventilation",
-    options: [
-      { label: "Ventilation naturelle (fenêtres)", points: 0 },
-      { label: "VMC simple flux", points: 5 },
-      { label: "VMC double flux", points: 10 },
-    ],
-  },
-];
-
-const TOTAL_STEPS = STEPS.length;
-
 /* ── Score -> class mapping ── */
 function scoreToClass(score: number): string {
   if (score >= 67) return "A";
@@ -124,6 +58,75 @@ function scoreToClass(score: number): string {
 /* ── Component ── */
 
 export default function EstimateurCpePage() {
+  const t = useTranslations("energy.estimateurCpe");
+
+  const STEPS: Step[] = [
+    {
+      title: t("stepTypeTitle"),
+      key: "type",
+      options: [
+        { label: t("optAppartement"), points: 5 },
+        { label: t("optMaisonMitoyenne"), points: 3 },
+        { label: t("optMaisonIndividuelle"), points: 0 },
+      ],
+    },
+    {
+      title: t("stepAnneeTitle"),
+      key: "annee",
+      options: [
+        { label: t("optAvant1945"), points: 0 },
+        { label: t("opt1945_1970"), points: 2 },
+        { label: t("opt1970_1990"), points: 5 },
+        { label: t("opt1990_2005"), points: 10 },
+        { label: t("opt2005_2015"), points: 15 },
+        { label: t("optApres2015"), points: 20 },
+      ],
+    },
+    {
+      title: t("stepChauffageTitle"),
+      key: "chauffage",
+      options: [
+        { label: t("optFioul"), points: 0 },
+        { label: t("optElectriqueDirect"), points: 2 },
+        { label: t("optGazNaturel"), points: 5 },
+        { label: t("optBoisPellets"), points: 8 },
+        { label: t("optChauffageUrbain"), points: 10 },
+        { label: t("optPompeAChaleur"), points: 15 },
+      ],
+    },
+    {
+      title: t("stepIsolationTitle"),
+      key: "isolation",
+      options: [
+        { label: t("optAucuneIsolation"), points: 0 },
+        { label: t("optIsolationPartielle"), points: 5 },
+        { label: t("optBonneIsolation"), points: 10 },
+        { label: t("optExcellenteIsolation"), points: 15 },
+      ],
+    },
+    {
+      title: t("stepFenetresTitle"),
+      key: "fenetres",
+      options: [
+        { label: t("optSimpleVitrage"), points: 0 },
+        { label: t("optDoubleVitrageAncien"), points: 3 },
+        { label: t("optDoubleVitrageRecent"), points: 8 },
+        { label: t("optTripleVitrage"), points: 12 },
+      ],
+    },
+    {
+      title: t("stepVentilationTitle"),
+      key: "ventilation",
+      options: [
+        { label: t("optVentilationNaturelle"), points: 0 },
+        { label: t("optVmcSimpleFlux"), points: 5 },
+        { label: t("optVmcDoubleFlux"), points: 10 },
+      ],
+    },
+  ];
+
+  const TOTAL_STEPS = STEPS.length;
+
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
 
@@ -164,11 +167,10 @@ export default function EstimateurCpePage() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
-            Estimez votre classe énergie
+            {t("title")}
           </h1>
           <p className="mt-2 text-muted">
-            Répondez à 6 questions simples pour obtenir une estimation de la classe
-            énergétique (CPE) de votre bien immobilier au Luxembourg.
+            {t("description")}
           </p>
         </div>
 
@@ -177,8 +179,8 @@ export default function EstimateurCpePage() {
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm font-medium text-foreground">
               {isFinished
-                ? "Résultat"
-                : `Étape ${step + 1} / ${TOTAL_STEPS}`}
+                ? t("result")
+                : t("stepProgress", { current: step + 1, total: TOTAL_STEPS })}
             </span>
             <span className="text-sm text-muted">
               {Math.round(progressPct)}%
@@ -199,7 +201,7 @@ export default function EstimateurCpePage() {
               {STEPS[step].title}
             </h2>
             <p className="text-sm text-muted mb-6">
-              Sélectionnez la réponse qui correspond le mieux à votre bien.
+              {t("selectInstruction")}
             </p>
 
             <div className="grid gap-3">
@@ -242,7 +244,7 @@ export default function EstimateurCpePage() {
                     d="M15 19l-7-7 7-7"
                   />
                 </svg>
-                Question précédente
+                {t("previousQuestion")}
               </button>
             )}
           </div>
@@ -254,7 +256,7 @@ export default function EstimateurCpePage() {
             {/* Class badge */}
             <div className="rounded-2xl border border-card-border bg-card p-6 sm:p-8 shadow-sm text-center">
               <p className="text-sm text-muted mb-4">
-                Classe énergétique estimée de votre bien
+                {t("estimatedClassLabel")}
               </p>
               <div className="flex justify-center mb-4">
                 <div
@@ -264,16 +266,16 @@ export default function EstimateurCpePage() {
                 </div>
               </div>
               <p className="text-lg font-semibold text-foreground mb-1">
-                Classe {estimatedClass}
+                {t("classLabel", { classe: estimatedClass })}
               </p>
               <p className="text-sm text-muted mb-2">
-                Score : {totalScore} / 77 points
+                {t("scoreLabel", { score: totalScore })}
               </p>
 
               {/* Score detail */}
               <div className="mt-6 rounded-xl border border-card-border bg-gray-50 p-4 text-left">
                 <h3 className="text-sm font-semibold text-foreground mb-3">
-                  Détail du score
+                  {t("scoreDetail")}
                 </h3>
                 <div className="space-y-2">
                   {STEPS.map((s) => {
@@ -341,13 +343,10 @@ export default function EstimateurCpePage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">
-                    Estimation indicative
+                    {t("disclaimerTitle")}
                   </p>
                   <p className="text-sm text-muted mt-1">
-                    Seul un passeport énergétique officiel (CPE) établi par un
-                    expert agréé fait foi. Cette estimation se base sur des
-                    paramètres génériques et ne remplace pas un audit
-                    énergétique.
+                    {t("disclaimerText")}
                   </p>
                 </div>
               </div>
@@ -356,11 +355,10 @@ export default function EstimateurCpePage() {
             {/* Action buttons */}
             <div className="rounded-2xl border border-card-border bg-card p-6 shadow-sm">
               <h3 className="text-sm font-semibold text-foreground mb-1">
-                Explorez les simulateurs avec votre classe estimée
+                {t("exploreTitle")}
               </h3>
               <p className="text-xs text-muted mb-4">
-                Classe {estimatedClass} sélectionnée automatiquement dans
-                chaque simulateur.
+                {t("exploreDescription", { classe: estimatedClass })}
               </p>
               <div className="grid gap-3 sm:grid-cols-3">
                 <Link
@@ -381,10 +379,10 @@ export default function EstimateurCpePage() {
                     />
                   </svg>
                   <span className="text-sm font-semibold text-foreground">
-                    Impact sur la valeur
+                    {t("linkImpactTitle")}
                   </span>
                   <span className="text-xs text-muted">
-                    Green premium &amp; brown discount
+                    {t("linkImpactSub")}
                   </span>
                 </Link>
                 <Link
@@ -405,10 +403,10 @@ export default function EstimateurCpePage() {
                     />
                   </svg>
                   <span className="text-sm font-semibold text-foreground">
-                    Simuler une rénovation
+                    {t("linkRenovationTitle")}
                   </span>
                   <span className="text-xs text-muted">
-                    Coûts, aides &amp; rentabilité
+                    {t("linkRenovationSub")}
                   </span>
                 </Link>
                 <Link
@@ -429,10 +427,10 @@ export default function EstimateurCpePage() {
                     />
                   </svg>
                   <span className="text-sm font-semibold text-foreground">
-                    Timeline EPBD
+                    {t("linkEpbdTitle")}
                   </span>
                   <span className="text-xs text-muted">
-                    Échéances réglementaires
+                    {t("linkEpbdSub")}
                   </span>
                 </Link>
               </div>
@@ -457,7 +455,7 @@ export default function EstimateurCpePage() {
                     d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
                   />
                 </svg>
-                Recommencer l&apos;estimation
+                {t("restart")}
               </button>
             </div>
           </div>
