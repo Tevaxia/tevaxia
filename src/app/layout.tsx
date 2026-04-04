@@ -25,11 +25,11 @@ const BASE = "https://tevaxia.lu";
 export async function generateMetadata(): Promise<Metadata> {
   const h = await headers();
   const url = h.get("x-url") || "/";
-  const isEN = url === "/en" || url.startsWith("/en/");
-  const pathWithoutLocale = isEN ? url.replace(/^\/en/, "") || "/" : url;
-  const frUrl = `${BASE}${pathWithoutLocale}`;
-  const enUrl = `${BASE}/en${pathWithoutLocale === "/" ? "" : pathWithoutLocale}`;
-  const canonical = isEN ? enUrl : frUrl;
+  const LOCALE_PREFIXES = ["en", "de", "pt", "lb"];
+  const detectedLocale = LOCALE_PREFIXES.find((l) => url === `/${l}` || url.startsWith(`/${l}/`));
+  const pathWithoutLocale = detectedLocale ? url.replace(new RegExp(`^/${detectedLocale}`), "") || "/" : url;
+  const buildUrl = (loc: string) => loc === "fr" ? `${BASE}${pathWithoutLocale}` : `${BASE}/${loc}${pathWithoutLocale === "/" ? "" : pathWithoutLocale}`;
+  const canonical = buildUrl(detectedLocale || "fr");
 
   return {
     title: {
@@ -41,9 +41,12 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical,
       languages: {
-        fr: frUrl,
-        en: enUrl,
-        "x-default": frUrl,
+        fr: buildUrl("fr"),
+        en: buildUrl("en"),
+        de: buildUrl("de"),
+        pt: buildUrl("pt"),
+        lb: buildUrl("lb"),
+        "x-default": buildUrl("fr"),
       },
     },
     openGraph: {
@@ -51,7 +54,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: "Outils de calcul immobilier pour le Luxembourg. Estimation, frais, plus-values, aides, valorisation EVS 2025, DCF, MLV/CRR.",
       url: canonical,
       siteName: "tevaxia.lu",
-      locale: isEN ? "en_GB" : "fr_LU",
+      locale: detectedLocale === "en" ? "en_GB" : detectedLocale === "de" ? "de_LU" : detectedLocale === "pt" ? "pt_PT" : "fr_LU",
       type: "website",
       images: [{
         url: "https://tevaxia.lu/og-image.png",
@@ -82,7 +85,7 @@ export default async function RootLayout({
   const url = headersList.get("x-url") || "";
   const isEnergy = headersList.get("x-energy-subdomain") === "1"
     || url.startsWith("/energy")
-    || url.startsWith("/en/energy");
+    || /^\/(en|de|pt|lb)\/energy/.test(url);
 
   return (
     <html
