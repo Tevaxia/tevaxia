@@ -28,23 +28,17 @@ export default function EnergyFooter() {
             </p>
           </div>
 
-          {/* Simulateurs */}
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-3">{t("simulateurs")}</h3>
-            <ul className="space-y-1.5 text-sm">
-              <li><Link href="/impact" className="hover:text-white transition-colors">{t("impact")}</Link></li>
-              <li><Link href="/renovation" className="hover:text-white transition-colors">{t("renovation")}</Link></li>
-              <li><Link href="/communaute" className="hover:text-white transition-colors">{t("communaute")}</Link></li>
-            </ul>
-          </div>
-
           {/* Outils */}
-          <div>
+          <div className="sm:col-span-2">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-3">{t("outils")}</h3>
-            <ul className="space-y-1.5 text-sm">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-1.5 text-sm">
+              <li><Link href="/impact" className="hover:text-white transition-colors">{t("impact")}</Link></li>
               <li><Link href="/epbd" className="hover:text-white transition-colors">{t("epbd")}</Link></li>
+              <li><Link href="/renovation" className="hover:text-white transition-colors">{t("renovation")}</Link></li>
               <li><Link href="/estimateur-cpe" className="hover:text-white transition-colors">{t("estimateurCpe")}</Link></li>
+              <li><Link href="/communaute" className="hover:text-white transition-colors">{t("communaute")}</Link></li>
               <li><Link href="/lenoz" className="hover:text-white transition-colors">{t("lenoz")}</Link></li>
+              <li>&nbsp;</li>
               <li><Link href="/portfolio" className="hover:text-white transition-colors">{t("portfolio")}</Link></li>
             </ul>
           </div>

@@ -5,20 +5,17 @@ import { useState, useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "../LanguageSwitcher";
 
-const SIMULATEURS = [
+const ALL_TOOLS = [
   { href: "/impact", key: "impact" },
   { href: "/renovation", key: "renovation" },
   { href: "/communaute", key: "communaute" },
-];
-
-const OUTILS = [
   { href: "/epbd", key: "epbd" },
   { href: "/estimateur-cpe", key: "estimateurCpe" },
   { href: "/lenoz", key: "lenoz" },
   { href: "/portfolio", key: "portfolio" },
 ];
 
-function Dropdown({ label, items, t }: { label: string; items: typeof SIMULATEURS; t: (k: string) => string }) {
+function Dropdown({ label, items, t }: { label: string; items: typeof ALL_TOOLS; t: (k: string) => string }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -71,8 +68,7 @@ export default function EnergyHeader() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
-            <Dropdown label={t("simulateurs")} items={SIMULATEURS} t={t} />
-            <Dropdown label={t("outils")} items={OUTILS} t={t} />
+            <Dropdown label={t("outils")} items={ALL_TOOLS} t={t} />
             <a
               href="https://tevaxia.lu"
               className="ml-2 rounded-lg border border-white/10 px-3 py-2 text-sm font-medium text-white/50 hover:text-white hover:border-white/30 transition-colors"
@@ -101,15 +97,7 @@ export default function EnergyHeader() {
 
         {menuOpen && (
           <nav className="md:hidden border-t border-white/10 py-3 space-y-1">
-            <div className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white/30">{t("simulateurs")}</div>
-            {SIMULATEURS.map((item) => (
-              <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}
-                className="block rounded-lg px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white">
-                {t(item.key)}
-              </Link>
-            ))}
-            <div className="px-3 py-1 mt-2 text-xs font-semibold uppercase tracking-wider text-white/30">{t("outils")}</div>
-            {OUTILS.map((item) => (
+            {ALL_TOOLS.map((item) => (
               <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}
                 className="block rounded-lg px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white">
                 {t(item.key)}
