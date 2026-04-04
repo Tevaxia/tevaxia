@@ -50,7 +50,101 @@
     "missingTool": "Missing a tool?",
     "missingToolDescription": "tevaxia.lu is under active development. If you need a specific calculator, a feature for your professional practice, or if you find an error in our calculations — let us know.",
     "upcomingModules": "Upcoming modules",
-    "dataSources": "Integrated data sources"
+    "dataSources": "Integrated data sources",
+    "jsonLdDescription": "Luxembourg real estate tools",
+    "tags": {
+      "habitat": "Observatoire de l'Habitat",
+      "tegova": "TEGOVA EVS 2025",
+      "epbd": "EPBD Directive 2024",
+      "lir": "LU Tax Code (LIR)",
+      "bail": "Lease Law 21/09/2006",
+      "statec": "STATEC / Geoportail"
+    },
+    "modules": {
+      "estimation": {
+        "title": "Instant Estimation",
+        "description": "Municipality, surface, floor, condition, energy — get an estimate with price range based on Luxembourg public data.",
+        "tag": "Observatoire de l'Habitat"
+      },
+      "carte": {
+        "title": "Price Map",
+        "description": "Price per m² by municipality and neighbourhood. Observatoire de l'Habitat data, sortable by canton, price or name.",
+        "tag": "data.public.lu"
+      },
+      "loyer": {
+        "title": "Invested Capital & Rent",
+        "description": "Calculate the legal rent cap based on the 5% rule of invested capital. Revaluation coefficients, depreciation, flatshare management.",
+        "tag": "Law 21/09/2006 mod."
+      },
+      "frais": {
+        "title": "Acquisition Fees",
+        "description": "Registration duties 7%, Bëllegen Akt (€40,000/pers.), VAT 3% vs 17% on VEFA, notary fees, mortgage charges.",
+        "tag": "Law 22/10/2008 mod."
+      },
+      "plusValues": {
+        "title": "Capital Gains",
+        "description": "Speculation vs long-term disposal, revaluation coefficients, ten-year allowance, main residence exemption.",
+        "tag": "Art. 99ter & 102 LIR"
+      },
+      "aides": {
+        "title": "Subsidies Simulator",
+        "description": "5 stackable aid layers: state, energy renovation, private, municipal, heritage. The most comprehensive tool in Luxembourg.",
+        "tag": "5 stackable layers"
+      },
+      "achatLocation": {
+        "title": "Buy or Rent?",
+        "description": "Compare total cost and wealth built over time. Break-even point, alternative investment, property appreciation.",
+        "tag": "Financial arbitrage"
+      },
+      "bilanPromoteur": {
+        "title": "Developer Feasibility",
+        "description": "Residual method: sale price − costs − fees − margin = maximum land cost. Adapted to Luxembourg construction costs.",
+        "tag": "Residual method"
+      },
+      "valorisation": {
+        "title": "EVS 2025 Valuation",
+        "description": "Comparison, direct capitalisation, DCF, Mortgage Lending Value, reconciliation. Compliant with TEGOVA European Valuation Standards.",
+        "tag": "TEGOVA EVS 2025"
+      },
+      "bancaire": {
+        "title": "Banking Tools",
+        "description": "LTV, borrowing capacity, amortisation schedules, DSCR. Reference tools for mortgage lending.",
+        "tag": "CRR / EBA / CSSF"
+      },
+      "marche": {
+        "title": "Market Database",
+        "description": "Residential prices, offices, retail, logistics, land by municipality and sub-market. Public sources and market reports.",
+        "tag": "STATEC / BIS / JLL"
+      },
+      "pagPap": {
+        "title": "Zoning PAG / PAP",
+        "description": "Zoning areas, buildability, COS/CMU, CTV/CTL easements, PAP New District and Existing District procedures.",
+        "tag": "Law 19/07/2004 mod."
+      }
+    },
+    "stats": {
+      "tools": "Real estate tools",
+      "energySimulators": "Energy simulators",
+      "communes": "Municipalities covered",
+      "languages": "Languages (FR/EN/DE/PT/LB)"
+    },
+    "contact": {
+      "tevaxiaTitle": "tevaxia.lu — 12+ tools",
+      "tevaxiaLine1": "Estimation, price map, EVS 2025 valuation",
+      "tevaxiaLine2": "Multi-tenant DCF, developer feasibility, banking tools",
+      "tevaxiaLine3": "Fees, capital gains, subsidies, VEFA, buy vs rent",
+      "tevaxiaLine4": "PAG/PAP, agricultural land, AML/KYC",
+      "energyTitle": "energy.tevaxia.lu — 7 simulators",
+      "energyLine1": "Energy class impact, renovation ROI, energy community",
+      "energyLine2": "EPBD 2050 timeline, CPE estimator, LENOZ scoring",
+      "energyLine3": "Multi-property energy portfolio",
+      "sourcesTitle": "Integrated data sources",
+      "sourcesLine1": "Observatoire de l'Habitat (data.public.lu)",
+      "sourcesLine2": "STATEC — Price indices and construction costs",
+      "sourcesLine3": "Geoportail.lu — Cadastre and PAG",
+      "sourcesLine4": "Office, retail & logistics market reports",
+      "sourcesLine5": "Mortgage rates and construction indices"
+    }
   },
   "footer": {
     "toolsTitle": "Tools",
@@ -1636,5 +1730,46 @@
     "sensVacanceDesc": "Variation in vacancy rate",
     "sensFootnote": "Single-factor sensitivity analysis (ceteris paribus).",
     "recAnalyseNarrative": "Narrative analysis"
+  },
+  "onboarding": {
+    "heading": "What would you like to do?",
+    "subheading": "Click to discover the tools suited to your project",
+    "acheter": {
+      "title": "Buy",
+      "description": "Estimate, simulate fees and discover available subsidies",
+      "link1": "Price estimation",
+      "link2": "Acquisition fees",
+      "link3": "Subsidies simulator",
+      "link4": "Buy or rent?"
+    },
+    "vendre": {
+      "title": "Sell",
+      "description": "Value your property and anticipate taxation",
+      "link1": "Price estimation",
+      "link2": "Capital gains",
+      "link3": "Professional valuation",
+      "link4": "Market prices by municipality"
+    },
+    "investir": {
+      "title": "Invest",
+      "description": "Analyse profitability and manage your portfolio",
+      "link1": "EVS Valuation",
+      "link2": "Multi-tenant DCF",
+      "link3": "Portfolio",
+      "link4": "Banking tools"
+    },
+    "construire": {
+      "title": "Build",
+      "description": "Structure your project and check zoning",
+      "link1": "Developer feasibility",
+      "link2": "VEFA",
+      "link3": "PAG / PAP zoning"
+    }
+  },
+  "cookie": {
+    "message": "This site uses audience measurement cookies (Google Analytics) to improve your experience. No personal data is collected through the calculators.",
+    "privacyLink": "Privacy Policy",
+    "refuse": "Decline",
+    "accept": "Accept"
   }
 }

@@ -50,7 +50,101 @@
     "missingTool": "Falta-lhe uma ferramenta?",
     "missingToolDescription": "tevaxia.lu está em construção ativa. Se necessita de uma calculadora específica, de uma funcionalidade para a sua prática profissional, ou se constata um erro nos nossos cálculos — informe-nos.",
     "upcomingModules": "Próximos módulos previstos",
-    "dataSources": "Fontes de dados integradas"
+    "dataSources": "Fontes de dados integradas",
+    "jsonLdDescription": "Ferramentas imobiliárias Luxemburgo",
+    "tags": {
+      "habitat": "Observatoire de l'Habitat",
+      "tegova": "TEGOVA EVS 2025",
+      "epbd": "Diretiva EPBD 2024",
+      "lir": "Código fiscal LU (LIR)",
+      "bail": "Lei arrendamento 21/09/2006",
+      "statec": "STATEC / Geoportail"
+    },
+    "modules": {
+      "estimation": {
+        "title": "Estimativa instantânea",
+        "description": "Município, área, piso, estado, energia — obtenha uma estimativa com intervalo de preços baseada em dados públicos luxemburgueses.",
+        "tag": "Observatoire de l'Habitat"
+      },
+      "carte": {
+        "title": "Mapa de preços",
+        "description": "Preço por m² por município e bairro. Dados do Observatoire de l'Habitat, ordenáveis por cantão, preço ou nome.",
+        "tag": "data.public.lu"
+      },
+      "loyer": {
+        "title": "Capital Investido & Renda",
+        "description": "Calcule o limite legal de renda segundo a regra dos 5% do capital investido. Coeficientes de reavaliação, vetustez, gestão de coabitação.",
+        "tag": "Lei 21/09/2006 mod."
+      },
+      "frais": {
+        "title": "Custos de Aquisição",
+        "description": "Direitos de registo 7%, Bëllegen Akt (40 000 €/pes.), IVA 3% vs 17% em VEFA, emolumentos notariais, custos hipotecários.",
+        "tag": "Lei 22/10/2008 mod."
+      },
+      "plusValues": {
+        "title": "Mais-Valias Imobiliárias",
+        "description": "Especulação vs cessão de longa duração, coeficientes de reavaliação, abatimento decenal, isenção residência principal.",
+        "tag": "Art. 99ter & 102 LIR"
+      },
+      "aides": {
+        "title": "Simulador de Apoios",
+        "description": "5 camadas de apoios cumuláveis: estatais, renovação energética, privados, municipais, património. A ferramenta mais completa do Luxemburgo.",
+        "tag": "5 camadas cumuláveis"
+      },
+      "achatLocation": {
+        "title": "Comprar ou Arrendar?",
+        "description": "Compare o custo total e o património constituído ao longo do tempo. Ponto de cruzamento, investimento alternativo, valorização do imóvel.",
+        "tag": "Arbitragem financeira"
+      },
+      "bilanPromoteur": {
+        "title": "Balanço Promotor",
+        "description": "Método residual: preço de venda − custos − taxas − margem = encargo fundiário máximo. Adaptado aos custos de construção luxemburgueses.",
+        "tag": "Método residual"
+      },
+      "valorisation": {
+        "title": "Avaliação EVS 2025",
+        "description": "Comparação, capitalização direta, DCF, Mortgage Lending Value, reconciliação. Conforme TEGOVA European Valuation Standards.",
+        "tag": "TEGOVA EVS 2025"
+      },
+      "bancaire": {
+        "title": "Ferramentas Bancárias",
+        "description": "LTV, capacidade de empréstimo, tabelas de amortização, DSCR. Ferramentas de referência para crédito imobiliário.",
+        "tag": "CRR / EBA / CSSF"
+      },
+      "marche": {
+        "title": "Base de dados de mercado",
+        "description": "Preços residenciais, escritórios, comércio, logística, terrenos por município e submercado. Fontes públicas e relatórios de mercado.",
+        "tag": "STATEC / BIS / JLL"
+      },
+      "pagPap": {
+        "title": "Urbanismo PAG / PAP",
+        "description": "Zonas de afetação, construtibilidade, COS/CMU, servidões CTV/CTL, procedimentos PAP Novo Quarteirão e Quarteirão Existente.",
+        "tag": "Lei 19/07/2004 mod."
+      }
+    },
+    "stats": {
+      "tools": "Ferramentas imobiliárias",
+      "energySimulators": "Simuladores de energia",
+      "communes": "Municípios cobertos",
+      "languages": "Línguas (FR/EN/DE/PT/LB)"
+    },
+    "contact": {
+      "tevaxiaTitle": "tevaxia.lu — 12+ ferramentas",
+      "tevaxiaLine1": "Estimativa, mapa de preços, avaliação EVS 2025",
+      "tevaxiaLine2": "DCF multi-inquilinos, balanço promotor, ferramentas bancárias",
+      "tevaxiaLine3": "Custos, mais-valias, apoios, VEFA, compra vs arrendamento",
+      "tevaxiaLine4": "PAG/PAP, terrenos agrícolas, AML/KYC",
+      "energyTitle": "energy.tevaxia.lu — 7 simuladores",
+      "energyLine1": "Impacto CPE, ROI renovação, comunidade de energia",
+      "energyLine2": "Cronologia EPBD 2050, estimador CPE, scoring LENOZ",
+      "energyLine3": "Portfólio energético multi-imóveis",
+      "sourcesTitle": "Fontes de dados integradas",
+      "sourcesLine1": "Observatoire de l'Habitat (data.public.lu)",
+      "sourcesLine2": "STATEC — Índices de preços e custos de construção",
+      "sourcesLine3": "Geoportail.lu — Cadastro e PAG",
+      "sourcesLine4": "Relatórios de mercado escritórios, comércio, logística",
+      "sourcesLine5": "Taxas hipotecárias e índices de construção"
+    }
   },
   "footer": {
     "toolsTitle": "Ferramentas",
@@ -1636,5 +1730,46 @@
     "sensVacanceDesc": "Variation in vacancy rate",
     "sensFootnote": "Single-factor sensitivity analysis (ceteris paribus).",
     "recAnalyseNarrative": "Narrative analysis"
+  },
+  "onboarding": {
+    "heading": "O que pretende fazer?",
+    "subheading": "Clique para descobrir as ferramentas adequadas ao seu projeto",
+    "acheter": {
+      "title": "Comprar",
+      "description": "Estime, simule os custos e descubra os apoios disponíveis",
+      "link1": "Estimativa de preço",
+      "link2": "Custos de aquisição",
+      "link3": "Simulador de apoios",
+      "link4": "Comprar ou arrendar?"
+    },
+    "vendre": {
+      "title": "Vender",
+      "description": "Avalie o seu imóvel e antecipe a fiscalidade",
+      "link1": "Estimativa de preço",
+      "link2": "Mais-valias imobiliárias",
+      "link3": "Avaliação profissional",
+      "link4": "Preços de mercado por município"
+    },
+    "investir": {
+      "title": "Investir",
+      "description": "Analise a rentabilidade e gira o seu portfólio",
+      "link1": "Avaliação EVS",
+      "link2": "DCF multi-inquilinos",
+      "link3": "Portfólio",
+      "link4": "Ferramentas bancárias"
+    },
+    "construire": {
+      "title": "Construir",
+      "description": "Estruture a sua operação e verifique o urbanismo",
+      "link1": "Balanço promotor",
+      "link2": "VEFA",
+      "link3": "PAG / PAP urbanismo"
+    }
+  },
+  "cookie": {
+    "message": "Este site utiliza cookies de medição de audiência (Google Analytics) para melhorar a sua experiência. Nenhum dado pessoal é recolhido através das calculadoras.",
+    "privacyLink": "Política de privacidade",
+    "refuse": "Recusar",
+    "accept": "Aceitar"
   }
 }

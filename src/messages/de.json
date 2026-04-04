@@ -50,7 +50,101 @@
     "missingTool": "Fehlt Ihnen ein Tool?",
     "missingToolDescription": "tevaxia.lu befindet sich im aktiven Aufbau. Wenn Sie einen bestimmten Rechner, eine Funktion für Ihre berufliche Praxis benötigen oder einen Fehler in unseren Berechnungen feststellen — lassen Sie es uns wissen.",
     "upcomingModules": "Geplante Module",
-    "dataSources": "Integrierte Datenquellen"
+    "dataSources": "Integrierte Datenquellen",
+    "jsonLdDescription": "Immobilientools Luxemburg",
+    "tags": {
+      "habitat": "Observatoire de l'Habitat",
+      "tegova": "TEGOVA EVS 2025",
+      "epbd": "EPBD-Richtlinie 2024",
+      "lir": "LU Steuergesetz (LIR)",
+      "bail": "Mietgesetz 21/09/2006",
+      "statec": "STATEC / Geoportail"
+    },
+    "modules": {
+      "estimation": {
+        "title": "Sofortbewertung",
+        "description": "Gemeinde, Fläche, Stockwerk, Zustand, Energie — erhalten Sie eine Schätzung mit Preisspanne basierend auf luxemburgischen öffentlichen Daten.",
+        "tag": "Observatoire de l'Habitat"
+      },
+      "carte": {
+        "title": "Preiskarte",
+        "description": "Preis pro m² nach Gemeinde und Stadtviertel. Daten des Observatoire de l'Habitat, sortierbar nach Kanton, Preis oder Name.",
+        "tag": "data.public.lu"
+      },
+      "loyer": {
+        "title": "Investiertes Kapital & Miete",
+        "description": "Berechnen Sie die gesetzliche Mietobergrenze nach der 5%-Regel des investierten Kapitals. Neubewertungskoeffizienten, Abnutzung, WG-Verwaltung.",
+        "tag": "Gesetz 21/09/2006 mod."
+      },
+      "frais": {
+        "title": "Erwerbsnebenkosten",
+        "description": "Registrierungsgebühren 7%, Bëllegen Akt (40.000 €/Pers.), MwSt. 3% vs 17% bei VEFA, Notargebühren, Hypothekenkosten.",
+        "tag": "Gesetz 22/10/2008 mod."
+      },
+      "plusValues": {
+        "title": "Veräußerungsgewinne",
+        "description": "Spekulation vs. langfristige Veräußerung, Neubewertungskoeffizienten, Zehn-Jahres-Freibetrag, Befreiung Hauptwohnsitz.",
+        "tag": "Art. 99ter & 102 LIR"
+      },
+      "aides": {
+        "title": "Fördermittelrechner",
+        "description": "5 kumulierbare Förderschichten: staatlich, Energierenovierung, privat, kommunal, Denkmalschutz. Das umfassendste Tool in Luxemburg.",
+        "tag": "5 kumulierbare Schichten"
+      },
+      "achatLocation": {
+        "title": "Kaufen oder Mieten?",
+        "description": "Vergleichen Sie Gesamtkosten und Vermögensaufbau über die Zeit. Break-even-Punkt, Alternativanlage, Wertsteigerung der Immobilie.",
+        "tag": "Finanzielle Arbitrage"
+      },
+      "bilanPromoteur": {
+        "title": "Projektentwicklerbilanz",
+        "description": "Restwertmethode: Verkaufspreis − Kosten − Gebühren − Marge = maximale Grundstücksbelastung. Angepasst an luxemburgische Baukosten.",
+        "tag": "Restwertmethode"
+      },
+      "valorisation": {
+        "title": "Bewertung EVS 2025",
+        "description": "Vergleich, direkte Kapitalisierung, DCF, Beleihungswert, Abstimmung. Konform mit TEGOVA European Valuation Standards.",
+        "tag": "TEGOVA EVS 2025"
+      },
+      "bancaire": {
+        "title": "Banktools",
+        "description": "LTV, Kreditkapazität, Tilgungspläne, DSCR. Referenztools für Immobilienkredite.",
+        "tag": "CRR / EBA / CSSF"
+      },
+      "marche": {
+        "title": "Marktdatenbank",
+        "description": "Wohnimmobilienpreise, Büros, Einzelhandel, Logistik, Grundstücke nach Gemeinde und Teilmarkt. Öffentliche Quellen und Marktberichte.",
+        "tag": "STATEC / BIZ / JLL"
+      },
+      "pagPap": {
+        "title": "Städtebau PAG / PAP",
+        "description": "Nutzungszonen, Bebaubarkeit, COS/CMU, CTV/CTL-Dienstbarkeiten, PAP-Verfahren Neues Quartier und Bestehendes Quartier.",
+        "tag": "Gesetz 19/07/2004 mod."
+      }
+    },
+    "stats": {
+      "tools": "Immobilientools",
+      "energySimulators": "Energiesimulatoren",
+      "communes": "Gemeinden abgedeckt",
+      "languages": "Sprachen (FR/EN/DE/PT/LB)"
+    },
+    "contact": {
+      "tevaxiaTitle": "tevaxia.lu — 12+ Tools",
+      "tevaxiaLine1": "Bewertung, Preiskarte, Bewertung EVS 2025",
+      "tevaxiaLine2": "DCF Mehrmieter, Projektentwicklerbilanz, Banktools",
+      "tevaxiaLine3": "Gebühren, Veräußerungsgewinne, Förderungen, VEFA, Kauf vs. Miete",
+      "tevaxiaLine4": "PAG/PAP, landwirtschaftliche Flächen, AML/KYC",
+      "energyTitle": "energy.tevaxia.lu — 7 Simulatoren",
+      "energyLine1": "CPE-Auswirkung, Renovierungs-ROI, Energiegemeinschaft",
+      "energyLine2": "EPBD-Timeline 2050, CPE-Schätzer, LENOZ-Scoring",
+      "energyLine3": "Energieportfolio Multi-Objekt",
+      "sourcesTitle": "Integrierte Datenquellen",
+      "sourcesLine1": "Observatoire de l'Habitat (data.public.lu)",
+      "sourcesLine2": "STATEC — Preisindizes und Baukosten",
+      "sourcesLine3": "Geoportail.lu — Kataster und PAG",
+      "sourcesLine4": "Marktberichte Büros, Einzelhandel, Logistik",
+      "sourcesLine5": "Hypothekenzinsen und Baukostenindizes"
+    }
   },
   "footer": {
     "toolsTitle": "Tools",
@@ -1636,5 +1730,46 @@
     "sensVacanceDesc": "Variation in vacancy rate",
     "sensFootnote": "Single-factor sensitivity analysis (ceteris paribus).",
     "recAnalyseNarrative": "Narrative analysis"
+  },
+  "onboarding": {
+    "heading": "Was möchten Sie tun?",
+    "subheading": "Klicken Sie, um die passenden Tools für Ihr Projekt zu entdecken",
+    "acheter": {
+      "title": "Kaufen",
+      "description": "Schätzen, Gebühren simulieren und verfügbare Förderungen entdecken",
+      "link1": "Preisschätzung",
+      "link2": "Erwerbsnebenkosten",
+      "link3": "Fördermittelrechner",
+      "link4": "Kaufen oder mieten?"
+    },
+    "vendre": {
+      "title": "Verkaufen",
+      "description": "Bewerten Sie Ihre Immobilie und antizipieren Sie die Besteuerung",
+      "link1": "Preisschätzung",
+      "link2": "Veräußerungsgewinne",
+      "link3": "Professionelle Bewertung",
+      "link4": "Marktpreise nach Gemeinde"
+    },
+    "investir": {
+      "title": "Investieren",
+      "description": "Analysieren Sie die Rentabilität und verwalten Sie Ihr Portfolio",
+      "link1": "EVS-Bewertung",
+      "link2": "DCF Mehrmieter",
+      "link3": "Portfolio",
+      "link4": "Banktools"
+    },
+    "construire": {
+      "title": "Bauen",
+      "description": "Strukturieren Sie Ihr Projekt und prüfen Sie das Baurecht",
+      "link1": "Projektentwicklerbilanz",
+      "link2": "VEFA",
+      "link3": "PAG / PAP Städtebau"
+    }
+  },
+  "cookie": {
+    "message": "Diese Website verwendet Cookies zur Besuchermessung (Google Analytics), um Ihre Erfahrung zu verbessern. Über die Rechner werden keine personenbezogenen Daten erfasst.",
+    "privacyLink": "Datenschutzrichtlinie",
+    "refuse": "Ablehnen",
+    "accept": "Akzeptieren"
   }
 }

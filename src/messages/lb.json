@@ -50,7 +50,101 @@
     "missingTool": "Feelt Iech en Tool?",
     "missingToolDescription": "tevaxia.lu gëtt aktiv weiderentwéckelt. Wann Dir e spezifesche Rechner braucht, eng Funktioun fir Är berufflech Praxis, oder wann Dir e Feeler a sengen Berechnunge gesitt — sot eis Bescheed.",
     "upcomingModules": "Nächst geplangte Moduler",
-    "dataSources": "Integréiert Datequellen"
+    "dataSources": "Integréiert Datequellen",
+    "jsonLdDescription": "Immobilientools Lëtzebuerg",
+    "tags": {
+      "habitat": "Observatoire de l'Habitat",
+      "tegova": "TEGOVA EVS 2025",
+      "epbd": "EPBD Direktiv 2024",
+      "lir": "LU Steiergesetz (LIR)",
+      "bail": "Loyersgesetz 21/09/2006",
+      "statec": "STATEC / Geoportail"
+    },
+    "modules": {
+      "estimation": {
+        "title": "Direkt Schätzung",
+        "description": "Gemeng, Fläch, Stack, Zoustand, Energie — kritt eng Schätzung mat Präisspanne baséiert op Lëtzebuerger ëffentlechen Donnéeën.",
+        "tag": "Observatoire de l'Habitat"
+      },
+      "carte": {
+        "title": "Präiskaart",
+        "description": "Präis pro m² pro Gemeng a Quartier. Donnéeë vum Observatoire de l'Habitat, sortéierbar no Kanton, Präis oder Numm.",
+        "tag": "data.public.lu"
+      },
+      "loyer": {
+        "title": "Investéiert Kapital & Loyer",
+        "description": "Berechent den légale Loyersplafong no der 5%-Regel vum investéierte Kapital. Neibewäertungskoeffizient, Ofnotzung, Colocation-Gestioun.",
+        "tag": "Gesetz 21/09/2006 mod."
+      },
+      "frais": {
+        "title": "Akquisitiounskäschten",
+        "description": "Aschreiwungsgebüren 7%, Bëllegen Akt (40 000 €/Pers.), TVA 3% vs 17% bei VEFA, Notargebüren, Hypothéikekäschten.",
+        "tag": "Gesetz 22/10/2008 mod."
+      },
+      "plusValues": {
+        "title": "Immobilie-Wäertzouwuess",
+        "description": "Spekulatioun vs laangfristeg Cession, Neibewäertungskoeffizient, zéngjäerlecht Ofsetzen, Fräistellung Haaptwunnsëtz.",
+        "tag": "Art. 99ter & 102 LIR"
+      },
+      "aides": {
+        "title": "Hëllefen-Simulator",
+        "description": "5 kumuléierbar Hëllefeschichten: staatlech, Energierenovatioun, privat, kommunal, Patrimoine. Dat vollstännegst Tool zu Lëtzebuerg.",
+        "tag": "5 kumuléierbar Schichten"
+      },
+      "achatLocation": {
+        "title": "Kafen oder Lounen?",
+        "description": "Vergläicht d'Gesamtkäschten an de Patrimoine deen opgebaut gëtt iwwer d'Zäit. Kräizungspunkt, Alternativinvestissement, Wäertsteigerung.",
+        "tag": "Finanziell Arbitrage"
+      },
+      "bilanPromoteur": {
+        "title": "Promoteur-Bilanz",
+        "description": "Restwäertmethod: Verkafspräis − Käschten − Gebüren − Marge = maximal Grondstéckbelaaschtung. Ugepasst u Lëtzebuerger Baukäschten.",
+        "tag": "Restwäertmethod"
+      },
+      "valorisation": {
+        "title": "Bewäertung EVS 2025",
+        "description": "Vergläich, direkt Kapitaliséierung, DCF, Beleihungswäert, Abstëmmung. Konform mat TEGOVA European Valuation Standards.",
+        "tag": "TEGOVA EVS 2025"
+      },
+      "bancaire": {
+        "title": "Bankinstrumenter",
+        "description": "LTV, Kreditkapazitéit, Tilgungspläng, DSCR. Referenz-Tools fir Immobiliekreditter.",
+        "tag": "CRR / EBA / CSSF"
+      },
+      "marche": {
+        "title": "Maartdatebank",
+        "description": "Wunnimmobiliepräisser, Büroën, Handel, Logistik, Grondstécker pro Gemeng an Ënnermaart. Ëffentlech Quellen a Maartberichter.",
+        "tag": "STATEC / BIZ / JLL"
+      },
+      "pagPap": {
+        "title": "Urbanismus PAG / PAP",
+        "description": "Notzungszonen, Bebaulechkeet, COS/CMU, CTV/CTL-Servituten, PAP-Prozeduren Neie Quartier an Existéierend Quartier.",
+        "tag": "Gesetz 19/07/2004 mod."
+      }
+    },
+    "stats": {
+      "tools": "Immobilientools",
+      "energySimulators": "Energiesimulatoren",
+      "communes": "Gemengen ofgedeckt",
+      "languages": "Sproochen (FR/EN/DE/PT/LB)"
+    },
+    "contact": {
+      "tevaxiaTitle": "tevaxia.lu — 12+ Tools",
+      "tevaxiaLine1": "Schätzung, Präiskaart, Bewäertung EVS 2025",
+      "tevaxiaLine2": "DCF Multi-Locatairen, Promoteur-Bilanz, Bankinstrumenter",
+      "tevaxiaLine3": "Käschten, Wäertzouwuess, Hëllefen, VEFA, Kaf vs Loyer",
+      "tevaxiaLine4": "PAG/PAP, landwirtschaftlech Flächen, AML/KYC",
+      "energyTitle": "energy.tevaxia.lu — 7 Simulatoren",
+      "energyLine1": "CPE Impakt, Renovatioun-ROI, Energiegemeinschaft",
+      "energyLine2": "EPBD Timeline 2050, CPE Schätzer, LENOZ Scoring",
+      "energyLine3": "Energieportfolio Multi-Immobilie",
+      "sourcesTitle": "Integréiert Datequellen",
+      "sourcesLine1": "Observatoire de l'Habitat (data.public.lu)",
+      "sourcesLine2": "STATEC — Präisindexen a Baukäschten",
+      "sourcesLine3": "Geoportail.lu — Kataster a PAG",
+      "sourcesLine4": "Maartberichter Büroën, Handel, Logistik",
+      "sourcesLine5": "Hypothéikenzinsen a Baukostenindexen"
+    }
   },
   "footer": {
     "toolsTitle": "Tools",
@@ -1636,5 +1730,46 @@
     "sensVacanceDesc": "Variation in vacancy rate",
     "sensFootnote": "Single-factor sensitivity analysis (ceteris paribus).",
     "recAnalyseNarrative": "Narrative analysis"
+  },
+  "onboarding": {
+    "heading": "Wat wëllt Dir maachen?",
+    "subheading": "Klickt fir d'Tools ze entdecken déi zu Ärem Projet passen",
+    "acheter": {
+      "title": "Kafen",
+      "description": "Schätzt, simuléiert d'Käschten an entdeckt déi disponibel Hëllefen",
+      "link1": "Präisschätzung",
+      "link2": "Akquisitiounskäschten",
+      "link3": "Hëllefen-Simulator",
+      "link4": "Kafen oder lounen?"
+    },
+    "vendre": {
+      "title": "Verkafen",
+      "description": "Bewäert Är Immobilie an antizipéiert d'Besteierung",
+      "link1": "Präisschätzung",
+      "link2": "Immobilie-Wäertzouwuess",
+      "link3": "Professionell Bewäertung",
+      "link4": "Maartpräisser pro Gemeng"
+    },
+    "investir": {
+      "title": "Investéieren",
+      "description": "Analyséiert d'Rentabilitéit a geréiert Äre Portfolio",
+      "link1": "EVS Bewäertung",
+      "link2": "DCF Multi-Locatairen",
+      "link3": "Portfolio",
+      "link4": "Bankinstrumenter"
+    },
+    "construire": {
+      "title": "Bauen",
+      "description": "Strukturéiert Äre Projet a préift den Urbanismus",
+      "link1": "Promoteur-Bilanz",
+      "link2": "VEFA",
+      "link3": "PAG / PAP Urbanismus"
+    }
+  },
+  "cookie": {
+    "message": "Dëse Site benotzt Cookies fir d'Besuchermessung (Google Analytics) fir Är Erfahrung ze verbesseren. Keng perséinlech Donnéeë ginn iwwer d'Rechner gesammelt.",
+    "privacyLink": "Dateschutz",
+    "refuse": "Refuséieren",
+    "accept": "Akzeptéieren"
   }
 }

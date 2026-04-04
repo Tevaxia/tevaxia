@@ -50,7 +50,101 @@
     "missingTool": "Un outil vous manque ?",
     "missingToolDescription": "tevaxia.lu est en construction active. Si vous avez besoin d'un calculateur spécifique, d'une fonctionnalité pour votre pratique professionnelle, ou si vous constatez une erreur dans nos calculs — faites-le nous savoir.",
     "upcomingModules": "Prochains modules prévus",
-    "dataSources": "Sources de données intégrées"
+    "dataSources": "Sources de données intégrées",
+    "jsonLdDescription": "Outils immobiliers Luxembourg",
+    "tags": {
+      "habitat": "Observatoire de l'Habitat",
+      "tegova": "TEGOVA EVS 2025",
+      "epbd": "Directive EPBD 2024",
+      "lir": "Code fiscal LU (LIR)",
+      "bail": "Loi bail 21/09/2006",
+      "statec": "STATEC / Geoportail"
+    },
+    "modules": {
+      "estimation": {
+        "title": "Estimation instantanée",
+        "description": "Commune, surface, étage, état, énergie — obtenez une estimation avec fourchette de prix basée sur les données publiques luxembourgeoises.",
+        "tag": "Observatoire de l'Habitat"
+      },
+      "carte": {
+        "title": "Carte des prix",
+        "description": "Prix au m² par commune et par quartier. Données Observatoire de l'Habitat, triables par canton, prix ou nom.",
+        "tag": "data.public.lu"
+      },
+      "loyer": {
+        "title": "Capital Investi & Loyer",
+        "description": "Calculez le plafond légal de loyer selon la règle des 5% du capital investi. Coefficients de réévaluation, vétusté, gestion colocation.",
+        "tag": "Loi 21/09/2006 mod."
+      },
+      "frais": {
+        "title": "Frais d'Acquisition",
+        "description": "Droits d'enregistrement 7%, Bëllegen Akt (40 000 €/pers.), TVA 3% vs 17% sur VEFA, émoluments notariaux, frais d'hypothèque.",
+        "tag": "Loi 22/10/2008 mod."
+      },
+      "plusValues": {
+        "title": "Plus-Values Immobilières",
+        "description": "Spéculation vs cession longue durée, coefficients de réévaluation, abattement décennal, exemption résidence principale.",
+        "tag": "Art. 99ter & 102 LIR"
+      },
+      "aides": {
+        "title": "Simulateur d'Aides",
+        "description": "5 couches d'aides cumulables : étatiques, rénovation énergie, privées, communales, patrimoine. L'outil le plus complet du Luxembourg.",
+        "tag": "5 couches cumulables"
+      },
+      "achatLocation": {
+        "title": "Acheter ou Louer ?",
+        "description": "Comparez le coût total et le patrimoine constitué sur la durée. Point de croisement, placement alternatif, appréciation du bien.",
+        "tag": "Arbitrage financier"
+      },
+      "bilanPromoteur": {
+        "title": "Bilan Promoteur",
+        "description": "Compte à rebours : prix de vente − coûts − frais − marge = charge foncière maximale. Adapté aux coûts de construction luxembourgeois.",
+        "tag": "Compte à rebours"
+      },
+      "valorisation": {
+        "title": "Valorisation EVS 2025",
+        "description": "Comparaison, capitalisation directe, DCF, Mortgage Lending Value, réconciliation. Conforme TEGOVA European Valuation Standards.",
+        "tag": "TEGOVA EVS 2025"
+      },
+      "bancaire": {
+        "title": "Outils Bancaires",
+        "description": "LTV, capacité d'emprunt, tableaux d'amortissement, DSCR. Outils de référence pour le crédit immobilier.",
+        "tag": "CRR / EBA / CSSF"
+      },
+      "marche": {
+        "title": "Base de données marché",
+        "description": "Prix résidentiel, bureaux, commerces, logistique, terrains par commune et sous-marché. Sources publiques et rapports de marché.",
+        "tag": "STATEC / BRI / JLL"
+      },
+      "pagPap": {
+        "title": "Urbanisme PAG / PAP",
+        "description": "Zones d'affectation, constructibilité, COS/CMU, servitudes CTV/CTL, procédures PAP Nouveau Quartier et Quartier Existant.",
+        "tag": "Loi 19/07/2004 mod."
+      }
+    },
+    "stats": {
+      "tools": "Outils immobiliers",
+      "energySimulators": "Simulateurs énergie",
+      "communes": "Communes couvertes",
+      "languages": "Langues (FR/EN/DE/PT/LB)"
+    },
+    "contact": {
+      "tevaxiaTitle": "tevaxia.lu — 12+ outils",
+      "tevaxiaLine1": "Estimation, carte des prix, valorisation EVS 2025",
+      "tevaxiaLine2": "DCF multi-locataires, bilan promoteur, outils bancaires",
+      "tevaxiaLine3": "Frais, plus-values, aides, VEFA, achat vs location",
+      "tevaxiaLine4": "PAG/PAP, terres agricoles, AML/KYC",
+      "energyTitle": "energy.tevaxia.lu — 7 simulateurs",
+      "energyLine1": "Impact CPE, ROI rénovation, communauté d'énergie",
+      "energyLine2": "Timeline EPBD 2050, estimateur CPE, scoring LENOZ",
+      "energyLine3": "Portfolio énergétique multi-biens",
+      "sourcesTitle": "Sources de données intégrées",
+      "sourcesLine1": "Observatoire de l'Habitat (data.public.lu)",
+      "sourcesLine2": "STATEC — Indices de prix et coûts construction",
+      "sourcesLine3": "Geoportail.lu — Cadastre et PAG",
+      "sourcesLine4": "Rapports de marché bureaux, commerces, logistique",
+      "sourcesLine5": "Taux hypothécaires et indices de construction"
+    }
   },
   "footer": {
     "toolsTitle": "Outils",
@@ -1636,5 +1730,46 @@
     "sensVacanceDesc": "Variation du taux de vacance",
     "sensFootnote": "Analyse de sensibilité à un seul facteur (ceteris paribus).",
     "recAnalyseNarrative": "Analyse narrative"
+  },
+  "onboarding": {
+    "heading": "Que souhaitez-vous faire ?",
+    "subheading": "Cliquez pour découvrir les outils adaptés à votre projet",
+    "acheter": {
+      "title": "Acheter",
+      "description": "Estimez, simulez les frais et découvrez les aides disponibles",
+      "link1": "Estimation de prix",
+      "link2": "Frais d'acquisition",
+      "link3": "Simulateur d'aides",
+      "link4": "Acheter ou louer ?"
+    },
+    "vendre": {
+      "title": "Vendre",
+      "description": "Évaluez votre bien et anticipez la fiscalité",
+      "link1": "Estimation de prix",
+      "link2": "Plus-values immobilières",
+      "link3": "Valorisation professionnelle",
+      "link4": "Prix du marché par commune"
+    },
+    "investir": {
+      "title": "Investir",
+      "description": "Analysez la rentabilité et gérez votre portefeuille",
+      "link1": "Valorisation EVS",
+      "link2": "DCF multi-locataires",
+      "link3": "Portefeuille",
+      "link4": "Outils bancaires"
+    },
+    "construire": {
+      "title": "Construire",
+      "description": "Montez votre opération et vérifiez l'urbanisme",
+      "link1": "Bilan promoteur",
+      "link2": "VEFA",
+      "link3": "PAG / PAP urbanisme"
+    }
+  },
+  "cookie": {
+    "message": "Ce site utilise des cookies de mesure d'audience (Google Analytics) pour améliorer votre expérience. Aucune donnée personnelle n'est collectée via les calculateurs.",
+    "privacyLink": "Politique de confidentialité",
+    "refuse": "Refuser",
+    "accept": "Accepter"
   }
 }
