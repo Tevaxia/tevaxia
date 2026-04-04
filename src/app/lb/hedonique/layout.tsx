@@ -1,0 +1,6 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Hedonic Valuation Luxembourg — Regression Model",
+  description: "Property value estimation using a multi-criteria hedonic model. Surface area, location, floor, energy class, parking, outdoor space, condition. Inspired by the Observatoire de l'Habitat model.",
+};
+export default function Layout({ children }: { children: React.ReactNode }) { return children; }

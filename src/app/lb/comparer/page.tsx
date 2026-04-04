@@ -1,0 +1,417 @@
+"use client";
+
+import { useState, useMemo } from "react";
+import { estimer, type EstimationInput, type EstimationResult } from "@/lib/estimation";
+import { rechercherCommune, type SearchResult } from "@/lib/market-data";
+import { AJUST_ETAGE, AJUST_ETAT, AJUST_EXTERIEUR } from "@/lib/adjustments";
+import { formatEUR } from "@/lib/calculations";
+import InputField from "@/components/InputField";
+import ToggleField from "@/components/ToggleField";
+import ConfidenceGauge from "@/components/ConfidenceGauge";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+interface BienState {
+  communeSearch: string;
+  selectedResult: SearchResult | null;
+  surface: number;
+  nbChambres: number;
+  etage: string;
+  etat: string;
+  exterieur: string;
+  parking: boolean;
+  classeEnergie: string;
+  estNeuf: boolean;
+}
+
+const DEFAULT_BIEN: BienState = {
+  communeSearch: "",
+  selectedResult: null,
+  surface: 80,
+  nbChambres: 2,
+  etage: "2eme-3eme etage (ref.)",
+  etat: "Bon etat (ref.)",
+  exterieur: "Balcon standard (ref.)",
+  parking: true,
+  classeEnergie: "D",
+  estNeuf: false,
+};
+
+function BienColumn({
+  label,
+  bien,
+  setBien,
+  result,
+}: {
+  label: string;
+  bien: BienState;
+  setBien: (b: BienState) => void;
+  result: EstimationResult | null;
+}) {
+  const searchResults = useMemo(() => rechercherCommune(bien.communeSearch), [bien.communeSearch]);
+
+  return (
+    <div className="space-y-4">
+      <h2 className="text-base font-semibold text-navy">{label}</h2>
+
+      {/* Municipality search */}
+      <div className="rounded-xl border border-card-border bg-card p-4 shadow-sm">
+        <div className="relative">
+          <input
+            type="text"
+            value={bien.communeSearch}
+            onChange={(e) => {
+              setBien({ ...bien, communeSearch: e.target.value, selectedResult: e.target.value ? bien.selectedResult : null });
+            }}
+            placeholder="Municipality, locality or neighbourhood..."
+            className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2.5 text-sm shadow-sm focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
+          />
+          {bien.communeSearch.length >= 2 && searchResults.length > 0 && !bien.selectedResult && (
+            <div className="absolute z-10 mt-1 w-full rounded-lg border border-card-border bg-card shadow-lg max-h-60 overflow-y-auto">
+              {searchResults.map((r) => (
+                <button
+                  key={r.commune.commune + r.matchedOn}
+                  onClick={() => {
+                    setBien({
+                      ...bien,
+                      selectedResult: r,
+                      communeSearch: r.isLocalite ? `${r.matchedOn} (${r.commune.commune})` : r.commune.commune,
+                    });
+                  }}
+                  className="w-full px-3 py-2 text-left text-sm hover:bg-background transition-colors"
+                >
+                  {r.isLocalite ? (
+                    <>
+                      <span className="font-medium">{r.matchedOn}</span>
+                      <span className="text-muted ml-1">-- {r.quartier ? "neighbourhood" : "municipality"} of {r.commune.commune}</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="font-medium">{r.commune.commune}</span>
+                      <span className="text-muted ml-2">({r.commune.canton})</span>
+                    </>
+                  )}
+                  <span className="float-right font-mono text-navy">
+                    {r.quartier ? formatEUR(r.quartier.prixM2) : r.commune.prixM2Existant ? formatEUR(r.commune.prixM2Existant) : "--"}/m2
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+        {bien.selectedResult && (
+          <div className="mt-2 text-xs text-muted">
+            {bien.selectedResult.quartier
+              ? `${bien.selectedResult.quartier.nom} -- ${bien.selectedResult.quartier.note}`
+              : `${bien.selectedResult.commune.commune} (${bien.selectedResult.commune.canton})`}
+          </div>
+        )}
+      </div>
+
+      {/* Characteristics */}
+      <div className="rounded-xl border border-card-border bg-card p-4 shadow-sm space-y-3">
+        <InputField label="Living area" value={bien.surface} onChange={(v) => setBien({ ...bien, surface: Number(v) })} suffix="m2" min={10} max={500} />
+        <InputField label="Bedrooms" value={bien.nbChambres} onChange={(v) => setBien({ ...bien, nbChambres: Number(v) })} min={0} max={10} />
+        <InputField
+          label="Floor"
+          type="select"
+          value={bien.etage}
+          onChange={(v) => setBien({ ...bien, etage: v })}
+          options={AJUST_ETAGE.map((a) => ({ value: a.label, label: `${a.label} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
+        />
+        <InputField
+          label="Condition"
+          type="select"
+          value={bien.etat}
+          onChange={(v) => setBien({ ...bien, etat: v })}
+          options={AJUST_ETAT.map((a) => ({ value: a.label, label: `${a.label} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
+        />
+        <InputField
+          label="Outdoor space"
+          type="select"
+          value={bien.exterieur}
+          onChange={(v) => setBien({ ...bien, exterieur: v })}
+          options={AJUST_EXTERIEUR.map((a) => ({ value: a.label, label: `${a.label} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
+        />
+        <InputField
+          label="Energy class"
+          type="select"
+          value={bien.classeEnergie}
+          onChange={(v) => setBien({ ...bien, classeEnergie: v })}
+          options={[
+            { value: "A", label: "A (+5%)" },
+            { value: "B", label: "B (+3%)" },
+            { value: "C", label: "C (+1%)" },
+            { value: "D", label: "D (ref.)" },
+            { value: "E", label: "E (-3%)" },
+            { value: "F", label: "F (-6%)" },
+            { value: "G", label: "G (-10%)" },
+          ]}
+        />
+        <ToggleField label="Parking included" checked={bien.parking} onChange={(v) => setBien({ ...bien, parking: v })} hint="+4%" />
+        <ToggleField label="New build (VEFA)" checked={bien.estNeuf} onChange={(v) => setBien({ ...bien, estNeuf: v })} />
+      </div>
+
+      {/* Result */}
+      {result ? (
+        <div className="space-y-3">
+          <div className="rounded-xl bg-gradient-to-br from-navy to-navy-light p-5 text-white text-center shadow-lg">
+            <div className="text-xs text-white/60">Central estimate</div>
+            <div className="mt-1 text-3xl font-bold">{formatEUR(result.estimationCentrale)}</div>
+            <div className="mt-2 flex items-center justify-center gap-4 text-xs text-white/70">
+              <div>
+                <div className="text-white/40 text-[10px]">Low</div>
+                <div className="font-semibold">{formatEUR(result.estimationBasse)}</div>
+              </div>
+              <div className="h-6 w-px bg-white/20" />
+              <div>
+                <div className="text-white/40 text-[10px]">High</div>
+                <div className="font-semibold">{formatEUR(result.estimationHaute)}</div>
+              </div>
+            </div>
+            <div className="mt-2 text-[10px] text-white/50">
+              {result.prixM2Ajuste} EUR/m2 x {bien.surface} m2
+            </div>
+          </div>
+
+          {/* Adjustments */}
+          {result.ajustements.length > 0 && (
+            <div className="rounded-xl border border-card-border bg-card p-4 shadow-sm">
+              <h3 className="text-xs font-semibold text-navy mb-2">Adjustments</h3>
+              <div className="space-y-1">
+                {result.ajustements.map((a, i) => (
+                  <div key={i} className="flex justify-between text-xs">
+                    <span className="text-muted">{a.label}</span>
+                    <span className={`font-mono ${a.pct > 0 ? "text-success" : a.pct < 0 ? "text-error" : "text-muted"}`}>
+                      {a.pct > 0 ? "+" : ""}{a.pct}%
+                    </span>
+                  </div>
+                ))}
+                <div className="flex justify-between text-xs font-semibold border-t border-card-border pt-1">
+                  <span>Total</span>
+                  <span className={result.totalAjustements > 0 ? "text-success" : result.totalAjustements < 0 ? "text-error" : ""}>
+                    {result.totalAjustements > 0 ? "+" : ""}{result.totalAjustements}%
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <ConfidenceGauge level={result.confiance} note={result.confianceNote} />
+        </div>
+      ) : (
+        <div className="rounded-xl border-2 border-dashed border-card-border p-8 text-center">
+          <p className="text-sm text-muted">Select a municipality to get an estimate</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function Comparer() {
+  const [bienA, setBienA] = useState<BienState>({ ...DEFAULT_BIEN });
+  const [bienB, setBienB] = useState<BienState>({ ...DEFAULT_BIEN });
+
+  const resultA = useMemo(() => {
+    if (!bienA.selectedResult) return null;
+    return estimer({
+      commune: bienA.selectedResult.commune.commune,
+      quartier: bienA.selectedResult.quartier?.nom,
+      surface: bienA.surface,
+      nbChambres: bienA.nbChambres,
+      etage: bienA.etage,
+      etat: bienA.etat,
+      exterieur: bienA.exterieur,
+      parking: bienA.parking,
+      classeEnergie: bienA.classeEnergie,
+      typeBien: "appartement",
+      estNeuf: bienA.estNeuf,
+    });
+  }, [bienA]);
+
+  const resultB = useMemo(() => {
+    if (!bienB.selectedResult) return null;
+    return estimer({
+      commune: bienB.selectedResult.commune.commune,
+      quartier: bienB.selectedResult.quartier?.nom,
+      surface: bienB.surface,
+      nbChambres: bienB.nbChambres,
+      etage: bienB.etage,
+      etat: bienB.etat,
+      exterieur: bienB.exterieur,
+      parking: bienB.parking,
+      classeEnergie: bienB.classeEnergie,
+      typeBien: "appartement",
+      estNeuf: bienB.estNeuf,
+    });
+  }, [bienB]);
+
+  // Comparison metrics
+  const comparison = useMemo(() => {
+    if (!resultA || !resultB) return null;
+    const diffPrix = resultA.estimationCentrale - resultB.estimationCentrale;
+    const diffPrixPct = resultB.estimationCentrale > 0
+      ? ((resultA.estimationCentrale - resultB.estimationCentrale) / resultB.estimationCentrale) * 100
+      : 0;
+    const diffPrixM2 = resultA.prixM2Ajuste - resultB.prixM2Ajuste;
+    const diffPrixM2Pct = resultB.prixM2Ajuste > 0
+      ? ((resultA.prixM2Ajuste - resultB.prixM2Ajuste) / resultB.prixM2Ajuste) * 100
+      : 0;
+    const moreExpensive = diffPrix > 0 ? "A" : diffPrix < 0 ? "B" : "equal";
+    return { diffPrix, diffPrixPct, diffPrixM2, diffPrixM2Pct, moreExpensive };
+  }, [resultA, resultB]);
+
+  return (
+    <div className="bg-background py-8 sm:py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs />
+        <div className="mb-8 text-center">
+          <h1 className="text-2xl font-bold text-navy sm:text-3xl">
+            Compare two properties
+          </h1>
+          <p className="mt-2 text-muted">
+            Estimate and compare two properties in Luxembourg
+          </p>
+        </div>
+
+        {/* Side by side columns */}
+        <div className="grid gap-6 lg:grid-cols-2">
+          <BienColumn label="Property A" bien={bienA} setBien={setBienA} result={resultA} />
+          <BienColumn label="Property B" bien={bienB} setBien={setBienB} result={resultB} />
+        </div>
+
+        {/* Comparison summary */}
+        {comparison && resultA && resultB && (
+          <div className="mt-8 rounded-2xl border border-card-border bg-card p-6 shadow-sm">
+            <h2 className="text-base font-semibold text-navy mb-4 text-center">Comparison</h2>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {/* Price comparison */}
+              <div className="rounded-lg bg-background p-4 text-center">
+                <div className="text-xs text-muted mb-1">Price difference</div>
+                <div className={`text-xl font-bold ${comparison.diffPrix > 0 ? "text-error" : comparison.diffPrix < 0 ? "text-success" : "text-muted"}`}>
+                  {comparison.diffPrix > 0 ? "+" : ""}{formatEUR(comparison.diffPrix)}
+                </div>
+                <div className="text-xs text-muted mt-1">
+                  {comparison.diffPrixPct > 0 ? "+" : ""}{comparison.diffPrixPct.toFixed(1)}%
+                </div>
+              </div>
+
+              {/* Price per m2 comparison */}
+              <div className="rounded-lg bg-background p-4 text-center">
+                <div className="text-xs text-muted mb-1">Price/m2 difference</div>
+                <div className={`text-xl font-bold ${comparison.diffPrixM2 > 0 ? "text-error" : comparison.diffPrixM2 < 0 ? "text-success" : "text-muted"}`}>
+                  {comparison.diffPrixM2 > 0 ? "+" : ""}{formatEUR(comparison.diffPrixM2)}/m2
+                </div>
+                <div className="text-xs text-muted mt-1">
+                  {comparison.diffPrixM2Pct > 0 ? "+" : ""}{comparison.diffPrixM2Pct.toFixed(1)}%
+                </div>
+              </div>
+
+              {/* Which is more expensive */}
+              <div className="rounded-lg bg-background p-4 text-center">
+                <div className="text-xs text-muted mb-1">Most expensive</div>
+                <div className="text-xl font-bold text-navy">
+                  {comparison.moreExpensive === "A"
+                    ? `Property A`
+                    : comparison.moreExpensive === "B"
+                      ? `Property B`
+                      : "Equal"}
+                </div>
+                <div className="text-xs text-muted mt-1">
+                  {comparison.moreExpensive !== "equal" && (
+                    <>{formatEUR(Math.abs(comparison.diffPrix))} more</>
+                  )}
+                </div>
+              </div>
+
+              {/* Confidence comparison */}
+              <div className="rounded-lg bg-background p-4 text-center">
+                <div className="text-xs text-muted mb-1">Confidence</div>
+                <div className="flex justify-center gap-3">
+                  <div>
+                    <div className="text-[10px] text-muted">Property A</div>
+                    <span className={`text-sm font-semibold ${
+                      resultA.confiance === "forte" ? "text-success" : resultA.confiance === "moyenne" ? "text-warning" : "text-error"
+                    }`}>
+                      {resultA.confiance}
+                    </span>
+                  </div>
+                  <div className="h-8 w-px bg-card-border" />
+                  <div>
+                    <div className="text-[10px] text-muted">Property B</div>
+                    <span className={`text-sm font-semibold ${
+                      resultB.confiance === "forte" ? "text-success" : resultB.confiance === "moyenne" ? "text-warning" : "text-error"
+                    }`}>
+                      {resultB.confiance}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Detailed side-by-side table */}
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-card-border">
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-muted"></th>
+                    <th className="px-3 py-2 text-right text-xs font-semibold text-navy">Property A</th>
+                    <th className="px-3 py-2 text-right text-xs font-semibold text-navy">Property B</th>
+                    <th className="px-3 py-2 text-right text-xs font-semibold text-muted">Difference</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-card-border/50">
+                    <td className="px-3 py-1.5 text-muted">Base price /m2</td>
+                    <td className="px-3 py-1.5 text-right font-mono">{formatEUR(resultA.prixM2Base)}</td>
+                    <td className="px-3 py-1.5 text-right font-mono">{formatEUR(resultB.prixM2Base)}</td>
+                    <td className="px-3 py-1.5 text-right font-mono text-muted">{formatEUR(resultA.prixM2Base - resultB.prixM2Base)}</td>
+                  </tr>
+                  <tr className="border-b border-card-border/50">
+                    <td className="px-3 py-1.5 text-muted">Adjustments</td>
+                    <td className="px-3 py-1.5 text-right font-mono">{resultA.totalAjustements > 0 ? "+" : ""}{resultA.totalAjustements}%</td>
+                    <td className="px-3 py-1.5 text-right font-mono">{resultB.totalAjustements > 0 ? "+" : ""}{resultB.totalAjustements}%</td>
+                    <td className="px-3 py-1.5 text-right font-mono text-muted">{resultA.totalAjustements - resultB.totalAjustements} pts</td>
+                  </tr>
+                  <tr className="border-b border-card-border/50">
+                    <td className="px-3 py-1.5 text-muted">Adjusted price /m2</td>
+                    <td className="px-3 py-1.5 text-right font-mono font-semibold">{formatEUR(resultA.prixM2Ajuste)}</td>
+                    <td className="px-3 py-1.5 text-right font-mono font-semibold">{formatEUR(resultB.prixM2Ajuste)}</td>
+                    <td className={`px-3 py-1.5 text-right font-mono font-semibold ${comparison.diffPrixM2 > 0 ? "text-error" : comparison.diffPrixM2 < 0 ? "text-success" : ""}`}>
+                      {comparison.diffPrixM2 > 0 ? "+" : ""}{formatEUR(comparison.diffPrixM2)}
+                    </td>
+                  </tr>
+                  <tr className="border-b border-card-border/50">
+                    <td className="px-3 py-1.5 text-muted">Low estimate</td>
+                    <td className="px-3 py-1.5 text-right font-mono">{formatEUR(resultA.estimationBasse)}</td>
+                    <td className="px-3 py-1.5 text-right font-mono">{formatEUR(resultB.estimationBasse)}</td>
+                    <td className="px-3 py-1.5 text-right font-mono text-muted">{formatEUR(resultA.estimationBasse - resultB.estimationBasse)}</td>
+                  </tr>
+                  <tr className="border-b border-card-border/50 bg-navy/5">
+                    <td className="px-3 py-2 font-semibold text-navy">Central estimate</td>
+                    <td className="px-3 py-2 text-right font-mono font-bold text-navy">{formatEUR(resultA.estimationCentrale)}</td>
+                    <td className="px-3 py-2 text-right font-mono font-bold text-navy">{formatEUR(resultB.estimationCentrale)}</td>
+                    <td className={`px-3 py-2 text-right font-mono font-bold ${comparison.diffPrix > 0 ? "text-error" : comparison.diffPrix < 0 ? "text-success" : ""}`}>
+                      {comparison.diffPrix > 0 ? "+" : ""}{formatEUR(comparison.diffPrix)}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 py-1.5 text-muted">High estimate</td>
+                    <td className="px-3 py-1.5 text-right font-mono">{formatEUR(resultA.estimationHaute)}</td>
+                    <td className="px-3 py-1.5 text-right font-mono">{formatEUR(resultB.estimationHaute)}</td>
+                    <td className="px-3 py-1.5 text-right font-mono text-muted">{formatEUR(resultA.estimationHaute - resultB.estimationHaute)}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {/* Disclaimer */}
+        <p className="mt-8 text-xs text-muted text-center leading-relaxed max-w-2xl mx-auto">
+          Indicative estimate based on public data from the Observatoire de l'Habitat
+          and statistical adjustment coefficients. This does not constitute a professional appraisal.
+        </p>
+      </div>
+    </div>
+  );
+}
