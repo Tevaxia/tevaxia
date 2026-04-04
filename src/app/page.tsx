@@ -12,7 +12,7 @@ const MODULES = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.841m2.699-2.067a14.997 14.997 0 01-3.44 0" />
       </svg>
     ),
-    tag: "Nouveau",
+    tag: "Observatoire de l'Habitat",
     color: "from-rose-500 to-pink-500",
   },
   {
@@ -24,7 +24,7 @@ const MODULES = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
       </svg>
     ),
-    tag: "Nouveau",
+    tag: "data.public.lu",
     color: "from-indigo-500 to-blue-500",
   },
   {
@@ -36,7 +36,7 @@ const MODULES = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21" />
       </svg>
     ),
-    tag: "Loi 2006 modifiée",
+    tag: "Loi 21/09/2006 mod.",
     color: "from-navy to-navy-light",
   },
   {
@@ -48,7 +48,7 @@ const MODULES = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
       </svg>
     ),
-    tag: "Bëllegen Akt",
+    tag: "Loi 22/10/2008 mod.",
     color: "from-gold-dark to-gold",
   },
   {
@@ -72,7 +72,7 @@ const MODULES = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
       </svg>
     ),
-    tag: "Killer feature",
+    tag: "5 couches cumulables",
     color: "from-emerald-600 to-emerald-500",
   },
   {
@@ -84,7 +84,7 @@ const MODULES = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
       </svg>
     ),
-    tag: "Nouveau",
+    tag: "Arbitrage financier",
     color: "from-cyan-600 to-cyan-500",
   },
   {
@@ -96,7 +96,7 @@ const MODULES = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
       </svg>
     ),
-    tag: "Promoteurs",
+    tag: "Compte à rebours",
     color: "from-amber-600 to-amber-500",
   },
   {
@@ -108,7 +108,7 @@ const MODULES = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-1.5M12 12.75l3-1.5M12 12.75L9 11.25M12 12.75V16.5" />
       </svg>
     ),
-    tag: "TEGOVA EVS",
+    tag: "TEGOVA EVS 2025",
     color: "from-purple-700 to-purple-500",
   },
   {
@@ -120,7 +120,7 @@ const MODULES = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
       </svg>
     ),
-    tag: "Crédit immobilier",
+    tag: "CRR / EBA / CSSF",
     color: "from-slate to-gray-600",
   },
   {
@@ -132,7 +132,7 @@ const MODULES = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5" />
       </svg>
     ),
-    tag: "Données",
+    tag: "STATEC / BRI / JLL",
     color: "from-sky-600 to-sky-500",
   },
   {
@@ -144,7 +144,7 @@ const MODULES = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
       </svg>
     ),
-    tag: "Urbanisme LU",
+    tag: "Loi 19/07/2004 mod.",
     color: "from-lime-600 to-lime-500",
   },
 ];
@@ -168,12 +168,12 @@ export default function Home() {
               plus-values, aides étatiques — tout en un seul endroit.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm text-white/50">
-              <span className="rounded-full border border-white/20 px-3 py-1">Loi bail 2006 modifiée</span>
-              <span className="rounded-full border border-white/20 px-3 py-1">Bëllegen Akt</span>
-              <span className="rounded-full border border-white/20 px-3 py-1">PAG / PAP</span>
-              <span className="rounded-full border border-white/20 px-3 py-1">Coefficients STATEC</span>
-              <span className="rounded-full border border-white/20 px-3 py-1">CRR / EBA</span>
+              <span className="rounded-full border border-white/20 px-3 py-1">Observatoire de l'Habitat</span>
               <span className="rounded-full border border-white/20 px-3 py-1">TEGOVA EVS 2025</span>
+              <span className="rounded-full border border-white/20 px-3 py-1">Directive EPBD 2024</span>
+              <span className="rounded-full border border-white/20 px-3 py-1">Code fiscal LU (LIR)</span>
+              <span className="rounded-full border border-white/20 px-3 py-1">Loi bail 21/09/2006</span>
+              <span className="rounded-full border border-white/20 px-3 py-1">STATEC / Geoportail</span>
             </div>
           </div>
         </div>
@@ -226,10 +226,10 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {[
+              { value: "12+", label: "Outils immobiliers" },
+              { value: "7", label: "Simulateurs énergie" },
               { value: "100", label: "Communes couvertes" },
-              { value: "8", label: "Méthodes de valorisation EVS" },
-              { value: "9", label: "Types d'actifs" },
-              { value: "FR / EN", label: "Bilingue français et anglais" },
+              { value: "5", label: "Langues (FR/EN/DE/PT/LB)" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-3xl font-bold text-navy sm:text-4xl">{stat.value}</div>
@@ -268,14 +268,20 @@ export default function Home() {
               </div>
               <div className="space-y-3">
                 <div className="rounded-lg bg-white/10 px-4 py-3">
-                  <div className="text-sm font-medium text-white">Déjà disponible</div>
+                  <div className="text-sm font-medium text-white">tevaxia.lu — 12+ outils</div>
                   <ul className="mt-2 space-y-1 text-sm text-white/60">
-                    <li>Estimation, carte des prix, valorisation hédonique</li>
-                    <li>Valorisation EVS 2025 (8 méthodes, 9 types d'actifs)</li>
-                    <li>DCF multi-locataires, bilan promoteur, portfolio</li>
-                    <li>Frais, plus-values, aides (Klimabonus détaillé), VEFA</li>
-                    <li>PAG/PAP avec carte Geoportail, terres agricoles</li>
-                    <li>AML/KYC, outils bancaires, achat vs location</li>
+                    <li>Estimation, carte des prix, valorisation EVS 2025</li>
+                    <li>DCF multi-locataires, bilan promoteur, outils bancaires</li>
+                    <li>Frais, plus-values, aides, VEFA, achat vs location</li>
+                    <li>PAG/PAP, terres agricoles, AML/KYC</li>
+                  </ul>
+                </div>
+                <div className="rounded-lg bg-white/10 px-4 py-3">
+                  <div className="text-sm font-medium text-white">energy.tevaxia.lu — 7 simulateurs</div>
+                  <ul className="mt-2 space-y-1 text-sm text-white/60">
+                    <li>Impact CPE, ROI rénovation, communauté d'énergie</li>
+                    <li>Timeline EPBD 2050, estimateur CPE, scoring LENOZ</li>
+                    <li>Portfolio énergétique multi-biens</li>
                   </ul>
                 </div>
                 <div className="rounded-lg bg-white/10 px-4 py-3">
