@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { calculerCommunaute, type CommunauteResponse } from "@/lib/energy-api";
+import { downloadCommunautePdf, PdfButton } from "@/components/energy/EnergyPdf";
 
 const PRODUCTION_KWH_PAR_KWC = 950;
 const TAUX_AUTOCONSO_BASE = 0.40;
@@ -280,6 +281,10 @@ export default function CommunautePage() {
                 ))}
               </div>
             </div>
+          </div>
+
+          <div className="flex justify-end">
+            <PdfButton onClick={() => downloadCommunautePdf(result, { nbParticipants, puissancePV, consoMoyenneParParticipant: consoMoyenne, tarifReseau, tarifPartage })} label="Télécharger PDF" />
           </div>
 
           <div className="rounded-xl border border-energy/20 bg-energy/5 p-5">

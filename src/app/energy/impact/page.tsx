@@ -3,12 +3,16 @@
 import { useState, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { calculerImpact, type ImpactResponse, type ClasseImpact } from "@/lib/energy-api";
+import { downloadImpactPdf, PdfButton } from "@/components/energy/EnergyPdf";
 
 const CLASSES = ["A", "B", "C", "D", "E", "F", "G", "H", "I"] as const;
 
 const IMPACT_ENERGIE: Record<string, number> = {
   A: 8, B: 5, C: 2, D: 0, E: -3, F: -7, G: -12, H: -18, I: -25,
 };
+
+const CONSO_PAR_CLASSE: Record<string, number> = { A: 35, B: 60, C: 93, D: 130, E: 180, F: 255, G: 350, H: 450, I: 550 };
+const CO2_FACTEUR = 300; // g CO₂/kWh mix luxembourgeois
 
 const CLASS_COLORS: Record<string, string> = {
   A: "bg-green-600 text-white",
@@ -129,6 +133,7 @@ export default function ImpactPage() {
                   <th className="px-6 py-3 font-medium text-muted text-right">{t("ajustement")}</th>
                   <th className="px-6 py-3 font-medium text-muted text-right">{t("valeurAjustee")}</th>
                   <th className="px-6 py-3 font-medium text-muted text-right">{t("delta")}</th>
+                  <th className="px-6 py-3 font-medium text-muted text-right">CO₂ (kg/m²/an)</th>
                 </tr>
               </thead>
               <tbody>
@@ -153,13 +158,19 @@ export default function ImpactPage() {
                           </span>
                         )}
                       </td>
+                      <td className="px-6 py-3 text-right font-mono text-muted">
+                        {Math.round((CONSO_PAR_CLASSE[c.classe] || 130) * 0.75 * CO2_FACTEUR / 1000)}
+                      </td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
           </div>
-          <div className="px-6 py-3 bg-gray-50 text-xs text-muted">{t("classeRef")} · {t("source")}</div>
+          <div className="px-6 py-3 bg-gray-50 flex items-center justify-between">
+            <span className="text-xs text-muted">{t("classeRef")} · {t("source")}</span>
+            <PdfButton onClick={() => downloadImpactPdf(result, classeActuelle, valeur)} label="Télécharger PDF" />
+          </div>
         </div>
 
         {/* Graphique barres horizontales */}

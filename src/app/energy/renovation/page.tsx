@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { calculerRenovation, type RenovationResponse } from "@/lib/energy-api";
 import { estimerCoutsRenovation } from "@/lib/renovation-costs";
+import { downloadRenovationPdf, PdfButton } from "@/components/energy/EnergyPdf";
 
 const CLASSES = ["A", "B", "C", "D", "E", "F", "G", "H", "I"] as const;
 const IMPACT_ENERGIE: Record<string, number> = { A: 8, B: 5, C: 2, D: 0, E: -3, F: -7, G: -12, H: -18, I: -25 };
@@ -16,7 +17,9 @@ const CLASS_COLORS: Record<string, string> = {
 
 function fmt(n: number): string { return n.toLocaleString("fr-LU", { maximumFractionDigits: 0 }); }
 
-function fallbackLocal(ca: string, cc: string, surface: number, annee: number, valeur: number): RenovationResponse | null {
+const CO2_FACTEUR = 300; // g CO₂/kWh mix luxembourgeois
+
+function fallbackLocal(ca: string, cc: string, surface: number, annee: number, valeur: number, prixEnergie = 0.12): RenovationResponse | null {
   if (CLASSES.indexOf(cc as typeof CLASSES[number]) >= CLASSES.indexOf(ca as typeof CLASSES[number])) return null;
   const est = estimerCoutsRenovation(ca, cc, surface, annee);
   if (est.postes.length === 0) return null;
@@ -32,7 +35,7 @@ function fallbackLocal(ca: string, cc: string, surface: number, annee: number, v
   const consoAct = CONSO_PAR_CLASSE[ca] || 130;
   const consoCib = CONSO_PAR_CLASSE[cc] || 130;
   const ecoKwh = Math.round((consoAct - consoCib) * 0.75 * surface);
-  const ecoEur = Math.round(ecoKwh * 0.12);
+  const ecoEur = Math.round(ecoKwh * prixEnergie);
   const payback = ecoEur > 0 ? Math.round(resteACharge * 10 / ecoEur) / 10 : 99;
   return {
     sautClasse: `${ca} → ${cc}`, postes: est.postes.map((p) => ({ label: p.label, coutMin: p.coutMin, coutMax: p.coutMax, coutMoyen: p.coutMoyen })),
@@ -56,6 +59,9 @@ export default function RenovationPage() {
   const [surface, setSurface] = useState(120);
   const [annee, setAnnee] = useState(1975);
   const [valeur, setValeur] = useState(650000);
+  const [prixEnergie, setPrixEnergie] = useState(0.12);
+  const [modeCopro, setModeCopro] = useState(false);
+  const [nbLots, setNbLots] = useState(10);
   const [result, setResult] = useState<RenovationResponse | null>(null);
   const [apiOk, setApiOk] = useState<boolean | null>(null);
   const [elapsed, setElapsed] = useState(0);
@@ -66,16 +72,16 @@ export default function RenovationPage() {
     return () => clearInterval(timer);
   }, [apiOk]);
 
-  const compute = useCallback(async (ca: string, cc: string, s: number, a: number, v: number) => {
+  const compute = useCallback(async (ca: string, cc: string, s: number, a: number, v: number, px: number) => {
     if (CLASSES.indexOf(cc as typeof CLASSES[number]) >= CLASSES.indexOf(ca as typeof CLASSES[number])) { setResult(null); return; }
     try {
-      const data = await calculerRenovation({ classeActuelle: ca, classeCible: cc, surface: s, anneeConstruction: a, valeurBien: v });
+      const data = await calculerRenovation({ classeActuelle: ca, classeCible: cc, surface: s, anneeConstruction: a, valeurBien: v, prixEnergieKwh: px });
       setResult(data); setApiOk(true);
-    } catch { setResult(fallbackLocal(ca, cc, s, a, v)); setApiOk(false); }
+    } catch { setResult(fallbackLocal(ca, cc, s, a, v, px)); setApiOk(false); }
   }, []);
 
-  useEffect(() => { compute(classeActuelle, classeCible, surface, annee, valeur); },
-    [classeActuelle, classeCible, surface, annee, valeur, compute]);
+  useEffect(() => { compute(classeActuelle, classeCible, surface, annee, valeur, prixEnergie); },
+    [classeActuelle, classeCible, surface, annee, valeur, prixEnergie, compute]);
 
   return (
     <div className="py-8 sm:py-12">
@@ -132,15 +138,35 @@ export default function RenovationPage() {
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted text-sm">€</span>
               </div>
             </div>
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Prix énergie (€/kWh)</label>
+              <input type="number" value={prixEnergie} onChange={(e) => setPrixEnergie(Number(e.target.value))} className="w-full rounded-lg border border-input-border bg-input-bg px-4 py-2.5 text-foreground" min={0.05} max={0.50} step={0.01} />
+              <p className="text-xs text-muted mt-0.5">Tarif moyen LU 2025 : 0,12 €/kWh</p>
+            </div>
+          </div>
+          <div className="mt-4 pt-4 border-t border-card-border flex items-center gap-4">
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" checked={modeCopro} onChange={(e) => setModeCopro(e.target.checked)} className="rounded border-input-border text-energy focus:ring-energy" />
+              <span className="text-sm font-medium text-foreground">Mode copropriété</span>
+            </label>
+            {modeCopro && (
+              <div className="flex items-center gap-2">
+                <label className="text-sm text-muted">Nombre de lots :</label>
+                <input type="number" value={nbLots} onChange={(e) => setNbLots(Math.max(2, Number(e.target.value)))} className="w-20 rounded-lg border border-input-border bg-input-bg px-3 py-1.5 text-sm text-foreground" min={2} max={200} />
+              </div>
+            )}
           </div>
         </div>
 
         {result && result.postes.length > 0 && (
           <div className="space-y-6">
             <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
-              <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
-                <h2 className="font-semibold text-foreground">{t("resultTitle")}</h2>
-                <p className="text-xs text-muted mt-0.5">{result.sautClasse} · {surface} m² · {annee}</p>
+              <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent flex items-center justify-between">
+                <div>
+                  <h2 className="font-semibold text-foreground">{t("resultTitle")}</h2>
+                  <p className="text-xs text-muted mt-0.5">{result.sautClasse} · {surface} m² · {annee}</p>
+                </div>
+                <PdfButton onClick={() => downloadRenovationPdf(result, { classeActuelle, classeCible, surface, anneeConstruction: annee, valeurBien: valeur })} label="PDF" />
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
@@ -271,6 +297,52 @@ export default function RenovationPage() {
               </div>
             )}
 
+            {/* Comparaison avant / après */}
+            <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
+              <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
+                <h2 className="font-semibold text-foreground">Comparaison avant / après rénovation</h2>
+              </div>
+              <div className="p-6">
+                <div className="grid grid-cols-2 gap-4">
+                  {[{ label: "Avant", classe: classeActuelle }, { label: "Après", classe: classeCible }].map((side) => {
+                    const conso = (CONSO_PAR_CLASSE[side.classe] || 130) * 0.75 * surface;
+                    const co2 = Math.round(conso * CO2_FACTEUR / 1000);
+                    const val = Math.round(valeur * (1 + (IMPACT_ENERGIE[side.classe] || 0) / 100));
+                    return (
+                      <div key={side.label} className={`rounded-xl border p-5 ${side.label === "Après" ? "border-energy/30 bg-energy/5" : "border-card-border bg-gray-50"}`}>
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className={`inline-flex items-center justify-center w-10 h-10 rounded-xl text-lg font-bold ${CLASS_COLORS[side.classe]}`}>{side.classe}</span>
+                          <div>
+                            <div className="text-sm font-semibold text-foreground">{side.label} rénovation</div>
+                            <div className="text-xs text-muted">Classe {side.classe}</div>
+                          </div>
+                        </div>
+                        <div className="space-y-2 text-sm">
+                          <div className="flex justify-between"><span className="text-muted">Valeur estimée</span><span className="font-mono font-semibold">{fmt(val)} €</span></div>
+                          <div className="flex justify-between"><span className="text-muted">Consommation</span><span className="font-mono">{fmt(Math.round(conso))} kWh/an</span></div>
+                          <div className="flex justify-between"><span className="text-muted">CO₂</span><span className="font-mono">{fmt(co2)} kg/an</span></div>
+                          <div className="flex justify-between"><span className="text-muted">Coût énergie</span><span className="font-mono">{fmt(Math.round(conso * prixEnergie))} €/an</span></div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                {(() => {
+                  const consoAvant = (CONSO_PAR_CLASSE[classeActuelle] || 130) * 0.75 * surface;
+                  const consoApres = (CONSO_PAR_CLASSE[classeCible] || 130) * 0.75 * surface;
+                  const ecoCO2 = Math.round((consoAvant - consoApres) * CO2_FACTEUR / 1000);
+                  const ecoEnergie = Math.round((consoAvant - consoApres) * prixEnergie);
+                  return (
+                    <div className="mt-4 grid grid-cols-3 gap-3 pt-4 border-t border-card-border">
+                      <div className="text-center"><div className="text-lg font-bold text-green-600">-{fmt(Math.round(consoAvant - consoApres))} kWh</div><div className="text-xs text-muted">Énergie économisée / an</div></div>
+                      <div className="text-center"><div className="text-lg font-bold text-green-600">-{fmt(ecoCO2)} kg CO₂</div><div className="text-xs text-muted">Émissions évitées / an</div></div>
+                      <div className="text-center"><div className="text-lg font-bold text-green-600">-{fmt(ecoEnergie)} €</div><div className="text-xs text-muted">Facture énergie / an</div></div>
+                    </div>
+                  );
+                })()}
+              </div>
+            </div>
+
             {/* Rentabilité */}
             {result.economieAnnuelleKwh > 0 && (
               <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
@@ -278,11 +350,16 @@ export default function RenovationPage() {
                   <h2 className="font-semibold text-foreground">{t("rentabiliteTitle")}</h2>
                 </div>
                 <div className="p-6">
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
                     <div className="rounded-xl border border-card-border p-4 text-center">
                       <div className="text-xs text-muted uppercase tracking-wider">{t("economieAnnuelle")}</div>
                       <div className="mt-1 text-2xl font-bold text-energy">{fmt(result.economieAnnuelleEur)} €</div>
                       <div className="text-xs text-muted mt-0.5">{fmt(result.economieAnnuelleKwh)} kWh {t("economieKwh")}</div>
+                    </div>
+                    <div className="rounded-xl border border-card-border p-4 text-center">
+                      <div className="text-xs text-muted uppercase tracking-wider">CO₂ évité</div>
+                      <div className="mt-1 text-2xl font-bold text-energy">{fmt(Math.round(result.economieAnnuelleKwh * CO2_FACTEUR / 1000))} kg/an</div>
+                      <div className="text-xs text-muted mt-0.5">{(result.economieAnnuelleKwh * CO2_FACTEUR / 1000000).toFixed(1)} tonnes/an</div>
                     </div>
                     <div className="rounded-xl border border-card-border p-4 text-center">
                       <div className="text-xs text-muted uppercase tracking-wider">{t("payback")}</div>
@@ -305,6 +382,53 @@ export default function RenovationPage() {
                       </div>
                       <div className="text-xs text-muted mt-0.5">{t("triDesc")}</div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Mode copropriété */}
+            {modeCopro && result && (
+              <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
+                <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-indigo-500/5 to-transparent">
+                  <h2 className="font-semibold text-foreground">Répartition copropriété — {nbLots} lots</h2>
+                </div>
+                <div className="p-6">
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <div className="rounded-xl border border-indigo-200 bg-indigo-50 p-4 text-center">
+                      <div className="text-xs text-indigo-600 uppercase tracking-wider">Coût total / lot</div>
+                      <div className="mt-1 text-2xl font-bold text-indigo-700">{fmt(Math.round(result.totalProjet / nbLots))} €</div>
+                      <div className="text-xs text-indigo-500 mt-0.5">Quote-part moyenne</div>
+                    </div>
+                    <div className="rounded-xl border border-green-200 bg-green-50 p-4 text-center">
+                      <div className="text-xs text-green-600 uppercase tracking-wider">Aides / lot</div>
+                      <div className="mt-1 text-2xl font-bold text-green-700">{fmt(Math.round(result.totalAides / nbLots))} €</div>
+                      <div className="text-xs text-green-500 mt-0.5">Klimabonus + conseil</div>
+                    </div>
+                    <div className="rounded-xl border border-card-border p-4 text-center">
+                      <div className="text-xs text-muted uppercase tracking-wider">Reste / lot</div>
+                      <div className="mt-1 text-2xl font-bold text-foreground">{fmt(Math.round(result.resteACharge / nbLots))} €</div>
+                      <div className="text-xs text-muted mt-0.5">Après aides</div>
+                    </div>
+                    {result.klimapret.mensualite > 0 && (
+                      <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 text-center">
+                        <div className="text-xs text-blue-600 uppercase tracking-wider">Mensualité / lot</div>
+                        <div className="mt-1 text-2xl font-bold text-blue-700">{fmt(Math.round(result.klimapret.mensualite / nbLots))} €/mois</div>
+                        <div className="text-xs text-blue-500 mt-0.5">Klimaprêt 1,5%</div>
+                      </div>
+                    )}
+                  </div>
+                  <div className="mt-4 p-4 rounded-xl bg-indigo-50 border border-indigo-200">
+                    <h3 className="text-sm font-semibold text-indigo-800 mb-2">Synthèse pour AG de copropriété</h3>
+                    <ul className="text-xs text-indigo-700 space-y-1">
+                      <li>Rénovation {result.sautClasse} · {surface} m² · {result.postes.length} postes de travaux</li>
+                      <li>Coût total projet : {fmt(result.totalProjet)} € soit {fmt(Math.round(result.totalProjet / nbLots))} € par lot ({nbLots} lots)</li>
+                      <li>Subventions Klimabonus : {fmt(result.klimabonus.montant)} € ({(result.klimabonus.taux * 100).toFixed(0)}%) + conseil : {fmt(result.subventionConseil)} €</li>
+                      <li>Reste à charge : {fmt(result.resteACharge)} € soit {fmt(Math.round(result.resteACharge / nbLots))} € par lot</li>
+                      <li>Gain de valeur estimé : +{fmt(result.gainValeur)} € ({result.gainValeurPct > 0 ? "+" : ""}{result.gainValeurPct}%)</li>
+                      <li>Économie énergie : {fmt(result.economieAnnuelleEur)} €/an soit {fmt(Math.round(result.economieAnnuelleEur / nbLots))} € par lot et par an</li>
+                      <li>CO₂ évité : {fmt(Math.round(result.economieAnnuelleKwh * CO2_FACTEUR / 1000))} kg/an</li>
+                    </ul>
                   </div>
                 </div>
               </div>

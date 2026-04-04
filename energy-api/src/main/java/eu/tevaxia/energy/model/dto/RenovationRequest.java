@@ -33,11 +33,19 @@ public record RenovationRequest(
         @Min(10_000)
         @Max(100_000_000)
         @Schema(description = "Valeur actuelle du bien en euros", example = "650000")
-        Double valeurBien
+        Double valeurBien,
+
+        @Min(0)
+        @Max(1)
+        @Schema(description = "Prix de l'énergie en €/kWh (défaut : 0.12)", example = "0.12")
+        Double prixEnergieKwh
 ) {
     public RenovationRequest {
         if (anneeConstruction == null) {
             anneeConstruction = 1980;
+        }
+        if (prixEnergieKwh == null) {
+            prixEnergieKwh = 0.12;
         }
     }
 }

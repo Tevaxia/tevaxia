@@ -62,6 +62,10 @@
       "impact": "Energy Class Impact",
       "renovation": "Renovation ROI",
       "communaute": "Energy Community",
+      "epbd": "EPBD 2050",
+      "estimateurCpe": "CPE Estimator",
+      "lenoz": "LENOZ",
+      "portfolio": "Portfolio",
       "simulateurs": "Simulators"
     },
     "home": {

@@ -9,6 +9,10 @@ const NAV_ITEMS = [
   { href: "/impact", key: "impact" },
   { href: "/renovation", key: "renovation" },
   { href: "/communaute", key: "communaute" },
+  { href: "/epbd", key: "epbd" },
+  { href: "/estimateur-cpe", key: "estimateurCpe" },
+  { href: "/lenoz", key: "lenoz" },
+  { href: "/portfolio", key: "portfolio" },
 ];
 
 export default function EnergyHeader() {

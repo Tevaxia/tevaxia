@@ -204,7 +204,8 @@ public class RenovationService {
         int consoActuelle = CONSO_PAR_CLASSE.getOrDefault(classeActuelle, 130);
         int consoCible = CONSO_PAR_CLASSE.getOrDefault(classeCible, 130);
         long economieKwh = Math.round((consoActuelle - consoCible) * FACTEUR_EP_FINALE * surface);
-        long economieEur = Math.round(economieKwh * PRIX_ENERGIE_KWH);
+        double prixEnergie = request.prixEnergieKwh() != null ? request.prixEnergieKwh() : PRIX_ENERGIE_KWH;
+        long economieEur = Math.round(economieKwh * prixEnergie);
 
         // --- VAN / TRI / Payback (scénario hausse 3%/an) ---
         double payback = economieEur > 0 ? (double) resteACharge / economieEur : 99.0;

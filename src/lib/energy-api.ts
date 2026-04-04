@@ -52,6 +52,7 @@ export interface RenovationRequest {
   surface: number;
   anneeConstruction: number;
   valeurBien: number;
+  prixEnergieKwh?: number;
 }
 
 export interface PosteTravaux {
