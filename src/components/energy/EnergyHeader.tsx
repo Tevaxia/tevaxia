@@ -71,7 +71,7 @@ export default function EnergyHeader() {
             <Dropdown label={t("outils")} items={ALL_TOOLS} t={t} />
             <a
               href="https://tevaxia.lu"
-              className="ml-2 rounded-lg border border-white/10 px-3 py-2 text-sm font-medium text-white/50 hover:text-white hover:border-white/30 transition-colors"
+              className="ml-3 rounded-lg bg-energy/20 border border-energy/40 px-3 py-2 text-sm font-semibold text-energy-light hover:bg-energy/30 hover:text-white transition-colors"
             >
               tevaxia.lu
             </a>
