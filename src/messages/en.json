@@ -278,6 +278,7 @@
       "source2": "Official Journal of the European Union, L 2024/1275, 8 May 2024",
       "source3": "European Commission — Fit for 55, Renovation Wave Strategy",
       "source4": "Ministry of Energy and Spatial Planning, Luxembourg",
+      "downloadPdf": "Download PDF",
       "milestone2026Label": "EPBD directive transposition",
       "milestone2026Detail": "Deadline: 29 May 2026. Each member state must transpose the directive into national law.",
       "milestone2028Label": "New public buildings → zero emission",
@@ -470,7 +471,8 @@
       "optComplet": "Complete",
       "optDifficile": "Difficult",
       "optAccessible": "Accessible",
-      "optDedieExtensible": "Dedicated + expandable"
+      "optDedieExtensible": "Dedicated + expandable",
+      "downloadPdf": "Download PDF"
     },
     "portfolio": {
       "title": "Energy Portfolio",
@@ -521,7 +523,8 @@
       "colValeur": "Value",
       "colConso": "Cons. kWh/yr",
       "colCO2": "CO₂ kg/yr",
-      "colImpact": "Value impact"
+      "colImpact": "Value impact",
+      "downloadPdf": "Download PDF"
     }
   }
 }

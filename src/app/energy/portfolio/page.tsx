@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { useTranslations } from "next-intl";
+import { downloadPortfolioPdf, PdfButton } from "@/components/energy/EnergyPdf";
 
 /* ------------------------------------------------------------------ */
 /*  Constants                                                          */
@@ -492,9 +493,12 @@ export default function PortfolioPage() {
         {/* ============================================================ */}
         {properties.length > 0 && (
           <div className="mb-8">
-            <h2 className="font-semibold text-foreground mb-4">
-              {t("yourProperties", { count: properties.length })}
-            </h2>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="font-semibold text-foreground">
+                {t("yourProperties", { count: properties.length })}
+              </h2>
+              {stats && <PdfButton onClick={() => downloadPortfolioPdf({ properties: properties.map((p) => ({ nom: p.nom, classe: p.classe, surface: p.surface, valeur: p.valeur })), averageScore: stats.weightedClasse, totalValeur: stats.totalValeur, totalConso: stats.totalConsoKwh, totalCO2: Math.round(stats.totalConsoKwh * 0.75 * 300 / 1000), worstCount: stats.worstPerformers.length })} label={t("downloadPdf") || "PDF"} />}
+            </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {properties.map((p) => (
                 <div

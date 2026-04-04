@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { downloadEpbdPdf, PdfButton } from "@/components/energy/EnergyPdf";
 
 const CLASSES = ["A", "B", "C", "D", "E", "F", "G", "H", "I"] as const;
 type EnergyClass = (typeof CLASSES)[number];
@@ -353,6 +354,9 @@ export default function EPBDPage() {
               <p className="text-sm text-foreground leading-relaxed">
                 {t(risk.valueImpactKey)}
               </p>
+            </div>
+            <div className="mt-4 flex justify-end">
+              <PdfButton onClick={() => downloadEpbdPdf({ classe: selectedClass, riskLevel: t(risk.levelKey), riskDescription: t(risk.descriptionKey), nonComplianceYear: t(risk.nonComplianceYearKey), actions: risk.actionKeys.map((k: string) => t(k)), valueImpact: t(risk.valueImpactKey) })} label={t("downloadPdf") || "PDF"} />
             </div>
           </div>
         </div>

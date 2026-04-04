@@ -296,6 +296,163 @@ export async function downloadCommunautePdf(result: CommunauteResponse, params: 
   URL.revokeObjectURL(url);
 }
 
+// ---------- EPBD PDF ----------
+
+interface EpbdParams {
+  classe: string;
+  riskLevel: string;
+  riskDescription: string;
+  nonComplianceYear: string;
+  actions: string[];
+  valueImpact: string;
+}
+
+function EpbdDoc({ params }: { params: EpbdParams }) {
+  return (
+    <Document>
+      <Page size="A4" style={s.page}>
+        <Header title="Directive EPBD — Risque de stranding" />
+        <Text style={s.section}>Profil de risque — Classe {params.classe}</Text>
+        <Row label="Niveau de risque" value={params.riskLevel} />
+        <View style={s.row}><Text style={s.label}>{params.riskDescription}</Text></View>
+        <Row label="Échéance de non-conformité" value={params.nonComplianceYear} />
+        <Text style={s.section}>Actions recommandées</Text>
+        {params.actions.map((a, i) => (
+          <View key={i} style={s.row}><Text style={s.label}>{i + 1}. {a}</Text></View>
+        ))}
+        <Text style={s.section}>Impact estimé sur la valeur</Text>
+        <View style={s.row}><Text style={s.label}>{params.valueImpact}</Text></View>
+        <Disclaimer />
+        <Footer />
+      </Page>
+    </Document>
+  );
+}
+
+export async function downloadEpbdPdf(params: EpbdParams) {
+  const { pdf } = await import("@react-pdf/renderer");
+  const blob = await pdf(<EpbdDoc params={params} />).toBlob();
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `energy-epbd-classe-${params.classe}-${today()}.pdf`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ---------- LENOZ PDF ----------
+
+interface LenozParams {
+  totalScore: number;
+  maxScore: number;
+  rating: string;
+  categories: { title: string; score: number; max: number }[];
+}
+
+function LenozDoc({ params }: { params: LenozParams }) {
+  return (
+    <Document>
+      <Page size="A4" style={s.page}>
+        <Header title="Scoring LENOZ simplifié" />
+        <View style={s.grid}>
+          <View style={s.cell}><Text style={s.cellLabel}>Score global</Text><Text style={s.cellValue}>{params.totalScore} / {params.maxScore}</Text></View>
+          <View style={s.cell}><Text style={s.cellLabel}>Notation</Text><Text style={s.cellValue}>{params.rating}</Text></View>
+        </View>
+        <Text style={s.section}>Détail par catégorie</Text>
+        {params.categories.map((cat) => (
+          <Row key={cat.title} label={cat.title} value={`${cat.score} / ${cat.max}`} />
+        ))}
+        <Text style={s.note}>
+          Estimation simplifiée — la certification LENOZ officielle requiert un audit complet par un organisme agréé (143 critères).
+        </Text>
+        <Disclaimer />
+        <Footer />
+      </Page>
+    </Document>
+  );
+}
+
+export async function downloadLenozPdf(params: LenozParams) {
+  const { pdf } = await import("@react-pdf/renderer");
+  const blob = await pdf(<LenozDoc params={params} />).toBlob();
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `energy-lenoz-${params.rating.toLowerCase()}-${today()}.pdf`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ---------- Portfolio PDF ----------
+
+interface PortfolioProperty {
+  nom: string;
+  classe: string;
+  surface: number;
+  valeur: number;
+}
+
+interface PortfolioParams {
+  properties: PortfolioProperty[];
+  averageScore: string;
+  totalValeur: number;
+  totalConso: number;
+  totalCO2: number;
+  worstCount: number;
+}
+
+function PortfolioDoc({ params }: { params: PortfolioParams }) {
+  const IMPACT: Record<string, number> = { A: 8, B: 5, C: 2, D: 0, E: -3, F: -7, G: -12, H: -18, I: -25 };
+  return (
+    <Document>
+      <Page size="A4" style={s.page}>
+        <Header title="Portfolio énergétique" />
+        <View style={s.grid}>
+          <View style={s.cell}><Text style={s.cellLabel}>Biens</Text><Text style={s.cellValue}>{params.properties.length}</Text></View>
+          <View style={s.cell}><Text style={s.cellLabel}>Score moyen</Text><Text style={s.cellValue}>{params.averageScore}</Text></View>
+          <View style={s.cell}><Text style={s.cellLabel}>Valeur totale</Text><Text style={s.cellValue}>{fmtEur(params.totalValeur)}</Text></View>
+          <View style={s.cell}><Text style={s.cellLabel}>CO₂ total</Text><Text style={s.cellValue}>{fmtNum(params.totalCO2)} kg/an</Text></View>
+        </View>
+        {params.worstCount > 0 && (
+          <Text style={[s.note, { color: "#dc2626", marginTop: 8 }]}>
+            {params.worstCount} bien(s) classé(s) worst performers (F-I) — rénovation requise avant 2033 (directive EPBD).
+          </Text>
+        )}
+        <Text style={s.section}>Détail des biens</Text>
+        <View style={s.tHead}>
+          <Text style={[s.tCellB, { flex: 2 }]}>Nom</Text>
+          <Text style={s.tCellB}>Classe</Text>
+          <Text style={[s.tCellB, { textAlign: "right" as const }]}>Surface</Text>
+          <Text style={[s.tCellB, { textAlign: "right" as const }]}>Valeur</Text>
+          <Text style={[s.tCellB, { textAlign: "right" as const }]}>Impact</Text>
+        </View>
+        {params.properties.map((p, i) => (
+          <View key={i} style={s.tRow}>
+            <Text style={[s.tCell, { flex: 2 }]}>{p.nom}</Text>
+            <Text style={s.tCell}>{p.classe}</Text>
+            <Text style={s.tCellR}>{fmtNum(p.surface)} m²</Text>
+            <Text style={s.tCellR}>{fmtEur(p.valeur)}</Text>
+            <Text style={s.tCellR}>{IMPACT[p.classe] !== undefined ? `${IMPACT[p.classe] > 0 ? "+" : ""}${IMPACT[p.classe]}%` : "—"}</Text>
+          </View>
+        ))}
+        <Disclaimer />
+        <Footer />
+      </Page>
+    </Document>
+  );
+}
+
+export async function downloadPortfolioPdf(params: PortfolioParams) {
+  const { pdf } = await import("@react-pdf/renderer");
+  const blob = await pdf(<PortfolioDoc params={params} />).toBlob();
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `energy-portfolio-${today()}.pdf`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 // ---------- PdfButton component ----------
 
 export function PdfButton({ onClick, label }: { onClick: () => void; label: string }) {
