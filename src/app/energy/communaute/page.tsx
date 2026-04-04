@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
+import { AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from "recharts";
 import { calculerCommunaute, type CommunauteResponse } from "@/lib/energy-api";
 import { downloadCommunautePdf, PdfButton } from "@/components/energy/EnergyPdf";
 
@@ -237,18 +238,22 @@ export default function CommunautePage() {
               <h2 className="font-semibold text-foreground">{t("prodMensTitle")}</h2>
             </div>
             <div className="p-6">
-              <div className="flex items-end gap-1 h-40">
-                {result.productionMensuelle.map((m) => {
-                  const maxKwh = Math.max(...result.productionMensuelle.map((x) => x.kwh));
-                  const pct = maxKwh > 0 ? (m.kwh / maxKwh) * 100 : 0;
-                  return (
-                    <div key={m.mois} className="flex-1 flex flex-col items-center gap-1">
-                      <div className="text-xs font-mono text-muted">{fmt(m.kwh)}</div>
-                      <div className="w-full bg-energy/80 rounded-t" style={{ height: `${pct}%` }} />
-                      <div className="text-xs text-muted">{m.mois.slice(0, 3)}</div>
-                    </div>
-                  );
-                })}
+              {/* Graphique courbe + barres */}
+              <div className="h-64">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={result.productionMensuelle.map((m) => ({ mois: m.mois.slice(0, 3), kwh: m.kwh, consoMoyMensuelle: Math.round(result.consoTotale / 12) }))} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                    <XAxis dataKey="mois" tick={{ fontSize: 11, fill: "#6B7280" }} />
+                    <YAxis tick={{ fontSize: 11, fill: "#6B7280" }} tickFormatter={(v: number) => `${(v / 1000).toFixed(1)}k`} />
+                    <Tooltip formatter={(value) => [`${fmt(Number(value))} kWh`]} contentStyle={{ borderRadius: 8, fontSize: 12 }} />
+                    <Bar dataKey="kwh" name="Production PV" fill="#10b981" radius={[4, 4, 0, 0]} />
+                    <ReferenceLine y={Math.round(result.consoTotale / 12)} stroke="#ef4444" strokeDasharray="6 3" strokeWidth={2} label={{ value: `Conso moy. ${fmt(Math.round(result.consoTotale / 12))} kWh/mois`, position: "insideTopRight", fontSize: 10, fill: "#ef4444" }} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+              <div className="mt-2 flex items-center justify-center gap-6 text-xs text-muted">
+                <div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded bg-green-500" /> Production PV</div>
+                <div className="flex items-center gap-1.5"><div className="w-6 h-0 border-t-2 border-dashed border-red-500" /> Consommation mensuelle moy.</div>
               </div>
               <div className="mt-3 text-xs text-muted text-center">{t("prodMensDesc")}</div>
             </div>
