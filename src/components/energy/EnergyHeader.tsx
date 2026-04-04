@@ -80,22 +80,21 @@ export default function EnergyHeader() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <LanguageSwitcher />
             {user ? (
-              <a href="https://tevaxia.lu/profil" className="hidden sm:flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-xs font-medium text-white/80 hover:bg-white/20 hover:text-white transition-colors">
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                </svg>
-                {user.email?.split("@")[0]}
-              </a>
+              <div className="hidden sm:flex items-center gap-1">
+                <a href="https://tevaxia.lu/profil" className="rounded-lg px-2 py-1 text-xs text-white/60 hover:text-white hover:bg-white/10 transition-colors">
+                  Profil
+                </a>
+                <a href="https://tevaxia.lu/mes-evaluations" className="rounded-lg px-2 py-1 text-xs text-white/60 hover:text-white hover:bg-white/10 transition-colors">
+                  Mes éval.
+                </a>
+              </div>
             ) : (
-              <a href="https://tevaxia.lu/connexion" className="hidden sm:flex items-center gap-1.5 rounded-lg bg-energy/20 border border-energy/40 px-3 py-1.5 text-xs font-semibold text-energy-light hover:bg-energy/30 hover:text-white transition-colors">
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-                </svg>
+              <a href="https://tevaxia.lu/connexion" className="hidden sm:inline-flex rounded-lg bg-energy/90 px-3 py-1 text-xs font-medium text-white hover:bg-energy transition-colors">
                 Connexion
               </a>
             )}
+            <LanguageSwitcher />
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="md:hidden rounded-lg p-2 text-white/80 hover:bg-white/10 hover:text-white"
@@ -122,12 +121,17 @@ export default function EnergyHeader() {
             ))}
             <div className="border-t border-white/10 mt-2 pt-2">
               {user ? (
-                <a href="https://tevaxia.lu/profil" className="block rounded-lg px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white">
-                  Mon profil ({user.email?.split("@")[0]})
-                </a>
+                <>
+                  <a href="https://tevaxia.lu/profil" className="block rounded-lg px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white">
+                    Profil
+                  </a>
+                  <a href="https://tevaxia.lu/mes-evaluations" className="block rounded-lg px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white">
+                    Mes évaluations
+                  </a>
+                </>
               ) : (
-                <a href="https://tevaxia.lu/connexion" className="block rounded-lg px-3 py-2 text-sm font-medium text-energy-light hover:bg-white/10">
-                  Connexion / Inscription
+                <a href="https://tevaxia.lu/connexion" className="block rounded-lg px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white">
+                  Connexion
                 </a>
               )}
             </div>
