@@ -52,15 +52,15 @@ const STEPS: Step[] = [
     ],
   },
   {
-    title: "Ann\u00e9e de construction",
+    title: "Année de construction",
     key: "annee",
     options: [
       { label: "Avant 1945", points: 0 },
-      { label: "1945\u20131970", points: 2 },
-      { label: "1970\u20131990", points: 5 },
-      { label: "1990\u20132005", points: 10 },
-      { label: "2005\u20132015", points: 15 },
-      { label: "Apr\u00e8s 2015", points: 20 },
+      { label: "1945–1970", points: 2 },
+      { label: "1970–1990", points: 5 },
+      { label: "1990–2005", points: 10 },
+      { label: "2005–2015", points: 15 },
+      { label: "Après 2015", points: 20 },
     ],
   },
   {
@@ -68,30 +68,30 @@ const STEPS: Step[] = [
     key: "chauffage",
     options: [
       { label: "Fioul / mazout", points: 0 },
-      { label: "\u00c9lectrique direct", points: 2 },
+      { label: "Électrique direct", points: 2 },
       { label: "Gaz naturel", points: 5 },
       { label: "Bois / pellets", points: 8 },
       { label: "Chauffage urbain", points: 10 },
-      { label: "Pompe \u00e0 chaleur", points: 15 },
+      { label: "Pompe à chaleur", points: 15 },
     ],
   },
   {
-    title: "Isolation fa\u00e7ade",
+    title: "Isolation façade",
     key: "isolation",
     options: [
       { label: "Aucune isolation", points: 0 },
       { label: "Isolation partielle (< 8 cm)", points: 5 },
-      { label: "Bonne isolation (8\u201315 cm)", points: 10 },
-      { label: "Excellente isolation (> 15 cm / ITE r\u00e9cente)", points: 15 },
+      { label: "Bonne isolation (8–15 cm)", points: 10 },
+      { label: "Excellente isolation (> 15 cm / ITE récente)", points: 15 },
     ],
   },
   {
-    title: "Type de fen\u00eatres",
+    title: "Type de fenêtres",
     key: "fenetres",
     options: [
       { label: "Simple vitrage", points: 0 },
       { label: "Double vitrage (avant 2000)", points: 3 },
-      { label: "Double vitrage r\u00e9cent", points: 8 },
+      { label: "Double vitrage récent", points: 8 },
       { label: "Triple vitrage", points: 12 },
     ],
   },
@@ -99,7 +99,7 @@ const STEPS: Step[] = [
     title: "Ventilation",
     key: "ventilation",
     options: [
-      { label: "Ventilation naturelle (fen\u00eatres)", points: 0 },
+      { label: "Ventilation naturelle (fenêtres)", points: 0 },
       { label: "VMC simple flux", points: 5 },
       { label: "VMC double flux", points: 10 },
     ],
@@ -164,11 +164,11 @@ export default function EstimateurCpePage() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
-            Estimez votre classe \u00e9nergie
+            Estimez votre classe énergie
           </h1>
           <p className="mt-2 text-muted">
-            R\u00e9pondez \u00e0 6 questions simples pour obtenir une estimation de la classe
-            \u00e9nerg\u00e9tique (CPE) de votre bien immobilier au Luxembourg.
+            Répondez à 6 questions simples pour obtenir une estimation de la classe
+            énergétique (CPE) de votre bien immobilier au Luxembourg.
           </p>
         </div>
 
@@ -177,8 +177,8 @@ export default function EstimateurCpePage() {
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm font-medium text-foreground">
               {isFinished
-                ? "R\u00e9sultat"
-                : `\u00c9tape ${step + 1} / ${TOTAL_STEPS}`}
+                ? "Résultat"
+                : `Étape ${step + 1} / ${TOTAL_STEPS}`}
             </span>
             <span className="text-sm text-muted">
               {Math.round(progressPct)}%
@@ -199,7 +199,7 @@ export default function EstimateurCpePage() {
               {STEPS[step].title}
             </h2>
             <p className="text-sm text-muted mb-6">
-              S\u00e9lectionnez la r\u00e9ponse qui correspond le mieux \u00e0 votre bien.
+              Sélectionnez la réponse qui correspond le mieux à votre bien.
             </p>
 
             <div className="grid gap-3">
@@ -242,7 +242,7 @@ export default function EstimateurCpePage() {
                     d="M15 19l-7-7 7-7"
                   />
                 </svg>
-                Question pr\u00e9c\u00e9dente
+                Question précédente
               </button>
             )}
           </div>
@@ -254,7 +254,7 @@ export default function EstimateurCpePage() {
             {/* Class badge */}
             <div className="rounded-2xl border border-card-border bg-card p-6 sm:p-8 shadow-sm text-center">
               <p className="text-sm text-muted mb-4">
-                Classe \u00e9nerg\u00e9tique estim\u00e9e de votre bien
+                Classe énergétique estimée de votre bien
               </p>
               <div className="flex justify-center mb-4">
                 <div
@@ -273,7 +273,7 @@ export default function EstimateurCpePage() {
               {/* Score detail */}
               <div className="mt-6 rounded-xl border border-card-border bg-gray-50 p-4 text-left">
                 <h3 className="text-sm font-semibold text-foreground mb-3">
-                  D\u00e9tail du score
+                  Détail du score
                 </h3>
                 <div className="space-y-2">
                   {STEPS.map((s) => {
@@ -344,10 +344,10 @@ export default function EstimateurCpePage() {
                     Estimation indicative
                   </p>
                   <p className="text-sm text-muted mt-1">
-                    Seul un passeport \u00e9nerg\u00e9tique officiel (CPE) \u00e9tabli par un
-                    expert agr\u00e9\u00e9 fait foi. Cette estimation se base sur des
-                    param\u00e8tres g\u00e9n\u00e9riques et ne remplace pas un audit
-                    \u00e9nerg\u00e9tique.
+                    Seul un passeport énergétique officiel (CPE) établi par un
+                    expert agréé fait foi. Cette estimation se base sur des
+                    paramètres génériques et ne remplace pas un audit
+                    énergétique.
                   </p>
                 </div>
               </div>
@@ -356,10 +356,10 @@ export default function EstimateurCpePage() {
             {/* Action buttons */}
             <div className="rounded-2xl border border-card-border bg-card p-6 shadow-sm">
               <h3 className="text-sm font-semibold text-foreground mb-1">
-                Explorez les simulateurs avec votre classe estim\u00e9e
+                Explorez les simulateurs avec votre classe estimée
               </h3>
               <p className="text-xs text-muted mb-4">
-                Classe {estimatedClass} s\u00e9lectionn\u00e9e automatiquement dans
+                Classe {estimatedClass} sélectionnée automatiquement dans
                 chaque simulateur.
               </p>
               <div className="grid gap-3 sm:grid-cols-3">
@@ -405,10 +405,10 @@ export default function EstimateurCpePage() {
                     />
                   </svg>
                   <span className="text-sm font-semibold text-foreground">
-                    Simuler une r\u00e9novation
+                    Simuler une rénovation
                   </span>
                   <span className="text-xs text-muted">
-                    Co\u00fbts, aides &amp; rentabilit\u00e9
+                    Coûts, aides &amp; rentabilité
                   </span>
                 </Link>
                 <Link
@@ -432,7 +432,7 @@ export default function EstimateurCpePage() {
                     Timeline EPBD
                   </span>
                   <span className="text-xs text-muted">
-                    \u00c9ch\u00e9ances r\u00e9glementaires
+                    Échéances réglementaires
                   </span>
                 </Link>
               </div>

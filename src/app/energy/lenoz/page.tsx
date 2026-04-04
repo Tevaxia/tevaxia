@@ -25,22 +25,22 @@ interface Category {
 const CATEGORIES: Category[] = [
   {
     key: "A",
-    title: "A. Environnement & \u00c9nergie",
+    title: "A. Environnement & Énergie",
     maxPts: 12,
     criteria: [
       {
         id: "a1",
-        label: "Classe \u00e9nergie du b\u00e2timent",
+        label: "Classe énergie du bâtiment",
         options: [
-          { value: 0, label: "F\u2013I" },
-          { value: 1, label: "D\u2013E" },
-          { value: 2, label: "B\u2013C" },
+          { value: 0, label: "F–I" },
+          { value: 1, label: "D–E" },
+          { value: 2, label: "B–C" },
           { value: 3, label: "A" },
         ],
       },
       {
         id: "a2",
-        label: "Production d\u2019\u00e9nergie renouvelable",
+        label: "Production d’énergie renouvelable",
         options: [
           { value: 0, label: "Aucune" },
           { value: 1, label: "Solaire thermique" },
@@ -50,7 +50,7 @@ const CATEGORIES: Category[] = [
       },
       {
         id: "a3",
-        label: "Syst\u00e8me de r\u00e9cup\u00e9ration eau de pluie",
+        label: "Système de récupération eau de pluie",
         options: [
           { value: 0, label: "Non" },
           { value: 3, label: "Oui" },
@@ -58,11 +58,11 @@ const CATEGORIES: Category[] = [
       },
       {
         id: "a4",
-        label: "Mat\u00e9riaux \u00e9cologiques (bois, chanvre\u2026)",
+        label: "Matériaux écologiques (bois, chanvre…)",
         options: [
           { value: 0, label: "Non" },
           { value: 1, label: "Partiel" },
-          { value: 2, label: "Majorit\u00e9" },
+          { value: 2, label: "Majorité" },
           { value: 3, label: "100 %" },
         ],
       },
@@ -70,22 +70,22 @@ const CATEGORIES: Category[] = [
   },
   {
     key: "B",
-    title: "B. Confort & Sant\u00e9",
+    title: "B. Confort & Santé",
     maxPts: 12,
     criteria: [
       {
         id: "b1",
-        label: "Ventilation contr\u00f4l\u00e9e (VMC)",
+        label: "Ventilation contrôlée (VMC)",
         options: [
           { value: 0, label: "Non" },
           { value: 1, label: "Simple flux" },
           { value: 2, label: "Double flux" },
-          { value: 3, label: "DF + r\u00e9cup\u00e9ration" },
+          { value: 3, label: "DF + récupération" },
         ],
       },
       {
         id: "b2",
-        label: "\u00c9clairage naturel",
+        label: "Éclairage naturel",
         options: [
           { value: 0, label: "Insuffisant" },
           { value: 1, label: "Moyen" },
@@ -105,28 +105,28 @@ const CATEGORIES: Category[] = [
       },
       {
         id: "b4",
-        label: "Accessibilit\u00e9 PMR",
+        label: "Accessibilité PMR",
         options: [
           { value: 0, label: "Non" },
           { value: 1, label: "Partiel" },
           { value: 2, label: "Conforme" },
-          { value: 3, label: "Labellis\u00e9" },
+          { value: 3, label: "Labellisé" },
         ],
       },
     ],
   },
   {
     key: "C",
-    title: "C. Implantation & Mobilit\u00e9",
+    title: "C. Implantation & Mobilité",
     maxPts: 9,
     criteria: [
       {
         id: "c1",
-        label: "Proximit\u00e9 transports en commun",
+        label: "Proximité transports en commun",
         options: [
           { value: 0, label: "> 1 km" },
-          { value: 1, label: "500 m \u2013 1 km" },
-          { value: 2, label: "200 \u2013 500 m" },
+          { value: 1, label: "500 m – 1 km" },
+          { value: 2, label: "200 – 500 m" },
           { value: 3, label: "< 200 m" },
         ],
       },
@@ -142,11 +142,11 @@ const CATEGORIES: Category[] = [
       },
       {
         id: "c3",
-        label: "Services de proximit\u00e9 (\u00e9cole, commerce)",
+        label: "Services de proximité (école, commerce)",
         options: [
           { value: 0, label: "> 2 km" },
-          { value: 1, label: "1 \u2013 2 km" },
-          { value: 2, label: "500 m \u2013 1 km" },
+          { value: 1, label: "1 – 2 km" },
+          { value: 2, label: "500 m – 1 km" },
           { value: 3, label: "< 500 m" },
         ],
       },
@@ -154,36 +154,36 @@ const CATEGORIES: Category[] = [
   },
   {
     key: "D",
-    title: "D. \u00c9conomie circulaire",
+    title: "D. Économie circulaire",
     maxPts: 9,
     criteria: [
       {
         id: "d1",
-        label: "Mat\u00e9riaux recycl\u00e9s / r\u00e9employ\u00e9s",
+        label: "Matériaux recyclés / réemployés",
         options: [
           { value: 0, label: "Non" },
           { value: 1, label: "< 10 %" },
-          { value: 2, label: "10 \u2013 30 %" },
+          { value: 2, label: "10 – 30 %" },
           { value: 3, label: "> 30 %" },
         ],
       },
       {
         id: "d2",
-        label: "Gestion des d\u00e9chets de chantier",
+        label: "Gestion des déchets de chantier",
         options: [
           { value: 0, label: "Non" },
           { value: 1, label: "Partiel" },
-          { value: 2, label: "Majorit\u00e9 tri\u00e9e" },
-          { value: 3, label: "100 % valoris\u00e9s" },
+          { value: 2, label: "Majorité triée" },
+          { value: 3, label: "100 % valorisés" },
         ],
       },
       {
         id: "d3",
-        label: "Durabilit\u00e9 des mat\u00e9riaux (garantie 30+ ans)",
+        label: "Durabilité des matériaux (garantie 30+ ans)",
         options: [
           { value: 0, label: "Non" },
           { value: 1, label: "Partiel" },
-          { value: 2, label: "Majorit\u00e9" },
+          { value: 2, label: "Majorité" },
           { value: 3, label: "Tous" },
         ],
       },
@@ -191,22 +191,22 @@ const CATEGORIES: Category[] = [
   },
   {
     key: "E",
-    title: "E. Biodiversit\u00e9 & Terrain",
+    title: "E. Biodiversité & Terrain",
     maxPts: 9,
     criteria: [
       {
         id: "e1",
-        label: "Surface perm\u00e9able / v\u00e9g\u00e9talis\u00e9e",
+        label: "Surface perméable / végétalisée",
         options: [
           { value: 0, label: "< 10 %" },
-          { value: 1, label: "10 \u2013 30 %" },
-          { value: 2, label: "30 \u2013 60 %" },
+          { value: 1, label: "10 – 30 %" },
+          { value: 2, label: "30 – 60 %" },
           { value: 3, label: "> 60 %" },
         ],
       },
       {
         id: "e2",
-        label: "Toiture ou fa\u00e7ade v\u00e9g\u00e9talis\u00e9e",
+        label: "Toiture ou façade végétalisée",
         options: [
           { value: 0, label: "Non" },
           { value: 3, label: "Oui" },
@@ -214,11 +214,11 @@ const CATEGORIES: Category[] = [
       },
       {
         id: "e3",
-        label: "Biodiversit\u00e9 (nichoirs, haies, mare)",
+        label: "Biodiversité (nichoirs, haies, mare)",
         options: [
           { value: 0, label: "Non" },
-          { value: 1, label: "1 \u00e9l\u00e9ment" },
-          { value: 2, label: "2 \u00e9l\u00e9ments" },
+          { value: 1, label: "1 élément" },
+          { value: 2, label: "2 éléments" },
           { value: 3, label: "3+" },
         ],
       },
@@ -226,26 +226,26 @@ const CATEGORIES: Category[] = [
   },
   {
     key: "F",
-    title: "F. Fonctionnalit\u00e9 & Adaptabilit\u00e9",
+    title: "F. Fonctionnalité & Adaptabilité",
     maxPts: 9,
     criteria: [
       {
         id: "f1",
-        label: "Modularit\u00e9 des espaces",
+        label: "Modularité des espaces",
         options: [
-          { value: 0, label: "Fig\u00e9" },
-          { value: 1, label: "1 pi\u00e8ce modulable" },
+          { value: 0, label: "Figé" },
+          { value: 1, label: "1 pièce modulable" },
           { value: 2, label: "Plusieurs" },
           { value: 3, label: "Totalement flexible" },
         ],
       },
       {
         id: "f2",
-        label: "Pr\u00e9-c\u00e2blage smart home",
+        label: "Pré-câblage smart home",
         options: [
           { value: 0, label: "Non" },
           { value: 1, label: "Basique" },
-          { value: 2, label: "Avanc\u00e9" },
+          { value: 2, label: "Avancé" },
           { value: 3, label: "Complet" },
         ],
       },
@@ -256,7 +256,7 @@ const CATEGORIES: Category[] = [
           { value: 0, label: "Non" },
           { value: 1, label: "Difficile" },
           { value: 2, label: "Accessible" },
-          { value: 3, label: "D\u00e9di\u00e9 + extensible" },
+          { value: 3, label: "Dédié + extensible" },
         ],
       },
     ],
@@ -328,13 +328,13 @@ export default function LenozPage() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
-            Scoring LENOZ simplifi\u00e9
+            Scoring LENOZ simplifié
           </h1>
           <p className="mt-2 text-muted max-w-3xl">
-            LENOZ est la certification de durabilit\u00e9 luxembourgeoise pour les b\u00e2timents
-            r\u00e9sidentiels. La version officielle compte 143 crit\u00e8res r\u00e9partis en
-            6 cat\u00e9gories. Ce simulateur propose une grille simplifi\u00e9e d&apos;environ
-            20 crit\u00e8res cl\u00e9s pour une pr\u00e9-\u00e9valuation rapide.
+            LENOZ est la certification de durabilité luxembourgeoise pour les bâtiments
+            résidentiels. La version officielle compte 143 critères répartis en
+            6 catégories. Ce simulateur propose une grille simplifiée d&apos;environ
+            20 critères clés pour une pré-évaluation rapide.
           </p>
         </div>
 
@@ -434,11 +434,11 @@ export default function LenozPage() {
 
                   {/* Rating scale */}
                   <div className="mt-4 text-xs text-muted space-y-1">
-                    <div className="flex justify-between"><span className="text-gray-400">0 \u2013 15</span><span>Non certifiable</span></div>
-                    <div className="flex justify-between"><span className="text-amber-700">16 \u2013 25</span><span>Bronze</span></div>
-                    <div className="flex justify-between"><span className="text-gray-500">26 \u2013 40</span><span>Argent</span></div>
-                    <div className="flex justify-between"><span className="text-yellow-600">41 \u2013 50</span><span>Or</span></div>
-                    <div className="flex justify-between"><span className="text-blue-600">51 \u2013 60</span><span>Platine</span></div>
+                    <div className="flex justify-between"><span className="text-gray-400">0 – 15</span><span>Non certifiable</span></div>
+                    <div className="flex justify-between"><span className="text-amber-700">16 – 25</span><span>Bronze</span></div>
+                    <div className="flex justify-between"><span className="text-gray-500">26 – 40</span><span>Argent</span></div>
+                    <div className="flex justify-between"><span className="text-yellow-600">41 – 50</span><span>Or</span></div>
+                    <div className="flex justify-between"><span className="text-blue-600">51 – 60</span><span>Platine</span></div>
                   </div>
                 </div>
               </div>
@@ -446,7 +446,7 @@ export default function LenozPage() {
               {/* Per-category bar chart */}
               <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
                 <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
-                  <h2 className="font-semibold text-foreground">Par cat\u00e9gorie</h2>
+                  <h2 className="font-semibold text-foreground">Par catégorie</h2>
                 </div>
                 <div className="p-6 space-y-3">
                   {CATEGORIES.map((cat) => {
@@ -477,10 +477,10 @@ export default function LenozPage() {
               {/* Disclaimer */}
               <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">
                 <p className="text-xs text-amber-800 leading-relaxed">
-                  <span className="font-semibold">Avertissement :</span> Estimation simplifi\u00e9e
-                  \u2014 la certification LENOZ officielle requiert un audit complet par un
-                  organisme agr\u00e9\u00e9 (143 crit\u00e8res). Ce simulateur fournit une indication
-                  pr\u00e9liminaire et ne se substitue pas \u00e0 la d\u00e9marche officielle.
+                  <span className="font-semibold">Avertissement :</span> Estimation simplifiée
+                  — la certification LENOZ officielle requiert un audit complet par un
+                  organisme agréé (143 critères). Ce simulateur fournit une indication
+                  préliminaire et ne se substitue pas à la démarche officielle.
                 </p>
               </div>
             </div>

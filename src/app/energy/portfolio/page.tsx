@@ -175,7 +175,7 @@ export default function PortfolioPage() {
       ? properties.reduce((s, p) => s + classeIndex(p.classe) * p.surface, 0) / totalSurface
       : 4;
 
-    // Repartition by class (by surface)
+    // Répartition by class (by surface)
     const repartition: Record<string, number> = {};
     for (const c of CLASSES) repartition[c] = 0;
     for (const p of properties) {
@@ -276,10 +276,10 @@ export default function PortfolioPage() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
-            Portfolio energetique
+            Portfolio énergétique
           </h1>
           <p className="mt-2 text-muted">
-            Analysez le profil energetique de votre parc immobilier
+            Analysez le profil énergétique de votre parc immobilier
           </p>
         </div>
 
@@ -294,7 +294,7 @@ export default function PortfolioPage() {
             </h2>
             <p className="text-muted mb-6 max-w-md mx-auto">
               Ajoutez votre premier bien pour commencer a analyser le profil
-              energetique de votre parc immobilier.
+              énergétique de votre parc immobilier.
             </p>
             <button
               onClick={() => setShowForm(true)}
@@ -351,7 +351,7 @@ export default function PortfolioPage() {
                   {/* Classe energie */}
                   <div className="sm:col-span-2 lg:col-span-3">
                     <label className="block text-sm font-medium text-foreground mb-1.5">
-                      Classe energetique
+                      Classe énergétique
                     </label>
                     <div className="flex gap-1.5">
                       {CLASSES.map((c) => (
@@ -387,10 +387,10 @@ export default function PortfolioPage() {
                     />
                   </div>
 
-                  {/* Valeur estimee */}
+                  {/* Valeur estimée */}
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1.5">
-                      Valeur estimee (EUR)
+                      Valeur estimée (EUR)
                     </label>
                     <div className="relative">
                       <input
@@ -435,7 +435,7 @@ export default function PortfolioPage() {
                   {/* Annee construction */}
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1.5">
-                      Annee de construction
+                      Année de construction
                     </label>
                     <input
                       type="number"
@@ -536,11 +536,11 @@ export default function PortfolioPage() {
         {/* ============================================================ */}
         {stats && (
           <div className="space-y-6 mb-8">
-            {/* ---- Score moyen pondere -------------------------------- */}
+            {/* ---- Score moyen pondéré -------------------------------- */}
             <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
               <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
                 <h2 className="font-semibold text-foreground">
-                  Score moyen pondere
+                  Score moyen pondéré
                 </h2>
               </div>
               <div className="p-6 flex items-center gap-6">
@@ -560,11 +560,11 @@ export default function PortfolioPage() {
               </div>
             </div>
 
-            {/* ---- Repartition par classe ----------------------------- */}
+            {/* ---- Répartition par classe ----------------------------- */}
             <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
               <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
                 <h2 className="font-semibold text-foreground">
-                  Repartition par classe
+                  Répartition par classe
                 </h2>
               </div>
               <div className="p-6">
@@ -617,7 +617,7 @@ export default function PortfolioPage() {
             <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
               <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
                 <h2 className="font-semibold text-foreground">
-                  Valeur totale et impact energetique
+                  Valeur totale et impact énergétique
                 </h2>
               </div>
               <div className="p-6">
@@ -635,7 +635,7 @@ export default function PortfolioPage() {
                   </div>
                   <div className="rounded-xl border border-card-border p-4 text-center">
                     <div className="text-xs text-muted uppercase tracking-wider">
-                      Impact energetique
+                      Impact énergétique
                     </div>
                     <div
                       className={`mt-1 text-2xl font-bold ${
@@ -669,11 +669,11 @@ export default function PortfolioPage() {
               </div>
             </div>
 
-            {/* ---- Consommation totale estimee ------------------------ */}
+            {/* ---- Consommation totale estimée ------------------------ */}
             <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
               <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
                 <h2 className="font-semibold text-foreground">
-                  Consommation totale estimee
+                  Consommation totale estimée
                 </h2>
               </div>
               <div className="p-6">
@@ -733,7 +733,7 @@ export default function PortfolioPage() {
                         {stats.worstPerformers.length} bien
                         {stats.worstPerformers.length > 1 ? "s" : ""} sur{" "}
                         {properties.length} sont classes worst performers et
-                        devront etre renoves avant 2033
+                        devront être rénovés avant 2033
                       </div>
                       <div className="mt-2 text-sm text-red-700">
                         La directive EPBD (Energy Performance of Buildings
