@@ -35,21 +35,20 @@
 // CREATE POLICY "Users can delete own valuations"
 //   ON valuations FOR DELETE USING (auth.uid() = user_id);
 
-import { createClient } from "@supabase/supabase-js";
+import { createBrowserClient } from "@supabase/ssr";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
+// Utilise @supabase/ssr avec cookies sur .tevaxia.lu
+// → session partagée entre tevaxia.lu et energy.tevaxia.lu (SSO)
 export const supabase = supabaseUrl && supabaseKey
-  ? createClient(supabaseUrl, supabaseKey, {
-      auth: {
-        // Partage la session entre tevaxia.lu et energy.tevaxia.lu
-        storage: typeof window !== "undefined" ? window.localStorage : undefined,
-        storageKey: "tevaxia-auth",
-        flowType: "pkce",
-      },
-      global: {
-        headers: { "x-client-info": "tevaxia-web" },
+  ? createBrowserClient(supabaseUrl, supabaseKey, {
+      cookieOptions: {
+        domain: ".tevaxia.lu",
+        path: "/",
+        sameSite: "lax" as const,
+        secure: true,
       },
     })
   : null;
