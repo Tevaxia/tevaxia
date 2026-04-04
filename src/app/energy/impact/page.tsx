@@ -45,6 +45,13 @@ export default function ImpactPage() {
   const [classeActuelle, setClasseActuelle] = useState("D");
   const [result, setResult] = useState<ImpactResponse>(fallbackLocal(750000, "D"));
   const [apiOk, setApiOk] = useState<boolean | null>(null);
+  const [elapsed, setElapsed] = useState(0);
+
+  useEffect(() => {
+    if (apiOk !== null) return;
+    const timer = setInterval(() => setElapsed((e) => e + 1), 1000);
+    return () => clearInterval(timer);
+  }, [apiOk]);
 
   const compute = useCallback(async (v: number, c: string) => {
     try {
@@ -65,6 +72,15 @@ export default function ImpactPage() {
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground">{t("title")}</h1>
           <p className="mt-2 text-muted">{t("description")}</p>
+          {apiOk === null && (
+            <div className="mt-3 flex items-center gap-3 text-sm text-blue-700 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
+              <div className="h-4 w-4 animate-spin rounded-full border-2 border-blue-300 border-t-blue-600 shrink-0" />
+              <div>
+                <span className="font-medium">{t("apiConnecting")}</span>
+                {elapsed > 3 && <span className="ml-2 text-blue-500 tabular-nums">({elapsed}s)</span>}
+              </div>
+            </div>
+          )}
           {apiOk === false && (
             <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-1">
               {t("localFallback")}
@@ -175,6 +191,35 @@ export default function ImpactPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+        {/* Explication green premium / brown discount */}
+        <div className="mt-6 rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
+          <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">
+            <h2 className="font-semibold text-foreground">{t("explainTitle")}</h2>
+          </div>
+          <div className="p-6 space-y-4 text-sm text-muted leading-relaxed">
+            <div>
+              <h3 className="font-semibold text-foreground mb-1">{t("explainGreenTitle")}</h3>
+              <p>{t("explainGreenText")}</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-foreground mb-1">{t("explainBrownTitle")}</h3>
+              <p>{t("explainBrownText")}</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-foreground mb-1">{t("explainMethodTitle")}</h3>
+              <p>{t("explainMethodText")}</p>
+            </div>
+            <div className="border-t border-card-border pt-3">
+              <h3 className="font-semibold text-foreground mb-1">{t("explainSourcesTitle")}</h3>
+              <ul className="list-disc list-inside space-y-0.5 text-xs">
+                <li>{t("explainSource1")}</li>
+                <li>{t("explainSource2")}</li>
+                <li>{t("explainSource3")}</li>
+                <li>{t("explainSource4")}</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

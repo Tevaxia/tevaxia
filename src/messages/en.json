@@ -96,8 +96,21 @@
       "classeRef": "Reference class (D)",
       "source": "Source: Observatoire de l'Habitat, Spuerkeess analyses",
       "actuelle": "current",
+      "apiConnecting": "Connecting to calculation server... First load may take up to 60 seconds.",
       "localFallback": "Local calculation — Spring Boot API not connected",
-      "apiConnected": "Connected to Spring Boot API"
+      "apiConnected": "Connected to Spring Boot API",
+      "explainTitle": "What is the green premium / brown discount?",
+      "explainGreenTitle": "Green premium",
+      "explainGreenText": "Energy-efficient properties (classes A to C) sell above the market average. This premium reflects lower heating costs, superior thermal comfort and early compliance with future EPBD standards. In Luxembourg, Observatoire de l'Habitat studies show a premium of up to +8% for A-rated properties relative to the D reference class.",
+      "explainBrownTitle": "Brown discount",
+      "explainBrownText": "Conversely, energy-inefficient properties (classes E to I) suffer a discount. Buyers anticipate future renovation costs, rising energy prices and increasing regulatory constraints (progressive rental bans on energy-wasting buildings, EPBD directive 2024). The discount can reach -25% for I-rated properties.",
+      "explainMethodTitle": "Methodology",
+      "explainMethodText": "Adjustment percentages are calibrated from observed transaction price gaps in Luxembourg, segmented by energy passport class. Class D serves as the reference (0% adjustment). Values are consistent with European academic studies and ECB climate risk analyses.",
+      "explainSourcesTitle": "Sources & references",
+      "explainSource1": "Observatoire de l'Habitat du Luxembourg — Sales price analysis by energy class (2023-2025)",
+      "explainSource2": "ECB — Climate risk and real estate: emerging evidence on pricing (2024)",
+      "explainSource3": "EPBD recast Directive 2024/1275 — Zero-emission building stock by 2050",
+      "explainSource4": "TEGOVA EVS 2025 — ESG & Sustainability in Property Valuation (EVS 5)"
     },
     "renovation": {
       "title": "Energy Renovation ROI",
@@ -148,8 +161,14 @@
       "vanDesc": "Net present value (3% discount rate, 3%/year energy price increase)",
       "tri": "IRR",
       "triDesc": "Internal rate of return",
+      "apiConnecting": "Connecting to calculation server... First load may take up to 60 seconds.",
       "localFallback": "Local calculation — Spring Boot API not connected",
-      "apiConnected": "Connected to Spring Boot API"
+      "apiConnected": "Connected to Spring Boot API",
+      "roiDesc": "Value gain / net cost after subsidies",
+      "klimapretAvantage": "Klimaprêt advantage",
+      "klimapretVsMarche": "vs market {taux}%",
+      "klimapretEcoDesc": "Klimaprêt payment: {mens} €/mo vs {mensMarche} €/mo at market rate",
+      "klimapretZeroCash": "Zero upfront cash — Klimaprêt finances the full remaining cost"
     },
     "communaute": {
       "title": "Energy Community Simulator",
@@ -198,6 +217,7 @@
       "confILR": "ILR declaration",
       "confLoi": "Reference law",
       "confReglement": "Applicable regulation",
+      "apiConnecting": "Connecting to calculation server... First load may take up to 60 seconds.",
       "localFallback": "Local calculation — Spring Boot API not connected",
       "apiConnected": "Connected to Spring Boot API"
     }

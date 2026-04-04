@@ -96,8 +96,21 @@
       "classeRef": "Classe de référence (D)",
       "source": "Source : Observatoire de l'Habitat, analyses Spuerkeess",
       "actuelle": "actuelle",
+      "apiConnecting": "Connexion au serveur de calcul... Le premier chargement peut prendre jusqu'à 60 secondes.",
       "localFallback": "Calcul local — API Spring Boot non connectée",
-      "apiConnected": "Connecté à l'API Spring Boot"
+      "apiConnected": "Connecté à l'API Spring Boot",
+      "explainTitle": "Qu'est-ce que le green premium / brown discount ?",
+      "explainGreenTitle": "Green premium (prime verte)",
+      "explainGreenText": "Un bien performant énergétiquement (classes A à C) se vend plus cher que la moyenne du marché. Cette prime reflète les coûts de chauffage réduits, le confort thermique supérieur et la conformité anticipée aux futures normes EPBD. Au Luxembourg, les études de l'Observatoire de l'Habitat montrent une prime pouvant atteindre +8% pour un bien classé A par rapport à la classe de référence D.",
+      "explainBrownTitle": "Brown discount (décote brune)",
+      "explainBrownText": "À l'inverse, un bien énergivore (classes E à I) subit une décote. L'acquéreur anticipe les coûts de rénovation futurs, la hausse des prix de l'énergie et les contraintes réglementaires croissantes (interdiction progressive de location des passoires thermiques, directive EPBD 2024). La décote peut atteindre -25% pour un bien classé I.",
+      "explainMethodTitle": "Méthodologie",
+      "explainMethodText": "Les pourcentages d'ajustement sont calibrés à partir des écarts de prix de transaction observés au Luxembourg, segmentés par classe de passeport énergétique. La classe D sert de référence (0% d'ajustement). Les valeurs sont cohérentes avec les études académiques européennes et les analyses de risque climatique de la BCE.",
+      "explainSourcesTitle": "Sources & références",
+      "explainSource1": "Observatoire de l'Habitat du Luxembourg — Analyse des prix de vente par classe énergétique (2023-2025)",
+      "explainSource2": "BCE — Climate risk and real estate: emerging evidence on pricing (2024)",
+      "explainSource3": "Directive EPBD recast 2024/1275 — Objectif parc zéro-émission 2050",
+      "explainSource4": "TEGOVA EVS 2025 — ESG & Sustainability in Property Valuation (EVS 5)"
     },
     "renovation": {
       "title": "ROI Rénovation énergétique",
@@ -148,8 +161,14 @@
       "vanDesc": "Valeur actuelle nette (taux actualisation 3%, hausse énergie 3%/an)",
       "tri": "TRI",
       "triDesc": "Taux de rendement interne",
+      "apiConnecting": "Connexion au serveur de calcul... Le premier chargement peut prendre jusqu'à 60 secondes.",
       "localFallback": "Calcul local — API Spring Boot non connectée",
-      "apiConnected": "Connecté à l'API Spring Boot"
+      "apiConnected": "Connecté à l'API Spring Boot",
+      "roiDesc": "Gain de valeur / reste à charge après aides",
+      "klimapretAvantage": "Avantage Klimaprêt",
+      "klimapretVsMarche": "vs marché {taux}%",
+      "klimapretEcoDesc": "Mensualité Klimaprêt : {mens} €/mois vs {mensMarche} €/mois au taux du marché",
+      "klimapretZeroCash": "Aucune avance de fonds — le Klimaprêt finance la totalité du reste à charge"
     },
     "communaute": {
       "title": "Simulateur Communauté d'énergie",
@@ -198,6 +217,7 @@
       "confILR": "Déclaration ILR",
       "confLoi": "Loi de référence",
       "confReglement": "Règlement applicable",
+      "apiConnecting": "Connexion au serveur de calcul... Le premier chargement peut prendre jusqu'à 60 secondes.",
       "localFallback": "Calcul local — API Spring Boot non connectée",
       "apiConnected": "Connecté à l'API Spring Boot"
     }

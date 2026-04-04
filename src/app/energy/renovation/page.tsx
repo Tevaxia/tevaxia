@@ -22,13 +22,13 @@ function fallbackLocal(ca: string, cc: string, surface: number, annee: number, v
   if (est.postes.length === 0) return null;
   const gainPct = (IMPACT_ENERGIE[cc] || 0) - (IMPACT_ENERGIE[ca] || 0);
   const gainValeur = Math.round(valeur * (gainPct / 100));
-  const roi = est.totalAvecHonoraires > 0 ? Math.round((gainValeur * 100 / est.totalAvecHonoraires) * 10) / 10 : 0;
   const saut = CLASSES.indexOf(ca as typeof CLASSES[number]) - CLASSES.indexOf(cc as typeof CLASSES[number]);
   const tauxKB = saut >= 4 ? 0.625 : saut === 3 ? 0.50 : saut === 2 ? 0.375 : 0.25;
   const montantKB = Math.round(est.totalMoyen * tauxKB);
   const subvConseil = 1500;
   const totalAides = montantKB + subvConseil;
   const resteACharge = Math.max(est.totalAvecHonoraires - totalAides, 0);
+  const roi = resteACharge > 0 ? Math.round((gainValeur * 100 / resteACharge) * 10) / 10 : 0;
   const consoAct = CONSO_PAR_CLASSE[ca] || 130;
   const consoCib = CONSO_PAR_CLASSE[cc] || 130;
   const ecoKwh = Math.round((consoAct - consoCib) * 0.75 * surface);
@@ -40,7 +40,7 @@ function fallbackLocal(ca: string, cc: string, surface: number, annee: number, v
     honoraires: est.honoraires, totalProjet: est.totalAvecHonoraires, dureeEstimeeMois: est.dureeEstimeeMois,
     gainValeur, gainValeurPct: Math.round(gainPct * 10) / 10, roiPct: roi,
     klimabonus: { sautClasses: saut, taux: tauxKB, montant: montantKB, description: `Saut ${ca} → ${cc} (${saut} classes) : ${tauxKB * 100}% des travaux subventionnés` },
-    klimapret: { montantMax: Math.min(resteACharge, 100000), taux: 0.015, dureeMois: 180, mensualite: 0 },
+    klimapret: (() => { const m = Math.min(resteACharge, 100000); const r = 0.015 / 12; const mens = m > 0 ? Math.round(m * r / (1 - Math.pow(1 + r, -180))) : 0; return { montantMax: m, taux: 0.015, dureeMois: 180, mensualite: mens }; })(),
     subventionConseil: subvConseil, totalAides, resteACharge,
     economieAnnuelleKwh: ecoKwh, economieAnnuelleEur: ecoEur,
     paybackAnnees: payback,
@@ -58,6 +58,13 @@ export default function RenovationPage() {
   const [valeur, setValeur] = useState(650000);
   const [result, setResult] = useState<RenovationResponse | null>(null);
   const [apiOk, setApiOk] = useState<boolean | null>(null);
+  const [elapsed, setElapsed] = useState(0);
+
+  useEffect(() => {
+    if (apiOk !== null) return;
+    const timer = setInterval(() => setElapsed((e) => e + 1), 1000);
+    return () => clearInterval(timer);
+  }, [apiOk]);
 
   const compute = useCallback(async (ca: string, cc: string, s: number, a: number, v: number) => {
     if (CLASSES.indexOf(cc as typeof CLASSES[number]) >= CLASSES.indexOf(ca as typeof CLASSES[number])) { setResult(null); return; }
@@ -76,6 +83,15 @@ export default function RenovationPage() {
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground">{t("title")}</h1>
           <p className="mt-2 text-muted">{t("description")}</p>
+          {apiOk === null && (
+            <div className="mt-3 flex items-center gap-3 text-sm text-blue-700 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
+              <div className="h-4 w-4 animate-spin rounded-full border-2 border-blue-300 border-t-blue-600 shrink-0" />
+              <div>
+                <span className="font-medium">{t("apiConnecting")}</span>
+                {elapsed > 3 && <span className="ml-2 text-blue-500 tabular-nums">({elapsed}s)</span>}
+              </div>
+            </div>
+          )}
           {apiOk === false && <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-1">{t("localFallback")}</div>}
           {apiOk === true && <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-energy bg-energy/5 border border-energy/20 rounded-lg px-3 py-1">{t("apiConnected")}</div>}
         </div>
@@ -170,6 +186,7 @@ export default function RenovationPage() {
                 <div className="text-xs text-muted uppercase tracking-wider">{t("roi")}</div>
                 <div className={`mt-1 text-2xl font-bold ${result.roiPct > 100 ? "text-green-600" : result.roiPct > 50 ? "text-yellow-600" : "text-red-600"}`}>{result.roiPct}%</div>
                 <div className="mt-1 text-xs text-muted">{result.roiPct >= 100 ? t("roiRentable") : result.roiPct >= 50 ? t("roiPartiel") : t("roiNegatif")}</div>
+                <div className="mt-0.5 text-xs text-muted/70">{t("roiDesc")}</div>
               </div>
             </div>
 
@@ -216,6 +233,27 @@ export default function RenovationPage() {
                       </div>
                     </div>
                   </div>
+                  {/* Avantage Klimaprêt */}
+                  {result.klimapret.montantMax > 0 && result.klimapret.mensualite > 0 && (() => {
+                    const tauxMarche = 0.04;
+                    const m = result.klimapret.montantMax;
+                    const d = result.klimapret.dureeMois;
+                    const rMarche = tauxMarche / 12;
+                    const mensMarche = Math.round(m * rMarche / (1 - Math.pow(1 + rMarche, -d)));
+                    const ecoInterets = (mensMarche - result.klimapret.mensualite) * d;
+                    return (
+                      <div className="rounded-xl border border-purple-200 bg-purple-50 p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm font-semibold text-purple-800">{t("klimapretAvantage")}</span>
+                          <span className="text-xs bg-purple-600 text-white rounded-full px-2 py-0.5">{t("klimapretVsMarche", { taux: String((tauxMarche * 100).toFixed(1)) })}</span>
+                        </div>
+                        <div className="text-2xl font-bold text-purple-700">{fmt(ecoInterets)} €</div>
+                        <div className="text-xs text-purple-600 mt-1">{t("klimapretEcoDesc", { mens: String(fmt(result.klimapret.mensualite)), mensMarche: String(fmt(mensMarche)) })}</div>
+                        <div className="text-xs text-purple-600 mt-1 font-medium">{t("klimapretZeroCash")}</div>
+                      </div>
+                    );
+                  })()}
+
                   <div className="flex items-center gap-2 text-sm text-muted">
                     <span>{t("subventionConseil")} : {fmt(result.subventionConseil)} €</span>
                   </div>

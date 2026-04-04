@@ -37,7 +37,7 @@ public record RenovationResponse(
         @Schema(description = "Gain de valeur en pourcentage")
         double gainValeurPct,
 
-        @Schema(description = "Retour sur investissement en pourcentage (gain / coût projet)")
+        @Schema(description = "Retour sur investissement en pourcentage (gain / reste à charge après aides)")
         double roiPct,
 
         @Schema(description = "Subventions Klimabonus")

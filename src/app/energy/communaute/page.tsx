@@ -53,6 +53,13 @@ export default function CommunautePage() {
   const [tarifPartage, setTarifPartage] = useState(0.15);
   const [result, setResult] = useState<CommunauteResponse>(fallbackLocal(6, 30, 4500, 0.28, 0.15));
   const [apiOk, setApiOk] = useState<boolean | null>(null);
+  const [elapsed, setElapsed] = useState(0);
+
+  useEffect(() => {
+    if (apiOk !== null) return;
+    const timer = setInterval(() => setElapsed((e) => e + 1), 1000);
+    return () => clearInterval(timer);
+  }, [apiOk]);
 
   const compute = useCallback(async (nb: number, pv: number, c: number, tr: number, tp: number) => {
     try {
@@ -72,6 +79,15 @@ export default function CommunautePage() {
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground">{t("title")}</h1>
           <p className="mt-2 text-muted">{t("description")}</p>
+          {apiOk === null && (
+            <div className="mt-3 flex items-center gap-3 text-sm text-blue-700 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
+              <div className="h-4 w-4 animate-spin rounded-full border-2 border-blue-300 border-t-blue-600 shrink-0" />
+              <div>
+                <span className="font-medium">{t("apiConnecting")}</span>
+                {elapsed > 3 && <span className="ml-2 text-blue-500 tabular-nums">({elapsed}s)</span>}
+              </div>
+            </div>
+          )}
           {apiOk === false && <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-1">{t("localFallback")}</div>}
           {apiOk === true && <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-energy bg-energy/5 border border-energy/20 rounded-lg px-3 py-1">{t("apiConnected")}</div>}
         </div>

@@ -169,7 +169,6 @@ public class RenovationService {
         double pctCible = IMPACT_ENERGIE.getOrDefault(classeCible, 0.0);
         double gainPct = pctCible - pctActuelle;
         long gainValeur = Math.round(request.valeurBien() * (gainPct / 100.0));
-        double roi = totalProjet > 0 ? (gainValeur * 100.0 / totalProjet) : 0.0;
 
         // --- Klimabonus (§5.4) ---
         int sautClasses = idxActuelle - idxCible;
@@ -197,6 +196,9 @@ public class RenovationService {
 
         long totalAides = montantKlimabonus + SUBVENTION_CONSEIL;
         long resteACharge = Math.max(totalProjet - totalAides, 0);
+
+        // ROI basé sur le reste à charge réel (après aides), pas le coût brut
+        double roi = resteACharge > 0 ? (gainValeur * 100.0 / resteACharge) : 0.0;
 
         // --- Économies d'énergie (§5.2) ---
         int consoActuelle = CONSO_PAR_CLASSE.getOrDefault(classeActuelle, 130);
