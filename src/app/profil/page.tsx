@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react";
 import InputField from "@/components/InputField";
+import { useAuth } from "@/components/AuthProvider";
 import { getProfile, saveProfile, loadAndMergeProfile, type UserProfile } from "@/lib/profile";
 
 export default function Profil() {
+  const { user } = useAuth();
   const [profile, setProfile] = useState<UserProfile>(getProfile());
   const [saved, setSaved] = useState(false);
   const [syncing, setSyncing] = useState(false);
@@ -57,15 +59,33 @@ export default function Profil() {
 
           <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
             <h2 className="mb-4 text-base font-semibold text-navy">Rapport</h2>
-            <div className="space-y-1">
-              <label className="block text-sm font-medium text-slate">Mention légale personnalisée</label>
-              <textarea
-                value={profile.mentionLegale}
-                onChange={(e) => update("mentionLegale", e.target.value)}
-                rows={3}
-                className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm shadow-sm focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20 resize-y"
-              />
-              <p className="text-xs text-muted">Apparaît en bas de chaque rapport généré.</p>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-slate mb-1">Logo (URL)</label>
+                <div className="flex gap-3 items-start">
+                  <input
+                    type="url"
+                    value={profile.logoUrl || ""}
+                    onChange={(e) => update("logoUrl", e.target.value)}
+                    placeholder="https://example.com/logo.png"
+                    className="flex-1 rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm shadow-sm focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
+                  />
+                  {profile.logoUrl && (
+                    <img src={profile.logoUrl} alt="Logo" className="h-10 w-10 rounded border border-card-border object-contain bg-white" />
+                  )}
+                </div>
+                <p className="text-xs text-muted mt-1">URL de votre logo (PNG/SVG). Apparaît sur les rapports PDF.</p>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate">Mention légale personnalisée</label>
+                <textarea
+                  value={profile.mentionLegale}
+                  onChange={(e) => update("mentionLegale", e.target.value)}
+                  rows={3}
+                  className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm shadow-sm focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20 resize-y"
+                />
+                <p className="text-xs text-muted">Apparaît en bas de chaque rapport généré.</p>
+              </div>
             </div>
           </div>
 
@@ -77,10 +97,38 @@ export default function Profil() {
             {syncing ? "Synchronisation..." : saved ? "Profil sauvegardé !" : "Enregistrer le profil"}
           </button>
 
+          {user && (
+            <div className="rounded-xl border border-energy/20 bg-energy/5 p-6">
+              <h2 className="text-base font-semibold text-navy mb-3">Avantages de votre compte</h2>
+              <ul className="grid gap-2 sm:grid-cols-2 text-sm text-slate">
+                {[
+                  "Export PDF sur les 19 outils",
+                  "Sauvegarde cloud multi-appareils",
+                  "Historique de vos simulations",
+                  "Profil personnalisé (logo, coordonnées)",
+                  "Portfolio multi-biens persistant",
+                  "Estimation détaillée (comparables)",
+                  "Aides détaillées (ventilation)",
+                  "Alertes marché par commune",
+                  "Partage de lien de simulation",
+                  "Comparateur de scénarios",
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-2">
+                    <svg className="h-4 w-4 shrink-0 text-energy mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           <div className="rounded-lg bg-amber-50 border border-amber-200 p-3">
             <p className="text-xs text-amber-800">
-              Votre profil est stocké localement et synchronisé avec votre compte si vous êtes connecté.
-              Il sera utilisé pour personnaliser les rapports PDF et DOCX.
+              {user
+                ? "Votre profil est synchronisé avec votre compte. Il sera utilisé pour personnaliser vos rapports PDF et DOCX."
+                : "Votre profil est stocké localement. Créez un compte pour synchroniser et accéder à tous les avantages."}
             </p>
           </div>
         </div>
