@@ -11,42 +11,42 @@ export type EVSValueType =
   | "fair_value"          // EVS5 — Juste valeur (IFRS 13)
   | "equitable_value";    // EVS6 — Valeur équitable (IFRS / litiges)
 
-export const EVS_VALUE_TYPES: { id: EVSValueType; label: string; evs: string; description: string }[] = [
+export const EVS_VALUE_TYPES: { id: EVSValueType; labelKey: string; evs: string; descriptionKey: string }[] = [
   {
     id: "market_value",
-    label: "Valeur de marché",
+    labelKey: "evsMarketValueLabel",
     evs: "EVS1",
-    description: "Le montant estimé auquel un actif ou un passif devrait s'échanger à la date de l'évaluation entre un acheteur consentant et un vendeur consentant, dans une transaction équilibrée, après une commercialisation adéquate, les parties ayant chacune agi en connaissance de cause, prudemment et sans contrainte.",
+    descriptionKey: "evsMarketValueDesc",
   },
   {
     id: "market_rent",
-    label: "Valeur locative de marché (ERV)",
+    labelKey: "evsMarketRentLabel",
     evs: "EVS2",
-    description: "Le montant estimé auquel un bien immobilier devrait être loué à la date de l'évaluation entre un bailleur consentant et un preneur consentant, aux conditions du marché, après une commercialisation adéquate.",
+    descriptionKey: "evsMarketRentDesc",
   },
   {
     id: "mlv",
-    label: "Valeur hypothécaire (MLV)",
+    labelKey: "evsMLVLabel",
     evs: "EVS3",
-    description: "La valeur du bien telle que déterminée par un évaluateur prudent, tenant compte de la soutenabilité à long terme de la valeur, des conditions normales et locales du marché, de l'utilisation actuelle et des utilisations alternatives appropriées, en excluant tout élément spéculatif. CRR Art. 4(1)(74).",
+    descriptionKey: "evsMLVDesc",
   },
   {
     id: "investment_value",
-    label: "Valeur d'investissement",
+    labelKey: "evsInvestmentValueLabel",
     evs: "EVS4",
-    description: "La valeur d'un actif pour un investisseur particulier ou une catégorie d'investisseurs, compte tenu de leurs objectifs d'investissement spécifiques. Peut différer de la valeur de marché.",
+    descriptionKey: "evsInvestmentValueDesc",
   },
   {
     id: "fair_value",
-    label: "Juste valeur (IFRS 13)",
+    labelKey: "evsFairValueLabel",
     evs: "EVS5",
-    description: "Le prix qui serait reçu pour la vente d'un actif ou payé pour le transfert d'un passif lors d'une transaction ordonnée entre des intervenants du marché à la date d'évaluation. Concept de 'highest and best use'.",
+    descriptionKey: "evsFairValueDesc",
   },
   {
     id: "equitable_value",
-    label: "Valeur équitable",
+    labelKey: "evsEquitableValueLabel",
     evs: "EVS6",
-    description: "Le prix estimé pour le transfert d'un actif entre des parties identifiées, bien informées et consentantes, qui reflète les intérêts respectifs de ces parties.",
+    descriptionKey: "evsEquitableValueDesc",
   },
 ];
 
@@ -63,7 +63,7 @@ export type AssetType =
 
 export interface AssetTypeConfig {
   id: AssetType;
-  label: string;
+  labelKey: string;
   icon: string;
   // Paramètres par défaut — tous configurables
   defaults: {
@@ -84,18 +84,18 @@ export interface AssetTypeConfig {
     mlvCommercialisationDefault: number;
     mlvSpecifiqueDefault: number;
   };
-  // Métriques spécifiques
-  specificMetrics: string[];
-  // Méthodes recommandées EVS
-  recommendedMethods: string[];
-  // Notes contextuelles
-  notes: string;
+  // Métriques spécifiques (translation keys)
+  specificMetricKeys: string[];
+  // Méthodes recommandées EVS (translation keys)
+  recommendedMethodKeys: string[];
+  // Notes contextuelles (translation key)
+  notesKey: string;
 }
 
 export const ASSET_TYPES: AssetTypeConfig[] = [
   {
     id: "residential_apartment",
-    label: "Résidentiel — Appartement",
+    labelKey: "assetResAppartement",
     icon: "apartment",
     defaults: {
       capRateMin: 3.0, capRateMax: 5.5, capRateDefault: 4.0,
@@ -104,13 +104,13 @@ export const ASSET_TYPES: AssetTypeConfig[] = [
       dcfPeriod: 10, discountRateDefault: 5.5, exitCapDefault: 4.5, indexationDefault: 2.0,
       mlvConjoncturelleDefault: 5, mlvCommercialisationDefault: 3, mlvSpecifiqueDefault: 2,
     },
-    specificMetrics: ["Prix/m²", "Loyer/m²/mois", "Capital investi (loi 2006)"],
-    recommendedMethods: ["Comparaison (dominante)", "Capitalisation", "DCF (si investissement)"],
-    notes: "Au Luxembourg, le marché résidentiel est dominé par la méthode par comparaison. Le loyer est plafonné à 5% du capital investi (loi 2006). Taux de vacance historiquement très bas (<3%).",
+    specificMetricKeys: ["metricPrixM2", "metricLoyerM2Mois", "metricCapitalInvesti"],
+    recommendedMethodKeys: ["methodComparaisonDom", "methodCapitalisation", "methodDCFInvest"],
+    notesKey: "notesResAppartement",
   },
   {
     id: "residential_house",
-    label: "Résidentiel — Maison",
+    labelKey: "assetResMaison",
     icon: "house",
     defaults: {
       capRateMin: 2.5, capRateMax: 5.0, capRateDefault: 3.5,
@@ -119,13 +119,13 @@ export const ASSET_TYPES: AssetTypeConfig[] = [
       dcfPeriod: 10, discountRateDefault: 5.0, exitCapDefault: 4.0, indexationDefault: 2.0,
       mlvConjoncturelleDefault: 5, mlvCommercialisationDefault: 5, mlvSpecifiqueDefault: 2,
     },
-    specificMetrics: ["Prix/m² habitable", "Prix terrain /m²", "Surface terrain"],
-    recommendedMethods: ["Comparaison (dominante)", "Coût de remplacement (si atypique)"],
-    notes: "Données de comparaison limitées au Luxembourg — l'Observatoire de l'Habitat ne publie pas de statistiques détaillées sur les maisons faute de données cadastrales suffisantes. Délai de commercialisation plus long que les appartements.",
+    specificMetricKeys: ["metricPrixM2Habitable", "metricPrixTerrainM2", "metricSurfaceTerrain"],
+    recommendedMethodKeys: ["methodComparaisonDom", "methodCoutRemplacement"],
+    notesKey: "notesResMaison",
   },
   {
     id: "residential_building",
-    label: "Immeuble de rapport",
+    labelKey: "assetImmeubleRapport",
     icon: "building",
     defaults: {
       capRateMin: 3.5, capRateMax: 6.5, capRateDefault: 4.5,
@@ -134,13 +134,13 @@ export const ASSET_TYPES: AssetTypeConfig[] = [
       dcfPeriod: 10, discountRateDefault: 5.5, exitCapDefault: 5.0, indexationDefault: 2.0,
       mlvConjoncturelleDefault: 5, mlvCommercialisationDefault: 3, mlvSpecifiqueDefault: 3,
     },
-    specificMetrics: ["Nb logements / lots", "Loyer total annuel", "Rendement brut/net", "Durée restante moy. des baux", "Ventilation par usage (si mixte)"],
-    recommendedMethods: ["Capitalisation (dominante)", "DCF", "Comparaison (vérification)"],
-    notes: "L'immeuble de rapport se valorise principalement par le rendement. Analyser chaque lot : loyer en place vs ERV, durée restante des baux, potentiel de réversion. Le plafond des 5% s'applique lot par lot pour la partie résidentielle. Si l'immeuble comporte une composante commerciale (commerce en RDC, bureaux), évaluer chaque composante séparément avec ses propres paramètres (cap rate, vacance, ERV) puis additionner. Le cap rate global est alors la moyenne pondérée par les loyers.",
+    specificMetricKeys: ["metricNbLots", "metricLoyerTotalAnnuel", "metricRendementBrutNet", "metricDureeRestanteBaux", "metricVentilationUsage"],
+    recommendedMethodKeys: ["methodCapitalisationDom", "methodDCF", "methodComparaisonVerif"],
+    notesKey: "notesImmeubleRapport",
   },
   {
     id: "office",
-    label: "Bureaux",
+    labelKey: "assetBureaux",
     icon: "office",
     defaults: {
       capRateMin: 4.0, capRateMax: 7.0, capRateDefault: 5.0,
@@ -149,13 +149,13 @@ export const ASSET_TYPES: AssetTypeConfig[] = [
       dcfPeriod: 10, discountRateDefault: 6.5, exitCapDefault: 5.5, indexationDefault: 1.5,
       mlvConjoncturelleDefault: 8, mlvCommercialisationDefault: 5, mlvSpecifiqueDefault: 3,
     },
-    specificMetrics: ["Surface utile nette", "Loyer affiché vs loyer réel (après franchises)", "Durée restante moy. des baux", "Taux d'occupation", "Avantages consentis (mois gratuits, aménagements)"],
-    recommendedMethods: ["DCF (dominante)", "Capitalisation", "Comparaison (vérification)"],
-    notes: "Luxembourg-Ville : marché de bureaux mature avec segmentation CBD / Kirchberg / Cloche d'Or / Gare. Prime rents ~50-55 €/m²/mois au Kirchberg. Vacance structurelle ~5-7%. Analyser les incentives (franchise de loyer, aménagements) qui réduisent le loyer effectif vs facial. Baux commerciaux 3/6/9 ou fermes.",
+    specificMetricKeys: ["metricSurfaceUtileNette", "metricLoyerAfficheReelFranchises", "metricDureeRestanteBaux", "metricTauxOccupation", "metricAvantagesConsentis"],
+    recommendedMethodKeys: ["methodDCFDom", "methodCapitalisation", "methodComparaisonVerif"],
+    notesKey: "notesBureaux",
   },
   {
     id: "retail",
-    label: "Commerces",
+    labelKey: "assetCommerces",
     icon: "retail",
     defaults: {
       capRateMin: 4.5, capRateMax: 8.0, capRateDefault: 5.5,
@@ -164,13 +164,13 @@ export const ASSET_TYPES: AssetTypeConfig[] = [
       dcfPeriod: 10, discountRateDefault: 7.0, exitCapDefault: 6.0, indexationDefault: 1.5,
       mlvConjoncturelleDefault: 10, mlvCommercialisationDefault: 7, mlvSpecifiqueDefault: 5,
     },
-    specificMetrics: ["Surface de vente", "Loyer /m² emplacement n°1", "Taux d'effort locataire", "Flux piétons", "Chiffre d'affaires locataire"],
-    recommendedMethods: ["Capitalisation", "DCF", "Comparaison (high street uniquement)"],
-    notes: "Distinguer high street (Grand-Rue, avenue de la Gare) des retail parks et centres commerciaux. Le loyer en Zone A est la référence pour la comparaison. Risque structurel e-commerce sur certains segments. Analyser le taux d'effort du locataire (loyer / CA) — au-delà de 8-10%, risque de non-renouvellement.",
+    specificMetricKeys: ["metricSurfaceVente", "metricLoyerM2N1", "metricTauxEffort", "metricFluxPietons", "metricCALocataire"],
+    recommendedMethodKeys: ["methodCapitalisation", "methodDCF", "methodComparaisonHighStreet"],
+    notesKey: "notesCommerces",
   },
   {
     id: "hotel",
-    label: "Hôtellerie",
+    labelKey: "assetHotellerie",
     icon: "hotel",
     defaults: {
       capRateMin: 5.5, capRateMax: 9.0, capRateDefault: 6.5,
@@ -179,13 +179,13 @@ export const ASSET_TYPES: AssetTypeConfig[] = [
       dcfPeriod: 10, discountRateDefault: 8.0, exitCapDefault: 7.0, indexationDefault: 2.0,
       mlvConjoncturelleDefault: 10, mlvCommercialisationDefault: 8, mlvSpecifiqueDefault: 5,
     },
-    specificMetrics: ["Nb chambres", "Revenu par chambre dispo. (RevPAR)", "Prix moyen par nuit (ADR)", "Taux d'occupation", "Résultat brut d'exploitation", "Résultat avant charges financières par chambre"],
-    recommendedMethods: ["DCF (dominante)", "Capitalisation sur EBITDA", "Prix par chambre (vérification)"],
-    notes: "L'hôtellerie se valorise sur la capacité bénéficiaire (EBITDA stabilisé), pas sur le loyer. Distinguer l'immobilier de l'exploitation (murs vs fonds). Luxembourg : marché institutionnel/affaires avec saisonnalité faible mais occupancy ~70-75%. ADR en hausse. Méthode des profits (EVS) recommandée.",
+    specificMetricKeys: ["metricNbChambres", "metricRevPAR", "metricADR", "metricTauxOccupation", "metricRBE", "metricRACFChambre"],
+    recommendedMethodKeys: ["methodDCFDom", "methodCapitalisationEBITDA", "methodPrixChambreVerif"],
+    notesKey: "notesHotellerie",
   },
   {
     id: "logistics",
-    label: "Logistique / Industriel",
+    labelKey: "assetLogistique",
     icon: "logistics",
     defaults: {
       capRateMin: 5.0, capRateMax: 8.0, capRateDefault: 5.5,
@@ -194,13 +194,13 @@ export const ASSET_TYPES: AssetTypeConfig[] = [
       dcfPeriod: 10, discountRateDefault: 7.0, exitCapDefault: 6.0, indexationDefault: 1.5,
       mlvConjoncturelleDefault: 7, mlvCommercialisationDefault: 5, mlvSpecifiqueDefault: 5,
     },
-    specificMetrics: ["Surface utile (m²)", "Hauteur libre", "Nb quais", "Charge au sol", "Accessibilité poids lourds"],
-    recommendedMethods: ["Capitalisation", "DCF", "Coût de remplacement (si spécialisé)"],
-    notes: "Luxembourg : stock logistique limité, concentré sur Eurohub Sud (Bettembourg/Dudelange) et zones d'activités. Loyers ~6-9 €/m²/mois. Baux longs (6-9 ans fermes). ESG de plus en plus important (certifications BREEAM, panneaux solaires toiture).",
+    specificMetricKeys: ["metricSurfaceUtileM2", "metricHauteurLibre", "metricNbQuais", "metricChargeSol", "metricAccessibilitePL"],
+    recommendedMethodKeys: ["methodCapitalisation", "methodDCF", "methodCoutRemplacementSpec"],
+    notesKey: "notesLogistique",
   },
   {
     id: "land",
-    label: "Terrain à bâtir",
+    labelKey: "assetTerrain",
     icon: "land",
     defaults: {
       capRateMin: 0, capRateMax: 0, capRateDefault: 0,
@@ -209,9 +209,9 @@ export const ASSET_TYPES: AssetTypeConfig[] = [
       dcfPeriod: 5, discountRateDefault: 8.0, exitCapDefault: 0, indexationDefault: 0,
       mlvConjoncturelleDefault: 15, mlvCommercialisationDefault: 10, mlvSpecifiqueDefault: 5,
     },
-    specificMetrics: ["Surface terrain", "COS/CMU", "Droits à construire (m² SB)", "Viabilisation", "Zone PAG"],
-    recommendedMethods: ["Comparaison (dominante)", "Méthode résiduelle (compte à rebours promoteur)"],
-    notes: "Au Luxembourg, rapport de 1 à 6 entre les prix des terrains à Luxembourg-Ville et le nord du pays. Vérifier le PAG/PAP : zone constructible, COS, servitudes CTV/CTL (délais de viabilisation/construction). La méthode résiduelle du promoteur déduit la valeur du terrain du prix de vente des logements construits, diminué des coûts de construction et de la marge.",
+    specificMetricKeys: ["metricSurfaceTerrain", "metricCOSCMU", "metricDroitsAConstruire", "metricViabilisation", "metricZonePAG"],
+    recommendedMethodKeys: ["methodComparaisonDom", "methodResiduellePromoteur"],
+    notesKey: "notesTerrain",
   },
 ];
 

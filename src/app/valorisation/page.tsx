@@ -921,7 +921,7 @@ function TabESG() {
         <div className="rounded-2xl border border-card-border bg-card p-8 text-center shadow-sm">
           <div className="text-sm text-muted">{t("esgScoreESG")}</div>
           <div className={`text-5xl font-bold mt-2 ${scoreColor}`}>{result.score}/100</div>
-          <div className={`mt-2 text-lg font-semibold ${scoreColor}`}>{t("esgNiveau")} {result.niveau} — {result.niveauLabel}</div>
+          <div className={`mt-2 text-lg font-semibold ${scoreColor}`}>{t("esgNiveau")} {result.niveau} — {t(result.niveauLabelKey)}</div>
           <div className="mt-3 text-sm font-medium">
             {t("esgImpactEstime")} : <span className={result.impactValeur >= 0 ? "text-success" : "text-error"}>{result.impactValeur > 0 ? "+" : ""}{result.impactValeur}%</span>
           </div>
@@ -933,26 +933,33 @@ function TabESG() {
             {result.risques.map((r, i) => (
               <div key={i} className="flex items-center gap-2 text-sm">
                 <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${r.niveau === "eleve" ? "bg-red-100 text-red-700" : r.niveau === "moyen" ? "bg-amber-100 text-amber-700" : "bg-green-100 text-green-700"}`}>
-                  {r.niveau}
+                  {t(`esgNiveauRisque_${r.niveau}`)}
                 </span>
-                <span className="text-slate">{r.label}</span>
+                <span className="text-slate">{t(r.labelKey)}</span>
               </div>
             ))}
           </div>
         </div>
-        {result.opportunites.length > 0 && (
+        {result.opportuniteKeys.length > 0 && (
           <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
             <h3 className="text-base font-semibold text-navy mb-3">{t("esgPointsPositifs")}</h3>
             <ul className="space-y-1 text-sm text-slate">
-              {result.opportunites.map((o, i) => <li key={i}>+ {o}</li>)}
+              {result.opportuniteKeys.map((oKey, i) => {
+                // Handle special certification key format: "esgOppoCertifications:BREEAM, DGNB"
+                if (oKey.startsWith("esgOppoCertifications:")) {
+                  const certs = oKey.split(":")[1];
+                  return <li key={i}>+ {t("esgOppoCertifications", { certs })}</li>;
+                }
+                return <li key={i}>+ {t(oKey)}</li>;
+              })}
             </ul>
           </div>
         )}
-        {result.recommandations.length > 0 && (
+        {result.recommandationKeys.length > 0 && (
           <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
             <h3 className="text-base font-semibold text-navy mb-3">{t("esgRecommandations")}</h3>
             <ul className="space-y-1 text-sm text-slate">
-              {result.recommandations.map((r, i) => <li key={i}>{r}</li>)}
+              {result.recommandationKeys.map((rKey, i) => <li key={i}>{t(rKey)}</li>)}
             </ul>
           </div>
         )}
@@ -1080,8 +1087,8 @@ function TabEnergie({ valeurMarcheCible, surfaceBien }: { valeurMarcheCible: num
                 <div className="text-xs font-semibold text-navy mb-2">{t("enEstimationAutoTitle", { classeActuelle, classeCible, surface: surfaceBien, annee: anneeConstruction })}</div>
                 <div className="space-y-1">
                   {est.postes.map((p) => (
-                    <div key={p.label} className="flex justify-between text-xs">
-                      <span className="text-muted">{p.label}</span>
+                    <div key={p.labelKey} className="flex justify-between text-xs">
+                      <span className="text-muted">{t(p.labelKey)}</span>
                       <span className="font-mono">{formatEUR(p.coutMin)} – {formatEUR(p.coutMax)}</span>
                     </div>
                   ))}
@@ -1598,7 +1605,7 @@ function TabReconciliation({
               valeurReconciliee: resultBase.valeurReconciliee || undefined,
               prixM2Commune: selectedCommune?.prixM2Existant || undefined,
               nbTransactions: selectedCommune?.nbTransactions || undefined,
-            }).split("\n\n").map((para, i) => (
+            }, t).split("\n\n").map((para, i) => (
               <p key={i} className="text-sm">{para.split(/\*\*(.+?)\*\*/g).map((seg, j) => j % 2 === 1 ? <strong key={j}>{seg}</strong> : seg)}</p>
             ))}
           </div>
@@ -1724,7 +1731,7 @@ export default function Valorisation() {
                       : "bg-background text-muted hover:bg-navy/5 hover:text-navy"
                   }`}
                 >
-                  {at.label}
+                  {t(at.labelKey)}
                 </button>
               ))}
             </div>
@@ -1738,9 +1745,9 @@ export default function Valorisation() {
                 type="select"
                 value={evsValueType}
                 onChange={(v) => setEvsValueType(v as EVSValueType)}
-                options={EVS_VALUE_TYPES.map((e) => ({ value: e.id, label: `${e.evs} — ${e.label}` }))}
+                options={EVS_VALUE_TYPES.map((e) => ({ value: e.id, label: `${e.evs} — ${t(e.labelKey)}` }))}
               />
-              <p className="mt-2 text-xs text-muted leading-relaxed">{evsInfo.description}</p>
+              <p className="mt-2 text-xs text-muted leading-relaxed">{t(evsInfo.descriptionKey)}</p>
             </div>
 
             <div className="rounded-xl border border-card-border bg-card p-4 shadow-sm">
@@ -1752,14 +1759,14 @@ export default function Valorisation() {
               />
               <div className="mt-3 text-xs text-muted">
                 <div className="font-medium text-slate mb-1">{t("methodesRecommandees")} :</div>
-                {assetConfig.recommendedMethods.map((m, i) => (
-                  <div key={i}>• {m}</div>
+                {assetConfig.recommendedMethodKeys.map((mk, i) => (
+                  <div key={i}>• {t(mk)}</div>
                 ))}
               </div>
             </div>
 
             <div className="rounded-xl border border-card-border bg-card p-4 shadow-sm">
-              <div className="text-xs font-medium text-slate mb-2">{t("parametresReference")} — {assetConfig.label}</div>
+              <div className="text-xs font-medium text-slate mb-2">{t("parametresReference")} — {t(assetConfig.labelKey)}</div>
               <div className="space-y-1 text-xs text-muted">
                 <div className="flex justify-between"><span>{t("tauxDeCapitalisation")}</span><span className="font-mono">{assetConfig.defaults.capRateMin}–{assetConfig.defaults.capRateMax}%</span></div>
                 <div className="flex justify-between"><span>{t("tauxDeVacance")}</span><span className="font-mono">{assetConfig.defaults.vacancyRate}%</span></div>
@@ -1767,10 +1774,10 @@ export default function Valorisation() {
                 <div className="flex justify-between"><span>{t("tauxSortieRevente")}</span><span className="font-mono">{assetConfig.defaults.exitCapDefault}%</span></div>
                 <div className="flex justify-between"><span>{t("decotesMLV")}</span><span className="font-mono">{assetConfig.defaults.mlvConjoncturelleDefault + assetConfig.defaults.mlvCommercialisationDefault + assetConfig.defaults.mlvSpecifiqueDefault}%</span></div>
               </div>
-              {assetConfig.specificMetrics.length > 0 && (
+              {assetConfig.specificMetricKeys.length > 0 && (
                 <div className="mt-2 pt-2 border-t border-card-border text-xs text-muted">
                   <span className="font-medium text-slate">{t("metriquesCles")} : </span>
-                  {assetConfig.specificMetrics.join(", ")}
+                  {assetConfig.specificMetricKeys.map((mk) => t(mk)).join(", ")}
                 </div>
               )}
             </div>
@@ -1778,7 +1785,7 @@ export default function Valorisation() {
 
           {/* Asset type notes */}
           <div className="rounded-lg bg-navy/5 border border-navy/10 px-4 py-3">
-            <p className="text-xs text-slate leading-relaxed">{assetConfig.notes}</p>
+            <p className="text-xs text-slate leading-relaxed">{t(assetConfig.notesKey)}</p>
           </div>
 
           {/* Résumé persistant : commune + valeurs + reset */}
@@ -1804,22 +1811,22 @@ export default function Valorisation() {
               <SaveButton
                 onClick={() => {
                   sauvegarderEvaluation({
-                    nom: `Valorisation — ${selectedCommune?.commune || "?"} — ${surfaceBien} m²`,
+                    nom: `${t("pageTitle")} — ${selectedCommune?.commune || "?"} — ${surfaceBien} m²`,
                     type: "valorisation",
                     commune: selectedCommune?.commune,
                     valeurPrincipale: valeurComparaison || valeurCapitalisation || valeurDCF,
                     data: { surfaceBien, assetType, evsValueType, commune: selectedCommune?.commune, valeurComparaison, valeurCapitalisation, valeurDCF },
                   });
                 }}
-                label="Sauvegarder"
-                successLabel="Sauvegardé !"
+                label={t("sauvegarder")}
+                successLabel={t("sauvegarde")}
               />
               <PdfButton
                 generateBlob={() => generateReportBlob({
                   dateRapport: new Date().toISOString().split("T")[0],
                   commune: selectedCommune?.commune,
-                  assetType: assetConfig.label,
-                  evsType: evsInfo.label,
+                  assetType: t(assetConfig.labelKey),
+                  evsType: t(evsInfo.labelKey),
                   surface: surfaceBien,
                   valeurComparaison: valeurComparaison || undefined,
                   valeurCapitalisation: valeurCapitalisation || undefined,
@@ -1832,8 +1839,8 @@ export default function Valorisation() {
                 onClick={() => downloadDocxReport({
                   dateRapport: new Date().toISOString().split("T")[0],
                   commune: selectedCommune?.commune,
-                  assetType: assetConfig.label,
-                  evsType: evsInfo.label,
+                  assetType: t(assetConfig.labelKey),
+                  evsType: t(evsInfo.labelKey),
                   surface: surfaceBien,
                   valeurComparaison: valeurComparaison || undefined,
                   valeurCapitalisation: valeurCapitalisation || undefined,
@@ -1895,7 +1902,7 @@ export default function Valorisation() {
               {score.obligatoiresManquants.length > 0 && (
                 <div className="mt-2 flex flex-wrap gap-1">
                   {score.obligatoiresManquants.map((item) => (
-                    <span key={item.id} className="rounded bg-red-50 px-2 py-0.5 text-[10px] text-red-700">{item.label}</span>
+                    <span key={item.id} className="rounded bg-red-50 px-2 py-0.5 text-[10px] text-red-700">{t(item.labelKey)}</span>
                   ))}
                 </div>
               )}
@@ -1947,8 +1954,8 @@ export default function Valorisation() {
             valeurCapitalisation={valeurCapitalisation}
             valeurDCF={valeurDCF}
             selectedCommune={selectedCommune}
-            assetType={assetConfig.label}
-            evsInfo={evsInfo}
+            assetType={t(assetConfig.labelKey)}
+            evsInfo={{ label: t(evsInfo.labelKey) }}
             surfaceBien={surfaceBien}
           />
         )}
@@ -1958,7 +1965,7 @@ export default function Valorisation() {
         {viewMode === "rapport" && (
           <ReportModeEVS
             surfaceBien={surfaceBien}
-            assetType={assetConfig.label}
+            assetType={t(assetConfig.labelKey)}
             evsValueType={evsValueType}
             selectedCommune={selectedCommune}
             valeurComparaison={valeurComparaison}

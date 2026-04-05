@@ -22,11 +22,11 @@ export interface ESGInput {
 export interface ESGResult {
   score: number; // 0-100
   niveau: "A" | "B" | "C" | "D" | "E";
-  niveauLabel: string;
+  niveauLabelKey: string;
   impactValeur: number; // % d'ajustement sur la valeur
-  risques: { label: string; niveau: "faible" | "moyen" | "eleve" }[];
-  opportunites: string[];
-  recommandations: string[];
+  risques: { labelKey: string; niveau: "faible" | "moyen" | "eleve" }[];
+  opportuniteKeys: string[];
+  recommandationKeys: string[];
 }
 
 // Impact de la classe énergie sur le score ESG (0-40 points)
@@ -42,55 +42,56 @@ const IMPACT_VALEUR_ENERGIE: Record<string, number> = {
 export function evaluerESG(input: ESGInput): ESGResult {
   let score = 0;
   const risques: ESGResult["risques"] = [];
-  const opportunites: string[] = [];
-  const recommandations: string[] = [];
+  const opportuniteKeys: string[] = [];
+  const recommandationKeys: string[] = [];
 
   // 1. Performance énergétique (0-40 points)
   score += SCORE_ENERGIE[input.classeEnergie] || 0;
   let impactValeur = IMPACT_VALEUR_ENERGIE[input.classeEnergie] || 0;
 
   if (input.classeEnergie >= "F") {
-    risques.push({ label: "Classe énergie F/G — risque réglementaire (interdiction location à terme)", niveau: "eleve" });
-    recommandations.push("Rénovation énergétique prioritaire — éligible Klimabonus (jusqu'à 62,5% des travaux)");
+    risques.push({ labelKey: "esgRisqueClasseFG", niveau: "eleve" });
+    recommandationKeys.push("esgRecoRenovPrioritaire");
   } else if (input.classeEnergie >= "D") {
-    risques.push({ label: "Classe énergie D/E — performance énergétique insuffisante", niveau: "moyen" });
-    recommandations.push("Envisager une rénovation pour atteindre la classe B/C");
+    risques.push({ labelKey: "esgRisqueClasseDE", niveau: "moyen" });
+    recommandationKeys.push("esgRecoRenovBC");
   }
 
   // 2. Risques climatiques (0-20 points)
   let scoreClimatiqueMax = 20;
   if (input.zoneInondable) {
     scoreClimatiqueMax -= 10;
-    risques.push({ label: "Zone inondable — risque assurantiel et dépréciation", niveau: "eleve" });
+    risques.push({ labelKey: "esgRisqueInondable", niveau: "eleve" });
     impactValeur -= 5;
   }
   if (input.risqueSecheresse) {
     scoreClimatiqueMax -= 5;
-    risques.push({ label: "Risque sécheresse — retrait-gonflement argiles possible", niveau: "moyen" });
+    risques.push({ labelKey: "esgRisqueSecheresseLabel", niveau: "moyen" });
     impactValeur -= 2;
   }
   if (input.risqueGlissementTerrain) {
     scoreClimatiqueMax -= 5;
-    risques.push({ label: "Risque glissement de terrain", niveau: "moyen" });
+    risques.push({ labelKey: "esgRisqueGlissementLabel", niveau: "moyen" });
     impactValeur -= 2;
   }
   if (input.proximiteSitePollue) {
     scoreClimatiqueMax -= 8;
-    risques.push({ label: "Proximité site pollué — risque environnemental", niveau: "eleve" });
+    risques.push({ labelKey: "esgRisquePollueLabel", niveau: "eleve" });
     impactValeur -= 4;
   }
   score += scoreClimatiqueMax;
 
   // 3. Équipements durables (0-20 points)
-  if (input.isolationRecente) { score += 6; opportunites.push("Isolation récente — économies d'énergie"); }
-  if (input.panneauxSolaires) { score += 8; impactValeur += 2; opportunites.push("Panneaux solaires — production d'énergie"); }
-  if (input.pompeAChaleur) { score += 6; impactValeur += 1; opportunites.push("Pompe à chaleur — chauffage durable"); }
+  if (input.isolationRecente) { score += 6; opportuniteKeys.push("esgOppoIsolation"); }
+  if (input.panneauxSolaires) { score += 8; impactValeur += 2; opportuniteKeys.push("esgOppoSolaire"); }
+  if (input.pompeAChaleur) { score += 6; impactValeur += 1; opportuniteKeys.push("esgOppoPAC"); }
 
   // 4. Certifications (0-10 points)
   if (input.certifications.length > 0) {
     score += Math.min(10, input.certifications.length * 4);
     impactValeur += Math.min(3, input.certifications.length);
-    opportunites.push(`Certifications : ${input.certifications.join(", ")}`);
+    // For certifications, we use a special key + the raw certification names
+    opportuniteKeys.push(`esgOppoCertifications:${input.certifications.join(", ")}`);
   }
 
   // 5. Âge du bâtiment (0-10 points)
@@ -103,16 +104,16 @@ export function evaluerESG(input: ESGInput): ESGResult {
 
   // Niveau
   let niveau: ESGResult["niveau"];
-  let niveauLabel: string;
-  if (score >= 80) { niveau = "A"; niveauLabel = "Excellent"; }
-  else if (score >= 60) { niveau = "B"; niveauLabel = "Bon"; }
-  else if (score >= 40) { niveau = "C"; niveauLabel = "Moyen"; }
-  else if (score >= 20) { niveau = "D"; niveauLabel = "Insuffisant"; }
-  else { niveau = "E"; niveauLabel = "Critique"; }
+  let niveauLabelKey: string;
+  if (score >= 80) { niveau = "A"; niveauLabelKey = "esgNiveauExcellent"; }
+  else if (score >= 60) { niveau = "B"; niveauLabelKey = "esgNiveauBon"; }
+  else if (score >= 40) { niveau = "C"; niveauLabelKey = "esgNiveauMoyen"; }
+  else if (score >= 20) { niveau = "D"; niveauLabelKey = "esgNiveauInsuffisant"; }
+  else { niveau = "E"; niveauLabelKey = "esgNiveauCritique"; }
 
   if (risques.length === 0) {
-    risques.push({ label: "Aucun risque majeur identifié", niveau: "faible" });
+    risques.push({ labelKey: "esgRisqueAucun", niveau: "faible" });
   }
 
-  return { score, niveau, niveauLabel, impactValeur, risques, opportunites, recommandations };
+  return { score, niveau, niveauLabelKey, impactValeur, risques, opportuniteKeys, recommandationKeys };
 }

@@ -72,6 +72,7 @@ function BienColumn({
   result: EstimationResult | null;
   t: ReturnType<typeof useTranslations>;
 }) {
+  const tv = useTranslations("valorisation");
   const searchResults = useMemo(() => rechercherCommune(bien.communeSearch), [bien.communeSearch]);
 
   return (
@@ -141,21 +142,21 @@ function BienColumn({
           type="select"
           value={bien.etage}
           onChange={(v) => setBien({ ...bien, etage: v })}
-          options={AJUST_ETAGE.map((a) => ({ value: a.label, label: `${a.label} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
+          options={AJUST_ETAGE.map((a) => ({ value: a.labelKey, label: `${tv(a.labelKey)} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
         />
         <InputField
           label={t("etat")}
           type="select"
           value={bien.etat}
           onChange={(v) => setBien({ ...bien, etat: v })}
-          options={AJUST_ETAT.map((a) => ({ value: a.label, label: `${a.label} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
+          options={AJUST_ETAT.map((a) => ({ value: a.labelKey, label: `${tv(a.labelKey)} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
         />
         <InputField
           label={t("exterieur")}
           type="select"
           value={bien.exterieur}
           onChange={(v) => setBien({ ...bien, exterieur: v })}
-          options={AJUST_EXTERIEUR.map((a) => ({ value: a.label, label: `${a.label} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
+          options={AJUST_EXTERIEUR.map((a) => ({ value: a.labelKey, label: `${tv(a.labelKey)} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
         />
         <InputField
           label={t("classeEnergie")}
@@ -205,7 +206,7 @@ function BienColumn({
               <div className="space-y-1">
                 {result.ajustements.map((a, i) => (
                   <div key={i} className="flex justify-between text-xs">
-                    <span className="text-muted">{a.label}</span>
+                    <span className="text-muted">{a.labelParams ? tv(a.labelKey, a.labelParams) : tv(a.labelKey)}</span>
                     <span className={`font-mono ${a.pct > 0 ? "text-success" : a.pct < 0 ? "text-error" : "text-muted"}`}>
                       {a.pct > 0 ? "+" : ""}{a.pct}%
                     </span>
@@ -579,6 +580,7 @@ function SavedComparator({ t }: { t: ReturnType<typeof useTranslations> }) {
 
 export default function Comparer() {
   const t = useTranslations("comparer");
+  const tv = useTranslations("valorisation");
   const [tab, setTab] = useState<"live" | "saved">("live");
 
   const [bienA, setBienA] = useState<BienState>({ ...DEFAULT_BIEN });

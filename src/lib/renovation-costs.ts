@@ -6,7 +6,7 @@
 // Tous les montants sont des fourchettes indicatives €/m².
 
 export interface RenovationEstimate {
-  postes: { label: string; coutMin: number; coutMax: number; coutMoyen: number }[];
+  postes: { labelKey: string; coutMin: number; coutMax: number; coutMoyen: number }[];
   totalMin: number;
   totalMax: number;
   totalMoyen: number;
@@ -17,16 +17,16 @@ export interface RenovationEstimate {
 
 // Coûts unitaires par poste (€/m² habitable)
 // Fourchettes indicatives — marché luxembourgeois 2025
-const POSTES_RENOVATION: Record<string, { label: string; min: number; max: number }> = {
-  isolation_facade: { label: "Isolation façade (ITE)", min: 120, max: 220 },
-  isolation_toiture: { label: "Isolation toiture / combles", min: 80, max: 160 },
-  isolation_sol: { label: "Isolation sol / cave", min: 40, max: 90 },
-  fenetres: { label: "Remplacement fenêtres (triple vitrage)", min: 80, max: 150 },
-  chauffage: { label: "Système de chauffage (PAC)", min: 100, max: 200 },
-  ventilation: { label: "VMC double flux", min: 40, max: 80 },
-  solaire_thermique: { label: "Panneaux solaires thermiques", min: 30, max: 60 },
-  solaire_pv: { label: "Panneaux photovoltaïques", min: 50, max: 100 },
-  electricite: { label: "Mise aux normes électrique", min: 30, max: 60 },
+const POSTES_RENOVATION: Record<string, { labelKey: string; min: number; max: number }> = {
+  isolation_facade: { labelKey: "renovIsolFacade", min: 120, max: 220 },
+  isolation_toiture: { labelKey: "renovIsolToiture", min: 80, max: 160 },
+  isolation_sol: { labelKey: "renovIsolSol", min: 40, max: 90 },
+  fenetres: { labelKey: "renovFenetres", min: 80, max: 150 },
+  chauffage: { labelKey: "renovChauffage", min: 100, max: 200 },
+  ventilation: { labelKey: "renovVentilation", min: 40, max: 80 },
+  solaire_thermique: { labelKey: "renovSolaireTherm", min: 30, max: 60 },
+  solaire_pv: { labelKey: "renovSolairePV", min: 50, max: 100 },
+  electricite: { labelKey: "renovElectricite", min: 30, max: 60 },
 };
 
 // Quels postes sont nécessaires selon le saut de classe
@@ -83,10 +83,10 @@ export function estimerCoutsRenovation(
   const facteur = facteurAge(anneeConstruction);
   const postes = postesNecessaires.map((id) => {
     const p = POSTES_RENOVATION[id];
-    if (!p) return { label: id, coutMin: 0, coutMax: 0, coutMoyen: 0 };
+    if (!p) return { labelKey: id, coutMin: 0, coutMax: 0, coutMoyen: 0 };
     const min = Math.round(p.min * surface * facteur);
     const max = Math.round(p.max * surface * facteur);
-    return { label: p.label, coutMin: min, coutMax: max, coutMoyen: Math.round((min + max) / 2) };
+    return { labelKey: p.labelKey, coutMin: min, coutMax: max, coutMoyen: Math.round((min + max) / 2) };
   });
 
   const totalMin = postes.reduce((s, p) => s + p.coutMin, 0);

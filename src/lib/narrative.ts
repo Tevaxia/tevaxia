@@ -3,8 +3,9 @@
 // ============================================================
 // Assemble un texte structuré à partir des résultats de valorisation.
 // Pas d'IA — du remplissage de templates intelligent.
+// Uses translation keys — the caller resolves them via t().
 
-import { formatEUR, formatPct } from "./calculations";
+import { formatEUR } from "./calculations";
 
 interface NarrativeInput {
   // Contexte
@@ -41,48 +42,56 @@ interface NarrativeInput {
   nbTransactions?: number;
 }
 
-function positionVsMarche(valeurM2: number, marchM2: number): string {
+// The t() function type from next-intl
+type TFunction = (key: string, values?: Record<string, string | number>) => string;
+
+function positionVsMarche(t: TFunction, valeurM2: number, marchM2: number): string {
   const ecart = ((valeurM2 - marchM2) / marchM2) * 100;
-  if (ecart > 10) return `nettement au-dessus de la moyenne communale (${formatEUR(marchM2)}/m², +${ecart.toFixed(0)}%)`;
-  if (ecart > 3) return `légèrement au-dessus de la moyenne communale (${formatEUR(marchM2)}/m², +${ecart.toFixed(0)}%)`;
-  if (ecart > -3) return `en ligne avec la moyenne communale (${formatEUR(marchM2)}/m²)`;
-  if (ecart > -10) return `légèrement en dessous de la moyenne communale (${formatEUR(marchM2)}/m², ${ecart.toFixed(0)}%)`;
-  return `nettement en dessous de la moyenne communale (${formatEUR(marchM2)}/m², ${ecart.toFixed(0)}%)`;
+  if (ecart > 10) return t("narrPosWellAbove", { prix: formatEUR(marchM2), pct: ecart.toFixed(0) });
+  if (ecart > 3) return t("narrPosSlightlyAbove", { prix: formatEUR(marchM2), pct: ecart.toFixed(0) });
+  if (ecart > -3) return t("narrPosInLine", { prix: formatEUR(marchM2) });
+  if (ecart > -10) return t("narrPosSlightlyBelow", { prix: formatEUR(marchM2), pct: ecart.toFixed(0) });
+  return t("narrPosWellBelow", { prix: formatEUR(marchM2), pct: ecart.toFixed(0) });
 }
 
-function coherenceMethodes(vals: number[]): string {
+function coherenceMethodes(t: TFunction, vals: number[]): string {
   if (vals.length < 2) return "";
   const min = Math.min(...vals);
   const max = Math.max(...vals);
   const moy = vals.reduce((s, v) => s + v, 0) / vals.length;
   const ecart = ((max - min) / moy) * 100;
-  if (ecart < 5) return "Les méthodes convergent de manière remarquable, ce qui renforce la fiabilité de l'estimation.";
-  if (ecart < 15) return "Les méthodes présentent une cohérence satisfaisante, l'écart restant dans les limites acceptables.";
-  if (ecart < 25) return "Un écart significatif est constaté entre les méthodes. Il convient d'analyser les hypothèses retenues pour identifier la source de divergence.";
-  return "L'écart important entre les méthodes appelle une analyse approfondie. Les hypothèses de chaque approche doivent être revues et justifiées.";
+  if (ecart < 5) return t("narrCoherenceExcellente");
+  if (ecart < 15) return t("narrCoherenceSatisfaisante");
+  if (ecart < 25) return t("narrCoherenceEcartSignificatif");
+  return t("narrCoherenceEcartImportant");
 }
 
-export function genererNarrative(input: NarrativeInput): string {
+export function genererNarrative(input: NarrativeInput, t: TFunction): string {
   const sections: string[] = [];
 
   // 1. Introduction
   const localisation = input.quartier
-    ? `${input.quartier}, commune de ${input.commune}`
-    : input.commune || "localisation non précisée";
+    ? `${input.quartier}, ${t("narrCommuneDe", { commune: input.commune || "" })}`
+    : input.commune || t("narrLocNonPrecisee");
 
   sections.push(
-    `Le bien objet de la présente analyse est un ${input.assetType.toLowerCase()} d'une surface de ${input.surface} m², situé à ${localisation}. L'évaluation est réalisée sur la base de la ${input.evsType} conformément aux European Valuation Standards 2025 (TEGOVA, 10e édition).`
+    t("narrIntroduction", {
+      assetType: input.assetType.toLowerCase(),
+      surface: input.surface,
+      localisation,
+      evsType: input.evsType,
+    })
   );
 
   // 2. Contexte marché
   if (input.prixM2Commune) {
     const contexte = input.nbTransactions && input.nbTransactions > 50
-      ? `Le marché local présente un volume de transactions significatif (${input.nbTransactions} transactions sur la dernière période), ce qui confère une bonne fiabilité aux données de référence.`
+      ? t("narrMarcheVolumeSignificatif", { nb: input.nbTransactions })
       : input.nbTransactions
-      ? `Le marché local présente un volume de transactions limité (${input.nbTransactions} transactions), ce qui appelle à la prudence dans l'interprétation des comparables.`
+      ? t("narrMarcheVolumeLimite", { nb: input.nbTransactions })
       : "";
     sections.push(
-      `Le prix moyen observé sur la commune s'établit à ${formatEUR(input.prixM2Commune)}/m² pour les appartements existants (source : Observatoire de l'Habitat, actes notariés). ${contexte}`
+      t("narrContexteMarche", { prix: formatEUR(input.prixM2Commune) }) + " " + contexte
     );
   }
 
@@ -94,72 +103,83 @@ export function genererNarrative(input: NarrativeInput): string {
     const m2 = input.surface > 0 ? input.valeurComparaison / input.surface : 0;
     let position = "";
     if (input.prixM2Commune && m2 > 0) {
-      position = ` Ce niveau de prix se situe ${positionVsMarche(m2, input.prixM2Commune)}.`;
+      position = " " + t("narrPositionPrix") + " " + positionVsMarche(t, m2, input.prixM2Commune) + ".";
     }
     sections.push(
-      `**Méthode par comparaison** — La valeur ressort à ${formatEUR(input.valeurComparaison)}, soit ${formatEUR(Math.round(m2))}/m².${position}`
+      t("narrMethodeComparaison", { valeur: formatEUR(input.valeurComparaison), m2: formatEUR(Math.round(m2)) }) + position
     );
   }
 
   if (input.valeurCapitalisation && input.valeurCapitalisation > 0 && input.noi) {
     valeurs.push(input.valeurCapitalisation);
-    let detail = `Le résultat net d'exploitation s'élève à ${formatEUR(input.noi)}, capitalisé au taux de ${input.tauxCap?.toFixed(2)}%.`;
+    let detail = t("narrCapNOI", { noi: formatEUR(input.noi), taux: input.tauxCap?.toFixed(2) || "0" });
     if (input.rendementReversionnaire !== undefined && input.sousLoue !== undefined) {
-      detail += input.sousLoue
-        ? ` Le bien est actuellement sous-loué par rapport au marché — un potentiel de réversion existe au renouvellement du bail.`
-        : ` Le bien est loué au-dessus du marché — un risque de réversion à la baisse existe à l'échéance du bail.`;
+      detail += " " + (input.sousLoue ? t("narrCapSousLoue") : t("narrCapSurLoue"));
     }
     sections.push(
-      `**Méthode par capitalisation** — La valeur ressort à ${formatEUR(input.valeurCapitalisation)}. ${detail}`
+      t("narrMethodeCapitalisation", { valeur: formatEUR(input.valeurCapitalisation) }) + " " + detail
     );
   }
 
   if (input.valeurDCF && input.valeurDCF > 0) {
     valeurs.push(input.valeurDCF);
-    const irrText = input.irr ? ` Le taux de rendement interne (TRI) s'établit à ${(input.irr * 100).toFixed(2)}%.` : "";
+    const irrText = input.irr ? " " + t("narrDCFIRR", { irr: (input.irr * 100).toFixed(2) }) : "";
     sections.push(
-      `**Méthode par actualisation des flux futurs (DCF)** — La valeur ressort à ${formatEUR(input.valeurDCF)}, sur la base d'un taux d'actualisation de ${input.tauxActualisation?.toFixed(2)}% et d'un taux de sortie de ${input.tauxCapSortie?.toFixed(2)}%.${irrText}`
+      t("narrMethodeDCF", {
+        valeur: formatEUR(input.valeurDCF),
+        tauxActu: input.tauxActualisation?.toFixed(2) || "0",
+        tauxSortie: input.tauxCapSortie?.toFixed(2) || "0",
+      }) + irrText
     );
   }
 
   // 4. Cohérence
   if (valeurs.length >= 2) {
-    sections.push(coherenceMethodes(valeurs));
+    sections.push(coherenceMethodes(t, valeurs));
   }
 
   // 5. Réconciliation
   if (input.valeurReconciliee && input.valeurReconciliee > 0) {
     sections.push(
-      `**Valeur réconciliée** — Après pondération des méthodes, la valeur de marché est estimée à **${formatEUR(input.valeurReconciliee)}**, soit ${formatEUR(Math.round(input.valeurReconciliee / input.surface))}/m².`
+      t("narrReconciliation", {
+        valeur: formatEUR(input.valeurReconciliee),
+        m2: formatEUR(Math.round(input.valeurReconciliee / input.surface)),
+      })
     );
   }
 
   // 6. MLV
   if (input.mlv && input.mlv > 0 && input.ratioMLV) {
     sections.push(
-      `**Valeur hypothécaire (MLV)** — Après application des décotes prudentielles conformément au CRR Art. 229, la valeur hypothécaire s'établit à ${formatEUR(input.mlv)}, soit ${(input.ratioMLV * 100).toFixed(1)}% de la valeur de marché.`
+      t("narrMLV", {
+        mlv: formatEUR(input.mlv),
+        ratio: (input.ratioMLV * 100).toFixed(1),
+      })
     );
   }
 
   // 7. ESG
   if (input.esgScore !== undefined) {
-    const esgComment = input.esgScore >= 60
-      ? `Le profil ESG du bien est favorable (score ${input.esgScore}/100, niveau ${input.esgNiveau}), ce qui constitue un atout dans le contexte réglementaire actuel.`
-      : input.esgScore >= 40
-      ? `Le profil ESG est moyen (score ${input.esgScore}/100, niveau ${input.esgNiveau}). Des travaux de rénovation énergétique pourraient améliorer la valorisation.`
-      : `Le profil ESG est insuffisant (score ${input.esgScore}/100, niveau ${input.esgNiveau}). La décote énergétique estimée est de ${input.esgImpact}%. Une rénovation est recommandée.`;
+    let esgKey: string;
+    if (input.esgScore >= 60) esgKey = "narrESGBon";
+    else if (input.esgScore >= 40) esgKey = "narrESGMoyen";
+    else esgKey = "narrESGInsuffisant";
+
+    const esgComment = t(esgKey, {
+      score: input.esgScore,
+      niveau: input.esgNiveau || "",
+      impact: String(input.esgImpact || 0),
+    });
 
     if (input.classeEnergie) {
       sections.push(
-        `**Facteurs ESG** — Le bien présente une classe énergie ${input.classeEnergie}. ${esgComment}`
+        t("narrESGClasse", { classe: input.classeEnergie }) + " " + esgComment
       );
     }
   }
 
   // 8. Réserves
-  sections.push(
-    `La présente analyse est réalisée à titre indicatif sur la base des données publiques disponibles et des paramètres renseignés par l'utilisateur. Elle ne constitue pas une expertise en évaluation immobilière au sens des EVS 2025 ni de la Charte de l'expertise. Pour une évaluation officielle, il convient de consulter un évaluateur certifié TEGOVA (REV/TRV).`
-  );
+  sections.push(t("narrReserves"));
 
   return sections.join("\n\n");
 }

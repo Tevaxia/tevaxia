@@ -38,7 +38,7 @@ function fallbackLocal(ca: string, cc: string, surface: number, annee: number, v
   const ecoEur = Math.round(ecoKwh * prixEnergie);
   const payback = ecoEur > 0 ? Math.round(resteACharge * 10 / ecoEur) / 10 : 99;
   return {
-    sautClasse: `${ca} → ${cc}`, postes: est.postes.map((p) => ({ label: p.label, coutMin: p.coutMin, coutMax: p.coutMax, coutMoyen: p.coutMoyen })),
+    sautClasse: `${ca} → ${cc}`, postes: est.postes.map((p) => ({ labelKey: p.labelKey, coutMin: p.coutMin, coutMax: p.coutMax, coutMoyen: p.coutMoyen })),
     totalMin: est.totalMin, totalMax: est.totalMax, totalMoyen: est.totalMoyen,
     honoraires: est.honoraires, totalProjet: est.totalAvecHonoraires, dureeEstimeeMois: est.dureeEstimeeMois,
     gainValeur, gainValeurPct: Math.round(gainPct * 10) / 10, roiPct: roi,
@@ -54,6 +54,7 @@ function fallbackLocal(ca: string, cc: string, surface: number, annee: number, v
 
 export default function RenovationPage() {
   const t = useTranslations("energy.renovation");
+  const tv = useTranslations("valorisation");
   const [classeActuelle, setClasseActuelle] = useState<typeof CLASSES[number]>("F");
   const [classeCible, setClasseCible] = useState<typeof CLASSES[number]>("B");
   const [surface, setSurface] = useState(120);
@@ -178,8 +179,8 @@ export default function RenovationPage() {
                   </tr></thead>
                   <tbody>
                     {result.postes.map((p) => (
-                      <tr key={p.label} className="border-b border-card-border last:border-0 hover:bg-gray-50">
-                        <td className="px-6 py-3 text-foreground">{p.label}</td>
+                      <tr key={p.labelKey} className="border-b border-card-border last:border-0 hover:bg-gray-50">
+                        <td className="px-6 py-3 text-foreground">{tv(p.labelKey)}</td>
                         <td className="px-6 py-3 text-right font-mono text-muted">{fmt(p.coutMin)} €</td>
                         <td className="px-6 py-3 text-right font-mono text-muted">{fmt(p.coutMax)} €</td>
                         <td className="px-6 py-3 text-right font-mono font-semibold">{fmt(p.coutMoyen)} €</td>

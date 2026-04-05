@@ -56,7 +56,7 @@ export interface RenovationRequest {
 }
 
 export interface PosteTravaux {
-  label: string;
+  labelKey: string;
   coutMin: number;
   coutMax: number;
   coutMoyen: number;

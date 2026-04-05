@@ -6,7 +6,7 @@
 export interface ChecklistItem {
   id: string;
   categorie: "identification" | "methodes" | "esg" | "marche" | "reconciliation" | "rapport";
-  label: string;
+  labelKey: string;
   obligatoire: boolean;
   reference: string; // EVS / Red Book reference
   verifie: boolean;
@@ -39,79 +39,79 @@ export function evaluerChecklist(input: ChecklistInput): ChecklistItem[] {
   return [
     // IDENTIFICATION
     {
-      id: "commune", categorie: "identification", label: "Commune / localisation identifiée",
+      id: "commune", categorie: "identification", labelKey: "checkCommune",
       obligatoire: true, reference: "EVS1 §4.1", verifie: input.communeSelectionnee,
     },
     {
-      id: "surface", categorie: "identification", label: "Surface du bien renseignée",
+      id: "surface", categorie: "identification", labelKey: "checkSurface",
       obligatoire: true, reference: "EVS1 §4.2", verifie: input.surfaceRenseignee,
     },
     {
-      id: "asset_type", categorie: "identification", label: "Type d'actif sélectionné",
+      id: "asset_type", categorie: "identification", labelKey: "checkAssetType",
       obligatoire: true, reference: "EVS1 §4.3", verifie: input.assetTypeSelectionne,
     },
     {
-      id: "evs_type", categorie: "identification", label: "Base de valeur définie (EVS1-6)",
+      id: "evs_type", categorie: "identification", labelKey: "checkEvsType",
       obligatoire: true, reference: "EVS1 §3", verifie: input.evsTypeSelectionne,
     },
 
     // MÉTHODES
     {
-      id: "min_2_methodes", categorie: "methodes", label: "Minimum 2 méthodes utilisées",
+      id: "min_2_methodes", categorie: "methodes", labelKey: "checkMin2Methodes",
       obligatoire: true, reference: "EVS1 §5.8",
       verifie: [input.comparaisonFaite, input.capitalisationFaite, input.dcfFait].filter(Boolean).length >= 2,
     },
     {
-      id: "comparaison", categorie: "methodes", label: "Méthode par comparaison réalisée",
+      id: "comparaison", categorie: "methodes", labelKey: "checkComparaison",
       obligatoire: false, reference: "EVS1 §5.4", verifie: input.comparaisonFaite,
     },
     {
-      id: "nb_comparables", categorie: "methodes", label: "Au moins 3 comparables (recommandé)",
+      id: "nb_comparables", categorie: "methodes", labelKey: "checkNbComparables",
       obligatoire: false, reference: "EVS1 §5.4.2", verifie: input.nbComparables >= 3,
     },
     {
-      id: "capitalisation", categorie: "methodes", label: "Méthode par capitalisation réalisée",
+      id: "capitalisation", categorie: "methodes", labelKey: "checkCapitalisation",
       obligatoire: false, reference: "EVS1 §5.5", verifie: input.capitalisationFaite,
     },
     {
-      id: "dcf", categorie: "methodes", label: "Méthode DCF réalisée",
+      id: "dcf", categorie: "methodes", labelKey: "checkDCF",
       obligatoire: false, reference: "EVS1 §5.6", verifie: input.dcfFait,
     },
 
     // ESG
     {
-      id: "esg_evaluation", categorie: "esg", label: "Facteurs ESG évalués",
+      id: "esg_evaluation", categorie: "esg", labelKey: "checkESG",
       obligatoire: true, reference: "EVS 2025 / Red Book 2025 / EBA Art. 208",
       verifie: input.esgEvalue,
     },
     {
-      id: "classe_energie", categorie: "esg", label: "Classe énergie renseignée",
+      id: "classe_energie", categorie: "esg", labelKey: "checkClasseEnergie",
       obligatoire: true, reference: "EVS 2025 §ESG", verifie: input.classeEnergieRenseignee,
     },
 
     // MARCHÉ
     {
-      id: "donnees_marche", categorie: "marche", label: "Données de marché consultées",
+      id: "donnees_marche", categorie: "marche", labelKey: "checkDonneesMarche",
       obligatoire: true, reference: "EVS1 §5.3", verifie: input.donnesMarcheConsultees,
     },
 
     // RÉCONCILIATION
     {
-      id: "reconciliation", categorie: "reconciliation", label: "Réconciliation des méthodes",
+      id: "reconciliation", categorie: "reconciliation", labelKey: "checkReconciliation",
       obligatoire: true, reference: "EVS1 §5.8", verifie: input.reconciliationFaite,
     },
     {
-      id: "scenarios", categorie: "reconciliation", label: "Analyse par scénarios",
+      id: "scenarios", categorie: "reconciliation", labelKey: "checkScenarios",
       obligatoire: false, reference: "Bonne pratique", verifie: input.scenariosAnalyses,
     },
     {
-      id: "narrative", categorie: "reconciliation", label: "Analyse narrative générée",
+      id: "narrative", categorie: "reconciliation", labelKey: "checkNarrative",
       obligatoire: false, reference: "EVS1 §6", verifie: input.narrativeGeneree,
     },
 
     // MLV (si demandé)
     {
-      id: "mlv", categorie: "rapport", label: "Valeur hypothécaire (MLV) calculée",
+      id: "mlv", categorie: "rapport", labelKey: "checkMLV",
       obligatoire: false, reference: "EVS3 / CRR Art. 229", verifie: input.mlvCalculee,
     },
   ];

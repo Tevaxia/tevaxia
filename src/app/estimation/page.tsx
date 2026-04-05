@@ -26,7 +26,7 @@ import MarketAlertButton from "@/components/MarketAlertButton";
 
 export default function Estimation() {
   const t = useTranslations("estimation");
-
+  const tv = useTranslations("valorisation");
 
   const [communeSearch, setCommuneSearch] = useState("");
   const [selectedResult, setSelectedResult] = useState<SearchResult | null>(null);
@@ -166,21 +166,21 @@ export default function Estimation() {
                 type="select"
                 value={etage}
                 onChange={setEtage}
-                options={AJUST_ETAGE.map((a) => ({ value: a.label, label: `${a.label} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
+                options={AJUST_ETAGE.map((a) => ({ value: a.labelKey, label: `${tv(a.labelKey)} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
               />
               <InputField
                 label={t("etatLabel")}
                 type="select"
                 value={etat}
                 onChange={setEtat}
-                options={AJUST_ETAT.map((a) => ({ value: a.label, label: `${a.label} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
+                options={AJUST_ETAT.map((a) => ({ value: a.labelKey, label: `${tv(a.labelKey)} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
               />
               <InputField
                 label={t("exterieurLabel")}
                 type="select"
                 value={exterieur}
                 onChange={setExterieur}
-                options={AJUST_EXTERIEUR.map((a) => ({ value: a.label, label: `${a.label} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
+                options={AJUST_EXTERIEUR.map((a) => ({ value: a.labelKey, label: `${tv(a.labelKey)} (${a.value > 0 ? "+" : ""}${a.value}%)` }))}
               />
               <InputField
                 label={t("classeEnergieLabel")}
@@ -404,8 +404,8 @@ export default function Estimation() {
                     <h3 className="text-sm font-semibold text-navy mb-2">{t("renovationTitle", { classeFrom: classeEnergie, classeTo: "B" })}</h3>
                     <div className="space-y-1 text-xs">
                       {reno.postes.map((p) => (
-                        <div key={p.label} className="flex justify-between">
-                          <span className="text-muted">{p.label}</span>
+                        <div key={p.labelKey} className="flex justify-between">
+                          <span className="text-muted">{tv(p.labelKey)}</span>
                           <span className="font-mono">{formatEUR(p.coutMin)} – {formatEUR(p.coutMax)}</span>
                         </div>
                       ))}
@@ -436,7 +436,7 @@ export default function Estimation() {
                     <div className="border-t border-card-border pt-2 mt-2 space-y-1">
                       {result.ajustements.map((a, i) => (
                         <div key={i} className="flex justify-between text-xs">
-                          <span className="text-muted">{a.label}</span>
+                          <span className="text-muted">{a.labelParams ? tv(a.labelKey, a.labelParams) : tv(a.labelKey)}</span>
                           <span className={`font-mono ${a.pct > 0 ? "text-success" : a.pct < 0 ? "text-error" : "text-muted"}`}>
                             {a.pct > 0 ? "+" : ""}{a.pct}%
                           </span>
@@ -502,7 +502,7 @@ export default function Estimation() {
                       prixHaut: result.estimationHaute,
                       prixM2: result.prixM2Ajuste,
                       adjustments: result.ajustements.map((a) => ({
-                        label: a.label,
+                        label: a.labelParams ? tv(a.labelKey, a.labelParams) : tv(a.labelKey),
                         impact: `${a.pct > 0 ? "+" : ""}${a.pct}%`,
                       })),
                     })

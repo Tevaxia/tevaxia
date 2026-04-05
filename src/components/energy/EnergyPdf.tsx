@@ -305,8 +305,8 @@ function RenovationDoc({ result, params }: { result: RenovationResponse; params:
           <Text style={{ ...s.tCellB, textAlign: "right" as const }}>Moyen</Text>
         </View>
         {result.postes.map((p) => (
-          <View key={p.label} style={s.tRow}>
-            <Text style={{ ...s.tCell, flex: 2 }}>{p.label}</Text>
+          <View key={p.labelKey} style={s.tRow}>
+            <Text style={{ ...s.tCell, flex: 2 }}>{p.labelKey}</Text>
             <Text style={s.tCellR}>{fmtEur(p.coutMin)}</Text>
             <Text style={s.tCellR}>{fmtEur(p.coutMax)}</Text>
             <Text style={s.tCellR}>{fmtEur(p.coutMoyen)}</Text>

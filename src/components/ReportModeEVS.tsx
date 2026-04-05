@@ -395,7 +395,7 @@ export default function ReportModeEVS({
           type="select"
           value={s1TypeMission}
           onChange={(v) => setS1TypeMission(v as EVSValueType)}
-          options={EVS_VALUE_TYPES.map((e) => ({ value: e.id, label: `${e.evs} — ${e.label}` }))}
+          options={EVS_VALUE_TYPES.map((e) => ({ value: e.id, label: `${e.evs} — ${t(e.labelKey)}` }))}
         />
         <div>
           <label className="block text-sm font-medium text-slate mb-1">{t("rpt1_2_finalite")}</label>

@@ -25,7 +25,7 @@ export interface EstimationInput {
 export interface EstimationResult {
   prixM2Base: number;
   sourceBase: string; // D'où vient le prix de base
-  ajustements: { label: string; pct: number }[];
+  ajustements: { labelKey: string; labelParams?: Record<string, string | number>; pct: number }[];
   totalAjustements: number;
   prixM2Ajuste: number;
   estimationBasse: number;
@@ -99,41 +99,41 @@ export function estimer(input: EstimationInput): EstimationResult | null {
   }
 
   // Calculer les ajustements
-  const ajustements: { label: string; pct: number }[] = [];
+  const ajustements: { labelKey: string; labelParams?: Record<string, string | number>; pct: number }[] = [];
 
   // Étage
-  const etageMatch = AJUST_ETAGE.find((a) => a.label === input.etage);
+  const etageMatch = AJUST_ETAGE.find((a) => a.labelKey === input.etage);
   if (etageMatch && etageMatch.value !== 0) {
-    ajustements.push({ label: `Étage : ${input.etage}`, pct: etageMatch.value });
+    ajustements.push({ labelKey: "estAjustEtage", labelParams: { etage: input.etage }, pct: etageMatch.value });
   }
 
   // État
-  const etatMatch = AJUST_ETAT.find((a) => a.label === input.etat);
+  const etatMatch = AJUST_ETAT.find((a) => a.labelKey === input.etat);
   if (etatMatch && etatMatch.value !== 0) {
-    ajustements.push({ label: `État : ${input.etat}`, pct: etatMatch.value });
+    ajustements.push({ labelKey: "estAjustEtat", labelParams: { etat: input.etat }, pct: etatMatch.value });
   }
 
   // Extérieur
-  const extMatch = AJUST_EXTERIEUR.find((a) => a.label === input.exterieur);
+  const extMatch = AJUST_EXTERIEUR.find((a) => a.labelKey === input.exterieur);
   if (extMatch && extMatch.value !== 0) {
-    ajustements.push({ label: `Extérieur : ${input.exterieur}`, pct: extMatch.value });
+    ajustements.push({ labelKey: "estAjustExterieur", labelParams: { exterieur: input.exterieur }, pct: extMatch.value });
   }
 
   // Parking
   if (input.parking) {
-    ajustements.push({ label: "Parking inclus", pct: 4 });
+    ajustements.push({ labelKey: "estAjustParking", pct: 4 });
   }
 
   // Surface
   const surfAdj = ajustSurface(input.surface);
   if (surfAdj !== 0) {
-    ajustements.push({ label: `Surface ${input.surface} m² (${surfAdj > 0 ? "petit bien" : "grand bien"})`, pct: surfAdj });
+    ajustements.push({ labelKey: surfAdj > 0 ? "estAjustSurfacePetit" : "estAjustSurfaceGrand", labelParams: { surface: input.surface }, pct: surfAdj });
   }
 
   // Énergie
   const energieAdj = IMPACT_ENERGIE[input.classeEnergie] || 0;
   if (energieAdj !== 0) {
-    ajustements.push({ label: `Classe énergie ${input.classeEnergie}`, pct: energieAdj });
+    ajustements.push({ labelKey: "estAjustEnergie", labelParams: { classe: input.classeEnergie }, pct: energieAdj });
   }
 
   const totalAjustements = ajustements.reduce((s, a) => s + a.pct, 0);
