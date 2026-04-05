@@ -377,44 +377,57 @@ export default function VefaCalculator() {
                 <h3 className="mb-4 text-base font-semibold text-navy">
                   Chronologie du chantier
                 </h3>
-                {/* Timeline bar */}
-                <div className="relative mx-4 mb-2 mt-8">
-                  {/* Main horizontal line */}
-                  <div className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-blue-200" />
-                  {/* Milestone points */}
-                  {timelineData.points.map((pt, i) => (
-                    <div
-                      key={i}
-                      className="absolute -translate-x-1/2"
-                      style={{ left: `${pt.position}%`, top: "50%", transform: "translate(-50%, -50%)" }}
-                    >
-                      {/* Dot */}
-                      <div
-                        className={`h-4 w-4 rounded-full border-2 border-white shadow-sm ${
-                          i === 0
-                            ? "bg-navy"
-                            : i === timelineData.points.length - 1
-                            ? "bg-emerald-500"
-                            : "bg-blue-500"
-                        }`}
-                      />
-                      {/* Label above (even indices) or below (odd indices) to avoid overlap */}
-                      <div
-                        className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-center ${
-                          i % 2 === 0 ? "bottom-full mb-2" : "top-full mt-2"
-                        }`}
-                      >
-                        <div className="text-[10px] font-semibold text-navy">{pt.label}</div>
-                        <div className="text-[9px] text-muted leading-tight max-w-[80px] whitespace-normal">
-                          {pt.milestoneLabel}
-                        </div>
-                        <div className="text-[10px] font-mono font-bold text-blue-600">{pt.pct} %</div>
-                      </div>
-                    </div>
-                  ))}
+                {/* Timeline — version tableau pour éviter les chevauchements */}
+                <div className="overflow-x-auto">
+                  <table className="w-full text-center text-xs border-collapse">
+                    <thead>
+                      <tr>
+                        {timelineData.points.map((pt, i) => (
+                          <th key={i} className="px-1 pb-2 font-semibold text-navy text-[10px] align-bottom">
+                            {pt.label}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {/* Progress bar row */}
+                      <tr>
+                        <td colSpan={timelineData.points.length} className="py-2 px-2">
+                          <div className="relative h-3 rounded-full bg-blue-100">
+                            {timelineData.points.map((pt, i) => (
+                              <div
+                                key={i}
+                                className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2"
+                                style={{ left: `${pt.position}%` }}
+                              >
+                                <div className={`h-4 w-4 rounded-full border-2 border-white shadow-sm ${
+                                  i === 0 ? "bg-navy" : i === timelineData.points.length - 1 ? "bg-emerald-500" : "bg-blue-500"
+                                }`} />
+                              </div>
+                            ))}
+                            <div className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-navy via-blue-500 to-emerald-500" style={{ width: "100%" }} />
+                          </div>
+                        </td>
+                      </tr>
+                      {/* Milestone labels */}
+                      <tr>
+                        {timelineData.points.map((pt, i) => (
+                          <td key={i} className="px-1 pt-2 align-top">
+                            <div className="text-[9px] text-muted leading-tight">{pt.milestoneLabel}</div>
+                          </td>
+                        ))}
+                      </tr>
+                      {/* Percentages */}
+                      <tr>
+                        {timelineData.points.map((pt, i) => (
+                          <td key={i} className="px-1 pt-1">
+                            <span className="inline-block rounded bg-blue-50 px-1.5 py-0.5 text-[10px] font-mono font-bold text-blue-600">{pt.pct}%</span>
+                          </td>
+                        ))}
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                {/* Spacer for labels */}
-                <div className="h-24" />
                 <p className="text-xs text-muted">
                   Duree estimee : {timelineData.totalDuration} mois du contrat a la livraison. Les dates sont indicatives et dependent de l'avancement reel des travaux.
                 </p>
