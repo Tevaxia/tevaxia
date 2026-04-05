@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { calculerImpact, type ImpactResponse, type ClasseImpact } from "@/lib/energy-api";
-import { downloadImpactPdf, PdfButton } from "@/components/energy/EnergyPdf";
+import { generateImpactPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
 
 const CLASSES = ["A", "B", "C", "D", "E", "F", "G", "H", "I"] as const;
 
@@ -169,7 +169,7 @@ export default function ImpactPage() {
           </div>
           <div className="px-6 py-3 bg-gray-50 flex items-center justify-between">
             <span className="text-xs text-muted">{t("classeRef")} · {t("source")}</span>
-            <PdfButton onClick={() => downloadImpactPdf(result, classeActuelle, valeur)} label={t("downloadPdf")} />
+            <PdfButton generateBlob={() => generateImpactPdfBlob(result, classeActuelle, valeur)} filename={`energy-impact-cpe-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf")} />
           </div>
         </div>
 

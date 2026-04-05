@@ -6,7 +6,7 @@ import InputField from "@/components/InputField";
 import ToggleField from "@/components/ToggleField";
 import { simulerAides, formatEUR, type AideDetail } from "@/lib/calculations";
 import RelatedTools from "@/components/RelatedTools";
-import { downloadAidesPdf, PdfButton } from "@/components/ToolsPdf";
+import { generateAidesPdfBlob, PdfButton } from "@/components/ToolsPdf";
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import AuthGate from "@/components/AuthGate";
@@ -446,8 +446,9 @@ export default function SimulateurAides() {
               />
               <PdfButton
                 label="PDF"
-                onClick={() =>
-                  downloadAidesPdf({
+                filename={`aides-logement-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                generateBlob={() =>
+                  generateAidesPdfBlob({
                     profil: typeProjet === "acquisition" ? "Acquisition" : typeProjet === "construction" ? "Construction" : "Renovation",
                     revenus: `${formatEUR(revenuMenage)}/an`,
                     aides: result.aides.map((a) => ({

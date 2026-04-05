@@ -10,7 +10,7 @@ import { getDemographics } from "@/lib/demographics";
 import { getMarketCycle } from "@/lib/market-cycle";
 import { computeMarketScore, getScoreColor, getScoreBarColor } from "@/lib/market-score";
 import dynamic from "next/dynamic";
-import { downloadCartePdf, PdfButton } from "@/components/ToolsPdf";
+import { generateCartePdfBlob, PdfButton } from "@/components/ToolsPdf";
 import MarketAlertButton from "@/components/MarketAlertButton";
 
 const LeafletMap = dynamic(() => import("@/components/LeafletMap"), { ssr: false });
@@ -409,8 +409,9 @@ export default function Carte() {
                     <div className="mt-3 flex justify-end">
                       <PdfButton
                         label="PDF"
-                        onClick={() =>
-                          downloadCartePdf({
+                        filename={`carte-prix-${selectedCommune.commune.toLowerCase()}-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                        generateBlob={() =>
+                          generateCartePdfBlob({
                             commune: selectedCommune.commune,
                             prixMoyenM2: selectedCommune.prixM2Existant || 0,
                             prixMedianM2: selectedCommune.prixM2Annonces || undefined,

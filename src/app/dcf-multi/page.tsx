@@ -6,7 +6,7 @@ import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import { formatEUR, formatEUR2, formatPct } from "@/lib/calculations";
 import { calculerDCFLeases, type Lease } from "@/lib/dcf-leases";
-import { downloadDcfMultiPdf, PdfButton } from "@/components/ToolsPdf";
+import { generateDcfMultiPdfBlob, PdfButton } from "@/components/ToolsPdf";
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 
@@ -261,8 +261,9 @@ export default function DCFMulti() {
                 />
                 <PdfButton
                   label="PDF"
-                  onClick={() =>
-                    downloadDcfMultiPdf({
+                  filename={`dcf-multi-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                  generateBlob={() =>
+                    generateDcfMultiPdfBlob({
                       baux: leases.map((l) => ({
                         locataire: l.locataire || "—",
                         loyer: l.loyerAnnuel,

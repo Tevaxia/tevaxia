@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import { formatEUR, formatPct } from "@/lib/calculations";
-import { downloadBilanPromoteurPdf, PdfButton } from "@/components/ToolsPdf";
+import { generateBilanPromoteurPdfBlob, PdfButton } from "@/components/ToolsPdf";
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 
@@ -367,8 +367,9 @@ export default function BilanPromoteur() {
               />
               <PdfButton
                 label="PDF"
-                onClick={() =>
-                  downloadBilanPromoteurPdf({
+                filename={`bilan-promoteur-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                generateBlob={() =>
+                  generateBilanPromoteurPdfBlob({
                     surfaceTerrain,
                     surfacePlancher: surfaceVendable,
                     prixVenteM2,

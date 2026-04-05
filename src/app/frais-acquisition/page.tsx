@@ -11,7 +11,7 @@ import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import RelatedTools from "@/components/RelatedTools";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { downloadFraisPdf, PdfButton } from "@/components/ToolsPdf";
+import { generateFraisPdfBlob, PdfButton } from "@/components/ToolsPdf";
 
 export default function FraisAcquisition() {
   const t = useTranslations("fraisAcquisition");
@@ -249,8 +249,9 @@ export default function FraisAcquisition() {
               />
               <PdfButton
                 label="PDF"
-                onClick={() =>
-                  downloadFraisPdf({
+                filename={`frais-acquisition-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                generateBlob={() =>
+                  generateFraisPdfBlob({
                     prixAchat: prixBien,
                     droitsEnregistrement: result.droitsEnregistrement,
                     droitTranscription: result.droitsTranscription,

@@ -10,7 +10,7 @@ import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import RelatedTools from "@/components/RelatedTools";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { downloadPlusValuesPdf, PdfButton } from "@/components/ToolsPdf";
+import { generatePlusValuesPdfBlob, PdfButton } from "@/components/ToolsPdf";
 
 export default function PlusValues() {
   const t = useTranslations("plusValues");
@@ -317,8 +317,9 @@ export default function PlusValues() {
               />
               <PdfButton
                 label="PDF"
-                onClick={() =>
-                  downloadPlusValuesPdf({
+                filename={`plus-values-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                generateBlob={() =>
+                  generatePlusValuesPdfBlob({
                     prixAcquisition,
                     prixCession,
                     anneeAcquisition,

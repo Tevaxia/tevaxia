@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from "recharts";
 import { calculerCommunaute, type CommunauteResponse } from "@/lib/energy-api";
-import { downloadCommunautePdf, PdfButton } from "@/components/energy/EnergyPdf";
+import { generateCommunautePdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
 
 const PRODUCTION_KWH_PAR_KWC = 950;
 const TAUX_AUTOCONSO_BASE = 0.40;
@@ -289,7 +289,7 @@ export default function CommunautePage() {
           </div>
 
           <div className="flex justify-end">
-            <PdfButton onClick={() => downloadCommunautePdf(result, { nbParticipants, puissancePV, consoMoyenneParParticipant: consoMoyenne, tarifReseau, tarifPartage })} label={t("downloadPdf")} />
+            <PdfButton generateBlob={() => generateCommunautePdfBlob(result, { nbParticipants, puissancePV, consoMoyenneParParticipant: consoMoyenne, tarifReseau, tarifPartage })} filename={`energy-communaute-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf")} />
           </div>
 
           <div className="rounded-xl border border-energy/20 bg-energy/5 p-5">

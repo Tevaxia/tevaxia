@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
-import { downloadLenozPdf, PdfButton } from "@/components/energy/EnergyPdf";
+import { generateLenozPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
 
 /* ─── Data ─────────────────────────────────────────────────────────── */
 
@@ -476,7 +476,7 @@ export default function LenozPage() {
               </div>
 
               {/* Disclaimer */}
-              <PdfButton onClick={() => downloadLenozPdf({ totalScore, maxScore: 60, rating: rating.label, categories: CATEGORIES.map((cat) => ({ title: cat.title, score: catScores[cat.key], max: cat.criteria.length * 3 })) })} label={t("downloadPdf") || "PDF"} />
+              <PdfButton generateBlob={() => generateLenozPdfBlob({ totalScore, maxScore: 60, rating: rating.label, categories: CATEGORIES.map((cat) => ({ title: cat.title, score: catScores[cat.key], max: cat.criteria.length * 3 })) })} filename={`energy-lenoz-${rating.label.toLowerCase()}-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf") || "PDF"} />
               <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">
                 <p className="text-xs text-amber-800 leading-relaxed">
                   <span className="font-semibold">{t("disclaimerLabel")}</span> {t("disclaimerText")}

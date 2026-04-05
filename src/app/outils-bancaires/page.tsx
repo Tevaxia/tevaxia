@@ -14,7 +14,7 @@ import {
   formatEUR2,
   formatPct,
 } from "@/lib/calculations";
-import { downloadBancairePdf, PdfButton } from "@/components/ToolsPdf";
+import { generateBancairePdfBlob, PdfButton } from "@/components/ToolsPdf";
 
 type ActiveTab = "ltv" | "capacite" | "amortissement" | "dscr";
 
@@ -215,10 +215,11 @@ function TabAmortissement() {
         <div className="flex justify-end">
           <PdfButton
             label="PDF"
-            onClick={() => {
+            filename={`simulation-bancaire-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+            generateBlob={() => {
               const prixBien = Math.round(capital / 0.8);
               const apport = prixBien - capital;
-              downloadBancairePdf({
+              return generateBancairePdfBlob({
                 prixBien,
                 apport,
                 montantCredit: capital,

@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { calculerRenovation, type RenovationResponse } from "@/lib/energy-api";
 import { estimerCoutsRenovation } from "@/lib/renovation-costs";
-import { downloadRenovationPdf, PdfButton } from "@/components/energy/EnergyPdf";
+import { generateRenovationPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
 
 const CLASSES = ["A", "B", "C", "D", "E", "F", "G", "H", "I"] as const;
 const IMPACT_ENERGIE: Record<string, number> = { A: 8, B: 5, C: 2, D: 0, E: -3, F: -7, G: -12, H: -18, I: -25 };
@@ -166,7 +166,7 @@ export default function RenovationPage() {
                   <h2 className="font-semibold text-foreground">{t("resultTitle")}</h2>
                   <p className="text-xs text-muted mt-0.5">{result.sautClasse} · {surface} m² · {annee}</p>
                 </div>
-                <PdfButton onClick={() => downloadRenovationPdf(result, { classeActuelle, classeCible, surface, anneeConstruction: annee, valeurBien: valeur })} label="PDF" />
+                <PdfButton generateBlob={() => generateRenovationPdfBlob(result, { classeActuelle, classeCible, surface, anneeConstruction: annee, valeurBien: valeur })} filename={`energy-renovation-roi-${new Date().toLocaleDateString("fr-LU")}.pdf`} label="PDF" />
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">

@@ -14,7 +14,7 @@ import {
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import { formatEUR, formatEUR2 } from "@/lib/calculations";
-import { downloadAchatLocationPdf, PdfButton } from "@/components/ToolsPdf";
+import { generateAchatLocationPdfBlob, PdfButton } from "@/components/ToolsPdf";
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 
@@ -389,8 +389,9 @@ export default function AchatVsLocation() {
               />
               <PdfButton
                 label="PDF"
-                onClick={() =>
-                  downloadAchatLocationPdf({
+                filename={`achat-vs-location-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                generateBlob={() =>
+                  generateAchatLocationPdfBlob({
                     verdict: result.derniere.patrimoineNetAchat > result.derniere.patrimoineNetLocation ? "Achat" : "Location",
                     prixAchat: prixBien,
                     loyerMensuel,

@@ -19,7 +19,7 @@ import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import RelatedTools from "@/components/RelatedTools";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { downloadEstimationPdf, PdfButton } from "@/components/ToolsPdf";
+import { generateEstimationPdfBlob, PdfButton } from "@/components/ToolsPdf";
 import ShareButton from "@/components/ShareButton";
 import AuthGate from "@/components/AuthGate";
 import MarketAlertButton from "@/components/MarketAlertButton";
@@ -490,8 +490,9 @@ export default function Estimation() {
                 />
                 <PdfButton
                   label="PDF"
-                  onClick={() =>
-                    downloadEstimationPdf({
+                  filename={`estimation-${(selectedResult?.commune.commune || communeSearch).toLowerCase()}-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                  generateBlob={() =>
+                    generateEstimationPdfBlob({
                       commune: selectedResult?.commune.commune || communeSearch,
                       typeBien: "Appartement",
                       surface,

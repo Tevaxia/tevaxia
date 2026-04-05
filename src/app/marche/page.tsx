@@ -13,7 +13,7 @@ import {
 } from "@/lib/market-data-commercial";
 import { formatEUR } from "@/lib/calculations";
 import { PriceEvolutionChart } from "@/components/PriceChart";
-import { downloadMarchePdf, PdfButton } from "@/components/ToolsPdf";
+import { generateMarchePdfBlob, PdfButton } from "@/components/ToolsPdf";
 
 // ---------------------------------------------------------------------------
 // CSV export helper
@@ -231,13 +231,14 @@ function TabResidentiel() {
           <ExportCSVButton label={t("exportCSV")} onClick={handleExportCSV} />
           <PdfButton
             label="PDF"
-            onClick={() => {
+            filename={`marche-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+            generateBlob={() => {
               const withPrix = filtered.filter((c) => c.prixM2Existant != null);
               const avgPrix = withPrix.length > 0 ? Math.round(withPrix.reduce((s, c) => s + (c.prixM2Existant || 0), 0) / withPrix.length) : 0;
               const totalTx = filtered.reduce((s, c) => s + (c.nbTransactions || 0), 0);
               const withVefa = filtered.filter((c) => c.prixM2VEFA != null);
               const avgVefa = withVefa.length > 0 ? Math.round(withVefa.reduce((s, c) => s + (c.prixM2VEFA || 0), 0) / withVefa.length) : undefined;
-              downloadMarchePdf({
+              return generateMarchePdfBlob({
                 commune: search ? `Recherche : ${search}` : "Luxembourg (national)",
                 prixM2Appart: avgPrix > 0 ? avgPrix : undefined,
                 prixM2Maison: avgVefa,

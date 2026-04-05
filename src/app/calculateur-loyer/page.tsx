@@ -10,7 +10,7 @@ import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import RelatedTools from "@/components/RelatedTools";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { downloadLoyerPdf, PdfButton } from "@/components/ToolsPdf";
+import { generateLoyerPdfBlob, PdfButton } from "@/components/ToolsPdf";
 
 export default function CalculateurLoyer() {
   const t = useTranslations("calculLoyer");
@@ -277,8 +277,9 @@ export default function CalculateurLoyer() {
               />
               <PdfButton
                 label="PDF"
-                onClick={() =>
-                  downloadLoyerPdf({
+                filename={`loyer-plafond-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                generateBlob={() =>
+                  generateLoyerPdfBlob({
                     capitalInvesti: result.capitalInvesti,
                     surface: surfaceHabitable,
                     plafondLoyer: result.loyerAnnuelMax,
