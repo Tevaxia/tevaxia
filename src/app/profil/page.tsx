@@ -3,13 +3,15 @@
 import { useState, useEffect } from "react";
 import InputField from "@/components/InputField";
 import { useAuth } from "@/components/AuthProvider";
-import { getProfile, saveProfile, loadAndMergeProfile, type UserProfile } from "@/lib/profile";
+import { getProfile, saveProfile, loadAndMergeProfile, uploadLogo, type UserProfile } from "@/lib/profile";
 
 export default function Profil() {
   const { user } = useAuth();
   const [profile, setProfile] = useState<UserProfile>(getProfile());
   const [saved, setSaved] = useState(false);
   const [syncing, setSyncing] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
 
   useEffect(() => {
     // Charge le profil local immédiatement, puis merge avec le cloud
@@ -28,6 +30,25 @@ export default function Profil() {
     setSyncing(false);
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
+  };
+
+  const handleLogoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadError(null);
+    setUploading(true);
+    const result = await uploadLogo(file);
+    setUploading(false);
+    if (result.error) {
+      setUploadError(result.error);
+      return;
+    }
+    if (result.url) {
+      setProfile((prev) => ({ ...prev, logoUrl: result.url! }));
+      setSaved(false);
+    }
+    // Reset input so the same file can be re-selected
+    e.target.value = "";
   };
 
   return (
@@ -61,20 +82,80 @@ export default function Profil() {
             <h2 className="mb-4 text-base font-semibold text-navy">Rapport</h2>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-slate mb-1">Logo (URL)</label>
-                <div className="flex gap-3 items-start">
-                  <input
-                    type="url"
-                    value={profile.logoUrl || ""}
-                    onChange={(e) => update("logoUrl", e.target.value)}
-                    placeholder="https://example.com/logo.png"
-                    className="flex-1 rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm shadow-sm focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
-                  />
-                  {profile.logoUrl && (
-                    <img src={profile.logoUrl} alt="Logo" className="h-10 w-10 rounded border border-card-border object-contain bg-white" />
-                  )}
-                </div>
-                <p className="text-xs text-muted mt-1">URL de votre logo (PNG/SVG). Apparaît sur les rapports PDF.</p>
+                <label className="block text-sm font-medium text-slate mb-1">Logo</label>
+
+                {/* Aperçu du logo actuel */}
+                {profile.logoUrl && (
+                  <div className="mb-3 flex items-center gap-3">
+                    <img
+                      src={profile.logoUrl}
+                      alt="Logo"
+                      className="h-16 w-16 rounded-lg border border-card-border object-contain bg-white p-1"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => { update("logoUrl", ""); }}
+                      className="text-xs text-red-600 hover:text-red-800 underline"
+                    >
+                      Supprimer
+                    </button>
+                  </div>
+                )}
+
+                {user ? (
+                  /* ── Utilisateur connecté : upload fichier via Supabase Storage ── */
+                  <div>
+                    <label
+                      className={`flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed px-4 py-3 text-sm transition-colors ${
+                        uploading
+                          ? "border-navy/40 bg-navy/5 text-navy/60"
+                          : "border-input-border bg-input-bg text-muted hover:border-navy hover:text-navy"
+                      }`}
+                    >
+                      {uploading ? (
+                        <>
+                          <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                          </svg>
+                          Upload en cours...
+                        </>
+                      ) : (
+                        <>
+                          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                          </svg>
+                          Choisir un fichier
+                        </>
+                      )}
+                      <input
+                        type="file"
+                        accept="image/png,image/jpeg,image/svg+xml"
+                        onChange={handleLogoUpload}
+                        disabled={uploading}
+                        className="sr-only"
+                      />
+                    </label>
+                    <p className="text-xs text-muted mt-1">PNG, JPEG ou SVG. Max 500 Ko.</p>
+                    {uploadError && (
+                      <p className="text-xs text-red-600 mt-1">{uploadError}</p>
+                    )}
+                  </div>
+                ) : (
+                  /* ── Non connecté : fallback saisie URL ── */
+                  <div>
+                    <div className="flex gap-3 items-start">
+                      <input
+                        type="url"
+                        value={profile.logoUrl || ""}
+                        onChange={(e) => update("logoUrl", e.target.value)}
+                        placeholder="https://example.com/logo.png"
+                        className="flex-1 rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm shadow-sm focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
+                      />
+                    </div>
+                    <p className="text-xs text-muted mt-1">URL de votre logo (PNG/SVG). Connectez-vous pour uploader un fichier.</p>
+                  </div>
+                )}
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate">Mention légale personnalisée</label>

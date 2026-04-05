@@ -115,3 +115,52 @@ export function hasProfile(): boolean {
   const p = getProfile();
   return p.nomComplet.length > 0;
 }
+
+// ── Upload logo via Supabase Storage ───────────────────────
+// Prérequis : créer le bucket "avatars" dans le dashboard Supabase
+//   → Storage → New bucket → Name: "avatars", Public: ON
+//   → Policies : allow INSERT/UPDATE for authenticated, SELECT for all
+
+const LOGO_MAX_SIZE = 500 * 1024; // 500 KB
+const LOGO_ACCEPTED_TYPES = ["image/png", "image/jpeg", "image/svg+xml"];
+
+export interface UploadLogoResult {
+  url: string | null;
+  error: string | null;
+}
+
+/**
+ * Upload un logo dans Supabase Storage (bucket "avatars").
+ * Retourne l'URL publique ou un message d'erreur localisé.
+ */
+export async function uploadLogo(file: File): Promise<UploadLogoResult> {
+  if (!supabase) return { url: null, error: "Supabase non configuré." };
+
+  // Validation format
+  if (!LOGO_ACCEPTED_TYPES.includes(file.type)) {
+    return { url: null, error: "Format non accepté. Utilisez PNG, JPEG ou SVG." };
+  }
+
+  // Validation taille
+  if (file.size > LOGO_MAX_SIZE) {
+    return { url: null, error: `Fichier trop volumineux (max ${LOGO_MAX_SIZE / 1024} Ko).` };
+  }
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return { url: null, error: "Vous devez être connecté pour uploader un logo." };
+
+  const ext = file.name.split(".").pop()?.toLowerCase() || "png";
+  const path = `logos/${user.id}.${ext}`;
+
+  const { error } = await supabase.storage
+    .from("avatars")
+    .upload(path, file, { upsert: true, contentType: file.type });
+
+  if (error) {
+    console.error("[profile] logo upload error:", error);
+    return { url: null, error: `Erreur d'upload : ${error.message}` };
+  }
+
+  const { data } = supabase.storage.from("avatars").getPublicUrl(path);
+  return { url: data.publicUrl, error: null };
+}

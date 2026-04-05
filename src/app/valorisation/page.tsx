@@ -42,6 +42,7 @@ import { evaluerChecklist, scoreChecklist } from "@/lib/evs-checklist";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
+import ReportModeEVS from "@/components/ReportModeEVS";
 
 type ActiveTab = "comparaison" | "capitalisation" | "terme_reversion" | "dcf" | "esg" | "energie" | "mlv" | "reconciliation";
 
@@ -1612,6 +1613,7 @@ function TabReconciliation({
 
 export default function Valorisation() {
   const t = useTranslations("valorisation");
+  const [viewMode, setViewMode] = useState<"calculateur" | "rapport">("calculateur");
   const [activeTab, setActiveTab] = useState<ActiveTab>("comparaison");
   const [surfaceBien, setSurfaceBien] = useState(80);
   const [assetType, setAssetType] = useState<AssetType>("residential_apartment");
@@ -1680,6 +1682,30 @@ export default function Valorisation() {
           <p className="mt-2 text-muted">
             {t("pageSubtitle")}
           </p>
+        </div>
+
+        {/* Toggle: Mode calculateur / Mode rapport EVS */}
+        <div className="mb-6 flex items-center gap-1 rounded-xl bg-card border border-card-border p-1 shadow-sm w-fit">
+          <button
+            onClick={() => setViewMode("calculateur")}
+            className={`rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
+              viewMode === "calculateur"
+                ? "bg-navy text-white shadow-sm"
+                : "text-muted hover:bg-background hover:text-foreground"
+            }`}
+          >
+            {t("modeCalculateur")}
+          </button>
+          <button
+            onClick={() => setViewMode("rapport")}
+            className={`rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
+              viewMode === "rapport"
+                ? "bg-navy text-white shadow-sm"
+                : "text-muted hover:bg-background hover:text-foreground"
+            }`}
+          >
+            {t("modeRapportEVS")}
+          </button>
         </div>
 
         {/* Type d'actif + Base de valeur EVS + Surface */}
@@ -1829,6 +1855,8 @@ export default function Valorisation() {
           </div>
         </div>
 
+        {/* MODE CALCULATEUR */}
+        {viewMode === "calculateur" && (<>
         {/* Checklist EVS */}
         {(() => {
           const check = evaluerChecklist({
@@ -1922,6 +1950,21 @@ export default function Valorisation() {
             assetType={assetConfig.label}
             evsInfo={evsInfo}
             surfaceBien={surfaceBien}
+          />
+        )}
+        </>)}
+
+        {/* MODE RAPPORT EVS */}
+        {viewMode === "rapport" && (
+          <ReportModeEVS
+            surfaceBien={surfaceBien}
+            assetType={assetConfig.label}
+            evsValueType={evsValueType}
+            selectedCommune={selectedCommune}
+            valeurComparaison={valeurComparaison}
+            valeurCapitalisation={valeurCapitalisation}
+            valeurDCF={valeurDCF}
+            valeurMarchePourMLV={valeurMarchePourMLV}
           />
         )}
       </div>
