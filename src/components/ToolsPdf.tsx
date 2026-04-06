@@ -1,13 +1,29 @@
 "use client";
 
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { Font } from "@react-pdf/renderer";
 import {
   CoverPage,
   KpiGrid,
   PageHeader,
   Footer,
   generateRef,
+  ConfidenceGauge,
+  PriceRangeBar,
+  MarketContext,
 } from "@/components/energy/EnergyPdf";
+
+// Register Inter font (Google Fonts CDN) — called once at module level
+if (typeof window !== "undefined") {
+  Font.register({
+    family: "Inter",
+    fonts: [
+      { src: "https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hjQ.ttf", fontWeight: 400 },
+      { src: "https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYAZ9hjQ.ttf", fontWeight: 600 },
+      { src: "https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYAZ9hjQ.ttf", fontWeight: 700 },
+    ],
+  });
+}
 
 export { PdfButton } from "@/components/energy/EnergyPdf";
 
@@ -21,24 +37,24 @@ const today = () => new Date().toLocaleDateString("fr-LU");
 
 /* ---------- Styles ---------- */
 const s = StyleSheet.create({
-  page: { paddingTop: 50, paddingBottom: 60, paddingHorizontal: 40, fontSize: 9, fontFamily: "Helvetica", color: "#1a1a2e" },
-  section: { fontSize: 12, fontFamily: "Helvetica-Bold", color: "#1B2A4A", marginTop: 16, marginBottom: 8, paddingBottom: 4, borderBottom: "1pt solid #e5e2db" },
+  page: { paddingTop: 50, paddingBottom: 60, paddingHorizontal: 40, fontSize: 9, fontFamily: "Inter", color: "#1a1a2e" },
+  section: { fontSize: 12, fontFamily: "Inter", fontWeight: 700, color: "#1B2A4A", marginTop: 16, marginBottom: 8, paddingBottom: 4, borderBottom: "1pt solid #e5e2db" },
   row: { flexDirection: "row" as const, justifyContent: "space-between", paddingVertical: 3, borderBottom: "0.5pt solid #f0f0f0" },
   rowHL: { flexDirection: "row" as const, justifyContent: "space-between", paddingVertical: 5, borderTop: "1.5pt solid #C8A951", marginTop: 4, backgroundColor: "#FAFAF8" },
   label: { color: "#334155", flex: 1 },
-  value: { fontFamily: "Helvetica-Bold", textAlign: "right" as const },
-  valueLg: { fontFamily: "Helvetica-Bold", fontSize: 12, textAlign: "right" as const, color: "#1B2A4A" },
+  value: { fontFamily: "Inter", fontWeight: 600, textAlign: "right" as const },
+  valueLg: { fontFamily: "Inter", fontWeight: 600, fontSize: 12, textAlign: "right" as const, color: "#1B2A4A" },
   note: { fontSize: 8, color: "#6B7280", marginTop: 4, lineHeight: 1.4 },
   disclaimer: { fontSize: 7, color: "#9CA3AF", marginTop: 20, paddingTop: 8, borderTop: "0.5pt solid #e5e2db", lineHeight: 1.4 },
   grid: { flexDirection: "row" as const, gap: 8, marginTop: 4 },
   cell: { flex: 1, padding: 6, backgroundColor: "#F8F7F4", borderRadius: 4 },
   cellLabel: { fontSize: 7, color: "#6B7280" },
-  cellValue: { fontSize: 11, fontFamily: "Helvetica-Bold", color: "#1B2A4A", marginTop: 2 },
+  cellValue: { fontSize: 11, fontFamily: "Inter", fontWeight: 600, color: "#1B2A4A", marginTop: 2 },
   tHead: { flexDirection: "row" as const, backgroundColor: "#F8F7F4", paddingVertical: 4, paddingHorizontal: 6, borderBottom: "1pt solid #e5e2db" },
   tRow: { flexDirection: "row" as const, paddingVertical: 3, paddingHorizontal: 6, borderBottom: "0.5pt solid #f0f0f0" },
   tCell: { flex: 1, fontSize: 8 },
   tCellR: { flex: 1, fontSize: 8, textAlign: "right" as const },
-  tCellB: { flex: 1, fontSize: 8, fontFamily: "Helvetica-Bold" },
+  tCellB: { flex: 1, fontSize: 8, fontFamily: "Inter", fontWeight: 600 },
 });
 
 /* ---------- Shared components ---------- */
@@ -83,7 +99,7 @@ function Row({ label, value: v }: { label: string; value: string }) {
 function RowHL({ label, value: v }: { label: string; value: string }) {
   return (
     <View style={s.rowHL}>
-      <Text style={{ ...s.label, fontFamily: "Helvetica-Bold" }}>{label}</Text>
+      <Text style={{ ...s.label, fontFamily: "Inter", fontWeight: 600 }}>{label}</Text>
       <Text style={s.valueLg}>{v}</Text>
     </View>
   );
@@ -95,6 +111,10 @@ export interface EstimationPdfParams {
   commune: string; typeBien: string; surface: number; chambres?: number;
   prixBas: number; prixMoyen: number; prixHaut: number; prixM2: number;
   adjustments?: { label: string; impact: string }[];
+  comparables?: { adresse: string; prix: number; surface: number; prixM2: number; ecart: string }[];
+  confidence?: "low" | "medium" | "high";
+  transactions?: number;
+  tendance?: string;
 }
 
 function EstimationDoc({ p }: { p: EstimationPdfParams }) {
@@ -120,6 +140,10 @@ function EstimationDoc({ p }: { p: EstimationPdfParams }) {
           { label: "Surface", value: `${fmtNum(p.surface)} m2` },
         ]} />
 
+        {p.confidence && <ConfidenceGauge level={p.confidence} />}
+
+        <PriceRangeBar min={p.prixBas} mid={p.prixMoyen} max={p.prixHaut} label="Fourchette de prix estimee" />
+
         <Text style={s.section}>Bien evalue</Text>
         <Row label="Commune" value={p.commune} />
         <Row label="Type de bien" value={p.typeBien} />
@@ -136,6 +160,28 @@ function EstimationDoc({ p }: { p: EstimationPdfParams }) {
           <Text style={s.section}>Ajustements appliques</Text>
           {p.adjustments.map((a, i) => <Row key={i} label={a.label} value={a.impact} />)}
         </>}
+
+        {p.comparables && p.comparables.length > 0 && <>
+          <Text style={s.section}>Comparables</Text>
+          <View style={s.tHead}>
+            <Text style={{ ...s.tCellB, flex: 2 }}>Adresse</Text>
+            <Text style={{ ...s.tCellB, textAlign: "right" as const }}>Prix</Text>
+            <Text style={{ ...s.tCellB, textAlign: "right" as const }}>Surface</Text>
+            <Text style={{ ...s.tCellB, textAlign: "right" as const }}>Prix/m2</Text>
+            <Text style={{ ...s.tCellB, textAlign: "right" as const }}>Ecart</Text>
+          </View>
+          {p.comparables.map((c, i) => (
+            <View key={i} style={s.tRow}>
+              <Text style={{ ...s.tCell, flex: 2 }}>{c.adresse}</Text>
+              <Text style={s.tCellR}>{fmtEur(c.prix)}</Text>
+              <Text style={s.tCellR}>{fmtNum(c.surface)} m2</Text>
+              <Text style={s.tCellR}>{fmtEur(c.prixM2)}</Text>
+              <Text style={s.tCellR}>{c.ecart}</Text>
+            </View>
+          ))}
+        </>}
+
+        <MarketContext commune={p.commune} prixM2={p.prixM2} transactions={p.transactions} tendance={p.tendance} />
 
         <Disclaimer />
         <Footer />

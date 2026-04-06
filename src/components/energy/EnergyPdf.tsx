@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet, Font } from "@react-pdf/renderer";
 import { useAuth } from "@/components/AuthProvider";
 import type {
   ImpactResponse,
@@ -9,6 +9,18 @@ import type {
   RenovationResponse,
   CommunauteResponse,
 } from "@/lib/energy-api";
+
+// Register Inter font (Google Fonts CDN) — called once at module level
+if (typeof window !== "undefined") {
+  Font.register({
+    family: "Inter",
+    fonts: [
+      { src: "https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hjQ.ttf", fontWeight: 400 },
+      { src: "https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYAZ9hjQ.ttf", fontWeight: 600 },
+      { src: "https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYAZ9hjQ.ttf", fontWeight: 700 },
+    ],
+  });
+}
 
 // ---------- Formatting helpers (French locale) ----------
 
@@ -28,40 +40,40 @@ export const generateRef = () =>
 // ---------- Shared styles ----------
 
 const s = StyleSheet.create({
-  page: { paddingTop: 50, paddingBottom: 60, paddingHorizontal: 40, fontSize: 9, fontFamily: "Helvetica", color: "#1a1a2e" },
+  page: { paddingTop: 50, paddingBottom: 60, paddingHorizontal: 40, fontSize: 9, fontFamily: "Inter", color: "#1a1a2e" },
   // Cover page
   coverPage: { padding: 0 },
   coverTop: { backgroundColor: "#1B2A4A", height: "60%", padding: 50, justifyContent: "flex-end" as const },
   coverLogo: { flexDirection: "row" as const, alignItems: "center" as const, gap: 10, marginBottom: 30 },
   coverLogoBox: { width: 36, height: 36, borderRadius: 8, backgroundColor: "#C8A951", display: "flex" as const, alignItems: "center" as const, justifyContent: "center" as const },
-  coverLogoText: { fontSize: 20, fontFamily: "Helvetica-Bold", color: "#0F1B33" },
-  coverLogoName: { fontSize: 16, fontFamily: "Helvetica-Bold", color: "white" },
-  coverTitle: { fontSize: 28, color: "white", fontFamily: "Helvetica-Bold" },
+  coverLogoText: { fontSize: 20, fontFamily: "Inter", fontWeight: 700, color: "#0F1B33" },
+  coverLogoName: { fontSize: 16, fontFamily: "Inter", fontWeight: 700, color: "white" },
+  coverTitle: { fontSize: 28, color: "white", fontFamily: "Inter", fontWeight: 700 },
   coverSubtitle: { fontSize: 13, color: "#9CA3AF", marginTop: 6 },
-  coverValue: { fontSize: 36, color: "#C8A951", fontFamily: "Helvetica-Bold", marginTop: 12 },
+  coverValue: { fontSize: 36, color: "#C8A951", fontFamily: "Inter", fontWeight: 700, marginTop: 12 },
   coverBottom: { padding: 50, flex: 1, justifyContent: "flex-end" as const },
   coverDate: { fontSize: 10, color: "#334155", marginBottom: 4 },
   coverRef: { fontSize: 9, color: "#6B7280", marginBottom: 12 },
   coverDisclaimer: { fontSize: 8, color: "#9CA3AF", lineHeight: 1.4 },
   // Page header (repeating)
   pageHeader: { flexDirection: "row" as const, justifyContent: "space-between" as const, borderBottom: "1.5pt solid #1B2A4A", paddingBottom: 8, marginBottom: 16 },
-  pageHeaderTitle: { fontSize: 10, fontFamily: "Helvetica-Bold", color: "#1B2A4A" },
+  pageHeaderTitle: { fontSize: 10, fontFamily: "Inter", fontWeight: 700, color: "#1B2A4A" },
   pageHeaderRef: { fontSize: 8, color: "#6B7280" },
   // Legacy header (kept for compat)
   header: { borderBottom: "2pt solid #1B2A4A", paddingBottom: 12, marginBottom: 20 },
   logoRow: { flexDirection: "row" as const, alignItems: "center", gap: 8, marginBottom: 8 },
   logoBox: { width: 28, height: 28, borderRadius: 6, backgroundColor: "#C8A951", display: "flex" as const, alignItems: "center" as const, justifyContent: "center" as const },
-  logoText: { fontSize: 16, fontFamily: "Helvetica-Bold", color: "#0F1B33" },
-  logoName: { fontSize: 14, fontFamily: "Helvetica-Bold", color: "#1B2A4A" },
+  logoText: { fontSize: 16, fontFamily: "Inter", fontWeight: 700, color: "#0F1B33" },
+  logoName: { fontSize: 14, fontFamily: "Inter", fontWeight: 700, color: "#1B2A4A" },
   logoGold: { color: "#C8A951" },
-  title: { fontSize: 15, fontFamily: "Helvetica-Bold", color: "#1B2A4A" },
+  title: { fontSize: 15, fontFamily: "Inter", fontWeight: 700, color: "#1B2A4A" },
   subtitle: { fontSize: 9, color: "#6B7280", marginTop: 2 },
-  section: { fontSize: 12, fontFamily: "Helvetica-Bold", color: "#1B2A4A", marginTop: 16, marginBottom: 8, paddingBottom: 4, borderBottom: "1pt solid #e5e2db" },
+  section: { fontSize: 12, fontFamily: "Inter", fontWeight: 700, color: "#1B2A4A", marginTop: 16, marginBottom: 8, paddingBottom: 4, borderBottom: "1pt solid #e5e2db" },
   row: { flexDirection: "row" as const, justifyContent: "space-between", paddingVertical: 3, borderBottom: "0.5pt solid #f0f0f0" },
   rowHL: { flexDirection: "row" as const, justifyContent: "space-between", paddingVertical: 5, borderTop: "1.5pt solid #C8A951", marginTop: 4, backgroundColor: "#FAFAF8" },
   label: { color: "#334155", flex: 1 },
-  value: { fontFamily: "Helvetica-Bold", textAlign: "right" as const },
-  valueLg: { fontFamily: "Helvetica-Bold", fontSize: 12, textAlign: "right" as const, color: "#1B2A4A" },
+  value: { fontFamily: "Inter", fontWeight: 600, textAlign: "right" as const },
+  valueLg: { fontFamily: "Inter", fontWeight: 600, fontSize: 12, textAlign: "right" as const, color: "#1B2A4A" },
   note: { fontSize: 8, color: "#6B7280", marginTop: 4, lineHeight: 1.4 },
   disclaimer: { fontSize: 7, color: "#9CA3AF", marginTop: 20, paddingTop: 8, borderTop: "0.5pt solid #e5e2db", lineHeight: 1.4 },
   // Footer with page numbers
@@ -71,12 +83,12 @@ const s = StyleSheet.create({
   grid: { flexDirection: "row" as const, gap: 8, marginTop: 4 },
   cell: { flex: 1, padding: 6, backgroundColor: "#F8F7F4", borderRadius: 4 },
   cellLabel: { fontSize: 7, color: "#6B7280" },
-  cellValue: { fontSize: 11, fontFamily: "Helvetica-Bold", color: "#1B2A4A", marginTop: 2 },
+  cellValue: { fontSize: 11, fontFamily: "Inter", fontWeight: 600, color: "#1B2A4A", marginTop: 2 },
   tHead: { flexDirection: "row" as const, backgroundColor: "#F8F7F4", paddingVertical: 4, paddingHorizontal: 6, borderBottom: "1pt solid #e5e2db" },
   tRow: { flexDirection: "row" as const, paddingVertical: 3, paddingHorizontal: 6, borderBottom: "0.5pt solid #f0f0f0" },
   tCell: { flex: 1, fontSize: 8 },
   tCellR: { flex: 1, fontSize: 8, textAlign: "right" as const },
-  tCellB: { flex: 1, fontSize: 8, fontFamily: "Helvetica-Bold" },
+  tCellB: { flex: 1, fontSize: 8, fontFamily: "Inter", fontWeight: 600 },
   check: { fontSize: 8, color: "#16a34a", marginRight: 4 },
 });
 
@@ -113,9 +125,71 @@ export function KpiGrid({ items }: { items: { label: string; value: string; high
           borderLeft: item.highlight ? "4pt solid #C8A951" : "none",
         }}>
           <Text style={{ fontSize: 7, color: item.highlight ? "#C8A951" : "#6B7280" }}>{item.label}</Text>
-          <Text style={{ fontSize: 13, fontFamily: "Helvetica-Bold", color: item.highlight ? "white" : "#1B2A4A", marginTop: 3 }}>{item.value}</Text>
+          <Text style={{ fontSize: 13, fontFamily: "Inter", fontWeight: 600, color: item.highlight ? "white" : "#1B2A4A", marginTop: 3 }}>{item.value}</Text>
         </View>
       ))}
+    </View>
+  );
+}
+
+export function ConfidenceGauge({ level }: { level: "low" | "medium" | "high" }) {
+  const colors = { low: "#DC2626", medium: "#EA580C", high: "#16A34A" };
+  const labels = { low: "Faible", medium: "Moderee", high: "Forte" };
+  const fill = { low: 1, medium: 2, high: 3 };
+
+  return (
+    <View style={{ flexDirection: "row" as const, alignItems: "center" as const, gap: 6, marginVertical: 4 }}>
+      <Text style={{ fontSize: 8, color: "#6B7280" }}>Fiabilite :</Text>
+      {[1, 2, 3].map((n) => (
+        <View key={n} style={{
+          width: 12, height: 16, borderRadius: 2,
+          backgroundColor: n <= fill[level] ? colors[level] : "#E5E7EB",
+        }} />
+      ))}
+      <Text style={{ fontSize: 8, fontFamily: "Inter", fontWeight: 600, color: colors[level] }}>
+        {labels[level]}
+      </Text>
+    </View>
+  );
+}
+
+export function PriceRangeBar({ min, mid, max, label }: { min: number; mid: number; max: number; label?: string }) {
+  const range = max - min;
+  const midPos = range > 0 ? ((mid - min) / range) * 100 : 50;
+
+  return (
+    <View style={{ marginVertical: 6 }}>
+      {label && <Text style={{ fontSize: 7, color: "#6B7280", marginBottom: 3 }}>{label}</Text>}
+      <View style={{ height: 8, backgroundColor: "#E5E7EB", borderRadius: 4, position: "relative" as const }}>
+        <View style={{ position: "absolute" as const, left: `${midPos}%`, top: -2, width: 4, height: 12, backgroundColor: "#C8A951", borderRadius: 2 }} />
+      </View>
+      <View style={{ flexDirection: "row" as const, justifyContent: "space-between" as const, marginTop: 2 }}>
+        <Text style={{ fontSize: 7, color: "#6B7280" }}>{fmtEur(min)}</Text>
+        <Text style={{ fontSize: 7, fontFamily: "Inter", fontWeight: 600, color: "#C8A951" }}>{fmtEur(mid)}</Text>
+        <Text style={{ fontSize: 7, color: "#6B7280" }}>{fmtEur(max)}</Text>
+      </View>
+    </View>
+  );
+}
+
+export function MarketContext({ commune, prixM2, transactions, tendance }: { commune: string; prixM2: number; transactions?: number; tendance?: string }) {
+  return (
+    <View style={{ marginTop: 12 }}>
+      <Text style={s.section}>Contexte de marche — {commune}</Text>
+      <View style={{ flexDirection: "row" as const, gap: 8 }}>
+        <View style={s.cell}>
+          <Text style={s.cellLabel}>Prix median /m2</Text>
+          <Text style={s.cellValue}>{fmtEur(prixM2)}</Text>
+        </View>
+        {transactions != null && <View style={s.cell}>
+          <Text style={s.cellLabel}>Transactions</Text>
+          <Text style={s.cellValue}>{fmtNum(transactions)}</Text>
+        </View>}
+        {tendance != null && <View style={s.cell}>
+          <Text style={s.cellLabel}>Tendance</Text>
+          <Text style={s.cellValue}>{tendance}</Text>
+        </View>}
+      </View>
     </View>
   );
 }
@@ -187,7 +261,7 @@ function Row({ label, value: v }: { label: string; value: string }) {
 function RowHL({ label, value: v }: { label: string; value: string }) {
   return (
     <View style={s.rowHL}>
-      <Text style={{ ...s.label, fontFamily: "Helvetica-Bold" }}>{label}</Text>
+      <Text style={{ ...s.label, fontFamily: "Inter", fontWeight: 600 }}>{label}</Text>
       <Text style={s.valueLg}>{v}</Text>
     </View>
   );
@@ -213,6 +287,8 @@ function ImpactDoc({ result, classeActuelle, valeur }: { result: ImpactResponse;
           { label: "Classe actuelle", value: classeActuelle },
           { label: "Classes analysees", value: String(result.classes.length) },
         ]} />
+
+        <ConfidenceGauge level={result.classes.length >= 7 ? "high" : result.classes.length >= 4 ? "medium" : "low"} />
 
         <Text style={s.section}>Impact par classe energetique</Text>
         <View style={s.tHead}>
@@ -313,6 +389,13 @@ function RenovationDoc({ result, params }: { result: RenovationResponse; params:
           </View>
         ))}
         <RowHL label="Total projet (travaux + honoraires)" value={fmtEur(result.totalProjet)} />
+
+        <PriceRangeBar
+          min={result.postes.reduce((s, p) => s + p.coutMin, 0)}
+          mid={result.totalProjet}
+          max={result.postes.reduce((s, p) => s + p.coutMax, 0)}
+          label="Fourchette de cout du projet"
+        />
 
         <Text style={{ ...s.note, marginTop: 8 }}>
           Fourchette de couts basee sur les prix moyens du marche luxembourgeois — {fmtNum(params.surface)} m2, construction {params.anneeConstruction}.
