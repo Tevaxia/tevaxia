@@ -86,6 +86,9 @@ function AideCard({ aide, t }: { aide: AideDetail; t: (key: string) => string })
           </div>
           <p className="mt-1 text-xs text-muted">{aide.description}</p>
           <p className="mt-1 text-xs text-muted/70 italic">{aide.conditions}</p>
+          {aide.source && (
+            <p className="mt-1 text-[10px] text-muted/50">Source : {aide.source}</p>
+          )}
         </div>
         <span className="shrink-0 font-mono text-lg font-bold text-foreground">
           {formatEUR(aide.montant)}

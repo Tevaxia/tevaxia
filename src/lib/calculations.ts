@@ -429,7 +429,8 @@ export interface AideDetail {
   montant: number;
   description: string;
   conditions: string;
-  nature: "directe" | "economie" | "garantie"; // directe = cash reçu, economie = coût évité, garantie = caution (pas du cash)
+  nature: "directe" | "economie" | "garantie";
+  source?: string; // Référence légale / lien
 }
 
 export interface AidesResult {
@@ -462,6 +463,7 @@ export function simulerAides(input: AidesInput): AidesResult {
       description: `Crédit d'impôt de ${formatEUR(BELLEGEN_AKT_PAR_PERSONNE)} par acquéreur sur les droits d'enregistrement`,
       conditions: "Résidence principale, première utilisation du crédit",
       nature: "directe",
+      source: "Loi du 22 octobre 2008 (Bëllegen Akt) — guichet.public.lu",
     });
   }
 
@@ -480,6 +482,7 @@ export function simulerAides(input: AidesInput): AidesResult {
       description: `Max ${formatEUR(PRIME_ACCESSION_MAX)}, majorée selon le type de bien`,
       conditions: "Sous conditions de revenus, résidence principale",
       nature: "directe",
+      source: "Loi modifiée du 25 février 1979 — Aide au logement, art. 14bis",
     });
   }
 
@@ -492,6 +495,7 @@ export function simulerAides(input: AidesInput): AidesResult {
       description: "Prime unique de 5 000 € si 90% de l'épargne est investie",
       conditions: "Épargne régulière pendant min. 3 ans, 90% investie dans l'acquisition",
       nature: "directe",
+      source: "Loi modifiée du 25 février 1979 — Aide au logement, art. 15",
     });
   }
 
@@ -511,6 +515,7 @@ export function simulerAides(input: AidesInput): AidesResult {
       description: `Réduction de 0,25% à 3,5% sur un prêt de max ${formatEUR(montantMax)} — économie estimée sur la durée du prêt`,
       conditions: "Sous conditions de revenus, résidence principale",
       nature: "economie",
+      source: "Loi modifiée du 25 février 1979 — Aide au logement, art. 10-13 (subvention d'intérêt)",
     });
   }
 
@@ -525,6 +530,7 @@ export function simulerAides(input: AidesInput): AidesResult {
       description: `Réduction de ${(tauxBonif * 100).toFixed(1)}% (${input.nbEnfants} enfant(s) × 0,5%, max 3%) — économie estimée sur ~10 ans`,
       conditions: "Par enfant à charge, plafonnée à 3%",
       nature: "economie",
+      source: "Loi modifiée du 25 février 1979 — Aide au logement, art. 14 (bonification)",
     });
   }
 
@@ -554,6 +560,7 @@ export function simulerAides(input: AidesInput): AidesResult {
       description: `Faveur fiscale max ${formatEUR(TVA_FAVEUR_PLAFOND)} (différence entre 17% et 3%)`,
       conditions: "Résidence principale, logement neuf",
       nature: "directe",
+      source: "Loi TVA modifiée — Annexe B, pos. 12 (taux super-réduit 3% logement)",
     });
   }
 
@@ -563,9 +570,10 @@ export function simulerAides(input: AidesInput): AidesResult {
       nom: "Klimabonus",
       categorie: "etatique_energie",
       montant: input.montantTravaux * 0.5,
-      description: "Jusqu'à 62,5% des travaux de rénovation énergétique",
-      conditions: "Logement de plus de 10 ans, audit énergétique obligatoire",
+      description: "Jusqu'à 62,5% des travaux de rénovation énergétique (25% pour 1 classe, 37,5% pour 2, 50% pour 3, 62,5% pour 4+)",
+      conditions: "Logement de plus de 10 ans, audit énergétique obligatoire par conseiller agréé",
       nature: "directe",
+      source: "RGD du 23 décembre 2016 mod. — Klimabonus (klima-agence.lu)",
     });
 
     aides.push({
@@ -573,17 +581,19 @@ export function simulerAides(input: AidesInput): AidesResult {
       categorie: "etatique_energie",
       montant: 1_500,
       description: "1 500 € pour l'audit énergétique obligatoire",
-      conditions: "Audit par conseiller agréé",
+      conditions: "Audit par conseiller agréé (liste sur klima-agence.lu)",
       nature: "directe",
+      source: "RGD du 23 décembre 2016 mod. — art. 9 (conseil en énergie)",
     });
 
     aides.push({
       nom: "Topup Klimabonus (Ministère Logement)",
       categorie: "etatique_energie",
       montant: input.montantTravaux * 0.1,
-      description: "Prime complémentaire de 10% à 100% du Klimabonus initial",
-      conditions: "Sous conditions de revenus",
+      description: "Prime complémentaire de 10% à 100% du Klimabonus initial, selon les revenus du ménage",
+      conditions: "Sous conditions de revenus (plafond modulé selon la composition du ménage)",
       nature: "directe",
+      source: "RGD du 23 décembre 2016 mod. — art. 5bis (complément social)",
     });
   }
 
@@ -605,8 +615,9 @@ export function simulerAides(input: AidesInput): AidesResult {
         categorie: "etatique_energie",
         montant: economieInterets,
         description: `Prêt ${formatEUR(montantKlimapret)} à 1,5% au lieu de ~4% marché. Économie d'intérêts sur 15 ans. Aucune avance de fonds.`,
-        conditions: "Max 100 000 €, durée max 15 ans",
+        conditions: "Max 100 000 €, durée max 15 ans, résidence principale",
         nature: "economie",
+        source: "Loi du 23 décembre 2016 mod. — Klimaprêt (guichet.public.lu)",
       });
     }
   }
@@ -619,8 +630,9 @@ export function simulerAides(input: AidesInput): AidesResult {
       categorie: "etatique_acquisition",
       montant: faveurTVA,
       description: "TVA réduite à 3% au lieu de 17% pour travaux sur résidence principale (> 20 ans)",
-      conditions: "Résidence principale, logement de plus de 20 ans",
+      conditions: "Résidence principale, logement de plus de 20 ans, plafond faveur 50 000 €",
       nature: "directe",
+      source: "Loi TVA modifiée — Annexe B, pos. 13 (taux super-réduit 3%)",
     });
   }
 
@@ -633,6 +645,7 @@ export function simulerAides(input: AidesInput): AidesResult {
       description: "Primes des fournisseurs d'énergie (Enovos, Sudstroum, etc.), cumulables avec Klimabonus",
       conditions: "Selon le type de travaux et le fournisseur — demander un devis",
       nature: "directe",
+      source: "Mécanisme d'obligations (loi du 5 août 1993 mod.) — enoprimes.lu",
     });
   }
 
@@ -645,6 +658,7 @@ export function simulerAides(input: AidesInput): AidesResult {
       description: "Variable selon la commune — peut représenter 30 à 50% de l'aide étatique",
       conditions: `Commune : ${input.commune || "non précisée"} — vérifier les règles locales`,
       nature: "directe",
+      source: "Règlement communal — contacter le service urbanisme/logement de votre commune",
     });
   }
 
