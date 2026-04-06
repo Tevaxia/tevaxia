@@ -138,6 +138,7 @@ export default function SimulateurAides() {
   const t = useTranslations("simulateurAides");
   const [typeProjet, setTypeProjet] = useState<"acquisition" | "construction" | "renovation">("acquisition");
   const [prixBien, setPrixBien] = useState(750000);
+  const [travauxPrevus, setTravauxPrevus] = useState(false);
   const [montantTravaux, setMontantTravaux] = useState(50000);
   const [klimaMode, setKlimaMode] = useState<"simplifie" | "detaille">("simplifie");
   const [mesures, setMesures] = useState<Record<string, MesureState>>(() => {
@@ -200,7 +201,7 @@ export default function SimulateurAides() {
       simulerAides({
         typeProjet,
         prixBien,
-        montantTravaux: typeProjet === "renovation" ? montantTravauxEffectif : undefined,
+        montantTravaux: (typeProjet === "renovation" || travauxPrevus) ? montantTravauxEffectif : undefined,
         revenuMenage,
         nbEmprunteurs,
         nbEnfants,
@@ -211,7 +212,7 @@ export default function SimulateurAides() {
         epargneReguliere3ans,
         commune,
       }),
-    [typeProjet, prixBien, montantTravauxEffectif, revenuMenage, nbEmprunteurs, nbEnfants, typeBien, residencePrincipale, estNeuf, montantPret, epargneReguliere3ans, commune]
+    [typeProjet, prixBien, montantTravauxEffectif, travauxPrevus, revenuMenage, nbEmprunteurs, nbEnfants, typeBien, residencePrincipale, estNeuf, montantPret, epargneReguliere3ans, commune]
   );
 
   // Group aides by category
@@ -264,7 +265,23 @@ export default function SimulateurAides() {
                   onChange={(v) => setPrixBien(Number(v))}
                   suffix="€"
                 />
-                {typeProjet === "renovation" && (
+                {typeProjet !== "renovation" && (
+                  <div className="rounded-lg border border-energy/30 bg-energy/5 p-4">
+                    <label className="flex items-center gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={travauxPrevus}
+                        onChange={(e) => setTravauxPrevus(e.target.checked)}
+                        className="rounded border-input-border text-energy focus:ring-energy h-4 w-4"
+                      />
+                      <div>
+                        <span className="text-sm font-medium text-foreground">Travaux de rénovation énergétique prévus ?</span>
+                        <p className="text-xs text-muted mt-0.5">Isolation, fenêtres, chauffage, PV... Cochez pour voir les aides Klimabonus, Klimaprêt, TVA 3% et Enoprimes disponibles.</p>
+                      </div>
+                    </label>
+                  </div>
+                )}
+                {(typeProjet === "renovation" || travauxPrevus) && (
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <span className="text-xs font-medium text-muted">{t("klimaModeLabel")}</span>

@@ -565,7 +565,7 @@ export function simulerAides(input: AidesInput): AidesResult {
   }
 
   // --- COUCHE 2 : Aides rénovation énergie ---
-  if (input.typeProjet === "renovation" && input.montantTravaux) {
+  if (input.montantTravaux && input.montantTravaux > 0) {
     aides.push({
       nom: "Klimabonus",
       categorie: "etatique_energie",
@@ -598,7 +598,7 @@ export function simulerAides(input: AidesInput): AidesResult {
   }
 
   // Klimaprêt (financement à taux réduit)
-  if (input.typeProjet === "renovation" && input.montantTravaux) {
+  if (input.montantTravaux && input.montantTravaux > 0) {
     const klimabonusTotal = aides.filter(a => a.nom.includes("Klimabonus") || a.nom.includes("Subvention conseil")).reduce((s, a) => s + a.montant, 0);
     const resteACharge = Math.max(input.montantTravaux - klimabonusTotal, 0);
     const montantKlimapret = Math.min(resteACharge, 100_000);
@@ -623,7 +623,7 @@ export function simulerAides(input: AidesInput): AidesResult {
   }
 
   // TVA super-réduite 3% sur travaux de rénovation (résidence principale)
-  if (input.typeProjet === "renovation" && input.montantTravaux && input.residencePrincipale) {
+  if (input.montantTravaux && input.montantTravaux > 0 && input.residencePrincipale) {
     const faveurTVA = Math.min(input.montantTravaux * 0.14, 50_000); // diff 17% - 3% = 14%, plafonnée
     aides.push({
       nom: "TVA 3% sur travaux de rénovation",
@@ -637,7 +637,7 @@ export function simulerAides(input: AidesInput): AidesResult {
   }
 
   // --- COUCHE 3 : Aides privées ---
-  if (input.typeProjet === "renovation" && input.montantTravaux) {
+  if (input.montantTravaux && input.montantTravaux > 0) {
     aides.push({
       nom: "Enoprimes (fournisseurs énergie)",
       categorie: "privee",
@@ -650,7 +650,7 @@ export function simulerAides(input: AidesInput): AidesResult {
   }
 
   // --- COUCHE 4 : Aides communales (estimations) ---
-  if (input.typeProjet === "renovation" && input.montantTravaux) {
+  if (input.montantTravaux && input.montantTravaux > 0) {
     aides.push({
       nom: "Aide communale rénovation",
       categorie: "communale",
