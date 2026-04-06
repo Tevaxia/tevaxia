@@ -37,6 +37,9 @@ import { calculerAjustDate } from "@/lib/adjustments";
 import { generateReportBlob } from "@/components/ValuationReport";
 import { PdfButton } from "@/components/energy/EnergyPdf";
 import { downloadDocxReport } from "@/components/ValuationDocx";
+import { getDemographics } from "@/lib/demographics";
+import { getLatestValue, TAUX_HYPOTHECAIRE, OAT_10Y, INDICE_CONSTRUCTION } from "@/lib/macro-data";
+import { getProfile } from "@/lib/profile";
 import { genererNarrative } from "@/lib/narrative";
 import { estimerCoutsRenovation } from "@/lib/renovation-costs";
 import { evaluerChecklist, scoreChecklist } from "@/lib/evs-checklist";
@@ -1822,16 +1825,49 @@ export default function Valorisation() {
                 successLabel={t("sauvegarde")}
               />
               <PdfButton
-                generateBlob={() => generateReportBlob({
-                  dateRapport: new Date().toISOString().split("T")[0],
-                  commune: selectedCommune?.commune,
-                  assetType: t(assetConfig.labelKey),
-                  evsType: t(evsInfo.labelKey),
-                  surface: surfaceBien,
-                  valeurComparaison: valeurComparaison || undefined,
-                  valeurCapitalisation: valeurCapitalisation || undefined,
-                  valeurDCF: valeurDCF || undefined,
-                })}
+                generateBlob={() => {
+                  const demo = selectedCommune ? getDemographics(selectedCommune.commune) : undefined;
+                  const prof = getProfile();
+                  return generateReportBlob({
+                    dateRapport: new Date().toISOString().split("T")[0],
+                    commune: selectedCommune?.commune,
+                    assetType: t(assetConfig.labelKey),
+                    evsType: t(evsInfo.labelKey),
+                    surface: surfaceBien,
+                    valeurComparaison: valeurComparaison || undefined,
+                    valeurCapitalisation: valeurCapitalisation || undefined,
+                    valeurDCF: valeurDCF || undefined,
+                    prixM2Commune: selectedCommune?.prixM2Existant,
+                    transactionsCommune: selectedCommune?.nbTransactions || undefined,
+                    comparables: comparables.filter(c => c.prixVente > 0).map(c => ({
+                      adresse: c.adresse,
+                      prixVente: c.prixVente,
+                      surface: c.surface,
+                      prixM2: c.surface > 0 ? Math.round(c.prixVente / c.surface) : 0,
+                      ajustement: Math.round(((c.localisation || 0) + (c.etat || 0) + (c.etageVue || 0) + (c.exterieur || 0) + (c.parking || 0) + (c.dateIndexation || 0) + (c.autre || 0)) * 10) / 10,
+                      prixAjuste: c.surface > 0 ? Math.round((c.prixVente / c.surface) * (1 + ((c.localisation || 0) + (c.etat || 0) + (c.etageVue || 0) + (c.exterieur || 0) + (c.parking || 0) + (c.dateIndexation || 0) + (c.autre || 0)) / 100)) : 0,
+                    })),
+                    demographicsCommune: demo ? {
+                      population: demo.population,
+                      croissancePct: demo.croissancePct,
+                      revenuMedian: demo.revenuMedian,
+                      tauxChomage: demo.tauxChomage,
+                      pctEtrangers: demo.pctEtrangers,
+                      densiteHabKm2: demo.densiteHabKm2,
+                      canton: demo.canton,
+                    } : undefined,
+                    tauxHypothecaire: getLatestValue(TAUX_HYPOTHECAIRE),
+                    oat10y: getLatestValue(OAT_10Y),
+                    indiceConstruction: getLatestValue(INDICE_CONSTRUCTION),
+                    fourchetteBas: valeurComparaison ? Math.round(valeurComparaison * 0.92) : undefined,
+                    fourchetteHaut: valeurComparaison ? Math.round(valeurComparaison * 1.08) : undefined,
+                    classeEnergie: undefined,
+                    expertNom: prof.nomComplet || undefined,
+                    expertSociete: prof.societe || undefined,
+                    expertQualifications: prof.qualifications || undefined,
+                    logoUrl: prof.logoUrl || undefined,
+                  });
+                }}
                 filename={`tevaxia-rapport-${new Date().toISOString().split("T")[0]}.pdf`}
                 label="PDF"
               />
