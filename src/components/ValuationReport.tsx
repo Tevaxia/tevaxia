@@ -39,11 +39,17 @@ try {
 // ============================================================
 // Formatting helpers
 // ============================================================
-const fmtEur = (n: number) =>
-  new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
+// Note: Intl.NumberFormat uses non-breaking spaces that react-pdf/Inter can't render.
+// Use manual formatting with regular spaces instead.
+const fmtEur = (n: number) => {
+  const str = Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  return `${str} EUR`;
+};
 
-const fmtNum = (n: number, d = 0) =>
-  new Intl.NumberFormat("fr-FR", { maximumFractionDigits: d }).format(n);
+const fmtNum = (n: number, d = 0) => {
+  const fixed = d > 0 ? n.toFixed(d) : Math.round(n).toString();
+  return fixed.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+};
 
 const fmtPct2 = (n: number, d = 2) => `${n.toFixed(d)} %`;
 
@@ -198,7 +204,7 @@ export interface ReportData {
   valeurComparaison?: number;
   valeurCapitalisation?: number;
   valeurDCF?: number;
-  valeurReconciliee?: number;
+  valeurRéconciliee?: number;
   // Capitalisation details
   noi?: number;
   tauxCap?: number;
@@ -212,8 +218,8 @@ export interface ReportData {
   mlv?: number;
   ratioMLV?: number;
   // Sensitivity
-  sensibiliteCap?: { tauxCap: number; valeur: number }[];
-  sensibiliteDCF?: { tauxActu: number; tauxCapSortie: number; valeur: number }[];
+  sensibilitéCap?: { tauxCap: number; valeur: number }[];
+  sensibilitéDCF?: { tauxActu: number; tauxCapSortie: number; valeur: number }[];
   // ESG
   esgScore?: number;
   esgNiveau?: string;
@@ -262,7 +268,7 @@ export interface ReportData {
 
 /** Best available value */
 function bestValue(d: ReportData): number | undefined {
-  return d.valeurReconciliee || d.valeurComparaison || d.valeurCapitalisation || d.valeurDCF;
+  return d.valeurRéconciliee || d.valeurComparaison || d.valeurCapitalisation || d.valeurDCF;
 }
 
 /** Count how many methods were used */
@@ -382,8 +388,8 @@ function IdentificationPage({ data, reference }: { data: ReportData; reference: 
       <View style={s.spacer} />
       <ConfidenceGauge level={confidenceLevel(data)} />
       <Text style={s.note}>
-        Fiabilite basee sur {mc} methode{mc > 1 ? "s" : ""} d&apos;evaluation utilisee{mc > 1 ? "s" : ""}.
-        Plus le nombre de methodes convergentes est eleve, plus l&apos;estimation est robuste.
+        Fiabilite basee sur {mc} méthode{mc > 1 ? "s" : ""} d&apos;evaluation utilisee{mc > 1 ? "s" : ""}.
+        Plus le nombre de méthodes convergentes est eleve, plus l&apos;estimation est robuste.
       </Text>
 
       {data.fourchetteBas != null && data.fourchetteHaut != null && bv && (
@@ -405,7 +411,7 @@ function IdentificationPage({ data, reference }: { data: ReportData; reference: 
 }
 
 // ============================================================
-// PAGE 3: Situation geographique + Demographie + Macro
+// PAGE 3: Situation géographique + Démographie + Macro
 // ============================================================
 
 function GeographyPage({ data, reference }: { data: ReportData; reference: string }) {
@@ -419,14 +425,14 @@ function GeographyPage({ data, reference }: { data: ReportData; reference: strin
       {/* Demographics */}
       {demo && (
         <>
-          <Text style={s.section}>Situation geographique et demographique</Text>
+          <Text style={s.section}>Situation géographique et démographique</Text>
           {demo.canton && <Row label="Canton" value={demo.canton} />}
           {demo.population != null && <Row label="Population" value={fmtNum(demo.population)} />}
-          {demo.croissancePct != null && <Row label="Croissance demographique (2015-2025)" value={fmtPct2(demo.croissancePct, 1)} />}
-          {demo.densiteHabKm2 != null && <Row label="Densite" value={`${fmtNum(demo.densiteHabKm2)} hab/km2`} />}
-          {demo.revenuMedian != null && <Row label="Revenu median annuel" value={fmtEur(demo.revenuMedian)} />}
-          {demo.tauxChomage != null && <Row label="Taux de chomage" value={fmtPct2(demo.tauxChomage, 1)} />}
-          {demo.pctEtrangers != null && <Row label="Part d'etrangers" value={fmtPct2(demo.pctEtrangers, 1)} />}
+          {demo.croissancePct != null && <Row label="Croissance démographique (2015-2025)" value={fmtPct2(demo.croissancePct, 1)} />}
+          {demo.densiteHabKm2 != null && <Row label="Densité" value={`${fmtNum(demo.densiteHabKm2)} hab/km2`} />}
+          {demo.revenuMedian != null && <Row label="Revenu médian annuel" value={fmtEur(demo.revenuMedian)} />}
+          {demo.tauxChomage != null && <Row label="Taux de chômage" value={fmtPct2(demo.tauxChomage, 1)} />}
+          {demo.pctEtrangers != null && <Row label="Part d'étrangers" value={fmtPct2(demo.pctEtrangers, 1)} />}
         </>
       )}
 
@@ -446,11 +452,11 @@ function GeographyPage({ data, reference }: { data: ReportData; reference: strin
       {(data.tauxHypothecaire != null || data.oat10y != null || data.indiceConstruction != null) && (
         <>
           <View style={s.spacerLg} />
-          <Text style={s.section}>Contexte macroeconomique</Text>
+          <Text style={s.section}>Contexte macroéconomique</Text>
           <View style={{ flexDirection: "row" as const, gap: 8 }}>
             {data.tauxHypothecaire != null && (
               <View style={s.cell}>
-                <Text style={s.cellLabel}>Taux hypothecaire moyen</Text>
+                <Text style={s.cellLabel}>Taux hypothécaire moyen</Text>
                 <Text style={s.cellValue}>{fmtPct2(data.tauxHypothecaire, 2)}</Text>
               </View>
             )}
@@ -468,7 +474,7 @@ function GeographyPage({ data, reference }: { data: ReportData; reference: strin
             )}
           </View>
           <Text style={s.note}>
-            Sources : BCL, STATEC, Eurostat. Donnees au {data.dateRapport}.
+            Sources : BCL, STATEC, Eurostat. Données au {data.dateRapport}.
           </Text>
         </>
       )}
@@ -546,10 +552,10 @@ function ComparablesPage({ data, reference }: { data: ReportData; reference: str
 }
 
 // ============================================================
-// PAGE 5: Methodes d'evaluation
+// PAGE 5: Méthodes d'evaluation
 // ============================================================
 
-function MethodesPage({ data, reference }: { data: ReportData; reference: string }) {
+function MéthodesPage({ data, reference }: { data: ReportData; reference: string }) {
   const hasComp = data.valeurComparaison != null && data.valeurComparaison > 0;
   const hasCap = data.valeurCapitalisation != null && data.valeurCapitalisation > 0;
   const hasDCF = data.valeurDCF != null && data.valeurDCF > 0;
@@ -558,7 +564,7 @@ function MethodesPage({ data, reference }: { data: ReportData; reference: string
     <Page size="A4" style={s.page}>
       <PageHeader title="Rapport de valorisation" reference={reference} />
 
-      <Text style={s.section}>Methodes d&apos;evaluation</Text>
+      <Text style={s.section}>Méthodes d&apos;evaluation</Text>
 
       {/* Comparaison */}
       {hasComp && (
@@ -579,26 +585,26 @@ function MethodesPage({ data, reference }: { data: ReportData; reference: string
       {hasCap && (
         <>
           <Text style={s.sectionSm}>Capitalisation directe</Text>
-          {data.noi != null && <Row label="Resultat net d'exploitation (NOI)" value={fmtEur(data.noi)} />}
+          {data.noi != null && <Row label="Résultat net d'exploitation (NOI)" value={fmtEur(data.noi)} />}
           {data.tauxCap != null && <Row label="Taux de capitalisation" value={fmtPct2(data.tauxCap, 2)} />}
           <Row label="Valeur par capitalisation" value={fmtEur(data.valeurCapitalisation || 0)} />
           {data.rendementInitial != null && (
             <Row label="Rendement initial" value={formatPct(data.rendementInitial * 100)} />
           )}
           {data.rendementReversionnaire != null && (
-            <Row label="Rendement reversionnaire (ERV)" value={formatPct(data.rendementReversionnaire * 100)} />
+            <Row label="Rendement réversionnaire (ERV)" value={formatPct(data.rendementReversionnaire * 100)} />
           )}
           {/* Sensitivity table */}
-          {data.sensibiliteCap && data.sensibiliteCap.length > 0 && (
+          {data.sensibilitéCap && data.sensibilitéCap.length > 0 && (
             <View style={{ marginTop: 8 }}>
               <Text style={{ fontSize: 8, fontFamily: "Inter", fontWeight: 600, color: NAVY, marginBottom: 4 }}>
-                Sensibilite — Capitalisation
+                Sensibilité — Capitalisation
               </Text>
               <View style={s.tHead}>
                 <Text style={s.tCellB}>Taux cap.</Text>
                 <Text style={s.tCellBR}>Valeur</Text>
               </View>
-              {data.sensibiliteCap.map((row) => (
+              {data.sensibilitéCap.map((row) => (
                 <View key={row.tauxCap} style={s.tRow}>
                   <Text style={s.tCell}>{fmtPct2(row.tauxCap, 2)}</Text>
                   <Text style={s.tCellR}>{fmtEur(row.valeur)}</Text>
@@ -621,17 +627,17 @@ function MethodesPage({ data, reference }: { data: ReportData; reference: string
             <RowHL label="TRI (IRR)" value={fmtPct2(data.irr * 100, 2)} />
           )}
           {/* Sensitivity matrix */}
-          {data.sensibiliteDCF && data.sensibiliteDCF.length > 0 && (
+          {data.sensibilitéDCF && data.sensibilitéDCF.length > 0 && (
             <View style={{ marginTop: 8 }}>
               <Text style={{ fontSize: 8, fontFamily: "Inter", fontWeight: 600, color: NAVY, marginBottom: 4 }}>
-                Matrice de sensibilite — DCF (Actualisation x Sortie)
+                Matrice de sensibilité — DCF (Actualisation x Sortie)
               </Text>
               <View style={s.tHead}>
                 <Text style={s.tCellB}>Actu.</Text>
                 <Text style={s.tCellB}>Sortie</Text>
                 <Text style={s.tCellBR}>Valeur</Text>
               </View>
-              {data.sensibiliteDCF.map((row, i) => (
+              {data.sensibilitéDCF.map((row, i) => (
                 <View key={i} style={s.tRow}>
                   <Text style={s.tCell}>{fmtPct2(row.tauxActu, 1)}</Text>
                   <Text style={s.tCell}>{fmtPct2(row.tauxCapSortie, 1)}</Text>
@@ -645,7 +651,7 @@ function MethodesPage({ data, reference }: { data: ReportData; reference: string
 
       {/* No methods */}
       {!hasComp && !hasCap && !hasDCF && (
-        <Text style={s.note}>Aucune methode d&apos;evaluation completee.</Text>
+        <Text style={s.note}>Aucune méthode d&apos;evaluation completee.</Text>
       )}
 
       <Footer />
@@ -678,20 +684,20 @@ function ReconciliationPage({ data, reference }: { data: ReportData; reference: 
       {methods.length > 0 && (
         <View style={{ marginTop: 6 }}>
           <View style={s.tHead}>
-            <Text style={s.tCellB}>Methode</Text>
+            <Text style={s.tCellB}>Méthode</Text>
             <Text style={s.tCellBR}>Valeur</Text>
-            <Text style={s.tCellBR}>Ecart / reconciliee</Text>
+            <Text style={s.tCellBR}>Écart / réconciliee</Text>
           </View>
           {methods.map((m) => {
-            const ecart = data.valeurReconciliee
-              ? ((m.value - data.valeurReconciliee) / data.valeurReconciliee) * 100
+            const écart = data.valeurRéconciliee
+              ? ((m.value - data.valeurRéconciliee) / data.valeurRéconciliee) * 100
               : 0;
             return (
               <View key={m.name} style={s.tRow}>
                 <Text style={s.tCell}>{m.name}</Text>
                 <Text style={s.tCellR}>{fmtEur(m.value)}</Text>
                 <Text style={s.tCellR}>
-                  {data.valeurReconciliee ? `${ecart > 0 ? "+" : ""}${ecart.toFixed(1)} %` : "—"}
+                  {data.valeurRéconciliee ? `${écart > 0 ? "+" : ""}${écart.toFixed(1)} %` : "—"}
                 </Text>
               </View>
             );
@@ -700,7 +706,7 @@ function ReconciliationPage({ data, reference }: { data: ReportData; reference: 
       )}
 
       <View style={s.spacerLg} />
-      <RowGold label="Valeur reconciliee" value={fmtEur(bv)} />
+      <RowGold label="Valeur réconciliee" value={fmtEur(bv)} />
 
       {data.surface > 0 && (
         <Row label="Prix unitaire" value={`${fmtEur(bv / data.surface)} /m2`} />
@@ -724,7 +730,7 @@ function ReconciliationPage({ data, reference }: { data: ReportData; reference: 
       {data.mlv != null && data.mlv > 0 && (
         <>
           <View style={s.spacerLg} />
-          <Text style={s.sectionSm}>Valeur hypothecaire (MLV)</Text>
+          <Text style={s.sectionSm}>Valeur hypothécaire (MLV)</Text>
           <RowHL label="Mortgage Lending Value" value={fmtEur(data.mlv)} />
           {data.ratioMLV != null && (
             <Row label="Ratio MLV / Valeur de marche" value={fmtPct2(data.ratioMLV * 100, 1)} />
@@ -758,7 +764,7 @@ function EsgPage({ data, reference }: { data: ReportData; reference: string }) {
     <Page size="A4" style={s.page}>
       <PageHeader title="Rapport de valorisation" reference={reference} />
 
-      <Text style={s.section}>ESG et performance energetique</Text>
+      <Text style={s.section}>ESG et performance énergétique</Text>
 
       {/* Energy class badge */}
       {data.classeEnergie && (
@@ -768,10 +774,10 @@ function EsgPage({ data, reference }: { data: ReportData; reference: string }) {
           </View>
           <View>
             <Text style={{ fontSize: 11, fontFamily: "Inter", fontWeight: 600, color: NAVY }}>
-              Classe energetique {data.classeEnergie.toUpperCase()}
+              Classe énergétique {data.classeEnergie.toUpperCase()}
             </Text>
             <Text style={{ fontSize: 8, color: MUTED, marginTop: 2 }}>
-              Certificat de performance energetique (CPE)
+              Certificat de performance énergétique (CPE)
             </Text>
           </View>
         </View>
@@ -798,7 +804,7 @@ function EsgPage({ data, reference }: { data: ReportData; reference: string }) {
       <Text style={{ fontSize: 8, color: SLATE, lineHeight: 1.6, marginTop: 4 }}>
         Les etudes recentes (RICS 2024, JLL Luxembourg) montrent qu&apos;un bien classe A-B beneficie
         d&apos;une prime de 5 a 15 % par rapport a la moyenne du marche, tandis qu&apos;un bien classe F-G
-        subit une decote de 10 a 25 %. Ces ecarts tendent a s&apos;amplifier avec le durcissement
+        subit une decote de 10 a 25 %. Ces écarts tendent a s&apos;amplifier avec le durcissement
         des exigences reglementaires europeennes (EPBD, taxonomie).
       </Text>
 
@@ -849,7 +855,7 @@ function NarrativePage({ data, reference }: { data: ReportData; reference: strin
       <Text style={s.sectionSm}>Commentaires de l&apos;expert</Text>
       <Text style={{ fontSize: 9, color: SLATE, lineHeight: 1.7, marginTop: 4 }}>
         L&apos;analyse ci-dessus est generee automatiquement a partir des donnees saisies et des
-        resultats des differentes methodes d&apos;evaluation. Elle synthetise les principaux
+        résultats des differentes méthodes d&apos;evaluation. Elle synthetise les principaux
         facteurs ayant influence la valorisation : localisation, contexte de marche, parametres
         de rendement et facteurs ESG.
       </Text>
@@ -865,12 +871,12 @@ function NarrativePage({ data, reference }: { data: ReportData; reference: strin
 
 function CertificationPage({ data, reference }: { data: ReportData; reference: string }) {
   const statements = [
-    "Les analyses et opinions contenues dans ce rapport sont basees sur les informations fournies et les donnees de marche disponibles a la date du rapport.",
+    "Les analyses et opinions contenues dans ce rapport sont basees sur les informations fournies et les donnees de marche disponibles à la date du rapport.",
     "L'evaluation a ete menee conformement aux principes des European Valuation Standards (EVS 2025, 10e edition, TEGOVA).",
-    "L'evaluateur n'a aucun interet financier actuel ou futur dans le bien evalue.",
+    "L'évaluateur n'a aucun interet financier actuel ou futur dans le bien evalue.",
     "Les valeurs indiquees sont exprimees en euros et s'entendent hors droits d'enregistrement, TVA et frais de mutation, sauf mention contraire.",
-    "Ce rapport est destine exclusivement a l'usage du mandant et ne peut etre communique a des tiers sans l'accord prealable de l'evaluateur.",
-    "Les resultats de cette simulation indicative ne sauraient se substituer a une expertise certifiee par un evaluateur REV/TEGOVA.",
+    "Ce rapport est destiné exclusivement a l'usage du mandant et ne peut etre communiqué à des tiers sans l'accord préalable de l'évaluateur.",
+    "Les résultats de cette simulation indicative ne sauraient se substituer à une expertise certifiée par un évaluateur REV/TEGOVA.",
   ];
 
   return (
@@ -882,7 +888,7 @@ function CertificationPage({ data, reference }: { data: ReportData; reference: s
       {(data.expertNom || data.expertSociete) && (
         <View style={{ marginTop: 8, marginBottom: 16 }}>
           {data.expertNom && <Row label="Expert" value={data.expertNom} />}
-          {data.expertSociete && <Row label="Societe" value={data.expertSociete} />}
+          {data.expertSociete && <Row label="Société" value={data.expertSociete} />}
           {data.expertQualifications && <Row label="Qualifications" value={data.expertQualifications} />}
         </View>
       )}
@@ -929,29 +935,29 @@ function ValuationDisclaimerPage({ reference }: { reference: string }) {
 
       <Text style={{ fontSize: 9, color: SLATE, lineHeight: 1.6, marginTop: 8 }}>
         Ce document est genere automatiquement par la plateforme tevaxia.lu a titre purement
-        informatif et indicatif. Il ne constitue en aucun cas une expertise certifiee, un conseil
+        informatif et indicatif. Il ne constitue en aucun cas une expertise certifiée, un conseil
         en evaluation immobiliere, un conseil financier, fiscal ou juridique.
       </Text>
 
       <Text style={{ fontSize: 9, color: SLATE, lineHeight: 1.6, marginTop: 12 }}>
-        Les resultats presentes dependent des parametres saisis par l&apos;utilisateur et des
+        Les résultats presentes dependent des parametres saisis par l&apos;utilisateur et des
         hypotheses de calcul integrees dans les modeles. Ils peuvent differer significativement
         de la realite du marche.
       </Text>
 
       <Text style={{ fontSize: 9, color: SLATE, lineHeight: 1.6, marginTop: 12 }}>
-        Les valeurs sont exprimees en euros courants a la date du rapport. Elles ne tiennent pas
+        Les valeurs sont exprimees en euros courants à la date du rapport. Elles ne tiennent pas
         compte de l&apos;inflation future, des evolutions reglementaires ou des variations de marche
         posterieures a cette date.
       </Text>
 
       <Text style={{ fontSize: 9, color: SLATE, lineHeight: 1.6, marginTop: 12 }}>
-        Les donnees demographiques et macroeconomiques proviennent de sources publiques (STATEC,
+        Les donnees démographiques et macroéconomiques proviennent de sources publiques (STATEC,
         BCL, Eurostat, Observatoire de l&apos;Habitat) et sont susceptibles de revision.
       </Text>
 
       <Text style={{ fontSize: 9, color: SLATE, lineHeight: 1.6, marginTop: 12 }}>
-        Pour toute decision engageante, consultez un professionnel agree : evaluateur REV/TEGOVA,
+        Pour toute decision engageante, consultez un professionnel agree : évaluateur REV/TEGOVA,
         notaire, conseiller financier ou conseiller en energie.
       </Text>
 
@@ -1000,7 +1006,7 @@ function ReportDocument({ data }: { data: ReportData }) {
       {showComparables && <ComparablesPage data={data} reference={reference} />}
 
       {/* Page 5: Methods */}
-      <MethodesPage data={data} reference={reference} />
+      <MéthodesPage data={data} reference={reference} />
 
       {/* Page 6: Reconciliation (conditional — needs at least one value) */}
       {bv && <ReconciliationPage data={data} reference={reference} />}

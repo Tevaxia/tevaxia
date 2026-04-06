@@ -28,10 +28,14 @@ if (typeof window !== "undefined") {
 export { PdfButton } from "@/components/energy/EnergyPdf";
 
 /* ---------- Helpers ---------- */
-const fmtEur = (n: number) =>
-  new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
-const fmtNum = (n: number, d = 0) =>
-  new Intl.NumberFormat("fr-FR", { maximumFractionDigits: d }).format(n);
+const fmtEur = (n: number) => {
+  const str = Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  return `${str} EUR`;
+};
+const fmtNum = (n: number, d = 0) => {
+  const fixed = d > 0 ? n.toFixed(d) : Math.round(n).toString();
+  return fixed.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+};
 const fmtPct = (n: number, d = 1) => `${n.toFixed(d)} %`;
 const today = () => new Date().toLocaleDateString("fr-LU");
 
