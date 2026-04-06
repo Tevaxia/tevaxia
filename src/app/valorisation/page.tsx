@@ -1839,14 +1839,18 @@ export default function Valorisation() {
                     valeurDCF: valeurDCF || undefined,
                     prixM2Commune: selectedCommune?.prixM2Existant || undefined,
                     transactionsCommune: selectedCommune?.nbTransactions || undefined,
-                    comparables: comparables.filter(c => c.prixVente > 0).map(c => ({
-                      adresse: c.adresse,
-                      prixVente: c.prixVente,
-                      surface: c.surface,
-                      prixM2: c.surface > 0 ? Math.round(c.prixVente / c.surface) : 0,
-                      ajustement: Math.round(((c.localisation || 0) + (c.etat || 0) + (c.etageVue || 0) + (c.exterieur || 0) + (c.parking || 0) + (c.dateIndexation || 0) + (c.autre || 0)) * 10) / 10,
-                      prixAjuste: c.surface > 0 ? Math.round((c.prixVente / c.surface) * (1 + ((c.localisation || 0) + (c.etat || 0) + (c.etageVue || 0) + (c.exterieur || 0) + (c.parking || 0) + (c.dateIndexation || 0) + (c.autre || 0)) / 100)) : 0,
-                    })),
+                    comparables: comparables.filter(c => c.prixVente > 0).map(c => {
+                      const totalAjust = (c.ajustLocalisation || 0) + (c.ajustEtat || 0) + (c.ajustEtage || 0) + (c.ajustExterieur || 0) + (c.ajustParking || 0) + (c.ajustDate || 0) + (c.ajustAutre || 0);
+                      const prixM2 = c.surface > 0 ? Math.round(c.prixVente / c.surface) : 0;
+                      return {
+                        adresse: c.adresse,
+                        prixVente: c.prixVente,
+                        surface: c.surface,
+                        prixM2,
+                        ajustement: Math.round(totalAjust * 10) / 10,
+                        prixAjuste: Math.round(prixM2 * (1 + totalAjust / 100)),
+                      };
+                    }),
                     demographicsCommune: demo ? {
                       population: demo.population,
                       croissancePct: demo.croissancePct,
