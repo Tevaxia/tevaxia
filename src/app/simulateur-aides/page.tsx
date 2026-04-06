@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
+import { DEMOGRAPHICS } from "@/lib/demographics";
 import ToggleField from "@/components/ToggleField";
 import { simulerAides, formatEUR, type AideDetail } from "@/lib/calculations";
 import RelatedTools from "@/components/RelatedTools";
@@ -10,6 +11,49 @@ import { generateAidesPdfBlob, PdfButton } from "@/components/ToolsPdf";
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import AuthGate from "@/components/AuthGate";
+
+const ALL_COMMUNES = Object.keys(DEMOGRAPHICS).sort();
+
+function CommuneAutocomplete({ label, value, onChange, hint }: { label: string; value: string; onChange: (v: string) => void; hint: string }) {
+  const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const ref = useRef<HTMLDivElement>(null);
+
+  const filtered = useMemo(() => {
+    if (!search) return ALL_COMMUNES.slice(0, 15);
+    const q = search.toLowerCase();
+    return ALL_COMMUNES.filter((c) => c.toLowerCase().includes(q)).slice(0, 15);
+  }, [search]);
+
+  return (
+    <div ref={ref} className="relative">
+      <label className="block text-sm font-medium text-slate mb-1">{label}</label>
+      <input
+        type="text"
+        value={open ? search : value}
+        onFocus={() => { setOpen(true); setSearch(value); }}
+        onBlur={() => setTimeout(() => setOpen(false), 200)}
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Rechercher une commune..."
+        className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm shadow-sm focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
+      />
+      {open && filtered.length > 0 && (
+        <div className="absolute z-20 mt-1 w-full max-h-48 overflow-y-auto rounded-lg border border-card-border bg-card shadow-lg">
+          {filtered.map((c) => (
+            <button key={c} type="button"
+              onMouseDown={() => { onChange(c); setSearch(c); setOpen(false); }}
+              className={`block w-full text-left px-3 py-2 text-sm hover:bg-navy/5 ${c === value ? "bg-navy/10 font-semibold text-navy" : "text-slate"}`}
+            >
+              {c}
+              <span className="ml-2 text-xs text-muted">{DEMOGRAPHICS[c]?.canton}</span>
+            </button>
+          ))}
+        </div>
+      )}
+      <p className="text-xs text-muted mt-0.5">{hint}</p>
+    </div>
+  );
+}
 
 function AideCard({ aide, t }: { aide: AideDetail; t: (key: string) => string }) {
   const CATEGORIE_LABELS: Record<string, { color: string; bg: string }> = {
@@ -379,9 +423,8 @@ export default function SimulateurAides() {
                   onChange={setEpargneReguliere3ans}
                   hint={t("epargneReguliereHint")}
                 />
-                <InputField
+                <CommuneAutocomplete
                   label={t("commune")}
-                  type="text"
                   value={commune}
                   onChange={setCommune}
                   hint={t("communeHint")}
@@ -491,6 +534,65 @@ export default function SimulateurAides() {
               </div>
             ))}
             </AuthGate>
+
+            {/* Aides communales dynamiques */}
+            {commune && (
+              <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-6 shadow-sm">
+                <h3 className="mb-3 text-base font-semibold text-emerald-800">
+                  Aides communales — {commune}
+                </h3>
+                <div className="text-sm text-emerald-700 space-y-2">
+                  {(() => {
+                    const communeAides: Record<string, string> = {
+                      "Luxembourg": "Subvention rénovation de façade : 750 à 20 000 € par immeuble en secteur protégé, +10% en zone UNESCO. Prime énergie communale complémentaire.",
+                      "Esch-sur-Alzette": "Subventions façade en zones de rénovation urbaine. Complément communal aux aides étatiques pour la rénovation énergétique.",
+                      "Differdange": "Prime communale rénovation énergétique. Aide complémentaire pour l'installation de panneaux photovoltaïques.",
+                      "Dudelange": "Subventions façade en zones de rénovation urbaine. Prime mobilité douce.",
+                      "Sanem": "Complément communal ~50% de l'aide étatique (plafond variable). Prime énergie renouvelable.",
+                      "Bertrange": "Complément communal ~50% de l'aide étatique (plafond variable). Prime isolation.",
+                      "Hesperange": "Prime communale énergie renouvelable. Subvention bornes de recharge.",
+                      "Bettembourg": "Aide complémentaire rénovation. Prime panneaux solaires thermiques.",
+                      "Lintgen": "50% de l'aide étatique, plafonnée à 1 500 €. Prime Klimapakt.",
+                      "Beckerich": "Suppléments énergie renouvelable et rénovation (commune Klimapakt). Prime mobilité électrique.",
+                      "Mersch": "Complément communal rénovation énergétique. Prime vélo électrique.",
+                      "Mamer": "Aide communale acquisition résidence principale. Prime énergie.",
+                      "Strassen": "Subvention isolation façade. Complément Klimabonus communal.",
+                      "Schifflange": "Prime rénovation urbaine. Aide complémentaire énergie.",
+                      "Pétange": "Subvention rénovation façade. Prime énergie renouvelable communale.",
+                      "Käerjeng": "Complément Klimapakt. Prime panneaux photovoltaïques.",
+                      "Mondercange": "Aide communale rénovation. Prime mobilité douce.",
+                      "Steinsel": "Subvention énergie renouvelable. Aide complémentaire isolation.",
+                      "Walferdange": "Prime communale rénovation. Subvention bornes de recharge.",
+                      "Niederanven": "Complément communal énergie. Prime véhicule électrique.",
+                      "Sandweiler": "Aide communale Klimapakt. Prime isolation.",
+                      "Contern": "Subvention énergie renouvelable. Aide rénovation.",
+                      "Junglinster": "Complément communal rénovation énergétique. Prime Klimapakt.",
+                      "Echternach": "Subvention rénovation façade en secteur protégé. Prime patrimoine historique.",
+                      "Diekirch": "Aide communale rénovation. Prime énergie.",
+                      "Ettelbruck": "Subvention rénovation urbaine. Complément Klimabonus.",
+                      "Wiltz": "Aide rénovation urbaine. Prime énergie (commune Klimapakt Gold).",
+                      "Clervaux": "Complément communal rénovation. Aide énergie renouvelable.",
+                      "Vianden": "Subvention rénovation patrimoine. Prime énergie.",
+                      "Remich": "Aide communale rénovation façade. Prime énergie.",
+                      "Grevenmacher": "Subvention rénovation. Complément communal énergie.",
+                    };
+                    const aide = communeAides[commune];
+                    return aide ? (
+                      <>
+                        <p>{aide}</p>
+                        <p className="text-xs text-emerald-600 mt-2">
+                          Contactez le service urbanisme/logement de {commune} pour les montants exacts et les conditions en vigueur.
+                        </p>
+                      </>
+                    ) : (
+                      <p className="text-emerald-600">
+                        Aucune donnée spécifique pour {commune}. Contactez le service urbanisme/logement de votre commune pour connaître les aides locales disponibles — la plupart des communes luxembourgeoises offrent des compléments aux aides étatiques.
+                      </p>
+                    );
+                  })()}
+                </div>
+              </div>
+            )}
 
             {/* Disclaimer */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
