@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import SliderField from "@/components/SliderField";
 import ResultPanel from "@/components/ResultPanel";
 import { formatEUR } from "@/lib/calculations";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /* ------------------------------------------------------------------ */
 /*  ACT coefficients for weighted accessories                         */
@@ -46,6 +48,8 @@ function fmtPct(v: number): string {
 /*  Page component                                                    */
 /* ------------------------------------------------------------------ */
 export default function ConvertisseurSurfaces() {
+  const t = useTranslations("convertisseurSurfaces");
+
   // --- Surface de référence ---
   const [surfaceReference, setSurfaceReference] = useState(2500);
   const [typeSurface, setTypeSurface] = useState<"scb" | "scp" | "su" | "shab">("scb");
@@ -200,13 +204,14 @@ export default function ConvertisseurSurfaces() {
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs />
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl font-bold text-navy sm:text-3xl">
-            Convertisseur de surfaces
+            {t("title")}
           </h1>
           <p className="mt-2 text-muted">
-            Conversion entre SCB, SCP, surface utile et surface habitable — normes OAI FC.04 et ILNAS 101:2016
+            {t("subtitle")}
           </p>
         </div>
 
@@ -215,183 +220,183 @@ export default function ConvertisseurSurfaces() {
           <div className="space-y-6">
             {/* Surface de référence */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-              <h2 className="mb-4 text-base font-semibold text-navy">Surface de référence</h2>
+              <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionReference")}</h2>
               <div className="space-y-4">
                 <InputField
-                  label="Surface connue"
+                  label={t("surfaceConnue")}
                   value={surfaceReference}
                   onChange={(v) => setSurfaceReference(Number(v))}
                   suffix="m²"
                   min={0}
-                  hint="Superficie mesurée ou documentée"
+                  hint={t("surfaceConnueHint")}
                 />
                 <InputField
-                  label="Type de surface"
+                  label={t("typeSurface")}
                   value={typeSurface}
                   onChange={(v) => setTypeSurface(v as "scb" | "scp" | "su" | "shab")}
                   type="select"
                   options={[
-                    { value: "scb", label: "SCB — Surface Construite Brute" },
-                    { value: "scp", label: "SCP — Surface de Plancher" },
-                    { value: "su", label: "SU — Surface Utile" },
-                    { value: "shab", label: "SHAB — Surface Habitable (ILNAS 101)" },
+                    { value: "scb", label: t("optionScb") },
+                    { value: "scp", label: t("optionScp") },
+                    { value: "su", label: t("optionSu") },
+                    { value: "shab", label: t("optionShab") },
                   ]}
-                  hint="Surface à partir de laquelle calculer les autres"
+                  hint={t("typeSurfaceHint")}
                 />
                 <InputField
-                  label="Nombre de niveaux"
+                  label={t("nbNiveaux")}
                   value={nbNiveaux}
                   onChange={(v) => setNbNiveaux(Math.max(1, Math.min(20, Number(v))))}
                   min={1}
                   max={20}
-                  hint="Nombre de niveaux hors-sol du bâtiment"
+                  hint={t("nbNiveauxHint")}
                 />
               </div>
             </div>
 
             {/* Épaisseurs structurelles */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-              <h2 className="mb-4 text-base font-semibold text-navy">Épaisseurs structurelles</h2>
+              <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionStructure")}</h2>
               <div className="space-y-5">
                 <SliderField
-                  label="Murs extérieurs"
+                  label={t("mursExterieurs")}
                   value={epaisseurMursExt}
                   onChange={setEpaisseurMursExt}
                   min={20}
                   max={50}
                   step={1}
                   suffix="cm"
-                  hint="Épaisseur moyenne des murs de façade (isolation incluse)"
+                  hint={t("mursExterieursHint")}
                 />
                 <SliderField
-                  label="Murs porteurs intérieurs"
+                  label={t("mursPorteurs")}
                   value={epaisseurMursPorteurs}
                   onChange={setEpaisseurMursPorteurs}
                   min={15}
                   max={35}
                   step={1}
                   suffix="cm"
-                  hint="Épaisseur moyenne des murs porteurs et refends"
+                  hint={t("mursPorteursHint")}
                 />
                 <SliderField
-                  label="Parties communes"
+                  label={t("partiesCommunes")}
                   value={partiesCommunes}
                   onChange={setPartiesCommunes}
                   min={5}
                   max={25}
                   step={0.5}
                   suffix="%"
-                  hint="Halls, escaliers, local technique — en % de la SCP (immeuble collectif uniquement)"
+                  hint={t("partiesCommunesHint")}
                 />
               </div>
             </div>
 
             {/* Accessoires (pondération ACT) */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-              <h2 className="mb-4 text-base font-semibold text-navy">Accessoires (pondération ACT)</h2>
+              <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionAccessoires")}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 <InputField
-                  label="Balcons"
+                  label={t("balcons")}
                   value={surfaceBalcons}
                   onChange={(v) => setSurfaceBalcons(Number(v))}
                   suffix="m²"
                   min={0}
-                  hint="Coeff. 0,40 (0,30 au-delà de 20 m²)"
+                  hint={t("hintCoeff040")}
                 />
                 <InputField
-                  label="Terrasses"
+                  label={t("terrasses")}
                   value={surfaceTerrasses}
                   onChange={(v) => setSurfaceTerrasses(Number(v))}
                   suffix="m²"
                   min={0}
-                  hint="Coeff. 0,40 (0,30 au-delà de 20 m²)"
+                  hint={t("hintCoeff040")}
                 />
                 <InputField
-                  label="Terrasses-verdure"
+                  label={t("terrassesVerdure")}
                   value={surfaceTerrassesVerdure}
                   onChange={(v) => setSurfaceTerrassesVerdure(Number(v))}
                   suffix="m²"
                   min={0}
-                  hint="Coeff. 0,20 (0,10 au-delà de 20 m²)"
+                  hint={t("hintCoeff020")}
                 />
                 <InputField
-                  label="Caves"
+                  label={t("caves")}
                   value={surfaceCaves}
                   onChange={(v) => setSurfaceCaves(Number(v))}
                   suffix="m²"
                   min={0}
-                  hint="Coeff. 0,50"
+                  hint={t("hintCoeff050")}
                 />
                 <InputField
-                  label="Garages"
+                  label={t("garages")}
                   value={surfaceGarages}
                   onChange={(v) => setSurfaceGarages(Number(v))}
                   suffix="m²"
                   min={0}
-                  hint="Coeff. 0,50"
+                  hint={t("hintCoeff050")}
                 />
                 <InputField
-                  label="Loggias"
+                  label={t("loggias")}
                   value={surfaceLoggias}
                   onChange={(v) => setSurfaceLoggias(Number(v))}
                   suffix="m²"
                   min={0}
-                  hint="Coeff. 0,50"
+                  hint={t("hintCoeff050")}
                 />
               </div>
             </div>
 
             {/* Paramètres */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-              <h2 className="mb-4 text-base font-semibold text-navy">Paramètres</h2>
+              <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionParams")}</h2>
               <div className="space-y-5">
                 <InputField
-                  label="Type de bâtiment"
+                  label={t("typeBatiment")}
                   value={typeBatiment}
                   onChange={(v) => setTypeBatiment(v as "immeuble" | "maison_individuelle" | "maison_jumelee")}
                   type="select"
                   options={[
-                    { value: "immeuble", label: "Immeuble collectif" },
-                    { value: "maison_individuelle", label: "Maison individuelle" },
-                    { value: "maison_jumelee", label: "Maison jumelée / en bande" },
+                    { value: "immeuble", label: t("optionImmeuble") },
+                    { value: "maison_individuelle", label: t("optionMaisonIndiv") },
+                    { value: "maison_jumelee", label: t("optionMaisonJumelee") },
                   ]}
-                  hint="Influence le ratio SCB → SCP (périmètre de façade vs surface)"
+                  hint={t("typeBatimentHint")}
                 />
                 <SliderField
-                  label="Hauteur minimale comptable"
+                  label={t("hauteurMin")}
                   value={hauteurMinCounting}
                   onChange={setHauteurMinCounting}
                   min={1.8}
                   max={2.2}
                   step={0.1}
                   suffix="m"
-                  hint="Hauteur sous plafond minimale pour la surface habitable (ILNAS 101)"
+                  hint={t("hauteurMinHint")}
                 />
                 <SliderField
-                  label="% sous hauteur minimale"
+                  label={t("pctSousHauteur")}
                   value={pctSousHauteur}
                   onChange={setPctSousHauteur}
                   min={0}
                   max={15}
                   step={1}
                   suffix="%"
-                  hint="Part de la surface utile sous la hauteur minimale (combles, soupentes)"
+                  hint={t("pctSousHauteurHint")}
                 />
               </div>
             </div>
 
             {/* Projection financière */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-              <h2 className="mb-4 text-base font-semibold text-navy">Projection financière</h2>
+              <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionFinancial")}</h2>
               <SliderField
-                label="Prix au m²"
+                label={t("prixM2")}
                 value={prixM2}
                 onChange={setPrixM2}
                 min={4000}
                 max={15000}
                 step={100}
                 suffix="€"
-                hint="Prix de vente moyen par m² vendable"
+                hint={t("prixM2Hint")}
               />
             </div>
           </div>
@@ -400,45 +405,45 @@ export default function ConvertisseurSurfaces() {
           <div className="space-y-6">
             {/* Hero: Surface vendable */}
             <div className="rounded-2xl bg-gradient-to-br from-navy to-navy-light p-8 text-center text-white shadow-lg">
-              <div className="text-sm text-white/60">Surface vendable</div>
+              <div className="text-sm text-white/60">{t("surfaceVendable")}</div>
               <div className="mt-2 text-5xl font-bold">{fmtM2(result.surfaceVendable)}</div>
               <div className="mt-2 text-sm text-white/60">
-                SHAB {fmtM2(result.shab)} + accessoires pondérés {fmtM2(result.totalWeighted)}
+                {t("heroDetail", { shab: fmtM2(result.shab), weighted: fmtM2(result.totalWeighted) })}
               </div>
             </div>
 
             {/* Surfaces calculées */}
             <ResultPanel
-              title="Surfaces calculées"
+              title={t("resultSurfaces")}
               lines={[
                 {
-                  label: "SCB — Surface Construite Brute",
+                  label: t("resultScb"),
                   value: fmtM2(result.scb),
                   highlight: typeSurface === "scb",
                 },
                 {
-                  label: `SCP — Surface de Plancher (${fmtPct(result.scbToScp)})`,
+                  label: t("resultScpPct", { pct: fmtPct(result.scbToScp) }),
                   value: fmtM2(result.scp),
                   highlight: typeSurface === "scp",
                 },
                 {
-                  label: `SU — Surface Utile (${fmtPct(result.scbToSu)})`,
+                  label: t("resultSuPct", { pct: fmtPct(result.scbToSu) }),
                   value: fmtM2(result.su),
                   highlight: typeSurface === "su",
                 },
                 {
-                  label: `SHAB — Surface Habitable (${fmtPct(result.scbToShab)})`,
+                  label: t("resultShabPct", { pct: fmtPct(result.scbToShab) }),
                   value: fmtM2(result.shab),
                   highlight: typeSurface === "shab",
                 },
                 {
-                  label: "Surface vendable",
+                  label: t("surfaceVendable"),
                   value: fmtM2(result.surfaceVendable),
                   highlight: true,
                   large: true,
                 },
                 {
-                  label: "Surface par niveau (SCB)",
+                  label: t("surfaceParNiveau"),
                   value: fmtM2(result.surfaceParNiveau),
                   sub: true,
                 },
@@ -447,58 +452,58 @@ export default function ConvertisseurSurfaces() {
 
             {/* Ratios de conversion */}
             <ResultPanel
-              title="Ratios de conversion"
+              title={t("resultRatios")}
               lines={[
-                { label: "SCB → SCP", value: fmtPct(result.scbToScp) },
-                { label: "SCP → SU", value: fmtPct(result.scpToSu) },
-                { label: "SU → SHAB", value: fmtPct(result.suToShab) },
-                { label: "SCB → SHAB (composé)", value: fmtPct(result.scbToShab), highlight: true },
-                { label: "SCP → SHAB (composé)", value: fmtPct(result.scpToShab), sub: true },
+                { label: t("ratioScbScp"), value: fmtPct(result.scbToScp) },
+                { label: t("ratioScpSu"), value: fmtPct(result.scpToSu) },
+                { label: t("ratioSuShab"), value: fmtPct(result.suToShab) },
+                { label: t("ratioScbShab"), value: fmtPct(result.scbToShab), highlight: true },
+                { label: t("ratioScpShab"), value: fmtPct(result.scpToShab), sub: true },
               ]}
             />
 
             {/* Accessoires pondérés (ACT) */}
             <ResultPanel
-              title="Accessoires pondérés (ACT)"
+              title={t("resultAccessoires")}
               lines={[
                 ...(surfaceBalcons > 0
                   ? [{
-                      label: `Balcons : ${fmtM2(surfaceBalcons)} × ${effectiveCoeff(surfaceBalcons, ACT_COEFFICIENTS.balcons).toFixed(2)}`,
+                      label: `${t("balcons")} : ${fmtM2(surfaceBalcons)} × ${effectiveCoeff(surfaceBalcons, ACT_COEFFICIENTS.balcons).toFixed(2)}`,
                       value: fmtM2(result.wBalcons),
                     }]
                   : []),
                 ...(surfaceTerrasses > 0
                   ? [{
-                      label: `Terrasses : ${fmtM2(surfaceTerrasses)} × ${effectiveCoeff(surfaceTerrasses, ACT_COEFFICIENTS.terrasses).toFixed(2)}`,
+                      label: `${t("terrasses")} : ${fmtM2(surfaceTerrasses)} × ${effectiveCoeff(surfaceTerrasses, ACT_COEFFICIENTS.terrasses).toFixed(2)}`,
                       value: fmtM2(result.wTerrasses),
                     }]
                   : []),
                 ...(surfaceTerrassesVerdure > 0
                   ? [{
-                      label: `Terrasses-verdure : ${fmtM2(surfaceTerrassesVerdure)} × ${effectiveCoeff(surfaceTerrassesVerdure, ACT_COEFFICIENTS.terrassesVerdure).toFixed(2)}`,
+                      label: `${t("terrassesVerdure")} : ${fmtM2(surfaceTerrassesVerdure)} × ${effectiveCoeff(surfaceTerrassesVerdure, ACT_COEFFICIENTS.terrassesVerdure).toFixed(2)}`,
                       value: fmtM2(result.wTerrassesVerdure),
                     }]
                   : []),
                 ...(surfaceCaves > 0
                   ? [{
-                      label: `Caves : ${fmtM2(surfaceCaves)} × 0,50`,
+                      label: `${t("caves")} : ${fmtM2(surfaceCaves)} × 0,50`,
                       value: fmtM2(result.wCaves),
                     }]
                   : []),
                 ...(surfaceGarages > 0
                   ? [{
-                      label: `Garages : ${fmtM2(surfaceGarages)} × 0,50`,
+                      label: `${t("garages")} : ${fmtM2(surfaceGarages)} × 0,50`,
                       value: fmtM2(result.wGarages),
                     }]
                   : []),
                 ...(surfaceLoggias > 0
                   ? [{
-                      label: `Loggias : ${fmtM2(surfaceLoggias)} × 0,50`,
+                      label: `${t("loggias")} : ${fmtM2(surfaceLoggias)} × 0,50`,
                       value: fmtM2(result.wLoggias),
                     }]
                   : []),
                 {
-                  label: "Total pondéré",
+                  label: t("totalPondere"),
                   value: fmtM2(result.totalWeighted),
                   highlight: true,
                 },
@@ -507,25 +512,25 @@ export default function ConvertisseurSurfaces() {
 
             {/* Projection financière */}
             <ResultPanel
-              title="Projection financière"
+              title={t("sectionFinancial")}
               lines={[
                 {
-                  label: "CA surface vendable",
+                  label: t("caVendable"),
                   value: formatEUR(result.caVendable),
                   highlight: true,
                   large: true,
                 },
                 {
-                  label: "CA surface habitable",
+                  label: t("caHabitable"),
                   value: formatEUR(result.caHabitable),
                 },
                 {
-                  label: "Écart (accessoires)",
+                  label: t("ecartAccessoires"),
                   value: formatEUR(result.ecart),
                   sub: true,
                 },
                 {
-                  label: "Ratio vendable / SCB",
+                  label: t("ratioVendableScb"),
                   value: fmtPct(result.ratioVendableSCB),
                 },
               ]}
@@ -533,12 +538,9 @@ export default function ConvertisseurSurfaces() {
 
             {/* Sources */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-              <h3 className="mb-2 text-sm font-semibold text-navy">Sources et références</h3>
+              <h3 className="mb-2 text-sm font-semibold text-navy">{t("sourcesTitle")}</h3>
               <p className="text-xs leading-relaxed text-muted">
-                OAI FC.04 (janv. 2025) — Fiches de calcul des surfaces, Ordre des Architectes et des Ingénieurs-Conseils.
-                ILNAS 101:2016 — Norme luxembourgeoise de mesurage de la surface habitable.
-                ACT — Guide pratique du cadastre vertical (juill. 2023), Administration du Cadastre et de la Topographie.
-                RGD PAG art. 32 — Définition de la Surface Construite Brute.
+                {t("sourcesText")}
               </p>
             </div>
           </div>

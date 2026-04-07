@@ -4,6 +4,7 @@ import { useState, useMemo, useRef } from "react";
 import { useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import { DEMOGRAPHICS } from "@/lib/demographics";
+import { KLIMABONUS_TOPUP_SOCIAL_MULT } from "@/lib/constants";
 import ToggleField from "@/components/ToggleField";
 import { simulerAides, formatEUR, type AideDetail } from "@/lib/calculations";
 import RelatedTools from "@/components/RelatedTools";
@@ -118,15 +119,15 @@ const KLIMA_MESURES: KlimaMesure[] = [
   { id: "solaire_thermique", labelKey: "klima_solaire_thermique", type: "forfait", unitPrix: 8000, klimaPct: 50 },
 ];
 
-// Klimabonus par mesure (subventions spécifiques)
-const KLIMA_SUBVENTIONS: Record<string, { parUnite: number; labelKey: string }> = {
-  isolation_facade: { parUnite: 50, labelKey: "klimaSub_isolation_facade" },
-  isolation_toiture: { parUnite: 40, labelKey: "klimaSub_isolation_toiture" },
-  fenetres: { parUnite: 2000, labelKey: "klimaSub_fenetres" },
-  pac: { parUnite: 8000, labelKey: "klimaSub_pac" },
-  vmc: { parUnite: 3000, labelKey: "klimaSub_vmc" },
-  pv: { parUnite: 500, labelKey: "klimaSub_pv" },
-  solaire_thermique: { parUnite: 2500, labelKey: "klimaSub_solaire_thermique" },
+// Klimabonus Wunnen 2026 — subventions par mesure (barème standardisé €/m²)
+const KLIMA_SUBVENTIONS: Record<string, { parUnite: number; labelKey: string; bonusEco?: number }> = {
+  isolation_facade:    { parUnite: 55, labelKey: "klimaSub_isolation_facade", bonusEco: 10 },     // 55 €/m² + 10 €/m² bonus matériaux écologiques
+  isolation_toiture:   { parUnite: 45, labelKey: "klimaSub_isolation_toiture", bonusEco: 8 },      // 45 €/m² + 8 €/m² bonus
+  fenetres:           { parUnite: 2500, labelKey: "klimaSub_fenetres" },                           // 2 500 €/fenêtre (triple vitrage)
+  pac:                { parUnite: 10000, labelKey: "klimaSub_pac" },                               // 10 000 € (PAC)
+  vmc:                { parUnite: 3500, labelKey: "klimaSub_vmc" },                                // 3 500 € (VMC double flux)
+  pv:                 { parUnite: 500, labelKey: "klimaSub_pv" },                                  // 500 €/kWp (inchangé)
+  solaire_thermique:  { parUnite: 3000, labelKey: "klimaSub_solaire_thermique" },                   // 3 000 €
 };
 
 interface MesureState {
@@ -141,6 +142,7 @@ export default function SimulateurAides() {
   const [travauxPrevus, setTravauxPrevus] = useState(false);
   const [montantTravaux, setMontantTravaux] = useState(50000);
   const [klimaMode, setKlimaMode] = useState<"simplifie" | "detaille">("simplifie");
+  const [topupSocial, setTopupSocial] = useState(false);
   const [mesures, setMesures] = useState<Record<string, MesureState>>(() => {
     const init: Record<string, MesureState> = {};
     for (const m of KLIMA_MESURES) {
@@ -158,31 +160,37 @@ export default function SimulateurAides() {
     patrimoine: { label: t("cat_patrimoine"), color: "text-purple-700", bg: "bg-purple-50 border-purple-200" },
   };
 
-  // Compute detailed Klimabonus totals
+  // Compute detailed Klimabonus totals (Wunnen 2026 regime)
   const klimaDetail = useMemo(() => {
     if (klimaMode !== "detaille") return null;
-    const lignes: { id: string; labelKey: string; coutTravaux: number; klimabonus: number; klimaLabelKey: string }[] = [];
+    const mult = topupSocial ? KLIMABONUS_TOPUP_SOCIAL_MULT : 1;
+    const lignes: { id: string; labelKey: string; coutTravaux: number; klimabonus: number; bonusEco: number; klimaLabelKey: string }[] = [];
     let totalTravaux = 0;
     let totalKlima = 0;
+    let totalBonusEco = 0;
     for (const m of KLIMA_MESURES) {
       const state = mesures[m.id];
       if (!state?.active) continue;
       const qty = m.type === "forfait" ? 1 : state.quantite;
       const coutTravaux = m.unitPrix * qty;
       const sub = KLIMA_SUBVENTIONS[m.id];
-      const klimabonus = sub ? sub.parUnite * qty : coutTravaux * 0.5;
+      const baseKlima = sub ? sub.parUnite * qty : coutTravaux * 0.5;
+      const bonusEco = sub?.bonusEco ? sub.bonusEco * qty : 0;
+      const klimabonus = (baseKlima + bonusEco) * mult;
       totalTravaux += coutTravaux;
       totalKlima += klimabonus;
+      totalBonusEco += bonusEco * mult;
       lignes.push({
         id: m.id,
         labelKey: m.labelKey,
         coutTravaux,
         klimabonus,
+        bonusEco: bonusEco * mult,
         klimaLabelKey: sub?.labelKey || "klimaSub_default",
       });
     }
-    return { lignes, totalTravaux, totalKlima };
-  }, [klimaMode, mesures]);
+    return { lignes, totalTravaux, totalKlima, totalBonusEco };
+  }, [klimaMode, mesures, topupSocial]);
 
   // In detailed mode, use calculated total as montantTravaux for the simulation
   const montantTravauxEffectif = klimaMode === "detaille" && klimaDetail ? klimaDetail.totalTravaux : montantTravaux;
@@ -309,7 +317,22 @@ export default function SimulateurAides() {
                       />
                     ) : (
                       <div className="space-y-2">
+                        <div className="text-[10px] font-medium text-teal/80 mb-1">{t("klimabonusRegime")}</div>
                         <div className="text-xs font-medium text-navy">{t("mesuresRenovation")}</div>
+                        <div className="rounded-lg border border-amber-200 bg-amber-50 p-3">
+                          <label className="flex items-center gap-3 cursor-pointer">
+                            <input
+                              type="checkbox"
+                              checked={topupSocial}
+                              onChange={(e) => setTopupSocial(e.target.checked)}
+                              className="rounded border-input-border text-amber-600 focus:ring-amber-500 h-4 w-4"
+                            />
+                            <div>
+                              <span className="text-sm font-medium text-foreground">{t("topupSocial")}</span>
+                              <p className="text-[10px] text-amber-700 mt-0.5">{t("topupSocialHint")}</p>
+                            </div>
+                          </label>
+                        </div>
                         {KLIMA_MESURES.map((m) => {
                           const state = mesures[m.id];
                           const sub = KLIMA_SUBVENTIONS[m.id];
@@ -350,11 +373,19 @@ export default function SimulateurAides() {
                         })}
                         {klimaDetail && klimaDetail.lignes.length > 0 && (
                           <div className="rounded-lg border border-teal/30 bg-teal/5 p-3 mt-2">
-                            <div className="text-xs font-semibold text-teal mb-2">{t("recapKlimabonus")}</div>
+                            <div className="text-xs font-semibold text-teal mb-2">
+                              {t("recapKlimabonus")}
+                              {topupSocial && <span className="ml-2 text-[10px] font-normal text-amber-600">(x1.5 Topup social)</span>}
+                            </div>
                             {klimaDetail.lignes.map((l) => (
-                              <div key={l.id} className="flex justify-between text-xs py-0.5">
-                                <span className="text-muted">{t(l.labelKey)} <span className="text-teal/70">({t(l.klimaLabelKey)})</span></span>
-                                <span className="font-mono font-medium text-teal">{formatEUR(l.klimabonus)}</span>
+                              <div key={l.id} className="text-xs py-0.5">
+                                <div className="flex justify-between">
+                                  <span className="text-muted">{t(l.labelKey)} <span className="text-teal/70">({t(l.klimaLabelKey)})</span></span>
+                                  <span className="font-mono font-medium text-teal">{formatEUR(l.klimabonus)}</span>
+                                </div>
+                                {l.bonusEco > 0 && (
+                                  <div className="ml-4 text-[10px] text-emerald-600">{t("bonusEco")} : {formatEUR(l.bonusEco)}</div>
+                                )}
                               </div>
                             ))}
                             <div className="flex justify-between text-xs font-semibold border-t border-teal/20 pt-1 mt-1">

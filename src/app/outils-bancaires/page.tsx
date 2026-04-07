@@ -18,6 +18,62 @@ import { generateBancairePdfBlob, PdfButton } from "@/components/ToolsPdf";
 
 type ActiveTab = "ltv" | "capacite" | "amortissement" | "dscr";
 
+/* ── Taux du marché luxembourgeois ─────────────────────────────── */
+const TAUX_MARCHE_LU = {
+  lastUpdate: "2026-04-01",
+  source: "BCL / Switchr.lu — taux moyens observés",
+  rates: [
+    { label: "fixedLabel10y", duree: 10, min: 2.85, max: 3.15 },
+    { label: "fixedLabel15y", duree: 15, min: 2.95, max: 3.25 },
+    { label: "fixedLabel20y", duree: 20, min: 3.05, max: 3.40 },
+    { label: "fixedLabel25y", duree: 25, min: 3.15, max: 3.55 },
+    { label: "variableLabel", duree: 0, min: 2.75, max: 3.05 },
+  ],
+  bclRefi: 3.65,
+  bclDeposit: 3.25,
+};
+
+function MarketRatesBox({ onSelectRate }: { onSelectRate?: (midpoint: number, duree: number) => void }) {
+  const t = useTranslations("outilsBancaires");
+  return (
+    <div className="mt-4 rounded-lg bg-navy/5 p-3">
+      <div className="text-xs font-semibold text-navy mb-2">{t("tauxMarcheTitle")}</div>
+      <div className="space-y-1">
+        {TAUX_MARCHE_LU.rates.map((r) => {
+          const mid = Math.round(((r.min + r.max) / 2) * 100) / 100;
+          return (
+            <button
+              key={r.label}
+              type="button"
+              onClick={() => onSelectRate?.(mid, r.duree)}
+              className="flex w-full items-center justify-between rounded px-2 py-1 text-xs hover:bg-navy/10 transition-colors cursor-pointer"
+            >
+              <span className="text-muted">{t(r.label)}</span>
+              <span className="font-mono text-navy">{r.min.toFixed(2)} — {r.max.toFixed(2)} %</span>
+            </button>
+          );
+        })}
+      </div>
+      <div className="mt-2 border-t border-navy/10 pt-2 text-[11px] text-muted space-y-0.5">
+        <div className="flex justify-between">
+          <span>{t("tauxDirecteurBCE")}</span>
+          <span className="font-mono">{TAUX_MARCHE_LU.bclRefi} %</span>
+        </div>
+        <div className="flex justify-between">
+          <span>{t("tauxDepotBCE")}</span>
+          <span className="font-mono">{TAUX_MARCHE_LU.bclDeposit} %</span>
+        </div>
+      </div>
+      <p className="mt-2 text-[10px] text-muted">{t("tauxMarcheSource")}</p>
+      <p className="text-[10px] text-muted">{t("tauxMarcheDate", { date: TAUX_MARCHE_LU.lastUpdate })}</p>
+      <p className="text-[10px] text-muted italic">{t("tauxNote")}</p>
+      {onSelectRate && (
+        <p className="mt-1 text-[10px] text-navy/60 font-medium">{t("tauxClickHint")}</p>
+      )}
+    </div>
+  );
+}
+
 function TabLTV() {
   const t = useTranslations("outilsBancaires");
   const [valeurBien, setValeurBien] = useState(750000);
@@ -133,17 +189,12 @@ function TabCapacite() {
           <InputField label={t("loanDuration")} value={duree} onChange={(v) => setDuree(Number(v))} suffix={t("years")} min={5} max={35} />
           <InputField label={t("remainingBalanceInsurance")} value={tauxAssurance} onChange={(v) => setTauxAssurance(Number(v))} suffix={t("pctCapital")} step={0.05} hint={t("remainingBalanceInsuranceHint")} />
         </div>
-        <div className="mt-4 rounded-lg bg-navy/5 p-3">
-          <div className="text-xs font-semibold text-navy mb-2">{t("indicativeRatesTitle")}</div>
-          <div className="grid grid-cols-2 gap-1 text-xs text-muted">
-            <span>{t("fixed10y")}</span><span className="font-mono text-right">2.90-3.20%</span>
-            <span>{t("fixed15y")}</span><span className="font-mono text-right">3.00-3.30%</span>
-            <span>{t("fixed20y")}</span><span className="font-mono text-right">3.10-3.50%</span>
-            <span>{t("fixed25y")}</span><span className="font-mono text-right">3.20-3.60%</span>
-            <span>{t("variable")}</span><span className="font-mono text-right">2.80-3.10%</span>
-          </div>
-          <p className="mt-1 text-[10px] text-muted">{t("indicativeRatesSource")}</p>
-        </div>
+        <MarketRatesBox
+          onSelectRate={(mid, dureeRate) => {
+            setTauxInteret(mid);
+            if (dureeRate > 0) setDuree(dureeRate);
+          }}
+        />
       </div>
       <div className="space-y-6">
         <ResultPanel
@@ -202,6 +253,12 @@ function TabAmortissement() {
             <InputField label={t("annualInterestRate")} value={taux} onChange={(v) => setTaux(Number(v))} suffix="%" step={0.1} />
             <InputField label={t("duration")} value={duree} onChange={(v) => setDuree(Number(v))} suffix={t("years")} min={5} max={35} />
           </div>
+          <MarketRatesBox
+            onSelectRate={(mid, dureeRate) => {
+              setTaux(mid);
+              if (dureeRate > 0) setDuree(dureeRate);
+            }}
+          />
         </div>
         <ResultPanel
           title={t("summary")}

@@ -14,6 +14,7 @@ import { generatePlusValuesPdfBlob, PdfButton } from "@/components/ToolsPdf";
 
 export default function PlusValues() {
   const t = useTranslations("plusValues");
+  const [modeAcquisition, setModeAcquisition] = useState<"achat" | "succession" | "donation">("achat");
   const [prixAcquisition, setPrixAcquisition] = useState(400000);
   const [anneeAcquisition, setAnneeAcquisition] = useState(2015);
   const [prixCession, setPrixCession] = useState(550000);
@@ -22,6 +23,27 @@ export default function PlusValues() {
   const [travauxDeductibles, setTravauxDeductibles] = useState(0);
   const [estResidencePrincipale, setEstResidencePrincipale] = useState(false);
   const [estCouple, setEstCouple] = useState(false);
+
+  const prixAcquisitionLabel =
+    modeAcquisition === "succession"
+      ? t("valeurSuccessorale")
+      : modeAcquisition === "donation"
+      ? t("valeurDonation")
+      : t("prixAcquisition");
+
+  const anneeAcquisitionLabel =
+    modeAcquisition === "succession"
+      ? t("anneeDeces")
+      : modeAcquisition === "donation"
+      ? t("anneeDonation")
+      : t("anneeAcquisition");
+
+  const prixAcquisitionHint =
+    modeAcquisition === "succession"
+      ? t("successionHint")
+      : modeAcquisition === "donation"
+      ? t("donationHint")
+      : undefined;
 
   const result = useMemo(
     () =>
@@ -34,8 +56,9 @@ export default function PlusValues() {
         travauxDeductibles: travauxDeductibles || undefined,
         estResidencePrincipale,
         estCouple,
+        modeAcquisition,
       }),
-    [prixAcquisition, anneeAcquisition, prixCession, anneeCession, fraisAcquisition, travauxDeductibles, estResidencePrincipale, estCouple]
+    [prixAcquisition, anneeAcquisition, prixCession, anneeCession, fraisAcquisition, travauxDeductibles, estResidencePrincipale, estCouple, modeAcquisition]
   );
 
   const typeLabel =
@@ -70,16 +93,27 @@ export default function PlusValues() {
           <div className="space-y-6">
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
               <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionAcquisition")}</h2>
+              <div className="flex rounded-lg border border-card-border overflow-hidden mb-4">
+                {(["achat", "succession", "donation"] as const).map((mode) => (
+                  <button key={mode} onClick={() => setModeAcquisition(mode)}
+                    className={`flex-1 py-2 text-sm font-medium transition-colors ${
+                      modeAcquisition === mode ? "bg-navy text-white" : "bg-card text-muted hover:bg-navy/5"
+                    }`}>
+                    {t(`mode${mode.charAt(0).toUpperCase() + mode.slice(1)}` as any)}
+                  </button>
+                ))}
+              </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <InputField
-                  label={t("prixAcquisition")}
+                  label={prixAcquisitionLabel}
                   value={prixAcquisition}
                   onChange={(v) => setPrixAcquisition(Number(v))}
                   suffix="€"
                   min={0}
+                  hint={prixAcquisitionHint}
                 />
                 <InputField
-                  label={t("anneeAcquisition")}
+                  label={anneeAcquisitionLabel}
                   value={anneeAcquisition}
                   onChange={(v) => setAnneeAcquisition(Number(v))}
                   min={1960}
@@ -309,7 +343,7 @@ export default function PlusValues() {
                     nom: `${t("savePrefix")} — ${formatEUR(prixAcquisition)} → ${formatEUR(prixCession)}`,
                     type: "plus-values",
                     valeurPrincipale: result.gainImposable,
-                    data: { prixAcquisition, anneeAcquisition, prixCession, anneeCession, fraisAcquisition, travauxDeductibles, estResidencePrincipale, estCouple },
+                    data: { prixAcquisition, anneeAcquisition, prixCession, anneeCession, fraisAcquisition, travauxDeductibles, estResidencePrincipale, estCouple, modeAcquisition },
                   });
                 }}
                 label={t("sauvegarder")}

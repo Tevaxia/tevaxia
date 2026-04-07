@@ -12,6 +12,7 @@ import {
   ReferenceLine,
 } from "recharts";
 import InputField from "@/components/InputField";
+import SliderField from "@/components/SliderField";
 import ResultPanel from "@/components/ResultPanel";
 import { formatEUR, formatEUR2 } from "@/lib/calculations";
 import { generateAchatLocationPdfBlob, PdfButton } from "@/components/ToolsPdf";
@@ -263,12 +264,12 @@ export default function AchatVsLocation() {
             {/* Quick mode: 5 essential inputs */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
               <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionEssentials")}</h2>
-              <div className="space-y-4">
-                <InputField label={t("prixBien")} value={prixBien} onChange={(v) => setPrixBien(Number(v))} suffix="€" />
-                <InputField label={t("apport")} value={apport} onChange={(v) => setApport(Number(v))} suffix="€" />
-                <InputField label={t("tauxCredit")} value={tauxCredit} onChange={(v) => setTauxCredit(Number(v))} suffix="%" step={0.1} />
-                <InputField label={t("loyerMensuel")} value={loyerMensuel} onChange={(v) => setLoyerMensuel(Number(v))} suffix="€" />
-                <InputField label={t("dureeComparaison")} value={horizon} onChange={(v) => setHorizon(Number(v))} suffix={t("suffixAns")} min={1} max={35} />
+              <div className="space-y-5">
+                <SliderField label={t("prixBien")} value={prixBien} onChange={setPrixBien} min={100000} max={2000000} step={10000} suffix="€" />
+                <SliderField label={t("apport")} value={apport} onChange={setApport} min={0} max={500000} step={5000} suffix="€" />
+                <SliderField label={t("tauxCredit")} value={tauxCredit} onChange={setTauxCredit} min={1} max={6} step={0.1} suffix="%" />
+                <SliderField label={t("loyerMensuel")} value={loyerMensuel} onChange={setLoyerMensuel} min={500} max={5000} step={50} suffix="€" />
+                <SliderField label={t("dureeComparaison")} value={horizon} onChange={setHorizon} min={5} max={40} step={1} suffix={t("suffixAns")} />
               </div>
             </div>
 
@@ -283,7 +284,7 @@ export default function AchatVsLocation() {
                     <InputField label={t("chargesCopro")} value={chargesCoproMensuel} onChange={(v) => setChargesCoproMensuel(Number(v))} suffix={t("suffixEuroMois")} />
                     <InputField label={t("impotFoncier")} value={taxeFonciereAn} onChange={(v) => setTaxeFonciereAn(Number(v))} suffix={t("suffixEuroAn")} hint={t("impotFoncierHint")} />
                     <InputField label={t("entretienAnnuel")} value={entretienAnPct} onChange={(v) => setEntretienAnPct(Number(v))} suffix={t("suffixPctPrix")} hint={t("entretienAnnuelHint")} step={0.1} />
-                    <InputField label={t("appreciationAnnuelle")} value={appreciationAn} onChange={(v) => setAppreciationAn(Number(v))} suffix="%" step={0.1} hint={t("appreciationAnnuelleHint")} />
+                    <SliderField label={t("appreciationAnnuelle")} value={appreciationAn} onChange={setAppreciationAn} min={0} max={8} step={0.5} suffix="%" hint={t("appreciationAnnuelleHint")} />
                   </div>
                 </div>
 
@@ -336,8 +337,8 @@ export default function AchatVsLocation() {
                 <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
                   <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionLocationDetails")}</h2>
                   <div className="space-y-4">
-                    <InputField label={t("indexationLoyer")} value={indexationLoyer} onChange={(v) => setIndexationLoyer(Number(v))} suffix="%" step={0.1} hint={t("indexationLoyerHint")} />
-                    <InputField label={t("rendementPlacement")} value={rendementPlacement} onChange={(v) => setRendementPlacement(Number(v))} suffix="%" step={0.1} hint={t("rendementPlacementHint")} />
+                    <SliderField label={t("indexationLoyer")} value={indexationLoyer} onChange={setIndexationLoyer} min={0} max={5} step={0.5} suffix="%" hint={t("indexationLoyerHint")} />
+                    <SliderField label={t("rendementPlacement")} value={rendementPlacement} onChange={setRendementPlacement} min={0} max={10} step={0.5} suffix="%" hint={t("rendementPlacementHint")} />
                   </div>
                 </div>
               </>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
@@ -200,6 +200,48 @@ export default function BilanPromoteur() {
       ratioFoncierCA, ratioConstructionCA, ratioFraisCA, margeEffective, rentaFP,
     };
   }, [surfaceVendable, prixVenteM2, nbParkings, prixParking, coutConstructionM2, surfaceBrute, voirie, honorairesArchitecte, honorairesBET, etudesAutres, fraisCommerciaux, fraisFinanciers, assurances, fraisGestion, aleas, margePromoteur, surfaceTerrain, prixTerrainM2, coutTerrainConnu, typeOperation, fraisGeometre, fraisLotissement]);
+
+  // --- Sensitivity analysis ---
+  // Helper: compute margin % and charge foncière for arbitrary prixVente, coutConstr, tauxFinancier
+  const computeScenario = useCallback((prixVente: number, coutConstr: number, tauxFin: number) => {
+    const caLogements = surfaceVendable * prixVente;
+    const caParkings = nbParkings * prixParking;
+    const caTotal = caLogements + caParkings;
+    const coutTerrain = coutTerrainConnu ? surfaceTerrain * prixTerrainM2 : 0;
+    const coutsConstruction = surfaceBrute * coutConstr;
+    const coutsArchitecte = coutsConstruction * (honorairesArchitecte / 100);
+    const coutsBET = coutsConstruction * (honorairesBET / 100);
+    const coutsAleas = coutsConstruction * (aleas / 100);
+    const coutsLotissement = typeOperation !== "immeuble" ? fraisGeometre + fraisLotissement : 0;
+    const totalConstruction = coutsConstruction + voirie + coutsArchitecte + coutsBET + etudesAutres + coutsAleas + coutsLotissement;
+    const fCommerciaux = caTotal * (fraisCommerciaux / 100);
+    const fFinanciers = (totalConstruction + caTotal * margePromoteur / 100) * (tauxFin / 100);
+    const fAssurances = coutsConstruction * (assurances / 100);
+    const fGestion = caTotal * (fraisGestion / 100);
+    const totalFrais = fCommerciaux + fFinanciers + fAssurances + fGestion;
+    const margeMontant = caTotal * (margePromoteur / 100);
+    const chargeFonciere = caTotal - totalConstruction - totalFrais - margeMontant - coutTerrain;
+    const margeEffective = caTotal > 0 ? (chargeFonciere / caTotal) * 100 : 0;
+    return { chargeFonciere, margeEffective };
+  }, [surfaceVendable, nbParkings, prixParking, surfaceBrute, voirie, honorairesArchitecte, honorairesBET, etudesAutres, aleas, fraisCommerciaux, assurances, fraisGestion, margePromoteur, surfaceTerrain, prixTerrainM2, coutTerrainConnu, typeOperation, fraisGeometre, fraisLotissement]);
+
+  // Matrix 1: Prix de vente vs Coût construction
+  const sensitivityPrixConstr = useMemo(() => {
+    const prixVariants = [prixVenteM2 * 0.9, prixVenteM2, prixVenteM2 * 1.1];
+    const coutVariants = [coutConstructionM2 * 0.9, coutConstructionM2, coutConstructionM2 * 1.1];
+    return prixVariants.map((pv) =>
+      coutVariants.map((cc) => computeScenario(pv, cc, fraisFinanciers))
+    );
+  }, [prixVenteM2, coutConstructionM2, fraisFinanciers, computeScenario]);
+
+  // Matrix 2: Prix de vente vs Taux de financement
+  const sensitivityPrixTaux = useMemo(() => {
+    const prixVariants = [prixVenteM2 * 0.9, prixVenteM2, prixVenteM2 * 1.1];
+    const tauxVariants = [fraisFinanciers - 1, fraisFinanciers, fraisFinanciers + 1];
+    return prixVariants.map((pv) =>
+      tauxVariants.map((tf) => computeScenario(pv, coutConstructionM2, tf))
+    );
+  }, [prixVenteM2, coutConstructionM2, fraisFinanciers, computeScenario]);
 
   return (
     <div className="bg-background py-8 sm:py-12">
@@ -441,6 +483,106 @@ export default function BilanPromoteur() {
                   </p>
                 </div>
               )}
+            </div>
+
+            {/* Analyse de sensibilité */}
+            <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+              <h3 className="mb-2 text-base font-semibold text-navy">{t("sensitivityTitle")}</h3>
+              <p className="mb-4 text-xs text-muted">{t("sensitivityDesc")}</p>
+
+              {/* Matrix 1: Prix de vente vs Coût construction */}
+              <h4 className="mb-2 text-sm font-semibold text-slate">{t("sensitivityPrixConstr")}</h4>
+              <div className="overflow-x-auto mb-6">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="border-b border-card-border">
+                      <th className="py-2 pr-2 text-left font-semibold text-slate">
+                        {t("sensitivitySalePrice")} ↓ / {t("sensitivityConstrCost")} →
+                      </th>
+                      {[coutConstructionM2 * 0.9, coutConstructionM2, coutConstructionM2 * 1.1].map((cc, j) => (
+                        <th key={j} className={`py-2 px-2 text-center font-semibold ${j === 1 ? "text-navy" : "text-slate"}`}>
+                          {formatEUR(Math.round(cc))}
+                          {j === 0 && <span className="block text-[10px] text-muted">−10 %</span>}
+                          {j === 1 && <span className="block text-[10px] text-navy/60">{t("sensitivityCurrent")}</span>}
+                          {j === 2 && <span className="block text-[10px] text-muted">+10 %</span>}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[prixVenteM2 * 0.9, prixVenteM2, prixVenteM2 * 1.1].map((pv, i) => (
+                      <tr key={i} className="border-b border-card-border/50">
+                        <td className={`py-2 pr-2 font-medium ${i === 1 ? "text-navy" : "text-slate"}`}>
+                          {formatEUR(Math.round(pv))}
+                          {i === 0 && <span className="ml-1 text-[10px] text-muted">−10 %</span>}
+                          {i === 1 && <span className="ml-1 text-[10px] text-navy/60">{t("sensitivityCurrent")}</span>}
+                          {i === 2 && <span className="ml-1 text-[10px] text-muted">+10 %</span>}
+                        </td>
+                        {sensitivityPrixConstr[i].map((cell, j) => {
+                          const bg = cell.margeEffective > 15 ? "bg-green-100 text-green-800" : cell.margeEffective >= 5 ? "bg-amber-100 text-amber-800" : "bg-red-100 text-red-800";
+                          const isCurrent = i === 1 && j === 1;
+                          return (
+                            <td key={j} className={`py-2 px-2 text-center font-mono ${bg} ${isCurrent ? "ring-2 ring-navy/30 font-bold" : ""}`}>
+                              <div>{cell.margeEffective.toFixed(1)} %</div>
+                              <div className="text-[10px] opacity-70">{formatEUR(Math.round(cell.chargeFonciere))}</div>
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Matrix 2: Prix de vente vs Taux de financement */}
+              <h4 className="mb-2 text-sm font-semibold text-slate">{t("sensitivityPrixTaux")}</h4>
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="border-b border-card-border">
+                      <th className="py-2 pr-2 text-left font-semibold text-slate">
+                        {t("sensitivitySalePrice")} ↓ / {t("sensitivityFinRate")} →
+                      </th>
+                      {[fraisFinanciers - 1, fraisFinanciers, fraisFinanciers + 1].map((tf, j) => (
+                        <th key={j} className={`py-2 px-2 text-center font-semibold ${j === 1 ? "text-navy" : "text-slate"}`}>
+                          {tf.toFixed(1)} %
+                          {j === 0 && <span className="block text-[10px] text-muted">−1 pt</span>}
+                          {j === 1 && <span className="block text-[10px] text-navy/60">{t("sensitivityCurrent")}</span>}
+                          {j === 2 && <span className="block text-[10px] text-muted">+1 pt</span>}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[prixVenteM2 * 0.9, prixVenteM2, prixVenteM2 * 1.1].map((pv, i) => (
+                      <tr key={i} className="border-b border-card-border/50">
+                        <td className={`py-2 pr-2 font-medium ${i === 1 ? "text-navy" : "text-slate"}`}>
+                          {formatEUR(Math.round(pv))}
+                          {i === 0 && <span className="ml-1 text-[10px] text-muted">−10 %</span>}
+                          {i === 1 && <span className="ml-1 text-[10px] text-navy/60">{t("sensitivityCurrent")}</span>}
+                          {i === 2 && <span className="ml-1 text-[10px] text-muted">+10 %</span>}
+                        </td>
+                        {sensitivityPrixTaux[i].map((cell, j) => {
+                          const bg = cell.margeEffective > 15 ? "bg-green-100 text-green-800" : cell.margeEffective >= 5 ? "bg-amber-100 text-amber-800" : "bg-red-100 text-red-800";
+                          const isCurrent = i === 1 && j === 1;
+                          return (
+                            <td key={j} className={`py-2 px-2 text-center font-mono ${bg} ${isCurrent ? "ring-2 ring-navy/30 font-bold" : ""}`}>
+                              <div>{cell.margeEffective.toFixed(1)} %</div>
+                              <div className="text-[10px] opacity-70">{formatEUR(Math.round(cell.chargeFonciere))}</div>
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="mt-4 flex gap-3 text-[10px] text-muted">
+                <span className="inline-flex items-center gap-1"><span className="inline-block h-2.5 w-2.5 rounded bg-green-200" /> {t("sensitivityGreen")}</span>
+                <span className="inline-flex items-center gap-1"><span className="inline-block h-2.5 w-2.5 rounded bg-amber-200" /> {t("sensitivityYellow")}</span>
+                <span className="inline-flex items-center gap-1"><span className="inline-block h-2.5 w-2.5 rounded bg-red-200" /> {t("sensitivityRed")}</span>
+              </div>
             </div>
           </div>
         </div>

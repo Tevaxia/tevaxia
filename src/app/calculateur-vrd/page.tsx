@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import SliderField from "@/components/SliderField";
 import ToggleField from "@/components/ToggleField";
 import ResultPanel from "@/components/ResultPanel";
 import { formatEUR } from "@/lib/calculations";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /* ------------------------------------------------------------------ */
 /*  Types & constants                                                  */
@@ -53,68 +55,44 @@ const fmtTotal = new Intl.NumberFormat("fr-LU", {
 });
 
 /* ------------------------------------------------------------------ */
-/*  Methodology stepper                                                */
-/* ------------------------------------------------------------------ */
-
-const STEPS = [
-  { id: 0, label: "Projet" },
-  { id: 1, label: "Terrassement" },
-  { id: 2, label: "Voirie" },
-  { id: 3, label: "Assainissement" },
-  { id: 4, label: "Réseaux secs" },
-  { id: 5, label: "Aménagements" },
-  { id: 6, label: "Études" },
-] as const;
-
-const STEP_NOTES: Record<number, string> = {
-  0: "Phase APS — Définissez le périmètre du projet : type d'opération, emprise, commune. Ces paramètres déterminent les normes applicables (voirie communale vs étatique, CTG 002/009).",
-  1: "Lot 0-1 — Installation de chantier et mouvement de terres. Le terrassement représente typiquement 10-15 % du budget VRD. Réf. : CTG 002 (terrassement), CSDC-CT §2 (couche de forme).",
-  2: "Lot 2-3 — Structure de chaussée et bordures. La structure est définie par le CSDC-CT (Ponts & Chaussées). Épaisseurs types : 6 cm BB + 5 cm GB + 20 cm GNT + 30 cm fondation.",
-  3: "Lots 4-5 — Réseaux EU/EP selon CTG 009 (canalisation). Diamètres EU : DN200-400, EP : DN300-600. Bassin de rétention obligatoire pour projets >0,5 ha (RGD assainissement).",
-  4: "Lot 6 — Tranchée commune (élec/télécom/gaz) + éclairage public. Réf. : Creos catalogue raccordement, POST Technologies, dispositions techniques communales.",
-  5: "Lots 7-8 — Espaces verts, signalisation, mobilier urbain. Batiprix 2026 vol. 2 pour les prix de référence.",
-  6: "Honoraires et études annexes. Phases APS/APD/DCE selon OAI CTA Privé. Honoraires BE : 8-12 % typique, libre négociation (décision Conseil de la concurrence 2024).",
-};
-
-/* ------------------------------------------------------------------ */
 /*  Référence documents                                                */
 /* ------------------------------------------------------------------ */
 
 const REFERENCE_DOCS = [
   {
-    label: "CTG 002 — Terrassement (PDF)",
+    labelKey: "ref0" as const,
     url: "https://marches.public.lu",
   },
   {
-    label: "CTG 009 — Canalisation (PDF)",
+    labelKey: "ref1" as const,
     url: "https://marches.public.lu",
   },
   {
-    label: "CSDC-CT — Clauses techniques Ponts & Chaussées (PDF)",
+    labelKey: "ref2" as const,
     url: "https://travaux.public.lu",
   },
   {
-    label: "Guide permissions de voirie (oct. 2018) (PDF)",
+    labelKey: "ref3" as const,
     url: "https://pch.gouvernement.lu",
   },
   {
-    label: "Dispositions techniques VdL (PDF)",
+    labelKey: "ref4" as const,
     url: "https://www.vdl.lu",
   },
   {
-    label: "ASS-TabAVIS 9100 — Template assainissement (XLSX)",
+    labelKey: "ref5" as const,
     url: "https://eau.gouvernement.lu",
   },
   {
-    label: "STATEC — Indices prix construction (oct. 2025)",
+    labelKey: "ref6" as const,
     url: "https://statistiques.public.lu",
   },
   {
-    label: "CRTIB — Révision prix matériaux (REVPRIX)",
+    labelKey: "ref7" as const,
     url: "https://revprix.crtib.lu",
   },
   {
-    label: "Batiprix 2026 vol. 2 — VRD, Espaces verts",
+    labelKey: "ref8" as const,
     url: "https://www.batiprix.com",
   },
 ];
@@ -124,6 +102,29 @@ const REFERENCE_DOCS = [
 /* ------------------------------------------------------------------ */
 
 export default function CalculateurVRD() {
+  const t = useTranslations("calculateurVrd");
+
+  /* ======== Methodology stepper ======== */
+  const STEPS = [
+    { id: 0, label: t("steps.step0") },
+    { id: 1, label: t("steps.step1") },
+    { id: 2, label: t("steps.step2") },
+    { id: 3, label: t("steps.step3") },
+    { id: 4, label: t("steps.step4") },
+    { id: 5, label: t("steps.step5") },
+    { id: 6, label: t("steps.step6") },
+  ];
+
+  const STEP_NOTES: Record<number, string> = {
+    0: t("steps.stepNote0"),
+    1: t("steps.stepNote1"),
+    2: t("steps.stepNote2"),
+    3: t("steps.stepNote3"),
+    4: t("steps.stepNote4"),
+    5: t("steps.stepNote5"),
+    6: t("steps.stepNote6"),
+  };
+
   /* ======== Stepper state ======== */
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -341,15 +342,15 @@ export default function CalculateurVRD() {
 
     /* --- Lots array for charts and summaries --- */
     const lots = [
-      { num: 0, nom: "Installation de chantier", total: totalLot0, color: LOT_COLORS.installation },
-      { num: 1, nom: "Terrassements généraux", total: totalLot1, color: LOT_COLORS.terrassement },
-      { num: 2, nom: "Voirie et chaussée", total: totalLot2, color: LOT_COLORS.voirie },
-      { num: 3, nom: "Bordures et caniveaux", total: totalLot3, color: LOT_COLORS.bordures },
-      { num: 4, nom: "Réseaux eaux usées", total: totalLot4, color: LOT_COLORS.eu },
-      { num: 5, nom: "Réseaux eaux pluviales", total: totalLot5, color: LOT_COLORS.ep },
-      { num: 6, nom: "Réseaux secs et éclairage", total: totalLot6, color: LOT_COLORS.reseauxSecs },
-      { num: 7, nom: "Aménagements paysagers", total: totalLot7, color: LOT_COLORS.amenagements },
-      { num: 8, nom: "Signalisation et mobilier urbain", total: totalLot8, color: LOT_COLORS.signalisation },
+      { num: 0, nom: t("lots.lot0"), total: totalLot0, color: LOT_COLORS.installation },
+      { num: 1, nom: t("lots.lot1"), total: totalLot1, color: LOT_COLORS.terrassement },
+      { num: 2, nom: t("lots.lot2"), total: totalLot2, color: LOT_COLORS.voirie },
+      { num: 3, nom: t("lots.lot3"), total: totalLot3, color: LOT_COLORS.bordures },
+      { num: 4, nom: t("lots.lot4"), total: totalLot4, color: LOT_COLORS.eu },
+      { num: 5, nom: t("lots.lot5"), total: totalLot5, color: LOT_COLORS.ep },
+      { num: 6, nom: t("lots.lot6"), total: totalLot6, color: LOT_COLORS.reseauxSecs },
+      { num: 7, nom: t("lots.lot7"), total: totalLot7, color: LOT_COLORS.amenagements },
+      { num: 8, nom: t("lots.lot8"), total: totalLot8, color: LOT_COLORS.signalisation },
     ];
 
     /* --- Bordereau rows --- */
@@ -369,25 +370,25 @@ export default function CalculateurVRD() {
     const bordereau: BRow[] = [];
 
     // LOT 0
-    bordereau.push({ type: "header", lotNum: 0, lotNom: "Installation de chantier", lotColor: LOT_COLORS.installation });
+    bordereau.push({ type: "header", lotNum: 0, lotNom: t("lots.lot0"), lotColor: LOT_COLORS.installation });
     bordereau.push({
       type: "line",
       num: "0.1",
-      designation: "Installation de chantier (forfait)",
+      designation: t("bordereau.installationForfait"),
       unite: "ft",
       quantite: 1,
       pu: installationChantier,
       total: installationChantier,
     });
-    bordereau.push({ type: "subtotal", lotNum: 0, lotNom: "Installation de chantier", lotColor: LOT_COLORS.installation, total: totalLot0 });
+    bordereau.push({ type: "subtotal", lotNum: 0, lotNom: t("lots.lot0"), lotColor: LOT_COLORS.installation, total: totalLot0 });
 
     // LOT 1
-    bordereau.push({ type: "header", lotNum: 1, lotNom: "Terrassements généraux", lotColor: LOT_COLORS.terrassement });
+    bordereau.push({ type: "header", lotNum: 1, lotNom: t("lots.lot1"), lotColor: LOT_COLORS.terrassement });
     bordereau.push({
       type: "line",
       num: "1.1",
-      designation: `Décapage terre végétale ép. ${(profondeurDecapage * 100).toFixed(0)} cm`,
-      unite: "m²",
+      designation: t("bordereau.decapageTerreVegetale", { cm: (profondeurDecapage * 100).toFixed(0) }),
+      unite: "m\u00B2",
       quantite: surfaceDecapage,
       pu: prixDecapage * terrassementM,
       total: coutDecapage,
@@ -395,8 +396,8 @@ export default function CalculateurVRD() {
     bordereau.push({
       type: "line",
       num: "1.2",
-      designation: "Déblais en fouilles",
-      unite: "m³",
+      designation: t("bordereau.deblaisFouilles"),
+      unite: "m\u00B3",
       quantite: volumeDeblais,
       pu: prixDeblais * terrassementM,
       total: coutDeblais,
@@ -404,8 +405,8 @@ export default function CalculateurVRD() {
     bordereau.push({
       type: "line",
       num: "1.3",
-      designation: "Remblais en matériaux d'apport",
-      unite: "m³",
+      designation: t("bordereau.remblaisApport"),
+      unite: "m\u00B3",
       quantite: volumeRemblais,
       pu: prixRemblais,
       total: coutRemblais,
@@ -414,22 +415,22 @@ export default function CalculateurVRD() {
       bordereau.push({
         type: "line",
         num: "1.4",
-        designation: `Évacuation excédent en décharge (à ${distanceDecharge} km)`,
-        unite: "m³",
+        designation: t("bordereau.evacuationExcedent", { km: distanceDecharge }),
+        unite: "m\u00B3",
         quantite: volEvacuation,
         pu: prixEvacuation,
         total: coutEvacuation,
       });
     }
-    bordereau.push({ type: "subtotal", lotNum: 1, lotNom: "Terrassements généraux", lotColor: LOT_COLORS.terrassement, total: totalLot1 });
+    bordereau.push({ type: "subtotal", lotNum: 1, lotNom: t("lots.lot1"), lotColor: LOT_COLORS.terrassement, total: totalLot1 });
 
     // LOT 2
-    bordereau.push({ type: "header", lotNum: 2, lotNom: "Voirie et chaussée", lotColor: LOT_COLORS.voirie });
+    bordereau.push({ type: "header", lotNum: 2, lotNom: t("lots.lot2"), lotColor: LOT_COLORS.voirie });
     bordereau.push({
       type: "line",
       num: "2.1",
-      designation: `Couche de roulement BB ép. ${epRevetement} cm`,
-      unite: "m²",
+      designation: t("bordereau.coucheRoulement", { cm: epRevetement }),
+      unite: "m\u00B2",
       quantite: surfaceChaussee,
       pu: prixRevetementM2,
       total: coutRevetement,
@@ -438,8 +439,8 @@ export default function CalculateurVRD() {
       bordereau.push({
         type: "line",
         num: "2.2",
-        designation: `Couche de liaison GB ép. ${epLiaison} cm`,
-        unite: "m²",
+        designation: t("bordereau.coucheLiaison", { cm: epLiaison }),
+        unite: "m\u00B2",
         quantite: surfaceChaussee,
         pu: prixLiaisonM2,
         total: coutLiaison,
@@ -448,8 +449,8 @@ export default function CalculateurVRD() {
     bordereau.push({
       type: "line",
       num: epLiaison > 0 ? "2.3" : "2.2",
-      designation: `Couche de base (grave conc.) ép. ${epBase} cm`,
-      unite: "m³",
+      designation: t("bordereau.coucheBase", { cm: epBase }),
+      unite: "m\u00B3",
       quantite: volBase,
       pu: prixFondation,
       total: coutBase,
@@ -457,8 +458,8 @@ export default function CalculateurVRD() {
     bordereau.push({
       type: "line",
       num: epLiaison > 0 ? "2.4" : "2.3",
-      designation: `Fondation (tout-venant 0/60) ép. ${epFondation} cm`,
-      unite: "m³",
+      designation: t("bordereau.fondation", { cm: epFondation }),
+      unite: "m\u00B3",
       quantite: volFondation,
       pu: prixFondation,
       total: coutFondationVoirie,
@@ -467,8 +468,8 @@ export default function CalculateurVRD() {
       bordereau.push({
         type: "line",
         num: epLiaison > 0 ? "2.5" : "2.4",
-        designation: `Sous-fondation (géotextile + conc.) ép. ${epSousFondation} cm`,
-        unite: "m³",
+        designation: t("bordereau.sousFondation", { cm: epSousFondation }),
+        unite: "m\u00B3",
         quantite: volSousFondation,
         pu: prixFondation,
         total: coutSousFondation,
@@ -478,21 +479,21 @@ export default function CalculateurVRD() {
       bordereau.push({
         type: "line",
         num: epLiaison > 0 ? (epSousFondation > 0 ? "2.6" : "2.5") : (epSousFondation > 0 ? "2.5" : "2.4"),
-        designation: `Trottoirs (fond. + pavés/dalles) x${nbTrottoirs}`,
-        unite: "m²",
+        designation: t("bordereau.trottoirs", { n: nbTrottoirs }),
+        unite: "m\u00B2",
         quantite: surfaceTrottoirs,
         pu: prixTrottoir,
         total: coutTrottoirs,
       });
     }
-    bordereau.push({ type: "subtotal", lotNum: 2, lotNom: "Voirie et chaussée", lotColor: LOT_COLORS.voirie, total: totalLot2 });
+    bordereau.push({ type: "subtotal", lotNum: 2, lotNom: t("lots.lot2"), lotColor: LOT_COLORS.voirie, total: totalLot2 });
 
     // LOT 3
-    bordereau.push({ type: "header", lotNum: 3, lotNom: "Bordures et caniveaux", lotColor: LOT_COLORS.bordures });
+    bordereau.push({ type: "header", lotNum: 3, lotNom: t("lots.lot3"), lotColor: LOT_COLORS.bordures });
     bordereau.push({
       type: "line",
       num: "3.1",
-      designation: "Bordures type T2 (bordure haute)",
+      designation: t("bordereau.borduresT2"),
       unite: "ml",
       quantite: mlBorduresT2,
       pu: prixBordureT2,
@@ -501,7 +502,7 @@ export default function CalculateurVRD() {
     bordereau.push({
       type: "line",
       num: "3.2",
-      designation: "Bordures CS1 (abaissées / bateaux)",
+      designation: t("bordereau.borduresCS1"),
       unite: "ml",
       quantite: mlBorduresCS1,
       pu: prixBordureCS1,
@@ -510,137 +511,137 @@ export default function CalculateurVRD() {
     bordereau.push({
       type: "line",
       num: "3.3",
-      designation: "Caniveaux béton",
+      designation: t("bordereau.caniveauxBeton"),
       unite: "ml",
       quantite: mlCaniveaux,
       pu: prixCaniveau,
       total: coutCaniveaux,
     });
-    bordereau.push({ type: "subtotal", lotNum: 3, lotNom: "Bordures et caniveaux", lotColor: LOT_COLORS.bordures, total: totalLot3 });
+    bordereau.push({ type: "subtotal", lotNum: 3, lotNom: t("lots.lot3"), lotColor: LOT_COLORS.bordures, total: totalLot3 });
 
     // LOT 4
-    bordereau.push({ type: "header", lotNum: 4, lotNom: "Réseaux eaux usées (EU)", lotColor: LOT_COLORS.eu });
+    bordereau.push({ type: "header", lotNum: 4, lotNom: t("lots.lot4Header"), lotColor: LOT_COLORS.eu });
     if (mlEU_DN200 > 0) {
       bordereau.push({
         type: "line", num: "4.1",
-        designation: "Canalisation EU DN200 (PVC)", unite: "ml",
+        designation: t("bordereau.canalisationEU_DN200"), unite: "ml",
         quantite: mlEU_DN200, pu: prixEU_DN200, total: coutEU_DN200,
       });
     }
     if (mlEU_DN300 > 0) {
       bordereau.push({
         type: "line", num: "4.2",
-        designation: "Canalisation EU DN300", unite: "ml",
+        designation: t("bordereau.canalisationEU_DN300"), unite: "ml",
         quantite: mlEU_DN300, pu: prixEU_DN300, total: coutEU_DN300,
       });
     }
     if (mlEU_DN400 > 0) {
       bordereau.push({
         type: "line", num: "4.3",
-        designation: "Canalisation EU DN400", unite: "ml",
+        designation: t("bordereau.canalisationEU_DN400"), unite: "ml",
         quantite: mlEU_DN400, pu: prixEU_DN400, total: coutEU_DN400,
       });
     }
     bordereau.push({
       type: "line", num: "4.4",
-      designation: "Regards de visite", unite: "u",
+      designation: t("bordereau.regardsVisite"), unite: "u",
       quantite: nbRegardsEU, pu: prixRegardEU, total: coutRegardsEU,
     });
     bordereau.push({
       type: "line", num: "4.5",
-      designation: "Branchements particuliers", unite: "u",
+      designation: t("bordereau.branchementsParticuliers"), unite: "u",
       quantite: nbBranchements, pu: prixBranchement, total: coutBranchements,
     });
-    bordereau.push({ type: "subtotal", lotNum: 4, lotNom: "Réseaux eaux usées", lotColor: LOT_COLORS.eu, total: totalLot4 });
+    bordereau.push({ type: "subtotal", lotNum: 4, lotNom: t("lots.lot4"), lotColor: LOT_COLORS.eu, total: totalLot4 });
 
     // LOT 5
-    bordereau.push({ type: "header", lotNum: 5, lotNom: "Réseaux eaux pluviales (EP)", lotColor: LOT_COLORS.ep });
+    bordereau.push({ type: "header", lotNum: 5, lotNom: t("lots.lot5Header"), lotColor: LOT_COLORS.ep });
     if (mlEP_DN300 > 0) {
       bordereau.push({
         type: "line", num: "5.1",
-        designation: "Canalisation EP DN300", unite: "ml",
+        designation: t("bordereau.canalisationEP_DN300"), unite: "ml",
         quantite: mlEP_DN300, pu: prixEP_DN300, total: coutEP_DN300,
       });
     }
     if (mlEP_DN400 > 0) {
       bordereau.push({
         type: "line", num: "5.2",
-        designation: "Canalisation EP DN400", unite: "ml",
+        designation: t("bordereau.canalisationEP_DN400"), unite: "ml",
         quantite: mlEP_DN400, pu: prixEP_DN400, total: coutEP_DN400,
       });
     }
     if (mlEP_DN600 > 0) {
       bordereau.push({
         type: "line", num: "5.3",
-        designation: "Canalisation EP DN600", unite: "ml",
+        designation: t("bordereau.canalisationEP_DN600"), unite: "ml",
         quantite: mlEP_DN600, pu: prixEP_DN600, total: coutEP_DN600,
       });
     }
     bordereau.push({
       type: "line", num: "5.4",
-      designation: "Regards de visite EP", unite: "u",
+      designation: t("bordereau.regardsVisiteEP"), unite: "u",
       quantite: nbRegardsEP, pu: prixRegardEP, total: coutRegardsEP,
     });
     bordereau.push({
       type: "line", num: "5.5",
-      designation: "Avaloirs avec grille", unite: "u",
+      designation: t("bordereau.avaloirsGrille"), unite: "u",
       quantite: nbAvaloirs, pu: prixAvaloir, total: coutAvaloirsTotal,
     });
     if (bassinRetention) {
       bordereau.push({
         type: "line", num: "5.6",
-        designation: "Bassin de rétention", unite: "m³",
+        designation: t("bordereau.bassinRetention"), unite: "m\u00B3",
         quantite: volumeBassin, pu: prixBassin, total: coutBassin,
       });
     }
-    bordereau.push({ type: "subtotal", lotNum: 5, lotNom: "Réseaux eaux pluviales", lotColor: LOT_COLORS.ep, total: totalLot5 });
+    bordereau.push({ type: "subtotal", lotNum: 5, lotNom: t("lots.lot5"), lotColor: LOT_COLORS.ep, total: totalLot5 });
 
     // LOT 6
-    bordereau.push({ type: "header", lotNum: 6, lotNom: "Réseaux secs et éclairage", lotColor: LOT_COLORS.reseauxSecs });
+    bordereau.push({ type: "header", lotNum: 6, lotNom: t("lots.lot6"), lotColor: LOT_COLORS.reseauxSecs });
     bordereau.push({
       type: "line", num: "6.1",
-      designation: `Tranchée commune (élec + télécom + gaz) ${(profondeurTranchee * 100).toFixed(0)}x${(largeurTranchee * 100).toFixed(0)} cm`,
+      designation: t("bordereau.trancheeCommune", { dim: `${(profondeurTranchee * 100).toFixed(0)}x${(largeurTranchee * 100).toFixed(0)}` }),
       unite: "ml", quantite: mlTrancheeCommune, pu: prixTranchee, total: coutTranchees,
     });
     bordereau.push({
       type: "line", num: "6.2",
-      designation: "Coffrets / armoires de rue", unite: "u",
+      designation: t("bordereau.coffretsArmoires"), unite: "u",
       quantite: nbCoffrets, pu: prixCoffret, total: coutCoffrets,
     });
     bordereau.push({
       type: "line", num: "6.3",
-      designation: "Candélabres LED + fondation + raccordement", unite: "u",
+      designation: t("bordereau.candelabresLED"), unite: "u",
       quantite: nbCandelabres, pu: prixCandelabre, total: coutCandelabresTotal,
     });
-    bordereau.push({ type: "subtotal", lotNum: 6, lotNom: "Réseaux secs et éclairage", lotColor: LOT_COLORS.reseauxSecs, total: totalLot6 });
+    bordereau.push({ type: "subtotal", lotNum: 6, lotNom: t("lots.lot6"), lotColor: LOT_COLORS.reseauxSecs, total: totalLot6 });
 
     // LOT 7
-    bordereau.push({ type: "header", lotNum: 7, lotNom: "Aménagements paysagers", lotColor: LOT_COLORS.amenagements });
+    bordereau.push({ type: "header", lotNum: 7, lotNom: t("lots.lot7"), lotColor: LOT_COLORS.amenagements });
     bordereau.push({
       type: "line", num: "7.1",
-      designation: "Espaces verts (terre vég. + engazonnement + plant.)", unite: "m²",
+      designation: t("bordereau.espacesVerts"), unite: "m\u00B2",
       quantite: surfaceEspacesVerts, pu: prixEspaceVert, total: coutEspacesVerts,
     });
     bordereau.push({
       type: "line", num: "7.2",
-      designation: "Arbres (fourniture + fosse + tuteurage)", unite: "u",
+      designation: t("bordereau.arbres"), unite: "u",
       quantite: nbArbres, pu: prixArbre, total: coutArbres,
     });
-    bordereau.push({ type: "subtotal", lotNum: 7, lotNom: "Aménagements paysagers", lotColor: LOT_COLORS.amenagements, total: totalLot7 });
+    bordereau.push({ type: "subtotal", lotNum: 7, lotNom: t("lots.lot7"), lotColor: LOT_COLORS.amenagements, total: totalLot7 });
 
     // LOT 8
-    bordereau.push({ type: "header", lotNum: 8, lotNom: "Signalisation et mobilier urbain", lotColor: LOT_COLORS.signalisation });
+    bordereau.push({ type: "header", lotNum: 8, lotNom: t("lots.lot8"), lotColor: LOT_COLORS.signalisation });
     bordereau.push({
       type: "line", num: "8.1",
-      designation: "Signalisation (forfait)", unite: "ft",
+      designation: t("bordereau.signalisationForfait"), unite: "ft",
       quantite: 1, pu: surfaceSignalisation, total: surfaceSignalisation,
     });
     bordereau.push({
       type: "line", num: "8.2",
-      designation: "Mobilier urbain (bancs, poubelles, potelets)", unite: "ft",
+      designation: t("bordereau.mobilierUrbain"), unite: "ft",
       quantite: 1, pu: mobilierUrbain, total: mobilierUrbain,
     });
-    bordereau.push({ type: "subtotal", lotNum: 8, lotNom: "Signalisation et mobilier urbain", lotColor: LOT_COLORS.signalisation, total: totalLot8 });
+    bordereau.push({ type: "subtotal", lotNum: 8, lotNom: t("lots.lot8"), lotColor: LOT_COLORS.signalisation, total: totalLot8 });
 
     // Grand total row
     bordereau.push({ type: "grandtotal", total: totalTravaux });
@@ -670,6 +671,7 @@ export default function CalculateurVRD() {
       terrassementM,
     };
   }, [
+    t,
     pente, solRocheux,
     surfaceTotale, installationChantier,
     surfaceDecapage, profondeurDecapage, volumeDeblais, volumeRemblais,
@@ -715,41 +717,41 @@ export default function CalculateurVRD() {
     return (
       <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
         <h2 className="mb-4 text-base font-semibold text-navy">
-          0 &mdash; Projet
+          0 &mdash; {t("steps.step0")}
         </h2>
         <MethodologyNote step={0} />
         <div className="space-y-4">
           <InputField
-            label="Nom du projet"
+            label={t("labels.nomProjet")}
             type="text"
             value={nomProjet}
             onChange={setNomProjet}
           />
           <InputField
-            label="Type de projet"
+            label={t("labels.typeProjet")}
             type="select"
             value={typeProjet}
             onChange={(v) => setTypeProjet(v as TypeProjet)}
             options={[
-              { value: "lotissement", label: "Lotissement" },
-              { value: "voirie_communale", label: "Voirie communale" },
-              { value: "voirie_etatique", label: "Voirie étatique" },
-              { value: "zone_activites", label: "Zone d'activités" },
-              { value: "amenagement_exterieur", label: "Aménagement extérieur" },
-              { value: "parking", label: "Parking" },
+              { value: "lotissement", label: t("labels.typeLotissement") },
+              { value: "voirie_communale", label: t("labels.typeVoirieCommunale") },
+              { value: "voirie_etatique", label: t("labels.typeVoirieEtatique") },
+              { value: "zone_activites", label: t("labels.typeZoneActivites") },
+              { value: "amenagement_exterieur", label: t("labels.typeAmenagementExterieur") },
+              { value: "parking", label: t("labels.typeParking") },
             ]}
           />
           <InputField
-            label="Commune"
+            label={t("labels.commune")}
             type="text"
             value={commune}
             onChange={setCommune}
           />
           <InputField
-            label="Surface totale du projet"
+            label={t("labels.surfaceTotale")}
             value={surfaceTotale}
             onChange={(v) => setSurfaceTotale(Number(v))}
-            suffix="m²"
+            suffix="m\u00B2"
             min={100}
             step={100}
           />
@@ -757,26 +759,26 @@ export default function CalculateurVRD() {
           {/* Topographie */}
           <div className="mt-2 rounded-lg border border-card-border/50 bg-background/50 p-4">
             <h3 className="mb-3 text-sm font-medium text-slate">
-              Topographie
+              {t("sections.topographie")}
             </h3>
             <div className="space-y-3">
               <InputField
-                label="Pente du terrain"
+                label={t("labels.pente")}
                 type="select"
                 value={pente}
                 onChange={(v) => setPente(v as Pente)}
                 options={[
-                  { value: "plat", label: "Plat (x1,00)" },
-                  { value: "pente_legere", label: "Pente légère (x1,15)" },
-                  { value: "forte_pente", label: "Forte pente (x1,35)" },
+                  { value: "plat", label: t("labels.pentePlat") },
+                  { value: "pente_legere", label: t("labels.penteLegere") },
+                  { value: "forte_pente", label: t("labels.penteFort") },
                 ]}
-                hint="Majoration appliquée sur les coûts de terrassement"
+                hint={t("hints.penteMajoration")}
               />
               <ToggleField
-                label="Sol rocheux"
+                label={t("labels.solRocheux")}
                 checked={solRocheux}
                 onChange={setSolRocheux}
-                hint="Majoration x1,25 sur les coûts de terrassement"
+                hint={t("hints.solRocheux")}
               />
             </div>
           </div>
@@ -789,38 +791,38 @@ export default function CalculateurVRD() {
     return (
       <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
         <h2 className="mb-4 text-base font-semibold text-navy">
-          1 &mdash; Terrassement
+          1 &mdash; {t("steps.step1")}
         </h2>
         <MethodologyNote step={1} />
         <div className="space-y-4">
           {/* Lot 0 : Installation de chantier */}
           <div className="rounded-lg border border-card-border/50 bg-background/50 p-4">
             <h3 className="mb-3 text-sm font-medium text-slate">
-              Lot 0 &mdash; Installation de chantier
+              Lot 0 &mdash; {t("lots.lot0")}
             </h3>
             <SliderField
-              label="Installation de chantier (forfait)"
+              label={t("labels.installationChantier")}
               value={installationChantier}
               onChange={setInstallationChantier}
               min={5000}
               max={50000}
               step={1000}
-              suffix="€"
-              hint="Aménagement accès, clôtures, base vie, panneaux. Source : marché courant LU"
+              suffix="\u20AC"
+              hint={t("hints.installationChantier")}
             />
           </div>
 
           {/* Lot 1 : Terrassement */}
           <InputField
-            label="Surface de décapage terre végétale"
+            label={t("labels.surfaceDecapage")}
             value={surfaceDecapage}
             onChange={(v) => setSurfaceDecapage(Number(v))}
-            suffix="m²"
+            suffix="m\u00B2"
             min={0}
             step={100}
           />
           <SliderField
-            label="Profondeur de décapage"
+            label={t("labels.profondeurDecapage")}
             value={profondeurDecapage}
             onChange={setProfondeurDecapage}
             min={0.2}
@@ -829,29 +831,29 @@ export default function CalculateurVRD() {
             suffix="m"
           />
           <InputField
-            label="Volume déblais (fouilles, tranchées)"
+            label={t("labels.volumeDeblais")}
             value={volumeDeblais}
             onChange={(v) => setVolumeDeblais(Number(v))}
-            suffix="m³"
+            suffix="m\u00B3"
             min={0}
             step={100}
           />
           <InputField
-            label="Volume remblais"
+            label={t("labels.volumeRemblais")}
             value={volumeRemblais}
             onChange={(v) => setVolumeRemblais(Number(v))}
-            suffix="m³"
+            suffix="m\u00B3"
             min={0}
             step={100}
           />
           <ToggleField
-            label="Évacuation en décharge"
+            label={t("labels.evacuationDecharge")}
             checked={evacuationExcedent}
             onChange={setEvacuationExcedent}
           />
           {evacuationExcedent && (
             <SliderField
-              label="Distance à la décharge"
+              label={t("labels.distanceDecharge")}
               value={distanceDecharge}
               onChange={setDistanceDecharge}
               min={5}
@@ -861,44 +863,44 @@ export default function CalculateurVRD() {
             />
           )}
           <SliderField
-            label="Prix décapage"
+            label={t("labels.prixDecapage")}
             value={prixDecapage}
             onChange={setPrixDecapage}
             min={3}
             max={8}
             step={0.5}
-            suffix="€/m²"
-            hint="3-8 €/m² -- Source : Batiprix 2026 vol. 2 (x1.20 coeff. LU), CTG 002 art. 3"
+            suffix="\u20AC/m\u00B2"
+            hint={t("hints.prixDecapage")}
           />
           <SliderField
-            label="Prix déblais"
+            label={t("labels.prixDeblais")}
             value={prixDeblais}
             onChange={setPrixDeblais}
             min={8}
             max={25}
             step={1}
-            suffix="€/m³"
-            hint="8-25 €/m³ -- Source : Batiprix 2026, STATEC indice terrassement oct. 2025 (-0.6 %)"
+            suffix="\u20AC/m\u00B3"
+            hint={t("hints.prixDeblais")}
           />
           <SliderField
-            label="Prix remblais"
+            label={t("labels.prixRemblais")}
             value={prixRemblais}
             onChange={setPrixRemblais}
             min={12}
             max={30}
             step={1}
-            suffix="€/m³"
-            hint="12-30 €/m³ -- Source : Batiprix 2026 (x1.20 coeff. LU)"
+            suffix="\u20AC/m\u00B3"
+            hint={t("hints.prixRemblais")}
           />
           <SliderField
-            label="Prix évacuation"
+            label={t("labels.prixEvacuation")}
             value={prixEvacuation}
             onChange={setPrixEvacuation}
             min={15}
             max={40}
             step={1}
-            suffix="€/m³"
-            hint="15-40 €/m³ -- Source : Batiprix 2026, distance décharge agréée (LIST)"
+            suffix="\u20AC/m\u00B3"
+            hint={t("hints.prixEvacuation")}
           />
         </div>
       </div>
@@ -911,12 +913,12 @@ export default function CalculateurVRD() {
         {/* Voirie et chaussée */}
         <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
           <h2 className="mb-4 text-base font-semibold text-navy">
-            2 &mdash; Voirie et chaussée
+            2 &mdash; {t("steps.step2")}
           </h2>
           <MethodologyNote step={2} />
           <div className="space-y-4">
             <InputField
-              label="Longueur totale de voirie"
+              label={t("labels.longueurVoirie")}
               value={longueurVoirie}
               onChange={(v) => setLongueurVoirie(Number(v))}
               suffix="ml"
@@ -924,7 +926,7 @@ export default function CalculateurVRD() {
               step={10}
             />
             <SliderField
-              label="Largeur de chaussée"
+              label={t("labels.largeurChaussee")}
               value={largeurChaussee}
               onChange={setLargeurChaussee}
               min={3}
@@ -933,19 +935,19 @@ export default function CalculateurVRD() {
               suffix="m"
             />
             <InputField
-              label="Nombre de trottoirs"
+              label={t("labels.nbTrottoirs")}
               type="select"
               value={String(nbTrottoirs)}
               onChange={(v) => setNbTrottoirs(Number(v))}
               options={[
-                { value: "0", label: "0 -- Aucun trottoir" },
-                { value: "1", label: "1 -- Un côté" },
-                { value: "2", label: "2 -- Deux côtés" },
+                { value: "0", label: t("labels.trottoirsNone") },
+                { value: "1", label: t("labels.trottoirsOne") },
+                { value: "2", label: t("labels.trottoirsTwo") },
               ]}
             />
             {nbTrottoirs > 0 && (
               <SliderField
-                label="Largeur trottoir"
+                label={t("labels.largeurTrottoir")}
                 value={largeurTrottoir}
                 onChange={setLargeurTrottoir}
                 min={1}
@@ -958,11 +960,11 @@ export default function CalculateurVRD() {
             {/* Structure de chaussée */}
             <div className="mt-2 rounded-lg border border-card-border/50 bg-background/50 p-4">
               <h3 className="mb-3 text-sm font-medium text-slate">
-                Structure de chaussée
+                {t("sections.structureChaussee")}
               </h3>
               <div className="space-y-3">
                 <SliderField
-                  label="Couche de roulement (enrobé BB)"
+                  label={t("labels.coucheRoulement")}
                   value={epRevetement}
                   onChange={setEpRevetement}
                   min={4}
@@ -971,7 +973,7 @@ export default function CalculateurVRD() {
                   suffix="cm"
                 />
                 <SliderField
-                  label="Couche de liaison (enrobé GB)"
+                  label={t("labels.coucheLiaison")}
                   value={epLiaison}
                   onChange={setEpLiaison}
                   min={0}
@@ -980,7 +982,7 @@ export default function CalculateurVRD() {
                   suffix="cm"
                 />
                 <SliderField
-                  label="Couche de base (grave bitume / conc.)"
+                  label={t("labels.coucheBase")}
                   value={epBase}
                   onChange={setEpBase}
                   min={15}
@@ -989,7 +991,7 @@ export default function CalculateurVRD() {
                   suffix="cm"
                 />
                 <SliderField
-                  label="Fondation (tout-venant 0/60 ou 0/80)"
+                  label={t("labels.fondation")}
                   value={epFondation}
                   onChange={setEpFondation}
                   min={20}
@@ -998,7 +1000,7 @@ export default function CalculateurVRD() {
                   suffix="cm"
                 />
                 <SliderField
-                  label="Sous-fondation (géotextile + conc.)"
+                  label={t("labels.sousFondation")}
                   value={epSousFondation}
                   onChange={setEpSousFondation}
                   min={0}
@@ -1011,45 +1013,45 @@ export default function CalculateurVRD() {
 
             {/* Prix voirie */}
             <SliderField
-              label="Enrobé (fourn. + pose) par cm d'épaisseur"
+              label={t("labels.prixEnrobe")}
               value={prixEnrobe}
               onChange={setPrixEnrobe}
               min={8}
               max={20}
               step={0.5}
-              suffix="€/m²/cm"
-              hint="8-20 €/m²/cm -- Source : Batiprix 2026 vol. 2, CSDC-CT §4 (Ponts & Chaussées)"
+              suffix="\u20AC/m\u00B2/cm"
+              hint={t("hints.prixEnrobe")}
             />
             <SliderField
-              label="Grave bitume / grave conc. par cm"
+              label={t("labels.prixGraveBitume")}
               value={prixGraveBitume}
               onChange={setPrixGraveBitume}
               min={5}
               max={15}
               step={0.5}
-              suffix="€/m²/cm"
-              hint="5-15 €/m²/cm -- Source : Batiprix 2026, CSDC-CT §3.3"
+              suffix="\u20AC/m\u00B2/cm"
+              hint={t("hints.prixGraveBitume")}
             />
             <SliderField
-              label="Fondation / sous-fondation"
+              label={t("labels.prixFondation")}
               value={prixFondation}
               onChange={setPrixFondation}
               min={15}
               max={35}
               step={1}
-              suffix="€/m³"
-              hint="15-35 €/m³ -- Source : Batiprix 2026, CTG 002 art. 5 (couche de forme)"
+              suffix="\u20AC/m\u00B3"
+              hint={t("hints.prixFondation")}
             />
             {nbTrottoirs > 0 && (
               <SliderField
-                label="Trottoir (fondation + pavés/dalles)"
+                label={t("labels.prixTrottoir")}
                 value={prixTrottoir}
                 onChange={setPrixTrottoir}
                 min={40}
                 max={90}
                 step={5}
-                suffix="€/m²"
-                hint="40-90 €/m² -- Source : Batiprix 2026 (pavés/dalles béton, fondation incluse)"
+                suffix="\u20AC/m\u00B2"
+                hint={t("hints.prixTrottoir")}
               />
             )}
           </div>
@@ -1058,11 +1060,11 @@ export default function CalculateurVRD() {
         {/* Bordures et caniveaux */}
         <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
           <h2 className="mb-4 text-base font-semibold text-navy">
-            Lot 3 &mdash; Bordures et caniveaux
+            Lot 3 &mdash; {t("lots.lot3")}
           </h2>
           <div className="space-y-4">
             <InputField
-              label="Bordures type T2 (bordure haute)"
+              label={t("labels.borduresT2")}
               value={mlBorduresT2}
               onChange={(v) => setMlBorduresT2(Number(v))}
               suffix="ml"
@@ -1070,17 +1072,17 @@ export default function CalculateurVRD() {
               step={10}
             />
             <SliderField
-              label="Prix bordure T2"
+              label={t("labels.prixBordureT2")}
               value={prixBordureT2}
               onChange={setPrixBordureT2}
               min={15}
               max={35}
               step={1}
-              suffix="€/ml"
-              hint="15-35 €/ml -- Source : Batiprix 2026, norme NF EN 1340"
+              suffix="\u20AC/ml"
+              hint={t("hints.prixBordureT2")}
             />
             <InputField
-              label="Bordures CS1 (abaissées / bateaux)"
+              label={t("labels.borduresCS1")}
               value={mlBorduresCS1}
               onChange={(v) => setMlBorduresCS1(Number(v))}
               suffix="ml"
@@ -1088,17 +1090,17 @@ export default function CalculateurVRD() {
               step={10}
             />
             <SliderField
-              label="Prix bordure CS1"
+              label={t("labels.prixBordureCS1")}
               value={prixBordureCS1}
               onChange={setPrixBordureCS1}
               min={20}
               max={40}
               step={1}
-              suffix="€/ml"
-              hint="20-40 €/ml -- Source : Batiprix 2026 (bordures abaissées)"
+              suffix="\u20AC/ml"
+              hint={t("hints.prixBordureCS1")}
             />
             <InputField
-              label="Caniveaux béton"
+              label={t("labels.caniveauxBeton")}
               value={mlCaniveaux}
               onChange={(v) => setMlCaniveaux(Number(v))}
               suffix="ml"
@@ -1106,14 +1108,14 @@ export default function CalculateurVRD() {
               step={10}
             />
             <SliderField
-              label="Prix caniveau"
+              label={t("labels.prixCaniveau")}
               value={prixCaniveau}
               onChange={setPrixCaniveau}
               min={20}
               max={45}
               step={1}
-              suffix="€/ml"
-              hint="20-45 €/ml -- Source : Batiprix 2026"
+              suffix="\u20AC/ml"
+              hint={t("hints.prixCaniveau")}
             />
           </div>
         </div>
@@ -1127,15 +1129,15 @@ export default function CalculateurVRD() {
         {/* Réseaux eaux usées (EU) */}
         <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
           <h2 className="mb-4 text-base font-semibold text-navy">
-            3 &mdash; Assainissement
+            3 &mdash; {t("steps.step3")}
           </h2>
           <MethodologyNote step={3} />
           <h3 className="mb-3 text-sm font-medium text-slate">
-            Lot 4 &mdash; Réseaux eaux usées (EU)
+            Lot 4 &mdash; {t("lots.lot4Header")}
           </h3>
           <div className="space-y-4">
             <InputField
-              label="Canalisation EU DN200 (PVC)"
+              label={t("labels.canalisationEU_DN200")}
               value={mlEU_DN200}
               onChange={(v) => setMlEU_DN200(Number(v))}
               suffix="ml"
@@ -1143,7 +1145,7 @@ export default function CalculateurVRD() {
               step={10}
             />
             <InputField
-              label="Canalisation EU DN300"
+              label={t("labels.canalisationEU_DN300")}
               value={mlEU_DN300}
               onChange={(v) => setMlEU_DN300(Number(v))}
               suffix="ml"
@@ -1151,7 +1153,7 @@ export default function CalculateurVRD() {
               step={10}
             />
             <InputField
-              label="Canalisation EU DN400"
+              label={t("labels.canalisationEU_DN400")}
               value={mlEU_DN400}
               onChange={(v) => setMlEU_DN400(Number(v))}
               suffix="ml"
@@ -1159,7 +1161,7 @@ export default function CalculateurVRD() {
               step={10}
             />
             <InputField
-              label="Regards de visite"
+              label={t("labels.regardsVisite")}
               value={nbRegardsEU}
               onChange={(v) => setNbRegardsEU(Number(v))}
               suffix="u"
@@ -1167,7 +1169,7 @@ export default function CalculateurVRD() {
               step={1}
             />
             <InputField
-              label="Branchements particuliers"
+              label={t("labels.branchementsParticuliers")}
               value={nbBranchements}
               onChange={(v) => setNbBranchements(Number(v))}
               suffix="u"
@@ -1175,54 +1177,54 @@ export default function CalculateurVRD() {
               step={1}
             />
             <SliderField
-              label="Prix EU DN200"
+              label={t("labels.prixEU_DN200")}
               value={prixEU_DN200}
               onChange={setPrixEU_DN200}
               min={80}
               max={160}
               step={5}
-              suffix="€/ml"
-              hint="80-160 €/ml -- Source : Batiprix 2026 vol. 2, CTG 009 art. 2"
+              suffix="\u20AC/ml"
+              hint={t("hints.prixEU_DN200")}
             />
             <SliderField
-              label="Prix EU DN300"
+              label={t("labels.prixEU_DN300")}
               value={prixEU_DN300}
               onChange={setPrixEU_DN300}
               min={120}
               max={220}
               step={5}
-              suffix="€/ml"
-              hint="120-220 €/ml -- Source : Batiprix 2026, CTG 009"
+              suffix="\u20AC/ml"
+              hint={t("hints.prixEU_DN300")}
             />
             <SliderField
-              label="Prix EU DN400"
+              label={t("labels.prixEU_DN400")}
               value={prixEU_DN400}
               onChange={setPrixEU_DN400}
               min={160}
               max={300}
               step={10}
-              suffix="€/ml"
-              hint="160-300 €/ml -- Source : Batiprix 2026, CTG 009"
+              suffix="\u20AC/ml"
+              hint={t("hints.prixEU_DN400")}
             />
             <SliderField
-              label="Prix regard EU"
+              label={t("labels.prixRegardEU")}
               value={prixRegardEU}
               onChange={setPrixRegardEU}
               min={800}
               max={2000}
               step={100}
-              suffix="€/u"
-              hint="800-2 000 €/u -- Source : Batiprix 2026, Administration de l'eau TabAVIS-9100"
+              suffix="\u20AC/u"
+              hint={t("hints.prixRegardEU")}
             />
             <SliderField
-              label="Prix branchement"
+              label={t("labels.prixBranchement")}
               value={prixBranchement}
               onChange={setPrixBranchement}
               min={500}
               max={1500}
               step={100}
-              suffix="€/u"
-              hint="500-1 500 €/u -- Source : Batiprix 2026"
+              suffix="\u20AC/u"
+              hint={t("hints.prixBranchement")}
             />
           </div>
         </div>
@@ -1230,11 +1232,11 @@ export default function CalculateurVRD() {
         {/* Réseaux eaux pluviales (EP) */}
         <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
           <h2 className="mb-4 text-base font-semibold text-navy">
-            Lot 5 &mdash; Réseaux eaux pluviales (EP)
+            Lot 5 &mdash; {t("lots.lot5Header")}
           </h2>
           <div className="space-y-4">
             <InputField
-              label="Canalisation EP DN300"
+              label={t("labels.canalisationEP_DN300")}
               value={mlEP_DN300}
               onChange={(v) => setMlEP_DN300(Number(v))}
               suffix="ml"
@@ -1242,7 +1244,7 @@ export default function CalculateurVRD() {
               step={10}
             />
             <InputField
-              label="Canalisation EP DN400"
+              label={t("labels.canalisationEP_DN400")}
               value={mlEP_DN400}
               onChange={(v) => setMlEP_DN400(Number(v))}
               suffix="ml"
@@ -1250,7 +1252,7 @@ export default function CalculateurVRD() {
               step={10}
             />
             <InputField
-              label="Canalisation EP DN600"
+              label={t("labels.canalisationEP_DN600")}
               value={mlEP_DN600}
               onChange={(v) => setMlEP_DN600(Number(v))}
               suffix="ml"
@@ -1258,7 +1260,7 @@ export default function CalculateurVRD() {
               step={10}
             />
             <InputField
-              label="Regards de visite EP"
+              label={t("labels.regardsVisiteEP")}
               value={nbRegardsEP}
               onChange={(v) => setNbRegardsEP(Number(v))}
               suffix="u"
@@ -1266,7 +1268,7 @@ export default function CalculateurVRD() {
               step={1}
             />
             <InputField
-              label="Avaloirs avec grille"
+              label={t("labels.avaloirsGrille")}
               value={nbAvaloirs}
               onChange={(v) => setNbAvaloirs(Number(v))}
               suffix="u"
@@ -1274,80 +1276,80 @@ export default function CalculateurVRD() {
               step={1}
             />
             <ToggleField
-              label="Bassin de rétention"
+              label={t("labels.bassinRetention")}
               checked={bassinRetention}
               onChange={setBassinRetention}
             />
             {bassinRetention && (
               <SliderField
-                label="Volume bassin de rétention"
+                label={t("labels.volumeBassin")}
                 value={volumeBassin}
                 onChange={setVolumeBassin}
                 min={50}
                 max={500}
                 step={10}
-                suffix="m³"
+                suffix="m\u00B3"
               />
             )}
             <SliderField
-              label="Prix EP DN300"
+              label={t("labels.prixEP_DN300")}
               value={prixEP_DN300}
               onChange={setPrixEP_DN300}
               min={100}
               max={200}
               step={5}
-              suffix="€/ml"
-              hint="100-200 €/ml -- Source : Batiprix 2026, CTG 009"
+              suffix="\u20AC/ml"
+              hint={t("hints.prixEP_DN300")}
             />
             <SliderField
-              label="Prix EP DN400"
+              label={t("labels.prixEP_DN400")}
               value={prixEP_DN400}
               onChange={setPrixEP_DN400}
               min={140}
               max={280}
               step={10}
-              suffix="€/ml"
-              hint="140-280 €/ml -- Source : Batiprix 2026, CTG 009"
+              suffix="\u20AC/ml"
+              hint={t("hints.prixEP_DN400")}
             />
             <SliderField
-              label="Prix EP DN600"
+              label={t("labels.prixEP_DN600")}
               value={prixEP_DN600}
               onChange={setPrixEP_DN600}
               min={200}
               max={400}
               step={10}
-              suffix="€/ml"
-              hint="200-400 €/ml -- Source : Batiprix 2026, CTG 009"
+              suffix="\u20AC/ml"
+              hint={t("hints.prixEP_DN600")}
             />
             <SliderField
-              label="Prix regard EP"
+              label={t("labels.prixRegardEP")}
               value={prixRegardEP}
               onChange={setPrixRegardEP}
               min={900}
               max={2200}
               step={100}
-              suffix="€/u"
-              hint="800-2 000 €/u -- Source : Batiprix 2026, Administration de l'eau"
+              suffix="\u20AC/u"
+              hint={t("hints.prixRegardEP")}
             />
             <SliderField
-              label="Prix avaloir"
+              label={t("labels.prixAvaloir")}
               value={prixAvaloir}
               onChange={setPrixAvaloir}
               min={400}
               max={1000}
               step={50}
-              suffix="€/u"
-              hint="400-1 000 €/u -- Source : Batiprix 2026"
+              suffix="\u20AC/u"
+              hint={t("hints.prixAvaloir")}
             />
             <SliderField
-              label="Prix bassin"
+              label={t("labels.prixBassin")}
               value={prixBassin}
               onChange={setPrixBassin}
               min={150}
               max={400}
               step={10}
-              suffix="€/m³"
-              hint="150-400 €/m³ -- Source : Batiprix 2026, Administration de l'eau"
+              suffix="\u20AC/m\u00B3"
+              hint={t("hints.prixBassin")}
             />
           </div>
         </div>
@@ -1359,12 +1361,12 @@ export default function CalculateurVRD() {
     return (
       <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
         <h2 className="mb-4 text-base font-semibold text-navy">
-          4 &mdash; Réseaux secs
+          4 &mdash; {t("steps.step4")}
         </h2>
         <MethodologyNote step={4} />
         <div className="space-y-4">
           <InputField
-            label="Tranchée commune (élec + télécom + gaz)"
+            label={t("labels.trancheeCommune")}
             value={mlTrancheeCommune}
             onChange={(v) => setMlTrancheeCommune(Number(v))}
             suffix="ml"
@@ -1372,7 +1374,7 @@ export default function CalculateurVRD() {
             step={10}
           />
           <SliderField
-            label="Profondeur tranchée"
+            label={t("labels.profondeurTranchee")}
             value={profondeurTranchee}
             onChange={setProfondeurTranchee}
             min={0.6}
@@ -1381,7 +1383,7 @@ export default function CalculateurVRD() {
             suffix="m"
           />
           <SliderField
-            label="Largeur tranchée"
+            label={t("labels.largeurTranchee")}
             value={largeurTranchee}
             onChange={setLargeurTranchee}
             min={0.4}
@@ -1390,17 +1392,17 @@ export default function CalculateurVRD() {
             suffix="m"
           />
           <SliderField
-            label="Prix tranchée"
+            label={t("labels.prixTranchee")}
             value={prixTranchee}
             onChange={setPrixTranchee}
             min={30}
             max={80}
             step={5}
-            suffix="€/ml"
-            hint="30-80 €/ml -- Source : Batiprix 2026, dispositions techniques VdL"
+            suffix="\u20AC/ml"
+            hint={t("hints.prixTranchee")}
           />
           <InputField
-            label="Coffrets / armoires de rue"
+            label={t("labels.coffretsArmoires")}
             value={nbCoffrets}
             onChange={(v) => setNbCoffrets(Number(v))}
             suffix="u"
@@ -1408,17 +1410,17 @@ export default function CalculateurVRD() {
             step={1}
           />
           <SliderField
-            label="Prix coffret"
+            label={t("labels.prixCoffret")}
             value={prixCoffret}
             onChange={setPrixCoffret}
             min={300}
             max={800}
             step={50}
-            suffix="€/u"
-            hint="300-800 €/u -- Source : Creos catalogue 2026"
+            suffix="\u20AC/u"
+            hint={t("hints.prixCoffret")}
           />
           <InputField
-            label="Candélabres éclairage public"
+            label={t("labels.candelabres")}
             value={nbCandelabres}
             onChange={(v) => setNbCandelabres(Number(v))}
             suffix="u"
@@ -1426,14 +1428,14 @@ export default function CalculateurVRD() {
             step={1}
           />
           <SliderField
-            label="Prix candélabre"
+            label={t("labels.prixCandelabre")}
             value={prixCandelabre}
             onChange={setPrixCandelabre}
             min={2000}
             max={5000}
             step={100}
-            suffix="€/u"
-            hint="2 000-5 000 €/u -- Source : Batiprix 2026 (LED + fondation + raccordement)"
+            suffix="\u20AC/u"
+            hint={t("hints.prixCandelabre")}
           />
         </div>
       </div>
@@ -1446,33 +1448,33 @@ export default function CalculateurVRD() {
         {/* Lot 7 : Aménagements paysagers */}
         <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
           <h2 className="mb-4 text-base font-semibold text-navy">
-            5 &mdash; Aménagements
+            5 &mdash; {t("steps.step5")}
           </h2>
           <MethodologyNote step={5} />
           <h3 className="mb-3 text-sm font-medium text-slate">
-            Lot 7 &mdash; Aménagements paysagers
+            Lot 7 &mdash; {t("lots.lot7")}
           </h3>
           <div className="space-y-4">
             <InputField
-              label="Espaces verts"
+              label={t("labels.espacesVerts")}
               value={surfaceEspacesVerts}
               onChange={(v) => setSurfaceEspacesVerts(Number(v))}
-              suffix="m²"
+              suffix="m\u00B2"
               min={0}
               step={100}
             />
             <SliderField
-              label="Prix espace vert"
+              label={t("labels.prixEspaceVert")}
               value={prixEspaceVert}
               onChange={setPrixEspaceVert}
               min={8}
               max={25}
               step={1}
-              suffix="€/m²"
-              hint="8-25 €/m² -- Source : Batiprix 2026 vol. 2 (espaces verts)"
+              suffix="\u20AC/m\u00B2"
+              hint={t("hints.prixEspaceVert")}
             />
             <InputField
-              label="Nombre d'arbres"
+              label={t("labels.nbArbres")}
               value={nbArbres}
               onChange={(v) => setNbArbres(Number(v))}
               suffix="u"
@@ -1480,14 +1482,14 @@ export default function CalculateurVRD() {
               step={1}
             />
             <SliderField
-              label="Prix arbre"
+              label={t("labels.prixArbre")}
               value={prixArbre}
               onChange={setPrixArbre}
               min={200}
               max={800}
               step={50}
-              suffix="€/u"
-              hint="200-800 €/u -- Source : Batiprix 2026 (fourniture, fosse, tuteurage)"
+              suffix="\u20AC/u"
+              hint={t("hints.prixArbre")}
             />
           </div>
         </div>
@@ -1495,25 +1497,25 @@ export default function CalculateurVRD() {
         {/* Lot 8 : Signalisation et mobilier urbain */}
         <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
           <h2 className="mb-4 text-base font-semibold text-navy">
-            Lot 8 &mdash; Signalisation et mobilier urbain
+            Lot 8 &mdash; {t("lots.lot8")}
           </h2>
           <div className="space-y-4">
             <InputField
-              label="Signalisation (forfait)"
+              label={t("labels.signalisationForfait")}
               value={surfaceSignalisation}
               onChange={(v) => setSurfaceSignalisation(Number(v))}
-              suffix="€"
+              suffix="\u20AC"
               min={0}
               step={500}
             />
             <InputField
-              label="Mobilier urbain (forfait)"
+              label={t("labels.mobilierUrbainForfait")}
               value={mobilierUrbain}
               onChange={(v) => setMobilierUrbain(Number(v))}
-              suffix="€"
+              suffix="\u20AC"
               min={0}
               step={500}
-              hint="Bancs, poubelles, barrières, potelets"
+              hint={t("hints.mobilierUrbain")}
             />
           </div>
         </div>
@@ -1525,70 +1527,70 @@ export default function CalculateurVRD() {
     return (
       <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
         <h2 className="mb-4 text-base font-semibold text-navy">
-          6 &mdash; Études et honoraires
+          6 &mdash; {t("steps.step6")}
         </h2>
         <MethodologyNote step={6} />
         <div className="space-y-4">
           <SliderField
-            label="Étude géotechnique"
+            label={t("labels.etudeGeo")}
             value={etudeGeo}
             onChange={setEtudeGeo}
             min={2000}
             max={8000}
             step={500}
-            suffix="€"
-            hint="Source : marché courant LU (LSC360, Schroeder & Associés)"
+            suffix="\u20AC"
+            hint={t("hints.etudeGeo")}
           />
           <SliderField
-            label="Étude topographique"
+            label={t("labels.etudeTopo")}
             value={etudeTopo}
             onChange={setEtudeTopo}
             min={2000}
             max={6000}
             step={500}
-            suffix="€"
-            hint="Source : marché courant LU (géomètre-expert agréé)"
+            suffix="\u20AC"
+            hint={t("hints.etudeTopo")}
           />
           <SliderField
-            label="Étude hydraulique / gestion eaux pluviales"
+            label={t("labels.etudeHydro")}
             value={etudeHydro}
             onChange={setEtudeHydro}
             min={3000}
             max={12000}
             step={500}
-            suffix="€"
-            hint="Source : Administration de l'eau, RGD assainissement"
+            suffix="\u20AC"
+            hint={t("hints.etudeHydro")}
           />
           <SliderField
-            label="Étude d'impact environnemental"
+            label={t("labels.etudeImpact")}
             value={etudeImpact}
             onChange={setEtudeImpact}
             min={0}
             max={25000}
             step={1000}
-            suffix="€"
+            suffix="\u20AC"
           />
           <SliderField
-            label="Coordination sécurité-santé"
+            label={t("labels.coordSS")}
             value={coordSS}
             onChange={setCoordSS}
             min={3000}
             max={10000}
             step={500}
-            suffix="€"
+            suffix="\u20AC"
           />
           <SliderField
-            label="Honoraires bureau d'études"
+            label={t("labels.honorairesBE")}
             value={honorairesBE}
             onChange={setHonorairesBE}
             min={6}
             max={14}
             step={0.5}
             suffix="%"
-            hint="Source : OAI CTA Privé annexe 3 (indicatif, libre négociation depuis 2024)"
+            hint={t("hints.honorairesBE")}
           />
           <SliderField
-            label="Aléas"
+            label={t("labels.aleas")}
             value={aleas}
             onChange={setAleas}
             min={3}
@@ -1621,13 +1623,14 @@ export default function CalculateurVRD() {
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs />
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl font-bold text-navy sm:text-3xl">
-            Estimateur VRD &mdash; Bureau d&rsquo;études
+            {t("title")}
           </h1>
           <p className="mt-2 text-muted">
-            Métrés, estimation budgétaire et bordereau récapitulatif &mdash; Projets d&rsquo;infrastructure Luxembourg
+            {t("subtitle")}
           </p>
         </div>
 
@@ -1674,10 +1677,10 @@ export default function CalculateurVRD() {
                 onClick={() => setCurrentStep((s) => Math.max(0, s - 1))}
                 className="rounded-lg border border-card-border bg-card px-4 py-2 text-sm font-medium text-slate shadow-sm transition-colors hover:bg-background disabled:cursor-not-allowed disabled:opacity-40"
               >
-                Précédent
+                {t("nav.previous")}
               </button>
               <span className="text-xs text-muted">
-                Étape {currentStep + 1} / {STEPS.length}
+                {t("nav.stepOf", { current: currentStep + 1, total: STEPS.length })}
               </span>
               <button
                 type="button"
@@ -1685,7 +1688,7 @@ export default function CalculateurVRD() {
                 onClick={() => setCurrentStep((s) => Math.min(STEPS.length - 1, s + 1))}
                 className="rounded-lg bg-navy px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-navy-light disabled:cursor-not-allowed disabled:opacity-40"
               >
-                Suivant
+                {t("nav.next")}
               </button>
             </div>
           </div>
@@ -1697,46 +1700,46 @@ export default function CalculateurVRD() {
             {/* Hero total */}
             <div className="rounded-2xl bg-gradient-to-br from-navy to-navy-light p-8 text-center text-white shadow-lg">
               <div className="text-sm text-white/60">
-                Budget total estimé &mdash; {nomProjet || "Nouveau projet"}
+                {t("results.heroTitle")} &mdash; {nomProjet || t("results.newProject")}
               </div>
               <div className="mt-2 text-5xl font-bold">
                 {formatEUR(result.totalGeneral)}
               </div>
               <div className="mt-3 flex items-center justify-center gap-6 text-sm text-white/70">
-                <span>{formatEUR(Math.round(result.coutM2))} / m² de surface projet</span>
+                <span>{formatEUR(Math.round(result.coutM2))} / {t("results.perM2")}</span>
               </div>
               <div className="mt-1 text-xs text-white/40">
-                Hors honoraires BE
+                {t("results.horsHonorairesBE")}
               </div>
             </div>
 
             {/* Recapitulatif par lot */}
             <ResultPanel
-              title="Récapitulatif par lot"
+              title={t("results.recapTitle")}
               lines={[
                 ...result.lots.map((lot) => ({
                   label: `Lot ${lot.num} — ${lot.nom}`,
                   value: `${formatEUR(lot.total)} (${result.totalTravaux > 0 ? ((lot.total / result.totalTravaux) * 100).toFixed(1) : "0"} %)`,
                 })),
                 {
-                  label: "Total travaux",
+                  label: t("results.totalTravaux"),
                   value: formatEUR(result.totalTravaux),
                   highlight: true,
                 },
                 {
-                  label: "Études et divers",
+                  label: t("results.etudesDivers"),
                   value: formatEUR(result.totalEtudes),
                 },
                 {
-                  label: `Honoraires BE (${honorairesBE} %)`,
+                  label: t("results.honorairesBE", { pct: honorairesBE }),
                   value: formatEUR(result.montantHonorairesBE),
                 },
                 {
-                  label: `Aléas (${aleas} %)`,
+                  label: t("results.aleas", { pct: aleas }),
                   value: formatEUR(result.montantAleas),
                 },
                 {
-                  label: "TOTAL GÉNÉRAL",
+                  label: t("results.totalGeneral"),
                   value: formatEUR(result.totalGeneral),
                   highlight: true,
                   large: true,
@@ -1747,7 +1750,7 @@ export default function CalculateurVRD() {
             {/* Stacked bar */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
               <h3 className="mb-4 text-base font-semibold text-navy">
-                Répartition par lot
+                {t("results.repartitionLot")}
               </h3>
               {/* Bar */}
               <div className="flex h-8 w-full overflow-hidden rounded-full">
@@ -1795,12 +1798,12 @@ export default function CalculateurVRD() {
             {/* Topography warnings */}
             {(pente !== "plat" || solRocheux) && (
               <ResultPanel
-                title="Majorations topographiques"
+                title={t("results.majorationsTitle")}
                 lines={[
                   ...(pente !== "plat"
                     ? [
                         {
-                          label: "Majoration pente",
+                          label: t("results.majorationPente"),
                           value: `x${PENTE_MULTIPLIER[pente].toFixed(2)}`,
                           warning: true as const,
                         },
@@ -1809,14 +1812,14 @@ export default function CalculateurVRD() {
                   ...(solRocheux
                     ? [
                         {
-                          label: "Majoration sol rocheux",
+                          label: t("results.majorationSolRocheux"),
                           value: `x${SOL_ROCHEUX_MULTIPLIER.toFixed(2)}`,
                           warning: true as const,
                         },
                       ]
                     : []),
                   {
-                    label: "Coefficient combiné",
+                    label: t("results.coefficientCombine"),
                     value: `x${result.terrassementM.toFixed(2)}`,
                     highlight: true,
                   },
@@ -1830,11 +1833,11 @@ export default function CalculateurVRD() {
             <div className="rounded-xl border border-card-border bg-card shadow-sm overflow-hidden">
               <div className="p-6 pb-3">
                 <h3 className="text-base font-semibold text-navy">
-                  Bordereau détaillé
+                  {t("results.bordereauTitle")}
                 </h3>
                 <p className="mt-1 text-xs text-muted">
-                  Métré quantitatif estimatif &mdash;{" "}
-                  {nomProjet || "Nouveau projet"}
+                  {t("results.bordereauSubtitle")} &mdash;{" "}
+                  {nomProjet || t("results.newProject")}
                   {commune ? ` — ${commune}` : ""}
                 </p>
               </div>
@@ -1844,22 +1847,22 @@ export default function CalculateurVRD() {
                   <thead>
                     <tr className="border-b border-card-border bg-background/80">
                       <th className="px-3 py-2.5 text-left font-semibold text-slate w-[52px]">
-                        No.
+                        {t("results.colNo")}
                       </th>
                       <th className="px-3 py-2.5 text-left font-semibold text-slate">
-                        Désignation
+                        {t("results.colDesignation")}
                       </th>
                       <th className="px-3 py-2.5 text-center font-semibold text-slate w-[48px]">
-                        Unité
+                        {t("results.colUnite")}
                       </th>
                       <th className="px-3 py-2.5 text-right font-semibold text-slate w-[80px]">
-                        Qté
+                        {t("results.colQte")}
                       </th>
                       <th className="px-3 py-2.5 text-right font-semibold text-slate w-[90px]">
-                        PU (€)
+                        {t("results.colPU")}
                       </th>
                       <th className="px-3 py-2.5 text-right font-semibold text-slate w-[110px]">
-                        Total (€)
+                        {t("results.colTotal")}
                       </th>
                     </tr>
                   </thead>
@@ -1887,7 +1890,7 @@ export default function CalculateurVRD() {
                           >
                             <td className="px-3 py-2" />
                             <td className="px-3 py-2 text-slate" colSpan={4}>
-                              Sous-total Lot {row.lotNum}
+                              {t("results.subtotalLot", { num: row.lotNum ?? 0 })}
                             </td>
                             <td className="px-3 py-2 text-right font-mono text-navy">
                               {fmtTotal.format(row.total ?? 0)}
@@ -1904,7 +1907,7 @@ export default function CalculateurVRD() {
                           >
                             <td className="px-3 py-3" />
                             <td className="px-3 py-3" colSpan={4}>
-                              TOTAL GÉNÉRAL TRAVAUX
+                              {t("results.grandTotalTravaux")}
                             </td>
                             <td className="px-3 py-3 text-right font-mono text-lg">
                               {fmtTotal.format(row.total ?? 0)}
@@ -1945,7 +1948,7 @@ export default function CalculateurVRD() {
             {/* ====================================================== */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
               <h3 className="mb-4 text-base font-semibold text-navy">
-                Documents de référence
+                {t("results.refsTitle")}
               </h3>
               <ul className="space-y-2">
                 {REFERENCE_DOCS.map((doc, i) => (
@@ -1957,7 +1960,7 @@ export default function CalculateurVRD() {
                       rel="noopener noreferrer"
                       className="text-navy underline decoration-navy/30 underline-offset-2 transition-colors hover:text-navy-light hover:decoration-navy-light/50"
                     >
-                      {doc.label}
+                      {t(`refs.${doc.labelKey}`)}
                     </a>
                   </li>
                 ))}
@@ -1967,14 +1970,7 @@ export default function CalculateurVRD() {
             {/* Sources */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
               <p className="text-xs leading-relaxed text-muted">
-                <strong>Sources :</strong> Prix unitaires moyens marché
-                luxembourgeois 2025-2026. Référentiels : Batiprix 2026 vol. 2
-                (VRD, Espaces verts) avec coefficient LU x1.20, CTG 002
-                (terrassement), CTG 009 (canalisation), CSDC-CT (Ponts &amp;
-                Chaussées), STATEC indices prix construction, Creos catalogue
-                raccordement 2026, OAI CTA Privé annexe 3. Les prix incluent
-                généralement fourniture, transport et mise en œuvre. Devis
-                détaillés à demander aux entreprises spécialisées.
+                <strong>{t("sources.title")}</strong> {t("sources.text")}
               </p>
             </div>
           </div>

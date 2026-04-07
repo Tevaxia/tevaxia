@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { generatePortfolioPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
 
@@ -92,6 +92,109 @@ function generateId(): string {
 }
 
 /* ------------------------------------------------------------------ */
+/*  CSV helpers                                                        */
+/* ------------------------------------------------------------------ */
+
+const CSV_HEADERS = ["nom", "classe", "surface", "valeur", "type", "annee"] as const;
+
+const CSV_TEMPLATE_ROWS = [
+  CSV_HEADERS.join(","),
+  "12 rue de la Gare Bettembourg,D,85,650000,Appartement,1990",
+  "Villa Strassen,B,200,1500000,Maison,2015",
+].join("\n");
+
+function parseCsvLine(line: string): string[] {
+  const fields: string[] = [];
+  let current = "";
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (inQuotes) {
+      if (ch === '"' && line[i + 1] === '"') {
+        current += '"';
+        i++;
+      } else if (ch === '"') {
+        inQuotes = false;
+      } else {
+        current += ch;
+      }
+    } else if (ch === '"') {
+      inQuotes = true;
+    } else if (ch === "," || ch === ";") {
+      fields.push(current.trim());
+      current = "";
+    } else {
+      current += ch;
+    }
+  }
+  fields.push(current.trim());
+  return fields;
+}
+
+function parseCsv(text: string): { properties: Omit<Property, "id">[]; errors: string[] } {
+  const lines = text.split(/\r?\n/).filter((l) => l.trim() !== "");
+  if (lines.length < 2) return { properties: [], errors: ["csv_empty"] };
+
+  const headerFields = parseCsvLine(lines[0]).map((h) => h.toLowerCase().replace(/^\uFEFF/, ""));
+  const colMap: Record<string, number> = {};
+  for (const h of CSV_HEADERS) {
+    const idx = headerFields.indexOf(h);
+    if (idx === -1) return { properties: [], errors: [`csv_missing_col:${h}`] };
+    colMap[h] = idx;
+  }
+
+  const props: Omit<Property, "id">[] = [];
+  const errors: string[] = [];
+
+  for (let i = 1; i < lines.length; i++) {
+    const fields = parseCsvLine(lines[i]);
+    if (fields.length < CSV_HEADERS.length) {
+      errors.push(`csv_row_short:${i + 1}`);
+      continue;
+    }
+    const nom = fields[colMap["nom"]];
+    const classe = fields[colMap["classe"]].toUpperCase();
+    const surfaceRaw = Number(fields[colMap["surface"]]);
+    const valeurRaw = Number(fields[colMap["valeur"]]);
+    const typeRaw = fields[colMap["type"]];
+    const anneeRaw = Number(fields[colMap["annee"]]);
+
+    if (!nom) { errors.push(`csv_row_empty_nom:${i + 1}`); continue; }
+    if (!CLASSES.includes(classe as Classe)) { errors.push(`csv_row_bad_classe:${i + 1}`); continue; }
+    if (isNaN(surfaceRaw) || surfaceRaw <= 0) { errors.push(`csv_row_bad_surface:${i + 1}`); continue; }
+    if (isNaN(valeurRaw) || valeurRaw <= 0) { errors.push(`csv_row_bad_valeur:${i + 1}`); continue; }
+    if (isNaN(anneeRaw) || anneeRaw < 1800) { errors.push(`csv_row_bad_annee:${i + 1}`); continue; }
+
+    props.push({ nom, classe, surface: surfaceRaw, valeur: valeurRaw, type: typeRaw || "Appartement", annee: anneeRaw });
+  }
+
+  return { properties: props, errors };
+}
+
+function propertiesToCsv(properties: Property[]): string {
+  const lines = [CSV_HEADERS.join(",")];
+  for (const p of properties) {
+    const nom = p.nom.includes(",") || p.nom.includes('"')
+      ? `"${p.nom.replace(/"/g, '""')}"`
+      : p.nom;
+    lines.push([nom, p.classe, p.surface, p.valeur, p.type, p.annee].join(","));
+  }
+  return lines.join("\n");
+}
+
+function downloadCsvFile(content: string, filename: string) {
+  const blob = new Blob(["\uFEFF" + content], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ------------------------------------------------------------------ */
 /*  Sort types                                                         */
 /* ------------------------------------------------------------------ */
 
@@ -119,6 +222,10 @@ export default function PortfolioPage() {
   // Sort state
   const [sortKey, setSortKey] = useState<SortKey>("nom");
   const [sortDir, setSortDir] = useState<SortDir>("asc");
+
+  // CSV import state
+  const [csvMessage, setCsvMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const csvInputRef = useRef<HTMLInputElement>(null);
 
   // Type options with translated labels
   const TYPE_OPTIONS = TYPE_KEYS.map((key, i) => ({
@@ -171,6 +278,55 @@ export default function PortfolioPage() {
 
   function handleDelete(id: string) {
     setProperties((prev) => prev.filter((p) => p.id !== id));
+  }
+
+  /* ---- CSV import / export -------------------------------------- */
+
+  const handleCsvImport = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setCsvMessage(null);
+
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        const text = ev.target?.result as string;
+        const { properties: parsed, errors } = parseCsv(text);
+
+        if (parsed.length === 0 && errors.length > 0) {
+          setCsvMessage({ type: "error", text: t("csvErrorFormat") });
+          return;
+        }
+
+        const withIds = parsed.map((p) => ({ ...p, id: generateId() }));
+        setProperties((prev) => [...prev, ...withIds]);
+
+        let msg = t("csvSuccess", { count: withIds.length });
+        if (errors.length > 0) {
+          msg += ` (${t("csvSkipped", { count: errors.length })})`;
+        }
+        setCsvMessage({ type: "success", text: msg });
+      } catch {
+        setCsvMessage({ type: "error", text: t("csvErrorFormat") });
+      }
+    };
+    reader.onerror = () => {
+      setCsvMessage({ type: "error", text: t("csvErrorRead") });
+    };
+    reader.readAsText(file);
+
+    // Reset input so same file can be re-imported
+    e.target.value = "";
+  }, [t]);
+
+  function handleCsvExport() {
+    if (properties.length === 0) return;
+    const csv = propertiesToCsv(properties);
+    downloadCsvFile(csv, `portfolio-energy-${new Date().toISOString().slice(0, 10)}.csv`);
+  }
+
+  function handleDownloadTemplate() {
+    downloadCsvFile(CSV_TEMPLATE_ROWS, "modele-portfolio-energy.csv");
   }
 
   /* ---- Computed portfolio stats ---------------------------------- */
@@ -319,6 +475,21 @@ export default function PortfolioPage() {
             >
               + {t("addFirstProperty")}
             </button>
+            <p className="mt-3 text-xs text-muted">{t("csvOrImport")}</p>
+            <div className="mt-2 flex items-center justify-center gap-2">
+              <button
+                onClick={() => csvInputRef.current?.click()}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-card-border bg-card px-4 py-2 text-xs font-medium text-foreground shadow-sm hover:bg-background transition-colors"
+              >
+                {t("csvImport")}
+              </button>
+              <button
+                onClick={handleDownloadTemplate}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-card-border bg-card px-4 py-2 text-xs font-medium text-muted hover:text-foreground shadow-sm hover:bg-background transition-colors"
+              >
+                {t("csvTemplate")}
+              </button>
+            </div>
           </div>
         )}
 
@@ -328,12 +499,32 @@ export default function PortfolioPage() {
         {(properties.length > 0 || showForm) && (
           <div className="mb-8">
             {!showForm && (
-              <button
-                onClick={() => setShowForm(true)}
-                className="inline-flex items-center gap-2 rounded-xl bg-energy px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-energy/90 transition-colors"
-              >
-                + {t("addProperty")}
-              </button>
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  onClick={() => setShowForm(true)}
+                  className="inline-flex items-center gap-2 rounded-xl bg-energy px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-energy/90 transition-colors"
+                >
+                  + {t("addProperty")}
+                </button>
+                <button
+                  onClick={() => csvInputRef.current?.click()}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-card-border bg-card px-4 py-2.5 text-sm font-medium text-foreground shadow-sm hover:bg-background transition-colors"
+                >
+                  {t("csvImport")}
+                </button>
+                <button
+                  onClick={handleCsvExport}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-card-border bg-card px-4 py-2.5 text-sm font-medium text-foreground shadow-sm hover:bg-background transition-colors"
+                >
+                  {t("csvExport")}
+                </button>
+                <button
+                  onClick={handleDownloadTemplate}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-card-border bg-card px-4 py-2.5 text-sm font-medium text-muted hover:text-foreground shadow-sm hover:bg-background transition-colors"
+                >
+                  {t("csvTemplate")}
+                </button>
+              </div>
             )}
 
             {showForm && (
@@ -483,6 +674,22 @@ export default function PortfolioPage() {
                     {t("btnCancel")}
                   </button>
                 </div>
+              </div>
+            )}
+
+            {/* Hidden CSV file input */}
+            <input
+              ref={csvInputRef}
+              type="file"
+              accept=".csv,text/csv"
+              className="hidden"
+              onChange={handleCsvImport}
+            />
+
+            {/* CSV import feedback message */}
+            {csvMessage && (
+              <div className={`mt-3 rounded-lg px-4 py-2.5 text-sm ${csvMessage.type === "success" ? "bg-green-50 text-green-800 border border-green-200" : "bg-red-50 text-red-800 border border-red-200"}`}>
+                {csvMessage.text}
               </div>
             )}
           </div>

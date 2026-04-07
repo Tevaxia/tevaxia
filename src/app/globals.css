@@ -72,6 +72,86 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] { -moz-appearance: textfield; }
 
 /* ============================================================
+   SLIDER FIELD — range input styling
+   ============================================================ */
+.slider-field {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    var(--gold) 0%,
+    var(--gold-light) var(--slider-pct, 50%),
+    var(--input-border) var(--slider-pct, 50%),
+    var(--input-border) 100%
+  );
+}
+
+/* Webkit thumb (Chrome, Safari, Edge) */
+.slider-field::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 3px solid var(--card);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.slider-field::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 2px 8px rgba(27, 42, 74, 0.35);
+}
+
+.slider-field::-webkit-slider-thumb:active {
+  transform: scale(1.05);
+  box-shadow: 0 1px 3px rgba(27, 42, 74, 0.4);
+}
+
+/* Firefox thumb */
+.slider-field::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 3px solid var(--card);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.slider-field::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 2px 8px rgba(27, 42, 74, 0.35);
+}
+
+/* Firefox track */
+.slider-field::-moz-range-track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--input-border);
+}
+
+.slider-field::-moz-range-progress {
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, var(--gold), var(--gold-light));
+}
+
+/* Focus ring */
+.slider-field:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+/* ============================================================
    PRINT STYLES — Rapport PDF
    ============================================================ */
 @media print {

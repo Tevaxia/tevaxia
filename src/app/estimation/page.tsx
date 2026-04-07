@@ -6,6 +6,8 @@ import InputField from "@/components/InputField";
 import ToggleField from "@/components/ToggleField";
 import { estimer } from "@/lib/estimation";
 import { rechercherCommune, type SearchResult } from "@/lib/market-data";
+import { PRIX_MOYEN_M2 } from "@/lib/macro-data";
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { AJUST_ETAGE, AJUST_ETAT, AJUST_EXTERIEUR } from "@/lib/adjustments";
 import { formatEUR, calculerMensualite } from "@/lib/calculations";
 import { getDemographics } from "@/lib/demographics";
@@ -13,7 +15,6 @@ import ConfidenceGauge from "@/components/ConfidenceGauge";
 import Link from "next/link";
 import { estimerCoutsRenovation } from "@/lib/renovation-costs";
 import { calculerDecoteEmphyteose } from "@/lib/emphyteose";
-import { PriceEvolutionChart } from "@/components/PriceChart";
 import { readUrlHash } from "@/lib/url-state";
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
@@ -91,6 +92,46 @@ export default function Estimation() {
       estNeuf,
     });
   }, [selectedResult, surface, nbChambres, etage, etat, exterieur, parking, classeEnergie, estNeuf]);
+
+  // ── Comparables synthétiques ──
+  const comparables = useMemo(() => {
+    if (!selectedResult || !result) return [];
+    const basePrix = result.prixM2Ajuste;
+    const types = ["Appartement", "Appartement", "Maison", "Appartement", "Maison"] as const;
+    const trimestres = ["T4 2025", "T3 2025", "T2 2025", "T1 2025", "T4 2024"];
+    // Deterministic seed from commune name
+    const seed = selectedResult.commune.commune.length;
+    return Array.from({ length: 5 }, (_, i) => {
+      const variation = [0.92, 1.05, 0.97, 1.08, 0.88][i];
+      const surfVar = [0.85, 1.15, 0.9, 1.1, 1.2][i];
+      const surfComp = Math.round(surface * surfVar);
+      const prixM2 = Math.round(basePrix * variation);
+      return {
+        id: i,
+        type: types[(i + seed) % types.length],
+        surface: surfComp,
+        prixM2,
+        prixTotal: prixM2 * surfComp,
+        date: trimestres[i],
+      };
+    });
+  }, [selectedResult, result, surface]);
+
+  // ── Données graphique évolution prix commune ──
+  const communeChartData = useMemo(() => {
+    if (!selectedResult || !result) return [];
+    const communePrix = result.prixM2Ajuste;
+    // National 2025 price as reference
+    const national2025 = PRIX_MOYEN_M2.find((d) => d.year === 2025)?.value ?? 7500;
+    const communeFactor = communePrix / national2025;
+    return PRIX_MOYEN_M2
+      .filter((d) => d.year >= 2019)
+      .map((d) => ({
+        annee: d.year,
+        national: d.value,
+        commune: Math.round(d.value * communeFactor),
+      }));
+  }, [selectedResult, result]);
 
   const confianceColor = result?.confiance === "forte" ? "text-success" : result?.confiance === "moyenne" ? "text-warning" : "text-error";
   const confianceBg = result?.confiance === "forte" ? "bg-green-50 border-green-200" : result?.confiance === "moyenne" ? "bg-amber-50 border-amber-200" : "bg-red-50 border-red-200";
@@ -419,8 +460,136 @@ export default function Estimation() {
                 );
               })()}
 
-              {/* Graphique évolution prix */}
-              <PriceEvolutionChart />
+              {/* Transactions comparables */}
+              {comparables.length > 0 && (
+                <div className="rounded-xl border border-card-border bg-card p-5 shadow-sm">
+                  <h3 className="text-sm font-semibold text-navy mb-1">Transactions comparables</h3>
+                  <p className="text-[10px] text-muted mb-3">
+                    Estimations basées sur les prix observés à {selectedResult?.commune.commune} — {selectedResult?.commune.periode}
+                  </p>
+                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                    {comparables.map((c) => (
+                      <div key={c.id} className="rounded-lg border border-card-border bg-background p-3">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-xs font-semibold text-navy">{c.type}</span>
+                          <span className="text-[10px] text-muted">{c.date}</span>
+                        </div>
+                        <div className="text-lg font-bold text-navy">{formatEUR(c.prixTotal)}</div>
+                        <div className="flex items-center justify-between mt-1 text-[11px] text-muted">
+                          <span>{c.surface} m²</span>
+                          <span className="font-mono">{formatEUR(c.prixM2)}/m²</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-3 text-[10px] text-muted">
+                    Comparables synthétiques construits à partir du prix/m² ajusté. Ne constituent pas des transactions réelles.
+                  </p>
+                </div>
+              )}
+
+              {/* Graphique évolution prix commune */}
+              {communeChartData.length > 0 && (
+                <div className="rounded-xl border border-card-border bg-card p-4 shadow-sm">
+                  <div className="mb-3">
+                    <h3 className="text-sm font-semibold text-navy">
+                      Évolution du prix/m² — {selectedResult?.commune.commune}
+                    </h3>
+                    <p className="text-[10px] text-muted">
+                      Estimation communale basée sur la tendance nationale — Source : Observatoire de l&apos;Habitat
+                    </p>
+                  </div>
+                  <ResponsiveContainer width="100%" height={180}>
+                    <AreaChart data={communeChartData} margin={{ top: 5, right: 5, bottom: 0, left: -10 }}>
+                      <defs>
+                        <linearGradient id="colorCommune" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor="#1B2A4A" stopOpacity={0.15} />
+                          <stop offset="95%" stopColor="#1B2A4A" stopOpacity={0} />
+                        </linearGradient>
+                      </defs>
+                      <XAxis dataKey="annee" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+                      <YAxis
+                        tick={{ fontSize: 10 }}
+                        tickLine={false}
+                        axisLine={false}
+                        tickFormatter={(v: number) => `${(v / 1000).toFixed(1)}k`}
+                        domain={["auto", "auto"]}
+                      />
+                      <Tooltip
+                        formatter={(value) => [formatEUR(Number(value)), "Prix/m²"]}
+                        labelFormatter={(label) => `Année ${label}`}
+                        contentStyle={{ fontSize: 12, borderRadius: 8, border: "1px solid #e5e2db" }}
+                      />
+                      <Area
+                        type="monotone"
+                        dataKey="commune"
+                        stroke="#1B2A4A"
+                        fill="url(#colorCommune)"
+                        strokeWidth={2}
+                        dot={{ r: 3, fill: "#1B2A4A" }}
+                        name={selectedResult?.commune.commune}
+                      />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </div>
+              )}
+
+              {/* Prix par quartier */}
+              {selectedResult?.commune.quartiers && selectedResult.commune.quartiers.length > 0 && (() => {
+                const quartiers = selectedResult.commune.quartiers!;
+                const sorted = [...quartiers].sort((a, b) => b.prixM2 - a.prixM2);
+                const minPrix = Math.min(...sorted.map((q) => q.prixM2));
+                const maxPrix = Math.max(...sorted.map((q) => q.prixM2));
+                const range = maxPrix - minPrix || 1;
+                const closestIdx = sorted.reduce((best, q, i) =>
+                  Math.abs(q.prixM2 - result.prixM2Ajuste) < Math.abs(sorted[best].prixM2 - result.prixM2Ajuste) ? i : best, 0);
+                return (
+                  <div className="rounded-xl border border-card-border bg-card p-5 shadow-sm">
+                    <h3 className="text-sm font-semibold text-navy mb-3">
+                      {t("quartierTitle", { commune: selectedResult.commune.commune })}
+                    </h3>
+                    <div className="space-y-2">
+                      {sorted.map((q, i) => {
+                        const barPct = ((q.prixM2 - minPrix) / range) * 100;
+                        const isClosest = i === closestIdx;
+                        return (
+                          <div
+                            key={q.nom}
+                            className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors ${isClosest ? "bg-navy/5 ring-1 ring-navy/20" : ""}`}
+                          >
+                            <div className="w-[38%] min-w-0 shrink-0">
+                              <span className={`truncate block ${isClosest ? "font-semibold text-navy" : "text-foreground"}`}>
+                                {q.nom}
+                              </span>
+                              <span className="block text-[10px] text-muted truncate">{q.note}</span>
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="h-3 rounded-full bg-navy/10 overflow-hidden">
+                                <div
+                                  className="h-full rounded-full bg-navy/60 transition-all"
+                                  style={{ width: `${Math.max(barPct, 8)}%` }}
+                                />
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2 shrink-0">
+                              <span className="font-mono text-xs font-semibold w-[72px] text-right">
+                                {formatEUR(q.prixM2)}/m²
+                              </span>
+                              <span className={`text-[10px] font-medium leading-none ${
+                                q.tendance === "hausse" ? "text-green-600" : q.tendance === "baisse" ? "text-red-500" : "text-muted"
+                              }`}>
+                                {q.tendance === "hausse" ? "▲" : q.tendance === "baisse" ? "▼" : "—"}
+                                {" "}{t(q.tendance === "hausse" ? "quartierHausse" : q.tendance === "baisse" ? "quartierBaisse" : "quartierStable")}
+                              </span>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <p className="mt-3 text-[10px] text-muted">{t("quartierSource")}</p>
+                  </div>
+                );
+              })()}
 
               {/* Détail */}
               <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">

@@ -55,6 +55,24 @@ function scoreToClass(score: number): string {
   return "I";
 }
 
+/* ── Score -> estimated consumption (kWh/m²/an) ── */
+function scoreToConsumption(score: number): { min: number; central: number; max: number } {
+  if (score >= 67) return { min: 0, central: 35, max: 45 };      // A
+  if (score >= 59) return { min: 45, central: 60, max: 75 };     // B
+  if (score >= 51) return { min: 75, central: 93, max: 110 };    // C
+  if (score >= 43) return { min: 110, central: 130, max: 160 };  // D
+  if (score >= 35) return { min: 160, central: 180, max: 220 };  // E
+  if (score >= 27) return { min: 220, central: 255, max: 310 };  // F
+  if (score >= 19) return { min: 310, central: 350, max: 420 };  // G
+  if (score >= 11) return { min: 420, central: 450, max: 520 };  // H
+  return { min: 520, central: 550, max: 650 };                    // I
+}
+
+/* ── Price per kWh (LU mix 2026) ── */
+const PRIX_KWH = 0.22;
+/* ── CO₂ factor kg/kWh ── */
+const CO2_FACTOR = 0.300;
+
 /* ── Component ── */
 
 export default function EstimateurCpePage() {
@@ -129,11 +147,13 @@ export default function EstimateurCpePage() {
 
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
+  const [surface, setSurface] = useState(100);
 
   const isFinished = step >= TOTAL_STEPS;
 
   const totalScore = Object.values(answers).reduce((a, b) => a + b, 0);
   const estimatedClass = scoreToClass(totalScore);
+  const conso = scoreToConsumption(totalScore);
 
   /* Handlers */
   function selectOption(key: string, points: number) {
@@ -172,6 +192,29 @@ export default function EstimateurCpePage() {
           <p className="mt-2 text-muted">
             {t("description")}
           </p>
+        </div>
+
+        {/* Surface input — always visible */}
+        <div className="mb-6 rounded-2xl border border-card-border bg-card p-4 sm:p-5 shadow-sm">
+          <label
+            htmlFor="surface"
+            className="block text-sm font-semibold text-foreground mb-2"
+          >
+            {t("surfaceLabel")} ({t("surfaceUnit")})
+          </label>
+          <div className="flex items-center gap-3">
+            <input
+              id="surface"
+              type="number"
+              min={10}
+              max={1000}
+              step={1}
+              value={surface}
+              onChange={(e) => setSurface(Math.max(1, Number(e.target.value) || 1))}
+              className="w-32 rounded-xl border-2 border-card-border bg-card px-4 py-2.5 text-sm font-medium text-foreground focus:border-energy focus:ring-1 focus:ring-energy outline-none transition-all"
+            />
+            <span className="text-sm text-muted">{t("surfaceUnit")}</span>
+          </div>
         </div>
 
         {/* Progress bar */}
@@ -317,6 +360,69 @@ export default function EstimateurCpePage() {
                       {c}
                     </div>
                   ))}
+                </div>
+              </div>
+            </div>
+
+            {/* ── Consumption breakdown ── */}
+            <div className="rounded-2xl border border-card-border bg-card p-6 sm:p-8 shadow-sm">
+              <h3 className="text-lg font-semibold text-foreground mb-5">
+                {t("consoEstimee")}
+              </h3>
+
+              {/* Central value */}
+              <div className="text-center mb-4">
+                <span className="text-4xl sm:text-5xl font-black text-energy">
+                  {conso.central}
+                </span>
+                <span className="ml-2 text-lg text-muted">kWh/m²/an</span>
+              </div>
+              <p className="text-center text-sm text-muted mb-6">
+                {t("consoFourchette", { min: conso.min, max: conso.max })}
+              </p>
+
+              {/* Consumption scale bar */}
+              <div className="mb-6">
+                <div className="relative h-4 rounded-full overflow-hidden bg-gradient-to-r from-green-500 via-yellow-400 via-orange-400 to-red-700">
+                  <div
+                    className="absolute top-0 h-full w-1 bg-white shadow-md border border-gray-800 rounded-full"
+                    style={{
+                      left: `${Math.min(Math.max((conso.central / 650) * 100, 2), 98)}%`,
+                    }}
+                  />
+                </div>
+                <div className="flex justify-between mt-1">
+                  <span className="text-xs text-muted">A</span>
+                  <span className="text-xs text-muted">I</span>
+                </div>
+              </div>
+
+              {/* Detail grid */}
+              <div className="grid gap-3 sm:grid-cols-3">
+                <div className="rounded-xl border border-card-border bg-gray-50 p-4 text-center">
+                  <p className="text-xs text-muted mb-1">{t("consoTotale")}</p>
+                  <p className="text-xl font-bold text-foreground">
+                    {(conso.central * surface).toLocaleString("fr-LU")}
+                  </p>
+                  <p className="text-xs text-muted">kWh/an</p>
+                  <p className="text-[11px] text-muted mt-1">
+                    ({surface} {t("surfaceUnit")})
+                  </p>
+                </div>
+                <div className="rounded-xl border border-card-border bg-gray-50 p-4 text-center">
+                  <p className="text-xs text-muted mb-1">{t("coutEstime")}</p>
+                  <p className="text-xl font-bold text-foreground">
+                    {Math.round(conso.central * surface * PRIX_KWH).toLocaleString("fr-LU")}
+                  </p>
+                  <p className="text-xs text-muted">&euro;/an</p>
+                  <p className="text-[11px] text-muted mt-1">{t("prixKwh")}</p>
+                </div>
+                <div className="rounded-xl border border-card-border bg-gray-50 p-4 text-center">
+                  <p className="text-xs text-muted mb-1">{t("emissionsCO2")}</p>
+                  <p className="text-xl font-bold text-foreground">
+                    {(conso.central * surface * CO2_FACTOR / 1000).toLocaleString("fr-LU", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}
+                  </p>
+                  <p className="text-xs text-muted">tonnes/an</p>
                 </div>
               </div>
             </div>

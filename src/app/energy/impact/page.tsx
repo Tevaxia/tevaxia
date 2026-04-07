@@ -7,9 +7,21 @@ import { generateImpactPdfBlob, PdfButton } from "@/components/energy/EnergyPdf"
 
 const CLASSES = ["A", "B", "C", "D", "E", "F", "G", "H", "I"] as const;
 
-const IMPACT_ENERGIE: Record<string, number> = {
-  A: 8, B: 5, C: 2, D: 0, E: -3, F: -7, G: -12, H: -18, I: -25,
+const IMPACT_ENERGIE_RANGE: Record<string, { min: number; central: number; max: number; source: string }> = {
+  A: { min: 5, central: 8, max: 12, source: "Observatoire 2025 + PriceHubble EU" },
+  B: { min: 3, central: 5, max: 8, source: "Observatoire 2025" },
+  C: { min: 0, central: 2, max: 4, source: "Observatoire 2025" },
+  D: { min: 0, central: 0, max: 0, source: "Classe de référence" },
+  E: { min: -5, central: -3, max: -1, source: "Observatoire 2025" },
+  F: { min: -10, central: -7, max: -4, source: "Observatoire 2025 + ECB" },
+  G: { min: -16, central: -12, max: -8, source: "Observatoire 2025 + EPBD projections" },
+  H: { min: -22, central: -18, max: -14, source: "Estimation tevaxia (peu de transactions)" },
+  I: { min: -30, central: -25, max: -20, source: "Estimation tevaxia (peu de transactions)" },
 };
+
+const IMPACT_ENERGIE: Record<string, number> = Object.fromEntries(
+  Object.entries(IMPACT_ENERGIE_RANGE).map(([k, v]) => [k, v.central])
+);
 
 const CONSO_PAR_CLASSE: Record<string, number> = { A: 35, B: 60, C: 93, D: 130, E: 180, F: 255, G: 350, H: 450, I: 550 };
 const CO2_FACTEUR = 300; // g CO₂/kWh mix luxembourgeois
@@ -30,13 +42,31 @@ function fmt(n: number): string {
   return n.toLocaleString("fr-LU", { maximumFractionDigits: 0 });
 }
 
-function fallbackLocal(valeur: number, classeActuelle: string): ImpactResponse {
+interface ClasseImpactLocal extends ClasseImpact {
+  valeurMin: number;
+  valeurMax: number;
+  ajustementMin: number;
+  ajustementMax: number;
+  source: string;
+}
+
+interface ImpactResponseLocal extends ImpactResponse {
+  classes: ClasseImpactLocal[];
+}
+
+function fallbackLocal(valeur: number, classeActuelle: string): ImpactResponseLocal {
   const pctActuelle = IMPACT_ENERGIE[classeActuelle] || 0;
   const valeurBase = valeur / (1 + pctActuelle / 100);
-  const classes: ClasseImpact[] = CLASSES.map((c) => {
-    const pct = IMPACT_ENERGIE[c];
+  const classes: ClasseImpactLocal[] = CLASSES.map((c) => {
+    const range = IMPACT_ENERGIE_RANGE[c];
+    const pct = range.central;
     const valeurAjustee = Math.round(valeurBase * (1 + pct / 100));
-    return { classe: c, ajustementPct: pct, valeurAjustee, delta: valeurAjustee - valeur };
+    const valeurMin = Math.round(valeurBase * (1 + range.min / 100));
+    const valeurMax = Math.round(valeurBase * (1 + range.max / 100));
+    return {
+      classe: c, ajustementPct: pct, valeurAjustee, delta: valeurAjustee - valeur,
+      valeurMin, valeurMax, ajustementMin: range.min, ajustementMax: range.max, source: range.source,
+    };
   });
   return { valeurBase: Math.round(valeurBase), classeActuelle, classes,
     methodologie: "Green premium / brown discount basé sur les écarts de prix observés par classe énergétique au Luxembourg.",
@@ -47,7 +77,7 @@ export default function ImpactPage() {
   const t = useTranslations("energy.impact");
   const [valeur, setValeur] = useState(750000);
   const [classeActuelle, setClasseActuelle] = useState("D");
-  const [result, setResult] = useState<ImpactResponse>(fallbackLocal(750000, "D"));
+  const [result, setResult] = useState<ImpactResponseLocal>(fallbackLocal(750000, "D"));
   const [apiOk, setApiOk] = useState<boolean | null>(null);
   const [elapsed, setElapsed] = useState(0);
 
@@ -60,7 +90,22 @@ export default function ImpactPage() {
   const compute = useCallback(async (v: number, c: string) => {
     try {
       const data = await calculerImpact({ valeurBien: v, classeActuelle: c });
-      setResult(data);
+      // Enrich API response with range data
+      const pctActuelle = IMPACT_ENERGIE[c] || 0;
+      const vBase = v / (1 + pctActuelle / 100);
+      const enriched: ImpactResponseLocal = {
+        ...data,
+        classes: data.classes.map((cl) => {
+          const range = IMPACT_ENERGIE_RANGE[cl.classe] || { min: 0, central: 0, max: 0, source: "" };
+          return {
+            ...cl,
+            valeurMin: Math.round(vBase * (1 + range.min / 100)),
+            valeurMax: Math.round(vBase * (1 + range.max / 100)),
+            ajustementMin: range.min, ajustementMax: range.max, source: range.source,
+          };
+        }),
+      };
+      setResult(enriched);
       setApiOk(true);
     } catch {
       setResult(fallbackLocal(v, c));
@@ -131,6 +176,9 @@ export default function ImpactPage() {
                 <tr className="border-b border-card-border text-left">
                   <th className="px-6 py-3 font-medium text-muted">{t("classe")}</th>
                   <th className="px-6 py-3 font-medium text-muted text-right">{t("ajustement")}</th>
+                  <th className="px-6 py-3 font-medium text-muted text-right">
+                    <span title={t("fourchetteTip")}>{t("fourchette")}</span>
+                  </th>
                   <th className="px-6 py-3 font-medium text-muted text-right">{t("valeurAjustee")}</th>
                   <th className="px-6 py-3 font-medium text-muted text-right">{t("delta")}</th>
                   <th className="px-6 py-3 font-medium text-muted text-right">{t("co2Column")}</th>
@@ -139,18 +187,32 @@ export default function ImpactPage() {
               <tbody>
                 {result.classes.map((c) => {
                   const isActive = c.classe === classeActuelle;
+                  const cl = c as ClasseImpactLocal;
                   return (
                     <tr key={c.classe} className={`border-b border-card-border last:border-0 transition-colors ${isActive ? "bg-energy/10" : "hover:bg-gray-50"}`}>
                       <td className="px-6 py-3">
-                        <span className={`inline-flex items-center justify-center w-8 h-8 rounded-lg text-sm font-bold ${CLASS_COLORS[c.classe]}`}>{c.classe}</span>
-                        {isActive && <span className="ml-2 text-xs text-energy font-medium">{t("actuelle")}</span>}
+                        <div className="flex items-center gap-2">
+                          <span className={`inline-flex items-center justify-center w-8 h-8 rounded-lg text-sm font-bold ${CLASS_COLORS[c.classe]}`}>{c.classe}</span>
+                          <div className="flex flex-col">
+                            {isActive && <span className="text-xs text-energy font-medium">{t("actuelle")}</span>}
+                            <span className="text-[10px] text-muted leading-tight" title={`${t("sourceData")}: ${cl.source}`}>{cl.source}</span>
+                          </div>
+                        </div>
                       </td>
                       <td className="px-6 py-3 text-right font-mono">
                         <span className={c.ajustementPct > 0 ? "text-green-600" : c.ajustementPct < 0 ? "text-red-600" : "text-muted"}>
                           {c.ajustementPct > 0 ? "+" : ""}{c.ajustementPct}%
                         </span>
                       </td>
-                      <td className="px-6 py-3 text-right font-mono font-semibold">{fmt(c.valeurAjustee)} €</td>
+                      <td className="px-6 py-3 text-right font-mono">
+                        <span className="text-xs text-muted">
+                          {cl.ajustementMin > 0 ? "+" : ""}{cl.ajustementMin}% — {cl.ajustementMax > 0 ? "+" : ""}{cl.ajustementMax}%
+                        </span>
+                      </td>
+                      <td className="px-6 py-3 text-right font-mono">
+                        <div className="font-semibold">{fmt(c.valeurAjustee)} €</div>
+                        <div className="text-[10px] text-muted leading-tight">{fmt(cl.valeurMin)} — {fmt(cl.valeurMax)} €</div>
+                      </td>
                       <td className="px-6 py-3 text-right font-mono">
                         {c.delta === 0 ? <span className="text-muted">—</span> : (
                           <span className={c.delta > 0 ? "text-green-600" : "text-red-600"}>
@@ -167,9 +229,12 @@ export default function ImpactPage() {
               </tbody>
             </table>
           </div>
-          <div className="px-6 py-3 bg-gray-50 flex items-center justify-between">
-            <span className="text-xs text-muted">{t("classeRef")} · {t("source")}</span>
-            <PdfButton generateBlob={() => generateImpactPdfBlob(result, classeActuelle, valeur)} filename={`energy-impact-cpe-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf")} />
+          <div className="px-6 py-3 bg-gray-50 space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-muted">{t("classeRef")} · {t("source")}</span>
+              <PdfButton generateBlob={() => generateImpactPdfBlob(result, classeActuelle, valeur)} filename={`energy-impact-cpe-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf")} />
+            </div>
+            <p className="text-[11px] text-muted leading-snug">{t("calibrationNote")}</p>
           </div>
         </div>
 
