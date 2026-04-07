@@ -506,7 +506,7 @@ export default function HVACSimulator() {
       bordereau.push({
         type: "line", num: `3.${lineNum3}`,
         designation: t("bordereau.plancherChauffant"),
-        unite: "m\u00B2", quantite: surfPC, pu: 125, total: coutPlancher,
+        unite: "m²", quantite: surfPC, pu: 125, total: coutPlancher,
       });
       lineNum3++;
     }
@@ -659,7 +659,7 @@ export default function HVACSimulator() {
     return (
       <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
         <h2 className="mb-4 text-base font-semibold text-navy">
-          0 &mdash; {t("steps.step0")}
+          1 &mdash; {t("steps.step0")}
         </h2>
         <MethodologyNote step={0} />
         <div className="space-y-4">
@@ -679,7 +679,7 @@ export default function HVACSimulator() {
             label={t("labels.surface")}
             value={surface}
             onChange={(v) => { setSurface(Number(v)); setSurfacePlancher(Number(v)); }}
-            suffix="m\u00B2"
+            suffix="m²"
             min={20}
             max={1000}
             step={10}
@@ -775,7 +775,7 @@ export default function HVACSimulator() {
     return (
       <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
         <h2 className="mb-4 text-base font-semibold text-navy">
-          1 &mdash; {t("steps.step1")}
+          2 &mdash; {t("steps.step1")}
         </h2>
         <MethodologyNote step={1} />
 
@@ -783,20 +783,20 @@ export default function HVACSimulator() {
           {/* Deperditions par transmission */}
           <div className="flex items-center justify-between rounded-lg bg-background/50 px-4 py-3">
             <span className="text-sm text-slate">{t("calc.deperditionsTransmission")}</span>
-            <span className="font-mono font-semibold text-foreground">{result.depWm2} W/m\u00B2</span>
+            <span className="font-mono font-semibold text-foreground">{result.depWm2} W/m²</span>
           </div>
 
           {/* Facteur vitrage */}
           <div className="flex items-center justify-between rounded-lg bg-background/50 px-4 py-3">
             <span className="text-sm text-slate">{t("calc.facteurVitrage")}</span>
-            <span className="font-mono font-semibold text-foreground">\u00D7{result.vitrFactor.toFixed(2)}</span>
+            <span className="font-mono font-semibold text-foreground">×{result.vitrFactor.toFixed(2)}</span>
           </div>
 
           {/* Facteur region */}
           <div className="flex items-center justify-between rounded-lg bg-background/50 px-4 py-3">
             <span className="text-sm text-slate">{t("calc.facteurRegion")}</span>
             <span className="font-mono font-semibold text-foreground">
-              {result.tempExt}\u00B0C &rarr; \u00D7{result.regionFactor.toFixed(2)}
+              {result.tempExt}°C &rarr; ×{result.regionFactor.toFixed(2)}
             </span>
           </div>
 
@@ -846,7 +846,7 @@ export default function HVACSimulator() {
       <div className="space-y-6">
         <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
           <h2 className="mb-4 text-base font-semibold text-navy">
-            2 &mdash; {t("steps.step2")}
+            3 &mdash; {t("steps.step2")}
           </h2>
           <MethodologyNote step={2} />
 
@@ -976,7 +976,7 @@ export default function HVACSimulator() {
     return (
       <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
         <h2 className="mb-4 text-base font-semibold text-navy">
-          3 &mdash; {t("steps.step3")}
+          4 &mdash; {t("steps.step3")}
         </h2>
         <MethodologyNote step={3} />
         <div className="space-y-4">
@@ -999,7 +999,7 @@ export default function HVACSimulator() {
               label={t("labels.surfacePlancher")}
               value={surfacePlancher}
               onChange={(v) => setSurfacePlancher(Number(v))}
-              suffix="m\u00B2"
+              suffix="m²"
               min={10}
               max={1000}
               step={10}
@@ -1071,7 +1071,7 @@ export default function HVACSimulator() {
       <div className="space-y-6">
         <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
           <h2 className="mb-4 text-base font-semibold text-navy">
-            4 &mdash; {t("steps.step4")}
+            5 &mdash; {t("steps.step4")}
           </h2>
           <MethodologyNote step={4} />
           <div className="space-y-4">
@@ -1092,7 +1092,7 @@ export default function HVACSimulator() {
             {/* Debit calcule */}
             <div className="flex items-center justify-between rounded-lg bg-background/50 px-4 py-3">
               <span className="text-sm text-slate">{t("labels.debitTotal")}</span>
-              <span className="font-mono font-semibold text-foreground">{result.debitTotal} m\u00B3/h</span>
+              <span className="font-mono font-semibold text-foreground">{result.debitTotal} m³/h</span>
             </div>
 
             {(typeVMC === "double_flux" || typeVMC === "double_flux_premium") && (
@@ -1104,7 +1104,7 @@ export default function HVACSimulator() {
                   onChange={(v) => setSelectedVMC(Number(v))}
                   options={PRODUITS_VMC.map((p, i) => ({
                     value: String(i),
-                    label: `${p.marque} ${p.modele} (${p.debitMax} m\u00B3/h, ${p.rendement}%)`,
+                    label: `${p.marque} ${p.modele} (${p.debitMax} m³/h, ${p.rendement}%)`,
                   }))}
                 />
 
@@ -1117,7 +1117,7 @@ export default function HVACSimulator() {
                     <div className="grid grid-cols-2 gap-2 text-xs">
                       <div>
                         <span className="text-muted">{t("vmc.debitMax")}: </span>
-                        <span className="font-mono font-semibold">{PRODUITS_VMC[selectedVMC].debitMax} m\u00B3/h</span>
+                        <span className="font-mono font-semibold">{PRODUITS_VMC[selectedVMC].debitMax} m³/h</span>
                       </div>
                       <div>
                         <span className="text-muted">{t("vmc.rendement")}: </span>
@@ -1154,27 +1154,27 @@ export default function HVACSimulator() {
           <div className="space-y-2 text-xs">
             <div className="flex justify-between px-2 py-1 rounded bg-background/50">
               <span className="text-slate">{t("vmc.sejour")}</span>
-              <span className="font-mono">30 m\u00B3/h</span>
+              <span className="font-mono">30 m³/h</span>
             </div>
             <div className="flex justify-between px-2 py-1 rounded bg-background/50">
               <span className="text-slate">{t("vmc.chambre")}</span>
-              <span className="font-mono">22 m\u00B3/h</span>
+              <span className="font-mono">22 m³/h</span>
             </div>
             <div className="flex justify-between px-2 py-1 rounded bg-background/50">
               <span className="text-slate">{t("vmc.cuisine")}</span>
-              <span className="font-mono">75 m\u00B3/h</span>
+              <span className="font-mono">75 m³/h</span>
             </div>
             <div className="flex justify-between px-2 py-1 rounded bg-background/50">
               <span className="text-slate">{t("vmc.sdb")}</span>
-              <span className="font-mono">45 m\u00B3/h</span>
+              <span className="font-mono">45 m³/h</span>
             </div>
             <div className="flex justify-between px-2 py-1 rounded bg-background/50">
               <span className="text-slate">{t("vmc.wc")}</span>
-              <span className="font-mono">30 m\u00B3/h</span>
+              <span className="font-mono">30 m³/h</span>
             </div>
             <div className="flex justify-between px-2 py-2 rounded border border-navy/20 bg-navy/5 font-semibold">
               <span className="text-navy">{t("vmc.totalEstime")}</span>
-              <span className="font-mono text-navy">{result.debitTotal} m\u00B3/h</span>
+              <span className="font-mono text-navy">{result.debitTotal} m³/h</span>
             </div>
           </div>
         </div>
@@ -1190,7 +1190,7 @@ export default function HVACSimulator() {
     return (
       <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
         <h2 className="mb-4 text-base font-semibold text-navy">
-          5 &mdash; {t("steps.step5")}
+          6 &mdash; {t("steps.step5")}
         </h2>
         <MethodologyNote step={5} />
         <div className="space-y-4">
@@ -1313,7 +1313,7 @@ export default function HVACSimulator() {
                         ? "bg-white/20 text-white"
                         : "bg-navy/10 text-navy"
                     }`}>
-                      {step.id}
+                      {step.id + 1}
                     </span>
                     <span className="hidden sm:inline">{step.label}</span>
                   </button>
@@ -1361,7 +1361,7 @@ export default function HVACSimulator() {
                 {formatEUR(result.totalTravaux)}
               </div>
               <div className="mt-3 flex items-center justify-center gap-6 text-sm text-white/70">
-                <span>{formatEUR(Math.round(result.coutM2))} / m\u00B2</span>
+                <span>{formatEUR(Math.round(result.coutM2))} / m²</span>
               </div>
               {result.klimabonus > 0 && (
                 <div className="mt-2 text-sm font-semibold text-green-200">
@@ -1376,7 +1376,7 @@ export default function HVACSimulator() {
               lines={[
                 {
                   label: t("results.deperditions"),
-                  value: `${result.depWm2} W/m\u00B2`,
+                  value: `${result.depWm2} W/m²`,
                 },
                 {
                   label: t("results.puissanceChauffage"),
@@ -1417,7 +1417,7 @@ export default function HVACSimulator() {
                     : []),
                   ...(result.selected.scop
                     ? [{
-                        label: "SCOP (35\u00B0C)",
+                        label: "SCOP (35°C)",
                         value: String(result.selected.scop),
                       }]
                     : []),
@@ -1445,7 +1445,7 @@ export default function HVACSimulator() {
               title={t("results.recapTitle")}
               lines={[
                 ...result.lots.map((lot) => ({
-                  label: `Lot ${lot.num} \u2014 ${lot.nom}`,
+                  label: `Lot ${lot.num} — ${lot.nom}`,
                   value: `${formatEUR(lot.total)} (${result.totalTravaux > 0 ? ((lot.total / result.totalTravaux) * 100).toFixed(1) : "0"} %)`,
                 })),
                 {
@@ -1477,7 +1477,7 @@ export default function HVACSimulator() {
                         width: `${pct}%`,
                         backgroundColor: lot.color,
                       }}
-                      title={`Lot ${lot.num} \u2014 ${lot.nom}: ${pct.toFixed(1)} %`}
+                      title={`Lot ${lot.num} — ${lot.nom}: ${pct.toFixed(1)} %`}
                     />
                   );
                 })}

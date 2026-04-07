@@ -388,7 +388,7 @@ export default function CalculateurVRD() {
       type: "line",
       num: "1.1",
       designation: t("bordereau.decapageTerreVegetale", { cm: (profondeurDecapage * 100).toFixed(0) }),
-      unite: "m\u00B2",
+      unite: "m²",
       quantite: surfaceDecapage,
       pu: prixDecapage * terrassementM,
       total: coutDecapage,
@@ -397,7 +397,7 @@ export default function CalculateurVRD() {
       type: "line",
       num: "1.2",
       designation: t("bordereau.deblaisFouilles"),
-      unite: "m\u00B3",
+      unite: "m³",
       quantite: volumeDeblais,
       pu: prixDeblais * terrassementM,
       total: coutDeblais,
@@ -406,7 +406,7 @@ export default function CalculateurVRD() {
       type: "line",
       num: "1.3",
       designation: t("bordereau.remblaisApport"),
-      unite: "m\u00B3",
+      unite: "m³",
       quantite: volumeRemblais,
       pu: prixRemblais,
       total: coutRemblais,
@@ -416,7 +416,7 @@ export default function CalculateurVRD() {
         type: "line",
         num: "1.4",
         designation: t("bordereau.evacuationExcedent", { km: distanceDecharge }),
-        unite: "m\u00B3",
+        unite: "m³",
         quantite: volEvacuation,
         pu: prixEvacuation,
         total: coutEvacuation,
@@ -430,7 +430,7 @@ export default function CalculateurVRD() {
       type: "line",
       num: "2.1",
       designation: t("bordereau.coucheRoulement", { cm: epRevetement }),
-      unite: "m\u00B2",
+      unite: "m²",
       quantite: surfaceChaussee,
       pu: prixRevetementM2,
       total: coutRevetement,
@@ -440,7 +440,7 @@ export default function CalculateurVRD() {
         type: "line",
         num: "2.2",
         designation: t("bordereau.coucheLiaison", { cm: epLiaison }),
-        unite: "m\u00B2",
+        unite: "m²",
         quantite: surfaceChaussee,
         pu: prixLiaisonM2,
         total: coutLiaison,
@@ -450,7 +450,7 @@ export default function CalculateurVRD() {
       type: "line",
       num: epLiaison > 0 ? "2.3" : "2.2",
       designation: t("bordereau.coucheBase", { cm: epBase }),
-      unite: "m\u00B3",
+      unite: "m³",
       quantite: volBase,
       pu: prixFondation,
       total: coutBase,
@@ -459,7 +459,7 @@ export default function CalculateurVRD() {
       type: "line",
       num: epLiaison > 0 ? "2.4" : "2.3",
       designation: t("bordereau.fondation", { cm: epFondation }),
-      unite: "m\u00B3",
+      unite: "m³",
       quantite: volFondation,
       pu: prixFondation,
       total: coutFondationVoirie,
@@ -469,7 +469,7 @@ export default function CalculateurVRD() {
         type: "line",
         num: epLiaison > 0 ? "2.5" : "2.4",
         designation: t("bordereau.sousFondation", { cm: epSousFondation }),
-        unite: "m\u00B3",
+        unite: "m³",
         quantite: volSousFondation,
         pu: prixFondation,
         total: coutSousFondation,
@@ -480,7 +480,7 @@ export default function CalculateurVRD() {
         type: "line",
         num: epLiaison > 0 ? (epSousFondation > 0 ? "2.6" : "2.5") : (epSousFondation > 0 ? "2.5" : "2.4"),
         designation: t("bordereau.trottoirs", { n: nbTrottoirs }),
-        unite: "m\u00B2",
+        unite: "m²",
         quantite: surfaceTrottoirs,
         pu: prixTrottoir,
         total: coutTrottoirs,
@@ -590,7 +590,7 @@ export default function CalculateurVRD() {
     if (bassinRetention) {
       bordereau.push({
         type: "line", num: "5.6",
-        designation: t("bordereau.bassinRetention"), unite: "m\u00B3",
+        designation: t("bordereau.bassinRetention"), unite: "m³",
         quantite: volumeBassin, pu: prixBassin, total: coutBassin,
       });
     }
@@ -619,7 +619,7 @@ export default function CalculateurVRD() {
     bordereau.push({ type: "header", lotNum: 7, lotNom: t("lots.lot7"), lotColor: LOT_COLORS.amenagements });
     bordereau.push({
       type: "line", num: "7.1",
-      designation: t("bordereau.espacesVerts"), unite: "m\u00B2",
+      designation: t("bordereau.espacesVerts"), unite: "m²",
       quantite: surfaceEspacesVerts, pu: prixEspaceVert, total: coutEspacesVerts,
     });
     bordereau.push({
@@ -751,7 +751,7 @@ export default function CalculateurVRD() {
             label={t("labels.surfaceTotale")}
             value={surfaceTotale}
             onChange={(v) => setSurfaceTotale(Number(v))}
-            suffix="m\u00B2"
+            suffix="m²"
             min={100}
             step={100}
           />
@@ -807,7 +807,7 @@ export default function CalculateurVRD() {
               min={5000}
               max={50000}
               step={1000}
-              suffix="\u20AC"
+              suffix="€"
               hint={t("hints.installationChantier")}
             />
           </div>
@@ -817,7 +817,7 @@ export default function CalculateurVRD() {
             label={t("labels.surfaceDecapage")}
             value={surfaceDecapage}
             onChange={(v) => setSurfaceDecapage(Number(v))}
-            suffix="m\u00B2"
+            suffix="m²"
             min={0}
             step={100}
           />
@@ -834,7 +834,7 @@ export default function CalculateurVRD() {
             label={t("labels.volumeDeblais")}
             value={volumeDeblais}
             onChange={(v) => setVolumeDeblais(Number(v))}
-            suffix="m\u00B3"
+            suffix="m³"
             min={0}
             step={100}
           />
@@ -842,7 +842,7 @@ export default function CalculateurVRD() {
             label={t("labels.volumeRemblais")}
             value={volumeRemblais}
             onChange={(v) => setVolumeRemblais(Number(v))}
-            suffix="m\u00B3"
+            suffix="m³"
             min={0}
             step={100}
           />
@@ -869,7 +869,7 @@ export default function CalculateurVRD() {
             min={3}
             max={8}
             step={0.5}
-            suffix="\u20AC/m\u00B2"
+            suffix="€/m²"
             hint={t("hints.prixDecapage")}
           />
           <SliderField
@@ -879,7 +879,7 @@ export default function CalculateurVRD() {
             min={8}
             max={25}
             step={1}
-            suffix="\u20AC/m\u00B3"
+            suffix="€/m³"
             hint={t("hints.prixDeblais")}
           />
           <SliderField
@@ -889,7 +889,7 @@ export default function CalculateurVRD() {
             min={12}
             max={30}
             step={1}
-            suffix="\u20AC/m\u00B3"
+            suffix="€/m³"
             hint={t("hints.prixRemblais")}
           />
           <SliderField
@@ -899,7 +899,7 @@ export default function CalculateurVRD() {
             min={15}
             max={40}
             step={1}
-            suffix="\u20AC/m\u00B3"
+            suffix="€/m³"
             hint={t("hints.prixEvacuation")}
           />
         </div>
@@ -1019,7 +1019,7 @@ export default function CalculateurVRD() {
               min={8}
               max={20}
               step={0.5}
-              suffix="\u20AC/m\u00B2/cm"
+              suffix="€/m²/cm"
               hint={t("hints.prixEnrobe")}
             />
             <SliderField
@@ -1029,7 +1029,7 @@ export default function CalculateurVRD() {
               min={5}
               max={15}
               step={0.5}
-              suffix="\u20AC/m\u00B2/cm"
+              suffix="€/m²/cm"
               hint={t("hints.prixGraveBitume")}
             />
             <SliderField
@@ -1039,7 +1039,7 @@ export default function CalculateurVRD() {
               min={15}
               max={35}
               step={1}
-              suffix="\u20AC/m\u00B3"
+              suffix="€/m³"
               hint={t("hints.prixFondation")}
             />
             {nbTrottoirs > 0 && (
@@ -1050,7 +1050,7 @@ export default function CalculateurVRD() {
                 min={40}
                 max={90}
                 step={5}
-                suffix="\u20AC/m\u00B2"
+                suffix="€/m²"
                 hint={t("hints.prixTrottoir")}
               />
             )}
@@ -1078,7 +1078,7 @@ export default function CalculateurVRD() {
               min={15}
               max={35}
               step={1}
-              suffix="\u20AC/ml"
+              suffix="€/ml"
               hint={t("hints.prixBordureT2")}
             />
             <InputField
@@ -1096,7 +1096,7 @@ export default function CalculateurVRD() {
               min={20}
               max={40}
               step={1}
-              suffix="\u20AC/ml"
+              suffix="€/ml"
               hint={t("hints.prixBordureCS1")}
             />
             <InputField
@@ -1114,7 +1114,7 @@ export default function CalculateurVRD() {
               min={20}
               max={45}
               step={1}
-              suffix="\u20AC/ml"
+              suffix="€/ml"
               hint={t("hints.prixCaniveau")}
             />
           </div>
@@ -1183,7 +1183,7 @@ export default function CalculateurVRD() {
               min={80}
               max={160}
               step={5}
-              suffix="\u20AC/ml"
+              suffix="€/ml"
               hint={t("hints.prixEU_DN200")}
             />
             <SliderField
@@ -1193,7 +1193,7 @@ export default function CalculateurVRD() {
               min={120}
               max={220}
               step={5}
-              suffix="\u20AC/ml"
+              suffix="€/ml"
               hint={t("hints.prixEU_DN300")}
             />
             <SliderField
@@ -1203,7 +1203,7 @@ export default function CalculateurVRD() {
               min={160}
               max={300}
               step={10}
-              suffix="\u20AC/ml"
+              suffix="€/ml"
               hint={t("hints.prixEU_DN400")}
             />
             <SliderField
@@ -1213,7 +1213,7 @@ export default function CalculateurVRD() {
               min={800}
               max={2000}
               step={100}
-              suffix="\u20AC/u"
+              suffix="€/u"
               hint={t("hints.prixRegardEU")}
             />
             <SliderField
@@ -1223,7 +1223,7 @@ export default function CalculateurVRD() {
               min={500}
               max={1500}
               step={100}
-              suffix="\u20AC/u"
+              suffix="€/u"
               hint={t("hints.prixBranchement")}
             />
           </div>
@@ -1288,7 +1288,7 @@ export default function CalculateurVRD() {
                 min={50}
                 max={500}
                 step={10}
-                suffix="m\u00B3"
+                suffix="m³"
               />
             )}
             <SliderField
@@ -1298,7 +1298,7 @@ export default function CalculateurVRD() {
               min={100}
               max={200}
               step={5}
-              suffix="\u20AC/ml"
+              suffix="€/ml"
               hint={t("hints.prixEP_DN300")}
             />
             <SliderField
@@ -1308,7 +1308,7 @@ export default function CalculateurVRD() {
               min={140}
               max={280}
               step={10}
-              suffix="\u20AC/ml"
+              suffix="€/ml"
               hint={t("hints.prixEP_DN400")}
             />
             <SliderField
@@ -1318,7 +1318,7 @@ export default function CalculateurVRD() {
               min={200}
               max={400}
               step={10}
-              suffix="\u20AC/ml"
+              suffix="€/ml"
               hint={t("hints.prixEP_DN600")}
             />
             <SliderField
@@ -1328,7 +1328,7 @@ export default function CalculateurVRD() {
               min={900}
               max={2200}
               step={100}
-              suffix="\u20AC/u"
+              suffix="€/u"
               hint={t("hints.prixRegardEP")}
             />
             <SliderField
@@ -1338,7 +1338,7 @@ export default function CalculateurVRD() {
               min={400}
               max={1000}
               step={50}
-              suffix="\u20AC/u"
+              suffix="€/u"
               hint={t("hints.prixAvaloir")}
             />
             <SliderField
@@ -1348,7 +1348,7 @@ export default function CalculateurVRD() {
               min={150}
               max={400}
               step={10}
-              suffix="\u20AC/m\u00B3"
+              suffix="€/m³"
               hint={t("hints.prixBassin")}
             />
           </div>
@@ -1398,7 +1398,7 @@ export default function CalculateurVRD() {
             min={30}
             max={80}
             step={5}
-            suffix="\u20AC/ml"
+            suffix="€/ml"
             hint={t("hints.prixTranchee")}
           />
           <InputField
@@ -1416,7 +1416,7 @@ export default function CalculateurVRD() {
             min={300}
             max={800}
             step={50}
-            suffix="\u20AC/u"
+            suffix="€/u"
             hint={t("hints.prixCoffret")}
           />
           <InputField
@@ -1434,7 +1434,7 @@ export default function CalculateurVRD() {
             min={2000}
             max={5000}
             step={100}
-            suffix="\u20AC/u"
+            suffix="€/u"
             hint={t("hints.prixCandelabre")}
           />
         </div>
@@ -1459,7 +1459,7 @@ export default function CalculateurVRD() {
               label={t("labels.espacesVerts")}
               value={surfaceEspacesVerts}
               onChange={(v) => setSurfaceEspacesVerts(Number(v))}
-              suffix="m\u00B2"
+              suffix="m²"
               min={0}
               step={100}
             />
@@ -1470,7 +1470,7 @@ export default function CalculateurVRD() {
               min={8}
               max={25}
               step={1}
-              suffix="\u20AC/m\u00B2"
+              suffix="€/m²"
               hint={t("hints.prixEspaceVert")}
             />
             <InputField
@@ -1488,7 +1488,7 @@ export default function CalculateurVRD() {
               min={200}
               max={800}
               step={50}
-              suffix="\u20AC/u"
+              suffix="€/u"
               hint={t("hints.prixArbre")}
             />
           </div>
@@ -1504,7 +1504,7 @@ export default function CalculateurVRD() {
               label={t("labels.signalisationForfait")}
               value={surfaceSignalisation}
               onChange={(v) => setSurfaceSignalisation(Number(v))}
-              suffix="\u20AC"
+              suffix="€"
               min={0}
               step={500}
             />
@@ -1512,7 +1512,7 @@ export default function CalculateurVRD() {
               label={t("labels.mobilierUrbainForfait")}
               value={mobilierUrbain}
               onChange={(v) => setMobilierUrbain(Number(v))}
-              suffix="\u20AC"
+              suffix="€"
               min={0}
               step={500}
               hint={t("hints.mobilierUrbain")}
@@ -1538,7 +1538,7 @@ export default function CalculateurVRD() {
             min={2000}
             max={8000}
             step={500}
-            suffix="\u20AC"
+            suffix="€"
             hint={t("hints.etudeGeo")}
           />
           <SliderField
@@ -1548,7 +1548,7 @@ export default function CalculateurVRD() {
             min={2000}
             max={6000}
             step={500}
-            suffix="\u20AC"
+            suffix="€"
             hint={t("hints.etudeTopo")}
           />
           <SliderField
@@ -1558,7 +1558,7 @@ export default function CalculateurVRD() {
             min={3000}
             max={12000}
             step={500}
-            suffix="\u20AC"
+            suffix="€"
             hint={t("hints.etudeHydro")}
           />
           <SliderField
@@ -1568,7 +1568,7 @@ export default function CalculateurVRD() {
             min={0}
             max={25000}
             step={1000}
-            suffix="\u20AC"
+            suffix="€"
           />
           <SliderField
             label={t("labels.coordSS")}
@@ -1577,7 +1577,7 @@ export default function CalculateurVRD() {
             min={3000}
             max={10000}
             step={500}
-            suffix="\u20AC"
+            suffix="€"
           />
           <SliderField
             label={t("labels.honorairesBE")}
@@ -1658,7 +1658,7 @@ export default function CalculateurVRD() {
                         ? "bg-white/20 text-white"
                         : "bg-navy/10 text-navy"
                     }`}>
-                      {step.id}
+                      {step.id + 1}
                     </span>
                     <span className="hidden sm:inline">{step.label}</span>
                   </button>
