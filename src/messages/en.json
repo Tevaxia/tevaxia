@@ -120,6 +120,11 @@
         "description": "Convert GBA ↔ GFA ↔ usable area ↔ living area. ACT weighting for cellars, balconies, terraces.",
         "tag": "OAI FC.04 / ILNAS 101"
       },
+      "hvac": {
+        "title": "HVAC Simulator",
+        "description": "Heating/ventilation sizing per EN 12831. Heat pump, HRV and pellet boiler catalogue. 7-lot bill of quantities, Klimabonus 2026.",
+        "tag": "Heat pump / HRV / Pellets"
+      },
       "valorisation": {
         "title": "EVS 2025 Valuation",
         "description": "Comparison, direct capitalisation, DCF, Mortgage Lending Value, reconciliation. Compliant with TEGOVA European Valuation Standards.",
@@ -179,6 +184,7 @@
       "estimateurCpe": "CPE Estimator",
       "lenoz": "LENOZ",
       "portfolio": "Portfolio",
+      "hvac": "HVAC Simulator",
       "simulateurs": "Simulators",
       "outils": "Tools"
     },
@@ -201,6 +207,8 @@
       "lenozDesc": "Assess your property's sustainability across the 6 categories of Luxembourg's LENOZ certification. Bronze to Platinum rating.",
       "portfolioTitle": "Energy Portfolio",
       "portfolioDesc": "Analyse the energy profile of your property portfolio. Multi-property comparison, EPBD risk, weighted average score.",
+      "hvacTitle": "HVAC Simulator",
+      "hvacDesc": "Heating and ventilation sizing per EN 12831. Heat pump catalogue (Viessmann, Daikin, Vaillant...), HRV, pellet boilers. 7-lot bill of quantities, Klimabonus 2026.",
       "simuler": "Simulate",
       "whyTitle": "Why energy performance matters",
       "whyDesc": "In Luxembourg, a property's energy class directly influences its market value. The gap between an A-rated and an I-rated property can reach {pct}. With the EPBD directive and rising energy costs, renovation is no longer optional — it's a measurable value driver.",

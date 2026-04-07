@@ -120,6 +120,11 @@
         "description": "Conversion SCB ↔ SCP ↔ surface utile ↔ surface habitable. Pondération ACT pour caves, balcons, terrasses.",
         "tag": "OAI FC.04 / ILNAS 101"
       },
+      "hvac": {
+        "title": "Simulateur HVAC",
+        "description": "Dimensionnement chauffage/ventilation EN 12831. Catalogue PAC, VMC, chaudières pellets. Bordereau 7 lots, Klimabonus 2026.",
+        "tag": "PAC / VMC / Pellets"
+      },
       "valorisation": {
         "title": "Valorisation EVS 2025",
         "description": "Comparaison, capitalisation directe, DCF, Mortgage Lending Value, réconciliation. Conforme TEGOVA European Valuation Standards.",
@@ -179,6 +184,7 @@
       "estimateurCpe": "Estimateur CPE",
       "lenoz": "LENOZ",
       "portfolio": "Portfolio",
+      "hvac": "Simulateur HVAC",
       "simulateurs": "Simulateurs",
       "outils": "Outils"
     },
@@ -201,6 +207,8 @@
       "lenozDesc": "Évaluez la durabilité de votre bien selon les 6 catégories de la certification LENOZ luxembourgeoise. Scoring de Bronze à Platine.",
       "portfolioTitle": "Portfolio énergétique",
       "portfolioDesc": "Analysez le profil énergétique de votre parc immobilier. Comparaison multi-biens, risque EPBD, score moyen pondéré.",
+      "hvacTitle": "Simulateur HVAC",
+      "hvacDesc": "Dimensionnement chauffage et ventilation EN 12831. Catalogue PAC (Viessmann, Daikin, Vaillant…), VMC double flux, chaudières pellets. Bordereau 7 lots, Klimabonus 2026.",
       "simuler": "Simuler",
       "whyTitle": "Pourquoi la performance énergétique compte",
       "whyDesc": "Au Luxembourg, la classe énergie d'un bien influence directement sa valeur de marché. L'écart entre un bien classé A et un bien classé I peut atteindre {pct}. Avec la directive EPBD et la hausse des coûts énergétiques, la rénovation n'est plus une option — c'est un levier de valorisation mesurable.",

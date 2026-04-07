@@ -120,6 +120,11 @@
         "description": "Umrechnung BGF ↔ GF ↔ Nutzfläche ↔ Wohnfläche. ACT-Gewichtung für Keller, Balkone, Terrassen.",
         "tag": "OAI FC.04 / ILNAS 101"
       },
+      "hvac": {
+        "title": "HVAC-Simulator",
+        "description": "Heizlast-/Lüftungsdimensionierung EN 12831. Katalog Wärmepumpen, KWL und Pelletkessel. Leistungsverzeichnis 7 Lose, Klimabonus 2026.",
+        "tag": "WP / KWL / Pellets"
+      },
       "valorisation": {
         "title": "Bewertung EVS 2025",
         "description": "Vergleich, direkte Kapitalisierung, DCF, Beleihungswert, Abstimmung. Konform mit TEGOVA European Valuation Standards.",
@@ -179,6 +184,7 @@
       "estimateurCpe": "CPE-Schätzer",
       "lenoz": "LENOZ",
       "portfolio": "Portfolio",
+      "hvac": "HVAC-Simulator",
       "simulateurs": "Simulatoren",
       "outils": "Tools"
     },
@@ -201,6 +207,8 @@
       "lenozDesc": "Bewerten Sie die Nachhaltigkeit Ihrer Immobilie anhand der 6 Kategorien der luxemburgischen LENOZ-Zertifizierung. Scoring von Bronze bis Platin.",
       "portfolioTitle": "Energieportfolio",
       "portfolioDesc": "Analysieren Sie das Energieprofil Ihres Immobilienbestands. Mehrfachobjekt-Vergleich, EPBD-Risiko, gewichteter Durchschnittsscore.",
+      "hvacTitle": "HVAC-Simulator",
+      "hvacDesc": "Heizlast- und Lüftungsdimensionierung nach EN 12831. Wärmepumpen-Katalog (Viessmann, Daikin, Vaillant…), KWL, Pelletkessel. Leistungsverzeichnis 7 Lose, Klimabonus 2026.",
       "simuler": "Simulieren",
       "whyTitle": "Warum die Energieeffizienz zählt",
       "whyDesc": "In Luxemburg beeinflusst die Energieklasse einer Immobilie direkt ihren Marktwert. Der Unterschied zwischen Klasse A und Klasse I kann {pct} erreichen. Mit der EPBD-Richtlinie und steigenden Energiekosten ist die Renovierung keine Option mehr — sie ist ein messbarer Wertsteigerungshebel.",

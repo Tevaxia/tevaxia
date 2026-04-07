@@ -120,6 +120,11 @@
         "description": "Ëmrechnung BGF ↔ GF ↔ Notzfläch ↔ Wunnfläch. ACT-Gewiichtung fir Keller, Balkonen, Terrassen.",
         "tag": "OAI FC.04 / ILNAS 101"
       },
+      "hvac": {
+        "title": "HVAC-Simulator",
+        "description": "Heizlaascht-/Lëftungsdimensionéierung EN 12831. Katalog Wärmepompelen, KWL a Pelletkessel. 7 Loser, Klimabonus 2026.",
+        "tag": "WP / KWL / Pellets"
+      },
       "valorisation": {
         "title": "Bewäertung EVS 2025",
         "description": "Vergläich, direkt Kapitaliséierung, DCF, Beleihungswäert, Abstëmmung. Konform mat TEGOVA European Valuation Standards.",
@@ -179,6 +184,7 @@
       "estimateurCpe": "CPE Schätzer",
       "lenoz": "LENOZ",
       "portfolio": "Portfolio",
+      "hvac": "HVAC-Simulator",
       "simulateurs": "Simulatoren",
       "outils": "Tools"
     },
@@ -201,6 +207,8 @@
       "lenozDesc": "Bewäert d'Nohaltegkeet vun Ärer Immobilie no den 6 Kategorien vun der Lëtzebuerger LENOZ Zertifizéierung. Scoring vu Bronze bis Platin.",
       "portfolioTitle": "Energieportfolio",
       "portfolioDesc": "Analyséiert den Energieprofil vun Ärem Immobiliepark. Multi-Immobilie-Vergläich, EPBD Risiko, gewiichten Duerchschnëttsscore.",
+      "hvacTitle": "HVAC-Simulator",
+      "hvacDesc": "Heizlaascht- an Lëftungsdimensionéierung no EN 12831. Wärmepompel-Katalog (Viessmann, Daikin, Vaillant…), KWL, Pelletkessel. Leeschtungsverzechnes 7 Loser, Klimabonus 2026.",
       "simuler": "Simuléieren",
       "whyTitle": "Firwat energeetesch Leeschtung wichteg ass",
       "whyDesc": "Zu Lëtzebuerg beaflosst d'Energieklass vun enger Immobilie direkt hire Maartwäert. D'Ënnerscheed tëschent enger Immobilie vun der Klass A an enger vun der Klass I ka bis {pct} erreechen. Mat der EPBD Direktiv an de steigende Energiekäschten ass d'Renovatioun keng Optioun méi — et ass e miessbare Wäertsteigerungshebel.",

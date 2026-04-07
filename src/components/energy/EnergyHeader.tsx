@@ -14,6 +14,7 @@ const ALL_TOOLS = [
   { href: "/estimateur-cpe", key: "estimateurCpe" },
   { href: "/lenoz", key: "lenoz" },
   { href: "/portfolio", key: "portfolio" },
+  { href: "/hvac", key: "hvac" },
 ];
 
 function Dropdown({ label, items, t }: { label: string; items: typeof ALL_TOOLS; t: (k: string) => string }) {

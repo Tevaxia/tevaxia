@@ -38,7 +38,7 @@ export default function EnergyFooter() {
               <li><Link href="/estimateur-cpe" className="hover:text-white transition-colors">{t("estimateurCpe")}</Link></li>
               <li><Link href="/communaute" className="hover:text-white transition-colors">{t("communaute")}</Link></li>
               <li><Link href="/lenoz" className="hover:text-white transition-colors">{t("lenoz")}</Link></li>
-              <li>&nbsp;</li>
+              <li><Link href="/hvac" className="hover:text-white transition-colors">{t("hvac")}</Link></li>
               <li><Link href="/portfolio" className="hover:text-white transition-colors">{t("portfolio")}</Link></li>
             </ul>
           </div>

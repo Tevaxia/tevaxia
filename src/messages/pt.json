@@ -120,6 +120,11 @@
         "description": "Conversão ABC ↔ APC ↔ área útil ↔ área habitável. Ponderação ACT para caves, varandas, terraços.",
         "tag": "OAI FC.04 / ILNAS 101"
       },
+      "hvac": {
+        "title": "Simulador HVAC",
+        "description": "Dimensionamento aquecimento/ventilação EN 12831. Catálogo bombas de calor, VMC e caldeiras pellets. 7 lotes, Klimabonus 2026.",
+        "tag": "BC / VMC / Pellets"
+      },
       "valorisation": {
         "title": "Avaliação EVS 2025",
         "description": "Comparação, capitalização direta, DCF, Mortgage Lending Value, reconciliação. Conforme TEGOVA European Valuation Standards.",
@@ -179,6 +184,7 @@
       "estimateurCpe": "Estimador CPE",
       "lenoz": "LENOZ",
       "portfolio": "Portfólio",
+      "hvac": "Simulador HVAC",
       "simulateurs": "Simuladores",
       "outils": "Ferramentas"
     },
@@ -201,6 +207,8 @@
       "lenozDesc": "Avalie a sustentabilidade do seu imóvel segundo as 6 categorias da certificação LENOZ luxemburguesa. Classificação de Bronze a Platina.",
       "portfolioTitle": "Portfólio energético",
       "portfolioDesc": "Analise o perfil energético do seu parque imobiliário. Comparação multi-imóveis, risco EPBD, pontuação média ponderada.",
+      "hvacTitle": "Simulador HVAC",
+      "hvacDesc": "Dimensionamento de aquecimento e ventilação EN 12831. Catálogo de bombas de calor (Viessmann, Daikin, Vaillant…), VMC duplo fluxo, caldeiras a pellets. 7 lotes, Klimabonus 2026.",
       "simuler": "Simular",
       "whyTitle": "Porque é que o desempenho energético importa",
       "whyDesc": "No Luxemburgo, a classe energética de um imóvel influencia diretamente o seu valor de mercado. A diferença entre um imóvel classificado A e um classificado I pode atingir {pct}. Com a diretiva EPBD e a subida dos custos energéticos, a renovação já não é uma opção — é uma alavanca de valorização mensurável.",
