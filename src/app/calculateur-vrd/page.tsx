@@ -67,12 +67,12 @@ const STEPS = [
 ] as const;
 
 const STEP_NOTES: Record<number, string> = {
-  0: "Phase APS \u2014 Définissez le périmètre du projet : type d\u2019opération, emprise, commune. Ces paramètres déterminent les normes applicables (voirie communale vs étatique, CTG 002/009).",
-  1: "Lot 0-1 \u2014 Installation de chantier et mouvement de terres. Le terrassement représente typiquement 10-15 % du budget VRD. Réf. : CTG 002 (terrassement), CSDC-CT \u00a72 (couche de forme).",
-  2: "Lot 2-3 \u2014 Structure de chaussée et bordures. La structure est définie par le CSDC-CT (Ponts & Chaussées). Épaisseurs types : 6 cm BB + 5 cm GB + 20 cm GNT + 30 cm fondation.",
-  3: "Lots 4-5 \u2014 Réseaux EU/EP selon CTG 009 (canalisation). Diamètres EU : DN200-400, EP : DN300-600. Bassin de rétention obligatoire pour projets >0,5 ha (RGD assainissement).",
-  4: "Lot 6 \u2014 Tranchée commune (élec/télécom/gaz) + éclairage public. Réf. : Creos catalogue raccordement, POST Technologies, dispositions techniques communales.",
-  5: "Lots 7-8 \u2014 Espaces verts, signalisation, mobilier urbain. Batiprix 2026 vol. 2 pour les prix de référence.",
+  0: "Phase APS — Définissez le périmètre du projet : type d'opération, emprise, commune. Ces paramètres déterminent les normes applicables (voirie communale vs étatique, CTG 002/009).",
+  1: "Lot 0-1 — Installation de chantier et mouvement de terres. Le terrassement représente typiquement 10-15 % du budget VRD. Réf. : CTG 002 (terrassement), CSDC-CT §2 (couche de forme).",
+  2: "Lot 2-3 — Structure de chaussée et bordures. La structure est définie par le CSDC-CT (Ponts & Chaussées). Épaisseurs types : 6 cm BB + 5 cm GB + 20 cm GNT + 30 cm fondation.",
+  3: "Lots 4-5 — Réseaux EU/EP selon CTG 009 (canalisation). Diamètres EU : DN200-400, EP : DN300-600. Bassin de rétention obligatoire pour projets >0,5 ha (RGD assainissement).",
+  4: "Lot 6 — Tranchée commune (élec/télécom/gaz) + éclairage public. Réf. : Creos catalogue raccordement, POST Technologies, dispositions techniques communales.",
+  5: "Lots 7-8 — Espaces verts, signalisation, mobilier urbain. Batiprix 2026 vol. 2 pour les prix de référence.",
   6: "Honoraires et études annexes. Phases APS/APD/DCE selon OAI CTA Privé. Honoraires BE : 8-12 % typique, libre négociation (décision Conseil de la concurrence 2024).",
 };
 
@@ -82,15 +82,15 @@ const STEP_NOTES: Record<number, string> = {
 
 const REFERENCE_DOCS = [
   {
-    label: "CTG 002 \u2014 Terrassement (PDF)",
+    label: "CTG 002 — Terrassement (PDF)",
     url: "https://marches.public.lu",
   },
   {
-    label: "CTG 009 \u2014 Canalisation (PDF)",
+    label: "CTG 009 — Canalisation (PDF)",
     url: "https://marches.public.lu",
   },
   {
-    label: "CSDC-CT \u2014 Clauses techniques Ponts & Chaussées (PDF)",
+    label: "CSDC-CT — Clauses techniques Ponts & Chaussées (PDF)",
     url: "https://travaux.public.lu",
   },
   {
@@ -102,19 +102,19 @@ const REFERENCE_DOCS = [
     url: "https://www.vdl.lu",
   },
   {
-    label: "ASS-TabAVIS 9100 \u2014 Template assainissement (XLSX)",
+    label: "ASS-TabAVIS 9100 — Template assainissement (XLSX)",
     url: "https://eau.gouvernement.lu",
   },
   {
-    label: "STATEC \u2014 Indices prix construction (oct. 2025)",
+    label: "STATEC — Indices prix construction (oct. 2025)",
     url: "https://statistiques.public.lu",
   },
   {
-    label: "CRTIB \u2014 Révision prix matériaux (REVPRIX)",
+    label: "CRTIB — Révision prix matériaux (REVPRIX)",
     url: "https://revprix.crtib.lu",
   },
   {
-    label: "Batiprix 2026 vol. 2 \u2014 VRD, Espaces verts",
+    label: "Batiprix 2026 vol. 2 — VRD, Espaces verts",
     url: "https://www.batiprix.com",
   },
 ];
@@ -387,7 +387,7 @@ export default function CalculateurVRD() {
       type: "line",
       num: "1.1",
       designation: `Décapage terre végétale ép. ${(profondeurDecapage * 100).toFixed(0)} cm`,
-      unite: "m\u00b2",
+      unite: "m²",
       quantite: surfaceDecapage,
       pu: prixDecapage * terrassementM,
       total: coutDecapage,
@@ -396,7 +396,7 @@ export default function CalculateurVRD() {
       type: "line",
       num: "1.2",
       designation: "Déblais en fouilles",
-      unite: "m\u00b3",
+      unite: "m³",
       quantite: volumeDeblais,
       pu: prixDeblais * terrassementM,
       total: coutDeblais,
@@ -404,8 +404,8 @@ export default function CalculateurVRD() {
     bordereau.push({
       type: "line",
       num: "1.3",
-      designation: "Remblais en matériaux d\u2019apport",
-      unite: "m\u00b3",
+      designation: "Remblais en matériaux d'apport",
+      unite: "m³",
       quantite: volumeRemblais,
       pu: prixRemblais,
       total: coutRemblais,
@@ -415,7 +415,7 @@ export default function CalculateurVRD() {
         type: "line",
         num: "1.4",
         designation: `Évacuation excédent en décharge (à ${distanceDecharge} km)`,
-        unite: "m\u00b3",
+        unite: "m³",
         quantite: volEvacuation,
         pu: prixEvacuation,
         total: coutEvacuation,
@@ -429,7 +429,7 @@ export default function CalculateurVRD() {
       type: "line",
       num: "2.1",
       designation: `Couche de roulement BB ép. ${epRevetement} cm`,
-      unite: "m\u00b2",
+      unite: "m²",
       quantite: surfaceChaussee,
       pu: prixRevetementM2,
       total: coutRevetement,
@@ -439,7 +439,7 @@ export default function CalculateurVRD() {
         type: "line",
         num: "2.2",
         designation: `Couche de liaison GB ép. ${epLiaison} cm`,
-        unite: "m\u00b2",
+        unite: "m²",
         quantite: surfaceChaussee,
         pu: prixLiaisonM2,
         total: coutLiaison,
@@ -449,7 +449,7 @@ export default function CalculateurVRD() {
       type: "line",
       num: epLiaison > 0 ? "2.3" : "2.2",
       designation: `Couche de base (grave conc.) ép. ${epBase} cm`,
-      unite: "m\u00b3",
+      unite: "m³",
       quantite: volBase,
       pu: prixFondation,
       total: coutBase,
@@ -458,7 +458,7 @@ export default function CalculateurVRD() {
       type: "line",
       num: epLiaison > 0 ? "2.4" : "2.3",
       designation: `Fondation (tout-venant 0/60) ép. ${epFondation} cm`,
-      unite: "m\u00b3",
+      unite: "m³",
       quantite: volFondation,
       pu: prixFondation,
       total: coutFondationVoirie,
@@ -468,7 +468,7 @@ export default function CalculateurVRD() {
         type: "line",
         num: epLiaison > 0 ? "2.5" : "2.4",
         designation: `Sous-fondation (géotextile + conc.) ép. ${epSousFondation} cm`,
-        unite: "m\u00b3",
+        unite: "m³",
         quantite: volSousFondation,
         pu: prixFondation,
         total: coutSousFondation,
@@ -479,7 +479,7 @@ export default function CalculateurVRD() {
         type: "line",
         num: epLiaison > 0 ? (epSousFondation > 0 ? "2.6" : "2.5") : (epSousFondation > 0 ? "2.5" : "2.4"),
         designation: `Trottoirs (fond. + pavés/dalles) x${nbTrottoirs}`,
-        unite: "m\u00b2",
+        unite: "m²",
         quantite: surfaceTrottoirs,
         pu: prixTrottoir,
         total: coutTrottoirs,
@@ -589,7 +589,7 @@ export default function CalculateurVRD() {
     if (bassinRetention) {
       bordereau.push({
         type: "line", num: "5.6",
-        designation: "Bassin de rétention", unite: "m\u00b3",
+        designation: "Bassin de rétention", unite: "m³",
         quantite: volumeBassin, pu: prixBassin, total: coutBassin,
       });
     }
@@ -618,7 +618,7 @@ export default function CalculateurVRD() {
     bordereau.push({ type: "header", lotNum: 7, lotNom: "Aménagements paysagers", lotColor: LOT_COLORS.amenagements });
     bordereau.push({
       type: "line", num: "7.1",
-      designation: "Espaces verts (terre vég. + engazonnement + plant.)", unite: "m\u00b2",
+      designation: "Espaces verts (terre vég. + engazonnement + plant.)", unite: "m²",
       quantite: surfaceEspacesVerts, pu: prixEspaceVert, total: coutEspacesVerts,
     });
     bordereau.push({
@@ -734,7 +734,7 @@ export default function CalculateurVRD() {
               { value: "lotissement", label: "Lotissement" },
               { value: "voirie_communale", label: "Voirie communale" },
               { value: "voirie_etatique", label: "Voirie étatique" },
-              { value: "zone_activites", label: "Zone d\u2019activités" },
+              { value: "zone_activites", label: "Zone d'activités" },
               { value: "amenagement_exterieur", label: "Aménagement extérieur" },
               { value: "parking", label: "Parking" },
             ]}
@@ -749,7 +749,7 @@ export default function CalculateurVRD() {
             label="Surface totale du projet"
             value={surfaceTotale}
             onChange={(v) => setSurfaceTotale(Number(v))}
-            suffix="m\u00b2"
+            suffix="m²"
             min={100}
             step={100}
           />
@@ -805,7 +805,7 @@ export default function CalculateurVRD() {
               min={5000}
               max={50000}
               step={1000}
-              suffix="\u20ac"
+              suffix="€"
               hint="Aménagement accès, clôtures, base vie, panneaux. Source : marché courant LU"
             />
           </div>
@@ -815,7 +815,7 @@ export default function CalculateurVRD() {
             label="Surface de décapage terre végétale"
             value={surfaceDecapage}
             onChange={(v) => setSurfaceDecapage(Number(v))}
-            suffix="m\u00b2"
+            suffix="m²"
             min={0}
             step={100}
           />
@@ -832,7 +832,7 @@ export default function CalculateurVRD() {
             label="Volume déblais (fouilles, tranchées)"
             value={volumeDeblais}
             onChange={(v) => setVolumeDeblais(Number(v))}
-            suffix="m\u00b3"
+            suffix="m³"
             min={0}
             step={100}
           />
@@ -840,7 +840,7 @@ export default function CalculateurVRD() {
             label="Volume remblais"
             value={volumeRemblais}
             onChange={(v) => setVolumeRemblais(Number(v))}
-            suffix="m\u00b3"
+            suffix="m³"
             min={0}
             step={100}
           />
@@ -867,8 +867,8 @@ export default function CalculateurVRD() {
             min={3}
             max={8}
             step={0.5}
-            suffix="\u20ac/m\u00b2"
-            hint="3-8 \u20ac/m\u00b2 -- Source : Batiprix 2026 vol. 2 (x1.20 coeff. LU), CTG 002 art. 3"
+            suffix="€/m²"
+            hint="3-8 €/m² -- Source : Batiprix 2026 vol. 2 (x1.20 coeff. LU), CTG 002 art. 3"
           />
           <SliderField
             label="Prix déblais"
@@ -877,8 +877,8 @@ export default function CalculateurVRD() {
             min={8}
             max={25}
             step={1}
-            suffix="\u20ac/m\u00b3"
-            hint="8-25 \u20ac/m\u00b3 -- Source : Batiprix 2026, STATEC indice terrassement oct. 2025 (-0.6 %)"
+            suffix="€/m³"
+            hint="8-25 €/m³ -- Source : Batiprix 2026, STATEC indice terrassement oct. 2025 (-0.6 %)"
           />
           <SliderField
             label="Prix remblais"
@@ -887,8 +887,8 @@ export default function CalculateurVRD() {
             min={12}
             max={30}
             step={1}
-            suffix="\u20ac/m\u00b3"
-            hint="12-30 \u20ac/m\u00b3 -- Source : Batiprix 2026 (x1.20 coeff. LU)"
+            suffix="€/m³"
+            hint="12-30 €/m³ -- Source : Batiprix 2026 (x1.20 coeff. LU)"
           />
           <SliderField
             label="Prix évacuation"
@@ -897,8 +897,8 @@ export default function CalculateurVRD() {
             min={15}
             max={40}
             step={1}
-            suffix="\u20ac/m\u00b3"
-            hint="15-40 \u20ac/m\u00b3 -- Source : Batiprix 2026, distance décharge agréée (LIST)"
+            suffix="€/m³"
+            hint="15-40 €/m³ -- Source : Batiprix 2026, distance décharge agréée (LIST)"
           />
         </div>
       </div>
@@ -1011,14 +1011,14 @@ export default function CalculateurVRD() {
 
             {/* Prix voirie */}
             <SliderField
-              label="Enrobé (fourn. + pose) par cm d\u2019épaisseur"
+              label="Enrobé (fourn. + pose) par cm d'épaisseur"
               value={prixEnrobe}
               onChange={setPrixEnrobe}
               min={8}
               max={20}
               step={0.5}
-              suffix="\u20ac/m\u00b2/cm"
-              hint="8-20 \u20ac/m\u00b2/cm -- Source : Batiprix 2026 vol. 2, CSDC-CT \u00a74 (Ponts & Chaussées)"
+              suffix="€/m²/cm"
+              hint="8-20 €/m²/cm -- Source : Batiprix 2026 vol. 2, CSDC-CT §4 (Ponts & Chaussées)"
             />
             <SliderField
               label="Grave bitume / grave conc. par cm"
@@ -1027,8 +1027,8 @@ export default function CalculateurVRD() {
               min={5}
               max={15}
               step={0.5}
-              suffix="\u20ac/m\u00b2/cm"
-              hint="5-15 \u20ac/m\u00b2/cm -- Source : Batiprix 2026, CSDC-CT \u00a73.3"
+              suffix="€/m²/cm"
+              hint="5-15 €/m²/cm -- Source : Batiprix 2026, CSDC-CT §3.3"
             />
             <SliderField
               label="Fondation / sous-fondation"
@@ -1037,8 +1037,8 @@ export default function CalculateurVRD() {
               min={15}
               max={35}
               step={1}
-              suffix="\u20ac/m\u00b3"
-              hint="15-35 \u20ac/m\u00b3 -- Source : Batiprix 2026, CTG 002 art. 5 (couche de forme)"
+              suffix="€/m³"
+              hint="15-35 €/m³ -- Source : Batiprix 2026, CTG 002 art. 5 (couche de forme)"
             />
             {nbTrottoirs > 0 && (
               <SliderField
@@ -1048,8 +1048,8 @@ export default function CalculateurVRD() {
                 min={40}
                 max={90}
                 step={5}
-                suffix="\u20ac/m\u00b2"
-                hint="40-90 \u20ac/m\u00b2 -- Source : Batiprix 2026 (pavés/dalles béton, fondation incluse)"
+                suffix="€/m²"
+                hint="40-90 €/m² -- Source : Batiprix 2026 (pavés/dalles béton, fondation incluse)"
               />
             )}
           </div>
@@ -1076,8 +1076,8 @@ export default function CalculateurVRD() {
               min={15}
               max={35}
               step={1}
-              suffix="\u20ac/ml"
-              hint="15-35 \u20ac/ml -- Source : Batiprix 2026, norme NF EN 1340"
+              suffix="€/ml"
+              hint="15-35 €/ml -- Source : Batiprix 2026, norme NF EN 1340"
             />
             <InputField
               label="Bordures CS1 (abaissées / bateaux)"
@@ -1094,8 +1094,8 @@ export default function CalculateurVRD() {
               min={20}
               max={40}
               step={1}
-              suffix="\u20ac/ml"
-              hint="20-40 \u20ac/ml -- Source : Batiprix 2026 (bordures abaissées)"
+              suffix="€/ml"
+              hint="20-40 €/ml -- Source : Batiprix 2026 (bordures abaissées)"
             />
             <InputField
               label="Caniveaux béton"
@@ -1112,8 +1112,8 @@ export default function CalculateurVRD() {
               min={20}
               max={45}
               step={1}
-              suffix="\u20ac/ml"
-              hint="20-45 \u20ac/ml -- Source : Batiprix 2026"
+              suffix="€/ml"
+              hint="20-45 €/ml -- Source : Batiprix 2026"
             />
           </div>
         </div>
@@ -1181,8 +1181,8 @@ export default function CalculateurVRD() {
               min={80}
               max={160}
               step={5}
-              suffix="\u20ac/ml"
-              hint="80-160 \u20ac/ml -- Source : Batiprix 2026 vol. 2, CTG 009 art. 2"
+              suffix="€/ml"
+              hint="80-160 €/ml -- Source : Batiprix 2026 vol. 2, CTG 009 art. 2"
             />
             <SliderField
               label="Prix EU DN300"
@@ -1191,8 +1191,8 @@ export default function CalculateurVRD() {
               min={120}
               max={220}
               step={5}
-              suffix="\u20ac/ml"
-              hint="120-220 \u20ac/ml -- Source : Batiprix 2026, CTG 009"
+              suffix="€/ml"
+              hint="120-220 €/ml -- Source : Batiprix 2026, CTG 009"
             />
             <SliderField
               label="Prix EU DN400"
@@ -1201,8 +1201,8 @@ export default function CalculateurVRD() {
               min={160}
               max={300}
               step={10}
-              suffix="\u20ac/ml"
-              hint="160-300 \u20ac/ml -- Source : Batiprix 2026, CTG 009"
+              suffix="€/ml"
+              hint="160-300 €/ml -- Source : Batiprix 2026, CTG 009"
             />
             <SliderField
               label="Prix regard EU"
@@ -1211,8 +1211,8 @@ export default function CalculateurVRD() {
               min={800}
               max={2000}
               step={100}
-              suffix="\u20ac/u"
-              hint="800-2 000 \u20ac/u -- Source : Batiprix 2026, Administration de l\u2019eau TabAVIS-9100"
+              suffix="€/u"
+              hint="800-2 000 €/u -- Source : Batiprix 2026, Administration de l'eau TabAVIS-9100"
             />
             <SliderField
               label="Prix branchement"
@@ -1221,8 +1221,8 @@ export default function CalculateurVRD() {
               min={500}
               max={1500}
               step={100}
-              suffix="\u20ac/u"
-              hint="500-1 500 \u20ac/u -- Source : Batiprix 2026"
+              suffix="€/u"
+              hint="500-1 500 €/u -- Source : Batiprix 2026"
             />
           </div>
         </div>
@@ -1286,7 +1286,7 @@ export default function CalculateurVRD() {
                 min={50}
                 max={500}
                 step={10}
-                suffix="m\u00b3"
+                suffix="m³"
               />
             )}
             <SliderField
@@ -1296,8 +1296,8 @@ export default function CalculateurVRD() {
               min={100}
               max={200}
               step={5}
-              suffix="\u20ac/ml"
-              hint="100-200 \u20ac/ml -- Source : Batiprix 2026, CTG 009"
+              suffix="€/ml"
+              hint="100-200 €/ml -- Source : Batiprix 2026, CTG 009"
             />
             <SliderField
               label="Prix EP DN400"
@@ -1306,8 +1306,8 @@ export default function CalculateurVRD() {
               min={140}
               max={280}
               step={10}
-              suffix="\u20ac/ml"
-              hint="140-280 \u20ac/ml -- Source : Batiprix 2026, CTG 009"
+              suffix="€/ml"
+              hint="140-280 €/ml -- Source : Batiprix 2026, CTG 009"
             />
             <SliderField
               label="Prix EP DN600"
@@ -1316,8 +1316,8 @@ export default function CalculateurVRD() {
               min={200}
               max={400}
               step={10}
-              suffix="\u20ac/ml"
-              hint="200-400 \u20ac/ml -- Source : Batiprix 2026, CTG 009"
+              suffix="€/ml"
+              hint="200-400 €/ml -- Source : Batiprix 2026, CTG 009"
             />
             <SliderField
               label="Prix regard EP"
@@ -1326,8 +1326,8 @@ export default function CalculateurVRD() {
               min={900}
               max={2200}
               step={100}
-              suffix="\u20ac/u"
-              hint="800-2 000 \u20ac/u -- Source : Batiprix 2026, Administration de l\u2019eau"
+              suffix="€/u"
+              hint="800-2 000 €/u -- Source : Batiprix 2026, Administration de l'eau"
             />
             <SliderField
               label="Prix avaloir"
@@ -1336,8 +1336,8 @@ export default function CalculateurVRD() {
               min={400}
               max={1000}
               step={50}
-              suffix="\u20ac/u"
-              hint="400-1 000 \u20ac/u -- Source : Batiprix 2026"
+              suffix="€/u"
+              hint="400-1 000 €/u -- Source : Batiprix 2026"
             />
             <SliderField
               label="Prix bassin"
@@ -1346,8 +1346,8 @@ export default function CalculateurVRD() {
               min={150}
               max={400}
               step={10}
-              suffix="\u20ac/m\u00b3"
-              hint="150-400 \u20ac/m\u00b3 -- Source : Batiprix 2026, Administration de l\u2019eau"
+              suffix="€/m³"
+              hint="150-400 €/m³ -- Source : Batiprix 2026, Administration de l'eau"
             />
           </div>
         </div>
@@ -1396,8 +1396,8 @@ export default function CalculateurVRD() {
             min={30}
             max={80}
             step={5}
-            suffix="\u20ac/ml"
-            hint="30-80 \u20ac/ml -- Source : Batiprix 2026, dispositions techniques VdL"
+            suffix="€/ml"
+            hint="30-80 €/ml -- Source : Batiprix 2026, dispositions techniques VdL"
           />
           <InputField
             label="Coffrets / armoires de rue"
@@ -1414,8 +1414,8 @@ export default function CalculateurVRD() {
             min={300}
             max={800}
             step={50}
-            suffix="\u20ac/u"
-            hint="300-800 \u20ac/u -- Source : Creos catalogue 2026"
+            suffix="€/u"
+            hint="300-800 €/u -- Source : Creos catalogue 2026"
           />
           <InputField
             label="Candélabres éclairage public"
@@ -1432,8 +1432,8 @@ export default function CalculateurVRD() {
             min={2000}
             max={5000}
             step={100}
-            suffix="\u20ac/u"
-            hint="2 000-5 000 \u20ac/u -- Source : Batiprix 2026 (LED + fondation + raccordement)"
+            suffix="€/u"
+            hint="2 000-5 000 €/u -- Source : Batiprix 2026 (LED + fondation + raccordement)"
           />
         </div>
       </div>
@@ -1457,7 +1457,7 @@ export default function CalculateurVRD() {
               label="Espaces verts"
               value={surfaceEspacesVerts}
               onChange={(v) => setSurfaceEspacesVerts(Number(v))}
-              suffix="m\u00b2"
+              suffix="m²"
               min={0}
               step={100}
             />
@@ -1468,8 +1468,8 @@ export default function CalculateurVRD() {
               min={8}
               max={25}
               step={1}
-              suffix="\u20ac/m\u00b2"
-              hint="8-25 \u20ac/m\u00b2 -- Source : Batiprix 2026 vol. 2 (espaces verts)"
+              suffix="€/m²"
+              hint="8-25 €/m² -- Source : Batiprix 2026 vol. 2 (espaces verts)"
             />
             <InputField
               label="Nombre d'arbres"
@@ -1486,8 +1486,8 @@ export default function CalculateurVRD() {
               min={200}
               max={800}
               step={50}
-              suffix="\u20ac/u"
-              hint="200-800 \u20ac/u -- Source : Batiprix 2026 (fourniture, fosse, tuteurage)"
+              suffix="€/u"
+              hint="200-800 €/u -- Source : Batiprix 2026 (fourniture, fosse, tuteurage)"
             />
           </div>
         </div>
@@ -1502,7 +1502,7 @@ export default function CalculateurVRD() {
               label="Signalisation (forfait)"
               value={surfaceSignalisation}
               onChange={(v) => setSurfaceSignalisation(Number(v))}
-              suffix="\u20ac"
+              suffix="€"
               min={0}
               step={500}
             />
@@ -1510,7 +1510,7 @@ export default function CalculateurVRD() {
               label="Mobilier urbain (forfait)"
               value={mobilierUrbain}
               onChange={(v) => setMobilierUrbain(Number(v))}
-              suffix="\u20ac"
+              suffix="€"
               min={0}
               step={500}
               hint="Bancs, poubelles, barrières, potelets"
@@ -1536,7 +1536,7 @@ export default function CalculateurVRD() {
             min={2000}
             max={8000}
             step={500}
-            suffix="\u20ac"
+            suffix="€"
             hint="Source : marché courant LU (LSC360, Schroeder & Associés)"
           />
           <SliderField
@@ -1546,7 +1546,7 @@ export default function CalculateurVRD() {
             min={2000}
             max={6000}
             step={500}
-            suffix="\u20ac"
+            suffix="€"
             hint="Source : marché courant LU (géomètre-expert agréé)"
           />
           <SliderField
@@ -1556,17 +1556,17 @@ export default function CalculateurVRD() {
             min={3000}
             max={12000}
             step={500}
-            suffix="\u20ac"
-            hint="Source : Administration de l\u2019eau, RGD assainissement"
+            suffix="€"
+            hint="Source : Administration de l'eau, RGD assainissement"
           />
           <SliderField
-            label="Étude d\u2019impact environnemental"
+            label="Étude d'impact environnemental"
             value={etudeImpact}
             onChange={setEtudeImpact}
             min={0}
             max={25000}
             step={1000}
-            suffix="\u20ac"
+            suffix="€"
           />
           <SliderField
             label="Coordination sécurité-santé"
@@ -1575,10 +1575,10 @@ export default function CalculateurVRD() {
             min={3000}
             max={10000}
             step={500}
-            suffix="\u20ac"
+            suffix="€"
           />
           <SliderField
-            label="Honoraires bureau d\u2019études"
+            label="Honoraires bureau d'études"
             value={honorairesBE}
             onChange={setHonorairesBE}
             min={6}
@@ -1703,7 +1703,7 @@ export default function CalculateurVRD() {
                 {formatEUR(result.totalGeneral)}
               </div>
               <div className="mt-3 flex items-center justify-center gap-6 text-sm text-white/70">
-                <span>{formatEUR(Math.round(result.coutM2))} / m\u00b2 de surface projet</span>
+                <span>{formatEUR(Math.round(result.coutM2))} / m² de surface projet</span>
               </div>
               <div className="mt-1 text-xs text-white/40">
                 Hors honoraires BE
@@ -1715,7 +1715,7 @@ export default function CalculateurVRD() {
               title="Récapitulatif par lot"
               lines={[
                 ...result.lots.map((lot) => ({
-                  label: `Lot ${lot.num} \u2014 ${lot.nom}`,
+                  label: `Lot ${lot.num} — ${lot.nom}`,
                   value: `${formatEUR(lot.total)} (${result.totalTravaux > 0 ? ((lot.total / result.totalTravaux) * 100).toFixed(1) : "0"} %)`,
                 })),
                 {
@@ -1765,7 +1765,7 @@ export default function CalculateurVRD() {
                         width: `${pct}%`,
                         backgroundColor: lot.color,
                       }}
-                      title={`Lot ${lot.num} \u2014 ${lot.nom}: ${pct.toFixed(1)} %`}
+                      title={`Lot ${lot.num} — ${lot.nom}: ${pct.toFixed(1)} %`}
                     />
                   );
                 })}
@@ -1835,7 +1835,7 @@ export default function CalculateurVRD() {
                 <p className="mt-1 text-xs text-muted">
                   Métré quantitatif estimatif &mdash;{" "}
                   {nomProjet || "Nouveau projet"}
-                  {commune ? ` \u2014 ${commune}` : ""}
+                  {commune ? ` — ${commune}` : ""}
                 </p>
               </div>
 
@@ -1856,10 +1856,10 @@ export default function CalculateurVRD() {
                         Qté
                       </th>
                       <th className="px-3 py-2.5 text-right font-semibold text-slate w-[90px]">
-                        PU (\u20ac)
+                        PU (€)
                       </th>
                       <th className="px-3 py-2.5 text-right font-semibold text-slate w-[110px]">
-                        Total (\u20ac)
+                        Total (€)
                       </th>
                     </tr>
                   </thead>

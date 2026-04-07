@@ -226,8 +226,8 @@ export default function EstimateurConstruction() {
                   onChange={(v) => setTypeBatiment(v as TypeBatiment)}
                   options={[
                     { value: "maison_individuelle", label: "Maison individuelle" },
-                    { value: "maison_jumelee", label: "Maison jumel\u00e9e" },
-                    { value: "maison_rangee", label: "Maison en rang\u00e9e" },
+                    { value: "maison_jumelee", label: "Maison jumelée" },
+                    { value: "maison_rangee", label: "Maison en rangée" },
                     { value: "immeuble_collectif", label: "Immeuble collectif" },
                   ]}
                 />
@@ -251,7 +251,7 @@ export default function EstimateurConstruction() {
                     { value: "B", label: "B" },
                     { value: "C", label: "C" },
                   ]}
-                  hint="Impact sur chauffage, fa\u00e7ade et menuiseries ext\u00e9rieures"
+                  hint="Impact sur chauffage, façade et menuiseries extérieures"
                 />
                 <InputField
                   label="Niveau de finition"
@@ -264,7 +264,7 @@ export default function EstimateurConstruction() {
                     { value: "haut_de_gamme", label: "Haut de gamme" },
                     { value: "luxe", label: "Luxe" },
                   ]}
-                  hint="Ajuste les co\u00fbts par d\u00e9faut de chaque corps de m\u00e9tier"
+                  hint="Ajuste les coûts par défaut de chaque corps de métier"
                 />
               </div>
             </div>
@@ -321,7 +321,7 @@ export default function EstimateurConstruction() {
                   max={14}
                   step={0.5}
                   suffix="%"
-                  hint="Pourcentage du co\u00fbt de construction"
+                  hint="Pourcentage du coût de construction"
                 />
                 <SliderField
                   label="Honoraires BET"
@@ -331,10 +331,10 @@ export default function EstimateurConstruction() {
                   max={6}
                   step={0.5}
                   suffix="%"
-                  hint="Bureau d'\u00e9tudes techniques"
+                  hint="Bureau d'études techniques"
                 />
                 <SliderField
-                  label="\u00c9tudes de sol"
+                  label="Études de sol"
                   value={etudesSol}
                   onChange={setEtudesSol}
                   min={800}
@@ -350,27 +350,27 @@ export default function EstimateurConstruction() {
                   max={35000}
                   step={500}
                   suffix="&euro;"
-                  hint="Eau, \u00e9lectricit\u00e9, gaz, t\u00e9l\u00e9com, assainissement"
+                  hint="Eau, électricité, gaz, télécom, assainissement"
                 />
                 <SliderField
-                  label="Am\u00e9nagement ext\u00e9rieur"
+                  label="Aménagement extérieur"
                   value={amenagementExt}
                   onChange={setAmenagementExt}
                   min={0}
                   max={80000}
                   step={1000}
                   suffix="&euro;"
-                  hint="Terrassement ext\u00e9rieur, cl\u00f4ture, plantations"
+                  hint="Terrassement extérieur, clôture, plantations"
                 />
                 <SliderField
-                  label="Al\u00e9as / Impr\u00e9vus"
+                  label="Aléas / Imprévus"
                   value={aleas}
                   onChange={setAleas}
                   min={3}
                   max={10}
                   step={0.5}
                   suffix="%"
-                  hint="Pourcentage du co\u00fbt de construction"
+                  hint="Pourcentage du coût de construction"
                 />
               </div>
             </div>
@@ -396,7 +396,7 @@ export default function EstimateurConstruction() {
                   value: formatEUR(cat.total),
                 })),
                 { label: "Total construction", value: formatEUR(result.totalConstruction), highlight: true, large: true },
-                { label: "Co\u00fbt/m\u00b2 construction", value: `${formatEUR(result.coutM2Construction)}/m\u00b2`, sub: true },
+                { label: "Coût/m² construction", value: `${formatEUR(result.coutM2Construction)}/m²`, sub: true },
               ]}
             />
 
@@ -482,10 +482,10 @@ export default function EstimateurConstruction() {
               lines={[
                 { label: `Architecte (${honorairesArchitecte} %)`, value: formatEUR(result.fraisArchitecte) },
                 { label: `BET (${honorairesBET} %)`, value: formatEUR(result.fraisBET) },
-                { label: "\u00c9tudes de sol", value: formatEUR(etudesSol) },
+                { label: "Études de sol", value: formatEUR(etudesSol) },
                 { label: "Raccordements VRD", value: formatEUR(raccordements) },
-                { label: "Am\u00e9nagement ext\u00e9rieur", value: formatEUR(amenagementExt) },
-                { label: `Al\u00e9as (${aleas} %)`, value: formatEUR(result.fraisAleas) },
+                { label: "Aménagement extérieur", value: formatEUR(amenagementExt) },
+                { label: `Aléas (${aleas} %)`, value: formatEUR(result.fraisAleas) },
                 { label: "Total frais annexes", value: formatEUR(result.totalFraisAnnexes), highlight: true },
               ]}
             />
@@ -497,7 +497,7 @@ export default function EstimateurConstruction() {
                 { label: "Total construction", value: formatEUR(result.totalConstruction) },
                 { label: "Total frais annexes", value: formatEUR(result.totalFraisAnnexes) },
                 { label: "BUDGET TOTAL", value: formatEUR(result.totalProjet), highlight: true, large: true },
-                { label: "Co\u00fbt total/m\u00b2", value: `${formatEUR(result.coutM2Total)}/m\u00b2`, sub: true },
+                { label: "Coût total/m²", value: `${formatEUR(result.coutM2Total)}/m²`, sub: true },
                 { label: "Part construction", value: formatPct(result.partConstruction), sub: true },
                 { label: "Part frais annexes", value: formatPct(result.partFrais), sub: true },
               ]}
