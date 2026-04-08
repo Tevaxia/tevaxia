@@ -15,10 +15,13 @@ export default function Connexion() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
-  // Detect energy subdomain + returnTo (from sessionStorage, survives OAuth redirect)
+  // Detect energy subdomain + returnTo (from cookie, survives cross-domain OAuth redirect)
   const isEnergy = typeof window !== "undefined" && window.location.hostname.includes("energy");
   const returnTo = typeof window !== "undefined"
-    ? new URLSearchParams(window.location.search).get("returnTo") || sessionStorage.getItem("auth_returnTo")
+    ? (() => {
+        const match = document.cookie.match(/auth_returnTo=([^;]+)/);
+        return match ? decodeURIComponent(match[1]) : null;
+      })()
     : null;
 
   if (!supabase) {
@@ -36,7 +39,7 @@ export default function Connexion() {
     if (user && returnTo && supabase && !isEnergy) {
       supabase.auth.getSession().then(({ data: { session } }) => {
         if (session) {
-          sessionStorage.removeItem("auth_returnTo");
+          document.cookie = "auth_returnTo=;domain=.tevaxia.lu;path=/;max-age=0";
           const params = new URLSearchParams({
             access_token: session.access_token,
             refresh_token: session.refresh_token,
@@ -136,7 +139,7 @@ export default function Connexion() {
             <button
               onClick={async () => {
                 if (!supabase) return;
-                if (isEnergy) sessionStorage.setItem("auth_returnTo", window.location.origin);
+                if (isEnergy) document.cookie = `auth_returnTo=${encodeURIComponent(window.location.origin)};domain=.tevaxia.lu;path=/;max-age=300;secure;samesite=lax`;
                 await supabase.auth.signInWithOAuth({
                   provider: "google",
                   options: { redirectTo: "https://tevaxia.lu/connexion" },
