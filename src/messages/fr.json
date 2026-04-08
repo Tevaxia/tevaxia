@@ -29,7 +29,8 @@
     "indices": "Indice tevaxia",
     "marche": "Base de données marché",
     "terresAgricoles": "Terres agricoles",
-    "hvac": "Simulateur HVAC"
+    "hvac": "Simulateur HVAC",
+    "planDuSite": "Plan du site"
   },
   "common": {
     "language": "Langue",
@@ -3262,7 +3263,60 @@
     },
     "sources": {
       "title": "Sources :",
-      "text": "Prix indicatifs marché luxembourgeois 2025-2026. Catalogues fabricants : Viessmann, Daikin, Vaillant, Buderus, Mitsubishi, Panasonic, LG, Bosch, Hoval, Wolf, Atlantic, De Dietrich, Fröling, Ökofen, Windhager, Zehnder, Helios, Brink. Distributeurs LU : Reckinger Alfred, Vanmarcke, General Technic, Sonepar, CRS, TSD. Aides : guichet.public.lu (Klimabonus 2026), klima-agence.lu (Enoprimes). Normes : EN 12831 (déperditions), RGD 9 juin 2021 (performance énergétique). Les prix incluent généralement fourniture et mise en oeuvre. Devis détaillés à demander aux installateurs agréés."
+      "text": "Prix indicatifs marché luxembourgeois 2025-2026. Catalogues fabricants : Viessmann, Daikin, Vaillant, Buderus, Mitsubishi, Panasonic, LG, Bosch, Hoval, Wolf, Atlantic, De Dietrich, Fröling, Ökofen, Windhager, Zehnder, Helios, Brink. Distributeurs LU : Reckinger Alfred, Vanmarcke, General Technic, Sonepar, CRS, TSD. Aides : guichet.public.lu (Klimabonus 2026), klima-agence.lu (Enoprimes). Normes : EN 12831 (déperditions), RGD 9 juin 2021 (performance énergétique). Les prix incluent généralement fourniture et mise en œuvre. Devis détaillés à demander aux installateurs agréés."
     }
+  },
+  "planDuSite": {
+    "title": "Plan du site",
+    "subtitle": "Toutes les pages de tevaxia.lu et energy.tevaxia.lu",
+    "sections": {
+      "particuliers": "Particuliers",
+      "professionnels": "Professionnels",
+      "donnees": "Données & Marché",
+      "energy": "Energy (sous-domaine)",
+      "compte": "Compte & Tarifs",
+      "legal": "Informations légales"
+    },
+    "links": {
+      "estimation": "Estimation immobilière",
+      "carte": "Carte interactive des prix",
+      "frais": "Frais d'acquisition",
+      "loyer": "Capital investi & Loyer",
+      "aides": "Simulateur d'aides",
+      "plusValues": "Plus-values immobilières",
+      "achatLocation": "Acheter ou Louer ?",
+      "comparer": "Comparer deux biens",
+      "vefa": "Calculateur VEFA",
+      "valorisation": "Valorisation EVS 2025",
+      "hedonique": "Modèle hédonique",
+      "dcfMulti": "DCF multi-locataires",
+      "bancaire": "Outils bancaires (LTV, DSCR)",
+      "bilanPromoteur": "Bilan promoteur",
+      "estimateurConstruction": "Estimateur coût de construction",
+      "calculateurVrd": "Estimateur VRD — Bureau d'études",
+      "convertisseurSurfaces": "Convertisseur de surfaces",
+      "portfolio": "Portfolio immobilier",
+      "amlKyc": "AML / KYC",
+      "marche": "Base de données marché",
+      "indices": "Indices & Conjoncture",
+      "pagPap": "Urbanisme PAG / PAP",
+      "terresAgricoles": "Terres agricoles",
+      "energyHome": "energy.tevaxia.lu — Accueil",
+      "energyImpact": "Impact CPE sur la valeur",
+      "energyRenovation": "ROI Rénovation énergétique",
+      "energyCommunaute": "Communauté d'énergie",
+      "energyEpbd": "Timeline EPBD 2050",
+      "energyCpe": "Estimateur de classe CPE",
+      "energyLenoz": "Scoring LENOZ",
+      "energyHvac": "Simulateur HVAC",
+      "energyPortfolio": "Portfolio énergétique",
+      "connexion": "Connexion / Inscription",
+      "profil": "Mon profil",
+      "mesEvaluations": "Mes évaluations",
+      "tarifs": "Tarifs",
+      "mentionsLegales": "Mentions légales",
+      "confidentialite": "Politique de confidentialité"
+    },
+    "note": "Ce plan du site répertorie l'ensemble des pages accessibles sur tevaxia.lu et son sous-domaine energy.tevaxia.lu. Un sitemap XML est également disponible pour les moteurs de recherche."
   }
 }

@@ -12,7 +12,7 @@ const PAGES = [
   "/dcf-multi", "/portfolio", "/pag-pap", "/terres-agricoles",
   "/aml-kyc", "/estimateur-construction", "/calculateur-vrd",
   "/convertisseur-surfaces", "/pricing", "/connexion",
-  "/mentions-legales", "/confidentialite",
+  "/mentions-legales", "/confidentialite", "/plan-du-site",
 ];
 
 const ENERGY_PAGES = [

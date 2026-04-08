@@ -29,7 +29,8 @@
     "indices": "Tevaxia-Index",
     "marche": "Marktdatenbank",
     "terresAgricoles": "Landwirtschaftliche Flächen",
-    "hvac": "HVAC-Simulator"
+    "hvac": "HVAC-Simulator",
+    "planDuSite": "Seitenübersicht"
   },
   "common": {
     "language": "Sprache",
@@ -3264,5 +3265,58 @@
       "title": "Quellen:",
       "text": "Richtpreise fur den luxemburgischen Markt 2025-2026. Herstellerkataloge: Viessmann, Daikin, Vaillant, Buderus, Mitsubishi, Panasonic, LG, Bosch, Hoval, Wolf, Atlantic, De Dietrich, Froling, Okofen, Windhager, Zehnder, Helios, Brink. LU-Handler: Reckinger Alfred, Vanmarcke, General Technic, Sonepar, CRS, TSD. Forderungen: guichet.public.lu (Klimabonus 2026), klima-agence.lu (Enoprimes). Normen: EN 12831 (Heizlast), RGD 9. Juni 2021 (Gesamtenergieeffizienz). Die Preise beinhalten in der Regel Lieferung und Einbau. Detaillierte Angebote sind bei zugelassenen Installateuren einzuholen."
     }
+  },
+  "planDuSite": {
+    "title": "Seitenübersicht",
+    "subtitle": "Alle Seiten von tevaxia.lu und energy.tevaxia.lu",
+    "sections": {
+      "particuliers": "Privatpersonen",
+      "professionnels": "Fachleute",
+      "donnees": "Daten & Markt",
+      "energy": "Energy (Subdomain)",
+      "compte": "Konto & Preise",
+      "legal": "Rechtliche Hinweise"
+    },
+    "links": {
+      "estimation": "Immobilienbewertung",
+      "carte": "Interaktive Preiskarte",
+      "frais": "Erwerbsnebenkosten",
+      "loyer": "Investiertes Kapital & Miete",
+      "aides": "Fördermittelrechner",
+      "plusValues": "Immobilienveräußerungsgewinne",
+      "achatLocation": "Kaufen oder Mieten?",
+      "comparer": "Zwei Objekte vergleichen",
+      "vefa": "VEFA-Rechner",
+      "valorisation": "Bewertung EVS 2025",
+      "hedonique": "Hedonisches Modell",
+      "dcfMulti": "DCF Mehrmieter",
+      "bancaire": "Banktools (LTV, DSCR)",
+      "bilanPromoteur": "Projektentwicklerbilanz",
+      "estimateurConstruction": "Baukostenschätzer",
+      "calculateurVrd": "VRD-Schätzer — Ingenieurbüro",
+      "convertisseurSurfaces": "Flächenumrechner",
+      "portfolio": "Immobilienportfolio",
+      "amlKyc": "AML / KYC",
+      "marche": "Marktdatenbank",
+      "indices": "Indizes & Konjunktur",
+      "pagPap": "Bebauungsplan PAG / PAP",
+      "terresAgricoles": "Landwirtschaftliche Flächen",
+      "energyHome": "energy.tevaxia.lu — Startseite",
+      "energyImpact": "Auswirkung des Energieausweises auf den Wert",
+      "energyRenovation": "ROI energetische Sanierung",
+      "energyCommunaute": "Energiegemeinschaft",
+      "energyEpbd": "EPBD 2050 Zeitplan",
+      "energyCpe": "Energieklassenschätzer",
+      "energyLenoz": "LENOZ-Bewertung",
+      "energyHvac": "HVAC-Simulator",
+      "energyPortfolio": "Energieportfolio",
+      "connexion": "Anmelden / Registrieren",
+      "profil": "Mein Profil",
+      "mesEvaluations": "Meine Bewertungen",
+      "tarifs": "Preise",
+      "mentionsLegales": "Impressum",
+      "confidentialite": "Datenschutzrichtlinie"
+    },
+    "note": "Diese Seitenübersicht listet alle verfügbaren Seiten auf tevaxia.lu und der Subdomain energy.tevaxia.lu auf. Eine XML-Sitemap ist ebenfalls für Suchmaschinen verfügbar."
   }
 }

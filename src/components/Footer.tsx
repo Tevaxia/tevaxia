@@ -69,6 +69,7 @@ export default function Footer() {
               <li><Link href="/mentions-legales" className="hover:text-white transition-colors">{tc("legalNotice")}</Link></li>
               <li><Link href="/confidentialite" className="hover:text-white transition-colors">{tc("privacy")}</Link></li>
               <li><Link href="/pricing" className="hover:text-white transition-colors">Tarifs</Link></li>
+              <li><Link href="/plan-du-site" className="hover:text-white transition-colors">Plan du site</Link></li>
             </ul>
           </div>
 

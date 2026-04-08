@@ -29,7 +29,8 @@
     "indices": "tevaxia Index",
     "marche": "Maartdatebank",
     "terresAgricoles": "Landwirtschaftlech Flächen",
-    "hvac": "HVAC-Simulator"
+    "hvac": "HVAC-Simulator",
+    "planDuSite": "Säiteplang"
   },
   "common": {
     "language": "Sprooch",
@@ -3264,5 +3265,58 @@
       "title": "Quellen:",
       "text": "Richtpräisser fir de Lëtzebuerger Marché 2025-2026. Hiersteller-Katalogen: Viessmann, Daikin, Vaillant, Buderus, Mitsubishi, Panasonic, LG, Bosch, Hoval, Wolf, Atlantic, De Dietrich, Froling, Okofen, Windhager, Zehnder, Helios, Brink. LU-Händler: Reckinger Alfred, Vanmarcke, General Technic, Sonepar, CRS, TSD. Hëllefen: guichet.public.lu (Klimabonus 2026), klima-agence.lu (Enoprimes). Normen: EN 12831 (Heizlaascht), RGD 9. Juni 2021 (Gesamtenergieeffizienz). D'Präisser enthalen normalerweis Liwwerung an Asetzen. Detailléiert Offere si bei zougeloossenen Installateuren unzefroen."
     }
+  },
+  "planDuSite": {
+    "title": "Säiteplang",
+    "subtitle": "All Säite vun tevaxia.lu an energy.tevaxia.lu",
+    "sections": {
+      "particuliers": "Privatpersounen",
+      "professionnels": "Fachleit",
+      "donnees": "Donnéeën & Maart",
+      "energy": "Energy (Ënnerdomän)",
+      "compte": "Kont & Tariffer",
+      "legal": "Rechtlech Informatiounen"
+    },
+    "links": {
+      "estimation": "Immobilieschätzung",
+      "carte": "Interaktiv Präiskaart",
+      "frais": "Akquisitiounskäschten",
+      "loyer": "Investéiert Kapital & Loyer",
+      "aides": "Hëllefen-Simulator",
+      "plusValues": "Immobilie-Wäertzouwuess",
+      "achatLocation": "Kafen oder Lounen?",
+      "comparer": "Zwee Immobilien vergläichen",
+      "vefa": "VEFA Rechner",
+      "valorisation": "Bewäertung EVS 2025",
+      "hedonique": "Hedonesch Modell",
+      "dcfMulti": "DCF Multi-Locatairen",
+      "bancaire": "Bankinstrumenter (LTV, DSCR)",
+      "bilanPromoteur": "Promoteur-Bilanz",
+      "estimateurConstruction": "Baukoschteschätzer",
+      "calculateurVrd": "VRD-Schätzer — Ingenieursbüro",
+      "convertisseurSurfaces": "Flächenëmrechner",
+      "portfolio": "Immobilieportfolio",
+      "amlKyc": "AML / KYC",
+      "marche": "Maartdatebank",
+      "indices": "Indexen & Konjunktur",
+      "pagPap": "Bebauungsplang PAG / PAP",
+      "terresAgricoles": "Landwirtschaftlech Flächen",
+      "energyHome": "energy.tevaxia.lu — Haaptsäit",
+      "energyImpact": "Impakt vum Energiepass op de Wäert",
+      "energyRenovation": "ROI energetesch Renovatioun",
+      "energyCommunaute": "Energiegemeinschaft",
+      "energyEpbd": "EPBD 2050 Zäitplang",
+      "energyCpe": "Energieklass-Schätzer",
+      "energyLenoz": "LENOZ-Bewäertung",
+      "energyHvac": "HVAC-Simulator",
+      "energyPortfolio": "Energieportfolio",
+      "connexion": "Aloggen / Registréieren",
+      "profil": "Mäi Profil",
+      "mesEvaluations": "Meng Bewäertungen",
+      "tarifs": "Tariffer",
+      "mentionsLegales": "Impressum",
+      "confidentialite": "Dateschutzrichtlinn"
+    },
+    "note": "Dëse Säiteplang lëscht all disponibel Säite vun tevaxia.lu an dem Ënnerdomän energy.tevaxia.lu op. En XML-Sitemap ass och fir Sichmotore verfügbar."
   }
 }
