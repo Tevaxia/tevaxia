@@ -4,6 +4,16 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/energy/hvac",
+        destination: "https://energy.tevaxia.lu/hvac",
+        permanent: true,
+        has: [{ type: "host", value: "tevaxia.lu" }],
+      },
+    ];
+  },
   async headers() {
     return [
       {
