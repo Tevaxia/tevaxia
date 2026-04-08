@@ -15,9 +15,11 @@ export default function Connexion() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
-  // Detect energy subdomain + returnTo param
+  // Detect energy subdomain + returnTo (from sessionStorage, survives OAuth redirect)
   const isEnergy = typeof window !== "undefined" && window.location.hostname.includes("energy");
-  const returnTo = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("returnTo") : null;
+  const returnTo = typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search).get("returnTo") || sessionStorage.getItem("auth_returnTo")
+    : null;
 
   if (!supabase) {
     return (
@@ -29,12 +31,12 @@ export default function Connexion() {
     );
   }
 
-  // Auto-redirect to returnTo origin after OAuth login, passing session
+  // Auto-redirect to energy subdomain after OAuth login, passing session tokens
   useEffect(() => {
-    if (user && returnTo && supabase) {
+    if (user && returnTo && supabase && !isEnergy) {
       supabase.auth.getSession().then(({ data: { session } }) => {
         if (session) {
-          // Pass tokens to the subdomain so it can establish its own session
+          sessionStorage.removeItem("auth_returnTo");
           const params = new URLSearchParams({
             access_token: session.access_token,
             refresh_token: session.refresh_token,
@@ -43,7 +45,7 @@ export default function Connexion() {
         }
       });
     }
-  }, [user, returnTo]);
+  }, [user, returnTo, isEnergy]);
 
   if (user) {
     return (
@@ -134,9 +136,10 @@ export default function Connexion() {
             <button
               onClick={async () => {
                 if (!supabase) return;
+                if (isEnergy) sessionStorage.setItem("auth_returnTo", window.location.origin);
                 await supabase.auth.signInWithOAuth({
                   provider: "google",
-                  options: { redirectTo: `https://tevaxia.lu/connexion${isEnergy ? "?returnTo=" + encodeURIComponent(window.location.origin) : ""}` },
+                  options: { redirectTo: "https://tevaxia.lu/connexion" },
                 });
               }}
               className="flex w-full items-center justify-center gap-3 rounded-lg border border-card-border bg-white px-4 py-2.5 text-sm font-medium text-slate hover:bg-background transition-colors"
