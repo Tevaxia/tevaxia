@@ -3280,7 +3280,8 @@
       "donnees": "Dados & Mercado",
       "energy": "Energy (subdomínio)",
       "compte": "Conta & Tarifas",
-      "legal": "Informações legais"
+      "legal": "Informações legais",
+      "wordpress": "WordPress Plugin"
     },
     "links": {
       "estimation": "Estimativa imobiliária",
@@ -3320,7 +3321,8 @@
       "mesEvaluations": "As minhas avaliações",
       "tarifs": "Tarifas",
       "mentionsLegales": "Aviso legal",
-      "confidentialite": "Política de privacidade"
+      "confidentialite": "Política de privacidade",
+      "propcalc": "PropCalc — Calculadora imobiliária multi-país (WordPress)"
     },
     "note": "Este mapa do site lista todas as páginas disponíveis em tevaxia.lu e no seu subdomínio energy.tevaxia.lu. Um sitemap XML também está disponível para motores de busca."
   }

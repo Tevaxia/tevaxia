@@ -3280,7 +3280,8 @@
       "donnees": "Donnéeën & Maart",
       "energy": "Energy (Ënnerdomän)",
       "compte": "Kont & Tariffer",
-      "legal": "Rechtlech Informatiounen"
+      "legal": "Rechtlech Informatiounen",
+      "wordpress": "WordPress Plugin"
     },
     "links": {
       "estimation": "Immobilieschätzung",
@@ -3320,7 +3321,8 @@
       "mesEvaluations": "Meng Bewäertungen",
       "tarifs": "Tariffer",
       "mentionsLegales": "Impressum",
-      "confidentialite": "Dateschutzrichtlinn"
+      "confidentialite": "Dateschutzrichtlinn",
+      "propcalc": "PropCalc — Multi-Land Immobilierechner (WordPress)"
     },
     "note": "Dëse Säiteplang lëscht all disponibel Säite vun tevaxia.lu an dem Ënnerdomän energy.tevaxia.lu op. En XML-Sitemap ass och fir Sichmotore verfügbar."
   }
