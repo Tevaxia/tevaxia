@@ -1,0 +1,93 @@
+{
+  "code": "lu",
+  "name": { "en": "Luxembourg", "fr": "Luxembourg", "de": "Luxemburg" },
+  "currency": "EUR",
+  "currencySymbol": "€",
+  "flag": "🇱🇺",
+  "borrowing": {
+    "defaultRate": 3.5,
+    "maxDSTI": 0.40,
+    "insuranceIncludedInDSTI": false,
+    "maxDurationYears": 40,
+    "ltvResident": 1.00,
+    "ltvNonResident": 0.80,
+    "notes": [
+      "DSTI recommandé 40%, courant 35%, toléré 45%",
+      "LTV 100% primo-accédant RP, 90% non-primo, 80% investissement",
+      "40 ans max pour emprunteurs de moins de 30 ans, 30 ans standard"
+    ]
+  },
+  "acquisitionFees": {
+    "registrationRate": 0.06,
+    "transcriptionRate": 0.01,
+    "totalTransferRate": 0.07,
+    "bellegenAkt": {
+      "maxCreditPerPerson": 40000,
+      "conditions": "RP uniquement, occupation min 2 ans",
+      "notes": "Crédit d'impôt jusqu'à 40 000 EUR/personne (depuis juillet 2025)"
+    },
+    "notaryRate": 0.012,
+    "mortgageRegistration": {
+      "rate": 0.004,
+      "notes": "Inscription hypothécaire ~0.3-0.5%"
+    },
+    "agentFee": {
+      "rate": 0.03,
+      "vatRate": 0.17,
+      "paidBy": "seller",
+      "notes": "Commission agence 3% + TVA 17%, payée par le vendeur"
+    },
+    "new": {
+      "vatRate": 0.17,
+      "superReducedVAT": 0.03,
+      "superReducedCondition": "RP avec remboursement",
+      "notes": [
+        "TVA 17% standard, 3% super-réduit pour RP avec remboursement"
+      ]
+    },
+    "regions": []
+  },
+  "rentalTax": {
+    "regimes": [
+      {
+        "code": "progressive",
+        "name": { "en": "Progressive income tax", "fr": "Impôt progressif" },
+        "type": "all",
+        "notes": "Revenus fonciers taxés au barème progressif 8-42%"
+      }
+    ],
+    "depreciation": {
+      "standard": { "rate": 0.02, "years": 50, "notes": "2% standard" },
+      "accelerated": { "rate": 0.06, "years": 6, "notes": "6% si bien < 6 ans (pré-2021)" }
+    },
+    "incomeTaxBrackets": [
+      { "upTo": 11265, "rate": 0 },
+      { "upTo": 13173, "rate": 0.08 },
+      { "upTo": 15081, "rate": 0.10 },
+      { "upTo": 16989, "rate": 0.12 },
+      { "upTo": 18897, "rate": 0.14 },
+      { "upTo": 20805, "rate": 0.16 },
+      { "upTo": 22713, "rate": 0.18 },
+      { "upTo": 24621, "rate": 0.20 },
+      { "upTo": 26529, "rate": 0.22 },
+      { "upTo": 28437, "rate": 0.24 },
+      { "upTo": 30345, "rate": 0.26 },
+      { "upTo": 32253, "rate": 0.28 },
+      { "upTo": 34161, "rate": 0.30 },
+      { "upTo": 36069, "rate": 0.32 },
+      { "upTo": 37977, "rate": 0.34 },
+      { "upTo": 39885, "rate": 0.36 },
+      { "upTo": 41793, "rate": 0.38 },
+      { "upTo": 100000, "rate": 0.40 },
+      { "upTo": 150000, "rate": 0.41 },
+      { "upTo": null, "rate": 0.42 }
+    ],
+    "solidaritySurcharge": {
+      "rate": 0.07,
+      "notes": "Contribution au fonds pour l'emploi 7% (9% au-dessus de 150K)"
+    },
+    "propertyTax": {
+      "notes": "Très faible (50-200 EUR/an, base Einheitswert 1941)"
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "code": "it",
+  "name": { "en": "Italy", "fr": "Italie", "de": "Italien", "it": "Italia" },
+  "currency": "EUR",
+  "currencySymbol": "€",
+  "flag": "🇮🇹",
+  "borrowing": {
+    "defaultRate": 3.4,
+    "maxDSTI": 0.35,
+    "insuranceIncludedInDSTI": false,
+    "maxDurationYears": 30,
+    "ltvResident": 0.80,
+    "ltvNonResident": 0.55,
+    "notes": [
+      "DSTI 30-35% (pratique bancaire)",
+      "LTV 70-80% résidents, 50-60% non-résidents",
+      "Durée 20-30 ans (40 ans jeunes)",
+      "Principe de réciprocité pour non-EU"
+    ]
+  },
+  "acquisitionFees": {
+    "private": {
+      "primaCasa": {
+        "registrationRate": 0.02,
+        "cadastralBasis": true,
+        "fixedFees": 100,
+        "notes": "2% sur valeur cadastrale + 100 EUR fixes (total effectif ~4-7%)"
+      },
+      "investment": {
+        "registrationRate": 0.09,
+        "cadastralBasis": true,
+        "fixedFees": 100,
+        "notes": "9% sur valeur cadastrale + 100 EUR (total effectif ~12-16%)"
+      }
+    },
+    "developer": {
+      "primaCasa": {
+        "vatRate": 0.04,
+        "fixedFees": 600,
+        "notes": "TVA 4% + 600 EUR fixes pour prima casa neuf"
+      },
+      "investment": {
+        "vatRate": 0.10,
+        "fixedFees": 600,
+        "notes": "TVA 10% + 600 EUR pour investissement neuf"
+      },
+      "luxury": {
+        "vatRate": 0.22,
+        "fixedFees": 600,
+        "notes": "TVA 22% pour biens de luxe"
+      }
+    },
+    "notaryRate": 0.015,
+    "notaryVAT": 0.22,
+    "agentFee": {
+      "buyerRate": 0.03,
+      "sellerRate": 0.03,
+      "vatRate": 0.22,
+      "notes": "Commission agent : 2-5% par partie + TVA 22%"
+    },
+    "primaCasaConditions": "RP dans la commune sous 18 mois, pas d'autre bien prima casa",
+    "regions": []
+  },
+  "rentalTax": {
+    "regimes": [
+      {
+        "code": "cedolare_secca",
+        "name": { "en": "Cedolare secca (flat tax)", "fr": "Cedolare secca (flat tax)", "it": "Cedolare secca" },
+        "type": "all",
+        "flatRate": 0.21,
+        "strRate": 0.26,
+        "strCondition": "26% pour 2e+ bien en location courte durée (depuis 2024)",
+        "notes": "Pas de déductions sous cedolare secca"
+      },
+      {
+        "code": "irpef",
+        "name": { "en": "IRPEF (progressive)", "fr": "IRPEF (progressif)", "it": "IRPEF" },
+        "type": "all",
+        "maintenanceDeduction": 0.05,
+        "notes": "5% abattement maintenance ou frais réels + surcharges régionales/communales"
+      }
+    ],
+    "imu": {
+      "rateRange": "0.46-1.06%",
+      "basis": "Valeur cadastrale",
+      "primaryResidenceExempt": true,
+      "notes": "IMU 0.46-1.06% valeur cadastrale (RP exempte sauf luxe)"
+    },
+    "strLimit": {
+      "maxProperties": 4,
+      "notes": "Max 4 biens en location courte durée (5e = activité commerciale)"
+    },
+    "incomeTaxBrackets": [
+      { "upTo": 28000, "rate": 0.23 },
+      { "upTo": 50000, "rate": 0.35 },
+      { "upTo": null, "rate": 0.43 }
+    ]
+  }
+}

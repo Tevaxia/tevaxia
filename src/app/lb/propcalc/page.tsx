@@ -61,7 +61,7 @@ export default function PropCalcPage() {
             Hypoth&eacute;ik, Akafskosten, Locatiounsrendement, Cash-Flow a l&auml;nner&uuml;bbergr&auml;ifende Vergl&auml;ich — alles clientsäiteg, RGPD-konform.
           </p>
           <div className="mt-8 flex gap-4 justify-center flex-wrap">
-            <Link href="https://wordpress.org/plugins/propcalc/" className="rounded-xl bg-navy px-8 py-3.5 text-sm font-semibold text-white hover:bg-navy-light transition-colors">
+            <Link href="https://wordpress.org/plugins/propcalc-real-estate-investment-calculator/" className="rounded-xl bg-navy px-8 py-3.5 text-sm font-semibold text-white hover:bg-navy-light transition-colors">
               Op WordPress.org eroflueden &rarr;
             </Link>
             <Link href="#modules" className="rounded-xl border border-card-border px-8 py-3.5 text-sm font-semibold text-navy hover:bg-card transition-colors">
@@ -181,7 +181,7 @@ export default function PropCalcPage() {
           <h2 className="text-2xl font-bold text-navy mb-4">Prett fir e Rechner op &Aring;rer S&auml;it dob&auml;izesetzen?</h2>
           <p className="text-muted mb-8">Gratis, Open Source, RGPD-konform. Installatioun an manner w&eacute;i enger Minutt.</p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="https://wordpress.org/plugins/propcalc/" className="rounded-xl bg-navy px-8 py-3.5 text-sm font-semibold text-white hover:bg-navy-light transition-colors">
+            <Link href="https://wordpress.org/plugins/propcalc-real-estate-investment-calculator/" className="rounded-xl bg-navy px-8 py-3.5 text-sm font-semibold text-white hover:bg-navy-light transition-colors">
               PropCalc eroflueden &rarr;
             </Link>
             <Link href="https://github.com/tevaxia/propcalc" className="rounded-xl border border-card-border px-8 py-3.5 text-sm font-semibold text-navy hover:bg-card transition-colors">

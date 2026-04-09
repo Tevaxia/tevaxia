@@ -1,0 +1,195 @@
+{
+  "code": "uk",
+  "name": { "en": "United Kingdom", "fr": "Royaume-Uni", "de": "Vereinigtes K\u00f6nigreich" },
+  "currency": "GBP",
+  "currencySymbol": "\u00a3",
+  "flag": "\ud83c\uddec\ud83c\udde7",
+  "borrowing": {
+    "defaultRate": 4.5,
+    "maxDSTI": 0.45,
+    "incomeMultiple": 4.5,
+    "insuranceIncludedInDSTI": false,
+    "maxDurationYears": 35,
+    "ltvResident": 0.95,
+    "ltvFirstTimeBuyer": 0.95,
+    "ltvNonResident": 0.75,
+    "buyToLet": {
+      "icr": 1.25,
+      "stressRate": 0.055,
+      "typicalLtv": 0.75,
+      "notes": "ICR 125% at stressed rate (typically 5.5%)"
+    },
+    "notes": [
+      "Affordability based on income multiple: 4.5x annual gross income",
+      "FCA removed affordability test recommendation in Aug 2022, LTI remains",
+      "BTL assessed on rental coverage (ICR) not personal income",
+      "Mortgage typically must end before age 70-75"
+    ]
+  },
+  "acquisitionFees": {
+    "stampDuty": {
+      "england": {
+        "name": "SDLT (Stamp Duty Land Tax)",
+        "bands": [
+          { "upTo": 125000, "rate": 0 },
+          { "upTo": 250000, "rate": 0.02 },
+          { "upTo": 925000, "rate": 0.05 },
+          { "upTo": 1500000, "rate": 0.10 },
+          { "upTo": null, "rate": 0.12 }
+        ],
+        "firstTimeBuyer": {
+          "maxPropertyPrice": 500000,
+          "bands": [
+            { "upTo": 300000, "rate": 0 },
+            { "upTo": 500000, "rate": 0.05 }
+          ]
+        },
+        "additionalPropertySurcharge": 0.05,
+        "nonResidentSurcharge": 0.02,
+        "notes": "Applies to England and Northern Ireland. Rates from April 2025."
+      },
+      "scotland": {
+        "name": "LBTT (Land and Buildings Transaction Tax)",
+        "bands": [
+          { "upTo": 145000, "rate": 0 },
+          { "upTo": 250000, "rate": 0.02 },
+          { "upTo": 325000, "rate": 0.05 },
+          { "upTo": 750000, "rate": 0.10 },
+          { "upTo": null, "rate": 0.12 }
+        ],
+        "firstTimeBuyer": {
+          "maxPropertyPrice": null,
+          "bands": [
+            { "upTo": 175000, "rate": 0 },
+            { "upTo": 250000, "rate": 0.02 },
+            { "upTo": 325000, "rate": 0.05 },
+            { "upTo": 750000, "rate": 0.10 },
+            { "upTo": null, "rate": 0.12 }
+          ]
+        },
+        "additionalPropertySurcharge": 0.08,
+        "nonResidentSurcharge": 0,
+        "notes": "ADS increased to 8% from December 2024"
+      },
+      "wales": {
+        "name": "LTT (Land Transaction Tax)",
+        "bands": [
+          { "upTo": 225000, "rate": 0 },
+          { "upTo": 400000, "rate": 0.06 },
+          { "upTo": 750000, "rate": 0.075 },
+          { "upTo": 1500000, "rate": 0.10 },
+          { "upTo": null, "rate": 0.12 }
+        ],
+        "firstTimeBuyer": {
+          "maxPropertyPrice": null,
+          "bands": [
+            { "upTo": 225000, "rate": 0 },
+            { "upTo": 400000, "rate": 0.06 },
+            { "upTo": 750000, "rate": 0.075 },
+            { "upTo": 1500000, "rate": 0.10 },
+            { "upTo": null, "rate": 0.12 }
+          ],
+          "notes": "No specific first-time buyer relief in Wales"
+        },
+        "additionalPropertySurcharge": 0.05,
+        "nonResidentSurcharge": 0,
+        "notes": "Wales has no non-resident surcharge"
+      }
+    },
+    "solicitor": {
+      "typicalFixed": 1500,
+      "notes": "Solicitor/conveyancer fees typically \u00a31,000-\u00a32,000"
+    },
+    "landRegistry": {
+      "typicalFixed": 300,
+      "notes": "Land Registry fee varies by property price (\u00a3100-\u00a3500)"
+    },
+    "survey": {
+      "typicalFixed": 500,
+      "notes": "Home survey \u00a3300-\u00a31,500 depending on type (Level 1-3)"
+    },
+    "new": {
+      "vatRate": 0,
+      "notes": [
+        "New-build residential is zero-rated for VAT",
+        "Stamp duty still applies on new builds"
+      ]
+    },
+    "regions": [
+      { "code": "ENG", "name": "England", "system": "SDLT" },
+      { "code": "NIR", "name": "Northern Ireland", "system": "SDLT" },
+      { "code": "SCT", "name": "Scotland", "system": "LBTT" },
+      { "code": "WLS", "name": "Wales", "system": "LTT" }
+    ]
+  },
+  "rentalTax": {
+    "regimes": [
+      {
+        "code": "property_income",
+        "name": { "en": "Property Income" },
+        "type": "all",
+        "notes": "Rental income taxed as property income under Income Tax"
+      }
+    ],
+    "propertyAllowance": 1000,
+    "mortgageInterestRelief": {
+      "deductible": false,
+      "taxCreditRate": 0.20,
+      "notes": "Since April 2020: mortgage interest not deductible, 20% tax credit instead (Section 24)"
+    },
+    "deductibleExpenses": [
+      "Letting agent fees",
+      "Legal fees for lets of a year or less",
+      "Accountancy fees",
+      "Buildings and contents insurance",
+      "Maintenance and repairs (not improvements)",
+      "Utility bills (if paid by landlord)",
+      "Rent, ground rent, service charges",
+      "Council tax (if paid by landlord)",
+      "Advertising for tenants"
+    ],
+    "wearAndTearAllowance": {
+      "replaced": true,
+      "replacementReliefOnly": true,
+      "notes": "Wear and tear allowance abolished April 2016, replaced by replacement of domestic items relief"
+    },
+    "incomeTaxBrackets": [
+      { "upTo": 12570, "rate": 0, "name": "Personal Allowance" },
+      { "upTo": 50270, "rate": 0.20, "name": "Basic rate" },
+      { "upTo": 125140, "rate": 0.40, "name": "Higher rate" },
+      { "upTo": null, "rate": 0.45, "name": "Additional rate" }
+    ],
+    "personalAllowanceTaper": {
+      "threshold": 100000,
+      "reductionRate": 0.50,
+      "notes": "Personal allowance reduced by \u00a31 for every \u00a32 of income over \u00a3100,000"
+    },
+    "futureRates": {
+      "effectiveFrom": "2027-04-06",
+      "incomeTaxBrackets": [
+        { "upTo": 12570, "rate": 0, "name": "Personal Allowance" },
+        { "upTo": 50270, "rate": 0.22, "name": "Basic rate" },
+        { "upTo": 125140, "rate": 0.42, "name": "Higher rate" },
+        { "upTo": null, "rate": 0.47, "name": "Additional rate" }
+      ],
+      "notes": "Proposed rates from April 2027 (subject to confirmation)"
+    },
+    "nonResidentTax": {
+      "withholdingRate": 0.20,
+      "nrlScheme": true,
+      "notes": "Non-Resident Landlord Scheme: 20% withheld at source unless HMRC approval obtained"
+    },
+    "scottishIncomeTax": {
+      "bands": [
+        { "upTo": 12570, "rate": 0, "name": "Personal Allowance" },
+        { "upTo": 14876, "rate": 0.19, "name": "Starter rate" },
+        { "upTo": 26561, "rate": 0.20, "name": "Basic rate" },
+        { "upTo": 43662, "rate": 0.21, "name": "Intermediate rate" },
+        { "upTo": 75000, "rate": 0.42, "name": "Higher rate" },
+        { "upTo": 125140, "rate": 0.45, "name": "Advanced rate" },
+        { "upTo": null, "rate": 0.48, "name": "Top rate" }
+      ],
+      "notes": "Scottish income tax rates for 2025/26 - applies to Scottish taxpayers"
+    }
+  }
+}

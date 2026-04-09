@@ -13,7 +13,7 @@ const PAGES = [
   "/aml-kyc", "/estimateur-construction", "/calculateur-vrd",
   "/convertisseur-surfaces", "/pricing", "/connexion",
   "/mentions-legales", "/confidentialite", "/plan-du-site",
-  "/propcalc",
+  "/propcalc", "/propcalc/developers",
 ];
 
 const ENERGY_PAGES = [

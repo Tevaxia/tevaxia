@@ -1,0 +1,97 @@
+{
+  "code": "es",
+  "name": { "en": "Spain", "fr": "Espagne", "de": "Spanien", "es": "España" },
+  "currency": "EUR",
+  "currencySymbol": "€",
+  "flag": "🇪🇸",
+  "borrowing": {
+    "defaultRate": 3.3,
+    "maxDSTI": 0.35,
+    "insuranceIncludedInDSTI": false,
+    "maxDurationYears": 30,
+    "ltvResident": 0.80,
+    "ltvNonResident": 0.65,
+    "notes": [
+      "DSTI 30-35% résidents, 25-30% non-résidents",
+      "LTV 80% résidents, 60-70% non-résidents",
+      "Âge limite fin de prêt : 70-75 ans"
+    ]
+  },
+  "acquisitionFees": {
+    "notaryRate": 0.003,
+    "registroRate": 0.002,
+    "gestoriaFixed": 450,
+    "new": {
+      "ivaRate": 0.10,
+      "ajdRate": 0.01,
+      "canariasIgicRate": 0.07,
+      "notes": [
+        "IVA 10% + AJD 0.5-1.5% pour le neuf",
+        "Canarias: IGIC 7% au lieu d'IVA"
+      ]
+    },
+    "regions": [
+      { "code": "AND", "name": "Andalucía", "itpRate": 0.07 },
+      { "code": "ARA", "name": "Aragón", "itpRate": 0.08 },
+      { "code": "AST", "name": "Asturias", "itpRate": 0.08 },
+      { "code": "BAL", "name": "Islas Baleares", "itpRate": 0.08, "notes": "Progressif 8-11%" },
+      { "code": "CAN", "name": "Canarias", "itpRate": 0.065 },
+      { "code": "CTB", "name": "Cantabria", "itpRate": 0.09, "firstTimeBuyerRate": 0.07, "notes": "7% RP < 300K" },
+      { "code": "CLM", "name": "Castilla-La Mancha", "itpRate": 0.09 },
+      { "code": "CYL", "name": "Castilla y León", "itpRate": 0.08 },
+      { "code": "CAT", "name": "Cataluña", "itpRate": 0.10, "notes": "Progressif depuis juin 2025" },
+      { "code": "EXT", "name": "Extremadura", "itpRate": 0.08 },
+      { "code": "GAL", "name": "Galicia", "itpRate": 0.08 },
+      { "code": "MAD", "name": "Madrid", "itpRate": 0.06 },
+      { "code": "MUR", "name": "Murcia", "itpRate": 0.08 },
+      { "code": "NAV", "name": "Navarra", "itpRate": 0.06 },
+      { "code": "PVA", "name": "País Vasco", "itpRate": 0.06, "notes": "4-7% selon territoire historique" },
+      { "code": "RIO", "name": "La Rioja", "itpRate": 0.04, "notes": "4% depuis mars 2025" },
+      { "code": "VAL", "name": "Valencia", "itpRate": 0.10, "notes": "9% < 1M depuis juin 2026" }
+    ]
+  },
+  "rentalTax": {
+    "regimes": [
+      {
+        "code": "irpf_resident",
+        "name": { "en": "IRPF (Resident)", "fr": "IRPF (Résident)", "es": "IRPF (Residente)" },
+        "type": "resident",
+        "reductionRate": 0.50,
+        "reductionNotes": "50% réduction sur revenu net (60% zone tendue, 70-90% Ley de Vivienda)"
+      },
+      {
+        "code": "irnr_eu",
+        "name": { "en": "IRNR (EU Non-Resident)", "fr": "IRNR (Non-résident UE)", "es": "IRNR (No residente UE)" },
+        "type": "nonResident_EU",
+        "flatRate": 0.19,
+        "notes": "19% sur revenu net"
+      },
+      {
+        "code": "irnr_non_eu",
+        "name": { "en": "IRNR (Non-EU)", "fr": "IRNR (Hors UE)", "es": "IRNR (No residente no UE)" },
+        "type": "nonResident_nonEU",
+        "flatRate": 0.24,
+        "notes": "24% sur revenu brut (déductions possibles depuis arrêt juil. 2025)"
+      }
+    ],
+    "imputedIncome": {
+      "rate": 0.02,
+      "reducedRate": 0.011,
+      "reducedCondition": "Valeur cadastrale révisée après 1994",
+      "notes": "Revenu imputé sur périodes non louées : 1.1-2% × valeur cadastrale × taux IRPF"
+    },
+    "ibi": {
+      "rateRange": "0.4-1.1%",
+      "basis": "Valeur cadastrale",
+      "notes": "Impuesto sobre Bienes Inmuebles (IBI) annuel"
+    },
+    "incomeTaxBrackets": [
+      { "upTo": 12450, "rate": 0.19 },
+      { "upTo": 20200, "rate": 0.24 },
+      { "upTo": 35200, "rate": 0.30 },
+      { "upTo": 60000, "rate": 0.37 },
+      { "upTo": 300000, "rate": 0.45 },
+      { "upTo": null, "rate": 0.47 }
+    ]
+  }
+}

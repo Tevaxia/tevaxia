@@ -1,0 +1,104 @@
+{
+  "code": "de",
+  "name": { "en": "Germany", "fr": "Allemagne", "de": "Deutschland" },
+  "currency": "EUR",
+  "currencySymbol": "\u20ac",
+  "flag": "\ud83c\udde9\ud83c\uddea",
+  "borrowing": {
+    "defaultRate": 3.8,
+    "maxDSTI": 0.40,
+    "insuranceIncludedInDSTI": false,
+    "maxDurationYears": 30,
+    "ltvResident": 0.90,
+    "ltvNonResident": 0.70,
+    "notes": [
+      "Keine gesetzliche DSTI-Grenze, Banken wenden 35-40% als Praxis an",
+      "Grunderwerbsteuer muss aus Eigenkapital gezahlt werden (nicht finanzierbar)",
+      "Zinsbindung typisch 10-15 Jahre, danach Anschlussfinanzierung",
+      "Sondertilgung meist 5% p.a. m\u00f6glich"
+    ]
+  },
+  "acquisitionFees": {
+    "notaryRate": 0.015,
+    "landRegistryRate": 0.005,
+    "mortgageRegistration": {
+      "grundschuld": {
+        "rate": 0.01,
+        "notes": "Grundschuld: ca. 1.0% des Darlehensbetrags (Notar + Grundbuch)"
+      }
+    },
+    "agentFee": {
+      "totalRate": 0.0714,
+      "buyerShare": 0.0357,
+      "sellerShare": 0.0357,
+      "notes": "Seit Dez 2020: gesetzliche H\u00e4lfte-Teilung bei Wohnimmobilien"
+    },
+    "new": {
+      "vatRate": 0.19,
+      "notes": [
+        "MwSt 19% im Kaufpreis vom Bautr\u00e4ger enthalten",
+        "Keine Grunderwerbsteuer bei Neubau direkt vom Bautr\u00e4ger (Grundst\u00fcck separat besteuert)"
+      ]
+    },
+    "regions": [
+      { "code": "BY", "name": "Bayern", "transferTaxRate": 0.035 },
+      { "code": "BW", "name": "Baden-W\u00fcrttemberg", "transferTaxRate": 0.050 },
+      { "code": "BE", "name": "Berlin", "transferTaxRate": 0.060 },
+      { "code": "BB", "name": "Brandenburg", "transferTaxRate": 0.065 },
+      { "code": "HB", "name": "Bremen", "transferTaxRate": 0.050 },
+      { "code": "HH", "name": "Hamburg", "transferTaxRate": 0.055 },
+      { "code": "HE", "name": "Hessen", "transferTaxRate": 0.060 },
+      { "code": "MV", "name": "Mecklenburg-Vorpommern", "transferTaxRate": 0.060 },
+      { "code": "NI", "name": "Niedersachsen", "transferTaxRate": 0.050 },
+      { "code": "NW", "name": "Nordrhein-Westfalen", "transferTaxRate": 0.065 },
+      { "code": "RP", "name": "Rheinland-Pfalz", "transferTaxRate": 0.050 },
+      { "code": "SL", "name": "Saarland", "transferTaxRate": 0.065 },
+      { "code": "SN", "name": "Sachsen", "transferTaxRate": 0.055 },
+      { "code": "ST", "name": "Sachsen-Anhalt", "transferTaxRate": 0.050 },
+      { "code": "SH", "name": "Schleswig-Holstein", "transferTaxRate": 0.065 },
+      { "code": "TH", "name": "Th\u00fcringen", "transferTaxRate": 0.050 }
+    ]
+  },
+  "rentalTax": {
+    "regimes": [
+      {
+        "code": "einkommensteuer",
+        "name": { "en": "Income tax (Einkommensteuer)", "de": "Einkommensteuer" },
+        "type": "all",
+        "notes": "Mieteinnahmen als Eink\u00fcnfte aus Vermietung und Verpachtung (\u00a721 EStG)"
+      }
+    ],
+    "depreciation": {
+      "post1925": { "rate": 0.02, "years": 50, "notes": "2% AfA f\u00fcr Geb\u00e4ude nach 1925" },
+      "pre1925": { "rate": 0.025, "years": 40, "notes": "2.5% AfA f\u00fcr Geb\u00e4ude vor 1925" },
+      "newSince2023": { "rate": 0.03, "years": 33, "notes": "3% AfA f\u00fcr Neubauten ab 01/01/2023 (\u00a77b EStG)" }
+    },
+    "deductibleExpenses": [
+      "Darlehenszinsen (Mortgage interest)",
+      "Abschreibung (Depreciation / AfA)",
+      "Instandhaltung und Reparaturen",
+      "Hausverwaltung (Property management)",
+      "Grundsteuer (Property tax)",
+      "Versicherungen (Insurance)",
+      "Fahrtkosten zum Mietobjekt"
+    ],
+    "lossDeduction": {
+      "allowed": true,
+      "notes": "Verluste aus Vermietung mit anderen Eink\u00fcnften verrechenbar"
+    },
+    "solidaritySurcharge": {
+      "rate": 0.055,
+      "exemptionThreshold": 18130,
+      "notes": "5.5% auf Einkommensteuer, Freigrenze 18.130 EUR (2025)"
+    },
+    "incomeTaxBrackets": [
+      { "upTo": 11604, "rate": 0 },
+      { "upTo": 66760, "rate": 0.42, "notes": "Progressive Zonen: 14-24% (11.605-17.005), 24-42% (17.006-66.760)" },
+      { "upTo": 277825, "rate": 0.42 },
+      { "upTo": null, "rate": 0.45 }
+    ],
+    "nonResidentTax": {
+      "notes": "Beschr\u00e4nkte Steuerpflicht (\u00a71 Abs. 4 EStG), gleiche Steuers\u00e4tze, kein Grundfreibetrag"
+    }
+  }
+}

@@ -3322,7 +3322,8 @@
       "tarifs": "Tarifas",
       "mentionsLegales": "Aviso legal",
       "confidentialite": "Política de privacidade",
-      "propcalc": "PropCalc — Calculadora imobiliária multi-país (WordPress)"
+      "propcalc": "PropCalc — Calculadora imobiliária multi-país (WordPress)",
+      "propcalcDev": "PropCalc Developers — API, npm, Widget, Chrome, Sheets"
     },
     "note": "Este mapa do site lista todas as páginas disponíveis em tevaxia.lu e no seu subdomínio energy.tevaxia.lu. Um sitemap XML também está disponível para motores de busca."
   }

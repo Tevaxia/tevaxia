@@ -68,6 +68,7 @@ const SECTIONS = [
     titleKey: "wordpress",
     links: [
       { href: "/propcalc", key: "propcalc" },
+      { href: "/propcalc/developers", key: "propcalcDev" },
     ],
   },
   {

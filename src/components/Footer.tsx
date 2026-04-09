@@ -2,10 +2,18 @@
 
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
+
+const LOCALE_PREFIXES = ["en", "de", "pt", "lb"];
 
 export default function Footer() {
   const tc = useTranslations("common");
   const tn = useTranslations("nav");
+  const pathname = usePathname();
+  const locale = LOCALE_PREFIXES.find(
+    (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)
+  ) || "fr";
+  const localePath = locale === "fr" ? "" : `/${locale}`;
 
   return (
     <footer className="border-t border-card-border bg-navy-dark text-white/60">
@@ -70,7 +78,7 @@ export default function Footer() {
               <li><Link href="/confidentialite" className="hover:text-white transition-colors">{tc("privacy")}</Link></li>
               <li><Link href="/pricing" className="hover:text-white transition-colors">Tarifs</Link></li>
               <li><Link href="/plan-du-site" className="hover:text-white transition-colors">Plan du site</Link></li>
-              <li><Link href="/propcalc" className="hover:text-white transition-colors text-teal-light">PropCalc (WordPress)</Link></li>
+              <li><Link href={`${localePath}/propcalc`} className="hover:text-white transition-colors text-teal-light">PropCalc (WordPress)</Link></li>
             </ul>
           </div>
 

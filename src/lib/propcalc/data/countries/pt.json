@@ -1,0 +1,119 @@
+{
+  "code": "pt",
+  "name": { "en": "Portugal", "fr": "Portugal", "de": "Portugal", "pt": "Portugal" },
+  "currency": "EUR",
+  "currencySymbol": "€",
+  "flag": "🇵🇹",
+  "borrowing": {
+    "defaultRate": 3.6,
+    "maxDSTI": 0.50,
+    "insuranceIncludedInDSTI": false,
+    "maxDurationYears": 40,
+    "ltvResident": 0.90,
+    "ltvNonResident": 0.80,
+    "notes": [
+      "DSTI max 50% (BdP, comply-or-explain), 60% toléré 10% du volume",
+      "LTV 90% RP, 80% autre usage",
+      "Durée max recommandée 30 ans, possible 40 ans si < 30 ans"
+    ]
+  },
+  "acquisitionFees": {
+    "imtBands": {
+      "primaryResidence": [
+        { "upTo": 104261, "rate": 0, "deduction": 0 },
+        { "upTo": 142670, "rate": 0.02, "deduction": 2085.22 },
+        { "upTo": 194196, "rate": 0.05, "deduction": 6365.23 },
+        { "upTo": 324058, "rate": 0.07, "deduction": 10248.15 },
+        { "upTo": 648116, "rate": 0.08, "deduction": 13489.73 },
+        { "upTo": null, "rate": 0.06, "flat": true }
+      ],
+      "investment": {
+        "bands": [
+          { "min": 0, "max": 104261, "rate": 0.01 },
+          { "min": 104261, "max": 143133, "rate": 0.02 },
+          { "min": 143133, "max": 194130, "rate": 0.05 },
+          { "min": 194130, "max": 324218, "rate": 0.07 },
+          { "min": 324218, "max": 648116, "rate": 0.08 },
+          { "min": 648116, "max": null, "rate": 0.06, "flat": true }
+        ],
+        "notes": "IMT investissement : barème progressif, pas d'exemption primo"
+      },
+      "youngFirstTimeBuyer": {
+        "maxAge": 35,
+        "maxPrice": 324058,
+        "rate": 0,
+        "notes": "Exemption IMT + IS pour primo < 35 ans si bien < 324 058 EUR (depuis août 2024)"
+      },
+      "nonResident": {
+        "flatRate": 0.075,
+        "notes": "7.5% flat pour non-résidents (depuis 2026), sauf si deviennent résidents sous 2 ans"
+      }
+    },
+    "impostoSelo": 0.008,
+    "seloHipoteca": 0.006,
+    "notaryFixed": 800,
+    "registroFixed": 250,
+    "lawyerRate": 0.0125,
+    "new": {
+      "vatRate": 0.23,
+      "notes": [
+        "TVA 23% standard pour le neuf",
+        "IMT s'applique toujours sur le neuf"
+      ]
+    },
+    "regions": []
+  },
+  "rentalTax": {
+    "regimes": [
+      {
+        "code": "flat_resident",
+        "name": { "en": "Flat rate 28%", "fr": "Taux forfaitaire 28%", "pt": "Taxa autónoma 28%" },
+        "type": "resident",
+        "flatRate": 0.28,
+        "notes": "Résidents : flat 28% ou option pour le barème progressif"
+      },
+      {
+        "code": "progressive_resident",
+        "name": { "en": "Progressive rate", "fr": "Taux progressif", "pt": "Englobamento" },
+        "type": "resident",
+        "notes": "Option englobamento : barème progressif 14.5-48%"
+      },
+      {
+        "code": "flat_nonresident",
+        "name": { "en": "Non-resident flat 25%", "fr": "Non-résident 25%", "pt": "Não residente 25%" },
+        "type": "nonResident",
+        "flatRate": 0.25,
+        "notes": "25% flat pour non-résidents"
+      }
+    ],
+    "leaseReductions": [
+      { "minYears": 0, "maxYears": 5, "reduction": 0.25 },
+      { "minYears": 5, "maxYears": 10, "reduction": 0.15 },
+      { "minYears": 10, "maxYears": 20, "reduction": 0.10 },
+      { "minYears": 20, "maxYears": null, "reduction": 0.05 }
+    ],
+    "imi": {
+      "rateRange": "0.3-0.45%",
+      "basis": "VPT (Valor Patrimonial Tributário)",
+      "notes": "IMI annuel 0.3-0.45% du VPT"
+    },
+    "aimi": {
+      "threshold": 600000,
+      "rate": 0.007,
+      "highRate": 0.01,
+      "highThreshold": 1000000,
+      "notes": "AIMI : 0.7% (600K-1M), 1% (> 1M)"
+    },
+    "incomeTaxBrackets": [
+      { "upTo": 7703, "rate": 0.145 },
+      { "upTo": 11623, "rate": 0.21 },
+      { "upTo": 16472, "rate": 0.265 },
+      { "upTo": 21321, "rate": 0.285 },
+      { "upTo": 27146, "rate": 0.35 },
+      { "upTo": 39791, "rate": 0.37 },
+      { "upTo": 51997, "rate": 0.435 },
+      { "upTo": 81199, "rate": 0.45 },
+      { "upTo": null, "rate": 0.48 }
+    ]
+  }
+}

@@ -61,7 +61,7 @@ export default function PropCalcPage() {
             Hipoteca, custos de aquisi&ccedil;&atilde;o, rentabilidade do aluguer, cash-flow e compara&ccedil;&atilde;o transfronteiri&ccedil;a — tudo do lado do cliente, em conformidade com o RGPD.
           </p>
           <div className="mt-8 flex gap-4 justify-center flex-wrap">
-            <Link href="https://wordpress.org/plugins/propcalc/" className="rounded-xl bg-navy px-8 py-3.5 text-sm font-semibold text-white hover:bg-navy-light transition-colors">
+            <Link href="https://wordpress.org/plugins/propcalc-real-estate-investment-calculator/" className="rounded-xl bg-navy px-8 py-3.5 text-sm font-semibold text-white hover:bg-navy-light transition-colors">
               Descarregar no WordPress.org &rarr;
             </Link>
             <Link href="#modules" className="rounded-xl border border-card-border px-8 py-3.5 text-sm font-semibold text-navy hover:bg-card transition-colors">
@@ -181,7 +181,7 @@ export default function PropCalcPage() {
           <h2 className="text-2xl font-bold text-navy mb-4">Pronto para adicionar uma calculadora ao seu site?</h2>
           <p className="text-muted mb-8">Gratuito, open-source, em conformidade com o RGPD. Instala&ccedil;&atilde;o em menos de um minuto.</p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="https://wordpress.org/plugins/propcalc/" className="rounded-xl bg-navy px-8 py-3.5 text-sm font-semibold text-white hover:bg-navy-light transition-colors">
+            <Link href="https://wordpress.org/plugins/propcalc-real-estate-investment-calculator/" className="rounded-xl bg-navy px-8 py-3.5 text-sm font-semibold text-white hover:bg-navy-light transition-colors">
               Descarregar PropCalc &rarr;
             </Link>
             <Link href="https://github.com/tevaxia/propcalc" className="rounded-xl border border-card-border px-8 py-3.5 text-sm font-semibold text-navy hover:bg-card transition-colors">

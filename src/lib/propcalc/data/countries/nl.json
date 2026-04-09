@@ -1,0 +1,85 @@
+{
+  "code": "nl",
+  "name": { "en": "Netherlands", "fr": "Pays-Bas", "de": "Niederlande", "nl": "Nederland" },
+  "currency": "EUR",
+  "currencySymbol": "€",
+  "flag": "🇳🇱",
+  "borrowing": {
+    "defaultRate": 3.9,
+    "maxDSTI": 0.40,
+    "insuranceIncludedInDSTI": false,
+    "maxDurationYears": 30,
+    "ltvResident": 1.00,
+    "ltvNonResident": 0.80,
+    "incomeMultiple": 4.5,
+    "nhg": {
+      "threshold": 470000,
+      "thresholdEnergy": 498200,
+      "premium": 0.006,
+      "notes": "NHG: Nationale Hypotheek Garantie, seuil 470K (498.2K avec amélioration énergétique)"
+    },
+    "notes": [
+      "LTV 100% résidents (106% avec amélioration énergétique), 80% non-résidents",
+      "DSTI calculé selon tables NIBUD (variable selon revenu, taux, label énergétique)",
+      "Amortissement intégral obligatoire sur 30 ans pour déduction des intérêts",
+      "NHG: garantie étatique, seuil 470K EUR, prime 0.6%",
+      "Multiples: 4-5× revenu brut"
+    ]
+  },
+  "acquisitionFees": {
+    "overdrachtsbelasting": {
+      "firstTimeBuyer": {
+        "rate": 0,
+        "maxAge": 35,
+        "maxPrice": 555000,
+        "notes": "0% pour primo-accédants 18-35 ans, bien ≤ 555K (2026)"
+      },
+      "occupant": {
+        "rate": 0.02,
+        "notes": "2% pour occupant non-primo"
+      },
+      "investor": {
+        "rate": 0.08,
+        "notes": "8% investisseur (baisse de 10.4% prévue 2026)"
+      }
+    },
+    "notaryFixed": 1500,
+    "notaryVAT": 0.21,
+    "kadasterFixed": 135,
+    "makelaarRate": 0.01,
+    "makelaarOptional": true,
+    "new": {
+      "vatRate": 0.21,
+      "noTransferTax": true,
+      "notes": [
+        "TVA 21% pour le neuf, pas d'overdrachtsbelasting"
+      ]
+    },
+    "regions": []
+  },
+  "rentalTax": {
+    "regimes": [
+      {
+        "code": "box3",
+        "name": { "en": "Box 3 (Wealth tax)", "fr": "Box 3 (Impôt sur patrimoine)", "nl": "Box 3 (Vermogensbelasting)" },
+        "type": "all",
+        "deemedReturn": 0.0633,
+        "taxRate": 0.36,
+        "effectiveRate": 0.023,
+        "notes": "Pas de taxation sur le revenu locatif réel (jusqu'en 2027). Box 3 2026: rendement fictif 6.33% × 36% = ~2.3% effectif sur patrimoine net (seuil 57 684 EUR)"
+      }
+    ],
+    "box3Threshold": 57684,
+    "reform2028": "Passage au revenu réel prévu en 2028",
+    "hypotheekrenteaftrek": {
+      "maxRate": 0.3697,
+      "condition": "RP uniquement (Box 1)",
+      "notes": "Déduction des intérêts hypothécaires RP uniquement, taux max 36.97%"
+    },
+    "incomeTaxBrackets": [
+      { "upTo": 38441, "rate": 0.3697, "name": "Schijf 1" },
+      { "upTo": 75518, "rate": 0.3697, "name": "Schijf 2" },
+      { "upTo": null, "rate": 0.4950, "name": "Schijf 3" }
+    ]
+  }
+}

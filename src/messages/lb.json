@@ -3322,7 +3322,8 @@
       "tarifs": "Tariffer",
       "mentionsLegales": "Impressum",
       "confidentialite": "Dateschutzrichtlinn",
-      "propcalc": "PropCalc — Multi-Land Immobilierechner (WordPress)"
+      "propcalc": "PropCalc — Multi-Land Immobilierechner (WordPress)",
+      "propcalcDev": "PropCalc Entwéckler — API, npm, Widget, Chrome, Sheets"
     },
     "note": "Dëse Säiteplang lëscht all disponibel Säite vun tevaxia.lu an dem Ënnerdomän energy.tevaxia.lu op. En XML-Sitemap ass och fir Sichmotore verfügbar."
   }
