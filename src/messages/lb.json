@@ -391,7 +391,19 @@
       "apiConnected": "Mam Spring Boot API verbonnen",
       "downloadPdf": "PDF eroflueden",
       "chartProductionPV": "PV Produktioun",
-      "chartConsoMensuelle": "Duerchschnëttlech monatleche Verbrauch"
+      "chartConsoMensuelle": "Duerchschnëttlech monatleche Verbrauch",
+      "pvgisTitle": "PVGIS Solarproduktioun",
+      "pvgisOptional": "optional — verbessert d'Produktioun mat reellen Donnéeën",
+      "commune": "Gemeng",
+      "communePlaceholder": "-- Gemeng auswielen --",
+      "orientation": "Orientatioun vun de Panneauen",
+      "inclinaison": "Neigung (°)",
+      "pvgisLoading": "PVGIS Ufro...",
+      "pvgisConnected": "PVGIS Produktioun (EU Satellittendaten)",
+      "pvgisFallback": "PVGIS net verfügbar — Schätzung 950 kWh/kWp",
+      "estimation": "Schätzung",
+      "prodMensDescPvgis": "Monatslech PVGIS Donnéeën fir {commune} (Satellitt Bestraalung, 14% Verloschter)",
+      "paramProductionPvgis": "Richteg PVGIS PV Produktioun: {val} kWh/kWp/Joer ({commune}, EU Satellittendaten)"
     },
     "epbd": {
       "title": "EPBD Direktiv — Chronologie a Stranding-Risiko",

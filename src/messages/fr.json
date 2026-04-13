@@ -391,7 +391,19 @@
       "apiConnected": "Connecté à l'API Spring Boot",
       "downloadPdf": "Télécharger PDF",
       "chartProductionPV": "Production PV",
-      "chartConsoMensuelle": "Consommation mensuelle moy."
+      "chartConsoMensuelle": "Consommation mensuelle moy.",
+      "pvgisTitle": "Production solaire PVGIS",
+      "pvgisOptional": "optionnel — affine la production avec les données réelles",
+      "commune": "Commune",
+      "communePlaceholder": "-- Sélectionner une commune --",
+      "orientation": "Orientation des panneaux",
+      "inclinaison": "Inclinaison (°)",
+      "pvgisLoading": "Interrogation PVGIS...",
+      "pvgisConnected": "Production PVGIS (données satellite EU)",
+      "pvgisFallback": "PVGIS indisponible — estimation 950 kWh/kWc",
+      "estimation": "Estimation",
+      "prodMensDescPvgis": "Données mensuelles PVGIS pour {commune} (irradiance satellite, pertes 14%)",
+      "paramProductionPvgis": "Production PV réelle PVGIS : {val} kWh/kWc/an ({commune}, données satellite EU)"
     },
     "epbd": {
       "title": "Directive EPBD — Chronologie et risque de stranding",

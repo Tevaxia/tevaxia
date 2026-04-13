@@ -7,7 +7,6 @@ import { calculerCommunaute, type CommunauteResponse } from "@/lib/energy-api";
 import { generateCommunautePdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
 import {
   fetchPVGISProduction,
-  estimateProduction,
   getCommuneCoords,
   orientationToAzimuth,
   orientationToTilt,
@@ -258,6 +257,55 @@ export default function CommunautePage() {
               </div>
             </div>
           </div>
+
+          {/* PVGIS: Commune, orientation, tilt */}
+          <div className="mt-6 pt-6 border-t border-card-border">
+            <div className="flex items-center gap-2 mb-4">
+              <svg className="h-4 w-4 text-energy" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+              <span className="text-sm font-medium text-foreground">{t("pvgisTitle")}</span>
+              <span className="text-xs text-muted">({t("pvgisOptional")})</span>
+            </div>
+            <div className="grid gap-6 sm:grid-cols-3">
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1.5">{t("commune")}</label>
+                <select
+                  value={commune}
+                  onChange={(e) => setCommune(e.target.value)}
+                  className="w-full rounded-lg border border-input-border bg-input-bg px-4 py-2.5 text-foreground"
+                >
+                  <option value="">{t("communePlaceholder")}</option>
+                  {communeNames.map((name) => (
+                    <option key={name} value={name}>{name}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1.5">{t("orientation")}</label>
+                <select
+                  value={orientation}
+                  onChange={(e) => setOrientation(e.target.value)}
+                  className="w-full rounded-lg border border-input-border bg-input-bg px-4 py-2.5 text-foreground"
+                >
+                  {ORIENTATION_OPTIONS.map((opt) => (
+                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1.5">{t("inclinaison")}</label>
+                <div className="relative">
+                  <input
+                    type="number"
+                    value={inclinaison}
+                    onChange={(e) => setInclinaison(Math.max(0, Math.min(90, Number(e.target.value))))}
+                    className="w-full rounded-lg border border-input-border bg-input-bg px-4 py-2.5 pr-8 text-foreground"
+                    min={0} max={90} step={5}
+                  />
+                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted text-xs">°</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="space-y-6">
@@ -266,6 +314,16 @@ export default function CommunautePage() {
               <div className="text-xs text-muted uppercase tracking-wider">{t("productionAnnuelle")}</div>
               <div className="mt-1 text-2xl font-bold text-foreground">{fmt(result.productionAnnuelle)} kWh</div>
               <div className="mt-1 text-xs text-muted">{puissancePV} kWc × {params.productionParKwc} kWh/kWc</div>
+              {usePvgis && pvgisData ? (
+                <div className="mt-1.5 inline-flex items-center gap-1 text-[10px] font-medium text-emerald-700 bg-emerald-50 rounded px-1.5 py-0.5">
+                  <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+                  PVGIS
+                </div>
+              ) : (
+                <div className="mt-1.5 inline-flex items-center gap-1 text-[10px] font-medium text-gray-500 bg-gray-100 rounded px-1.5 py-0.5">
+                  {t("estimation")}
+                </div>
+              )}
             </div>
             <div className="rounded-xl border border-card-border bg-card p-5 shadow-sm">
               <div className="text-xs text-muted uppercase tracking-wider">{t("tauxAutoconso")}</div>
@@ -385,7 +443,11 @@ export default function CommunautePage() {
                 <div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded bg-green-500" /> {t("chartProductionPV")}</div>
                 <div className="flex items-center gap-1.5"><div className="w-6 h-0 border-t-2 border-dashed border-red-500" /> {t("chartConsoMensuelle")}</div>
               </div>
-              <div className="mt-3 text-xs text-muted text-center">{t("prodMensDesc")}</div>
+              <div className="mt-3 text-xs text-muted text-center">
+                {usePvgis && pvgisData
+                  ? t("prodMensDescPvgis", { commune: commune || "Luxembourg" })
+                  : t("prodMensDesc")}
+              </div>
             </div>
           </div>
 
@@ -425,7 +487,11 @@ export default function CommunautePage() {
           <div className="rounded-xl border border-energy/20 bg-energy/5 p-5">
             <h3 className="font-medium text-foreground text-sm mb-2">{t("parametresModele")}</h3>
             <ul className="text-xs text-muted space-y-1">
-              <li>{t("paramProduction", { val: String(params.productionParKwc) })}</li>
+              {usePvgis && pvgisData ? (
+                <li>{t("paramProductionPvgis", { val: String(params.productionParKwc), commune: commune || "Luxembourg" })}</li>
+              ) : (
+                <li>{t("paramProduction", { val: String(params.productionParKwc) })}</li>
+              )}
               <li>{t("paramAutoconso", { base: String((params.tauxAutoConsoBase * 100).toFixed(0)), foisonnement: String((params.facteurFoisonnement * 100).toFixed(1)) })}</li>
               <li>{t("paramRachat", { val: String(params.tarifRachatSurplus) })}</li>
               <li>{t("paramCO2", { val: String(params.co2Facteur) })}</li>
