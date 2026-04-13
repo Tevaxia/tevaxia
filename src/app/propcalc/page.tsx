@@ -59,7 +59,7 @@ export default function PropCalcPage() {
             {t("badge")}
           </div>
           <h1 className="text-4xl font-bold text-navy sm:text-5xl tracking-tight">
-            {t("heroTitle")}
+            {t.rich("heroTitle", { br: () => <br /> })}
           </h1>
           <p className="mt-6 text-lg text-muted max-w-2xl mx-auto leading-relaxed">
             {t("heroDescription")}
