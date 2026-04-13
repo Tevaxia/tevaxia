@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import EnergyHeader from "@/components/energy/EnergyHeader";
-import EnergyFooter from "@/components/energy/EnergyFooter";
+import Footer from "@/components/Footer";
 
 const ENERGY_BASE = "https://tevaxia.lu/energy";
 
@@ -55,7 +55,7 @@ export default function EnergyLayout({
     <>
       <EnergyHeader />
       <main className="flex-1">{children}</main>
-      <EnergyFooter />
+      <Footer />
     </>
   );
 }

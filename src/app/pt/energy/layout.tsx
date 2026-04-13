@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import EnergyHeader from "@/components/energy/EnergyHeader";
-import EnergyFooter from "@/components/energy/EnergyFooter";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -16,7 +16,7 @@ export default function EnEnergyLayout({ children }: { children: React.ReactNode
     <>
       <EnergyHeader />
       <main className="flex-1">{children}</main>
-      <EnergyFooter />
+      <Footer />
     </>
   );
 }
