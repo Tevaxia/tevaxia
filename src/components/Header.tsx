@@ -153,7 +153,7 @@ export default function Header() {
             {user ? (
               <div className="flex items-center gap-1">
                 <Link href="/profil" className="rounded-lg px-2 py-1 text-xs text-white/60 hover:text-white hover:bg-white/10 transition-colors">
-                  Profil
+                  {t("profil")}
                 </Link>
                 <Link href="/mes-evaluations" className="rounded-lg px-2 py-1 text-xs text-white/60 hover:text-white hover:bg-white/10 transition-colors">
                   {t("mesEval")}
