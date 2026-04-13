@@ -65,19 +65,18 @@ export default function EnergyHeader() {
               </svg>
             </div>
             <span className="text-xl font-bold tracking-tight">
-              energy<span className="text-energy-light">.tevaxia</span>
-              <span className="text-white/40 text-sm">.lu</span>
+              Tevaxia <span className="text-energy-light">Energy</span>
             </span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
             <Dropdown label={t("outils")} items={ALL_TOOLS} t={t} />
-            <a
-              href="https://tevaxia.lu"
+            <Link
+              href="/"
               className="ml-3 rounded-lg bg-energy/20 border border-energy/40 px-3 py-2 text-sm font-semibold text-energy-light hover:bg-energy/30 hover:text-white transition-colors"
             >
               tevaxia.lu
-            </a>
+            </Link>
           </nav>
 
           <div className="flex items-center gap-2">
