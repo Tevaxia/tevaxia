@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import AuthProvider from "@/components/AuthProvider";
 import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
+import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     description:
       "Plateforme de référence pour l'immobilier au Luxembourg. Calculateurs de loyer, frais d'acquisition, plus-values, aides étatiques, outils bancaires.",
+    authors: [{ name: "Tevaxia", url: "https://tevaxia.lu" }],
+    creator: "Tevaxia",
+    publisher: "Tevaxia",
     alternates: {
       canonical,
       languages: {
@@ -95,7 +99,10 @@ export default async function RootLayout({
       lang={locale}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head />
+      <head>
+        <OrganizationJsonLd />
+        <WebSiteJsonLd />
+      </head>
       <Script id="gtag-consent" strategy="beforeInteractive">{`
         window.dataLayer=window.dataLayer||[];
         function gtag(){dataLayer.push(arguments);}

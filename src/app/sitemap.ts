@@ -2,19 +2,26 @@ import type { MetadataRoute } from "next";
 import { getAllCommunes } from "@/lib/market-data";
 
 const BASE = "https://tevaxia.lu";
-const ENERGY_BASE = "https://tevaxia.lu/energy";
 const LOCALES = ["fr", "en", "de", "pt", "lb"] as const;
 
-const PAGES = [
-  "", "/estimation", "/hedonique", "/carte", "/marche",
-  "/calculateur-loyer", "/frais-acquisition", "/plus-values",
-  "/simulateur-aides", "/vefa", "/outils-bancaires",
-  "/achat-vs-location", "/bilan-promoteur", "/valorisation",
-  "/dcf-multi", "/portfolio", "/pag-pap", "/terres-agricoles",
-  "/aml-kyc", "/estimateur-construction", "/calculateur-vrd",
-  "/convertisseur-surfaces", "/syndic", "/pricing", "/connexion",
-  "/mentions-legales", "/confidentialite", "/plan-du-site",
-  "/propcalc", "/propcalc/developers",
+// Pages classées par priorité SEO
+const HIGH_PRIORITY = [
+  "", "/estimation", "/carte", "/frais-acquisition",
+  "/calculateur-loyer", "/simulateur-aides",
+];
+
+const MEDIUM_PRIORITY = [
+  "/plus-values", "/achat-vs-location", "/valorisation",
+  "/hedonique", "/outils-bancaires", "/comparer", "/vefa",
+  "/bilan-promoteur", "/dcf-multi", "/indices", "/marche",
+  "/syndic", "/portfolio",
+];
+
+const LOW_PRIORITY = [
+  "/estimateur-construction", "/calculateur-vrd",
+  "/convertisseur-surfaces", "/pag-pap", "/terres-agricoles",
+  "/aml-kyc", "/propcalc", "/propcalc/developers",
+  "/pricing", "/plan-du-site", "/mentions-legales", "/confidentialite",
 ];
 
 const ENERGY_PAGES = [
@@ -22,64 +29,67 @@ const ENERGY_PAGES = [
   "/epbd", "/estimateur-cpe", "/lenoz", "/portfolio", "/hvac",
 ];
 
-function localeUrl(base: string, page: string, locale: string) {
-  if (locale === "fr") return `${base}${page}`;
-  return `${base}/${locale}${page}`;
+function localeUrl(page: string, locale: string) {
+  if (locale === "fr") return `${BASE}${page}`;
+  return `${BASE}/${locale}${page}`;
 }
 
-function alternates(base: string, page: string) {
+function alternates(page: string) {
   const langs: Record<string, string> = {};
-  for (const loc of LOCALES) langs[loc] = localeUrl(base, page, loc);
-  langs["x-default"] = `${base}${page}`;
+  for (const loc of LOCALES) langs[loc] = localeUrl(page, loc);
+  langs["x-default"] = `${BASE}${page}`;
   return { languages: langs };
+}
+
+function addPages(
+  entries: MetadataRoute.Sitemap,
+  pages: string[],
+  now: string,
+  basePriority: number,
+  changeFreq: "daily" | "weekly" | "monthly"
+) {
+  for (const page of pages) {
+    for (const locale of LOCALES) {
+      entries.push({
+        url: localeUrl(page, locale),
+        lastModified: now,
+        changeFrequency: changeFreq,
+        priority: locale === "fr" ? basePriority : basePriority - 0.1,
+        alternates: alternates(page),
+      });
+    }
+  }
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
   const entries: MetadataRoute.Sitemap = [];
 
-  // Main domain pages — all 5 locales
-  for (const page of PAGES) {
-    for (const locale of LOCALES) {
-      entries.push({
-        url: localeUrl(BASE, page, locale),
-        lastModified: now,
-        changeFrequency: page === "" ? "weekly" : "monthly",
-        priority: locale === "fr"
-          ? (page === "" ? 1.0 : page === "/estimation" ? 0.9 : 0.7)
-          : (page === "" ? 0.9 : 0.6),
-        alternates: alternates(BASE, page),
-      });
-    }
-  }
+  // Pages principales — haute priorité (outils les plus recherchés)
+  addPages(entries, HIGH_PRIORITY, now, 1.0, "weekly");
 
-  // Energy pages — all 5 locales (now under /energy/ on main domain)
-  for (const page of ENERGY_PAGES) {
-    for (const locale of LOCALES) {
-      entries.push({
-        url: localeUrl(BASE, `/energy${page}`, locale),
-        lastModified: now,
-        changeFrequency: page === "" ? "weekly" : "monthly",
-        priority: locale === "fr"
-          ? (page === "" ? 0.9 : 0.8)
-          : (page === "" ? 0.8 : 0.7),
-        alternates: alternates(BASE, `/energy${page}`),
-      });
-    }
-  }
+  // Pages outils — priorité moyenne
+  addPages(entries, MEDIUM_PRIORITY, now, 0.8, "monthly");
 
-  // Commune pages — all 5 locales
+  // Pages utilitaires — priorité basse
+  addPages(entries, LOW_PRIORITY, now, 0.6, "monthly");
+
+  // Pages energy
+  const energyPaths = ENERGY_PAGES.map((p) => `/energy${p}`);
+  addPages(entries, energyPaths, now, 0.8, "monthly");
+
+  // Pages communes — très bon pour la longue traîne SEO
   const communes = getAllCommunes();
   for (const commune of communes) {
     const slug = commune.toLowerCase().replace(/\s+/g, "-");
-    const communePage = `/commune/${slug}`;
+    const page = `/commune/${slug}`;
     for (const locale of LOCALES) {
       entries.push({
-        url: localeUrl(BASE, communePage, locale),
+        url: localeUrl(page, locale),
         lastModified: now,
         changeFrequency: "monthly",
-        priority: locale === "fr" ? 0.8 : 0.6,
-        alternates: alternates(BASE, communePage),
+        priority: locale === "fr" ? 0.7 : 0.5,
+        alternates: alternates(page),
       });
     }
   }
