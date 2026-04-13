@@ -1340,6 +1340,7 @@
     "tauxMarcheDate": "Aktualisiert: {date}",
     "tauxDirecteurBCE": "EZB-Leitzins",
     "tauxDepotBCE": "EZB-Einlagenzins",
+    "tauxLive": "EZB-Daten live",
     "tauxNote": "Richtzinsen — fragen Sie Ihre Bank nach einem persönlichen Angebot",
     "tauxClickHint": "Klicken Sie auf einen Zins zum Vorausfüllen",
     "fixedLabel10y": "Fest 10 J.",

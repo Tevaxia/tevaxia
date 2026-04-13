@@ -1339,6 +1339,7 @@
     "tauxMarcheDate": "Updated: {date}",
     "tauxDirecteurBCE": "ECB main refinancing rate",
     "tauxDepotBCE": "ECB deposit facility rate",
+    "tauxLive": "ECB live data",
     "tauxNote": "Indicative rates — consult your bank for a personalised offer",
     "tauxClickHint": "Click a rate to pre-fill",
     "fixedLabel10y": "Fixed 10 yr",

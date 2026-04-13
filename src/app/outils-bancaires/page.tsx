@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useTranslations } from "next-intl";
+import { fetchECBRatesClient, type ECBRates } from "@/lib/ecb-rates";
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import {
@@ -35,6 +36,17 @@ const TAUX_MARCHE_LU = {
 
 function MarketRatesBox({ onSelectRate }: { onSelectRate?: (midpoint: number, duree: number) => void }) {
   const t = useTranslations("outilsBancaires");
+  const [ecb, setEcb] = useState<ECBRates | null>(null);
+
+  useEffect(() => {
+    fetchECBRatesClient().then(setEcb);
+  }, []);
+
+  const bceRefi = ecb?.mainRefi ?? TAUX_MARCHE_LU.bclRefi;
+  const bceDeposit = ecb?.depositFacility ?? TAUX_MARCHE_LU.bclDeposit;
+  const bceDate = ecb?.lastUpdate ?? TAUX_MARCHE_LU.lastUpdate;
+  const isLive = ecb?.live ?? false;
+
   return (
     <div className="mt-4 rounded-lg bg-navy/5 p-3">
       <div className="text-xs font-semibold text-navy mb-2">{t("tauxMarcheTitle")}</div>
@@ -57,15 +69,21 @@ function MarketRatesBox({ onSelectRate }: { onSelectRate?: (midpoint: number, du
       <div className="mt-2 border-t border-navy/10 pt-2 text-[11px] text-muted space-y-0.5">
         <div className="flex justify-between">
           <span>{t("tauxDirecteurBCE")}</span>
-          <span className="font-mono">{TAUX_MARCHE_LU.bclRefi} %</span>
+          <span className="font-mono text-navy">{bceRefi.toFixed(2)} %</span>
         </div>
         <div className="flex justify-between">
           <span>{t("tauxDepotBCE")}</span>
-          <span className="font-mono">{TAUX_MARCHE_LU.bclDeposit} %</span>
+          <span className="font-mono text-navy">{bceDeposit.toFixed(2)} %</span>
         </div>
+        {isLive && (
+          <div className="flex items-center gap-1 mt-1">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-500" />
+            <span className="text-[10px] text-green-700">{t("tauxLive")}</span>
+          </div>
+        )}
       </div>
       <p className="mt-2 text-[10px] text-muted">{t("tauxMarcheSource")}</p>
-      <p className="text-[10px] text-muted">{t("tauxMarcheDate", { date: TAUX_MARCHE_LU.lastUpdate })}</p>
+      <p className="text-[10px] text-muted">{t("tauxMarcheDate", { date: bceDate })}</p>
       <p className="text-[10px] text-muted italic">{t("tauxNote")}</p>
       {onSelectRate && (
         <p className="mt-1 text-[10px] text-navy/60 font-medium">{t("tauxClickHint")}</p>

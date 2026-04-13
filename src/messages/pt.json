@@ -1339,6 +1339,7 @@
     "tauxMarcheDate": "Atualizado: {date}",
     "tauxDirecteurBCE": "Taxa diretora do BCE",
     "tauxDepotBCE": "Taxa de depósito do BCE",
+    "tauxLive": "Dados BCE em tempo real",
     "tauxNote": "Taxas indicativas — consulte o seu banco para uma oferta personalizada",
     "tauxClickHint": "Clique numa taxa para pré-preencher",
     "fixedLabel10y": "Fixo 10 anos",

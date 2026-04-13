@@ -1,16 +1,36 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from "recharts";
 import { calculerCommunaute, type CommunauteResponse } from "@/lib/energy-api";
 import { generateCommunautePdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
+import {
+  fetchPVGISProduction,
+  estimateProduction,
+  getCommuneCoords,
+  orientationToAzimuth,
+  orientationToTilt,
+  type PVGISResult,
+} from "@/lib/pvgis";
+import { COMMUNE_COORDS } from "@/lib/communes-coords";
 
 const PRODUCTION_KWH_PAR_KWC = 950;
 const TAUX_AUTOCONSO_BASE = 0.40;
 const FACTEUR_FOISONNEMENT = 0.025;
 const TARIF_RACHAT_SURPLUS = 0.07;
 const CO2_FACTEUR = 300;
+
+const ORIENTATION_OPTIONS = [
+  { value: "SUD", label: "Sud (0°)" },
+  { value: "SUD_EST", label: "Sud-Est (-45°)" },
+  { value: "SUD_OUEST", label: "Sud-Ouest (45°)" },
+  { value: "EST", label: "Est (-90°)" },
+  { value: "OUEST", label: "Ouest (90°)" },
+  { value: "EST_OUEST", label: "Est-Ouest (bi)" },
+  { value: "PLAT", label: "Toit plat" },
+  { value: "NORD", label: "Nord (180°)" },
+] as const;
 
 function fallbackLocal(nb: number, pv: number, conso: number, tr: number, tp: number): CommunauteResponse {
   const productionAnnuelle = Math.round(pv * PRODUCTION_KWH_PAR_KWC);
@@ -53,9 +73,17 @@ export default function CommunautePage() {
   const [consoMoyenne, setConsoMoyenne] = useState(4500);
   const [tarifReseau, setTarifReseau] = useState(0.28);
   const [tarifPartage, setTarifPartage] = useState(0.15);
+  const [commune, setCommune] = useState("");
+  const [orientation, setOrientation] = useState("SUD");
+  const [inclinaison, setInclinaison] = useState(35);
   const [result, setResult] = useState<CommunauteResponse>(fallbackLocal(6, 30, 4500, 0.28, 0.15));
   const [apiOk, setApiOk] = useState<boolean | null>(null);
   const [elapsed, setElapsed] = useState(0);
+  const [pvgisData, setPvgisData] = useState<PVGISResult | null>(null);
+  const [pvgisLoading, setPvgisLoading] = useState(false);
+  const [usePvgis, setUsePvgis] = useState(false);
+
+  const communeNames = useMemo(() => Object.keys(COMMUNE_COORDS).sort(), []);
 
   useEffect(() => {
     if (apiOk !== null) return;
@@ -63,15 +91,100 @@ export default function CommunautePage() {
     return () => clearInterval(timer);
   }, [apiOk]);
 
-  const compute = useCallback(async (nb: number, pv: number, c: number, tr: number, tp: number) => {
+  // Fetch PVGIS data when commune/orientation/tilt/power changes
+  useEffect(() => {
+    if (!commune) {
+      setPvgisData(null);
+      setUsePvgis(false);
+      return;
+    }
+    const coords = getCommuneCoords(commune);
+    if (!coords) {
+      setPvgisData(null);
+      setUsePvgis(false);
+      return;
+    }
+    let cancelled = false;
+    setPvgisLoading(true);
+    const azimuth = orientationToAzimuth(orientation);
+    const tilt = orientationToTilt(orientation, inclinaison);
+    fetchPVGISProduction(coords[0], coords[1], puissancePV, azimuth, tilt).then(
+      (data) => {
+        if (cancelled) return;
+        setPvgisLoading(false);
+        if (data) {
+          setPvgisData(data);
+          setUsePvgis(true);
+        } else {
+          setPvgisData(null);
+          setUsePvgis(false);
+        }
+      }
+    );
+    return () => { cancelled = true; };
+  }, [commune, orientation, inclinaison, puissancePV]);
+
+  const compute = useCallback(async (nb: number, pv: number, c: number, tr: number, tp: number, pvgis: PVGISResult | null, usePv: boolean) => {
     try {
       const data = await calculerCommunaute({ nbParticipants: nb, puissancePV: pv, consoMoyenneParParticipant: c, tarifReseau: tr, tarifPartage: tp });
+      // If we have PVGIS data, override the production figures
+      if (usePv && pvgis) {
+        data.productionAnnuelle = pvgis.annualKwh;
+        data.productionMensuelle = pvgis.monthlyKwh.map((m) => ({ mois: m.month, kwh: m.kwh }));
+        data.parametres = { ...data.parametres, productionParKwc: Math.round(pvgis.annualKwh / pv) };
+        // Recalculate derived values based on real production
+        const consoTotale = nb * c;
+        const tauxAutoConso = Math.min(0.85, TAUX_AUTOCONSO_BASE + (nb - 1) * FACTEUR_FOISONNEMENT);
+        const energieDisponible = Math.min(pvgis.annualKwh, consoTotale);
+        const energieAutoconsommee = Math.round(energieDisponible * tauxAutoConso);
+        const surplus = pvgis.annualKwh - energieAutoconsommee;
+        const econAutoC = energieAutoconsommee * (tr - tp);
+        const revenuSurplus = surplus * TARIF_RACHAT_SURPLUS;
+        const economieTotale = Math.round(econAutoC + revenuSurplus);
+        data.consoTotale = consoTotale;
+        data.tauxCouverturePct = consoTotale > 0 ? Math.round(pvgis.annualKwh * 1000 / consoTotale) / 10 : 0;
+        data.tauxAutoConsoPct = Math.round(tauxAutoConso * 1000) / 10;
+        data.energieAutoconsommee = energieAutoconsommee;
+        data.surplus = surplus;
+        data.economieTotale = economieTotale;
+        data.economieParParticipant = Math.round(economieTotale / nb);
+        data.revenuSurplus = Math.round(revenuSurplus);
+        data.co2EviteKg = Math.round(energieAutoconsommee * CO2_FACTEUR / 1000);
+        data.paybackGlobalAnnees = economieTotale > 0 ? Math.round(data.coutInstallationTTC * 10 / economieTotale) / 10 : 99;
+      }
       setResult(data); setApiOk(true);
-    } catch { setResult(fallbackLocal(nb, pv, c, tr, tp)); setApiOk(false); }
+    } catch {
+      const local = fallbackLocal(nb, pv, c, tr, tp);
+      // Override local fallback with PVGIS data if available
+      if (usePv && pvgis) {
+        local.productionAnnuelle = pvgis.annualKwh;
+        local.productionMensuelle = pvgis.monthlyKwh.map((m) => ({ mois: m.month, kwh: m.kwh }));
+        local.parametres = { ...local.parametres, productionParKwc: Math.round(pvgis.annualKwh / pv) };
+        const consoTotale = nb * c;
+        const tauxAutoConso = Math.min(0.85, TAUX_AUTOCONSO_BASE + (nb - 1) * FACTEUR_FOISONNEMENT);
+        const energieDisponible = Math.min(pvgis.annualKwh, consoTotale);
+        const energieAutoconsommee = Math.round(energieDisponible * tauxAutoConso);
+        const surplus = pvgis.annualKwh - energieAutoconsommee;
+        const econAutoC = energieAutoconsommee * (tr - tp);
+        const revenuSurplus = surplus * TARIF_RACHAT_SURPLUS;
+        const economieTotale = Math.round(econAutoC + revenuSurplus);
+        local.consoTotale = consoTotale;
+        local.tauxCouverturePct = consoTotale > 0 ? Math.round(pvgis.annualKwh * 1000 / consoTotale) / 10 : 0;
+        local.tauxAutoConsoPct = Math.round(tauxAutoConso * 1000) / 10;
+        local.energieAutoconsommee = energieAutoconsommee;
+        local.surplus = surplus;
+        local.economieTotale = economieTotale;
+        local.economieParParticipant = Math.round(economieTotale / nb);
+        local.revenuSurplus = Math.round(revenuSurplus);
+        local.co2EviteKg = Math.round(energieAutoconsommee * CO2_FACTEUR / 1000);
+        local.paybackGlobalAnnees = economieTotale > 0 ? Math.round(local.coutInstallationTTC * 10 / economieTotale) / 10 : 99;
+      }
+      setResult(local); setApiOk(false);
+    }
   }, []);
 
-  useEffect(() => { compute(nbParticipants, puissancePV, consoMoyenne, tarifReseau, tarifPartage); },
-    [nbParticipants, puissancePV, consoMoyenne, tarifReseau, tarifPartage, compute]);
+  useEffect(() => { compute(nbParticipants, puissancePV, consoMoyenne, tarifReseau, tarifPartage, pvgisData, usePvgis); },
+    [nbParticipants, puissancePV, consoMoyenne, tarifReseau, tarifPartage, pvgisData, usePvgis, compute]);
 
   const params = result.parametres;
 
@@ -92,6 +205,23 @@ export default function CommunautePage() {
           )}
           {apiOk === false && <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-1">{t("localFallback")}</div>}
           {apiOk === true && <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-energy bg-energy/5 border border-energy/20 rounded-lg px-3 py-1">{t("apiConnected")}</div>}
+          {pvgisLoading && (
+            <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-blue-600 bg-blue-50 border border-blue-200 rounded-lg px-3 py-1">
+              <div className="h-3 w-3 animate-spin rounded-full border-2 border-blue-300 border-t-blue-600 shrink-0" />
+              {t("pvgisLoading")}
+            </div>
+          )}
+          {!pvgisLoading && usePvgis && pvgisData && (
+            <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg px-3 py-1">
+              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+              {t("pvgisConnected")}
+            </div>
+          )}
+          {!pvgisLoading && commune && !usePvgis && !pvgisLoading && (
+            <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-1">
+              {t("pvgisFallback")}
+            </div>
+          )}
         </div>
 
         <div className="rounded-2xl border border-card-border bg-card p-6 shadow-sm mb-8">

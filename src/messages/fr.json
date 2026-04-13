@@ -1340,6 +1340,7 @@
     "tauxMarcheDate": "Mis à jour : {date}",
     "tauxDirecteurBCE": "Taux directeur BCE",
     "tauxDepotBCE": "Taux de dépôt BCE",
+    "tauxLive": "Données BCE temps réel",
     "tauxNote": "Taux indicatifs — consultez votre banque pour une offre personnalisée",
     "tauxClickHint": "Cliquez sur un taux pour pré-remplir",
     "fixedLabel10y": "Fixe 10 ans",
