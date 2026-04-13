@@ -159,7 +159,7 @@
       "tevaxiaLine2": "Multi-tenant DCF, developer feasibility, banking tools",
       "tevaxiaLine3": "Fees, capital gains, subsidies, VEFA, buy vs rent",
       "tevaxiaLine4": "PAG/PAP, agricultural land, AML/KYC",
-      "energyTitle": "energy.tevaxia.lu — 7 simulators",
+      "energyTitle": "tevaxia.lu/energy — 7 simulators",
       "energyLine1": "Energy class impact, renovation ROI, energy community",
       "energyLine2": "EPBD 2050 timeline, CPE estimator, LENOZ scoring",
       "energyLine3": "Multi-property energy portfolio",
@@ -2439,7 +2439,7 @@
       "vercel": "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, United States.",
       "api": "API (energy-api):",
       "render": "Render.com, 525 Brannan St, Suite 300, San Francisco, CA 94107, United States.",
-      "subdomain": "The subdomain energy.tevaxia.lu hosts the platform's energy simulators."
+      "subdomain": "The subdomain tevaxia.lu/energy hosts the platform's energy simulators."
     },
     "propriete": {
       "title": "3. Intellectual Property",
@@ -3273,7 +3273,7 @@
   },
   "planDuSite": {
     "title": "Sitemap",
-    "subtitle": "All pages on tevaxia.lu and energy.tevaxia.lu",
+    "subtitle": "All pages on tevaxia.lu and tevaxia.lu/energy",
     "sections": {
       "particuliers": "Individuals",
       "professionnels": "Professionals",
@@ -3307,7 +3307,7 @@
       "indices": "Indices & Economic outlook",
       "pagPap": "Zoning PAG / PAP",
       "terresAgricoles": "Agricultural land",
-      "energyHome": "energy.tevaxia.lu — Home",
+      "energyHome": "tevaxia.lu/energy — Home",
       "energyImpact": "EPC impact on value",
       "energyRenovation": "Energy renovation ROI",
       "energyCommunaute": "Energy community",
@@ -3325,6 +3325,6 @@
       "propcalc": "PropCalc — Multi-country real estate calculator (WordPress)",
       "propcalcDev": "PropCalc Developers — API, npm, Widget, Chrome, Sheets"
     },
-    "note": "This sitemap lists all pages available on tevaxia.lu and its subdomain energy.tevaxia.lu. An XML sitemap is also available for search engines."
+    "note": "This sitemap lists all pages available on tevaxia.lu and its subdomain tevaxia.lu/energy. An XML sitemap is also available for search engines."
   }
 }

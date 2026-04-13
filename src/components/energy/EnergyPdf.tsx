@@ -219,7 +219,7 @@ export function Footer() {
 function Disclaimer() {
   return (
     <Text style={s.disclaimer}>
-      Ce document est genere automatiquement par energy.tevaxia.lu a titre informatif.
+      Ce document est genere automatiquement par tevaxia.lu/energy a titre informatif.
       Les resultats dependent des parametres saisis et des hypotheses de calcul. Les montants d&apos;aides
       (Klimabonus, Klimapret) sont bases sur la reglementation luxembourgeoise en vigueur et peuvent evoluer.
       Pour un audit energetique officiel, consultez un conseiller en energie agree.

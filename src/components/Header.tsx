@@ -42,7 +42,7 @@ const MENU_GROUPS: MenuGroup[] = [
       { href: "/estimateur-construction", key: "estimateurConstruction" },
       { href: "/calculateur-vrd", key: "calculateurVrd" },
       { href: "/convertisseur-surfaces", key: "convertisseurSurfaces" },
-      { href: "https://energy.tevaxia.lu/hvac", key: "hvac" },
+      { href: "/energy/hvac", key: "hvac" },
       { href: "/portfolio", key: "portfolio" },
       { href: "/aml-kyc", key: "amlKyc" },
     ],
@@ -117,7 +117,7 @@ export default function Header() {
                 )}
               </div>
             ))}
-            <a href="https://energy.tevaxia.lu" className="flex items-center gap-1 rounded-lg bg-energy/15 border border-energy/30 px-3 py-2 text-sm font-medium text-energy-light hover:bg-energy/25 transition-colors">
+            <a href="/energy" className="flex items-center gap-1 rounded-lg bg-energy/15 border border-energy/30 px-3 py-2 text-sm font-medium text-energy-light hover:bg-energy/25 transition-colors">
               <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
               </svg>

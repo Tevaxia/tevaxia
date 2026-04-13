@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const ENERGY_HOST = "energy.tevaxia.lu";
-const LOCALE_PREFIXES = ["en", "de", "pt", "lb"];
+const LOCALES = ["en", "de", "pt", "lb"];
 
 function getHost(request: NextRequest): string {
   return (
@@ -12,85 +11,47 @@ function getHost(request: NextRequest): string {
   ).replace(/:\d+$/, "");
 }
 
-function isEnergyHost(host: string): boolean {
-  return host === ENERGY_HOST || host === "energy.localhost";
-}
-
-// Pages partagées qui existent à la racine et ne doivent PAS être réécrites vers /energy/
-const SHARED_PAGES = ["/mentions-legales", "/confidentialite", "/plan-du-site", "/pricing", "/connexion", "/profil", "/mes-evaluations"];
-
-function isSharedPage(pathname: string): boolean {
-  return SHARED_PAGES.some((p) => pathname === p || pathname.startsWith(p + "/"));
-}
-
+/**
+ * Proxy unifié :
+ * 1. 301 redirect energy.tevaxia.lu/* → tevaxia.lu/{locale}/energy/*
+ * 2. Injecte le header x-url pour la détection i18n (toutes requêtes)
+ */
 export function proxy(request: NextRequest) {
   const host = getHost(request);
-  const { pathname } = request.nextUrl;
+  const pathname = request.nextUrl.pathname;
 
-  // Sous-domaine energy : réécrire vers /energy/...
-  if (isEnergyHost(host)) {
-    // Pages partagées → ne pas réécrire
-    if (isSharedPage(pathname)) {
-      const response = NextResponse.next();
-      response.headers.set("x-url", pathname);
-      response.headers.set("x-energy-subdomain", "1");
-      return response;
-    }
+  // --- Sous-domaine energy : 301 redirect vers domaine principal ---
+  if (host === "energy.tevaxia.lu" || host === "energy.localhost") {
+    const mainHost = host.replace("energy.", "");
 
-    // Déjà sous /energy → on laisse passer
-    if (pathname.startsWith("/energy")) {
-      const response = NextResponse.next();
-      response.headers.set("x-url", pathname);
-      response.headers.set("x-energy-subdomain", "1");
-      return response;
-    }
-
-    // Detect locale prefix
-    const localeMatch = LOCALE_PREFIXES.find(
-      (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)
-    );
-
-    if (localeMatch) {
-      const rest = pathname.slice(localeMatch.length + 1); // strip /de
-      // Shared pages with locale prefix → don't rewrite
-      if (isSharedPage(rest)) {
-        const response = NextResponse.next();
-        response.headers.set("x-url", pathname);
-        response.headers.set("x-energy-subdomain", "1");
-        return response;
+    // Extraire le préfixe de langue s'il existe
+    let locale = "";
+    let rest = pathname;
+    for (const loc of LOCALES) {
+      if (pathname === `/${loc}` || pathname.startsWith(`/${loc}/`)) {
+        locale = `/${loc}`;
+        rest = pathname.slice(loc.length + 1) || "/";
+        break;
       }
-      // e.g. /de/impact → /de/energy/impact
-      const target = `/${localeMatch}/energy${rest === "/" || rest === "" ? "" : rest}`;
-      const url = request.nextUrl.clone();
-      url.pathname = target;
-      const response = NextResponse.rewrite(url);
-      response.headers.set("x-url", url.pathname);
-      response.headers.set("x-energy-subdomain", "1");
-      return response;
     }
 
-    // Default locale (fr): /impact → /energy/impact
-    if (!pathname.startsWith("/energy")) {
-      const target = `/energy${pathname === "/" ? "" : pathname}`;
-      const url = request.nextUrl.clone();
-      url.pathname = target || "/energy";
-      const response = NextResponse.rewrite(url);
-      response.headers.set("x-url", url.pathname);
-      response.headers.set("x-energy-subdomain", "1");
-      return response;
-    }
+    // /{locale}/energy{/rest}
+    const energyPath = rest === "/" ? "/energy" : `/energy${rest}`;
+    const newPath = `${locale}${energyPath}`;
 
-    const response = NextResponse.next();
-    response.headers.set("x-url", pathname);
-    response.headers.set("x-energy-subdomain", "1");
-    return response;
+    const protocol = request.nextUrl.protocol || "https:";
+    const url = new URL(newPath, `${protocol}//${mainHost}`);
+    url.search = request.nextUrl.search;
+
+    return NextResponse.redirect(url, 301);
   }
 
+  // --- Domaine principal : injecter x-url pour next-intl ---
   const response = NextResponse.next();
   response.headers.set("x-url", pathname);
   return response;
 }
 
 export const config = {
-  matcher: ["/((?!api|_next|icon|favicon|.*\\..*).*)"],
+  matcher: ["/((?!api|_next|icon|favicon|.*\\.).*)"],
 };

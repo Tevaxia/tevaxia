@@ -41,7 +41,7 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 // Utilise @supabase/ssr avec cookies sur .tevaxia.lu
-// → session partagée entre tevaxia.lu et energy.tevaxia.lu (SSO)
+// → session partagée sur .tevaxia.lu
 export const supabase = supabaseUrl && supabaseKey
   ? createBrowserClient(supabaseUrl, supabaseKey, {
       cookieOptions: {

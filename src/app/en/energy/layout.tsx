@@ -4,8 +4,8 @@ import EnergyFooter from "@/components/energy/EnergyFooter";
 
 export const metadata: Metadata = {
   title: {
-    default: "energy.tevaxia.lu — Energy Simulators Luxembourg Real Estate",
-    template: "%s | energy.tevaxia.lu",
+    default: "Tevaxia Energy — Energy Simulators Luxembourg Real Estate",
+    template: "%s | Tevaxia Energy",
   },
   description:
     "Energy performance simulators for Luxembourg real estate. Energy class impact on value, renovation ROI, energy communities.",

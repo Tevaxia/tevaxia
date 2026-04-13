@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 const BASE = "https://tevaxia.lu";
-const ENERGY_BASE = "https://energy.tevaxia.lu";
+const ENERGY_BASE = "https://tevaxia.lu/energy";
 const LOCALES = ["fr", "en", "de", "pt", "lb"] as const;
 
 const PAGES = [
@@ -52,17 +52,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Energy subdomain pages — all 5 locales
+  // Energy pages — all 5 locales (now under /energy/ on main domain)
   for (const page of ENERGY_PAGES) {
     for (const locale of LOCALES) {
       entries.push({
-        url: localeUrl(ENERGY_BASE, page, locale),
+        url: localeUrl(BASE, `/energy${page}`, locale),
         lastModified: now,
         changeFrequency: page === "" ? "weekly" : "monthly",
         priority: locale === "fr"
           ? (page === "" ? 0.9 : 0.8)
           : (page === "" ? 0.8 : 0.7),
-        alternates: alternates(ENERGY_BASE, page),
+        alternates: alternates(BASE, `/energy${page}`),
       });
     }
   }

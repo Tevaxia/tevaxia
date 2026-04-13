@@ -159,7 +159,7 @@
       "tevaxiaLine2": "DCF Multi-Locatairen, Promoteur-Bilanz, Bankinstrumenter",
       "tevaxiaLine3": "Käschten, Wäertzouwuess, Hëllefen, VEFA, Kaf vs Loyer",
       "tevaxiaLine4": "PAG/PAP, landwirtschaftlech Flächen, AML/KYC",
-      "energyTitle": "energy.tevaxia.lu — 7 Simulatoren",
+      "energyTitle": "tevaxia.lu/energy — 7 Simulatoren",
       "energyLine1": "CPE Impakt, Renovatioun-ROI, Energiegemeinschaft",
       "energyLine2": "EPBD Timeline 2050, CPE Schätzer, LENOZ Scoring",
       "energyLine3": "Energieportfolio Multi-Immobilie",
@@ -2439,7 +2439,7 @@
       "vercel": "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, Vereenegt Staaten.",
       "api": "API (energy-api):",
       "render": "Render.com, 525 Brannan St, Suite 300, San Francisco, CA 94107, Vereenegt Staaten.",
-      "subdomain": "D'Subdomain energy.tevaxia.lu beherbergt d'Energiesimulatoren vun der Plattform."
+      "subdomain": "D'Subdomain tevaxia.lu/energy beherbergt d'Energiesimulatoren vun der Plattform."
     },
     "propriete": {
       "title": "3. Geeschtegt Eegentum",
@@ -3273,7 +3273,7 @@
   },
   "planDuSite": {
     "title": "Säiteplang",
-    "subtitle": "All Säite vun tevaxia.lu an energy.tevaxia.lu",
+    "subtitle": "All Säite vun tevaxia.lu an tevaxia.lu/energy",
     "sections": {
       "particuliers": "Privatpersounen",
       "professionnels": "Fachleit",
@@ -3307,7 +3307,7 @@
       "indices": "Indexen & Konjunktur",
       "pagPap": "Bebauungsplang PAG / PAP",
       "terresAgricoles": "Landwirtschaftlech Flächen",
-      "energyHome": "energy.tevaxia.lu — Haaptsäit",
+      "energyHome": "tevaxia.lu/energy — Haaptsäit",
       "energyImpact": "Impakt vum Energiepass op de Wäert",
       "energyRenovation": "ROI energetesch Renovatioun",
       "energyCommunaute": "Energiegemeinschaft",
@@ -3325,6 +3325,6 @@
       "propcalc": "PropCalc — Multi-Land Immobilierechner (WordPress)",
       "propcalcDev": "PropCalc Entwéckler — API, npm, Widget, Chrome, Sheets"
     },
-    "note": "Dëse Säiteplang lëscht all disponibel Säite vun tevaxia.lu an dem Ënnerdomän energy.tevaxia.lu op. En XML-Sitemap ass och fir Sichmotore verfügbar."
+    "note": "Dëse Säiteplang lëscht all disponibel Säite vun tevaxia.lu an dem Ënnerdomän tevaxia.lu/energy op. En XML-Sitemap ass och fir Sichmotore verfügbar."
   }
 }

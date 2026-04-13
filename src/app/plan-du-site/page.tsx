@@ -42,17 +42,16 @@ const SECTIONS = [
   },
   {
     titleKey: "energy",
-    external: true,
     links: [
-      { href: "https://energy.tevaxia.lu", key: "energyHome" },
-      { href: "https://energy.tevaxia.lu/impact", key: "energyImpact" },
-      { href: "https://energy.tevaxia.lu/renovation", key: "energyRenovation" },
-      { href: "https://energy.tevaxia.lu/communaute", key: "energyCommunaute" },
-      { href: "https://energy.tevaxia.lu/epbd", key: "energyEpbd" },
-      { href: "https://energy.tevaxia.lu/estimateur-cpe", key: "energyCpe" },
-      { href: "https://energy.tevaxia.lu/lenoz", key: "energyLenoz" },
-      { href: "https://energy.tevaxia.lu/hvac", key: "energyHvac" },
-      { href: "https://energy.tevaxia.lu/portfolio", key: "energyPortfolio" },
+      { href: "/energy", key: "energyHome" },
+      { href: "/energy/impact", key: "energyImpact" },
+      { href: "/energy/renovation", key: "energyRenovation" },
+      { href: "/energy/communaute", key: "energyCommunaute" },
+      { href: "/energy/epbd", key: "energyEpbd" },
+      { href: "/energy/estimateur-cpe", key: "energyCpe" },
+      { href: "/energy/lenoz", key: "energyLenoz" },
+      { href: "/energy/hvac", key: "energyHvac" },
+      { href: "/energy/portfolio", key: "energyPortfolio" },
     ],
   },
   {
@@ -98,21 +97,12 @@ export default async function PlanDuSite() {
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.href}>
-                    {section.external ? (
-                      <a
-                        href={link.href}
-                        className="text-sm text-slate hover:text-navy transition-colors"
-                      >
-                        {t(`links.${link.key}`)}
-                      </a>
-                    ) : (
                       <Link
                         href={link.href}
                         className="text-sm text-slate hover:text-navy transition-colors"
                       >
                         {t(`links.${link.key}`)}
                       </Link>
-                    )}
                   </li>
                 ))}
               </ul>

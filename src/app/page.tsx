@@ -140,7 +140,7 @@ export default async function Home() {
       color: "from-violet-600 to-violet-500",
     },
     {
-      href: "https://energy.tevaxia.lu/hvac",
+      href: "/energy/hvac",
       title: t("modules.hvac.title"),
       description: t("modules.hvac.description"),
       icon: (

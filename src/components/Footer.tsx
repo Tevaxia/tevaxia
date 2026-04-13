@@ -91,10 +91,10 @@ export default function Footer() {
               Energy
             </h3>
             <ul className="space-y-1.5 text-sm mb-6">
-              <li><a href="https://energy.tevaxia.lu/impact" className="hover:text-energy-light transition-colors">Impact CPE</a></li>
-              <li><a href="https://energy.tevaxia.lu/renovation" className="hover:text-energy-light transition-colors">ROI Rénovation</a></li>
-              <li><a href="https://energy.tevaxia.lu/communaute" className="hover:text-energy-light transition-colors">Communauté d'énergie</a></li>
-              <li><a href="https://energy.tevaxia.lu/hvac" className="hover:text-energy-light transition-colors">Simulateur HVAC</a></li>
+              <li><a href="/energy/impact" className="hover:text-energy-light transition-colors">Impact CPE</a></li>
+              <li><a href="/energy/renovation" className="hover:text-energy-light transition-colors">ROI Rénovation</a></li>
+              <li><a href="/energy/communaute" className="hover:text-energy-light transition-colors">Communauté d'énergie</a></li>
+              <li><a href="/energy/hvac" className="hover:text-energy-light transition-colors">Simulateur HVAC</a></li>
             </ul>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-3">Contact</h3>
             <a href="mailto:contact@tevaxia.lu" className="inline-flex items-center gap-2 text-sm text-gold hover:text-gold-light transition-colors">

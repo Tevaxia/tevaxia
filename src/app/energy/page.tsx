@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
-  title: "energy.tevaxia.lu — 8 Simulateurs Énergie & HVAC Immobilier Luxembourg",
+  title: "Tevaxia Energy — 8 Simulateurs Énergie & HVAC Immobilier Luxembourg",
 };
 
 const SIMULATORS = [
   {
-    href: "/impact",
+    href: "/energy/impact",
     titleKey: "impactTitle" as const,
     descKey: "impactDesc" as const,
     icon: (
@@ -19,7 +19,7 @@ const SIMULATORS = [
     color: "from-emerald-600 to-green-500",
   },
   {
-    href: "/renovation",
+    href: "/energy/renovation",
     titleKey: "renovationTitle" as const,
     descKey: "renovationDesc" as const,
     icon: (
@@ -30,7 +30,7 @@ const SIMULATORS = [
     color: "from-teal to-teal-light",
   },
   {
-    href: "/communaute",
+    href: "/energy/communaute",
     titleKey: "communauteTitle" as const,
     descKey: "communauteDesc" as const,
     icon: (
@@ -41,7 +41,7 @@ const SIMULATORS = [
     color: "from-amber-500 to-yellow-400",
   },
   {
-    href: "/epbd",
+    href: "/energy/epbd",
     titleKey: "epbdTitle" as const,
     descKey: "epbdDesc" as const,
     icon: (
@@ -52,7 +52,7 @@ const SIMULATORS = [
     color: "from-red-500 to-rose-400",
   },
   {
-    href: "/estimateur-cpe",
+    href: "/energy/estimateur-cpe",
     titleKey: "estimateurTitle" as const,
     descKey: "estimateurDesc" as const,
     icon: (
@@ -63,7 +63,7 @@ const SIMULATORS = [
     color: "from-sky-500 to-cyan-400",
   },
   {
-    href: "/lenoz",
+    href: "/energy/lenoz",
     titleKey: "lenozTitle" as const,
     descKey: "lenozDesc" as const,
     icon: (
@@ -74,7 +74,7 @@ const SIMULATORS = [
     color: "from-violet-500 to-purple-400",
   },
   {
-    href: "/hvac",
+    href: "/energy/hvac",
     titleKey: "hvacTitle" as const,
     descKey: "hvacDesc" as const,
     icon: (
@@ -86,7 +86,7 @@ const SIMULATORS = [
     color: "from-red-500 to-orange-400",
   },
   {
-    href: "/portfolio",
+    href: "/energy/portfolio",
     titleKey: "portfolioTitle" as const,
     descKey: "portfolioDesc" as const,
     icon: (

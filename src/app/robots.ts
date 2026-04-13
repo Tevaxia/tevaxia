@@ -7,9 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/mes-evaluations", "/profil", "/en/mes-evaluations", "/en/profil"],
     },
-    sitemap: [
-      "https://tevaxia.lu/sitemap.xml",
-      "https://energy.tevaxia.lu/sitemap.xml",
-    ],
+    sitemap: "https://tevaxia.lu/sitemap.xml",
   };
 }
