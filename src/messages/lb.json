@@ -1883,7 +1883,27 @@
     "sensitivityCurrent": "aktuell",
     "sensitivityGreen": "Marge > 15 %",
     "sensitivityYellow": "Marge 5–15 %",
-    "sensitivityRed": "Marge < 5 %"
+    "sensitivityRed": "Marge < 5 %",
+    "seo": {
+      "faqTitle": "Heefeg Froen zum Promoteurbilan",
+      "relatedTitle": "Ergänzend Tools",
+      "faisabiliteTitle": "De Promoteurbilan: Machbarkeetstool fir Immobilieprojeten",
+      "faisabiliteContent": "<p>De <strong>Promoteurbilan</strong> ass d'fundamental Instrument vun all Bauträger fir d'wirtschaftlech Machbarkeet vun engem Bau- oder Saneierungsprojet ze bewäerten. Zu Lëtzebuerg, wou d'Baukäschten an d'Grondstéckspräisser zu den héichsten an Europa gehéieren, ass eng grëndlech Analyse virum all Engagement onerléisslech.</p><p>De Bilan stellt d'<strong>prognostizéiert Recetten</strong> de gesamte <strong>Käschten</strong> (Grondstéck, Bau, Honoraren, Finanzéierungskäschten, Vermaartung) géintiwwer. D'Differenz billt d'<strong>Bruttomarge</strong>.</p><p>Zu Lëtzebuerg ginn d'Promotiounsprojeten duerch d'Gesetz vum 22. Oktober 2008 an d'grouss herzooglech Verordnung vum 28. Juli 2011 geregelt.</p>",
+      "compteAReboursTitle": "D'Residualwäertmethod",
+      "compteAReboursContent": "<p>D'<strong>Residualmethod</strong> bestëmmt de maximale Grondstéckswäert, ausgéiend vum prognostizéierten Ëmsaz ofzüglech aller Käschten:</p><p><strong>Maximale Grondstéckswäert = Ëmsaz - Baukäschten - Honoraren - Finanzéierungskäschten - Promoteurmarge</strong></p><ul><li>Den <strong>Ëmsaz</strong> gëtt op Basis vun de Verkaafspräisser pro m² berechent.</li><li>D'<strong>Baukäschten</strong> ëmfaassen Rohbau, Ausbau, technesch Gewerken an Erschléissung.</li><li>D'<strong>Honoraren</strong> beinhalen Architekt (8-12 % laut OAI), Ingeniéierbüroen, Vermiesser a Sécherheetskoordinatioun.</li><li>D'<strong>Finanzéierungskäschten</strong> decken d'Grondstécksvirfinanzéierung an d'Baufinanzéierung of.</li></ul>",
+      "coutsTitle": "Käschtenopschlësselung: Grondstéck, Bau, Honoraren",
+      "coutsContent": "<p>D'Käschtestruktur vun engem Promoteurprojet zu Lëtzebuerg gléidert sech typesch wéi follegt:</p><ul><li><strong>Grondstéck</strong>: 25 bis 40 % vum Ëmsaz jo no Lag. An der Stad Lëtzebuerg kann d'Grondstéck bis zu 50 % vum Endverkaafspräis ausmaachen.</li><li><strong>Bau</strong>: 35 bis 50 % vum Ëmsaz. D'Baukäschten zu Lëtzebuerg leien tëschent 2.200 an 3.500 EUR/m² SCP.</li><li><strong>Honoraren a Käschten</strong>: 12 bis 18 % vum Ëmsaz.</li><li><strong>Promoteurmarge</strong>: Zil vu 8 bis 15 % vum Ëmsaz fir e Standardprojet.</li></ul>",
+      "margeTitle": "Marge an Eegekaptialrendite",
+      "margeContent": "<p>D'Rentabilitéit vun enger Promotiounsmoossnam gëtt iwwer verschidden Indikatoren gemooss:</p><ul><li><strong>Ëmsazmarge</strong>: Verhältnis tëschent prognostizéiertem Nettoergebnis an Ëmsaz. En Zil vu 10 bis 15 % ass zu Lëtzebuerg Standard.</li><li><strong>Eegekaptialrendite (ROE)</strong>: Mat Hiewelwierkung (Bankfinanzéierung zu 60-70 %) kann e Promoteur en ROE vu 15 bis 25 % ustriéwen.</li><li><strong>Eegekaptial-Multiple</strong>: E Multiple vu 1,5x bis 2,0x iwwer 24-36 Méint gëllt als attraktiv.</li></ul>",
+      "faq1Q": "Wéi ass d'typescht Verhältnis Grondstéck/Bau zu Lëtzebuerg?",
+      "faq1A": "D'Verhältnis variéiert erhieblech jo no Lag. An der Stad Lëtzebuerg (Belair, Limpertsberg, Kierchbierg) mécht d'Grondstéck 40 bis 50 % vun de Gesamtkäschten aus. An der Peripherie (Esch-Uelzecht, Déifferdeng, Miersch) sënkt d'Verhältnis op 25-35 %.",
+      "faq2Q": "Ass d'MwSt. bei engem Promoteurprojet erstattungsfäheg?",
+      "faq2A": "Jo, en MwSt.-pflichtige Promoteur erstatt d'gesamt MwSt. op Baukäschten, Honoraren an Ausgaben. De Verkaf vun Neibau wunnengen ënnerléit der MwSt. (17 % oder 3 % super-ermäßsegt mat enger Uewergrenz vu 50.000 EUR/Wunneng).",
+      "faq3Q": "Wéi kann een d'Vermaartungsrisiko steieren?",
+      "faq3A": "Bewäärt Praktiken zu Lëtzebuerg ëmfaassen: Virverkaf (Zil: 30-40 % Reservat ioune viru Baubeginn), Notzung vun engem VEFA-Vertrag, Diversifizéierung vum Ubod an eng opschéiwend Bedingung am Grondstécksvertrag.",
+      "faq4Q": "Wéi laang dauert eng Promotiounsoperatioun zu Lëtzebuerg duerchschnëttle ch?",
+      "faq4A": "D'Gesamtdauer vun enger Promotiounsoperatioun zu Lëtzebuerg ass typesch 4 bis 7 Joer. D'Genehmegung vum PAP kann 12 bis 24 Méint daueren. D'Baugen ehmegung brauch weider 3 bis 12 Méint. D'Bauzäit selwer ass 18 bis 30 Méint fir 20 bis 50 Wunnengen."
+    }
   },
   "marche": {
     "title": "Marchédatebank",
@@ -2752,7 +2772,29 @@
     "estAjustParking": "Parking abegraff",
     "estAjustSurfacePetit": "Fläch {surface} m² (kleng Immobilie)",
     "estAjustSurfaceGrand": "Fläch {surface} m² (grouss Immobilie)",
-    "estAjustEnergie": "Energieklass {classe}"
+    "estAjustEnergie": "Energieklass {classe}",
+    "seo": {
+      "faqTitle": "Heefeg Froen zur Immobiliebewäertung",
+      "relatedTitle": "Ergänzend Tools",
+      "evs2025Title": "EVS 2025-konform Immobiliebewäertung zu Lëtzebuerg",
+      "evs2025Content": "<p>D'<strong>European Valuation Standards (EVS) 2025</strong>, publizéiert vun TEGoVA, bilden de Referenzrahmen fir all professionell Immobiliebewäertung zu Lëtzebuerg. D'CSSF verlaangt an hirem Rundschreiwen 21/773, datt Kreditinstituter EVS-konform Bewäertunge fir als Sécherheet akzeptéiert Immobilien benotzen.</p><p>Zu Lëtzebuerg gëtt de Maartwäert als de wahrscheinlechste Präis definéiert, zu deem eng Immobilie um Bewäertungsstéchdaag verkaaft géif ginn.</p>",
+      "methodesTitle": "Déi 5 unerkannte Bewäertungsmethoden",
+      "methodesContent": "<p>Eise Bewäertungstool integréiert déi fënnef vun internationalen Standards unerkannte Bewäertungsansätz:</p><ul><li><strong>Vergläichswäertmethod</strong>: direkten Ansaz baséierend op rezenten Transaktiounen.</li><li><strong>Ertragswäertmethod</strong>: D'Nettomieteinnahme gi mat der beobachter Rendite kapitaliséiert.</li><li><strong>DCF-Method</strong>: Projektioun vun den Nettoflëss iwwer 10 Joer mat Endwäert.</li><li><strong>Mortgage Lending Value (MLV)</strong>: Virsiichtege Wäert mat engem Ofschlag vu 10 bis 20 %.</li><li><strong>Term-and-Reversion-Method</strong>: Ënnerscheedung tëschent vertragelechem Akommes an erwaartem Maartakommes.</li></ul>",
+      "reconciliationTitle": "Ofgläich a Methodengewiichtung",
+      "reconciliationContent": "<p>E professionelle Bewäerter stëtzt sech ni op eng eenzeg Method. Den <strong>Ofgläich</strong> bestéit doran, all Method e Gewiicht zouzewéisen:</p><ul><li>Fir eng <strong>Standardwunneng</strong> kréiss de Vergläichswäertmethod d'héichst Gewiicht (60-70 %).</li><li>Fir eng <strong>Anlagimmobilie</strong> ginn Ertragswäert an DCF bevorzuugt (70-80 %).</li><li>Fir eng <strong>atypresch Immobilie</strong> stëtzt sech de Bewäerter méi op d'Residualmethod.</li></ul>",
+      "rapportTitle": "Struktur vum Bewäertungsbericht",
+      "rapportContent": "<p>E Bewäertungsbericht konform mat den EVS 2025 ëmfaasst:</p><ul><li><strong>Objektidentifikatioun</strong>: Adress, Katasterreferenzen, physesch Beschreiwung.</li><li><strong>Rechtleche Kontext</strong>: Wunnengseigentumsregime, Planungskonformitéit.</li><li><strong>Lokal Maartanalyse</strong>: Präistrends, Transaktiounsvolumen.</li><li><strong>Methodenuwendung</strong>: Berechnungsdetailer, Datenquellen.</li><li><strong>Ofgläich a Conclusioun</strong>: ermëttelten Wäert, Konfidenzintervall.</li></ul>",
+      "faq1Q": "Wien dierf zu Lëtzebuerg eng Immobiliebewäertung maachen?",
+      "faq1A": "Zu Lëtzebuerg ass den Titel vum Immobilieexpert net gesetzlech geschëtzt. D'Banke verlaangen awer normalerweis e Bewäerter mat REV-Qualifikatioun (Recognised European Valuer) vun TEGoVA.",
+      "faq2Q": "Wéi eng Bewäertungsmethod fir wéi en Immobilientyp?",
+      "faq2A": "Fir eng Wunneng oder en Haus ass de Vergläichswäertmethod normalerweis am zuverlässegsten. Fir e vermiddelt Büro- oder Geschäftsgebai ginn Ertragswäert oder DCF bevorzuugt. Fir Bauland ass d'Residualmethod onerléisslech.",
+      "faq3Q": "Wat ass den Ënnerscheed tëschent Maartwäert a MLV?",
+      "faq3A": "De Maartwäert representéiert de wahrscheinlechste Präis um Bewäertungsstéchdaag. Den MLV ass e virséichtege, zäitstabile Wäert mat engem Ofschlag vu 10 bis 20 %.",
+      "faq4Q": "Wéi dacks soll eng Immobilie nei bewäert ginn?",
+      "faq4A": "D'CSSF verlaangt eng Neibewäertung mindestens all 3 Joer fir Wunnimmobilien an all Joer fir Gewerbeimmobilien.",
+      "faq5Q": "Wat kascht en Immobiliëgutachten zu Lëtzebuerg?",
+      "faq5A": "D'Honorare variéieren jo no Komplexitéit. Fir eng Standardwunneng rechent mat 1.500 bis 3.000 EUR. Fir en Anlageobjekt 3.000 bis 8.000 EUR."
+    }
   },
   "onboarding": {
     "heading": "Wat wëllt Dir maachen?",
@@ -3177,7 +3219,27 @@
     "ecartAccessoires": "Differenz (Zousätzlech Flächen)",
     "ratioVendableScb": "Verhältnis Verkaafsfläch / SCB",
     "sourcesTitle": "Quellen a Referenzen",
-    "sourcesText": "OAI FC.04 (Jan. 2025) — Flächeberechnungsblieder, Uerdre vun den Architekten a Berodend Ingenieure. ILNAS 101:2016 — Lëtzebuerger Norm fir d'Moossung vun der Wunnfläch. ACT — Praktesche Guide zum vertikale Kadaster (Jul. 2023), Kadaster- a Topographieverwaltung. RGD PAG Art. 32 — Definitioun vun der Bruttofläch."
+    "sourcesText": "OAI FC.04 (Jan. 2025) — Flächeberechnungsblieder, Uerdre vun den Architekten a Berodend Ingenieure. ILNAS 101:2016 — Lëtzebuerger Norm fir d'Moossung vun der Wunnfläch. ACT — Praktesche Guide zum vertikale Kadaster (Jul. 2023), Kadaster- a Topographieverwaltung. RGD PAG Art. 32 — Definitioun vun der Bruttofläch.",
+    "seo": {
+      "faqTitle": "Heefeg Froen zu Immobiliëflächen",
+      "relatedTitle": "Ergänzend Tools",
+      "comprendreTitle": "Immobiliëflächen zu Lëtzebuerg verst oen: SCB, SCP, Notzfläch, Wunnfläch",
+      "comprendreContent": "<p>Zu Lëtzebuerg ass d'Villfalt vun de Flächendefinitioune eng heefeg Quell vu Verwirrung. Am Gréissherzogtum existéieren verschidde Bezuchssystemer niewebeneen:</p><ul><li><strong>Bruttogeschossfläch (SCB)</strong>: Gesamtfläch gemooss un der Baussäit vun de Méieren.</li><li><strong>Nettokonstruktiounsfläch (SCP)</strong>: Fläch gemooss bannent den droende Méieren. Referenz fir Baukäschten (OAI FC.04).</li><li><strong>Notzfläch (SU)</strong>: effektiv notzbar Fläch.</li><li><strong>Wunnfläch</strong>: Deelmenge vun der Notzfläch, beschränkt op Wunnräim.</li></ul>",
+      "normesTitle": "Bezuchs normen: OAI FC.04 an ILNAS 101",
+      "normesContent": "<p>Zwou Haaptnormen reegelen d'Flächevermiessung zu Lëtzebuerg:</p><ul><li><strong>OAI FC.04</strong>: publizéiert vun der Architektekummer, definéiert Vermiessungsmethoden fir Bauprojeten.</li><li><strong>ILNAS-EN 15221-6</strong>: europäesch Norm, déi zu Lëtzebuerg duerch ILNAS ëmgesat ginn ass.</li></ul>",
+      "ponderationTitle": "Gewiichtung vun den Nieweflächen: Keller, Balkonen, Terrassen, Garagen",
+      "ponderationContent": "<p>An der lëtzebuergsch Immobiliepraxis gi Nieweflächen net zu 100 % ugere chent:</p><ul><li><strong>Keller</strong>: Koeffizient vu 0,25 bis 0,50.</li><li><strong>Balkonen</strong>: Koeffizient vu 0,30 bis 0,50.</li><li><strong>Terrassen</strong>: Koeffizient vu 0,25 bis 0,50.</li><li><strong>Privat Gäert</strong>: Koeffizient vu 0,10 bis 0,20.</li><li><strong>Garagen a Stellplätz</strong>: ginn an der Wunnfläch net gewiicht, awer separat bewäert.</li></ul>",
+      "circulaireTitle": "Steierleen ëber Handelsflächen",
+      "circulaireContent": "<p>D'<strong>Steierverwaltu ng (ACD)</strong> an d'<strong>Registréierungsverwaltung (AED)</strong> benotzen spezifesch Flächendefinitioune fir steierleč Berechnungen.</p>",
+      "faq1Q": "Wéi eng Fläch gëtt fir de Quadratmeterpräis benotzt?",
+      "faq1A": "Zu Lëtzebuerg gëtt et keen eenheetleche gesetzleche Standard fir de m²-Präis. An der Praxis benotzen Agenturen d'Wunnfläch oder d'Notzfläch.",
+      "faq2Q": "Gëtt et d'Carrez-Fläch zu Lëtzebuerg?",
+      "faq2A": "Nee, d'Carrez-Gesetz ass eng franséisch Reegelung ouni Äquivalent zu Lëtzebuerg. Et bes téit keng gesetzleč Flicht, eng zertifizéiert Flächemiessung an de Kaafverträg unzeginn.",
+      "faq3Q": "Wéi en Gewiichtungskoeffizient fir eng Terrass zu Lëtzebuerg?",
+      "faq3A": "Fir eng iwwerdaacht Terrass nieft dem Wunnzëmmer gëllt e Standardkoeffizient vu 0,50. Fir eng oppe Terrass vun duerchschnëttle cher Gréisst 0,30 bis 0,40. Fir grouss Daachterrassen gëllt en degressiven Koeffizient.",
+      "faq4Q": "Wéi eng Fläch gëtt fir d'Grondsteier benotzt?",
+      "faq4A": "Fir d'lëtzebuergsch Grondsteier ass d'Berechnungsgrondlag den Eenheetswäert (Einheitswert). Dësen ass zanter 1941 net méi ugepasst ginn."
+    }
   },
   "estimateurConstruction": {
     "title": "Baukaschte-Schätzer",
@@ -3275,7 +3337,27 @@
     "partConstruction": "Undeel Bau",
     "partFraisAnnexes": "Undeel Niewekäschten",
     "sourcesLabel": "Quellen:",
-    "sourcesText": "STATEC — Hallefjoerleche Baupräisindex (Okt. 2025, Basis 100 = 1970, Gesamtindex 1173,24). Gewichtungen pro Gewierk aus dem STATEC-Kuerf. Präisspannen: Moyenne vum Lëtzebuerger Marché 2025-2026 (tack.lu, maison.lu, renov.lu)."
+    "sourcesText": "STATEC — Hallefjoerleche Baupräisindex (Okt. 2025, Basis 100 = 1970, Gesamtindex 1173,24). Gewichtungen pro Gewierk aus dem STATEC-Kuerf. Präisspannen: Moyenne vum Lëtzebuerger Marché 2025-2026 (tack.lu, maison.lu, renov.lu).",
+    "seo": {
+      "faqTitle": "Heefeg Froen zu Baukäschten",
+      "relatedTitle": "Ergänzend Tools",
+      "estimerTitle": "Baukäschten zu Lëtzebuerg 2025 schätzen",
+      "estimerContent": "<p>Lëtzebuerg gehéiert zu den europäeschen Länner mat den <strong>héichste Baukäschten</strong>, bedéngt duerch streng regulatoresch Ufuerderungen, d'Käschte vu qualifizéierter Aarbechtscraft an den Drock op Bauentrep risen.</p><p>Eise Schätzer stëtzt sech op Daten vum <strong>STATEC</strong>, vun der <strong>OAI</strong> an Präisspigelen aus aktuellen Ausschreiw ungen.</p>",
+      "prixM2Title": "Präis pro m² no Bautyp",
+      "prixM2Content": "<p>D'Baukäschten zu Lëtzebuerg variéieren erhieblech (Daten 2025, ouni Grondstéck an Honoraren):</p><ul><li><strong>Standard-Geschosswunnengsbau</strong>: 2.200 bis 2.800 EUR/m² SCP.</li><li><strong>Gehobeene Wunnengsbau</strong>: 3.000 bis 3.800 EUR/m² SCP.</li><li><strong>Eefamillenhaus</strong>: 2.500 bis 4.000 EUR/m².</li><li><strong>Büroen</strong>: 2.000 bis 3.200 EUR/m².</li><li><strong>Eenzelhandel</strong>: 1.500 bis 2.500 EUR/m².</li></ul>",
+      "facteursTitle": "Afloss faktore op d'Baukäschten",
+      "facteursContent": "<p>Verschidde Faktore beaflossen d'Baukäschten zu Lëtzebuerg:</p><ul><li><strong>Standuert</strong>: Lëtzebuerg Entreprisen si méi deier wéi déi aus der Groussregioun.</li><li><strong>Architektonesch Komplexitéit</strong>: oreelméisseg Formen, grouss Spannweiten erhéijen d'Käschte bedeitend.</li><li><strong>Ausstattungsniveau</strong>: Den Ënnerscheed tëschent Standard a gehoben kann 30 bis 50 % bedréigen.</li><li><strong>Energiestandarden</strong>: Zanter 2021 mussen Neibaute den nZEB-Standard erfëllen. Mehrkäschte vu 8 bis 12 %.</li></ul>",
+      "normesTitle": "Normen OAI FC.04 an ILNAS 101",
+      "normesContent": "<p>Zu Lëtzebuerg koexistéieren zwee Flächebezuchssystemer:</p><ul><li><strong>OAI FC.04</strong>: definéiert SCP, SCB an Notzfläch.</li><li><strong>ILNAS EN 15221-6</strong>: europäesch Norm fir Facility Management.</li></ul><p>D'Verwies lung vu SCB an SCP kann zu Ofweichunge vu 15 bis 20 % féieren.</p>",
+      "faq1Q": "Muss een e Budget fir Spezialgrondunge virgesinn?",
+      "faq1A": "Zu Lëtzebuerg sinn Spezialgrondungen (Pfäilen, Schlitzméieren) an Alluvialgebidder oder um Hang néideg. Mehrkäschte vu 50 bis 200 EUR/m².",
+      "faq2Q": "Wéivill Mehrkäschte fir nohalteg Materialien?",
+      "faq2A": "Biobaséiert Materialien bréinge Mehrkäschte vu 10 bis 20 % mat. Si kënne Boni bei der LENOZ-Zertifizéierung erzilen.",
+      "faq3Q": "Wéi laang dauert d'Bauen zu Lëtzebuerg duerchschnëttle ch?",
+      "faq3A": "12 bis 18 Méint fir en Eefamillenhaus, 18 bis 24 Méint fir e klengt Méifamillenhaus, 24 bis 36 Méint fir e grousst Projet. Eng Planungsreserv vu 15 bis 20 % ass ratsam.",
+      "faq4Q": "Wéivill Prozent fir Architektenhonorar?",
+      "faq4A": "8 bis 12 % vun de Baukäschten (ouni MwSt.) fir e Wunnprojet. Ingeniéierbüroen kommen nach 3 bis 5 % dobäi."
+    }
   },
   "calculateurVrd": {
     "title": "VRD-Schätzer — Ingenieurbüro",
@@ -3525,6 +3607,26 @@
     "sources": {
       "title": "Quellen:",
       "text": "Moyenne Eenheetspräisser um Lëtzebuerger Marché 2025-2026. Referenzen: Batiprix 2026 Bd. 2 (VRD, Grénge Flächen) mat LU-Koeffizient x1.20, CTG 002 (Äerdaarbechten), CTG 009 (Kanalisatioun), CSDC-CT (Ponts & Chaussées), STATEC Baupräisindizen, Creos Uschlosskatalog 2026, OAI CTA Privé Annexe 3. D'Präisser enthalen normalerweis Liwwerung, Transport an Asetzen. Detailléiert Offere si bei Fachfirmen unzefroen."
+    },
+    "seo": {
+      "faqTitle": "Heefeg Froen zu Erschléissungskäschten zu Lëtzebuerg",
+      "relatedTitle": "Ergänzend Tools",
+      "viabilisationTitle": "Erschléissungskäschten (VRD) zu Lëtzebuerg",
+      "viabilisationContent": "<p>D'<strong>Erschléissung</strong> vun engem Terrain zu Lëtzebuerg ëmfaasst all Stroossen- an Versuer gungsaarbechten (VRD), déi néideg sinn fir en Terrain baufäheg ze maachen an un ëffentlech Netzwierker unzeschléissen.</p><p>Zu Lëtzebuerg ginn d'VRD-Käschten duerch d'Topographie, d'Buedembesch affenheet, d'Distanz zu bestehende Netzwierker an d'spezifesch Ufuerderunge vun all Gemeng beaflosst.</p>",
+      "postesTitle": "D'wichtegst VRD-Käschteposten",
+      "postesContent": "<p>D'VRD-Aarbechte gléidere sech a verschidde Hauptposten:</p><ul><li><strong>Stroossebau</strong>: Erdaarbechten, Draagschicht, Deckschicht. Käschten: 80 bis 150 EUR/m².</li><li><strong>Drénkwaasser</strong>: Leitungen, Uschlëss. Uschloss un de Gemengenetz: 1.500 bis 5.000 EUR pro Grundstéck.</li><li><strong>Entwässerung</strong>: Trennsystem obligatoresch an neien Erschléissungsgebidder.</li><li><strong>Dréchenleitungen</strong>: Stroum, Telekommunikatioun, Gas.</li><li><strong>Stroossebeliichtung</strong>: Masten, LED-Leuchten.</li></ul>",
+      "coutParLotTitle": "Erschléissungskäschte pro Grundstéck no Dicht",
+      "coutParLotContent": "<p>D'VRD-Käschte pro Grundstéck variéieren no Bebauungsdicht:</p><ul><li><strong>Fräistehend Haiser</strong>: 40.000 bis 70.000 EUR/Grundstéck.</li><li><strong>Reienhaiser</strong>: 25.000 bis 45.000 EUR/Grundstéck.</li><li><strong>Geschosswunnengen</strong>: 10.000 bis 25.000 EUR/Wunneng.</li></ul>",
+      "obligationsTitle": "Gemengleeft Flichten a finanziell Bedeelegung",
+      "obligationsContent": "<p>Zu Lëtzebuerg ginn d'VRD-Flichten duerch verschidde Texter gereegelt:</p><ul><li><strong>Gesetz vum 19. Juli 2004</strong>: definéiert d'baufäheg Zonen am PAG.</li><li><strong>Finanziell Bedeelegung</strong>: de Promoteur muss zur Finanzéierung vun ëffentlecher Infrastruktur beidréien.</li><li><strong>Erschléissungsofkommes</strong>: Vertrag tëschent Promoteur a Gemeng.</li><li><strong>Infrastrukturofgab</strong>: all Gemeng fixéiert d'Netzuschlossofgaben.</li></ul>",
+      "faq1Q": "Wien bezilt d'Erschléissungsaarbechten an engem Baugebitt?",
+      "faq1A": "An engem lëtzebuergsche Baugebitt finanzéiert de Promoteur normalerweis all intern VRD a bedeelegt sech un den externen VRD. No Ofnam ginn Stroossen an Netzwierker un d'Gemeng iwwerdroeëss.",
+      "faq2Q": "Wat kaschten d'Uschlëss un ëffentlech Netzwierker?",
+      "faq2A": "Drénkwaasser: 1.500 bis 5.000 EUR. Entwässerung: 2.000 bis 8.000 EUR. Stroum (Creos): 2.000 bis 6.000 EUR. Glasfaser (POST) ass fir Neibauten normalerweis gratis. Gesamt: 8.000 bis 20.000 EUR pro Grundstéck.",
+      "faq3Q": "Wéi géit ee mat engem Hanggrondstéck ëm?",
+      "faq3A": "En Hanggrondstéck bréngt erhieblech Mehrkäschte mat: Stëtzméieren (150 bis 500 EUR/m²), Erdaarbechten, speziell Entwässerungssystemer. Mehrkäschte vu 30 bis 50 % géintiwwer engem flaachen Terrain.",
+      "faq4Q": "Wéi laang dauert d'Erschléissung duerchschnëttle ch?",
+      "faq4A": "6 bis 12 Méint fir d'Aarbechten. Virbereedungsphasen kënnen 6 bis 18 Méint dobeikommen. Gesamtdauer typesch 18 bis 36 Méint."
     }
   },
   "hvac": {
@@ -4002,7 +4104,27 @@
     "headerRent": "Loyer",
     "headerGrossYield": "Bruttorendite",
     "headerLTV": "LTV",
-    "headerPortfolioPct": "% Portfolio"
+    "headerPortfolioPct": "% Portfolio",
+    "seo": {
+      "faqTitle": "Heefeg Froen zur Immobilieportfolioverwaltung",
+      "relatedTitle": "Ergänzend Tools",
+      "gestionTitle": "En Immobilieportfolio zu Lëtzebuerg verwalten",
+      "gestionContent": "<p>D'<strong>Immobilieportfolioverwaltung</strong> zu Lëtzebuerg erfuerdert en strukturéierten Ansaz, deen finanziell, steierleč, energetesch a juristesch Dimensiounen integréiert. Ob Dir 2 oder 20 Immobilien hutt, d'systematesch Iwwerwaachung vun den Leeschtungsindikateure ass essentiel.</p><p>Eise Portfolio-Tool konsolidéiert all Är tevaxia-Bewäertungen an -Berechnungen fir eng Gesamtsiicht vun Ärem Patrimoine.</p>",
+      "indicateursTitle": "Schlësselindikatoren: Rendite, LTV, Allokatioun",
+      "indicateursContent": "<p>Wesentlech Leeschtungsindikatoren fir Äert Immobilieportfolio:</p><ul><li><strong>Bruttorendite</strong>: 3,0 bis 4,5 % fir Wunnen zu Lëtzebuerg (2025).</li><li><strong>Nettorendite</strong>: typesch 1,0 bis 1,5 Punkten ënner der Bruttorendite.</li><li><strong>Portfolio-LTV</strong>: En LTV iwwer 60 % gëllt als riskant.</li><li><strong>Geographesch Verdeelung</strong>: Diversifikatioun réduzéiert d'Volatilitéit.</li></ul>",
+      "performanceTitle": "Leeschtungsverfolgung am Zäitverlaf",
+      "performanceContent": "<p>D'zäitlech Leeschtungsverfolgung erlaabt Trend erkennung:</p><ul><li><strong>Wäertentwécklung</strong>: Vergläich vum Portfoliowäert Joer N vs. N-1.</li><li><strong>Mietentwecklung</strong>: Indexéierungen an Upasse unge bei Vertragserneiung.</li><li><strong>Leerstand</strong>: tatsächleche Leerstand am Vergläich zum strukturelle Maartleerstand.</li><li><strong>CAPEX</strong>: 1 bis 2 % vum Immobilienwäert pro Joer als Norm.</li></ul>",
+      "energieTitle": "Gewiichte CPE-Energiescore vum Immobilieportfolio",
+      "energieContent": "<p>D'<strong>Energieperformance</strong> vun Ärem Portfolio ass e strateegesche Schlësselthema zu Lëtzebuerg:</p><ul><li><strong>EPBD-Direktiv</strong>: Ambitiéis Renovéierungspfader.</li><li><strong>Green Premium / Brown Discount</strong>: Klassen A-B profitéieren vu 5 bis 8 % Wäertopschlag.</li><li><strong>PRIMe House</strong>: Zouschëss vu 30 bis 50 % vun den energeteschen Sanéierungskäschten.</li></ul>",
+      "faq1Q": "Wéi diversifizéiert een en Immobilieportfolio zu Lëtzebuerg?",
+      "faq1A": "Diversifikatioun kann geographesch, typologesch, mietvertraglech an zäitlech erfolgen. E balancéiert Portfolio kéint 60-70 % Wunnimmobilien an 30-40 % Gewerbeimmobilien ëmfaassen.",
+      "faq2Q": "Wéi eng Rendite fir eng Kapitalanlag zu Lëtzebuerg ustriéwen?",
+      "faq2A": "Fir Core-Wunnen: 2,5 bis 3,5 % netto. Fir Value-Add: 3,5 bis 4,5 % no Sanéierung. Fir Prime-Büroen: 3,5 bis 4,5 % netto.",
+      "faq3Q": "Wéi gi méi Immobilien zu Lëtzebuerg besteiert?",
+      "faq3A": "Mieteinnahmen gi zum progressive Steiersaz besteiert (Spetzesaz 42 % + 9 %). Ofzuchsfäheg sinn Zënsen, Instandhaltung, Versecherungen, Grondsteier an Ofschreiw ung (2 %/Joer).",
+      "faq4Q": "Wéini soll een eng Immobilie verkafen?",
+      "faq4A": "Verkaafssignaler: Nettorendite ënner 2 %, grouss Rep araturen, CPE-Klass F-G mat onverhältnismäßsegen Sanéierungskäschten, oder eng méi attraktiv Reinvestitiounsméiglechkeet."
+    }
   },
   "hedonique": {
     "title": "Hedonesch Bewäertung",
@@ -4080,7 +4202,27 @@
     "coeff_source_observatoire": "Hedonesch Observatoire",
     "coeff_source_transactions": "Observéiert Transaktiounen",
     "coeff_source_spuerkeess": "Spuerkeess / Observatoire",
-    "coeff_source_parking": "~30-45k€ / Plaz"
+    "coeff_source_parking": "~30-45k€ / Plaz",
+    "seo": {
+      "faqTitle": "Heefeg Froen zum hedonesche Modell",
+      "relatedTitle": "Ergänzend Tools",
+      "modeleTitle": "D'hedonesch Modell fir de lëtzebuergsche Maart",
+      "modeleContent": "<p>D'<strong>hedonesch Modell</strong> ass en ökonometreschen Ansaz, deen de Präis vun enger Immobilie an d'Somm vun den implizéiten Wäerter vun hire Merkmolen zerléet. Vu Rosen (1974) entwéckelt, baséiert et op der Hypothèse, datt de Maartpräis d'Präferenzen vun de Kéifer widerspigelt.</p><p>Zu Lëtzebuerg publizéiert d'<strong>Observatoire de l'Habitat</strong> regelméisseg hedonesch Modeller, déi op realen Transaktiounen vun der AED kalibréiert sinn.</p>",
+      "coefficientsTitle": "Koeffizienten an erklärend Variabelen",
+      "coefficientsContent": "<p>Eis Modellkoeffizienten si mat lëtzebuergsche Daten kalibréiert:</p><ul><li><strong>Fläch</strong>: Elastizitéit vun -0,35 % pro zousätzlechem m² iwwer 80 m².</li><li><strong>Stack</strong>: Erdgeschoss: ~-7 %, 1. Stack: -3 %. Uewe Stacken (4+): +3 %, Penthouse: bis +8 %.</li><li><strong>Allgemengen Zoustand</strong>: Neibau oder Komplettsanéierung: +7 %. Renovéierungsbedéierfteg: -15 %.</li><li><strong>CPE-Energieklass</strong>: Klassen A-B: +5 %. Klassen F-G: -8 %.</li><li><strong>Stellplaz</strong>: En Innestellplaz féigt ca. 5 % zum Wunnengspräis derbäi.</li></ul>",
+      "sourcesTitle": "Datenquellen",
+      "sourcesContent": "<p>Eis Quellen ëmfaassen:</p><ul><li><strong>Observatoire de l'Habitat</strong>: veireljährlech hedonesch Präisindizen.</li><li><strong>STATEC</strong>: Wunnengspräisindex, Duerchschnëttspräisser.</li><li><strong>Gemengeverwaltungen</strong>: PAG/PAP-Daten, Baugenehméigungen.</li><li><strong>Immobiliëunoncën</strong>: Ubottspräisser als ergänzend Referenz.</li></ul>",
+      "limitesTitle": "Modellgrenzen: R² a Konfidenzintervall",
+      "limitesContent": "<p>All statistescht Modell huet Grenzen:</p><ul><li><strong>R²</strong>: ca. 0,75 — 75 % vun der Präisvarianz gëtt erkläert.</li><li><strong>Konfidenzintervall</strong>: ±10 % an dicht besiddelten Gebidder, bis ±18 % op dem Land.</li><li><strong>Atypresch Immobilien</strong>: Luxus- oder Charakterimmobilie kënnen däitlech ofweichen.</li></ul>",
+      "faq1Q": "Wéi héich ass de R² vum hedonesche Modell fir Lëtzebuerg?",
+      "faq1A": "Den R² ass ronn 0,75 — 75 % vun der Transaktiouspräisvarianz gëtt erkläert.",
+      "faq2Q": "Wat ass den Ënnerscheed tëschent hedonesche Modell an Immobiliëgutachten?",
+      "faq2A": "D'hedonesch Modell liwwert eng statistesch Schätzung ouni Besiichtegung. En Gutachten (EVS-konform) beinhalt eng Visite, juristesch Analyse a professionnellt Urteel.",
+      "faq3Q": "Ass d'hedonesch Modell op Gewerbeimmobilie uwend bar?",
+      "faq3A": "Eise Modell ass haaptsächlech op de lëtzebuergsche Wunnungsmaart kalibréiert. Fir Gewerbeimmobilie sinn Ertragswäertmethoden (DCF) geeeegenter.",
+      "faq4Q": "Wéi genee ass d'Modell pro Gemeng?",
+      "faq4A": "±10 % an der Stad Lëtzebuerg oder Esch-Uelzecht, bis ±18 % a ländleche Gemengen."
+    }
   },
   "indices": {
     "breadcrumb_home": "Haaptsäit",
@@ -4276,7 +4418,27 @@
     "ref3Title": "CSSF-Circulaire 20/744",
     "ref3Desc": "iwwer d'AML-Pflichte vun de Fachleit vum Finanzsecteur.",
     "ref4Title": "CRF (Zentralstell fir Finanzinformatiounen)",
-    "ref4Desc": "— Verdachtsmeldung: crf@justice.etat.lu"
+    "ref4Desc": "— Verdachtsmeldung: crf@justice.etat.lu",
+    "seo": {
+      "faqTitle": "Heefeg Froen zum AML/KYC am Immobiliesekteur",
+      "relatedTitle": "Ergänzend Tools",
+      "obligationsTitle": "Anti-Geldwäscheflichten am Immobiliesekteur zu Lëtzebuerg",
+      "obligationsContent": "<p>D'<strong>Bekämpfung vun der Geldwäsch</strong> (AML) ass eng wesentlech Flicht fir all Immobilieprofien zu Lëtzebuerg. Den Immobiliesekteur gëtt vum GAFI als besonnesch riskant identifizéiert wéinst héije Béträg a komplexen Eegentums strukturen.</p><p>Zu Lëtzebuerg ënnerleien d'Immobilieprofien (Maa kler, Promoteur, Verwalter, Gutachter) den Sorgfaltsflichten zanter der Ëmsetzung vun der 4. EU-Geldwäscherichtlinn.</p><p>D'Sanctiounen si schwéier: Geldstrofen bis zu 5 Milliounen Euro, strafrechtlech Sanctiounen (1 bis 5 Joer Fräiheetsstrof), Berufsverbuet a Reputatiounsschäden.</p>",
+      "loi2004Title": "D'geännert Gesetz vum 12. November 2004",
+      "loi2004Content": "<p>D'<strong>Gesetz vum 12. November 2004</strong> géint Geldwäsch a Terrorismusfinanzéierung billt de rechtleche Referenzrahmen:</p><ul><li><strong>Uwendungsbereich</strong>: all Persoun, déi berufflech un Immobilientransaktiounen deelhuelen.</li><li><strong>Hauptflichten</strong>: Identifizéierung a Verifizéierung vum Client an dem wirtschaftlech Berechtigte, Risikobewäertung, Dokumentenopbewaarung, Mataarbechterformatioun, Verdachtsmeldu ng.</li><li><strong>Risikobaséierten Ansaz</strong>: verstäerkt Sorgfaltsflichten fir Hochrisikoclienten.</li><li><strong>Register vun de wirtschaftlech Berechtigte (RBE)</strong>: Gäsellschaften mat Immobiliebesëtz musse sech am RBE registréieren.</li></ul>",
+      "identificationTitle": "Clientidentifizéierung a verstäerkt Sorgfaltsflichten",
+      "identificationContent": "<p>D'Identifizéierungs- a Sorgfaltsmoo ssname (KYC) am lëtzebuergsche Immobiliesekteur ëmfaassen:</p><ul><li><strong>Standardidentifizéierung</strong>: Identitéitspréifung, Adresspréifung an Herkonft vun de Mëttelen.</li><li><strong>Verstäerkt Sorgfalt (EDD)</strong>: obligatoresch fir PEPs, Clienten aus Hochrisikolänner a komplex Transaktiounen.</li><li><strong>Vereinfacht Sorgfalt</strong>: méiglech fir Clienten, déi vun engem anere Verpflichten virgestallt ginn.</li><li><strong>Laafen Iwwerwaachung</strong>: D'Sorgfaltsflicht beschränkt sech net op den Ufank vun der Geschäftsrelatioun.</li></ul>",
+      "declarationTitle": "Verdachtsmeldung a Sanctiounen",
+      "declarationContent": "<p>D'Melde- a Sanctiounssystem ass eng Säil vum lëtzebuergsche AML-System:</p><ul><li><strong>Verdachtsmeldung</strong>: All Professionellen deen eng Transaktioun am Zesummenhang mat Geldwäsch vermud muss eng Meldung un d'<strong>CRF</strong> maachen.</li><li><strong>Tipping-off-Verbuet</strong>: Et ass strikt verbueden de Client ze informéieren.</li><li><strong>Verwaltungssanctiounen</strong>: Geldstrofen vu 1.250 bis 5.000.000 EUR.</li><li><strong>Strafrechtlech Sanctiounen</strong>: Geldwäsch gëtt mat 1 bis 5 Joer Fräiheetsstrof bestrooft.</li></ul>",
+      "faq1Q": "Wien ënnerléit den AML-Flichten am lëtzebuergsche Immobiliesekteur?",
+      "faq1A": "Verpflicht si: Immobiliëmaakler, Promoteur, Immobilieverwalt er, Syndiken, Notairen, Affekoten (bei Immobilieberodung) an Immobiliësachverstänneger.",
+      "faq2Q": "Wéi identifizéiert ee eng Politesch Exponéiert Persoun (PEP)?",
+      "faq2A": "Eng PEP ass eng Persoun, déi eng prominent politesch, richterlech oder administrativ Fonctioun inn huet oder hat. Och no Familljemembere gelten als PEPs. Spezialdatenbanken (World-Check, Dow Jones) erlabe systematecht Screening.",
+      "faq3Q": "Gëtt et en Meldeschwellewäert fir Immobilientransaktiounen?",
+      "faq3A": "Et gëtt keen monetaire Schwellewäert. All Immobilientransaktioun ënnerléit den KYC-Flichten. D'Verdachtsmeldung baséiert op qualitativen Indikatoren. Barzuelunge iwwer 10.000 EUR ënnerleien enger spezifescher Meldeflicht.",
+      "faq4Q": "Wéi laang mussen d'KYC-Dokumenter opbewaard ginn?",
+      "faq4A": "D'Gesetz schreit eng Opbewaarung vu mindestens 5 Joer no Enn vun der Geschäftsrelatioun vir. An der Praxis gëtt 10 Joer empfohlen."
+    }
   },
   "terresAgricoles": {
     "title": "Bewäertung — Landwirtschaftlech Flächen",

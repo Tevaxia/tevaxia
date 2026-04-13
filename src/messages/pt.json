@@ -1883,7 +1883,27 @@
     "sensitivityCurrent": "atual",
     "sensitivityGreen": "Margem > 15%",
     "sensitivityYellow": "Margem 5–15%",
-    "sensitivityRed": "Margem < 5%"
+    "sensitivityRed": "Margem < 5%",
+    "seo": {
+      "faqTitle": "Perguntas frequentes sobre balanço do promotor",
+      "relatedTitle": "Ferramentas complementares",
+      "faisabiliteTitle": "O balanço do promotor: ferramenta de viabilidade de operações imobiliárias",
+      "faisabiliteContent": "<p>O <strong>balanço do promotor</strong> (ou balanço de operação) é a ferramenta fundamental de qualquer promotor imobiliário para avaliar a viabilidade económica de um projeto de construção ou reabilitação. No Luxemburgo, onde os custos de construção e os preços dos terrenos estão entre os mais elevados da Europa, uma análise rigorosa é indispensável antes de qualquer compromisso.</p><p>O balanço compara as <strong>receitas previsionais</strong> (volume de negócios das vendas ou das rendas) com o conjunto dos <strong>custos</strong> (terreno, construção, honorários, encargos financeiros, comercialização). A diferença constitui a <strong>margem bruta</strong> da operação.</p><p>No Luxemburgo, as operações de promoção são enquadradas pela lei de 22 de outubro de 2008 e pelo regulamento grão-ducal de 28 de julho de 2011. A conformidade com o PAG e o PAP determina os parâmetros fundamentais do projeto.</p>",
+      "compteAReboursTitle": "O método residual (conta atrás)",
+      "compteAReboursContent": "<p>O <strong>método residual</strong> determina o valor máximo do terreno partindo das receitas previsionais e subtraindo todos os custos:</p><p><strong>Valor máximo do terreno = Volume de negócios - Custos de construção - Honorários - Encargos financeiros - Margem do promotor</strong></p><ul><li>O <strong>volume de negócios</strong> é calculado com base nos preços de venda por m² por tipo de lote, ajustados conforme a localização e o acabamento.</li><li>Os <strong>custos de construção</strong> integram a estrutura, os acabamentos, os lotes técnicos e as infraestruturas.</li><li>Os <strong>honorários</strong> incluem arquiteto (8-12% segundo a OAI), gabinetes de engenharia, topógrafo e coordenação de segurança.</li><li>Os <strong>encargos financeiros</strong> cobrem o financiamento do terreno e da construção (taxas de 3 a 5% sobre 24-36 meses).</li></ul><p>Este método é sistematicamente utilizado pelos promotores luxemburgueses para negociar o preço de aquisição do terreno.</p>",
+      "coutsTitle": "Decomposição dos custos: terreno, construção, honorários",
+      "coutsContent": "<p>A estrutura de custos de uma operação de promoção no Luxemburgo decompõe-se tipicamente da seguinte forma:</p><ul><li><strong>Terreno</strong>: 25 a 40% do volume de negócios conforme a localização. Na Cidade do Luxemburgo, o terreno pode representar até 50% do preço de venda final. Os direitos de registo (7% para terrenos) acrescem ao preço de aquisição.</li><li><strong>Construção</strong>: 35 a 50% do VN. Os custos de construção no Luxemburgo oscilam entre 2.200 e 3.500 EUR/m² SCP (dados STATEC/OAI 2025). O IVA de construção é de 17% ou 3% (taxa super-reduzida para habitação, limitada a 50.000 EUR por alojamento).</li><li><strong>Honorários e despesas</strong>: 12 a 18% do VN.</li><li><strong>Margem do promotor</strong>: objetivo de 8 a 15% do VN para uma operação standard.</li></ul>",
+      "margeTitle": "Margem e rentabilidade sobre capitais próprios",
+      "margeContent": "<p>A rentabilidade de uma operação de promoção mede-se através de vários indicadores:</p><ul><li><strong>Margem sobre volume de negócios</strong>: rácio entre o resultado líquido previsional e o volume de negócios. Um objetivo de 10 a 15% é standard no Luxemburgo.</li><li><strong>Rentabilidade sobre capitais próprios (ROE)</strong>: rácio entre o resultado e os capitais próprios investidos. Com alavancagem (financiamento bancário a 60-70%), um promotor pode visar um ROE de 15 a 25%.</li><li><strong>Múltiplo sobre capitais próprios</strong>: rácio entre o resultado e o investimento inicial. Um múltiplo de 1,5x a 2,0x sobre 24-36 meses é considerado atrativo.</li></ul><p>A análise de sensibilidade é crucial: uma descida de 5% nos preços de venda ou uma subida de 10% nos custos de construção pode aniquilar a margem.</p>",
+      "faq1Q": "Qual é o rácio típico terreno/construção no Luxemburgo?",
+      "faq1A": "O rácio varia consideravelmente conforme a localização. Na Cidade do Luxemburgo (Belair, Limpertsberg, Kirchberg), o terreno representa 40 a 50% do custo total. Na periferia (Esch-sur-Alzette, Differdange, Mersch), o rácio desce para 25-35%. Nas zonas rurais, o terreno pode representar apenas 15-20%. Este rácio é um indicador-chave de viabilidade.",
+      "faq2Q": "O IVA é recuperável numa operação de promoção?",
+      "faq2A": "Sim, o promotor sujeito a IVA recupera a totalidade do IVA sobre os custos de construção, honorários e despesas. A venda de habitações novas está sujeita a IVA (17% ou 3% super-reduzido com limite de 50.000 EUR/alojamento). A venda de imóveis antigos está sujeita a direitos de registo (7%) e não a IVA.",
+      "faq3Q": "Como gerir o risco de comercialização?",
+      "faq3A": "O risco de comercialização é maior nas operações de promoção. No Luxemburgo, as boas práticas incluem: pré-comercialização (visar 30-40% de reservas antes do início das obras), recurso a contrato VEFA conforme a lei de 18 de abril de 2008, diversificação da oferta e cláusula suspensiva no compromisso fundiário.",
+      "faq4Q": "Qual o prazo médio de uma operação de promoção no Luxemburgo?",
+      "faq4A": "O prazo global de uma operação de promoção no Luxemburgo é tipicamente de 4 a 7 anos. A obtenção do PAP pode demorar 12 a 24 meses. A autorização de construção necessita de 3 a 12 meses adicionais. A construção propriamente dita dura 18 a 30 meses para 20 a 50 alojamentos. A comercialização começa idealmente 6 a 12 meses antes da entrega."
+    }
   },
   "marche": {
     "title": "Base de dados de mercado",
@@ -2752,7 +2772,29 @@
     "estAjustParking": "Estacionamento incluído",
     "estAjustSurfacePetit": "Área {surface} m² (imóvel pequeno)",
     "estAjustSurfaceGrand": "Área {surface} m² (imóvel grande)",
-    "estAjustEnergie": "Classe energética {classe}"
+    "estAjustEnergie": "Classe energética {classe}",
+    "seo": {
+      "faqTitle": "Perguntas frequentes sobre avaliação imobiliária",
+      "relatedTitle": "Ferramentas complementares",
+      "evs2025Title": "Avaliação imobiliária conforme EVS 2025 no Luxemburgo",
+      "evs2025Content": "<p>As <strong>European Valuation Standards (EVS) 2025</strong>, publicadas pela TEGoVA, constituem o quadro de referência para toda a avaliação imobiliária profissional no Luxemburgo. A CSSF, na sua circular 21/773, exige que os estabelecimentos de crédito recorram a avaliações conformes aos padrões europeus para imóveis aceites como garantia.</p><p>No Luxemburgo, o valor de mercado é definido como o preço mais provável a que um imóvel seria vendido, na data da avaliação, após uma comercialização adequada, entre um vendedor e um comprador consentientes, agindo de forma independente.</p><p>O avaliador deve documentar a <strong>data de valor</strong>, o <strong>objetivo da avaliação</strong>, as <strong>hipóteses especiais</strong> e as fontes de dados utilizadas.</p>",
+      "methodesTitle": "Os 5 métodos de avaliação reconhecidos",
+      "methodesContent": "<p>A nossa ferramenta de avaliação integra as cinco abordagens reconhecidas pelos padrões internacionais:</p><ul><li><strong>Método comparativo</strong>: abordagem direta baseada em transações recentes de imóveis semelhantes. No Luxemburgo, utilizamos a base da AED.</li><li><strong>Método de capitalização</strong>: o rendimento locativo líquido é capitalizado à taxa de rendimento observada na zona.</li><li><strong>Método DCF</strong>: projeção dos fluxos líquidos a 10 anos com valor terminal.</li><li><strong>Mortgage Lending Value (MLV)</strong>: valor prudente exigido pelo regulamento CRR (artigo 229) com um desconto de 10 a 20% face ao valor de mercado.</li><li><strong>Método term and reversion</strong>: distinção entre rendimento contratual (term) e rendimento de mercado esperado após expiração do contrato (reversion).</li></ul>",
+      "reconciliationTitle": "Reconciliação e ponderação dos métodos",
+      "reconciliationContent": "<p>Um avaliador profissional nunca se baseia num único método. A <strong>reconciliação</strong> consiste em atribuir um peso a cada abordagem:</p><ul><li>Para um <strong>apartamento standard</strong> em zona urbana, a comparação recebe peso predominante (60-70%).</li><li>Para um <strong>imóvel de rendimento</strong>, a capitalização e o DCF são privilegiados (peso cumulado de 70-80%).</li><li>Para um <strong>imóvel atípico</strong>, o avaliador apoia-se mais no método residual.</li></ul><p>O nosso algoritmo de reconciliação utiliza um modelo de ponderação bayesiano.</p>",
+      "rapportTitle": "Estrutura do relatório de avaliação",
+      "rapportContent": "<p>Um relatório de avaliação conforme EVS 2025 compreende:</p><ul><li><strong>Identificação do imóvel</strong>: morada, referências cadastrais, descrição física, servidões e direitos reais.</li><li><strong>Contexto jurídico</strong>: regime de propriedade horizontal, enfiteuse, direito de superfície, conformidade urbanística.</li><li><strong>Análise do mercado local</strong>: tendências de preços, volumes de transações, oferta e procura.</li><li><strong>Aplicação dos métodos</strong>: detalhe dos cálculos, fontes, justificação dos parâmetros.</li><li><strong>Reconciliação e conclusão</strong>: valor retido, intervalo de confiança, reservas.</li></ul>",
+      "faq1Q": "Quem pode realizar uma avaliação imobiliária no Luxemburgo?",
+      "faq1A": "No Luxemburgo, o título de perito imobiliário não é legalmente protegido. Contudo, os bancos exigem geralmente um avaliador com qualificação REV (Recognised European Valuer) da TEGoVA. A CSSF recomenda que as avaliações para garantias hipotecárias sejam realizadas por profissionais independentes do processo de concessão de crédito.",
+      "faq2Q": "Que método de avaliação usar conforme o tipo de imóvel?",
+      "faq2A": "Para um apartamento ou moradia, o método comparativo é geralmente o mais fiável. Para um imóvel de escritórios ou comercial arrendado, privilegia-se a capitalização ou o DCF. Para um terreno, o método residual é indispensável. O avaliador profissional utiliza sempre pelo menos dois métodos e procede à reconciliação.",
+      "faq3Q": "Qual a diferença entre valor de mercado e Mortgage Lending Value (MLV)?",
+      "faq3A": "O valor de mercado representa o preço mais provável na data da avaliação. O MLV (valor hipotecário) é um valor prudente e estável no tempo, que exclui elementos especulativos e aplica geralmente um desconto de 10 a 20% face ao valor de mercado.",
+      "faq4Q": "Com que frequência se deve reavaliar um imóvel?",
+      "faq4A": "Para imóveis em garantia hipotecária, a CSSF exige reavaliação no mínimo a cada 3 anos para imóveis residenciais e anualmente para imóveis comerciais. Em contabilidade IFRS (IAS 40), os imóveis de investimento devem ser reavaliados em cada fecho de contas.",
+      "faq5Q": "Quanto custa uma perícia imobiliária no Luxemburgo?",
+      "faq5A": "Os honorários variam conforme a complexidade. Para um apartamento standard, conte com 1.500 a 3.000 EUR para um relatório conforme EVS. Para um imóvel de rendimento, entre 3.000 e 8.000 EUR. A ferramenta tevaxia oferece uma pré-avaliação instantânea."
+    }
   },
   "onboarding": {
     "heading": "O que pretende fazer?",
@@ -3177,7 +3219,27 @@
     "ecartAccessoires": "Diferenca (acessorios)",
     "ratioVendableScb": "Racio vendavel / SCB",
     "sourcesTitle": "Fontes e referencias",
-    "sourcesText": "OAI FC.04 (jan. 2025) — Fichas de calculo de superficies, Ordem dos Arquitetos e Engenheiros Consultores. ILNAS 101:2016 — Norma luxemburguesa de medicao da superficie habitavel. ACT — Guia pratico do cadastro vertical (jul. 2023), Administracao do Cadastro e da Topografia. RGD PAG art. 32 — Definicao da Superficie Construida Bruta."
+    "sourcesText": "OAI FC.04 (jan. 2025) — Fichas de calculo de superficies, Ordem dos Arquitetos e Engenheiros Consultores. ILNAS 101:2016 — Norma luxemburguesa de medicao da superficie habitavel. ACT — Guia pratico do cadastro vertical (jul. 2023), Administracao do Cadastro e da Topografia. RGD PAG art. 32 — Definicao da Superficie Construida Bruta.",
+    "seo": {
+      "faqTitle": "Perguntas frequentes sobre áreas imobiliárias",
+      "relatedTitle": "Ferramentas complementares",
+      "comprendreTitle": "Compreender as áreas imobiliárias no Luxemburgo: SCB, SCP, útil, habitável",
+      "comprendreContent": "<p>No Luxemburgo, a multiplicidade de definições de área é uma fonte frequente de confusão. Contrariamente à França, onde a lei Carrez impõe uma definição única, o Grão-Ducado utiliza vários referenciais coexistentes:</p><ul><li><strong>Área Construída Bruta (SCB)</strong>: área total medida no exterior das paredes.</li><li><strong>Área de Construção Pura (SCP)</strong>: área medida no interior das paredes portantes. Referência para custos de construção (OAI FC.04).</li><li><strong>Área Útil (SU)</strong>: área efetivamente utilizável.</li><li><strong>Área Habitável</strong>: subconjunto da área útil, limitada às divisões de habitação.</li></ul>",
+      "normesTitle": "Normas de referência: OAI FC.04 e ILNAS 101",
+      "normesContent": "<p>Duas normas principais enquadram a medição de áreas no Luxemburgo:</p><ul><li><strong>OAI FC.04</strong>: publicada pela Ordem dos Arquitetos, define os métodos de medição para projetos de construção.</li><li><strong>ILNAS-EN 15221-6</strong>: norma europeia transposta no Luxemburgo pelo ILNAS, que harmoniza as definições de área para facility management.</li></ul><p>A nossa ferramenta integra os rácios de conversão oficiais publicados pela OAI.</p>",
+      "ponderationTitle": "Ponderação das áreas acessórias: caves, varandas, terraços, garagens",
+      "ponderationContent": "<p>Na prática imobiliária luxemburguesa, as áreas acessórias não são contabilizadas a 100% do seu valor. Os coeficientes de ponderação standard são:</p><ul><li><strong>Caves</strong>: coeficiente de 0,25 a 0,50.</li><li><strong>Varandas</strong>: coeficiente de 0,30 a 0,50.</li><li><strong>Terraços</strong>: coeficiente de 0,25 a 0,50.</li><li><strong>Jardins privativos</strong>: coeficiente de 0,10 a 0,20.</li><li><strong>Garagens e estacionamento</strong>: não ponderados na área habitável, mas valorizados separadamente (25.000 a 50.000 EUR por lugar interior).</li></ul>",
+      "circulaireTitle": "Orientações fiscais sobre áreas comerciais",
+      "circulaireContent": "<p>A <strong>Administração Fiscal Direta (ACD)</strong> e a <strong>Administração do Registo (AED)</strong> utilizam definições de área específicas para cálculos fiscais:</p><ul><li>A <strong>área comercial</strong> mencionada nas escrituras no Luxemburgo não é definida por uma lei única.</li><li>Para o <strong>imposto predial</strong> (Grundsteuer), a área considerada é a área útil incluindo anexos ponderados.</li><li>Para os <strong>direitos de registo</strong>, a área mencionada na escritura faz fé.</li></ul>",
+      "faq1Q": "Que área é utilizada para calcular o preço por m²?",
+      "faq1A": "No Luxemburgo, não existe norma legal única para o preço por m². Na prática, utiliza-se a área habitável ou a área útil. O Observatório da Habitação utiliza a área útil para as suas estatísticas.",
+      "faq2Q": "A área Carrez existe no Luxemburgo?",
+      "faq2A": "Não, a lei Carrez é uma disposição do direito francês sem equivalente no Luxemburgo. Não existe obrigação legal de mencionar uma área certificada nas escrituras de venda em condomínio.",
+      "faq3Q": "Que coeficiente de ponderação para um terraço no Luxemburgo?",
+      "faq3A": "Para um terraço coberto contíguo à sala, o coeficiente standard é 0,50. Para um terraço aberto de tamanho médio (10-20 m²), geralmente 0,30 a 0,40. Para grandes terraços em cobertura (50+ m²), aplica-se um coeficiente degressivo.",
+      "faq4Q": "Que área é considerada para o imposto predial?",
+      "faq4A": "Para o imposto predial luxemburguês (Grundsteuer), a base de cálculo é o valor unitário (Einheitswert) determinado pela Administração Fiscal. Contudo, os valores unitários não foram reavaliados desde 1941."
+    }
   },
   "estimateurConstruction": {
     "title": "Estimador de custo de construcao",
@@ -3275,7 +3337,27 @@
     "partConstruction": "Parte construcao",
     "partFraisAnnexes": "Parte custos acessorios",
     "sourcesLabel": "Fontes:",
-    "sourcesText": "STATEC — Indice semestral dos precos da construcao (out. 2025, base 100 = 1970, indice geral 1173,24). Ponderacoes por oficio do cabaz STATEC. Faixas de preco: media do mercado luxemburgues 2025-2026 (tack.lu, maison.lu, renov.lu)."
+    "sourcesText": "STATEC — Indice semestral dos precos da construcao (out. 2025, base 100 = 1970, indice geral 1173,24). Ponderacoes por oficio do cabaz STATEC. Faixas de preco: media do mercado luxemburgues 2025-2026 (tack.lu, maison.lu, renov.lu).",
+    "seo": {
+      "faqTitle": "Perguntas frequentes sobre custos de construção",
+      "relatedTitle": "Ferramentas complementares",
+      "estimerTitle": "Estimar o custo de construção no Luxemburgo em 2025",
+      "estimerContent": "<p>O Luxemburgo está entre os países europeus com os <strong>custos de construção mais elevados</strong>, devido às exigências regulamentares rigorosas, ao custo da mão de obra qualificada e à pressão sobre as empresas do setor.</p><p>O nosso estimador baseia-se nos dados do <strong>STATEC</strong>, da <strong>OAI</strong> e nos cadernos de preços de concursos recentes.</p>",
+      "prixM2Title": "Preço por m² por tipo de construção",
+      "prixM2Content": "<p>Os custos de construção no Luxemburgo variam significativamente (dados 2025, excluindo terreno e honorários):</p><ul><li><strong>Residencial coletivo standard</strong>: 2.200 a 2.800 EUR/m² SCP.</li><li><strong>Residencial de gama alta</strong>: 3.000 a 3.800 EUR/m² SCP.</li><li><strong>Moradia individual</strong>: 2.500 a 4.000 EUR/m².</li><li><strong>Escritórios</strong>: 2.000 a 3.200 EUR/m².</li><li><strong>Comércio</strong>: 1.500 a 2.500 EUR/m².</li></ul>",
+      "facteursTitle": "Fatores que influenciam o custo de construção",
+      "facteursContent": "<p>Vários fatores fazem variar os custos de construção no Luxemburgo:</p><ul><li><strong>Localização</strong>: empresas luxemburguesas são mais caras que as da Grande Região.</li><li><strong>Complexidade arquitetónica</strong>: formas irregulares, grandes vãos e coberturas ajardinadas aumentam significativamente os custos.</li><li><strong>Nível de acabamento</strong>: a diferença entre standard e gama alta pode representar 30 a 50%.</li><li><strong>Normas energéticas</strong>: desde 2021, os edifícios novos devem cumprir o padrão nZEB. Sobrecusto de 8 a 12%.</li><li><strong>Conjuntura</strong>: a inflação dos materiais influencia os preços de forma cíclica.</li></ul>",
+      "normesTitle": "Normas OAI FC.04 e ILNAS 101",
+      "normesContent": "<p>No Luxemburgo, dois referenciais de área coexistem e impactam diretamente o cálculo dos custos por m²:</p><ul><li><strong>OAI FC.04</strong>: define a SCP, SCB e área útil. Os custos são geralmente expressos em EUR/m² SCP.</li><li><strong>ILNAS EN 15221-6</strong>: norma europeia transposta no Luxemburgo.</li></ul><p>A confusão entre SCB e SCP pode gerar desvios de 15 a 20%.</p>",
+      "faq1Q": "É necessário prever orçamento para fundações especiais?",
+      "faq1A": "No Luxemburgo, fundações especiais são necessárias em zonas aluvionares ou em terrenos inclinados. O sobrecusto varia de 50 a 200 EUR/m² de implantação. Um estudo geotécnico prévio custa 5.000 a 15.000 EUR.",
+      "faq2Q": "Qual o sobrecusto para materiais sustentáveis e de base biológica?",
+      "faq2A": "A utilização de materiais de base biológica implica um sobrecusto de 10 a 20% nos lotes afetados. Estes materiais podem gerar bónus na certificação LENOZ.",
+      "faq3Q": "Quais os prazos médios de construção no Luxemburgo?",
+      "faq3A": "Os prazos variam: 12 a 18 meses para uma moradia individual, 18 a 24 meses para um pequeno edifício coletivo, 24 a 36 meses para uma grande operação. Uma margem de 15 a 20% no planeamento é prudente.",
+      "faq4Q": "Que percentagem prever para honorários de arquiteto?",
+      "faq4A": "Os honorários de arquiteto no Luxemburgo são regulados pela OAI e representam 8 a 12% do custo das obras para um projeto residencial. Os gabinetes de engenharia acrescentam 3 a 5%."
+    }
   },
   "calculateurVrd": {
     "title": "Estimador VRD — Gabinete de engenharia",
@@ -3525,6 +3607,26 @@
     "sources": {
       "title": "Fontes:",
       "text": "Precos unitarios medios do mercado luxemburgues 2025-2026. Referencias: Batiprix 2026 vol. 2 (VRD, Espacos verdes) com coeficiente LU x1.20, CTG 002 (terraplanagem), CTG 009 (canalizacao), CSDC-CT (Ponts & Chaussées), STATEC indices de precos da construcao, Creos catalogo de ligacao 2026, OAI CTA Privé anexo 3. Os precos incluem geralmente fornecimento, transporte e aplicacao. Orcamentos detalhados a solicitar a empresas especializadas."
+    },
+    "seo": {
+      "faqTitle": "Perguntas frequentes sobre infraestruturas (VRD) no Luxemburgo",
+      "relatedTitle": "Ferramentas complementares",
+      "viabilisationTitle": "Custos de infraestruturas (VRD) no Luxemburgo",
+      "viabilisationContent": "<p>A <strong>infraestruturação</strong> de um terreno no Luxemburgo engloba o conjunto dos trabalhos de vias e redes diversas (VRD) necessários para tornar um terreno construível e ligável às redes públicas. Estes trabalhos constituem um posto orçamental importante em qualquer operação de loteamento ou promoção imobiliária.</p><p>No Luxemburgo, os custos de VRD são influenciados pela topografia, natureza do solo, distância às redes existentes e exigências específicas de cada município.</p><p>O <strong>Pacte Logement 2.0</strong> (lei de 30 de julho de 2021) modificou os mecanismos de financiamento das infraestruturas.</p>",
+      "postesTitle": "Os grandes postos de VRD",
+      "postesContent": "<p>Os trabalhos de VRD decompõem-se em vários postos principais:</p><ul><li><strong>Vias</strong>: terraplanagens, sub-base, camada de desgaste (betuminoso), lancis, passeios. Custo médio: 80 a 150 EUR/m².</li><li><strong>Redes de água potável</strong>: tubagens, ramais, contadores. Ligação à rede municipal: 1.500 a 5.000 EUR por lote.</li><li><strong>Saneamento</strong>: sistema separativo obrigatório nas novas zonas de loteamento. Bacias de retenção obrigatórias.</li><li><strong>Redes secas</strong>: eletricidade, telecomunicações (fibra ótica), gás natural.</li><li><strong>Iluminação pública</strong>: postes, luminárias LED, cablagem.</li></ul>",
+      "coutParLotTitle": "Custo de infraestruturação por lote conforme a densidade",
+      "coutParLotContent": "<p>O custo de VRD por lote varia conforme a densidade de urbanização:</p><ul><li><strong>Moradias isoladas</strong> (5-10 lotes/ha): 40.000 a 70.000 EUR/lote.</li><li><strong>Moradias em banda</strong> (15-25 lotes/ha): 25.000 a 45.000 EUR/lote.</li><li><strong>Edifícios coletivos</strong> (50-100 alojamentos/ha): 10.000 a 25.000 EUR/alojamento.</li></ul><p>O relatório LISER sublinha que a densificação é a estratégia mais eficaz para reduzir o custo das infraestruturas por alojamento.</p>",
+      "obligationsTitle": "Obrigações municipais e participação financeira",
+      "obligationsContent": "<p>No Luxemburgo, as obrigações em matéria de VRD são enquadradas por vários textos:</p><ul><li><strong>Lei de 19 de julho de 2004</strong>: define as zonas construíveis no PAG e as condições de loteamento nos PAPs.</li><li><strong>Participação financeira</strong>: o promotor deve contribuir para o financiamento das infraestruturas públicas.</li><li><strong>Convenção de loteamento</strong>: documento contratual entre promotor e município.</li><li><strong>Taxa de infraestrutura</strong>: cada município fixa os montantes por regulamento.</li></ul>",
+      "faq1Q": "Quem paga os trabalhos de VRD num loteamento?",
+      "faq1A": "Num loteamento no Luxemburgo, o promotor financia geralmente a totalidade dos VRD internos e contribui para os VRD externos. Após receção, as vias e redes são transferidas para o município. Os custos são repercutidos no preço de venda.",
+      "faq2Q": "Qual o custo de ligação às redes públicas?",
+      "faq2A": "Água potável: 1.500 a 5.000 EUR por lote. Saneamento: 2.000 a 8.000 EUR. Ligação elétrica (Creos): 2.000 a 6.000 EUR. Fibra ótica (POST) é geralmente gratuita para construções novas. Total: 8.000 a 20.000 EUR por lote.",
+      "faq3Q": "Como gerir um terreno em declive para os VRD?",
+      "faq3A": "Um terreno em declive implica sobrecustos significativos: muros de sutenção (150 a 500 EUR/m²), grandes terraplanagens, sistemas de drenagem específicos. O sobrecusto global pode atingir 30 a 50% face a um terreno plano.",
+      "faq4Q": "Qual o prazo médio de infraestruturação?",
+      "faq4A": "A infraestruturação demora geralmente 6 a 12 meses para as obras. As fases preparatórias podem acrescentar 6 a 18 meses. Prazo total típico: 18 a 36 meses."
     }
   },
   "hvac": {
@@ -4002,7 +4104,27 @@
     "headerRent": "Renda",
     "headerGrossYield": "Rend. bruto",
     "headerLTV": "LTV",
-    "headerPortfolioPct": "% portfólio"
+    "headerPortfolioPct": "% portfólio",
+    "seo": {
+      "faqTitle": "Perguntas frequentes sobre gestão de património imobiliário",
+      "relatedTitle": "Ferramentas complementares",
+      "gestionTitle": "Gerir um património imobiliário no Luxemburgo",
+      "gestionContent": "<p>A <strong>gestão de património imobiliário</strong> no Luxemburgo requer uma abordagem estruturada que integra as dimensões financeira, fiscal, energética e jurídica. Quer detenha 2 ou 20 imóveis, o acompanhamento sistemático dos indicadores de desempenho é essencial para otimizar a rentabilidade e antecipar os riscos.</p><p>O mercado imobiliário luxemburguês apresenta especificidades que impactam a gestão de cart eira: fiscalidade favorável aos rendimentos locativos, enquadramento regulamentar rigoroso dos arrendamentos habitacionais e legislação energética cada vez mais exigente.</p><p>A nossa ferramenta Portfolio consolida todas as suas avaliações e cálculos tevaxia para uma visão unificada do seu património.</p>",
+      "indicateursTitle": "Indicadores-chave: rentabilidade, LTV, alocação",
+      "indicateursContent": "<p>Os indicadores essenciais para gerir a sua carteira imobiliária:</p><ul><li><strong>Rentabilidade bruta</strong>: rácio entre rendas anuais e valor de mercado. No Luxemburgo, as rentabilidades brutas residenciais situam-se entre 3,0% e 4,5% (2025).</li><li><strong>Rentabilidade líquida</strong>: rentabilidade bruta menos encargos não recuperáveis, vacância, manutenção e imposto predial.</li><li><strong>Rácio LTV global</strong>: endividamento total face ao valor total da carteira. Um LTV superior a 60% é considerado arriscado.</li><li><strong>Distribuição geográfica</strong>: concentração num só município expõe a risco idiossincrático.</li><li><strong>Distribuição por tipo</strong>: combinar residencial e comercial permite beneficiar de ciclos económicos diferentes.</li></ul>",
+      "performanceTitle": "Acompanhamento do desempenho ao longo do tempo",
+      "performanceContent": "<p>O acompanhamento temporal permite identificar tendências e tomar decisões informadas:</p><ul><li><strong>Evolução do valor</strong>: comparação do valor da carteira em N e N-1.</li><li><strong>Evolução das rendas</strong>: acompanhamento das indexações anuais e dos reajustamentos.</li><li><strong>Vacância</strong>: taxa de vacância efetiva comparada com a vacância estrutural de mercado.</li><li><strong>CAPEX</strong>: acompanhamento dos investimentos de manutenção. Norma: provisionar 1 a 2% do valor do imóvel por ano.</li></ul>",
+      "energieTitle": "Score energético CPE ponderado da carteira imobiliária",
+      "energieContent": "<p>O <strong>desempenho energético</strong> da sua carteira tornou-se uma questão estratégica no Luxemburgo:</p><ul><li><strong>Diretiva EPBD</strong>: a revisão de 2024 impõe trajetórias ambiciosas de renovação.</li><li><strong>Score CPE ponderado</strong>: cálculo de um score energético médio ponderado pela área.</li><li><strong>Green premium / brown discount</strong>: imóveis A-B beneficiam de prémio de 5 a 8%. Imóveis F-G sofrem desconto de 8 a 15%.</li><li><strong>Subsídios à renovação</strong>: o programa PRIMe House oferece subsídios de 30 a 50% dos custos de renovação energética.</li></ul>",
+      "faq1Q": "Como diversificar uma carteira imobiliária no Luxemburgo?",
+      "faq1A": "A diversificação pode operar em vários eixos: geográfico, tipológico, locativo e temporal. Uma carteira equilibrada poderia compreender 60-70% residencial e 30-40% comercial.",
+      "faq2Q": "Que rentabilidade visar para um investimento locativo no Luxemburgo?",
+      "faq2A": "Para residencial core: rentabilidade líquida de 2,5 a 3,5%. Para value-add: 3,5 a 4,5% após obras. Para escritórios prime: 3,5 a 4,5% líquido.",
+      "faq3Q": "Qual a fiscalidade de um património multi-imóveis no Luxemburgo?",
+      "faq3A": "Os rendimentos locativos são tributados à taxa progressiva (taxa marginal de 42% + contribuição de 9%). Encargos dedutíveis incluem juros, manutenção, seguros, imposto predial e amortização (2%/ano). As mais-valias beneficiam de taxa reduzida após 2 anos.",
+      "faq4Q": "Quando vender um imóvel da carteira?",
+      "faq4A": "Sinais de venda: rentabilidade líquida inferior a 2% sem perspetiva de melhoria, grandes obras previstas, classe CPE F-G com custo de renovação desproporcionado, ou oportunidade de reinvestimento mais atrativa."
+    }
   },
   "hedonique": {
     "title": "Avaliação hedónica",
@@ -4080,7 +4202,27 @@
     "coeff_source_observatoire": "Observatório hedónico",
     "coeff_source_transactions": "Transações observadas",
     "coeff_source_spuerkeess": "Spuerkeess / Observatório",
-    "coeff_source_parking": "~30-45k€ / lugar"
+    "coeff_source_parking": "~30-45k€ / lugar",
+    "seo": {
+      "faqTitle": "Perguntas frequentes sobre o modelo hedónico",
+      "relatedTitle": "Ferramentas complementares",
+      "modeleTitle": "O modelo hedónico aplicado ao mercado luxemburguês",
+      "modeleContent": "<p>O <strong>modelo hedónico</strong> é uma abordagem econométrica que decompõe o preço de um imóvel na soma dos valores implícitos das suas características. Desenvolvido por Rosen (1974), baseia-se na hipótese de que o preço de mercado reflete as preferências dos compradores para cada atributo da habitação.</p><p>No Luxemburgo, o <strong>Observatório da Habitação</strong> (Ministério da Habitação / LISER) publica regularmente modelos hedónicos calibrados com transações reais da AED.</p><p>A nossa implementação utiliza um modelo <strong>log-linear</strong>.</p>",
+      "coefficientsTitle": "Coeficientes e variáveis explicativas",
+      "coefficientsContent": "<p>Os coeficientes do nosso modelo são calibrados com dados luxemburgueses:</p><ul><li><strong>Área</strong>: elasticidade de -0,35% por m² adicional acima de 80 m².</li><li><strong>Piso</strong>: rés-do-chão sofre desconto de ~7%, 1.º andar 3%. Pisos altos (4+) beneficiam de 3% de prémio, cobertura até 8%.</li><li><strong>Estado geral</strong>: novo ou totalmente renovado: +7%. A necessitar de renovação: -15%.</li><li><strong>Classe energética CPE</strong>: classes A-B: +5%. Classes F-G: -8%.</li><li><strong>Estacionamento</strong>: um lugar interior acrescenta ~5% ao preço.</li></ul>",
+      "sourcesTitle": "Fontes de dados",
+      "sourcesContent": "<p>As nossas fontes incluem:</p><ul><li><strong>Observatório da Habitação</strong>: índices de preços hedónicos trimestrais.</li><li><strong>STATEC</strong>: índice de preços da habitação, preços médios por município.</li><li><strong>Administrações municipais</strong>: dados PAG/PAP, licenças de construção.</li><li><strong>Anúncios imobiliários</strong>: preços de oferta como referência complementar.</li></ul>",
+      "limitesTitle": "Limites do modelo: R² e intervalo de confiança",
+      "limitesContent": "<p>Todo o modelo estatístico tem limites:</p><ul><li><strong>R²</strong>: ~0,75 — 75% da variância dos preços é explicada.</li><li><strong>Intervalo de confiança</strong>: ±10% em zonas urbanas densas, até ±18% em zonas rurais.</li><li><strong>Imóveis atípicos</strong>: propriedades de luxo ou com defeitos graves podem desviar-se significativamente.</li><li><strong>Efeito temporal</strong>: os coeficientes refletem as condições no momento da calibração.</li></ul>",
+      "faq1Q": "Qual é o R² do modelo hedónico para o Luxemburgo?",
+      "faq1A": "O R² do nosso modelo é de aproximadamente 0,75, comparável aos resultados do Observatório da Habitação.",
+      "faq2Q": "Qual a diferença entre modelo hedónico e perícia imobiliária?",
+      "faq2A": "O modelo hedónico fornece uma estimação estatística sem visita física. A perícia (conforme EVS) inclui inspeção no local, análise jurídica e julgamento profissional.",
+      "faq3Q": "O modelo hedónico aplica-se ao imobiliário comercial?",
+      "faq3A": "O nosso modelo está calibrado principalmente para o mercado residencial. Para imobiliário comercial, os métodos baseados no rendimento (capitalização, DCF) são mais apropriados.",
+      "faq4Q": "Qual a precisão do modelo por município?",
+      "faq4A": "A precisão varia: ±10% na Cidade do Luxemburgo ou Esch-sur-Alzette, até ±18% em municípios rurais do norte."
+    }
   },
   "indices": {
     "breadcrumb_home": "Início",
@@ -4276,7 +4418,27 @@
     "ref3Title": "CSSF Circular 20/744",
     "ref3Desc": "sobre as obrigações AML dos profissionais do setor financeiro.",
     "ref4Title": "CRF (Célula de Informação Financeira)",
-    "ref4Desc": "— Declaração de suspeita: crf@justice.etat.lu"
+    "ref4Desc": "— Declaração de suspeita: crf@justice.etat.lu",
+    "seo": {
+      "faqTitle": "Perguntas frequentes sobre AML/KYC imobiliário",
+      "relatedTitle": "Ferramentas complementares",
+      "obligationsTitle": "Obrigações anti-branqueamento no imobiliário no Luxemburgo",
+      "obligationsContent": "<p>A <strong>luta contra o branqueamento de capitais</strong> (Anti-Money Laundering, AML) é uma obrigação maior para todos os profissionais do imobiliário no Luxemburgo. O setor imobiliário é identificado pelo GAFI como um vetor de branqueamento particularmente arriscado devido aos montantes elevados e à complexidade das estruturas de detenção.</p><p>No Luxemburgo, os profissionais do imobiliário (agentes, promotores, gestores de imóveis, avaliadores) estão sujeitos às obrigações de vigilância desde a transposição da 4.ª Diretiva AML. A <strong>CSSF</strong> e o <strong>Ministério da Justiça</strong> asseguram a supervisão.</p><p>As sanções por incumprimento são severas: coimas até 5 milhões de euros ou 10% do volume de negócios, sanções penais (1 a 5 anos de prisão), proibição de exercício e danos reputacionais consideráveis.</p>",
+      "loi2004Title": "A lei alterada de 12 de novembro de 2004",
+      "loi2004Content": "<p>A <strong>lei de 12 de novembro de 2004</strong> relativa à luta contra o branqueamento e o financiamento do terrorismo constitui o quadro legal de referência:</p><ul><li><strong>Âmbito de aplicação</strong>: qualquer pessoa física ou jurídica que, a título profissional, intervenha em transações relativas à compra, venda, arrendamento ou gestão de bens imobiliários.</li><li><strong>Obrigações principais</strong>: identificação e verificação da identidade do cliente e do beneficiário efetivo, avaliação e gestão de riscos, conservação de documentos, formação do pessoal, declaração de operações suspeitas.</li><li><strong>Abordagem baseada no risco</strong>: medidas de vigilância reforçada para clientes de alto risco.</li><li><strong>Registo de beneficiários efetivos (RBE)</strong>: as sociedades detentoras de imóveis devem registar os seus beneficiários efetivos.</li></ul>",
+      "identificationTitle": "Identificação do cliente e vigilância reforçada",
+      "identificationContent": "<p>As medidas de identificação e vigilância (KYC) no setor imobiliário luxemburguês compreendem:</p><ul><li><strong>Identificação standard</strong>: verificação da identidade (documento oficial), da morada e da origem dos fundos. Para pessoas coletivas: estatutos, extrato do RCS, identificação dos sócios e beneficiários efetivos (limiar de 25%).</li><li><strong>Vigilância reforçada</strong>: obrigatória para pessoas politicamente expostas (PPE), clientes de países de alto risco e transações invulgarmente complexas.</li><li><strong>Vigilância simplificada</strong>: possível para clientes apresentados por entidade congénere ou instituições públicas luxemburguesas.</li><li><strong>Acompanhamento contínuo</strong>: a obrigação não se limita à entrada em relação.</li></ul>",
+      "declarationTitle": "Declaração de suspeita e sanções",
+      "declarationContent": "<p>O dispositivo de declaração e sanção é um pilar do sistema AML luxemburguês:</p><ul><li><strong>Declaração de suspeita</strong>: todo o profissional que suspeite de uma transação ligada ao branqueamento deve apresentar uma declaração à <strong>Cellule de Renseignement Financier (CRF)</strong>.</li><li><strong>Tipping-off</strong>: é estritamente proibido informar o cliente de que uma declaração foi apresentada.</li><li><strong>Sanções administrativas</strong>: coimas de 1.250 a 5.000.000 EUR para pessoas coletivas.</li><li><strong>Sanções penais</strong>: o branqueamento é punido com 1 a 5 anos de prisão.</li><li><strong>Registo de sanções</strong>: as sanções administrativas são publicadas no site do Ministério da Justiça.</li></ul>",
+      "faq1Q": "Quem está sujeito às obrigações AML no imobiliário no Luxemburgo?",
+      "faq1A": "Estão sujeitos: agentes imobiliários, promotores, administradores de imóveis, síndicos de condomínio, notários, advogados (quando assistem clientes em operações imobiliárias) e peritos em avaliação imobiliária.",
+      "faq2Q": "Como identificar uma Pessoa Politicamente Exposta (PPE)?",
+      "faq2A": "Uma PPE é uma pessoa que exerce ou exerceu funções políticas, judiciais ou administrativas de primeiro plano. Os membros da família próxima e as pessoas conhecidas como estreitamente associadas também são consideradas PPE. Bases de dados especializadas (World-Check, Dow Jones) permitem o screening sistemático.",
+      "faq3Q": "Existe um limiar de declaração para transações imobiliárias?",
+      "faq3A": "Não existe limiar monetário abaixo do qual as obrigações não se aplicam. Toda a transação imobiliária está sujeita às obrigações KYC. A declaração de suspeita baseia-se em indicadores qualitativos. Os pagamentos em numerário superiores a 10.000 EUR estão sujeitos a declaração específica.",
+      "faq4Q": "Durante quanto tempo conservar os documentos KYC?",
+      "faq4A": "A lei impõe uma conservação mínima de 5 anos após o fim da relação comercial. Na prática, recomenda-se conservar durante 10 anos, tendo em conta os prazos de prescrição penal no Luxemburgo."
+    }
   },
   "terresAgricoles": {
     "title": "Avaliação — Terrenos agrícolas",

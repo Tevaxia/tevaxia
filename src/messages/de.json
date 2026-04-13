@@ -1883,7 +1883,27 @@
     "sensitivityCurrent": "aktuell",
     "sensitivityGreen": "Marge > 15 %",
     "sensitivityYellow": "Marge 5–15 %",
-    "sensitivityRed": "Marge < 5 %"
+    "sensitivityRed": "Marge < 5 %",
+    "seo": {
+      "faqTitle": "Häufig gestellte Fragen zur Projektentwicklerbilanz",
+      "relatedTitle": "Ergänzende Tools",
+      "faisabiliteTitle": "Die Projektentwicklerbilanz: Machbarkeitstool für Immobilienprojekte",
+      "faisabiliteContent": "<p>Die <strong>Projektentwicklerbilanz</strong> ist das grundlegende Instrument jedes Bauträgers zur Bewertung der wirtschaftlichen Machbarkeit eines Bau- oder Sanierungsprojekts. In Luxemburg, wo Baukosten und Grundstückspreise zu den höchsten in Europa zählen, ist eine gründliche Analyse vor jeder Verpflichtung unerlässlich.</p><p>Die Bilanz stellt die <strong>prognostizierten Einnahmen</strong> (Verkaufserlöse oder Mieteinnahmen) den gesamten <strong>Kosten</strong> (Grundstück, Bau, Honorare, Finanzierungskosten, Vermarktung) gegenüber. Die Differenz bildet die <strong>Bruttomarge</strong>, von der der Bauträger seine Vergütung und Risikozuschläge abzieht.</p><p>In Luxemburg werden Bauträgerprojekte durch das Gesetz vom 22. Oktober 2008 (kommunale Raumplanung) und die großherzogliche Verordnung vom 28. Juli 2011 über Bebauungspläne geregelt. Die Übereinstimmung mit dem PAG und PAP bestimmt die grundlegenden Projektparameter: Geschossflächenzahl, Gebäudehöhe, Abstände und Anteil geförderter Wohnungen.</p>",
+      "compteAReboursTitle": "Die Residualwertmethode",
+      "compteAReboursContent": "<p>Die <strong>Residualwertmethode</strong> bestimmt den maximalen Grundstückswert, ausgehend vom prognostizierten Umsatz abzüglich aller Kosten:</p><p><strong>Maximaler Grundstückswert = Umsatz - Baukosten - Honorare - Finanzierungskosten - Bauträgermarge</strong></p><ul><li>Der <strong>Umsatz</strong> wird auf Basis der Verkaufspreise pro m² nach Einheitentyp berechnet, angepasst an Lage und Ausstattungsniveau.</li><li>Die <strong>Baukosten</strong> umfassen Rohbau, Ausbau, technische Gewerke und Erschließung.</li><li>Die <strong>Honorare</strong> beinhalten Architekt (8-12 % gemäß OAI), Ingenieurbüros, Vermesser, technische Prüfung und Sicherheitskoordination.</li><li>Die <strong>Finanzierungskosten</strong> decken Grundstücksvorfinanzierung und Baufinanzierung ab (Zinsen von 3 bis 5 % über 24-36 Monate).</li></ul><p>Diese Methode wird von luxemburgischen Bauträgern systematisch zur Verhandlung des Grundstückskaufpreises eingesetzt.</p>",
+      "coutsTitle": "Kostenaufschlüsselung: Grundstück, Bau, Honorare",
+      "coutsContent": "<p>Die Kostenstruktur eines Bauträgerprojekts in Luxemburg gliedert sich typischerweise wie folgt:</p><ul><li><strong>Grundstück</strong>: 25 bis 40 % des Umsatzes je nach Lage. In Luxemburg-Stadt kann das Grundstück bis zu 50 % des Endverkaufspreises ausmachen. Registrierungsgebühren (7 % für Bauland) kommen zum Kaufpreis hinzu.</li><li><strong>Bau</strong>: 35 bis 50 % des Umsatzes. Die Baukosten in Luxemburg liegen zwischen 2.200 und 3.500 EUR/m² SCP (STATEC/OAI-Daten 2025). Die Bau-MwSt. beträgt 17 % (Normalsatz) oder 3 % (super-ermäßigter Satz für Wohnungsbau, begrenzt auf 50.000 EUR pro Wohnung).</li><li><strong>Honorare und Kosten</strong>: 12 bis 18 % des Umsatzes. Beinhalten Architekt, Ingenieure, Notar, Vermarktung (2-4 %), Versicherungen und Finanzierungskosten.</li><li><strong>Bauträgermarge</strong>: Ziel von 8 bis 15 % des Umsatzes für ein Standardprojekt.</li></ul>",
+      "margeTitle": "Marge und Eigenkapitalrendite",
+      "margeContent": "<p>Die Rentabilität einer Bauträgermaßnahme wird über mehrere Indikatoren gemessen:</p><ul><li><strong>Umsatzmarge</strong>: Verhältnis zwischen prognostiziertem Nettoergebnis und Umsatz. Ein Ziel von 10 bis 15 % ist in Luxemburg Standard.</li><li><strong>Eigenkapitalrendite (ROE)</strong>: Verhältnis zwischen Ergebnis und eingesetztem Eigenkapital. Mit Hebelwirkung (Bankfinanzierung zu 60-70 %) kann ein Bauträger einen ROE von 15 bis 25 % anstreben.</li><li><strong>Eigenkapitalmultiple</strong>: Verhältnis zwischen Ergebnis und Anfangsinvestition. Ein Multiple von 1,5x bis 2,0x über 24-36 Monate gilt als attraktiv.</li></ul><p>Die Sensitivitätsanalyse ist entscheidend: Ein Rückgang der Verkaufspreise um 5 % oder ein Anstieg der Baukosten um 10 % kann die Marge zunichtemachen. Unser Tool ermöglicht die Simulation dieser Szenarien.</p>",
+      "faq1Q": "Wie ist das typische Verhältnis Grundstück/Bau in Luxemburg?",
+      "faq1A": "Das Verhältnis variiert erheblich je nach Lage. In Luxemburg-Stadt (Belair, Limpertsberg, Kirchberg) macht das Grundstück 40 bis 50 % der Gesamtkosten aus. In der Peripherie (Esch-sur-Alzette, Differdange, Mersch) sinkt das Verhältnis auf 25-35 %. In ländlichen Gebieten kann das Grundstück nur 15-20 % ausmachen. Dieses Verhältnis ist ein Schlüsselindikator: Ein Verhältnis Grundstück/Umsatz über 40 % macht das Projekt bei einem Marktabschwung verwundbar.",
+      "faq2Q": "Ist die MwSt. bei einem Bauträgerprojekt erstattungsfähig?",
+      "faq2A": "Ja, ein MwSt.-pflichtiger Bauträger erstattet die gesamte MwSt. auf Baukosten, Honorare und Ausgaben. Der Verkauf von Neubauwohnungen unterliegt der MwSt. (17 % oder 3 % super-ermäßigt mit einer Obergrenze von 50.000 EUR/Wohnung). Für den Verkauf von Bauland durch einen Steuerpflichtigen gilt ebenfalls MwSt. Der Verkauf von Altbauten unterliegt dagegen den Registrierungsgebühren (7 %) und nicht der MwSt.",
+      "faq3Q": "Wie lässt sich das Vermarktungsrisiko steuern?",
+      "faq3A": "Das Vermarktungsrisiko ist ein Hauptrisiko in der Projektentwicklung. Bewährte Praktiken in Luxemburg umfassen: Vorvermietung/-verkauf (Ziel: 30-40 % Reservierungen vor Baubeginn), Nutzung eines VEFA-Vertrags gemäß dem Gesetz vom 18. April 2008, Diversifizierung des Angebots und eine aufschiebende Bedingung im Grundstücksvertrag, die an die Vorverkaufsquote geknüpft ist.",
+      "faq4Q": "Wie lang ist die durchschnittliche Projektdauer in Luxemburg?",
+      "faq4A": "Die Gesamtdauer eines Bauträgerprojekts in Luxemburg beträgt typischerweise 4 bis 7 Jahre. Die Genehmigung des PAP kann 12 bis 24 Monate dauern. Die Baugenehmigung erfordert weitere 3 bis 12 Monate. Die Bauzeit selbst beträgt 18 bis 30 Monate für ein Projekt mit 20 bis 50 Einheiten. Die Vermarktung beginnt idealerweise 6 bis 12 Monate vor der Fertigstellung."
+    }
   },
   "marche": {
     "title": "Marktdatenbank",
@@ -2752,7 +2772,29 @@
     "estAjustParking": "Parkplatz inklusive",
     "estAjustSurfacePetit": "Fläche {surface} m² (kleines Objekt)",
     "estAjustSurfaceGrand": "Fläche {surface} m² (großes Objekt)",
-    "estAjustEnergie": "Energieklasse {classe}"
+    "estAjustEnergie": "Energieklasse {classe}",
+    "seo": {
+      "faqTitle": "Häufig gestellte Fragen zur Immobilienbewertung",
+      "relatedTitle": "Ergänzende Tools",
+      "evs2025Title": "EVS 2025-konforme Immobilienbewertung in Luxemburg",
+      "evs2025Content": "<p>Die <strong>European Valuation Standards (EVS) 2025</strong>, veröffentlicht von TEGoVA, bilden den Referenzrahmen für jede professionelle Immobilienbewertung in Luxemburg. Die CSSF verlangt in ihrem Rundschreiben 21/773, dass Kreditinstitute EVS-konforme Bewertungen für als Sicherheit akzeptierte Immobilien verwenden.</p><p>In Luxemburg wird der Marktwert als der wahrscheinlichste Preis definiert, zu dem eine Immobilie am Bewertungsstichtag nach angemessener Vermarktung zwischen einem freiwilligen Verkäufer und Käufer, die jeweils unabhängig handeln, verkauft würde. Diese Definition ist wesentlich für die LTV-Berechnung der Banken.</p><p>Der Bewerter muss den <strong>Bewertungsstichtag</strong>, den <strong>Bewertungszweck</strong> (Hypothekensicherung, Transaktion, IFRS-Bilanzierung, Erbschaft), <strong>besondere Annahmen</strong> und die verwendeten Datenquellen dokumentieren.</p>",
+      "methodesTitle": "Die 5 anerkannten Bewertungsmethoden",
+      "methodesContent": "<p>Unser Bewertungstool integriert die fünf von internationalen Standards anerkannten Bewertungsansätze:</p><ul><li><strong>Vergleichswertverfahren</strong>: direkter Ansatz basierend auf jüngsten Transaktionen vergleichbarer Immobilien. In Luxemburg nutzen wir die AED-Datenbank.</li><li><strong>Ertragswertverfahren</strong>: Die Nettomieteinnahmen werden mit der beobachteten Rendite kapitalisiert. Prime-Bürorenditen in Luxemburg-Stadt lagen Anfang 2025 zwischen 4,0 % und 4,5 %.</li><li><strong>DCF-Methode</strong>: Projektion der Nettoflüsse über 10 Jahre mit Endwert. Besonders geeignet für Mehrmieterimmobilien.</li><li><strong>Mortgage Lending Value (MLV)</strong>: Vorsichtiger Wert gemäß CRR-Verordnung (Artikel 229) mit einer Abschlag von 10 bis 20 % gegenüber dem Marktwert.</li><li><strong>Term-and-Reversion-Methode</strong>: Unterscheidung zwischen vertraglichem Einkommen (Term) und erwartetem Markteinkommen nach Mietvertragsende (Reversion).</li></ul>",
+      "reconciliationTitle": "Abgleich und Methodengewichtung",
+      "reconciliationContent": "<p>Ein professioneller Bewerter stützt sich nie auf eine einzige Methode. Der <strong>Abgleich</strong> besteht darin, jeder Methode ein Gewicht zuzuweisen:</p><ul><li>Für eine <strong>Standardwohnung</strong> in städtischer Lage erhält das Vergleichswertverfahren das höchste Gewicht (60-70 %).</li><li>Für eine <strong>Anlageimmobilie</strong> werden Ertragswert und DCF bevorzugt (kumuliertes Gewicht 70-80 %).</li><li>Für eine <strong>atypische Immobilie</strong> stützt sich der Bewerter stärker auf die Residualmethode.</li></ul><p>Unser Abgleichalgorithmus verwendet ein Bayes'sches Gewichtungsmodell, das die Gewichte anhand der Anzahl verfügbarer Vergleichsobjekte, der Wertstreuung und der Tiefe der Mietdaten anpasst.</p>",
+      "rapportTitle": "Struktur des Bewertungsberichts",
+      "rapportContent": "<p>Ein EVS 2025-konformer Bewertungsbericht umfasst folgende Elemente:</p><ul><li><strong>Objektidentifikation</strong>: Adresse, Katasterreferenzen, physische Beschreibung, Dienstbarkeiten und im Grundbuch eingetragene dingliche Rechte.</li><li><strong>Rechtlicher Kontext</strong>: Wohnungseigentumsregime, Erbbaurecht, Baurecht, Planungskonformität (PAG/PAP).</li><li><strong>Lokale Marktanalyse</strong>: Preistrends, Transaktionsvolumen, Angebot und Nachfrage, Infrastrukturprojekte.</li><li><strong>Methodenanwendung</strong>: Berechnungsdetails, Datenquellen, Begründung der verwendeten Parameter.</li><li><strong>Abgleich und Schlussfolgerung</strong>: ermittelter Wert, Konfidenzintervall, Vorbehalte, aufschiebende Bedingungen.</li></ul>",
+      "faq1Q": "Wer darf in Luxemburg eine Immobilienbewertung durchführen?",
+      "faq1A": "In Luxemburg ist der Titel des Immobilienexperten nicht gesetzlich geschützt. Banken verlangen in der Regel jedoch einen Bewerter mit REV-Qualifikation (Recognised European Valuer) von TEGoVA. Die CSSF empfiehlt, dass Bewertungen für Hypothekensicherheiten von Fachleuten durchgeführt werden, die vom Kreditvergabeprozess unabhängig sind.",
+      "faq2Q": "Welche Bewertungsmethode für welchen Immobilientyp?",
+      "faq2A": "Für eine Wohnung oder ein Haus ist das Vergleichswertverfahren in der Regel am zuverlässigsten. Für ein vermietetes Büro- oder Geschäftsgebäude werden Ertragswertverfahren oder DCF bevorzugt. Für Bauland ist die Residualmethode unerlässlich. Ein professioneller Bewerter verwendet immer mindestens zwei Methoden und führt einen Abgleich durch.",
+      "faq3Q": "Was ist der Unterschied zwischen Marktwert und Mortgage Lending Value (MLV)?",
+      "faq3A": "Der Marktwert repräsentiert den wahrscheinlichsten Preis am Bewertungsstichtag. Der MLV (Beleihungswert) ist ein vorsichtiger, zeitstabiler Wert, der die dauerhaften Eigenschaften der Immobilie und normale lokale Marktbedingungen berücksichtigt. Er schließt spekulative Elemente aus und wendet in der Regel einen Abschlag von 10 bis 20 % gegenüber dem Marktwert an.",
+      "faq4Q": "Wie oft sollte eine Immobilie neu bewertet werden?",
+      "faq4A": "Für Hypothekensicherheiten verlangt die CSSF eine Neubewertung mindestens alle 3 Jahre für Wohnimmobilien und jährlich für Gewerbeimmobilien (Rundschreiben 21/773). Bei IFRS-Bilanzierung (IAS 40) müssen Anlageimmobilien zu jedem Abschlussstichtag neu bewertet werden, wenn das Fair-Value-Modell gewählt wird.",
+      "faq5Q": "Was kostet ein Immobiliengutachten in Luxemburg?",
+      "faq5A": "Die Honorare eines Immobiliengutachters in Luxemburg variieren je nach Komplexität und Bewertungszweck. Für eine Standardwohnung rechnen Sie mit 1.500 bis 3.000 EUR für ein EVS-konformes Gutachten. Für ein Anlageobjekt oder Gewerbeimmobilie liegen die Honorare bei 3.000 bis 8.000 EUR. Das tevaxia-Tool bietet eine sofortige Vorbewertung."
+    }
   },
   "onboarding": {
     "heading": "Was möchten Sie tun?",
@@ -3177,7 +3219,27 @@
     "ecartAccessoires": "Differenz (Nebenräume)",
     "ratioVendableScb": "Verhältnis Verkaufsfläche / SCB",
     "sourcesTitle": "Quellen und Referenzen",
-    "sourcesText": "OAI FC.04 (Jan. 2025) — Flächenberechnungsblätter, Orden der Architekten und Beratenden Ingenieure. ILNAS 101:2016 — Luxemburgische Norm zur Messung der Wohnfläche. ACT — Praktischer Leitfaden zum vertikalen Kataster (Jul. 2023), Kataster- und Topographieverwaltung. RGD PAG Art. 32 — Definition der Bruttogeschossfläche."
+    "sourcesText": "OAI FC.04 (Jan. 2025) — Flächenberechnungsblätter, Orden der Architekten und Beratenden Ingenieure. ILNAS 101:2016 — Luxemburgische Norm zur Messung der Wohnfläche. ACT — Praktischer Leitfaden zum vertikalen Kataster (Jul. 2023), Kataster- und Topographieverwaltung. RGD PAG Art. 32 — Definition der Bruttogeschossfläche.",
+    "seo": {
+      "faqTitle": "Häufig gestellte Fragen zu Immobilienflächen",
+      "relatedTitle": "Ergänzende Tools",
+      "comprendreTitle": "Immobilienflächen in Luxemburg verstehen: BGF, NGF, Nutzfläche, Wohnfläche",
+      "comprendreContent": "<p>In Luxemburg ist die Vielzahl der Flächendefinitionen eine häufige Verwirrungsquelle für Käufer, Investoren und selbst Fachleute. Anders als in Frankreich, wo das Carrez-Gesetz eine einheitliche Definition vorschreibt, existieren im Großherzogtum mehrere nebeneinander bestehende Bezugssysteme:</p><ul><li><strong>Bruttogeschossfläche (SCB)</strong>: Gesamtfläche gemessen an der Außenseite der Wände, einschließlich Wänden, Technikschächten und Gemeinschaftsflächen.</li><li><strong>Nettokonstruktionsfläche (SCP)</strong>: Fläche gemessen innerhalb der tragenden Wände. Referenz für Baukosten (OAI FC.04).</li><li><strong>Nutzfläche (SU)</strong>: tatsächlich nutzbare Fläche ohne Wände, Trennwände, Schächte und Innentreppen.</li><li><strong>Wohnfläche</strong>: Teilmenge der Nutzfläche, beschränkt auf Wohnräume.</li></ul>",
+      "normesTitle": "Bezugsnormen: OAI FC.04 und ILNAS 101",
+      "normesContent": "<p>Zwei Hauptnormen regeln die Flächenvermessung in Luxemburg:</p><ul><li><strong>OAI FC.04</strong>: veröffentlicht von der Architektenkammer, definiert Vermessungsmethoden für Bauprojekte. Sie unterscheidet SCB, SCP, Nutzfläche und Nebenflächen.</li><li><strong>ILNAS-EN 15221-6</strong>: europäische Norm, die in Luxemburg durch ILNAS umgesetzt wurde. Sie harmonisiert Flächendefinitionen für das Facility Management.</li></ul><p>Die Übereinstimmung zwischen beiden Bezugssystemen ist nicht immer direkt. Unser Tool integriert die offiziellen Umrechnungsverhältnisse der OAI.</p>",
+      "ponderationTitle": "Gewichtung der Nebenflächen: Keller, Balkone, Terrassen, Garagen",
+      "ponderationContent": "<p>In der luxemburgischen Immobilienpraxis werden Nebenflächen nicht zu 100 % ihres Werts angerechnet. Standardgewichtungskoeffizienten sind:</p><ul><li><strong>Keller</strong>: Koeffizient von 0,25 bis 0,50 je nach Deckenhöhe und Ausbau.</li><li><strong>Balkone</strong>: Koeffizient von 0,30 bis 0,50.</li><li><strong>Terrassen</strong>: Koeffizient von 0,25 bis 0,50 je nach Fläche und Ausrichtung.</li><li><strong>Private Gärten</strong>: Koeffizient von 0,10 bis 0,20.</li><li><strong>Garagen und Stellplätze</strong>: werden in der Wohnfläche nicht gewichtet, sondern separat bewertet (25.000 bis 50.000 EUR pro Innenstellplatz).</li></ul>",
+      "circulaireTitle": "Steuerliche Richtlinien zu Handelsflächen",
+      "circulaireContent": "<p>Die <strong>Steuerverwaltung (ACD)</strong> und die <strong>Registrierungsverwaltung (AED)</strong> verwenden spezifische Flächendefinitionen für steuerliche Berechnungen:</p><ul><li>Die in notariellen Urkunden genannte <strong>Handelsfläche</strong> ist in Luxemburg nicht durch ein einziges Gesetz definiert.</li><li>Für die <strong>Grundsteuer</strong> wird die Nutzfläche einschließlich gewichteter Nebenflächen herangezogen.</li><li>Für <strong>Registrierungsgebühren</strong> ist die in der notariellen Urkunde genannte Fläche maßgeblich.</li></ul>",
+      "faq1Q": "Welche Fläche wird für den Quadratmeterpreis verwendet?",
+      "faq1A": "In Luxemburg gibt es keinen einheitlichen gesetzlichen Standard für den m²-Preis. In der Praxis verwenden Agenturen die Wohnfläche oder die Nutzfläche. Das Observatoire de l'Habitat nutzt die Nutzfläche für seine Statistiken.",
+      "faq2Q": "Gibt es die Carrez-Fläche in Luxemburg?",
+      "faq2A": "Nein, das Carrez-Gesetz ist eine französische Regelung ohne Äquivalent in Luxemburg. Es besteht keine gesetzliche Pflicht, eine zertifizierte Flächenmessung in Kaufverträgen von Wohnungseigentum anzugeben.",
+      "faq3Q": "Welcher Gewichtungskoeffizient für eine Terrasse in Luxemburg?",
+      "faq3A": "Für eine überdachte Terrasse angrenzend an das Wohnzimmer gilt ein Standardkoeffizient von 0,50. Für eine offene Terrasse mittlerer Größe (10-20 m²) allgemein 0,30 bis 0,40. Für große Dachterrassen (50+ m²) gilt ein degressiver Koeffizient.",
+      "faq4Q": "Welche Fläche wird für die Grundsteuer herangezogen?",
+      "faq4A": "Für die luxemburgische Grundsteuer ist die Berechnungsgrundlage der Einheitswert, der von der Steuerverwaltung festgelegt wird. Die Einheitswerte wurden seit 1941 nicht mehr angepasst. Eine Reform wird seit mehreren Jahren diskutiert."
+    }
   },
   "estimateurConstruction": {
     "title": "Baukostenschätzer",
@@ -3275,7 +3337,27 @@
     "partConstruction": "Anteil Bau",
     "partFraisAnnexes": "Anteil Nebenkosten",
     "sourcesLabel": "Quellen:",
-    "sourcesText": "STATEC — Halbjährlicher Baupreisindex (Okt. 2025, Basis 100 = 1970, Gesamtindex 1173,24). Gewichtungen je Gewerk aus dem STATEC-Warenkorb. Preisspannen: Durchschnitt luxemburgischer Markt 2025-2026 (tack.lu, maison.lu, renov.lu)."
+    "sourcesText": "STATEC — Halbjährlicher Baupreisindex (Okt. 2025, Basis 100 = 1970, Gesamtindex 1173,24). Gewichtungen je Gewerk aus dem STATEC-Warenkorb. Preisspannen: Durchschnitt luxemburgischer Markt 2025-2026 (tack.lu, maison.lu, renov.lu).",
+    "seo": {
+      "faqTitle": "Häufig gestellte Fragen zu Baukosten",
+      "relatedTitle": "Ergänzende Tools",
+      "estimerTitle": "Baukosten in Luxemburg 2025 schätzen",
+      "estimerContent": "<p>Luxemburg zählt zu den europäischen Ländern mit den <strong>höchsten Baukosten</strong>, bedingt durch strenge regulatorische Anforderungen (Energiestandards, Materialqualität), hohe Kosten für qualifizierte Arbeitskräfte und den Druck auf Bauunternehmen.</p><p>Unser Schätzer stützt sich auf Daten des <strong>STATEC</strong> (Baukostenindex), der <strong>OAI</strong> und Preisspiegel aus aktuellen Ausschreibungen. Die Kosten werden in EUR/m² BGF oder SCP ausgedrückt.</p>",
+      "prixM2Title": "Preis pro m² nach Bautyp",
+      "prixM2Content": "<p>Die Baukosten in Luxemburg variieren erheblich je nach Projekttyp (Daten 2025, ohne Grundstück und Honorare):</p><ul><li><strong>Standard-Geschosswohnungsbau</strong>: 2.200 bis 2.800 EUR/m² SCP.</li><li><strong>Gehobener Wohnungsbau</strong>: 3.000 bis 3.800 EUR/m² SCP.</li><li><strong>Einfamilienhaus</strong>: 2.500 bis 4.000 EUR/m².</li><li><strong>Büros</strong>: 2.000 bis 3.200 EUR/m².</li><li><strong>Einzelhandel</strong>: 1.500 bis 2.500 EUR/m².</li></ul>",
+      "facteursTitle": "Einflussfaktoren auf die Baukosten",
+      "facteursContent": "<p>Mehrere Faktoren beeinflussen die Baukosten in Luxemburg:</p><ul><li><strong>Standort</strong>: In Luxemburg ansässige Unternehmen sind teurer als solche aus der Großregion.</li><li><strong>Architektonische Komplexität</strong>: unregelmäßige Formen, große Spannweiten und Dachbegrünungen erhöhen die Kosten erheblich.</li><li><strong>Ausstattungsniveau</strong>: Der Unterschied zwischen Standard und gehoben kann 30 bis 50 % der Ausbaukosten betragen.</li><li><strong>Energiestandards</strong>: Seit 2021 müssen Neubauten den nZEB-Standard erfüllen. Mehrkosten von 8 bis 12 %.</li><li><strong>Konjunktur</strong>: Materialinflation und Fachkräftemangel beeinflussen die Preise zyklisch.</li></ul>",
+      "normesTitle": "Normen OAI FC.04 und ILNAS 101",
+      "normesContent": "<p>In Luxemburg koexistieren zwei Flächenbezugssysteme, die sich direkt auf die m²-Kostenberechnung auswirken:</p><ul><li><strong>OAI FC.04</strong>: definiert SCP, SCB und Nutzfläche. Baukosten werden in der Regel in EUR/m² SCP angegeben.</li><li><strong>ILNAS EN 15221-6</strong>: europäische Norm für Facility Management.</li></ul><p>Die Verwechslung von SCB und SCP kann zu Abweichungen von 15 bis 20 % führen.</p>",
+      "faq1Q": "Muss ein Budget für Spezialgründungen eingeplant werden?",
+      "faq1A": "In Luxemburg sind Spezialgründungen (Pfähle, Schlitzwände, Mikropfähle) in Schwemmlandgebieten oder am Hang erforderlich. Die Mehrkosten betragen 50 bis 200 EUR/m² Grundfläche. Eine geotechnische Voruntersuchung kostet 5.000 bis 15.000 EUR.",
+      "faq2Q": "Welche Mehrkosten für nachhaltige und biobasierte Materialien?",
+      "faq2A": "Der Einsatz biobasierter Materialien (CLT-Massivholz, Hanf-/Holzfaserdämmung, Kalkputze) verursacht Mehrkosten von 10 bis 20 % bei den betroffenen Gewerken. Diese Materialien können jedoch Boni bei der LENOZ-Zertifizierung erzielen.",
+      "faq3Q": "Welche durchschnittlichen Bauzeiten in Luxemburg?",
+      "faq3A": "Die Bauzeiten variieren: 12 bis 18 Monate für ein Einfamilienhaus, 18 bis 24 Monate für ein kleines Mehrfamilienhaus (10-20 Einheiten), 24 bis 36 Monate für ein Großprojekt. Eine Planungsreserve von 15 bis 20 % ist ratsam.",
+      "faq4Q": "Welcher Prozentsatz für Architektenhonorar?",
+      "faq4A": "Die Architektenhonorare in Luxemburg sind durch das OAI-Reglement geregelt und betragen 8 bis 12 % der Baukosten (ohne MwSt.) für ein Wohnprojekt. Ingenieurbüros verursachen zusätzlich 3 bis 5 %."
+    }
   },
   "calculateurVrd": {
     "title": "VRD-Schätzer — Ingenieurbüro",
@@ -3525,6 +3607,26 @@
     "sources": {
       "title": "Quellen:",
       "text": "Durchschnittliche Einheitspreise auf dem luxemburgischen Markt 2025-2026. Referenzen: Batiprix 2026 Bd. 2 (VRD, Grünflächen) mit LU-Koeffizient x1.20, CTG 002 (Erdarbeiten), CTG 009 (Kanalisation), CSDC-CT (Ponts & Chaussées), STATEC Baupreisindizes, Creos Anschlusskatalog 2026, OAI CTA Privé Anhang 3. Die Preise beinhalten in der Regel Lieferung, Transport und Einbau. Detaillierte Angebote sind bei Fachunternehmen einzuholen."
+    },
+    "seo": {
+      "faqTitle": "Häufig gestellte Fragen zu Erschließungskosten in Luxemburg",
+      "relatedTitle": "Ergänzende Tools",
+      "viabilisationTitle": "Erschließungskosten (VRD) in Luxemburg",
+      "viabilisationContent": "<p>Die <strong>Erschließung</strong> eines Grundstücks in Luxemburg umfasst alle Straßen- und Versorgungsarbeiten (VRD), die erforderlich sind, um ein Grundstück baufähig und an öffentliche Netze anschließbar zu machen. Diese Arbeiten stellen einen wesentlichen Budgetposten in jedem Erschließungs- oder Bauträgerprojekt dar.</p><p>In Luxemburg werden die VRD-Kosten durch die Topographie, die Bodenbeschaffenheit, die Entfernung zu bestehenden Netzen und die spezifischen Anforderungen jeder Gemeinde beeinflusst.</p><p>Der <strong>Pacte Logement 2.0</strong> (Gesetz vom 30. Juli 2021) hat die Infrastrukturfinanzierungsmechanismen geändert, mit einer erhöhten Beteiligung der Bauträger an den öffentlichen Infrastrukturkosten.</p>",
+      "postesTitle": "Die wichtigsten VRD-Kostenposten",
+      "postesContent": "<p>Die VRD-Arbeiten gliedern sich in mehrere Hauptposten:</p><ul><li><strong>Straßenbau</strong>: Erdarbeiten, Tragschicht, Deckschicht (Asphalt), Bordsteine, Gehwege. Durchschnittskosten: 80 bis 150 EUR/m² Straßenfläche.</li><li><strong>Trinkwassernetze</strong>: Leitungen, Anschlüsse, Absperrschieber, Zähler. Anschluss an das Gemeindenetz: 1.500 bis 5.000 EUR pro Grundstück.</li><li><strong>Entwässerung</strong>: Trennsystem obligatorisch in neuen Erschließungsgebieten. Rückhaltebecken erforderlich.</li><li><strong>Trockenleitungen</strong>: Strom (Erdkabel in Stadtgebieten obligatorisch), Telekommunikation (Glasfaser), Erdgas.</li><li><strong>Straßenbeleuchtung</strong>: Masten, LED-Leuchten, Verkabelung.</li></ul>",
+      "coutParLotTitle": "Erschließungskosten pro Grundstück nach Dichte",
+      "coutParLotContent": "<p>Die VRD-Kosten pro Grundstück variieren stark nach Bebauungsdichte:</p><ul><li><strong>Freistehende Häuser</strong> (5-10 Grundstücke/ha): 40.000 bis 70.000 EUR/Grundstück.</li><li><strong>Reihenhäuser</strong> (15-25 Grundstücke/ha): 25.000 bis 45.000 EUR/Grundstück.</li><li><strong>Geschosswohnungen</strong> (50-100 Wohnungen/ha): 10.000 bis 25.000 EUR/Wohnung.</li></ul><p>Der LISER-Bericht unterstreicht, dass Verdichtung die wirksamste Strategie zur Senkung der Infrastrukturkosten pro Wohnung ist.</p>",
+      "obligationsTitle": "Gemeindliche Pflichten und finanzielle Beteiligung",
+      "obligationsContent": "<p>In Luxemburg werden die VRD-Pflichten durch mehrere Texte geregelt:</p><ul><li><strong>Gesetz vom 19. Juli 2004</strong>: definiert die bebaubaren Zonen im PAG und die Erschließungsbedingungen in den PAPs.</li><li><strong>Finanzielle Beteiligung</strong>: der Bauträger muss zur Finanzierung öffentlicher Infrastruktur beitragen.</li><li><strong>Erschließungsvereinbarung</strong>: Vertrag zwischen Bauträger und Gemeinde mit technischen Spezifikationen, Zeitplan und Übergabebedingungen.</li><li><strong>Infrastrukturabgabe</strong>: jede Gemeinde legt die Netzanschlussabgaben per Verordnung fest.</li></ul>",
+      "faq1Q": "Wer bezahlt die Erschließungsarbeiten in einem Baugebiet?",
+      "faq1A": "In einem luxemburgischen Baugebiet finanziert der Bauträger in der Regel alle internen VRD und beteiligt sich an den externen VRD. Nach Abnahme werden Straßen und Netze an die Gemeinde übertragen. Die VRD-Kosten werden im Verkaufspreis weitergegeben.",
+      "faq2Q": "Was kostet der Anschluss an öffentliche Netze?",
+      "faq2A": "Die Kosten hängen von der Gemeinde und dem Netztyp ab. Trinkwasser: 1.500 bis 5.000 EUR. Entwässerung: 2.000 bis 8.000 EUR. Stromanschluss (Creos): 2.000 bis 6.000 EUR. Glasfaser (POST) ist für Neubauten in der Regel kostenlos. Gesamtkosten: 8.000 bis 20.000 EUR pro Grundstück.",
+      "faq3Q": "Wie geht man mit einem Hanggrundstück bei der Erschließung um?",
+      "faq3A": "Ein Hanggrundstück in Luxemburg verursacht erhebliche Mehrkosten: Stützwände (150 bis 500 EUR/m²), umfangreiche Erdarbeiten, spezielle Entwässerungssysteme. Die Gesamtmehrkosten können 30 bis 50 % gegenüber einem ebenen Grundstück betragen.",
+      "faq4Q": "Wie lang dauert die Erschließung durchschnittlich?",
+      "faq4A": "Die Erschließungsarbeiten dauern in der Regel 6 bis 12 Monate, ohne Verwaltungsfristen. Vorbereitungsphasen können 6 bis 18 Monate hinzufügen. Gesamtdauer typischerweise 18 bis 36 Monate."
     }
   },
   "hvac": {
@@ -4002,7 +4104,27 @@
     "headerRent": "Miete",
     "headerGrossYield": "Bruttorendite",
     "headerLTV": "LTV",
-    "headerPortfolioPct": "% Portfolio"
+    "headerPortfolioPct": "% Portfolio",
+    "seo": {
+      "faqTitle": "Häufig gestellte Fragen zur Immobilienportfolioverwaltung",
+      "relatedTitle": "Ergänzende Tools",
+      "gestionTitle": "Ein Immobilienportfolio in Luxemburg verwalten",
+      "gestionContent": "<p>Die <strong>Immobilienportfolioverwaltung</strong> in Luxemburg erfordert einen strukturierten Ansatz, der finanzielle, steuerliche, energetische und rechtliche Dimensionen integriert. Ob Sie 2 oder 20 Immobilien besitzen, die systematische Überwachung von Leistungsindikatoren ist essentiel für Renditeoptimierung und Risikomanagement.</p><p>Der luxemburgische Immobilienmarkt hat Besonderheiten: günstige Besteuerung von Mieteinnahmen (Zinsabzug, beschleunigte Abschreibung), strenger regulatorischer Rahmen für Wohnungsmietverträge und zunehmend strenge Energiegesetzgebung (EPBD-Richtlinie, CPE-Pflichten).</p><p>Unser Portfolio-Tool konsolidiert alle Ihre tevaxia-Bewertungen und -Berechnungen für eine Gesamtsicht Ihres Portfolios.</p>",
+      "indicateursTitle": "Schlüsselindikatoren: Rendite, LTV, Allokation",
+      "indicateursContent": "<p>Wesentliche Leistungsindikatoren für Ihr Immobilienportfolio:</p><ul><li><strong>Bruttorendite</strong>: Verhältnis zwischen jährlichen Mieteinnahmen und Marktwert. In Luxemburg liegen die Brutto-Wohnrenditen bei 3,0 bis 4,5 % (2025).</li><li><strong>Nettorendite</strong>: Bruttorendite abzüglich nicht umlagefähiger Kosten, Leerstand, Instandhaltung und Grundsteuer. Typischerweise 1,0 bis 1,5 Punkte unter der Bruttorendite.</li><li><strong>Portfolio-LTV</strong>: Gesamtverschuldung im Verhältnis zum Gesamtportfoliowert. Ein LTV über 60 % gilt als risikoreich.</li><li><strong>Geographische Verteilung</strong>: Konzentration in einer Gemeinde birgt idiosynkratisches Risiko.</li><li><strong>Typverteilung</strong>: Mischung von Wohn- und Gewerbeimmobilien profitiert von unterschiedlichen Konjunkturzyklen.</li></ul>",
+      "performanceTitle": "Leistungsverfolgung im Zeitverlauf",
+      "performanceContent": "<p>Die zeitliche Leistungsverfolgung ermöglicht Trenderkennung und fundierte Entscheidungen:</p><ul><li><strong>Wertentwicklung</strong>: Portfoliowertvergleich Jahr N vs. N-1, aufgeschlüsselt nach Markteffekt und Perimeteränderung.</li><li><strong>Mietentwicklung</strong>: Indexierungsverfolgung und Anpassungen bei Vertragserneuerung.</li><li><strong>Leerstand</strong>: tatsächlicher Leerstand im Vergleich zum strukturellen Marktleerstand.</li><li><strong>CAPEX</strong>: Instandhaltungs- und Verbesserungsinvestitionen. Norm: 1 bis 2 % des Immobilienwerts pro Jahr.</li></ul>",
+      "energieTitle": "Gewichteter CPE-Energiescore des Immobilienportfolios",
+      "energieContent": "<p>Die <strong>Energieperformance</strong> Ihres Portfolios ist ein strategisches Schlüsselthema in Luxemburg:</p><ul><li><strong>EPBD-Richtlinie</strong>: Die Überarbeitung 2024 schreibt ambitionöse Renovierungspfade vor. Gebäude der Klassen F-G müssen bis 2030 Klasse E und bis 2033 Klasse D erreichen.</li><li><strong>Gewichteter CPE-Score</strong>: Unser Tool berechnet einen flächengewichteten Durchschnittsenergiescore.</li><li><strong>Green Premium / Brown Discount</strong>: Immobilien der Klassen A-B profitieren von 5 bis 8 % Wertaufschlag. Klassen F-G erleiden 8 bis 15 % Abschlag.</li><li><strong>Renovierungsförderung</strong>: Das PRIMe-House-Programm bietet Zuschüsse von 30 bis 50 % der energetischen Sanierungskosten.</li></ul>",
+      "faq1Q": "Wie diversifiziert man ein Immobilienportfolio in Luxemburg?",
+      "faq1A": "Diversifizierung kann auf mehreren Achsen erfolgen: geographisch, typologisch, mietvertraglich und zeitlich. Ein ausgewogenes Portfolio könnte 60-70 % Wohnimmobilien und 30-40 % Gewerbeimmobilien umfassen.",
+      "faq2Q": "Welche Rendite für eine Kapitalanlage in Luxemburg anstreben?",
+      "faq2A": "Für Core-Wohnimmobilien: Nettorendite von 2,5 bis 3,5 %. Für Value-Add (renovierungsbedürftig): 3,5 bis 4,5 % nach Sanierung. Für Prime-Büros: 3,5 bis 4,5 % netto.",
+      "faq3Q": "Wie werden mehrere Immobilien in Luxemburg besteuert?",
+      "faq3A": "Mieteinnahmen werden zum progressiven Steuersatz besteuert (Spitzensatz 42 % + 9 % Beschäftigungsfonds). Abzugsfähig sind Darlehenszinsen, Instandhaltung, Versicherungen, Grundsteuer und Abschreibung (2 %/Jahr). Veräußerungsgewinne profitieren nach 2 Jahren von einem ermäßigten Satz.",
+      "faq4Q": "Wann sollte man eine Immobilie aus dem Portfolio verkaufen?",
+      "faq4A": "Verkaufssignale: Nettorendite unter 2 % ohne Verbesserungsaussicht, anstehende Großreparaturen, CPE-Klasse F-G mit unverhältnismäßigen Sanierungskosten oder eine attraktivere Reinvestitionsmöglichkeit."
+    }
   },
   "hedonique": {
     "title": "Hedonische Bewertung",
@@ -4080,7 +4202,27 @@
     "coeff_source_observatoire": "Hedonisches Observatoire",
     "coeff_source_transactions": "Beobachtete Transaktionen",
     "coeff_source_spuerkeess": "Spuerkeess / Observatoire",
-    "coeff_source_parking": "~30-45k€ / Stellplatz"
+    "coeff_source_parking": "~30-45k€ / Stellplatz",
+    "seo": {
+      "faqTitle": "Häufig gestellte Fragen zum hedonischen Modell",
+      "relatedTitle": "Ergänzende Tools",
+      "modeleTitle": "Das hedonische Modell für den luxemburgischen Markt",
+      "modeleContent": "<p>Das <strong>hedonische Modell</strong> ist ein ökonometrischer Ansatz, der den Immobilienpreis in die Summe der impliziten Werte seiner Merkmale zerlegt. Von Rosen (1974) entwickelt, basiert es auf der Hypothese, dass der Marktpreis die Präferenzen der Käufer für jedes Wohnungsmerkmal widerspiegelt.</p><p>In Luxemburg veröffentlicht das <strong>Observatoire de l'Habitat</strong> (Wohnungsministerium / LISER) regelmäßig hedonische Modelle, die auf realen Transaktionen der AED kalibriert sind.</p><p>Unsere Implementierung verwendet ein <strong>log-lineares Modell</strong>: ln(Preis) = β<sub>0</sub> + Σ(β<sub>i</sub> × X<sub>i</sub>) + ε. Die erklärenden Variablen umfassen Fläche, Lage, Stockwerk, Allgemeinzustand, CPE-Energieklasse, Stellplatz und Außenanlagen.</p>",
+      "coefficientsTitle": "Koeffizienten und erklärende Variablen",
+      "coefficientsContent": "<p>Unsere Modellkoeffizienten sind anhand luxemburgischer Daten kalibriert:</p><ul><li><strong>Fläche</strong>: Elastizität von -0,35 % pro zusätzlichem m² über 80 m².</li><li><strong>Stockwerk</strong>: Erdgeschoss erleidet ca. 7 % Abschlag, 1. OG 3 %. Obere Stockwerke (4+) erhalten 3 % Aufschlag, Penthouse bis 8 %.</li><li><strong>Allgemeinzustand</strong>: Neubau oder Komplettsanierung: +7 %. Renovierungsbedarf: -15 %.</li><li><strong>CPE-Energieklasse</strong>: Klassen A-B: +5 %. Klassen F-G: -8 %.</li><li><strong>Stellplatz</strong>: Ein Innenstellplatz fügt ca. 5 % zum Wohnungspreis hinzu.</li></ul>",
+      "sourcesTitle": "Datenquellen",
+      "sourcesContent": "<p>Unsere Quellen umfassen:</p><ul><li><strong>Observatoire de l'Habitat</strong>: vierteljährliche hedonische Preisindizes.</li><li><strong>STATEC</strong>: Wohnungspreisindex (IPIL), Durchschnittspreise nach Gemeinde.</li><li><strong>Gemeindeverwaltungen</strong>: PAG/PAP-Daten, Baugenehmigungen.</li><li><strong>Immobilienanzeigen</strong>: Angebotspreise als ergänzende Referenz.</li></ul>",
+      "limitesTitle": "Modellgrenzen: R² und Konfidenzintervall",
+      "limitesContent": "<p>Jedes statistische Modell hat Grenzen:</p><ul><li><strong>R²</strong>: ca. 0,75 — 75 % der Preisvarianz wird erklärt.</li><li><strong>Konfidenzintervall</strong>: ±10 % in dicht besiedelten Gebieten, bis ±18 % in ländlichen Gemeinden.</li><li><strong>Atypische Immobilien</strong>: Luxus- oder Charakterimmobilien können deutlich abweichen.</li><li><strong>Zeiteffekt</strong>: Koeffizienten spiegeln die Marktbedingungen zum Kalibrierungszeitpunkt wider.</li></ul>",
+      "faq1Q": "Wie hoch ist der R² des hedonischen Modells für Luxemburg?",
+      "faq1A": "Der R² unseres Modells liegt bei ca. 0,75. Das bedeutet, dass 75 % der Transaktionspreisvarianz durch die beobachteten Immobilienmerkmale erklärt werden.",
+      "faq2Q": "Was ist der Unterschied zwischen hedonischem Modell und Immobiliengutachten?",
+      "faq2A": "Das hedonische Modell liefert eine statistische Schätzung ohne Besichtigung. Ein Gutachten (EVS-konform) beinhaltet eine Vor-Ort-Besichtigung, rechtliche Analyse und professionelles Urteil. Das hedonische Modell eignet sich für eine erste Preiseinordnung.",
+      "faq3Q": "Ist das hedonische Modell auf Gewerbeimmobilien anwendbar?",
+      "faq3A": "Unser Modell ist hauptsächlich auf den luxemburgischen Wohnungsmarkt kalibriert. Für Gewerbeimmobilien sind Ertragswertverfahren (Kapitalisierung, DCF) geeigneter.",
+      "faq4Q": "Wie genau ist das Modell pro Gemeinde?",
+      "faq4A": "Die Genauigkeit variiert: ±10 % in Luxemburg-Stadt oder Esch-sur-Alzette, bis ±18 % in ländlichen Gemeinden mit wenigen Transaktionen."
+    }
   },
   "indices": {
     "breadcrumb_home": "Startseite",
@@ -4276,7 +4418,27 @@
     "ref3Title": "CSSF-Rundschreiben 20/744",
     "ref3Desc": "zu den AML-Pflichten der Fachleute des Finanzsektors.",
     "ref4Title": "CRF (Zentralstelle für Finanzinformationen)",
-    "ref4Desc": "— Verdachtsmeldung: crf@justice.etat.lu"
+    "ref4Desc": "— Verdachtsmeldung: crf@justice.etat.lu",
+    "seo": {
+      "faqTitle": "Häufig gestellte Fragen zu AML/KYC in der Immobilienbranche",
+      "relatedTitle": "Ergänzende Tools",
+      "obligationsTitle": "Anti-Geldwäsche-Pflichten in der Immobilienbranche in Luxemburg",
+      "obligationsContent": "<p>Die <strong>Bekämpfung der Geldwäsche</strong> (Anti-Money Laundering, AML) ist eine wesentliche Pflicht für alle Immobilienprofis in Luxemburg. Der Immobiliensektor wird von der FATF als besonders risikobehaftet identifiziert, aufgrund hoher Beträge und komplexer Eigentumsstrukturen.</p><p>In Luxemburg unterliegen Immobilienprofis (Makler, Bauträger, Verwalter, Gutachter) seit der Umsetzung der 4. EU-Geldwäscherichtlinie den Sorgfaltspflichten. Die <strong>CSSF</strong> und das <strong>Justizministerium</strong> führen die Aufsicht.</p><p>Die Sanktionen bei Nichtbeachtung sind schwerwiegend: Geldbußen bis zu 5 Millionen Euro oder 10 % des Umsatzes, strafrechtliche Sanktionen (1 bis 5 Jahre Freiheitsstrafe), Berufsverbot und erheblicher Reputationsschaden.</p>",
+      "loi2004Title": "Das geänderte Gesetz vom 12. November 2004",
+      "loi2004Content": "<p>Das <strong>Gesetz vom 12. November 2004</strong> zur Bekämpfung von Geldwäsche und Terrorismusfinanzierung bildet den rechtlichen Referenzrahmen:</p><ul><li><strong>Anwendungsbereich</strong>: jede natürliche oder juristische Person, die beruflich an Immobilientransaktionen beteiligt ist.</li><li><strong>Hauptpflichten</strong>: Identifizierung und Überprüfung der Identität von Kunde und wirtschaftlich Berechtigtem, Risikobewertung, Dokumentenaufbewahrung, Mitarbeiterschulung, Meldung verdächtiger Transaktionen.</li><li><strong>Risikobasierter Ansatz</strong>: verstärkte Sorgfaltspflichten für Hochrisikokunden (PEPs, Hochrisikoländer, komplexe Strukturen).</li><li><strong>Register der wirtschaftlich Berechtigten (RBE)</strong>: Gesellschaften mit Immobilienbesitz müssen ihre wirtschaftlich Berechtigten im RBE registrieren.</li></ul>",
+      "identificationTitle": "Kundenidentifizierung und verstärkte Sorgfaltspflichten",
+      "identificationContent": "<p>Die Identifizierungs- und Sorgfaltsmaßnahmen (KYC) im luxemburgischen Immobiliensektor umfassen:</p><ul><li><strong>Standardidentifizierung</strong>: Identitätsprüfung (amtlicher Ausweis), Adressprüfung und Herkunft der Mittel. Für juristische Personen: Satzung, Handelsregisterauszug, Identifizierung der Gesellschafter und wirtschaftlich Berechtigten (25-%-Schwelle).</li><li><strong>Verstärkte Sorgfalt (EDD)</strong>: obligatorisch für politisch exponierte Personen (PEPs), Kunden aus Hochrisikoländern und ungewöhnlich komplexe Transaktionen.</li><li><strong>Vereinfachte Sorgfalt</strong>: möglich für Kunden, die von einem anderen Verpflichteten vorgestellt werden, oder börsennotierte EU-Unternehmen.</li><li><strong>Laufende Überwachung</strong>: Die Sorgfaltspflicht beschränkt sich nicht auf die Anbahnung der Geschäftsbeziehung.</li></ul>",
+      "declarationTitle": "Verdachtsmeldung und Sanktionen",
+      "declarationContent": "<p>Das Melde- und Sanktionssystem ist eine Säule des luxemburgischen AML-Systems:</p><ul><li><strong>Verdachtsmeldung</strong>: Jeder Professionelle, der eine Transaktion im Zusammenhang mit Geldwäsche vermutet, muss eine Meldung an die <strong>Cellule de Renseignement Financier (CRF)</strong> erstatten.</li><li><strong>Tipping-off-Verbot</strong>: Es ist strikt untersagt, den Kunden oder Dritte über eine erstattete Meldung zu informieren.</li><li><strong>Verwaltungssanktionen</strong>: Geldbußen von 1.250 bis 5.000.000 EUR für juristische Personen.</li><li><strong>Strafrechtliche Sanktionen</strong>: Geldwäsche wird mit 1 bis 5 Jahren Freiheitsstrafe bestraft.</li><li><strong>Sanktionsregister</strong>: Verwaltungssanktionen werden auf der Website des Justizministeriums veröffentlicht.</li></ul>",
+      "faq1Q": "Wer unterliegt den AML-Pflichten in der luxemburgischen Immobilienbranche?",
+      "faq1A": "Verpflichtet sind: Immobilienmakler, Bauträger, Hausverwalter, WEG-Verwalter, Notare (bei Immobilientransaktionen), Anwälte (bei Immobilienberatung) und Immobiliensachverständige. Jede Person, die beruflich an einer Immobilientransaktion beteiligt ist, ist potenziell verpflichtet.",
+      "faq2Q": "Wie identifiziert man eine Politisch Exponierte Person (PEP)?",
+      "faq2A": "Eine PEP ist eine Person, die ein herausragendes politisches, richterliches oder administratives Amt inne hat oder hatte. Auch nahe Familienangehörige und bekannte enge Vertraute gelten als PEPs. Spezialdatenbanken (World-Check, Dow Jones) ermöglichen systematisches Screening.",
+      "faq3Q": "Gibt es einen Meldeschwellenwert für Immobilientransaktionen?",
+      "faq3A": "Es gibt keinen Geldschwellenwert, unterhalb dessen die Sorgfaltspflichten nicht gelten. Jede Immobilientransaktion unterliegt den KYC-Pflichten. Die Verdachtsmeldung basiert auf qualitativen Indikatoren. Barzahlungen über 10.000 EUR unterliegen einer spezifischen Meldepflicht.",
+      "faq4Q": "Wie lange müssen KYC-Dokumente aufbewahrt werden?",
+      "faq4A": "Das Gesetz schreibt eine Aufbewahrung von mindestens 5 Jahren nach Ende der Geschäftsbeziehung vor. In der Praxis wird eine Aufbewahrung von 10 Jahren empfohlen, angesichts der strafrechtlichen Verjährungsfristen in Luxemburg."
+    }
   },
   "terresAgricoles": {
     "title": "Bewertung — Landwirtschaftliche Flächen",
