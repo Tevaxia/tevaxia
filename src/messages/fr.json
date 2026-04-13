@@ -57,8 +57,8 @@
   },
   "home": {
     "heroTitle": "L'immobilier luxembourgeois,",
-    "heroHighlight": "calculé avec précision",
-    "heroDescription": "Outils de calcul, de simulation et base pratique pour les professionnels de l'immobilier au Luxembourg. Capital investi, frais d'acquisition, plus-values, aides étatiques — tout en un seul endroit.",
+    "heroHighlight": "analysé avec précision",
+    "heroDescription": "Valorisation, simulation énergétique, données de marché et outils de calcul pour l'immobilier au Luxembourg. Particuliers, évaluateurs, banques, syndics — tout en un seul endroit.",
     "missingTool": "Un outil vous manque ?",
     "missingToolDescription": "tevaxia.lu est en construction active. Si vous avez besoin d'un calculateur spécifique, d'une fonctionnalité pour votre pratique professionnelle, ou si vous constatez une erreur dans nos calculs — faites-le nous savoir.",
     "upcomingModules": "Prochains modules prévus",
@@ -67,9 +67,9 @@
     "tags": {
       "habitat": "Observatoire de l'Habitat",
       "tegova": "TEGOVA EVS 2025",
-      "epbd": "Directive EPBD 2024",
-      "lir": "Code fiscal LU (LIR)",
-      "bail": "Loi bail 21/09/2006",
+      "epbd": "Directive EPBD 2025",
+      "lir": "Klimabonus 2026",
+      "bail": "Code fiscal LU (LIR)",
       "statec": "STATEC / Geoportail"
     },
     "modules": {
