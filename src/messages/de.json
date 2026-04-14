@@ -39,7 +39,8 @@
     "energyEpbd": "EPBD 2050",
     "energyCpe": "CPE-Schätzer",
     "energyLenoz": "LENOZ",
-    "syndic": "Hausverwaltung"
+    "syndic": "Hausverwaltung",
+    "propcalc": "PropCalc"
   },
   "common": {
     "language": "Sprache",
@@ -55,7 +56,8 @@
     "reset": "Zurücksetzen",
     "pdfReport": "PDF-Bericht",
     "copyLink": "Link kopieren",
-    "linkCopied": "Link kopiert!"
+    "linkCopied": "Link kopiert!",
+    "home": "Startseite"
   },
   "home": {
     "heroTitle": "Luxemburger Immobilien,",

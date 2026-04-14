@@ -39,7 +39,8 @@
     "energyEpbd": "EPBD 2050",
     "energyCpe": "CPE-Schätzer",
     "energyLenoz": "LENOZ",
-    "syndic": "Syndic / Copropriétéit"
+    "syndic": "Syndic / Copropriétéit",
+    "propcalc": "PropCalc"
   },
   "common": {
     "language": "Sprooch",
@@ -55,7 +56,8 @@
     "reset": "Zrécksetzen",
     "pdfReport": "PDF Rapport",
     "copyLink": "Link kopéieren",
-    "linkCopied": "Link kopéiert!"
+    "linkCopied": "Link kopéiert!",
+    "home": "Haaptsäit"
   },
   "home": {
     "heroTitle": "Lëtzebuerger Immobilien,",

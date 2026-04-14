@@ -39,7 +39,8 @@
     "energyCpe": "Estimador CPE",
     "energyLenoz": "LENOZ",
     "profil": "Perfil",
-    "syndic": "Sindico / Condominio"
+    "syndic": "Sindico / Condominio",
+    "propcalc": "PropCalc"
   },
   "common": {
     "language": "Língua",
@@ -55,7 +56,8 @@
     "reset": "Reiniciar",
     "pdfReport": "Relatório PDF",
     "copyLink": "Copiar ligação",
-    "linkCopied": "Ligação copiada!"
+    "linkCopied": "Ligação copiada!",
+    "home": "Início"
   },
   "home": {
     "heroTitle": "O imobiliário luxemburguês,",

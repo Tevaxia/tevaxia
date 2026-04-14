@@ -39,7 +39,8 @@
     "energyCpe": "EPC Estimator",
     "energyLenoz": "LENOZ",
     "profil": "Profile",
-    "syndic": "Syndic / Co-ownership"
+    "syndic": "Syndic / Co-ownership",
+    "propcalc": "PropCalc"
   },
   "common": {
     "language": "Language",
@@ -55,7 +56,8 @@
     "reset": "Reset",
     "pdfReport": "PDF Report",
     "copyLink": "Copy link",
-    "linkCopied": "Link copied!"
+    "linkCopied": "Link copied!",
+    "home": "Home"
   },
   "home": {
     "heroTitle": "Luxembourg real estate,",
