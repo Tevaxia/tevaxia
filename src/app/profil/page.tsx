@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import InputField from "@/components/InputField";
 import { useAuth } from "@/components/AuthProvider";
 import { supabase } from "@/lib/supabase";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { getProfile, saveProfile, loadAndMergeProfile, uploadLogo, type UserProfile } from "@/lib/profile";
 import { listMySharedLinks, deleteSharedLink, buildSharedLinkUrl, type SharedLink } from "@/lib/shared-links";
 import { buildDataExport, downloadAsJsonFile } from "@/lib/data-export";
@@ -353,6 +353,8 @@ function TierAndExportSection({ user }: { user: { id: string } | null }) {
 
 export default function Profil() {
   const t = useTranslations("profil");
+  const locale = useLocale();
+  const lp = locale === "fr" ? "" : `/${locale}`;
   const { user } = useAuth();
   const [profile, setProfile] = useState<UserProfile>(getProfile());
   const [saved, setSaved] = useState(false);
@@ -413,7 +415,7 @@ export default function Profil() {
               <div className="text-sm font-semibold text-rose-900">{t("agencyBannerTitle")}</div>
               <p className="text-xs text-rose-800 mt-0.5">{t("agencyBannerDesc")}</p>
             </div>
-            <a href="organisation" className="shrink-0 rounded-lg bg-rose-600 px-3 py-2 text-xs font-semibold text-white hover:bg-rose-700">{t("agencyBannerCta")}</a>
+            <a href={`${lp}/profil/organisation`} className="shrink-0 rounded-lg bg-rose-600 px-3 py-2 text-xs font-semibold text-white hover:bg-rose-700">{t("agencyBannerCta")}</a>
           </div>
         </div>
 
@@ -423,7 +425,7 @@ export default function Profil() {
               <div className="text-sm font-semibold text-slate-900">{t("apiBannerTitle")}</div>
               <p className="text-xs text-slate-700 mt-0.5">{t("apiBannerDesc")}</p>
             </div>
-            <a href="api" className="shrink-0 rounded-lg bg-slate-700 px-3 py-2 text-xs font-semibold text-white hover:bg-slate-800">{t("apiBannerCta")}</a>
+            <a href={`${lp}/profil/api`} className="shrink-0 rounded-lg bg-slate-700 px-3 py-2 text-xs font-semibold text-white hover:bg-slate-800">{t("apiBannerCta")}</a>
           </div>
         </div>
 
