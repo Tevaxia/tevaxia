@@ -117,6 +117,14 @@ export default async function HotellerieHub() {
             <span className="rounded-full border border-white/20 px-3 py-1">{t("tag4")}</span>
             <span className="rounded-full border border-white/20 px-3 py-1">{t("tag5")}</span>
           </div>
+          <div className="mt-6">
+            <Link href={`${lp}/hotellerie/groupe`} className="inline-flex items-center gap-2 rounded-lg bg-white/15 backdrop-blur-sm px-4 py-2 text-sm font-medium text-white hover:bg-white/25">
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 21v-6.75M3 21h18M3 21l9-9 9 9M3 14.25V6.375a1.125 1.125 0 011.125-1.125h15.75c.621 0 1.125.504 1.125 1.125v7.875" />
+              </svg>
+              Dashboard Groupe hôtelier →
+            </Link>
+          </div>
         </div>
       </section>
 

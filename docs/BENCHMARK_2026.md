@@ -839,7 +839,7 @@ Ces deux verticaux justifient une roadmap « compte & rôles » dédiée, sépar
 | 1 | ~~Stripe Checkout upgrade Pro self-service~~ ✅ `d323bd8` — *reste à créer produit/price/webhook côté Stripe Dashboard + env vars Vercel* | Monétisation |
 | 2 | ~~Sentry + PostHog + page /status~~ ✅ `30a9425` — *reste à créer projet Sentry + project PostHog + env vars Vercel* | Observabilité |
 | 2 | ~~Sauvegarde wizard + gestion-locative : bail numérique template~~ ✅ `6d10f3f` | Différenciation produit |
-| 2 | **Persistance hôtels (table `hotels`) + rôles hôteliers** | Récurrence usage vertical hôtellerie |
+| 2 | ~~**Persistance hôtels (table `hotels`) + rôles hôteliers**~~ ✅ (commit ci-dessous) | Récurrence usage vertical hôtellerie |
 | 3 | API batch + OpenAPI docs + sandbox | Différenciation B2B banques |
 | 3 | Module bail commercial + exonération RP plus-value | Complétude fiscale LU |
 | 3 | **Table `coownerships` + CRUD copropriétés syndic** | Premier MVP vertical syndic |
