@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 import InputField from "@/components/InputField";
+import LeaseGeneratorSection from "@/components/LeaseGeneratorSection";
 import { analyzeLot, getLot, saveLot, type EnergyClass, type RentalLot } from "@/lib/gestion-locative";
 import { formatEUR, formatPct } from "@/lib/calculations";
 
@@ -249,6 +250,12 @@ export default function LotEditPage() {
             )}
           </div>
         </div>
+
+        {!isNew && (
+          <div className="mt-6">
+            <LeaseGeneratorSection lot={previewLot} />
+          </div>
+        )}
 
         <div className="mt-8 flex items-center justify-between">
           <Link href={`${lp}/gestion-locative/portefeuille`} className="text-sm text-muted hover:text-navy">

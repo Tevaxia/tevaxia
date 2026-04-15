@@ -838,7 +838,7 @@ Ces deux verticaux justifient une roadmap « compte & rôles » dédiée, sépar
 | 1 | ~~**Extension org_type (agency/syndic/hotel_group/bank)**~~ ✅ `dd95467` | Débloque verticaux syndic/hôtellerie |
 | 1 | ~~Stripe Checkout upgrade Pro self-service~~ ✅ `d323bd8` — *reste à créer produit/price/webhook côté Stripe Dashboard + env vars Vercel* | Monétisation |
 | 2 | ~~Sentry + PostHog + page /status~~ ✅ `30a9425` — *reste à créer projet Sentry + project PostHog + env vars Vercel* | Observabilité |
-| 2 | Sauvegarde wizard + gestion-locative : bail numérique template | Différenciation produit |
+| 2 | ~~Sauvegarde wizard + gestion-locative : bail numérique template~~ ✅ (commit ci-dessous) | Différenciation produit |
 | 2 | **Persistance hôtels (table `hotels`) + rôles hôteliers** | Récurrence usage vertical hôtellerie |
 | 3 | API batch + OpenAPI docs + sandbox | Différenciation B2B banques |
 | 3 | Module bail commercial + exonération RP plus-value | Complétude fiscale LU |

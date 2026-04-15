@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import InputField from "@/components/InputField";
@@ -133,6 +133,66 @@ export default function WizardParticulier() {
     });
   }, [envisageLocatif, prixRetenu, anneeAcquisition, travauxMontant, travauxAnnee, currentYear, surface]);
 
+  // ---------- Sauvegarde brouillon (localStorage) ----------
+  const [restored, setRestored] = useState(false);
+  const DRAFT_KEY = "tevaxia_wizard_particulier_draft";
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(DRAFT_KEY);
+      if (!raw) return;
+      const d = JSON.parse(raw) as Record<string, unknown>;
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      if (typeof d.step === "number") setStep(d.step as Step);
+      if (typeof d.communeSearch === "string") setCommuneSearch(d.communeSearch);
+      if (d.selectedResult) setSelectedResult(d.selectedResult as SearchResult);
+      if (typeof d.surface === "number") setSurface(d.surface);
+      if (typeof d.nbChambres === "number") setNbChambres(d.nbChambres);
+      if (typeof d.etage === "string") setEtage(d.etage);
+      if (typeof d.etat === "string") setEtat(d.etat);
+      if (typeof d.exterieur === "string") setExterieur(d.exterieur);
+      if (typeof d.parking === "boolean") setParking(d.parking);
+      if (typeof d.classeEnergie === "string") setClasseEnergie(d.classeEnergie);
+      if (typeof d.estNeuf === "boolean") setEstNeuf(d.estNeuf);
+      if (typeof d.prixNegocie === "number") setPrixNegocie(d.prixNegocie);
+      if (typeof d.residencePrincipale === "boolean") setResidencePrincipale(d.residencePrincipale);
+      if (d.nbAcquereurs === 1 || d.nbAcquereurs === 2) setNbAcquereurs(d.nbAcquereurs);
+      if (typeof d.montantHypotheque === "number") setMontantHypotheque(d.montantHypotheque);
+      if (typeof d.revenuMenage === "number") setRevenuMenage(d.revenuMenage);
+      if (typeof d.nbEnfants === "number") setNbEnfants(d.nbEnfants);
+      if (typeof d.typeBienAides === "string") setTypeBienAides(d.typeBienAides as typeof typeBienAides);
+      if (typeof d.envisageLocatif === "boolean") setEnvisageLocatif(d.envisageLocatif);
+      if (typeof d.anneeAcquisition === "number") setAnneeAcquisition(d.anneeAcquisition);
+      if (typeof d.travauxMontant === "number") setTravauxMontant(d.travauxMontant);
+      if (typeof d.travauxAnnee === "number") setTravauxAnnee(d.travauxAnnee);
+      setRestored(true);
+    } catch { /* ignore */ }
+  }, []);
+
+  useEffect(() => {
+    // Sérialise sur tout changement de state — throttling non nécessaire,
+    // localStorage.setItem est synchrone et peu coûteux (<10ms pour ~1KB).
+    try {
+      localStorage.setItem(
+        DRAFT_KEY,
+        JSON.stringify({
+          step, communeSearch, selectedResult, surface, nbChambres, etage, etat,
+          exterieur, parking, classeEnergie, estNeuf,
+          prixNegocie, residencePrincipale, nbAcquereurs, montantHypotheque,
+          revenuMenage, nbEnfants, typeBienAides,
+          envisageLocatif, anneeAcquisition, travauxMontant, travauxAnnee,
+          savedAt: new Date().toISOString(),
+        })
+      );
+    } catch { /* ignore quota errors */ }
+  }, [step, communeSearch, selectedResult, surface, nbChambres, etage, etat, exterieur, parking, classeEnergie, estNeuf, prixNegocie, residencePrincipale, nbAcquereurs, montantHypotheque, revenuMenage, nbEnfants, typeBienAides, envisageLocatif, anneeAcquisition, travauxMontant, travauxAnnee]);
+
+  const resetDraft = () => {
+    if (!confirm("Effacer ce brouillon et recommencer depuis le début ?")) return;
+    try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
+    window.location.reload();
+  };
+
   // ---------- Navigation ----------
   const canNext = step === 0
     ? !!estimation
@@ -160,6 +220,20 @@ export default function WizardParticulier() {
             Estimation → frais d&apos;achat → aides de l&apos;État → règle du loyer légal. Tout en un seul parcours guidé.
           </p>
         </div>
+
+        {restored && (
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-900">
+            <span>
+              <svg className="inline h-4 w-4 mr-1 -mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Brouillon restauré automatiquement (sauvegardé dans votre navigateur).
+            </span>
+            <button onClick={resetDraft} className="text-xs font-medium text-emerald-800 underline hover:no-underline">
+              Recommencer de zéro
+            </button>
+          </div>
+        )}
 
         {/* Step indicator */}
         <div className="mb-8 rounded-xl border border-card-border bg-card p-4">
