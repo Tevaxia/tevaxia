@@ -1,6 +1,6 @@
 "use client";
 
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet, Image } from "@react-pdf/renderer";
 import type { RentalLot } from "@/lib/gestion-locative";
 
 // ============================================================
@@ -28,6 +28,16 @@ interface LeasePdfProps {
   leaseEndOrDuration: string; // ex. "2029-12-31" ou "3 ans"
   deposit: number; // €
   indexationReference: string; // ex. "Indice des prix à la consommation (STATEC)"
+  /** PNG base64 data URL de la signature du bailleur (optionnel) */
+  signatureLandlord?: string | null;
+  /** PNG base64 data URL de la signature du locataire (optionnel) */
+  signatureTenant?: string | null;
+  /** SHA-256 du PDF (calculé après rendu initial, ré-injecté au 2e rendu) */
+  pdfHash?: string | null;
+  /** Date/heure de signature bailleur (ISO) */
+  signedAtLandlord?: string | null;
+  /** Date/heure de signature locataire (ISO) */
+  signedAtTenant?: string | null;
 }
 
 const s = StyleSheet.create({
@@ -49,7 +59,10 @@ function formatEUR(n: number): string {
   return new Intl.NumberFormat("fr-LU", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
 }
 
-export default function LeasePdf({ lot, landlord, tenant, leaseStart, leaseEndOrDuration, deposit, indexationReference }: LeasePdfProps) {
+export default function LeasePdf({
+  lot, landlord, tenant, leaseStart, leaseEndOrDuration, deposit, indexationReference,
+  signatureLandlord, signatureTenant, pdfHash, signedAtLandlord, signedAtTenant,
+}: LeasePdfProps) {
   return (
     <Document>
       <Page size="A4" style={s.page}>
@@ -167,16 +180,64 @@ export default function LeasePdf({ lot, landlord, tenant, leaseStart, leaseEndOr
         {/* Signatures */}
         <View style={s.signatureBox}>
           <View style={s.sig}>
-            <Text>Le bailleur</Text>
-            <Text>{landlord.name}</Text>
-            <Text style={{ color: "#6B7280", fontSize: 7, marginTop: 4 }}>Date et signature précédées de la mention « Lu et approuvé »</Text>
+            {signatureLandlord ? (
+              <>
+                {/* eslint-disable-next-line jsx-a11y/alt-text */}
+                <Image src={signatureLandlord} style={{ height: 40, marginBottom: 4 }} />
+                <Text style={{ fontSize: 8 }}>Le bailleur — {landlord.name}</Text>
+                {signedAtLandlord && (
+                  <Text style={{ color: "#6B7280", fontSize: 7, marginTop: 2 }}>
+                    Signé le {new Date(signedAtLandlord).toLocaleString("fr-LU", { dateStyle: "medium", timeStyle: "short" })}
+                  </Text>
+                )}
+              </>
+            ) : (
+              <>
+                <Text>Le bailleur</Text>
+                <Text>{landlord.name}</Text>
+                <Text style={{ color: "#6B7280", fontSize: 7, marginTop: 4 }}>
+                  Date et signature précédées de la mention « Lu et approuvé »
+                </Text>
+              </>
+            )}
           </View>
           <View style={s.sig}>
-            <Text>Le locataire</Text>
-            <Text>{tenant.name}</Text>
-            <Text style={{ color: "#6B7280", fontSize: 7, marginTop: 4 }}>Date et signature précédées de la mention « Lu et approuvé »</Text>
+            {signatureTenant ? (
+              <>
+                {/* eslint-disable-next-line jsx-a11y/alt-text */}
+                <Image src={signatureTenant} style={{ height: 40, marginBottom: 4 }} />
+                <Text style={{ fontSize: 8 }}>Le locataire — {tenant.name}</Text>
+                {signedAtTenant && (
+                  <Text style={{ color: "#6B7280", fontSize: 7, marginTop: 2 }}>
+                    Signé le {new Date(signedAtTenant).toLocaleString("fr-LU", { dateStyle: "medium", timeStyle: "short" })}
+                  </Text>
+                )}
+              </>
+            ) : (
+              <>
+                <Text>Le locataire</Text>
+                <Text>{tenant.name}</Text>
+                <Text style={{ color: "#6B7280", fontSize: 7, marginTop: 4 }}>
+                  Date et signature précédées de la mention « Lu et approuvé »
+                </Text>
+              </>
+            )}
           </View>
         </View>
+
+        {pdfHash && (
+          <View style={{ marginTop: 20, padding: 8, backgroundColor: "#F8FAFC", borderRadius: 4 }}>
+            <Text style={{ fontSize: 7, color: "#334155", fontWeight: "bold", marginBottom: 2 }}>
+              Signature électronique simple (eIDAS art. 25 §1)
+            </Text>
+            <Text style={{ fontSize: 6, color: "#6B7280", fontFamily: "Courier" }}>
+              Empreinte SHA-256 : {pdfHash}
+            </Text>
+            <Text style={{ fontSize: 6, color: "#6B7280" }}>
+              Document émis via tevaxia.lu — toute modification ultérieure invalide l&apos;empreinte.
+            </Text>
+          </View>
+        )}
 
         <Text style={s.warning}>
           ⚠ Ce modèle de bail est fourni à titre indicatif par tevaxia.lu. Il ne se substitue pas au conseil d&apos;un

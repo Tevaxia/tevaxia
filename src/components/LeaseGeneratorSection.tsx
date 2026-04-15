@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { pdf } from "@react-pdf/renderer";
 import LeasePdf from "@/components/LeasePdf";
+import SignatureCanvas from "@/components/SignatureCanvas";
 import type { RentalLot } from "@/lib/gestion-locative";
 import { getProfile } from "@/lib/profile";
 
@@ -22,14 +23,29 @@ export default function LeaseGeneratorSection({ lot }: Props) {
   const [duration, setDuration] = useState("durée indéterminée");
   const [deposit, setDeposit] = useState(lot.loyerMensuelActuel * 2);
   const [indexation, setIndexation] = useState("Indice des prix à la consommation (STATEC)");
+  const [sigLandlord, setSigLandlord] = useState<string | null>(null);
+  const [sigTenant, setSigTenant] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  async function sha256Hex(blob: Blob): Promise<string> {
+    const buf = await blob.arrayBuffer();
+    const digest = await crypto.subtle.digest("SHA-256", buf);
+    return Array.from(new Uint8Array(digest))
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join("");
+  }
 
   const handleGenerate = async () => {
     setLoading(true);
     setError(null);
     try {
-      const blob = await pdf(
+      const landlordSigned = sigLandlord ? new Date().toISOString() : null;
+      const tenantSigned = sigTenant ? new Date().toISOString() : null;
+
+      // Premier rendu sans hash pour obtenir les bytes, puis calcul du hash,
+      // puis second rendu avec le hash embarqué dans le PDF.
+      const firstBlob = await pdf(
         <LeasePdf
           lot={lot}
           landlord={{
@@ -48,14 +64,48 @@ export default function LeaseGeneratorSection({ lot }: Props) {
           leaseEndOrDuration={leaseEnd || duration}
           deposit={deposit}
           indexationReference={indexation}
+          signatureLandlord={sigLandlord}
+          signatureTenant={sigTenant}
+          signedAtLandlord={landlordSigned}
+          signedAtTenant={tenantSigned}
         />
       ).toBlob();
 
-      const url = URL.createObjectURL(blob);
+      const hash = await sha256Hex(firstBlob);
+
+      const finalBlob = await pdf(
+        <LeasePdf
+          lot={lot}
+          landlord={{
+            name: profile.nomComplet || "Bailleur",
+            address: profile.adresse,
+            email: profile.email,
+            phone: profile.telephone,
+          }}
+          tenant={{
+            name: tenantName || "Locataire",
+            address: tenantAddress,
+            email: tenantEmail,
+            birthDate: tenantBirthDate,
+          }}
+          leaseStart={leaseStart}
+          leaseEndOrDuration={leaseEnd || duration}
+          deposit={deposit}
+          indexationReference={indexation}
+          signatureLandlord={sigLandlord}
+          signatureTenant={sigTenant}
+          signedAtLandlord={landlordSigned}
+          signedAtTenant={tenantSigned}
+          pdfHash={hash}
+        />
+      ).toBlob();
+
+      const url = URL.createObjectURL(finalBlob);
       const a = document.createElement("a");
       a.href = url;
       const safeName = lot.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase();
-      a.download = `bail-${safeName}-${leaseStart}.pdf`;
+      const suffix = sigLandlord && sigTenant ? "signe" : "draft";
+      a.download = `bail-${safeName}-${leaseStart}-${suffix}.pdf`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -130,9 +180,39 @@ export default function LeaseGeneratorSection({ lot }: Props) {
               className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
           </div>
 
+          <div className="sm:col-span-2 border-t border-card-border pt-4 mt-2">
+            <div className="text-xs font-semibold uppercase tracking-wider text-muted mb-2">
+              Signatures électroniques (optionnel)
+            </div>
+            <p className="text-xs text-muted mb-3">
+              Les deux parties peuvent signer directement sur ce même écran (réunion physique). Le PDF généré
+              intègrera les signatures + une empreinte SHA-256 comme preuve d&apos;intégrité (signature simple
+              au sens eIDAS art. 25). Laissez vide pour télécharger un bail non signé à imprimer.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <SignatureCanvas
+                label={`Signature bailleur — ${profile.nomComplet || "vous"}`}
+                value={sigLandlord}
+                onChange={setSigLandlord}
+              />
+              <SignatureCanvas
+                label={`Signature locataire${tenantName ? ` — ${tenantName}` : ""}`}
+                value={sigTenant}
+                onChange={setSigTenant}
+              />
+            </div>
+          </div>
+
           {error && <p className="sm:col-span-2 text-xs text-rose-700">{error}</p>}
 
-          <div className="sm:col-span-2 flex justify-end">
+          <div className="sm:col-span-2 flex items-center justify-between gap-3">
+            <p className="text-xs text-muted">
+              {sigLandlord && sigTenant
+                ? "Bail signé par les 2 parties — empreinte SHA-256 incluse au PDF."
+                : sigLandlord || sigTenant
+                  ? "Seule 1 partie a signé — le PDF sera partiellement signé."
+                  : "Aucune signature — PDF à imprimer pour signature manuscrite."}
+            </p>
             <button
               onClick={handleGenerate}
               disabled={loading || !tenantName.trim()}
