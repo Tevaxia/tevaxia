@@ -4058,7 +4058,11 @@
   },
   "mesEvaluations": {
     "title": "Mes évaluations",
-    "subtitle": "Sauvegardées localement dans votre navigateur",
+    "subtitle": "Local + synchronisé sur votre compte si connecté (500 max, 180 jours)",
+    "cloudBadge": "Synchronisé",
+    "cloudHint": "Synchronisé sur votre compte — 500 items max, conservés 180 jours",
+    "cloudPending": "Sync en cours…",
+    "cloudPendingHint": "Synchronisation avec votre compte en cours",
     "trash": "Corbeille",
     "deleteAll": "Tout supprimer",
     "noEvaluations": "Aucune évaluation sauvegardée",

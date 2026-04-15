@@ -7,8 +7,10 @@
 // - aides communales / Habitat Abordable
 
 import { calculerCapitalInvesti } from "./calculations";
+import { supabase } from "./supabase";
 
 const STORAGE_KEY = "tevaxia_rental_properties";
+const CLOUD_CAP = 500;
 
 export type EnergyClass = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "NC";
 
@@ -97,34 +99,159 @@ export function getLot(id: string): RentalLot | null {
 export function saveLot(lot: Omit<RentalLot, "id" | "createdAt" | "updatedAt"> & { id?: string }): RentalLot {
   const lots = load();
   const now = new Date().toISOString();
+  let result: RentalLot;
   if (lot.id) {
     const idx = lots.findIndex((l) => l.id === lot.id);
     const existing = idx >= 0 ? lots[idx] : null;
-    const updated: RentalLot = {
+    result = {
       ...(existing ?? { createdAt: now }),
       ...lot,
       id: lot.id,
       updatedAt: now,
       createdAt: existing?.createdAt ?? now,
     } as RentalLot;
-    if (idx >= 0) lots[idx] = updated;
-    else lots.push(updated);
-    persist(lots);
-    return updated;
+    if (idx >= 0) lots[idx] = result;
+    else lots.push(result);
+  } else {
+    result = {
+      ...lot,
+      id: `lot_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+      createdAt: now,
+      updatedAt: now,
+    };
+    lots.push(result);
   }
-  const created: RentalLot = {
-    ...lot,
-    id: `lot_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
-    createdAt: now,
-    updatedAt: now,
-  };
-  lots.push(created);
+  if (lots.length > CLOUD_CAP) lots.length = CLOUD_CAP;
   persist(lots);
-  return created;
+  void cloudUpsertLot(result);
+  return result;
 }
 
 export function deleteLot(id: string): void {
   persist(load().filter((l) => l.id !== id));
+  void cloudDeleteLot(id);
+}
+
+// ---------- Cloud sync (Supabase) ----------
+
+async function cloudUpsertLot(l: RentalLot): Promise<void> {
+  if (!supabase) return;
+  try {
+    const { data: auth } = await supabase.auth.getUser();
+    const user = auth?.user;
+    if (!user) return;
+    await supabase.from("rental_lots").upsert(
+      {
+        user_id: user.id,
+        local_id: l.id,
+        name: l.name,
+        address: l.address ?? null,
+        commune: l.commune ?? null,
+        surface: l.surface,
+        nb_chambres: l.nbChambres ?? null,
+        classe_energie: l.classeEnergie,
+        est_meuble: l.estMeuble,
+        prix_acquisition: l.prixAcquisition,
+        annee_acquisition: l.anneeAcquisition,
+        travaux_montant: l.travauxMontant,
+        travaux_annee: l.travauxAnnee,
+        loyer_mensuel_actuel: l.loyerMensuelActuel,
+        charges_mensuelles: l.chargesMensuelles,
+        tenant_name: l.tenantName ?? null,
+        lease_start_date: l.leaseStartDate ?? null,
+        lease_end_date: l.leaseEndDate ?? null,
+        vacant: l.vacant,
+      },
+      { onConflict: "user_id,local_id" }
+    );
+  } catch (e) {
+    console.warn("cloudUpsertLot failed:", e);
+  }
+}
+
+async function cloudDeleteLot(localId: string): Promise<void> {
+  if (!supabase) return;
+  try {
+    const { data: auth } = await supabase.auth.getUser();
+    const user = auth?.user;
+    if (!user) return;
+    await supabase.from("rental_lots").delete().eq("user_id", user.id).eq("local_id", localId);
+  } catch (e) {
+    console.warn("cloudDeleteLot failed:", e);
+  }
+}
+
+async function cloudListLots(): Promise<RentalLot[]> {
+  if (!supabase) return [];
+  try {
+    const { data: auth } = await supabase.auth.getUser();
+    const user = auth?.user;
+    if (!user) return [];
+    const nowIso = new Date().toISOString();
+    const { data, error } = await supabase
+      .from("rental_lots")
+      .select("*")
+      .eq("user_id", user.id)
+      .gt("expires_at", nowIso)
+      .order("updated_at", { ascending: false })
+      .limit(CLOUD_CAP);
+    if (error || !data) return [];
+    return data.map((d) => ({
+      id: (d.local_id as string) || (d.id as string),
+      name: d.name as string,
+      address: (d.address as string | null) ?? undefined,
+      commune: (d.commune as string | null) ?? undefined,
+      surface: Number(d.surface),
+      nbChambres: (d.nb_chambres as number | null) ?? undefined,
+      classeEnergie: (d.classe_energie as EnergyClass) ?? "NC",
+      estMeuble: Boolean(d.est_meuble),
+      prixAcquisition: Number(d.prix_acquisition),
+      anneeAcquisition: Number(d.annee_acquisition),
+      travauxMontant: Number(d.travaux_montant),
+      travauxAnnee: Number(d.travaux_annee),
+      loyerMensuelActuel: Number(d.loyer_mensuel_actuel),
+      chargesMensuelles: Number(d.charges_mensuelles),
+      tenantName: (d.tenant_name as string | null) ?? undefined,
+      leaseStartDate: (d.lease_start_date as string | null) ?? undefined,
+      leaseEndDate: (d.lease_end_date as string | null) ?? undefined,
+      vacant: Boolean(d.vacant),
+      createdAt: (d.created_at as string) || new Date().toISOString(),
+      updatedAt: (d.updated_at as string) || new Date().toISOString(),
+    }));
+  } catch (e) {
+    console.warn("cloudListLots failed:", e);
+    return [];
+  }
+}
+
+/**
+ * Liste asynchrone mergée local + cloud. Met à jour le localStorage
+ * avec le résultat fusionné.
+ */
+export async function listLotsAsync(): Promise<{ items: RentalLot[]; cloud: boolean }> {
+  const local = load();
+  const cloud = await cloudListLots();
+  if (cloud.length === 0) {
+    return { items: local.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)), cloud: false };
+  }
+  const byId = new Map<string, RentalLot>();
+  for (const l of local) byId.set(l.id, l);
+  for (const l of cloud) {
+    const existing = byId.get(l.id);
+    if (!existing || existing.updatedAt < l.updatedAt) byId.set(l.id, l);
+  }
+  const merged = Array.from(byId.values()).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+  const capped = merged.slice(0, CLOUD_CAP);
+  persist(capped);
+  return { items: capped, cloud: true };
+}
+
+/** À la connexion : pousse tous les lots locaux vers le cloud. */
+export async function syncLocalLotsToCloud(): Promise<number> {
+  const local = load();
+  if (local.length === 0) return 0;
+  await Promise.all(local.map((l) => cloudUpsertLot(l)));
+  return local.length;
 }
 
 // ---------- Calculs ----------

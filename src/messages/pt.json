@@ -4058,7 +4058,7 @@
   },
   "mesEvaluations": {
     "title": "As minhas avaliações",
-    "subtitle": "Guardadas localmente no seu navegador",
+    "subtitle": "Local + sincronizado na sua conta se estiver ligado (500 máx, 180 dias)",
     "trash": "Reciclagem",
     "deleteAll": "Apagar tudo",
     "noEvaluations": "Nenhuma avaliação guardada",
@@ -4082,7 +4082,11 @@
     "typeLoyer": "Capital investido / Renda",
     "typeAides": "Simulador de apoios",
     "typeAchatLocation": "Compra vs Arrendamento",
-    "typeBilanPromoteur": "Balanço do promotor"
+    "typeBilanPromoteur": "Balanço do promotor",
+    "cloudBadge": "Sincronizado",
+    "cloudHint": "Sincronizado na sua conta — 500 itens máx, mantidos 180 dias",
+    "cloudPending": "A sincronizar…",
+    "cloudPendingHint": "Sincronização com a sua conta em curso"
   },
   "portfolio": {
     "title": "Portfólio imobiliário",

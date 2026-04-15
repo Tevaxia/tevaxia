@@ -4058,7 +4058,7 @@
   },
   "mesEvaluations": {
     "title": "My valuations",
-    "subtitle": "Saved locally in your browser",
+    "subtitle": "Local + synced to your account if signed in (500 max, 180 days)",
     "trash": "Trash",
     "deleteAll": "Delete all",
     "noEvaluations": "No saved valuations",
@@ -4082,7 +4082,11 @@
     "typeLoyer": "Invested capital / Rent",
     "typeAides": "Subsidies simulator",
     "typeAchatLocation": "Buy vs Rent",
-    "typeBilanPromoteur": "Developer appraisal"
+    "typeBilanPromoteur": "Developer appraisal",
+    "cloudBadge": "Synced",
+    "cloudHint": "Synced to your account — 500 items max, kept 180 days",
+    "cloudPending": "Syncing…",
+    "cloudPendingHint": "Syncing with your account in progress"
   },
   "portfolio": {
     "title": "Property portfolio",

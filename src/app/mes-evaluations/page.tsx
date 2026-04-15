@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { listerEvaluations, supprimerEvaluation, supprimerTout, listerCorbeille, restaurerEvaluation, supprimerDefinitivement, viderCorbeille, type SavedValuation, type TrashedValuation } from "@/lib/storage";
+import { listerEvaluationsAsync, supprimerEvaluation, supprimerTout, listerCorbeille, restaurerEvaluation, supprimerDefinitivement, viderCorbeille, type SavedValuation, type TrashedValuation } from "@/lib/storage";
 import { formatEUR } from "@/lib/calculations";
+import { useAuth } from "@/components/AuthProvider";
 
 export default function MesEvaluations() {
   const t = useTranslations("mesEvaluations");
@@ -22,19 +23,30 @@ export default function MesEvaluations() {
     "achat-location": { label: t("typeAchatLocation"), href: "/achat-vs-location" },
     "bilan-promoteur": { label: t("typeBilanPromoteur"), href: "/bilan-promoteur" },
   };
+  const { user } = useAuth();
   const [evaluations, setEvaluations] = useState<SavedValuation[]>([]);
   const [trash, setTrash] = useState<TrashedValuation[]>([]);
   const [showTrash, setShowTrash] = useState(false);
+  const [cloudSynced, setCloudSynced] = useState(false);
 
   useEffect(() => {
-    setEvaluations(listerEvaluations());
     setTrash(listerCorbeille());
+    listerEvaluationsAsync().then(({ items, cloud }) => {
+      setEvaluations(items);
+      setCloudSynced(cloud);
+    });
   }, []);
+
+  const refresh = async () => {
+    const { items, cloud } = await listerEvaluationsAsync();
+    setEvaluations(items);
+    setCloudSynced(cloud);
+    setTrash(listerCorbeille());
+  };
 
   const handleDelete = (id: string) => {
     supprimerEvaluation(id);
-    setEvaluations(listerEvaluations());
-    setTrash(listerCorbeille());
+    void refresh();
   };
 
   const handleDeleteAll = () => {
@@ -45,8 +57,7 @@ export default function MesEvaluations() {
 
   const handleRestore = (id: string) => {
     restaurerEvaluation(id);
-    setEvaluations(listerEvaluations());
-    setTrash(listerCorbeille());
+    void refresh();
   };
 
   const handleDeletePermanent = (id: string) => {
@@ -71,7 +82,25 @@ export default function MesEvaluations() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("title")}</h1>
+            <div className="flex items-center gap-2">
+              <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("title")}</h1>
+              {user && cloudSynced && (
+                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-0.5 text-[11px] font-medium text-emerald-800" title={t("cloudHint")}>
+                  <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
+                  </svg>
+                  {t("cloudBadge")}
+                </span>
+              )}
+              {user && !cloudSynced && (
+                <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-0.5 text-[11px] font-medium text-amber-800" title={t("cloudPendingHint")}>
+                  <svg className="h-3 w-3 animate-pulse" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                  </svg>
+                  {t("cloudPending")}
+                </span>
+              )}
+            </div>
             <p className="mt-2 text-muted">{t("subtitle")}</p>
           </div>
           <div className="flex items-center gap-2">

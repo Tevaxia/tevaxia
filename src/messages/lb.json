@@ -4058,7 +4058,7 @@
   },
   "mesEvaluations": {
     "title": "Meng Bewäertungen",
-    "subtitle": "Lokal an Ärem Browser gespäichert",
+    "subtitle": "Lokal + synchroniséiert mat Ärem Kont wann ageloggt (500 max, 180 Deeg)",
     "trash": "Poubelle",
     "deleteAll": "Alles läschen",
     "noEvaluations": "Keng gespäichert Bewäertungen",
@@ -4082,7 +4082,11 @@
     "typeLoyer": "Investéiert Kapital / Loyer",
     "typeAides": "Hëllefen-Simulator",
     "typeAchatLocation": "Kafen vs Lounen",
-    "typeBilanPromoteur": "Promoteur-Bilan"
+    "typeBilanPromoteur": "Promoteur-Bilan",
+    "cloudBadge": "Synchroniséiert",
+    "cloudHint": "Mat Ärem Kont synchroniséiert — max 500, 180 Deeg",
+    "cloudPending": "Synchroniséiert…",
+    "cloudPendingHint": "Synchronisatioun mat Ärem Kont leeft"
   },
   "portfolio": {
     "title": "Immobilie-Portfolio",

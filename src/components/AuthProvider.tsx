@@ -2,6 +2,8 @@
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { supabase } from "@/lib/supabase";
+import { syncLocalToCloud } from "@/lib/storage";
+import { syncLocalLotsToCloud } from "@/lib/gestion-locative";
 import type { User } from "@supabase/supabase-js";
 
 interface AuthContextType {
@@ -45,6 +47,9 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
         if (params.has("code")) {
           window.history.replaceState({}, "", window.location.pathname);
         }
+        // Push toute donnée locale vers le cloud (rattrape les sauvegardes hors-ligne)
+        void syncLocalToCloud();
+        void syncLocalLotsToCloud();
       }
     });
 

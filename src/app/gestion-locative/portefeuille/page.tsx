@@ -3,20 +3,25 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useLocale } from "next-intl";
-import { listLots, deleteLot, analyzeLot, summarize, type RentalLot } from "@/lib/gestion-locative";
+import { listLotsAsync, deleteLot, analyzeLot, summarize, type RentalLot } from "@/lib/gestion-locative";
 import { formatEUR, formatPct } from "@/lib/calculations";
+import { useAuth } from "@/components/AuthProvider";
 
 export default function PortefeuillePage() {
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
+  const { user } = useAuth();
 
   const [lots, setLots] = useState<RentalLot[]>([]);
   const [hydrated, setHydrated] = useState(false);
+  const [cloudSynced, setCloudSynced] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setLots(listLots());
-    setHydrated(true);
+    listLotsAsync().then(({ items, cloud }) => {
+      setLots(items);
+      setCloudSynced(cloud);
+      setHydrated(true);
+    });
   }, []);
 
   const analyses = useMemo(() => lots.map(analyzeLot), [lots]);
@@ -25,7 +30,10 @@ export default function PortefeuillePage() {
   const handleDelete = (id: string) => {
     if (!confirm("Supprimer ce lot ? Cette action est irréversible.")) return;
     deleteLot(id);
-    setLots(listLots());
+    listLotsAsync().then(({ items, cloud }) => {
+      setLots(items);
+      setCloudSynced(cloud);
+    });
   };
 
   return (
@@ -34,7 +42,17 @@ export default function PortefeuillePage() {
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <Link href={`${lp}/gestion-locative`} className="text-xs text-muted hover:text-navy">← Gestion locative</Link>
-            <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">Mon portefeuille locatif</h1>
+            <div className="mt-2 flex items-center gap-2">
+              <h1 className="text-2xl font-bold text-navy sm:text-3xl">Mon portefeuille locatif</h1>
+              {user && cloudSynced && (
+                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-0.5 text-[11px] font-medium text-emerald-800" title="Synchronisé sur votre compte (500 lots max, conservés 180 jours)">
+                  <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
+                  </svg>
+                  ☁️ Synchronisé
+                </span>
+              )}
+            </div>
             <p className="mt-1 text-sm text-muted">Suivi des lots, loyer légal, conformité et diagnostic énergétique.</p>
           </div>
           <Link
@@ -181,8 +199,9 @@ export default function PortefeuillePage() {
         )}
 
         <div className="mt-10 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-          Les lots sont stockés localement dans votre navigateur. Ils ne sont pas synchronisés sur nos serveurs. Exportez
-          régulièrement vos données sensibles.
+          {user
+            ? "Vos lots sont stockés localement ET synchronisés sur votre compte (500 lots max, conservés 180 jours à partir de la dernière modification)."
+            : "Les lots sont stockés localement dans votre navigateur. Connectez-vous pour les synchroniser sur votre compte et les retrouver depuis n'importe quel appareil."}
         </div>
       </div>
     </div>

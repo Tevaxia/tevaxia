@@ -4058,7 +4058,7 @@
   },
   "mesEvaluations": {
     "title": "Meine Bewertungen",
-    "subtitle": "Lokal in Ihrem Browser gespeichert",
+    "subtitle": "Lokal + mit Ihrem Konto synchronisiert (max. 500, 180 Tage)",
     "trash": "Papierkorb",
     "deleteAll": "Alle löschen",
     "noEvaluations": "Keine gespeicherten Bewertungen",
@@ -4082,7 +4082,11 @@
     "typeLoyer": "Investiertes Kapital / Miete",
     "typeAides": "Fördermittelrechner",
     "typeAchatLocation": "Kauf vs. Miete",
-    "typeBilanPromoteur": "Projektentwicklerbilanz"
+    "typeBilanPromoteur": "Projektentwicklerbilanz",
+    "cloudBadge": "Synchronisiert",
+    "cloudHint": "Mit Ihrem Konto synchronisiert — max. 500, 180 Tage aufbewahrt",
+    "cloudPending": "Synchronisiert…",
+    "cloudPendingHint": "Synchronisation mit Ihrem Konto läuft"
   },
   "portfolio": {
     "title": "Immobilien-Portfolio",
