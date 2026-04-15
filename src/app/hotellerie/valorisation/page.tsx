@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import { computeHotelValuation, getDefaultsForCategory } from "@/lib/hotellerie/valuation";
@@ -31,6 +31,7 @@ function formatPct(n: number, digits = 1): string {
 
 export default function ValorisationHotelPage() {
   const locale = useLocale();
+  const t = useTranslations("hotellerieToolPages");
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   const [nbChambres, setNbChambres] = useState(45);
@@ -90,12 +91,10 @@ export default function ValorisationHotelPage() {
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
-            Hub hôtellerie
+            {t("backToHub")}
           </Link>
-          <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Valorisation hôtelière</h1>
-          <p className="mt-2 text-lg text-white/70">
-            RevPAR × ADR × occupation → EBITDA → DCF + comparables prix/chambre
-          </p>
+          <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl">{t("valorisationTitle")}</h1>
+          <p className="mt-2 text-lg text-white/70">{t("valorisationSubtitle")}</p>
         </div>
       </section>
 

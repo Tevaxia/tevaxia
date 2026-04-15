@@ -1,37 +1,128 @@
-import type { Metadata } from "next";
-import { ToolStub } from "../_ToolStub";
+"use client";
 
-export const metadata: Metadata = {
-  title: "RevPAR vs marché — benchmark | tevaxia.lu",
-  description:
-    "Comparez RevPAR et ADR de votre hôtel à la concurrence locale. Calcul MPI, ARI, RGI (fair share index) façon STR.",
+import { useMemo, useState } from "react";
+import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
+import InputField from "@/components/InputField";
+import ResultPanel from "@/components/ResultPanel";
+import { computeRevparCompset } from "@/lib/hotellerie/revpar-comparison";
+
+function formatEUR(n: number): string {
+  if (!isFinite(n) || isNaN(n)) return "—";
+  return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
+}
+
+const DIAG_BG: Record<string, string> = {
+  "problème prix": "from-amber-500 to-orange-600",
+  "problème commercial": "from-rose-500 to-rose-700",
+  "sain": "from-emerald-500 to-emerald-700",
+  "sur-performance": "from-blue-500 to-blue-700",
 };
 
-export default function RevparComparison() {
+export default function RevparComparisonPage() {
+  const locale = useLocale();
+  const t = useTranslations("hotellerieToolPages");
+  const lp = locale === "fr" ? "" : `/${locale}`;
+
+  const [hotelOccupancy, setHotelOccupancy] = useState(0.62);
+  const [hotelADR, setHotelADR] = useState(115);
+  const [compsetOccupancy, setCompsetOccupancy] = useState(0.70);
+  const [compsetADR, setCompsetADR] = useState(125);
+  const [nbChambres, setNbChambres] = useState(50);
+
+  const result = useMemo(() => {
+    try {
+      return computeRevparCompset({ hotelOccupancy, hotelADR, compsetOccupancy, compsetADR, nbChambres });
+    } catch { return null; }
+  }, [hotelOccupancy, hotelADR, compsetOccupancy, compsetADR, nbChambres]);
+
   return (
-    <ToolStub
-      title="RevPAR vs marché — benchmark"
-      subtitle="MPI, ARI, RGI : votre fair share par rapport au compset"
-      description="Le RevPAR brut ne dit pas grand-chose : tout dépend du marché. Les indices de performance (MPI, ARI, RGI) calculés par STR ou Hotstats positionnent un hôtel par rapport à un compset (competitive set) — au prix d'un abonnement coûteux. Cet outil reproduit la même logique avec des données saisies ou estimées pour votre marché local."
-      methodology={[
-        "MPI = (Occupation hôtel / Occupation compset) × 100 — fair share occupation",
-        "ARI = (ADR hôtel / ADR compset) × 100 — fair share prix",
-        "RGI = (RevPAR hôtel / RevPAR compset) × 100 — fair share global",
-        "Identification : sur-prix avec sous-occupation = problème prix",
-        "Identification : sous-prix avec sur-occupation = manque à gagner",
-      ]}
-      inputs={[
-        "RevPAR / ADR / occupation de votre hôtel",
-        "RevPAR / ADR / occupation moyens du compset (3-5 hôtels)",
-        "Saisonnalité (mensuel ou trimestriel)",
-        "Catégorie de référence (budget/mid/upscale)",
-      ]}
-      outputs={[
-        "Indices MPI, ARI, RGI mensuels / annuels",
-        "Diagnostic (problème prix / problème commercial / sain)",
-        "Recommandation stratégique (yield management)",
-        "Estimation manque à gagner annuel si RGI < 100",
-      ]}
-    />
+    <div className="bg-background">
+      <section className="bg-gradient-to-br from-orange-900 via-orange-800 to-orange-700 py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Link href={`${lp}/hotellerie`} className="inline-flex items-center gap-1 text-sm text-white/60 hover:text-white">
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+            {t("backToHub")}
+          </Link>
+          <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl">{t("revparComparisonTitle")}</h1>
+          <p className="mt-2 text-lg text-white/70">{t("revparComparisonSubtitle")}</p>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
+          <div className="space-y-6">
+            <div className="rounded-xl border-2 border-orange-200 bg-orange-50 p-6">
+              <h2 className="text-base font-semibold text-orange-900">Votre hôtel</h2>
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                <InputField label="Occupation moyenne" value={Math.round(hotelOccupancy * 100)} onChange={(v) => setHotelOccupancy(Math.max(5, Math.min(95, Number(v) || 0)) / 100)} suffix="%" />
+                <InputField label="ADR moyen" value={hotelADR} onChange={(v) => setHotelADR(Number(v) || 0)} suffix="€" />
+                <InputField label="Nombre de chambres" value={nbChambres} onChange={(v) => setNbChambres(Number(v) || 0)} className="sm:col-span-2" />
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-card-border bg-card p-6">
+              <h2 className="text-base font-semibold text-navy">Compset (concurrence locale)</h2>
+              <p className="mt-1 text-xs text-muted">Moyenne pondérée sur 3-5 hôtels comparables (catégorie, taille, localisation).</p>
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                <InputField label="Occupation moyenne compset" value={Math.round(compsetOccupancy * 100)} onChange={(v) => setCompsetOccupancy(Math.max(5, Math.min(95, Number(v) || 0)) / 100)} suffix="%" />
+                <InputField label="ADR moyen compset" value={compsetADR} onChange={(v) => setCompsetADR(Number(v) || 0)} suffix="€" />
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            {result ? (
+              <>
+                <div className={`rounded-xl bg-gradient-to-br ${DIAG_BG[result.diagnostic]} p-6 text-white shadow-lg`}>
+                  <div className="text-sm uppercase tracking-wider text-white/80 font-semibold">RGI (Revenue Generation Index)</div>
+                  <div className="mt-2 text-4xl font-bold">{result.rgi.toFixed(1)}</div>
+                  <div className="mt-1 text-sm text-white/90">{result.diagnostic}</div>
+                </div>
+
+                <ResultPanel
+                  title="Indices fair share"
+                  lines={[
+                    { label: "MPI (Market Penetration Index)", value: `${result.mpi.toFixed(1)} — occupation vs marché`, highlight: true, warning: result.mpi < 95 },
+                    { label: "ARI (Average Rate Index)", value: `${result.ari.toFixed(1)} — prix vs marché`, highlight: true, warning: result.ari < 95 },
+                    { label: "RGI (Revenue Generation Index)", value: `${result.rgi.toFixed(1)} — RevPAR vs marché`, highlight: true, large: true, warning: result.rgi < 95 },
+                  ]}
+                />
+
+                <div className="rounded-xl border border-orange-200 bg-orange-50 p-5 text-sm text-orange-900">
+                  <div className="font-semibold">Diagnostic</div>
+                  <p className="mt-1">{result.diagnosticDetail}</p>
+                </div>
+
+                <ResultPanel
+                  title="RevPAR comparé"
+                  lines={[
+                    { label: "Votre RevPAR", value: `${result.hotelRevPAR.toFixed(0)} €/nuit/chambre`, highlight: true },
+                    { label: "RevPAR compset", value: `${result.compsetRevPAR.toFixed(0)} €/nuit/chambre`, sub: true },
+                    { label: "Écart", value: `${(result.hotelRevPAR - result.compsetRevPAR).toFixed(0)} €/nuit/chambre`, warning: result.hotelRevPAR < result.compsetRevPAR },
+                  ]}
+                />
+
+                <ResultPanel
+                  title="Manque à gagner annuel"
+                  lines={[
+                    { label: `Si vous atteignez le RevPAR du compset (${result.compsetRevPAR.toFixed(0)} €)`, value: formatEUR(result.manqueAGagnerAnnuel), highlight: true, large: true },
+                    { label: "= revenu chambres supplémentaire potentiel", value: result.manqueAGagnerAnnuel > 0 ? "Levier identifié" : "Vous êtes au fair share", sub: true },
+                  ]}
+                />
+              </>
+            ) : (
+              <div className="rounded-xl border border-rose-200 bg-rose-50 p-6 text-rose-800">Vérifiez les valeurs saisies.</div>
+            )}
+          </div>
+        </div>
+
+        <div className="mt-10 rounded-xl border border-blue-200 bg-blue-50 p-5 text-sm text-blue-900">
+          <strong>Méthode :</strong> les indices MPI / ARI / RGI = standard STR (Smith Travel Research) et HotStats — référence mondiale benchmark hôtelier. Indice 100 = fair share atteint, &gt; 100 = sur-performance, &lt; 100 = sous-performance. Saisir un compset représentatif est la clé : 3-5 hôtels même catégorie, même zone, même cible client.
+        </div>
+      </div>
+    </div>
   );
 }

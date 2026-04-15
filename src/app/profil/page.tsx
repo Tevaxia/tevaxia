@@ -201,6 +201,16 @@ export default function Profil() {
           <p className="mt-2 text-muted">{t("subtitle")}</p>
         </div>
 
+        <div className="mb-6 rounded-xl border-2 border-rose-200 bg-rose-50 p-4">
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <div className="text-sm font-semibold text-rose-900">Vous êtes en agence ?</div>
+              <p className="text-xs text-rose-800 mt-0.5">Créez votre agence, invitez vos négociateurs, partagez le branding sur les rapports.</p>
+            </div>
+            <a href="organisation" className="shrink-0 rounded-lg bg-rose-600 px-3 py-2 text-xs font-semibold text-white hover:bg-rose-700">Mon agence →</a>
+          </div>
+        </div>
+
         <div className="space-y-6">
           <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
             <h2 className="mb-4 text-base font-semibold text-navy">{t("identity")}</h2>

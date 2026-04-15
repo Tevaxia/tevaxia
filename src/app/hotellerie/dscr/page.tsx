@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import { computeHotelDscr } from "@/lib/hotellerie/dscr";
@@ -25,6 +25,7 @@ const DIAG_COLOR: Record<string, string> = {
 
 export default function DscrHotelPage() {
   const locale = useLocale();
+  const t = useTranslations("hotellerieToolPages");
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   const [ebitdaStabilise, setEbitdaStabilise] = useState(450000);
@@ -62,12 +63,10 @@ export default function DscrHotelPage() {
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
-            Hub hôtellerie
+            {t("backToHub")}
           </Link>
-          <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl">DSCR &amp; financement hôtelier</h1>
-          <p className="mt-2 text-lg text-white/70">
-            Couverture du service de la dette, stress test occupation, montant max empruntable
-          </p>
+          <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl">{t("dscrTitle")}</h1>
+          <p className="mt-2 text-lg text-white/70">{t("dscrSubtitle")}</p>
         </div>
       </section>
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Outils pré-acquisition hôtelière | tevaxia.lu",
@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 
 interface HotelTool {
   href: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descKey: string;
   status: "ready" | "soon";
   icon: React.ReactNode;
   color: string;
@@ -20,10 +20,9 @@ interface HotelTool {
 const TOOLS: HotelTool[] = [
   {
     href: "/hotellerie/valorisation",
-    title: "Valorisation hôtelière",
-    description:
-      "RevPAR, ADR, taux d'occupation, EBITDA, multiple de transaction. Approche par le revenu (DCF) + comparables.",
-    status: "soon",
+    titleKey: "valorisationTitle",
+    descKey: "valorisationDesc",
+    status: "ready",
     color: "from-purple-700 to-purple-500",
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -33,10 +32,9 @@ const TOOLS: HotelTool[] = [
   },
   {
     href: "/hotellerie/dscr",
-    title: "DSCR & financement",
-    description:
-      "Couverture du service de la dette pour acquisition hôtelière. Stress test occupation, ratio LTV, taux SBA / banque commerciale.",
-    status: "soon",
+    titleKey: "dscrTitle",
+    descKey: "dscrDesc",
+    status: "ready",
     color: "from-blue-700 to-blue-500",
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -46,10 +44,9 @@ const TOOLS: HotelTool[] = [
   },
   {
     href: "/hotellerie/exploitation",
-    title: "Bilan d'exploitation",
-    description:
-      "P&L hôtelier prévisionnel : USALI flash, ratios staff/revenu, departmental profit, GOP, FF&E reserve.",
-    status: "soon",
+    titleKey: "exploitationTitle",
+    descKey: "exploitationDesc",
+    status: "ready",
     color: "from-emerald-700 to-emerald-500",
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -59,10 +56,9 @@ const TOOLS: HotelTool[] = [
   },
   {
     href: "/hotellerie/renovation",
-    title: "Rénovation énergétique hôtel",
-    description:
-      "Coûts par chambre, ROI sur factures énergie, impact RevPAR (label éco), aides Klimabonus appliquées au tertiaire.",
-    status: "soon",
+    titleKey: "renovationTitle",
+    descKey: "renovationDesc",
+    status: "ready",
     color: "from-green-700 to-green-500",
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -72,10 +68,9 @@ const TOOLS: HotelTool[] = [
   },
   {
     href: "/hotellerie/revpar-comparison",
-    title: "RevPAR vs marché",
-    description:
-      "Benchmark RevPAR/ADR vs concurrence locale (STR-like). Identification du fair share (MPI, ARI, RGI).",
-    status: "soon",
+    titleKey: "revparComparisonTitle",
+    descKey: "revparComparisonDesc",
+    status: "ready",
     color: "from-orange-700 to-orange-500",
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -85,10 +80,9 @@ const TOOLS: HotelTool[] = [
   },
   {
     href: "/hotellerie/score-e2",
-    title: "Score E-2 / investisseur",
-    description:
-      "Évaluation de l'éligibilité visa investisseur E-2 (US) : capital substantiel, création d'emplois, ratio risk/return.",
-    status: "soon",
+    titleKey: "scoreE2Title",
+    descKey: "scoreE2Desc",
+    status: "ready",
     color: "from-rose-700 to-rose-500",
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -99,7 +93,7 @@ const TOOLS: HotelTool[] = [
 ];
 
 export default async function HotellerieHub() {
-  const locale = await getLocale();
+  const [locale, t] = await Promise.all([getLocale(), getTranslations("hotellerieHub")]);
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   return (
@@ -109,22 +103,18 @@ export default async function HotellerieHub() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
             <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></span>
-            Nouveau module — gratuit
+            {t("badge")}
           </div>
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Pré-acquisition hôtelière
+            {t("title")}
           </h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg leading-8 text-white/80">
-            6 outils pour évaluer une acquisition hôtelière : valorisation RevPAR/EBITDA, DSCR, bilan
-            d&apos;exploitation, rénovation énergétique, benchmark marché, score visa E-2. Une alternative
-            accessible aux outils institutionnels (ARGUS, HVS) à $10k+/an.
-          </p>
+          <p className="mt-6 max-w-3xl mx-auto text-lg leading-8 text-white/80">{t("description")}</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm text-white/60">
-            <span className="rounded-full border border-white/20 px-3 py-1">USALI</span>
-            <span className="rounded-full border border-white/20 px-3 py-1">RevPAR / ADR</span>
-            <span className="rounded-full border border-white/20 px-3 py-1">DSCR / LTV</span>
-            <span className="rounded-full border border-white/20 px-3 py-1">Visa E-2</span>
-            <span className="rounded-full border border-white/20 px-3 py-1">Klimabonus tertiaire</span>
+            <span className="rounded-full border border-white/20 px-3 py-1">{t("tag1")}</span>
+            <span className="rounded-full border border-white/20 px-3 py-1">{t("tag2")}</span>
+            <span className="rounded-full border border-white/20 px-3 py-1">{t("tag3")}</span>
+            <span className="rounded-full border border-white/20 px-3 py-1">{t("tag4")}</span>
+            <span className="rounded-full border border-white/20 px-3 py-1">{t("tag5")}</span>
           </div>
         </div>
       </section>
@@ -141,26 +131,18 @@ export default async function HotellerieHub() {
               >
                 {tool.status === "soon" && (
                   <span className="absolute right-4 top-4 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-800">
-                    Bientôt
+                    {t("soonBadge")}
                   </span>
                 )}
-                <div
-                  className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${tool.color} text-white shadow-sm`}
-                >
+                <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${tool.color} text-white shadow-sm`}>
                   {tool.icon}
                 </div>
                 <h3 className="text-lg font-semibold text-navy group-hover:text-navy-light transition-colors">
-                  {tool.title}
+                  {t(tool.titleKey)}
                 </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{tool.description}</p>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{t(tool.descKey)}</p>
                 <div className="mt-4 flex items-center justify-end">
-                  <svg
-                    className="h-5 w-5 text-muted transition-transform group-hover:translate-x-1 group-hover:text-navy"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                  >
+                  <svg className="h-5 w-5 text-muted transition-transform group-hover:translate-x-1 group-hover:text-navy" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </div>
@@ -173,31 +155,22 @@ export default async function HotellerieHub() {
       {/* Why */}
       <section className="border-t border-card-border bg-card py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-bold text-navy sm:text-3xl">Pour qui ?</h2>
+          <h2 className="text-center text-2xl font-bold text-navy sm:text-3xl">{t("audienceTitle")}</h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             <div className="rounded-xl border border-card-border bg-background p-6">
               <div className="text-3xl">🏨</div>
-              <h3 className="mt-3 text-base font-semibold text-navy">Acheteurs de motels &amp; hôtels budget</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                Vous regardez une transaction sous 5 M€ et n&apos;avez pas accès aux outils institutionnels.
-                Faites une offre éclairée en quelques heures.
-              </p>
+              <h3 className="mt-3 text-base font-semibold text-navy">{t("audience1Title")}</h3>
+              <p className="mt-2 text-sm text-muted leading-relaxed">{t("audience1Desc")}</p>
             </div>
             <div className="rounded-xl border border-card-border bg-background p-6">
               <div className="text-3xl">🇺🇸</div>
-              <h3 className="mt-3 text-base font-semibold text-navy">Investisseurs visa E-2</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                L&apos;acquisition d&apos;un hôtel/motel reste une voie privilégiée pour le visa E-2 US.
-                Vérifiez l&apos;éligibilité avant d&apos;engager des frais.
-              </p>
+              <h3 className="mt-3 text-base font-semibold text-navy">{t("audience2Title")}</h3>
+              <p className="mt-2 text-sm text-muted leading-relaxed">{t("audience2Desc")}</p>
             </div>
             <div className="rounded-xl border border-card-border bg-background p-6">
               <div className="text-3xl">🔄</div>
-              <h3 className="mt-3 text-base font-semibold text-navy">Marchands de biens hôteliers</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                Repositionnement, rénovation, revente. Quantifiez le potentiel de création de valeur
-                avant signature.
-              </p>
+              <h3 className="mt-3 text-base font-semibold text-navy">{t("audience3Title")}</h3>
+              <p className="mt-2 text-sm text-muted leading-relaxed">{t("audience3Desc")}</p>
             </div>
           </div>
         </div>
@@ -209,12 +182,8 @@ export default async function HotellerieHub() {
           <div className="rounded-2xl bg-gradient-to-br from-navy to-navy-light p-8 sm:p-12">
             <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
               <div>
-                <h2 className="text-2xl font-bold text-white sm:text-3xl">Soyez prévenu de la sortie</h2>
-                <p className="mt-4 text-white/70 leading-relaxed">
-                  Les 6 outils sont en cours de développement. Si vous suivez une transaction et avez
-                  besoin d&apos;une analyse rapide, écrivez-nous : nous pouvons traiter votre cas en
-                  beta-test.
-                </p>
+                <h2 className="text-2xl font-bold text-white sm:text-3xl">{t("ctaTitle")}</h2>
+                <p className="mt-4 text-white/70 leading-relaxed">{t("ctaDesc")}</p>
                 <a
                   href="mailto:contact@tevaxia.lu?subject=Outils%20h%C3%B4tellerie%20-%20beta"
                   className="mt-6 inline-flex items-center gap-2 rounded-lg bg-gold px-6 py-3 text-sm font-semibold text-navy-dark shadow-sm transition-colors hover:bg-gold-light"
@@ -224,18 +193,12 @@ export default async function HotellerieHub() {
               </div>
               <div className="space-y-3">
                 <div className="rounded-lg bg-white/10 px-4 py-3">
-                  <div className="text-sm font-medium text-white">Différenciateur mondial</div>
-                  <p className="mt-1 text-sm text-white/60">
-                    ARGUS Enterprise et HVS coûtent 10 000 $+/an. Aucun outil accessible n&apos;existe
-                    actuellement pour les budgets &lt; 5 M€.
-                  </p>
+                  <div className="text-sm font-medium text-white">{t("diffTitle")}</div>
+                  <p className="mt-1 text-sm text-white/60">{t("diffDesc")}</p>
                 </div>
                 <div className="rounded-lg bg-white/10 px-4 py-3">
-                  <div className="text-sm font-medium text-white">Standards utilisés</div>
-                  <p className="mt-1 text-sm text-white/60">
-                    USALI 11e éd. (Uniform System of Accounts for the Lodging Industry), méthode du
-                    revenu (DCF), comparables transactionnels.
-                  </p>
+                  <div className="text-sm font-medium text-white">{t("standardsTitle")}</div>
+                  <p className="mt-1 text-sm text-white/60">{t("standardsDesc")}</p>
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import { computeE2Score } from "@/lib/hotellerie/e2-score";
@@ -25,6 +25,7 @@ const DIAG_BG: Record<string, string> = {
 
 export default function ScoreE2Page() {
   const locale = useLocale();
+  const t = useTranslations("hotellerieToolPages");
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   const [capitalInvesti, setCapitalInvesti] = useState(750000);
@@ -62,12 +63,10 @@ export default function ScoreE2Page() {
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
-            Hub hôtellerie
+            {t("backToHub")}
           </Link>
-          <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Score visa E-2 / investisseur</h1>
-          <p className="mt-2 text-lg text-white/70">
-            5 sous-tests USCIS : substantiality, at-risk, marginality, real &amp; operating, job creation
-          </p>
+          <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl">{t("scoreE2Title")}</h1>
+          <p className="mt-2 text-lg text-white/70">{t("scoreE2Subtitle")}</p>
         </div>
       </section>
 
