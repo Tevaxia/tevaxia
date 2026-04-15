@@ -659,6 +659,161 @@
 
 ---
 
+## 29bis. Comptes & rôles verticaux métier (Syndic, Hôtellerie)
+
+**État actuel** : la table `organizations` + `org_members` (rôles `admin`, `member`, `viewer`) est **mono-pattern, pensée pour les agences immo**. Elle ne couvre ni les spécificités syndic/copropriété ni la gestion multi-hôtels. Aucun rôle métier spécifique n'existe pour ces deux verticaux.
+
+### 29bis.A — SYNDIC & COPROPRIÉTÉ
+
+**Acteurs métier à modéliser** :
+
+| Rôle | Description LU | Équivalent dans l'outil actuel |
+|---|---|---|
+| Syndic (gestionnaire) | Mandaté par l'AG, exécute budget et travaux | ❌ absent |
+| Président du conseil syndical | Copropriétaire représentant, contre-pouvoir | ❌ absent |
+| Membre du conseil syndical | Élu, consulté | ❌ absent |
+| Copropriétaire (simple) | Détient un ou plusieurs lots, vote en AG | ❌ absent |
+| Locataire du copropriétaire | Accès restreint (charges, règlement) | ❌ absent |
+| Prestataire (entreprise travaux) | Reçoit bons de commande, factures | ❌ absent |
+
+**Benchmarks** :
+- **France** : Cotoit (SaaS syndic, 50k+ lots gérés), Matera (syndic bénévole, 40k copropriétés), Qlower, Homeland (syndic pro-am), Syndic One
+- **Belgique** : Syndics.be, Smovin (focus gestion locative mais embarque quelques modules copropriété)
+- **Suisse** : Swissacc, IAZI
+- **Allemagne** : Facilis (WEG Verwaltung), ETG24, Casavi
+- **Luxembourg** : aucun acteur dominant — **marché vierge côté SaaS**
+
+**Fonctionnalités différenciantes observées chez les leaders** :
+- **AG virtuelle** : convocation en ligne, ordre du jour, vote électronique conforme loi, compte-rendu généré automatiquement
+- **Appels de fonds** : génération mensuelle par quote-part (millièmes), relances automatiques, suivi paiement
+- **Espace copropriétaire** : accès propre (charges, règlement, PV d'AG, documents contractuels)
+- **Gestion travaux** : appels d'offres, bons de commande, factures, paiement entreprises
+- **Comptabilité copropriété** : plan comptable spécifique (CCAC LU), clôture annuelle, rapport syndic
+- **Module conseil syndical** : vérification comptes, alertes anomalies
+- **Archivage 10 ans** : conformité légale LU (loi du 16 mai 1975 + réforme 2020)
+
+**Gaps critiques chez nous** :
+- Pas de concept de **copropriété** (entité regroupant lots + quotes-parts + règlement)
+- Pas de **quotes-parts / tantièmes** (millièmes) pour répartir charges
+- Pas de **plan comptable copropriété** (compte 10 charges, 20 travaux, 30 réserves…)
+- Pas d'**appels de fonds** automatiques
+- Pas d'**espace copropriétaire** (portail restreint)
+- Pas de **gestion d'AG** (convocation/vote/PV)
+- Pas de **multi-copropriétés par syndic** (un syndic gère 20-200 copros)
+
+**Pistes d'amélioration — compte & rôles syndic** :
+
+**Court (1-4 semaines)** :
+- Étendre `org_role` avec `syndic`, `conseil_syndical`, `coproprietaire`, `locataire`, `prestataire`
+- Ajouter un champ `org_type` sur `organizations` ('agency' | 'syndic' | 'hotel_group' | 'bank' | 'other') pour basculer UI selon métier
+- Ajouter un bandeau adapté dans `/profil` selon le type d'organisation
+
+**Moyen (1-3 mois)** :
+- Nouvelle table `coownerships` (immeubles sous gestion d'un syndic) avec quotes-parts par lot
+- Table `coowners` (copropriétaires) avec rôle et lots rattachés
+- Espace `/syndic/coproprietes` listant les copropriétés gérées + CRUD
+- Espace copropriétaire restreint `/syndic/copro/[slug]` accessible via invitation email
+
+**Long (3-12 mois)** :
+- Module appels de fonds + suivi paiements (génération PDF mensuel conforme LU)
+- Plan comptable copropriété LU avec clôture annuelle exportable pour l'expert-comptable
+- Module AG virtuelle (convocation + vote électronique loi LU + PV auto)
+- Module travaux : appels d'offres, bons de commande, suivi facturation
+
+---
+
+### 29bis.B — HÔTELLERIE
+
+**Acteurs métier à modéliser** :
+
+| Rôle | Description | Équivalent actuel |
+|---|---|---|
+| Propriétaire (ownership) | Capital investi, ROI, exit strategy | ❌ partiellement (score E-2) |
+| Opérateur (exploitant) | Franchise, contrat management | ❌ absent |
+| Directeur d'exploitation | Pilote le P&L, staff, GOP | ❌ absent |
+| Revenue manager | Pricing, yield, RevPAR, OTA | ❌ absent |
+| Réception / front desk | Saisie occupation quotidienne | ❌ absent |
+| F&B manager | Restauration, MICE | ❌ absent |
+| Groupe hôtelier multi-sites | Vision consolidée plusieurs hôtels | ❌ absent |
+
+**Benchmarks** :
+- **PMS (Property Management Systems)** : Oracle OPERA (leader institutionnel €5-50k/an/hôtel), Mews Systems (EU, cloud moderne), Cloudbeds (accessible), Little Hotelier (indépendants), Apaleo (API-first)
+- **Revenue management** : Duetto, IDeaS, OTA Insight, RateGain
+- **Reporting / intelligence** : STR Global (compset), Kalibri Labs (revenue intel US), Fornova
+- **Multi-property platforms** : Oracle OHIP, SiteMinder, D-EDGE
+- **Accessibles (budget)** : HotelRunner, Hostwin, innRoad, WebHotelier
+
+**Fonctionnalités différenciantes observées** :
+- **Multi-hôtel dashboard** : vue consolidée P&L / RevPAR / GOP pour un groupe 3-30 hôtels
+- **Benchmarking live** : auto-ingestion données STR avec compset customisable
+- **Revenue forecast** : ML prévisionnel 90 jours (taux d'occupation, ADR optimal)
+- **Channel manager** : distribution Booking/Expedia/Airbnb depuis un seul back-office
+- **Rapport propriétaire** mensuel standardisé (owner report)
+- **Yield alerts** : notif quand un compset modifie ses prix / quand la pickup anticipé dévie
+
+**Gaps critiques chez nous** :
+- Pas de concept d'**hôtel persisté** (chaque simulation est ponctuelle, pas liée à un établissement)
+- Pas de **historique multi-périodes** (l'hôtel Belair Plaza au 2025-Q1 vs 2025-Q2)
+- Pas de **rôles hôteliers distincts** (propriétaire vs directeur vs revenue manager)
+- Pas de **multi-hôtel** pour un groupe
+- Pas de **connecteur PMS** (injection données réelles depuis OPERA/Mews/Cloudbeds via API)
+- Pas de **espace propriétaire** (owner report mensuel automatisé)
+- Pas d'**alertes** (RGI qui décroche, ADR compset modifié)
+
+**Pistes d'amélioration — compte & rôles hôtellerie** :
+
+**Court (1-4 semaines)** :
+- Étendre `org_role` avec `hotel_owner`, `hotel_director`, `revenue_manager`, `fb_manager`, `reception`
+- Ajouter `org_type = 'hotel_group'` pour activer un dashboard hôtelier consolidé
+- Persistance des simulations hôtelières dans une table `hotels` (nom, catégorie, nb chambres) rattachée à l'organisation
+
+**Moyen (1-3 mois)** :
+- Table `hotel_periods` (hôtel, trimestre, RevPAR, ADR, occupation, GOP, EBITDA) pour historique N trimestres
+- Dashboard groupe `/hotellerie/groupe/[slug]` : consolidation multi-sites, KPI pondérés par chambres
+- Owner report mensuel auto-généré PDF (template standardisé HOTREC)
+
+**Long (3-12 mois)** :
+- Connecteur Mews / Cloudbeds / OPERA (API + webhook ingestion quotidienne taux d'occupation, ADR)
+- Module channel manager lite (saisie manuelle multi-canaux + distribution Booking via API)
+- Forecast ML 90 jours (ARIMA ou Prophet sur historique + saisonnalité LU/régionale)
+- Partenariat Hotrec LU pour compset mutualisé (panel hôteliers LU partagent anonymement leurs chiffres, accès réciproque)
+
+---
+
+### 29bis.C — RÉCAPITULATIF ARCHITECTURE COMPTES MULTI-VERTICAL
+
+**Migration proposée `008_org_verticals.sql`** (vue d'ensemble, pas détaillée ici) :
+
+```sql
+-- Extension de organizations
+ALTER TABLE organizations
+  ADD COLUMN org_type TEXT NOT NULL DEFAULT 'agency'
+  CHECK (org_type IN ('agency','syndic','hotel_group','bank','other')),
+  ADD COLUMN vertical_config JSONB NOT NULL DEFAULT '{}';
+
+-- Extension de org_role
+-- syndic : syndic, conseil_syndical, coproprietaire, locataire, prestataire
+-- hotel_group : hotel_owner, hotel_director, revenue_manager, fb_manager, reception
+-- Chaque rôle métier hérite des permissions de 'member' et ajoute des restrictions spécifiques via RLS
+
+-- Nouvelles tables par vertical
+-- coownerships (syndic), coowners, coownership_units, coownership_charges
+-- hotels (hotel_group), hotel_periods, hotel_owner_reports
+```
+
+**Stratégie UX** :
+- Au signup, demander le type d'organisation (« Je suis… Agence / Syndic / Groupe hôtelier / Banque / Particulier »).
+- `/profil/organisation` bascule son UI selon `org_type` : agence → invitations négociateurs ; syndic → gestion copropriétés ; hotel_group → gestion hôtels.
+- Les rôles métier restent des enum : chaque rôle a un tag visuel coloré dans l'UI et des permissions RLS distinctes.
+
+**Impact business** :
+- Syndic LU : **marché vierge SaaS** — 0 acteur dominant, ~500 syndics pros + ~2000 copropriétés sans syndic (auto-gérées) → TAM ~€2-5M ARR à 3-5 ans.
+- Hôtellerie indépendants LU + Grande Région : ~200 hôtels budgets inférieurs à 5 M€, mal servis par OPERA/Mews (trop chers) → TAM ~€500k-1M ARR.
+
+Ces deux verticaux justifient une roadmap « compte & rôles » dédiée, séparée du travail générique sur `/profil`.
+
+---
+
 ## 30. Hors outils : infrastructure et observabilité
 
 **Gaps identifiés** :
@@ -680,11 +835,14 @@
 | Sprint | Chantier | Impact business |
 |---|---|---|
 | 1 | Supprimer compte + préférences notifications + 2FA TOTP | Conformité RGPD, sécurité |
+| 1 | **Extension org_type (agency/syndic/hotel_group/bank)** | Débloque verticaux syndic/hôtellerie |
 | 1 | Stripe Checkout upgrade Pro self-service | Monétisation |
 | 2 | Sentry + PostHog + page /status | Observabilité |
 | 2 | Sauvegarde wizard + gestion-locative : bail numérique template | Différenciation produit |
+| 2 | **Persistance hôtels (table `hotels`) + rôles hôteliers** | Récurrence usage vertical hôtellerie |
 | 3 | API batch + OpenAPI docs + sandbox | Différenciation B2B banques |
 | 3 | Module bail commercial + exonération RP plus-value | Complétude fiscale LU |
+| 3 | **Table `coownerships` + CRUD copropriétés syndic** | Premier MVP vertical syndic |
 
 ## Priorisation 6-12 mois
 
@@ -693,9 +851,15 @@
 | 6 mois | Module gestion paiements locatifs + quittances auto | Produit |
 | 6 mois | Panel Hotrec LU pour RevPAR live | Partenariat |
 | 6 mois | Modèle hédonique re-calibré + rapport MAPE public | Crédibilité |
+| 6 mois | **Owner report mensuel hôtelier PDF auto** | Rétention hôtels |
+| 6 mois | **Appels de fonds copropriété + suivi paiements** | Cœur SaaS syndic |
 | 9 mois | Inspection mobile PWA TEGOVA | Produit |
 | 9 mois | Certification RICS AVM Executive | B2B banques |
+| 9 mois | **Connecteur PMS (Mews, Cloudbeds) ingestion quotidienne** | Différenciateur hôtel |
+| 9 mois | **AG virtuelle copropriété (convocation + vote + PV)** | Feature killer syndic |
 | 12 mois | Module bail commercial complet + tableaux ILC LU | Niche experts |
+| 12 mois | **Forecast ML 90 jours hôtel (ARIMA/Prophet)** | Intelligence revenue mgmt |
+| 12 mois | **Comptabilité copropriété LU (plan comptable + clôture)** | Pro syndic complet |
 
 ---
 
