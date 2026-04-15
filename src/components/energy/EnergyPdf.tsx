@@ -891,14 +891,26 @@ export function PdfButton({ onClick, label, generateBlob, filename }: { onClick?
     const win = window.open("", "_blank");
     if (!win) return;
     win.document.title = "Génération du PDF...";
-    win.document.body.innerHTML = '<p style="font-family:sans-serif;padding:40px;color:#666">Génération du PDF en cours...</p>';
+    const loadingP = win.document.createElement("p");
+    loadingP.setAttribute("style", "font-family:sans-serif;padding:40px;color:#666");
+    loadingP.textContent = "Génération du PDF en cours...";
+    win.document.body.replaceChildren(loadingP);
     try {
       const blob = await generateBlob();
       const url = URL.createObjectURL(blob);
       win.location.href = url;
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
-      win.document.body.innerHTML = `<div style="font-family:sans-serif;padding:40px"><p style="color:red;font-weight:bold">Erreur lors de la génération du PDF</p><pre style="color:#666;font-size:12px;margin-top:12px;white-space:pre-wrap">${msg}</pre></div>`;
+      const container = win.document.createElement("div");
+      container.setAttribute("style", "font-family:sans-serif;padding:40px");
+      const title = win.document.createElement("p");
+      title.setAttribute("style", "color:red;font-weight:bold");
+      title.textContent = "Erreur lors de la génération du PDF";
+      const pre = win.document.createElement("pre");
+      pre.setAttribute("style", "color:#666;font-size:12px;margin-top:12px;white-space:pre-wrap");
+      pre.textContent = msg;
+      container.append(title, pre);
+      win.document.body.replaceChildren(container);
       console.error("PDF generation error:", err);
     }
   };

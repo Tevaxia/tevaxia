@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { calculateInvestorCashFlow } from '@/lib/propcalc/cashflow';
 import { calculateAcquisitionFees } from '@/lib/propcalc/fees';
 import { getCountryData, CORS_HEADERS } from '@/lib/propcalc/countries';
+import type { AcquisitionFeesResult, CashFlowResult } from '@/lib/propcalc/types';
 
 export async function OPTIONS() {
   return new NextResponse(null, { status: 204, headers: CORS_HEADERS });
@@ -52,6 +53,34 @@ export async function POST(request: Request) {
     );
   }
 
+  if (typeof monthlyRent !== 'number' || monthlyRent <= 0) {
+    return NextResponse.json(
+      { success: false, error: 'monthlyRent must be a positive number' },
+      { status: 400, headers: CORS_HEADERS },
+    );
+  }
+
+  if (typeof annualRate !== 'number' || annualRate < 0 || annualRate > 1) {
+    return NextResponse.json(
+      { success: false, error: 'annualRate must be a number between 0 and 1 (decimal)' },
+      { status: 400, headers: CORS_HEADERS },
+    );
+  }
+
+  if (typeof durationYears !== 'number' || durationYears <= 0 || durationYears > 50) {
+    return NextResponse.json(
+      { success: false, error: 'durationYears must be a positive number ≤ 50' },
+      { status: 400, headers: CORS_HEADERS },
+    );
+  }
+
+  if (marginalRate != null && (typeof marginalRate !== 'number' || marginalRate < 0 || marginalRate > 1)) {
+    return NextResponse.json(
+      { success: false, error: 'marginalRate must be a number between 0 and 1 (decimal)' },
+      { status: 400, headers: CORS_HEADERS },
+    );
+  }
+
   const countryData = getCountryData(country);
   if (!countryData) {
     return NextResponse.json(
@@ -61,9 +90,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    // Estimate acquisition fees to include in total investment
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const feesResult: any = calculateAcquisitionFees({
+    const feesResult = calculateAcquisitionFees({
       propertyPrice,
       countryCode: country.toLowerCase(),
       regionCode: '',
@@ -73,12 +100,11 @@ export async function POST(request: Request) {
       loanAmount: propertyPrice - downPayment,
       buyerAge: 0,
       countryData,
-    });
+    }) as AcquisitionFeesResult;
 
     const socialChargesRate = country.toLowerCase() === 'fr' ? 0.172 : 0;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const result: any = calculateInvestorCashFlow({
+    const cashflowParams = {
       propertyPrice,
       acquisitionFees: feesResult.total,
       downPayment,
@@ -96,7 +122,10 @@ export async function POST(request: Request) {
       annualAppreciation: 0.02,
       countryCode: country.toLowerCase(),
       countryData,
-    } as any);
+    };
+    const result = calculateInvestorCashFlow(
+      cashflowParams as unknown as Parameters<typeof calculateInvestorCashFlow>[0],
+    ) as CashFlowResult;
 
     return NextResponse.json(
       {

@@ -3641,11 +3641,6 @@
     "subtitle": "Sizing, product selection and budget estimation for heating, ventilation and air conditioning installations in Luxembourg.",
     "steps": {
       "step0": "Building",
-      "energy": {
-        "title": "Tevaxia Energy",
-        "description": "8 energy simulators: EPC impact on value, renovation ROI, energy community, EPBD 2050, HVAC, LENOZ.",
-        "tag": "EPC / EPBD / Klimabonus"
-      },
       "step1": "Heat losses",
       "step2": "Heating",
       "step3": "Emitters",
