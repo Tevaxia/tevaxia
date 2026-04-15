@@ -3033,7 +3033,7 @@
       },
       "simulations": {
         "label": "Simulatiounsdonnéeën:",
-        "text": "Donnéeën, déi an d'Rechner a Simulatoren aginn ginn (Beträg, Flächen, Energieparameter, asw.) ginn am Supabase gespäichert wann Dir ageloggt sidd, oder am localStorage vun Ärem Browser soss."
+        "text": "Daten, déi an de Rechner a Simulatoren aginn ginn (Montanten, Flächen, Energieparameter, Vermietungslotss, asw.) ginn am localStorage vun Ärem Browser gespäichert an — wann Dir ageloggt sidd — mat Supabase synchroniséiert, fir datt Dir vun all Apparat drop zougräife kënnt. Plafong 500 Elementer pro gratis Benotzer (10 000 fir e Pro-Plang), 180 Deeg Retentioun vun der leschter Ännerung, automatesch deeglech Bereinigung doriwwer eraus."
       },
       "profil": {
         "label": "Gutachterprofil:",
@@ -3081,9 +3081,10 @@
     },
     "duree": {
       "title": "6. Dauer vun der Opbewahrung",
-      "compte": "Kontodonnéeën: ginn opbewahrt bis de Konto vum Benotzer geläscht gëtt.",
-      "simulations": "Simulatiounsdonnéeën: ginn 2 Joer no der leschter Aktivitéit opbewahrt.",
-      "cookies": "Cookies: maximal Dauer vun 13 Méint."
+      "compte": "Kontodonnéeën: opbehalen bis zum Läschen vum Kont duerch de Benotzer.",
+      "simulations": "Simulatiounsdonnéeën (gespäichert Bewäertungen, Vermietungslotss): 180 Deeg vun der leschter Ännerung, Plafong 500 Elementer pro gratis Kont (10 000 fir e Pro-Plang). Automatesch deeglech Bereinigung ëm 03:00 UTC doriwwer eraus. Lokal Donnéeën (localStorage) bleiwen disponibel, soulaang de Browser net geläscht gëtt.",
+      "cookies": "Cookien: maximal 13 Méint.",
+      "liensPartages": "Ëffentlech Deelungs-Linken: 90 Deeg par défaut, Dauer konfiguréierbar (1 bis 365 Deeg) bei der Erstellung, mat optionalem Viewcap."
     },
     "droits": {
       "title": "7. Är Rechter",
@@ -3091,7 +3092,7 @@
       "acces": "Recht op Auskunft iwwer Är perséinlech Donnéeën",
       "rectification": "Recht op Berichtegung",
       "effacement": "Recht op Läschung („Recht op Vergiessenwierdung“)",
-      "portabilite": "Recht op Datenportabilitéit",
+      "portabilite": "Recht op Datenportabilitéit — e Knäppchen « All meng Donnéeën exportéieren (JSON) » ass am Beräich « Donnéeën & Plang » vun Ärem Profil verfügbar",
       "opposition": "Widdersprocherecht géint d'Veraarbechtung",
       "exercer": "Fir dës Rechter auszeüben, kontaktéiert eis ënnert"
     },

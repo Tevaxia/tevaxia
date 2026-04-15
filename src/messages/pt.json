@@ -3033,7 +3033,7 @@
       },
       "simulations": {
         "label": "Dados de simulacao:",
-        "text": "Os dados introduzidos nas calculadoras e simuladores (montantes, areas, parametros energeticos, etc.) sao armazenados no Supabase se estiver conectado, ou no localStorage do seu navegador caso contrario."
+        "text": "Os dados introduzidos nos calculadores e simuladores (montantes, áreas, parâmetros energéticos, lotes de arrendamento, etc.) são armazenados no localStorage do seu navegador e — se estiver ligado — sincronizados no Supabase para que possa aceder a partir de qualquer dispositivo. Teto de 500 itens por utilizador gratuito (10 000 no plano Pro), retenção de 180 dias desde a última modificação, purga automática diária depois disso."
       },
       "profil": {
         "label": "Perfil de avaliador:",
@@ -3081,9 +3081,10 @@
     },
     "duree": {
       "title": "6. Duracao de conservacao",
-      "compte": "Dados da conta: conservados ate a eliminacao da conta pelo utilizador.",
-      "simulations": "Dados de simulacao: conservados durante 2 anos a contar da ultima atividade.",
-      "cookies": "Cookies: duracao maxima de 13 meses."
+      "compte": "Dados de conta: conservados até à eliminação da conta pelo utilizador.",
+      "simulations": "Dados de simulação (avaliações guardadas, lotes locativos): 180 dias desde a última modificação, teto de 500 itens por conta gratuita (10 000 no plano Pro). Purga automática diária às 03:00 UTC das linhas acima destes limites. Os dados locais (localStorage) permanecem disponíveis enquanto o navegador não for limpo.",
+      "cookies": "Cookies: duração máxima de 13 meses.",
+      "liensPartages": "Links públicos de partilha: 90 dias por defeito, duração configurável (1 a 365 dias) na criação, com limite de visualizações opcional."
     },
     "droits": {
       "title": "7. Os seus direitos",
@@ -3091,7 +3092,7 @@
       "acces": "Direito de acesso aos seus dados pessoais",
       "rectification": "Direito de retificacao",
       "effacement": "Direito ao apagamento (\"direito ao esquecimento\")",
-      "portabilite": "Direito a portabilidade dos dados",
+      "portabilite": "Direito de portabilidade de dados — está disponível um botão « Exportar todos os meus dados (JSON) » na secção « Dados & plano » do seu perfil",
       "opposition": "Direito de oposicao ao tratamento",
       "exercer": "Para exercer estes direitos, contacte-nos em"
     },

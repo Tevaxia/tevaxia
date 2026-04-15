@@ -3033,7 +3033,7 @@
       },
       "simulations": {
         "label": "Données de simulation :",
-        "text": "Les données saisies dans les calculateurs et simulateurs (montants, surfaces, paramètres énergétiques, etc.) sont stockées dans Supabase si vous êtes connecté, ou dans le localStorage de votre navigateur dans le cas contraire."
+        "text": "Les données saisies dans les calculateurs et simulateurs (montants, surfaces, paramètres énergétiques, lots locatifs, etc.) sont stockées dans le localStorage de votre navigateur, et — si vous êtes connecté — synchronisées sur Supabase pour vous permettre d'y accéder depuis n'importe quel appareil. Plafond 500 items par utilisateur gratuit (10 000 pour un plan Pro), rétention de 180 jours à partir de la dernière modification, purge automatique quotidienne au-delà."
       },
       "profil": {
         "label": "Profil évaluateur :",
@@ -3082,7 +3082,8 @@
     "duree": {
       "title": "6. Durée de conservation",
       "compte": "Données de compte : conservées jusqu'à la suppression du compte par l'utilisateur.",
-      "simulations": "Données de simulation : conservées pendant 2 ans à compter de la dernière activité.",
+      "simulations": "Données de simulation (évaluations sauvegardées, lots locatifs) : 180 jours à compter de la dernière modification, plafond 500 items par compte gratuit (10 000 pour un plan Pro). Purge automatique quotidienne à 03:00 UTC des lignes dépassant ces seuils. Les données locales (localStorage) restent disponibles tant que l'utilisateur ne vide pas son navigateur.",
+      "liensPartages": "Liens publics de partage : 90 jours par défaut, durée paramétrable par l'utilisateur (1 à 365 jours) à la création, avec limite de vues optionnelle.",
       "cookies": "Cookies : durée maximale de 13 mois."
     },
     "droits": {
@@ -3091,7 +3092,7 @@
       "acces": "Droit d'accès à vos données personnelles",
       "rectification": "Droit de rectification",
       "effacement": "Droit à l'effacement (« droit à l'oubli »)",
-      "portabilite": "Droit à la portabilité des données",
+      "portabilite": "Droit à la portabilité des données — un bouton « Exporter toutes mes données (JSON) » est disponible dans la section « Données & plan » de votre profil",
       "opposition": "Droit d'opposition au traitement",
       "exercer": "Pour exercer ces droits, contactez-nous à"
     },

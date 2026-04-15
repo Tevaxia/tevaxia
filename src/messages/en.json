@@ -3033,7 +3033,7 @@
       },
       "simulations": {
         "label": "Simulation data:",
-        "text": "Data entered in calculators and simulators (amounts, areas, energy parameters, etc.) is stored in Supabase if you are logged in, or in your browser's localStorage otherwise."
+        "text": "Data entered in calculators and simulators (amounts, areas, energy parameters, rental lots, etc.) is stored in your browser localStorage and — if you are signed in — synced to Supabase so you can access it from any device. 500-item cap per free user (10,000 for a Pro plan), 180-day retention from last modification, automatic daily purge thereafter."
       },
       "profil": {
         "label": "Valuer profile:",
@@ -3081,9 +3081,10 @@
     },
     "duree": {
       "title": "6. Data Retention",
-      "compte": "Account data: retained until the account is deleted by the user.",
-      "simulations": "Simulation data: retained for 2 years from the last activity.",
-      "cookies": "Cookies: maximum duration of 13 months."
+      "compte": "Account data: kept until the user deletes their account.",
+      "simulations": "Simulation data (saved valuations, rental lots): 180 days from last modification, 500-item cap per free account (10,000 for a Pro plan). Automatic daily purge at 03:00 UTC for rows exceeding these thresholds. Local data (localStorage) remain available as long as the browser is not cleared.",
+      "cookies": "Cookies: maximum 13 months.",
+      "liensPartages": "Public share links: 90 days by default, duration configurable by the user (1 to 365 days) at creation, with optional view cap."
     },
     "droits": {
       "title": "7. Your Rights",
@@ -3091,7 +3092,7 @@
       "acces": "Right of access to your personal data",
       "rectification": "Right to rectification",
       "effacement": "Right to erasure ('right to be forgotten')",
-      "portabilite": "Right to data portability",
+      "portabilite": "Right to data portability — a button « Export all my data (JSON) » is available in the « Data & plan » section of your profile",
       "opposition": "Right to object to processing",
       "exercer": "To exercise these rights, contact us at"
     },

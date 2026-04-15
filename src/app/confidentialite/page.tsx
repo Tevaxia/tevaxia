@@ -116,6 +116,7 @@ export default async function Confidentialite() {
             <ul className="list-disc pl-5 space-y-1">
               <li>{t("duree.compte")}</li>
               <li>{t("duree.simulations")}</li>
+              <li>{t("duree.liensPartages")}</li>
               <li>{t("duree.cookies")}</li>
             </ul>
           </section>

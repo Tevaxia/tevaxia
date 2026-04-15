@@ -3033,7 +3033,7 @@
       },
       "simulations": {
         "label": "Simulationsdaten:",
-        "text": "In die Rechner und Simulatoren eingegebene Daten (Beträge, Flächen, Energieparameter usw.) werden in Supabase gespeichert, wenn Sie angemeldet sind, oder im localStorage Ihres Browsers andernfalls."
+        "text": "In die Rechner und Simulatoren eingegebene Daten (Beträge, Flächen, Energieparameter, Mietobjekte usw.) werden im localStorage Ihres Browsers gespeichert und — wenn Sie angemeldet sind — mit Supabase synchronisiert, damit Sie von jedem Gerät aus darauf zugreifen können. Obergrenze 500 Einträge pro kostenlosem Nutzer (10 000 für Pro-Plan), 180-Tage-Aufbewahrung ab der letzten Änderung, automatische tägliche Bereinigung darüber hinaus."
       },
       "profil": {
         "label": "Gutachterprofil:",
@@ -3081,9 +3081,10 @@
     },
     "duree": {
       "title": "6. Aufbewahrungsdauer",
-      "compte": "Kontodaten: werden bis zur Löschung des Kontos durch den Nutzer aufbewahrt.",
-      "simulations": "Simulationsdaten: werden 2 Jahre ab der letzten Aktivität aufbewahrt.",
-      "cookies": "Cookies: maximale Dauer von 13 Monaten."
+      "compte": "Kontodaten: bis zur Kontolöschung durch den Nutzer aufbewahrt.",
+      "simulations": "Simulationsdaten (gespeicherte Bewertungen, Mietobjekte): 180 Tage ab letzter Änderung, Obergrenze 500 Einträge pro kostenlosem Konto (10 000 für Pro-Plan). Automatische tägliche Bereinigung um 03:00 UTC darüber hinaus. Lokale Daten (localStorage) bleiben verfügbar, solange der Browser nicht geleert wird.",
+      "cookies": "Cookies: maximal 13 Monate.",
+      "liensPartages": "Öffentliche Freigabelinks: standardmäßig 90 Tage, Dauer vom Nutzer konfigurierbar (1-365 Tage) bei der Erstellung, mit optionaler Ansichtenbegrenzung."
     },
     "droits": {
       "title": "7. Ihre Rechte",
@@ -3091,7 +3092,7 @@
       "acces": "Recht auf Auskunft über Ihre personenbezogenen Daten",
       "rectification": "Recht auf Berichtigung",
       "effacement": "Recht auf Löschung („Recht auf Vergessenwerden“)",
-      "portabilite": "Recht auf Datenübertragbarkeit",
+      "portabilite": "Recht auf Datenübertragbarkeit — Schaltfläche « Alle meine Daten exportieren (JSON) » verfügbar im Bereich « Daten & Plan » Ihres Profils",
       "opposition": "Widerspruchsrecht gegen die Verarbeitung",
       "exercer": "Um diese Rechte auszuüben, kontaktieren Sie uns unter"
     },
