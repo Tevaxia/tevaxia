@@ -4055,7 +4055,19 @@
     "advantage9": "Simulationslink-Freigabe",
     "advantage10": "Szenariovergleich",
     "syncNote": "Ihr Profil ist mit Ihrem Konto synchronisiert. Es wird zur Personalisierung Ihrer PDF- und DOCX-Berichte verwendet.",
-    "localNote": "Ihr Profil wird lokal gespeichert. Erstellen Sie ein Konto, um zu synchronisieren und alle Vorteile freizuschalten."
+    "localNote": "Ihr Profil wird lokal gespeichert. Erstellen Sie ein Konto, um zu synchronisieren und alle Vorteile freizuschalten.",
+    "deleteAccount": {
+      "title": "Mein Konto löschen",
+      "desc": "Unwiderruflich. Löscht Ihr Konto und alle zugehörigen Daten: Profil, gespeicherte Bewertungen, Mietobjekte, Marktalarme, öffentliche Freigabelinks und API-Schlüssel. Lokaler Speicher wird ebenfalls geleert. Gemäß Recht auf Löschung (DSGVO Art. 17).",
+      "ctaOpen": "Mein Konto löschen",
+      "confirmTitle": "Löschung bestätigen",
+      "confirmDesc": "Zur Bestätigung genau eingeben: {token}",
+      "confirmToken": "LÖSCHEN",
+      "confirmCta": "Endgültig löschen",
+      "cancel": "Abbrechen",
+      "deleting": "Wird gelöscht…",
+      "typeWrong": "Eingabe stimmt nicht überein."
+    }
   },
   "mesEvaluations": {
     "title": "Meine Bewertungen",

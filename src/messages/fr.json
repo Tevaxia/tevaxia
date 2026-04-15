@@ -4055,7 +4055,19 @@
     "advantage9": "Partage de lien de simulation",
     "advantage10": "Comparateur de scénarios",
     "syncNote": "Votre profil est synchronisé avec votre compte. Il sera utilisé pour personnaliser vos rapports PDF et DOCX.",
-    "localNote": "Votre profil est stocké localement. Créez un compte pour synchroniser et accéder à tous les avantages."
+    "localNote": "Votre profil est stocké localement. Créez un compte pour synchroniser et accéder à tous les avantages.",
+    "deleteAccount": {
+      "title": "Supprimer mon compte",
+      "desc": "Action irréversible. Cette opération efface votre compte ainsi que toutes les données associées : profil, évaluations sauvegardées, lots locatifs, alertes marché, liens de partage publics et clés API. La sauvegarde locale (localStorage) est également vidée. En accord avec le droit à l'effacement (RGPD Art. 17).",
+      "ctaOpen": "Supprimer mon compte",
+      "confirmTitle": "Confirmer la suppression",
+      "confirmDesc": "Pour confirmer, saisissez exactement : {token}",
+      "confirmToken": "SUPPRIMER",
+      "confirmCta": "Supprimer définitivement",
+      "cancel": "Annuler",
+      "deleting": "Suppression…",
+      "typeWrong": "Le texte saisi ne correspond pas."
+    }
   },
   "mesEvaluations": {
     "title": "Mes évaluations",

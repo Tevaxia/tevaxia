@@ -8,6 +8,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { getProfile, saveProfile, loadAndMergeProfile, uploadLogo, type UserProfile } from "@/lib/profile";
 import { listMySharedLinks, deleteSharedLink, buildSharedLinkUrl, type SharedLink } from "@/lib/shared-links";
 import { buildDataExport, downloadAsJsonFile } from "@/lib/data-export";
+import DeleteAccountSection from "@/components/DeleteAccountSection";
 
 // ============================================================
 // MARKET ALERTS TYPES & SECTION
@@ -592,6 +593,9 @@ export default function Profil() {
                 : t("localNote")}
             </p>
           </div>
+
+          {/* Danger zone : suppression compte */}
+          <DeleteAccountSection />
         </div>
       </div>
     </div>

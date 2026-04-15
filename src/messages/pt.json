@@ -4055,7 +4055,19 @@
     "advantage9": "Partilha de ligação de simulação",
     "advantage10": "Comparador de cenários",
     "syncNote": "O seu perfil está sincronizado com a sua conta. Será utilizado para personalizar os seus relatórios PDF e DOCX.",
-    "localNote": "O seu perfil está guardado localmente. Crie uma conta para sincronizar e aceder a todas as vantagens."
+    "localNote": "O seu perfil está guardado localmente. Crie uma conta para sincronizar e aceder a todas as vantagens.",
+    "deleteAccount": {
+      "title": "Eliminar a minha conta",
+      "desc": "Ação irreversível. Elimina a sua conta e todos os dados associados: perfil, avaliações guardadas, lotes locativos, alertas de mercado, links de partilha públicos e chaves API. O armazenamento local também é limpo. De acordo com o direito ao apagamento (RGPD Art. 17).",
+      "ctaOpen": "Eliminar a minha conta",
+      "confirmTitle": "Confirmar eliminação",
+      "confirmDesc": "Para confirmar, digite exatamente: {token}",
+      "confirmToken": "APAGAR",
+      "confirmCta": "Eliminar definitivamente",
+      "cancel": "Cancelar",
+      "deleting": "A eliminar…",
+      "typeWrong": "O texto introduzido não corresponde."
+    }
   },
   "mesEvaluations": {
     "title": "As minhas avaliações",

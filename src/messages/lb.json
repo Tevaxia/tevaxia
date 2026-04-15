@@ -4055,7 +4055,19 @@
     "advantage9": "Simulatiounslink-Partage",
     "advantage10": "Szenarieverglach",
     "syncNote": "Äre Profil ass mat Ärem Konto synchroniséiert. En gëtt benotzt fir Är PDF- an DOCX-Berichter ze personaliséieren.",
-    "localNote": "Äre Profil gëtt lokal gespäichert. Erstellt e Konto fir ze synchroniséieren an all Virdeeler fräizeschalten."
+    "localNote": "Äre Profil gëtt lokal gespäichert. Erstellt e Konto fir ze synchroniséieren an all Virdeeler fräizeschalten.",
+    "deleteAccount": {
+      "title": "Mäi Kont läschen",
+      "desc": "Onwiderrufbar. Läscht Ären Kont an all déi zougehéireg Donnéeën: Profil, gespäichert Bewäertungen, Vermietungslotss, Maartalarmer, ëffentlech Deelungslinken an API-Schlësselen. Lokale Späicher gëtt och geläscht. No dem Recht op Läschung (DSGVO Art. 17).",
+      "ctaOpen": "Mäi Kont läschen",
+      "confirmTitle": "Läschung confirméieren",
+      "confirmDesc": "Fir ze confirméieren, genau aginn: {token}",
+      "confirmToken": "LÄSCHEN",
+      "confirmCta": "Endgülteg läschen",
+      "cancel": "Ofbriechen",
+      "deleting": "Gëtt geläscht…",
+      "typeWrong": "Text stëmmt net iwwerenee."
+    }
   },
   "mesEvaluations": {
     "title": "Meng Bewäertungen",

@@ -4055,7 +4055,19 @@
     "advantage9": "Simulation link sharing",
     "advantage10": "Scenario comparison",
     "syncNote": "Your profile is synced with your account. It will be used to personalise your PDF and DOCX reports.",
-    "localNote": "Your profile is stored locally. Create an account to sync and unlock all benefits."
+    "localNote": "Your profile is stored locally. Create an account to sync and unlock all benefits.",
+    "deleteAccount": {
+      "title": "Delete my account",
+      "desc": "Irreversible action. This deletes your account and all associated data: profile, saved valuations, rental lots, market alerts, public share links and API keys. Local storage is also cleared. In accordance with the right to erasure (GDPR Art. 17).",
+      "ctaOpen": "Delete my account",
+      "confirmTitle": "Confirm deletion",
+      "confirmDesc": "To confirm, type exactly: {token}",
+      "confirmToken": "DELETE",
+      "confirmCta": "Delete permanently",
+      "cancel": "Cancel",
+      "deleting": "Deleting…",
+      "typeWrong": "The typed text does not match."
+    }
   },
   "mesEvaluations": {
     "title": "My valuations",
