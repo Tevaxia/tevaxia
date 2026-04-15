@@ -834,7 +834,7 @@ Ces deux verticaux justifient une roadmap « compte & rôles » dédiée, sépar
 
 | Sprint | Chantier | Impact business |
 |---|---|---|
-| 1 | ~~Supprimer compte~~ ✅ `8eae0ca` + ~~préférences notifications~~ ✅ `faa9e4b` + ~~2FA TOTP~~ ✅ (commit ci-dessous) | Conformité RGPD, sécurité |
+| 1 | ~~Supprimer compte~~ ✅ `8eae0ca` + ~~préférences notifications~~ ✅ `faa9e4b` + ~~2FA TOTP~~ ✅ `c24eb61` | Conformité RGPD, sécurité |
 | 1 | **Extension org_type (agency/syndic/hotel_group/bank)** | Débloque verticaux syndic/hôtellerie |
 | 1 | Stripe Checkout upgrade Pro self-service | Monétisation |
 | 2 | Sentry + PostHog + page /status | Observabilité |
