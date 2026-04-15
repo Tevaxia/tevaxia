@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
 
 export const API_CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -8,9 +9,11 @@ export const API_CORS_HEADERS = {
 };
 
 export interface ApiKeyRecord {
+  id: string;
   name: string;
   key: string;
   tier: "free" | "pro" | "enterprise";
+  source: "env" | "supabase";
 }
 
 export interface AuthSuccess {
@@ -29,7 +32,7 @@ const TIER_LIMITS: Record<ApiKeyRecord["tier"], { perMinute: number; perDay: num
   enterprise: { perMinute: 600, perDay: 100000 },
 };
 
-function loadApiKeys(): ApiKeyRecord[] {
+function loadEnvKeys(): ApiKeyRecord[] {
   const raw = process.env.TEVAXIA_API_KEYS;
   if (!raw) return [];
   return raw
@@ -39,7 +42,7 @@ function loadApiKeys(): ApiKeyRecord[] {
     .map((entry) => {
       const [name, key, tierRaw] = entry.split(":");
       const tier = (["free", "pro", "enterprise"].includes(tierRaw) ? tierRaw : "free") as ApiKeyRecord["tier"];
-      return { name, key, tier };
+      return { id: `env:${name}`, name, key, tier, source: "env" as const };
     })
     .filter((r) => r.name && r.key);
 }
@@ -92,7 +95,40 @@ function checkRateLimit(key: string, tier: ApiKeyRecord["tier"]): { allowed: boo
   return { allowed: true, remaining: limits.perDay - state.dayCount };
 }
 
-export function authenticateApiRequest(request: Request): AuthSuccess | AuthFailure {
+async function hashKey(plainKey: string): Promise<string> {
+  const bytes = new TextEncoder().encode(plainKey);
+  const hash = await globalThis.crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(hash)).map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+function getServiceClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !serviceKey) return null;
+  return createClient(url, serviceKey, { auth: { persistSession: false } });
+}
+
+async function lookupSupabaseKey(plainKey: string): Promise<ApiKeyRecord | null> {
+  const client = getServiceClient();
+  if (!client) return null;
+  const hash = await hashKey(plainKey);
+  const { data, error } = await client
+    .from("api_keys")
+    .select("id, name, tier, active")
+    .eq("key_hash", hash)
+    .eq("active", true)
+    .maybeSingle();
+  if (error || !data) return null;
+  return {
+    id: data.id,
+    name: data.name,
+    key: plainKey,
+    tier: data.tier as ApiKeyRecord["tier"],
+    source: "supabase",
+  };
+}
+
+export async function authenticateApiRequestAsync(request: Request): Promise<AuthSuccess | AuthFailure> {
   const apiKey =
     request.headers.get("x-api-key") ??
     request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
@@ -107,8 +143,12 @@ export function authenticateApiRequest(request: Request): AuthSuccess | AuthFail
     };
   }
 
-  const keys = loadApiKeys();
-  const record = keys.find((r) => r.key === apiKey);
+  // Try env first (fast), then Supabase
+  let record = loadEnvKeys().find((r) => r.key === apiKey) ?? null;
+  if (!record) {
+    record = await lookupSupabaseKey(apiKey);
+  }
+
   if (!record) {
     return {
       ok: false,
@@ -137,6 +177,66 @@ export function authenticateApiRequest(request: Request): AuthSuccess | AuthFail
   }
 
   return { ok: true, keyRecord: record };
+}
+
+// Backward-compat sync version (env-only) for tests and existing call sites.
+export function authenticateApiRequest(request: Request): AuthSuccess | AuthFailure {
+  const apiKey =
+    request.headers.get("x-api-key") ??
+    request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
+
+  if (!apiKey) {
+    return {
+      ok: false,
+      response: NextResponse.json(
+        { success: false, error: "Missing API key (use 'X-API-Key' or 'Authorization: Bearer ...' header)" },
+        { status: 401, headers: API_CORS_HEADERS },
+      ),
+    };
+  }
+
+  const record = loadEnvKeys().find((r) => r.key === apiKey);
+  if (!record) {
+    return {
+      ok: false,
+      response: NextResponse.json(
+        { success: false, error: "Invalid API key" },
+        { status: 401, headers: API_CORS_HEADERS },
+      ),
+    };
+  }
+
+  const limit = checkRateLimit(apiKey, record.tier);
+  if (!limit.allowed) {
+    return {
+      ok: false,
+      response: NextResponse.json(
+        { success: false, error: "Rate limit exceeded", retryAfterSeconds: limit.retryAfter },
+        {
+          status: 429,
+          headers: {
+            ...API_CORS_HEADERS,
+            "Retry-After": String(limit.retryAfter ?? 60),
+          },
+        },
+      ),
+    };
+  }
+
+  return { ok: true, keyRecord: record };
+}
+
+export async function logApiCall(keyRecord: ApiKeyRecord, endpoint: string, statusCode: number, latencyMs: number): Promise<void> {
+  if (keyRecord.source !== "supabase") return;
+  const client = getServiceClient();
+  if (!client) return;
+  await client.from("api_calls").insert({
+    api_key_id: keyRecord.id,
+    endpoint,
+    status_code: statusCode,
+    latency_ms: latencyMs,
+  });
+  await client.from("api_keys").update({ last_used_at: new Date().toISOString() }).eq("id", keyRecord.id);
 }
 
 export function withCors(response: NextResponse): NextResponse {

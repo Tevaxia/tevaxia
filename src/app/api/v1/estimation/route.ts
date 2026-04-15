@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { estimer } from "@/lib/estimation";
 import {
-  authenticateApiRequest,
+  authenticateApiRequestAsync,
+  logApiCall,
   corsPreflightResponse,
   withCors,
   API_CORS_HEADERS,
@@ -12,42 +13,54 @@ export async function OPTIONS() {
 }
 
 export async function POST(request: Request) {
-  const auth = authenticateApiRequest(request);
+  const startedAt = Date.now();
+  const auth = await authenticateApiRequestAsync(request);
   if (!auth.ok) return auth.response;
 
-  let body;
+  let response: NextResponse;
+  let statusCode = 200;
   try {
-    body = await request.json();
-  } catch {
-    return NextResponse.json(
-      { success: false, error: "Invalid JSON body" },
-      { status: 400, headers: API_CORS_HEADERS },
-    );
-  }
+    let body;
+    try {
+      body = await request.json();
+    } catch {
+      statusCode = 400;
+      response = NextResponse.json(
+        { success: false, error: "Invalid JSON body" },
+        { status: 400, headers: API_CORS_HEADERS },
+      );
+      return response;
+    }
 
-  if (!body.commune || !body.surface) {
-    return NextResponse.json(
-      { success: false, error: "Missing required fields: commune, surface" },
-      { status: 400, headers: API_CORS_HEADERS },
-    );
-  }
+    if (!body.commune || !body.surface) {
+      statusCode = 400;
+      response = NextResponse.json(
+        { success: false, error: "Missing required fields: commune, surface" },
+        { status: 400, headers: API_CORS_HEADERS },
+      );
+      return response;
+    }
 
-  if (typeof body.surface !== "number" || body.surface <= 0 || body.surface > 10000) {
-    return NextResponse.json(
-      { success: false, error: "surface must be a positive number ≤ 10000" },
-      { status: 400, headers: API_CORS_HEADERS },
-    );
-  }
+    if (typeof body.surface !== "number" || body.surface <= 0 || body.surface > 10000) {
+      statusCode = 400;
+      response = NextResponse.json(
+        { success: false, error: "surface must be a positive number ≤ 10000" },
+        { status: 400, headers: API_CORS_HEADERS },
+      );
+      return response;
+    }
 
-  try {
     const result = estimer(body);
     if (!result) {
-      return NextResponse.json(
+      statusCode = 404;
+      response = NextResponse.json(
         { success: false, error: "Municipality not found" },
         { status: 404, headers: API_CORS_HEADERS },
       );
+      return response;
     }
-    const response = NextResponse.json({
+
+    response = withCors(NextResponse.json({
       success: true,
       data: result,
       meta: {
@@ -55,13 +68,18 @@ export async function POST(request: Request) {
         tier: auth.keyRecord.tier,
         method: "tegova_evs_2025+hedonic",
       },
-    });
-    return withCors(response);
+    }));
+    return response;
   } catch (e) {
+    statusCode = 500;
     const message = e instanceof Error ? e.message : "Unknown error";
-    return NextResponse.json(
+    response = NextResponse.json(
       { success: false, error: `Calculation error: ${message}` },
-      { status: 400, headers: API_CORS_HEADERS },
+      { status: 500, headers: API_CORS_HEADERS },
     );
+    return response;
+  } finally {
+    const latency = Date.now() - startedAt;
+    logApiCall(auth.keyRecord, "/api/v1/estimation", statusCode, latency).catch(() => {});
   }
 }

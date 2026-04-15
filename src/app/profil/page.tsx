@@ -201,13 +201,23 @@ export default function Profil() {
           <p className="mt-2 text-muted">{t("subtitle")}</p>
         </div>
 
-        <div className="mb-6 rounded-xl border-2 border-rose-200 bg-rose-50 p-4">
+        <div className="mb-3 rounded-xl border-2 border-rose-200 bg-rose-50 p-4">
           <div className="flex items-center justify-between gap-3">
             <div>
               <div className="text-sm font-semibold text-rose-900">Vous êtes en agence ?</div>
               <p className="text-xs text-rose-800 mt-0.5">Créez votre agence, invitez vos négociateurs, partagez le branding sur les rapports.</p>
             </div>
             <a href="organisation" className="shrink-0 rounded-lg bg-rose-600 px-3 py-2 text-xs font-semibold text-white hover:bg-rose-700">Mon agence →</a>
+          </div>
+        </div>
+
+        <div className="mb-6 rounded-xl border-2 border-slate-200 bg-slate-50 p-4">
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <div className="text-sm font-semibold text-slate-900">Vous intégrez l&apos;API ?</div>
+              <p className="text-xs text-slate-700 mt-0.5">Créez et gérez vos clés API, suivez l&apos;usage et les erreurs sur 30 jours.</p>
+            </div>
+            <a href="api" className="shrink-0 rounded-lg bg-slate-700 px-3 py-2 text-xs font-semibold text-white hover:bg-slate-800">Tableau de bord API →</a>
           </div>
         </div>
 
