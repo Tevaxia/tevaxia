@@ -840,7 +840,7 @@ Ces deux verticaux justifient une roadmap « compte & rôles » dédiée, sépar
 | 2 | ~~Sentry + PostHog + page /status~~ ✅ `30a9425` — *reste à créer projet Sentry + project PostHog + env vars Vercel* | Observabilité |
 | 2 | ~~Sauvegarde wizard + gestion-locative : bail numérique template~~ ✅ `6d10f3f` | Différenciation produit |
 | 2 | ~~**Persistance hôtels (table `hotels`) + rôles hôteliers**~~ ✅ `bb80471` | Récurrence usage vertical hôtellerie |
-| 3 | ~~API batch + OpenAPI docs + sandbox~~ ✅ (commit ci-dessous) | Différenciation B2B banques |
+| 3 | ~~API batch + OpenAPI docs + sandbox~~ ✅ `2544cf9` | Différenciation B2B banques |
 | 3 | Module bail commercial + exonération RP plus-value | Complétude fiscale LU |
 | 3 | **Table `coownerships` + CRUD copropriétés syndic** | Premier MVP vertical syndic |
 
