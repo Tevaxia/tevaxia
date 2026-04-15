@@ -4091,6 +4091,27 @@
       "consentMarketingHint": "Benotzung vun Ärer E-Mail-Adress fir tevaxia Kommunikatioun.",
       "consentThirdParty": "Deelen mat Partner",
       "consentThirdPartyHint": "Punktuellt Deelen vun anonymiséierten Donnéeë mat institutionelle Partner (Observatoire de l'Habitat, STATEC)."
+    },
+    "mfa": {
+      "title": "Zwee-Faktor-Authentifizéierung (2FA)",
+      "desc": "Fügt Ärem Kont eng extra Sécherheetsschicht mat enger TOTP-App derbäi (Google Authenticator, Authy, 1Password, Bitwarden).",
+      "enabled": "Aktivéiert",
+      "loading": "Lued…",
+      "enable": "2FA aktivéieren",
+      "unenroll": "Deaktivéieren",
+      "unenrollConfirm": "2FA op Ärem Kont deaktivéieren? Äre Login gëtt net méi mat engem Eemol-Code geschützt.",
+      "unnamedFactor": "Ongenimmelt Faktor",
+      "addedOn": "Bäigefüügt den",
+      "friendlyNamePlaceholder": "z.B. iPhone 15 — 1Password",
+      "enrollStep1Title": "Schrëtt 1/2 — Nennt Äre Faktor",
+      "enrollStep1Desc": "Gitt dem Apparat oder der App en erkenneschtleche Numm.",
+      "continue": "Weider",
+      "cancel": "Ofbriechen",
+      "enrollStep2Title": "Schrëtt 2/2 — QR-Code scannen",
+      "enrollStep2Desc": "Maacht Är Authenticator-App op (Google Authenticator, Authy, 1Password…), scannt de QR-Code, gitt dann de generéierten 6-zifferegen Code an.",
+      "secretFallback": "Wann Dir net scanne kënnt, gitt dëst Geheimnis manuell an Är App an:",
+      "codeLabel": "6-zifferegen Code",
+      "verify": "Préiwen an aktivéieren"
     }
   },
   "mesEvaluations": {

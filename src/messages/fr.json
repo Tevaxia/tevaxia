@@ -4091,6 +4091,27 @@
       "consentMarketingHint": "Autoriser l'utilisation de votre adresse email à des fins de communication commerciale tevaxia.",
       "consentThirdParty": "Partage avec partenaires",
       "consentThirdPartyHint": "Autoriser le partage ponctuel de données anonymisées avec des partenaires institutionnels (Observatoire de l'Habitat, STATEC)."
+    },
+    "mfa": {
+      "title": "Authentification à deux facteurs (2FA)",
+      "desc": "Ajoutez une couche de sécurité supplémentaire à votre compte avec une application TOTP (Google Authenticator, Authy, 1Password, Bitwarden).",
+      "enabled": "Activée",
+      "loading": "Chargement…",
+      "enable": "Activer la 2FA",
+      "unenroll": "Désactiver",
+      "unenrollConfirm": "Désactiver la 2FA sur votre compte ? Votre connexion ne sera plus protégée par un code à usage unique.",
+      "unnamedFactor": "Facteur sans nom",
+      "addedOn": "Ajouté le",
+      "friendlyNamePlaceholder": "Ex. iPhone 15 — 1Password",
+      "enrollStep1Title": "Étape 1/2 — Nommez votre facteur",
+      "enrollStep1Desc": "Donnez un nom reconnaissable à l'appareil ou à l'application qui générera vos codes.",
+      "continue": "Continuer",
+      "cancel": "Annuler",
+      "enrollStep2Title": "Étape 2/2 — Scannez le QR code",
+      "enrollStep2Desc": "Ouvrez votre application d'authentification (Google Authenticator, Authy, 1Password…), scannez le QR code, puis saisissez le code à 6 chiffres généré.",
+      "secretFallback": "Si vous ne pouvez pas scanner, entrez ce secret manuellement dans votre application :",
+      "codeLabel": "Code à 6 chiffres",
+      "verify": "Vérifier et activer"
     }
   },
   "mesEvaluations": {

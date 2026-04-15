@@ -10,6 +10,7 @@ import { listMySharedLinks, deleteSharedLink, buildSharedLinkUrl, type SharedLin
 import { buildDataExport, downloadAsJsonFile } from "@/lib/data-export";
 import DeleteAccountSection from "@/components/DeleteAccountSection";
 import NotificationPreferencesSection from "@/components/NotificationPreferencesSection";
+import TwoFactorSection from "@/components/TwoFactorSection";
 
 // ============================================================
 // MARKET ALERTS TYPES & SECTION
@@ -550,6 +551,9 @@ export default function Profil() {
           >
             {syncing ? t("syncing") : saved ? t("profileSaved") : t("saveProfile")}
           </button>
+
+          {/* Authentification à deux facteurs */}
+          <TwoFactorSection />
 
           {/* Préférences notifications + consentements */}
           <NotificationPreferencesSection />
