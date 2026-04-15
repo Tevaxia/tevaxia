@@ -836,7 +836,7 @@ Ces deux verticaux justifient une roadmap « compte & rôles » dédiée, sépar
 |---|---|---|
 | 1 | ~~Supprimer compte~~ ✅ `8eae0ca` + ~~préférences notifications~~ ✅ `faa9e4b` + ~~2FA TOTP~~ ✅ `c24eb61` | Conformité RGPD, sécurité |
 | 1 | ~~**Extension org_type (agency/syndic/hotel_group/bank)**~~ ✅ `dd95467` | Débloque verticaux syndic/hôtellerie |
-| 1 | Stripe Checkout upgrade Pro self-service | Monétisation |
+| 1 | ~~Stripe Checkout upgrade Pro self-service~~ ✅ (commit ci-dessous) — *reste à créer produit/price/webhook côté Stripe Dashboard + env vars Vercel* | Monétisation |
 | 2 | Sentry + PostHog + page /status | Observabilité |
 | 2 | Sauvegarde wizard + gestion-locative : bail numérique template | Différenciation produit |
 | 2 | **Persistance hôtels (table `hotels`) + rôles hôteliers** | Récurrence usage vertical hôtellerie |

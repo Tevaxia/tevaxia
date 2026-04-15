@@ -11,6 +11,7 @@ import { buildDataExport, downloadAsJsonFile } from "@/lib/data-export";
 import DeleteAccountSection from "@/components/DeleteAccountSection";
 import NotificationPreferencesSection from "@/components/NotificationPreferencesSection";
 import TwoFactorSection from "@/components/TwoFactorSection";
+import UpgradeToProButton from "@/components/UpgradeToProButton";
 
 // ============================================================
 // MARKET ALERTS TYPES & SECTION
@@ -326,10 +327,13 @@ function TierAndExportSection({ user }: { user: { id: string } | null }) {
             <span className="font-semibold text-navy">180 jours après dernière modification</span>
           </div>
           {tier.tier === "free" && (
-            <p className="mt-3 text-xs text-muted">
-              Besoin d&apos;un plafond plus élevé (jusqu&apos;à 10 000 items) ? Contactez-nous à{" "}
-              <a href="mailto:contact@tevaxia.lu?subject=Plan%20Pro" className="text-navy underline hover:no-underline">contact@tevaxia.lu</a>.
-            </p>
+            <div className="mt-3">
+              <UpgradeToProButton />
+              <p className="mt-2 text-xs text-muted">
+                Besoin d&apos;un plafond plus élevé (jusqu&apos;à 10 000 items) ou d&apos;un devis Enterprise ? Contactez-nous à{" "}
+                <a href="mailto:contact@tevaxia.lu?subject=Plan%20Pro" className="text-navy underline hover:no-underline">contact@tevaxia.lu</a>.
+              </p>
+            </div>
           )}
         </div>
       )}
