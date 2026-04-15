@@ -22,6 +22,8 @@ const DIAG_BG: Record<string, string> = {
 export default function RevparComparisonPage() {
   const locale = useLocale();
   const t = useTranslations("hotellerieToolPages");
+  const tc = useTranslations("hotellerieCalc");
+  const tcv = useTranslations("hotellerieCalc.revparCompset");
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   const [hotelOccupancy, setHotelOccupancy] = useState(0.62);
@@ -55,7 +57,7 @@ export default function RevparComparisonPage() {
         <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
           <div className="space-y-6">
             <div className="rounded-xl border-2 border-orange-200 bg-orange-50 p-6">
-              <h2 className="text-base font-semibold text-orange-900">Votre hôtel</h2>
+              <h2 className="text-base font-semibold text-orange-900">{tcv("yourHotel")}</h2>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <InputField label="Occupation moyenne" value={Math.round(hotelOccupancy * 100)} onChange={(v) => setHotelOccupancy(Math.max(5, Math.min(95, Number(v) || 0)) / 100)} suffix="%" />
                 <InputField label="ADR moyen" value={hotelADR} onChange={(v) => setHotelADR(Number(v) || 0)} suffix="€" />
@@ -64,8 +66,8 @@ export default function RevparComparisonPage() {
             </div>
 
             <div className="rounded-xl border border-card-border bg-card p-6">
-              <h2 className="text-base font-semibold text-navy">Compset (concurrence locale)</h2>
-              <p className="mt-1 text-xs text-muted">Moyenne pondérée sur 3-5 hôtels comparables (catégorie, taille, localisation).</p>
+              <h2 className="text-base font-semibold text-navy">{tcv("compset")}</h2>
+              <p className="mt-1 text-xs text-muted">{tcv("compsetHint")}</p>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <InputField label="Occupation moyenne compset" value={Math.round(compsetOccupancy * 100)} onChange={(v) => setCompsetOccupancy(Math.max(5, Math.min(95, Number(v) || 0)) / 100)} suffix="%" />
                 <InputField label="ADR moyen compset" value={compsetADR} onChange={(v) => setCompsetADR(Number(v) || 0)} suffix="€" />
@@ -77,13 +79,13 @@ export default function RevparComparisonPage() {
             {result ? (
               <>
                 <div className={`rounded-xl bg-gradient-to-br ${DIAG_BG[result.diagnostic]} p-6 text-white shadow-lg`}>
-                  <div className="text-sm uppercase tracking-wider text-white/80 font-semibold">RGI (Revenue Generation Index)</div>
+                  <div className="text-sm uppercase tracking-wider text-white/80 font-semibold">{tcv("rgiBox")}</div>
                   <div className="mt-2 text-4xl font-bold">{result.rgi.toFixed(1)}</div>
                   <div className="mt-1 text-sm text-white/90">{result.diagnostic}</div>
                 </div>
 
                 <ResultPanel
-                  title="Indices fair share"
+                  title={tcv("fairShare")}
                   lines={[
                     { label: "MPI (Market Penetration Index)", value: `${result.mpi.toFixed(1)} — occupation vs marché`, highlight: true, warning: result.mpi < 95 },
                     { label: "ARI (Average Rate Index)", value: `${result.ari.toFixed(1)} — prix vs marché`, highlight: true, warning: result.ari < 95 },
@@ -92,12 +94,12 @@ export default function RevparComparisonPage() {
                 />
 
                 <div className="rounded-xl border border-orange-200 bg-orange-50 p-5 text-sm text-orange-900">
-                  <div className="font-semibold">Diagnostic</div>
+                  <div className="font-semibold">{tcv("diagnostic")}</div>
                   <p className="mt-1">{result.diagnosticDetail}</p>
                 </div>
 
                 <ResultPanel
-                  title="RevPAR comparé"
+                  title={tcv("revparCompared")}
                   lines={[
                     { label: "Votre RevPAR", value: `${result.hotelRevPAR.toFixed(0)} €/nuit/chambre`, highlight: true },
                     { label: "RevPAR compset", value: `${result.compsetRevPAR.toFixed(0)} €/nuit/chambre`, sub: true },
@@ -106,7 +108,7 @@ export default function RevparComparisonPage() {
                 />
 
                 <ResultPanel
-                  title="Manque à gagner annuel"
+                  title={tcv("missedRevenue")}
                   lines={[
                     { label: `Si vous atteignez le RevPAR du compset (${result.compsetRevPAR.toFixed(0)} €)`, value: formatEUR(result.manqueAGagnerAnnuel), highlight: true, large: true },
                     { label: "= revenu chambres supplémentaire potentiel", value: result.manqueAGagnerAnnuel > 0 ? "Levier identifié" : "Vous êtes au fair share", sub: true },
@@ -114,13 +116,13 @@ export default function RevparComparisonPage() {
                 />
               </>
             ) : (
-              <div className="rounded-xl border border-rose-200 bg-rose-50 p-6 text-rose-800">Vérifiez les valeurs saisies.</div>
+              <div className="rounded-xl border border-rose-200 bg-rose-50 p-6 text-rose-800">{tc("checkInputs")}</div>
             )}
           </div>
         </div>
 
         <div className="mt-10 rounded-xl border border-blue-200 bg-blue-50 p-5 text-sm text-blue-900">
-          <strong>Méthode :</strong> les indices MPI / ARI / RGI = standard STR (Smith Travel Research) et HotStats — référence mondiale benchmark hôtelier. Indice 100 = fair share atteint, &gt; 100 = sur-performance, &lt; 100 = sous-performance. Saisir un compset représentatif est la clé : 3-5 hôtels même catégorie, même zone, même cible client.
+          {tcv("methodNote")}
         </div>
       </div>
     </div>

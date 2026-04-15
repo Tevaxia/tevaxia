@@ -5028,6 +5028,85 @@
     "altSuffix": "gratis.",
     "ctaSubject": "Agence-Offer%20-%20Ufro"
   },
+  "hotellerieCalc": {
+    "checkInputs": "Wat-weg préift d'agéin Wäerter.",
+    "methodLabel": "Method",
+    "warning": "Hiweis",
+    "category": "Kategorie",
+    "personalize": "Upassen",
+    "valorisation": {
+      "hotelChars": "Charakteristike vum Hotel",
+      "operationalAssumptions": "Bedreiwsannahmen",
+      "operationalAssumptionsHint": "Standardwäerter no Kategorie benchmarked (Quellen: STR EU, HotStats, JLL Hotels & Hospitality 2024).",
+      "estimatedMarketValue": "Geschätzte Maartwäert",
+      "range": "Spann",
+      "commercialPerf": "Verkaafsleeschtung",
+      "operatingPL": "USALI Bedreiwsbilanz",
+      "methodology": "Methodologie",
+      "methodNote": "Zentralwäert = Mëttel (kapitaliséierten EBITDA-DCF, €/Zëmmer-Vergleicher). Cap Rate a Pro-Zëmmer-Benchmarks no Kategorie indexéiert. Referenzen: USALI 11. Editioun, STR EU, JLL Hotels & Hospitality 2024. Indikativ — déi finalt Bewäertung vun engem Hotelaktiv brauch eng Due-Diligence-Prüfung duerch en zertifizéierte Bewäerter.",
+      "nextStepTitle": "Nächste Schrëtt: DSCR & Finanzéierung",
+      "nextStepDesc": "Préift, ob den EBITDA de Schuldendéngscht deckt.",
+      "nextStepCta": "DSCR berechnen →"
+    },
+    "dscr": {
+      "financialData": "Finanzdaten",
+      "loanConditions": "Kreditbedingungen",
+      "centralBox": "DSCR Basisszenario",
+      "stressTest": "Stresstest",
+      "financingStructure": "Finanzéierungsstruktur",
+      "borrowingCapacity": "Kreditkapazitéit vs Zil",
+      "creditCost": "Gesamtkäschte vum Kredit",
+      "annualAmortization": "Jährlech Tilgung",
+      "okMargin": "OK — Marge verfügbar",
+      "overborrow": "Iwwerkredit vun",
+      "methodNote": "DSCR-Referenz: Geschäftsbank LU/FR/BE → 1,25-1,35x; SBA 7(a) US (E-2) → 1,40x; institutionell Hotelfinanzéierung → 1,40-1,50x. De Belegungs-/ADR-Stresstest entsprécht der Praxis vu bankinternen Kreditcomitéen (-10 Pkt / -10 % Schock).",
+      "ctaTitle": "E-2 Investisseursvisa?",
+      "ctaDesc": "Préift d'Eligibilitéit vun Ärem Projet fir d'US E-2 Visa.",
+      "ctaCta": "E-2-Score berechnen →"
+    },
+    "scoreE2": {
+      "investment": "Investitioun",
+      "performanceJobs": "Erwaart Leeschtung & Aarbechtsplazen",
+      "scoreBox": "E-2 Score",
+      "diagnostic": "Diagnose",
+      "subTestsTitle": "Detail vun den 5 USCIS-Ënnertests",
+      "redFlagsTitle": "Risikopunkten",
+      "summaryNumbers": "Resumé",
+      "warningText": "Dëse Score reproduzéiert d'USCIS-Krittären an déi konsularesch Rechtsprechung (FAM 9 9 FAM 402.9-6) awer ersetzt keng Analyse duerch en US-Migratiounsaffekot. Konsularesch Decisiounen sinn diskretionär. Kee USCIS-Resultat ass garantéiert duerch d'Erreeche vun engem Score eleng."
+    },
+    "exploitation": {
+      "configHotel": "Hotelkonfiguratioun",
+      "commercialPerf": "Verkaafsleeschtung",
+      "charges": "Käschten",
+      "gopVsBench": "Duerchschnëttlech GOP-Marge vs Benchmark",
+      "synthHorizon": "Resumé {n}-Joeres-Horizont",
+      "annualPL": "Jährlech USALI-Bilanz",
+      "year1Detail": "Detail Joer 1 (USALI)",
+      "methodNote": "USALI 11. Editioun — Uniform System of Accounts for the Lodging Industry (AHLEI). Kategorielle Quoten aus STR EU an HotStats 2024. D'Bilanz ass indikativ — Upassung no Vertragstyp (Operator vs Lease vs Management Contract) erfuerderlech."
+    },
+    "renovation": {
+      "building": "Gebai",
+      "worksPlanned": "Plangéiert Aarbechten",
+      "hotelPerf": "Hotelleeschtung",
+      "investmentNet": "Netto-Investitioun (no Förderung)",
+      "annualBenefits": "Jährlech Virdeeler",
+      "paybackVAN": "Payback & 10-Joeres-NPV (4 % Diskont)",
+      "energyImpact": "Energieeffekt",
+      "perPostDetail": "Detail no Posten",
+      "methodNote": "Klimabonus Tertiair — déi ugewise Förderquoten sinn déi duerchschnëttlech beobachte Wäerter pro Posten fir LU-Tertiairsgebaier. Genau Sätz hänken vum Haushaltsjoer (Klima-Pak-Gesetz) a vum agezielten Leeschtungslabel of. Virum Engagement mat myenergy klären."
+    },
+    "revparCompset": {
+      "yourHotel": "Äert Hotel",
+      "compset": "Compset (lokal Konkurrenz)",
+      "compsetHint": "Gewiichten Duerchschnëtt iwwer 3-5 vergläichbar Hoteler (Kategorie, Gréisst, Plaz).",
+      "rgiBox": "RGI (Revenue Generation Index)",
+      "fairShare": "Fair-Share-Indizen",
+      "diagnostic": "Diagnose",
+      "revparCompared": "RevPAR-Verglach",
+      "missedRevenue": "Jährlech entgaangenen Akommes",
+      "methodNote": "Method: MPI / ARI / RGI Indizen = STR (Smith Travel Research) an HotStats Standard — global Benchmark-Referenz Hotellerie. Index 100 = Fair Share, > 100 = Iwwerleeschtung, < 100 = Ënnerleeschtung."
+    }
+  },
   "apiBanques": {
     "badge": "API am Pre-Launch",
     "title": "LU-Schätzungs-API fir Banken",

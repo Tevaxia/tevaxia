@@ -32,6 +32,8 @@ function formatPct(n: number, digits = 1): string {
 export default function ValorisationHotelPage() {
   const locale = useLocale();
   const t = useTranslations("hotellerieToolPages");
+  const tc = useTranslations("hotellerieCalc");
+  const tcv = useTranslations("hotellerieCalc.valorisation");
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   const [nbChambres, setNbChambres] = useState(45);
@@ -103,7 +105,7 @@ export default function ValorisationHotelPage() {
           {/* Inputs */}
           <div className="space-y-6">
             <div className="rounded-xl border border-card-border bg-card p-6">
-              <h2 className="text-base font-semibold text-navy">Caractéristiques de l&apos;hôtel</h2>
+              <h2 className="text-base font-semibold text-navy">{tcv("hotelChars")}</h2>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <InputField
                   label="Nombre de chambres"
@@ -142,7 +144,7 @@ export default function ValorisationHotelPage() {
 
             <div className="rounded-xl border border-card-border bg-card p-6">
               <div className="flex items-center justify-between">
-                <h2 className="text-base font-semibold text-navy">Hypothèses opérationnelles</h2>
+                <h2 className="text-base font-semibold text-navy">{tcv("operationalAssumptions")}</h2>
                 <label className="flex items-center gap-2 text-xs text-muted">
                   <input
                     type="checkbox"
@@ -160,13 +162,10 @@ export default function ValorisationHotelPage() {
                     }}
                     className="h-4 w-4 rounded border-input-border"
                   />
-                  Personnaliser
+                  {tc("personalize")}
                 </label>
               </div>
-              <p className="mt-1 text-xs text-muted">
-                Valeurs par défaut benchmarkées par catégorie (sources : STR EU, HotStats, JLL Hotels &amp;
-                Hospitality 2024).
-              </p>
+              <p className="mt-1 text-xs text-muted">{tcv("operationalAssumptionsHint")}</p>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <InputField
                   label="Charges personnel"
@@ -213,13 +212,13 @@ export default function ValorisationHotelPage() {
               <>
                 <div className="rounded-xl border-2 border-purple-300 bg-gradient-to-br from-purple-50 to-white p-6">
                   <div className="text-sm uppercase tracking-wider text-purple-700 font-semibold">
-                    Valeur de marché estimée
+                    {tcv("estimatedMarketValue")}
                   </div>
                   <div className="mt-2 text-3xl font-bold text-navy sm:text-4xl">
                     {formatEUR(result.valeurCentrale)}
                   </div>
                   <div className="mt-1 text-sm text-muted">
-                    Fourchette : <span className="font-medium text-navy">{formatEUR(result.fourchetteBasse)}</span>{" "}
+                    {tcv("range")} : <span className="font-medium text-navy">{formatEUR(result.fourchetteBasse)}</span>{" "}
                     – <span className="font-medium text-navy">{formatEUR(result.fourchetteHaute)}</span>
                   </div>
                   <div className="mt-3 flex flex-wrap gap-2">
@@ -236,7 +235,7 @@ export default function ValorisationHotelPage() {
                 </div>
 
                 <ResultPanel
-                  title="Performance commerciale"
+                  title={tcv("commercialPerf")}
                   lines={[
                     { label: "RevPAR", value: `${result.revPAR.toFixed(0)} €/nuit/chambre`, highlight: true },
                     { label: "Revenu chambres annuel", value: formatEUR(result.revenuRoomsAnnuel) },
@@ -247,7 +246,7 @@ export default function ValorisationHotelPage() {
                 />
 
                 <ResultPanel
-                  title="Compte d'exploitation USALI"
+                  title={tcv("operatingPL")}
                   lines={[
                     { label: "Charges personnel", value: formatEUR(result.charges.staff) },
                     { label: "Charges énergie", value: formatEUR(result.charges.energy) },
@@ -260,7 +259,7 @@ export default function ValorisationHotelPage() {
                 />
 
                 <ResultPanel
-                  title="Méthodologie"
+                  title={tcv("methodology")}
                   lines={[
                     { label: "Catégorie", value: CATEGORIES.find((c) => c.value === category)?.label ?? category },
                     { label: "Cap rate appliqué", value: formatPct(result.capRateUsed, 2) },
@@ -272,31 +271,26 @@ export default function ValorisationHotelPage() {
               </>
             ) : (
               <div className="rounded-xl border border-rose-200 bg-rose-50 p-6 text-rose-800">
-                Vérifiez les valeurs saisies (occupation entre 1 et 95 %, ADR &gt; 0…).
+                {tc("checkInputs")}
               </div>
             )}
           </div>
         </div>
 
         <div className="mt-10 rounded-xl border border-blue-200 bg-blue-50 p-5 text-sm text-blue-900">
-          <strong>Méthode :</strong> Valeur centrale = moyenne (DCF EBITDA capitalisé, comparables €/chambre).
-          Cap rate et benchmarks chambre indexés par catégorie (Budget 9 % → Luxury 6 %). Référentiels :
-          USALI 11<sup>e</sup> éd., STR EU, JLL Hotels &amp; Hospitality 2024. Indicatif — la valorisation
-          finale d&apos;un actif hôtelier nécessite un audit due-diligence par un évaluateur certifié.
+          <strong>{tc("methodLabel")} :</strong> {tcv("methodNote")}
         </div>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-card-border bg-card p-5">
           <div>
-            <div className="text-sm font-semibold text-navy">Étape suivante : DSCR &amp; financement</div>
-            <p className="mt-1 text-xs text-muted">
-              Vérifiez si l&apos;EBITDA permet de couvrir le service de la dette.
-            </p>
+            <div className="text-sm font-semibold text-navy">{tcv("nextStepTitle")}</div>
+            <p className="mt-1 text-xs text-muted">{tcv("nextStepDesc")}</p>
           </div>
           <Link
             href={`${lp}/hotellerie/dscr`}
             className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light transition-colors"
           >
-            Calculer le DSCR →
+            {tcv("nextStepCta")}
           </Link>
         </div>
       </div>

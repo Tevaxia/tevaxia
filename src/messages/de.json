@@ -5028,6 +5028,85 @@
     "altSuffix": "kostenlos.",
     "ctaSubject": "Maklerangebot%20-%20Anfrage"
   },
+  "hotellerieCalc": {
+    "checkInputs": "Bitte prüfen Sie die eingegebenen Werte.",
+    "methodLabel": "Methode",
+    "warning": "Hinweis",
+    "category": "Kategorie",
+    "personalize": "Anpassen",
+    "valorisation": {
+      "hotelChars": "Eigenschaften des Hotels",
+      "operationalAssumptions": "Betriebsannahmen",
+      "operationalAssumptionsHint": "Standardwerte nach Kategorie benchmarked (Quellen: STR EU, HotStats, JLL Hotels & Hospitality 2024).",
+      "estimatedMarketValue": "Geschätzter Marktwert",
+      "range": "Spanne",
+      "commercialPerf": "Vertriebsleistung",
+      "operatingPL": "USALI Betriebs-GuV",
+      "methodology": "Methodik",
+      "methodNote": "Zentralwert = Mittel (kapitalisierter EBITDA-DCF, €/Zimmer-Vergleichswerte). Cap Rate und Pro-Zimmer-Benchmarks nach Kategorie indexiert. Referenzen: USALI 11. Aufl., STR EU, JLL Hotels & Hospitality 2024. Indikativ — die endgültige Bewertung eines Hotelobjekts erfordert eine Due-Diligence-Prüfung durch einen zertifizierten Bewerter.",
+      "nextStepTitle": "Nächster Schritt: DSCR & Finanzierung",
+      "nextStepDesc": "Prüfen Sie, ob das EBITDA den Schuldendienst deckt.",
+      "nextStepCta": "DSCR berechnen →"
+    },
+    "dscr": {
+      "financialData": "Finanzdaten",
+      "loanConditions": "Kreditbedingungen",
+      "centralBox": "DSCR Basiszenario",
+      "stressTest": "Stresstest",
+      "financingStructure": "Finanzierungsstruktur",
+      "borrowingCapacity": "Kreditkapazität vs Ziel",
+      "creditCost": "Gesamtkosten des Kredits",
+      "annualAmortization": "Jährliche Tilgung",
+      "okMargin": "OK — Marge verfügbar",
+      "overborrow": "Überkredit von",
+      "methodNote": "DSCR-Referenz: Geschäftsbank LU/FR/BE → 1,25-1,35x; SBA 7(a) US (E-2) → 1,40x; institutionelle Hotelfinanzierung → 1,40-1,50x. Der Auslastungs-/ADR-Stresstest entspricht der Praxis bankinterner Kreditausschüsse (-10 Pkt / -10 % Schock).",
+      "ctaTitle": "E-2 Investorenvisum?",
+      "ctaDesc": "Prüfen Sie die Eignung Ihres Projekts für das US E-2-Visum.",
+      "ctaCta": "E-2-Score berechnen →"
+    },
+    "scoreE2": {
+      "investment": "Investition",
+      "performanceJobs": "Erwartete Leistung & Arbeitsplätze",
+      "scoreBox": "E-2 Score",
+      "diagnostic": "Diagnose",
+      "subTestsTitle": "Detail der 5 USCIS-Untertests",
+      "redFlagsTitle": "Risikopunkte",
+      "summaryNumbers": "Zusammenfassung",
+      "warningText": "Dieser Score gibt von USCIS veröffentlichte Kriterien und konsularische Rechtsprechung (FAM 9 9 FAM 402.9-6) wieder, ersetzt aber keine Analyse durch einen US-Einwanderungsanwalt. Konsularische Entscheidungen sind ermessensabhängig. Kein USCIS-Ergebnis ist allein durch Erreichen eines Scores garantiert."
+    },
+    "exploitation": {
+      "configHotel": "Hotelkonfiguration",
+      "commercialPerf": "Vertriebsleistung",
+      "charges": "Kosten",
+      "gopVsBench": "Durchschnittliche GOP-Marge vs Benchmark",
+      "synthHorizon": "Zusammenfassung {n}-Jahres-Horizont",
+      "annualPL": "Jährliche USALI-GuV",
+      "year1Detail": "Detail Jahr 1 (USALI)",
+      "methodNote": "USALI 11. Aufl. — Uniform System of Accounts for the Lodging Industry (AHLEI). Kategorielle Quoten aus STR EU und HotStats 2024. Die GuV ist indikativ — Anpassung je nach Vertragstyp (Operator vs Lease vs Management Contract) erforderlich."
+    },
+    "renovation": {
+      "building": "Gebäude",
+      "worksPlanned": "Geplante Arbeiten",
+      "hotelPerf": "Hotelleistung",
+      "investmentNet": "Nettoinvestition (nach Förderung)",
+      "annualBenefits": "Jährliche Vorteile",
+      "paybackVAN": "Payback & 10-Jahres-NPV (4 % Diskont)",
+      "energyImpact": "Energieeffekt",
+      "perPostDetail": "Detail nach Posten",
+      "methodNote": "Klimabonus Tertiär — die angezeigten Förderquoten sind die durchschnittlich beobachteten Werte pro Posten für LU-Tertiärgebäude. Genaue Sätze hängen vom Haushaltsjahr (Klima-Pak-Gesetz) und vom angestrebten Leistungslabel ab. Vor Beauftragung mit myenergy abklären."
+    },
+    "revparCompset": {
+      "yourHotel": "Ihr Hotel",
+      "compset": "Compset (lokale Konkurrenz)",
+      "compsetHint": "Gewichteter Durchschnitt über 3-5 vergleichbare Hotels (Kategorie, Größe, Lage).",
+      "rgiBox": "RGI (Revenue Generation Index)",
+      "fairShare": "Fair-Share-Indizes",
+      "diagnostic": "Diagnose",
+      "revparCompared": "RevPAR-Vergleich",
+      "missedRevenue": "Jährlicher Einnahmenausfall",
+      "methodNote": "Methode: MPI / ARI / RGI Indizes = STR (Smith Travel Research) und HotStats Standard — globale Benchmark-Referenz Hotellerie. Index 100 = Fair Share, > 100 = Überleistung, < 100 = Unterleistung."
+    }
+  },
   "apiBanques": {
     "badge": "API im Pre-Launch",
     "title": "LU-Schätzungs-API für Banken",

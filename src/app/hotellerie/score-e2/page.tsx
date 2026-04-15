@@ -26,6 +26,8 @@ const DIAG_BG: Record<string, string> = {
 export default function ScoreE2Page() {
   const locale = useLocale();
   const t = useTranslations("hotellerieToolPages");
+  const tc = useTranslations("hotellerieCalc");
+  const tce = useTranslations("hotellerieCalc.scoreE2");
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   const [capitalInvesti, setCapitalInvesti] = useState(750000);
@@ -75,7 +77,7 @@ export default function ScoreE2Page() {
           {/* Inputs */}
           <div className="space-y-6">
             <div className="rounded-xl border border-card-border bg-card p-6">
-              <h2 className="text-base font-semibold text-navy">Investissement</h2>
+              <h2 className="text-base font-semibold text-navy">{tce("investment")}</h2>
               <div className="mt-4 grid gap-4">
                 <InputField
                   label="Capital personnel investi"
@@ -112,7 +114,7 @@ export default function ScoreE2Page() {
             </div>
 
             <div className="rounded-xl border border-card-border bg-card p-6">
-              <h2 className="text-base font-semibold text-navy">Performance attendue &amp; emplois</h2>
+              <h2 className="text-base font-semibold text-navy">{tce("performanceJobs")}</h2>
               <div className="mt-4 grid gap-4">
                 <InputField
                   label="Revenu prévisionnel annuel (net pour la famille)"
@@ -162,19 +164,19 @@ export default function ScoreE2Page() {
               <>
                 <div className={`rounded-xl bg-gradient-to-br ${DIAG_BG[result.diagnostic]} p-6 text-white shadow-lg`}>
                   <div className="text-sm uppercase tracking-wider text-white/80 font-semibold">
-                    Score E-2
+                    {tce("scoreBox")}
                   </div>
                   <div className="mt-2 flex items-baseline gap-2">
                     <span className="text-5xl font-bold">{result.scoreTotal}</span>
                     <span className="text-2xl text-white/80">/ 100</span>
                   </div>
                   <div className="mt-2 inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-sm font-medium">
-                    Diagnostic : {result.diagnostic}
+                    {tce("diagnostic")} : {result.diagnostic}
                   </div>
                 </div>
 
                 <ResultPanel
-                  title="Détail des 5 sous-tests USCIS"
+                  title={tce("subTestsTitle")}
                   lines={[
                     { label: "Substantiality (capital substantiel)", value: `${result.scoreSubstantiality} / 30 — ratio ${(result.ratioCapital * 100).toFixed(0)} %`, highlight: true },
                     { label: "At-risk (fonds engagés)", value: `${result.scoreAtRisk} / 15`, warning: result.scoreAtRisk === 0 },
@@ -191,7 +193,7 @@ export default function ScoreE2Page() {
                       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                       </svg>
-                      Points d&apos;attention ({result.redFlags.length})
+                      {tce("redFlagsTitle")} ({result.redFlags.length})
                     </div>
                     <ul className="mt-3 space-y-2 text-sm text-rose-900">
                       {result.redFlags.map((flag, i) => (
@@ -205,7 +207,7 @@ export default function ScoreE2Page() {
                 )}
 
                 <div className="rounded-xl border border-card-border bg-card p-5">
-                  <h3 className="text-sm font-semibold text-navy">Synthèse chiffres</h3>
+                  <h3 className="text-sm font-semibold text-navy">{tce("summaryNumbers")}</h3>
                   <dl className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
                     <div className="flex justify-between border-b border-card-border/50 py-1">
                       <dt className="text-muted">Capital investi</dt>
@@ -228,17 +230,14 @@ export default function ScoreE2Page() {
               </>
             ) : (
               <div className="rounded-xl border border-rose-200 bg-rose-50 p-6 text-rose-800">
-                Vérifiez les valeurs saisies (coût projet et minimum vital &gt; 0).
+                {tc("checkInputs")}
               </div>
             )}
           </div>
         </div>
 
         <div className="mt-10 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900">
-          <strong>Avertissement :</strong> ce score reproduit les critères publiés par USCIS et la jurisprudence
-          consulaire (FAM 9 9 FAM 402.9-6) mais ne remplace pas une analyse par un avocat US en
-          immigration. Les décisions consulaires comportent une part discrétionnaire. Aucune réponse
-          USCIS n&apos;est garantie par le simple respect d&apos;un score.
+          <strong>{tc("warning")} :</strong> {tce("warningText")}
         </div>
       </div>
     </div>

@@ -26,6 +26,8 @@ const DIAG_COLOR: Record<string, string> = {
 export default function DscrHotelPage() {
   const locale = useLocale();
   const t = useTranslations("hotellerieToolPages");
+  const tc = useTranslations("hotellerieCalc");
+  const tcd = useTranslations("hotellerieCalc.dscr");
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   const [ebitdaStabilise, setEbitdaStabilise] = useState(450000);
@@ -75,7 +77,7 @@ export default function DscrHotelPage() {
           {/* Inputs */}
           <div className="space-y-6">
             <div className="rounded-xl border border-card-border bg-card p-6">
-              <h2 className="text-base font-semibold text-navy">Données financières</h2>
+              <h2 className="text-base font-semibold text-navy">{tcd("financialData")}</h2>
               <div className="mt-4 grid gap-4">
                 <InputField
                   label="EBITDA stabilisé annuel"
@@ -111,7 +113,7 @@ export default function DscrHotelPage() {
             </div>
 
             <div className="rounded-xl border border-card-border bg-card p-6">
-              <h2 className="text-base font-semibold text-navy">Conditions de prêt</h2>
+              <h2 className="text-base font-semibold text-navy">{tcd("loanConditions")}</h2>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <InputField
                   label="Taux d'intérêt annuel"
@@ -143,14 +145,14 @@ export default function DscrHotelPage() {
               <>
                 <div className={`rounded-xl bg-gradient-to-br ${DIAG_COLOR[result.diagnostic]} p-6 text-white shadow-lg`}>
                   <div className="text-sm uppercase tracking-wider text-white/80 font-semibold">
-                    DSCR scénario central
+                    {tcd("centralBox")}
                   </div>
                   <div className="mt-2 text-4xl font-bold">{result.dscrCentral.toFixed(2)}</div>
                   <div className="mt-1 text-sm text-white/90">{result.diagnosticLabel}</div>
                 </div>
 
                 <ResultPanel
-                  title="Stress test"
+                  title={tcd("stressTest")}
                   lines={[
                     { label: "Central", value: `DSCR ${result.dscrCentral.toFixed(2)}`, highlight: true },
                     { label: "Occupation -10 pts", value: `DSCR ${result.dscrStressOccupation.toFixed(2)}`, warning: result.dscrStressOccupation < 1 },
@@ -160,7 +162,7 @@ export default function DscrHotelPage() {
                 />
 
                 <ResultPanel
-                  title="Structure de financement"
+                  title={tcd("financingStructure")}
                   lines={[
                     { label: "Total projet (acquisition + travaux)", value: formatEUR(prixAcquisition + travaux) },
                     { label: "Apport personnel", value: formatEUR(apport), sub: true },
@@ -172,19 +174,19 @@ export default function DscrHotelPage() {
                 />
 
                 <ResultPanel
-                  title="Capacité d'emprunt vs cible"
+                  title={tcd("borrowingCapacity")}
                   lines={[
                     { label: `Montant max pour DSCR ${dscrCible.toFixed(2)}`, value: formatEUR(result.maxEmpruntable), highlight: true, large: true },
                     {
                       label: "Vs montant emprunté actuel",
-                      value: result.maxEmpruntable >= result.montantDette ? "OK — marge disponible" : `Sur-emprunt de ${formatEUR(result.montantDette - result.maxEmpruntable)}`,
+                      value: result.maxEmpruntable >= result.montantDette ? tcd("okMargin") : `${tcd("overborrow")} ${formatEUR(result.montantDette - result.maxEmpruntable)}`,
                       warning: result.maxEmpruntable < result.montantDette,
                     },
                   ]}
                 />
 
                 <ResultPanel
-                  title="Coût total du crédit"
+                  title={tcd("creditCost")}
                   lines={[
                     { label: "Capital emprunté", value: formatEUR(result.montantDette) },
                     { label: "Total intérêts payés", value: formatEUR(result.totalInterets), sub: true },
@@ -194,7 +196,7 @@ export default function DscrHotelPage() {
 
                 {result.amortissement.length > 0 && (
                   <div className="rounded-xl border border-card-border bg-card p-6">
-                    <h3 className="mb-4 text-base font-semibold text-navy">Amortissement annuel</h3>
+                    <h3 className="mb-4 text-base font-semibold text-navy">{tcd("annualAmortization")}</h3>
                     <div className="overflow-x-auto">
                       <table className="w-full text-xs">
                         <thead>
@@ -222,30 +224,26 @@ export default function DscrHotelPage() {
               </>
             ) : (
               <div className="rounded-xl border border-rose-200 bg-rose-50 p-6 text-rose-800">
-                Vérifiez les valeurs saisies.
+                {tc("checkInputs")}
               </div>
             )}
           </div>
         </div>
 
         <div className="mt-10 rounded-xl border border-blue-200 bg-blue-50 p-5 text-sm text-blue-900">
-          <strong>Référentiel DSCR :</strong> banque commerciale LU/FR/BE → 1,25-1,35x ; SBA 7(a) US (E-2) →
-          1,40x ; financement institutionnel hôtelier → 1,40-1,50x. Le stress test occupation/ADR
-          reproduit la pratique des credit committees bancaires (choc -10 pts / -10 %).
+          {tcd("methodNote")}
         </div>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-card-border bg-card p-5">
           <div>
-            <div className="text-sm font-semibold text-navy">Visa investisseur E-2 ?</div>
-            <p className="mt-1 text-xs text-muted">
-              Vérifiez l&apos;éligibilité de votre projet au visa E-2 américain.
-            </p>
+            <div className="text-sm font-semibold text-navy">{tcd("ctaTitle")}</div>
+            <p className="mt-1 text-xs text-muted">{tcd("ctaDesc")}</p>
           </div>
           <Link
             href={`${lp}/hotellerie/score-e2`}
             className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light transition-colors"
           >
-            Calculer le score E-2 →
+            {tcd("ctaCta")}
           </Link>
         </div>
       </div>

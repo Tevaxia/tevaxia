@@ -20,6 +20,8 @@ function formatYears(n: number): string {
 export default function RenovationHotelPage() {
   const locale = useLocale();
   const t = useTranslations("hotellerieToolPages");
+  const tc = useTranslations("hotellerieCalc");
+  const tcr = useTranslations("hotellerieCalc.renovation");
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   const [surfaceChauffeeM2, setSurfaceChauffeeM2] = useState(2500);
@@ -65,7 +67,7 @@ export default function RenovationHotelPage() {
         <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
           <div className="space-y-6">
             <div className="rounded-xl border border-card-border bg-card p-6">
-              <h2 className="text-base font-semibold text-navy">Bâtiment</h2>
+              <h2 className="text-base font-semibold text-navy">{tcr("building")}</h2>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <InputField label="Surface chauffée totale" value={surfaceChauffeeM2} onChange={(v) => setSurfaceChauffeeM2(Number(v) || 0)} suffix="m²" />
                 <InputField label="Nombre de chambres" value={nbChambres} onChange={(v) => setNbChambres(Number(v) || 0)} />
@@ -76,7 +78,7 @@ export default function RenovationHotelPage() {
             </div>
 
             <div className="rounded-xl border border-card-border bg-card p-6">
-              <h2 className="text-base font-semibold text-navy">Travaux envisagés</h2>
+              <h2 className="text-base font-semibold text-navy">{tcr("worksPlanned")}</h2>
               <div className="mt-4 space-y-2">
                 {[
                   { v: travauxIsolation, set: setIsolation, label: "Isolation enveloppe (toiture, façade)" },
@@ -94,7 +96,7 @@ export default function RenovationHotelPage() {
             </div>
 
             <div className="rounded-xl border border-card-border bg-card p-6">
-              <h2 className="text-base font-semibold text-navy">Performance hôtelière</h2>
+              <h2 className="text-base font-semibold text-navy">{tcr("hotelPerf")}</h2>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <InputField label="ADR" value={adr} onChange={(v) => setAdr(Number(v) || 0)} suffix="€" />
                 <InputField label="Occupation" value={Math.round(occupancy * 100)} onChange={(v) => setOccupancy(Math.max(5, Math.min(95, Number(v) || 0)) / 100)} suffix="%" />
@@ -107,7 +109,7 @@ export default function RenovationHotelPage() {
             {result ? (
               <>
                 <div className="rounded-xl border-2 border-green-300 bg-gradient-to-br from-green-50 to-white p-6">
-                  <div className="text-sm uppercase tracking-wider text-green-700 font-semibold">Investissement net (après aides)</div>
+                  <div className="text-sm uppercase tracking-wider text-green-700 font-semibold">{tcr("investmentNet")}</div>
                   <div className="mt-2 text-3xl font-bold text-navy">{formatEUR(result.coutNetTotal)}</div>
                   <div className="mt-2 flex flex-wrap gap-2">
                     <span className="rounded-full bg-rose-100 px-3 py-1 text-xs font-medium text-rose-800">Brut : {formatEUR(result.coutBrutTotal)}</span>
@@ -116,7 +118,7 @@ export default function RenovationHotelPage() {
                 </div>
 
                 <ResultPanel
-                  title="Bénéfices annuels"
+                  title={tcr("annualBenefits")}
                   lines={[
                     { label: "Économies factures énergie", value: formatEUR(result.economiesAnnuelles), highlight: true },
                     { label: "Gain RevPAR via label", value: formatEUR(result.gainRevparAnnuel), highlight: true },
@@ -125,7 +127,7 @@ export default function RenovationHotelPage() {
                 />
 
                 <ResultPanel
-                  title="Payback &amp; VAN 10 ans (actu. 4 %)"
+                  title={tcr("paybackVAN")}
                   lines={[
                     { label: "Payback (factures seules)", value: formatYears(result.paybackSansLabel) },
                     { label: "Payback (factures + label)", value: formatYears(result.paybackAvecLabel), highlight: true },
@@ -134,7 +136,7 @@ export default function RenovationHotelPage() {
                 />
 
                 <ResultPanel
-                  title="Impact énergétique"
+                  title={tcr("energyImpact")}
                   lines={[
                     { label: "Conso avant travaux", value: `${(result.consoAvantKwh / 1000).toFixed(0)} MWh/an` },
                     { label: "Conso après travaux", value: `${(result.consoApresKwh / 1000).toFixed(0)} MWh/an` },
@@ -143,7 +145,7 @@ export default function RenovationHotelPage() {
                 />
 
                 <div className="rounded-xl border border-card-border bg-card p-6">
-                  <h3 className="mb-4 text-base font-semibold text-navy">Détail par poste</h3>
+                  <h3 className="mb-4 text-base font-semibold text-navy">{tcr("perPostDetail")}</h3>
                   <div className="overflow-x-auto">
                     <table className="w-full text-xs">
                       <thead>
@@ -169,13 +171,13 @@ export default function RenovationHotelPage() {
                 </div>
               </>
             ) : (
-              <div className="rounded-xl border border-rose-200 bg-rose-50 p-6 text-rose-800">Vérifiez les valeurs saisies.</div>
+              <div className="rounded-xl border border-rose-200 bg-rose-50 p-6 text-rose-800">{tc("checkInputs")}</div>
             )}
           </div>
         </div>
 
         <div className="mt-10 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900">
-          <strong>Klimabonus tertiaire :</strong> les taux d&apos;aide affichés sont les moyennes observées par poste pour bâtiments tertiaires LU. Les barèmes exacts dépendent de l&apos;exercice budgétaire (loi Klima-Pak) et du label de performance ciblé. Vérifier auprès de myenergy avant engagement.
+          {tcr("methodNote")}
         </div>
       </div>
     </div>

@@ -5029,6 +5029,85 @@
     "altSuffix": "for free.",
     "ctaSubject": "Agency%20offer%20-%20info%20request"
   },
+  "hotellerieCalc": {
+    "checkInputs": "Please check the input values.",
+    "methodLabel": "Method",
+    "warning": "Disclaimer",
+    "category": "Category",
+    "personalize": "Customize",
+    "valorisation": {
+      "hotelChars": "Hotel characteristics",
+      "operationalAssumptions": "Operating assumptions",
+      "operationalAssumptionsHint": "Default values benchmarked by category (sources: STR EU, HotStats, JLL Hotels & Hospitality 2024).",
+      "estimatedMarketValue": "Estimated market value",
+      "range": "Range",
+      "commercialPerf": "Commercial performance",
+      "operatingPL": "USALI operating P&L",
+      "methodology": "Methodology",
+      "methodNote": "Central value = average (capitalised EBITDA DCF, €/key comparables). Cap rate and per-key benchmarks indexed by category. References: USALI 11th ed., STR EU, JLL Hotels & Hospitality 2024. Indicative — final hotel valuation requires due-diligence audit by a certified appraiser.",
+      "nextStepTitle": "Next step: DSCR & financing",
+      "nextStepDesc": "Check whether EBITDA covers the debt service.",
+      "nextStepCta": "Compute DSCR →"
+    },
+    "dscr": {
+      "financialData": "Financial data",
+      "loanConditions": "Loan conditions",
+      "centralBox": "DSCR base case",
+      "stressTest": "Stress test",
+      "financingStructure": "Financing structure",
+      "borrowingCapacity": "Borrowing capacity vs target",
+      "creditCost": "Total cost of credit",
+      "annualAmortization": "Annual amortization",
+      "okMargin": "OK — margin available",
+      "overborrow": "Over-borrow of",
+      "methodNote": "DSCR benchmarks: commercial bank LU/FR/BE → 1.25-1.35x; SBA 7(a) US (E-2) → 1.40x; institutional hotel financing → 1.40-1.50x. The occupancy/ADR stress test mirrors bank credit committees' practice (-10 pts / -10 % shock).",
+      "ctaTitle": "E-2 investor visa?",
+      "ctaDesc": "Check the eligibility of your project for the US E-2 visa.",
+      "ctaCta": "Compute E-2 score →"
+    },
+    "scoreE2": {
+      "investment": "Investment",
+      "performanceJobs": "Expected performance & jobs",
+      "scoreBox": "E-2 score",
+      "diagnostic": "Diagnostic",
+      "subTestsTitle": "Detail of the 5 USCIS sub-tests",
+      "redFlagsTitle": "Points of concern",
+      "summaryNumbers": "Summary",
+      "warningText": "This score reproduces criteria published by USCIS and consular case law (FAM 9 9 FAM 402.9-6) but does not replace a US immigration attorney's analysis. Consular decisions involve discretion. No USCIS outcome is guaranteed by simply meeting a score."
+    },
+    "exploitation": {
+      "configHotel": "Hotel configuration",
+      "commercialPerf": "Commercial performance",
+      "charges": "Costs",
+      "gopVsBench": "Average GOP margin vs benchmark",
+      "synthHorizon": "Summary {n}-year horizon",
+      "annualPL": "Annual USALI P&L",
+      "year1Detail": "Year 1 detail (USALI)",
+      "methodNote": "USALI 11th ed. — Uniform System of Accounts for the Lodging Industry (AHLEI). Per-category ratios from STR EU and HotStats 2024. P&L is indicative — adapt to the management contract type (operator vs lease vs management contract)."
+    },
+    "renovation": {
+      "building": "Building",
+      "worksPlanned": "Works planned",
+      "hotelPerf": "Hotel performance",
+      "investmentNet": "Net investment (after subsidies)",
+      "annualBenefits": "Annual benefits",
+      "paybackVAN": "Payback & 10-year NPV (4 % discount)",
+      "energyImpact": "Energy impact",
+      "perPostDetail": "Detail by item",
+      "methodNote": "Tertiary Klimabonus — displayed aid rates are the average observed per item for LU tertiary buildings. Exact rates depend on the budget cycle (Klima-Pak law) and the targeted performance label. Check with myenergy before commitment."
+    },
+    "revparCompset": {
+      "yourHotel": "Your hotel",
+      "compset": "Compset (local competition)",
+      "compsetHint": "Weighted average across 3-5 comparable hotels (category, size, location).",
+      "rgiBox": "RGI (Revenue Generation Index)",
+      "fairShare": "Fair share indices",
+      "diagnostic": "Diagnostic",
+      "revparCompared": "RevPAR compared",
+      "missedRevenue": "Annual missed revenue",
+      "methodNote": "Method: MPI / ARI / RGI indices = STR (Smith Travel Research) and HotStats standard — global hotel benchmark reference. Index 100 = fair share, > 100 = over-performance, < 100 = under-performance."
+    }
+  },
   "apiBanques": {
     "badge": "API in pre-launch",
     "title": "LU estimation API for banks",
