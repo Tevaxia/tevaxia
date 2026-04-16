@@ -42,6 +42,29 @@ const TOOLS = [
       </svg>
     ),
   },
+  {
+    href: "/str/pricing",
+    title: "Dynamic pricing LU",
+    description: "Tarification mois par mois selon la saisonnalité LU (Schueberfouer, Marathon, marchés de Noël). Alternative locale à PriceLabs/Wheelhouse.",
+    color: "from-pink-600 to-fuchsia-600",
+    icon: (
+      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18 9 11.25l4.306 4.307a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+      </svg>
+    ),
+  },
+  {
+    href: "/str/compliance-eu",
+    title: "Registre EU STR 2024/1028",
+    description: "Enregistrement obligatoire au registre européen des locations courte durée (mi-2026). Génération du dossier + numéro d'identification.",
+    color: "from-blue-600 to-sky-600",
+    icon: (
+      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2.25c5.385 0 9.75 4.365 9.75 9.75M12 2.25c-5.385 0-9.75 4.365-9.75 9.75M12 2.25v19.5M2.25 12h19.5" />
+      </svg>
+    ),
+  },
 ];
 
 export default async function StrHub() {
