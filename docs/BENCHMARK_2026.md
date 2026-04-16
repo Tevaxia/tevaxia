@@ -41,7 +41,7 @@
 **Ce qu'on a** : 8 approches (comparaison, capitalisation, DCF, MLV/CRR, résiduelle énergétique, terme-reversion, ESG, réconciliation), données STATEC live (Euribor, taux hypothécaires, OAT 10Y, indice construction), 11 sections rapport EVS, export PDF + DOCX, profil évaluateur (logo, qualifications).
 
 **Gaps identifiés** :
-- Pas de **mode « inspection terrain »** (photo + geotag + notes vocales transcrites) pour collecter les données sur place
+- ~~Pas de **mode « inspection terrain »**~~ → ✅ `/inspection` — checklist TEGOVA 41 points, offline localStorage (`31339f5`)
 - Pas de **templates rapport multiples** (version bancaire courte / judiciaire longue / assurance / succession)
 - Pas d'**audit trail signé** (timestamp numérique, horodatage qualifié eIDAS) — important pour opposabilité
 - Pas de **version server-side** du rapport (uniquement génération client) → pas de partage direct par URL
@@ -63,7 +63,7 @@
 **Ce qu'on a** : 14 coefficients calibrés sur le marché LU (surface, étage, état, énergie, parking, extérieur), avec sources citées (Observatoire, Spuerkeess, transactions).
 
 **Gaps identifiés** :
-- Pas de **calibration temporelle** (les coefficients sont fixes — ils devraient varier avec le cycle)
+- ~~Pas de **calibration temporelle**~~ → ✅ Recalibration Q1 2026 + page `/transparence` avec MAPE/R² publics (`8e07b59`)
 - Pas d'**IC (intervalle de confiance)** sur chaque coefficient
 - Pas de **comparaison visuelle** avec d'autres modèles (DEA, machine learning)
 
@@ -203,7 +203,7 @@
 - Pas de **mode multi-logements** dans une copropriété (quote-part immeuble)
 - Pas de **simulation post-travaux** (si je rénove X €, quel sera le nouveau plafond)
 - Pas d'**historique de modifications** du loyer légal (plafond en 2020 / 2023 / 2026)
-- Pas de **support bail commercial** (règles différentes)
+- ~~Pas de **support bail commercial**~~ → ✅ Module complet IPC + pas-de-porte + coût total (`8b573b0`)
 
 **Pistes d'amélioration** :
 - **Court** : bouton « Et si je fais des travaux ? » ouvrant une mini-simulation post-travaux.
@@ -380,9 +380,9 @@
 **Ce qu'on a** : CRUD lots, analyse règle 5 %, détection Klimabonus (E/F/G), summary portefeuille (yield, alertes), sync cloud 500 items/180j.
 
 **Gaps identifiés** :
-- Pas de **suivi paiements** (qui a payé quand)
-- Pas d'**appel de loyer** (génération quittance mensuelle)
-- Pas de **bail numérique** (template + signature)
+- ~~Pas de **suivi paiements**~~ → ✅ `rental_payments` + CRUD complet (`7cce27b`)
+- ~~Pas d'**appel de loyer**~~ → ✅ Quittances PDF mensuelles conformes art. 25 loi 21.09.2006 (`7cce27b`)
+- ~~Pas de **bail numérique**~~ → ✅ Template bail + signature électronique eIDAS simple (`6d10f3f`)
 - Pas d'**état des lieux** mobile (photos, checklist)
 - Pas de **multi-occupants** par lot (colocation)
 
@@ -553,7 +553,7 @@
 - Pas d'**agrégation STR-like** (panel d'hôteliers partageant leurs données anonymisées)
 - Pas d'**échantillon comparables** transactionnels (historique des ventes d'hôtels LU/BE/DE)
 - Pas de **due diligence checklist** (audit complet avant acquisition)
-- Pas d'**intégration avec OTA** (connecteurs Booking/Expedia pour taux d'occupation réels)
+- ~~Pas d'**intégration avec OTA/PMS**~~ → ✅ Webhook PMS Mews/Cloudbeds/Opera (`cc17ca4`)
 
 **Pistes d'amélioration** :
 - **Court** : publier une table de benchmarks RevPAR par ville et catégorie (Luxembourg, Metz, Saarbrücken, Trèves, Liège) basée sur données publiques STR / Horwath.
@@ -640,15 +640,15 @@
 **Ce qu'on a** : identité, qualifications, mention légale personnalisable, logo, alertes marché, liens partagés, clés API, tier + plafond, export JSON RGPD.
 
 **Gaps identifiés** :
-- Pas d'**authentification forte** (2FA, TOTP, WebAuthn)
+- ~~Pas d'**authentification forte**~~ → ✅ 2FA TOTP via supabase.auth.mfa (`c24eb61`)
 - Pas de **gestion de sessions actives** (« déconnecter tous les appareils »)
 - Pas d'**historique d'activité** (journal audit des actions)
-- Pas de **notifications centralisées** (préférences email/SMS par type d'événement)
-- Pas de **suppression compte self-service** (RGPD — actuellement nécessite email)
+- ~~Pas de **notifications centralisées**~~ → ✅ Préférences email/consents par type (`faa9e4b`)
+- ~~Pas de **suppression compte self-service**~~ → ✅ Bouton danger zone + cascade RPC (`8eae0ca`)
 - Pas de **gestion des consentements granulaire** (marketing, analytics, tiers)
 - Pas de **impersonation admin** (pour le support, « voir comme cet utilisateur »)
 - Pas de **facture PDF** (quand tu factures un tier Pro, il faut émettre une facture conforme LU)
-- Pas de **moyen de paiement** stocké (Stripe Checkout intégré pour upgrade Pro)
+- ~~Pas de **moyen de paiement**~~ → ✅ Stripe Checkout self-service upgrade Pro (`d323bd8`)
 
 **Pistes d'amélioration** :
 - **Court** : bouton « Supprimer mon compte » déclenchant cascade (évaluations, lots, liens, alertes, clés). Logs audit pour 1 an post-suppression (pour contestation).
@@ -692,14 +692,14 @@
 - **Module conseil syndical** : vérification comptes, alertes anomalies
 - **Archivage 10 ans** : conformité légale LU (loi du 16 mai 1975 + réforme 2020)
 
-**Gaps critiques chez nous** :
-- Pas de concept de **copropriété** (entité regroupant lots + quotes-parts + règlement)
-- Pas de **quotes-parts / tantièmes** (millièmes) pour répartir charges
-- Pas de **plan comptable copropriété** (compte 10 charges, 20 travaux, 30 réserves…)
-- Pas d'**appels de fonds** automatiques
+**Gaps critiques — état actuel** :
+- ~~Pas de concept de **copropriété**~~ → ✅ Table `coownerships` + `coownership_units` avec tantièmes (`3ce993e`)
+- ~~Pas de **quotes-parts / tantièmes**~~ → ✅ Tantièmes par lot + validation somme (`3ce993e`)
+- ~~Pas de **plan comptable copropriété**~~ → ✅ 22 comptes système LU + journal double-entrée + clôture (`a1fd35e`)
+- ~~Pas d'**appels de fonds**~~ → ✅ Génération + suivi paiements + PDF par lot (`2ff2385`)
 - Pas d'**espace copropriétaire** (portail restreint)
-- Pas de **gestion d'AG** (convocation/vote/PV)
-- Pas de **multi-copropriétés par syndic** (un syndic gère 20-200 copros)
+- ~~Pas de **gestion d'AG**~~ → ✅ Convocation + vote électronique pondéré + PV auto (`72df70b`)
+- ~~Pas de **multi-copropriétés par syndic**~~ → ✅ CRUD multi-copropriétés par org syndic (`3ce993e`)
 
 **Pistes d'amélioration — compte & rôles syndic** :
 
@@ -752,12 +752,12 @@
 - **Yield alerts** : notif quand un compset modifie ses prix / quand la pickup anticipé dévie
 
 **Gaps critiques chez nous** :
-- Pas de concept d'**hôtel persisté** (chaque simulation est ponctuelle, pas liée à un établissement)
-- Pas de **historique multi-périodes** (l'hôtel Belair Plaza au 2025-Q1 vs 2025-Q2)
-- Pas de **rôles hôteliers distincts** (propriétaire vs directeur vs revenue manager)
-- Pas de **multi-hôtel** pour un groupe
-- Pas de **connecteur PMS** (injection données réelles depuis OPERA/Mews/Cloudbeds via API)
-- Pas de **espace propriétaire** (owner report mensuel automatisé)
+- ~~Pas de concept d'**hôtel persisté**~~ → ✅ Table `hotels` + CRUD par org (`bb80471`)
+- ~~Pas de **historique multi-périodes**~~ → ✅ `hotel_periods` trimestriel/mensuel + deltas (`ac35c84`)
+- ~~Pas de **rôles hôteliers distincts**~~ → ✅ 5 rôles (owner/director/revenue_manager/fb_manager/reception) (`dd95467`)
+- ~~Pas de **multi-hôtel**~~ → ✅ Dashboard groupe consolidé (`bb80471`)
+- ~~Pas de **connecteur PMS**~~ → ✅ Webhook `/api/v1/pms/webhook` Mews/Cloudbeds/Opera (`cc17ca4`)
+- ~~Pas de **espace propriétaire**~~ → ✅ Owner report PDF auto avec compset + deltas (`ac35c84`)
 - Pas d'**alertes** (RGI qui décroche, ADR compset modifié)
 
 **Pistes d'amélioration — compte & rôles hôtellerie** :
@@ -817,16 +817,15 @@ Ces deux verticaux justifient une roadmap « compte & rôles » dédiée, sépar
 ## 30. Hors outils : infrastructure et observabilité
 
 **Gaps identifiés** :
-- Pas de **monitoring erreurs client** (Sentry absent — un user qui crash ne nous le dit pas)
-- Pas de **alerting latence/uptime** (statut public /status)
-- Pas de **tests E2E** (Playwright absent — que des tests unitaires Vitest)
+- ~~Pas de **monitoring erreurs client**~~ → ✅ **Sentry** intégré (`30a9425`), DSN configuré en production
+- ~~Pas de **alerting latence/uptime**~~ → ✅ **Page /status** publique (`30a9425`)
+- Pas de **tests E2E** (Playwright absent — que des tests unitaires Vitest, 172 tests)
 - Pas de **CI/CD explicite** (Vercel déploie auto mais pas de pipeline de tests)
-- Pas de **analytics produit** (PostHog, Mixpanel — Google Analytics ne suffit pas pour l'usage détaillé par outil)
+- ~~Pas de **analytics produit**~~ → ✅ **PostHog** EU-hosted intégré (`30a9425`), GDPR-compliant
 
-**Pistes d'amélioration** :
-- **Court** : Sentry gratuit + PostHog self-hosted gratuit.
+**Pistes d'amélioration restantes** :
 - **Moyen** : Playwright sur les 10 parcours clés (estimation, frais, aides, loyer, wizard, gestion locative, partage public, connexion, profil, export).
-- **Long** : page /status publique avec uptime 30j, latence p50/p95 par endpoint API.
+- **Moyen** : CI GitHub Actions (tsc + eslint + vitest) avant chaque deploy Vercel.
 
 ---
 
@@ -872,6 +871,6 @@ Ce benchmark s'appuie sur :
 - Guides réglementaires : TEGOVA EVS 2025 Charter 5e éd., EBA Guidelines on Loan Origination LTV, CSSF Circulaires
 - Retours utilisateurs early adopters (conversations avec 3 agences LU, 1 banque régionale, 2 évaluateurs TEGOVA)
 
-**Dernière mise à jour** : 2026-04-15.
+**Dernière mise à jour** : 2026-04-16.
 
 **Prochaine révision** : 2026-10-15 (tous les 6 mois, avant freeze budget Q4).
