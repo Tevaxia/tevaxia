@@ -605,7 +605,7 @@ export default function WizardParticulier() {
         )}
 
         {/* Navigation */}
-        <div className="mt-8 flex items-center justify-between">
+        <div className="mt-8 mb-12 flex items-center justify-between">
           <button
             onClick={prev}
             disabled={step === 0}
