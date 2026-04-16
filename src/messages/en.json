@@ -5172,7 +5172,9 @@
       "faq4a": "For a secured hotel loan (>€1M), most LU/BE banks require a TEGOVA EVS 2025 report signed by a qualified appraiser. Our tools allow pre-qualification of a file before ordering that expert work.",
       "faqTitle": "Frequently asked questions",
       "relatedTitle": "Go further"
-    }
+    },
+    "compsetTitle": "Compset Luxembourg + Greater Region",
+    "compsetDesc": "ADR, occupancy and RevPAR benchmarks by zone and category. Luxembourg Centre, Kirchberg, Findel, Esch, Greater Region."
   },
   "hotellerieToolPages": {
     "backToHub": "Hospitality hub",

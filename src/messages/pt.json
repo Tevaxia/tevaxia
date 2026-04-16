@@ -5172,7 +5172,9 @@
       "faq4a": "Para um empréstimo hoteleiro garantido (> 1 M€), a maioria dos bancos LU/BE exige um relatório TEGOVA EVS 2025 assinado por avaliador qualificado. As nossas ferramentas pré-qualificam o processo.",
       "faqTitle": "Perguntas frequentes",
       "relatedTitle": "Saber mais"
-    }
+    },
+    "compsetTitle": "Compset Luxemburgo + Grande Região",
+    "compsetDesc": "Benchmarks ADR, ocupação e RevPAR por zona e categoria."
   },
   "hotellerieToolPages": {
     "backToHub": "Hub hotelaria",

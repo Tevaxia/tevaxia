@@ -5172,7 +5172,9 @@
       "faq4a": "Für einen abgesicherten Hotelkredit (> 1 Mio. €) verlangen die meisten LU/BE-Banken einen TEGOVA-EVS-2025-Bericht eines qualifizierten Gutachters. Unsere Tools ermöglichen eine Vorqualifizierung vor Beauftragung dieser Expertise.",
       "faqTitle": "Häufig gestellte Fragen",
       "relatedTitle": "Weiterführend"
-    }
+    },
+    "compsetTitle": "Compset Luxemburg + Großregion",
+    "compsetDesc": "ADR-, Auslastungs- und RevPAR-Benchmarks nach Zone und Kategorie."
   },
   "hotellerieToolPages": {
     "backToHub": "Hotellerie-Hub",

@@ -5172,7 +5172,9 @@
       "faq4a": "Pour un prêt hôtelier sécurisé (>1 M€), la plupart des banques LU/BE exigent un rapport TEGOVA EVS 2025 signé par un évaluateur qualifié. Nos outils vous permettent de pré-qualifier un dossier avant de commander cette expertise.",
       "faqTitle": "Questions fréquentes",
       "relatedTitle": "Aller plus loin"
-    }
+    },
+    "compsetTitle": "Compset Luxembourg + Grande Région",
+    "compsetDesc": "Benchmarks ADR, occupation et RevPAR par zone et catégorie. Luxembourg Centre, Kirchberg, Findel, Esch, Grande Région."
   },
   "hotellerieToolPages": {
     "backToHub": "Hub hôtellerie",

@@ -33,6 +33,12 @@ export default function GestionLocativeLanding() {
               📊 Dashboard fiscal LU
             </Link>
             <Link
+              href={`${lp}/gestion-locative/etat-des-lieux`}
+              className="rounded-lg bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-orange-600"
+            >
+              📱 État des lieux
+            </Link>
+            <Link
               href={`${lp}/calculateur-loyer`}
               className="rounded-lg border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/20 backdrop-blur-sm"
             >
