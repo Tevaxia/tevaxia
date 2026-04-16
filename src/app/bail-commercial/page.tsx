@@ -70,6 +70,10 @@ export default function BailCommercial() {
     };
   }, [loyerInitial, anneeSignature, anneeIndexation, plafondIndexationPct]);
 
+  const [pasDePtMontant, setPasDePtMontant] = useState(0);
+  const [depotGarantieMois, setDepotGarantieMois] = useState(3);
+  const [chargesAnnuelles, setChargesAnnuelles] = useState(0);
+
   const dureeLabel: Record<typeof duree, string> = {
     9: "9 ans (durée minimale légale LU)",
     12: "12 ans",
@@ -78,6 +82,52 @@ export default function BailCommercial() {
     24: "24 ans",
     99: "Durée libre (> 24 ans)",
   };
+
+  const yearByYear = useMemo(() => {
+    const rows: { year: number; ipc: number; coeff: number; loyerBrut: number; loyerPlaf: number; mensuel: number }[] = [];
+    const ipcRef = getIpc(anneeSignature);
+    const maxYear = Math.min(anneeSignature + (duree === 99 ? 25 : duree), currentYear + 3);
+    for (let y = anneeSignature; y <= maxYear; y++) {
+      const ipc = getIpc(y);
+      const coeff = ipc / ipcRef;
+      const loyerBrut = loyerInitial * coeff;
+      const plafond = plafondIndexationPct > 0 ? loyerInitial * (1 + plafondIndexationPct / 100) : Infinity;
+      const loyerPlaf = Math.min(loyerBrut, plafond);
+      rows.push({ year: y, ipc, coeff, loyerBrut, loyerPlaf, mensuel: loyerPlaf / 12 });
+    }
+    return rows;
+  }, [loyerInitial, anneeSignature, plafondIndexationPct, duree, currentYear]);
+
+  const breakDates = useMemo(() => {
+    if (duree === 99) return [];
+    const dates: { year: number; label: string }[] = [];
+    for (let i = 3; i <= duree; i += 3) {
+      const y = anneeSignature + i;
+      if (i === duree) {
+        dates.push({ year: y, label: `Fin du bail (${i} ans)` });
+      } else {
+        dates.push({ year: y, label: `Période triennale n° ${i / 3} (résiliation possible)` });
+      }
+    }
+    return dates;
+  }, [anneeSignature, duree]);
+
+  const totalCostDuree = useMemo(() => {
+    const yearsInDuree = duree === 99 ? 25 : duree;
+    let totalLoyers = 0;
+    const ipcRef = getIpc(anneeSignature);
+    for (let i = 0; i < yearsInDuree; i++) {
+      const y = anneeSignature + i;
+      const ipc = getIpc(y);
+      const coeff = ipc / ipcRef;
+      const lb = loyerInitial * coeff;
+      const plafond = plafondIndexationPct > 0 ? loyerInitial * (1 + plafondIndexationPct / 100) : Infinity;
+      totalLoyers += Math.min(lb, plafond);
+    }
+    const totalCharges = chargesAnnuelles * yearsInDuree;
+    const depotGarantie = (loyerInitial / 12) * depotGarantieMois;
+    return { totalLoyers, totalCharges, pasDePt: pasDePtMontant, depotGarantie, total: totalLoyers + totalCharges + pasDePtMontant };
+  }, [loyerInitial, anneeSignature, plafondIndexationPct, duree, chargesAnnuelles, pasDePtMontant, depotGarantieMois]);
 
   return (
     <div className="bg-background py-8 sm:py-12 min-h-screen">
@@ -150,6 +200,36 @@ export default function BailCommercial() {
                 />
               </div>
             </div>
+
+            <div className="rounded-xl border border-card-border bg-card p-5">
+              <h2 className="text-base font-semibold text-navy">Coûts complémentaires</h2>
+              <div className="mt-3 space-y-3">
+                <InputField
+                  label="Pas-de-porte (droit d'entrée)"
+                  value={pasDePtMontant}
+                  onChange={(v) => setPasDePtMontant(Number(v) || 0)}
+                  suffix="€"
+                  hint="Somme versée en une fois à la signature, non récupérable."
+                  min={0}
+                />
+                <InputField
+                  label="Dépôt de garantie"
+                  value={depotGarantieMois}
+                  onChange={(v) => setDepotGarantieMois(Number(v) || 0)}
+                  suffix="mois de loyer"
+                  hint="Usuel : 3 à 12 mois. Restitué en fin de bail (sauf dégradations)."
+                  min={0}
+                  max={24}
+                />
+                <InputField
+                  label="Charges annuelles (provisions)"
+                  value={chargesAnnuelles}
+                  onChange={(v) => setChargesAnnuelles(Number(v) || 0)}
+                  suffix="€/an"
+                  min={0}
+                />
+              </div>
+            </div>
           </div>
 
           <div className="space-y-4">
@@ -187,11 +267,101 @@ export default function BailCommercial() {
               ]}
             />
 
+            {/* Coût total du bail */}
+            <div className="rounded-xl border border-card-border bg-card p-5">
+              <h2 className="text-base font-semibold text-navy">Coût total du bail ({duree === 99 ? "25" : duree} ans)</h2>
+              <div className="mt-3 space-y-1 text-xs">
+                <div className="flex justify-between"><span className="text-muted">Loyers cumulés (indexés)</span><span className="font-medium">{formatEUR(totalCostDuree.totalLoyers)}</span></div>
+                {totalCostDuree.totalCharges > 0 && (
+                  <div className="flex justify-between"><span className="text-muted">Charges cumulées</span><span className="font-medium">{formatEUR(totalCostDuree.totalCharges)}</span></div>
+                )}
+                {totalCostDuree.pasDePt > 0 && (
+                  <div className="flex justify-between"><span className="text-muted">Pas-de-porte</span><span className="font-medium">{formatEUR(totalCostDuree.pasDePt)}</span></div>
+                )}
+                <div className="flex justify-between border-t border-card-border pt-1.5">
+                  <span className="text-muted">Dépôt de garantie (immobilisé)</span>
+                  <span className="font-medium">{formatEUR(totalCostDuree.depotGarantie)}</span>
+                </div>
+                <div className="flex justify-between border-t border-card-border pt-1.5 text-sm font-semibold text-navy">
+                  <span>Coût total occupation</span>
+                  <span>{formatEUR(totalCostDuree.total)}</span>
+                </div>
+                <div className="text-muted pt-1">
+                  Soit {formatEUR(totalCostDuree.total / (duree === 99 ? 25 : duree))} /an en moyenne
+                </div>
+              </div>
+            </div>
+
+            {/* Dates de résiliation triennale */}
+            {breakDates.length > 0 && (
+              <div className="rounded-xl border border-card-border bg-card p-5">
+                <h2 className="text-base font-semibold text-navy">Périodes triennales</h2>
+                <div className="mt-3 space-y-1 text-xs">
+                  {breakDates.map((d) => (
+                    <div key={d.year} className="flex justify-between">
+                      <span className="text-muted">{d.label}</span>
+                      <span className="font-medium text-navy">{d.year}</span>
+                    </div>
+                  ))}
+                  <div className="mt-2 text-muted">
+                    Préavis de 6 mois par LRAR avant chaque échéance triennale.
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
               <strong>Clauses fréquentes à vérifier :</strong> pas-de-porte, dépôt de garantie
               (3-12 mois), charges déductibles, destination des lieux, droit au renouvellement,
               indemnité d&apos;éviction en cas de non-renouvellement.
             </div>
+          </div>
+        </div>
+
+        {/* Tableau d'indexation année par année */}
+        <div className="mt-8">
+          <h2 className="text-lg font-semibold text-navy">Tableau d&apos;indexation IPC — année par année</h2>
+          <p className="mt-1 text-xs text-muted">
+            Évolution du loyer indexé de {anneeSignature} à {yearByYear[yearByYear.length - 1]?.year ?? anneeSignature}
+            · IPC STATEC (base 100 = 2015) · plafond contractuel : {plafondIndexationPct > 0 ? `+${plafondIndexationPct} %` : "aucun"}
+          </p>
+          <div className="mt-4 overflow-x-auto rounded-xl border border-card-border bg-card">
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="border-b border-card-border bg-background text-left text-[10px] uppercase tracking-wider text-muted">
+                  <th className="px-3 py-2">Année</th>
+                  <th className="px-3 py-2 text-right">IPC STATEC</th>
+                  <th className="px-3 py-2 text-right">Coefficient</th>
+                  <th className="px-3 py-2 text-right">Loyer brut indexé</th>
+                  <th className="px-3 py-2 text-right">Loyer plafonné</th>
+                  <th className="px-3 py-2 text-right">Mensuel</th>
+                  <th className="px-3 py-2 text-right">Évol. vs initial</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-card-border/50">
+                {yearByYear.map((r) => {
+                  const isRef = r.year === anneeSignature;
+                  const isCible = r.year === anneeIndexation;
+                  const evolPct = ((r.loyerPlaf / loyerInitial) - 1) * 100;
+                  return (
+                    <tr key={r.year} className={isRef ? "bg-blue-50/40" : isCible ? "bg-emerald-50/40" : ""}>
+                      <td className="px-3 py-1.5 font-medium text-navy">
+                        {r.year} {isRef && <span className="text-[10px] text-blue-600">(réf.)</span>} {isCible && <span className="text-[10px] text-emerald-600">(cible)</span>}
+                      </td>
+                      <td className="px-3 py-1.5 text-right font-mono">{r.ipc.toFixed(1)}</td>
+                      <td className="px-3 py-1.5 text-right font-mono">× {r.coeff.toFixed(4)}</td>
+                      <td className="px-3 py-1.5 text-right">{formatEUR(r.loyerBrut)}</td>
+                      <td className={`px-3 py-1.5 text-right font-medium ${r.loyerBrut > r.loyerPlaf ? "text-amber-700" : "text-navy"}`}>
+                        {formatEUR(r.loyerPlaf)}
+                        {r.loyerBrut > r.loyerPlaf && <span className="text-[10px] text-amber-600"> (plaf.)</span>}
+                      </td>
+                      <td className="px-3 py-1.5 text-right">{formatEUR(r.mensuel)}</td>
+                      <td className="px-3 py-1.5 text-right text-muted">{evolPct >= 0 ? "+" : ""}{evolPct.toFixed(1)} %</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
