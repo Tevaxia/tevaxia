@@ -39,6 +39,12 @@ export default function GestionLocativeLanding() {
               📱 État des lieux
             </Link>
             <Link
+              href={`${lp}/gestion-locative/reconciliation`}
+              className="rounded-lg bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-600"
+            >
+              🏦 Réconciliation bancaire
+            </Link>
+            <Link
               href={`${lp}/calculateur-loyer`}
               className="rounded-lg border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/20 backdrop-blur-sm"
             >
