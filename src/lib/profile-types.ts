@@ -11,7 +11,8 @@ export type ProfileType =
   | "investisseur"
   | "agence"
   | "promoteur"
-  | "api";
+  | "api"
+  | "str_operator";
 
 export interface ProfileTypeMeta {
   value: ProfileType;
@@ -29,6 +30,7 @@ export const PROFILE_TYPES: ProfileTypeMeta[] = [
   { value: "agence", label: "Agence immo", emoji: "🤝", description: "Agent immobilier, négociateur" },
   { value: "promoteur", label: "Promoteur", emoji: "🏗", description: "Promotion, marchand de biens" },
   { value: "api", label: "Intégrateur API", emoji: "🔌", description: "PropTech, banque, fintech" },
+  { value: "str_operator", label: "Location courte durée", emoji: "🛎", description: "Airbnb, Booking, Vrbo, saisonnier" },
 ];
 
 /**
@@ -36,11 +38,12 @@ export const PROFILE_TYPES: ProfileTypeMeta[] = [
  * relevant. If a user has no profile selected, all tiles show.
  */
 export const WORKSPACE_PROFILE_MAP: Record<string, ProfileType[]> = {
-  "mes-evaluations": ["particulier", "expert", "syndic", "hotelier", "investisseur", "agence", "promoteur"],
+  "mes-evaluations": ["particulier", "expert", "syndic", "hotelier", "investisseur", "agence", "promoteur", "str_operator"],
   "portfolio": ["investisseur", "expert", "agence", "promoteur"],
   "energy/portfolio": ["investisseur", "expert", "syndic", "promoteur"],
   "syndic/coproprietes": ["syndic"],
   "hotellerie/groupe": ["hotelier", "investisseur"],
+  "str": ["str_operator", "particulier", "investisseur"],
   "profil/organisation": ["agence", "expert", "syndic"],
   "profil/api": ["api"],
   "api-docs": ["api", "investisseur", "agence"],

@@ -13,7 +13,7 @@ export interface SavedValuation {
   id: string;
   nom: string;
   date: string;
-  type: "estimation" | "valorisation" | "capitalisation" | "dcf" | "dcf-multi" | "frais" | "plus-values" | "loyer" | "aides" | "achat-location" | "bilan-promoteur";
+  type: "estimation" | "valorisation" | "capitalisation" | "dcf" | "dcf-multi" | "frais" | "plus-values" | "loyer" | "aides" | "achat-location" | "bilan-promoteur" | "str-rentabilite" | "str-arbitrage";
   commune?: string;
   assetType?: string;
   valeurPrincipale?: number;

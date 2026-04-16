@@ -29,6 +29,8 @@ const TYPE_LABELS: Record<SavedValuation["type"], string> = {
   aides: "Aides",
   "achat-location": "Achat vs Location",
   "bilan-promoteur": "Bilan promoteur",
+  "str-rentabilite": "STR — Rentabilité",
+  "str-arbitrage": "STR — Arbitrage LT/CT",
 };
 
 // ============================================================
