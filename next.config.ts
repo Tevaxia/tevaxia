@@ -6,6 +6,7 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["@react-pdf/renderer", "posthog-js", "@sentry/nextjs", "@supabase/supabase-js"],
+    optimizeCss: true,
   },
   async redirects() {
     return [];
