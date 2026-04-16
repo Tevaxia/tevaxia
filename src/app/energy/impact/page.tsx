@@ -6,6 +6,7 @@ import { calculerImpact, type ImpactResponse, type ClasseImpact } from "@/lib/en
 import { generateImpactPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
 import { getEnergyComparables, getAvailableCommunes, buildImpactRange } from "@/lib/energy-comparables";
 import SEOContent from "@/components/SEOContent";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 
 const CLASSES = ["A", "B", "C", "D", "E", "F", "G", "H", "I"] as const;
 
@@ -333,6 +334,20 @@ export default function ImpactPage() {
             })}
           </div>
         </div>
+        <div className="mt-6">
+          <AiAnalysisCard
+            context={[
+              `Impact classe énergétique sur la valeur — Luxembourg`,
+              `Bien: valeur déclarée ${fmt(valeur)} €, classe actuelle ${classeActuelle}`,
+              `Commune: ${commune ?? "national"}${isCommune ? " (données communales)" : ""}`,
+              `Valeur base (neutralisée de l'effet énergie): ${fmt(result.valeurBase)} €`,
+              `Green premium / Brown discount par classe:`,
+              ...result.classes.map((c) => `  ${c.classe}: ${c.ajustementPct > 0 ? "+" : ""}${c.ajustementPct}% → ${fmt(c.valeurAjustee)} € (delta ${c.delta > 0 ? "+" : ""}${fmt(c.delta)} €)`),
+            ].join("\n")}
+            prompt="Analyse l'impact de la classe énergétique sur la valeur de ce bien au Luxembourg. Livre : (1) quantification du green premium / brown discount applicable, références aux études Observatoire de l'Habitat 2025 et PriceHubble EU, (2) tendance d'évolution attendue avec EPBD IV (refonte 2024) et obligations de rénovation 2030/2033, (3) cas d'usage — vendre maintenant vs rénover puis vendre (arbitrage), priorisation des sauts de classe les plus rentables, (4) mise en perspective LU vs marchés voisins (FR/BE/DE). Chiffré et référencé."
+          />
+        </div>
+
         {/* Explication green premium / brown discount */}
         <div className="mt-6 rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden">
           <div className="px-6 py-4 border-b border-card-border bg-gradient-to-r from-energy/5 to-transparent">

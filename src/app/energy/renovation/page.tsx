@@ -6,6 +6,7 @@ import { calculerRenovation, type RenovationResponse } from "@/lib/energy-api";
 import { estimerCoutsRenovation } from "@/lib/renovation-costs";
 import { generateRenovationPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
 import SEOContent from "@/components/SEOContent";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 
 const CLASSES = ["A", "B", "C", "D", "E", "F", "G", "H", "I"] as const;
 const IMPACT_ENERGIE: Record<string, number> = { A: 8, B: 5, C: 2, D: 0, E: -3, F: -7, G: -12, H: -18, I: -25 };
@@ -443,6 +444,33 @@ export default function RenovationPage() {
 
         {result && result.postes.length === 0 && (
           <div className="rounded-2xl border border-card-border bg-card p-8 text-center text-muted">{t("aucunPoste")}</div>
+        )}
+
+        {result && result.postes.length > 0 && (
+          <div className="mt-6">
+            <AiAnalysisCard
+              context={[
+                `Plan rénovation énergétique Luxembourg`,
+                `Saut de classe: ${result.sautClasse}${modeCopro ? ` (copropriété ${nbLots} lots)` : ""}`,
+                `Logement: ${surface} m², construit en ${annee}, valeur actuelle ${fmt(valeur)} €`,
+                `Prix énergie retenu: ${prixEnergie} €/kWh`,
+                `Postes travaux: ${result.postes.map((p) => `${p.labelKey} (~${fmt(p.coutMoyen)} €)`).join(", ")}`,
+                `Total projet: ${fmt(result.totalProjet)} € (travaux ${fmt(result.totalMoyen)} + honoraires ${fmt(result.honoraires)})`,
+                `Durée estimée: ${result.dureeEstimeeMois} mois`,
+                `Klimabonus: ${fmt(result.klimabonus.montant)} € (saut ${result.klimabonus.sautClasses} classes, taux ${(result.klimabonus.taux * 100).toFixed(0)}%)`,
+                `Klimaprêt: ${fmt(result.klimapret.montantMax)} € à ${(result.klimapret.taux * 100).toFixed(1)}% sur ${result.klimapret.dureeMois} mois → mensualité ${fmt(result.klimapret.mensualite)} €`,
+                `Subvention conseil: ${fmt(result.subventionConseil)} €`,
+                `Total aides: ${fmt(result.totalAides)} €`,
+                `Reste à charge: ${fmt(result.resteACharge)} €`,
+                `Gain de valeur estimé: ${result.gainValeur > 0 ? "+" : ""}${fmt(result.gainValeur)} € (${result.gainValeurPct > 0 ? "+" : ""}${result.gainValeurPct}%)`,
+                `ROI: ${result.roiPct}%`,
+                `Économies annuelles: ${fmt(result.economieAnnuelleKwh)} kWh / ${fmt(result.economieAnnuelleEur)} €`,
+                `Payback: ${result.paybackAnnees} ans`,
+                `VAN 20 ans: ${fmt(result.van20ans)} € · TRI: ${result.triPct}%`,
+              ].join("\n")}
+              prompt="Analyse ce plan de rénovation énergétique au Luxembourg. Livre : (1) viabilité économique (gain de valeur vs reste à charge, payback, TRI vs placement alternatif), (2) priorisation des postes (isolation vs fenêtres vs PAC vs ventilation — lequel a le meilleur €/kWh économisé), (3) articulation avec les aides (Klimabonus, Klimaprêt taux zéro, TVA 3% rénovation) et fenêtres de dépôt, (4) points d'attention spécifiques au bâti concerné (année de construction, copropriété si applicable = majorité 3/4 des tantièmes requise), (5) conseil final : foncer / sécuriser par audit indépendant / attendre une classe intermédiaire. Chiffré et référencé."
+            />
+          </div>
         )}
       </div>
     </div>

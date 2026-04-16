@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { generateEpbdPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
 import SEOContent from "@/components/SEOContent";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 
 const CLASSES = ["A", "B", "C", "D", "E", "F", "G", "H", "I"] as const;
 type EnergyClass = (typeof CLASSES)[number];
@@ -462,6 +463,18 @@ export default function EPBDPage() {
           <div className="p-6">
             <ValueProjection selectedClass={selectedClass} t={t} />
           </div>
+        </div>
+
+        <div className="mb-8">
+          <AiAnalysisCard
+            context={[
+              `Diagnostic compliance EPBD IV — Luxembourg`,
+              `Classe énergétique actuelle: ${selectedClass}`,
+              `Niveau de stranding risk (i18n key): ${risk.levelKey}`,
+              `Bâtiment concerné par milestones EPBD : 2026 (CPE obligatoire), 2030 (interdictions G/H/I), 2033 (interdictions E/F/G), 2050 (neutralité carbone)`,
+            ].join("\n")}
+            prompt="Analyse la trajectoire compliance EPBD IV (refonte 2024) pour un bâtiment de classe actuelle donnée au Luxembourg. Livre : (1) calendrier précis des obligations applicables (2026, 2028, 2030, 2033, 2040, 2050) et leur impact sur ce bâtiment, (2) actions minimales requises pour rester dans la légalité, (3) arbitrage stranding risk : vendre maintenant / rénover par paliers / rénovation profonde, (4) opportunités de financement (Klimaprêt, PRIMe House, fonds européens), (5) impact probable sur la valeur locative et vénale à 5-10 ans. Cite les articles EPBD pertinents."
+          />
         </div>
 
         {/* ── Link to renovation simulator ── */}

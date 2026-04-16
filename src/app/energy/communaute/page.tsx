@@ -14,6 +14,7 @@ import {
 } from "@/lib/pvgis";
 import { COMMUNE_COORDS } from "@/lib/communes-coords";
 import SEOContent from "@/components/SEOContent";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 
 const PRODUCTION_KWH_PAR_KWC = 950;
 const TAUX_AUTOCONSO_BASE = 0.40;
@@ -488,6 +489,28 @@ export default function CommunautePage() {
           <div className="flex justify-end">
             <PdfButton generateBlob={() => generateCommunautePdfBlob(result, { nbParticipants, puissancePV, consoMoyenneParParticipant: consoMoyenne, tarifReseau, tarifPartage })} filename={`energy-communaute-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf")} />
           </div>
+
+          <AiAnalysisCard
+            context={[
+              `Communauté énergétique renouvelable (CER) — Luxembourg`,
+              `${nbParticipants} participants · ${puissancePV} kWc PV · ${consoMoyenne} kWh/an/participant`,
+              `Commune: ${commune || "non spécifiée"} · orientation ${orientation} / ${inclinaison}°`,
+              `Données PVGIS utilisées: ${usePvgis ? "oui" : "non (fallback moyennes LU)"}`,
+              `Tarifs: réseau ${tarifReseau} €/kWh, partage interne ${tarifPartage} €/kWh, rachat surplus ${result.parametres.tarifRachatSurplus} €/kWh`,
+              "",
+              `Production annuelle: ${result.productionAnnuelle.toLocaleString("fr-LU")} kWh`,
+              `Consommation totale: ${result.consoTotale.toLocaleString("fr-LU")} kWh`,
+              `Taux de couverture: ${result.tauxCouverturePct}%`,
+              `Taux autoconsommation: ${result.tauxAutoConsoPct}%`,
+              `Énergie autoconsommée: ${result.energieAutoconsommee.toLocaleString("fr-LU")} kWh · surplus ${result.surplus.toLocaleString("fr-LU")} kWh`,
+              `Économie totale: ${result.economieTotale.toLocaleString("fr-LU")} €/an (${result.economieParParticipant.toLocaleString("fr-LU")} €/participant)`,
+              `Revenu surplus: ${result.revenuSurplus.toLocaleString("fr-LU")} €/an`,
+              `Coût installation TTC: ${result.coutInstallationTTC.toLocaleString("fr-LU")} € (${result.coutParParticipant.toLocaleString("fr-LU")} €/participant)`,
+              `Payback global: ${result.paybackGlobalAnnees} ans`,
+              `CO2 évité: ${result.co2EviteKg} kg/an`,
+            ].join("\n")}
+            prompt="Analyse la faisabilité de cette Communauté Énergétique Renouvelable (CER) au Luxembourg, régie par la loi du 3 février 2021 modifiant la loi du 1er août 2007 sur l'organisation du marché de l'électricité et les règlements ILR. Livre : (1) viabilité économique — payback vs benchmark LU (7-10 ans attendu pour CER résidentielles), pertinence du tarif interne de partage, (2) obligations juridiques — choix du statut (ASBL / SCOP / coopérative), contrat de répartition, déclaration ILR, proximité géographique des participants (même poste source basse tension), (3) gouvernance recommandée (majorités, règles d'entrée/sortie), (4) leviers d'optimisation (augmenter participants pour foisonnement, pic production/conso alignés, stockage batterie pertinent ?), (5) risques : évolution tarif réseau, sortie anticipée d'un participant, maintenance. Référencé loi 03.02.2021 + règlement ILR 13/99."
+          />
 
           <div className="rounded-xl border border-energy/20 bg-energy/5 p-5">
             <h3 className="font-medium text-foreground text-sm mb-2">{t("parametresModele")}</h3>

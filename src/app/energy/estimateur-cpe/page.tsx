@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import SEOContent from "@/components/SEOContent";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 
 /* ── Class colors (same as impact / renovation pages) ── */
 const CLASS_COLORS: Record<string, string> = {
@@ -543,6 +544,18 @@ export default function EstimateurCpePage() {
                 </Link>
               </div>
             </div>
+
+            <AiAnalysisCard
+              context={[
+                `Pré-estimation CPE (sans audit) — Luxembourg`,
+                `Surface déclarée: ${surface} m²`,
+                `Score total: ${totalScore} points sur 80+`,
+                `Classe énergétique estimée: ${estimatedClass}`,
+                `Consommation estimée: min ${conso.min} / central ${conso.central} / max ${conso.max} kWh/m²/an`,
+                `Détail réponses: ${Object.entries(answers).map(([k, v]) => `${k}=${v}pts`).join(" · ")}`,
+              ].join("\n")}
+              prompt="Interprète cette pré-estimation CPE luxembourgeoise (non officielle). Livre : (1) fiabilité de l'estimation vs un vrai CPE agréé myenergy — marge d'incertitude typique, (2) positionnement de la classe estimée vs moyenne nationale et commune de l'utilisateur, (3) leviers rapides d'amélioration d'une classe (poste le plus impactant : isolation / fenêtres / chauffage / ventilation), (4) quand faire un vrai CPE (obligation légale avant vente/location, déclenchement Klimabonus), (5) coût et délai pour obtenir un CPE officiel. Concret, pédagogique pour un propriétaire."
+            />
 
             {/* Restart */}
             <div className="text-center">

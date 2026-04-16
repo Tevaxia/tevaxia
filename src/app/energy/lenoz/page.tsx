@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { generateLenozPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
 import SEOContent from "@/components/SEOContent";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 
 /* ─── Data ─────────────────────────────────────────────────────────── */
 
@@ -479,6 +480,16 @@ export default function LenozPage() {
 
               {/* Disclaimer */}
               <PdfButton generateBlob={() => generateLenozPdfBlob({ totalScore, maxScore: 60, rating: rating.label, categories: CATEGORIES.map((cat) => ({ title: cat.title, score: catScores[cat.key], max: cat.criteria.length * 3 })) })} filename={`energy-lenoz-${rating.label.toLowerCase()}-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf") || "PDF"} />
+
+              <AiAnalysisCard
+                context={[
+                  `Pré-diagnostic certification LENOZ — Luxembourg`,
+                  `Score total: ${totalScore} / ${TOTAL_MAX} → ${rating.label}`,
+                  `Détail par catégorie:`,
+                  ...Object.entries(catScores).map(([k, v]) => `  ${k}: ${v} pts (max ${CATEGORIES.find((c) => c.key === k)?.criteria.length ? CATEGORIES.find((c) => c.key === k)!.criteria.length * 3 : "?"})`),
+                ].join("\n")}
+                prompt="Analyse ce pré-diagnostic LENOZ (certification durable luxembourgeoise). Livre : (1) probabilité d'obtention du label selon score et écart aux seuils Bronze/Argent/Or/Platine, (2) catégories à renforcer en priorité pour franchir le palier supérieur (quel investissement marginal par point), (3) valorisation commerciale du label sur le marché LU (premium prix, attractivité locative, critère investisseur ESG), (4) articulation avec EPBD IV, Klimabonus et classement énergétique CPE, (5) démarches administratives (dossier myenergy, auditeur agréé, coût de la certification). Ton expert, chiffré."
+              />
               <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">
                 <p className="text-xs text-amber-800 leading-relaxed">
                   <span className="font-semibold">{t("disclaimerLabel")}</span> {t("disclaimerText")}

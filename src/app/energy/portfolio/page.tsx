@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { generatePortfolioPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 
 /* ------------------------------------------------------------------ */
 /*  Constants                                                          */
@@ -1103,6 +1104,26 @@ export default function PortfolioPage() {
                 </tbody>
               </table>
             </div>
+
+            {stats && (
+              <AiAnalysisCard
+                context={[
+                  `Portefeuille immobilier Luxembourg — ${properties.length} actifs`,
+                  `Surface totale: ${fmt(stats.totalSurface)} m²`,
+                  `Valeur totale: ${fmt(stats.totalValeur)} €`,
+                  `Classe énergétique moyenne pondérée surface: ${stats.weightedClasse} (indice ${fmtDec(stats.weightedIdx)})`,
+                  `Répartition par classe (m²): ${CLASSES.map((c) => stats.repartition[c] > 0 ? `${c}=${fmt(stats.repartition[c])}` : null).filter(Boolean).join(" · ")}`,
+                  `Impact énergie sur valeur actuelle: ${stats.impactTotal >= 0 ? "+" : ""}${fmt(Math.round(stats.impactTotal))} € (vs baseline classe D)`,
+                  `Gain potentiel si tous passent en B: ${fmt(Math.round(stats.gainSiB))} €`,
+                  `Consommation totale: ${fmt(stats.totalConsoKwh)} kWh/an (${fmt(Math.round(stats.totalConsoKwh / stats.totalSurface))} kWh/m²/an)`,
+                  `Émissions CO2 totales: ${fmt(Math.round(stats.totalCO2))} kg/an (${fmtDec(stats.totalCO2 / 1000)} tonnes)`,
+                  `Stranding risk EPBD (classes F-I): ${stats.worstPerformers.length} actifs / ${properties.length} (${stats.worstPerformers.length > 0 ? stats.worstPerformers.map((p) => `${p.nom} (${p.classe})`).join(", ") : "aucun"})`,
+                  "",
+                  `Détail actifs: ${properties.slice(0, 10).map((p) => `${p.nom} ${p.classe} ${fmt(p.surface)}m² ${fmt(p.valeur)}€ ${p.annee}`).join(" / ")}${properties.length > 10 ? `... (+${properties.length - 10} autres)` : ""}`,
+                ].join("\n")}
+                prompt="Analyse ce portefeuille immobilier sous l'angle ESG/CRREM/EPBD IV pour un asset manager / banquier. Livre : (1) diagnostic stranding risk CRREM 2030/2050 — quels actifs sont sur la trajectoire de dépassement carbone selon classe et trajectoire LU, (2) plan CAPEX priorisé (quels actifs rénover en premier : worst-first vs best-ROI, ordre de grandeur budget), (3) alignement Taxonomie UE / SFDR article 8-9, risque de non-alignement, (4) impact sur la valorisation du portefeuille à horizon 5-10 ans si rien n'est fait vs si plan de rénovation appliqué, (5) recommandation finale au board : arbitrage cession des stranded / rénovation / rotation. Chiffré, structuré, directement utilisable en comité d'investissement."
+              />
+            )}
           </div>
         )}
       </div>
