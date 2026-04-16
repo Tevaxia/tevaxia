@@ -1,12 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { isWorkspaceVisible, type ProfileType } from "@/lib/profile-types";
 
 interface WorkspacesGridProps {
   locale: string;
+  /** If null or empty, show all tiles (no filter). */
+  selectedProfiles?: ProfileType[] | null;
 }
 
 interface Workspace {
+  slug: string;
   href: string;
   title: string;
   description: string;
@@ -15,11 +19,12 @@ interface Workspace {
   badge?: string;
 }
 
-export default function WorkspacesGrid({ locale }: WorkspacesGridProps) {
+export default function WorkspacesGrid({ locale, selectedProfiles }: WorkspacesGridProps) {
   const lp = locale === "fr" ? "" : `/${locale}`;
 
-  const workspaces: Workspace[] = [
+  const all: Workspace[] = [
     {
+      slug: "mes-evaluations",
       href: `${lp}/mes-evaluations`,
       title: "Mes évaluations",
       description: "Historique de vos simulations et rapports sauvegardés",
@@ -31,6 +36,7 @@ export default function WorkspacesGrid({ locale }: WorkspacesGridProps) {
       ),
     },
     {
+      slug: "portfolio",
       href: `${lp}/portfolio`,
       title: "Mon portefeuille",
       description: "Dashboard multi-biens pour investisseur / family office",
@@ -42,6 +48,7 @@ export default function WorkspacesGrid({ locale }: WorkspacesGridProps) {
       ),
     },
     {
+      slug: "energy/portfolio",
       href: `${lp}/energy/portfolio`,
       title: "Portfolio ESG / Énergie",
       description: "Stranding risk CRREM, alignement EPBD IV / SFDR",
@@ -54,6 +61,7 @@ export default function WorkspacesGrid({ locale }: WorkspacesGridProps) {
       ),
     },
     {
+      slug: "syndic/coproprietes",
       href: `${lp}/syndic/coproprietes`,
       title: "Mes copropriétés",
       description: "Gestion syndic : AG, appels de fonds, comptabilité",
@@ -65,6 +73,7 @@ export default function WorkspacesGrid({ locale }: WorkspacesGridProps) {
       ),
     },
     {
+      slug: "hotellerie/groupe",
       href: `${lp}/hotellerie/groupe`,
       title: "Mes hôtels",
       description: "Catalogue d'établissements, P&L USALI, groupe hôtelier",
@@ -76,6 +85,7 @@ export default function WorkspacesGrid({ locale }: WorkspacesGridProps) {
       ),
     },
     {
+      slug: "profil/organisation",
       href: `${lp}/profil/organisation`,
       title: "Mon agence",
       description: "Créer une organisation, inviter des collaborateurs",
@@ -87,6 +97,7 @@ export default function WorkspacesGrid({ locale }: WorkspacesGridProps) {
       ),
     },
     {
+      slug: "profil/api",
       href: `${lp}/profil/api`,
       title: "Mes clés API",
       description: "Gestion des clés, quotas, suivi d'usage 30 jours",
@@ -98,6 +109,7 @@ export default function WorkspacesGrid({ locale }: WorkspacesGridProps) {
       ),
     },
     {
+      slug: "api-docs",
       href: `${lp}/api-docs`,
       title: "Documentation API",
       description: "OpenAPI 3.1, endpoints /estimation, /ai/analyze, /ai/chat, /ai/extract",
@@ -111,37 +123,52 @@ export default function WorkspacesGrid({ locale }: WorkspacesGridProps) {
     },
   ];
 
+  const workspaces = all.filter((ws) => isWorkspaceVisible(ws.slug, selectedProfiles ?? null));
+
   return (
     <div>
-      <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-3">Mes espaces</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-        {workspaces.map((ws) => (
-          <Link
-            key={ws.href}
-            href={ws.href}
-            className="group relative rounded-xl border border-card-border bg-card p-4 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 hover:border-navy/30"
-          >
-            {ws.badge && (
-              <span className="absolute top-2 right-2 rounded-full bg-gradient-to-r from-amber-100 to-amber-200 text-amber-900 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider">
-                {ws.badge}
-              </span>
-            )}
-            <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${ws.color} text-white shadow-sm`}>
-              {ws.icon}
-            </div>
-            <h3 className="text-sm font-semibold text-navy group-hover:text-navy-light transition-colors">
-              {ws.title}
-            </h3>
-            <p className="mt-1 text-xs text-muted leading-snug line-clamp-2">{ws.description}</p>
-            <div className="mt-3 flex items-center gap-1 text-[11px] font-medium text-navy/60 group-hover:text-navy">
-              <span>Ouvrir</span>
-              <svg className="h-3 w-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </div>
-          </Link>
-        ))}
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">Mes espaces</h2>
+        {selectedProfiles && selectedProfiles.length > 0 && (
+          <span className="text-[10px] text-muted">
+            Filtré sur {selectedProfiles.length} profil{selectedProfiles.length > 1 ? "s" : ""}
+          </span>
+        )}
       </div>
+      {workspaces.length === 0 ? (
+        <div className="rounded-xl border border-dashed border-card-border bg-card p-6 text-center text-sm text-muted">
+          Aucun espace correspondant à votre profil. Modifiez votre profil professionnel ci-dessous pour afficher les outils pertinents.
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {workspaces.map((ws) => (
+            <Link
+              key={ws.href}
+              href={ws.href}
+              className="group relative rounded-xl border border-card-border bg-card p-4 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 hover:border-navy/30"
+            >
+              {ws.badge && (
+                <span className="absolute top-2 right-2 rounded-full bg-gradient-to-r from-amber-100 to-amber-200 text-amber-900 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider">
+                  {ws.badge}
+                </span>
+              )}
+              <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${ws.color} text-white shadow-sm`}>
+                {ws.icon}
+              </div>
+              <h3 className="text-sm font-semibold text-navy group-hover:text-navy-light transition-colors">
+                {ws.title}
+              </h3>
+              <p className="mt-1 text-xs text-muted leading-snug line-clamp-2">{ws.description}</p>
+              <div className="mt-3 flex items-center gap-1 text-[11px] font-medium text-navy/60 group-hover:text-navy">
+                <span>Ouvrir</span>
+                <svg className="h-3 w-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

@@ -16,6 +16,8 @@ import UpgradeToProButton from "@/components/UpgradeToProButton";
 import AiSettingsSection from "@/components/AiSettingsSection";
 import DashboardHero from "@/components/profil/DashboardHero";
 import WorkspacesGrid from "@/components/profil/WorkspacesGrid";
+import ProfileTypeSelector from "@/components/profil/ProfileTypeSelector";
+import type { ProfileType } from "@/lib/profile-types";
 
 // ============================================================
 // MARKET ALERTS TYPES & SECTION
@@ -368,6 +370,7 @@ export default function Profil() {
   const lp = locale === "fr" ? "" : `/${locale}`;
   const { user } = useAuth();
   const [profile, setProfile] = useState<UserProfile>(getProfile());
+  const [profileTypes, setProfileTypes] = useState<ProfileType[]>([]);
   const [saved, setSaved] = useState(false);
   const [syncing, setSyncing] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -423,7 +426,11 @@ export default function Profil() {
         <DashboardHero user={user} profile={profile} />
 
         <div className="mt-8">
-          <WorkspacesGrid locale={locale} />
+          <WorkspacesGrid locale={locale} selectedProfiles={profileTypes} />
+        </div>
+
+        <div className="mt-6">
+          <ProfileTypeSelector onChange={setProfileTypes} />
         </div>
 
         <div className="mt-10 mb-4 flex items-center gap-3">
