@@ -484,11 +484,8 @@ export default async function Home() {
             ))}
           </div>
           <div className="mt-6 text-center">
-            <Link href={`${lp}/guide`} className="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-navy-light transition-colors">
+            <Link href={`${lp}/guide`} className="inline-flex items-center text-sm font-semibold text-navy hover:text-navy-light transition-colors">
               {t("guideSection.seeAll")}
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
             </Link>
           </div>
         </div>
