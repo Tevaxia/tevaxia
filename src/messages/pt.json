@@ -6693,5 +6693,33 @@
       "faq2Q": "Que DSCR exigem os bancos para um empréstimo hoteleiro no Luxemburgo?",
       "faq2A": "Os bancos luxemburgueses exigem geralmente um DSCR (Debt Service Coverage Ratio) entre 1,25x e 1,40x para financiamento hoteleiro. Isto significa que o cash-flow disponível após encargos de exploração deve cobrir no mínimo 1,25 a 1,40 vezes o serviço de dívida anual (capital + juros). Um DSCR inferior a 1,25x tornará o financiamento difícil de obter."
     }
+  },
+  "aiSettings": {
+    "title": "Inteligência Artificial",
+    "desc": "Configure o fornecedor IA para análise automática dos seus resultados de cálculo.",
+    "providerLabel": "Fornecedor",
+    "apiKeyLabel": "Chave API",
+    "apiKeyHint": "A sua chave fica no servidor e nunca é exposta do lado do cliente. Deixe vazio para utilizar o serviço gratuito Groq.",
+    "usageToday": "Análises hoje",
+    "unlimited": "Ilimitado (chave pessoal)",
+    "byokExplain": "Por defeito, o Tevaxia utiliza Groq (Llama 3.3, 5 análises gratuitas/dia). Para uso ilimitado ou outro modelo, adicione a sua própria chave API (BYOK). Obtenha-a no site do fornecedor escolhido.",
+    "byokActive": "Chave pessoal ativa",
+    "freeTier": "Gratuito (5/dia)",
+    "loading": "A carregar...",
+    "saving": "A guardar...",
+    "saved": "Guardado!",
+    "save": "Guardar"
+  },
+  "aiAnalysis": {
+    "title": "Análise IA",
+    "desc": "Obtenha um comentário profissional sobre a sua estimativa por um modelo especializado em imobiliário luxemburguês.",
+    "analyzeBtn": "Analisar com IA",
+    "analyzing": "Análise em curso...",
+    "analyzingHint": "O modelo examina os seus resultados e prepara um comentário de especialista.",
+    "resultTitle": "Comentário IA",
+    "retry": "Tentar novamente",
+    "reanalyze": "Relançar análise",
+    "remaining": "{count, plural, =0 {Quota esgotada — adicione a sua chave API no seu perfil} one {# análise restante hoje} other {# análises restantes hoje}}",
+    "disclaimer": "Análise gerada por IA (Llama 3.3 / Groq ou o seu próprio modelo). Apenas para fins informativos — não substitui um parecer de perito certificado."
   }
 }

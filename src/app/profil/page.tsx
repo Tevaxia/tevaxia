@@ -12,6 +12,7 @@ import DeleteAccountSection from "@/components/DeleteAccountSection";
 import NotificationPreferencesSection from "@/components/NotificationPreferencesSection";
 import TwoFactorSection from "@/components/TwoFactorSection";
 import UpgradeToProButton from "@/components/UpgradeToProButton";
+import AiSettingsSection from "@/components/AiSettingsSection";
 
 // ============================================================
 // MARKET ALERTS TYPES & SECTION
@@ -558,6 +559,9 @@ export default function Profil() {
 
           {/* Authentification à deux facteurs */}
           <TwoFactorSection />
+
+          {/* Préférences IA / BYOK */}
+          <AiSettingsSection />
 
           {/* Préférences notifications + consentements */}
           <NotificationPreferencesSection />

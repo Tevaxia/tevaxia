@@ -6693,5 +6693,33 @@
       "faq2Q": "Quel DSCR exigent les banques pour un prêt hôtelier au Luxembourg ?",
       "faq2A": "Les banques luxembourgeoises exigent généralement un DSCR (Debt Service Coverage Ratio) compris entre 1,25x et 1,40x pour un financement hôtelier. Cela signifie que le cash-flow disponible après charges d'exploitation doit couvrir au minimum 1,25 à 1,40 fois le service de la dette annuel (capital + intérêts). Un DSCR inférieur à 1,25x rendra le financement difficile à obtenir."
     }
+  },
+  "aiSettings": {
+    "title": "Intelligence artificielle",
+    "desc": "Configurez le fournisseur IA pour l'analyse automatique de vos résultats de calcul.",
+    "providerLabel": "Fournisseur",
+    "apiKeyLabel": "Clé API",
+    "apiKeyHint": "Votre clé reste sur le serveur et n'est jamais exposée côté client. Laissez vide pour utiliser le service gratuit Groq.",
+    "usageToday": "Analyses aujourd'hui",
+    "unlimited": "Illimité (clé personnelle)",
+    "byokExplain": "Par défaut, Tevaxia utilise Groq (Llama 3.3, 5 analyses/jour gratuites). Pour un usage illimité ou un autre modèle, ajoutez votre propre clé API (BYOK). Obtenez-la sur le site du fournisseur choisi.",
+    "byokActive": "Clé perso active",
+    "freeTier": "Gratuit (5/jour)",
+    "loading": "Chargement...",
+    "saving": "Enregistrement...",
+    "saved": "Enregistré !",
+    "save": "Enregistrer"
+  },
+  "aiAnalysis": {
+    "title": "Analyse IA",
+    "desc": "Obtenez un commentaire professionnel sur votre estimation par un modèle spécialisé immobilier LU.",
+    "analyzeBtn": "Analyser avec l'IA",
+    "analyzing": "Analyse en cours...",
+    "analyzingHint": "Le modèle examine vos résultats et prépare un commentaire d'expert.",
+    "resultTitle": "Commentaire IA",
+    "retry": "Réessayer",
+    "reanalyze": "Relancer l'analyse",
+    "remaining": "{count, plural, =0 {Quota épuisé — ajoutez votre clé API dans votre profil} one {# analyse restante aujourd'hui} other {# analyses restantes aujourd'hui}}",
+    "disclaimer": "Analyse générée par IA (Llama 3.3 / Groq ou votre propre modèle). À titre informatif uniquement — ne remplace pas un avis d'expert certifié."
   }
 }

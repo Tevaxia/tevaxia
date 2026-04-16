@@ -26,6 +26,7 @@ import ShareButton from "@/components/ShareButton";
 import AuthGate from "@/components/AuthGate";
 import MarketAlertButton from "@/components/MarketAlertButton";
 import SEOContent from "@/components/SEOContent";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 
 export default function Estimation() {
   const t = useTranslations("estimation");
@@ -395,6 +396,28 @@ export default function Estimation() {
 
               {/* Confiance */}
               <ConfidenceGauge level={result.confiance} note={result.confianceNote} />
+
+              {/* Analyse IA */}
+              <AiAnalysisCard
+                context={[
+                  `Commune: ${selectedResult?.commune.commune ?? communeSearch}`,
+                  selectedResult?.quartier ? `Quartier: ${selectedResult.quartier.nom}` : null,
+                  `Surface: ${surface} m²`,
+                  `Chambres: ${nbChambres}`,
+                  `Classe énergie: ${classeEnergie}`,
+                  `État: ${etat}`,
+                  `Neuf: ${estNeuf ? "oui" : "non"}`,
+                  `Parking: ${parking ? "oui" : "non"}`,
+                  `Prix/m² base: ${result.prixM2Base} EUR`,
+                  `Prix/m² ajusté: ${result.prixM2Ajuste} EUR`,
+                  `Estimation basse: ${result.estimationBasse} EUR`,
+                  `Estimation centrale: ${result.estimationCentrale} EUR`,
+                  `Estimation haute: ${result.estimationHaute} EUR`,
+                  `Confiance: ${result.confiance}`,
+                  `Ajustements: ${result.ajustements.map((a) => `${tv(a.labelKey)} ${a.pct > 0 ? "+" : ""}${a.pct}%`).join(", ")}`,
+                ].filter(Boolean).join("\n")}
+                prompt="Analyse cette estimation immobilière au Luxembourg. Commente le niveau de prix par rapport au marché actuel, la pertinence des ajustements, et donne un avis professionnel sur la confiance du résultat. Si pertinent, mentionne des facteurs locaux spécifiques à cette commune."
+              />
 
               {/* Profil commune */}
               {selectedResult && (() => {

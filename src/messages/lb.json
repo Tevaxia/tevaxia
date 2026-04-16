@@ -6693,5 +6693,33 @@
       "faq2Q": "Wéi eng DSCR verlaangen d'Banken fir en Hotelkredit zu Lëtzebuerg?",
       "faq2A": "Lëtzebuerger Banken verlaangen an der Reegel en DSCR (Debt Service Coverage Ratio) tëschent 1,25x an 1,40x fir Hotelfinanzéierungen. Dat bedeit, den disponibele Cashflow no Betriibskäschte muss op mannst d'1,25- bis 1,40-facht vum jährleche Scholdendéngscht (Tilgung + Zinsen) ofdecken. En DSCR ënner 1,25x mécht d'Finanzéierung schwéier erhältlech."
     }
+  },
+  "aiSettings": {
+    "title": "Kënschtlech Intelligenz",
+    "desc": "Konfiguréiert den KI-Fournisseur fir d'automatesch Analyse vun Ären Berechnungsresultater.",
+    "providerLabel": "Fournisseur",
+    "apiKeyLabel": "API-Schlëssel",
+    "apiKeyHint": "Äre Schlëssel bleift um Server a gëtt ni clientsäiteg exponéiert. Eidel loossen fir de gratis Groq-Service ze benotzen.",
+    "usageToday": "Analysen haut",
+    "unlimited": "Onlimitéiert (perséinleche Schlëssel)",
+    "byokExplain": "Par défaut benotzt Tevaxia Groq (Llama 3.3, 5 gratis Analysen/Dag). Fir onlimitéiert Notzung oder en anere Modell, füügt Äre eegene API-Schlëssel derbäi (BYOK). Kritt en op der Websäit vum gewielte Fournisseur.",
+    "byokActive": "Perséinleche Schlëssel aktiv",
+    "freeTier": "Gratis (5/Dag)",
+    "loading": "Lueden...",
+    "saving": "Späicheren...",
+    "saved": "Gespäichert!",
+    "save": "Späicheren"
+  },
+  "aiAnalysis": {
+    "title": "KI-Analyse",
+    "desc": "Kritt e professionnelle Kommentar iwwer Är Schätzung vun engem Modell dat op Lëtzebuerger Immobilien spezialiséiert ass.",
+    "analyzeBtn": "Mat KI analyséieren",
+    "analyzing": "Analyse leeft...",
+    "analyzingHint": "De Modell ënnersicht Är Resultater a bereet en Expertekommentar vir.",
+    "resultTitle": "KI-Kommentar",
+    "retry": "Nach eng Kéier probéieren",
+    "reanalyze": "Analyse nei starten",
+    "remaining": "{count, plural, =0 {Kontingent opgebraucht — setzt Ären API-Schlëssel an Ärem Profil derbäi} one {# Analyse haut iwwreg} other {# Analysen haut iwwreg}}",
+    "disclaimer": "Analyse generéiert duerch KI (Llama 3.3 / Groq oder Äert eegent Modell). Nëmme fir Informatiounszwecker — ersetzt keen zertifizéiert Sachverständegegutachten."
   }
 }

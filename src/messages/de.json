@@ -6693,5 +6693,33 @@
       "faq2Q": "Welchen DSCR verlangen Banken für einen Hotelkredit in Luxemburg?",
       "faq2A": "Luxemburgische Banken verlangen in der Regel einen DSCR (Debt Service Coverage Ratio) zwischen 1,25x und 1,40x für Hotelfinanzierungen. Das bedeutet, der verfügbare Cashflow nach Betriebskosten muss mindestens das 1,25- bis 1,40-fache des jährlichen Schuldendienstes (Tilgung + Zinsen) abdecken. Ein DSCR unter 1,25x macht die Finanzierung schwer erhältlich."
     }
+  },
+  "aiSettings": {
+    "title": "Künstliche Intelligenz",
+    "desc": "Konfigurieren Sie den KI-Anbieter für die automatische Analyse Ihrer Berechnungsergebnisse.",
+    "providerLabel": "Anbieter",
+    "apiKeyLabel": "API-Schlüssel",
+    "apiKeyHint": "Ihr Schlüssel bleibt auf dem Server und wird nie clientseitig offengelegt. Leer lassen, um den kostenlosen Groq-Dienst zu nutzen.",
+    "usageToday": "Analysen heute",
+    "unlimited": "Unbegrenzt (persönlicher Schlüssel)",
+    "byokExplain": "Standardmässig nutzt Tevaxia Groq (Llama 3.3, 5 kostenlose Analysen/Tag). Für unbegrenzten Einsatz oder ein anderes Modell fügen Sie Ihren eigenen API-Schlüssel hinzu (BYOK). Erhalten Sie ihn auf der Website des gewählten Anbieters.",
+    "byokActive": "Persönlicher Schlüssel aktiv",
+    "freeTier": "Kostenlos (5/Tag)",
+    "loading": "Laden...",
+    "saving": "Speichern...",
+    "saved": "Gespeichert!",
+    "save": "Speichern"
+  },
+  "aiAnalysis": {
+    "title": "KI-Analyse",
+    "desc": "Erhalten Sie einen professionellen Kommentar zu Ihrer Schätzung von einem auf luxemburgische Immobilien spezialisierten Modell.",
+    "analyzeBtn": "Mit KI analysieren",
+    "analyzing": "Analyse läuft...",
+    "analyzingHint": "Das Modell untersucht Ihre Ergebnisse und erstellt einen Expertenkommentar.",
+    "resultTitle": "KI-Kommentar",
+    "retry": "Erneut versuchen",
+    "reanalyze": "Analyse neu starten",
+    "remaining": "{count, plural, =0 {Kontingent erschöpft — fügen Sie Ihren API-Schlüssel in Ihrem Profil hinzu} one {# Analyse heute übrig} other {# Analysen heute übrig}}",
+    "disclaimer": "Analyse generiert durch KI (Llama 3.3 / Groq oder Ihr eigenes Modell). Nur zu Informationszwecken — ersetzt kein zertifiziertes Sachverständigengutachten."
   }
 }
