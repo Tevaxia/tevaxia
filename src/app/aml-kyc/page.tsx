@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import SEOContent from "@/components/SEOContent";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 
 interface CheckItem {
   id: string;
@@ -279,6 +280,28 @@ export default function AmlKyc() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-8">
+          <AiAnalysisCard
+            context={[
+              `Dossier KYC — Luxembourg`,
+              `Client: ${clientName || "non renseigné"}`,
+              `Bien: ${propertyAddress || "non renseigné"}`,
+              `Score conformité: ${checkedItems}/${totalItems} (${pct.toFixed(0)}%)`,
+              `Niveau de risque calculé: ${riskLevel}`,
+              `Items obligatoires manquants: ${obligatoiresManquants.length}`,
+              obligatoiresManquants.length > 0
+                ? `Détail manques: ${obligatoiresManquants.map((c) => t(c.labelKey)).join(" / ")}`
+                : "Tous items obligatoires cochés",
+              "",
+              `Flags à risque cochés:`,
+              `  - PPE (politiquement exposé): ${checks["id_5b"] ? "OUI" : "non"}`,
+              `  - Pays à haut risque: ${checks["vig_2"] ? "OUI" : "non"}`,
+              `  - Structure juridique complexe: ${checks["vig_3"] ? "OUI" : "non"}`,
+            ].join("\n")}
+            prompt="Analyse ce dossier KYC/AML dans le contexte luxembourgeois (loi modifiée du 12 novembre 2004 + règlement CSSF 12-02). Livre : (1) synthèse du niveau de risque avec justification, (2) red flags prioritaires à investiguer, (3) mesures de vigilance renforcée à mettre en œuvre si risque Moyen/Élevé (origine des fonds, bénéficiaire effectif, contrôles supplémentaires), (4) documents complémentaires à demander au client, (5) recommandation sur l'opportunité de déclaration CRF (Cellule de Renseignement Financier) si signaux ambigus. Référence légale précise."
+          />
         </div>
 
         <div className="mt-8 rounded-xl border border-card-border bg-card p-6 shadow-sm">

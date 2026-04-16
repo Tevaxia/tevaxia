@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
+import AiDraftButton from "@/components/AiDraftButton";
 
 // ============================================================
 // TEGOVA EVS 2025 — Checklist d'inspection terrain
@@ -370,7 +371,31 @@ export function InspectionClient() {
           <label className="text-sm font-semibold text-navy">{t("notesGenerales")}</label>
           <textarea value={data.generalNotes} onChange={(e) => update({ generalNotes: e.target.value })}
             className="mt-2 w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
-            rows={4} placeholder={t("notesPlaceholder")} />
+            rows={10} placeholder={t("notesPlaceholder")} />
+          <div className="mt-2">
+            <AiDraftButton
+              context={[
+                `Inspection terrain — TEGOVA EVS 2025`,
+                `Adresse: ${data.address || "—"}`,
+                `Inspecteur: ${data.inspector || "—"}`,
+                `Date: ${data.date}`,
+                `Score: ${okCount} OK / ${ncCount} NC / ${allItems.length - completed} en attente`,
+                "",
+                `— Détail par section —`,
+                ...CHECKLIST.map((section) => {
+                  const sectionLines = section.items.map((it) => {
+                    const d = data.items[it.id] ?? { status: "pending" as ItemStatus, note: "" };
+                    const statusTxt = d.status === "ok" ? "OK" : d.status === "nc" ? "NC" : d.status === "na" ? "N/A" : "—";
+                    return `  [${statusTxt}] ${it.id}${d.note ? ` — ${d.note}` : ""}`;
+                  });
+                  return `${section.id}:\n${sectionLines.join("\n")}`;
+                }),
+                data.generalNotes ? `\nNotes manuelles existantes:\n${data.generalNotes}` : "",
+              ].join("\n")}
+              prompt="Rédige un rapport d'inspection terrain structuré conforme TEGOVA EVS 2025 à partir de cette checklist. Structure : (1) synthèse exécutive (3-4 phrases) sur l'état général du bien et les points clés ; (2) observations par grande section (identification, environnement, extérieur, intérieur, énergétique, juridique) avec mise en évidence des non-conformités et leur gravité ; (3) recommandations hiérarchisées (travaux urgents, à prévoir, cosmétiques) ; (4) limites de l'inspection (items en attente, accès non effectué, expertise technique complémentaire). Ton professionnel, factuel, prêt à l'intégration dans un rapport EVS. Pas de markdown lourd."
+              onResult={(text) => update({ generalNotes: text })}
+            />
+          </div>
         </div>
 
         {/* Actions */}

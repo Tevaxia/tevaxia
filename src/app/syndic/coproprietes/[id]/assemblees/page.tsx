@@ -7,12 +7,13 @@ import { useLocale, useTranslations } from "next-intl";
 import { pdf } from "@react-pdf/renderer";
 import { useAuth } from "@/components/AuthProvider";
 import { useAI } from "@/lib/useAI";
+import AiDraftButton from "@/components/AiDraftButton";
 import ConvocationPdf from "@/components/ConvocationPdf";
 import AssemblyMinutesPdf from "@/components/AssemblyMinutesPdf";
 import { getProfile } from "@/lib/profile";
 import { getCoownership, listUnits, type Coownership, type CoownershipUnit } from "@/lib/coownerships";
 import {
-  listAssemblies, createAssembly, deleteAssembly,
+  listAssemblies, createAssembly, deleteAssembly, updateAssembly,
   sendConvocation, openAssembly, closeAssembly,
   listResolutions, createResolution, deleteResolution,
   listVotes, setVote,
@@ -80,6 +81,39 @@ export default function AssembliesPage() {
         "Rédige le texte d'une résolution d'assemblée générale de copropriété au Luxembourg, conforme à la loi modifiée du 16 mai 1975 portant statut de la copropriété des immeubles bâtis. Structure : (1) exposé succinct (contexte, nécessité, coûts estimés si pertinent), (2) formulation juridique de la résolution (« L'assemblée générale… décide de… »), (3) mention de la majorité requise (simple, double, unanimité) et du quorum. Style formel, précis, directement copiable dans un ordre du jour. Pas de mise en forme markdown.";
       const text = await aiAnalyze(context, prompt);
       setResDraft((prev) => ({ ...prev, description: text.trim() }));
+    } catch {
+      // error captured in aiError
+    }
+  };
+
+  const handleAiDraftMinutes = async () => {
+    if (!activeAssembly) return;
+    try {
+      const firstRes2 = activeResolutions[0];
+      const expressedTantiemes2 = firstRes2
+        ? firstRes2.votes_yes_tantiemes + firstRes2.votes_no_tantiemes + firstRes2.votes_abstain_tantiemes
+        : 0;
+      const attendancePct2 = coown && coown.total_tantiemes > 0 ? (expressedTantiemes2 / coown.total_tantiemes) * 100 : 0;
+      const context = [
+        `PV d'assemblée générale de copropriété — Luxembourg`,
+        `Copropriété: ${coown?.name ?? "—"} (${coown?.total_tantiemes ?? 0} tantièmes totaux)`,
+        `Type AG: ${activeAssembly.assembly_type === "extraordinary" ? "extraordinaire" : "ordinaire"}`,
+        `Date: ${new Date(activeAssembly.scheduled_at).toLocaleString("fr-LU")}`,
+        `Lieu: ${activeAssembly.location ?? "—"}`,
+        `Quorum requis: ${activeAssembly.quorum_pct}% — Présents: ${attendancePct2.toFixed(1)}% (${expressedTantiemes2}/${coown?.total_tantiemes ?? 0} tantièmes)`,
+        "",
+        `Résolutions soumises (${activeResolutions.length}):`,
+        ...activeResolutions.map((r) => {
+          const expressed = r.votes_yes_tantiemes + r.votes_no_tantiemes + r.votes_abstain_tantiemes;
+          const pourPct = expressed > 0 ? (r.votes_yes_tantiemes / expressed * 100).toFixed(1) : "0.0";
+          return `  n°${r.number} — ${r.title} (${MAJORITY_LABEL[r.majority_type]}) : ${r.votes_yes_tantiemes}/${expressed} pour (${pourPct}%), ${r.votes_no_tantiemes} contre, ${r.votes_abstain_tantiemes} abst., ${r.votes_absent_tantiemes} absents → ${r.result === "approved" ? "ADOPTÉE" : r.result === "rejected" ? "REJETÉE" : "EN ATTENTE"}`;
+        }),
+      ].join("\n");
+      const prompt =
+        "Rédige les 'Notes de séance' à intégrer au PV d'assemblée générale de copropriété luxembourgeoise (loi du 16 mai 1975). Structure attendue : (1) résumé de l'ouverture et constatation de quorum, (2) synthèse des débats et observations notables avant chaque vote (même si déduites du contexte), (3) commentaire sur les résolutions adoptées/rejetées et leurs conséquences pratiques, (4) questions diverses (standard), (5) clôture de séance. Ton formel juridique, neutre, prêt à intégrer dans PV. Pas de markdown.";
+      const text = await aiAnalyze(context, prompt);
+      const next = await updateAssembly(activeAssembly.id, { notes: text.trim() });
+      setAssemblies((prev) => prev.map((a) => (a.id === next.id ? next : a)));
     } catch {
       // error captured in aiError
     }
@@ -338,7 +372,24 @@ export default function AssembliesPage() {
                 value={newAssembly.notes}
                 onChange={(e) => setNewAssembly({ ...newAssembly, notes: e.target.value })}
                 className="sm:col-span-2 rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
-                rows={2}
+                rows={newAssembly.notes.length > 200 ? 6 : 2}
+              />
+            </div>
+            <div className="mt-2">
+              <AiDraftButton
+                context={[
+                  `Copropriété: ${coown?.name ?? "—"}`,
+                  `Adresse: ${coown?.address ?? "—"}${coown?.commune ? `, ${coown.commune}` : ""}`,
+                  `Total tantièmes: ${coown?.total_tantiemes ?? 0}`,
+                  `Type AG: ${newAssembly.assembly_type === "ordinary" ? "ordinaire" : "extraordinaire"}`,
+                  `Intitulé: ${newAssembly.title}`,
+                  `Date prévue: ${newAssembly.scheduled_at || "—"}`,
+                  `Quorum prévu: ${newAssembly.quorum_pct}%`,
+                ].join("\n")}
+                prompt="Rédige les 'Notes complémentaires' type à faire figurer sur la convocation d'AG de copropriété luxembourgeoise (loi 16 mai 1975). Inclue : (1) un court préambule contextualisant l'AG (ordinaire = approbation comptes + budget + renouvellement syndic ; extraordinaire = travaux exceptionnels / modifications règlement / urgence) ; (2) rappel du droit de vote par mandat écrit ; (3) documents joints/consultables avant AG (comptes, devis, audits) ; (4) procédures de vote à distance si applicable ; (5) contact syndic pour questions préalables. Ton formel, prêt à imprimer. Pas de markdown."
+                onResult={(text) => setNewAssembly((prev) => ({ ...prev, notes: text }))}
+                label="Suggérer notes convocation"
+                size="xs"
               />
             </div>
             <div className="mt-3 flex justify-end">
@@ -398,10 +449,19 @@ export default function AssembliesPage() {
                     {t("convocationPdf")}
                   </button>
                   {(activeAssembly.status === "closed" || activeAssembly.status === "in_progress") && (
-                    <button onClick={downloadMinutes}
-                      className="rounded-md bg-blue-50 border border-blue-200 px-2 py-1 text-[11px] font-medium text-blue-800 hover:bg-blue-100">
-                      {t("minutesPdf")}
-                    </button>
+                    <>
+                      <button onClick={downloadMinutes}
+                        className="rounded-md bg-blue-50 border border-blue-200 px-2 py-1 text-[11px] font-medium text-blue-800 hover:bg-blue-100">
+                        {t("minutesPdf")}
+                      </button>
+                      <button onClick={handleAiDraftMinutes} disabled={aiLoading || activeResolutions.length === 0}
+                        className="inline-flex items-center gap-1 rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 px-2 py-1 text-[11px] font-semibold text-white hover:from-purple-700 hover:to-indigo-700 disabled:opacity-40">
+                        <svg className={`h-3 w-3 ${aiLoading ? "animate-spin" : ""}`} viewBox="0 0 24 24" fill="none" strokeWidth={2} stroke="currentColor">
+                          {aiLoading ? (<><circle cx="12" cy="12" r="10" className="opacity-25"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/></>) : (<path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09Z" />)}
+                        </svg>
+                        IA PV
+                      </button>
+                    </>
                   )}
                   <button onClick={() => handleDeleteAssembly(activeAssembly.id)}
                     className="rounded-md p-1 text-muted hover:text-rose-600 hover:bg-rose-50" title={t("deleteTitle")}>

@@ -6,6 +6,7 @@ import InputField from "@/components/InputField";
 import { formatEUR } from "@/lib/calculations";
 import { EVS_VALUE_TYPES, type EVSValueType } from "@/lib/asset-types";
 import type { MarketDataCommune } from "@/lib/market-data";
+import AiDraftButton from "@/components/AiDraftButton";
 
 /* ================================================================
    TYPES & PROPS
@@ -554,18 +555,36 @@ export default function ReportModeEVS({
       <div className="space-y-2">
         <SubSection num="2.2" title={t("rpt2_2_title")} />
         <TA value={s2Localisation} onChange={setS2Localisation} placeholder={t("rpt2_2_hint")} />
+        <AiDraftButton
+          context={`Commune: ${selectedCommune?.commune ?? "non spécifiée"}${selectedCommune?.canton ? ` (${selectedCommune.canton})` : ""}\nType actif: ${assetType}\nBien: ${s1BienDesignation || s1BienAdresse || "—"}`}
+          prompt="Rédige un paragraphe professionnel (4-6 phrases) de Localisation particulière pour un rapport EVS 2025 TEGOVA au Luxembourg. Décris la situation micro-locale du bien : centralité/périphérie de la commune, type de tissu urbain, qualité de l'environnement immédiat, attractivité. Ton neutre, factuel, style rapport d'expert immobilier. Pas de markdown."
+          onResult={setS2Localisation}
+          size="xs"
+        />
       </div>
 
       {/* 2.3 Environnement et voisinage */}
       <div className="space-y-2">
         <SubSection num="2.3" title={t("rpt2_3_title")} />
         <TA value={s2Environnement} onChange={setS2Environnement} placeholder={t("rpt2_3_hint")} />
+        <AiDraftButton
+          context={`Commune: ${selectedCommune?.commune ?? "non spécifiée"}${selectedCommune?.canton ? ` (${selectedCommune.canton})` : ""}\nType actif: ${assetType}`}
+          prompt="Rédige le paragraphe Environnement et voisinage pour un rapport EVS 2025 TEGOVA au Luxembourg. Décris : qualité du voisinage (résidentiel / mixte / tertiaire), nuisances potentielles (trafic, industrie, bruit), équipements publics et commerces de proximité, espaces verts. 4-5 phrases, ton neutre d'expert. Pas de markdown."
+          onResult={setS2Environnement}
+          size="xs"
+        />
       </div>
 
       {/* 2.4 Desserte et transports */}
       <div className="space-y-2">
         <SubSection num="2.4" title={t("rpt2_4_title")} />
         <TA value={s2Desserte} onChange={setS2Desserte} placeholder={t("rpt2_4_hint")} />
+        <AiDraftButton
+          context={`Commune: ${selectedCommune?.commune ?? "non spécifiée"}${selectedCommune?.canton ? ` (${selectedCommune.canton})` : ""}\nType actif: ${assetType}`}
+          prompt="Rédige le paragraphe Desserte et transports pour un rapport EVS 2025 TEGOVA au Luxembourg. Mentionne : accès routier (autoroutes A1/A3/A6/A7/A13 pertinentes), transports en commun (CFL, lignes de bus principales, tram pour Luxembourg-Ville), proximité aéroport Findel, accessibilité frontaliers FR/BE/DE si pertinent. 3-5 phrases factuelles. Pas de markdown."
+          onResult={setS2Desserte}
+          size="xs"
+        />
       </div>
     </div>
   );
@@ -1026,6 +1045,21 @@ export default function ReportModeEVS({
           <div>
             <label className="block text-sm font-medium text-slate mb-1">{t("rpt9_1_justification")}</label>
             <TA value={s9Justification} onChange={setS9Justification} placeholder={t("rpt9_1_justificationHint")} />
+            <div className="mt-2">
+              <AiDraftButton
+                context={[
+                  `Type actif: ${assetType}`,
+                  `Type de valeur EVS: ${evsValueType}`,
+                  `Méthodes retenues: ${[s9MethodeComparaison && "Comparaison", s9MethodeCapitalisation && "Capitalisation", s9MethodeDCF && "DCF", s9MethodeResiduelle && "Résiduelle", s9MethodeTermeReversion && "Terme & Réversion"].filter(Boolean).join(", ")}`,
+                  `Valeur comparaison: ${valeurComparaison ? formatEUR(valeurComparaison) : "—"}`,
+                  `Valeur capitalisation: ${valeurCapitalisation ? formatEUR(valeurCapitalisation) : "—"}`,
+                  `Valeur DCF: ${valeurDCF ? formatEUR(valeurDCF) : "—"}`,
+                ].join("\n")}
+                prompt="Rédige la justification du choix des méthodes d'évaluation pour un rapport EVS 2025 TEGOVA (Luxembourg). Explique POURQUOI ces méthodes sont pertinentes pour ce type d'actif et cette finalité (EVS value type), et pourquoi les autres ont été écartées le cas échéant. Référence la Charte 5e édition et les European Valuation Standards. 5-8 phrases, style rapport professionnel."
+                onResult={setS9Justification}
+                size="xs"
+              />
+            </div>
           </div>
         </div>
 
@@ -1212,6 +1246,14 @@ export default function ReportModeEVS({
           <div>
             <label className="block text-sm font-medium text-slate mb-1">{t("rpt10_2_regimeFiscal")}</label>
             <TA value={s10RegimeFiscal} onChange={setS10RegimeFiscal} placeholder={t("rpt10_2_regimeFiscalHint")} rows={2} />
+            <div className="mt-2">
+              <AiDraftButton
+                context={`Type actif: ${assetType}\nValeur hors droits: ${formatEUR(s10ValeurHorsDroits || valeurReconciliee)}\nValeur droits inclus: ${formatEUR(s10ValeurDroitsInclus)}`}
+                prompt="Rédige 2-3 phrases sur le régime fiscal applicable à cette acquisition immobilière au Luxembourg (droits d'enregistrement 6%, transcription 1%, Bëllegen Akt résidence principale, TVA construction si VEFA). Ton factuel expert."
+                onResult={setS10RegimeFiscal}
+                size="xs"
+              />
+            </div>
           </div>
           {/* CRR / MLV */}
           {valeurMarchePourMLV > 0 && (
@@ -1231,6 +1273,14 @@ export default function ReportModeEVS({
           <div>
             <label className="block text-sm font-medium text-slate mb-1">{t("rpt10_2_impactESG")}</label>
             <TA value={s10ImpactESG} onChange={setS10ImpactESG} placeholder={t("rpt10_2_impactESGHint")} rows={2} />
+            <div className="mt-2">
+              <AiDraftButton
+                context={`Type actif: ${assetType}\nCommune: ${selectedCommune?.commune ?? "—"}`}
+                prompt="Rédige 3-4 phrases sur l'impact ESG estimé sur la valeur : alignement Taxonomie UE, risque de transition énergétique (CRREM pathway), exposition climatique physique (inondations, vague de chaleur), normes AEEV 2025 et obligations rénovation. Style rapport EVS 2025 professionnel."
+                onResult={setS10ImpactESG}
+                size="xs"
+              />
+            </div>
           </div>
         </div>
 
@@ -1238,12 +1288,24 @@ export default function ReportModeEVS({
         <div className="space-y-2">
           <SubSection num="10.3" title={t("rpt10_3_title")} />
           <TA value={s10Reserves} onChange={setS10Reserves} placeholder={t("rpt10_3_hint")} />
+          <AiDraftButton
+            context={`Type actif: ${assetType}\nValeur retenue: ${formatEUR(valeurReconciliee)}`}
+            prompt="Rédige la clause des Réserves pour un rapport EVS 2025 TEGOVA au Luxembourg : hypothèses non vérifiées par l'expert (titres, servitudes, conformité urbanisme, absence de pollution, état structurel), conditions d'utilisation du rapport, limite de responsabilité, validité temporelle (6 mois typique). 5-7 phrases style rapport formel."
+            onResult={setS10Reserves}
+            size="xs"
+          />
         </div>
 
         {/* 10.3b Incertitude */}
         <div className="space-y-2">
           <SubSection num="10.3b" title={t("rpt10_3b_title")} />
           <TA value={s10Incertitude} onChange={setS10Incertitude} placeholder={t("rpt10_3b_hint")} />
+          <AiDraftButton
+            context={`Type actif: ${assetType}\nÉcart max méthodes / fourchette: selon réconciliation\nValeur retenue: ${formatEUR(valeurReconciliee)}`}
+            prompt="Rédige la clause d'Incertitude de l'évaluation conforme EVS 2025 / IVS 103 : niveau d'incertitude estimé (± %), facteurs contribuant à cette incertitude (volatilité marché, rareté données comparables, complexité de l'actif), fourchette de valeur raisonnable. 3-5 phrases formelles."
+            onResult={setS10Incertitude}
+            size="xs"
+          />
         </div>
       </div>
     );
