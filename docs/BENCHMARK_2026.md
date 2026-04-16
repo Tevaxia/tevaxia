@@ -850,7 +850,7 @@ Ces deux verticaux justifient une roadmap « compte & rôles » dédiée, sépar
 |---|---|---|
 | ~~6 mois~~ | ~~Module gestion paiements locatifs + quittances auto~~ ✅ (commit ci-dessous) | Produit |
 | 6 mois | Panel Hotrec LU pour RevPAR live | Partenariat |
-| 6 mois | Modèle hédonique re-calibré + rapport MAPE public | Crédibilité |
+| ~~6 mois~~ | ~~Modèle hédonique re-calibré + rapport MAPE public~~ ✅ `8e07b59` | Crédibilité |
 | ~~6 mois~~ | ~~**Owner report mensuel hôtelier PDF auto**~~ ✅ `ac35c84` | Rétention hôtels |
 | ~~6 mois~~ | ~~**Appels de fonds copropriété + suivi paiements**~~ ✅ `2ff2385` | Cœur SaaS syndic |
 | 9 mois | Inspection mobile PWA TEGOVA | Produit |
