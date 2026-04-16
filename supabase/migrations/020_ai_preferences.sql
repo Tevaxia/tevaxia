@@ -16,12 +16,15 @@ CREATE TABLE IF NOT EXISTS user_ai_settings (
 
 ALTER TABLE user_ai_settings ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "users_own_ai_select" ON user_ai_settings;
 CREATE POLICY "users_own_ai_select" ON user_ai_settings
   FOR SELECT USING (auth.uid() = user_id);
 
+DROP POLICY IF EXISTS "users_own_ai_insert" ON user_ai_settings;
 CREATE POLICY "users_own_ai_insert" ON user_ai_settings
   FOR INSERT WITH CHECK (auth.uid() = user_id);
 
+DROP POLICY IF EXISTS "users_own_ai_update" ON user_ai_settings;
 CREATE POLICY "users_own_ai_update" ON user_ai_settings
   FOR UPDATE USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
 
