@@ -4216,7 +4216,8 @@
       "secretFallback": "If you cannot scan, enter this secret manually into your app:",
       "codeLabel": "6-digit code",
       "verify": "Verify and enable"
-    }
+    },
+    "settingsTitle": "Account settings"
   },
   "mesEvaluations": {
     "title": "My valuations",

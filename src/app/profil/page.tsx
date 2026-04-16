@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import InputField from "@/components/InputField";
 import { useAuth } from "@/components/AuthProvider";
 import { supabase } from "@/lib/supabase";
@@ -13,6 +14,8 @@ import NotificationPreferencesSection from "@/components/NotificationPreferences
 import TwoFactorSection from "@/components/TwoFactorSection";
 import UpgradeToProButton from "@/components/UpgradeToProButton";
 import AiSettingsSection from "@/components/AiSettingsSection";
+import DashboardHero from "@/components/profil/DashboardHero";
+import WorkspacesGrid from "@/components/profil/WorkspacesGrid";
 
 // ============================================================
 // MARKET ALERTS TYPES & SECTION
@@ -411,30 +414,25 @@ export default function Profil() {
 
   return (
     <div className="bg-background py-8 sm:py-12">
-      <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-6">
           <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("title")}</h1>
-          <p className="mt-2 text-muted">{t("subtitle")}</p>
+          <p className="mt-1 text-sm text-muted">{t("subtitle")}</p>
         </div>
 
-        <div className="mb-3 rounded-xl border-2 border-rose-200 bg-rose-50 p-4">
-          <div className="flex items-center justify-between gap-3">
-            <div>
-              <div className="text-sm font-semibold text-rose-900">{t("agencyBannerTitle")}</div>
-              <p className="text-xs text-rose-800 mt-0.5">{t("agencyBannerDesc")}</p>
-            </div>
-            <a href={`${lp}/profil/organisation`} className="shrink-0 rounded-lg bg-rose-600 px-3 py-2 text-xs font-semibold text-white hover:bg-rose-700">{t("agencyBannerCta")}</a>
-          </div>
+        <DashboardHero user={user} profile={profile} />
+
+        <div className="mt-8">
+          <WorkspacesGrid locale={locale} />
         </div>
 
-        <div className="mb-6 rounded-xl border-2 border-slate-200 bg-slate-50 p-4">
-          <div className="flex items-center justify-between gap-3">
-            <div>
-              <div className="text-sm font-semibold text-slate-900">{t("apiBannerTitle")}</div>
-              <p className="text-xs text-slate-700 mt-0.5">{t("apiBannerDesc")}</p>
-            </div>
-            <a href={`${lp}/profil/api`} className="shrink-0 rounded-lg bg-slate-700 px-3 py-2 text-xs font-semibold text-white hover:bg-slate-800">{t("apiBannerCta")}</a>
-          </div>
+        <div className="mt-10 mb-4 flex items-center gap-3">
+          <svg className="h-4 w-4 text-muted" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 0 1 1.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 0 1-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 0 1-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 0 1 .12-1.45l.773-.773a1.125 1.125 0 0 1 1.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894Z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+          </svg>
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">{t("settingsTitle")}</h2>
+          <div className="h-px flex-1 bg-card-border" />
         </div>
 
         <div className="space-y-6">

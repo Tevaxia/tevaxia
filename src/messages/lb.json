@@ -4216,7 +4216,8 @@
       "secretFallback": "Wann Dir net scanne kënnt, gitt dëst Geheimnis manuell an Är App an:",
       "codeLabel": "6-zifferegen Code",
       "verify": "Préiwen an aktivéieren"
-    }
+    },
+    "settingsTitle": "Kontoastellungen"
   },
   "mesEvaluations": {
     "title": "Meng Bewäertungen",

@@ -4216,7 +4216,8 @@
       "secretFallback": "Si vous ne pouvez pas scanner, entrez ce secret manuellement dans votre application :",
       "codeLabel": "Code à 6 chiffres",
       "verify": "Vérifier et activer"
-    }
+    },
+    "settingsTitle": "Paramètres du compte"
   },
   "mesEvaluations": {
     "title": "Mes évaluations",

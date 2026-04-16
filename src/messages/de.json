@@ -4216,7 +4216,8 @@
       "secretFallback": "Wenn Sie nicht scannen können, geben Sie dieses Geheimnis manuell in Ihre App ein:",
       "codeLabel": "6-stelliger Code",
       "verify": "Prüfen und aktivieren"
-    }
+    },
+    "settingsTitle": "Kontoeinstellungen"
   },
   "mesEvaluations": {
     "title": "Meine Bewertungen",

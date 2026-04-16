@@ -4216,7 +4216,8 @@
       "secretFallback": "Se não conseguir ler o QR code, insira este segredo manualmente na sua app:",
       "codeLabel": "Código de 6 dígitos",
       "verify": "Verificar e ativar"
-    }
+    },
+    "settingsTitle": "Definições da conta"
   },
   "mesEvaluations": {
     "title": "As minhas avaliações",
