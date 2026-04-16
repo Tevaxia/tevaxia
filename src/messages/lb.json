@@ -51,7 +51,8 @@
     "hotelE2": "E-2 Visa-Score",
     "proAgences": "B2B Offer Agencen",
     "apiBanques": "Banken-API",
-    "guide": "LU Immobilie-Guide"
+    "guide": "LU Immobilie-Guide",
+    "sourcesExternes": "Quellen"
   },
   "common": {
     "language": "Sprooch",
@@ -68,7 +69,9 @@
     "pdfReport": "PDF Rapport",
     "copyLink": "Link kopéieren",
     "linkCopied": "Link kopéiert!",
-    "home": "Haaptsäit"
+    "home": "Haaptsäit",
+    "authorByline": "Vum Erwan Bargain, REV TEGOVA",
+    "authorBylineDate": "Aktualiséiert: Abrëll 2026"
   },
   "home": {
     "heroTitle": "30+ LU Immobilien-Tools,",

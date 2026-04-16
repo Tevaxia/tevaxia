@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
+import { ArticleJsonLd } from "@/components/JsonLd";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("guide.bailHabitation");
@@ -11,9 +12,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function GuideBailHabitation() {
-  const [t, locale] = await Promise.all([
+  const [t, locale, tc] = await Promise.all([
     getTranslations("guide.bailHabitation"),
     getLocale(),
+    getTranslations("common"),
   ]);
   const lp = locale === "fr" ? "" : `/${locale}`;
 
@@ -72,7 +74,9 @@ export default async function GuideBailHabitation() {
           {t("section3Content")}
         </p>
 
-        <div className="mt-10 rounded-lg border border-gold/30 bg-gold/5 p-5">
+        <p className="mt-8 text-xs text-muted">{tc("authorByline")} · {tc("authorBylineDate")}</p>
+
+        <div className="mt-4 rounded-lg border border-gold/30 bg-gold/5 p-5">
           <Link
             href={`${lp}${t("relatedToolLink")}`}
             className="inline-flex items-center gap-2 font-semibold text-navy hover:text-gold transition-colors"
@@ -116,6 +120,7 @@ export default async function GuideBailHabitation() {
           </div>
         </section>
 
+        <ArticleJsonLd headline={t("title")} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

@@ -18,7 +18,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-card-border bg-navy-dark text-white/60">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-6">
           {/* Logo */}
           <div>
             <div className="flex items-center gap-2">
@@ -83,6 +83,18 @@ export default function Footer() {
               <li><LocaleLink href="/pricing" className="hover:text-white transition-colors">Tarifs</LocaleLink></li>
               <li><LocaleLink href="/plan-du-site" className="hover:text-white transition-colors">Plan du site</LocaleLink></li>
               <li><LocaleLink href={`${localePath}/propcalc`} className="hover:text-white transition-colors text-teal-light">PropCalc (WordPress)</LocaleLink></li>
+            </ul>
+          </div>
+
+          {/* Sources externes */}
+          <div>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-3">{tn("sourcesExternes")}</h3>
+            <ul className="space-y-1.5 text-sm">
+              <li><a href="https://observatoire.liser.lu" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Observatoire de l&apos;Habitat</a></li>
+              <li><a href="https://statistiques.public.lu" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">STATEC</a></li>
+              <li><a href="https://data.public.lu" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">data.public.lu</a></li>
+              <li><a href="https://legilux.public.lu" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Legilux</a></li>
+              <li><a href="https://www.myenergy.lu" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">myenergy.lu</a></li>
             </ul>
           </div>
 

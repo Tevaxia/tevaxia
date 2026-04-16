@@ -51,7 +51,8 @@
     "hotelE2": "E-2 visa score",
     "proAgences": "Agency B2B offer",
     "apiBanques": "Banks API",
-    "guide": "LU Real Estate Guide"
+    "guide": "LU Real Estate Guide",
+    "sourcesExternes": "Sources"
   },
   "common": {
     "language": "Language",
@@ -68,7 +69,9 @@
     "pdfReport": "PDF Report",
     "copyLink": "Copy link",
     "linkCopied": "Link copied!",
-    "home": "Home"
+    "home": "Home",
+    "authorByline": "By Erwan Bargain, REV TEGOVA",
+    "authorBylineDate": "Updated: April 2026"
   },
   "home": {
     "heroTitle": "30+ LU real estate tools,",

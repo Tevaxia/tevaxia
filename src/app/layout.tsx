@@ -11,7 +11,7 @@ import CookieBanner from "@/components/CookieBanner";
 import AuthProvider from "@/components/AuthProvider";
 import PostHogProvider from "@/components/PostHogProvider";
 import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
-import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
+import { OrganizationJsonLd, WebSiteJsonLd, PersonJsonLd } from "@/components/JsonLd";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -105,6 +105,7 @@ export default async function RootLayout({
       <head>
         <OrganizationJsonLd />
         <WebSiteJsonLd />
+        <PersonJsonLd />
       </head>
       <Script id="gtag-consent" strategy="afterInteractive">{`
         window.dataLayer=window.dataLayer||[];

@@ -2,6 +2,32 @@
 // JSON-LD Structured Data — Schema.org
 // ============================================================
 
+/** Erwan Bargain Person schema — reusable reference */
+const PERSON_ERWAN = {
+  "@type": "Person" as const,
+  "name": "Erwan Bargain",
+  "jobTitle": "Expert en évaluation immobilière",
+  "hasCredential": "REV TEGOVA (Recognised European Valuer)",
+  "url": "https://bargain-expertise.fr",
+  "sameAs": [
+    "https://www.linkedin.com/in/erwanbargain",
+    "https://tevaxia.lu"
+  ],
+};
+
+/**
+ * Person — Erwan Bargain, fondateur et expert REV TEGOVA
+ * Placé dans le root layout pour E-E-A-T.
+ */
+export function PersonJsonLd() {
+  return (
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      "@context": "https://schema.org",
+      ...PERSON_ERWAN,
+    })}} />
+  );
+}
+
 /**
  * Organization — identité de tevaxia pour Google Knowledge Panel
  * Placé dans le root layout, rendu sur chaque page.
@@ -17,6 +43,11 @@ export function OrganizationJsonLd() {
       "logo": "https://tevaxia.lu/logo-tevaxia-512.svg",
       "description": "Plateforme d'outils immobiliers pour le Luxembourg. Valorisation, simulation énergétique, données de marché, calculateurs.",
       "foundingDate": "2025",
+      "founder": {
+        "@type": "Person",
+        "name": "Erwan Bargain",
+        "url": "https://bargain-expertise.fr",
+      },
       "areaServed": {
         "@type": "Country",
         "name": "Luxembourg",
@@ -31,7 +62,9 @@ export function OrganizationJsonLd() {
         "EPBD directive"
       ],
       "sameAs": [
-        "https://github.com/Interne52105110/tevaxia"
+        "https://github.com/Interne52105110/tevaxia",
+        "https://www.linkedin.com/company/tevaxia",
+        "https://github.com/tevaxia"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
@@ -101,6 +134,35 @@ export function SoftwareApplicationJsonLd({ name, description, url }: { name: st
         "ratingCount": "1",
         "bestRating": "5"
       }
+    })}} />
+  );
+}
+
+/**
+ * Article — pour les pages guide (E-E-A-T : auteur + publisher)
+ */
+export function ArticleJsonLd({ headline, datePublished, dateModified }: {
+  headline: string;
+  datePublished?: string;
+  dateModified?: string;
+}) {
+  return (
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": headline,
+      "author": {
+        "@type": "Person",
+        "name": "Erwan Bargain",
+        "url": "https://bargain-expertise.fr",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "tevaxia.lu",
+        "url": "https://tevaxia.lu",
+      },
+      "datePublished": datePublished ?? "2026-04-16",
+      "dateModified": dateModified ?? "2026-04-16",
     })}} />
   );
 }

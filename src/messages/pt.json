@@ -51,7 +51,8 @@
     "hotelE2": "Score visto E-2",
     "proAgences": "Oferta agências B2B",
     "apiBanques": "API bancos",
-    "guide": "Guia Imobiliário LU"
+    "guide": "Guia Imobiliário LU",
+    "sourcesExternes": "Fontes"
   },
   "common": {
     "language": "Língua",
@@ -68,7 +69,9 @@
     "pdfReport": "Relatório PDF",
     "copyLink": "Copiar ligação",
     "linkCopied": "Ligação copiada!",
-    "home": "Início"
+    "home": "Início",
+    "authorByline": "Por Erwan Bargain, REV TEGOVA",
+    "authorBylineDate": "Atualizado: abril de 2026"
   },
   "home": {
     "heroTitle": "30+ ferramentas imobiliárias LU,",
