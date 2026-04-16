@@ -73,7 +73,7 @@ async function resolveAuth(request: Request): Promise<AuthContext | null> {
 }
 
 interface AiSettings {
-  ai_provider: "groq" | "openai" | "anthropic";
+  ai_provider: "cerebras" | "groq" | "openai" | "anthropic";
   ai_api_key_encrypted: string | null;
   daily_usage: number;
   last_usage_date: string;
@@ -99,7 +99,7 @@ async function incrementUsage(userId: string, settings: AiSettings | null): Prom
 
   await client.from("user_ai_settings").upsert({
     user_id: userId,
-    ai_provider: settings?.ai_provider ?? "groq",
+    ai_provider: settings?.ai_provider ?? "cerebras",
     ai_api_key_encrypted: settings?.ai_api_key_encrypted ?? null,
     daily_usage: newUsage,
     last_usage_date: today,
@@ -114,8 +114,8 @@ function getRemainingQuota(settings: AiSettings | null): number {
 }
 
 // ── LLM call adapters ──────────────────────────────────────
-async function callGroq(apiKey: string, model: string, context: string, prompt: string) {
-  const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+async function callOpenAICompatible(endpoint: string, apiKey: string, model: string, context: string, prompt: string) {
+  const res = await fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
     body: JSON.stringify({
@@ -130,11 +130,16 @@ async function callGroq(apiKey: string, model: string, context: string, prompt: 
   });
   if (!res.ok) {
     const err = await res.text();
-    throw new Error(`Groq API error ${res.status}: ${err}`);
+    throw new Error(`LLM API error ${res.status}: ${err}`);
   }
   const data = await res.json();
   return data.choices?.[0]?.message?.content ?? "";
 }
+
+const callCerebras = (apiKey: string, model: string, context: string, prompt: string) =>
+  callOpenAICompatible("https://api.cerebras.ai/v1/chat/completions", apiKey, model, context, prompt);
+const callGroq = (apiKey: string, model: string, context: string, prompt: string) =>
+  callOpenAICompatible("https://api.groq.com/openai/v1/chat/completions", apiKey, model, context, prompt);
 
 async function callOpenAI(apiKey: string, model: string, context: string, prompt: string) {
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -184,6 +189,7 @@ async function callAnthropic(apiKey: string, model: string, context: string, pro
 }
 
 const DEFAULT_MODELS: Record<string, string> = {
+  cerebras: "llama-3.3-70b",
   groq: "llama-3.3-70b-versatile",
   openai: "gpt-4o-mini",
   anthropic: "claude-sonnet-4-20250514",
@@ -230,7 +236,7 @@ export async function POST(request: Request) {
     const settings = await getAiSettings(userId);
     const hasByok = !!settings?.ai_api_key_encrypted;
 
-    let provider = (body.provider ?? settings?.ai_provider ?? "groq") as string;
+    let provider = (body.provider ?? settings?.ai_provider ?? "cerebras") as string;
     let apiKey: string | null = null;
 
     if (hasByok && settings?.ai_api_key_encrypted) {
@@ -238,10 +244,16 @@ export async function POST(request: Request) {
       apiKey = settings.ai_api_key_encrypted;
       provider = settings.ai_provider;
     } else {
-      // Free tier: server-side Groq key
-      provider = "groq";
-      apiKey = process.env.GROQ_API_KEY ?? null;
-      if (!apiKey) {
+      // Free tier: prefer Cerebras (open signups), fallback to Groq if configured
+      const cerebrasKey = process.env.CEREBRAS_API_KEY;
+      const groqKey = process.env.GROQ_API_KEY;
+      if (cerebrasKey) {
+        provider = "cerebras";
+        apiKey = cerebrasKey;
+      } else if (groqKey) {
+        provider = "groq";
+        apiKey = groqKey;
+      } else {
         return NextResponse.json(
           { error: "Service IA temporairement indisponible (clé serveur non configurée)" },
           { status: 503, headers: CORS_HEADERS },
@@ -264,7 +276,7 @@ export async function POST(request: Request) {
     }
 
     // ── Call LLM ──
-    const model = body.model ?? DEFAULT_MODELS[provider] ?? DEFAULT_MODELS.groq;
+    const model = body.model ?? DEFAULT_MODELS[provider] ?? DEFAULT_MODELS.cerebras;
     let text: string;
 
     try {
@@ -275,9 +287,12 @@ export async function POST(request: Request) {
         case "anthropic":
           text = await callAnthropic(apiKey!, model, context, prompt);
           break;
-        default:
+        case "groq":
           text = await callGroq(apiKey!, model, context, prompt);
-          provider = "groq";
+          break;
+        default:
+          text = await callCerebras(apiKey!, model, context, prompt);
+          provider = "cerebras";
           break;
       }
     } catch (err) {

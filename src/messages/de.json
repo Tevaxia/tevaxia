@@ -6699,10 +6699,10 @@
     "desc": "Konfigurieren Sie den KI-Anbieter für die automatische Analyse Ihrer Berechnungsergebnisse.",
     "providerLabel": "Anbieter",
     "apiKeyLabel": "API-Schlüssel",
-    "apiKeyHint": "Ihr Schlüssel bleibt auf dem Server und wird nie clientseitig offengelegt. Leer lassen, um den kostenlosen Groq-Dienst zu nutzen.",
+    "apiKeyHint": "Ihr Schlüssel bleibt auf dem Server und wird nie clientseitig offengelegt. Leer lassen, um den kostenlosen Cerebras-Dienst zu nutzen.",
     "usageToday": "Analysen heute",
     "unlimited": "Unbegrenzt (persönlicher Schlüssel)",
-    "byokExplain": "Standardmässig nutzt Tevaxia Groq (Llama 3.3, 5 kostenlose Analysen/Tag). Für unbegrenzten Einsatz oder ein anderes Modell fügen Sie Ihren eigenen API-Schlüssel hinzu (BYOK). Erhalten Sie ihn auf der Website des gewählten Anbieters.",
+    "byokExplain": "Standardmässig nutzt Tevaxia Cerebras (Llama 3.3, 5 kostenlose Analysen/Tag). Für unbegrenzten Einsatz oder ein anderes Modell fügen Sie Ihren eigenen API-Schlüssel hinzu (BYOK). Erhalten Sie ihn auf der Website des gewählten Anbieters.",
     "byokActive": "Persönlicher Schlüssel aktiv",
     "freeTier": "Kostenlos (5/Tag)",
     "loading": "Laden...",
@@ -6720,6 +6720,6 @@
     "retry": "Erneut versuchen",
     "reanalyze": "Analyse neu starten",
     "remaining": "{count, plural, =0 {Kontingent erschöpft — fügen Sie Ihren API-Schlüssel in Ihrem Profil hinzu} one {# Analyse heute übrig} other {# Analysen heute übrig}}",
-    "disclaimer": "Analyse generiert durch KI (Llama 3.3 / Groq oder Ihr eigenes Modell). Nur zu Informationszwecken — ersetzt kein zertifiziertes Sachverständigengutachten."
+    "disclaimer": "Analyse generiert durch KI (Llama 3.3 über Cerebras/Groq oder Ihr eigenes Modell). Nur zu Informationszwecken — ersetzt kein zertifiziertes Sachverständigengutachten."
   }
 }

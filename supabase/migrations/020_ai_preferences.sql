@@ -6,7 +6,7 @@
 
 CREATE TABLE IF NOT EXISTS user_ai_settings (
   user_id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
-  ai_provider TEXT NOT NULL DEFAULT 'groq' CHECK (ai_provider IN ('groq','openai','anthropic')),
+  ai_provider TEXT NOT NULL DEFAULT 'cerebras' CHECK (ai_provider IN ('cerebras','groq','openai','anthropic')),
   ai_api_key_encrypted TEXT,
   daily_usage INT NOT NULL DEFAULT 0,
   last_usage_date DATE NOT NULL DEFAULT CURRENT_DATE,

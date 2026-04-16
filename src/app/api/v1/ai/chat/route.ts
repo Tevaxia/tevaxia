@@ -76,7 +76,7 @@ async function resolveAuth(request: Request): Promise<AuthContext | null> {
 }
 
 interface AiSettings {
-  ai_provider: "groq" | "openai" | "anthropic";
+  ai_provider: "cerebras" | "groq" | "openai" | "anthropic";
   ai_api_key_encrypted: string | null;
   daily_usage: number;
   last_usage_date: string;
@@ -102,7 +102,7 @@ async function incrementUsage(userId: string, settings: AiSettings | null): Prom
 
   await client.from("user_ai_settings").upsert({
     user_id: userId,
-    ai_provider: settings?.ai_provider ?? "groq",
+    ai_provider: settings?.ai_provider ?? "cerebras",
     ai_api_key_encrypted: settings?.ai_api_key_encrypted ?? null,
     daily_usage: newUsage,
     last_usage_date: today,
@@ -117,13 +117,14 @@ function getRemainingQuota(settings: AiSettings | null): number {
 }
 
 const DEFAULT_MODELS: Record<string, string> = {
+  cerebras: "llama-3.3-70b",
   groq: "llama-3.3-70b-versatile",
   openai: "gpt-4o-mini",
   anthropic: "claude-sonnet-4-20250514",
 };
 
-async function callGroq(apiKey: string, model: string, messages: ChatMessage[]) {
-  const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+async function callOpenAICompatible(endpoint: string, apiKey: string, model: string, messages: ChatMessage[]) {
+  const res = await fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
     body: JSON.stringify({
@@ -133,10 +134,15 @@ async function callGroq(apiKey: string, model: string, messages: ChatMessage[]) 
       max_tokens: 800,
     }),
   });
-  if (!res.ok) throw new Error(`Groq API error ${res.status}: ${await res.text()}`);
+  if (!res.ok) throw new Error(`LLM API error ${res.status}: ${await res.text()}`);
   const data = await res.json();
   return data.choices?.[0]?.message?.content ?? "";
 }
+
+const callCerebras = (apiKey: string, model: string, messages: ChatMessage[]) =>
+  callOpenAICompatible("https://api.cerebras.ai/v1/chat/completions", apiKey, model, messages);
+const callGroq = (apiKey: string, model: string, messages: ChatMessage[]) =>
+  callOpenAICompatible("https://api.groq.com/openai/v1/chat/completions", apiKey, model, messages);
 
 async function callOpenAI(apiKey: string, model: string, messages: ChatMessage[]) {
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -231,9 +237,15 @@ export async function POST(request: Request) {
       apiKey = settings.ai_api_key_encrypted;
       provider = settings.ai_provider;
     } else {
-      provider = "groq";
-      apiKey = process.env.GROQ_API_KEY ?? null;
-      if (!apiKey) {
+      const cerebrasKey = process.env.CEREBRAS_API_KEY;
+      const groqKey = process.env.GROQ_API_KEY;
+      if (cerebrasKey) {
+        provider = "cerebras";
+        apiKey = cerebrasKey;
+      } else if (groqKey) {
+        provider = "groq";
+        apiKey = groqKey;
+      } else {
         return NextResponse.json(
           { error: "Service IA temporairement indisponible (clé serveur non configurée)" },
           { status: 503, headers: CORS_HEADERS },
@@ -251,14 +263,15 @@ export async function POST(request: Request) {
       }
     }
 
-    const model = DEFAULT_MODELS[provider] ?? DEFAULT_MODELS.groq;
+    const model = DEFAULT_MODELS[provider] ?? DEFAULT_MODELS.cerebras;
     let text: string;
 
     try {
       switch (provider) {
         case "openai": text = await callOpenAI(apiKey!, model, messages); break;
         case "anthropic": text = await callAnthropic(apiKey!, model, messages); break;
-        default: text = await callGroq(apiKey!, model, messages); provider = "groq"; break;
+        case "groq": text = await callGroq(apiKey!, model, messages); break;
+        default: text = await callCerebras(apiKey!, model, messages); provider = "cerebras"; break;
       }
     } catch (err) {
       const message = err instanceof Error ? err.message : "Erreur API LLM";

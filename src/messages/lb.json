@@ -6699,10 +6699,10 @@
     "desc": "Konfiguréiert den KI-Fournisseur fir d'automatesch Analyse vun Ären Berechnungsresultater.",
     "providerLabel": "Fournisseur",
     "apiKeyLabel": "API-Schlëssel",
-    "apiKeyHint": "Äre Schlëssel bleift um Server a gëtt ni clientsäiteg exponéiert. Eidel loossen fir de gratis Groq-Service ze benotzen.",
+    "apiKeyHint": "Äre Schlëssel bleift um Server a gëtt ni clientsäiteg exponéiert. Eidel loossen fir de gratis Cerebras-Service ze benotzen.",
     "usageToday": "Analysen haut",
     "unlimited": "Onlimitéiert (perséinleche Schlëssel)",
-    "byokExplain": "Par défaut benotzt Tevaxia Groq (Llama 3.3, 5 gratis Analysen/Dag). Fir onlimitéiert Notzung oder en anere Modell, füügt Äre eegene API-Schlëssel derbäi (BYOK). Kritt en op der Websäit vum gewielte Fournisseur.",
+    "byokExplain": "Par défaut benotzt Tevaxia Cerebras (Llama 3.3, 5 gratis Analysen/Dag). Fir onlimitéiert Notzung oder en anere Modell, füügt Äre eegene API-Schlëssel derbäi (BYOK). Kritt en op der Websäit vum gewielte Fournisseur.",
     "byokActive": "Perséinleche Schlëssel aktiv",
     "freeTier": "Gratis (5/Dag)",
     "loading": "Lueden...",
@@ -6720,6 +6720,6 @@
     "retry": "Nach eng Kéier probéieren",
     "reanalyze": "Analyse nei starten",
     "remaining": "{count, plural, =0 {Kontingent opgebraucht — setzt Ären API-Schlëssel an Ärem Profil derbäi} one {# Analyse haut iwwreg} other {# Analysen haut iwwreg}}",
-    "disclaimer": "Analyse generéiert duerch KI (Llama 3.3 / Groq oder Äert eegent Modell). Nëmme fir Informatiounszwecker — ersetzt keen zertifizéiert Sachverständegegutachten."
+    "disclaimer": "Analyse generéiert duerch KI (Llama 3.3 iwwer Cerebras/Groq oder Äert eegent Modell). Nëmme fir Informatiounszwecker — ersetzt keen zertifizéiert Sachverständegegutachten."
   }
 }
