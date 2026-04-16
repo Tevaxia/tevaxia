@@ -51,6 +51,12 @@ export default function GestionLocativeLanding() {
               📬 Relances impayés
             </Link>
             <Link
+              href={`${lp}/gestion-locative/assurance-impayes`}
+              className="rounded-lg bg-purple-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-purple-600"
+            >
+              🛡 GLI (assurance impayés)
+            </Link>
+            <Link
               href={`${lp}/calculateur-loyer`}
               className="rounded-lg border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/20 backdrop-blur-sm"
             >
