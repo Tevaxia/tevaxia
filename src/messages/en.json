@@ -5157,7 +5157,18 @@
       "methodNote": "Central value = average (capitalised EBITDA DCF, €/key comparables). Cap rate and per-key benchmarks indexed by category. References: USALI 11th ed., STR EU, JLL Hotels & Hospitality 2024. Indicative — final hotel valuation requires due-diligence audit by a certified appraiser.",
       "nextStepTitle": "Next step: DSCR & financing",
       "nextStepDesc": "Check whether EBITDA covers the debt service.",
-      "nextStepCta": "Compute DSCR →"
+      "nextStepCta": "Compute DSCR →",
+      "labels": {
+        "nbChambres": "Number of rooms",
+        "categorie": "Category",
+        "occupancy": "Occupancy rate",
+        "adr": "ADR (revenue/occupied room)",
+        "ratioFB": "F&B ratio (% RevPAR)",
+        "ratioOther": "Other revenue (%)",
+        "staffRatio": "Staff cost ratio",
+        "opexRatio": "Other OPEX ratio",
+        "capRate": "EBITDA cap rate"
+      }
     },
     "dscr": {
       "financialData": "Financial data",
@@ -5173,7 +5184,16 @@
       "methodNote": "DSCR benchmarks: commercial bank LU/FR/BE → 1.25-1.35x; SBA 7(a) US (E-2) → 1.40x; institutional hotel financing → 1.40-1.50x. The occupancy/ADR stress test mirrors bank credit committees' practice (-10 pts / -10 % shock).",
       "ctaTitle": "E-2 investor visa?",
       "ctaDesc": "Check the eligibility of your project for the US E-2 visa.",
-      "ctaCta": "Compute E-2 score →"
+      "ctaCta": "Compute E-2 score →",
+      "labels": {
+        "ebitda": "Annual EBITDA",
+        "valeurHotel": "Hotel value",
+        "montantPret": "Loan amount",
+        "tauxInteret": "Interest rate",
+        "dureePret": "Loan term",
+        "ffePct": "FF&E reserve (% revenue)",
+        "occupancyStress": "Occupancy stress (pts)"
+      }
     },
     "scoreE2": {
       "investment": "Investment",
@@ -5183,7 +5203,14 @@
       "subTestsTitle": "Detail of the 5 USCIS sub-tests",
       "redFlagsTitle": "Points of concern",
       "summaryNumbers": "Summary",
-      "warningText": "This score reproduces criteria published by USCIS and consular case law (FAM 9 9 FAM 402.9-6) but does not replace a US immigration attorney's analysis. Consular decisions involve discretion. No USCIS outcome is guaranteed by simply meeting a score."
+      "warningText": "This score reproduces criteria published by USCIS and consular case law (FAM 9 9 FAM 402.9-6) but does not replace a US immigration attorney's analysis. Consular decisions involve discretion. No USCIS outcome is guaranteed by simply meeting a score.",
+      "labels": {
+        "prixAchat": "Hotel purchase price",
+        "apportPersonnel": "Personal equity",
+        "nbChambres": "Number of rooms",
+        "emploisCrees": "Jobs created (FTE)",
+        "ebitdaPrev": "Projected EBITDA"
+      }
     },
     "exploitation": {
       "configHotel": "Hotel configuration",
@@ -5193,7 +5220,19 @@
       "synthHorizon": "Summary {n}-year horizon",
       "annualPL": "Annual USALI P&L",
       "year1Detail": "Year 1 detail (USALI)",
-      "methodNote": "USALI 11th ed. — Uniform System of Accounts for the Lodging Industry (AHLEI). Per-category ratios from STR EU and HotStats 2024. P&L is indicative — adapt to the management contract type (operator vs lease vs management contract)."
+      "methodNote": "USALI 11th ed. — Uniform System of Accounts for the Lodging Industry (AHLEI). Per-category ratios from STR EU and HotStats 2024. P&L is indicative — adapt to the management contract type (operator vs lease vs management contract).",
+      "labels": {
+        "nbChambres": "Number of rooms",
+        "categorie": "Category",
+        "occupancy": "Occupancy (%)",
+        "adr": "ADR (€)",
+        "ratioFB": "F&B (% total revenue)",
+        "ratioMice": "MICE (% total revenue)",
+        "ratioOther": "Other revenue (%)",
+        "staffRatio": "Staff costs (%)",
+        "energyRatio": "Energy (%)",
+        "otherOpex": "Other OPEX (%)"
+      }
     },
     "renovation": {
       "building": "Building",
@@ -5204,7 +5243,26 @@
       "paybackVAN": "Payback & 10-year NPV (4 % discount)",
       "energyImpact": "Energy impact",
       "perPostDetail": "Detail by item",
-      "methodNote": "Tertiary Klimabonus — displayed aid rates are the average observed per item for LU tertiary buildings. Exact rates depend on the budget cycle (Klima-Pak law) and the targeted performance label. Check with myenergy before commitment."
+      "methodNote": "Tertiary Klimabonus — displayed aid rates are the average observed per item for LU tertiary buildings. Exact rates depend on the budget cycle (Klima-Pak law) and the targeted performance label. Check with myenergy before commitment.",
+      "labels": {
+        "surfaceChauffee": "Total heated area",
+        "nbChambres": "Number of rooms",
+        "consoActuelle": "Current consumption",
+        "consoCible": "Target consumption (optional)",
+        "prixKwh": "Average kWh price",
+        "isolation": "Building envelope insulation (roof, facade)",
+        "cvc": "HVAC (heating / ventilation / AC)",
+        "ecs": "Domestic hot water (heat pump, solar)",
+        "led": "LED lighting + BMS",
+        "fenetres": "Windows (triple glazing)",
+        "adr": "ADR",
+        "occupation": "Occupancy",
+        "gainRevpar": "RevPAR gain from eco-label",
+        "hintCpe": "See EPC / energy bill",
+        "hintConsoAuto": "0 = auto-calculated",
+        "hintGainLabel": "Green Key, EU Ecolabel = +1-3% RevPAR observed",
+        "vanCumulee": "Cumulative NPV 10 years"
+      }
     },
     "revparCompset": {
       "yourHotel": "Your hotel",
@@ -5215,7 +5273,14 @@
       "diagnostic": "Diagnostic",
       "revparCompared": "RevPAR compared",
       "missedRevenue": "Annual missed revenue",
-      "methodNote": "Method: MPI / ARI / RGI indices = STR (Smith Travel Research) and HotStats standard — global hotel benchmark reference. Index 100 = fair share, > 100 = over-performance, < 100 = under-performance."
+      "methodNote": "Method: MPI / ARI / RGI indices = STR (Smith Travel Research) and HotStats standard — global hotel benchmark reference. Index 100 = fair share, > 100 = over-performance, < 100 = under-performance.",
+      "labels": {
+        "nbChambres": "Number of rooms",
+        "occupancy": "Occupancy (%)",
+        "adr": "ADR (€)",
+        "compsetOcc": "Compset occupancy (%)",
+        "compsetAdr": "Compset ADR (€)"
+      }
     }
   },
   "apiBanques": {
@@ -5437,5 +5502,47 @@
       "faqTitle": "Frequently asked questions",
       "relatedTitle": "Go further"
     }
+  },
+  "hotelGroupe": {
+    "title": "Hotel Group Dashboard",
+    "subtitle": "Multi-site management for hotel group organizations.",
+    "linkSubtitle": "Each simulation (valuation, DSCR, operations, renovation, RevPAR, E-2) can be linked to a persisted hotel.",
+    "createGroup": "Create a hotel group",
+    "noGroup": "No hotel group",
+    "noGroupDesc": "Create a 'Hotel Group' organization from your profile to start adding properties.",
+    "group": "Group",
+    "establishments": "Properties",
+    "totalRooms": "Total rooms",
+    "capexCumul": "Cumulative CAPEX",
+    "organisation": "Organization",
+    "hotelGroup": "Hotel group",
+    "myHotels": "My hotels",
+    "addHotel": "+ Add a hotel",
+    "cancel": "Cancel",
+    "hotelName": "Hotel name",
+    "commune": "City / municipality",
+    "nbRooms": "Number of rooms",
+    "createHotel": "Create hotel",
+    "deleteConfirm": "Delete this hotel? Associated performance periods will also be deleted.",
+    "noHotelDesc": "No hotels in this group. Click '+ Add a hotel' to get started.",
+    "energyClass": "Energy class",
+    "yearBuilt": "Year built",
+    "acquisitionPrice": "Acquisition price",
+    "login": "Log in to access your hotel dashboard.",
+    "loginBtn": "Log in",
+    "hubLink": "← Hospitality hub"
+  },
+  "bailCommercialLabels": {
+    "loyerAnnuel": "Initial annual rent (excl. charges)",
+    "anneeSignature": "Lease signing year",
+    "anneeIndexation": "Indexation year calculated",
+    "duree": "Lease duration",
+    "plafond": "Total indexation cap (% vs initial rent)",
+    "pasDePt": "Key money (entry fee)",
+    "depot": "Security deposit",
+    "charges": "Annual charges (provisions)",
+    "hintPlafond": "Usual: 15-25%. Beyond, the tenant may request judicial review (art. 1757-4 Civil Code).",
+    "hintPasDePt": "One-time payment at signing, non-refundable.",
+    "hintDepot": "Usual: 3-12 months. Refunded at end of lease (unless damages)."
   }
 }

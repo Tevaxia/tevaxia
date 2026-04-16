@@ -5157,7 +5157,18 @@
       "methodNote": "Zentralwert = Mittel (kapitalisierter EBITDA-DCF, €/Zimmer-Vergleichswerte). Cap Rate und Pro-Zimmer-Benchmarks nach Kategorie indexiert. Referenzen: USALI 11. Aufl., STR EU, JLL Hotels & Hospitality 2024. Indikativ — die endgültige Bewertung eines Hotelobjekts erfordert eine Due-Diligence-Prüfung durch einen zertifizierten Bewerter.",
       "nextStepTitle": "Nächster Schritt: DSCR & Finanzierung",
       "nextStepDesc": "Prüfen Sie, ob das EBITDA den Schuldendienst deckt.",
-      "nextStepCta": "DSCR berechnen →"
+      "nextStepCta": "DSCR berechnen →",
+      "labels": {
+        "nbChambres": "Anzahl Zimmer",
+        "categorie": "Kategorie",
+        "occupancy": "Auslastungsrate",
+        "adr": "ADR (Umsatz/belegtes Zimmer)",
+        "ratioFB": "F&B-Anteil (% RevPAR)",
+        "ratioOther": "Sonstige Einnahmen (%)",
+        "staffRatio": "Personalkostenquote",
+        "opexRatio": "Sonstiger OPEX-Anteil",
+        "capRate": "EBITDA Cap Rate"
+      }
     },
     "dscr": {
       "financialData": "Finanzdaten",
@@ -5173,7 +5184,16 @@
       "methodNote": "DSCR-Referenz: Geschäftsbank LU/FR/BE → 1,25-1,35x; SBA 7(a) US (E-2) → 1,40x; institutionelle Hotelfinanzierung → 1,40-1,50x. Der Auslastungs-/ADR-Stresstest entspricht der Praxis bankinterner Kreditausschüsse (-10 Pkt / -10 % Schock).",
       "ctaTitle": "E-2 Investorenvisum?",
       "ctaDesc": "Prüfen Sie die Eignung Ihres Projekts für das US E-2-Visum.",
-      "ctaCta": "E-2-Score berechnen →"
+      "ctaCta": "E-2-Score berechnen →",
+      "labels": {
+        "ebitda": "Jährliches EBITDA",
+        "valeurHotel": "Hotelwert",
+        "montantPret": "Darlehensbetrag",
+        "tauxInteret": "Zinssatz",
+        "dureePret": "Kreditlaufzeit",
+        "ffePct": "FF&E-Reserve (% Umsatz)",
+        "occupancyStress": "Auslastung Stress (Pkt.)"
+      }
     },
     "scoreE2": {
       "investment": "Investition",
@@ -5183,7 +5203,14 @@
       "subTestsTitle": "Detail der 5 USCIS-Untertests",
       "redFlagsTitle": "Risikopunkte",
       "summaryNumbers": "Zusammenfassung",
-      "warningText": "Dieser Score gibt von USCIS veröffentlichte Kriterien und konsularische Rechtsprechung (FAM 9 9 FAM 402.9-6) wieder, ersetzt aber keine Analyse durch einen US-Einwanderungsanwalt. Konsularische Entscheidungen sind ermessensabhängig. Kein USCIS-Ergebnis ist allein durch Erreichen eines Scores garantiert."
+      "warningText": "Dieser Score gibt von USCIS veröffentlichte Kriterien und konsularische Rechtsprechung (FAM 9 9 FAM 402.9-6) wieder, ersetzt aber keine Analyse durch einen US-Einwanderungsanwalt. Konsularische Entscheidungen sind ermessensabhängig. Kein USCIS-Ergebnis ist allein durch Erreichen eines Scores garantiert.",
+      "labels": {
+        "prixAchat": "Hotel-Kaufpreis",
+        "apportPersonnel": "Eigenkapital",
+        "nbChambres": "Anzahl Zimmer",
+        "emploisCrees": "Geschaffene Arbeitsplätze (VZÄ)",
+        "ebitdaPrev": "Prognostiziertes EBITDA"
+      }
     },
     "exploitation": {
       "configHotel": "Hotelkonfiguration",
@@ -5193,7 +5220,19 @@
       "synthHorizon": "Zusammenfassung {n}-Jahres-Horizont",
       "annualPL": "Jährliche USALI-GuV",
       "year1Detail": "Detail Jahr 1 (USALI)",
-      "methodNote": "USALI 11. Aufl. — Uniform System of Accounts for the Lodging Industry (AHLEI). Kategorielle Quoten aus STR EU und HotStats 2024. Die GuV ist indikativ — Anpassung je nach Vertragstyp (Operator vs Lease vs Management Contract) erforderlich."
+      "methodNote": "USALI 11. Aufl. — Uniform System of Accounts for the Lodging Industry (AHLEI). Kategorielle Quoten aus STR EU und HotStats 2024. Die GuV ist indikativ — Anpassung je nach Vertragstyp (Operator vs Lease vs Management Contract) erforderlich.",
+      "labels": {
+        "nbChambres": "Anzahl Zimmer",
+        "categorie": "Kategorie",
+        "occupancy": "Auslastung (%)",
+        "adr": "ADR (€)",
+        "ratioFB": "F&B (% Gesamtumsatz)",
+        "ratioMice": "MICE (% Gesamtumsatz)",
+        "ratioOther": "Sonstige Einnahmen (%)",
+        "staffRatio": "Personalkosten (%)",
+        "energyRatio": "Energie (%)",
+        "otherOpex": "Sonstiger OPEX (%)"
+      }
     },
     "renovation": {
       "building": "Gebäude",
@@ -5204,7 +5243,26 @@
       "paybackVAN": "Payback & 10-Jahres-NPV (4 % Diskont)",
       "energyImpact": "Energieeffekt",
       "perPostDetail": "Detail nach Posten",
-      "methodNote": "Klimabonus Tertiär — die angezeigten Förderquoten sind die durchschnittlich beobachteten Werte pro Posten für LU-Tertiärgebäude. Genaue Sätze hängen vom Haushaltsjahr (Klima-Pak-Gesetz) und vom angestrebten Leistungslabel ab. Vor Beauftragung mit myenergy abklären."
+      "methodNote": "Klimabonus Tertiär — die angezeigten Förderquoten sind die durchschnittlich beobachteten Werte pro Posten für LU-Tertiärgebäude. Genaue Sätze hängen vom Haushaltsjahr (Klima-Pak-Gesetz) und vom angestrebten Leistungslabel ab. Vor Beauftragung mit myenergy abklären.",
+      "labels": {
+        "surfaceChauffee": "Gesamte beheizte Fläche",
+        "nbChambres": "Anzahl Zimmer",
+        "consoActuelle": "Aktueller Verbrauch",
+        "consoCible": "Zielverbrauch (optional)",
+        "prixKwh": "Durchschn. kWh-Preis",
+        "isolation": "Gebäudedämmung (Dach, Fassade)",
+        "cvc": "HLK (Heizung / Lüftung / Klima)",
+        "ecs": "Warmwasser (Wärmepumpe, Solar)",
+        "led": "LED-Beleuchtung + GLT",
+        "fenetres": "Fenster (Dreifachverglasung)",
+        "adr": "ADR",
+        "occupation": "Auslastung",
+        "gainRevpar": "RevPAR-Gewinn durch Öko-Label",
+        "hintCpe": "Siehe EPB / Energierechnung",
+        "hintConsoAuto": "0 = automatisch berechnet",
+        "hintGainLabel": "Green Key, EU Ecolabel = +1-3% RevPAR beobachtet",
+        "vanCumulee": "Kumulativer Kapitalwert 10 Jahre"
+      }
     },
     "revparCompset": {
       "yourHotel": "Ihr Hotel",
@@ -5215,7 +5273,14 @@
       "diagnostic": "Diagnose",
       "revparCompared": "RevPAR-Vergleich",
       "missedRevenue": "Jährlicher Einnahmenausfall",
-      "methodNote": "Methode: MPI / ARI / RGI Indizes = STR (Smith Travel Research) und HotStats Standard — globale Benchmark-Referenz Hotellerie. Index 100 = Fair Share, > 100 = Überleistung, < 100 = Unterleistung."
+      "methodNote": "Methode: MPI / ARI / RGI Indizes = STR (Smith Travel Research) und HotStats Standard — globale Benchmark-Referenz Hotellerie. Index 100 = Fair Share, > 100 = Überleistung, < 100 = Unterleistung.",
+      "labels": {
+        "nbChambres": "Anzahl Zimmer",
+        "occupancy": "Auslastung (%)",
+        "adr": "ADR (€)",
+        "compsetOcc": "Compset-Auslastung (%)",
+        "compsetAdr": "Compset-ADR (€)"
+      }
     }
   },
   "apiBanques": {
@@ -5437,5 +5502,47 @@
       "faqTitle": "Häufig gestellte Fragen",
       "relatedTitle": "Weiterführend"
     }
+  },
+  "hotelGroupe": {
+    "title": "Hotelgruppe Dashboard",
+    "subtitle": "Multi-Standort-Verwaltung für Hotelgruppen.",
+    "linkSubtitle": "Jede Simulation (Bewertung, DSCR, Betrieb, Renovierung, RevPAR, E-2) kann einem gespeicherten Hotel zugeordnet werden.",
+    "createGroup": "Hotelgruppe erstellen",
+    "noGroup": "Keine Hotelgruppe",
+    "noGroupDesc": "Erstellen Sie eine Organisation vom Typ 'Hotelgruppe' in Ihrem Profil, um Hotels hinzuzufügen.",
+    "group": "Gruppe",
+    "establishments": "Betriebe",
+    "totalRooms": "Zimmer gesamt",
+    "capexCumul": "Kumuliertes CAPEX",
+    "organisation": "Organisation",
+    "hotelGroup": "Hotelgruppe",
+    "myHotels": "Meine Hotels",
+    "addHotel": "+ Hotel hinzufügen",
+    "cancel": "Abbrechen",
+    "hotelName": "Hotelname",
+    "commune": "Gemeinde / Stadt",
+    "nbRooms": "Anzahl Zimmer",
+    "createHotel": "Hotel erstellen",
+    "deleteConfirm": "Dieses Hotel löschen? Zugehörige Leistungsperioden werden ebenfalls gelöscht.",
+    "noHotelDesc": "Keine Hotels in dieser Gruppe. Klicken Sie auf '+ Hotel hinzufügen'.",
+    "energyClass": "Energieklasse",
+    "yearBuilt": "Baujahr",
+    "acquisitionPrice": "Kaufpreis",
+    "login": "Melden Sie sich an, um auf Ihr Hotel-Dashboard zuzugreifen.",
+    "loginBtn": "Anmelden",
+    "hubLink": "← Hotel-Hub"
+  },
+  "bailCommercialLabels": {
+    "loyerAnnuel": "Anfangsmiete jährlich (ohne Nebenkosten)",
+    "anneeSignature": "Jahr der Mietvertragsunterzeichnung",
+    "anneeIndexation": "Berechnetes Indexierungsjahr",
+    "duree": "Mietdauer",
+    "plafond": "Indexierungsobergrenze gesamt (% vs Anfangsmiete)",
+    "pasDePt": "Ablöse (Eintrittsgebühr)",
+    "depot": "Kaution",
+    "charges": "Jährliche Nebenkosten (Vorauszahlung)",
+    "hintPlafond": "Üblich: 15-25 %. Darüber hinaus kann der Mieter eine gerichtliche Überprüfung beantragen (Art. 1757-4 BGB).",
+    "hintPasDePt": "Einmalzahlung bei Vertragsunterzeichnung, nicht erstattungsfähig.",
+    "hintDepot": "Üblich: 3-12 Monate. Rückerstattung bei Mietende (außer bei Schäden)."
   }
 }

@@ -25,6 +25,7 @@ export default function RevparComparisonPage() {
   const t = useTranslations("hotellerieToolPages");
   const tc = useTranslations("hotellerieCalc");
   const tcv = useTranslations("hotellerieCalc.revparCompset");
+  const tl = useTranslations("hotellerieCalc.revparCompset.labels");
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   const [hotelOccupancy, setHotelOccupancy] = useState(0.62);
@@ -62,7 +63,7 @@ export default function RevparComparisonPage() {
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <InputField label="Occupation moyenne" value={Math.round(hotelOccupancy * 100)} onChange={(v) => setHotelOccupancy(Math.max(5, Math.min(95, Number(v) || 0)) / 100)} suffix="%" />
                 <InputField label="ADR moyen" value={hotelADR} onChange={(v) => setHotelADR(Number(v) || 0)} suffix="€" />
-                <InputField label="Nombre de chambres" value={nbChambres} onChange={(v) => setNbChambres(Number(v) || 0)} className="sm:col-span-2" />
+                <InputField label={tl("nbChambres")} value={nbChambres} onChange={(v) => setNbChambres(Number(v) || 0)} className="sm:col-span-2" />
               </div>
             </div>
 

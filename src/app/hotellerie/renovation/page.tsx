@@ -23,6 +23,7 @@ export default function RenovationHotelPage() {
   const t = useTranslations("hotellerieToolPages");
   const tc = useTranslations("hotellerieCalc");
   const tcr = useTranslations("hotellerieCalc.renovation");
+  const tl = useTranslations("hotellerieCalc.renovation.labels");
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   const [surfaceChauffeeM2, setSurfaceChauffeeM2] = useState(2500);
@@ -70,11 +71,11 @@ export default function RenovationHotelPage() {
             <div className="rounded-xl border border-card-border bg-card p-6">
               <h2 className="text-base font-semibold text-navy">{tcr("building")}</h2>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <InputField label="Surface chauffée totale" value={surfaceChauffeeM2} onChange={(v) => setSurfaceChauffeeM2(Number(v) || 0)} suffix="m²" />
-                <InputField label="Nombre de chambres" value={nbChambres} onChange={(v) => setNbChambres(Number(v) || 0)} />
-                <InputField label="Consommation actuelle" value={consoActuelleKwhM2} onChange={(v) => setConsoActuelleKwhM2(Number(v) || 0)} suffix="kWh/m²/an" hint="Voir CPE / facture énergie" />
-                <InputField label="Consommation cible (optionnelle)" value={consoCibleKwhM2} onChange={(v) => setConsoCibleKwhM2(Number(v) || 0)} suffix="kWh/m²/an" hint="0 = calculée auto" />
-                <InputField label="Prix moyen kWh" value={prixKwhMoyen.toFixed(3)} onChange={(v) => setPrixKwhMoyen(Number(v) || 0)} suffix="€" className="sm:col-span-2" />
+                <InputField label={tl("surfaceChauffee")} value={surfaceChauffeeM2} onChange={(v) => setSurfaceChauffeeM2(Number(v) || 0)} suffix="m²" />
+                <InputField label={tl("nbChambres")} value={nbChambres} onChange={(v) => setNbChambres(Number(v) || 0)} />
+                <InputField label={tl("consoActuelle")} value={consoActuelleKwhM2} onChange={(v) => setConsoActuelleKwhM2(Number(v) || 0)} suffix="kWh/m²/an" hint={tl("hintCpe")} />
+                <InputField label={tl("consoCible")} value={consoCibleKwhM2} onChange={(v) => setConsoCibleKwhM2(Number(v) || 0)} suffix="kWh/m²/an" hint={tl("hintConsoAuto")} />
+                <InputField label={tl("prixKwh")} value={prixKwhMoyen.toFixed(3)} onChange={(v) => setPrixKwhMoyen(Number(v) || 0)} suffix="€" className="sm:col-span-2" />
               </div>
             </div>
 
@@ -82,11 +83,11 @@ export default function RenovationHotelPage() {
               <h2 className="text-base font-semibold text-navy">{tcr("worksPlanned")}</h2>
               <div className="mt-4 space-y-2">
                 {[
-                  { v: travauxIsolation, set: setIsolation, label: "Isolation enveloppe (toiture, façade)" },
-                  { v: travauxCVC, set: setCVC, label: "CVC (chauffage / ventilation / clim)" },
-                  { v: travauxECS, set: setECS, label: "Eau chaude sanitaire (PAC, solaire)" },
-                  { v: travauxLED, set: setLED, label: "Éclairage LED + GTB" },
-                  { v: travauxFenetres, set: setFenetres, label: "Menuiseries (triple vitrage)" },
+                  { v: travauxIsolation, set: setIsolation, label: tl("isolation") },
+                  { v: travauxCVC, set: setCVC, label: tl("cvc") },
+                  { v: travauxECS, set: setECS, label: tl("ecs") },
+                  { v: travauxLED, set: setLED, label: tl("led") },
+                  { v: travauxFenetres, set: setFenetres, label: tl("fenetres") },
                 ].map((item) => (
                   <label key={item.label} className="flex items-center gap-3 cursor-pointer rounded-lg border border-input-border bg-input-bg px-3 py-2.5 text-sm">
                     <input type="checkbox" checked={item.v} onChange={(e) => item.set(e.target.checked)} className="h-4 w-4 rounded border-input-border" />
@@ -99,9 +100,9 @@ export default function RenovationHotelPage() {
             <div className="rounded-xl border border-card-border bg-card p-6">
               <h2 className="text-base font-semibold text-navy">{tcr("hotelPerf")}</h2>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <InputField label="ADR" value={adr} onChange={(v) => setAdr(Number(v) || 0)} suffix="€" />
-                <InputField label="Occupation" value={Math.round(occupancy * 100)} onChange={(v) => setOccupancy(Math.max(5, Math.min(95, Number(v) || 0)) / 100)} suffix="%" />
-                <InputField label="Gain RevPAR via label éco" value={gainRevparPctViaLabel} onChange={(v) => setGainLabel(Math.max(0, Math.min(15, Number(v) || 0)))} suffix="%" hint="Green Key, EU Ecolabel = +1-3 % RevPAR observé" className="sm:col-span-2" />
+                <InputField label={tl("adr")} value={adr} onChange={(v) => setAdr(Number(v) || 0)} suffix="€" />
+                <InputField label={tl("occupation")} value={Math.round(occupancy * 100)} onChange={(v) => setOccupancy(Math.max(5, Math.min(95, Number(v) || 0)) / 100)} suffix="%" />
+                <InputField label={tl("gainRevpar")} value={gainRevparPctViaLabel} onChange={(v) => setGainLabel(Math.max(0, Math.min(15, Number(v) || 0)))} suffix="%" hint={tl("hintGainLabel")} className="sm:col-span-2" />
               </div>
             </div>
           </div>

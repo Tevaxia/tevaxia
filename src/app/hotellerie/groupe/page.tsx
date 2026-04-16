@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { isSupabaseConfigured } from "@/lib/supabase";
 import { listMyOrganizations, type Organization } from "@/lib/orgs";
@@ -26,6 +26,7 @@ const CATEGORY_COLOR: Record<HotelCategory, string> = {
 export default function HotelGroupDashboard() {
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
+  const tg = useTranslations("hotelGroupe");
   const { user } = useAuth();
 
   const [orgs, setOrgs] = useState<Organization[]>([]);
@@ -111,16 +112,15 @@ export default function HotelGroupDashboard() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <Link href={`${lp}/hotellerie`} className="text-xs text-muted hover:text-navy">← Hub hôtellerie</Link>
-            <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">Dashboard Groupe hôtelier</h1>
+            <Link href={`${lp}/hotellerie`} className="text-xs text-muted hover:text-navy">{tg("hubLink")}</Link>
+            <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">{tg("title")}</h1>
             <p className="mt-1 text-sm text-muted">
-              Gestion multi-sites pour les organisations de type « Groupe hôtelier ».
-              Chaque simulation (valorisation, DSCR, exploitation, rénovation, RevPAR, E-2) peut être rattachée à un hôtel persisté.
+              {tg("subtitle")} {tg("linkSubtitle")}
             </p>
           </div>
           {orgs.length === 0 && (
             <Link href={`${lp}/profil/organisation`} className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
-              Créer un groupe hôtelier
+              {tg("createGroup")}
             </Link>
           )}
         </div>
@@ -128,7 +128,7 @@ export default function HotelGroupDashboard() {
         {orgs.length === 0 && (
           <div className="mt-8 rounded-xl border border-dashed border-card-border bg-card p-10 text-center">
             <div className="text-4xl">🏨</div>
-            <h2 className="mt-3 text-lg font-semibold text-navy">Aucun groupe hôtelier</h2>
+            <h2 className="mt-3 text-lg font-semibold text-navy">{tg("noGroup")}</h2>
             <p className="mt-1 text-sm text-muted">
               Créez une organisation de type « Groupe hôtelier » depuis votre profil pour commencer à ajouter vos établissements.
             </p>
@@ -155,32 +155,32 @@ export default function HotelGroupDashboard() {
             {/* KPIs consolidés */}
             <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               <div className="rounded-xl border border-card-border bg-card p-4">
-                <div className="text-xs uppercase tracking-wider text-muted font-semibold">Établissements</div>
+                <div className="text-xs uppercase tracking-wider text-muted font-semibold">{tg("establishments")}</div>
                 <div className="mt-1 text-2xl font-bold text-navy">{hotels.length}</div>
               </div>
               <div className="rounded-xl border border-card-border bg-card p-4">
-                <div className="text-xs uppercase tracking-wider text-muted font-semibold">Chambres totales</div>
+                <div className="text-xs uppercase tracking-wider text-muted font-semibold">{tg("totalRooms")}</div>
                 <div className="mt-1 text-2xl font-bold text-navy">{totalRooms.toLocaleString("fr-LU")}</div>
               </div>
               <div className="rounded-xl border border-card-border bg-card p-4">
-                <div className="text-xs uppercase tracking-wider text-muted font-semibold">CAPEX cumulé</div>
+                <div className="text-xs uppercase tracking-wider text-muted font-semibold">{tg("capexCumul")}</div>
                 <div className="mt-1 text-2xl font-bold text-navy">{formatEUR(totalCapex)}</div>
               </div>
               <div className="rounded-xl border border-card-border bg-card p-4">
-                <div className="text-xs uppercase tracking-wider text-muted font-semibold">Organisation</div>
+                <div className="text-xs uppercase tracking-wider text-muted font-semibold">{tg("organisation")}</div>
                 <div className="mt-1 text-sm font-bold text-navy truncate">{activeOrg.name}</div>
-                <div className="mt-0.5 text-xs text-muted">Groupe hôtelier</div>
+                <div className="mt-0.5 text-xs text-muted">{tg("hotelGroup")}</div>
               </div>
             </div>
 
             {/* Actions */}
             <div className="mt-6 flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-navy">Mes hôtels</h2>
+              <h2 className="text-lg font-semibold text-navy">{tg("myHotels")}</h2>
               <button
                 onClick={() => setShowCreate(!showCreate)}
                 className="rounded-lg bg-navy px-3 py-2 text-sm font-semibold text-white hover:bg-navy-light"
               >
-                {showCreate ? "Annuler" : "+ Ajouter un hôtel"}
+                {showCreate ? tg("cancel") : tg("addHotel")}
               </button>
             </div>
 
@@ -189,7 +189,7 @@ export default function HotelGroupDashboard() {
                 <div className="grid gap-3 sm:grid-cols-2">
                   <input
                     type="text"
-                    placeholder="Nom de l'hôtel"
+                    placeholder={tg("hotelName")}
                     value={newName}
                     onChange={(e) => setNewName(e.target.value)}
                     className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
@@ -205,14 +205,14 @@ export default function HotelGroupDashboard() {
                   </select>
                   <input
                     type="text"
-                    placeholder="Commune / ville"
+                    placeholder={tg("commune")}
                     value={newCommune}
                     onChange={(e) => setNewCommune(e.target.value)}
                     className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
                   />
                   <input
                     type="number"
-                    placeholder="Nombre de chambres"
+                    placeholder={tg("nbRooms")}
                     value={newChambres || ""}
                     onChange={(e) => setNewChambres(Number(e.target.value) || 0)}
                     className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
@@ -234,7 +234,7 @@ export default function HotelGroupDashboard() {
 
             {!loading && hotels.length === 0 && !showCreate && (
               <div className="mt-4 rounded-xl border border-dashed border-card-border bg-card p-8 text-center text-sm text-muted">
-                Aucun hôtel dans ce groupe. Cliquez sur « + Ajouter un hôtel » pour commencer.
+                Aucun hôtel dans ce groupe. Cliquez sur « {tg("addHotel")} » pour commencer.
               </div>
             )}
 

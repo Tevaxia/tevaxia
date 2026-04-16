@@ -5157,7 +5157,18 @@
       "methodNote": "Valeur centrale = moyenne (DCF EBITDA capitalisé, comparables €/chambre). Cap rate et benchmarks chambre indexés par catégorie. Référentiels : USALI 11e éd., STR EU, JLL Hotels & Hospitality 2024. Indicatif — la valorisation finale d'un actif hôtelier nécessite un audit due-diligence par un évaluateur certifié.",
       "nextStepTitle": "Étape suivante : DSCR & financement",
       "nextStepDesc": "Vérifiez si l'EBITDA permet de couvrir le service de la dette.",
-      "nextStepCta": "Calculer le DSCR →"
+      "nextStepCta": "Calculer le DSCR →",
+      "labels": {
+        "nbChambres": "Nombre de chambres",
+        "categorie": "Catégorie",
+        "occupancy": "Taux d'occupation",
+        "adr": "ADR (revenu/chambre occupée)",
+        "ratioFB": "Ratio F&B (% RevPAR)",
+        "ratioOther": "Revenus annexes (%)",
+        "staffRatio": "Ratio charges staff",
+        "opexRatio": "Ratio OPEX autres",
+        "capRate": "Cap rate EBITDA"
+      }
     },
     "dscr": {
       "financialData": "Données financières",
@@ -5173,7 +5184,16 @@
       "methodNote": "Référentiel DSCR : banque commerciale LU/FR/BE → 1,25-1,35x ; SBA 7(a) US (E-2) → 1,40x ; financement institutionnel hôtelier → 1,40-1,50x. Le stress test occupation/ADR reproduit la pratique des credit committees bancaires (choc -10 pts / -10 %).",
       "ctaTitle": "Visa investisseur E-2 ?",
       "ctaDesc": "Vérifiez l'éligibilité de votre projet au visa E-2 américain.",
-      "ctaCta": "Calculer le score E-2 →"
+      "ctaCta": "Calculer le score E-2 →",
+      "labels": {
+        "ebitda": "EBITDA annuel",
+        "valeurHotel": "Valeur de l'hôtel",
+        "montantPret": "Montant du prêt",
+        "tauxInteret": "Taux d'intérêt",
+        "dureePret": "Durée du prêt",
+        "ffePct": "Réserve FF&E (% revenu)",
+        "occupancyStress": "Occupation stress (pts)"
+      }
     },
     "scoreE2": {
       "investment": "Investissement",
@@ -5183,7 +5203,14 @@
       "subTestsTitle": "Détail des 5 sous-tests USCIS",
       "redFlagsTitle": "Points d'attention",
       "summaryNumbers": "Synthèse chiffres",
-      "warningText": "Ce score reproduit les critères publiés par USCIS et la jurisprudence consulaire (FAM 9 9 FAM 402.9-6) mais ne remplace pas une analyse par un avocat US en immigration. Les décisions consulaires comportent une part discrétionnaire. Aucune réponse USCIS n'est garantie par le simple respect d'un score."
+      "warningText": "Ce score reproduit les critères publiés par USCIS et la jurisprudence consulaire (FAM 9 9 FAM 402.9-6) mais ne remplace pas une analyse par un avocat US en immigration. Les décisions consulaires comportent une part discrétionnaire. Aucune réponse USCIS n'est garantie par le simple respect d'un score.",
+      "labels": {
+        "prixAchat": "Prix d'achat hôtel",
+        "apportPersonnel": "Apport personnel",
+        "nbChambres": "Nombre de chambres",
+        "emploisCrees": "Emplois créés (ETP)",
+        "ebitdaPrev": "EBITDA prévisionnel"
+      }
     },
     "exploitation": {
       "configHotel": "Configuration de l'hôtel",
@@ -5193,7 +5220,19 @@
       "synthHorizon": "Synthèse horizon {n} ans",
       "annualPL": "P&L USALI annuel",
       "year1Detail": "Détail année 1 (USALI)",
-      "methodNote": "USALI 11e éd. — Uniform System of Accounts for the Lodging Industry (AHLEI). Ratios par catégorie issus de STR EU et HotStats 2024. Le P&L est indicatif — adaptation requise selon contrat de gestion (operator vs lease vs management contract)."
+      "methodNote": "USALI 11e éd. — Uniform System of Accounts for the Lodging Industry (AHLEI). Ratios par catégorie issus de STR EU et HotStats 2024. Le P&L est indicatif — adaptation requise selon contrat de gestion (operator vs lease vs management contract).",
+      "labels": {
+        "nbChambres": "Nombre de chambres",
+        "categorie": "Catégorie",
+        "occupancy": "Occupation (%)",
+        "adr": "ADR (€)",
+        "ratioFB": "F&B (% CA total)",
+        "ratioMice": "MICE (% CA total)",
+        "ratioOther": "Autres revenus (%)",
+        "staffRatio": "Charges personnel (%)",
+        "energyRatio": "Énergie (%)",
+        "otherOpex": "Autres OPEX (%)"
+      }
     },
     "renovation": {
       "building": "Bâtiment",
@@ -5204,7 +5243,26 @@
       "paybackVAN": "Payback & VAN 10 ans (actu. 4 %)",
       "energyImpact": "Impact énergétique",
       "perPostDetail": "Détail par poste",
-      "methodNote": "Klimabonus tertiaire — les taux d'aide affichés sont les moyennes observées par poste pour bâtiments tertiaires LU. Les barèmes exacts dépendent de l'exercice budgétaire (loi Klima-Pak) et du label de performance ciblé. Vérifier auprès de myenergy avant engagement."
+      "methodNote": "Klimabonus tertiaire — les taux d'aide affichés sont les moyennes observées par poste pour bâtiments tertiaires LU. Les barèmes exacts dépendent de l'exercice budgétaire (loi Klima-Pak) et du label de performance ciblé. Vérifier auprès de myenergy avant engagement.",
+      "labels": {
+        "surfaceChauffee": "Surface chauffée totale",
+        "nbChambres": "Nombre de chambres",
+        "consoActuelle": "Consommation actuelle",
+        "consoCible": "Consommation cible (optionnelle)",
+        "prixKwh": "Prix moyen kWh",
+        "isolation": "Isolation enveloppe (toiture, façade)",
+        "cvc": "CVC (chauffage / ventilation / clim)",
+        "ecs": "Eau chaude sanitaire (PAC, solaire)",
+        "led": "Éclairage LED + GTB",
+        "fenetres": "Menuiseries (triple vitrage)",
+        "adr": "ADR",
+        "occupation": "Occupation",
+        "gainRevpar": "Gain RevPAR via label éco",
+        "hintCpe": "Voir CPE / facture énergie",
+        "hintConsoAuto": "0 = calculée auto",
+        "hintGainLabel": "Green Key, EU Ecolabel = +1-3 % RevPAR observé",
+        "vanCumulee": "VAN cumulée 10 ans"
+      }
     },
     "revparCompset": {
       "yourHotel": "Votre hôtel",
@@ -5215,7 +5273,14 @@
       "diagnostic": "Diagnostic",
       "revparCompared": "RevPAR comparé",
       "missedRevenue": "Manque à gagner annuel",
-      "methodNote": "Méthode : les indices MPI / ARI / RGI = standard STR (Smith Travel Research) et HotStats — référence mondiale benchmark hôtelier. Indice 100 = fair share atteint, > 100 = sur-performance, < 100 = sous-performance."
+      "methodNote": "Méthode : les indices MPI / ARI / RGI = standard STR (Smith Travel Research) et HotStats — référence mondiale benchmark hôtelier. Indice 100 = fair share atteint, > 100 = sur-performance, < 100 = sous-performance.",
+      "labels": {
+        "nbChambres": "Nombre de chambres",
+        "occupancy": "Occupation (%)",
+        "adr": "ADR (€)",
+        "compsetOcc": "Occupation compset (%)",
+        "compsetAdr": "ADR compset (€)"
+      }
     }
   },
   "apiBanques": {
@@ -5437,5 +5502,47 @@
       "faqTitle": "Questions fréquentes",
       "relatedTitle": "Aller plus loin"
     }
+  },
+  "hotelGroupe": {
+    "title": "Dashboard Groupe hôtelier",
+    "subtitle": "Gestion multi-sites pour les organisations de type « Groupe hôtelier ».",
+    "linkSubtitle": "Chaque simulation (valorisation, DSCR, exploitation, rénovation, RevPAR, E-2) peut être rattachée à un hôtel persisté.",
+    "createGroup": "Créer un groupe hôtelier",
+    "noGroup": "Aucun groupe hôtelier",
+    "noGroupDesc": "Créez une organisation de type « Groupe hôtelier » depuis votre profil pour commencer à ajouter vos établissements.",
+    "group": "Groupe",
+    "establishments": "Établissements",
+    "totalRooms": "Chambres totales",
+    "capexCumul": "CAPEX cumulé",
+    "organisation": "Organisation",
+    "hotelGroup": "Groupe hôtelier",
+    "myHotels": "Mes hôtels",
+    "addHotel": "+ Ajouter un hôtel",
+    "cancel": "Annuler",
+    "hotelName": "Nom de l'hôtel",
+    "commune": "Commune / ville",
+    "nbRooms": "Nombre de chambres",
+    "createHotel": "Créer l'hôtel",
+    "deleteConfirm": "Supprimer cet hôtel ? Les périodes de performance associées seront également supprimées.",
+    "noHotelDesc": "Aucun hôtel dans ce groupe. Cliquez sur « + Ajouter un hôtel » pour commencer.",
+    "energyClass": "Classe énergie",
+    "yearBuilt": "Année constr.",
+    "acquisitionPrice": "Prix d'acquisition",
+    "login": "Connectez-vous pour accéder à votre dashboard hôtelier.",
+    "loginBtn": "Se connecter",
+    "hubLink": "← Hub hôtellerie"
+  },
+  "bailCommercialLabels": {
+    "loyerAnnuel": "Loyer annuel initial (hors charges)",
+    "anneeSignature": "Année de signature du bail",
+    "anneeIndexation": "Année de l'indexation calculée",
+    "duree": "Durée du bail",
+    "plafond": "Plafond d'indexation total (% vs loyer initial)",
+    "pasDePt": "Pas-de-porte (droit d'entrée)",
+    "depot": "Dépôt de garantie",
+    "charges": "Charges annuelles (provisions)",
+    "hintPlafond": "Usuel : 15-25 %. Au-delà, le locataire peut demander la révision judiciaire (art. 1757-4 Code civil).",
+    "hintPasDePt": "Somme versée en une fois à la signature, non récupérable.",
+    "hintDepot": "Usuel : 3 à 12 mois. Restitué en fin de bail (sauf dégradations)."
   }
 }

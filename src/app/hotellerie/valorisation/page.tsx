@@ -36,6 +36,7 @@ export default function ValorisationHotelPage() {
   const t = useTranslations("hotellerieToolPages");
   const tc = useTranslations("hotellerieCalc");
   const tcv = useTranslations("hotellerieCalc.valorisation");
+  const tl = useTranslations("hotellerieCalc.valorisation.labels");
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   const [nbChambres, setNbChambres] = useState(45);
@@ -110,21 +111,21 @@ export default function ValorisationHotelPage() {
               <h2 className="text-base font-semibold text-navy">{tcv("hotelChars")}</h2>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <InputField
-                  label="Nombre de chambres"
+                  label={tl("nbChambres")}
                   value={nbChambres}
                   onChange={(v) => setNbChambres(Number(v) || 0)}
                   min={1}
                   max={1000}
                 />
                 <InputField
-                  label="Catégorie"
+                  label={tl("categorie")}
                   type="select"
                   value={category}
                   onChange={onCategoryChange}
                   options={CATEGORIES}
                 />
                 <InputField
-                  label="ADR moyen"
+                  label={tl("adr")}
                   value={adr}
                   onChange={(v) => setAdr(Number(v) || 0)}
                   suffix="€/nuit"
@@ -133,7 +134,7 @@ export default function ValorisationHotelPage() {
                   max={2000}
                 />
                 <InputField
-                  label="Taux d'occupation"
+                  label={tl("occupancy")}
                   value={Math.round(occupancy * 100)}
                   onChange={(v) => setOccupancy(Math.max(1, Math.min(95, Number(v) || 0)) / 100)}
                   suffix="%"
@@ -170,35 +171,35 @@ export default function ValorisationHotelPage() {
               <p className="mt-1 text-xs text-muted">{tcv("operationalAssumptionsHint")}</p>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <InputField
-                  label="Charges personnel"
+                  label={tl("staffRatio")}
                   value={(staffRatio * 100).toFixed(1)}
                   onChange={(v) => setStaffRatio(Math.max(0, Math.min(60, Number(v) || 0)) / 100)}
                   suffix="% revenu"
                   className={!overrideRatios ? "opacity-60" : ""}
                 />
                 <InputField
-                  label="Charges énergie"
+                  label={tl("opexRatio")}
                   value={(energyRatio * 100).toFixed(1)}
                   onChange={(v) => setEnergyRatio(Math.max(0, Math.min(20, Number(v) || 0)) / 100)}
                   suffix="% revenu"
                   className={!overrideRatios ? "opacity-60" : ""}
                 />
                 <InputField
-                  label="Autres opex (admin/marketing/maintenance)"
+                  label={tl("opexRatio")}
                   value={(otherOpexRatio * 100).toFixed(1)}
                   onChange={(v) => setOtherOpexRatio(Math.max(0, Math.min(40, Number(v) || 0)) / 100)}
                   suffix="% revenu"
                   className={!overrideRatios ? "opacity-60" : ""}
                 />
                 <InputField
-                  label="Taux de capitalisation"
+                  label={tl("capRate")}
                   value={(capRate * 100).toFixed(2)}
                   onChange={(v) => setCapRate(Math.max(0.01, Math.min(0.20, (Number(v) || 0) / 100)))}
                   suffix="%"
                   className={!overrideRatios ? "opacity-60" : ""}
                 />
                 <InputField
-                  label="Prix par chambre (multiple)"
+                  label={tl("nbChambres")}
                   value={pricePerKey}
                   onChange={(v) => setPricePerKey(Math.max(10000, Number(v) || 0))}
                   suffix="€/chambre"

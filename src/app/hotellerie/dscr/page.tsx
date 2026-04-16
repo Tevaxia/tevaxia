@@ -30,6 +30,7 @@ export default function DscrHotelPage() {
   const t = useTranslations("hotellerieToolPages");
   const tc = useTranslations("hotellerieCalc");
   const tcd = useTranslations("hotellerieCalc.dscr");
+  const tl = useTranslations("hotellerieCalc.dscr.labels");
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   const [ebitdaStabilise, setEbitdaStabilise] = useState(450000);
@@ -125,7 +126,7 @@ export default function DscrHotelPage() {
                   hint="Taux nominal annuel"
                 />
                 <InputField
-                  label="Durée du prêt"
+                  label={tl("dureePret")}
                   value={dureeAns}
                   onChange={(v) => setDureeAns(Math.max(1, Math.min(40, Number(v) || 0)))}
                   suffix="ans"

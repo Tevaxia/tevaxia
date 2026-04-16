@@ -5157,7 +5157,18 @@
       "methodNote": "Zentralwäert = Mëttel (kapitaliséierten EBITDA-DCF, €/Zëmmer-Vergleicher). Cap Rate a Pro-Zëmmer-Benchmarks no Kategorie indexéiert. Referenzen: USALI 11. Editioun, STR EU, JLL Hotels & Hospitality 2024. Indikativ — déi finalt Bewäertung vun engem Hotelaktiv brauch eng Due-Diligence-Prüfung duerch en zertifizéierte Bewäerter.",
       "nextStepTitle": "Nächste Schrëtt: DSCR & Finanzéierung",
       "nextStepDesc": "Préift, ob den EBITDA de Schuldendéngscht deckt.",
-      "nextStepCta": "DSCR berechnen →"
+      "nextStepCta": "DSCR berechnen →",
+      "labels": {
+        "nbChambres": "Zuel Zëmmer",
+        "categorie": "Kategorie",
+        "occupancy": "Auslaaschtungsrat",
+        "adr": "ADR (Ëmsaz/beluechte Zëmmer)",
+        "ratioFB": "F&B-Undeel (% RevPAR)",
+        "ratioOther": "Aner Akommes (%)",
+        "staffRatio": "Personalkostenquote",
+        "opexRatio": "Aneren OPEX-Undeel",
+        "capRate": "EBITDA Cap Rate"
+      }
     },
     "dscr": {
       "financialData": "Finanzdaten",
@@ -5173,7 +5184,16 @@
       "methodNote": "DSCR-Referenz: Geschäftsbank LU/FR/BE → 1,25-1,35x; SBA 7(a) US (E-2) → 1,40x; institutionell Hotelfinanzéierung → 1,40-1,50x. De Belegungs-/ADR-Stresstest entsprécht der Praxis vu bankinternen Kreditcomitéen (-10 Pkt / -10 % Schock).",
       "ctaTitle": "E-2 Investisseursvisa?",
       "ctaDesc": "Préift d'Eligibilitéit vun Ärem Projet fir d'US E-2 Visa.",
-      "ctaCta": "E-2-Score berechnen →"
+      "ctaCta": "E-2-Score berechnen →",
+      "labels": {
+        "ebitda": "Jäerlechet EBITDA",
+        "valeurHotel": "Hotelwäert",
+        "montantPret": "Prêtsmontant",
+        "tauxInteret": "Zënssaz",
+        "dureePret": "Kreditdauer",
+        "ffePct": "FF&E-Reserv (% Ëmsaz)",
+        "occupancyStress": "Auslaaschtung Stress (Pkt.)"
+      }
     },
     "scoreE2": {
       "investment": "Investitioun",
@@ -5183,7 +5203,14 @@
       "subTestsTitle": "Detail vun den 5 USCIS-Ënnertests",
       "redFlagsTitle": "Risikopunkten",
       "summaryNumbers": "Resumé",
-      "warningText": "Dëse Score reproduzéiert d'USCIS-Krittären an déi konsularesch Rechtsprechung (FAM 9 9 FAM 402.9-6) awer ersetzt keng Analyse duerch en US-Migratiounsaffekot. Konsularesch Decisiounen sinn diskretionär. Kee USCIS-Resultat ass garantéiert duerch d'Erreeche vun engem Score eleng."
+      "warningText": "Dëse Score reproduzéiert d'USCIS-Krittären an déi konsularesch Rechtsprechung (FAM 9 9 FAM 402.9-6) awer ersetzt keng Analyse duerch en US-Migratiounsaffekot. Konsularesch Decisiounen sinn diskretionär. Kee USCIS-Resultat ass garantéiert duerch d'Erreeche vun engem Score eleng.",
+      "labels": {
+        "prixAchat": "Hotel-Kaafpräis",
+        "apportPersonnel": "Eegekapital",
+        "nbChambres": "Zuel Zëmmer",
+        "emploisCrees": "Geschafene Aarbechtsplazen (VZÄ)",
+        "ebitdaPrev": "Prognostizéiert EBITDA"
+      }
     },
     "exploitation": {
       "configHotel": "Hotelkonfiguratioun",
@@ -5193,7 +5220,19 @@
       "synthHorizon": "Resumé {n}-Joeres-Horizont",
       "annualPL": "Jährlech USALI-Bilanz",
       "year1Detail": "Detail Joer 1 (USALI)",
-      "methodNote": "USALI 11. Editioun — Uniform System of Accounts for the Lodging Industry (AHLEI). Kategorielle Quoten aus STR EU an HotStats 2024. D'Bilanz ass indikativ — Upassung no Vertragstyp (Operator vs Lease vs Management Contract) erfuerderlech."
+      "methodNote": "USALI 11. Editioun — Uniform System of Accounts for the Lodging Industry (AHLEI). Kategorielle Quoten aus STR EU an HotStats 2024. D'Bilanz ass indikativ — Upassung no Vertragstyp (Operator vs Lease vs Management Contract) erfuerderlech.",
+      "labels": {
+        "nbChambres": "Zuel Zëmmer",
+        "categorie": "Kategorie",
+        "occupancy": "Auslaaschtung (%)",
+        "adr": "ADR (€)",
+        "ratioFB": "F&B (% Gesamtëmsaz)",
+        "ratioMice": "MICE (% Gesamtëmsaz)",
+        "ratioOther": "Aner Akommes (%)",
+        "staffRatio": "Personalkosten (%)",
+        "energyRatio": "Energie (%)",
+        "otherOpex": "Aneren OPEX (%)"
+      }
     },
     "renovation": {
       "building": "Gebai",
@@ -5204,7 +5243,26 @@
       "paybackVAN": "Payback & 10-Joeres-NPV (4 % Diskont)",
       "energyImpact": "Energieeffekt",
       "perPostDetail": "Detail no Posten",
-      "methodNote": "Klimabonus Tertiair — déi ugewise Förderquoten sinn déi duerchschnëttlech beobachte Wäerter pro Posten fir LU-Tertiairsgebaier. Genau Sätz hänken vum Haushaltsjoer (Klima-Pak-Gesetz) a vum agezielten Leeschtungslabel of. Virum Engagement mat myenergy klären."
+      "methodNote": "Klimabonus Tertiair — déi ugewise Förderquoten sinn déi duerchschnëttlech beobachte Wäerter pro Posten fir LU-Tertiairsgebaier. Genau Sätz hänken vum Haushaltsjoer (Klima-Pak-Gesetz) a vum agezielten Leeschtungslabel of. Virum Engagement mat myenergy klären.",
+      "labels": {
+        "surfaceChauffee": "Gesamt behëtzte Fläch",
+        "nbChambres": "Zuel Zëmmer",
+        "consoActuelle": "Aktuellen Verbrauch",
+        "consoCible": "Zilverbrauch (optional)",
+        "prixKwh": "Duerchschn. kWh-Präis",
+        "isolation": "Gebaisolatioun (Daach, Fassad)",
+        "cvc": "HLK (Heizung / Lëftung / Klima)",
+        "ecs": "Waarmwaasser (Wärmepump, Solar)",
+        "led": "LED-Beliichtung + GLT",
+        "fenetres": "Fënsteren (Dreifachverglasung)",
+        "adr": "ADR",
+        "occupation": "Auslaaschtung",
+        "gainRevpar": "RevPAR-Gewënn duerch Öko-Label",
+        "hintCpe": "Kuckt EPB / Energierechnung",
+        "hintConsoAuto": "0 = automatesch berechent",
+        "hintGainLabel": "Green Key, EU Ecolabel = +1-3% RevPAR observéiert",
+        "vanCumulee": "Kumuléierte Kapitalwäert 10 Joer"
+      }
     },
     "revparCompset": {
       "yourHotel": "Äert Hotel",
@@ -5215,7 +5273,14 @@
       "diagnostic": "Diagnose",
       "revparCompared": "RevPAR-Verglach",
       "missedRevenue": "Jährlech entgaangenen Akommes",
-      "methodNote": "Method: MPI / ARI / RGI Indizen = STR (Smith Travel Research) an HotStats Standard — global Benchmark-Referenz Hotellerie. Index 100 = Fair Share, > 100 = Iwwerleeschtung, < 100 = Ënnerleeschtung."
+      "methodNote": "Method: MPI / ARI / RGI Indizen = STR (Smith Travel Research) an HotStats Standard — global Benchmark-Referenz Hotellerie. Index 100 = Fair Share, > 100 = Iwwerleeschtung, < 100 = Ënnerleeschtung.",
+      "labels": {
+        "nbChambres": "Zuel Zëmmer",
+        "occupancy": "Auslaaschtung (%)",
+        "adr": "ADR (€)",
+        "compsetOcc": "Compset-Auslaaschtung (%)",
+        "compsetAdr": "Compset-ADR (€)"
+      }
     }
   },
   "apiBanques": {
@@ -5437,5 +5502,47 @@
       "faqTitle": "Heefeg gestallte Froen",
       "relatedTitle": "Méi erausfannen"
     }
+  },
+  "hotelGroupe": {
+    "title": "Hotelgrupp Dashboard",
+    "subtitle": "Multi-Site Gestioun fir Hotelgruppen.",
+    "linkSubtitle": "All Simulatioun (Bewäertung, DSCR, Betrib, Renovéierung, RevPAR, E-2) kann engem gespäicherten Hotel zougeuernt ginn.",
+    "createGroup": "Hotelgrupp erstellen",
+    "noGroup": "Keng Hotelgrupp",
+    "noGroupDesc": "Erstellt eng Organisatioun vum Typ 'Hotelgrupp' an Ärem Profil, fir Hotels derbäizesetzen.",
+    "group": "Grupp",
+    "establishments": "Betriber",
+    "totalRooms": "Zëmmer gesamt",
+    "capexCumul": "Kumuléiert CAPEX",
+    "organisation": "Organisatioun",
+    "hotelGroup": "Hotelgrupp",
+    "myHotels": "Meng Hotelen",
+    "addHotel": "+ Hotel derbäisetzen",
+    "cancel": "Ofbriechen",
+    "hotelName": "Hotelnumm",
+    "commune": "Gemeng / Stad",
+    "nbRooms": "Zuel Zëmmer",
+    "createHotel": "Hotel erstellen",
+    "deleteConfirm": "Dëst Hotel läschen? Zougehéiereg Leistungsperioden ginn och geläscht.",
+    "noHotelDesc": "Keng Hotelen an dëser Grupp. Klickt op '+ Hotel derbäisetzen'.",
+    "energyClass": "Energieklass",
+    "yearBuilt": "Baujoer",
+    "acquisitionPrice": "Kaafpräis",
+    "login": "Mellt Iech un, fir op Äert Hotel-Dashboard zouzegräifen.",
+    "loginBtn": "Umellen",
+    "hubLink": "← Hotel-Hub"
+  },
+  "bailCommercialLabels": {
+    "loyerAnnuel": "Ufanksloyer jäerlech (ouni Käschten)",
+    "anneeSignature": "Joer vun der Mietvertragsënnerschrëft",
+    "anneeIndexation": "Berechent Indexéierungsjoer",
+    "duree": "Mietdauer",
+    "plafond": "Indexéierungsobergrenz gesamt (% vs Ufanksloyer)",
+    "pasDePt": "Ablöse (Antrëttsgebühr)",
+    "depot": "Kautioun",
+    "charges": "Jäerlech Niewekäschten (Virausbezuelung)",
+    "hintPlafond": "Üblech: 15-25 %. Doriwwer eraus kann de Locataire eng geriichtlech Iwwerpréiwung ufroen.",
+    "hintPasDePt": "Eemol-Bezuelung bei Ënnerschrëft, net zréckzéibar.",
+    "hintDepot": "Üblech: 3-12 Méint. Zréckbezuelt um Enn vum Bail (ausser bei Schied)."
   }
 }
