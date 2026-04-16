@@ -383,15 +383,15 @@ export default async function Home() {
               <span className="rounded-full border border-white/20 px-3 py-1">{t("tags.statec")}</span>
             </div>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href={`${lp}/estimation`}
+              <a
+                href="#profils"
                 className="inline-flex items-center gap-2 rounded-lg bg-gold px-6 py-3 text-sm font-semibold text-navy-dark shadow-sm transition-colors hover:bg-gold-light"
               >
                 {t("heroCta1")}
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
                 </svg>
-              </Link>
+              </a>
               <Link
                 href={`${lp}/plan-du-site`}
                 className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"

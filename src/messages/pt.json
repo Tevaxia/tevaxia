@@ -70,9 +70,9 @@
     "home": "Início"
   },
   "home": {
-    "heroTitle": "O imobiliário luxemburguês,",
-    "heroHighlight": "analisado com precisão",
-    "heroDescription": "Avaliação, simulação energética, dados de mercado e ferramentas de cálculo para o imobiliário no Luxemburgo. Particulares, avaliadores, bancos, gestores — tudo num único lugar.",
+    "heroTitle": "30+ ferramentas imobiliárias LU,",
+    "heroHighlight": "num só lugar",
+    "heroDescription": "Particular, investidor, promotor, agente, síndico, banco ou hoteleiro — escolha o seu perfil e aceda às ferramentas do seu ofício. Dados públicos, conformidade luxemburguesa, 5 línguas.",
     "missingTool": "Falta-lhe uma ferramenta?",
     "missingToolDescription": "tevaxia.lu está em construção ativa. Se necessita de uma calculadora específica, de uma funcionalidade para a sua prática profissional, ou se constata um erro nos nossos cálculos — informe-nos.",
     "upcomingModules": "Próximos módulos previstos",
@@ -262,8 +262,8 @@
       "sourcesLine4": "Relatórios de mercado escritórios, comércio, logística",
       "sourcesLine5": "Taxas hipotecárias e índices de construção"
     },
-    "heroCta1": "Estimar o meu imóvel",
-    "heroCta2": "Ver as 30+ ferramentas",
+    "heroCta1": "Encontrar as minhas ferramentas",
+    "heroCta2": "Explorar 30+ módulos",
     "trust": {
       "heading": "Fundações sólidas",
       "tegova": "TEGOVA EVS 2025",

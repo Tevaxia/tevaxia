@@ -70,9 +70,9 @@
     "home": "Haaptsäit"
   },
   "home": {
-    "heroTitle": "Lëtzebuerger Immobilien,",
-    "heroHighlight": "prezis analyséiert",
-    "heroDescription": "Bewäertung, Energiesimulatioun, Maartdaten a Berechnungstools fir Lëtzebuerger Immobilien. Proprietären, Gutachter, Banken, Verwalter — alles op enger Plaz.",
+    "heroTitle": "30+ LU Immobilien-Tools,",
+    "heroHighlight": "een Plaz",
+    "heroDescription": "Privatpersoun, Investisseur, Promoteur, Agent, Syndic, Bank oder Hotelier — wielt Äert Profil a kritt Zougang zu den Tools fir Äre Beruff. Ëffentlech Donnéeën, LU-konform, 5 Sproochen.",
     "missingTool": "Feelt Iech en Tool?",
     "missingToolDescription": "tevaxia.lu gëtt aktiv weiderentwéckelt. Wann Dir e spezifesche Rechner braucht, eng Funktioun fir Är berufflech Praxis, oder wann Dir e Feeler a sengen Berechnunge gesitt — sot eis Bescheed.",
     "upcomingModules": "Nächst geplangte Moduler",
@@ -262,8 +262,8 @@
       "sourcesLine4": "Maartberichter Büroën, Handel, Logistik",
       "sourcesLine5": "Hypothéikenzinsen a Baukostenindexen"
     },
-    "heroCta1": "Meng Immobilie bewäerten",
-    "heroCta2": "All 30+ Tools gesinn",
+    "heroCta1": "Meng Tools fannen",
+    "heroCta2": "30+ Moduler entdecken",
     "trust": {
       "heading": "Solid Grondlagen",
       "tegova": "TEGOVA EVS 2025",

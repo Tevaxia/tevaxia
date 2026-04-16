@@ -163,7 +163,7 @@ export default function OnboardingIntent() {
   }
 
   return (
-    <section className="py-12 sm:py-16">
+    <section id="profils" className="py-12 sm:py-16 scroll-mt-4">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-center text-xl font-bold text-navy sm:text-2xl">
           {t("heading")}

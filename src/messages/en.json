@@ -70,9 +70,9 @@
     "home": "Home"
   },
   "home": {
-    "heroTitle": "Luxembourg real estate,",
-    "heroHighlight": "analysed with precision",
-    "heroDescription": "Valuation, energy simulation, market data and calculation tools for Luxembourg real estate. Homeowners, valuers, banks, property managers — all in one place.",
+    "heroTitle": "30+ LU real estate tools,",
+    "heroHighlight": "one place",
+    "heroDescription": "Homeowner, investor, developer, agent, property manager, bank or hotelier — pick your profile and access the tools for your job. Public data, Luxembourg compliance, 5 languages.",
     "missingTool": "Missing a tool?",
     "missingToolDescription": "tevaxia.lu is under active development. If you need a specific calculator, a feature for your professional practice, or if you find an error in our calculations — let us know.",
     "upcomingModules": "Upcoming modules",
@@ -262,8 +262,8 @@
       "sourcesLine4": "Office, retail & logistics market reports",
       "sourcesLine5": "Mortgage rates and construction indices"
     },
-    "heroCta1": "Estimate my property",
-    "heroCta2": "See all 30+ tools",
+    "heroCta1": "Find my tools",
+    "heroCta2": "Explore 30+ modules",
     "trust": {
       "heading": "Solid foundations",
       "tegova": "TEGOVA EVS 2025",

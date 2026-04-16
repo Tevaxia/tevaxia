@@ -70,9 +70,9 @@
     "home": "Startseite"
   },
   "home": {
-    "heroTitle": "Luxemburger Immobilien,",
-    "heroHighlight": "präzise analysiert",
-    "heroDescription": "Bewertung, Energiesimulation, Marktdaten und Berechnungstools für Luxemburger Immobilien. Eigentümer, Gutachter, Banken, Verwalter — alles an einem Ort.",
+    "heroTitle": "30+ LU Immobilien-Tools,",
+    "heroHighlight": "ein Ort",
+    "heroDescription": "Privatperson, Investor, Bauträger, Makler, Hausverwalter, Bank oder Hotelier — wählen Sie Ihr Profil und greifen Sie auf die passenden Tools zu. Öffentliche Daten, LU-konform, 5 Sprachen.",
     "missingTool": "Fehlt Ihnen ein Tool?",
     "missingToolDescription": "tevaxia.lu befindet sich im aktiven Aufbau. Wenn Sie einen bestimmten Rechner, eine Funktion für Ihre berufliche Praxis benötigen oder einen Fehler in unseren Berechnungen feststellen — lassen Sie es uns wissen.",
     "upcomingModules": "Geplante Module",
@@ -262,8 +262,8 @@
       "sourcesLine4": "Marktberichte Büros, Einzelhandel, Logistik",
       "sourcesLine5": "Hypothekenzinsen und Baukostenindizes"
     },
-    "heroCta1": "Meine Immobilie bewerten",
-    "heroCta2": "Alle 30+ Tools ansehen",
+    "heroCta1": "Meine Tools finden",
+    "heroCta2": "30+ Module entdecken",
     "trust": {
       "heading": "Solide Grundlagen",
       "tegova": "TEGOVA EVS 2025",
