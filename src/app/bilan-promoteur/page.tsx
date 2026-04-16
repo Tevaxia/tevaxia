@@ -11,6 +11,7 @@ import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import SEOContent from "@/components/SEOContent";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
+import PdfExtractButton from "@/components/PdfExtractButton";
 
 export default function BilanPromoteur() {
   const t = useTranslations("bilanPromoteur");
@@ -253,6 +254,39 @@ export default function BilanPromoteur() {
           <p className="mt-2 text-muted">
             {t("subtitle")}
           </p>
+          <div className="mt-4">
+            <PdfExtractButton
+              schema="bilan_promoteur"
+              onExtracted={(d) => {
+                const set = <T,>(v: unknown, setter: (x: T) => void, coerce: (v: unknown) => T) => {
+                  if (v !== null && v !== undefined) setter(coerce(v));
+                };
+                const num = (v: unknown) => Number(v) || 0;
+                set(d.typeOperation, setTypeOperation, (v) => (["immeuble", "lotissement", "maisons"].includes(String(v)) ? (v as "immeuble" | "lotissement" | "maisons") : "immeuble"));
+                set(d.surfaceVendable, setSurfaceVendable, num);
+                set(d.prixVenteM2, setPrixVenteM2, num);
+                set(d.nbParkings, setNbParkings, num);
+                set(d.prixParking, setPrixParking, num);
+                set(d.surfaceTerrain, setSurfaceTerrain, num);
+                set(d.prixTerrainM2, setPrixTerrainM2, num);
+                set(d.coutTerrainConnu, setCoutTerrainConnu, Boolean);
+                set(d.coutConstructionM2, setCoutConstructionM2, num);
+                set(d.surfaceBrute, setSurfaceBrute, num);
+                set(d.voirie, setVoirie, num);
+                set(d.honorairesArchitecte, setHonorairesArchitecte, num);
+                set(d.honorairesBET, setHonorairesBET, num);
+                set(d.etudesAutres, setEtudesAutres, num);
+                set(d.fraisCommerciaux, setFraisCommerciaux, num);
+                set(d.fraisFinanciers, setFraisFinanciers, num);
+                set(d.assurances, setAssurances, num);
+                set(d.fraisGestion, setFraisGestion, num);
+                set(d.aleas, setAleas, num);
+                set(d.margePromoteur, setMargePromoteur, num);
+                set(d.tauxPreCommercialisation, setTauxPreCommercialisation, num);
+              }}
+              label="Pré-remplir depuis bilan PDF"
+            />
+          </div>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2">

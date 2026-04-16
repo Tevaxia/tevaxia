@@ -14,6 +14,7 @@ export interface ApiKeyRecord {
   key: string;
   tier: "free" | "pro" | "enterprise";
   source: "env" | "supabase";
+  userId?: string | null;
 }
 
 export interface AuthSuccess {
@@ -126,7 +127,7 @@ async function lookupSupabaseKey(plainKey: string): Promise<ApiKeyRecord | null>
   const hash = await hashKey(plainKey);
   const { data, error } = await client
     .from("api_keys")
-    .select("id, name, tier, active")
+    .select("id, name, tier, active, user_id")
     .eq("key_hash", hash)
     .eq("active", true)
     .maybeSingle();
@@ -137,6 +138,7 @@ async function lookupSupabaseKey(plainKey: string): Promise<ApiKeyRecord | null>
     key: plainKey,
     tier: data.tier as ApiKeyRecord["tier"],
     source: "supabase",
+    userId: (data as { user_id?: string }).user_id ?? null,
   };
 }
 

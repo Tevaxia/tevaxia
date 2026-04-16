@@ -94,6 +94,43 @@ curl https://www.tevaxia.lu/api/v1/estimation \\
           </p>
         </section>
 
+        <section className="rounded-xl border border-purple-200 bg-gradient-to-br from-purple-50 to-indigo-50 p-6 mb-6">
+          <h2 className="text-base font-semibold text-purple-900">Endpoints IA — analyse &amp; chat</h2>
+          <p className="mt-2 text-sm text-purple-900">
+            Deux endpoints IA accessibles avec votre clé API tevaxia (rate-limit tier standard) :
+          </p>
+          <pre className="mt-3 rounded-lg bg-slate-950 text-slate-100 p-4 text-xs overflow-x-auto">
+{`# POST /api/v1/ai/analyze — analyse structurée d'un résultat
+curl https://www.tevaxia.lu/api/v1/ai/analyze \\
+  -H "X-API-Key: tvx_xxxxxxxxxxxx" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "context": "Commune: Luxembourg\\nSurface: 90m²\\nEstimation: 950000 EUR",
+    "prompt": "Commente cette estimation par rapport au marché."
+  }'
+
+# → { "text": "...", "model": "llama-3.3-70b-versatile", "provider": "groq", "remaining": -1 }
+
+
+# POST /api/v1/ai/chat — conversation multi-tour
+curl https://www.tevaxia.lu/api/v1/ai/chat \\
+  -H "X-API-Key: tvx_xxxxxxxxxxxx" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "messages": [
+      { "role": "user", "content": "Comment est calculée la TVA 3% au LU ?" }
+    ]
+  }'
+
+# → { "text": "...", "model": "...", "provider": "...", "remaining": -1 }`}
+          </pre>
+          <p className="mt-3 text-xs text-purple-900">
+            Le serveur utilise par défaut sa clé Groq (Llama 3.3 70B). Si vous avez configuré une clé BYOK
+            OpenAI/Anthropic dans votre profil, elle sera utilisée automatiquement.
+            Limite : rate-limit tier de votre clé API (Free : 10/min, 200/jour).
+          </p>
+        </section>
+
         <section className="rounded-xl border border-card-border bg-card p-6">
           <h2 className="text-base font-semibold text-navy">Exemple JavaScript (batch)</h2>
           <pre className="mt-3 rounded-lg bg-slate-950 text-slate-100 p-4 text-xs overflow-x-auto">

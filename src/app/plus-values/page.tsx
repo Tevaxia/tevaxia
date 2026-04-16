@@ -13,6 +13,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import SEOContent from "@/components/SEOContent";
 import { generatePlusValuesPdfBlob, PdfButton } from "@/components/ToolsPdf";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
+import PdfExtractButton from "@/components/PdfExtractButton";
 
 export default function PlusValues() {
   const t = useTranslations("plusValues");
@@ -95,6 +96,26 @@ export default function PlusValues() {
           <p className="mt-2 text-muted">
             {t("subtitle")}
           </p>
+          <div className="mt-4">
+            <PdfExtractButton
+              schema="plus_values"
+              onExtracted={(d) => {
+                const num = (v: unknown) => Number(v) || 0;
+                if (typeof d.modeAcquisition === "string" && ["achat", "succession", "donation"].includes(d.modeAcquisition)) {
+                  setModeAcquisition(d.modeAcquisition as "achat" | "succession" | "donation");
+                }
+                if (d.prixAcquisition != null) setPrixAcquisition(num(d.prixAcquisition));
+                if (d.anneeAcquisition != null) setAnneeAcquisition(num(d.anneeAcquisition));
+                if (d.prixCession != null) setPrixCession(num(d.prixCession));
+                if (d.anneeCession != null) setAnneeCession(num(d.anneeCession));
+                if (d.fraisAcquisition != null) setFraisAcquisition(num(d.fraisAcquisition));
+                if (d.travauxDeductibles != null) setTravauxDeductibles(num(d.travauxDeductibles));
+                if (d.estResidencePrincipale != null) setEstResidencePrincipale(Boolean(d.estResidencePrincipale));
+                if (d.estCouple != null) setEstCouple(Boolean(d.estCouple));
+              }}
+              label="Pré-remplir depuis acte/déclaration"
+            />
+          </div>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2">

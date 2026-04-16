@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { authenticateApiRequestAsync, logApiCall, type ApiKeyRecord } from "@/lib/api-auth";
 
 // ============================================================
 // AI CHAT — Assistant conversationnel multi-tour
@@ -40,8 +41,23 @@ function getServiceClient() {
   return createClient(url, serviceKey, { auth: { persistSession: false } });
 }
 
-async function resolveUserId(request: Request): Promise<string | null> {
+interface AuthContext {
+  userId: string;
+  source: "jwt" | "apikey";
+  keyRecord?: ApiKeyRecord;
+}
+
+async function resolveAuth(request: Request): Promise<AuthContext | null> {
   const authHeader = request.headers.get("authorization");
+  const apiKeyHeader = request.headers.get("x-api-key");
+
+  if (apiKeyHeader || (authHeader && /^tvx_/i.test(authHeader.replace(/^Bearer\s+/i, "")))) {
+    const result = await authenticateApiRequestAsync(request);
+    if (!result.ok) return null;
+    if (!result.keyRecord.userId) return null;
+    return { userId: result.keyRecord.userId, source: "apikey", keyRecord: result.keyRecord };
+  }
+
   if (!authHeader) return null;
   const token = authHeader.replace(/^Bearer\s+/i, "");
   if (!token) return null;
@@ -55,7 +71,8 @@ async function resolveUserId(request: Request): Promise<string | null> {
     global: { headers: { Authorization: `Bearer ${token}` } },
   });
   const { data: { user } } = await supabase.auth.getUser();
-  return user?.id ?? null;
+  if (!user?.id) return null;
+  return { userId: user.id, source: "jwt" };
 }
 
 interface AiSettings {
@@ -162,14 +179,16 @@ export async function OPTIONS() {
 }
 
 export async function POST(request: Request) {
+  const t0 = Date.now();
   try {
-    const userId = await resolveUserId(request);
-    if (!userId) {
+    const auth = await resolveAuth(request);
+    if (!auth) {
       return NextResponse.json(
-        { error: "Authentification requise." },
+        { error: "Authentification requise (JWT Supabase ou X-API-Key)." },
         { status: 401, headers: CORS_HEADERS },
       );
     }
+    const userId = auth.userId;
 
     let body: { messages?: unknown };
     try {
@@ -222,7 +241,7 @@ export async function POST(request: Request) {
       }
     }
 
-    if (!hasByok) {
+    if (!hasByok && auth.source === "jwt") {
       const remaining = getRemainingQuota(settings);
       if (remaining <= 0) {
         return NextResponse.json(
@@ -246,13 +265,19 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: `Erreur du fournisseur IA : ${message}` }, { status: 502, headers: CORS_HEADERS });
     }
 
-    if (!hasByok) {
+    if (!hasByok && auth.source === "jwt") {
       await incrementUsage(userId, settings);
     }
 
-    const remaining = hasByok ? -1 : getRemainingQuota(settings) - 1;
+    const remaining = hasByok || auth.source === "apikey"
+      ? -1
+      : getRemainingQuota(settings) - 1;
 
-    return NextResponse.json({ text, model, provider, remaining }, { status: 200, headers: CORS_HEADERS });
+    const response = NextResponse.json({ text, model, provider, remaining }, { status: 200, headers: CORS_HEADERS });
+    if (auth.keyRecord) {
+      await logApiCall(auth.keyRecord, "/api/v1/ai/chat", 200, Date.now() - t0);
+    }
+    return response;
   } catch (err) {
     console.error("[AI Chat] Unexpected error:", err);
     return NextResponse.json({ error: "Erreur interne du serveur" }, { status: 500, headers: CORS_HEADERS });

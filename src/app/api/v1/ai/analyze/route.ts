@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { authenticateApiRequestAsync, logApiCall, type ApiKeyRecord } from "@/lib/api-auth";
 
 // ============================================================
 // AI ANALYZE — Commentaire professionnel via LLM
@@ -30,11 +31,30 @@ function getServiceClient() {
   return createClient(url, serviceKey, { auth: { persistSession: false } });
 }
 
-/** Extract user id from Supabase JWT or API key bearer token. */
-async function resolveUserId(request: Request): Promise<string | null> {
-  const authHeader = request.headers.get("authorization");
-  if (!authHeader) return null;
+interface AuthContext {
+  userId: string;
+  source: "jwt" | "apikey";
+  keyRecord?: ApiKeyRecord;
+}
 
+/**
+ * Resolve auth from either a Supabase JWT (interactive user) or an X-API-Key
+ * / Bearer API key (B2B). API keys carry their own tier rate limit enforced
+ * via authenticateApiRequestAsync, so JWT users still fall through the
+ * per-day AI quota while API-key users are gated by tier limits.
+ */
+async function resolveAuth(request: Request): Promise<AuthContext | null> {
+  const authHeader = request.headers.get("authorization");
+  const apiKeyHeader = request.headers.get("x-api-key");
+
+  if (apiKeyHeader || (authHeader && /^tvx_/i.test(authHeader.replace(/^Bearer\s+/i, "")))) {
+    const result = await authenticateApiRequestAsync(request);
+    if (!result.ok) return null;
+    if (!result.keyRecord.userId) return null;
+    return { userId: result.keyRecord.userId, source: "apikey", keyRecord: result.keyRecord };
+  }
+
+  if (!authHeader) return null;
   const token = authHeader.replace(/^Bearer\s+/i, "");
   if (!token) return null;
 
@@ -42,14 +62,14 @@ async function resolveUserId(request: Request): Promise<string | null> {
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !anonKey) return null;
 
-  // Try to validate as a Supabase JWT
   const { createClient: createServerClient } = await import("@supabase/supabase-js");
   const supabase = createServerClient(url, anonKey, {
     auth: { persistSession: false },
     global: { headers: { Authorization: `Bearer ${token}` } },
   });
   const { data: { user } } = await supabase.auth.getUser();
-  return user?.id ?? null;
+  if (!user?.id) return null;
+  return { userId: user.id, source: "jwt" };
 }
 
 interface AiSettings {
@@ -175,15 +195,17 @@ export async function OPTIONS() {
 }
 
 export async function POST(request: Request) {
+  const t0 = Date.now();
   try {
     // ── Auth ──
-    const userId = await resolveUserId(request);
-    if (!userId) {
+    const auth = await resolveAuth(request);
+    if (!auth) {
       return NextResponse.json(
-        { error: "Authentification requise. Connectez-vous ou utilisez un Bearer token." },
+        { error: "Authentification requise. JWT Supabase OU X-API-Key (voir /api-docs)." },
         { status: 401, headers: CORS_HEADERS },
       );
     }
+    const userId = auth.userId;
 
     // ── Parse body ──
     let body: { context?: string; prompt?: string; provider?: string; model?: string };
@@ -227,8 +249,8 @@ export async function POST(request: Request) {
       }
     }
 
-    // ── Rate limit (free tier only) ──
-    if (!hasByok) {
+    // ── Rate limit (JWT free tier only — API keys already rate-limited by tier) ──
+    if (!hasByok && auth.source === "jwt") {
       const remaining = getRemainingQuota(settings);
       if (remaining <= 0) {
         return NextResponse.json(
@@ -266,17 +288,23 @@ export async function POST(request: Request) {
       );
     }
 
-    // ── Increment usage (free tier) ──
-    if (!hasByok) {
+    // ── Increment usage (JWT free tier) ──
+    if (!hasByok && auth.source === "jwt") {
       await incrementUsage(userId, settings);
     }
 
-    const remaining = hasByok ? -1 : getRemainingQuota(settings) - 1;
+    const remaining = hasByok || auth.source === "apikey"
+      ? -1
+      : getRemainingQuota(settings) - 1;
 
-    return NextResponse.json(
+    const response = NextResponse.json(
       { text, model, provider, remaining },
       { status: 200, headers: CORS_HEADERS },
     );
+    if (auth.keyRecord) {
+      await logApiCall(auth.keyRecord, "/api/v1/ai/analyze", 200, Date.now() - t0);
+    }
+    return response;
   } catch (err) {
     console.error("[AI Analyze] Unexpected error:", err);
     return NextResponse.json(
