@@ -153,6 +153,120 @@ paths:
           description: PDF binaire (application/pdf)
         "401":
           description: Non autorisé
+  /api/v1/ai/analyze:
+    post:
+      tags: [AI]
+      summary: Analyse IA d'un résultat (commentaire expert)
+      description: |
+        Génère un commentaire professionnel par LLM (Cerebras Llama 3.3
+        par défaut, ou BYOK OpenAI/Anthropic) à partir d'un contexte
+        structuré (inputs + résultats d'un calcul) et d'un prompt métier.
+        Rate-limit : 5/jour gratuit pour JWT, tier clé API pour X-API-Key.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [context, prompt]
+              properties:
+                context:
+                  type: string
+                  description: Inputs + résultats formatés (plain text multiligne)
+                prompt:
+                  type: string
+                  description: Consigne métier pour le LLM
+      responses:
+        "200":
+          description: Analyse IA générée
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  text: { type: string }
+                  model: { type: string }
+                  provider: { type: string, enum: [cerebras, groq, openai, anthropic] }
+                  remaining: { type: integer, description: "-1 si illimité" }
+        "401": { description: Auth requise }
+        "429": { description: Quota quotidien atteint }
+        "502": { description: Erreur fournisseur IA }
+  /api/v1/ai/chat:
+    post:
+      tags: [AI]
+      summary: Conversation multi-tour avec l'assistant immobilier LU
+      description: |
+        Endpoint conversationnel spécialisé immobilier Luxembourg
+        (fiscalité LIR, EVS/TEGOVA, VEFA, copropriété, hôtellerie, KYC).
+        Accepte jusqu'à 20 messages par requête.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [messages]
+              properties:
+                messages:
+                  type: array
+                  maxItems: 20
+                  items:
+                    type: object
+                    required: [role, content]
+                    properties:
+                      role: { type: string, enum: [user, assistant] }
+                      content: { type: string, maxLength: 4000 }
+      responses:
+        "200":
+          description: Réponse de l'assistant
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  text: { type: string }
+                  model: { type: string }
+                  provider: { type: string }
+                  remaining: { type: integer }
+  /api/v1/ai/extract:
+    post:
+      tags: [AI]
+      summary: Extraction structurée depuis PDF/image (BYOK vision)
+      description: |
+        Extraction vision (OCR intelligent) depuis un document (PDF ou
+        image PNG/JPEG) vers un JSON structuré. 4 schémas disponibles :
+        bilan_promoteur, plus_values, dpe, facture_immo.
+        **Nécessite une clé BYOK Anthropic (PDF) ou OpenAI (images)** —
+        les providers gratuits Cerebras/Groq ne supportent pas la vision.
+        Limite 8 MB par fichier.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [schema, fileBase64, mediaType]
+              properties:
+                schema:
+                  type: string
+                  enum: [bilan_promoteur, plus_values, dpe, facture_immo]
+                fileBase64: { type: string, description: "Fichier encodé base64 (sans préfixe data:)" }
+                mediaType: { type: string, enum: ["application/pdf", "image/png", "image/jpeg"] }
+      responses:
+        "200":
+          description: Données extraites
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { type: object, description: "Objet JSON structuré selon le schéma demandé" }
+                  schema: { type: string }
+                  provider: { type: string, enum: [openai, anthropic] }
+                  model: { type: string }
+        "400": { description: Schéma inconnu ou mismatch provider/media }
+        "402": { description: "Clé BYOK vision requise" }
+        "413": { description: "Fichier > 8 MB" }
 components:
   securitySchemes:
     ApiKeyHeader:

@@ -45,6 +45,12 @@ export default function GestionLocativeLanding() {
               🏦 Réconciliation bancaire
             </Link>
             <Link
+              href={`${lp}/gestion-locative/relances`}
+              className="rounded-lg bg-rose-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-rose-600"
+            >
+              📬 Relances impayés
+            </Link>
+            <Link
               href={`${lp}/calculateur-loyer`}
               className="rounded-lg border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/20 backdrop-blur-sm"
             >

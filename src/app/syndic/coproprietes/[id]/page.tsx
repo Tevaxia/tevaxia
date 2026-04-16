@@ -268,6 +268,23 @@ export default function CoownershipDetailPage() {
             </svg>
             Messagerie
           </Link>
+          <button onClick={async () => {
+            const { createPortalToken } = await import("@/lib/coownership-portal");
+            try {
+              const tok = await createPortalToken({ coownership_id: coown.id, expires_in_days: 365 });
+              const url = `${window.location.origin}/conseil-syndical/${tok.token}`;
+              await navigator.clipboard.writeText(url);
+              alert(`Lien dashboard conseil syndical copié ✓\n\n${url}`);
+            } catch (err) {
+              alert("Erreur : " + (err instanceof Error ? err.message : "inconnue"));
+            }
+          }}
+            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:from-purple-700 hover:to-indigo-700">
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
+            </svg>
+            Dashboard conseil
+          </button>
         </div>
 
         {/* Units list */}
