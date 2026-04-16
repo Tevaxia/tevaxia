@@ -12,6 +12,7 @@ import AuthProvider from "@/components/AuthProvider";
 import PostHogProvider from "@/components/PostHogProvider";
 import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
 import { OrganizationJsonLd, WebSiteJsonLd, PersonJsonLd } from "@/components/JsonLd";
+import AiChatWidget from "@/components/AiChatWidget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -128,6 +129,7 @@ export default async function RootLayout({
               <main className="flex-1">{children}</main>
               <Footer />
               <CookieBanner />
+              <AiChatWidget />
             </PostHogProvider>
           </AuthProvider>
         </NextIntlClientProvider>

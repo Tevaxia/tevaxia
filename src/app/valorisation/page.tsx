@@ -1440,6 +1440,28 @@ function TabReconciliation({
             ].join("\n")}
             prompt="Rédige le commentaire de réconciliation pour un rapport EVS 2025 (TEGOVA) au Luxembourg. Structure attendue : (1) justification professionnelle des pondérations choisies entre méthodes (approche comparative, capitalisation, DCF), en cohérence avec le type d'actif et la disponibilité des données marché ; (2) analyse de l'écart entre méthodes et interprétation (convergence = fiabilité, divergence > 15% = signal d'attention) ; (3) commentaire sur la fourchette haut-bas et la sensibilité ; (4) conclusion motivée sur la valeur de marché retenue. Ton neutre, professionnel, référencé EVS 2025 / Charte TEGOVA 5e édition."
           />
+
+          <AiAnalysisCard
+            context={[
+              `CHALLENGER EVS — audit critique avant export du rapport`,
+              `Type actif: ${assetType} (${evsInfo.label})`,
+              `Commune: ${selectedCommune?.commune ?? "NON RENSEIGNÉE"}`,
+              `Surface: ${surfaceBien} m²`,
+              "",
+              `Méthodes retenues:`,
+              `  - Comparaison: ${valeurComparaison ? formatEUR(valeurComparaison) : "ABSENTE"}${valeurComparaison ? ` — poids ${poidsComp}% (${valeurComparaison && surfaceBien > 0 ? formatEUR(valeurComparaison / surfaceBien) : "—"}/m²)` : ""}`,
+              `  - Capitalisation: ${valeurCapitalisation ? formatEUR(valeurCapitalisation) : "ABSENTE"}${valeurCapitalisation ? ` — poids ${poidsCap}%` : ""}`,
+              `  - DCF: ${valeurDCF ? formatEUR(valeurDCF) : "ABSENTE"}${valeurDCF ? ` — poids ${poidsDCF}%` : ""}`,
+              "",
+              `Somme des pondérations: ${poidsComp + poidsCap + poidsDCF}%${poidsComp + poidsCap + poidsDCF !== 100 ? " (NON CONFORME — doit être 100%)" : ""}`,
+              `Écart max entre méthodes: ${resultBase.ecartMaxPct.toFixed(1)}%${resultBase.ecartMaxPct > 20 ? " (> 20% — seuil d'alerte EVS)" : ""}`,
+              `Valeur réconciliée: ${formatEUR(resultBase.valeurReconciliee)}`,
+              selectedCommune?.prixM2Existant
+                ? `Prix communal référence: ${formatEUR(selectedCommune.prixM2Existant)}/m² (écart vs prix/m² retenu: ${surfaceBien > 0 && resultBase.valeurReconciliee > 0 ? `${(((resultBase.valeurReconciliee / surfaceBien) / selectedCommune.prixM2Existant - 1) * 100).toFixed(1)}%` : "—"})`
+                : "Pas de référence prix communal disponible",
+            ].join("\n")}
+            prompt="Agis comme un AUDITEUR CRITIQUE / CHALLENGER d'un rapport d'évaluation EVS 2025 TEGOVA. Ne complimente pas, cherche les failles. Livre une checklist priorisée : (1) DONNÉES MANQUANTES bloquantes pour conformité (commune, surface, au moins une méthode, pondérations totales = 100%) ; (2) INCOHÉRENCES internes (écart méthodes > 20%, écart vs marché local > ±30%, pondérations bizarres pour le type d'actif) ; (3) LACUNES MÉTHODOLOGIQUES (méthode inadaptée au type de valeur EVS visé, comparables non justifiés, taux de capitalisation non motivé) ; (4) RISQUES DE NON-CONFORMITÉ Charte TEGOVA / IVS (hypothèses non documentées, incertitude non quantifiée, indépendance non déclarée) ; (5) AMÉLIORATIONS prioritaires avant signature. Concis, direct, liste actionnable. Préfixe chaque ligne par [BLOQUANT], [MAJEUR] ou [MINEUR]."
+          />
         </div>
       </div>
 
