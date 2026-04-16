@@ -2972,7 +2972,7 @@
   },
   "pricing": {
     "title": "Precos",
-    "subtitle": "22 ferramentas imobiliarias + 7 simuladores de energia. Resultados instantaneos, exportacao PDF, relatorio EVS 2025.",
+    "subtitle": "30+ ferramentas imobiliárias + 8 simuladores energia + 3 verticais (sindico, hotelaria, gestão locativa). Resultados instantâneos, export PDF, relatórios conformes.",
     "contact": "Questoes ou sugestoes?",
     "free": {
       "name": "Gratuito",
@@ -3013,7 +3013,7 @@
     "pro": {
       "name": "Pro",
       "price": "49 EUR/mes",
-      "priceNote": "Brevemente disponivel",
+      "priceNote": "Grátis para early adopters — será 29 €/mês",
       "description": "Para profissionais do imobiliario",
       "cta": "Contactar-nos",
       "badge": "Brevemente",
@@ -3027,7 +3027,7 @@
       "f7": "Avaliacao EVS ilimitada com cenarios",
       "f8": "Suporte prioritario por email",
       "f9": "Acesso antecipado a novas funcionalidades",
-      "priceStriked": "49 €/mês",
+      "priceStriked": "29 €/mês",
       "f10": "Suporte por email — contact@tevaxia.lu"
     },
     "faq": {

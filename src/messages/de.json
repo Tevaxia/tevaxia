@@ -2972,7 +2972,7 @@
   },
   "pricing": {
     "title": "Preise",
-    "subtitle": "22 Immobilientools + 7 Energiesimulatoren. Sofortergebnisse, PDF-Export, EVS-2025-Bericht.",
+    "subtitle": "30+ Immobilien-Tools + 8 Energiesimulatoren + 3 Branchenvertikale (Hausverwaltung, Hotellerie, Mietverwaltung). Sofortige Ergebnisse, PDF-Export, konforme Berichte.",
     "contact": "Fragen oder Anregungen?",
     "free": {
       "name": "Kostenlos",
@@ -3013,7 +3013,7 @@
     "pro": {
       "name": "Pro",
       "price": "49 €/Monat",
-      "priceNote": "Demnächst verfügbar",
+      "priceNote": "Kostenlos für Early Adopters — wird 29 €/Monat",
       "description": "Für Immobilienprofis",
       "cta": "Kontaktieren Sie uns",
       "badge": "Bald",
@@ -3027,7 +3027,7 @@
       "f7": "Unbegrenzte EVS-Bewertung mit Szenarien",
       "f8": "Priorisierter E-Mail-Support",
       "f9": "Frühzeitiger Zugang zu neuen Funktionen",
-      "priceStriked": "49 €/Monat",
+      "priceStriked": "29 €/Monat",
       "f10": "E-Mail-Support — contact@tevaxia.lu"
     },
     "faq": {
