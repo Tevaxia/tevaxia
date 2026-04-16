@@ -12,6 +12,7 @@ import ToggleField from "@/components/ToggleField";
 import ConfidenceGauge from "@/components/ConfidenceGauge";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SEOContent from "@/components/SEOContent";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 
 // ============================================================
 // TYPE LABELS — maps SavedValuation.type to a human-readable label
@@ -812,6 +813,31 @@ export default function Comparer() {
         )}
 
         {tab === "saved" && <SavedComparator t={t} />}
+
+        {resultA && resultB && comparison && (
+          <div className="mt-6">
+            <AiAnalysisCard
+              context={[
+                `— Bien A —`,
+                `Commune: ${bienA.selectedResult?.commune.commune ?? "—"}${bienA.selectedResult?.quartier ? ` (${bienA.selectedResult.quartier.nom})` : ""}`,
+                `${bienA.surface} m², ${bienA.nbChambres} ch., étage ${bienA.etage}, état ${bienA.etat}, énergie ${bienA.classeEnergie}${bienA.estNeuf ? ", neuf" : ""}${bienA.parking ? ", parking" : ""}`,
+                `Estimation centrale: ${formatEUR(resultA.estimationCentrale)} (${formatEUR(resultA.prixM2Ajuste)}/m²)`,
+                `Confiance: ${resultA.confiance}`,
+                "",
+                `— Bien B —`,
+                `Commune: ${bienB.selectedResult?.commune.commune ?? "—"}${bienB.selectedResult?.quartier ? ` (${bienB.selectedResult.quartier.nom})` : ""}`,
+                `${bienB.surface} m², ${bienB.nbChambres} ch., étage ${bienB.etage}, état ${bienB.etat}, énergie ${bienB.classeEnergie}${bienB.estNeuf ? ", neuf" : ""}${bienB.parking ? ", parking" : ""}`,
+                `Estimation centrale: ${formatEUR(resultB.estimationCentrale)} (${formatEUR(resultB.prixM2Ajuste)}/m²)`,
+                `Confiance: ${resultB.confiance}`,
+                "",
+                `— Comparaison —`,
+                `Écart prix total: ${comparison.diffPrix > 0 ? "+" : ""}${formatEUR(comparison.diffPrix)} (${comparison.diffPrixPct > 0 ? "+" : ""}${comparison.diffPrixPct.toFixed(1)}%)`,
+                `Écart prix/m²: ${comparison.diffPrixM2 > 0 ? "+" : ""}${formatEUR(comparison.diffPrixM2)}`,
+              ].join("\n")}
+              prompt="Arbitre entre ces deux biens immobiliers luxembourgeois. Livre : (1) quel bien offre le meilleur rapport qualité/prix objectivement, (2) critères qualitatifs clés à pondérer (localisation, état, énergie, potentiel), (3) marge de négociation réaliste sur chacun vs prix de marché commune, (4) recommandation finale selon le profil (résidence principale vs investissement locatif vs revente court terme). Sois direct et argumenté."
+            />
+          </div>
+        )}
 
         {/* Disclaimer */}
         <p className="mt-8 text-xs text-muted text-center leading-relaxed max-w-2xl mx-auto">

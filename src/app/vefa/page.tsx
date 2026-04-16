@@ -7,6 +7,7 @@ import ToggleField from "@/components/ToggleField";
 import ResultPanel from "@/components/ResultPanel";
 import { calculerEmolumentsNotaire, formatEUR, formatPct } from "@/lib/calculations";
 import SEOContent from "@/components/SEOContent";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 
 // ── Luxembourg VEFA milestones ──────────────────────────────
 interface MilestoneDef {
@@ -613,6 +614,30 @@ export default function VefaCalculator() {
                   large: true,
                 },
               ]}
+            />
+
+            <AiAnalysisCard
+              context={[
+                `Acquisition VEFA au Luxembourg`,
+                `Prix total: ${formatEUR(prixTotal)} (terrain ${formatEUR(partTerrain)} + construction ${formatEUR(partConstruction)})`,
+                `Résidence principale: ${residencePrincipale ? "oui" : "non"} — ${nbAcquereurs} acquéreur(s)`,
+                `Montant hypothèque: ${formatEUR(montantHypotheque)} à ${tauxHypotheque}%`,
+                `Mois début chantier: ${moisDebut}`,
+                "",
+                `Répartition appels de fonds: ${DEFAULT_MILESTONES.map((m, i) => `${t(m.labelKey)} ${milestonePcts[i]}%`).join(" / ")}`,
+                `Total appels: ${totalPct}% ${pctValid ? "(conforme)" : "(NON CONFORME — à revoir)"}`,
+                "",
+                `Droits d'enregistrement bruts (terrain): ${formatEUR(calc.droitsBruts)}`,
+                `Bëllegen Akt appliqué: ${formatEUR(calc.bellegenAkt)}`,
+                `Droits nets: ${formatEUR(calc.droitsNets)}`,
+                `TVA construction: ${formatEUR(calc.tvaMontant)} (taux effectif ${formatPct(calc.tauxEffectif)})`,
+                `Faveur TVA 3% appliquée: ${formatEUR(calc.faveurFiscale)}`,
+                `Émoluments notaire: ${formatEUR(calc.emolumentsNotaire)}${montantHypotheque > 0 ? ` + frais hypothèque ${formatEUR(calc.fraisHypotheque)}` : ""}`,
+                `Intérêts intercalaires: ${formatEUR(calc.totalIntercalaire)}`,
+                `Total frais: ${formatEUR(calc.totalFrais + calc.totalIntercalaire)} (${formatPct(prixTotal > 0 ? (calc.totalFrais + calc.totalIntercalaire) / prixTotal : 0)})`,
+                `Coût total acquisition: ${formatEUR(calc.coutTotal + calc.totalIntercalaire)}`,
+              ].join("\n")}
+              prompt="Analyse ce contrat VEFA (Vente en l'État Futur d'Achèvement) au Luxembourg pour l'acquéreur. Livre : (1) décodage pédagogique de la répartition des appels de fonds par tranche — est-elle équilibrée, y a-t-il des risques de sur-paiement précoce vs avancement réel ? (2) garanties obligatoires à vérifier (garantie d'achèvement extrinsèque, assurance dommages-ouvrage, décennale, parfait achèvement), (3) clauses contractuelles sensibles à négocier (délais de livraison + pénalités de retard, modifications, échelles de pénalités, révision de prix), (4) optimisation fiscale vérifiée (TVA 3% appliquée correctement, plafond 50k€, Bëllegen Akt), (5) red flags à signaler avant signature. Concret et référencé loi VEFA LU."
             />
 
             {/* Progress bar visualization */}

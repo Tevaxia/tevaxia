@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import SEOContent from "@/components/SEOContent";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 import { computeE2Score } from "@/lib/hotellerie/e2-score";
 
 function formatEUR(n: number): string {
@@ -205,6 +206,31 @@ export default function ScoreE2Page() {
                     </ul>
                   </div>
                 )}
+
+                <AiAnalysisCard
+                  context={[
+                    `Investisseur E-2 — dossier visa pour achat hôtel au Luxembourg`,
+                    `Capital investi (personnel): ${formatEUR(capitalInvesti)}`,
+                    `Coût total projet: ${formatEUR(coutTotalProjet)}`,
+                    `Ratio capital/projet: ${(result.ratioCapital * 100).toFixed(0)}%`,
+                    `Fonds déjà engagés (at-risk): ${fondsEngages ? "oui" : "non"}`,
+                    `Revenu prévisionnel annuel: ${formatEUR(revenuPrevisionnelAnnuel)}`,
+                    `Minimum vital annuel du foyer: ${formatEUR(minimumVitalAnnuel)}`,
+                    `Ratio revenu/minimum vital: ${result.ratioRevenu.toFixed(2)}x`,
+                    `Emplois créés ou maintenus: ${emploisCreesOuMaintenus}`,
+                    `Hôtel en activité (vs greenfield): ${isHotelActif ? "oui" : "non"}`,
+                    "",
+                    `Score total: ${result.scoreTotal}/100 — ${result.diagnostic}`,
+                    `Détail sous-tests:`,
+                    `  - Substantiality: ${result.scoreSubstantiality}/30`,
+                    `  - At-Risk: ${result.scoreAtRisk}/15`,
+                    `  - Marginality (non-marginal income): ${result.scoreMarginality}/25`,
+                    `  - Real Operating: ${result.scoreRealOperating}/10`,
+                    `  - Job Creation: ${result.scoreJobCreation}/20`,
+                    result.redFlags.length > 0 ? `Red flags: ${result.redFlags.join(" / ")}` : "Aucun red flag majeur",
+                  ].join("\n")}
+                  prompt="Analyse la conformité de ce dossier aux critères du visa E-2 Treaty Investor US applicables à un achat/exploitation hôtelière au Luxembourg. Livre : (1) évaluation par critère USCIS (substantiality, at-risk, non-marginal, real operating, job creation) avec interprétation de chaque sous-score, (2) red flags prioritaires et leur gravité, (3) recommandations concrètes pour renforcer le dossier avant dépôt (capital additionnel, business plan, preuve d'emploi, due diligence), (4) probabilité subjective d'approbation et délai réaliste. Référence aux précédents E-2 hôtels/restauration (seuil ~150-200k$, ratio ~50-70% pour projets <500k$). Ne remplace pas un avocat en immigration."
+                />
 
                 <div className="rounded-xl border border-card-border bg-card p-5">
                   <h3 className="text-sm font-semibold text-navy">{tce("summaryNumbers")}</h3>

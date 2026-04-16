@@ -12,6 +12,7 @@ import ShareLinkButton from "@/components/ShareLinkButton";
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import SEOContent from "@/components/SEOContent";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 
 const EMPTY_LEASE: Omit<Lease, "id"> = {
   locataire: "",
@@ -307,6 +308,31 @@ export default function DCFMulti() {
                 />
               </div>
             </div>
+
+            <AiAnalysisCard
+              context={[
+                `Portefeuille: ${leases.length} baux sur ${result.surfaceTotale} m²`,
+                `WAULT: ${result.wault.toFixed(1)} ans`,
+                `Taux d'occupation: ${(result.tauxOccupation * 100).toFixed(1)}%`,
+                `Loyer total annuel: ${formatEUR(result.loyerTotalAnnuel)} (${formatEUR2(result.loyerMoyenM2)}/m²/an)`,
+                `ERV moyen: ${formatEUR2(result.ervMoyenM2)}/m²/an`,
+                `Potentiel reversion: ${formatEUR(result.potentielReversion)}`,
+                "",
+                `Hypothèses: taux actualisation ${tauxActu}%, cap sortie ${tauxCapSortie}%, frais cession ${fraisCession}%, vacance structurelle ${vacanceERV}%`,
+                `Charges propriétaire fixes: ${formatEUR(chargesProprio)}/an`,
+                `Période: ${periodeAnalyse} ans, CAPEX: ${formatEUR(capexAnnuel)}/an`,
+                "",
+                `NOI stabilisé: ${formatEUR(result.noiStabilise)}`,
+                `Σ NOI actualisés: ${formatEUR(result.totalNOIActualise)}`,
+                `Valeur terminale actualisée: ${formatEUR(result.valeurTerminaleActualisee)} (nette frais cession)`,
+                `Valeur DCF: ${formatEUR(result.valeurDCF)}`,
+                `IRR: ${(result.irr * 100).toFixed(2)}%`,
+                montantDette > 0 ? `Leveraged (dette ${formatEUR(montantDette)} à ${tauxDette}%)` : "Unleveraged",
+                "",
+                `Détail baux: ${result.leaseDetails.map((l) => `${l.locataire} ${l.surface}m² — loyer ${formatEUR(l.loyerAnnuel)} (${formatEUR2(l.loyerM2)}/m²) — durée restante ${l.dureeRestante.toFixed(1)}a — écart ERV ${l.ecartERV > 0 ? "+" : ""}${(l.ecartERV * 100).toFixed(1)}%`).join(" / ")}`,
+              ].join("\n")}
+              prompt="Analyse ce DCF multi-baux pour un investisseur immobilier au Luxembourg. Livre : (1) qualité du cash-flow actuel (WAULT, risque locatif, vacance, reversion potentielle), (2) sensibilité de la valeur DCF aux hypothèses clés (taux actualisation, cap sortie, probabilités de renouvellement), (3) positionnement IRR vs attentes marché investisseurs institutionnels LU (commercial ~5-7%, bureau prime ~4-5%), (4) recommandation d'acquisition (prix max, conditions suspensives, clauses à négocier). Reste chiffré et actionnable."
+            />
 
             {/* Cash flows annuels */}
             <div className="rounded-xl border border-card-border bg-card shadow-sm overflow-x-auto">

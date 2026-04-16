@@ -7,6 +7,7 @@ import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import ShareLinkButton from "@/components/ShareLinkButton";
 import SEOContent from "@/components/SEOContent";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 import { computeHotelValuation, getDefaultsForCategory } from "@/lib/hotellerie/valuation";
 import type { HotelCategory } from "@/lib/hotellerie/types";
 
@@ -280,6 +281,24 @@ export default function ValorisationHotelPage() {
                     inputs: { nbChambres, adr, occupancy, category, overrideRatios, staffRatio, energyRatio, otherOpexRatio, capRate, pricePerKey },
                     results: result,
                   }}
+                />
+
+                <AiAnalysisCard
+                  context={[
+                    `Hôtel ${nbChambres} chambres — catégorie ${CATEGORIES.find((c) => c.value === category)?.label ?? category}`,
+                    `ADR: ${adr} €/nuit, occupation: ${(occupancy * 100).toFixed(0)}% → RevPAR: ${result.revPAR.toFixed(0)} €`,
+                    `Revenu total annuel: ${formatEUR(result.revenuTotalAnnuel)} (chambres ${formatEUR(result.revenuRoomsAnnuel)}, F&B ${formatEUR(result.breakdown.fb)}, autres/MICE ${formatEUR(result.breakdown.autres)})`,
+                    `Charges: staff ${(staffRatio * 100).toFixed(1)}%, énergie ${(energyRatio * 100).toFixed(1)}%, autres opex ${(otherOpexRatio * 100).toFixed(1)}% → GOP ${formatEUR(result.gop)} (${formatPct(result.gopMargin)})`,
+                    `EBITDA stabilisé: ${formatEUR(result.ebitda)} (${formatPct(result.ebitdaMargin)})`,
+                    "",
+                    `— Valorisation multi-méthodes —`,
+                    `Valeur DCF (EBITDA / cap rate ${formatPct(result.capRateUsed, 2)}): ${formatEUR(result.valeurDCF)}`,
+                    `Valeur comparable (${formatEUR(result.pricePerKeyUsed)}/chambre × ${nbChambres}): ${formatEUR(result.valeurMultipleParChambre)}`,
+                    `Multiple EBITDA implicite: ×${result.multipleEbitda.toFixed(1)}`,
+                    `Valeur centrale retenue: ${formatEUR(result.valeurCentrale)}`,
+                    `Fourchette: ${formatEUR(result.fourchetteBasse)} – ${formatEUR(result.fourchetteHaute)}`,
+                  ].join("\n")}
+                  prompt="Commente cette valorisation hôtelière au Luxembourg selon les standards STR/HVS. Livre : (1) cohérence entre méthode DCF (capitalisation EBITDA) et méthode comparable (prix/chambre), (2) diagnostic de la performance commerciale (RevPAR, ADR, occupation) vs concurrence LU par catégorie, (3) diagnostic de la structure de coûts (staff, énergie) vs benchmark USALI, (4) cap rate retenu vs transactions hôtelières LU/Europe récentes, (5) recommandation d'investisseur (prix max, due diligence prioritaire, leviers de création de valeur). Chiffré et référencé."
                 />
               </>
             ) : (

@@ -19,6 +19,7 @@ import { generateAchatLocationPdfBlob, PdfButton } from "@/components/ToolsPdf";
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import SEOContent from "@/components/SEOContent";
+import AiAnalysisCard from "@/components/AiAnalysisCard";
 
 /**
  * Luxembourg "déduction des intérêts débiteurs" (art. 98bis LIR).
@@ -376,6 +377,26 @@ export default function AchatVsLocation() {
                 </div>
               )}
             </div>
+
+            <AiAnalysisCard
+              context={[
+                `Horizon: ${horizon} ans — ménage ${nbPersonnes} personne(s)`,
+                `— Achat —`,
+                `Prix: ${formatEUR(prixBien)}, apport: ${formatEUR(apport)}, crédit ${tauxCredit}% sur ${dureeCredit} ans`,
+                `Frais acquisition: ${fraisAcquisitionPct}% — charges copro: ${formatEUR(chargesCoproMensuel)}/mois`,
+                `Taxe foncière: ${formatEUR(taxeFonciereAn)}/an, entretien: ${entretienAnPct}%/an, appréciation: ${appreciationAn}%/an`,
+                `Assurance SRD: ${tauxAssuranceSRD}%`,
+                `— Location —`,
+                `Loyer: ${formatEUR(loyerMensuel)}/mois, indexation ${indexationLoyer}%/an`,
+                `Placement alternatif: ${rendementPlacement}%/an`,
+                "",
+                `Patrimoine net fin horizon — Achat: ${formatEUR(result.derniere.patrimoineNetAchat)}`,
+                `Patrimoine net fin horizon — Location+placement: ${formatEUR(result.derniere.patrimoineNetLocation)}`,
+                result.croisement ? `Point de bascule: année ${result.croisement.annee}` : `Pas de bascule sur ${horizon} ans`,
+                `Déduction intérêts LIR plafonnée: ${formatEUR(deductionInteretsMax(1, nbPersonnes))}/an an 1`,
+              ].join("\n")}
+              prompt="Conseille cet utilisateur particulier au Luxembourg sur le choix achat vs location. Structure : (1) le verdict chiffré sur cet horizon et le point de bascule, (2) facteurs NON chiffrés à peser (stabilité professionnelle/familiale, mobilité, amour du bien, liquidité), (3) risques spécifiques achat (remontée taux, chute prix, copropriété dégradée) vs risques location (hausse loyers, obligation de départ), (4) profils où le choix bascule (mutation probable, famille à agrandir, entrepreneur, approche retraite). Personnalisé, humain, pas que comptable."
+            />
 
             <div className="flex justify-end gap-2">
               <SaveButton
