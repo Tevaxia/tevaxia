@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 // ============================================================
 // TEGOVA EVS 2025 — Checklist d'inspection terrain
@@ -12,103 +12,103 @@ import { useLocale } from "next-intl";
 
 interface CheckItem {
   id: string;
-  label: string;
+  labelKey: string;
 }
 
 interface CheckSection {
   id: string;
-  title: string;
+  titleKey: string;
   items: CheckItem[];
 }
 
 const CHECKLIST: CheckSection[] = [
   {
     id: "identification",
-    title: "1. Identification du bien",
+    titleKey: "sectionIdentification",
     items: [
-      { id: "adresse", label: "Adresse complète vérifiée" },
-      { id: "cadastre", label: "Référence cadastrale relevée" },
-      { id: "acces", label: "Accès au bien confirmé" },
-      { id: "proprietaire", label: "Identité du propriétaire/contact" },
-      { id: "type_bien", label: "Type de bien (appartement, maison, terrain, commercial)" },
+      { id: "adresse", labelKey: "checkAdresse" },
+      { id: "cadastre", labelKey: "checkCadastre" },
+      { id: "acces", labelKey: "checkAcces" },
+      { id: "proprietaire", labelKey: "checkProprietaire" },
+      { id: "type_bien", labelKey: "checkTypeBien" },
     ],
   },
   {
     id: "environnement",
-    title: "2. Environnement & localisation",
+    titleKey: "sectionEnvironnement",
     items: [
-      { id: "quartier", label: "Caractéristiques du quartier" },
-      { id: "transports", label: "Desserte transports en commun (bus, tram, gare)" },
-      { id: "commerces", label: "Proximité commerces et services" },
-      { id: "nuisances", label: "Nuisances identifiées (bruit, olfactives, visuelles)" },
-      { id: "zone_inondable", label: "Zone inondable / risques naturels" },
-      { id: "plu_pad", label: "PAG/PAP — classement urbanistique" },
+      { id: "quartier", labelKey: "checkQuartier" },
+      { id: "transports", labelKey: "checkTransports" },
+      { id: "commerces", labelKey: "checkCommerces" },
+      { id: "nuisances", labelKey: "checkNuisances" },
+      { id: "zone_inondable", labelKey: "checkZoneInondable" },
+      { id: "plu_pad", labelKey: "checkPluPad" },
     ],
   },
   {
     id: "exterieur",
-    title: "3. État extérieur",
+    titleKey: "sectionExterieur",
     items: [
-      { id: "facade", label: "État de la façade (fissures, enduit, ravalement)" },
-      { id: "toiture", label: "État de la toiture visible" },
-      { id: "menuiseries_ext", label: "Menuiseries extérieures (fenêtres, volets)" },
-      { id: "parties_communes", label: "Parties communes (hall, escalier, ascenseur)" },
-      { id: "parking", label: "Stationnement (type, nombre de places)" },
-      { id: "espaces_verts", label: "Espaces verts / terrasse / balcon" },
+      { id: "facade", labelKey: "checkFacade" },
+      { id: "toiture", labelKey: "checkToiture" },
+      { id: "menuiseries_ext", labelKey: "checkMenuiseriesExt" },
+      { id: "parties_communes", labelKey: "checkPartiesCommunes" },
+      { id: "parking", labelKey: "checkParking" },
+      { id: "espaces_verts", labelKey: "checkEspacesVerts" },
     ],
   },
   {
     id: "interieur",
-    title: "4. État intérieur",
+    titleKey: "sectionInterieur",
     items: [
-      { id: "surface", label: "Surface habitable mesurée / vérifiée" },
-      { id: "distribution", label: "Distribution des pièces (cohérence, luminosité)" },
-      { id: "sols", label: "État des sols" },
-      { id: "murs", label: "État des murs et plafonds (fissures, humidité)" },
-      { id: "menuiseries_int", label: "Menuiseries intérieures (portes, placard)" },
-      { id: "sdb_cuisine", label: "Salle de bain et cuisine (équipements, état)" },
-      { id: "electricite", label: "Installation électrique (tableau, conformité)" },
-      { id: "plomberie", label: "Plomberie (état visible, fuites)" },
-      { id: "chauffage", label: "Système de chauffage (type, état, entretien)" },
-      { id: "ventilation", label: "Ventilation (VMC, naturelle)" },
+      { id: "surface", labelKey: "checkSurface" },
+      { id: "distribution", labelKey: "checkDistribution" },
+      { id: "sols", labelKey: "checkSols" },
+      { id: "murs", labelKey: "checkMurs" },
+      { id: "menuiseries_int", labelKey: "checkMenuiseriesInt" },
+      { id: "sdb_cuisine", labelKey: "checkSdbCuisine" },
+      { id: "electricite", labelKey: "checkElectricite" },
+      { id: "plomberie", labelKey: "checkPlomberie" },
+      { id: "chauffage", labelKey: "checkChauffage" },
+      { id: "ventilation", labelKey: "checkVentilation" },
     ],
   },
   {
     id: "energetique",
-    title: "5. Performance énergétique",
+    titleKey: "sectionEnergetique",
     items: [
-      { id: "cpe", label: "CPE (Certificat de Performance Énergétique) disponible" },
-      { id: "classe_energie", label: "Classe énergie relevée (A-I)" },
-      { id: "classe_isolation", label: "Classe isolation thermique relevée" },
-      { id: "type_vitrage", label: "Type de vitrage (simple, double, triple)" },
-      { id: "isolation", label: "Isolation identifiable (murs, toiture, sol)" },
-      { id: "panneaux", label: "Panneaux solaires / pompe à chaleur" },
+      { id: "cpe", labelKey: "checkCpe" },
+      { id: "classe_energie", labelKey: "checkClasseEnergie" },
+      { id: "classe_isolation", labelKey: "checkClasseIsolation" },
+      { id: "type_vitrage", labelKey: "checkTypeVitrage" },
+      { id: "isolation", labelKey: "checkIsolation" },
+      { id: "panneaux", labelKey: "checkPanneaux" },
     ],
   },
   {
     id: "juridique",
-    title: "6. Aspects juridiques & documents",
+    titleKey: "sectionJuridique",
     items: [
-      { id: "titre_propriete", label: "Titre de propriété vérifié" },
-      { id: "servitudes", label: "Servitudes éventuelles identifiées" },
-      { id: "reglement_copro", label: "Règlement de copropriété (si applicable)" },
-      { id: "charges_copro", label: "Charges de copropriété annuelles" },
-      { id: "travaux_votes", label: "Travaux votés en AG (en cours / prévus)" },
-      { id: "bail_en_cours", label: "Bail en cours (type, durée, loyer)" },
+      { id: "titre_propriete", labelKey: "checkTitrePropriete" },
+      { id: "servitudes", labelKey: "checkServitudes" },
+      { id: "reglement_copro", labelKey: "checkReglementCopro" },
+      { id: "charges_copro", labelKey: "checkChargesCopro" },
+      { id: "travaux_votes", labelKey: "checkTravauxVotes" },
+      { id: "bail_en_cours", labelKey: "checkBailEnCours" },
     ],
   },
   {
     id: "photos",
-    title: "7. Relevé photographique",
+    titleKey: "sectionPhotos",
     items: [
-      { id: "photo_facade", label: "Photo façade principale" },
-      { id: "photo_rue", label: "Photo vue de la rue / environnement" },
-      { id: "photo_sejour", label: "Photo pièce principale (séjour)" },
-      { id: "photo_cuisine", label: "Photo cuisine" },
-      { id: "photo_sdb", label: "Photo salle de bain" },
-      { id: "photo_chambres", label: "Photos chambres" },
-      { id: "photo_exterieur", label: "Photo espaces extérieurs" },
-      { id: "photo_defauts", label: "Photos des défauts / anomalies identifiés" },
+      { id: "photo_facade", labelKey: "checkPhotoFacade" },
+      { id: "photo_rue", labelKey: "checkPhotoRue" },
+      { id: "photo_sejour", labelKey: "checkPhotoSejour" },
+      { id: "photo_cuisine", labelKey: "checkPhotoCuisine" },
+      { id: "photo_sdb", labelKey: "checkPhotoSdb" },
+      { id: "photo_chambres", labelKey: "checkPhotoChambres" },
+      { id: "photo_exterieur", labelKey: "checkPhotoExterieur" },
+      { id: "photo_defauts", labelKey: "checkPhotoDefauts" },
     ],
   },
 ];
@@ -167,6 +167,7 @@ function emptyInspection(): InspectionData {
 export function InspectionClient() {
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
+  const t = useTranslations("inspectionTegova");
 
   const [data, setData] = useState<InspectionData>(emptyInspection);
   const [loaded, setLoaded] = useState(false);
@@ -209,7 +210,7 @@ export function InspectionClient() {
   }, []);
 
   const handleReset = () => {
-    if (!confirm("Effacer l'inspection en cours et recommencer ?")) return;
+    if (!confirm(t("confirmReset"))) return;
     const fresh = emptyInspection();
     setData(fresh);
     saveDraft(fresh);
@@ -227,26 +228,26 @@ export function InspectionClient() {
   };
 
   const handleExportText = () => {
-    let text = `RAPPORT D'INSPECTION TERRAIN — TEGOVA EVS 2025\n`;
+    let text = `${t("exportHeader")}\n`;
     text += `${"=".repeat(60)}\n\n`;
-    text += `Référence : ${data.id}\n`;
-    text += `Adresse : ${data.address || "—"}\n`;
-    text += `Inspecteur : ${data.inspector || "—"}\n`;
-    text += `Date : ${data.date} · ${data.startTime || "—"} → ${data.endTime || "—"}\n\n`;
+    text += `${t("exportReference")} : ${data.id}\n`;
+    text += `${t("exportAdresse")} : ${data.address || "—"}\n`;
+    text += `${t("exportInspecteur")} : ${data.inspector || "—"}\n`;
+    text += `${t("exportDate")} : ${data.date} · ${data.startTime || "—"} → ${data.endTime || "—"}\n\n`;
 
     for (const section of CHECKLIST) {
-      text += `\n${section.title}\n${"-".repeat(50)}\n`;
+      text += `\n${t(section.titleKey as Parameters<typeof t>[0])}\n${"-".repeat(50)}\n`;
       for (const item of section.items) {
         const d = data.items[item.id];
-        const statusLabel = d?.status === "ok" ? "✓ OK" : d?.status === "nc" ? "✗ NC" : d?.status === "na" ? "— N/A" : "? En attente";
-        text += `  [${statusLabel}] ${item.label}`;
-        if (d?.note) text += ` · Note: ${d.note}`;
+        const statusLabel = d?.status === "ok" ? t("exportStatusOk") : d?.status === "nc" ? t("exportStatusNc") : d?.status === "na" ? t("exportStatusNa") : t("exportStatusPending");
+        text += `  [${statusLabel}] ${t(item.labelKey as Parameters<typeof t>[0])}`;
+        if (d?.note) text += ` · ${t("exportNote")} ${d.note}`;
         text += "\n";
       }
     }
 
     if (data.generalNotes) {
-      text += `\nNOTES GÉNÉRALES\n${"-".repeat(50)}\n${data.generalNotes}\n`;
+      text += `\n${t("exportNotesGenerales")}\n${"-".repeat(50)}\n${data.generalNotes}\n`;
     }
 
     const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
@@ -269,61 +270,61 @@ export function InspectionClient() {
   return (
     <div className="bg-background min-h-screen py-6 sm:py-10">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <Link href={`${lp}/`} className="text-xs text-muted hover:text-navy">← tevaxia.lu</Link>
-        <h1 className="mt-2 text-xl font-bold text-navy sm:text-2xl">Inspection terrain TEGOVA</h1>
+        <Link href={`${lp}/`} className="text-xs text-muted hover:text-navy">{t("backLink")}</Link>
+        <h1 className="mt-2 text-xl font-bold text-navy sm:text-2xl">{t("pageTitle")}</h1>
         <p className="mt-1 text-xs text-muted">
-          Checklist conforme EVS 2025. Sauvegarde locale automatique — fonctionne hors connexion.
+          {t("pageDescription")}
         </p>
 
         {/* Header info */}
         <div className="mt-4 rounded-xl border border-card-border bg-card p-4">
           <div className="grid gap-3 sm:grid-cols-2">
             <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted font-semibold">Adresse du bien</label>
+              <label className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("labelAdresse")}</label>
               <input type="text" value={data.address} onChange={(e) => update({ address: e.target.value })}
                 className="mt-1 w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
-                placeholder="12 rue de la Gare, Luxembourg" />
+                placeholder={t("placeholderAdresse")} />
             </div>
             <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted font-semibold">Inspecteur</label>
+              <label className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("labelInspecteur")}</label>
               <input type="text" value={data.inspector} onChange={(e) => update({ inspector: e.target.value })}
                 className="mt-1 w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
-                placeholder="Nom de l'évaluateur" />
+                placeholder={t("placeholderInspecteur")} />
             </div>
             <div>
-              <label className="text-[10px] uppercase tracking-wider text-muted font-semibold">Date</label>
+              <label className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("labelDate")}</label>
               <input type="date" value={data.date} onChange={(e) => update({ date: e.target.value })}
                 className="mt-1 w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </div>
             <div className="flex gap-2">
               <div className="flex-1">
-                <label className="text-[10px] uppercase tracking-wider text-muted font-semibold">Heure début</label>
+                <label className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("labelHeureDebut")}</label>
                 <input type="time" value={data.startTime} onChange={(e) => update({ startTime: e.target.value })}
                   className="mt-1 w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
               </div>
               <div className="flex-1">
-                <label className="text-[10px] uppercase tracking-wider text-muted font-semibold">Heure fin</label>
+                <label className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("labelHeureFin")}</label>
                 <input type="time" value={data.endTime} onChange={(e) => update({ endTime: e.target.value })}
                   className="mt-1 w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
               </div>
             </div>
           </div>
-          <div className="mt-3 text-xs text-muted">Réf. : {data.id}</div>
+          <div className="mt-3 text-xs text-muted">{t("refLabel")} {data.id}</div>
         </div>
 
         {/* Progress bar */}
         <div className="mt-4 rounded-xl border border-card-border bg-card p-4">
           <div className="flex items-center justify-between text-xs">
-            <span className="text-muted">Progression : {completed}/{allItems.length} points</span>
+            <span className="text-muted">{t("progressLabel")} {completed}/{allItems.length} {t("progressPoints")}</span>
             <span className="font-medium text-navy">{progressPct.toFixed(0)} %</span>
           </div>
           <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100">
             <div className="h-full rounded-full bg-navy transition-all" style={{ width: `${progressPct}%` }} />
           </div>
           <div className="mt-2 flex gap-3 text-[10px]">
-            <span className="text-emerald-700">{okCount} OK</span>
-            <span className="text-rose-700">{ncCount} Non conforme</span>
-            <span className="text-muted">{allItems.length - completed} en attente</span>
+            <span className="text-emerald-700">{okCount} {t("okLabel")}</span>
+            <span className="text-rose-700">{ncCount} {t("ncLabel")}</span>
+            <span className="text-muted">{allItems.length - completed} {t("enAttente")}</span>
           </div>
         </div>
 
@@ -331,7 +332,7 @@ export function InspectionClient() {
         {CHECKLIST.map((section) => (
           <div key={section.id} className="mt-4 rounded-xl border border-card-border bg-card">
             <div className="border-b border-card-border bg-background px-4 py-2">
-              <h2 className="text-sm font-semibold text-navy">{section.title}</h2>
+              <h2 className="text-sm font-semibold text-navy">{t(section.titleKey as Parameters<typeof t>[0])}</h2>
             </div>
             <div className="divide-y divide-card-border/50">
               {section.items.map((item) => {
@@ -339,7 +340,7 @@ export function InspectionClient() {
                 return (
                   <div key={item.id} className={`px-4 py-3 ${d.status === "nc" ? "bg-rose-50/40" : d.status === "ok" ? "bg-emerald-50/20" : ""}`}>
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-xs text-navy">{item.label}</span>
+                      <span className="text-xs text-navy">{t(item.labelKey as Parameters<typeof t>[0])}</span>
                       <div className="flex gap-1">
                         {(["ok", "nc", "na"] as ItemStatus[]).map((s) => (
                           <button key={s} onClick={() => setItemStatus(item.id, d.status === s ? "pending" : s)}
@@ -355,7 +356,7 @@ export function InspectionClient() {
                     </div>
                     <input type="text" value={d.note}
                       onChange={(e) => setItemNote(item.id, e.target.value)}
-                      placeholder="Note..."
+                      placeholder={t("notePlaceholder")}
                       className="mt-1.5 w-full rounded border border-card-border/50 bg-transparent px-2 py-1 text-[11px] text-muted placeholder:text-slate-300 focus:border-navy focus:outline-none" />
                   </div>
                 );
@@ -366,32 +367,30 @@ export function InspectionClient() {
 
         {/* General notes */}
         <div className="mt-4 rounded-xl border border-card-border bg-card p-4">
-          <label className="text-sm font-semibold text-navy">Notes générales</label>
+          <label className="text-sm font-semibold text-navy">{t("notesGenerales")}</label>
           <textarea value={data.generalNotes} onChange={(e) => update({ generalNotes: e.target.value })}
             className="mt-2 w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
-            rows={4} placeholder="Observations complémentaires, points d'attention..." />
+            rows={4} placeholder={t("notesPlaceholder")} />
         </div>
 
         {/* Actions */}
         <div className="mt-4 flex flex-wrap gap-2">
           <button onClick={handleExportText}
             className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
-            Exporter rapport (TXT)
+            {t("btnExportTxt")}
           </button>
           <button onClick={handleExport}
             className="rounded-lg border border-card-border bg-card px-4 py-2 text-sm font-medium text-navy hover:bg-slate-50">
-            Exporter données (JSON)
+            {t("btnExportJson")}
           </button>
           <button onClick={handleReset}
             className="rounded-lg border border-rose-200 bg-rose-50 px-4 py-2 text-sm font-medium text-rose-700 hover:bg-rose-100">
-            Nouvelle inspection
+            {t("btnNouvelle")}
           </button>
         </div>
 
         <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-          <strong>Usage hors connexion :</strong> cette page sauvegarde automatiquement dans le stockage local
-          de votre navigateur. Vous pouvez remplir la checklist sur le terrain sans connexion internet.
-          Exportez le rapport avant d&apos;effacer les données. Compatible mobile (responsive).
+          <strong>{t("legalTitle")}</strong> {t("legalText")}
         </div>
       </div>
     </div>

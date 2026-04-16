@@ -2,13 +2,14 @@
 
 import { useMemo } from "react";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { backtestModel, MODEL_COEFFICIENTS } from "@/lib/estimation";
 import { formatEUR } from "@/lib/calculations";
 
 export function TransparenceClient() {
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
+  const t = useTranslations("transparencePage");
 
   const backtest = useMemo(() => backtestModel(), []);
 
@@ -20,82 +21,76 @@ export function TransparenceClient() {
   return (
     <div className="bg-background min-h-screen py-8 sm:py-12">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <Link href={`${lp}/`} className="text-xs text-muted hover:text-navy">← tevaxia.lu</Link>
-        <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">Transparence du modèle d&apos;estimation</h1>
+        <Link href={`${lp}/`} className="text-xs text-muted hover:text-navy">{t("backLink")}</Link>
+        <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">{t("pageTitle")}</h1>
         <p className="mt-2 text-sm text-muted">
-          Méthodologie, coefficients, sources de données et résultats de back-test. Cette page est publique :
-          tout utilisateur peut vérifier la qualité et les limites de notre modèle.
+          {t("pageDescription")}
         </p>
 
         {/* KPIs qualité */}
         <div className="mt-6 grid gap-3 sm:grid-cols-4">
           <div className="rounded-xl border border-card-border bg-card p-4">
-            <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">MAPE</div>
+            <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("kpiMape")}</div>
             <div className={`mt-1 text-2xl font-bold ${backtest.mape < 15 ? "text-emerald-700" : backtest.mape < 25 ? "text-amber-700" : "text-rose-700"}`}>
               {backtest.mape.toFixed(1)} %
             </div>
-            <div className="mt-0.5 text-[10px] text-muted">Erreur absolue moyenne (%)</div>
+            <div className="mt-0.5 text-[10px] text-muted">{t("kpiMapeDesc")}</div>
           </div>
           <div className="rounded-xl border border-card-border bg-card p-4">
-            <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">Erreur médiane</div>
+            <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("kpiMediane")}</div>
             <div className="mt-1 text-2xl font-bold text-navy">{backtest.medianError.toFixed(1)} %</div>
-            <div className="mt-0.5 text-[10px] text-muted">50e percentile d&apos;erreur</div>
+            <div className="mt-0.5 text-[10px] text-muted">{t("kpiMedianeDesc")}</div>
           </div>
           <div className="rounded-xl border border-card-border bg-card p-4">
-            <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">R² approx.</div>
+            <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("kpiR2")}</div>
             <div className="mt-1 text-2xl font-bold text-navy">{backtest.r2Approx.toFixed(3)}</div>
-            <div className="mt-0.5 text-[10px] text-muted">Coefficient de détermination</div>
+            <div className="mt-0.5 text-[10px] text-muted">{t("kpiR2Desc")}</div>
           </div>
           <div className="rounded-xl border border-card-border bg-card p-4">
-            <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">Biens-test</div>
+            <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("kpiBiens")}</div>
             <div className="mt-1 text-2xl font-bold text-navy">{backtest.samples.length}</div>
-            <div className="mt-0.5 text-[10px] text-muted">Échantillon de validation</div>
+            <div className="mt-0.5 text-[10px] text-muted">{t("kpiBiensDesc")}</div>
           </div>
         </div>
 
         {/* Méthodologie */}
         <div className="mt-8">
-          <h2 className="text-lg font-semibold text-navy">Méthodologie</h2>
+          <h2 className="text-lg font-semibold text-navy">{t("sectionMethodologie")}</h2>
           <div className="mt-3 space-y-3 text-sm text-slate-700">
             <p>
-              Le modèle combine un <strong>prix de référence au m²</strong> (par commune ou quartier, issu de
-              l&apos;Observatoire de l&apos;Habitat via data.public.lu) avec des <strong>ajustements multiplicatifs</strong> reflétant
-              les caractéristiques intrinsèques du bien. Ce n&apos;est <em>pas</em> un AVM (Automated Valuation Model) au sens
-              bancaire — il ne dispose pas de l&apos;exhaustivité des actes notariés.
+              {t("methodoP1")}
             </p>
             <p>
-              L&apos;approche est <strong>log-linéaire</strong> :
+              {t("methodoApproche")}
             </p>
             <div className="rounded-lg bg-slate-50 p-3 font-mono text-xs">
               Prix = PrixRef/m² × (1 + Σ ajustements %) × Surface
             </div>
             <p>
-              Chaque ajustement est un pourcentage additif (positif ou négatif) appliqué au prix de base.
-              Les coefficients proviennent de l&apos;Observatoire de l&apos;Habitat, des analyses Spuerkeess et de la pratique
-              professionnelle d&apos;évaluation au Luxembourg.
+              {t("methodoP2")}
             </p>
           </div>
         </div>
 
         {/* Sources */}
         <div className="mt-8">
-          <h2 className="text-lg font-semibold text-navy">Sources de données</h2>
+          <h2 className="text-lg font-semibold text-navy">{t("sectionSources")}</h2>
           <div className="mt-3 overflow-x-auto rounded-xl border border-card-border bg-card">
             <table className="w-full text-xs">
               <thead className="bg-background text-left text-[10px] uppercase tracking-wider text-muted">
                 <tr>
-                  <th className="px-3 py-2">Source</th>
-                  <th className="px-3 py-2">Données utilisées</th>
-                  <th className="px-3 py-2">Fréquence de MAJ</th>
-                  <th className="px-3 py-2">Accès</th>
+                  <th className="px-3 py-2">{t("thSource")}</th>
+                  <th className="px-3 py-2">{t("thDonnees")}</th>
+                  <th className="px-3 py-2">{t("thFrequence")}</th>
+                  <th className="px-3 py-2">{t("thAcces")}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-card-border/50">
-                <tr><td className="px-3 py-1.5 font-medium">Observatoire de l&apos;Habitat</td><td className="px-3 py-1.5">Prix/m² par commune, quartiers Lux-Ville, modèle hédonique</td><td className="px-3 py-1.5">Trimestriel</td><td className="px-3 py-1.5 text-blue-700">data.public.lu</td></tr>
-                <tr><td className="px-3 py-1.5 font-medium">STATEC</td><td className="px-3 py-1.5">Indices de prix résidentiels annuels, IPC</td><td className="px-3 py-1.5">Annuel</td><td className="px-3 py-1.5 text-blue-700">statistiques.public.lu</td></tr>
-                <tr><td className="px-3 py-1.5 font-medium">Spuerkeess</td><td className="px-3 py-1.5">Impact classe énergie sur prix de vente</td><td className="px-3 py-1.5">Annuel</td><td className="px-3 py-1.5 text-blue-700">Publication annuelle</td></tr>
-                <tr><td className="px-3 py-1.5 font-medium">Publicité Foncière</td><td className="px-3 py-1.5">Volume transactions par commune (nombre d&apos;actes)</td><td className="px-3 py-1.5">Trimestriel</td><td className="px-3 py-1.5 text-blue-700">Via Observatoire</td></tr>
-                <tr><td className="px-3 py-1.5 font-medium">Annonces immobilières</td><td className="px-3 py-1.5">Prix demandés agrégés (loyers, ventes)</td><td className="px-3 py-1.5">Continu</td><td className="px-3 py-1.5 text-blue-700">Via Observatoire</td></tr>
+                <tr><td className="px-3 py-1.5 font-medium">{t("srcObservatoire")}</td><td className="px-3 py-1.5">{t("srcObservatoireData")}</td><td className="px-3 py-1.5">{t("srcObservatoireFreq")}</td><td className="px-3 py-1.5 text-blue-700">data.public.lu</td></tr>
+                <tr><td className="px-3 py-1.5 font-medium">{t("srcStatec")}</td><td className="px-3 py-1.5">{t("srcStatecData")}</td><td className="px-3 py-1.5">{t("srcStatecFreq")}</td><td className="px-3 py-1.5 text-blue-700">statistiques.public.lu</td></tr>
+                <tr><td className="px-3 py-1.5 font-medium">{t("srcSpuerkeess")}</td><td className="px-3 py-1.5">{t("srcSpuerkeessData")}</td><td className="px-3 py-1.5">{t("srcSpuerkeessFreq")}</td><td className="px-3 py-1.5 text-blue-700">{t("srcPublicationAnnuelle")}</td></tr>
+                <tr><td className="px-3 py-1.5 font-medium">{t("srcPubliciteFonciere")}</td><td className="px-3 py-1.5">{t("srcPubliciteFonciereData")}</td><td className="px-3 py-1.5">{t("srcObservatoireFreq")}</td><td className="px-3 py-1.5 text-blue-700">{t("srcViaObservatoire")}</td></tr>
+                <tr><td className="px-3 py-1.5 font-medium">{t("srcAnnoncesImmo")}</td><td className="px-3 py-1.5">{t("srcAnnoncesImmoData")}</td><td className="px-3 py-1.5">{t("srcContinu")}</td><td className="px-3 py-1.5 text-blue-700">{t("srcViaObservatoire")}</td></tr>
               </tbody>
             </table>
           </div>
@@ -103,19 +98,18 @@ export function TransparenceClient() {
 
         {/* Coefficients */}
         <div className="mt-8">
-          <h2 className="text-lg font-semibold text-navy">Coefficients d&apos;ajustement ({MODEL_COEFFICIENTS.length} paramètres)</h2>
+          <h2 className="text-lg font-semibold text-navy">{t("sectionCoefficients")} ({MODEL_COEFFICIENTS.length} {t("coeffParametres")})</h2>
           <p className="mt-1 text-xs text-muted">
-            Chaque coefficient est un pourcentage appliqué au prix de référence au m². Le niveau de confiance
-            reflète la robustesse statistique de la source.
+            {t("coeffDesc")}
           </p>
           <div className="mt-3 overflow-x-auto rounded-xl border border-card-border bg-card">
             <table className="w-full text-xs">
               <thead className="bg-background text-left text-[10px] uppercase tracking-wider text-muted">
                 <tr>
-                  <th className="px-3 py-2">Caractéristique</th>
-                  <th className="px-3 py-2 text-right">Coefficient</th>
-                  <th className="px-3 py-2">Source</th>
-                  <th className="px-3 py-2">Confiance</th>
+                  <th className="px-3 py-2">{t("thCaracteristique")}</th>
+                  <th className="px-3 py-2 text-right">{t("thCoefficient")}</th>
+                  <th className="px-3 py-2">{t("thSourceCoeff")}</th>
+                  <th className="px-3 py-2">{t("thConfiance")}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-card-border/50">
@@ -128,7 +122,7 @@ export function TransparenceClient() {
                     <td className="px-3 py-1.5 text-muted">{c.source}</td>
                     <td className="px-3 py-1.5">
                       <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${confColor(c.confidence)}`}>
-                        {c.confidence}
+                        {c.confidence === "Forte" ? t("confForte") : c.confidence === "Moyenne" ? t("confMoyenne") : t("confFaible")}
                       </span>
                     </td>
                   </tr>
@@ -140,21 +134,20 @@ export function TransparenceClient() {
 
         {/* Back-test results */}
         <div className="mt-8">
-          <h2 className="text-lg font-semibold text-navy">Résultats du back-test ({backtest.samples.length} biens)</h2>
+          <h2 className="text-lg font-semibold text-navy">{t("sectionBacktest")} ({backtest.samples.length} {t("backtestBiens")})</h2>
           <p className="mt-1 text-xs text-muted">
-            Comparaison entre le prix réel de référence et l&apos;estimation produite par le modèle.
-            Les prix réels sont issus de fourchettes observées sur les communes concernées.
+            {t("backtestDesc")}
           </p>
           <div className="mt-3 overflow-x-auto rounded-xl border border-card-border bg-card">
             <table className="w-full text-xs">
               <thead className="bg-background text-left text-[10px] uppercase tracking-wider text-muted">
                 <tr>
-                  <th className="px-3 py-2">Commune</th>
-                  <th className="px-3 py-2 text-right">Surface</th>
-                  <th className="px-3 py-2">Énergie</th>
-                  <th className="px-3 py-2 text-right">Prix réel</th>
-                  <th className="px-3 py-2 text-right">Estimation</th>
-                  <th className="px-3 py-2 text-right">Erreur</th>
+                  <th className="px-3 py-2">{t("thCommune")}</th>
+                  <th className="px-3 py-2 text-right">{t("thSurface")}</th>
+                  <th className="px-3 py-2">{t("thEnergie")}</th>
+                  <th className="px-3 py-2 text-right">{t("thPrixReel")}</th>
+                  <th className="px-3 py-2 text-right">{t("thEstimation")}</th>
+                  <th className="px-3 py-2 text-right">{t("thErreur")}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-card-border/50">
@@ -177,7 +170,7 @@ export function TransparenceClient() {
               </tbody>
               <tfoot className="bg-background text-xs font-semibold">
                 <tr>
-                  <td className="px-3 py-2" colSpan={5}>MAPE (erreur absolue moyenne)</td>
+                  <td className="px-3 py-2" colSpan={5}>{t("mapeFooter")}</td>
                   <td className="px-3 py-2 text-right">{backtest.mape.toFixed(1)} %</td>
                 </tr>
               </tfoot>
@@ -187,20 +180,18 @@ export function TransparenceClient() {
 
         {/* Limites */}
         <div className="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-5">
-          <h2 className="text-base font-semibold text-amber-900">Limites du modèle</h2>
+          <h2 className="text-base font-semibold text-amber-900">{t("sectionLimites")}</h2>
           <ul className="mt-2 space-y-1.5 text-xs text-amber-800">
-            <li>Les données de l&apos;Observatoire sont agrégées par commune — la granularité infra-communale (rue, lotissement) n&apos;est pas captée.</li>
-            <li>Les biens atypiques (châteaux, immeubles de rapport, maisons d&apos;architecte) ne relèvent pas de ce modèle.</li>
-            <li>L&apos;effet de micromarché (vue, nuisances, orientation) n&apos;est pas modélisé faute de données structurées.</li>
-            <li>Les prix de référence reflètent les actes T-4 ; en marché très dynamique, un décalage de 3-6 mois peut exister.</li>
-            <li>Ce modèle <strong>ne remplace pas</strong> une expertise TEGOVA/RICS avec visite physique — il fournit un ordre de grandeur rapide.</li>
+            <li>{t("limite1")}</li>
+            <li>{t("limite2")}</li>
+            <li>{t("limite3")}</li>
+            <li>{t("limite4")}</li>
+            <li>{t("limite5")}</li>
           </ul>
         </div>
 
         <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-          <strong>Engagement de transparence :</strong> cette page sera mise à jour à chaque recalibration (trimestrielle,
-          alignée sur les publications de l&apos;Observatoire). Les utilisateurs professionnels (banques, agences) peuvent
-          vérifier la fiabilité du modèle avant de l&apos;intégrer dans leur workflow.
+          <strong>{t("engagementTitle")}</strong> {t("engagementText")}
         </div>
       </div>
     </div>
