@@ -70,4 +70,38 @@ test.describe("Smoke tests — parcours critiques publics", () => {
     const body = page.locator("body");
     await expect(body).toContainText(/benchmark|connect|sign in/i);
   });
+
+  test("/marche/forecast prévisions prix avec 3 scénarios", async ({ page }) => {
+    await page.goto("/marche/forecast");
+    const body = page.locator("body");
+    await expect(body).toContainText(/pessimiste|pessimistic|central|optimiste|optimistic/i);
+    // Au moins un input pour saisir la commune
+    const inputs = page.locator("input[type='text'], input:not([type])");
+    await expect(inputs.first()).toBeVisible({ timeout: 10000 });
+  });
+
+  test("/energy/audit 20 questions audit guidé", async ({ page }) => {
+    await page.goto("/energy/audit");
+    const body = page.locator("body");
+    await expect(body).toContainText(/audit|énergie|energy|klimabonus/i);
+    // Progress bar ou question devrait être présent
+    await expect(body).toContainText(/question|\/\s*20|construction/i);
+  });
+
+  test("/gestion-locative/ais page AIS avec calculateur abattement 75 %", async ({ page }) => {
+    await page.goto("/gestion-locative/ais");
+    const body = page.locator("body");
+    await expect(body).toContainText(/ais|abattement|75/i);
+    // Inputs calculateur présents
+    const inputs = page.locator("input[type='number'], input[type='range']");
+    await expect(inputs.first()).toBeVisible({ timeout: 10000 });
+  });
+
+  test("/hotellerie/observatoire-lu observatoire STATEC", async ({ page }) => {
+    await page.goto("/hotellerie/observatoire-lu");
+    const body = page.locator("body");
+    await expect(body).toContainText(/observatoire|statec|occupation|revpar/i);
+    // KPI cards
+    await expect(body).toContainText(/nuitées|nights|übernachtungen|dormidas|nuechten/i);
+  });
 });
