@@ -1119,14 +1119,18 @@ Ces deux verticaux justifient une roadmap « compte & rôles » dédiée, sépar
 
 Passe de **194 → 396 tests unitaires Vitest** (+104 %), 16 → 32 fichiers de tests.
 
-### Reste à chantier (nécessite un input externe)
+### Ex-'reste à chantier' convertis en items autonomes (2026-04-17)
 
-| Horizon | Chantier | Vertical | Pourquoi bloqué |
-|---|---|---|---|
-| 6 mois | Panel Hotrec LU pour RevPAR live | Hôtel | **Partenariat** à négocier avec la fédération HORESCA |
-| 9 mois | Certification RICS AVM Executive | B2B Banques | Chantier admin + rapport MAPE public |
-| 12 mois | Connecteur AIS LU gestion locative sociale | Locatif | **Partenariat** avec guichet.lu / AIS (75 % abattement) |
-| 6 mois | PSD2 natif bancaire (Tink / GoCardless Bank Account Data) | Locatif | Actuellement CAMT.053/CSV manuel. Nécessite compte API fournisseur. |
+Doctrine : on n'est pas légitime pour démarcher des fédérations ou des
+sociétés. On vise uniquement des données publiques, des APIs self-serve
+et des sources open sources.
+
+| Item | Approche autonome | Statut |
+|---|---|---|
+| ~~Panel Hotrec LU RevPAR~~ | ✅ **Observatoire STATEC/Eurostat/STR** `/hotellerie/observatoire-lu` — données publiques trimestrielles | ✅ Livré |
+| ~~Partenariat AIS LU~~ | ✅ **Page orientation AIS** `/gestion-locative/ais` — calculateur abattement 75 % + liste partenaires publics | ✅ Livré |
+| ~~PSD2 natif~~ | CAMT.053 + CSV manuel en place (`e7547a8`). Pour PSD2 auto, le user peut créer un compte GoCardless BAD (free tier EU, 100 calls/jour) lui-même. Pas de démarchage. | 📋 Décision commerciale user |
+| ~~Certification RICS AVM Executive~~ | `/transparence` publique avec MAPE 14,7 % + R² + coefficients est suffisant pour transparence. La certification elle-même = frais admin RICS ~3-5k£. | 📋 Décision commerciale user |
 
 ## Priorités structurelles continues
 
@@ -1150,6 +1154,6 @@ Ce benchmark s'appuie sur :
 - Sources fiscales LU STR : Airbnb Tax Guide Luxembourg 2026 (PwC), guichet.lu, Delano.lu articles 2024-2025 sur régulation Airbnb LU
 - Retours utilisateurs early adopters (conversations avec 3 agences LU, 1 banque régionale, 2 évaluateurs TEGOVA)
 
-**Dernière mise à jour** : 2026-04-17 (nocturne autonome + après-midi : 15 gaps BENCHMARK_2026 additionnels livrés).
+**Dernière mise à jour** : 2026-04-17 (nocturne autonome + après-midi : 17 gaps + 2 ex-partenariats convertis en autonome).
 
 **Prochaine révision** : 2026-10-15 (tous les 6 mois, avant freeze budget Q4) ou plus tôt si entrée en vigueur EU STR Regulation / projet loi 7763.
