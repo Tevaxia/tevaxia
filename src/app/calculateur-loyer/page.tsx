@@ -35,6 +35,23 @@ export default function CalculateurLoyer() {
   const [postTravauxMontant, setPostTravauxMontant] = useState(30000);
   const [postTravauxAnnee, setPostTravauxAnnee] = useState(new Date().getFullYear());
 
+  // Mode copropriété : travaux collectifs capitalisés × quote-part tantièmes
+  const [modeCopro, setModeCopro] = useState(false);
+  const [tantiemes, setTantiemes] = useState(100);
+  const [tantiemesTotal, setTantiemesTotal] = useState(1000);
+  const [travauxCollectifsMontant, setTravauxCollectifsMontant] = useState(0);
+  const [travauxCollectifsAnnee, setTravauxCollectifsAnnee] = useState(2020);
+
+  // Quote-part en copropriété (tantièmes / total) + travaux collectifs capitalisés
+  const quotePart = useMemo(
+    () => (modeCopro && tantiemesTotal > 0 ? tantiemes / tantiemesTotal : 1),
+    [modeCopro, tantiemes, tantiemesTotal]
+  );
+  const coproTranches = useMemo(() => {
+    if (!modeCopro || travauxCollectifsMontant <= 0) return [] as { montant: number; annee: number }[];
+    return [{ montant: travauxCollectifsMontant * quotePart, annee: travauxCollectifsAnnee }];
+  }, [modeCopro, travauxCollectifsMontant, travauxCollectifsAnnee, quotePart]);
+
   const result = useMemo(
     () =>
       calculerCapitalInvesti({
@@ -42,6 +59,7 @@ export default function CalculateurLoyer() {
         anneeAcquisition,
         travauxMontant,
         travauxAnnee,
+        tranchesSupplementaires: coproTranches.length > 0 ? coproTranches : undefined,
         anneeBail,
         surfaceHabitable,
         nbColocataires: avecColocation ? nbColocataires : undefined,
@@ -49,7 +67,7 @@ export default function CalculateurLoyer() {
         tauxVetusteAnnuel: tauxVetuste / 100,
         estMeuble,
       }),
-    [prixAcquisition, anneeAcquisition, travauxMontant, travauxAnnee, anneeBail, surfaceHabitable, avecColocation, nbColocataires, appliquerVetuste, tauxVetuste, estMeuble]
+    [prixAcquisition, anneeAcquisition, travauxMontant, travauxAnnee, coproTranches, anneeBail, surfaceHabitable, avecColocation, nbColocataires, appliquerVetuste, tauxVetuste, estMeuble]
   );
 
   // Scénario post-travaux : inclut les travaux projetés comme tranche supplémentaire
@@ -60,7 +78,10 @@ export default function CalculateurLoyer() {
       anneeAcquisition,
       travauxMontant,
       travauxAnnee,
-      tranchesSupplementaires: [{ montant: postTravauxMontant, annee: postTravauxAnnee }],
+      tranchesSupplementaires: [
+        ...coproTranches,
+        { montant: postTravauxMontant, annee: postTravauxAnnee },
+      ],
       anneeBail,
       surfaceHabitable,
       nbColocataires: avecColocation ? nbColocataires : undefined,
@@ -68,7 +89,7 @@ export default function CalculateurLoyer() {
       tauxVetusteAnnuel: tauxVetuste / 100,
       estMeuble,
     });
-  }, [showPostTravaux, postTravauxMontant, postTravauxAnnee, prixAcquisition, anneeAcquisition, travauxMontant, travauxAnnee, anneeBail, surfaceHabitable, avecColocation, nbColocataires, appliquerVetuste, tauxVetuste, estMeuble]);
+  }, [showPostTravaux, postTravauxMontant, postTravauxAnnee, coproTranches, prixAcquisition, anneeAcquisition, travauxMontant, travauxAnnee, anneeBail, surfaceHabitable, avecColocation, nbColocataires, appliquerVetuste, tauxVetuste, estMeuble]);
 
   return (
     <>
@@ -225,6 +246,68 @@ export default function CalculateurLoyer() {
                   />
                 )}
               </div>
+            </div>
+
+            <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+              <h2 className="mb-4 text-base font-semibold text-navy">{t("coproSectionTitle")}</h2>
+              <ToggleField
+                label={t("coproToggle")}
+                checked={modeCopro}
+                onChange={setModeCopro}
+                hint={t("coproToggleHint")}
+              />
+              {modeCopro && (
+                <div className="mt-4 space-y-3 rounded-lg border border-indigo-200 bg-indigo-50 p-4">
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <InputField
+                      label={t("coproTantiemes")}
+                      value={tantiemes}
+                      onChange={(v) => setTantiemes(Number(v))}
+                      min={1}
+                      hint={t("coproTantiemesHint")}
+                    />
+                    <InputField
+                      label={t("coproTantiemesTotal")}
+                      value={tantiemesTotal}
+                      onChange={(v) => setTantiemesTotal(Number(v))}
+                      min={1}
+                      hint={t("coproTantiemesTotalHint")}
+                    />
+                  </div>
+                  <div className="rounded bg-white p-2 text-xs">
+                    <span className="text-muted">{t("coproQuotePart")} : </span>
+                    <span className="font-mono font-bold text-navy">
+                      {tantiemesTotal > 0 ? ((tantiemes / tantiemesTotal) * 100).toFixed(2) : "0"} %
+                    </span>
+                  </div>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <InputField
+                      label={t("coproTravauxMontant")}
+                      value={travauxCollectifsMontant}
+                      onChange={(v) => setTravauxCollectifsMontant(Number(v))}
+                      suffix="€"
+                      min={0}
+                      hint={t("coproTravauxMontantHint")}
+                    />
+                    <InputField
+                      label={t("coproTravauxAnnee")}
+                      value={travauxCollectifsAnnee}
+                      onChange={(v) => setTravauxCollectifsAnnee(Number(v))}
+                      min={1960}
+                      max={2026}
+                    />
+                  </div>
+                  {travauxCollectifsMontant > 0 && (
+                    <div className="rounded bg-white p-2 text-xs">
+                      <span className="text-muted">{t("coproTravauxQuotePart")} : </span>
+                      <span className="font-mono font-bold text-navy">
+                        {formatEUR(travauxCollectifsMontant * quotePart)}
+                      </span>
+                    </div>
+                  )}
+                  <p className="text-[11px] text-indigo-900 italic">{t("coproNote")}</p>
+                </div>
+              )}
             </div>
 
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">

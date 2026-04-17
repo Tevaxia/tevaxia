@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import SEOContent from "@/components/SEOContent";
+import PropcalcCashflowDemo from "@/components/propcalc/PropcalcCashflowDemo";
 
 function Icon({ d, className = "" }: { d: string; className?: string }) {
   return (
@@ -118,6 +119,9 @@ export default function PropCalcPage() {
           </div>
         </div>
       </section>
+
+      {/* Cashflow 10-year demo */}
+      <PropcalcCashflowDemo />
 
       {/* Countries */}
       <section className="py-20 bg-card border-y border-card-border">
