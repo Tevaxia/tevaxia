@@ -351,7 +351,7 @@
         "cpeContent": "<p>The EPC rates buildings from A (very efficient) to I (energy sieve). A class A property sells at 15-30% premium over comparable G-I class.</p>",
         "epbdTitle": "The EPBD directive and Luxembourg deadlines",
         "epbdContent": "<p>The EU EPBD recast (2024/1275) requires: class E minimum by 2030, class D by 2033, zero-emission by 2050. Luxembourg must renovate 40,000+ homes.</p>",
-        "aidesTitle": "Energy renovation aids: Klimabonus 2025",
+        "aidesTitle": "Energy renovation aids: Klimabonus 2026",
         "aidesContent": "<p>Klimabonus offers: insulation EUR 30-60/m2, renewable heating EUR 2,500-8,000, PV EUR 200-500/kWp. Cumulative with municipal premiums.</p>",
         "faq1q": "What is the energy passport (EPC)?",
         "faq1a": "A mandatory certificate rating buildings from A to I based on primary energy demand, heating needs and CO2 emissions.",
@@ -508,7 +508,7 @@
         "roiContent": "<p>Average ROI for a full renovation (class G to B) is <strong>6-12 years</strong> excluding property appreciation.</p>",
         "coutsTitle": "Average renovation costs by component",
         "coutsContent": "<p>Roof insulation: EUR 120-220/m2, facade: EUR 150-280/m2, triple glazing: EUR 600-1,200/window, heat pump: EUR 12,000-18,000, VMC: EUR 5,000-10,000.</p>",
-        "klimabonusTitle": "Klimabonus 2025: amounts and conditions",
+        "klimabonusTitle": "Klimabonus 2026: amounts and conditions",
         "klimabonusContent": "<p>Insulation EUR 30-60/m2, heat pump EUR 2,500-8,000, PV EUR 200-500/kWp, energy audit 50-70% subsidy.</p>",
         "paybackTitle": "Payback period: worked examples",
         "paybackContent": "<p>Full renovation (G to B) for 150m2 house: EUR 75,000 cost, EUR 22,000 aids, EUR 6,000/year savings = 8-9 year payback. With green premium, under 5 years.</p>",
@@ -1083,7 +1083,7 @@
     "seo": {
       "faqTitle": "Frequently asked questions about property valuation",
       "relatedTitle": "Related tools",
-      "contextTitle": "The Luxembourg real estate market in 2025-2026",
+      "contextTitle": "The Luxembourg real estate market in 2026",
       "contextContent": "<p>The Grand Duchy of Luxembourg's real estate market is going through a <strong>post-peak correction</strong> that began in late 2022, after more than a decade of nearly uninterrupted growth. According to the Housing Observatory and STATEC, residential prices fell by around 14% between the Q3-2022 peak and Q4-2024, before stabilising in the first half of 2025.</p><p>This correction is mainly explained by the <strong>ECB monetary tightening</strong> (policy rate rising from 0% to 4.50% in 18 months), which reduced household borrowing capacity. Nevertheless, structural fundamentals remain solid: demographic growth of +1.5%/year, 12,000 additional residents in 2024, a dynamic labour market (unemployment rate ~5.6%) and a structurally deficient supply estimated at 3,000 homes per year by the IDEA Foundation.</p><p>The <strong>Housing Sector Plan (PSL)</strong> and the Pacte Logement 2.0 reform aim to accelerate construction, but effects remain slow. The transaction recovery observed since early 2025 (+18% in volume in Q1-2025 vs Q1-2024) confirms that the floor has probably been reached in many municipalities.</p>",
       "methodeTitle": "Valuation methods: hedonic, comparables and DCF",
       "methodeContent": "<p>In Luxembourg, three main families of methods coexist for estimating property value:</p><ul><li><strong>The hedonic method</strong>: used by STATEC and the Housing Observatory, it decomposes the price based on objective characteristics (surface area, location, age, energy performance, floor, parking, etc.) via a regression model. Our tool relies on coefficients published by the Observatory and updated quarterly.</li><li><strong>The comparable method</strong>: a classic in property valuation (EVS/TEGoVA standard), it involves adjusting prices from recent transactions on similar properties. Notarial deeds registered with the Registration and Domains Administration (AED) constitute the reference source.</li><li><strong>The DCF (Discounted Cash Flow) method</strong>: mainly used for investment properties, it discounts future net cash flows. Luxembourg institutional investors (SIF/RAIF funds under CSSF supervision) systematically use it for due diligence.</li></ul><p>Our estimator combines the hedonic method (for the theoretical price) with recent comparable data (for market anchoring), thus providing a reliable value range.</p>",
@@ -1552,7 +1552,7 @@
     "seo": {
       "faqTitle": "Frequently asked questions about housing aid",
       "relatedTitle": "Related tools",
-      "panoramaTitle": "Overview of housing aid in Luxembourg in 2025-2026",
+      "panoramaTitle": "Overview of housing aid in Luxembourg in 2026",
       "panoramaContent": "<p>The Grand Duchy of Luxembourg offers a comprehensive range of <strong>public housing aid</strong>, primarily managed by the Ministry of Housing. These aids aim to facilitate homeownership, support energy renovation and help modest households find decent housing.</p><ul><li><strong>Acquisition premium (Bellegen Akt)</strong>: tax credit up to EUR 20,000 per buyer on registration duties</li><li><strong>Interest subsidy</strong>: partial coverage of mortgage interest based on household income</li><li><strong>Construction/renovation premium</strong>: lump-sum aid for primary residence</li><li><strong>Rent subsidy</strong>: monthly contribution for low-income tenants</li><li><strong>Klimabonus / PRIMe House</strong>: energy renovation aid</li></ul>",
       "acquisitionTitle": "Acquisition aid: Bellegen Akt, interest subsidy and state guarantee",
       "acquisitionContent": "<p>For first-time buyers, Luxembourg offers an attractive package:</p><ul><li><strong>Bellegen Akt</strong>: EUR 20,000 credit per person (max EUR 40,000 per couple)</li><li><strong>Interest subsidy</strong>: the state covers part of mortgage interest for 10 years</li><li><strong>State guarantee</strong>: the state guarantees up to EUR 100,000 for households with insufficient deposit</li></ul>",
@@ -1562,7 +1562,7 @@
       "conditionsContent": "<p>Most housing aids are subject to <strong>income conditions</strong> based on household taxable income. Applications are made through the Ministry of Housing (online at guichet.lu) or via Myenergy for energy aids.</p>",
       "faq1q": "What are the main home purchase aids in Luxembourg?",
       "faq1a": "The main aids are the Bellegen Akt (up to EUR 40,000 tax credit), interest subsidy (partial mortgage interest coverage), and state guarantee (state surety up to EUR 100,000). All require the property to be the primary residence.",
-      "faq2q": "What is the Klimabonus amount in 2025-2026?",
+      "faq2q": "What is the Klimabonus amount in 2026?",
       "faq2a": "The enhanced Klimabonus (since December 2024) provides premiums of EUR 30-60/m² for insulation, EUR 2,500-8,000 for renewable heating, and EUR 200-500/kWp for photovoltaics.",
       "faq3q": "How do I apply for rent subsidy?",
       "faq3a": "Apply online at guichet.lu or directly to the Ministry of Housing with your lease, salary slips, household composition and tax notice. Processing takes 2-4 months.",
@@ -1770,7 +1770,7 @@
     "fixed20y": "Fixed 20 years",
     "fixed25y": "Fixed 25 years",
     "variable": "Variable (Euribor 3M +)",
-    "indicativeRatesSource": "Indicative rates — Spuerkeess, BIL, Raiffeisen, BGL BNP Paribas. March 2025.",
+    "indicativeRatesSource": "Indicative rates — Spuerkeess, BIL, Raiffeisen, BGL BNP Paribas. March 2026.",
     "results": "Results",
     "maxMonthlyPayment": "Maximum monthly payment",
     "ofWhichInsurance": "of which balance insurance ({pct}%)",
@@ -3492,7 +3492,7 @@
     "partConstruction": "Construction share",
     "partFraisAnnexes": "Additional fees share",
     "sourcesLabel": "Sources:",
-    "sourcesText": "STATEC — Semi-annual construction price index (Oct. 2025, base 100 = 1970, general index 1173.24). Trade weightings from the STATEC basket. Price ranges: Luxembourg market average 2025-2026 (tack.lu, maison.lu, renov.lu).",
+    "sourcesText": "STATEC — Semi-annual construction price index (Oct. 2025, base 100 = 1970, general index 1173.24). Trade weightings from the STATEC basket. Price ranges: Luxembourg market 2026 (tack.lu, maison.lu, renov.lu).",
     "seo": {
       "faqTitle": "Frequently asked questions about construction costs",
       "relatedTitle": "Related tools",
@@ -3761,7 +3761,7 @@
     },
     "sources": {
       "title": "Sources:",
-      "text": "Average unit prices on the Luxembourg market 2025-2026. References: Batiprix 2026 vol. 2 (VRD, Green spaces) with LU coefficient x1.20, CTG 002 (earthworks), CTG 009 (piping), CSDC-CT (Ponts & Chaussées), STATEC construction price indices, Creos connection catalogue 2026, OAI CTA Privé annex 3. Prices generally include supply, transport and installation. Detailed quotes should be obtained from specialist contractors."
+      "text": "Average unit prices on the Luxembourg market 2026. References: Batiprix 2026 vol. 2 (VRD, Green spaces) with LU coefficient x1.20, CTG 002 (earthworks), CTG 009 (piping), CSDC-CT (Ponts & Chaussées), STATEC construction price indices, Creos connection catalogue 2026, OAI CTA Privé annex 3. Prices generally include supply, transport and installation. Detailed quotes should be obtained from specialist contractors."
     },
     "seo": {
       "faqTitle": "Frequently asked questions about civil engineering (VRD) in Luxembourg",
@@ -3996,7 +3996,7 @@
     },
     "sources": {
       "title": "Sources:",
-      "text": "Indicative prices for the Luxembourg market 2025-2026. Manufacturer catalogues: Viessmann, Daikin, Vaillant, Buderus, Mitsubishi, Panasonic, LG, Bosch, Hoval, Wolf, Atlantic, De Dietrich, Froling, Okofen, Windhager, Zehnder, Helios, Brink. LU distributors: Reckinger Alfred, Vanmarcke, General Technic, Sonepar, CRS, TSD. Aids: guichet.public.lu (Klimabonus 2026), klima-agence.lu (Enoprimes). Standards: EN 12831 (heat losses), RGD 9 June 2021 (energy performance). Prices generally include supply and installation. Detailed quotes should be obtained from approved installers."
+      "text": "Indicative prices for the Luxembourg market 2026. Manufacturer catalogues: Viessmann, Daikin, Vaillant, Buderus, Mitsubishi, Panasonic, LG, Bosch, Hoval, Wolf, Atlantic, De Dietrich, Froling, Okofen, Windhager, Zehnder, Helios, Brink. LU distributors: Reckinger Alfred, Vanmarcke, General Technic, Sonepar, CRS, TSD. Aids: guichet.public.lu (Klimabonus 2026), klima-agence.lu (Enoprimes). Standards: EN 12831 (heat losses), RGD 9 June 2021 (energy performance). Prices generally include supply and installation. Detailed quotes should be obtained from approved installers."
     },
     "seo": {
       "faqTitle": "Frequently asked questions about HVAC sizing",
@@ -4475,7 +4475,7 @@
       "indiceContent": "<p>The <strong>property price index</strong> by municipality is the reference tool for tracking the Luxembourg residential market. Published quarterly by the Housing Observatory in partnership with STATEC, it relies on <strong>notarial deeds</strong> registered with the AED.</p><p>In 2025, the overall index shows <strong>stabilisation after the 2022-2024 correction</strong> (-14% on average), with marked disparities between municipalities.</p>",
       "methodologieTitle": "Methodology and data sources",
       "methodologieContent": "<p>The methodology relies on:</p><ul><li><strong>Primary source</strong>: notarial deeds registered at the AED</li><li><strong>Hedonic method</strong>: price decomposition by property characteristics</li><li><strong>Seasonal adjustment</strong>: X-13 ARIMA model used by STATEC</li><li><strong>Smoothing</strong>: 4-quarter moving average for low-volume municipalities</li></ul>",
-      "tendancesTitle": "2025-2026 trends: selective recovery by municipality",
+      "tendancesTitle": "2026 trends: selective recovery by municipality",
       "tendancesContent": "<p>Municipal analysis reveals contrasting dynamics:</p><ul><li><strong>Luxembourg City</strong>: median apartment ~EUR 10,500/m2, +3% recovery in Q1-2025</li><li><strong>Southern belt</strong> (Esch, Differdange): stabilisation at ~EUR 5,800-6,500/m2</li><li><strong>North</strong> (Clervaux, Wiltz): slower correction, ~EUR 4,500-5,500/m2</li></ul>",
       "topCommunesTitle": "Top municipalities: prices, yields and attractiveness",
       "topCommunesContent": "<p>The most sought-after municipalities combine transport accessibility, quality of life and school offering:</p><ul><li><strong>Strassen, Bertrange, Hesperange</strong>: premium suburban, EUR 8,000-10,000/m2</li><li><strong>Esch-sur-Alzette, Belval</strong>: secondary urban hub, ~EUR 6,000/m2</li><li><strong>Mersch, Steinsel</strong>: attractive central municipalities, EUR 6,500-7,500/m2</li></ul>",
@@ -5054,7 +5054,7 @@
     "estimatedSubsidy": "Estimated subsidy",
     "coverageRate": "Coverage rate",
     "netCostAfterSubsidy": "Net cost after subsidy",
-    "klimabonusNote": "Indicative estimate based on Klimabonus 2025 rates. Actual amounts depend on the energy audit and quotes validated by myenergy.",
+    "klimabonusNote": "Indicative estimate based on Klimabonus 2026 rates. Actual amounts depend on the energy audit and quotes validated by myenergy.",
     "perLotShare": "Per-lot share (energy renovation)",
     "renovationShare": "Gross share",
     "subsidyShare": "Subsidy share",
@@ -6814,8 +6814,8 @@
       "description": "Professional or volunteer co-ownership manager"
     },
     "hotelier": {
-      "label": "Hotelier",
-      "description": "Hotel, motel or tourist residence operator"
+      "label": "Hotel operator",
+      "description": "Hotel, motel or short-term residence operator"
     },
     "investisseur": {
       "label": "Investor",

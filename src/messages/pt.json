@@ -351,7 +351,7 @@
         "cpeContent": "<p>O CPE classifica de A a I. Um imovel classe A vende-se com 15-30 % de premio.</p>",
         "epbdTitle": "A diretiva EPBD e os prazos luxemburgueses",
         "epbdContent": "<p>EPBD: classe E ate 2030, classe D ate 2033, zero emissoes ate 2050. Mais de 40.000 habitacoes a renovar.</p>",
-        "aidesTitle": "Apoios a renovacao energetica: Klimabonus 2025",
+        "aidesTitle": "Apoios a renovacao energetica: Klimabonus 2026",
         "aidesContent": "<p>Klimabonus: isolamento 30-60 EUR/m2, aquecimento renovavel 2.500-8.000 EUR, PV 200-500 EUR/kWc.</p>",
         "faq1q": "O que e o passaporte energetico?",
         "faq1a": "Um certificado obrigatorio que classifica de A a I.",
@@ -508,7 +508,7 @@
         "roiContent": "<p>ROI medio: <strong>6-12 anos</strong> sem valorizacao do imovel.</p>",
         "coutsTitle": "Custos medios de renovacao por componente",
         "coutsContent": "<p>Telhado: 120-220 EUR/m2, fachada: 150-280 EUR/m2, vidros triplos: 600-1.200 EUR/janela.</p>",
-        "klimabonusTitle": "Klimabonus 2025: montantes e condicoes",
+        "klimabonusTitle": "Klimabonus 2026: montantes e condicoes",
         "klimabonusContent": "<p>Isolamento 30-60 EUR/m2, bomba de calor 2.500-8.000 EUR, PV 200-500 EUR/kWc.</p>",
         "paybackTitle": "Tempo de retorno: exemplos praticos",
         "paybackContent": "<p>Renovacao completa G→B: 75.000 EUR, 22.000 EUR apoios, 6.000 EUR/ano poupanca = 8-9 anos.</p>",
@@ -1083,7 +1083,7 @@
     "seo": {
       "faqTitle": "Perguntas frequentes sobre avaliação imobiliária",
       "relatedTitle": "Ferramentas complementares",
-      "contextTitle": "O mercado imobiliário luxemburguês em 2025-2026",
+      "contextTitle": "O mercado imobiliário luxemburguês em 2026",
       "contextContent": "<p>O mercado imobiliário do Grão-Ducado do Luxemburgo atravessa uma fase de <strong>correção pós-pico</strong> iniciada no final de 2022, após mais de uma década de crescimento quase ininterrupto. Segundo o Observatório da Habitação e o STATEC, os preços residenciais recuaram cerca de 14 % entre o pico do T3-2022 e o T4-2024, antes de se estabilizarem no primeiro semestre de 2025.</p><p>Esta correção explica-se principalmente pelo <strong>aperto monetário do BCE</strong> (taxa diretora de 0 % para 4,50 % em 18 meses), que reduziu a capacidade de endividamento das famílias. No entanto, os fundamentos estruturais permanecem sólidos: crescimento demográfico de +1,5 %/ano, 12.000 residentes adicionais em 2024, um mercado de trabalho dinâmico (taxa de desemprego ~5,6 %) e uma oferta estruturalmente deficitária estimada em 3.000 habitações por ano pela Fundação IDEA.</p>",
       "methodeTitle": "Métodos de avaliação: hedónico, comparáveis e DCF",
       "methodeContent": "<p>No Luxemburgo, três grandes famílias de métodos coexistem para estimar o valor de um imóvel:</p><ul><li><strong>O método hedónico</strong>: utilizado pelo STATEC e pelo Observatório da Habitação, decompõe o preço com base em características objetivas (área, localização, idade, desempenho energético, andar, estacionamento, etc.) através de um modelo de regressão.</li><li><strong>O método dos comparáveis</strong>: clássico na avaliação imobiliária (norma EVS/TEGoVA), consiste em ajustar os preços de transações recentes de imóveis semelhantes.</li><li><strong>O método DCF (Discounted Cash Flow)</strong>: utilizado principalmente para imóveis de rendimento, atualiza os fluxos de caixa líquidos futuros.</li></ul>",
@@ -1552,7 +1552,7 @@
     "seo": {
       "faqTitle": "Perguntas frequentes sobre apoios à habitação",
       "relatedTitle": "Ferramentas complementares",
-      "panoramaTitle": "Panorama dos apoios à habitação no Luxemburgo 2025-2026",
+      "panoramaTitle": "Panorama dos apoios à habitação no Luxemburgo 2026",
       "panoramaContent": "<p>O Grão-Ducado do Luxemburgo oferece uma gama completa de <strong>apoios públicos à habitação</strong>:</p><ul><li><strong>Bellegen Akt</strong>: crédito fiscal até 20.000 € por comprador</li><li><strong>Subsídio de juros</strong>: cobertura parcial dos juros hipotecários</li><li><strong>Prémio de construção/renovação</strong>: ajuda forfetária</li><li><strong>Subsídio de renda</strong>: contribuição mensal para inquilinos de baixos rendimentos</li><li><strong>Klimabonus / PRIMe House</strong>: apoio à renovação energética</li></ul>",
       "acquisitionTitle": "Apoios à aquisição: Bellegen Akt, subsídio de juros e garantia estatal",
       "acquisitionContent": "<p>Para primeiros compradores, o Luxemburgo oferece um pacote atrativo:</p><ul><li><strong>Bellegen Akt</strong>: crédito de 20.000 € por pessoa (máx. 40.000 € por casal)</li><li><strong>Subsídio de juros</strong>: o Estado cobre parte dos juros durante 10 anos</li><li><strong>Garantia estatal</strong>: garantia até 100.000 €</li></ul>",
@@ -1562,7 +1562,7 @@
       "conditionsContent": "<p>A maioria dos apoios está sujeita a <strong>condições de rendimento</strong>. Os pedidos são feitos junto do Ministério da Habitação (online em guichet.lu) ou via Myenergy para apoios energéticos.</p>",
       "faq1q": "Quais são os principais apoios à compra de imóvel no Luxemburgo?",
       "faq1a": "Os principais apoios são o Bellegen Akt (até 40.000 € de crédito fiscal), subsídio de juros e garantia estatal (até 100.000 €).",
-      "faq2q": "Qual o montante do Klimabonus em 2025-2026?",
+      "faq2q": "Qual o montante do Klimabonus em 2026?",
       "faq2a": "O Klimabonus reforçado prevê prémios de 30-60 €/m² para isolamento, 2.500-8.000 € para aquecimento renovável e 200-500 €/kWc para fotovoltaico.",
       "faq3q": "Como solicitar o subsídio de renda?",
       "faq3a": "Online em guichet.lu ou diretamente no Ministério da Habitação com contrato de arrendamento, recibos de vencimento e declaração fiscal.",
@@ -1770,7 +1770,7 @@
     "fixed20y": "Fixo 20 anos",
     "fixed25y": "Fixo 25 anos",
     "variable": "Variável (Euribor 3M +)",
-    "indicativeRatesSource": "Taxas indicativas — Spuerkeess, BIL, Raiffeisen, BGL BNP Paribas. Março 2025.",
+    "indicativeRatesSource": "Taxas indicativas — Spuerkeess, BIL, Raiffeisen, BGL BNP Paribas. Março 2026.",
     "results": "Resultados",
     "maxMonthlyPayment": "Prestação máxima mensal",
     "ofWhichInsurance": "dos quais seguro saldo devedor ({pct} %)",
@@ -3492,7 +3492,7 @@
     "partConstruction": "Parte construcao",
     "partFraisAnnexes": "Parte custos acessorios",
     "sourcesLabel": "Fontes:",
-    "sourcesText": "STATEC — Indice semestral dos precos da construcao (out. 2025, base 100 = 1970, indice geral 1173,24). Ponderacoes por oficio do cabaz STATEC. Faixas de preco: media do mercado luxemburgues 2025-2026 (tack.lu, maison.lu, renov.lu).",
+    "sourcesText": "STATEC — Indice semestral dos precos da construcao (out. 2025, base 100 = 1970, indice geral 1173,24). Ponderacoes por oficio do cabaz STATEC. Faixas de preco: media do mercado luxemburgues 2026 (tack.lu, maison.lu, renov.lu).",
     "seo": {
       "faqTitle": "Perguntas frequentes sobre custos de construção",
       "relatedTitle": "Ferramentas complementares",
@@ -3761,7 +3761,7 @@
     },
     "sources": {
       "title": "Fontes:",
-      "text": "Precos unitarios medios do mercado luxemburgues 2025-2026. Referencias: Batiprix 2026 vol. 2 (VRD, Espacos verdes) com coeficiente LU x1.20, CTG 002 (terraplanagem), CTG 009 (canalizacao), CSDC-CT (Ponts & Chaussées), STATEC indices de precos da construcao, Creos catalogo de ligacao 2026, OAI CTA Privé anexo 3. Os precos incluem geralmente fornecimento, transporte e aplicacao. Orcamentos detalhados a solicitar a empresas especializadas."
+      "text": "Precos unitarios medios do mercado luxemburgues 2026. Referencias: Batiprix 2026 vol. 2 (VRD, Espacos verdes) com coeficiente LU x1.20, CTG 002 (terraplanagem), CTG 009 (canalizacao), CSDC-CT (Ponts & Chaussées), STATEC indices de precos da construcao, Creos catalogo de ligacao 2026, OAI CTA Privé anexo 3. Os precos incluem geralmente fornecimento, transporte e aplicacao. Orcamentos detalhados a solicitar a empresas especializadas."
     },
     "seo": {
       "faqTitle": "Perguntas frequentes sobre infraestruturas (VRD) no Luxemburgo",
@@ -3996,7 +3996,7 @@
     },
     "sources": {
       "title": "Fontes:",
-      "text": "Precos indicativos do mercado luxemburgues 2025-2026. Catalogos de fabricantes: Viessmann, Daikin, Vaillant, Buderus, Mitsubishi, Panasonic, LG, Bosch, Hoval, Wolf, Atlantic, De Dietrich, Froling, Okofen, Windhager, Zehnder, Helios, Brink. Distribuidores LU: Reckinger Alfred, Vanmarcke, General Technic, Sonepar, CRS, TSD. Apoios: guichet.public.lu (Klimabonus 2026), klima-agence.lu (Enoprimes). Normas: EN 12831 (perdas termicas), RGD 9 de junho de 2021 (desempenho energetico). Os precos incluem geralmente fornecimento e instalacao. Orcamentos detalhados a solicitar a instaladores aprovados."
+      "text": "Precos indicativos do mercado luxemburgues 2026. Catalogos de fabricantes: Viessmann, Daikin, Vaillant, Buderus, Mitsubishi, Panasonic, LG, Bosch, Hoval, Wolf, Atlantic, De Dietrich, Froling, Okofen, Windhager, Zehnder, Helios, Brink. Distribuidores LU: Reckinger Alfred, Vanmarcke, General Technic, Sonepar, CRS, TSD. Apoios: guichet.public.lu (Klimabonus 2026), klima-agence.lu (Enoprimes). Normas: EN 12831 (perdas termicas), RGD 9 de junho de 2021 (desempenho energetico). Os precos incluem geralmente fornecimento e instalacao. Orcamentos detalhados a solicitar a instaladores aprovados."
     },
     "seo": {
       "faqTitle": "Perguntas frequentes sobre dimensionamento HVAC",
@@ -4475,7 +4475,7 @@
       "indiceContent": "<p>O <strong>indice de precos imobiliarios</strong> por municipio e a ferramenta de referencia para acompanhar o mercado residencial luxemburgues. Publicado trimestralmente pelo Observatorio da Habitacao em parceria com o STATEC.</p>",
       "methodologieTitle": "Metodologia e fontes de dados",
       "methodologieContent": "<p>A metodologia baseia-se em escrituras notariais registadas na AED, decomposicao hedonica e ajustamento sazonal.</p>",
-      "tendancesTitle": "Tendencias 2025-2026: recuperacao seletiva por municipio",
+      "tendancesTitle": "Tendências 2026: recuperacao seletiva por municipio",
       "tendancesContent": "<p>Cidade do Luxemburgo: ~10.500 EUR/m2, cintura sul: ~5.800-6.500 EUR/m2, norte: ~4.500-5.500 EUR/m2.</p>",
       "topCommunesTitle": "Top municipios: precos, rendimentos e atratividade",
       "topCommunesContent": "<p>Os municipios mais procurados combinam acessibilidade, qualidade de vida e oferta escolar.</p>",
@@ -5054,7 +5054,7 @@
     "estimatedSubsidy": "Subsidio estimado",
     "coverageRate": "Taxa de cobertura",
     "netCostAfterSubsidy": "Custo liquido apos subsidio",
-    "klimabonusNote": "Estimativa indicativa baseada nas taxas Klimabonus 2025. Os montantes reais dependem da auditoria energetica e dos orcamentos validados pela myenergy.",
+    "klimabonusNote": "Estimativa indicativa baseada nas taxas Klimabonus 2026. Os montantes reais dependem da auditoria energetica e dos orcamentos validados pela myenergy.",
     "perLotShare": "Parte por fracao (renovacao energetica)",
     "renovationShare": "Parte bruta",
     "subsidyShare": "Parte subsidio",
@@ -6814,7 +6814,7 @@
       "description": "Administrador profissional ou voluntário de condomínio"
     },
     "hotelier": {
-      "label": "Hoteleiro",
+      "label": "Operador hoteleiro",
       "description": "Operador de hotel, motel ou residência turística"
     },
     "investisseur": {

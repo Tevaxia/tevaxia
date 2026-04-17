@@ -351,7 +351,7 @@
         "cpeContent": "<p>Den EPB bewert Gebaider vun A bis I. Klass A breangt 15-30 % Praisopschlag.</p>",
         "epbdTitle": "D'EPBD-Richtlinn an Letzebueger Fristen",
         "epbdContent": "<p>EPBD: Klass E bis 2030, Klass D bis 2033, Nullemissioun bis 2050.</p>",
-        "aidesTitle": "Energierenoveiierungshallfen: Klimabonus 2025",
+        "aidesTitle": "Energierenoveiierungshallfen: Klimabonus 2026",
         "aidesContent": "<p>Klimabonus: Daemmung 30-60 EUR/m2, erneierbar Heizung 2.500-8.000 EUR, PV 200-500 EUR/kWp.</p>",
         "faq1q": "Wat ass den Energieausweis?",
         "faq1a": "E Pflichtausweis deen Gebaider vun A bis I bewert.",
@@ -508,7 +508,7 @@
         "roiContent": "<p>Duerchschnettlechen ROI: <strong>6-12 Joer</strong> ouni Weertsteigerung.</p>",
         "coutsTitle": "Duerchschnettlech Kaschte pro Saneiierungsposten",
         "coutsContent": "<p>Daach: 120-220 EUR/m2, Fassade: 150-280 EUR/m2, Waermepompel: 12.000-18.000 EUR.</p>",
-        "klimabonusTitle": "Klimabonus 2025: Betraeg a Konditiounen",
+        "klimabonusTitle": "Klimabonus 2026: Betraeg a Konditiounen",
         "klimabonusContent": "<p>Daemmung 30-60 EUR/m2, Waermepompel 2.500-8.000 EUR.</p>",
         "paybackTitle": "Amortisatiounszait: Rechbeispiller",
         "paybackContent": "<p>Komplettsaneiierung G→B: 75.000 EUR, 22.000 EUR Hëllef, 6.000 EUR/Joer Erspuernis = 8-9 Joer.</p>",
@@ -1083,7 +1083,7 @@
     "seo": {
       "faqTitle": "Dacks gestallt Froen iwwer d'Immobiliëbewäertung",
       "relatedTitle": "Ergänzend Tools",
-      "contextTitle": "De Lëtzebuerger Immobiliëmaart 2025-2026",
+      "contextTitle": "De Lëtzebuerger Immobiliëmaart 2026",
       "contextContent": "<p>Den Immobiliëmaart vum Groussherzogtum Lëtzebuerg geet duerch eng Phase vun <strong>Korrektur nom Héichpunkt</strong>, déi Enn 2022 ugefaangen huet, no méi wéi engem Joerzéngt vu bal onënnerbrachenem Wuesstem. Laut dem Wunnengsobservatoire an dem STATEC sinn d'Residenzpräisser tëschent dem Héichstand Q3-2022 an Q4-2024 ëm ongeféier 14 % gefall, ier se sech am éischten Hallefjoer 2025 stabiliséiert hunn.</p><p>Dës Korrektur erkläert sech haaptsächlech duerch d'<strong>geldpolitesch Verschärfung vun der EZB</strong> (Leetzëns vun 0 % op 4,50 % an 18 Méint), déi d'Kreditkapazitéit vun de Stéit reduzéiert huet.</p>",
       "methodeTitle": "Bewäertungsmethoden: hedonesch, Vergläichswäerter an DCF",
       "methodeContent": "<p>Zu Lëtzebuerg existéieren dräi grouss Famillje vu Methoden fir den Immobiliëwäert ze schätzen:</p><ul><li><strong>Déi hedonesch Method</strong>: vum STATEC an dem Wunnengsobservatoire benotzt, zerléit si de Präis op Basis vun objektive Kritäre (Fläch, Lag, Alter, Energieeffizienz, Stack, Parking, asw.) iwwer e Regressiounsmodell.</li><li><strong>D'Vergläichswäertmethod</strong>: e Klassiker an der Immobiliëbewäertung (EVS/TEGoVA-Standard).</li><li><strong>D'DCF-Method (Discounted Cash Flow)</strong>: haaptsächlech fir Rendite-Immobilie benotzt.</li></ul>",
@@ -1552,7 +1552,7 @@
     "seo": {
       "faqTitle": "Dacks gestallt Froen zu de Wunnhëllefen",
       "relatedTitle": "Ergänzend Tools",
-      "panoramaTitle": "Iwwerbléck iwwer d'Wunnhëllefen zu Lëtzebuerg 2025-2026",
+      "panoramaTitle": "Iwwerbléck iwwer d'Wunnhëllefen zu Lëtzebuerg 2026",
       "panoramaContent": "<p>D'Groussherzogtum Lëtzebuerg bitt eng komplett Palette vu <strong>ëffentleche Wunnhëllefen</strong>:</p><ul><li><strong>Bëllegen Akt</strong>: Steierkredit bis zu 20.000 € pro Keefer</li><li><strong>Zënszouschoss</strong>: deelweis Iwwernahm vun den Hypothéikenzënsen</li><li><strong>Bau-/Renovéierungsprimm</strong>: Pauschalaid</li><li><strong>Loyershëllef</strong>: monatlecht Bäitrag fir akommesschwach Locatairen</li><li><strong>Klimabonus / PRIMe House</strong>: Energierenovéierungshëllef</li></ul>",
       "acquisitionTitle": "Akafshëllefen: Bëllegen Akt, Zënszouschoss a Staatsgarantie",
       "acquisitionContent": "<p>Fir Éischtkeefer bitt Lëtzebuerg en attraktive Paquet:</p><ul><li><strong>Bëllegen Akt</strong>: 20.000 € Kredit pro Persoun (max. 40.000 € pro Koppel)</li><li><strong>Zënszouschoss</strong>: de Staat iwwerhëlt deelweis d'Hypothéikenzënsen fir 10 Joer</li><li><strong>Staatsgarantie</strong>: Biergschaft bis zu 100.000 €</li></ul>",
@@ -1562,7 +1562,7 @@
       "conditionsContent": "<p>Déi meescht Wunnhëllefen sinn u <strong>Akommenskonditiounen</strong> gebonnen. Demanden ginn beim Wunnengministère gestallt (online iwwer guichet.lu).</p>",
       "faq1q": "Wéi eng Haapthëllefen ginn et beim Immobiliëkaf zu Lëtzebuerg?",
       "faq1a": "D'Haapthëllefen sinn de Bëllegen Akt (bis zu 40.000 € Steierkredit), Zënszouschoss a Staatsgarantie (bis zu 100.000 €).",
-      "faq2q": "Wéi héich ass de Klimabonus 2025-2026?",
+      "faq2q": "Wéi héich ass de Klimabonus 2026-2026?",
       "faq2a": "De verstäerkte Klimabonus gesäit Primme vun 30-60 €/m² fir Dämmung, 2.500-8.000 € fir erneierbar Heizung an 200-500 €/kWp fir Photovoltaik vir.",
       "faq3q": "Wéi freet een d'Loyershëllef un?",
       "faq3a": "Online iwwer guichet.lu oder direkt beim Wunnengministère mat Mietvertrag, Gehaltsofrechnung a Steierbescheid.",
@@ -3492,7 +3492,7 @@
     "partConstruction": "Undeel Bau",
     "partFraisAnnexes": "Undeel Niewekäschten",
     "sourcesLabel": "Quellen:",
-    "sourcesText": "STATEC — Hallefjoerleche Baupräisindex (Okt. 2025, Basis 100 = 1970, Gesamtindex 1173,24). Gewichtungen pro Gewierk aus dem STATEC-Kuerf. Präisspannen: Moyenne vum Lëtzebuerger Marché 2025-2026 (tack.lu, maison.lu, renov.lu).",
+    "sourcesText": "STATEC — Hallefjoerleche Baupräisindex (Okt. 2025, Basis 100 = 1970, Gesamtindex 1173,24). Gewichtungen pro Gewierk aus dem STATEC-Kuerf. Präisspannen: Moyenne vum Lëtzebuerger Marché 2026 (tack.lu, maison.lu, renov.lu).",
     "seo": {
       "faqTitle": "Heefeg Froen zu Baukäschten",
       "relatedTitle": "Ergänzend Tools",
@@ -3761,7 +3761,7 @@
     },
     "sources": {
       "title": "Quellen:",
-      "text": "Moyenne Eenheetspräisser um Lëtzebuerger Marché 2025-2026. Referenzen: Batiprix 2026 Bd. 2 (VRD, Grénge Flächen) mat LU-Koeffizient x1.20, CTG 002 (Äerdaarbechten), CTG 009 (Kanalisatioun), CSDC-CT (Ponts & Chaussées), STATEC Baupräisindizen, Creos Uschlosskatalog 2026, OAI CTA Privé Annexe 3. D'Präisser enthalen normalerweis Liwwerung, Transport an Asetzen. Detailléiert Offere si bei Fachfirmen unzefroen."
+      "text": "Moyenne Eenheetspräisser um Lëtzebuerger Marché 2026. Referenzen: Batiprix 2026 Bd. 2 (VRD, Grénge Flächen) mat LU-Koeffizient x1.20, CTG 002 (Äerdaarbechten), CTG 009 (Kanalisatioun), CSDC-CT (Ponts & Chaussées), STATEC Baupräisindizen, Creos Uschlosskatalog 2026, OAI CTA Privé Annexe 3. D'Präisser enthalen normalerweis Liwwerung, Transport an Asetzen. Detailléiert Offere si bei Fachfirmen unzefroen."
     },
     "seo": {
       "faqTitle": "Heefeg Froen zu Erschléissungskäschten zu Lëtzebuerg",
@@ -3996,7 +3996,7 @@
     },
     "sources": {
       "title": "Quellen:",
-      "text": "Richtpräisser fir de Lëtzebuerger Marché 2025-2026. Hiersteller-Katalogen: Viessmann, Daikin, Vaillant, Buderus, Mitsubishi, Panasonic, LG, Bosch, Hoval, Wolf, Atlantic, De Dietrich, Froling, Okofen, Windhager, Zehnder, Helios, Brink. LU-Händler: Reckinger Alfred, Vanmarcke, General Technic, Sonepar, CRS, TSD. Hëllefen: guichet.public.lu (Klimabonus 2026), klima-agence.lu (Enoprimes). Normen: EN 12831 (Heizlaascht), RGD 9. Juni 2021 (Gesamtenergieeffizienz). D'Präisser enthalen normalerweis Liwwerung an Asetzen. Detailléiert Offere si bei zougeloossenen Installateuren unzefroen."
+      "text": "Richtpräisser fir de Lëtzebuerger Marché 2026. Hiersteller-Katalogen: Viessmann, Daikin, Vaillant, Buderus, Mitsubishi, Panasonic, LG, Bosch, Hoval, Wolf, Atlantic, De Dietrich, Froling, Okofen, Windhager, Zehnder, Helios, Brink. LU-Händler: Reckinger Alfred, Vanmarcke, General Technic, Sonepar, CRS, TSD. Hëllefen: guichet.public.lu (Klimabonus 2026), klima-agence.lu (Enoprimes). Normen: EN 12831 (Heizlaascht), RGD 9. Juni 2021 (Gesamtenergieeffizienz). D'Präisser enthalen normalerweis Liwwerung an Asetzen. Detailléiert Offere si bei zougeloossenen Installateuren unzefroen."
     },
     "seo": {
       "faqTitle": "Dacks gestallt Froen zur HVAC-Dimensionneierung",
@@ -4475,7 +4475,7 @@
       "indiceContent": "<p>Den <strong>Immobiliepraisindex</strong> no Gemeng ass d'Referenzinstrument fir de Letzebueger Wunnengsmaart ze suiveeieren.</p>",
       "methodologieTitle": "Methodik an Donneeequellen",
       "methodologieContent": "<p>D'Methodik baselert op AED-Notariatsurkonden, hedonescher Praiszerlegung an saisonaler Bereinegung.</p>",
-      "tendancesTitle": "Tendenze 2025-2026: selektiv Erhuelung no Gemeng",
+      "tendancesTitle": "Tendenzen 2026: selektiv Erhuelung no Gemeng",
       "tendancesContent": "<p>D'Stad Letzebuerg: ~10.500 EUR/m2, Suedguertel: ~5.800-6.500 EUR/m2, Norden: ~4.500-5.500 EUR/m2.</p>",
       "topCommunesTitle": "Top-Gemengen: Praiser, Renditen an Attraktivitaeit",
       "topCommunesContent": "<p>Dei begehrteste Gemengen kombinaieren Verkeiersunbindung, Liewensqualitaeit an Schouluffroen.</p>",
@@ -6814,8 +6814,8 @@
       "description": "Professionelle oder benevole Syndic vun enger Matproprietéit"
     },
     "hotelier": {
-      "label": "Hotelier",
-      "description": "Exploitant vun Hotel, Motel oder Touristen-Residence"
+      "label": "Hotelbedreiwer",
+      "description": "Bedreiwer vun Hotel, Motel oder Touristen-Residenz"
     },
     "investisseur": {
       "label": "Investisseur",
