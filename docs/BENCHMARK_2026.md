@@ -1109,6 +1109,17 @@ En attendant la société, voies opérationnelles :
 
 ---
 
+### Livrables 14e session 2026-04-17 (gaps résiduels — 2 items + 2 vérifiés)
+
+| Chantier | Module | Commit |
+|---|---|---|
+| ✅ **/hedonique comparaison littérature** — barres fourchettes Observatoire / LISER / ECB, point vert/orange selon in/out range, IC 95 % tevaxia superposé | Hédonique | `dd405fd` |
+| ✅ **/gestion-locative colocation UI** — CRUD colocataires (bail unique, quote-part, caution, dates), équilibrage auto, branché sur schéma `rental_cotenants` (migration 030) | Locatif | `dd405fd` |
+| ✓ VEFA GFA extrinsèque/intrinsèque — déjà implémenté (vérifié session 14) | VEFA | — |
+| ✓ Estimation IA descriptif (AiAnalysisCard) — déjà intégré (vérifié session 14) | Estimation | — |
+
+Total session 14 : **+2 gaps BENCHMARK livrés** + 2 vérifiés comme déjà existants, 561 tests passent.
+
 ### Livrables 13e session 2026-04-17 (gaps résiduels — 4 items)
 
 | Chantier | Module | Commit |
