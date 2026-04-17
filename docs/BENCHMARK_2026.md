@@ -1109,6 +1109,17 @@ En attendant la société, voies opérationnelles :
 
 ---
 
+### Livrables 13e session 2026-04-17 (gaps résiduels — 4 items)
+
+| Chantier | Module | Commit |
+|---|---|---|
+| ✅ **/dcf-multi cap rate line chart** — valeur DCF × cap rate 4%-7,5% + hypothèse centrale dorée | DCF | `d44a65e` |
+| ✅ **/achat-vs-location Monte-Carlo** — 1 000 scénarios normaux, probabilité achat > loc, IC 90 %, histogramme | Achat-vs-loc | `d44a65e` |
+| ✅ **/portfolio ventilation charges** — table 5 postes (copro/PNO/taxe/entretien/gestion) + ratio charges/loyers | Portfolio | `d44a65e` |
+| ✅ **API v1 webhooks** — migration 035 + route `/webhooks/test` HMAC-signée + UI /profil/api CRUD + snapshots pour détection variation | API | `d44a65e` |
+
+Total session 13 : **+4 gaps BENCHMARK livrés** (FR/EN/DE/PT/LB), 561 tests passent, type-check clean.
+
 ### Livrables 12e session 2026-04-17 (gaps résiduels — 4 items)
 
 | Chantier | Module | Commit |
