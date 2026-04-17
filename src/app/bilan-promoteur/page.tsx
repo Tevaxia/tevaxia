@@ -63,6 +63,13 @@ export default function BilanPromoteur() {
   const [trancheT2Offset, setTrancheT2Offset] = useState(12);
   const [trancheT3Offset, setTrancheT3Offset] = useState(24);
 
+  // Suivi d'exécution : saisie des coûts réels mois par mois
+  const [suiviExecutionActive, setSuiviExecutionActive] = useState(false);
+  const [coutsReelsParMois, setCoutsReelsParMois] = useState<Record<number, number>>({});
+  const updateCoutReel = useCallback((mois: number, valeur: number) => {
+    setCoutsReelsParMois((prev) => ({ ...prev, [mois]: valeur }));
+  }, []);
+
   // Plan de trésorerie — VEFA call schedule (standard LU)
   // 5% / 15% / 20% / 20% / 15% / 15% / 10% spread across 24 months
   const vefaSchedule = useMemo(() => {
@@ -924,6 +931,128 @@ export default function BilanPromoteur() {
               })()}
               {!multiTranchesActive && (
                 <p className="text-xs text-muted italic">{t("multiTranchesHelp")}</p>
+              )}
+            </div>
+
+            {/* Suivi d'exécution : prévisionnel vs réel */}
+            <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+              <div className="mb-3 flex items-start justify-between gap-3 flex-wrap">
+                <div>
+                  <h3 className="text-base font-semibold text-navy">{t("suiviExecutionTitle")}</h3>
+                  <p className="mt-0.5 text-xs text-muted">{t("suiviExecutionSubtitle")}</p>
+                </div>
+                <label className="inline-flex items-center gap-2 text-sm">
+                  <input
+                    type="checkbox"
+                    checked={suiviExecutionActive}
+                    onChange={(e) => setSuiviExecutionActive(e.target.checked)}
+                    className="h-4 w-4"
+                  />
+                  <span className="text-slate">{t("suiviExecutionEnable")}</span>
+                </label>
+              </div>
+
+              {suiviExecutionActive && (() => {
+                // Prévisionnel : construction / 24 + terrain Q1
+                const totalCoutPrevisionnel = result.totalConstruction + result.coutTerrain;
+                const coutMensuelPrevisionnel = result.totalConstruction / 24;
+                const moisAffiches = 24;
+
+                const rows = [];
+                let cumulPrev = 0;
+                let cumulReel = 0;
+                for (let m = 1; m <= moisAffiches; m++) {
+                  const prevMois = coutMensuelPrevisionnel + (m === 1 ? result.coutTerrain : 0);
+                  const reelMois = coutsReelsParMois[m] ?? 0;
+                  cumulPrev += prevMois;
+                  cumulReel += reelMois;
+                  rows.push({ mois: m, prevMois, reelMois, cumulPrev, cumulReel, ecart: cumulReel - cumulPrev });
+                }
+                const ecartFinal = cumulReel - totalCoutPrevisionnel;
+                const ecartPctFinal = totalCoutPrevisionnel > 0 ? (ecartFinal / totalCoutPrevisionnel) * 100 : 0;
+                const moisSaisis = Object.keys(coutsReelsParMois).filter((k) => (coutsReelsParMois[Number(k)] ?? 0) > 0).length;
+
+                return (
+                  <div className="space-y-4">
+                    {/* KPIs */}
+                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                      <div className="rounded-lg border border-card-border bg-background p-3 text-center">
+                        <div className="text-[10px] uppercase tracking-wider text-muted">{t("suiviPrevisionnel")}</div>
+                        <div className="mt-1 text-sm font-mono font-bold text-navy">{formatEUR(totalCoutPrevisionnel)}</div>
+                      </div>
+                      <div className="rounded-lg border border-card-border bg-background p-3 text-center">
+                        <div className="text-[10px] uppercase tracking-wider text-muted">{t("suiviReelSaisi")}</div>
+                        <div className="mt-1 text-sm font-mono font-bold text-navy">{formatEUR(cumulReel)}</div>
+                        <div className="text-[10px] text-muted">{moisSaisis}/{moisAffiches} mois</div>
+                      </div>
+                      <div className={`rounded-lg border p-3 text-center ${
+                        Math.abs(ecartPctFinal) < 5 ? "border-emerald-200 bg-emerald-50"
+                          : Math.abs(ecartPctFinal) < 15 ? "border-amber-200 bg-amber-50"
+                            : "border-rose-200 bg-rose-50"
+                      }`}>
+                        <div className="text-[10px] uppercase tracking-wider text-muted">{t("suiviEcart")}</div>
+                        <div className={`mt-1 text-sm font-mono font-bold ${
+                          ecartFinal > 0 ? "text-rose-900" : ecartFinal < 0 ? "text-emerald-900" : "text-navy"
+                        }`}>
+                          {ecartFinal > 0 ? "+" : ""}{formatEUR(ecartFinal)}
+                        </div>
+                        <div className={`text-[10px] ${ecartPctFinal > 0 ? "text-rose-700" : "text-emerald-700"}`}>
+                          {ecartPctFinal > 0 ? "+" : ""}{ecartPctFinal.toFixed(1)} %
+                        </div>
+                      </div>
+                      <div className="rounded-lg border border-card-border bg-background p-3 text-center">
+                        <div className="text-[10px] uppercase tracking-wider text-muted">{t("suiviMargeImpactee")}</div>
+                        <div className="mt-1 text-sm font-mono font-bold text-navy">
+                          {formatEUR(result.margeMontant - Math.max(0, ecartFinal))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Table mois par mois */}
+                    <div className="overflow-x-auto rounded-lg border border-card-border">
+                      <table className="w-full text-xs">
+                        <thead>
+                          <tr className="border-b border-card-border bg-background">
+                            <th className="px-2 py-1.5 text-left font-semibold">{t("suiviColMois")}</th>
+                            <th className="px-2 py-1.5 text-right font-semibold">{t("suiviColPrevu")}</th>
+                            <th className="px-2 py-1.5 text-right font-semibold">{t("suiviColReel")}</th>
+                            <th className="px-2 py-1.5 text-right font-semibold">{t("suiviColCumulPrev")}</th>
+                            <th className="px-2 py-1.5 text-right font-semibold">{t("suiviColCumulReel")}</th>
+                            <th className="px-2 py-1.5 text-right font-semibold">{t("suiviColEcart")}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {rows.map((r) => (
+                            <tr key={r.mois} className="border-b border-card-border/40">
+                              <td className="px-2 py-1 font-medium">M{r.mois}</td>
+                              <td className="px-2 py-1 text-right font-mono text-muted">{formatEUR(r.prevMois)}</td>
+                              <td className="px-2 py-1 text-right">
+                                <input
+                                  type="number"
+                                  value={coutsReelsParMois[r.mois] ?? ""}
+                                  onChange={(e) => updateCoutReel(r.mois, Number(e.target.value) || 0)}
+                                  placeholder="0"
+                                  className="w-24 rounded border border-input-border bg-input-bg px-2 py-0.5 text-xs text-right font-mono"
+                                />
+                              </td>
+                              <td className="px-2 py-1 text-right font-mono">{formatEUR(r.cumulPrev)}</td>
+                              <td className="px-2 py-1 text-right font-mono">{formatEUR(r.cumulReel)}</td>
+                              <td className={`px-2 py-1 text-right font-mono ${
+                                r.ecart > 0 ? "text-rose-700" : r.ecart < 0 ? "text-emerald-700" : "text-muted"
+                              }`}>
+                                {r.ecart > 0 ? "+" : ""}{formatEUR(r.ecart)}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    <p className="text-[10px] text-muted">{t("suiviNote")}</p>
+                  </div>
+                );
+              })()}
+              {!suiviExecutionActive && (
+                <p className="text-xs text-muted italic">{t("suiviExecutionHelp")}</p>
               )}
             </div>
 

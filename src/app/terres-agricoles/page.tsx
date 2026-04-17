@@ -176,6 +176,86 @@ export default function TerresAgricoles() {
             </div>
           </div>
         </div>
+
+        {/* Carte des prix par région et type */}
+        <div className="mt-8 rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <h2 className="text-base font-semibold text-navy">{t("mapTitle")}</h2>
+          <p className="mt-0.5 text-xs text-muted mb-4">{t("mapSubtitle")}</p>
+          {(() => {
+            const REGIONS = [
+              { key: "centre_sud", label: t("regionCentreSud") },
+              { key: "centre", label: t("regionCentre") },
+              { key: "nord", label: t("regionNord") },
+              { key: "est", label: t("regionEst") },
+            ] as const;
+            const CULTURES: { key: string; label: string; coef: number; note: string; onlyEst?: boolean }[] = [
+              { key: "prairie", label: t("culturePrairie"), coef: 0.85, note: t("culturePrairieNote") },
+              { key: "cereales", label: t("cultureCereales"), coef: 1.0, note: t("cultureCerealesNote") },
+              { key: "vigne", label: t("cultureVigne"), coef: 4.5, note: t("cultureVigneNote"), onlyEst: true },
+              { key: "foret", label: t("cultureForet"), coef: 0.25, note: t("cultureForetNote") },
+            ];
+            // Base price per region = moyenne bonne qualité
+            const BASE: Record<string, number> = { centre_sud: 57500, centre: 48500, nord: 36000, est: 44000 };
+            // Find color based on price
+            const colorFor = (price: number) => {
+              if (price < 20000) return "bg-emerald-100 text-emerald-900 border-emerald-200";
+              if (price < 40000) return "bg-lime-100 text-lime-900 border-lime-200";
+              if (price < 60000) return "bg-amber-100 text-amber-900 border-amber-200";
+              if (price < 100000) return "bg-orange-100 text-orange-900 border-orange-200";
+              return "bg-rose-100 text-rose-900 border-rose-200";
+            };
+            return (
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="border-b border-card-border bg-background">
+                      <th className="px-3 py-2 text-left font-semibold text-navy">{t("mapColRegion")}</th>
+                      {CULTURES.map((c) => (
+                        <th key={c.key} className="px-3 py-2 text-right font-semibold text-navy">{c.label}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {REGIONS.map((r) => {
+                      const base = BASE[r.key];
+                      return (
+                        <tr key={r.key} className="border-b border-card-border/40">
+                          <td className="px-3 py-2 font-semibold">{r.label}</td>
+                          {CULTURES.map((c) => {
+                            if (c.onlyEst && r.key !== "est") {
+                              return <td key={c.key} className="px-3 py-2 text-right text-muted italic">—</td>;
+                            }
+                            const price = Math.round(base * c.coef / 1000) * 1000;
+                            return (
+                              <td key={c.key} className="px-3 py-2 text-right">
+                                <span className={`inline-block rounded border px-2 py-0.5 font-mono font-semibold ${colorFor(price)}`}>
+                                  {formatEUR(price)}/ha
+                                </span>
+                              </td>
+                            );
+                          })}
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            );
+          })()}
+          <div className="mt-4 grid gap-2 text-[11px] text-muted sm:grid-cols-2">
+            <div>
+              <strong className="text-navy">{t("mapLegendTitle")} :</strong>
+              <div className="mt-1 flex flex-wrap gap-2">
+                <span className="rounded border bg-emerald-100 border-emerald-200 px-1.5 py-0.5 text-emerald-900">&lt; 20k</span>
+                <span className="rounded border bg-lime-100 border-lime-200 px-1.5 py-0.5 text-lime-900">20-40k</span>
+                <span className="rounded border bg-amber-100 border-amber-200 px-1.5 py-0.5 text-amber-900">40-60k</span>
+                <span className="rounded border bg-orange-100 border-orange-200 px-1.5 py-0.5 text-orange-900">60-100k</span>
+                <span className="rounded border bg-rose-100 border-rose-200 px-1.5 py-0.5 text-rose-900">&gt; 100k</span>
+              </div>
+            </div>
+            <p className="italic">{t("mapDisclaimer")}</p>
+          </div>
+        </div>
       </div>
     </div>
 

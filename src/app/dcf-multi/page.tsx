@@ -587,6 +587,128 @@ export default function DCFMulti() {
               </p>
             </div>
 
+            {/* Waterfall equity / debt / promote */}
+            {montantDette > 0 && (
+              <div className="rounded-xl border border-card-border bg-card shadow-sm p-5">
+                <h3 className="text-base font-semibold text-navy">{t("waterfallTitle")}</h3>
+                <p className="mt-0.5 text-xs text-muted mb-4">{t("waterfallSubtitle")}</p>
+                {(() => {
+                  // Équité standard :
+                  // 1) Return of capital (LPs récupèrent 100 % apport)
+                  // 2) Preferred return 8% (cumulé, non-composé)
+                  // 3) Catch-up (GP reçoit 20 % équivalent)
+                  // 4) Split 80/20 au-delà
+                  const equityInitial = result.valeurDCF - montantDette;
+                  const serviceDette = montantDette * (tauxDette / 100);
+                  const preferredRate = 0.08;
+                  // Cashflow equity = NOI - service dette - CAPEX
+                  const equityCFs: number[] = [-equityInitial];
+                  let cumulEquity = 0;
+                  for (let i = 0; i < result.cashFlows.length; i++) {
+                    const cf = result.cashFlows[i].noi - serviceDette - capexAnnuel;
+                    if (i === result.cashFlows.length - 1) {
+                      equityCFs.push(cf + (result.valeurTerminaleNette - montantDette));
+                    } else {
+                      equityCFs.push(cf);
+                    }
+                    cumulEquity += cf;
+                  }
+                  const terminalEquity = result.valeurTerminaleNette - montantDette;
+                  const totalDistribution = cumulEquity + terminalEquity;
+                  // Preferred return cumul
+                  const preferredAccrued = equityInitial * preferredRate * periodeAnalyse;
+                  const returnOfCapital = Math.min(equityInitial, totalDistribution);
+                  const remaining1 = Math.max(0, totalDistribution - returnOfCapital);
+                  const preferredPaid = Math.min(preferredAccrued, remaining1);
+                  const remaining2 = Math.max(0, remaining1 - preferredPaid);
+                  // 80/20 split au-delà
+                  const lpShare = remaining2 * 0.80;
+                  const gpPromote = remaining2 * 0.20;
+                  const totalLP = returnOfCapital + preferredPaid + lpShare;
+                  const lpMoM = equityInitial > 0 ? totalLP / equityInitial : 0;
+                  const lpIrrFlows = [-equityInitial, ...equityCFs.slice(1)];
+                  const lpIRR = calculerIRR(lpIrrFlows.slice(0, -1).concat([lpIrrFlows[lpIrrFlows.length - 1]]));
+
+                  return (
+                    <div className="space-y-3">
+                      {/* Résumé */}
+                      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                        <div className="rounded-lg bg-navy/5 border border-navy/20 p-3 text-center">
+                          <div className="text-[10px] uppercase tracking-wider text-muted">{t("waterfallEquityInit")}</div>
+                          <div className="mt-1 text-sm font-mono font-bold text-navy">{formatEUR(equityInitial)}</div>
+                        </div>
+                        <div className="rounded-lg bg-emerald-50 border border-emerald-200 p-3 text-center">
+                          <div className="text-[10px] uppercase tracking-wider text-muted">{t("waterfallLpTotal")}</div>
+                          <div className="mt-1 text-sm font-mono font-bold text-emerald-900">{formatEUR(totalLP)}</div>
+                          <div className="text-[10px] text-emerald-700">MoM {lpMoM.toFixed(2)}x</div>
+                        </div>
+                        <div className="rounded-lg bg-amber-50 border border-amber-200 p-3 text-center">
+                          <div className="text-[10px] uppercase tracking-wider text-muted">{t("waterfallGpPromote")}</div>
+                          <div className="mt-1 text-sm font-mono font-bold text-amber-900">{formatEUR(gpPromote)}</div>
+                          <div className="text-[10px] text-amber-700">20 % upside</div>
+                        </div>
+                        <div className="rounded-lg bg-background border border-card-border p-3 text-center">
+                          <div className="text-[10px] uppercase tracking-wider text-muted">{t("waterfallLpIrr")}</div>
+                          <div className="mt-1 text-sm font-mono font-bold text-navy">{(lpIRR * 100).toFixed(2)} %</div>
+                          <div className="text-[10px] text-muted">{t("waterfallVsHurdle")} {preferredRate * 100} %</div>
+                        </div>
+                      </div>
+
+                      {/* Waterfall tiers */}
+                      <div className="rounded-lg border border-card-border overflow-hidden">
+                        <table className="w-full text-xs">
+                          <thead>
+                            <tr className="border-b border-card-border bg-background">
+                              <th className="px-3 py-2 text-left font-semibold text-slate">{t("waterfallTier")}</th>
+                              <th className="px-3 py-2 text-right font-semibold text-slate">{t("waterfallLp")}</th>
+                              <th className="px-3 py-2 text-right font-semibold text-slate">{t("waterfallGp")}</th>
+                              <th className="px-3 py-2 text-right font-semibold text-slate">{t("waterfallTotal")}</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr className="border-b border-card-border/40">
+                              <td className="px-3 py-2">
+                                <div className="font-semibold">1. {t("waterfallRoc")}</div>
+                                <div className="text-[10px] text-muted">{t("waterfallRocDesc")}</div>
+                              </td>
+                              <td className="px-3 py-2 text-right font-mono">{formatEUR(returnOfCapital)}</td>
+                              <td className="px-3 py-2 text-right font-mono">—</td>
+                              <td className="px-3 py-2 text-right font-mono font-semibold">{formatEUR(returnOfCapital)}</td>
+                            </tr>
+                            <tr className="border-b border-card-border/40">
+                              <td className="px-3 py-2">
+                                <div className="font-semibold">2. {t("waterfallPref")}</div>
+                                <div className="text-[10px] text-muted">{t("waterfallPrefDesc", { rate: preferredRate * 100, years: periodeAnalyse })}</div>
+                              </td>
+                              <td className="px-3 py-2 text-right font-mono">{formatEUR(preferredPaid)}</td>
+                              <td className="px-3 py-2 text-right font-mono">—</td>
+                              <td className="px-3 py-2 text-right font-mono font-semibold">{formatEUR(preferredPaid)}</td>
+                            </tr>
+                            <tr className="border-b border-card-border/40">
+                              <td className="px-3 py-2">
+                                <div className="font-semibold">3. {t("waterfallSplit")}</div>
+                                <div className="text-[10px] text-muted">{t("waterfallSplitDesc")}</div>
+                              </td>
+                              <td className="px-3 py-2 text-right font-mono">{formatEUR(lpShare)}</td>
+                              <td className="px-3 py-2 text-right font-mono text-amber-700">{formatEUR(gpPromote)}</td>
+                              <td className="px-3 py-2 text-right font-mono font-semibold">{formatEUR(remaining2)}</td>
+                            </tr>
+                            <tr className="border-t-2 border-navy bg-navy/5 font-semibold">
+                              <td className="px-3 py-2">{t("waterfallTotalRow")}</td>
+                              <td className="px-3 py-2 text-right font-mono text-emerald-700">{formatEUR(totalLP)}</td>
+                              <td className="px-3 py-2 text-right font-mono text-amber-700">{formatEUR(gpPromote)}</td>
+                              <td className="px-3 py-2 text-right font-mono text-navy">{formatEUR(totalLP + gpPromote)}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p className="text-[10px] text-muted">{t("waterfallNote")}</p>
+                    </div>
+                  );
+                })()}
+              </div>
+            )}
+
             {/* Cap rate analysis : ligne valeur DCF par taux de sortie 4%-7% */}
             <div className="rounded-xl border border-card-border bg-card shadow-sm p-5">
               <h3 className="text-base font-semibold text-navy">{t("capRateChartTitle")}</h3>

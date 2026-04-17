@@ -104,4 +104,56 @@ test.describe("Smoke tests — parcours critiques publics", () => {
     // KPI cards
     await expect(body).toContainText(/nuitées|nights|übernachtungen|dormidas|nuechten/i);
   });
+
+  test("/hotellerie/housekeeping staffing adaptatif", async ({ page }) => {
+    await page.goto("/hotellerie/housekeeping");
+    const body = page.locator("body");
+    await expect(body).toContainText(/housekeeping|staffing|agents|ménage/i);
+    // Staffing summary visible
+    await expect(body).toContainText(/checkout|stayover|superviseur|shift/i);
+  });
+
+  test("/pro-agences/mandats pipeline agence", async ({ page }) => {
+    await page.goto("/pro-agences/mandats");
+    const body = page.locator("body");
+    await expect(body).toContainText(/mandat|prospect|commission|connect|sign in/i);
+  });
+
+  test("/aml-kyc/archives archivage 5 ans", async ({ page }) => {
+    await page.goto("/aml-kyc/archives");
+    const body = page.locator("body");
+    await expect(body).toContainText(/kyc|archiv|5 ans|connect|sign in/i);
+  });
+
+  test("/profil/confidentialite consentements RGPD", async ({ page }) => {
+    await page.goto("/profil/confidentialite");
+    const body = page.locator("body");
+    await expect(body).toContainText(/consent|privacy|rgpd|gdpr|connect|sign in/i);
+  });
+
+  test("/terres-agricoles carte prix régionale", async ({ page }) => {
+    await page.goto("/terres-agricoles");
+    const body = page.locator("body");
+    await expect(body).toContainText(/terre|agric|hectare|prairie|cereal/i);
+    // Carte visible
+    await expect(body).toContainText(/région|centre|nord|est|region/i);
+  });
+
+  test("/carte heatmap avec légende", async ({ page }) => {
+    await page.goto("/carte");
+    const body = page.locator("body");
+    await expect(body).toContainText(/carte|map|commune|canton|prix/i);
+  });
+
+  test("/simulateur-aides veille Mémorial A", async ({ page }) => {
+    await page.goto("/simulateur-aides");
+    const body = page.locator("body");
+    await expect(body).toContainText(/aide|klimabonus|bëllegen|veille|watch|memorial/i);
+  });
+
+  test("/estimateur-construction indices matériaux STATEC", async ({ page }) => {
+    await page.goto("/estimateur-construction");
+    const body = page.locator("body");
+    await expect(body).toContainText(/construct|statec|matériaux|material|béton|steel/i);
+  });
 });
