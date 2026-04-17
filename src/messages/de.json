@@ -1273,7 +1273,16 @@
       "faq4a": "Ja, der Verkauf des Hauptwohnsitzes ist steuerfrei bei durchgehendem Wohnsitz seit Erwerb oder mindestens 5 Jahren vor dem Verkauf.",
       "faq5q": "Wie deklariere ich einen Immobilien-Veräußerungsgewinn?",
       "faq5a": "Der Gewinn wird in der jährlichen Steuererklärung (Modell 100/100F), Formular 700 für Veräußerungsgewinne angegeben."
-    }
+    },
+    "reportImpositionLabel": "Steueraufschub (Wiederanlage Art. 102 LIR)",
+    "reportImpositionHint": "Ich reinvestiere den Erlös in eine andere LU-Immobilie",
+    "reportImpositionConditions": "Bedingungen Steueraufschub (Art. 102 Abs. 8 LIR)",
+    "reportCond1": "Wiederanlage in eine in LU gelegene Immobilie (oder anwendbare Abkommen)",
+    "reportCond2": "Frist: innerhalb 2 Jahren nach Veräußerung (vorzeitige Reinvestition unter Bedingungen möglich)",
+    "reportCond3": "Gestehungskosten des neuen Vermögens ≥ Verkaufspreis (sonst anteiliger Aufschub)",
+    "reportCond4": "Formelle Erklärung des Aufschubs gegenüber ACD in der Einkommensteuererklärung",
+    "reportImpact": "Auswirkung",
+    "reportImpactText": "Die Steuer von {montant} auf den Gewinn wird aufgeschoben. Sie wird beim späteren Verkauf des wieder angelegten Vermögens besteuert, mit aktualisiertem Neubewertungskoeffizienten."
   },
   "calculLoyer": {
     "title": "Mietrechner — Investiertes Kapital",

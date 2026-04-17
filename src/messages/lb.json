@@ -1273,7 +1273,16 @@
       "faq4a": "Jo, de Verkaf vum Haaptwunnsëtz ass steierfräi bei duerchgehender Bewunnung zanter dem Kaf oder mindestens 5 Joer virum Verkaf.",
       "faq5q": "Wéi deklaréiert een en Immobiliëmehrwäert?",
       "faq5a": "De Mehrwäert gëtt an der jährlech Steiererklärung deklaréiert (Modell 100/100F), Formulaire 700."
-    }
+    },
+    "reportImpositionLabel": "Steieropschub (Reinvestitioun Art. 102 LIR)",
+    "reportImpositionHint": "Ech reinvestéieren an eng aner LU-Immobilie",
+    "reportImpositionConditions": "Konditiounen Steieropschub (Art. 102 §8 LIR)",
+    "reportCond1": "Reinvestitioun an eng zu LU geleeë Immobilie (oder uwendbar Konventiounen)",
+    "reportCond2": "Delai: bannent 2 Joer no der Cessioun",
+    "reportCond3": "Käschtenpräis vum neie Bien ≥ Verkafspräis (soss proportional Partiel-Opschub)",
+    "reportCond4": "Formell Erklärung vum Opschub un ACD an der Steiererklärung",
+    "reportImpact": "Impakt",
+    "reportImpactText": "D'Steier vun {montant} op de Plus-Value gëtt opgeschob. Si gëtt beim spéidere Verkaf vum reinvestéierte Bien besteiert, mat dem aktualiséiert Reevaluatiounskoeffizient."
   },
   "calculLoyer": {
     "title": "Loyersrechner — Investéiert Kapital",

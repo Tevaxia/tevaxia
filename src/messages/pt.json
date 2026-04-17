@@ -1273,7 +1273,16 @@
       "faq4a": "Sim, a venda da residência principal está isenta se o proprietário aí residiu continuamente desde a aquisição ou durante pelo menos 5 anos.",
       "faq5q": "Como declarar uma mais-valia imobiliária?",
       "faq5a": "A mais-valia declara-se na declaração anual de impostos (modelo 100/100F), formulário 700."
-    }
+    },
+    "reportImpositionLabel": "Diferimento fiscal (reinvestimento art. 102 LIR)",
+    "reportImpositionHint": "Reinvisto o produto noutro imóvel LU",
+    "reportImpositionConditions": "Condições do diferimento (art. 102 §8 LIR)",
+    "reportCond1": "Reinvestimento em imóvel situado no LU (ou convenções aplicáveis)",
+    "reportCond2": "Prazo: 2 anos após cessão (reinvestimento antecipado possível sob condições)",
+    "reportCond3": "Custo novo bem ≥ preço cessão (caso contrário diferimento parcial proporcional)",
+    "reportCond4": "Declaração formal do diferimento à ACD na declaração IR",
+    "reportImpact": "Impacto",
+    "reportImpactText": "O imposto de {montant} sobre a mais-valia é diferido. Será tributado na cessão futura do bem reinvestido, com coeficiente de reavaliação atualizado."
   },
   "calculLoyer": {
     "title": "Calculadora de renda — Capital investido",

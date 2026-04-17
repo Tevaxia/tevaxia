@@ -32,6 +32,7 @@ export default function PlusValues() {
   const [moisDepuisDepart, setMoisDepuisDepart] = useState(0);
   const [estNonResident, setEstNonResident] = useState(false);
   const [anneesOccupation, setAnneesOccupation] = useState(10);
+  const [reportImposition, setReportImposition] = useState(false);
 
   const prixAcquisitionLabel =
     modeAcquisition === "succession"
@@ -279,6 +280,28 @@ export default function PlusValues() {
                   onChange={setEstCouple}
                   hint={t("coupleHint")}
                 />
+
+                {/* Report d'imposition (réemploi art. 102 LIR) */}
+                <ToggleField
+                  label={t("reportImpositionLabel")}
+                  checked={reportImposition}
+                  onChange={setReportImposition}
+                  hint={t("reportImpositionHint")}
+                />
+                {reportImposition && (
+                  <div className="rounded-lg border border-sky-200 bg-sky-50 p-4 space-y-2 text-xs text-sky-900">
+                    <div className="font-semibold">{t("reportImpositionConditions")}</div>
+                    <ul className="ml-4 list-disc space-y-0.5">
+                      <li>{t("reportCond1")}</li>
+                      <li>{t("reportCond2")}</li>
+                      <li>{t("reportCond3")}</li>
+                      <li>{t("reportCond4")}</li>
+                    </ul>
+                    <div className="mt-2 rounded bg-white p-2 border border-sky-200">
+                      <strong>{t("reportImpact")} :</strong> {t("reportImpactText", { montant: formatEUR(result.estimationImpot || 0) })}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>

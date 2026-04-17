@@ -1273,7 +1273,16 @@
       "faq4a": "Oui, la vente de la résidence principale est exonérée d'impôt sur la plus-value si vous y avez résidé de manière continue depuis l'acquisition ou pendant au moins 5 ans avant la cession (art. 102bis(2) LIR).",
       "faq5q": "Comment déclarer une plus-value immobilière ?",
       "faq5a": "La plus-value se déclare dans la déclaration d'impôt annuelle (modèle 100 ou 100F), formulaire 700 pour les bénéfices de cession. Le notaire notifie l'ACD de toute transaction immobilière, qui peut demander des justificatifs complémentaires."
-    }
+    },
+    "reportImpositionLabel": "Report d'imposition (réemploi art. 102 LIR)",
+    "reportImpositionHint": "Je réinvestis le produit dans un autre bien immobilier LU",
+    "reportImpositionConditions": "Conditions du report d'imposition (art. 102 al. 8 LIR)",
+    "reportCond1": "Réemploi dans un bien immobilier situé au Luxembourg (ou conventions applicables)",
+    "reportCond2": "Délai : dans les 2 ans suivant la cession (réemploi anticipé possible sous certaines conditions)",
+    "reportCond3": "Prix de revient du nouveau bien ≥ prix de cession (sinon report partiel proportionnel)",
+    "reportCond4": "Déclaration formelle du choix du report à l'Administration des Contributions (ACD) à la déclaration IR",
+    "reportImpact": "Impact",
+    "reportImpactText": "L'impôt de {montant} sur la plus-value est différé. Il sera imposé lors de la cession ultérieure du bien réemployé, avec le coefficient de réévaluation actualisé. Avantage majeur : gain de trésorerie à court terme, protection contre l'inflation via la réévaluation."
   },
   "calculLoyer": {
     "title": "Calculateur de loyer — Capital investi",

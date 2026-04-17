@@ -1273,7 +1273,16 @@
       "faq4a": "Yes, sale of the primary residence is exempt if you resided there continuously since acquisition or for at least 5 years before the sale (art. 102bis(2) LIR).",
       "faq5q": "How do I declare a property capital gain?",
       "faq5a": "The gain is declared in the annual tax return (model 100/100F), form 700 for disposal profits. The notary notifies the ACD of every property transaction."
-    }
+    },
+    "reportImpositionLabel": "Tax deferral (reinvestment art. 102 LIR)",
+    "reportImpositionHint": "I reinvest proceeds in another LU real estate asset",
+    "reportImpositionConditions": "Deferral conditions (art. 102 para. 8 LIR)",
+    "reportCond1": "Reinvestment in real estate located in LU (or applicable treaties)",
+    "reportCond2": "Deadline: within 2 years of sale (early reinvestment possible under conditions)",
+    "reportCond3": "Cost price of new asset ≥ sale price (otherwise proportional partial deferral)",
+    "reportCond4": "Formal declaration of deferral to the ACD in the IR return",
+    "reportImpact": "Impact",
+    "reportImpactText": "The {montant} tax on the gain is deferred. It will be taxed on the future sale of the reinvested asset, with the updated revaluation coefficient. Major benefit: short-term cash flow gain, inflation protection via revaluation."
   },
   "calculLoyer": {
     "title": "Rent Calculator — Invested Capital",
