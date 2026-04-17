@@ -211,6 +211,12 @@ function SharedLinksSection({ user }: { user: { id: string } | null }) {
           <h2 className="text-base font-semibold text-navy">Liens publics partagés</h2>
           <p className="text-xs text-muted mt-0.5">Vues read-only que vous avez générées pour vos interlocuteurs.</p>
         </div>
+        <a
+          href="/profil/liens-partages"
+          className="shrink-0 rounded-lg border border-navy bg-white px-3 py-1.5 text-xs font-medium text-navy hover:bg-navy/5"
+        >
+          Analytics →
+        </a>
       </div>
 
       {loading ? (

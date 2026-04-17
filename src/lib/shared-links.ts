@@ -92,3 +92,23 @@ export function buildSharedLinkUrl(token: string, baseUrl?: string): string {
   const base = baseUrl ?? (typeof window !== "undefined" ? window.location.origin : "https://tevaxia.lu");
   return `${base}/partage/${token}`;
 }
+
+export interface SharedLinkTimelineDay {
+  day: string; // YYYY-MM-DD
+  views: number;
+}
+
+export async function fetchSharedLinkTimeline(
+  linkId: string,
+  days = 30,
+): Promise<SharedLinkTimelineDay[]> {
+  const client = ensureClient();
+  const { data, error } = await client.rpc("get_shared_link_timeline", {
+    p_link_id: linkId,
+    p_days: days,
+  });
+  if (error) throw error;
+  const payload = data as { success?: boolean; timeline?: SharedLinkTimelineDay[] };
+  if (!payload?.success) return [];
+  return payload.timeline ?? [];
+}
