@@ -702,6 +702,86 @@ export default function Portfolio() {
         )}
 
         {/* ============================================================ */}
+        {/*  2b. EXPENSE BREAKDOWN PAR BIEN (type / lot)                  */}
+        {/* ============================================================ */}
+        {assets.length > 0 && (() => {
+          const COPRO_MONTHLY = 250; // défaut copro mensuel
+          const PNO_RATE = 0.005;
+          const TAXE_RATE = 0.001;
+          const GESTION_RATE = 0.05;
+          const ENTRETIEN_RATE = 0.005;
+
+          const rows = assets.map((a) => {
+            const copro = COPRO_MONTHLY * 12;
+            const pno = a.valeur * PNO_RATE;
+            const taxe = a.valeur * TAXE_RATE;
+            const entretien = a.valeur * ENTRETIEN_RATE;
+            const gestion = a.loyerAnnuel * GESTION_RATE;
+            const total = copro + pno + taxe + entretien + gestion;
+            const ratioLoyer = a.loyerAnnuel > 0 ? total / a.loyerAnnuel : 0;
+            return { asset: a, copro, pno, taxe, entretien, gestion, total, ratioLoyer };
+          });
+          const totals = {
+            copro: rows.reduce((s, r) => s + r.copro, 0),
+            pno: rows.reduce((s, r) => s + r.pno, 0),
+            taxe: rows.reduce((s, r) => s + r.taxe, 0),
+            entretien: rows.reduce((s, r) => s + r.entretien, 0),
+            gestion: rows.reduce((s, r) => s + r.gestion, 0),
+            total: rows.reduce((s, r) => s + r.total, 0),
+          };
+
+          return (
+            <div className="mb-8 rounded-xl border border-card-border bg-card shadow-sm p-5">
+              <h2 className="text-base font-semibold text-navy mb-1">{t("expensesTitle")}</h2>
+              <p className="text-xs text-muted mb-4">{t("expensesSubtitle")}</p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="border-b border-card-border bg-background">
+                      <th className="px-3 py-2 text-left font-semibold text-navy">{t("expensesColBien")}</th>
+                      <th className="px-3 py-2 text-right font-semibold text-navy">{t("expensesColCopro")}</th>
+                      <th className="px-3 py-2 text-right font-semibold text-navy">{t("expensesColPno")}</th>
+                      <th className="px-3 py-2 text-right font-semibold text-navy">{t("expensesColTaxe")}</th>
+                      <th className="px-3 py-2 text-right font-semibold text-navy">{t("expensesColEntretien")}</th>
+                      <th className="px-3 py-2 text-right font-semibold text-navy">{t("expensesColGestion")}</th>
+                      <th className="px-3 py-2 text-right font-semibold text-navy">{t("expensesColTotal")}</th>
+                      <th className="px-3 py-2 text-right font-semibold text-navy">{t("expensesColRatio")}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.map((r) => (
+                      <tr key={r.asset.id} className="border-b border-card-border/40 hover:bg-background/50">
+                        <td className="px-3 py-2 font-medium">{r.asset.nom || "—"}</td>
+                        <td className="px-3 py-2 text-right font-mono">{formatEUR(r.copro)}</td>
+                        <td className="px-3 py-2 text-right font-mono">{formatEUR(r.pno)}</td>
+                        <td className="px-3 py-2 text-right font-mono">{formatEUR(r.taxe)}</td>
+                        <td className="px-3 py-2 text-right font-mono">{formatEUR(r.entretien)}</td>
+                        <td className="px-3 py-2 text-right font-mono">{formatEUR(r.gestion)}</td>
+                        <td className="px-3 py-2 text-right font-mono font-semibold text-navy">{formatEUR(r.total)}</td>
+                        <td className={`px-3 py-2 text-right font-mono ${r.ratioLoyer > 0.35 ? "text-rose-700 font-semibold" : r.ratioLoyer > 0.25 ? "text-amber-700" : "text-emerald-700"}`}>
+                          {(r.ratioLoyer * 100).toFixed(1)} %
+                        </td>
+                      </tr>
+                    ))}
+                    <tr className="border-t-2 border-navy bg-navy/5 font-semibold">
+                      <td className="px-3 py-2">{t("expensesTotal")}</td>
+                      <td className="px-3 py-2 text-right font-mono">{formatEUR(totals.copro)}</td>
+                      <td className="px-3 py-2 text-right font-mono">{formatEUR(totals.pno)}</td>
+                      <td className="px-3 py-2 text-right font-mono">{formatEUR(totals.taxe)}</td>
+                      <td className="px-3 py-2 text-right font-mono">{formatEUR(totals.entretien)}</td>
+                      <td className="px-3 py-2 text-right font-mono">{formatEUR(totals.gestion)}</td>
+                      <td className="px-3 py-2 text-right font-mono text-navy">{formatEUR(totals.total)}</td>
+                      <td className="px-3 py-2" />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-3 text-[10px] text-muted">{t("expensesNote")}</p>
+            </div>
+          );
+        })()}
+
+        {/* ============================================================ */}
         {/*  3. PROPERTY COMPARISON TABLE                                 */}
         {/* ============================================================ */}
         {unifiedProperties.length > 0 && (

@@ -10,6 +10,9 @@ import {
   Tooltip,
   ResponsiveContainer,
   ReferenceLine,
+  BarChart,
+  Bar,
+  CartesianGrid,
 } from "recharts";
 import InputField from "@/components/InputField";
 import SliderField from "@/components/SliderField";
@@ -20,6 +23,196 @@ import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import SEOContent from "@/components/SEOContent";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
+
+// Box-Muller : échantillon normal N(mean, sd)
+function sampleNormal(mean: number, sd: number): number {
+  const u1 = Math.max(Number.EPSILON, Math.random());
+  const u2 = Math.random();
+  const z0 = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+  return mean + sd * z0;
+}
+
+interface MonteCarloProps {
+  baselineAppreciation: number;
+  baselineRendement: number;
+  baselineIndexation: number;
+  horizon: number;
+  prixBien: number;
+  apport: number;
+  fraisAcquisitionPct: number;
+  mensualiteCredit: number;
+  capitalCredit: number;
+  tauxCredit: number;
+  dureeCredit: number;
+  loyerMensuel: number;
+  chargesCoproMensuel: number;
+  taxeFonciereAn: number;
+  entretienAnPct: number;
+  assuranceSRDMensuel: number;
+}
+
+function MonteCarloSection(props: MonteCarloProps) {
+  const t = useTranslations("achatLocation");
+  const [running, setRunning] = useState(false);
+  const [results, setResults] = useState<{
+    pctAchat: number;
+    meanAchat: number;
+    meanLoc: number;
+    medianDiff: number;
+    p5Diff: number;
+    p95Diff: number;
+    histogram: { bucket: string; count: number }[];
+  } | null>(null);
+
+  const runSimulation = () => {
+    setRunning(true);
+    // Run in microtask to let UI update
+    setTimeout(() => {
+      const N = 1000;
+      const diffs: number[] = [];
+      const achatVals: number[] = [];
+      const locVals: number[] = [];
+      let achatWins = 0;
+
+      for (let i = 0; i < N; i++) {
+        // Échantillonner les paramètres clés
+        const apprec = sampleNormal(props.baselineAppreciation, 2) / 100;
+        const rendement = sampleNormal(props.baselineRendement, 3) / 100;
+        const indexation = Math.max(0, sampleNormal(props.baselineIndexation, 1)) / 100;
+
+        // Simulation simplifiée sur l'horizon : recalcul identique à l'engine
+        const fraisAcquisition = props.prixBien * (props.fraisAcquisitionPct / 100);
+        let capitalRestant = props.capitalCredit;
+        let placementCapital = props.apport + fraisAcquisition;
+        let loyerAnnuel = props.loyerMensuel * 12;
+
+        for (let a = 1; a <= props.horizon; a++) {
+          const valeurBien = props.prixBien * Math.pow(1 + apprec, a);
+          const interetsAnnuels = capitalRestant * (props.tauxCredit / 100);
+          const capitalAnnuel = Math.min(props.mensualiteCredit * 12 - interetsAnnuels, capitalRestant);
+          capitalRestant = Math.max(0, capitalRestant - capitalAnnuel);
+
+          const coutAchatMensuel =
+            props.mensualiteCredit +
+            props.chargesCoproMensuel +
+            props.taxeFonciereAn / 12 +
+            (props.prixBien * (props.entretienAnPct / 100)) / 12 +
+            props.assuranceSRDMensuel;
+          const loyerMensuelA = loyerAnnuel / 12;
+          const economieMensuelle = coutAchatMensuel - loyerMensuelA;
+          if (economieMensuelle > 0) placementCapital += economieMensuelle * 12;
+          placementCapital *= 1 + rendement;
+          loyerAnnuel *= 1 + indexation;
+
+          if (a === props.horizon) {
+            const patrimoineAchat = valeurBien - capitalRestant;
+            const patrimoineLoc = placementCapital;
+            achatVals.push(patrimoineAchat);
+            locVals.push(patrimoineLoc);
+            diffs.push(patrimoineAchat - patrimoineLoc);
+            if (patrimoineAchat > patrimoineLoc) achatWins++;
+          }
+        }
+      }
+
+      diffs.sort((a, b) => a - b);
+      const p5 = diffs[Math.floor(N * 0.05)];
+      const p95 = diffs[Math.floor(N * 0.95)];
+      const median = diffs[Math.floor(N * 0.5)];
+      const meanAchat = achatVals.reduce((s, v) => s + v, 0) / N;
+      const meanLoc = locVals.reduce((s, v) => s + v, 0) / N;
+
+      // Histogramme diff (achat − location)
+      const min = diffs[0];
+      const max = diffs[N - 1];
+      const nbBuckets = 20;
+      const bucketSize = (max - min) / nbBuckets;
+      const buckets: number[] = Array(nbBuckets).fill(0);
+      for (const d of diffs) {
+        const idx = Math.min(nbBuckets - 1, Math.floor((d - min) / bucketSize));
+        buckets[idx]++;
+      }
+      const histogram = buckets.map((count, i) => ({
+        bucket: `${Math.round((min + i * bucketSize) / 1000)}k`,
+        count,
+      }));
+
+      setResults({
+        pctAchat: (achatWins / N) * 100,
+        meanAchat,
+        meanLoc,
+        medianDiff: median,
+        p5Diff: p5,
+        p95Diff: p95,
+        histogram,
+      });
+      setRunning(false);
+    }, 10);
+  };
+
+  return (
+    <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+      <div className="flex items-start justify-between gap-3 flex-wrap mb-3">
+        <div>
+          <h3 className="text-base font-semibold text-navy">{t("monteCarloTitle")}</h3>
+          <p className="mt-0.5 text-xs text-muted">{t("monteCarloSubtitle")}</p>
+        </div>
+        <button
+          onClick={runSimulation}
+          disabled={running}
+          className="rounded-lg bg-navy px-4 py-2 text-xs font-semibold text-white hover:bg-navy-light disabled:opacity-50 whitespace-nowrap"
+        >
+          {running ? t("monteCarloRunning") : t("monteCarloRun")}
+        </button>
+      </div>
+
+      {results && (
+        <>
+          <div className="grid gap-3 sm:grid-cols-3 mb-4">
+            <div className={`rounded-lg p-3 text-center ${results.pctAchat >= 50 ? "bg-emerald-50 border border-emerald-200" : "bg-rose-50 border border-rose-200"}`}>
+              <div className="text-[10px] uppercase tracking-wider text-muted">{t("monteCarloProbAchat")}</div>
+              <div className={`mt-1 text-3xl font-bold ${results.pctAchat >= 50 ? "text-emerald-900" : "text-rose-900"}`}>
+                {results.pctAchat.toFixed(1)} %
+              </div>
+            </div>
+            <div className="rounded-lg p-3 border border-card-border bg-background text-center">
+              <div className="text-[10px] uppercase tracking-wider text-muted">{t("monteCarloMedianDiff")}</div>
+              <div className={`mt-1 text-xl font-bold ${results.medianDiff >= 0 ? "text-navy" : "text-rose-700"}`}>
+                {results.medianDiff >= 0 ? "+" : ""}{formatEUR(results.medianDiff)}
+              </div>
+            </div>
+            <div className="rounded-lg p-3 border border-card-border bg-background text-center">
+              <div className="text-[10px] uppercase tracking-wider text-muted">{t("monteCarloIC90")}</div>
+              <div className="mt-1 text-xs font-mono text-slate">
+                {formatEUR(results.p5Diff)} à {formatEUR(results.p95Diff)}
+              </div>
+            </div>
+          </div>
+
+          <ResponsiveContainer width="100%" height={200}>
+            <BarChart data={results.histogram} margin={{ top: 5, right: 10, bottom: 0, left: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e2db" />
+              <XAxis dataKey="bucket" tick={{ fontSize: 9 }} interval={2} />
+              <YAxis tick={{ fontSize: 10 }} />
+              <Tooltip
+                formatter={(v: unknown) => (typeof v === "number" ? `${v} scénarios` : "—")}
+                contentStyle={{ fontSize: 12, borderRadius: 8 }}
+              />
+              <Bar dataKey="count" fill="#1e3a5f" />
+            </BarChart>
+          </ResponsiveContainer>
+          <p className="mt-2 text-[10px] text-muted text-center">{t("monteCarloHistogramLabel")}</p>
+        </>
+      )}
+
+      {!results && !running && (
+        <p className="text-xs text-muted italic">{t("monteCarloHelp")}</p>
+      )}
+
+      <p className="mt-3 text-[10px] text-muted">{t("monteCarloNote")}</p>
+    </div>
+  );
+}
 
 /**
  * Luxembourg "déduction des intérêts débiteurs" (art. 98bis LIR).
@@ -625,6 +818,25 @@ export default function AchatVsLocation() {
                     <strong>{t("hypothesesTitle")}</strong> {t("hypothesesText", { appreciation: appreciationAn, rendement: rendementPlacement, plafond: formatEUR(2000 * nbPersonnes), nbPersonnes, tauxSRD: tauxAssuranceSRD })}
                   </p>
                 </div>
+
+                <MonteCarloSection
+                  baselineAppreciation={appreciationAn}
+                  baselineRendement={rendementPlacement}
+                  baselineIndexation={indexationLoyer}
+                  horizon={horizon}
+                  prixBien={prixBien}
+                  apport={apport}
+                  fraisAcquisitionPct={fraisAcquisitionPct}
+                  mensualiteCredit={result.mensualiteCredit}
+                  capitalCredit={result.montantCredit}
+                  tauxCredit={tauxCredit}
+                  dureeCredit={dureeCredit}
+                  loyerMensuel={loyerMensuel}
+                  chargesCoproMensuel={chargesCoproMensuel}
+                  taxeFonciereAn={taxeFonciereAn}
+                  entretienAnPct={entretienAnPct}
+                  assuranceSRDMensuel={result.assuranceSRDMensuel}
+                />
               </>
             )}
           </div>

@@ -15,6 +15,15 @@ import {
   type ApiTier,
   type ApiUsageDay,
 } from "@/lib/api-keys";
+import {
+  createWebhook,
+  deleteWebhook,
+  listMyWebhooks,
+  toggleWebhookActive,
+  triggerTestWebhook,
+  type ApiWebhook,
+  type ApiWebhookEvent,
+} from "@/lib/api-webhooks";
 
 const TIER_LABEL: Record<ApiTier, string> = {
   free: "Free (10/min, 200/jour)",
@@ -299,12 +308,201 @@ export default function ApiDashboardPage() {
         </div>
       )}
 
+      <WebhooksSection />
+
       <div className="mt-8 rounded-xl border border-blue-200 bg-blue-50 p-5 text-sm text-blue-900">
         <strong>Documentation :</strong> POST <code>/api/v1/estimation</code> avec header{" "}
         <code>Authorization: Bearer YOUR_KEY</code> ou <code>X-API-Key: YOUR_KEY</code>. Body JSON :{" "}
         <code>{`{ "commune": "Luxembourg", "surface": 85, ... }`}</code>. Voir{" "}
         <Link href={`${lp}/api-banques`} className="underline">/api-banques</Link> pour les détails.
       </div>
+    </div>
+  );
+}
+
+function WebhooksSection() {
+  const [webhooks, setWebhooks] = useState<ApiWebhook[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [showCreate, setShowCreate] = useState(false);
+  const [newUrl, setNewUrl] = useState("");
+  const [newEvent, setNewEvent] = useState<ApiWebhookEvent>("estimation.price_change");
+  const [newThreshold, setNewThreshold] = useState(5);
+  const [testResult, setTestResult] = useState<Record<string, { ok: boolean; status?: number; durationMs?: number; error?: string }>>({});
+  const [error, setError] = useState<string | null>(null);
+
+  const reload = useCallback(async () => {
+    setLoading(true);
+    try {
+      const list = await listMyWebhooks();
+      setWebhooks(list);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Erreur");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { void reload(); }, [reload]);
+
+  const handleCreate = async () => {
+    if (!newUrl.trim() || !newUrl.match(/^https?:\/\//)) {
+      setError("URL invalide (http:// ou https:// requis).");
+      return;
+    }
+    try {
+      await createWebhook({ event_type: newEvent, url: newUrl, threshold_pct: newThreshold });
+      setNewUrl("");
+      setShowCreate(false);
+      setError(null);
+      await reload();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Erreur de création.");
+    }
+  };
+
+  const handleTest = async (id: string) => {
+    setTestResult((prev) => ({ ...prev, [id]: { ok: false } }));
+    const r = await triggerTestWebhook(id);
+    setTestResult((prev) => ({ ...prev, [id]: r }));
+  };
+
+  const handleToggle = async (id: string, active: boolean) => {
+    await toggleWebhookActive(id, !active);
+    await reload();
+  };
+
+  const handleDelete = async (id: string) => {
+    if (!confirm("Supprimer ce webhook ?")) return;
+    await deleteWebhook(id);
+    await reload();
+  };
+
+  return (
+    <div className="mt-8 rounded-xl border border-card-border bg-card p-5">
+      <div className="flex items-start justify-between gap-3 flex-wrap mb-4">
+        <div>
+          <h2 className="text-base font-semibold text-navy">Webhooks</h2>
+          <p className="mt-0.5 text-xs text-muted">
+            Notifications push HTTP sur variation de prix ou nouvelle estimation. Signature HMAC-SHA256 via header <code className="text-[10px]">X-Tevaxia-Signature</code>.
+          </p>
+        </div>
+        <button
+          onClick={() => setShowCreate(!showCreate)}
+          className="rounded-lg bg-navy px-3 py-1.5 text-xs font-semibold text-white hover:bg-navy-light"
+        >
+          {showCreate ? "Annuler" : "+ Nouveau webhook"}
+        </button>
+      </div>
+
+      {error && <div className="mb-3 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-800">{error}</div>}
+
+      {showCreate && (
+        <div className="mb-4 rounded-lg border border-navy/20 bg-navy/5 p-4 space-y-3">
+          <div>
+            <label className="block text-xs font-semibold text-slate mb-1">URL cible</label>
+            <input
+              type="url"
+              value={newUrl}
+              onChange={(e) => setNewUrl(e.target.value)}
+              placeholder="https://api.votre-banque.lu/tevaxia-webhook"
+              className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm font-mono"
+            />
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div>
+              <label className="block text-xs font-semibold text-slate mb-1">Événement</label>
+              <select
+                value={newEvent}
+                onChange={(e) => setNewEvent(e.target.value as ApiWebhookEvent)}
+                className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
+              >
+                <option value="estimation.price_change">estimation.price_change</option>
+                <option value="estimation.new">estimation.new</option>
+                <option value="health.check">health.check</option>
+              </select>
+            </div>
+            {newEvent === "estimation.price_change" && (
+              <div>
+                <label className="block text-xs font-semibold text-slate mb-1">Seuil (%)</label>
+                <input
+                  type="number"
+                  value={newThreshold}
+                  onChange={(e) => setNewThreshold(Number(e.target.value))}
+                  min={1}
+                  max={50}
+                  step={0.5}
+                  className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm font-mono"
+                />
+              </div>
+            )}
+          </div>
+          <button
+            onClick={handleCreate}
+            className="rounded-lg bg-navy px-4 py-2 text-xs font-semibold text-white hover:bg-navy-light"
+          >
+            Créer
+          </button>
+        </div>
+      )}
+
+      {loading ? (
+        <p className="text-xs text-muted">Chargement…</p>
+      ) : webhooks.length === 0 ? (
+        <p className="text-xs text-muted italic">Aucun webhook configuré.</p>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs">
+            <thead>
+              <tr className="border-b border-card-border bg-background">
+                <th className="px-3 py-2 text-left font-semibold text-navy">URL</th>
+                <th className="px-3 py-2 text-left font-semibold text-navy">Événement</th>
+                <th className="px-3 py-2 text-right font-semibold text-navy">Seuil</th>
+                <th className="px-3 py-2 text-center font-semibold text-navy">État</th>
+                <th className="px-3 py-2 text-right font-semibold text-navy">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {webhooks.map((w) => (
+                <tr key={w.id} className="border-b border-card-border/40">
+                  <td className="px-3 py-2 font-mono truncate max-w-xs" title={w.url}>{w.url}</td>
+                  <td className="px-3 py-2"><code className="text-[10px]">{w.event_type}</code></td>
+                  <td className="px-3 py-2 text-right font-mono">
+                    {w.event_type === "estimation.price_change" ? `±${w.threshold_pct?.toFixed(1)} %` : "—"}
+                  </td>
+                  <td className="px-3 py-2 text-center">
+                    {w.active ? (
+                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] text-emerald-800">actif</span>
+                    ) : (
+                      <span className="rounded-full bg-gray-200 px-2 py-0.5 text-[10px] text-gray-700">inactif</span>
+                    )}
+                    {testResult[w.id] && (
+                      <div className={`mt-1 text-[9px] ${testResult[w.id].ok ? "text-emerald-700" : "text-rose-700"}`}>
+                        {testResult[w.id].ok
+                          ? `✓ ${testResult[w.id].status} (${testResult[w.id].durationMs}ms)`
+                          : `✗ ${testResult[w.id].error ?? "erreur"}`}
+                      </div>
+                    )}
+                  </td>
+                  <td className="px-3 py-2 text-right">
+                    <div className="flex justify-end gap-2 text-xs">
+                      <button onClick={() => handleTest(w.id)} className="text-navy hover:underline">Tester</button>
+                      <button onClick={() => handleToggle(w.id, w.active)} className="text-amber-700 hover:underline">
+                        {w.active ? "Désact." : "Activer"}
+                      </button>
+                      <button onClick={() => handleDelete(w.id)} className="text-rose-700 hover:underline">Supprimer</button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      <p className="mt-4 text-[10px] text-muted">
+        Le secret de signature est généré automatiquement (consultable via Supabase directement).
+        L&apos;événement <code>estimation.price_change</code> compare chaque appel API à la dernière valeur connue pour un jeu d&apos;inputs identique et notifie si l&apos;écart dépasse le seuil.
+      </p>
     </div>
   );
 }

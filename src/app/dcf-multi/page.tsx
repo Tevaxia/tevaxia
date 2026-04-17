@@ -587,6 +587,63 @@ export default function DCFMulti() {
               </p>
             </div>
 
+            {/* Cap rate analysis : ligne valeur DCF par taux de sortie 4%-7% */}
+            <div className="rounded-xl border border-card-border bg-card shadow-sm p-5">
+              <h3 className="text-base font-semibold text-navy">{t("capRateChartTitle")}</h3>
+              <p className="mt-0.5 text-xs text-muted mb-4">{t("capRateChartSubtitle")}</p>
+              {(() => {
+                const steps: number[] = [];
+                for (let r = 4; r <= 7.5; r += 0.25) steps.push(r);
+                const data = steps.map((capR) => {
+                  const res = calculerDCFLeases({
+                    leases,
+                    periodeAnalyse,
+                    tauxActualisation: tauxActu,
+                    tauxCapSortie: capR,
+                    fraisCessionPct: fraisCession,
+                    chargesProprietaireFixe: chargesProprio,
+                    vacanceERV,
+                    dateValeur,
+                  });
+                  return {
+                    capRate: capR,
+                    valeur: Math.round(res.valeurDCF),
+                  };
+                });
+                const currentValue = Math.round(result.valeurDCF);
+                return (
+                  <ResponsiveContainer width="100%" height={260}>
+                    <ComposedChart data={data} margin={{ top: 5, right: 10, bottom: 0, left: 0 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#e5e2db" />
+                      <XAxis
+                        dataKey="capRate"
+                        tick={{ fontSize: 10 }}
+                        tickFormatter={(v: number) => `${v.toFixed(1)} %`}
+                        label={{ value: t("capRateLabel"), position: "insideBottom", offset: -5, fontSize: 10 }}
+                      />
+                      <YAxis tick={{ fontSize: 10 }} tickFormatter={(v: number) => `${(v / 1_000_000).toFixed(1)} M€`} />
+                      <RechartsTooltip
+                        formatter={(v: unknown) => (typeof v === "number" ? formatEUR(v) : "—")}
+                        labelFormatter={(label: unknown) => typeof label === "number" ? `Cap rate ${label.toFixed(2)} %` : ""}
+                        contentStyle={{ fontSize: 12, borderRadius: 8 }}
+                      />
+                      <Line type="monotone" dataKey="valeur" stroke="#1e3a5f" strokeWidth={2.5} dot={{ r: 3 }} name={t("capRateValue")} />
+                      <Line
+                        type="monotone"
+                        dataKey={() => currentValue}
+                        stroke="#b8860b"
+                        strokeWidth={2}
+                        strokeDasharray="4 4"
+                        dot={false}
+                        name={t("capRateCurrent", { rate: tauxCapSortie.toFixed(2) })}
+                      />
+                    </ComposedChart>
+                  </ResponsiveContainer>
+                );
+              })()}
+              <p className="mt-3 text-[10px] text-muted">{t("capRateChartNote")}</p>
+            </div>
+
             {/* Cash flows annuels */}
             <div className="rounded-xl border border-card-border bg-card shadow-sm overflow-x-auto">
               <table className="w-full text-xs">
