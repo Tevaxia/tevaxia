@@ -1,16 +1,21 @@
 {
   "code": "be",
-  "name": { "en": "Belgium", "fr": "Belgique", "de": "Belgien", "nl": "België" },
+  "name": {
+    "en": "Belgium",
+    "fr": "Belgique",
+    "de": "Belgien",
+    "nl": "België"
+  },
   "currency": "EUR",
   "currencySymbol": "€",
   "flag": "🇧🇪",
   "borrowing": {
     "defaultRate": 3.4,
-    "maxDSTI": 0.40,
+    "maxDSTI": 0.4,
     "insuranceIncludedInDSTI": false,
     "maxDurationYears": 30,
-    "ltvResident": 0.90,
-    "ltvNonResident": 0.80,
+    "ltvResident": 0.9,
+    "ltvNonResident": 0.8,
     "notes": [
       "BNB recommande max 50% DSTI, pratique 33-40%",
       "LTV 100% toléré pour primo-accédants (35% du volume)",
@@ -26,7 +31,9 @@
     "adminFees": 900,
     "new": {
       "vatRate": 0.21,
-      "notes": ["TVA 21% au lieu des droits d'enregistrement pour le neuf"]
+      "notes": [
+        "TVA 21% au lieu des droits d'enregistrement pour le neuf"
+      ]
     },
     "regions": [
       {
@@ -61,28 +68,52 @@
     "regimes": [
       {
         "code": "cadastral",
-        "name": { "en": "Cadastral income (private tenant)", "fr": "Revenu cadastral (locataire privé)" },
+        "name": {
+          "en": "Cadastral income (private tenant)",
+          "fr": "Revenu cadastral (locataire privé)"
+        },
         "type": "private_tenant",
         "notes": "Belgique ne taxe PAS le revenu locatif réel (location à particulier). Taxation sur RC indexé × 140%"
       },
       {
         "code": "real_income",
-        "name": { "en": "Actual income (company tenant)", "fr": "Revenu réel (locataire société)" },
+        "name": {
+          "en": "Actual income (company tenant)",
+          "fr": "Revenu réel (locataire société)"
+        },
         "type": "company_tenant",
         "notes": "Location à société/professionnel : revenu réel taxé"
       }
     ],
-    "cadastralMultiplier": 1.40,
+    "cadastralMultiplier": 1.4,
     "precompteImmobilier": {
       "rateRange": "20-55%",
       "basis": "RC indexé selon commune",
       "notes": "Précompte immobilier : 20-55% du RC indexé selon commune"
     },
     "incomeTaxBrackets": [
-      { "upTo": 15820, "rate": 0.25 },
-      { "upTo": 27920, "rate": 0.40 },
-      { "upTo": 48320, "rate": 0.45 },
-      { "upTo": null, "rate": 0.50 }
+      {
+        "upTo": 15820,
+        "rate": 0.25
+      },
+      {
+        "upTo": 27920,
+        "rate": 0.4
+      },
+      {
+        "upTo": 48320,
+        "rate": 0.45
+      },
+      {
+        "upTo": null,
+        "rate": 0.5
+      }
     ]
+  },
+  "macro": {
+    "hicpAvg": 3.2,
+    "propertyGrowth": 0.5,
+    "sources": "Statbel IPC + Notaires BE 2023-2025",
+    "lastUpdate": "2026-04-17"
   }
 }

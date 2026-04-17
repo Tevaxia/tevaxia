@@ -1,49 +1,68 @@
 {
   "code": "fr",
-  "name": { "en": "France", "fr": "France", "de": "Frankreich" },
+  "name": {
+    "en": "France",
+    "fr": "France",
+    "de": "Frankreich"
+  },
   "currency": "EUR",
-  "currencySymbol": "\u20ac",
-  "flag": "\ud83c\uddeb\ud83c\uddf7",
+  "currencySymbol": "€",
+  "flag": "🇫🇷",
   "borrowing": {
     "defaultRate": 3.2,
     "maxDSTI": 0.35,
     "insuranceIncludedInDSTI": true,
     "maxDurationYears": 25,
     "maxDurationWithDeferral": 27,
-    "ltvResident": 0.90,
+    "ltvResident": 0.9,
     "ltvFirstTimeBuyer": 1.0,
     "ltvNonResident": 0.65,
-    "ltvNonEU": 0.60,
+    "ltvNonEU": 0.6,
     "notes": [
       "HCSF: DSTI max 35% assurance incluse (contraignant depuis 01/01/2022)",
-      "Marge 20% du volume trimestriel peut d\u00e9roger (priorit\u00e9 primo RP)",
-      "Pr\u00eat doit typiquement se terminer avant 75 ans"
+      "Marge 20% du volume trimestriel peut déroger (priorité primo RP)",
+      "Prêt doit typiquement se terminer avant 75 ans"
     ]
   },
   "acquisitionFees": {
     "notaryScale": [
-      { "upTo": 6500, "rate": 0.03870 },
-      { "upTo": 17000, "rate": 0.01596 },
-      { "upTo": 60000, "rate": 0.01064 },
-      { "upTo": null, "rate": 0.00799 }
+      {
+        "upTo": 6500,
+        "rate": 0.0387
+      },
+      {
+        "upTo": 17000,
+        "rate": 0.01596
+      },
+      {
+        "upTo": 60000,
+        "rate": 0.01064
+      },
+      {
+        "upTo": null,
+        "rate": 0.00799
+      }
     ],
-    "notaryVAT": 0.20,
-    "notaryDiscount": { "threshold": 100000, "maxDiscount": 0.20 },
+    "notaryVAT": 0.2,
+    "notaryDiscount": {
+      "threshold": 100000,
+      "maxDiscount": 0.2
+    },
     "old": {
       "departmentalTax": 0.045,
-      "departmentalTaxMax": 0.050,
+      "departmentalTaxMax": 0.05,
       "communalTax": 0.012,
       "typicalTotal": 0.058,
       "notes": [
-        "Depuis avril 2025: d\u00e9partements peuvent monter \u00e0 5.0% (jusqu'au 31/03/2028)"
+        "Depuis avril 2025: départements peuvent monter à 5.0% (jusqu'au 31/03/2028)"
       ]
     },
     "new": {
       "registrationRate": 0.00715,
-      "vatRate": 0.20,
+      "vatRate": 0.2,
       "notes": [
         "TVA 20% incluse dans le prix",
-        "Droits r\u00e9duits 0.715%"
+        "Droits réduits 0.715%"
       ]
     },
     "csi": 0.001,
@@ -51,7 +70,7 @@
     "mortgageRegistration": {
       "ppd": {
         "rate": 0.0005,
-        "notes": "PPD: exempt de taxe fonci\u00e8re, juste CSI 0.05%"
+        "notes": "PPD: exempt de taxe foncière, juste CSI 0.05%"
       },
       "conventional": {
         "rate": 0.00715,
@@ -59,56 +78,128 @@
       }
     },
     "regions": [
-      { "code": "75", "name": "Paris", "registrationTaxRate": 0.0581 },
-      { "code": "77", "name": "Seine-et-Marne", "registrationTaxRate": 0.0581 },
-      { "code": "78", "name": "Yvelines", "registrationTaxRate": 0.0581 },
-      { "code": "91", "name": "Essonne", "registrationTaxRate": 0.0581 },
-      { "code": "92", "name": "Hauts-de-Seine", "registrationTaxRate": 0.0581 },
-      { "code": "93", "name": "Seine-Saint-Denis", "registrationTaxRate": 0.0581 },
-      { "code": "94", "name": "Val-de-Marne", "registrationTaxRate": 0.0581 },
-      { "code": "95", "name": "Val-d'Oise", "registrationTaxRate": 0.0581 },
-      { "code": "13", "name": "Bouches-du-Rh\u00f4ne (Marseille)", "registrationTaxRate": 0.0620 },
-      { "code": "31", "name": "Haute-Garonne (Toulouse)", "registrationTaxRate": 0.0620 },
-      { "code": "33", "name": "Gironde (Bordeaux)", "registrationTaxRate": 0.0620 },
-      { "code": "44", "name": "Loire-Atlantique (Nantes)", "registrationTaxRate": 0.0620 },
-      { "code": "59", "name": "Nord (Lille)", "registrationTaxRate": 0.0620 },
-      { "code": "67", "name": "Bas-Rhin (Strasbourg)", "registrationTaxRate": 0.0620 },
-      { "code": "69", "name": "Rh\u00f4ne (Lyon)", "registrationTaxRate": 0.0620 }
+      {
+        "code": "75",
+        "name": "Paris",
+        "registrationTaxRate": 0.0581
+      },
+      {
+        "code": "77",
+        "name": "Seine-et-Marne",
+        "registrationTaxRate": 0.0581
+      },
+      {
+        "code": "78",
+        "name": "Yvelines",
+        "registrationTaxRate": 0.0581
+      },
+      {
+        "code": "91",
+        "name": "Essonne",
+        "registrationTaxRate": 0.0581
+      },
+      {
+        "code": "92",
+        "name": "Hauts-de-Seine",
+        "registrationTaxRate": 0.0581
+      },
+      {
+        "code": "93",
+        "name": "Seine-Saint-Denis",
+        "registrationTaxRate": 0.0581
+      },
+      {
+        "code": "94",
+        "name": "Val-de-Marne",
+        "registrationTaxRate": 0.0581
+      },
+      {
+        "code": "95",
+        "name": "Val-d'Oise",
+        "registrationTaxRate": 0.0581
+      },
+      {
+        "code": "13",
+        "name": "Bouches-du-Rhône (Marseille)",
+        "registrationTaxRate": 0.062
+      },
+      {
+        "code": "31",
+        "name": "Haute-Garonne (Toulouse)",
+        "registrationTaxRate": 0.062
+      },
+      {
+        "code": "33",
+        "name": "Gironde (Bordeaux)",
+        "registrationTaxRate": 0.062
+      },
+      {
+        "code": "44",
+        "name": "Loire-Atlantique (Nantes)",
+        "registrationTaxRate": 0.062
+      },
+      {
+        "code": "59",
+        "name": "Nord (Lille)",
+        "registrationTaxRate": 0.062
+      },
+      {
+        "code": "67",
+        "name": "Bas-Rhin (Strasbourg)",
+        "registrationTaxRate": 0.062
+      },
+      {
+        "code": "69",
+        "name": "Rhône (Lyon)",
+        "registrationTaxRate": 0.062
+      }
     ]
   },
   "rentalTax": {
     "regimes": [
       {
         "code": "micro_foncier",
-        "name": { "en": "Micro-foncier", "fr": "Micro-foncier" },
+        "name": {
+          "en": "Micro-foncier",
+          "fr": "Micro-foncier"
+        },
         "type": "unfurnished",
         "maxIncome": 15000,
-        "deductionRate": 0.30,
-        "notes": "Abattement 30%, tax\u00e9 sur 70% restant"
+        "deductionRate": 0.3,
+        "notes": "Abattement 30%, taxé sur 70% restant"
       },
       {
         "code": "reel_foncier",
-        "name": { "en": "R\u00e9gime r\u00e9el", "fr": "R\u00e9gime r\u00e9el" },
+        "name": {
+          "en": "Régime réel",
+          "fr": "Régime réel"
+        },
         "type": "unfurnished",
         "maxIncome": null,
         "deductionRate": null,
-        "notes": "D\u00e9duction frais r\u00e9els: int\u00e9r\u00eats, travaux, assurance, taxe fonci\u00e8re"
+        "notes": "Déduction frais réels: intérêts, travaux, assurance, taxe foncière"
       },
       {
         "code": "micro_bic",
-        "name": { "en": "Micro-BIC", "fr": "Micro-BIC" },
+        "name": {
+          "en": "Micro-BIC",
+          "fr": "Micro-BIC"
+        },
         "type": "furnished",
         "maxIncome": 15000,
-        "deductionRate": 0.30,
-        "notes": "Loi de Finances 2024 : seuil abaiss\u00e9 \u00e0 15 000 EUR, abattement 30% (meubl\u00e9 non-tourisme)"
+        "deductionRate": 0.3,
+        "notes": "Loi de Finances 2024 : seuil abaissé à 15 000 EUR, abattement 30% (meublé non-tourisme)"
       },
       {
         "code": "micro_bic_tourism",
-        "name": { "en": "Micro-BIC Tourism", "fr": "Micro-BIC Tourisme class\u00e9" },
+        "name": {
+          "en": "Micro-BIC Tourism",
+          "fr": "Micro-BIC Tourisme classé"
+        },
         "type": "furnished_tourism",
         "maxIncome": 77700,
-        "deductionRate": 0.50,
-        "notes": "Loi de Finances 2024 : seuil abaiss\u00e9 \u00e0 77 700 EUR, abattement 50% (meubl\u00e9 de tourisme class\u00e9)"
+        "deductionRate": 0.5,
+        "notes": "Loi de Finances 2024 : seuil abaissé à 77 700 EUR, abattement 50% (meublé de tourisme classé)"
       }
     ],
     "socialCharges": {
@@ -117,14 +208,35 @@
       "nonEUNonResident": 0.172
     },
     "incomeTaxBrackets": [
-      { "upTo": 11294, "rate": 0 },
-      { "upTo": 28797, "rate": 0.11 },
-      { "upTo": 82341, "rate": 0.30 },
-      { "upTo": 177106, "rate": 0.41 },
-      { "upTo": null, "rate": 0.45 }
+      {
+        "upTo": 11294,
+        "rate": 0
+      },
+      {
+        "upTo": 28797,
+        "rate": 0.11
+      },
+      {
+        "upTo": 82341,
+        "rate": 0.3
+      },
+      {
+        "upTo": 177106,
+        "rate": 0.41
+      },
+      {
+        "upTo": null,
+        "rate": 0.45
+      }
     ],
-    "nonResidentMinRate": 0.20,
+    "nonResidentMinRate": 0.2,
     "nonResidentMinRateThreshold": 28797,
-    "nonResidentHighRate": 0.30
+    "nonResidentHighRate": 0.3
+  },
+  "macro": {
+    "hicpAvg": 2.9,
+    "propertyGrowth": -1.0,
+    "sources": "INSEE IPC + Notaires de France 2023-2025",
+    "lastUpdate": "2026-04-17"
   }
 }

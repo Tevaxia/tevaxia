@@ -1,6 +1,11 @@
 {
   "code": "us",
-  "name": { "en": "United States", "fr": "États-Unis", "de": "Vereinigte Staaten", "es": "Estados Unidos" },
+  "name": {
+    "en": "United States",
+    "fr": "États-Unis",
+    "de": "Vereinigte Staaten",
+    "es": "Estados Unidos"
+  },
   "currency": "USD",
   "currencySymbol": "$",
   "flag": "🇺🇸",
@@ -12,7 +17,7 @@
     "ltvResident": 0.97,
     "ltvNonResident": 0.65,
     "ltvFHA": 0.965,
-    "ltvVA": 1.00,
+    "ltvVA": 1.0,
     "conformingLimit": 832750,
     "conformingLimitHighCost": 1249125,
     "notes": [
@@ -35,67 +40,275 @@
     },
     "new": {
       "vatRate": 0,
-      "notes": ["Pas de TVA aux USA. Sales tax ne s'applique pas à l'immobilier."]
+      "notes": [
+        "Pas de TVA aux USA. Sales tax ne s'applique pas à l'immobilier."
+      ]
     },
     "regions": [
-      { "code": "AL", "name": "Alabama", "transferTaxRate": 0.001 },
-      { "code": "AK", "name": "Alaska", "transferTaxRate": 0 },
-      { "code": "AZ", "name": "Arizona", "transferTaxRate": 0.0002 },
-      { "code": "AR", "name": "Arkansas", "transferTaxRate": 0.0033 },
-      { "code": "CA", "name": "California", "transferTaxRate": 0.0011 },
-      { "code": "CO", "name": "Colorado", "transferTaxRate": 0.0001 },
-      { "code": "CT", "name": "Connecticut", "transferTaxRate": 0.0125 },
-      { "code": "DE", "name": "Delaware", "transferTaxRate": 0.04 },
-      { "code": "FL", "name": "Florida", "transferTaxRate": 0.007 },
-      { "code": "GA", "name": "Georgia", "transferTaxRate": 0.001 },
-      { "code": "HI", "name": "Hawaii", "transferTaxRate": 0.001 },
-      { "code": "ID", "name": "Idaho", "transferTaxRate": 0 },
-      { "code": "IL", "name": "Illinois", "transferTaxRate": 0.001 },
-      { "code": "IN", "name": "Indiana", "transferTaxRate": 0 },
-      { "code": "IA", "name": "Iowa", "transferTaxRate": 0.0016 },
-      { "code": "KS", "name": "Kansas", "transferTaxRate": 0 },
-      { "code": "KY", "name": "Kentucky", "transferTaxRate": 0.001 },
-      { "code": "LA", "name": "Louisiana", "transferTaxRate": 0 },
-      { "code": "ME", "name": "Maine", "transferTaxRate": 0.0044 },
-      { "code": "MD", "name": "Maryland", "transferTaxRate": 0.005 },
-      { "code": "MA", "name": "Massachusetts", "transferTaxRate": 0.00456 },
-      { "code": "MI", "name": "Michigan", "transferTaxRate": 0.0075 },
-      { "code": "MN", "name": "Minnesota", "transferTaxRate": 0.0033 },
-      { "code": "MS", "name": "Mississippi", "transferTaxRate": 0 },
-      { "code": "MO", "name": "Missouri", "transferTaxRate": 0 },
-      { "code": "MT", "name": "Montana", "transferTaxRate": 0 },
-      { "code": "NE", "name": "Nebraska", "transferTaxRate": 0.00225 },
-      { "code": "NV", "name": "Nevada", "transferTaxRate": 0.0026 },
-      { "code": "NH", "name": "New Hampshire", "transferTaxRate": 0.015 },
-      { "code": "NJ", "name": "New Jersey", "transferTaxRate": 0.01 },
-      { "code": "NM", "name": "New Mexico", "transferTaxRate": 0 },
-      { "code": "NY", "name": "New York", "transferTaxRate": 0.004 },
-      { "code": "NC", "name": "North Carolina", "transferTaxRate": 0.002 },
-      { "code": "ND", "name": "North Dakota", "transferTaxRate": 0 },
-      { "code": "OH", "name": "Ohio", "transferTaxRate": 0.004 },
-      { "code": "OK", "name": "Oklahoma", "transferTaxRate": 0.00075 },
-      { "code": "OR", "name": "Oregon", "transferTaxRate": 0.001 },
-      { "code": "PA", "name": "Pennsylvania", "transferTaxRate": 0.02 },
-      { "code": "RI", "name": "Rhode Island", "transferTaxRate": 0.0046 },
-      { "code": "SC", "name": "South Carolina", "transferTaxRate": 0.0037 },
-      { "code": "SD", "name": "South Dakota", "transferTaxRate": 0.001 },
-      { "code": "TN", "name": "Tennessee", "transferTaxRate": 0.0037 },
-      { "code": "TX", "name": "Texas", "transferTaxRate": 0 },
-      { "code": "UT", "name": "Utah", "transferTaxRate": 0 },
-      { "code": "VT", "name": "Vermont", "transferTaxRate": 0.015 },
-      { "code": "VA", "name": "Virginia", "transferTaxRate": 0.0025 },
-      { "code": "WA", "name": "Washington", "transferTaxRate": 0.018 },
-      { "code": "DC", "name": "Washington D.C.", "transferTaxRate": 0.029 },
-      { "code": "WV", "name": "West Virginia", "transferTaxRate": 0.0033 },
-      { "code": "WI", "name": "Wisconsin", "transferTaxRate": 0.003 },
-      { "code": "WY", "name": "Wyoming", "transferTaxRate": 0 }
+      {
+        "code": "AL",
+        "name": "Alabama",
+        "transferTaxRate": 0.001
+      },
+      {
+        "code": "AK",
+        "name": "Alaska",
+        "transferTaxRate": 0
+      },
+      {
+        "code": "AZ",
+        "name": "Arizona",
+        "transferTaxRate": 0.0002
+      },
+      {
+        "code": "AR",
+        "name": "Arkansas",
+        "transferTaxRate": 0.0033
+      },
+      {
+        "code": "CA",
+        "name": "California",
+        "transferTaxRate": 0.0011
+      },
+      {
+        "code": "CO",
+        "name": "Colorado",
+        "transferTaxRate": 0.0001
+      },
+      {
+        "code": "CT",
+        "name": "Connecticut",
+        "transferTaxRate": 0.0125
+      },
+      {
+        "code": "DE",
+        "name": "Delaware",
+        "transferTaxRate": 0.04
+      },
+      {
+        "code": "FL",
+        "name": "Florida",
+        "transferTaxRate": 0.007
+      },
+      {
+        "code": "GA",
+        "name": "Georgia",
+        "transferTaxRate": 0.001
+      },
+      {
+        "code": "HI",
+        "name": "Hawaii",
+        "transferTaxRate": 0.001
+      },
+      {
+        "code": "ID",
+        "name": "Idaho",
+        "transferTaxRate": 0
+      },
+      {
+        "code": "IL",
+        "name": "Illinois",
+        "transferTaxRate": 0.001
+      },
+      {
+        "code": "IN",
+        "name": "Indiana",
+        "transferTaxRate": 0
+      },
+      {
+        "code": "IA",
+        "name": "Iowa",
+        "transferTaxRate": 0.0016
+      },
+      {
+        "code": "KS",
+        "name": "Kansas",
+        "transferTaxRate": 0
+      },
+      {
+        "code": "KY",
+        "name": "Kentucky",
+        "transferTaxRate": 0.001
+      },
+      {
+        "code": "LA",
+        "name": "Louisiana",
+        "transferTaxRate": 0
+      },
+      {
+        "code": "ME",
+        "name": "Maine",
+        "transferTaxRate": 0.0044
+      },
+      {
+        "code": "MD",
+        "name": "Maryland",
+        "transferTaxRate": 0.005
+      },
+      {
+        "code": "MA",
+        "name": "Massachusetts",
+        "transferTaxRate": 0.00456
+      },
+      {
+        "code": "MI",
+        "name": "Michigan",
+        "transferTaxRate": 0.0075
+      },
+      {
+        "code": "MN",
+        "name": "Minnesota",
+        "transferTaxRate": 0.0033
+      },
+      {
+        "code": "MS",
+        "name": "Mississippi",
+        "transferTaxRate": 0
+      },
+      {
+        "code": "MO",
+        "name": "Missouri",
+        "transferTaxRate": 0
+      },
+      {
+        "code": "MT",
+        "name": "Montana",
+        "transferTaxRate": 0
+      },
+      {
+        "code": "NE",
+        "name": "Nebraska",
+        "transferTaxRate": 0.00225
+      },
+      {
+        "code": "NV",
+        "name": "Nevada",
+        "transferTaxRate": 0.0026
+      },
+      {
+        "code": "NH",
+        "name": "New Hampshire",
+        "transferTaxRate": 0.015
+      },
+      {
+        "code": "NJ",
+        "name": "New Jersey",
+        "transferTaxRate": 0.01
+      },
+      {
+        "code": "NM",
+        "name": "New Mexico",
+        "transferTaxRate": 0
+      },
+      {
+        "code": "NY",
+        "name": "New York",
+        "transferTaxRate": 0.004
+      },
+      {
+        "code": "NC",
+        "name": "North Carolina",
+        "transferTaxRate": 0.002
+      },
+      {
+        "code": "ND",
+        "name": "North Dakota",
+        "transferTaxRate": 0
+      },
+      {
+        "code": "OH",
+        "name": "Ohio",
+        "transferTaxRate": 0.004
+      },
+      {
+        "code": "OK",
+        "name": "Oklahoma",
+        "transferTaxRate": 0.00075
+      },
+      {
+        "code": "OR",
+        "name": "Oregon",
+        "transferTaxRate": 0.001
+      },
+      {
+        "code": "PA",
+        "name": "Pennsylvania",
+        "transferTaxRate": 0.02
+      },
+      {
+        "code": "RI",
+        "name": "Rhode Island",
+        "transferTaxRate": 0.0046
+      },
+      {
+        "code": "SC",
+        "name": "South Carolina",
+        "transferTaxRate": 0.0037
+      },
+      {
+        "code": "SD",
+        "name": "South Dakota",
+        "transferTaxRate": 0.001
+      },
+      {
+        "code": "TN",
+        "name": "Tennessee",
+        "transferTaxRate": 0.0037
+      },
+      {
+        "code": "TX",
+        "name": "Texas",
+        "transferTaxRate": 0
+      },
+      {
+        "code": "UT",
+        "name": "Utah",
+        "transferTaxRate": 0
+      },
+      {
+        "code": "VT",
+        "name": "Vermont",
+        "transferTaxRate": 0.015
+      },
+      {
+        "code": "VA",
+        "name": "Virginia",
+        "transferTaxRate": 0.0025
+      },
+      {
+        "code": "WA",
+        "name": "Washington",
+        "transferTaxRate": 0.018
+      },
+      {
+        "code": "DC",
+        "name": "Washington D.C.",
+        "transferTaxRate": 0.029
+      },
+      {
+        "code": "WV",
+        "name": "West Virginia",
+        "transferTaxRate": 0.0033
+      },
+      {
+        "code": "WI",
+        "name": "Wisconsin",
+        "transferTaxRate": 0.003
+      },
+      {
+        "code": "WY",
+        "name": "Wyoming",
+        "transferTaxRate": 0
+      }
     ]
   },
   "rentalTax": {
     "regimes": [
       {
         "code": "federal",
-        "name": { "en": "Federal Income Tax" },
+        "name": {
+          "en": "Federal Income Tax"
+        },
         "type": "all",
         "depreciationYears": 27.5,
         "notes": "Rental income taxed at federal progressive rates 10-37%. Depreciation over 27.5 years for residential."
@@ -104,7 +317,7 @@
     "saltCap": 10000,
     "firpta": {
       "withholdingRate": 0.15,
-      "reducedRate": 0.10,
+      "reducedRate": 0.1,
       "reducedCondition": "Bien < $1M et usage personnel de l'acheteur",
       "notes": "FIRPTA: 15% retenue à la source sur vente par non-résident"
     },
@@ -112,24 +325,79 @@
       "notes": "Report d'imposition sur réinvestissement (1031 Exchange)"
     },
     "incomeTaxBrackets": [
-      { "upTo": 11600, "rate": 0.10 },
-      { "upTo": 47150, "rate": 0.12 },
-      { "upTo": 100525, "rate": 0.22 },
-      { "upTo": 191950, "rate": 0.24 },
-      { "upTo": 243725, "rate": 0.32 },
-      { "upTo": 609350, "rate": 0.35 },
-      { "upTo": null, "rate": 0.37 }
+      {
+        "upTo": 11600,
+        "rate": 0.1
+      },
+      {
+        "upTo": 47150,
+        "rate": 0.12
+      },
+      {
+        "upTo": 100525,
+        "rate": 0.22
+      },
+      {
+        "upTo": 191950,
+        "rate": 0.24
+      },
+      {
+        "upTo": 243725,
+        "rate": 0.32
+      },
+      {
+        "upTo": 609350,
+        "rate": 0.35
+      },
+      {
+        "upTo": null,
+        "rate": 0.37
+      }
     ],
     "stateIncomeTax": {
-      "noTaxStates": ["AK", "FL", "NV", "NH", "SD", "TN", "TX", "WA", "WY"],
+      "noTaxStates": [
+        "AK",
+        "FL",
+        "NV",
+        "NH",
+        "SD",
+        "TN",
+        "TX",
+        "WA",
+        "WY"
+      ],
       "highTaxStates": [
-        { "code": "CA", "maxRate": 0.133 },
-        { "code": "HI", "maxRate": 0.11 },
-        { "code": "NJ", "maxRate": 0.1075 },
-        { "code": "OR", "maxRate": 0.099 },
-        { "code": "MN", "maxRate": 0.0985 },
-        { "code": "NY", "maxRate": 0.109 }
+        {
+          "code": "CA",
+          "maxRate": 0.133
+        },
+        {
+          "code": "HI",
+          "maxRate": 0.11
+        },
+        {
+          "code": "NJ",
+          "maxRate": 0.1075
+        },
+        {
+          "code": "OR",
+          "maxRate": 0.099
+        },
+        {
+          "code": "MN",
+          "maxRate": 0.0985
+        },
+        {
+          "code": "NY",
+          "maxRate": 0.109
+        }
       ]
     }
+  },
+  "macro": {
+    "hicpAvg": 3.4,
+    "propertyGrowth": 4.0,
+    "sources": "BLS CPI-U + S&P CoreLogic Case-Shiller 2023-2025",
+    "lastUpdate": "2026-04-17"
   }
 }

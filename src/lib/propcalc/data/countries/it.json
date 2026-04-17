@@ -1,6 +1,11 @@
 {
   "code": "it",
-  "name": { "en": "Italy", "fr": "Italie", "de": "Italien", "it": "Italia" },
+  "name": {
+    "en": "Italy",
+    "fr": "Italie",
+    "de": "Italien",
+    "it": "Italia"
+  },
   "currency": "EUR",
   "currencySymbol": "€",
   "flag": "🇮🇹",
@@ -9,7 +14,7 @@
     "maxDSTI": 0.35,
     "insuranceIncludedInDSTI": false,
     "maxDurationYears": 30,
-    "ltvResident": 0.80,
+    "ltvResident": 0.8,
     "ltvNonResident": 0.55,
     "notes": [
       "DSTI 30-35% (pratique bancaire)",
@@ -40,7 +45,7 @@
         "notes": "TVA 4% + 600 EUR fixes pour prima casa neuf"
       },
       "investment": {
-        "vatRate": 0.10,
+        "vatRate": 0.1,
         "fixedFees": 600,
         "notes": "TVA 10% + 600 EUR pour investissement neuf"
       },
@@ -65,7 +70,11 @@
     "regimes": [
       {
         "code": "cedolare_secca",
-        "name": { "en": "Cedolare secca (flat tax)", "fr": "Cedolare secca (flat tax)", "it": "Cedolare secca" },
+        "name": {
+          "en": "Cedolare secca (flat tax)",
+          "fr": "Cedolare secca (flat tax)",
+          "it": "Cedolare secca"
+        },
         "type": "all",
         "flatRate": 0.21,
         "strRate": 0.26,
@@ -74,7 +83,11 @@
       },
       {
         "code": "irpef",
-        "name": { "en": "IRPEF (progressive)", "fr": "IRPEF (progressif)", "it": "IRPEF" },
+        "name": {
+          "en": "IRPEF (progressive)",
+          "fr": "IRPEF (progressif)",
+          "it": "IRPEF"
+        },
         "type": "all",
         "maintenanceDeduction": 0.05,
         "notes": "5% abattement maintenance ou frais réels + surcharges régionales/communales"
@@ -91,9 +104,24 @@
       "notes": "Max 4 biens en location courte durée (5e = activité commerciale)"
     },
     "incomeTaxBrackets": [
-      { "upTo": 28000, "rate": 0.23 },
-      { "upTo": 50000, "rate": 0.35 },
-      { "upTo": null, "rate": 0.43 }
+      {
+        "upTo": 28000,
+        "rate": 0.23
+      },
+      {
+        "upTo": 50000,
+        "rate": 0.35
+      },
+      {
+        "upTo": null,
+        "rate": 0.43
+      }
     ]
+  },
+  "macro": {
+    "hicpAvg": 3.3,
+    "propertyGrowth": 1.0,
+    "sources": "ISTAT NIC + Nomisma 2023-2025",
+    "lastUpdate": "2026-04-17"
   }
 }

@@ -1,16 +1,21 @@
 {
   "code": "nl",
-  "name": { "en": "Netherlands", "fr": "Pays-Bas", "de": "Niederlande", "nl": "Nederland" },
+  "name": {
+    "en": "Netherlands",
+    "fr": "Pays-Bas",
+    "de": "Niederlande",
+    "nl": "Nederland"
+  },
   "currency": "EUR",
   "currencySymbol": "€",
   "flag": "🇳🇱",
   "borrowing": {
     "defaultRate": 3.9,
-    "maxDSTI": 0.40,
+    "maxDSTI": 0.4,
     "insuranceIncludedInDSTI": false,
     "maxDurationYears": 30,
-    "ltvResident": 1.00,
-    "ltvNonResident": 0.80,
+    "ltvResident": 1.0,
+    "ltvNonResident": 0.8,
     "incomeMultiple": 4.5,
     "nhg": {
       "threshold": 470000,
@@ -61,7 +66,11 @@
     "regimes": [
       {
         "code": "box3",
-        "name": { "en": "Box 3 (Wealth tax)", "fr": "Box 3 (Impôt sur patrimoine)", "nl": "Box 3 (Vermogensbelasting)" },
+        "name": {
+          "en": "Box 3 (Wealth tax)",
+          "fr": "Box 3 (Impôt sur patrimoine)",
+          "nl": "Box 3 (Vermogensbelasting)"
+        },
         "type": "all",
         "deemedReturn": 0.0633,
         "taxRate": 0.36,
@@ -77,9 +86,27 @@
       "notes": "Déduction des intérêts hypothécaires RP uniquement, taux max 36.97%"
     },
     "incomeTaxBrackets": [
-      { "upTo": 38441, "rate": 0.3697, "name": "Schijf 1" },
-      { "upTo": 75518, "rate": 0.3697, "name": "Schijf 2" },
-      { "upTo": null, "rate": 0.4950, "name": "Schijf 3" }
+      {
+        "upTo": 38441,
+        "rate": 0.3697,
+        "name": "Schijf 1"
+      },
+      {
+        "upTo": 75518,
+        "rate": 0.3697,
+        "name": "Schijf 2"
+      },
+      {
+        "upTo": null,
+        "rate": 0.495,
+        "name": "Schijf 3"
+      }
     ]
+  },
+  "macro": {
+    "hicpAvg": 3.5,
+    "propertyGrowth": 4.5,
+    "sources": "CBS HICP + NVM 2023-2025",
+    "lastUpdate": "2026-04-17"
   }
 }
