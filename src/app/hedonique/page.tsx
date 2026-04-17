@@ -22,6 +22,33 @@ interface HedonicCoefficient {
   sourceKey: string;
 }
 
+interface LiteratureRange {
+  min: number;
+  max: number;
+  source: string;
+}
+
+// Fourchettes issues de la littérature académique LU/EU :
+// Observatoire de l'Habitat (Rapport annuel 2022, 2023, 2024),
+// LISER WP "Hedonic model for Luxembourg housing market" (2019),
+// European Central Bank Occasional Paper Series n°275 (2022).
+const LITERATURE_RANGES: Record<string, LiteratureRange> = {
+  surface: { min: -0.45, max: -0.25, source: "Observatoire 2023 + LISER 2019" },
+  etage_rdc: { min: -10, max: -5, source: "Observatoire 2023" },
+  etage_1er: { min: -5, max: -2, source: "Observatoire 2023" },
+  etage_haut: { min: 1, max: 5, source: "Observatoire 2023" },
+  etage_attique: { min: 5, max: 12, source: "Observatoire 2023" },
+  etat_neuf: { min: 5, max: 12, source: "LISER 2019" },
+  etat_rafraichir: { min: -8, max: -3, source: "LISER 2019" },
+  etat_renover: { min: -20, max: -10, source: "LISER 2019 + ECB 2022" },
+  energie_AB: { min: 3, max: 8, source: "ECB OP275 2022 (green premium EU)" },
+  energie_FG: { min: -12, max: -5, source: "ECB OP275 2022 (brown discount)" },
+  parking_int: { min: 3, max: 7, source: "Observatoire 2023" },
+  balcon: { min: 1, max: 4, source: "LISER 2019" },
+  terrasse: { min: 4, max: 9, source: "LISER 2019" },
+  jardin: { min: 5, max: 12, source: "Observatoire 2023" },
+};
+
 const COEFFICIENTS: HedonicCoefficient[] = [
   { variable: "surface", labelKey: "coeff_surface", coefficient: -0.35, stdError: 0.05, sourceKey: "coeff_source_surface" },
   { variable: "etage_rdc", labelKey: "coeff_etage_rdc", coefficient: -7, stdError: 2.0, sourceKey: "coeff_source_observatoire" },
@@ -306,6 +333,81 @@ export default function Hedonique() {
                   <p className="mt-1 text-[10px] text-muted">
                     {t("source_disclaimer")}
                   </p>
+
+                  {/* Comparaison visuelle vs littérature */}
+                  <div className="mt-4 border-t border-card-border pt-4">
+                    <h4 className="text-xs font-semibold text-navy mb-2">{t("literatureCompareTitle")}</h4>
+                    <p className="text-[11px] text-muted mb-3">{t("literatureCompareSubtitle")}</p>
+                    <div className="space-y-1.5">
+                      {COEFFICIENTS.map((c) => {
+                        const lit = LITERATURE_RANGES[c.variable];
+                        if (!lit) return null;
+                        // Axe min/max : étendre à la fois notre CI et la fourchette littérature
+                        const ciLow = c.coefficient - 1.96 * c.stdError;
+                        const ciHigh = c.coefficient + 1.96 * c.stdError;
+                        const axisMin = Math.min(lit.min, ciLow) - 1;
+                        const axisMax = Math.max(lit.max, ciHigh) + 1;
+                        const range = axisMax - axisMin;
+                        const toPct = (v: number) => ((v - axisMin) / range) * 100;
+                        const litLeftPct = toPct(lit.min);
+                        const litWidthPct = toPct(lit.max) - litLeftPct;
+                        const ciLeftPct = toPct(ciLow);
+                        const ciWidthPct = toPct(ciHigh) - ciLeftPct;
+                        const pointPct = toPct(c.coefficient);
+                        const inRange = c.coefficient >= lit.min && c.coefficient <= lit.max;
+                        return (
+                          <div key={c.variable} className="flex items-center gap-2 text-[11px]">
+                            <div className="w-32 shrink-0 truncate text-muted" title={t(c.labelKey)}>
+                              {t(c.labelKey)}
+                            </div>
+                            <div className="relative flex-1 h-5 rounded bg-background border border-card-border/50">
+                              {/* Fourchette littérature */}
+                              <div
+                                className="absolute inset-y-0 bg-sky-200/60 border border-sky-400/60 rounded"
+                                style={{ left: `${litLeftPct}%`, width: `${litWidthPct}%` }}
+                                title={`${t("literatureRange")} ${lit.min} à ${lit.max}`}
+                              />
+                              {/* IC 95 % tevaxia */}
+                              <div
+                                className="absolute inset-y-1 bg-navy/25 rounded"
+                                style={{ left: `${ciLeftPct}%`, width: `${ciWidthPct}%` }}
+                              />
+                              {/* Point coefficient tevaxia */}
+                              <div
+                                className={`absolute top-1/2 -translate-y-1/2 h-3 w-3 rounded-full border-2 border-white ${inRange ? "bg-emerald-600" : "bg-amber-600"}`}
+                                style={{ left: `calc(${pointPct}% - 6px)` }}
+                                title={`tevaxia : ${c.coefficient}`}
+                              />
+                            </div>
+                            <div className={`w-14 shrink-0 text-right font-mono font-semibold ${inRange ? "text-emerald-700" : "text-amber-700"}`}>
+                              {formatCoeff(c.coefficient, c.variable === "surface" ? 2 : 0)}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <div className="mt-3 flex flex-wrap gap-3 text-[10px] text-muted">
+                      <span className="flex items-center gap-1.5">
+                        <span className="inline-block h-3 w-4 rounded bg-sky-200/60 border border-sky-400/60" />
+                        {t("literatureRangeLegend")}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <span className="inline-block h-2 w-4 rounded bg-navy/25" />
+                        {t("literatureCILegend")}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <span className="inline-block h-3 w-3 rounded-full bg-emerald-600 border border-white" />
+                        {t("literatureInRange")}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <span className="inline-block h-3 w-3 rounded-full bg-amber-600 border border-white" />
+                        {t("literatureOutRange")}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-[10px] text-muted italic">
+                      {t("literatureCompareNote")}
+                    </p>
+                  </div>
                 </div>
               </>
             ) : (
