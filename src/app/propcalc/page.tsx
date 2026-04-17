@@ -26,16 +26,17 @@ const MODULE_KEYS = [
 ];
 
 const COUNTRY_KEYS = [
-  { flag: "\u{1F1EB}\u{1F1F7}", nameKey: "countryFR", detailKey: "countryFRDetail" },
-  { flag: "\u{1F1E9}\u{1F1EA}", nameKey: "countryDE", detailKey: "countryDEDetail" },
-  { flag: "\u{1F1EC}\u{1F1E7}", nameKey: "countryGB", detailKey: "countryGBDetail" },
-  { flag: "\u{1F1F1}\u{1F1FA}", nameKey: "countryLU", detailKey: "countryLUDetail" },
-  { flag: "\u{1F1E7}\u{1F1EA}", nameKey: "countryBE", detailKey: "countryBEDetail" },
-  { flag: "\u{1F1EA}\u{1F1F8}", nameKey: "countryES", detailKey: "countryESDetail" },
-  { flag: "\u{1F1F5}\u{1F1F9}", nameKey: "countryPT", detailKey: "countryPTDetail" },
-  { flag: "\u{1F1EE}\u{1F1F9}", nameKey: "countryIT", detailKey: "countryITDetail" },
-  { flag: "\u{1F1F3}\u{1F1F1}", nameKey: "countryNL", detailKey: "countryNLDetail" },
-  { flag: "\u{1F1FA}\u{1F1F8}", nameKey: "countryUS", detailKey: "countryUSDetail" },
+  // hicp : inflation HICP moy 3 ans ; immo : appréciation immo moy 5 ans ; sources : data/countries/*.json
+  { flag: "\u{1F1EB}\u{1F1F7}", nameKey: "countryFR", detailKey: "countryFRDetail", hicp: 2.9, immo: -1.0 },
+  { flag: "\u{1F1E9}\u{1F1EA}", nameKey: "countryDE", detailKey: "countryDEDetail", hicp: 3.8, immo: -2.0 },
+  { flag: "\u{1F1EC}\u{1F1E7}", nameKey: "countryGB", detailKey: "countryGBDetail", hicp: 4.2, immo: 1.5 },
+  { flag: "\u{1F1F1}\u{1F1FA}", nameKey: "countryLU", detailKey: "countryLUDetail", hicp: 2.8, immo: 1.5 },
+  { flag: "\u{1F1E7}\u{1F1EA}", nameKey: "countryBE", detailKey: "countryBEDetail", hicp: 3.2, immo: 0.5 },
+  { flag: "\u{1F1EA}\u{1F1F8}", nameKey: "countryES", detailKey: "countryESDetail", hicp: 3.1, immo: 6.0 },
+  { flag: "\u{1F1F5}\u{1F1F9}", nameKey: "countryPT", detailKey: "countryPTDetail", hicp: 3.5, immo: 7.5 },
+  { flag: "\u{1F1EE}\u{1F1F9}", nameKey: "countryIT", detailKey: "countryITDetail", hicp: 3.3, immo: 1.0 },
+  { flag: "\u{1F1F3}\u{1F1F1}", nameKey: "countryNL", detailKey: "countryNLDetail", hicp: 3.5, immo: 4.5 },
+  { flag: "\u{1F1FA}\u{1F1F8}", nameKey: "countryUS", detailKey: "countryUSDetail", hicp: 3.4, immo: 4.0 },
 ];
 
 const INTEGRATION_KEYS = [
@@ -127,9 +128,21 @@ export default function PropCalcPage() {
             {COUNTRY_KEYS.map((c) => (
               <div key={c.nameKey} className="flex items-start gap-3 p-4 rounded-xl border border-card-border bg-background">
                 <span className="text-2xl">{c.flag}</span>
-                <div>
+                <div className="flex-1 min-w-0">
                   <div className="text-sm font-semibold text-navy">{t(c.nameKey)}</div>
                   <div className="text-xs text-muted mt-0.5">{t(c.detailKey)}</div>
+                  <div className="mt-1.5 flex items-center gap-2 text-[10px]">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 border border-amber-200 px-1.5 py-0.5 text-amber-900 font-mono">
+                      <span title="Inflation HICP moyenne 3 ans">HICP</span>
+                      <span>{c.hicp.toFixed(1)}%</span>
+                    </span>
+                    <span className={`inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 font-mono border ${
+                      c.immo >= 0 ? "bg-emerald-50 border-emerald-200 text-emerald-900" : "bg-rose-50 border-rose-200 text-rose-900"
+                    }`}>
+                      <span title="Appréciation immo moyenne 5 ans">🏠</span>
+                      <span>{c.immo >= 0 ? "+" : ""}{c.immo.toFixed(1)}%</span>
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
