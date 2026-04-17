@@ -1109,6 +1109,20 @@ En attendant la société, voies opérationnelles :
 
 ---
 
+### Livrables 18e session 2026-04-18 (session longue — 4 nouveaux + 3 vérifiés)
+
+| Chantier | Module | Commit |
+|---|---|---|
+| ✅ **SignReportButton /valorisation** — intégration migration 040, SHA-256 + URL verify | Valorisation | `333e147` |
+| ✅ **/syndic/procuration** — générateur PDF conforme loi 16.05.1975 art. 7 et 11 | Syndic | `333e147` |
+| ✅ **/hotellerie/mice saisonnalité** — chart 12 mois avec courbe corporate LU + ligne moyenne | Hôtel | `333e147` |
+| ✅ **/pro-agences/fiche-bien** — PDF A4 co-brandable (caractéristiques + estim + frais + financement) | Agences | `333e147` |
+| ✓ Facture Stripe TVA LU art. 61-63 — déjà présent (`c69309d`) | Profil | vérifié |
+| ✓ PVGIS live PV — déjà intégré `/energy/communaute` | Énergie | vérifié |
+| ✓ Scoring communes indices — déjà via `computeMarketScore` | Indices | vérifié |
+
+Total session 18 : **+4 gaps BENCHMARK livrés** + 3 vérifiés existants, 561 Vitest.
+
 ### Livrables 17e session 2026-04-18 (session longue — 7 items)
 
 | Chantier | Module | Commit |
