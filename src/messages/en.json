@@ -4741,7 +4741,9 @@
       "faq3A": "There is no monetary threshold below which due diligence obligations do not apply. Every real estate transaction, regardless of amount, is subject to KYC obligations. However, the suspicious activity report is based on qualitative indicators (unusual client behaviour, inconsistency between profile and transaction, use of complex structures) rather than a quantitative threshold. Cash payments above EUR 10,000 are subject to a specific reporting obligation.",
       "faq4Q": "How long must KYC documents be retained?",
       "faq4A": "The law of 12 November 2004 requires KYC documents and information to be retained for a minimum of 5 years after the end of the business relationship or the date of the occasional transaction. Transaction documents must be kept for 5 years after execution. In practice, given Luxembourg criminal limitation periods (5 to 10 years), it is recommended to retain documents for 10 years."
-    }
+    },
+    "sanctionOfficialLists": "Official lists to consult directly",
+    "sanctionOfficialNote": "Mandatory verification for politically exposed persons (PEP), sanctioned entities, and beneficial owners. Keep proof of consultation with timestamp in client file (5-year obligation art. 3 law 12/11/2004)."
   },
   "terresAgricoles": {
     "title": "Valuation — Agricultural Land",

@@ -211,6 +211,40 @@ export default function AmlKyc() {
               {t("search")}
             </button>
           </div>
+
+          {/* Direct links to official sanctions lists */}
+          <div className="mt-4 border-t border-card-border pt-4">
+            <div className="text-xs font-semibold text-navy mb-2">{t("sanctionOfficialLists")}</div>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {[
+                { label: "UE — Consolidated list", href: "https://webgate.ec.europa.eu/fsd/fsf/public/files/xmlFullSanctionsList_1_1/content?token=dG9rZW4tMjAxNw", desc: "Union Européenne (FSD)" },
+                { label: "UE — Sanctions Map", href: "https://www.sanctionsmap.eu/", desc: "Carte EU consolidée" },
+                { label: "OFAC — SDN List (US)", href: "https://sanctionssearch.ofac.treas.gov/", desc: "US Treasury" },
+                { label: "UN — Security Council", href: "https://scsanctions.un.org/consolidated", desc: "Nations Unies" },
+                { label: "CSSF LU — Gel des avoirs", href: "https://www.cssf.lu/en/financial-sanctions/", desc: "Commission LU" },
+                { label: "ICIJ — Offshore Leaks", href: "https://offshoreleaks.icij.org/", desc: "Base investigations (Panama/Pandora)" },
+                { label: "World-Check Open", href: "https://www.world-check.com/", desc: "Refinitiv (accès pro)" },
+                { label: "OpenSanctions", href: "https://www.opensanctions.org/", desc: "Open data consolidé" },
+              ].map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2 rounded-lg border border-card-border bg-background p-2 hover:bg-navy/5 hover:border-navy/30 transition-colors text-xs"
+                >
+                  <svg className="h-3.5 w-3.5 mt-0.5 text-navy shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                  </svg>
+                  <div className="min-w-0">
+                    <div className="font-semibold text-navy">{link.label}</div>
+                    <div className="text-[10px] text-muted">{link.desc}</div>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <p className="mt-3 text-[10px] text-muted italic">{t("sanctionOfficialNote")}</p>
+          </div>
         </div>
 
         {/* Barre de progression + Risk badge */}

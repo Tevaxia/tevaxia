@@ -4741,7 +4741,9 @@
       "faq3A": "Es gibt keinen Geldschwellenwert, unterhalb dessen die Sorgfaltspflichten nicht gelten. Jede Immobilientransaktion unterliegt den KYC-Pflichten. Die Verdachtsmeldung basiert auf qualitativen Indikatoren. Barzahlungen über 10.000 EUR unterliegen einer spezifischen Meldepflicht.",
       "faq4Q": "Wie lange müssen KYC-Dokumente aufbewahrt werden?",
       "faq4A": "Das Gesetz schreibt eine Aufbewahrung von mindestens 5 Jahren nach Ende der Geschäftsbeziehung vor. In der Praxis wird eine Aufbewahrung von 10 Jahren empfohlen, angesichts der strafrechtlichen Verjährungsfristen in Luxemburg."
-    }
+    },
+    "sanctionOfficialLists": "Offizielle Listen zur direkten Konsultation",
+    "sanctionOfficialNote": "Obligatorische Prüfung für politisch exponierte Personen (PEP), sanktionierte Einheiten und wirtschaftlich Berechtigte. 5-jährige Aufbewahrungspflicht."
   },
   "terresAgricoles": {
     "title": "Bewertung — Landwirtschaftliche Flächen",

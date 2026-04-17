@@ -4741,7 +4741,9 @@
       "faq3A": "Não existe limiar monetário abaixo do qual as obrigações não se aplicam. Toda a transação imobiliária está sujeita às obrigações KYC. A declaração de suspeita baseia-se em indicadores qualitativos. Os pagamentos em numerário superiores a 10.000 EUR estão sujeitos a declaração específica.",
       "faq4Q": "Durante quanto tempo conservar os documentos KYC?",
       "faq4A": "A lei impõe uma conservação mínima de 5 anos após o fim da relação comercial. Na prática, recomenda-se conservar durante 10 anos, tendo em conta os prazos de prescrição penal no Luxemburgo."
-    }
+    },
+    "sanctionOfficialLists": "Listas oficiais para consulta direta",
+    "sanctionOfficialNote": "Verificação obrigatória para PEP, entidades sancionadas e beneficiários efetivos. Conservar prova com timestamp 5 anos."
   },
   "terresAgricoles": {
     "title": "Avaliação — Terrenos agrícolas",

@@ -4741,7 +4741,9 @@
       "faq3A": "Il n'existe pas de seuil monétaire en dessous duquel l'obligation de vigilance ne s'applique pas. Toute transaction immobilière, quel que soit son montant, est soumise aux obligations KYC. En revanche, la déclaration de soupçon est basée sur des indices qualitatifs (comportement inhabituel du client, incohérence entre le profil et la transaction, recours à des structures complexes) et non sur un seuil quantitatif. Les paiements en espèces supérieurs à 10 000 EUR sont toutefois soumis à une obligation de déclaration spécifique.",
       "faq4Q": "Combien de temps conserver les documents KYC ?",
       "faq4A": "La loi du 12 novembre 2004 impose une conservation des documents et informations KYC pendant une durée minimale de 5 ans après la fin de la relation d'affaires ou après la date de la transaction occasionnelle. Les documents relatifs aux transactions doivent être conservés 5 ans après l'exécution de la transaction. En pratique, compte tenu des délais de prescription pénale au Luxembourg (5 à 10 ans), il est recommandé de conserver les documents pendant 10 ans."
-    }
+    },
+    "sanctionOfficialLists": "Listes officielles à consulter directement",
+    "sanctionOfficialNote": "Vérification obligatoire pour les personnes politiquement exposées (PEP), les entités sanctionnées, et les bénéficiaires effectifs. Conserver la preuve de consultation avec horodatage dans le dossier client (obligation de 5 ans art. 3 loi 12/11/2004)."
   },
   "terresAgricoles": {
     "title": "Évaluation — Terres agricoles",

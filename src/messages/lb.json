@@ -4741,7 +4741,9 @@
       "faq3A": "Et gëtt keen monetaire Schwellewäert. All Immobilientransaktioun ënnerléit den KYC-Flichten. D'Verdachtsmeldung baséiert op qualitativen Indikatoren. Barzuelunge iwwer 10.000 EUR ënnerleien enger spezifescher Meldeflicht.",
       "faq4Q": "Wéi laang mussen d'KYC-Dokumenter opbewaard ginn?",
       "faq4A": "D'Gesetz schreit eng Opbewaarung vu mindestens 5 Joer no Enn vun der Geschäftsrelatioun vir. An der Praxis gëtt 10 Joer empfohlen."
-    }
+    },
+    "sanctionOfficialLists": "Offiziell Lëschten fir direkt Consultatioun",
+    "sanctionOfficialNote": "Obligatoresch Verifikatioun fir PEP, sanktionéiert Entitéiten a wirtschaftlech Benefizien. Beweis 5 Joer konservéieren."
   },
   "terresAgricoles": {
     "title": "Bewäertung — Landwirtschaftlech Flächen",
