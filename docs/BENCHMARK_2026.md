@@ -1087,6 +1087,16 @@ Ces deux verticaux justifient une roadmap « compte & rôles » dédiée, sépar
 | ✅ **202 nouveaux tests Vitest** (str-forecast 16, str-calc 23, estimation 13, esg 10, evs-checklist 9, energy-comparables 10, macro-data 14, demographics 9, market-data 13, gestion-locative 12, asset-types 10, str-observatoire 13, loyer-observatoire 7, propcalc-mortgage 13, propcalc-amortization 11, propcalc-rental 11, propcalc-buyvsrent 8) | Infra | 17 commits |
 | ✅ **2 smoke tests Playwright** (/str/forecast, /syndic/benchmark) | Infra | `a18dde0` |
 
+### Livrables 7e session 2026-04-17 (polish + tests + macro pays)
+
+| Chantier | Module | Commit |
+|---|---|---|
+| ✅ **SEO metadata 6 pages** (marche/forecast, energy/audit, gestion-locative/ais, hotellerie/observatoire-lu, syndic/benchmark, str/forecast) | SEO | `f6d5c3f` |
+| ✅ **Tests price-forecast.ts** (10 tests : scénarios ordonnés, horizon, +10 %/an vérif capital.) | Infra | `f6d5c3f` |
+| ✅ **/profil sécurité** — bouton 'Déconnecter toutes mes sessions' (Supabase signOut scope global) | Profil | `bd6dcc8` |
+| ✅ **+4 smoke Playwright** (marche/forecast, energy/audit, ais, observatoire-lu) | Infra | `a274d2c` |
+| ✅ **PropCalc macro 10 pays** (HICP + propertyGrowth + sources) — FR/DE/BE/NL/IT/ES/PT/UK/US/LU | PropCalc | `1bbc3ba` |
+
 ### Livrables 6e session 2026-04-17 (forecast prix + tests)
 
 | Chantier | Module | Commit |
@@ -1095,7 +1105,7 @@ Ces deux verticaux justifient une roadmap « compte & rôles » dédiée, sépar
 | ✅ **Tests Vitest energy-audit.ts** (16 tests : scoring, classes, recos, Klimabonus cap) | Infra | `14b238f` |
 | ✅ **Tests Vitest statec-tourism.ts** (15 tests : chrono, occupation, ADR croissant, YoY) | Infra | `14b238f` |
 
-Total Vitest : **396 → 427 tests** (+7.8 %).
+Total Vitest : **396 → 437 tests** (+10.4 %), smoke Playwright **10 → 14**.
 
 ### Livrables 5e session 2026-04-17 (CI + wizard conseiller + SCI + CCAP/CCTP)
 
@@ -1194,6 +1204,6 @@ Ce benchmark s'appuie sur :
 - Sources fiscales LU STR : Airbnb Tax Guide Luxembourg 2026 (PwC), guichet.lu, Delano.lu articles 2024-2025 sur régulation Airbnb LU
 - Retours utilisateurs early adopters (conversations avec 3 agences LU, 1 banque régionale, 2 évaluateurs TEGOVA)
 
-**Dernière mise à jour** : 2026-04-17 (6 sessions : 32 gaps livrés + 2 ex-partenariats autonomes + CI Node 24 + 427 tests).
+**Dernière mise à jour** : 2026-04-17 (7 sessions : 37 gaps + 2 ex-partenariats + CI Node 24 + 437 tests Vitest + 14 smoke Playwright + SEO 6 pages).
 
 **Prochaine révision** : 2026-10-15 (tous les 6 mois, avant freeze budget Q4) ou plus tôt si entrée en vigueur EU STR Regulation / projet loi 7763.
