@@ -262,6 +262,10 @@ export interface ReportData {
   // Template de rapport : adapte le ton et la mise en avant
   reportTemplate?: "standard" | "bancaire" | "judiciaire" | "succession";
   commissionnaire?: string; // Nom du demandeur (banque, juge, notaire)
+  // Audit trail : hash SHA-256 du payload (si signé via /verify)
+  signatureHash?: string;
+  signatureUrl?: string; // URL de vérification publique
+  signatureDate?: string; // ISO date de signature
 }
 
 // ============================================================
@@ -928,7 +932,7 @@ function CertificationPage({ data, reference }: { data: ReportData; reference: s
 // PAGE 10: Disclaimer
 // ============================================================
 
-function ValuationDisclaimerPage({ reference }: { reference: string }) {
+function ValuationDisclaimerPage({ data, reference }: { data: ReportData; reference: string }) {
   return (
     <Page size="A4" style={s.page}>
       <PageHeader title="Avertissement" reference={reference} />
@@ -968,6 +972,38 @@ function ValuationDisclaimerPage({ reference }: { reference: string }) {
         European Valuation Standards 2025 (TEGOVA, 10e edition){"\n"}
         Rapport genere le {today()} | Ref. {reference}
       </Text>
+
+      {/* Audit trail / signature */}
+      {data.signatureHash && (
+        <View style={{ marginTop: 24, padding: 12, backgroundColor: "#ECFDF5", borderRadius: 4, borderLeft: "3pt solid #10B981" }}>
+          <Text style={{ fontSize: 10, fontWeight: "bold", color: "#065F46", marginBottom: 4 }}>
+            ✓ Piste d&apos;audit enregistrée
+          </Text>
+          <Text style={{ fontSize: 8, color: "#064E3B", lineHeight: 1.5 }}>
+            Ce rapport a été signé numériquement (horodatage SHA-256). Toute modification des données
+            source invaliderait cette signature.
+          </Text>
+          <View style={{ marginTop: 8 }}>
+            <Text style={{ fontSize: 7, color: "#065F46", fontWeight: "bold" }}>Hash SHA-256 :</Text>
+            <Text style={{ fontSize: 7, fontFamily: "Courier", color: "#064E3B", marginTop: 2 }}>
+              {data.signatureHash}
+            </Text>
+          </View>
+          {data.signatureUrl && (
+            <View style={{ marginTop: 6 }}>
+              <Text style={{ fontSize: 7, color: "#065F46", fontWeight: "bold" }}>Vérifier en ligne :</Text>
+              <Text style={{ fontSize: 8, color: "#064E3B", marginTop: 2 }}>
+                {data.signatureUrl}
+              </Text>
+            </View>
+          )}
+          {data.signatureDate && (
+            <Text style={{ fontSize: 7, color: "#065F46", marginTop: 4 }}>
+              Signé le {new Date(data.signatureDate).toLocaleString("fr-LU")}
+            </Text>
+          )}
+        </View>
+      )}
 
       <Footer />
     </Page>
@@ -1046,7 +1082,7 @@ function ReportDocument({ data }: { data: ReportData }) {
       {showCertification && <CertificationPage data={data} reference={reference} />}
 
       {/* Page 10: Disclaimer (always) */}
-      <ValuationDisclaimerPage reference={reference} />
+      <ValuationDisclaimerPage data={data} reference={reference} />
     </Document>
   );
 }

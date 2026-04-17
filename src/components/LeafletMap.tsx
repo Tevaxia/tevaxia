@@ -71,8 +71,10 @@ export default function LeafletMap({
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
   const cadastreLayerRef = useRef<L.TileLayer.WMS | null>(null);
+  const baseLayerRef = useRef<L.TileLayer | null>(null);
   const [ready, setReady] = useState(false);
   const [internalShowCadastre, setInternalShowCadastre] = useState(false);
+  const [basemap, setBasemap] = useState<"osm" | "satellite">("osm");
 
   // If parent controls cadastre, use that; otherwise use internal state
   const showCadastre = externalShowCadastre ?? internalShowCadastre;
@@ -116,10 +118,20 @@ export default function LeafletMap({
       attributionControl: true,
     });
 
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    const osmLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       maxZoom: 18,
-    }).addTo(map);
+    });
+    const satelliteLayer = L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+      {
+        attribution: "Tiles &copy; Esri — Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+        maxZoom: 19,
+      }
+    );
+    const activeLayer = basemap === "satellite" ? satelliteLayer : osmLayer;
+    activeLayer.addTo(map);
+    baseLayerRef.current = activeLayer;
 
     // Ajouter les marqueurs
     for (const commune of communes) {
@@ -155,8 +167,9 @@ export default function LeafletMap({
       map.remove();
       mapInstanceRef.current = null;
       cadastreLayerRef.current = null;
+      baseLayerRef.current = null;
     };
-  }, [ready, communes, onSelectCommune, priceField, isRendement]);
+  }, [ready, communes, onSelectCommune, priceField, isRendement, basemap]);
 
   // Manage cadastre overlay layer independently so toggling doesn't recreate the whole map
   useEffect(() => {
@@ -190,6 +203,26 @@ export default function LeafletMap({
   return (
     <div className="relative">
       <div ref={mapRef} className="h-[500px] rounded-xl border border-card-border shadow-sm" />
+      {/* Basemap toggle */}
+      <div className="absolute top-3 left-3 z-[1000] flex gap-0.5 rounded-lg bg-white/90 backdrop-blur-sm border border-card-border p-0.5 shadow-sm">
+        <button
+          onClick={() => setBasemap("osm")}
+          className={`rounded px-2.5 py-1 text-[10px] font-medium transition-colors ${
+            basemap === "osm" ? "bg-navy text-white" : "text-slate hover:bg-background"
+          }`}
+        >
+          Carte
+        </button>
+        <button
+          onClick={() => setBasemap("satellite")}
+          className={`rounded px-2.5 py-1 text-[10px] font-medium transition-colors ${
+            basemap === "satellite" ? "bg-navy text-white" : "text-slate hover:bg-background"
+          }`}
+        >
+          Satellite
+        </button>
+      </div>
+
       {/* Cadastre overlay toggle */}
       <div className="absolute top-3 right-3 z-[1000]">
         <label className="flex items-center gap-2 rounded-lg bg-white/90 backdrop-blur-sm border border-card-border px-3 py-1.5 shadow-sm cursor-pointer select-none">

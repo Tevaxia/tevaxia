@@ -201,6 +201,63 @@ export default function DCFMulti() {
                 <button onClick={downloadCsvTemplate} className="rounded-lg border border-card-border bg-card px-2.5 py-1.5 text-xs font-medium text-navy hover:bg-slate-50" title={t("csvTemplateHint")}>
                   {t("csvTemplate")}
                 </button>
+                <button
+                  onClick={() => {
+                    // Export schedule mensuel lease-by-lease sur 12 mois
+                    const [y, m] = dateValeur.split("-").map(Number);
+                    const months: string[] = [];
+                    for (let i = 0; i < 12; i++) {
+                      const tm = y * 12 + (m - 1) + i;
+                      months.push(`${Math.floor(tm / 12)}-${String((tm % 12) + 1).padStart(2, "0")}`);
+                    }
+                    const header = ["Locataire", "Surface", "Loyer annuel", "Début", "Fin", "Indexation %", ...months, "Total A1"];
+                    const rows: string[] = [
+                      `# Export schedule DCF ${leases.length} baux — ${new Date().toLocaleDateString("fr-LU")}`,
+                      `# Date valeur : ${dateValeur}, période : 12 mois`,
+                      "",
+                      header.map((h) => `"${h}"`).join(";"),
+                    ];
+                    for (const lease of leases) {
+                      const monthAmounts: number[] = [];
+                      let totalY1 = 0;
+                      const [ly, lm] = lease.dateDebut.split("-").map(Number);
+                      const leaseStart = ly * 12 + lm - 1;
+                      for (let i = 0; i < 12; i++) {
+                        const tm = y * 12 + (m - 1) + i;
+                        const ym = `${Math.floor(tm / 12)}-${String((tm % 12) + 1).padStart(2, "0")}`;
+                        const active = lease.dateFin >= ym && lease.dateDebut <= ym;
+                        const monthsSinceStart = Math.max(0, tm - leaseStart);
+                        const inFranchise = active && monthsSinceStart + 1 <= lease.franchiseMois;
+                        const amount = active && !inFranchise
+                          ? (lease.loyerAnnuel / 12) * Math.pow(1 + lease.indexation / 100, monthsSinceStart / 12)
+                          : 0;
+                        monthAmounts.push(Math.round(amount));
+                        totalY1 += amount;
+                      }
+                      rows.push([
+                        `"${lease.locataire.replace(/"/g, '""')}"`,
+                        String(lease.surface),
+                        String(lease.loyerAnnuel),
+                        lease.dateDebut,
+                        lease.dateFin,
+                        String(lease.indexation),
+                        ...monthAmounts.map(String),
+                        Math.round(totalY1).toString(),
+                      ].join(";"));
+                    }
+                    const bom = "\uFEFF";
+                    const blob = new Blob([bom + rows.join("\n")], { type: "text/csv;charset=utf-8;" });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = `dcf-lease-schedule-${dateValeur}.csv`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                  }}
+                  className="rounded-lg border border-card-border bg-card px-2.5 py-1.5 text-xs font-medium text-navy hover:bg-slate-50"
+                >
+                  Export schedule
+                </button>
                 <label className="rounded-lg border border-navy bg-white px-2.5 py-1.5 text-xs font-medium text-navy hover:bg-navy/5 cursor-pointer">
                   {t("csvImport")}
                   <input

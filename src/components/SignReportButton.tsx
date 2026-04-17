@@ -16,6 +16,7 @@ interface Props {
   evaluatorName?: string;
   evaluatorQualif?: string;
   className?: string;
+  onSigned?: (hash: string, url: string, date: string) => void;
 }
 
 export default function SignReportButton({
@@ -25,6 +26,7 @@ export default function SignReportButton({
   evaluatorName,
   evaluatorQualif,
   className = "",
+  onSigned,
 }: Props) {
   const { user } = useAuth();
   const [status, setStatus] = useState<"idle" | "signing" | "signed" | "error">("idle");
@@ -53,6 +55,7 @@ export default function SignReportButton({
       });
       setHash(h);
       setStatus("signed");
+      onSigned?.(h, buildVerificationUrl(h), new Date().toISOString());
     } catch (e) {
       setError(e instanceof Error ? e.message : "Erreur de signature");
       setStatus("error");

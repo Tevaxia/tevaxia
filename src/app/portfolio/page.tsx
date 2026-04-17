@@ -530,6 +530,58 @@ export default function Portfolio() {
           </div>
           <div className="flex flex-wrap gap-2">
             <button
+              onClick={() => {
+                // Export portfolio complet
+                const header = [
+                  "Nom", "Type", "Commune", "Valeur (€)", "Surface (m²)", "Prix/m² (€)",
+                  "Loyer annuel (€)", "Dette (€)", "LTV (%)", "Yield brut (%)", "Yield net (%)",
+                ];
+                const rows: string[] = [
+                  `# Export portfolio complet — ${new Date().toLocaleDateString("fr-LU")}`,
+                  `# ${assets.length} biens · valeur totale ${Math.round(stats.valeurTotale)} €`,
+                  "",
+                  header.map((h) => `"${h}"`).join(";"),
+                ];
+                for (const a of assets) {
+                  const prixM2 = a.surface > 0 ? Math.round(a.valeur / a.surface) : 0;
+                  const ltv = a.valeur > 0 ? (a.dette / a.valeur) * 100 : 0;
+                  const yieldBrut = a.valeur > 0 ? (a.loyerAnnuel / a.valeur) * 100 : 0;
+                  const chargesEst = a.loyerAnnuel * 0.15;
+                  const yieldNet = a.valeur > 0 ? ((a.loyerAnnuel - chargesEst) / a.valeur) * 100 : 0;
+                  rows.push([
+                    `"${a.nom.replace(/"/g, '""')}"`,
+                    `"${a.type}"`,
+                    `"${a.commune}"`,
+                    String(a.valeur),
+                    String(a.surface),
+                    String(prixM2),
+                    String(a.loyerAnnuel),
+                    String(a.dette),
+                    ltv.toFixed(2),
+                    yieldBrut.toFixed(2),
+                    yieldNet.toFixed(2),
+                  ].join(";"));
+                }
+                rows.push("");
+                rows.push(`"TOTAL";"";"";${stats.valeurTotale};${stats.surfaceTotale};;${stats.loyerTotal};${stats.detteTotale};${(stats.ltvGlobal * 100).toFixed(2)};${(stats.rendementBrut * 100).toFixed(2)};${(stats.rendementNet * 100).toFixed(2)}`);
+                const bom = "\uFEFF";
+                const blob = new Blob([bom + rows.join("\n")], { type: "text/csv;charset=utf-8;" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `portfolio-complet-${new Date().toLocaleDateString("fr-LU").replace(/\//g, "-")}.csv`;
+                a.click();
+                URL.revokeObjectURL(url);
+              }}
+              className="inline-flex items-center gap-2 rounded-lg border border-card-border bg-white px-4 py-2.5 text-sm font-semibold text-slate transition hover:bg-background active:scale-95"
+              title="Export CSV de tous les biens avec ratios"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm1 4a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm0 4a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm0 4a1 1 0 011-1h5a1 1 0 110 2H6a1 1 0 01-1-1z" />
+              </svg>
+              Export CSV complet
+            </button>
+            <button
               onClick={handleFiscalExport}
               title={t("exportFiscalHint")}
               className="inline-flex items-center gap-2 rounded-lg border border-navy bg-white px-4 py-2.5 text-sm font-semibold text-navy transition hover:bg-navy/5 active:scale-95"

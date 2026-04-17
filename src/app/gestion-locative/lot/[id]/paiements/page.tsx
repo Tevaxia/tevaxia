@@ -206,6 +206,64 @@ export default function PaymentsPage() {
 
         {error && <p className="mt-4 text-xs text-rose-700">{error}</p>}
 
+        {/* Graphique cumul paiements */}
+        <div className="mt-6 rounded-xl border border-card-border bg-card p-5">
+          <h3 className="text-base font-semibold text-navy">Cumul mensuel {selectedYear}</h3>
+          <p className="mt-0.5 text-xs text-muted mb-3">Loyers perçus cumulés vs loyers dus cumulés.</p>
+          {(() => {
+            const monthLabels = ["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Aoû","Sep","Oct","Nov","Déc"];
+            const expectedMonthly = lot.loyerMensuelActuel + lot.chargesMensuelles;
+            let cumPaid = 0;
+            let cumExpected = 0;
+            const data = Array.from({ length: 12 }, (_, i) => {
+              const m = i + 1;
+              cumExpected += expectedMonthly;
+              const p = byMonth.get(m);
+              if (p?.status === "paid") {
+                cumPaid += Number(p.amount_total);
+              }
+              return {
+                month: monthLabels[i],
+                paid: Math.round(cumPaid),
+                expected: Math.round(cumExpected),
+              };
+            });
+            const maxY = Math.max(cumExpected, 1);
+            return (
+              <div className="space-y-2">
+                {data.map((d) => {
+                  const pctPaid = (d.paid / maxY) * 100;
+                  const pctExpected = (d.expected / maxY) * 100;
+                  const ontrack = d.paid >= d.expected * 0.95;
+                  return (
+                    <div key={d.month} className="flex items-center gap-2 text-xs">
+                      <div className="w-8 shrink-0 text-muted">{d.month}</div>
+                      <div className="relative flex-1 h-5 rounded bg-background border border-card-border/40 overflow-hidden">
+                        <div
+                          className="absolute inset-y-0 left-0 bg-navy/20"
+                          style={{ width: `${pctExpected}%` }}
+                        />
+                        <div
+                          className={`absolute inset-y-0 left-0 ${ontrack ? "bg-emerald-500" : "bg-amber-500"}`}
+                          style={{ width: `${pctPaid}%` }}
+                        />
+                      </div>
+                      <div className="w-24 shrink-0 text-right font-mono text-[10px] tabular-nums">
+                        {formatEUR(d.paid)} / {formatEUR(d.expected)}
+                      </div>
+                    </div>
+                  );
+                })}
+                <div className="mt-3 flex items-center gap-4 text-[10px] text-muted">
+                  <span className="flex items-center gap-1.5"><span className="inline-block h-2.5 w-4 rounded bg-navy/20" /> Dû</span>
+                  <span className="flex items-center gap-1.5"><span className="inline-block h-2.5 w-4 rounded bg-emerald-500" /> Perçu (à jour)</span>
+                  <span className="flex items-center gap-1.5"><span className="inline-block h-2.5 w-4 rounded bg-amber-500" /> Perçu (en retard)</span>
+                </div>
+              </div>
+            );
+          })()}
+        </div>
+
         {/* Month-by-month table */}
         <div className="mt-6 overflow-x-auto rounded-xl border border-card-border bg-card">
           <table className="w-full text-sm">

@@ -1694,6 +1694,7 @@ export default function Valorisation() {
   // Template de rapport PDF + commissionnaire (banque / juge / notaire)
   const [reportTemplate, setReportTemplate] = useState<"standard" | "bancaire" | "judiciaire" | "succession">("standard");
   const [commissionnaire, setCommissionnaire] = useState("");
+  const [signature, setSignature] = useState<{ hash: string; url: string; date: string } | null>(null);
 
   // Stable callback refs
   const onValeurComp = useCallback((v: number) => setValeurComparaison(v), []);
@@ -1940,6 +1941,9 @@ export default function Valorisation() {
                     logoUrl: prof.logoUrl || undefined,
                     reportTemplate,
                     commissionnaire: commissionnaire.trim() || undefined,
+                    signatureHash: signature?.hash,
+                    signatureUrl: signature?.url,
+                    signatureDate: signature?.date,
                   });
                 }}
                 filename={`tevaxia-rapport-${reportTemplate}-${new Date().toISOString().split("T")[0]}.pdf`}
@@ -1991,6 +1995,7 @@ export default function Valorisation() {
                   valeurCapitalisation: valeurCapitalisation || 0,
                   valeurDCF: valeurDCF || 0,
                 }}
+                onSigned={(hash, url, date) => setSignature({ hash, url, date })}
               />
             </>)}
             {(selectedCommune || comparables.length > 0 || valeurComparaison > 0 || valeurCapitalisation > 0 || valeurDCF > 0) && (
