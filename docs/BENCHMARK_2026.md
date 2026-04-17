@@ -1109,6 +1109,20 @@ En attendant la société, voies opérationnelles :
 
 ---
 
+### Livrables 19e session 2026-04-18 (session longue — 6 nouveaux + 1 vérifié)
+
+| Chantier | Module | Commit |
+|---|---|---|
+| ✅ **/carte mode satellite** — toggle Carte/Satellite (Esri World Imagery) | Carte | `ade5fa0` |
+| ✅ **Hash SHA-256 dans PDF EVS** — bloc signature piste d'audit avec URL /verify | Valorisation | `ade5fa0` |
+| ✅ **/gestion-locative paiements cumul chart** — barres Perçu/Dû mensuelles | Locatif | `ade5fa0` |
+| ✅ **/dcf-multi export schedule CSV** — 12 mois × N baux avec indexation + franchise | DCF | `ade5fa0` |
+| ✅ **/portfolio export CSV complet** — tous biens + ratios LTV/yield + TOTAL | Portfolio | `ade5fa0` |
+| ✅ **/hotellerie/benchmark** — classement hôtels groupe par score composite | Hôtel | `ade5fa0` |
+| ✓ Stats par négociateur — déjà via `OrgAgencyStats top_members` (commit 032) | Agences | vérifié |
+
+Total session 19 : **+6 gaps BENCHMARK livrés** + 1 vérifié existant, 561 Vitest.
+
 ### Livrables 18e session 2026-04-18 (session longue — 4 nouveaux + 3 vérifiés)
 
 | Chantier | Module | Commit |
