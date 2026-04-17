@@ -1109,6 +1109,20 @@ En attendant la société, voies opérationnelles :
 
 ---
 
+### Livrables 16e session 2026-04-18 (session longue — 7 items)
+
+| Chantier | Module | Commit |
+|---|---|---|
+| ✅ **/hotellerie/housekeeping** — staffing adaptatif HOTREC + forecast 7j courbe business | Hôtel | `74b3fbb` |
+| ✅ **/aml-kyc/archives 5 ans** — migration 038 + case management + SHA-256 + bucket chiffré (loi 12.11.2004) | AML | `74b3fbb` |
+| ✅ **/terres-agricoles carte par région** — 4 régions × 4 cultures avec gradient couleur prix €/ha | Agricole | `74b3fbb` |
+| ✅ **/pro-agences/mandats** — pipeline CRM prospect→vente, migration 039, commission, alertes 30j | Agences | `74b3fbb` |
+| ✅ **/dcf-multi waterfall LP/GP** — 3 tiers (ROC → Pref 8 % → 80/20 split) + MoM + LP IRR vs hurdle | DCF | `74b3fbb` |
+| ✅ **Playwright +8 smoke tests** (housekeeping, mandats, archives KYC, confidentialite, agricoles, carte, aides, construction) | Infra | `74b3fbb` |
+| ✅ **/bilan-promoteur suivi d'exécution** — saisie coûts réels mois par mois + écart vs prévu + marge ajustée | Promoteur | `74b3fbb` |
+
+Total session 16 : **+7 gaps BENCHMARK livrés**, 561 Vitest, +8 smoke Playwright, tsc clean.
+
 ### Livrables 15e session 2026-04-18 (session longue — 7 items)
 
 | Chantier | Module | Commit |
