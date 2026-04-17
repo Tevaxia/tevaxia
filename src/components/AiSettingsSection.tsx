@@ -11,7 +11,7 @@ interface AiPrefs {
 }
 
 const PROVIDERS = [
-  { value: "cerebras", label: "Cerebras (GPT-OSS 120B — gratuit, ultra-rapide)" },
+  { value: "cerebras", label: "Cerebras (Llama 3.1 8B — gratuit, ultra-rapide)" },
   { value: "groq", label: "Groq (Llama 3.3 70B — gratuit)" },
   { value: "openai", label: "OpenAI (GPT-4o)" },
   { value: "anthropic", label: "Anthropic (Claude)" },

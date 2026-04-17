@@ -109,7 +109,7 @@ curl https://www.tevaxia.lu/api/v1/ai/analyze \\
     "prompt": "Commente cette estimation par rapport au marché."
   }'
 
-# → { "text": "...", "model": "gpt-oss-120b", "provider": "cerebras", "remaining": -1 }
+# → { "text": "...", "model": "llama3.1-8b", "provider": "cerebras", "remaining": -1 }
 
 
 # POST /api/v1/ai/chat — conversation multi-tour
@@ -125,7 +125,7 @@ curl https://www.tevaxia.lu/api/v1/ai/chat \\
 # → { "text": "...", "model": "...", "provider": "...", "remaining": -1 }`}
           </pre>
           <p className="mt-3 text-xs text-purple-900">
-            Le serveur utilise par défaut Cerebras (GPT-OSS 120B, fallback Groq Llama 3.3). Si vous avez configuré une clé BYOK
+            Le serveur utilise par défaut Cerebras (Llama 3.1 8B, fallback Groq Llama 3.3). Si vous avez configuré une clé BYOK
             OpenAI/Anthropic dans votre profil, elle sera utilisée automatiquement.
             Limite : rate-limit tier de votre clé API (Free : 10/min, 200/jour).
           </p>

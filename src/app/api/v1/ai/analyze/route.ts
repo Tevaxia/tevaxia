@@ -189,7 +189,7 @@ async function callAnthropic(apiKey: string, model: string, context: string, pro
 }
 
 const DEFAULT_MODELS: Record<string, string> = {
-  cerebras: "gpt-oss-120b",
+  cerebras: "llama3.1-8b",
   groq: "llama-3.3-70b-versatile",
   openai: "gpt-4o-mini",
   anthropic: "claude-sonnet-4-20250514",
