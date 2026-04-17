@@ -6911,5 +6911,20 @@
     "typeForecast": "Prev.",
     "typeHistorical": "Real",
     "methodology": "Metodologia: suavização exponencial tripla Holt-Winters aditiva (α=0,3, β=0,1, γ=0,3, período 12 meses). As faixas 95 % crescem em √h (incerteza aumenta com horizonte). Receita = ocupação × ADR × dias disponíveis/mês. Nenhum dado é armazenado no servidor — tudo é calculado no seu navegador."
+  },
+  "aiChat": {
+    "welcome": "Olá! Sou o assistente tevaxia, especializado em imobiliário luxemburguês (fiscalidade, EVS/TEGOVA, VEFA, condomínio, hotelaria, KYC). Coloque a sua questão.",
+    "openLabel": "Abrir o assistente IA",
+    "closeLabel": "Fechar",
+    "sendLabel": "Enviar",
+    "headerTitle": "Assistente tevaxia",
+    "headerSubtitle": "Perito imobiliário LU",
+    "thinking": "O assistente está a pensar…",
+    "inputPlaceholder": "Coloque a sua questão imobiliária LU…",
+    "sessionExpired": "Sessão expirada, inicie sessão novamente.",
+    "errorCode": "Erro {code}",
+    "errorUnknown": "Erro desconhecido",
+    "quotaExhausted": "Quota esgotada — adicione a sua chave API no perfil",
+    "remainingToday": "{count, plural, one {# mensagem restante hoje} other {# mensagens restantes hoje}}"
   }
 }

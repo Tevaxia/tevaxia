@@ -6911,5 +6911,20 @@
     "typeForecast": "Fcst",
     "typeHistorical": "Actual",
     "methodology": "Methodology: triple exponential smoothing Holt-Winters additive (α=0.3, β=0.1, γ=0.3, 12-month period). 95% bands grow as √h (uncertainty increases with horizon). Revenue = occupancy × ADR × available days/month. No data is stored on server — everything runs in your browser."
+  },
+  "aiChat": {
+    "welcome": "Hello! I'm the tevaxia assistant, specialized in Luxembourg real estate (tax, EVS/TEGOVA, VEFA, condominium, hospitality, KYC). Ask your question.",
+    "openLabel": "Open AI assistant",
+    "closeLabel": "Close",
+    "sendLabel": "Send",
+    "headerTitle": "tevaxia Assistant",
+    "headerSubtitle": "LU real estate expert",
+    "thinking": "Assistant is thinking…",
+    "inputPlaceholder": "Ask your LU real estate question…",
+    "sessionExpired": "Session expired, please sign in again.",
+    "errorCode": "Error {code}",
+    "errorUnknown": "Unknown error",
+    "quotaExhausted": "Quota exhausted — add your API key in your profile",
+    "remainingToday": "{count, plural, one {# message remaining today} other {# messages remaining today}}"
   }
 }

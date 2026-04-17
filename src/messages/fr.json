@@ -6911,5 +6911,20 @@
     "typeForecast": "Prév.",
     "typeHistorical": "Réel",
     "methodology": "Méthodologie : lissage exponentiel triple Holt-Winters additif (α=0.3, β=0.1, γ=0.3, période 12 mois). Les intervalles 95 % croissent en √h (aléa croissant avec l'horizon). Revenu = occupation × ADR × jours disponibles/mois. Aucune donnée n'est stockée sur serveur — tout est calculé dans votre navigateur."
+  },
+  "aiChat": {
+    "welcome": "Bonjour ! Je suis l'assistant tevaxia, spécialisé sur l'immobilier luxembourgeois (fiscalité, EVS/TEGOVA, VEFA, copropriété, hôtellerie, KYC). Posez votre question.",
+    "openLabel": "Ouvrir l'assistant IA",
+    "closeLabel": "Fermer",
+    "sendLabel": "Envoyer",
+    "headerTitle": "Assistant tevaxia",
+    "headerSubtitle": "Expert immobilier LU",
+    "thinking": "L'assistant réfléchit…",
+    "inputPlaceholder": "Posez votre question immobilière LU…",
+    "sessionExpired": "Session expirée, reconnectez-vous.",
+    "errorCode": "Erreur {code}",
+    "errorUnknown": "Erreur inconnue",
+    "quotaExhausted": "Quota épuisé — ajoutez votre clé API dans votre profil",
+    "remainingToday": "{count, plural, one {# message restant aujourd'hui} other {# messages restants aujourd'hui}}"
   }
 }

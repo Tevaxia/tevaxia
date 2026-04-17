@@ -6911,5 +6911,20 @@
     "typeForecast": "Prog.",
     "typeHistorical": "Real",
     "methodology": "Methodik: additiv Holt-Winters-Exponentialglättung drëtter Uerdnung (α=0,3, β=0,1, γ=0,3, Period 12 Méint). 95 %-Bänn wuessen mat √h (Onsécherheet wiisst mam Horizont). Recette = Occupatioun × ADR × verfügbar Deeg/Mount. Keng Daten gi serverséiteg gespäichert — alles leeft an Ärem Browser."
+  },
+  "aiChat": {
+    "welcome": "Moien! Ech sinn den tevaxia-Assistent, spezialiséiert op Lëtzebuerger Immobilien (Steieren, EVS/TEGOVA, VEFA, Matproprietéit, Hotellerie, KYC). Stellt Är Fro.",
+    "openLabel": "KI-Assistent opmaachen",
+    "closeLabel": "Zoumaachen",
+    "sendLabel": "Schécken",
+    "headerTitle": "tevaxia-Assistent",
+    "headerSubtitle": "LU-Immobilienexpert",
+    "thinking": "Den Assistent denkt no…",
+    "inputPlaceholder": "Stellt Är Fro iwwer d'Lëtzebuerger Immobilien…",
+    "sessionExpired": "Sessioun ofgelaf, mellt Iech nei un.",
+    "errorCode": "Feeler {code}",
+    "errorUnknown": "Onbekannt Feeler",
+    "quotaExhausted": "Quota opgebraucht — füügt Äre API-Schlëssel am Profil derbäi",
+    "remainingToday": "{count, plural, one {# Message haut iwwreg} other {# Messagen haut iwwreg}}"
   }
 }

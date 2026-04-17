@@ -6911,5 +6911,20 @@
     "typeForecast": "Prog.",
     "typeHistorical": "Ist",
     "methodology": "Methodik: additive Holt-Winters-Exponentialglättung dritter Ordnung (α=0,3, β=0,1, γ=0,3, Periode 12 Monate). 95 %-Bänder wachsen mit √h (Unsicherheit steigt mit Horizont). Umsatz = Belegung × ADR × verfügbare Tage/Monat. Keine Daten werden serverseitig gespeichert — alles läuft in Ihrem Browser."
+  },
+  "aiChat": {
+    "welcome": "Hallo! Ich bin der tevaxia-Assistent, spezialisiert auf Luxemburger Immobilien (Steuern, EVS/TEGOVA, VEFA, WEG, Hotellerie, KYC). Stellen Sie Ihre Frage.",
+    "openLabel": "KI-Assistent öffnen",
+    "closeLabel": "Schließen",
+    "sendLabel": "Senden",
+    "headerTitle": "tevaxia-Assistent",
+    "headerSubtitle": "LU-Immobilienexperte",
+    "thinking": "Der Assistent denkt nach…",
+    "inputPlaceholder": "Stellen Sie Ihre LU-Immobilienfrage…",
+    "sessionExpired": "Sitzung abgelaufen, bitte erneut anmelden.",
+    "errorCode": "Fehler {code}",
+    "errorUnknown": "Unbekannter Fehler",
+    "quotaExhausted": "Kontingent aufgebraucht — fügen Sie Ihren API-Schlüssel im Profil hinzu",
+    "remainingToday": "{count, plural, one {# Nachricht heute übrig} other {# Nachrichten heute übrig}}"
   }
 }
