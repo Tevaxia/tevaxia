@@ -192,10 +192,57 @@ export default function MandatesPage() {
             );
           })}
         </div>
-        <button onClick={() => setShowForm(!showForm)}
-          className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
-          {showForm ? "Annuler" : "+ Nouveau mandat"}
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={() => {
+              const active = mandates.filter((m) => ["mandat_signe", "sous_compromis"].includes(m.status));
+              // Format Athome.lu "Pro Pack" CSV : reference, type, commune, adresse, surface, chambres, prix, date début
+              const header = [
+                "Reference", "Type_Bien", "Commune", "Adresse", "Surface_m2",
+                "Prix_Demande", "Commission_Pct", "Statut", "Date_Debut", "Date_Fin",
+                "Client_Nom", "Client_Email", "Client_Telephone",
+              ];
+              const rows = [
+                `# Export CSV mandats — format Athome.lu / atHome Pro / Immotop compatible`,
+                `# Généré le ${new Date().toLocaleDateString("fr-LU")} · ${active.length} mandats actifs`,
+                "",
+                header.map((h) => `"${h}"`).join(";"),
+                ...active.map((m) => [
+                  m.reference ?? m.id.slice(0, 8),
+                  m.property_type ?? "",
+                  m.property_commune ?? "",
+                  m.property_address,
+                  m.property_surface ?? "",
+                  m.prix_demande ?? "",
+                  m.commission_pct ?? "",
+                  m.status,
+                  m.start_date ?? "",
+                  m.end_date ?? "",
+                  m.client_name ?? "",
+                  m.client_email ?? "",
+                  m.client_phone ?? "",
+                ].map((v) => `"${String(v).replace(/"/g, '""')}"`).join(";")),
+              ];
+              const bom = "\uFEFF";
+              const blob = new Blob([bom + rows.join("\n")], { type: "text/csv;charset=utf-8;" });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = `mandats-export-portails-${new Date().toLocaleDateString("fr-LU").replace(/\//g, "-")}.csv`;
+              a.click();
+              URL.revokeObjectURL(url);
+            }}
+            disabled={mandates.length === 0}
+            className="rounded-lg border border-navy bg-white px-3 py-2 text-sm font-semibold text-navy hover:bg-navy/5 disabled:opacity-50"
+            title="Export CSV compatible Athome.lu / atHome Pro / Immotop"
+          >
+            ↓ Export portails
+          </button>
+          <button onClick={() => setShowForm(!showForm)}
+            className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
+            {showForm ? "Annuler" : "+ Nouveau mandat"}
+          </button>
+        </div>
       </div>
 
       {showForm && (

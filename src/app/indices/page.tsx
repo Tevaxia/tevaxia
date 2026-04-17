@@ -8,6 +8,23 @@ import { computeMarketScore, getScoreColor } from "@/lib/market-score";
 import { formatEUR } from "@/lib/calculations";
 import { PriceEvolutionChart, PriceIndexChart } from "@/components/PriceChart";
 import SEOContent from "@/components/SEOContent";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip as RechartsTooltip,
+  ResponsiveContainer,
+  CartesianGrid,
+  ReferenceLine,
+} from "recharts";
+import {
+  TEVAXIA_INDEX,
+  TEVAXIA_INDEX_LAST_UPDATE,
+  getCurrentIndex,
+  getIndexChange,
+  interpretIndex,
+} from "@/lib/tevaxia-index";
 
 type SortKey = "prix" | "commune" | "tendance" | "transactions";
 
@@ -134,6 +151,81 @@ export default function IndicesPage() {
         <p className="mt-2 text-muted">
           {t("subtitle")}
         </p>
+
+        {/* Indice composite tevaxia */}
+        {(() => {
+          const current = getCurrentIndex();
+          const changeYoY = getIndexChange(4);
+          const interp = interpretIndex(current.index);
+          return (
+            <div className="mt-6 rounded-2xl bg-gradient-to-br from-navy to-navy-light p-6 text-white shadow-lg">
+              <div className="flex items-start justify-between gap-4 flex-wrap">
+                <div>
+                  <div className="text-xs uppercase tracking-wider text-white/60">Indice tevaxia — santé marché immobilier LU</div>
+                  <div className="mt-2 flex items-baseline gap-3">
+                    <span className="text-5xl font-bold">{current.index.toFixed(1)}</span>
+                    <span className={`text-lg font-semibold ${interp.color === "text-emerald-700" ? "text-emerald-300" : interp.color === "text-rose-700" ? "text-rose-300" : interp.color === "text-amber-700" ? "text-amber-300" : "text-white/90"}`}>
+                      {interp.label}
+                    </span>
+                  </div>
+                  <div className="mt-1 text-xs text-white/60">
+                    {current.quarter} · base 100 = Q1 2020
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="text-xs uppercase tracking-wider text-white/60">Évolution 1 an</div>
+                  <div className={`mt-2 text-2xl font-semibold font-mono ${changeYoY.pct >= 0 ? "text-emerald-300" : "text-rose-300"}`}>
+                    {changeYoY.pct >= 0 ? "+" : ""}{changeYoY.pct.toFixed(1)} %
+                  </div>
+                  <div className="mt-1 text-[10px] text-white/50">
+                    Mise à jour : {new Date(TEVAXIA_INDEX_LAST_UPDATE).toLocaleDateString("fr-LU")}
+                  </div>
+                </div>
+              </div>
+
+              {/* Chart historique */}
+              <div className="mt-6 -mx-2">
+                <ResponsiveContainer width="100%" height={180}>
+                  <LineChart data={TEVAXIA_INDEX} margin={{ top: 5, right: 10, bottom: 0, left: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.15)" />
+                    <XAxis dataKey="quarter" tick={{ fontSize: 9, fill: "rgba(255,255,255,0.7)" }} />
+                    <YAxis tick={{ fontSize: 9, fill: "rgba(255,255,255,0.7)" }} domain={["dataMin - 5", "dataMax + 5"]} />
+                    <RechartsTooltip
+                      formatter={(v: unknown) => typeof v === "number" ? v.toFixed(1) : "—"}
+                      contentStyle={{ fontSize: 11, borderRadius: 8, backgroundColor: "rgba(0,0,0,0.8)", border: "none", color: "#fff" }}
+                    />
+                    <ReferenceLine y={100} stroke="rgba(255,255,255,0.4)" strokeDasharray="4 4" />
+                    <Line type="monotone" dataKey="index" stroke="#ffd700" strokeWidth={2.5} dot={{ r: 3, fill: "#ffd700" }} />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+
+              <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4 text-xs">
+                <div>
+                  <div className="text-white/60">Prix immo</div>
+                  <div className="mt-0.5 font-mono font-semibold">{current.prixImmoIndex.toFixed(0)} <span className="text-white/50 text-[10px]">pond. 50 %</span></div>
+                </div>
+                <div>
+                  <div className="text-white/60">Taux hypo</div>
+                  <div className="mt-0.5 font-mono font-semibold">{current.tauxHypo.toFixed(2)} % <span className="text-white/50 text-[10px]">pond. 25 %</span></div>
+                </div>
+                <div>
+                  <div className="text-white/60">ICV construction</div>
+                  <div className="mt-0.5 font-mono font-semibold">{current.icvConstruction.toFixed(0)} <span className="text-white/50 text-[10px]">pond. 15 %</span></div>
+                </div>
+                <div>
+                  <div className="text-white/60">Yield brut LU</div>
+                  <div className="mt-0.5 font-mono font-semibold">{current.yieldBrutMoyen.toFixed(1)} % <span className="text-white/50 text-[10px]">pond. 10 %</span></div>
+                </div>
+              </div>
+              <p className="mt-4 text-[10px] text-white/60 italic">
+                Indice composite propriétaire tevaxia.lu. Sources : STATEC (prix immo, ICV),
+                BCL (taux hypothécaire moyen 20 ans), Observatoire de l&apos;Habitat (yield brut).
+                &gt;110 = marché fort, 100-110 = équilibré, 90-100 = tendu, &lt;90 = préoccupant.
+              </p>
+            </div>
+          );
+        })()}
 
         {/* National summary card */}
         <div className="mt-6 rounded-xl border border-card-border bg-card p-6 shadow-sm">

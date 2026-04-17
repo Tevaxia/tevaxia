@@ -1565,13 +1565,62 @@ export default function HVACSimulator() {
             {/*  BORDEREAU DETAILLE                                     */}
             {/* ====================================================== */}
             <div className="rounded-xl border border-card-border bg-card shadow-sm overflow-hidden">
-              <div className="p-6 pb-3">
-                <h3 className="text-base font-semibold text-navy">
-                  {t("results.bordereauTitle")}
-                </h3>
-                <p className="mt-1 text-xs text-muted">
-                  {t("results.bordereauSubtitle")}
-                </p>
+              <div className="p-6 pb-3 flex items-start justify-between gap-3 flex-wrap">
+                <div>
+                  <h3 className="text-base font-semibold text-navy">
+                    {t("results.bordereauTitle")}
+                  </h3>
+                  <p className="mt-1 text-xs text-muted">
+                    {t("results.bordereauSubtitle")}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const header = ["N°", "Désignation", "Unité", "Quantité", "PU (€)", "Total (€)"];
+                    const rows: string[] = [
+                      `# Bordereau HVAC tevaxia.lu — Généré le ${new Date().toLocaleDateString("fr-LU")}`,
+                      `# ${result.bordereau.filter((r) => r.type === "line").length} lignes`,
+                      "",
+                      header.map((h) => `"${h}"`).join(";"),
+                    ];
+                    for (const row of result.bordereau) {
+                      if (row.type === "header") {
+                        rows.push("");
+                        rows.push(`"LOT ${row.lotNum} — ${row.lotNom}"`);
+                        continue;
+                      }
+                      if (row.type === "subtotal" || row.type === "grandtotal") {
+                        rows.push(`;;;;"Sous-total";"${row.total ?? ""}"`);
+                        continue;
+                      }
+                      if (row.type === "line") {
+                        rows.push([
+                          `"${row.num ?? ""}"`,
+                          `"${(row.designation ?? "").replace(/"/g, '""')}"`,
+                          `"${row.unite ?? ""}"`,
+                          `"${row.quantite ?? ""}"`,
+                          `"${row.pu ?? ""}"`,
+                          `"${row.total ?? ""}"`,
+                        ].join(";"));
+                      }
+                    }
+                    const bom = "\uFEFF";
+                    const blob = new Blob([bom + rows.join("\n")], { type: "text/csv;charset=utf-8;" });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = `bordereau-hvac-${new Date().toLocaleDateString("fr-LU").replace(/\//g, "-")}.csv`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                  }}
+                  className="inline-flex items-center gap-2 rounded-lg border border-navy bg-white px-3 py-1.5 text-xs font-semibold text-navy hover:bg-navy/5"
+                >
+                  <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm1 4a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm0 4a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm0 4a1 1 0 011-1h5a1 1 0 110 2H6a1 1 0 01-1-1z" />
+                  </svg>
+                  Export CSV
+                </button>
               </div>
 
               <div className="overflow-x-auto">
