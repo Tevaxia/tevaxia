@@ -6711,7 +6711,7 @@
     "iaTevaxia": {
       "title": "Comment utiliser l'IA sur tevaxia.lu",
       "metaDescription": "Assistant IA tevaxia.lu : analyse des résultats, rédaction EVS, extraction de PDF, chat immobilier LU. Gratuit 5/jour, illimité avec votre clé (BYOK).",
-      "intro": "tevaxia.lu intègre un moteur d'IA spécialisé sur l'immobilier luxembourgeois — fiscalité LIR, normes TEGOVA EVS 2025, VEFA, copropriété, hôtellerie USALI, AML/KYC. Chaque utilisateur connecté bénéficie de 5 analyses gratuites par jour via Cerebras (Llama 3.3 70B). Pour un usage illimité ou l'accès à GPT-4o / Claude, vous pouvez ajouter votre propre clé API (BYOK) dans votre profil. Voici comment tirer parti de chaque fonctionnalité.",
+      "intro": "tevaxia.lu intègre un moteur d'IA spécialisé sur l'immobilier luxembourgeois — fiscalité LIR, normes TEGOVA EVS 2025, VEFA, copropriété, hôtellerie USALI, AML/KYC. Chaque utilisateur connecté bénéficie de 5 analyses gratuites par jour via Cerebras (GPT-OSS 120B). Pour un usage illimité ou l'accès à GPT-4o / Claude, vous pouvez ajouter votre propre clé API (BYOK) dans votre profil. Voici comment tirer parti de chaque fonctionnalité.",
       "section1Title": "Analyse automatique des résultats",
       "section1Content": "Sur une dizaine d'outils (estimation, valorisation EVS, bilan promoteur, DCF multi-baux, hôtel USALI, score visa E-2, VEFA, plus-values, comparaison de biens, achat-vs-location), un bouton « Analyser avec l'IA » apparaît après chaque calcul. L'IA reçoit le contexte complet (inputs + résultats) et rédige un commentaire professionnel : diagnostic du niveau de prix, identification des risques, cohérence des ratios vs standards du marché LU, recommandations d'arbitrage. Les prompts sont spécialisés par métier — l'analyse d'un bilan promoteur cite les ratios de charge foncière typiques (10-20% du CA), celle d'un P&L USALI compare à la GOP margin attendue par catégorie.",
       "section2Title": "Rédaction du rapport EVS 2025",
@@ -6722,7 +6722,7 @@
       "section4Content": "Un widget de chat flottant en bas à droite ouvre une conversation libre avec l'assistant immobilier LU. Vous pouvez lui poser des questions transverses qui ne rentrent pas dans un outil spécifique : « quelle TVA appliquer sur la rénovation d'un immeuble mixte ? », « quelle majorité pour voter la réfection de toiture en copropriété ? », « comment se calcule le Bëllegen Akt pour un couple non résident ? ». L'assistant conserve le contexte multi-tour. Côté intégrateur B2B, les 3 endpoints (`/api/v1/ai/analyze`, `/api/v1/ai/chat`, `/api/v1/ai/extract`) sont accessibles avec une clé API tevaxia (header X-API-Key) au tier rate-limit standard — documentation complète sur /api-docs.",
       "relatedToolLabel": "Configurer votre clé IA (BYOK)",
       "faq1Q": "L'IA est-elle vraiment gratuite ?",
-      "faq1A": "Oui, 5 analyses par jour par utilisateur connecté, sans frais. Au-delà, vous pouvez ajouter votre propre clé Cerebras, Groq, OpenAI ou Anthropic dans votre profil pour un usage illimité. Le serveur tevaxia utilise Cerebras (Llama 3.3 70B) pour le tier gratuit, avec un fallback automatique vers Groq si configuré.",
+      "faq1A": "Oui, 5 analyses par jour par utilisateur connecté, sans frais. Au-delà, vous pouvez ajouter votre propre clé Cerebras, Groq, OpenAI ou Anthropic dans votre profil pour un usage illimité. Le serveur tevaxia utilise Cerebras (GPT-OSS 120B) pour le tier gratuit, avec un fallback automatique vers Groq si configuré.",
       "faq2Q": "Mes données sont-elles envoyées à un tiers ?",
       "faq2A": "Oui, les requêtes transitent par le fournisseur IA configuré (Cerebras par défaut, ou votre clé BYOK). Les contextes envoyés contiennent uniquement les inputs et résultats du calcul en cours — jamais de données personnelles hors de ce calcul. Les fournisseurs Cerebras et Groq ne stockent pas les prompts pour l'entraînement. Si vous êtes tenu à la confidentialité (ex. AML/KYC sensible), préférez une clé Anthropic ou OpenAI avec les conditions entreprise de votre choix.",
       "faq3Q": "L'IA remplace-t-elle un expert certifié ?",
@@ -6737,7 +6737,7 @@
     "apiKeyHint": "Ihr Schlüssel bleibt auf dem Server und wird nie clientseitig offengelegt. Leer lassen, um den kostenlosen Cerebras-Dienst zu nutzen.",
     "usageToday": "Analysen heute",
     "unlimited": "Unbegrenzt (persönlicher Schlüssel)",
-    "byokExplain": "Standardmässig nutzt Tevaxia Cerebras (Llama 3.3, 5 kostenlose Analysen/Tag). Für unbegrenzten Einsatz oder ein anderes Modell fügen Sie Ihren eigenen API-Schlüssel hinzu (BYOK). Erhalten Sie ihn auf der Website des gewählten Anbieters.",
+    "byokExplain": "Standardmässig nutzt Tevaxia Cerebras (GPT-OSS 120B, 5 kostenlose Analysen/Tag). Für unbegrenzten Einsatz oder ein anderes Modell fügen Sie Ihren eigenen API-Schlüssel hinzu (BYOK). Erhalten Sie ihn auf der Website des gewählten Anbieters.",
     "byokActive": "Persönlicher Schlüssel aktiv",
     "freeTier": "Kostenlos (5/Tag)",
     "loading": "Laden...",
@@ -6755,7 +6755,7 @@
     "retry": "Erneut versuchen",
     "reanalyze": "Analyse neu starten",
     "remaining": "{count, plural, =0 {Kontingent erschöpft — fügen Sie Ihren API-Schlüssel in Ihrem Profil hinzu} one {# Analyse heute übrig} other {# Analysen heute übrig}}",
-    "disclaimer": "Analyse generiert durch KI (Llama 3.3 über Cerebras/Groq oder Ihr eigenes Modell). Nur zu Informationszwecken — ersetzt kein zertifiziertes Sachverständigengutachten."
+    "disclaimer": "Analyse generiert durch KI (GPT-OSS 120B über Cerebras/Groq oder Ihr eigenes Modell). Nur zu Informationszwecken — ersetzt kein zertifiziertes Sachverständigengutachten."
   },
   "dashboardHero": {
     "welcome": "Willkommen",

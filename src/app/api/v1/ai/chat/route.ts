@@ -117,7 +117,7 @@ function getRemainingQuota(settings: AiSettings | null): number {
 }
 
 const DEFAULT_MODELS: Record<string, string> = {
-  cerebras: "llama-3.3-70b",
+  cerebras: "gpt-oss-120b",
   groq: "llama-3.3-70b-versatile",
   openai: "gpt-4o-mini",
   anthropic: "claude-sonnet-4-20250514",
