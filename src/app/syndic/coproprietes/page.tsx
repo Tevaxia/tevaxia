@@ -154,10 +154,18 @@ export default function SyndicCopropsPage() {
 
             <div className="mt-6 flex items-center justify-between">
               <h2 className="text-lg font-semibold text-navy">{t("coproSousGestion")}</h2>
-              <button onClick={() => setShowCreate(!showCreate)}
-                className="rounded-lg bg-navy px-3 py-2 text-sm font-semibold text-white hover:bg-navy-light">
-                {showCreate ? t("cancel") : t("addCopro")}
-              </button>
+              <div className="flex items-center gap-2">
+                {coowns.length >= 2 && (
+                  <Link href={`${lp}/syndic/benchmark`}
+                    className="rounded-lg border border-navy bg-white px-3 py-2 text-sm font-semibold text-navy hover:bg-navy/5">
+                    {t("benchmarkLink")}
+                  </Link>
+                )}
+                <button onClick={() => setShowCreate(!showCreate)}
+                  className="rounded-lg bg-navy px-3 py-2 text-sm font-semibold text-white hover:bg-navy-light">
+                  {showCreate ? t("cancel") : t("addCopro")}
+                </button>
+              </div>
             </div>
 
             {showCreate && (

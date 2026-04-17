@@ -5883,7 +5883,8 @@
     "prochaineAg": "Next GM",
     "voirLots": "View units →",
     "deleteTitle": "Delete",
-    "confirmDelete": "Delete this condominium? All associated units will also be deleted."
+    "confirmDelete": "Delete this condominium? All associated units will also be deleted.",
+    "benchmarkLink": "Portfolio benchmark"
   },
   "syndicDetail": {
     "error": "Error",
@@ -6837,5 +6838,33 @@
       "label": "Short-term rental",
       "description": "Airbnb, Booking, STR operator under EU 2024/1028"
     }
+  },
+  "syndicBenchmark": {
+    "loginPrompt": "Sign in to access the cross-coownership benchmark.",
+    "loginButton": "Sign in",
+    "back": "← Coownerships",
+    "title": "Portfolio benchmark",
+    "subtitle": "Compare KPIs across all coownerships managed by your firm. Percentiles are computed within your portfolio — green = top 25%, amber = middle, red = bottom 25%.",
+    "cabinetLabel": "Firm:",
+    "loading": "Loading…",
+    "needTwo": "At least 2 coownerships are needed to produce a meaningful benchmark.",
+    "manageCopros": "Manage coownerships",
+    "colCopro": "Coownership",
+    "colLots": "Units",
+    "colSurface": "Surface",
+    "colBudget": "Budget {year}",
+    "colChargesM2": "Charges €/m²",
+    "colFundsM2": "Works fund €/m²",
+    "colRecouvrement": "Collection rate",
+    "colRetard": "Avg delay",
+    "colRelances": "Reminders/unit",
+    "colSyndicLot": "Syndic €/unit",
+    "colScore": "Score",
+    "hintChargesM2": "Annual budget per sqm of total surface. Lower is better (efficiency).",
+    "hintFundsM2": "Accumulated works fund per sqm. Higher is better (reserves).",
+    "hintRecouvrement": "Percentage collected on issued calls. Target ≥ 95%.",
+    "hintRetard": "Average days between due date and payment date. Target < 7 days.",
+    "hintScore": "Composite score (0-100) based on percentiles of the 5 main KPIs in your portfolio.",
+    "methodology": "Methodology: KPIs are computed in real-time from your portfolio data. Percentiles are relative — they don't compare to a national market baseline. For broader benchmarking, contact us."
   }
 }

@@ -5883,7 +5883,8 @@
     "prochaineAg": "Próxima AG",
     "voirLots": "Ver lotes →",
     "deleteTitle": "Eliminar",
-    "confirmDelete": "Eliminar esta copropriedade? Todos os lotes associados serão também eliminados."
+    "confirmDelete": "Eliminar esta copropriedade? Todos os lotes associados serão também eliminados.",
+    "benchmarkLink": "Benchmark portefólio"
   },
   "syndicDetail": {
     "error": "Erro",
@@ -6837,5 +6838,33 @@
       "label": "Alojamento local",
       "description": "Airbnb, Booking, operador STR sob regulamento UE 2024/1028"
     }
+  },
+  "syndicBenchmark": {
+    "loginPrompt": "Inicie sessão para aceder ao benchmark de condomínios.",
+    "loginButton": "Iniciar sessão",
+    "back": "← Condomínios",
+    "title": "Benchmark de portefólio",
+    "subtitle": "Compare KPIs de todos os condomínios sob gestão do seu escritório. Os percentis são calculados no seu portefólio — verde = top 25 %, âmbar = meio, vermelho = últimos 25 %.",
+    "cabinetLabel": "Escritório:",
+    "loading": "A carregar…",
+    "needTwo": "São necessários pelo menos 2 condomínios para gerar um benchmark significativo.",
+    "manageCopros": "Gerir condomínios",
+    "colCopro": "Condomínio",
+    "colLots": "Frações",
+    "colSurface": "Área",
+    "colBudget": "Orçamento {year}",
+    "colChargesM2": "Encargos €/m²",
+    "colFundsM2": "Fundo obras €/m²",
+    "colRecouvrement": "Taxa cobrança",
+    "colRetard": "Atraso médio",
+    "colRelances": "Cartas/fração",
+    "colSyndicLot": "Admin. €/fração",
+    "colScore": "Pontuação",
+    "hintChargesM2": "Orçamento anual por m² de área total. Quanto mais baixo, melhor (eficiência).",
+    "hintFundsM2": "Fundo de obras acumulado por m². Quanto mais alto, melhor (reserva).",
+    "hintRecouvrement": "Percentagem cobrada sobre os valores emitidos. Objetivo ≥ 95 %.",
+    "hintRetard": "Dias médios entre a data de vencimento e a data de pagamento. Objetivo < 7 d.",
+    "hintScore": "Pontuação composta (0-100) baseada nos percentis dos 5 KPIs principais no portefólio.",
+    "methodology": "Metodologia: os KPIs são calculados em tempo real a partir dos dados do portefólio. Os percentis são relativos — não comparam com um benchmark nacional."
   }
 }

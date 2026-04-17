@@ -5883,7 +5883,8 @@
     "prochaineAg": "Nächste HV",
     "voirLots": "Einheiten ansehen →",
     "deleteTitle": "Löschen",
-    "confirmDelete": "Diese Gemeinschaft löschen? Alle zugehörigen Einheiten werden ebenfalls gelöscht."
+    "confirmDelete": "Diese Gemeinschaft löschen? Alle zugehörigen Einheiten werden ebenfalls gelöscht.",
+    "benchmarkLink": "Portfolio-Benchmark"
   },
   "syndicDetail": {
     "error": "Fehler",
@@ -6837,5 +6838,33 @@
       "label": "Kurzzeitvermietung",
       "description": "Airbnb, Booking, STR-Betreiber nach EU 2024/1028"
     }
+  },
+  "syndicBenchmark": {
+    "loginPrompt": "Melden Sie sich an, um auf den WEG-Benchmark zuzugreifen.",
+    "loginButton": "Anmelden",
+    "back": "← Wohneigentum",
+    "title": "Portfolio-Benchmark",
+    "subtitle": "Vergleichen Sie KPIs über alle von Ihrer Verwaltung betreuten WEGs. Perzentile werden innerhalb Ihres Portfolios berechnet — grün = Top 25 %, gelb = Mitte, rot = untere 25 %.",
+    "cabinetLabel": "Verwaltung:",
+    "loading": "Lädt…",
+    "needTwo": "Mindestens 2 WEGs erforderlich, um einen aussagekräftigen Benchmark zu erstellen.",
+    "manageCopros": "WEGs verwalten",
+    "colCopro": "WEG",
+    "colLots": "Einheiten",
+    "colSurface": "Fläche",
+    "colBudget": "Budget {year}",
+    "colChargesM2": "Kosten €/m²",
+    "colFundsM2": "Rücklage €/m²",
+    "colRecouvrement": "Inkasso-Quote",
+    "colRetard": "Ø Verzug",
+    "colRelances": "Mahnungen/Einh.",
+    "colSyndicLot": "Verwaltung €/Einh.",
+    "colScore": "Score",
+    "hintChargesM2": "Jahresbudget pro m² Gesamtfläche. Niedriger ist besser (Effizienz).",
+    "hintFundsM2": "Angesammelte Instandhaltungsrücklage pro m². Höher ist besser (Reserve).",
+    "hintRecouvrement": "Anteil der eingegangenen Zahlungen auf ausgestellte Forderungen. Ziel ≥ 95 %.",
+    "hintRetard": "Durchschnittliche Tage zwischen Fälligkeit und Zahlung. Ziel < 7 Tage.",
+    "hintScore": "Composite-Score (0-100) basierend auf Perzentilen der 5 Haupt-KPIs im Portfolio.",
+    "methodology": "Methodik: KPIs werden in Echtzeit aus Ihren Portfoliodaten berechnet. Die Perzentile sind relativ — sie vergleichen nicht mit einem nationalen Marktbenchmark."
   }
 }

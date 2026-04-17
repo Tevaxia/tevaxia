@@ -5883,7 +5883,8 @@
     "prochaineAg": "Nächst HV",
     "voirLots": "Loten ukucken →",
     "deleteTitle": "Läschen",
-    "confirmDelete": "Dës Copropriétéit läschen? All verbonnen Loten ginn och geläscht."
+    "confirmDelete": "Dës Copropriétéit läschen? All verbonnen Loten ginn och geläscht.",
+    "benchmarkLink": "Portfolio-Benchmark"
   },
   "syndicDetail": {
     "error": "Feeler",
@@ -6837,5 +6838,33 @@
       "label": "Kuerzzäitlocatioun",
       "description": "Airbnb, Booking, STR-Betreiber ënner EU-Reglement 2024/1028"
     }
+  },
+  "syndicBenchmark": {
+    "loginPrompt": "Mellt Iech un, fir Zougang zum Portfolio-Benchmark ze kréien.",
+    "loginButton": "Umellen",
+    "back": "← Matproprietéiten",
+    "title": "Portfolio-Benchmark",
+    "subtitle": "Vergläicht d'KPIs vun all de Matproprietéiten, déi Äert Cabinet verwalt. Perzentillen ginn am Portfolio berechent — gréng = Top 25 %, gielw = Mëtt, rout = ënnescht 25 %.",
+    "cabinetLabel": "Cabinet:",
+    "loading": "Lued…",
+    "needTwo": "Op d'mannst 2 Matproprietéiten néideg fir e sënnvolle Benchmark.",
+    "manageCopros": "Matproprietéite geréieren",
+    "colCopro": "Matproprietéit",
+    "colLots": "Louten",
+    "colSurface": "Surface",
+    "colBudget": "Budget {year}",
+    "colChargesM2": "Käschten €/m²",
+    "colFundsM2": "Aarbechtsfong €/m²",
+    "colRecouvrement": "Agank-Quot",
+    "colRetard": "Ø Verspéidung",
+    "colRelances": "Rappell/Lout",
+    "colSyndicLot": "Syndic €/Lout",
+    "colScore": "Score",
+    "hintChargesM2": "Joeresbudget pro m² Gesamtfläch. Méi niddereg ass besser (Effizienz).",
+    "hintFundsM2": "Ugesammelt Aarbechtsfong pro m². Méi héich ass besser (Reserv).",
+    "hintRecouvrement": "Prozentsaz vun de kasséierten Zuelungen op ausgestallt Rechnungen. Zil ≥ 95 %.",
+    "hintRetard": "Duerchschnëttsdeeg tëscht Fällegkeet an Zuelung. Zil < 7 Deeg.",
+    "hintScore": "Composite Score (0-100) baséiert op Perzentillen vun de 5 Haapt-KPIs am Portfolio.",
+    "methodology": "Methodik: KPIs ginn an Echtzäit aus Äre Portfoliodaten berechent. D'Perzentillen si relativ — se vergläichen net mat engem nationale Marchéebenchmark."
   }
 }

@@ -5883,7 +5883,8 @@
     "prochaineAg": "Prochaine AG",
     "voirLots": "Voir les lots →",
     "deleteTitle": "Supprimer",
-    "confirmDelete": "Supprimer cette copropriété ? Tous les lots associés seront également supprimés."
+    "confirmDelete": "Supprimer cette copropriété ? Tous les lots associés seront également supprimés.",
+    "benchmarkLink": "Benchmark portefeuille"
   },
   "syndicDetail": {
     "error": "Erreur",
@@ -6837,5 +6838,33 @@
       "label": "Location courte durée",
       "description": "Airbnb, Booking, opérateur STR sous règlement EU 2024/1028"
     }
+  },
+  "syndicBenchmark": {
+    "loginPrompt": "Connectez-vous pour accéder au benchmark inter-copropriétés.",
+    "loginButton": "Se connecter",
+    "back": "← Copropriétés",
+    "title": "Benchmark inter-copropriétés",
+    "subtitle": "Comparez les KPIs de toutes les copropriétés sous gestion de votre cabinet. Les percentiles sont calculés au sein de votre portefeuille — vert = top 25 %, ambre = milieu de tableau, rouge = bas 25 %.",
+    "cabinetLabel": "Cabinet :",
+    "loading": "Chargement…",
+    "needTwo": "Au moins 2 copropriétés sont nécessaires pour générer un benchmark significatif.",
+    "manageCopros": "Gérer mes copropriétés",
+    "colCopro": "Copropriété",
+    "colLots": "Lots",
+    "colSurface": "Surface",
+    "colBudget": "Budget {year}",
+    "colChargesM2": "Charges €/m²",
+    "colFundsM2": "Fonds trav. €/m²",
+    "colRecouvrement": "Recouvrement",
+    "colRetard": "Retard moy.",
+    "colRelances": "Relances/lot",
+    "colSyndicLot": "Syndic €/lot",
+    "colScore": "Score",
+    "hintChargesM2": "Budget annuel ramené au m² de surface cumulée. Plus c'est bas, mieux c'est (efficience).",
+    "hintFundsM2": "Fonds de travaux accumulés par m². Plus c'est haut, mieux c'est (provision).",
+    "hintRecouvrement": "Pourcentage encaissé sur les appels émis. Objectif ≥ 95 %.",
+    "hintRetard": "Nombre de jours moyens entre la date d'échéance et la date de paiement. Objectif < 7 j.",
+    "hintScore": "Score composite (0-100) basé sur les percentiles des 5 KPIs principaux dans votre portefeuille.",
+    "methodology": "Méthodologie : les KPIs sont calculés en temps réel à partir des données de votre portefeuille. Les percentiles sont relatifs — ils ne comparent pas à un marché national. Pour une comparaison plus large (ex. benchmark national moyen), contactez-nous."
   }
 }
