@@ -1109,6 +1109,20 @@ En attendant la société, voies opérationnelles :
 
 ---
 
+### Livrables 15e session 2026-04-18 (session longue — 7 items)
+
+| Chantier | Module | Commit |
+|---|---|---|
+| ✅ **/api/v1/mlv endpoint dédié** — auth + CORS + logging + meta CRR/EBA/CSSF | API | `f02c202` |
+| ✅ **/carte légende heatmap** — gradient 0-15k €/m² + légende rendement alternative | Carte | `f02c202` |
+| ✅ **/profil/confidentialite** — 5 consentements RGPD Art. 7 granulaires + historique + journal activité 1 an (migration 036) | Profil | `f02c202` |
+| ✅ **/estimateur-construction indices matériaux** — 6 matériaux (acier/béton/bois/isol./alu/cuivre) STATEC ICV avec YoY | Construction | `f02c202` |
+| ✅ **/syndic archives 10 ans** — bucket chiffré + SHA-256 + immutabilité DB (migration 037) conforme loi 16.05.1975 art. 13bis | Syndic | `f02c202` |
+| ✅ **/simulateur-aides veille Mémorial A** — 6 textes récents curés (Klimabonus, Bëllegen Akt, CSSF MLV, urbanisme, 7763, bail) | Aides | `f02c202` |
+| ✅ Journal d'activité user + consentement audit trail (migration 036) | Profil | `f02c202` |
+
+Total session 15 : **+7 gaps BENCHMARK livrés** (FR/EN/DE/PT/LB), 561 tests passent, type-check clean.
+
 ### Livrables 14e session 2026-04-17 (gaps résiduels — 2 items + 2 vérifiés)
 
 | Chantier | Module | Commit |
