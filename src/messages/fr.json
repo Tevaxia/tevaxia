@@ -2087,7 +2087,25 @@
     "tornFraisCommerciaux": "Frais commerciaux",
     "tornHonArchi": "Honoraires architecte",
     "tornVoirie": "Voirie",
-    "tornadoNote": "Lecture : chaque barre indique la variation de la charge foncière admissible si la variable change de ±10 %. Plus la barre est longue, plus l'opération est sensible à cette variable — concentrez vos négociations sur les 3 premières."
+    "tornadoNote": "Lecture : chaque barre indique la variation de la charge foncière admissible si la variable change de ±10 %. Plus la barre est longue, plus l'opération est sensible à cette variable — concentrez vos négociations sur les 3 premières.",
+    "scenariosTitle": "Comparaison de scénarios",
+    "scenariosSubtitle": "Sauvegardez plusieurs versions de votre bilan (pessimiste / base / optimiste) et comparez-les côte-à-côte. Données stockées localement sur votre navigateur.",
+    "scenarioNamePlaceholder": "Ex. Scénario pessimiste",
+    "scenarioSave": "Sauvegarder",
+    "scenariosEmpty": "Aucun scénario sauvegardé. Ajustez les inputs, puis tapez un nom et cliquez 'Sauvegarder' pour figer l'état actuel et le comparer ensuite à d'autres variantes.",
+    "scnName": "Scénario",
+    "scnPrixVente": "Prix vente €/m²",
+    "scnCoutConstr": "Coût constr. €/m²",
+    "scnMarge": "Marge %",
+    "scnCaTotal": "CA total",
+    "scnChargeFonciere": "Charge foncière",
+    "scnRatioFoncier": "Ratio foncier",
+    "scnCurrent": "Scénario courant",
+    "scnActions": "Actions",
+    "scnLoad": "Charger ce scénario",
+    "scnLoadShort": "Charger",
+    "scnDelete": "Supprimer",
+    "scenariosNote": "Le scénario courant (vert) est toujours affiché en premier. Les deltas % sur la charge foncière sont calculés vs scénario courant. Max 10 scénarios en mémoire."
   },
   "marche": {
     "title": "Base de données marché",
@@ -3592,7 +3610,9 @@
       "faq4A": "Les honoraires d'architecte au Luxembourg sont encadrés par le règlement de l'OAI et calculés en pourcentage du coût des travaux. Pour un projet résidentiel, comptez 8 à 12 % du montant des travaux (hors TVA). Ce pourcentage inclut les phases d'esquisse, avant-projet, projet d'autorisation, dossier d'exécution, appel d'offres, direction des travaux et réception. Les honoraires des bureaux d'études ajoutent 3 à 5 % supplémentaires."
     },
     "exporterBordereau": "Bordereau CSV",
-    "bordereauHint": "Télécharger le bordereau par corps de métier (compatible Excel)"
+    "bordereauHint": "Télécharger le bordereau par corps de métier (compatible Excel)",
+    "statecBadge": "Indice STATEC construction oct. 2025 (base 1970=100 → 1173,24) ↗",
+    "batiprixBadge": "Batiprix 2026 vol. 2 + CTG + CSDC-CT"
   },
   "calculateurVrd": {
     "title": "Estimateur VRD — Bureau d'études",

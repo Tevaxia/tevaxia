@@ -2087,7 +2087,25 @@
     "tornFraisCommerciaux": "Vermarktungskosten",
     "tornHonArchi": "Architektenhonorare",
     "tornVoirie": "Erschließung",
-    "tornadoNote": "Lesen: jede Balkenlänge zeigt, wie das Grundstücksbudget auf ±10 % der Variable reagiert. Längere Balken = höhere Sensitivität — Verhandlung auf Top 3 konzentrieren."
+    "tornadoNote": "Lesen: jede Balkenlänge zeigt, wie das Grundstücksbudget auf ±10 % der Variable reagiert. Längere Balken = höhere Sensitivität — Verhandlung auf Top 3 konzentrieren.",
+    "scenariosTitle": "Szenarienvergleich",
+    "scenariosSubtitle": "Mehrere Versionen speichern und nebeneinander vergleichen.",
+    "scenarioNamePlaceholder": "z.B. Pessimistisch",
+    "scenarioSave": "Speichern",
+    "scenariosEmpty": "Keine Szenarien gespeichert.",
+    "scnName": "Szenario",
+    "scnPrixVente": "Verkaufspreis €/m²",
+    "scnCoutConstr": "Baukosten €/m²",
+    "scnMarge": "Marge %",
+    "scnCaTotal": "Gesamtumsatz",
+    "scnChargeFonciere": "Grundst.-Last",
+    "scnRatioFoncier": "Grundst./Umsatz",
+    "scnCurrent": "Aktuell",
+    "scnActions": "Aktionen",
+    "scnLoad": "Laden",
+    "scnLoadShort": "Laden",
+    "scnDelete": "Löschen",
+    "scenariosNote": "Aktuelles Szenario (grün) zuerst. Max 10 Szenarien."
   },
   "marche": {
     "title": "Marktdatenbank",
@@ -3592,7 +3610,9 @@
       "faq4A": "Die Architektenhonorare in Luxemburg sind durch das OAI-Reglement geregelt und betragen 8 bis 12 % der Baukosten (ohne MwSt.) für ein Wohnprojekt. Ingenieurbüros verursachen zusätzlich 3 bis 5 %."
     },
     "exporterBordereau": "Aufmass CSV",
-    "bordereauHint": "Aufmass nach Gewerk herunterladen (Excel-kompatibel)"
+    "bordereauHint": "Aufmass nach Gewerk herunterladen (Excel-kompatibel)",
+    "statecBadge": "STATEC Baupreisindex Okt 2025 (Basis 1970=100 → 1173,24) ↗",
+    "batiprixBadge": "Batiprix 2026 Bd. 2 + CTG + CSDC-CT"
   },
   "calculateurVrd": {
     "title": "VRD-Schätzer — Ingenieurbüro",

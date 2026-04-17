@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
@@ -314,6 +314,90 @@ export default function BilanPromoteur() {
     () => Math.max(...tornadoData.map((t) => Math.max(Math.abs(t.low), Math.abs(t.high))), 1),
     [tornadoData],
   );
+
+  // Scénarios multiples (stockage localStorage)
+  interface Scenario {
+    id: string;
+    name: string;
+    date: string;
+    // Snapshot of inputs
+    typeOperation: typeof typeOperation;
+    surfaceVendable: number;
+    prixVenteM2: number;
+    nbParkings: number;
+    prixParking: number;
+    surfaceTerrain: number;
+    prixTerrainM2: number;
+    coutTerrainConnu: boolean;
+    coutConstructionM2: number;
+    margePromoteur: number;
+    fraisFinanciers: number;
+    aleas: number;
+    // Computed results
+    caTotal: number;
+    chargeFonciere: number;
+    margeMontant: number;
+    ratioFoncierCA: number;
+  }
+  const SCENARIOS_KEY = "tevaxia_bilan_promoteur_scenarios";
+  const [scenarios, setScenarios] = useState<Scenario[]>([]);
+  const [scenarioName, setScenarioName] = useState("");
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(SCENARIOS_KEY);
+      if (raw) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setScenarios(JSON.parse(raw) as Scenario[]);
+      }
+    } catch { /* ignore */ }
+  }, []);
+
+  const saveScenario = () => {
+    if (!scenarioName.trim()) return;
+    const entry: Scenario = {
+      id: `scn-${Date.now()}`,
+      name: scenarioName.trim(),
+      date: new Date().toISOString(),
+      typeOperation,
+      surfaceVendable, prixVenteM2, nbParkings, prixParking,
+      surfaceTerrain, prixTerrainM2, coutTerrainConnu,
+      coutConstructionM2, margePromoteur, fraisFinanciers, aleas,
+      caTotal: result.caTotal,
+      chargeFonciere: result.chargeFonciere,
+      margeMontant: result.margeMontant,
+      ratioFoncierCA: result.ratioFoncierCA,
+    };
+    const next = [entry, ...scenarios].slice(0, 10);
+    setScenarios(next);
+    try {
+      localStorage.setItem(SCENARIOS_KEY, JSON.stringify(next));
+    } catch { /* quota */ }
+    setScenarioName("");
+  };
+
+  const loadScenario = (s: Scenario) => {
+    setTypeOperation(s.typeOperation);
+    setSurfaceVendable(s.surfaceVendable);
+    setPrixVenteM2(s.prixVenteM2);
+    setNbParkings(s.nbParkings);
+    setPrixParking(s.prixParking);
+    setSurfaceTerrain(s.surfaceTerrain);
+    setPrixTerrainM2(s.prixTerrainM2);
+    setCoutTerrainConnu(s.coutTerrainConnu);
+    setCoutConstructionM2(s.coutConstructionM2);
+    setMargePromoteur(s.margePromoteur);
+    setFraisFinanciers(s.fraisFinanciers);
+    setAleas(s.aleas);
+  };
+
+  const deleteScenario = (id: string) => {
+    const next = scenarios.filter((s) => s.id !== id);
+    setScenarios(next);
+    try {
+      localStorage.setItem(SCENARIOS_KEY, JSON.stringify(next));
+    } catch { /* ignore */ }
+  };
 
   return (
     <div className="bg-background py-8 sm:py-12">
@@ -800,6 +884,114 @@ export default function BilanPromoteur() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Scénarios multiples — comparaison côte-à-côte */}
+        <div className="mt-8 rounded-xl border border-card-border bg-card p-6 shadow-sm">
+          <div className="flex items-start justify-between gap-3 flex-wrap mb-4">
+            <div>
+              <h2 className="text-base font-semibold text-navy">{t("scenariosTitle")}</h2>
+              <p className="mt-0.5 text-[11px] text-muted">{t("scenariosSubtitle")}</p>
+            </div>
+            <div className="flex gap-2 items-center">
+              <input
+                type="text"
+                value={scenarioName}
+                onChange={(e) => setScenarioName(e.target.value)}
+                placeholder={t("scenarioNamePlaceholder")}
+                className="rounded-md border border-input-border bg-input-bg px-2 py-1.5 text-xs w-48"
+              />
+              <button
+                onClick={saveScenario}
+                disabled={!scenarioName.trim()}
+                className="rounded-lg bg-navy text-white px-3 py-1.5 text-xs font-semibold disabled:opacity-40 hover:bg-navy-light"
+              >
+                {t("scenarioSave")}
+              </button>
+            </div>
+          </div>
+
+          {scenarios.length === 0 ? (
+            <p className="rounded-lg border border-dashed border-card-border bg-background p-4 text-center text-xs text-muted">
+              {t("scenariosEmpty")}
+            </p>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-xs">
+                <thead className="bg-slate-50 text-[10px] uppercase tracking-wider text-muted">
+                  <tr>
+                    <th className="px-3 py-2 text-left font-semibold">{t("scnName")}</th>
+                    <th className="px-3 py-2 text-right font-semibold">{t("scnPrixVente")}</th>
+                    <th className="px-3 py-2 text-right font-semibold">{t("scnCoutConstr")}</th>
+                    <th className="px-3 py-2 text-right font-semibold">{t("scnMarge")}</th>
+                    <th className="px-3 py-2 text-right font-semibold">{t("scnCaTotal")}</th>
+                    <th className="px-3 py-2 text-right font-semibold">{t("scnChargeFonciere")}</th>
+                    <th className="px-3 py-2 text-right font-semibold">{t("scnRatioFoncier")}</th>
+                    <th className="px-3 py-2 text-center font-semibold">{t("scnActions")}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* Row: scénario courant */}
+                  <tr className="border-t border-card-border bg-emerald-50/50">
+                    <td className="px-3 py-2 font-semibold text-emerald-800">
+                      {t("scnCurrent")}
+                    </td>
+                    <td className="px-3 py-2 text-right font-mono">{prixVenteM2.toLocaleString("fr-LU")}</td>
+                    <td className="px-3 py-2 text-right font-mono">{coutConstructionM2.toLocaleString("fr-LU")}</td>
+                    <td className="px-3 py-2 text-right font-mono">{margePromoteur} %</td>
+                    <td className="px-3 py-2 text-right font-mono">{formatEUR(result.caTotal)}</td>
+                    <td className="px-3 py-2 text-right font-mono font-semibold">{formatEUR(result.chargeFonciere)}</td>
+                    <td className="px-3 py-2 text-right font-mono">{(result.ratioFoncierCA * 100).toFixed(1)} %</td>
+                    <td className="px-3 py-2 text-center text-muted">—</td>
+                  </tr>
+                  {scenarios.map((s) => {
+                    const deltaCF = s.chargeFonciere - result.chargeFonciere;
+                    const deltaPct = result.chargeFonciere > 0 ? (deltaCF / result.chargeFonciere) * 100 : 0;
+                    return (
+                      <tr key={s.id} className="border-t border-card-border">
+                        <td className="px-3 py-2">
+                          <div className="font-medium text-navy">{s.name}</div>
+                          <div className="text-[10px] text-muted">{new Date(s.date).toLocaleDateString("fr-LU")}</div>
+                        </td>
+                        <td className="px-3 py-2 text-right font-mono">{s.prixVenteM2.toLocaleString("fr-LU")}</td>
+                        <td className="px-3 py-2 text-right font-mono">{s.coutConstructionM2.toLocaleString("fr-LU")}</td>
+                        <td className="px-3 py-2 text-right font-mono">{s.margePromoteur} %</td>
+                        <td className="px-3 py-2 text-right font-mono">{formatEUR(s.caTotal)}</td>
+                        <td className="px-3 py-2 text-right font-mono font-semibold">
+                          {formatEUR(s.chargeFonciere)}
+                          {result.chargeFonciere > 0 && (
+                            <div className={`text-[10px] font-normal ${deltaCF >= 0 ? "text-emerald-700" : "text-rose-700"}`}>
+                              {deltaCF > 0 ? "+" : ""}{deltaPct.toFixed(1)} %
+                            </div>
+                          )}
+                        </td>
+                        <td className="px-3 py-2 text-right font-mono">{(s.ratioFoncierCA * 100).toFixed(1)} %</td>
+                        <td className="px-3 py-2 text-center">
+                          <div className="flex gap-1 justify-center">
+                            <button
+                              onClick={() => loadScenario(s)}
+                              className="rounded px-1.5 py-0.5 text-[10px] border border-navy text-navy hover:bg-navy/5"
+                              title={t("scnLoad")}
+                            >
+                              {t("scnLoadShort")}
+                            </button>
+                            <button
+                              onClick={() => deleteScenario(s.id)}
+                              className="rounded px-1.5 py-0.5 text-[10px] border border-rose-300 text-rose-700 hover:bg-rose-50"
+                              title={t("scnDelete")}
+                            >
+                              ×
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+              <p className="mt-3 text-[10px] text-muted">{t("scenariosNote")}</p>
+            </div>
+          )}
         </div>
       </div>
 

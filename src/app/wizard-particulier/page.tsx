@@ -598,6 +598,53 @@ export default function WizardParticulier() {
               </div>
             </div>
 
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => {
+                  const subject = `Mon projet immobilier — ${selectedResult?.commune.commune ?? "Luxembourg"}`;
+                  const lines = [
+                    `Récapitulatif estimé via tevaxia.lu`,
+                    ``,
+                    `Bien : ${selectedResult?.quartier?.nom ?? selectedResult?.commune.commune ?? "—"}`,
+                    `Surface : ${surface} m² · ${nbChambres} chambres · classe ${classeEnergie}`,
+                    `Type : ${estNeuf ? "Neuf (VEFA)" : "Existant"}`,
+                    ``,
+                    `— Estimation —`,
+                    `Prix estimé : ${formatEUR(estimation?.estimationCentrale ?? 0)}`,
+                    `Fourchette : ${formatEUR(estimation?.estimationBasse ?? 0)} — ${formatEUR(estimation?.estimationHaute ?? 0)}`,
+                    ``,
+                    `— Budget —`,
+                    `Prix retenu : ${formatEUR(prixRetenu)}`,
+                    `Frais acquisition : ${formatEUR(frais?.totalFrais ?? 0)}`,
+                    `Aides cash : ${formatEUR(aidesCash)}`,
+                    `Coût net estimé : ${formatEUR(coutNetEstime)}`,
+                    ``,
+                    envisageLocatif && loyer ? `— Location —` : "",
+                    envisageLocatif && loyer ? `Loyer légal max (règle 5 %) : ${formatEUR(loyer.loyerMensuelMax)} / mois` : "",
+                    ``,
+                    `Source : tevaxia.lu (outils gratuits analyse immo LU) — ${window.location.origin}`,
+                  ].filter(Boolean);
+                  const body = encodeURIComponent(lines.join("\n"));
+                  window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${body}`;
+                }}
+                className="rounded-lg border border-navy bg-white px-4 py-2 text-sm font-semibold text-navy hover:bg-navy/5 inline-flex items-center gap-2"
+              >
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                </svg>
+                Envoyer ce récap par email
+              </button>
+              <button
+                onClick={() => window.print()}
+                className="rounded-lg border border-card-border bg-white px-4 py-2 text-sm font-semibold text-navy hover:bg-slate-50 inline-flex items-center gap-2"
+              >
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18" />
+                </svg>
+                Imprimer / PDF
+              </button>
+            </div>
+
             <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs text-amber-900">
               Estimations indicatives basées sur les données publiques Observatoire de l&apos;Habitat / data.public.lu et les barèmes fiscaux luxembourgeois. Pour un avis formel (banque, succession, expertise judiciaire), faites établir un rapport TEGOVA EVS 2025 par un évaluateur certifié.
             </div>

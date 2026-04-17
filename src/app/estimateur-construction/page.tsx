@@ -208,6 +208,22 @@ export default function EstimateurConstruction() {
           <p className="mt-2 text-muted">
             {t("subtitle")}
           </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <a
+              href="https://lustat.statec.lu/vis?df[ds]=release&df[id]=DF_B1091&df[ag]=LU1&df[vs]=1.0"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-[11px] text-emerald-800 hover:bg-emerald-100"
+            >
+              <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              {t("statecBadge")}
+            </a>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-[11px] text-sky-800">
+              {t("batiprixBadge")}
+            </span>
+          </div>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2">

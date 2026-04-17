@@ -2087,7 +2087,25 @@
     "tornFraisCommerciaux": "Marketing costs",
     "tornHonArchi": "Architect fees",
     "tornVoirie": "Civil works",
-    "tornadoNote": "Reading: each bar shows the change in affordable land charge when the variable moves ±10 %. Longer bars = higher sensitivity — focus negotiation on the top 3."
+    "tornadoNote": "Reading: each bar shows the change in affordable land charge when the variable moves ±10 %. Longer bars = higher sensitivity — focus negotiation on the top 3.",
+    "scenariosTitle": "Scenario comparison",
+    "scenariosSubtitle": "Save multiple versions of your feasibility (pessimistic / base / optimistic) and compare side-by-side. Stored locally in your browser.",
+    "scenarioNamePlaceholder": "e.g. Pessimistic scenario",
+    "scenarioSave": "Save",
+    "scenariosEmpty": "No saved scenario. Adjust inputs, then type a name and click 'Save' to freeze the current state and compare with other variants.",
+    "scnName": "Scenario",
+    "scnPrixVente": "Sale price €/sqm",
+    "scnCoutConstr": "Constr. cost €/sqm",
+    "scnMarge": "Margin %",
+    "scnCaTotal": "Total revenue",
+    "scnChargeFonciere": "Land charge",
+    "scnRatioFoncier": "Land/revenue",
+    "scnCurrent": "Current scenario",
+    "scnActions": "Actions",
+    "scnLoad": "Load this scenario",
+    "scnLoadShort": "Load",
+    "scnDelete": "Delete",
+    "scenariosNote": "Current scenario (green) always first. % deltas on land charge vs current. Max 10 scenarios."
   },
   "marche": {
     "title": "Market Database",
@@ -3592,7 +3610,9 @@
       "faq4A": "Architect fees in Luxembourg are governed by OAI regulations and calculated as a percentage of construction cost. For a residential project, expect 8 to 12% of construction cost (excl. VAT). This covers sketch, preliminary design, permit application, execution documents, tendering, construction supervision and handover. Engineering consultant fees add 3 to 5% on top."
     },
     "exporterBordereau": "Bill of quantities CSV",
-    "bordereauHint": "Download the BoQ by trade (Excel-compatible)"
+    "bordereauHint": "Download the BoQ by trade (Excel-compatible)",
+    "statecBadge": "STATEC construction index Oct 2025 (base 1970=100 → 1173.24) ↗",
+    "batiprixBadge": "Batiprix 2026 vol. 2 + CTG + CSDC-CT"
   },
   "calculateurVrd": {
     "title": "VRD Estimator — Engineering Office",

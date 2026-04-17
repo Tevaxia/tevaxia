@@ -2087,7 +2087,25 @@
     "tornFraisCommerciaux": "Custos comerciais",
     "tornHonArchi": "Honorários arquitecto",
     "tornVoirie": "Infraestruturas",
-    "tornadoNote": "Leitura: cada barra mostra a variação do encargo fundiário quando a variável muda ±10 %. Barras mais longas = maior sensibilidade — concentre negociação nas 3 primeiras."
+    "tornadoNote": "Leitura: cada barra mostra a variação do encargo fundiário quando a variável muda ±10 %. Barras mais longas = maior sensibilidade — concentre negociação nas 3 primeiras.",
+    "scenariosTitle": "Comparação de cenários",
+    "scenariosSubtitle": "Guarde várias versões e compare lado-a-lado.",
+    "scenarioNamePlaceholder": "ex. Cenário pessimista",
+    "scenarioSave": "Guardar",
+    "scenariosEmpty": "Nenhum cenário guardado.",
+    "scnName": "Cenário",
+    "scnPrixVente": "Preço venda €/m²",
+    "scnCoutConstr": "Custo constr. €/m²",
+    "scnMarge": "Margem %",
+    "scnCaTotal": "Receita total",
+    "scnChargeFonciere": "Encargo fundiário",
+    "scnRatioFoncier": "Rácio fundiário",
+    "scnCurrent": "Cenário atual",
+    "scnActions": "Ações",
+    "scnLoad": "Carregar",
+    "scnLoadShort": "Carr.",
+    "scnDelete": "Eliminar",
+    "scenariosNote": "Cenário atual (verde) sempre primeiro. Máx 10."
   },
   "marche": {
     "title": "Base de dados de mercado",
@@ -3592,7 +3610,9 @@
       "faq4A": "Os honorários de arquiteto no Luxemburgo são regulados pela OAI e representam 8 a 12% do custo das obras para um projeto residencial. Os gabinetes de engenharia acrescentam 3 a 5%."
     },
     "exporterBordereau": "Mapa quantidades CSV",
-    "bordereauHint": "Descarregar mapa por ofício (compatível Excel)"
+    "bordereauHint": "Descarregar mapa por ofício (compatível Excel)",
+    "statecBadge": "Índice STATEC construção Out 2025 (base 1970=100 → 1173,24) ↗",
+    "batiprixBadge": "Batiprix 2026 vol. 2 + CTG + CSDC-CT"
   },
   "calculateurVrd": {
     "title": "Estimador VRD — Gabinete de engenharia",

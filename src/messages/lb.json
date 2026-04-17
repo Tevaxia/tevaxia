@@ -2087,7 +2087,25 @@
     "tornFraisCommerciaux": "Vermarktungskäschten",
     "tornHonArchi": "Architektenhonorairen",
     "tornVoirie": "Erschléissung",
-    "tornadoNote": "Liesen: all Balken weist déi Ännerung vun der Grondlaaschte bei ±10 % vun där Variabel. Méi laang Balken = méi héich Sensitivitéit — konzentréiert Verhandlungen op den Top 3."
+    "tornadoNote": "Liesen: all Balken weist déi Ännerung vun der Grondlaaschte bei ±10 % vun där Variabel. Méi laang Balken = méi héich Sensitivitéit — konzentréiert Verhandlungen op den Top 3.",
+    "scenariosTitle": "Szenarienvergläich",
+    "scenariosSubtitle": "Späichert verschidde Versiounen a vergläicht se niewenteneen.",
+    "scenarioNamePlaceholder": "z.B. Pessimistesch",
+    "scenarioSave": "Späicheren",
+    "scenariosEmpty": "Keng Szenarien gespäichert.",
+    "scnName": "Szenario",
+    "scnPrixVente": "Verkafspräis €/m²",
+    "scnCoutConstr": "Baukäschten €/m²",
+    "scnMarge": "Marge %",
+    "scnCaTotal": "Gesamtems",
+    "scnChargeFonciere": "Grondlaascht",
+    "scnRatioFoncier": "Grond/Ems",
+    "scnCurrent": "Aktuell",
+    "scnActions": "Aktiounen",
+    "scnLoad": "Lueden",
+    "scnLoadShort": "Lueden",
+    "scnDelete": "Läschen",
+    "scenariosNote": "Aktuellt Szenario (gréng) éischt. Max 10."
   },
   "marche": {
     "title": "Marchédatebank",
@@ -3592,7 +3610,9 @@
       "faq4A": "8 bis 12 % vun de Baukäschten (ouni MwSt.) fir e Wunnprojet. Ingeniéierbüroen kommen nach 3 bis 5 % dobäi."
     },
     "exporterBordereau": "Borderau CSV",
-    "bordereauHint": "Borderau pro Gewierk eroflueden (Excel-kompatibel)"
+    "bordereauHint": "Borderau pro Gewierk eroflueden (Excel-kompatibel)",
+    "statecBadge": "STATEC Baupräisindex Okt 2025 (Basis 1970=100 → 1173,24) ↗",
+    "batiprixBadge": "Batiprix 2026 Bd. 2 + CTG + CSDC-CT"
   },
   "calculateurVrd": {
     "title": "VRD-Schätzer — Ingenieurbüro",
