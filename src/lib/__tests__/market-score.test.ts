@@ -58,7 +58,7 @@ describe("computeMarketScore", () => {
 
   it("has quartiers boosts density score", () => {
     const withQ = computeMarketScore(mkCommune({
-      quartiers: [{ nom: "Centre", prixM2: 9000, nbTransactions: 50 }],
+      quartiers: [{ nom: "Centre", prixM2: 9000, loyerM2: 30, tendance: "hausse", note: "CBD" }],
     }));
     const without = computeMarketScore(mkCommune({ quartiers: undefined }));
     const withScore = withQ.components.find((c) => c.label === "Densite donnees")?.score ?? 0;
