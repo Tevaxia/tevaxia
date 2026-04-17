@@ -1109,6 +1109,20 @@ En attendant la société, voies opérationnelles :
 
 ---
 
+### Livrables 17e session 2026-04-18 (session longue — 7 items)
+
+| Chantier | Module | Commit |
+|---|---|---|
+| ✅ **/verify + migration 040** — piste d'audit SHA-256 rapport + RPC public `verify_signature` | Valorisation | `c0fc345` |
+| ✅ **/energy/hvac export CSV bordereau** | Énergie | `c0fc345` |
+| ✅ **/pro-agences/mandats export CSV portails** (Athome / atHome Pro / Immotop compat) | Agences | `c0fc345` |
+| ✅ **Indice composite tevaxia** — 4 composantes pondérées + historique Q1 2020→Q1 2026 | Indices | `c0fc345` |
+| ✅ **/hotellerie/transactions** — 10 comparables LU/Grande Région 2022-2024 HVS/Horwath/CoStar + agrégats par catégorie | Hôtel | `c0fc345` |
+| ✅ **/hotellerie/impayes** — 3 paliers relance B2B conforme loi 18.04.2004 + intérêts retard + proba recouvrement | Hôtel | `c0fc345` |
+| ✅ Marché export CSV — déjà en place (6 sections /marche). Vérifié session 17 | Marché | — |
+
+Total session 17 : **+6 gaps BENCHMARK livrés** + 1 vérifié existant, 561 tests passent, tsc clean.
+
 ### Livrables 16e session 2026-04-18 (session longue — 7 items)
 
 | Chantier | Module | Commit |
