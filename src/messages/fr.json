@@ -4874,7 +4874,13 @@
       "faq4a": "Lors de la réception, établissez un procès-verbal détaillé listant tous les défauts constatés (réserves). Le solde de 5 % est retenu tant que les réserves ne sont pas levées. Le promoteur a l'obligation de corriger les défauts dans un délai raisonnable. En cas de litige, saisissez le tribunal d'arrondissement.",
       "faq5q": "Les intérêts intercalaires sont-ils déductibles fiscalement ?",
       "faq5a": "Oui, les intérêts intercalaires sont déductibles du revenu imposable au même titre que les intérêts hypothécaires, dans la limite des plafonds prévus pour la résidence principale (1 500 à 3 000 €/an selon la durée d'occupation)."
-    }
+    },
+    "retardChantierTitle": "Simulateur retard chantier",
+    "aucunRetard": "Aucun retard",
+    "retardChantierHint": "Si la livraison est décalée, la banque a déjà décaissé la totalité du prêt : les intérêts intercalaires continuent de courir sur le capital plein jusqu'à la levée de la garantie d'achèvement et le passage en amortissement.",
+    "retardSurcout": "Surcoût intérêts",
+    "retardTotalIntercalaires": "Total intercalaires (retard inclus)",
+    "retardParMois": "Coût / mois de retard"
   },
   "propcalc": {
     "badge": "Plugin WordPress Gratuit",

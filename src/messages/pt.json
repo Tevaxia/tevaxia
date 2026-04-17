@@ -4874,7 +4874,13 @@
       "faq4a": "Na receção, elabore um auto detalhado listando todos os defeitos. O saldo de 5 % é retido até à correção dos defeitos.",
       "faq5q": "Os juros intercalares são dedutíveis fiscalmente?",
       "faq5a": "Sim, os juros intercalares são dedutíveis do rendimento tributável como os juros hipotecários, dentro dos limites para residência principal."
-    }
+    },
+    "retardChantierTitle": "Simulador atraso obra",
+    "aucunRetard": "Sem atraso",
+    "retardChantierHint": "Se a entrega for adiada, o banco já libertou a totalidade do empréstimo: os juros intercalares continuam a correr sobre o capital pleno até à entrega e início da amortização.",
+    "retardSurcout": "Juros extra",
+    "retardTotalIntercalaires": "Total intercalares (com atraso)",
+    "retardParMois": "Custo por mês atraso"
   },
   "propcalc": {
     "badge": "Plugin WordPress Gratuito",

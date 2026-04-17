@@ -51,6 +51,7 @@ export default function VefaCalculator() {
 
   // ── Intercalary interest inputs ─────────────────────────────
   const [tauxHypotheque, setTauxHypotheque] = useState(3.5); // annual rate in %
+  const [retardMois, setRetardMois] = useState(0); // retard chantier en mois
 
   // ── Customizable milestone percentages ──────────────────────
   const [milestonePcts, setMilestonePcts] = useState<number[]>(
@@ -168,6 +169,11 @@ export default function VefaCalculator() {
 
     const totalIntercalaire = cumulIntercalaire;
 
+    // Surcoût lié au retard chantier : la banque a déjà décaissé la totalité
+    // du crédit à la livraison ; pendant le retard supplémentaire, l'acquéreur
+    // continue de payer les intérêts intercalaires sur le montant intégral.
+    const surcoutRetard = montantHypotheque * tauxMensuel * Math.max(0, retardMois);
+
     return {
       partConstruction,
       droitsBruts,
@@ -182,8 +188,10 @@ export default function VefaCalculator() {
       coutTotal,
       milestones: milestoneRows,
       totalIntercalaire,
+      surcoutRetard,
+      totalIntercalaireAvecRetard: totalIntercalaire + surcoutRetard,
     };
-  }, [prixTotal, partTerrain, residencePrincipale, nbAcquereurs, montantHypotheque, moisDebut, partConstruction, milestonePcts, tauxHypotheque]);
+  }, [prixTotal, partTerrain, residencePrincipale, nbAcquereurs, montantHypotheque, moisDebut, partConstruction, milestonePcts, tauxHypotheque, retardMois]);
 
   // ── Timeline helpers ────────────────────────────────────────
   const timelineData = useMemo(() => {
@@ -542,6 +550,48 @@ export default function VefaCalculator() {
                     pctPrix: prixTotal > 0 ? formatPct(calc.totalIntercalaire / prixTotal) : "— %",
                   })}
                 </p>
+              </div>
+
+              {/* Simulateur retard chantier */}
+              <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-4">
+                <label className="block text-xs font-semibold text-rose-900 mb-2">
+                  {t("retardChantierTitle")}
+                </label>
+                <div className="flex items-center gap-3">
+                  <input
+                    type="range"
+                    min={0}
+                    max={24}
+                    step={1}
+                    value={retardMois}
+                    onChange={(e) => setRetardMois(Number(e.target.value))}
+                    className="flex-1"
+                  />
+                  <span className="w-16 text-right font-mono text-sm font-bold text-rose-900">
+                    {retardMois === 0 ? t("aucunRetard") : t("nMois", { n: retardMois })}
+                  </span>
+                </div>
+                <p className="mt-2 text-[11px] text-rose-800">
+                  {t("retardChantierHint")}
+                </p>
+                {retardMois > 0 && (
+                  <div className="mt-3 grid gap-2 sm:grid-cols-3 text-xs">
+                    <div className="rounded bg-white px-2 py-1.5 border border-rose-200">
+                      <div className="text-[10px] uppercase tracking-wider text-muted">{t("retardSurcout")}</div>
+                      <div className="font-mono font-bold text-rose-900">{formatEUR(calc.surcoutRetard)}</div>
+                    </div>
+                    <div className="rounded bg-white px-2 py-1.5 border border-rose-200">
+                      <div className="text-[10px] uppercase tracking-wider text-muted">{t("retardTotalIntercalaires")}</div>
+                      <div className="font-mono font-bold text-rose-900">{formatEUR(calc.totalIntercalaireAvecRetard)}</div>
+                    </div>
+                    <div className="rounded bg-white px-2 py-1.5 border border-rose-200">
+                      <div className="text-[10px] uppercase tracking-wider text-muted">{t("retardParMois")}</div>
+                      <div className="font-mono font-bold text-rose-900">
+                        {formatEUR(montantHypotheque * (tauxHypotheque / 100 / 12))}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 

@@ -4874,7 +4874,13 @@
       "faq4a": "Bei der Abnahme erstellen Sie ein detailliertes Protokoll aller Mängel. Der 5 %-Restbetrag wird einbehalten, bis die Mängel behoben sind.",
       "faq5q": "Sind Zwischenzinsen steuerlich absetzbar?",
       "faq5a": "Ja, Zwischenzinsen sind wie Hypothekenzinsen vom steuerpflichtigen Einkommen absetzbar, innerhalb der Obergrenzen für den Hauptwohnsitz."
-    }
+    },
+    "retardChantierTitle": "Baustellen-Verzögerung Simulator",
+    "aucunRetard": "Keine Verzögerung",
+    "retardChantierHint": "Bei Verzögerung der Übergabe hat die Bank den Kredit bereits vollständig ausgezahlt: Zwischenzinsen laufen auf dem vollen Kapital weiter bis zur Übergabe und Beginn der Tilgung.",
+    "retardSurcout": "Zusatzzinsen",
+    "retardTotalIntercalaires": "Total Zwischenzinsen (inkl. Verzögerung)",
+    "retardParMois": "Kosten pro Verzögerungsmonat"
   },
   "propcalc": {
     "badge": "Kostenloses WordPress-Plugin",

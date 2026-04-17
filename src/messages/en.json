@@ -4874,7 +4874,13 @@
       "faq4a": "At reception, prepare a detailed report listing all defects. The 5% balance is retained until defects are fixed. The developer must correct within a reasonable timeframe.",
       "faq5q": "Is interim interest tax-deductible?",
       "faq5a": "Yes, interim interest is deductible from taxable income like mortgage interest, within the caps for primary residence (EUR 1,500-3,000/year)."
-    }
+    },
+    "retardChantierTitle": "Construction delay simulator",
+    "aucunRetard": "No delay",
+    "retardChantierHint": "If delivery is delayed, the bank has already released the full loan: intercalary interest keeps accruing on the full capital until the completion guarantee is released and amortization begins.",
+    "retardSurcout": "Extra interest",
+    "retardTotalIntercalaires": "Total intercalary (with delay)",
+    "retardParMois": "Cost per delay month"
   },
   "propcalc": {
     "badge": "Free WordPress Plugin",

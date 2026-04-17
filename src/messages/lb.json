@@ -4874,7 +4874,13 @@
       "faq4a": "Bei der Ofnahm erstellt Dir en detailléiert Protokoll vun alle Mängel. De 5 %-Restbetrag gëtt zeréckgehalen bis d'Mängel behuewe sinn.",
       "faq5q": "Sinn Tëschenzënsen steierlech ofsetzbar?",
       "faq5a": "Jo, Tëschenzënse sinn wéi Hypothéikenzënsen vum steierpflichtegen Akommes ofsetzbar."
-    }
+    },
+    "retardChantierTitle": "Simulator Bauverzögerung",
+    "aucunRetard": "Keng Verzögerung",
+    "retardChantierHint": "Bei Verzögerung vun der Iwwergab huet d'Bank de Kredit schonn komplett ausbezuelt: Zwëschenzënsen lafen op de volle Capital weider bis zur Iwwergab an zum Ufank vun der Tilgung.",
+    "retardSurcout": "Extra Zënsen",
+    "retardTotalIntercalaires": "Total Zwëschenzënsen (mat Verzögerung)",
+    "retardParMois": "Käschten pro Verzögerungsmount"
   },
   "propcalc": {
     "badge": "Gratis WordPress-Plugin",
