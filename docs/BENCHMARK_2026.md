@@ -1109,6 +1109,19 @@ En attendant la société, voies opérationnelles :
 
 ---
 
+### Livrables 11e session 2026-04-17 (gaps résiduels — 6 items)
+
+| Chantier | Module | Commit |
+|---|---|---|
+| ✅ **/bilan-promoteur phasage multi-tranches** — toggle + 3 tranches (% CA + offset mois), Gantt 48 mois, consolidation besoin financement VEFA étalée | Promoteur | `31a7352` |
+| ✅ **/simulateur-aides dossier PDF Klimabonus** — dossier préparatoire Wunnen 2026 avec identité + bien + mesures + barème + checklist 7 docs + next steps | Aides | `31a7352` |
+| ✅ **/calculateur-loyer historique plafond légal** — table évolution 2015/2018/2020/2023/2026 avec delta % entre chaque étape | Loyer | `acc958c` |
+| ✅ **/frais-acquisition frais annexes** — toggle + 5 postes optionnels (architecte, géomètre, diagnostic, déménagement, courtage) inclus dans total | Frais | `acc958c` |
+| ✅ **/estimation historique par adresse** — champ adresse optionnel + filtre history par adresse (vs commune) pour tracker un bien dans le temps | Estimation | `ef5aa58` |
+| ✅ **Partage commentaires visiteur** — migration 034 + RPC `post_shared_link_comment` (anonyme, rate-limit 1/min) + form `/partage/[token]` + expand badge dans `/profil/liens-partages` | Partage | `ef5aa58` |
+
+Total session 11 : **+6 gaps BENCHMARK livrés** (FR/EN/DE/PT/LB), 561 tests passent, type-check clean.
+
 ### Livrables 10e session 2026-04-17 (gaps résiduels — 10 items)
 
 | Chantier | Module | Commit |
