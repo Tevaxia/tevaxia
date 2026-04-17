@@ -34,6 +34,13 @@ export default function PlusValues() {
   const [anneesOccupation, setAnneesOccupation] = useState(10);
   const [reportImposition, setReportImposition] = useState(false);
 
+  // Mode cession de parts sociales SCI/SARL (régime article 100 LIR)
+  const [cessionParts, setCessionParts] = useState(false);
+  const [pctDetention, setPctDetention] = useState(50);
+  const [valeurParts, setValeurParts] = useState(150000);
+  const [prixCessionParts, setPrixCessionParts] = useState(250000);
+  const [anneeDetentionParts, setAnneeDetentionParts] = useState(2018);
+
   const prixAcquisitionLabel =
     modeAcquisition === "succession"
       ? t("valeurSuccessorale")
@@ -302,6 +309,97 @@ export default function PlusValues() {
                     </div>
                   </div>
                 )}
+
+                {/* Mode cession de parts sociales SCI/SARL */}
+                <ToggleField
+                  label={t("cessionPartsLabel")}
+                  checked={cessionParts}
+                  onChange={setCessionParts}
+                  hint={t("cessionPartsHint")}
+                />
+                {cessionParts && (() => {
+                  const dureeDetention = anneeCession - anneeDetentionParts;
+                  const gainParts = Math.max(0, prixCessionParts - valeurParts);
+                  const participationSubstantielle = pctDetention >= 10; // Art. 100 LIR
+                  const regime = dureeDetention <= 0.5
+                    ? "speculation"
+                    : (participationSubstantielle && dureeDetention > 0.5 ? "cession_longue" : "speculation");
+                  // Demi-taux global applicable si participation substantielle ET > 6 mois
+                  const tauxEffectif = regime === "cession_longue" ? 0.23 : 0.4578;
+                  const impotEstime = Math.round(gainParts * tauxEffectif);
+                  return (
+                    <div className="rounded-lg border border-purple-200 bg-purple-50 p-4 space-y-3 text-xs text-purple-900">
+                      <div className="font-semibold">{t("cessionPartsRegime")}</div>
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        <InputField
+                          label={t("pctDetention")}
+                          value={pctDetention}
+                          onChange={(v) => setPctDetention(Number(v))}
+                          suffix="%"
+                          min={0}
+                          max={100}
+                        />
+                        <InputField
+                          label={t("anneeDetentionParts")}
+                          value={anneeDetentionParts}
+                          onChange={(v) => setAnneeDetentionParts(Number(v))}
+                          min={1960}
+                          max={2030}
+                        />
+                        <InputField
+                          label={t("valeurParts")}
+                          value={valeurParts}
+                          onChange={(v) => setValeurParts(Number(v))}
+                          suffix="€"
+                          min={0}
+                        />
+                        <InputField
+                          label={t("prixCessionParts")}
+                          value={prixCessionParts}
+                          onChange={(v) => setPrixCessionParts(Number(v))}
+                          suffix="€"
+                          min={0}
+                        />
+                      </div>
+
+                      <div className="grid gap-2 sm:grid-cols-3">
+                        <div className="rounded bg-white p-2 border border-purple-200">
+                          <div className="text-[10px] uppercase tracking-wider text-purple-700">{t("cessionPartsDuree")}</div>
+                          <div className="font-mono font-bold text-purple-900">{dureeDetention.toFixed(1)} {t("cessionPartsAns")}</div>
+                        </div>
+                        <div className="rounded bg-white p-2 border border-purple-200">
+                          <div className="text-[10px] uppercase tracking-wider text-purple-700">{t("cessionPartsGain")}</div>
+                          <div className="font-mono font-bold text-purple-900">{formatEUR(gainParts)}</div>
+                        </div>
+                        <div className="rounded bg-white p-2 border border-purple-200">
+                          <div className="text-[10px] uppercase tracking-wider text-purple-700">{t("cessionPartsRegimeFiscal")}</div>
+                          <div className="font-semibold text-purple-900">
+                            {regime === "speculation" ? t("cessionPartsSpec") : t("cessionPartsCession")}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="rounded-md border-2 border-purple-300 bg-white p-2.5">
+                        <div className="flex items-center justify-between">
+                          <span className="font-semibold">{t("cessionPartsImpot")}</span>
+                          <span className="font-mono text-lg font-bold">{formatEUR(impotEstime)}</span>
+                        </div>
+                        <div className="text-[11px] text-purple-700 mt-1">
+                          {t("cessionPartsTaux", { taux: (tauxEffectif * 100).toFixed(2) })}
+                        </div>
+                      </div>
+
+                      <div className="space-y-1">
+                        <div className="font-semibold">{t("cessionPartsRegleTitle")}</div>
+                        <ul className="ml-4 list-disc space-y-0.5">
+                          <li>{t("cessionPartsRegle1")}</li>
+                          <li>{t("cessionPartsRegle2")}</li>
+                          <li>{t("cessionPartsRegle3")}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
             </div>
           </div>

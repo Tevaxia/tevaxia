@@ -1715,25 +1715,156 @@ export default function CalculateurVRD() {
               </div>
             </div>
 
-            <PdfButton
-              label="PDF"
-              filename={`calculateur-vrd-${new Date().toLocaleDateString("fr-LU")}.pdf`}
-              generateBlob={() => generateVrdPdfBlob({
-                nomProjet,
-                commune,
-                lots: result.lots.map(l => ({ num: l.num, nom: l.nom, total: l.total })),
-                totalTravaux: result.totalTravaux,
-                totalEtudes: result.totalEtudes,
-                honorairesBE: result.montantHonorairesBE,
-                fraisAleas: result.montantAleas,
-                totalGeneral: result.totalGeneral,
-                coutM2: result.coutM2,
-                surfaceTotale,
-                bordereau: result.bordereau
-                  .filter((r): r is typeof r & { num: string; designation: string; unite: string; quantite: number; pu: number; total: number } => r.type === "line")
-                  .map(r => ({ num: r.num, designation: r.designation, unite: r.unite, quantite: r.quantite, pu: r.pu, total: r.total })),
-              })}
-            />
+            <div className="flex flex-wrap gap-2 justify-center">
+              <PdfButton
+                label="PDF"
+                filename={`calculateur-vrd-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                generateBlob={() => generateVrdPdfBlob({
+                  nomProjet,
+                  commune,
+                  lots: result.lots.map(l => ({ num: l.num, nom: l.nom, total: l.total })),
+                  totalTravaux: result.totalTravaux,
+                  totalEtudes: result.totalEtudes,
+                  honorairesBE: result.montantHonorairesBE,
+                  fraisAleas: result.montantAleas,
+                  totalGeneral: result.totalGeneral,
+                  coutM2: result.coutM2,
+                  surfaceTotale,
+                  bordereau: result.bordereau
+                    .filter((r): r is typeof r & { num: string; designation: string; unite: string; quantite: number; pu: number; total: number } => r.type === "line")
+                    .map(r => ({ num: r.num, designation: r.designation, unite: r.unite, quantite: r.quantite, pu: r.pu, total: r.total })),
+                })}
+              />
+              <button
+                onClick={() => {
+                  const today = new Date().toLocaleDateString("fr-LU");
+                  const title = nomProjet || "Projet VRD";
+                  const commLine = commune ? `Commune de ${commune}` : "[Commune]";
+                  // Bordereau quantitatif CCTP
+                  const bordLines = result.bordereau
+                    .filter((r): r is typeof r & { num: string; designation: string; unite: string; quantite: number; pu: number; total: number } => r.type === "line")
+                    .map((r) => `  ${r.num}\t${r.designation}\t${r.unite}\t${r.quantite}\t${r.pu.toLocaleString("fr-LU")} €\t${r.total.toLocaleString("fr-LU")} €`);
+
+                  const content = `CAHIER DES CLAUSES ADMINISTRATIVES PARTICULIÈRES (CCAP)
+et CAHIER DES CLAUSES TECHNIQUES PARTICULIÈRES (CCTP)
+Conformes à la loi du 8 avril 2018 sur les marchés publics (LU)
+
+================================================================
+CCAP — CLAUSES ADMINISTRATIVES PARTICULIÈRES
+================================================================
+
+ARTICLE 1 — OBJET DU MARCHÉ
+Le présent marché porte sur les travaux de viabilité et de réseaux divers
+(VRD) pour le projet « ${title} », situé à ${commLine}.
+
+Surface concernée : ${surfaceTotale.toLocaleString("fr-LU")} m²
+Montant estimé travaux : ${result.totalGeneral.toLocaleString("fr-LU")} € HT
+
+ARTICLE 2 — PIÈCES CONSTITUTIVES DU MARCHÉ
+Par ordre de priorité :
+ 1. Le présent Cahier des Charges (CCAP + CCTP)
+ 2. Le Bordereau de Prix Unitaire (BPU) rempli et signé
+ 3. Le Détail Estimatif Quantitatif (DQE)
+ 4. Les plans et pièces graphiques (levés topographiques, profils en long,
+    profils en travers)
+ 5. L'acte d'engagement
+ 6. Le Règlement général des marchés publics (LU)
+
+ARTICLE 3 — MODE DE PASSATION
+Procédure : [ouverte / restreinte / négociée sans publication]
+Publication : [Portail des marchés publics — marches.public.lu]
+Critères d'attribution : offre économiquement la plus avantageuse
+(prix 60 %, valeur technique 30 %, délai 10 %)
+
+ARTICLE 4 — DÉLAIS D'EXÉCUTION
+Démarrage : sur ordre de service notifié par le Maître d'Ouvrage
+Durée contractuelle : [à remplir] semaines calendaires
+Pénalités de retard : 1/1000 du montant du marché par jour de retard
+(plafonnées à 5 % du montant total)
+
+ARTICLE 5 — PRIX ET PAIEMENTS
+Prix : forfaitaires par poste, révisables selon l'index STATEC
+construction BT01 (base mois signature du marché).
+Acomptes : mensuels, sur situation attestée par le maître d'œuvre
+Retenue de garantie : 5 % (libérable après levée des réserves)
+Paiement : 30 jours à réception facture + PV de situation
+
+ARTICLE 6 — GARANTIES
+Garantie de parfait achèvement : 1 an après réception
+Garantie biennale : 2 ans (équipements indissociables)
+Garantie décennale : 10 ans (gros œuvre, VRD structurants)
+Assurance responsabilité civile : minimum 2 500 000 € par sinistre
+
+ARTICLE 7 — SÉCURITÉ ET SANTÉ
+Coordination SPS obligatoire niveau [1/2/3] selon effectifs.
+Plan Particulier de Sécurité et de Protection de la Santé (PPSPS)
+exigé avant démarrage (loi 31/07/2006 sur la sécurité chantier).
+
+ARTICLE 8 — ENVIRONNEMENT
+Respect règlement grand-ducal du 20/10/2016 sur les déchets
+de construction. Traçabilité des évacuations (bon de décharge).
+Réutilisation des terres sur site privilégiée.
+
+ARTICLE 9 — RÉCEPTION DES TRAVAUX
+Réception prononcée après visite contradictoire sur procès-verbal
+(art. 25 Règlement général marchés publics LU).
+
+ARTICLE 10 — LITIGES
+Tribunal d'arrondissement de Luxembourg compétent.
+Droit luxembourgeois applicable.
+
+================================================================
+CCTP — CLAUSES TECHNIQUES PARTICULIÈRES
+================================================================
+
+CHAPITRE 1 — PRESCRIPTIONS GÉNÉRALES
+Les travaux seront exécutés conformément :
+ • Aux DTU français applicables (Documents Techniques Unifiés)
+ • Aux normes européennes EN et luxembourgeoises
+ • Aux Cahiers des Clauses Techniques Générales (CCTG) LU
+ • Aux règles de l'art en vigueur
+
+${result.lots.map((lot) => `
+CHAPITRE ${lot.num} — LOT ${String(lot.num).toUpperCase()} : ${lot.nom.toUpperCase()}
+Montant estimé : ${lot.total.toLocaleString("fr-LU")} € HT
+[Description technique détaillée du lot à compléter par le maître d'œuvre]
+`).join("\n")}
+
+================================================================
+BORDEREAU DE PRIX UNITAIRE (BPU) / DQE
+================================================================
+
+  N°\tDésignation\tUnité\tQté\tP.U. HT\tTotal HT
+${bordLines.join("\n")}
+
+TOTAL TRAVAUX HT : ${result.totalTravaux.toLocaleString("fr-LU")} €
+Études & divers : ${result.totalEtudes.toLocaleString("fr-LU")} €
+Honoraires BE : ${result.montantHonorairesBE.toLocaleString("fr-LU")} €
+Aléas : ${result.montantAleas.toLocaleString("fr-LU")} €
+TOTAL GÉNÉRAL HT : ${result.totalGeneral.toLocaleString("fr-LU")} €
+
+================================================================
+Document généré par tevaxia.lu le ${today}
+Template indicatif — à faire relire par un juriste marchés publics
+================================================================
+`;
+                  const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+                  const url = URL.createObjectURL(blob);
+                  const a = document.createElement("a");
+                  a.href = url;
+                  a.download = `CCAP-CCTP-${(nomProjet || "projet").toLowerCase().replace(/[^a-z0-9]/g, "-")}-${today.replace(/\//g, "-")}.txt`;
+                  a.click();
+                  URL.revokeObjectURL(url);
+                }}
+                className="rounded-lg border border-card-border bg-card px-3 py-2 text-sm font-medium text-navy hover:bg-slate-50 inline-flex items-center gap-1.5"
+                title="Générer un template CCAP/CCTP texte pour marché public LU"
+              >
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                </svg>
+                CCAP / CCTP (loi 8/4/2018 LU)
+              </button>
+            </div>
 
             {/* Recapitulatif par lot */}
             <ResultPanel

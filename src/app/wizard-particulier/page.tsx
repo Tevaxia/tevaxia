@@ -138,6 +138,49 @@ export default function WizardParticulier() {
   const DRAFT_KEY = "tevaxia_wizard_particulier_draft";
 
   useEffect(() => {
+    // 1) URL params (mode conseiller) — prioritaire sur le localStorage
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("c") || params.has("s") || params.has("nego")) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      const c = params.get("c");
+      if (c) {
+        setCommuneSearch(c);
+        const results = rechercherCommune(c);
+        if (results.length > 0) setSelectedResult(results[0]);
+      }
+      const numParam = (key: string, setter: (n: number) => void) => {
+        const v = params.get(key);
+        if (v !== null && !isNaN(Number(v))) setter(Number(v));
+      };
+      const boolParam = (key: string, setter: (b: boolean) => void) => {
+        const v = params.get(key);
+        if (v !== null) setter(v === "1" || v === "true");
+      };
+      const strParam = (key: string, setter: (s: string) => void) => {
+        const v = params.get(key);
+        if (v !== null) setter(v);
+      };
+      numParam("s", setSurface);
+      numParam("ch", setNbChambres);
+      strParam("et", setEtage);
+      strParam("ea", setEtat);
+      strParam("ex", setExterieur);
+      boolParam("p", setParking);
+      strParam("e", setClasseEnergie);
+      boolParam("n", setEstNeuf);
+      numParam("nego", setPrixNegocie);
+      boolParam("rp", setResidencePrincipale);
+      numParam("nb", (v) => setNbAcquereurs((v === 1 || v === 2 ? v : 2) as 1 | 2));
+      numParam("h", setMontantHypotheque);
+      numParam("rv", setRevenuMenage);
+      numParam("en", setNbEnfants);
+      strParam("tb", (v) => setTypeBienAides(v as typeof typeBienAides));
+      numParam("step", (n) => setStep(Math.max(0, Math.min(4, n)) as Step));
+      setRestored(true);
+      return;
+    }
+
+    // 2) localStorage fallback
     try {
       const raw = localStorage.getItem(DRAFT_KEY);
       if (!raw) return;
@@ -168,6 +211,42 @@ export default function WizardParticulier() {
       setRestored(true);
     } catch { /* ignore */ }
   }, []);
+
+  // Génère une URL shareable avec l'état courant (mode conseiller)
+  const buildShareUrl = () => {
+    const params = new URLSearchParams();
+    if (selectedResult?.commune.commune) params.set("c", selectedResult.commune.commune);
+    params.set("s", String(surface));
+    params.set("ch", String(nbChambres));
+    params.set("et", etage);
+    params.set("ea", etat);
+    params.set("ex", exterieur);
+    params.set("p", parking ? "1" : "0");
+    params.set("e", classeEnergie);
+    params.set("n", estNeuf ? "1" : "0");
+    if (prixNegocie > 0) params.set("nego", String(prixNegocie));
+    params.set("rp", residencePrincipale ? "1" : "0");
+    params.set("nb", String(nbAcquereurs));
+    if (montantHypotheque > 0) params.set("h", String(montantHypotheque));
+    params.set("rv", String(revenuMenage));
+    params.set("en", String(nbEnfants));
+    params.set("tb", typeBienAides);
+    params.set("step", "0"); // client démarre à l'étape 1
+    return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+  };
+
+  const [copiedUrl, setCopiedUrl] = useState(false);
+  const shareConseiller = async () => {
+    const url = buildShareUrl();
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopiedUrl(true);
+      setTimeout(() => setCopiedUrl(false), 2500);
+    } catch {
+      // Fallback : prompt avec l'URL
+      prompt("Copiez cette URL :", url);
+    }
+  };
 
   useEffect(() => {
     // Sérialise sur tout changement de state — throttling non nécessaire,
@@ -642,6 +721,18 @@ export default function WizardParticulier() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18" />
                 </svg>
                 Imprimer / PDF
+              </button>
+              <button
+                onClick={shareConseiller}
+                className={`rounded-lg border px-4 py-2 text-sm font-semibold inline-flex items-center gap-2 ${
+                  copiedUrl ? "border-emerald-500 bg-emerald-50 text-emerald-900" : "border-navy bg-white text-navy hover:bg-navy/5"
+                }`}
+                title="Copier une URL pré-remplie (mode agent/conseiller)"
+              >
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                </svg>
+                {copiedUrl ? "URL copiée ✓" : "Partager ce scénario (lien)"}
               </button>
             </div>
 
