@@ -4515,6 +4515,8 @@
     "title": "Immobilien-Portfolio",
     "subtitle": "Aggregieren Sie Ihre Immobilien und verfolgen Sie die Gesamtperformance",
     "exportPdf": "PDF exportieren",
+    "exportFiscal": "LU Steuer-Export (100 F)",
+    "exportFiscalHint": "Vorausgefüllte CSV — Anlage 190 des Formulars 100 F (Mieteinnahmen). Konfigurierbare Annahmen am Anfang der Datei dokumentiert.",
     "totalValue": "Gesamtwert des Portfolios",
     "propertiesCount": "{count, plural, =0 {0 Immobilien} =1 {1 Immobilie} other {# Immobilien}}",
     "avgPriceM2": "Durchschnittspreis /m²",

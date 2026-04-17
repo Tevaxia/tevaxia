@@ -4515,6 +4515,8 @@
     "title": "Property portfolio",
     "subtitle": "Aggregate your properties and track overall performance",
     "exportPdf": "Export PDF",
+    "exportFiscal": "LU tax export (100 F)",
+    "exportFiscalHint": "Pre-filled CSV — annex 190 of form 100 F (rental income). Configurable assumptions detailed at the top of the file.",
     "totalValue": "Total portfolio value",
     "propertiesCount": "{count, plural, =0 {0 properties} =1 {1 property} other {# properties}}",
     "avgPriceM2": "Average price /m²",

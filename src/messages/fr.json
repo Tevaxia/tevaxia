@@ -4515,6 +4515,8 @@
     "title": "Portfolio immobilier",
     "subtitle": "Agrégez vos biens et suivez la performance globale",
     "exportPdf": "Exporter PDF",
+    "exportFiscal": "Export fiscal LU (100 F)",
+    "exportFiscalHint": "CSV pré-rempli — annexe 190 du formulaire 100 F (revenus locatifs). Hypothèses configurables détaillées en tête de fichier.",
     "totalValue": "Valeur totale du portfolio",
     "propertiesCount": "{count, plural, =0 {0 bien} =1 {1 bien} other {# biens}}",
     "avgPriceM2": "Prix moyen /m²",

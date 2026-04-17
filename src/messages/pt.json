@@ -4515,6 +4515,8 @@
     "title": "Portfólio imobiliário",
     "subtitle": "Agregue os seus imóveis e acompanhe o desempenho global",
     "exportPdf": "Exportar PDF",
+    "exportFiscal": "Exportação fiscal LU (100 F)",
+    "exportFiscalHint": "CSV pré-preenchido — anexo 190 do formulário 100 F (rendas). Hipóteses configuráveis detalhadas no cabeçalho do ficheiro.",
     "totalValue": "Valor total do portfólio",
     "propertiesCount": "{count, plural, =0 {0 imóveis} =1 {1 imóvel} other {# imóveis}}",
     "avgPriceM2": "Preço médio /m²",

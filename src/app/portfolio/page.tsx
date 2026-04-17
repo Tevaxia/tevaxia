@@ -411,6 +411,110 @@ export default function Portfolio() {
     URL.revokeObjectURL(url);
   }, [filteredProperties, stats]);
 
+  /* ----------------------------------------------------------------- */
+  /*  Export fiscal LU (formulaire 100 F — annexe 190 revenus locatifs) */
+  /* ----------------------------------------------------------------- */
+  const handleFiscalExport = useCallback(() => {
+    const year = new Date().getFullYear() - 1; // déclaration porte sur l'exercice précédent
+    const rate = 0.035; // hypothèse taux moyen
+    const pnoRate = 0.005; // 0.5 % de la valeur
+    const taxeFonciereRate = 0.001; // 0.1 % de la valeur (indicatif, varie par commune)
+    const gestionRate = 0.05; // forfait 5 % des loyers
+    // Amortissement : dégressif selon ancienneté (règlement grand-ducal 21/12/2007)
+    const amortFixed = 0.02; // 2 % par défaut
+
+    const lines: string[][] = [];
+    const header = [
+      "Bien",
+      "Commune",
+      "Surface (m²)",
+      "Loyer annuel brut (€)",
+      "Intérêts emprunt (€)",
+      "Assurance PNO (€)",
+      "Taxe foncière (€)",
+      "Frais gestion 5 % (€)",
+      "Amortissement 2 % (€)",
+      "Total charges déductibles (€)",
+      "Revenu net locatif (€)",
+    ];
+    lines.push(header);
+
+    let totalRevenus = 0;
+    let totalInterets = 0;
+    let totalPNO = 0;
+    let totalTF = 0;
+    let totalGestion = 0;
+    let totalAmort = 0;
+    let totalCharges = 0;
+    let totalNet = 0;
+
+    for (const a of assets) {
+      const loyer = a.loyerAnnuel;
+      const interets = a.dette * rate;
+      const pno = a.valeur * pnoRate;
+      const tf = a.valeur * taxeFonciereRate;
+      const gestion = loyer * gestionRate;
+      const amort = a.valeur * amortFixed;
+      const charges = interets + pno + tf + gestion + amort;
+      const net = loyer - charges;
+
+      totalRevenus += loyer;
+      totalInterets += interets;
+      totalPNO += pno;
+      totalTF += tf;
+      totalGestion += gestion;
+      totalAmort += amort;
+      totalCharges += charges;
+      totalNet += net;
+
+      lines.push([
+        a.nom || "—",
+        a.commune || "—",
+        String(a.surface),
+        loyer.toFixed(0),
+        interets.toFixed(0),
+        pno.toFixed(0),
+        tf.toFixed(0),
+        gestion.toFixed(0),
+        amort.toFixed(0),
+        charges.toFixed(0),
+        net.toFixed(0),
+      ]);
+    }
+
+    lines.push([
+      "TOTAL",
+      "",
+      "",
+      totalRevenus.toFixed(0),
+      totalInterets.toFixed(0),
+      totalPNO.toFixed(0),
+      totalTF.toFixed(0),
+      totalGestion.toFixed(0),
+      totalAmort.toFixed(0),
+      totalCharges.toFixed(0),
+      totalNet.toFixed(0),
+    ]);
+
+    const preamble = [
+      `# Déclaration impôt sur le revenu ${year} — Annexe 190 (revenus locatifs)`,
+      `# Généré par tevaxia.lu le ${new Date().toLocaleDateString("fr-LU")}`,
+      `# Base légale : art. 99 LIR (revenus location), règlement GD 21/12/2007 (amortissement)`,
+      `# Hypothèses : taux emprunt ${(rate * 100).toFixed(1)}%, PNO ${(pnoRate * 100).toFixed(2)}% de la valeur, taxe foncière ${(taxeFonciereRate * 100).toFixed(2)}% de la valeur, gestion forfaitaire ${(gestionRate * 100).toFixed(0)}%, amortissement linéaire ${(amortFixed * 100).toFixed(0)}%`,
+      `# À reporter dans le formulaire 100 F (ligne 41 + annexe dédiée) ou 100 bis (conjoint séparé).`,
+      ``,
+    ];
+    const csv = preamble.join("\n") + lines.map((r) => r.map((c) => (c.includes(",") || c.includes(";") ? `"${c}"` : c)).join(";")).join("\n");
+
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `declaration-100F-annexe-190-${year}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, [assets]);
+
   /* ---------------------------------------------------------------- */
   /*  Render                                                           */
   /* ---------------------------------------------------------------- */
@@ -424,15 +528,27 @@ export default function Portfolio() {
             <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("title")}</h1>
             <p className="mt-2 text-muted">{t("subtitle")}</p>
           </div>
-          <button
-            onClick={handlePdfExport}
-            className="inline-flex items-center gap-2 rounded-lg bg-navy px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-navy-light active:scale-95"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
-            {t("exportPdf")}
-          </button>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={handleFiscalExport}
+              title={t("exportFiscalHint")}
+              className="inline-flex items-center gap-2 rounded-lg border border-navy bg-white px-4 py-2.5 text-sm font-semibold text-navy transition hover:bg-navy/5 active:scale-95"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm1 4a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm0 4a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm0 4a1 1 0 011-1h5a1 1 0 110 2H6a1 1 0 01-1-1z" />
+              </svg>
+              {t("exportFiscal")}
+            </button>
+            <button
+              onClick={handlePdfExport}
+              className="inline-flex items-center gap-2 rounded-lg bg-navy px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-navy-light active:scale-95"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+              {t("exportPdf")}
+            </button>
+          </div>
         </div>
 
         {/* ============================================================ */}
