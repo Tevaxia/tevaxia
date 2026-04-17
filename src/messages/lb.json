@@ -1180,7 +1180,11 @@
       "faq4a": "Nee, de Bëllegen Akt-Kredit kann nëmmen eemol pro Persoun genotzt ginn.",
       "faq5q": "Wéini ginn d'Akafskäschte bezuelt?",
       "faq5a": "D'Käschte gi bei der Ënnerschrëft vum notarielle Akt bezuelt, normalerweis 2-3 Méint nom Virvertrag."
-    }
+    },
+    "nonResident": "Ech sinn net Lëtzebuerger steiersässeg",
+    "nonResidentHint": "Frontalier FR/BE/DE oder Resident an engem aneren Land.",
+    "nonResidentDisclaimerTitle": "Reglement fir Net-Residenten",
+    "nonResidentDisclaimerText": "Kee Bëllegen Akt a keng 3 % TVA (nëmmen fir Haaptwunnsëtz zu LU). Zukünftele Plus-Value beim Verkaf ënner steierkonventioun tëscht LU an Ärem Wunnsëtzland (gëtt Duebel-Besteierung vermeit). Frot e Steierberoder fir Är spezifesch Situatioun."
   },
   "plusValues": {
     "title": "Wäertzouwuesssteierrechner",
@@ -1662,7 +1666,12 @@
       "faq3A": "De strukturelle Leerstand entsprécht dem duerchschnëttleče Widdervermiddlungszäitraum tëschent Mieteren. Zu Lëtzebuerg ass de strukturelle Leerstand bei Prime-Büroe ronn 3 bis 6 Méint (Leerstand vu 2,5 bis 5 %). Bei Sekundärbüroe kann en 12 Méint erreechen.",
       "faq4Q": "Wéi en Analysehorizont soll ech fir eng Immobilien-DCF wielen?",
       "faq4A": "De Standardhorizont ass 10 Joer, entspriechend der typescher Gewerbemietvertragsdauer zu Lëtzebuerg. Fir Objete mat ganz laange Mietverträg (15-25 Joer) kann en op 15 Joer verlängert ginn. E méi kuerzen Horizont (5-7 Joer) gëtt fir Value-Add- oder opportunistesch Strategien benotzt."
-    }
+    },
+    "sensitivityTitle": "Sensitivitéitsmatrix",
+    "sensitivitySubtitle": "DCF-Wäert no Diskontzaten an Exit-Cap-Rate (±2 pp ronderëm déi aktuell Hypothesen).",
+    "capRate": "Exit-Cap",
+    "discountRate": "Aktualiséirungstaux",
+    "sensitivityNote": "Gréng = méi héich / rout = méi niddereg wéi d'zentral Hypothes (marineblo). Standard Argus Enterprise / Forbury fir d'Robustheet."
   },
   "carte": {
     "title": "Immobiliëpräiskart",
@@ -2015,7 +2024,18 @@
       "faq3A": "Bewäärt Praktiken zu Lëtzebuerg ëmfaassen: Virverkaf (Zil: 30-40 % Reservat ioune viru Baubeginn), Notzung vun engem VEFA-Vertrag, Diversifizéierung vum Ubod an eng opschéiwend Bedingung am Grondstécksvertrag.",
       "faq4Q": "Wéi laang dauert eng Promotiounsoperatioun zu Lëtzebuerg duerchschnëttle ch?",
       "faq4A": "D'Gesamtdauer vun enger Promotiounsoperatioun zu Lëtzebuerg ass typesch 4 bis 7 Joer. D'Genehmegung vum PAP kann 12 bis 24 Méint daueren. D'Baugen ehmegung brauch weider 3 bis 12 Méint. D'Bauzäit selwer ass 18 bis 30 Méint fir 20 bis 50 Wunnengen."
-    }
+    },
+    "tornadoTitle": "Tornado-Chart — ±10 % Impakt pro Variabel",
+    "tornadoSubtitle": "Variablen no Impakt op d'Grondlaaschte sortéiert. Rout = ongënschteg, gréng = gënschteg.",
+    "tornPrixVente": "Verkafspräis €/m²",
+    "tornCoutConstruction": "Bauprä is €/m²",
+    "tornMargePromoteur": "Promoteur-Marge",
+    "tornFraisFinanciers": "Finanzéierungskäschten",
+    "tornAleas": "Bau-Reserve",
+    "tornFraisCommerciaux": "Vermarktungskäschten",
+    "tornHonArchi": "Architektenhonorairen",
+    "tornVoirie": "Erschléissung",
+    "tornadoNote": "Liesen: all Balken weist déi Ännerung vun der Grondlaaschte bei ±10 % vun där Variabel. Méi laang Balken = méi héich Sensitivitéit — konzentréiert Verhandlungen op den Top 3."
   },
   "marche": {
     "title": "Marchédatebank",

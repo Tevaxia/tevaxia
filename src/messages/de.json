@@ -1180,7 +1180,11 @@
       "faq4a": "Nein, der Bellegen Akt-Kredit kann nur einmal pro Person genutzt werden. Bei Weiterverkauf und erneutem Kauf gibt es keinen erneuten Anspruch, außer bei Scheidung mit gerichtlicher Teilung.",
       "faq5q": "Wann werden die Erwerbskosten bezahlt?",
       "faq5a": "Die Kosten werden bei der Unterzeichnung der notariellen Urkunde bezahlt. Der Notar sammelt alle Gebühren und Steuern ein und leitet sie an die zuständigen Behörden weiter. Die Zahlung erfolgt in der Regel 2-3 Monate nach dem Vorvertrag."
-    }
+    },
+    "nonResident": "Ich bin nicht luxemburgischer Steueransässiger",
+    "nonResidentHint": "Grenzgänger FR/BE/DE oder Ansässiger eines anderen Landes.",
+    "nonResidentDisclaimerTitle": "Nicht-Ansässigen-Regelung",
+    "nonResidentDisclaimerText": "Kein Bëllegen Akt und keine 3 % MwSt (nur für Hauptwohnsitz in LU). Künftige Veräußerungsgewinne unterliegen dem Steuerabkommen zwischen LU und Ihrem Wohnsitzland (Vermeidung Doppelbesteuerung). Steuerberater konsultieren (Vermögensteuer, Quellensteuer, Abkommen)."
   },
   "plusValues": {
     "title": "Wertzuwachssteuerrechner",
@@ -1662,7 +1666,12 @@
       "faq3A": "Der strukturelle Leerstand entspricht dem durchschnittlichen Wiedervermietungszeitraum zwischen Mietern. In Luxemburg beträgt der strukturelle Leerstand bei Prime-Büros etwa 3 bis 6 Monate (Leerstand von 2,5 bis 5 %). Bei Sekundärbüros kann er 12 Monate erreichen. Unser Tool wendet diesen Leerstandssatz nur während der mietvertragsweise identifizierten Wiedervermietungszeiträume auf die ERV an.",
       "faq4Q": "Welchen Analysehorizont sollte ich für eine Immobilien-DCF wählen?",
       "faq4A": "Der Standardhorizont beträgt 10 Jahre, entsprechend der typischen Gewerbemietvertragsdauer in Luxemburg. Für Objekte mit sehr langen Mietverträgen (15-25 Jahre, häufig in Logistik oder öffentlichem Sektor) kann er auf 15 Jahre verlängert werden. Ein kürzerer Horizont (5-7 Jahre) wird für Value-Add- oder opportunistische Strategien verwendet. Entscheidend ist, dass der Horizont mindestens einen vollständigen Mietvertragserneuerungszyklus abdeckt."
-    }
+    },
+    "sensitivityTitle": "Sensitivitätsmatrix",
+    "sensitivitySubtitle": "DCF-Wert je nach Diskontsatz und Exit-Cap-Rate (±2 pp um aktuelle Annahmen).",
+    "capRate": "Exit-Cap",
+    "discountRate": "Diskontsatz",
+    "sensitivityNote": "Grün = höherer Wert / rot = niedriger als zentrale Annahme (marineblau). Argus Enterprise / Forbury Standard für Robustheitsbewertung."
   },
   "carte": {
     "title": "Immobilienpreiskarte",
@@ -2015,7 +2024,18 @@
       "faq3A": "Das Vermarktungsrisiko ist ein Hauptrisiko in der Projektentwicklung. Bewährte Praktiken in Luxemburg umfassen: Vorvermietung/-verkauf (Ziel: 30-40 % Reservierungen vor Baubeginn), Nutzung eines VEFA-Vertrags gemäß dem Gesetz vom 18. April 2008, Diversifizierung des Angebots und eine aufschiebende Bedingung im Grundstücksvertrag, die an die Vorverkaufsquote geknüpft ist.",
       "faq4Q": "Wie lang ist die durchschnittliche Projektdauer in Luxemburg?",
       "faq4A": "Die Gesamtdauer eines Bauträgerprojekts in Luxemburg beträgt typischerweise 4 bis 7 Jahre. Die Genehmigung des PAP kann 12 bis 24 Monate dauern. Die Baugenehmigung erfordert weitere 3 bis 12 Monate. Die Bauzeit selbst beträgt 18 bis 30 Monate für ein Projekt mit 20 bis 50 Einheiten. Die Vermarktung beginnt idealerweise 6 bis 12 Monate vor der Fertigstellung."
-    }
+    },
+    "tornadoTitle": "Tornado-Chart — ±10 % Einfluss je Variable",
+    "tornadoSubtitle": "Variablen nach Wirkung auf Grundstücksbudget sortiert. Rot = ungünstig, grün = günstig.",
+    "tornPrixVente": "Verkaufspreis €/m²",
+    "tornCoutConstruction": "Baukosten €/m²",
+    "tornMargePromoteur": "Bauträger-Marge",
+    "tornFraisFinanciers": "Finanzierungskosten",
+    "tornAleas": "Bau-Reserve",
+    "tornFraisCommerciaux": "Vermarktungskosten",
+    "tornHonArchi": "Architektenhonorare",
+    "tornVoirie": "Erschließung",
+    "tornadoNote": "Lesen: jede Balkenlänge zeigt, wie das Grundstücksbudget auf ±10 % der Variable reagiert. Längere Balken = höhere Sensitivität — Verhandlung auf Top 3 konzentrieren."
   },
   "marche": {
     "title": "Marktdatenbank",

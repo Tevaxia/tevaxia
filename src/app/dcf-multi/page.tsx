@@ -334,6 +334,83 @@ export default function DCFMulti() {
               prompt="Analyse ce DCF multi-baux pour un investisseur immobilier au Luxembourg. Livre : (1) qualité du cash-flow actuel (WAULT, risque locatif, vacance, reversion potentielle), (2) sensibilité de la valeur DCF aux hypothèses clés (taux actualisation, cap sortie, probabilités de renouvellement), (3) positionnement IRR vs attentes marché investisseurs institutionnels LU (commercial ~5-7%, bureau prime ~4-5%), (4) recommandation d'acquisition (prix max, conditions suspensives, clauses à négocier). Reste chiffré et actionnable."
             />
 
+            {/* Sensibilité cap rate × taux actualisation */}
+            <div className="rounded-xl border border-card-border bg-card shadow-sm p-5">
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <div>
+                  <h3 className="text-base font-semibold text-navy">{t("sensitivityTitle")}</h3>
+                  <p className="mt-0.5 text-xs text-muted">{t("sensitivitySubtitle")}</p>
+                </div>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="min-w-full text-xs">
+                  <thead>
+                    <tr>
+                      <th className="px-2 py-1.5 text-left text-muted font-semibold">
+                        {t("capRate")} \ {t("discountRate")}
+                      </th>
+                      {[-2, -1, 0, 1, 2].map((d) => {
+                        const dr = tauxActu + d;
+                        return (
+                          <th key={d} className={`px-2 py-1.5 text-right text-xs font-mono ${d === 0 ? "text-navy font-bold" : "text-muted"}`}>
+                            {dr.toFixed(1)}%
+                          </th>
+                        );
+                      })}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[-2, -1, 0, 1, 2].map((c) => {
+                      const capR = tauxCapSortie + c;
+                      return (
+                        <tr key={c} className="border-t border-card-border/50">
+                          <td className={`px-2 py-1.5 text-xs font-mono ${c === 0 ? "text-navy font-bold" : "text-muted"}`}>
+                            {capR.toFixed(1)}%
+                          </td>
+                          {[-2, -1, 0, 1, 2].map((d) => {
+                            const drLocal = tauxActu + d;
+                            const res = calculerDCFLeases({
+                              leases,
+                              periodeAnalyse,
+                              tauxActualisation: drLocal,
+                              tauxCapSortie: capR,
+                              fraisCessionPct: fraisCession,
+                              chargesProprietaireFixe: chargesProprio,
+                              vacanceERV,
+                              dateValeur,
+                            });
+                            const delta = res.valeurDCF - result.valeurDCF;
+                            const pct = result.valeurDCF > 0 ? (delta / result.valeurDCF) * 100 : 0;
+                            const isCurrent = c === 0 && d === 0;
+                            const bg =
+                              isCurrent ? "bg-navy text-white font-bold" :
+                              pct >= 10 ? "bg-emerald-100 text-emerald-900" :
+                              pct >= 3 ? "bg-emerald-50 text-emerald-800" :
+                              pct <= -10 ? "bg-rose-100 text-rose-900" :
+                              pct <= -3 ? "bg-rose-50 text-rose-800" :
+                              "bg-slate-50 text-slate-700";
+                            return (
+                              <td key={d} className={`px-2 py-1.5 text-right font-mono tabular-nums ${bg}`}>
+                                <div>{formatEUR(res.valeurDCF)}</div>
+                                {!isCurrent && (
+                                  <div className="text-[9px] opacity-70">
+                                    {pct > 0 ? "+" : ""}{pct.toFixed(1)}%
+                                  </div>
+                                )}
+                              </td>
+                            );
+                          })}
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-3 text-[10px] text-muted">
+                {t("sensitivityNote")}
+              </p>
+            </div>
+
             {/* Cash flows annuels */}
             <div className="rounded-xl border border-card-border bg-card shadow-sm overflow-x-auto">
               <table className="w-full text-xs">

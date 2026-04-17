@@ -20,8 +20,13 @@ export default function FraisAcquisition() {
   const [estNeuf, setEstNeuf] = useState(false);
   const [partTerrain, setPartTerrain] = useState(250000);
   const [residencePrincipale, setResidencePrincipale] = useState(true);
+  const [nonResident, setNonResident] = useState(false);
   const [nbAcquereurs, setNbAcquereurs] = useState<1 | 2>(2);
   const [montantHypotheque, setMontantHypotheque] = useState(600000);
+
+  // Un non-résident fiscal LU ne peut pas déclarer le bien comme RP LU
+  // (sauf cas rares de détachement). On force donc residencePrincipale = false.
+  const effRP = nonResident ? false : residencePrincipale;
 
   const partConstruction = prixBien - partTerrain;
 
@@ -32,11 +37,11 @@ export default function FraisAcquisition() {
         estNeuf,
         partTerrain: estNeuf ? partTerrain : undefined,
         partConstruction: estNeuf ? partConstruction : undefined,
-        residencePrincipale,
+        residencePrincipale: effRP,
         nbAcquereurs,
         montantHypotheque,
       }),
-    [prixBien, estNeuf, partTerrain, partConstruction, residencePrincipale, nbAcquereurs, montantHypotheque]
+    [prixBien, estNeuf, partTerrain, partConstruction, effRP, nbAcquereurs, montantHypotheque]
   );
 
   return (
@@ -98,11 +103,25 @@ export default function FraisAcquisition() {
               <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionAcquereur")}</h2>
               <div className="space-y-4">
                 <ToggleField
-                  label={t("residencePrincipale")}
-                  checked={residencePrincipale}
-                  onChange={setResidencePrincipale}
-                  hint={t("residencePrincipaleHint")}
+                  label={t("nonResident")}
+                  checked={nonResident}
+                  onChange={setNonResident}
+                  hint={t("nonResidentHint")}
                 />
+                {!nonResident && (
+                  <ToggleField
+                    label={t("residencePrincipale")}
+                    checked={residencePrincipale}
+                    onChange={setResidencePrincipale}
+                    hint={t("residencePrincipaleHint")}
+                  />
+                )}
+                {nonResident && (
+                  <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-900">
+                    <strong className="block mb-1">{t("nonResidentDisclaimerTitle")}</strong>
+                    {t("nonResidentDisclaimerText")}
+                  </div>
+                )}
                 <InputField
                   label={t("nbAcquereurs")}
                   type="select"
@@ -157,7 +176,7 @@ export default function FraisAcquisition() {
                   { label: t("baseTva"), value: formatEUR(result.tvaApplicable), sub: true },
                   {
                     label: t("tauxApplique"),
-                    value: residencePrincipale ? t("tauxReduit") : t("tauxNormal"),
+                    value: effRP ? t("tauxReduit") : t("tauxNormal"),
                   },
                   { label: t("montantTva"), value: formatEUR(result.montantTva) },
                   ...(result.faveurFiscaleTva > 0

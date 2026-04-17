@@ -246,6 +246,75 @@ export default function BilanPromoteur() {
     );
   }, [prixVenteM2, coutConstructionM2, fraisFinanciers, computeScenario]);
 
+  // Tornado: impact ±10 % de chaque variable sur la charge foncière
+  const tornadoData = useMemo(() => {
+    const baseCharge = result.chargeFonciere;
+
+    const variants = [
+      { key: "prixVenteM2", labelKey: "tornPrixVente", base: prixVenteM2 },
+      { key: "coutConstructionM2", labelKey: "tornCoutConstruction", base: coutConstructionM2 },
+      { key: "margePromoteur", labelKey: "tornMargePromoteur", base: margePromoteur },
+      { key: "fraisFinanciers", labelKey: "tornFraisFinanciers", base: fraisFinanciers },
+      { key: "aleas", labelKey: "tornAleas", base: aleas },
+      { key: "fraisCommerciaux", labelKey: "tornFraisCommerciaux", base: fraisCommerciaux },
+      { key: "honorairesArchitecte", labelKey: "tornHonArchi", base: honorairesArchitecte },
+      { key: "voirie", labelKey: "tornVoirie", base: voirie },
+    ];
+
+    const recompute = (overrideKey: string, overrideVal: number) => {
+      const pv = overrideKey === "prixVenteM2" ? overrideVal : prixVenteM2;
+      const cc = overrideKey === "coutConstructionM2" ? overrideVal : coutConstructionM2;
+      const mp = overrideKey === "margePromoteur" ? overrideVal : margePromoteur;
+      const ff = overrideKey === "fraisFinanciers" ? overrideVal : fraisFinanciers;
+      const al = overrideKey === "aleas" ? overrideVal : aleas;
+      const fc = overrideKey === "fraisCommerciaux" ? overrideVal : fraisCommerciaux;
+      const ha = overrideKey === "honorairesArchitecte" ? overrideVal : honorairesArchitecte;
+      const vv = overrideKey === "voirie" ? overrideVal : voirie;
+
+      const caLogements = surfaceVendable * pv;
+      const caTotal = caLogements + nbParkings * prixParking;
+      const coutTerrain = coutTerrainConnu ? surfaceTerrain * prixTerrainM2 : 0;
+      const coutsConstruction = surfaceBrute * cc;
+      const coutsArchitecte = coutsConstruction * (ha / 100);
+      const coutsBET = coutsConstruction * (honorairesBET / 100);
+      const coutsAleas = coutsConstruction * (al / 100);
+      const coutsLotissement = typeOperation !== "immeuble" ? fraisGeometre + fraisLotissement : 0;
+      const totalConstruction = coutsConstruction + vv + coutsArchitecte + coutsBET + etudesAutres + coutsAleas + coutsLotissement;
+      const fCommerciaux = caTotal * (fc / 100);
+      const fFinanciers = (totalConstruction + caTotal * mp / 100) * (ff / 100);
+      const fAssurances = coutsConstruction * (assurances / 100);
+      const fGestion = caTotal * (fraisGestion / 100);
+      const totalFrais = fCommerciaux + fFinanciers + fAssurances + fGestion;
+      const margeMontant = caTotal * (mp / 100);
+      return caTotal - totalConstruction - totalFrais - margeMontant - coutTerrain;
+    };
+
+    return variants
+      .map((v) => {
+        const low = recompute(v.key, v.base * 0.9);
+        const high = recompute(v.key, v.base * 1.1);
+        const deltaLow = low - baseCharge;
+        const deltaHigh = high - baseCharge;
+        return {
+          labelKey: v.labelKey,
+          low: Math.min(deltaLow, deltaHigh),
+          high: Math.max(deltaLow, deltaHigh),
+          range: Math.abs(deltaHigh - deltaLow),
+        };
+      })
+      .sort((a, b) => b.range - a.range);
+  }, [
+    result.chargeFonciere, prixVenteM2, coutConstructionM2, margePromoteur, fraisFinanciers, aleas,
+    fraisCommerciaux, honorairesArchitecte, voirie, surfaceVendable, nbParkings, prixParking,
+    coutTerrainConnu, surfaceTerrain, prixTerrainM2, surfaceBrute, honorairesBET, typeOperation,
+    fraisGeometre, fraisLotissement, etudesAutres, assurances, fraisGestion,
+  ]);
+
+  const tornadoMax = useMemo(
+    () => Math.max(...tornadoData.map((t) => Math.max(Math.abs(t.low), Math.abs(t.high))), 1),
+    [tornadoData],
+  );
+
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -680,6 +749,54 @@ export default function BilanPromoteur() {
                 <span className="inline-flex items-center gap-1"><span className="inline-block h-2.5 w-2.5 rounded bg-green-200" /> {t("sensitivityGreen")}</span>
                 <span className="inline-flex items-center gap-1"><span className="inline-block h-2.5 w-2.5 rounded bg-amber-200" /> {t("sensitivityYellow")}</span>
                 <span className="inline-flex items-center gap-1"><span className="inline-block h-2.5 w-2.5 rounded bg-red-200" /> {t("sensitivityRed")}</span>
+              </div>
+
+              {/* Tornado chart */}
+              <div className="mt-6 border-t border-card-border pt-4">
+                <h4 className="mb-1 text-sm font-semibold text-slate">{t("tornadoTitle")}</h4>
+                <p className="mb-3 text-[11px] text-muted">{t("tornadoSubtitle")}</p>
+                <div className="space-y-1.5">
+                  {tornadoData.map((row) => {
+                    const lowPct = (row.low / tornadoMax) * 50;
+                    const highPct = (row.high / tornadoMax) * 50;
+                    return (
+                      <div key={row.labelKey} className="grid grid-cols-[120px_1fr_110px] items-center gap-2 text-[11px]">
+                        <div className="text-right text-slate truncate" title={t(row.labelKey)}>{t(row.labelKey)}</div>
+                        <div className="relative h-5 bg-slate-50 rounded">
+                          <div className="absolute top-0 bottom-0 left-1/2 w-px bg-slate-300" />
+                          {row.low < 0 && (
+                            <div
+                              className="absolute top-0 bottom-0 bg-rose-400/70 rounded-l"
+                              style={{ right: "50%", width: `${Math.abs(lowPct)}%` }}
+                            />
+                          )}
+                          {row.high > 0 && (
+                            <div
+                              className="absolute top-0 bottom-0 bg-emerald-400/70 rounded-r"
+                              style={{ left: "50%", width: `${highPct}%` }}
+                            />
+                          )}
+                          {row.low > 0 && (
+                            <div
+                              className="absolute top-0 bottom-0 bg-emerald-300/70"
+                              style={{ left: `${50 + lowPct}%`, width: `${highPct - lowPct}%` }}
+                            />
+                          )}
+                          {row.high < 0 && (
+                            <div
+                              className="absolute top-0 bottom-0 bg-rose-300/70"
+                              style={{ right: `${50 - highPct}%`, width: `${lowPct - highPct}%` }}
+                            />
+                          )}
+                        </div>
+                        <div className="text-right font-mono text-muted tabular-nums">
+                          {formatEUR(Math.round(row.low))} / {formatEUR(Math.round(row.high))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <p className="mt-3 text-[10px] text-muted">{t("tornadoNote")}</p>
               </div>
             </div>
           </div>

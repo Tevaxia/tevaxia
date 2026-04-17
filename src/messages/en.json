@@ -1180,7 +1180,11 @@
       "faq4a": "No, the Bellegen Akt credit can only be used once per person. If you resell and repurchase, you cannot benefit from it a second time, except in cases of divorce with judicial partition.",
       "faq5q": "When are acquisition costs paid?",
       "faq5a": "The costs are paid when signing the authentic deed at the notary. The notary collects all duties, taxes and fees and transfers them to the relevant authorities. Payment typically occurs 2-3 months after the preliminary sale agreement."
-    }
+    },
+    "nonResident": "I am not a Luxembourg tax resident",
+    "nonResidentHint": "Cross-border worker FR/BE/DE or resident of another country.",
+    "nonResidentDisclaimerTitle": "Non-resident regime",
+    "nonResidentDisclaimerText": "No Bëllegen Akt or 3 % VAT (both reserved to primary residence in LU). Any future capital gain on resale will be governed by the tax treaty between LU and your country of residence (double-taxation relief). Consult a tax adviser for your specific situation (wealth tax, withholding, treaty)."
   },
   "plusValues": {
     "title": "Capital Gains Tax Calculator",
@@ -1662,7 +1666,12 @@
       "faq3A": "Structural vacancy represents the average reletting period between tenants. In Luxembourg, for prime offices, structural vacancy is around 3 to 6 months (vacancy of 2.5 to 5%). For secondary offices, it can reach 12 months. Our tool applies this vacancy rate to the ERV only during reletting periods identified on a lease-by-lease basis.",
       "faq4Q": "What analysis horizon should I use for a real estate DCF?",
       "faq4A": "The standard horizon is 10 years, corresponding to the typical commercial lease duration in Luxembourg. For assets with very long leases (15-25 years, common in logistics or public sector), it can be extended to 15 years. A shorter horizon (5-7 years) is used for value-add or opportunistic strategies. The key is that the horizon covers at least one full lease renewal cycle."
-    }
+    },
+    "sensitivityTitle": "Sensitivity matrix",
+    "sensitivitySubtitle": "DCF value by discount rate and exit cap rate (±2 pp around current assumptions).",
+    "capRate": "Exit cap",
+    "discountRate": "Disc. rate",
+    "sensitivityNote": "Green = value higher / red = lower than central assumption (navy). Standard Argus Enterprise / Forbury practice to gauge robustness."
   },
   "carte": {
     "title": "Property Price Map",
@@ -2015,7 +2024,18 @@
       "faq3A": "Marketing risk is a major concern in property development. In Luxembourg, best practices include: pre-sales (targeting 30-40% reservations before construction start), use of a VEFA contract compliant with the law of 18 April 2008, product diversification (mix of unit sizes and finishes), and a pre-sale condition in the land purchase agreement. Our tool allows simulation of different sales pace scenarios and their impact on cash flow and margin.",
       "faq4Q": "What is the average timeline for a development project in Luxembourg?",
       "faq4A": "The overall timeline for a development project in Luxembourg is typically 4 to 7 years. Obtaining the PAP (Specific Development Plan) can take 12 to 24 months. The building permit requires an additional 3 to 12 months. Construction itself takes 18 to 30 months for a 20 to 50-unit project. Marketing ideally begins 6 to 12 months before delivery. These long timelines tie up capital and increase financing costs, which our tool incorporates into the project balance sheet."
-    }
+    },
+    "tornadoTitle": "Tornado chart — ±10 % impact per variable",
+    "tornadoSubtitle": "Variables sorted by impact on land charge. Red = adverse, green = favourable.",
+    "tornPrixVente": "Sale price €/sqm",
+    "tornCoutConstruction": "Construction cost €/sqm",
+    "tornMargePromoteur": "Developer margin",
+    "tornFraisFinanciers": "Financing costs",
+    "tornAleas": "Construction contingency",
+    "tornFraisCommerciaux": "Marketing costs",
+    "tornHonArchi": "Architect fees",
+    "tornVoirie": "Civil works",
+    "tornadoNote": "Reading: each bar shows the change in affordable land charge when the variable moves ±10 %. Longer bars = higher sensitivity — focus negotiation on the top 3."
   },
   "marche": {
     "title": "Market Database",

@@ -1180,7 +1180,11 @@
       "faq4a": "Não, o crédito Bellegen Akt só pode ser utilizado uma vez por pessoa. Se revender e recomprar, não pode beneficiar dele uma segunda vez.",
       "faq5q": "Quando são pagos os custos de aquisição?",
       "faq5a": "Os custos são pagos na assinatura da escritura no notário, geralmente 2-3 meses após o contrato-promessa de compra e venda."
-    }
+    },
+    "nonResident": "Não sou residente fiscal luxemburguês",
+    "nonResidentHint": "Trabalhador transfronteiriço FR/BE/DE ou residente noutro país.",
+    "nonResidentDisclaimerTitle": "Regime não-residente",
+    "nonResidentDisclaimerText": "Sem Bëllegen Akt nem IVA 3 % (reservados à residência principal LU). Mais-valias futuras na revenda são regidas pela convenção fiscal entre LU e o seu país de residência (anti-dupla tributação). Consulte um fiscalista para a sua situação (imposto património, retenção, convenção)."
   },
   "plusValues": {
     "title": "Calculador de Mais-Valias Imobiliárias",
@@ -1662,7 +1666,12 @@
       "faq3A": "A vacância estrutural representa o prazo médio de realocação entre inquilinos. No Luxemburgo, para escritórios prime, a vacância estrutural é da ordem de 3 a 6 meses (vacância de 2,5 a 5%). Para escritórios secundários, pode atingir 12 meses. A nossa ferramenta aplica esta taxa de vacância sobre a ERV apenas durante os períodos de realocação identificados contrato a contrato.",
       "faq4Q": "Que horizonte de análise escolher para um DCF imobiliário?",
       "faq4A": "O horizonte padrão é de 10 anos, correspondendo à duração típica dos contratos comerciais no Luxemburgo. Para ativos com contratos muito longos (15-25 anos, frequentes na logística ou no setor público), pode ser alargado para 15 anos. Um horizonte mais curto (5-7 anos) é utilizado para estratégias value-add ou oportunistas. O essencial é que o horizonte cubra pelo menos um ciclo completo de renovação dos contratos."
-    }
+    },
+    "sensitivityTitle": "Matriz de sensibilidade",
+    "sensitivitySubtitle": "Valor DCF consoante taxa de desconto e cap rate de saída (±2 pp das hipóteses actuais).",
+    "capRate": "Cap saída",
+    "discountRate": "Taxa actual.",
+    "sensitivityNote": "Verde = valor superior / vermelho = inferior à hipótese central (azul marinho). Padrão Argus Enterprise / Forbury para robustez."
   },
   "carte": {
     "title": "Mapa de preços imobiliários",
@@ -2015,7 +2024,18 @@
       "faq3A": "O risco de comercialização é maior nas operações de promoção. No Luxemburgo, as boas práticas incluem: pré-comercialização (visar 30-40% de reservas antes do início das obras), recurso a contrato VEFA conforme a lei de 18 de abril de 2008, diversificação da oferta e cláusula suspensiva no compromisso fundiário.",
       "faq4Q": "Qual o prazo médio de uma operação de promoção no Luxemburgo?",
       "faq4A": "O prazo global de uma operação de promoção no Luxemburgo é tipicamente de 4 a 7 anos. A obtenção do PAP pode demorar 12 a 24 meses. A autorização de construção necessita de 3 a 12 meses adicionais. A construção propriamente dita dura 18 a 30 meses para 20 a 50 alojamentos. A comercialização começa idealmente 6 a 12 meses antes da entrega."
-    }
+    },
+    "tornadoTitle": "Tornado chart — impacto ±10 % por variável",
+    "tornadoSubtitle": "Variáveis ordenadas por impacto no encargo fundiário. Vermelho = desfavorável, verde = favorável.",
+    "tornPrixVente": "Preço venda €/m²",
+    "tornCoutConstruction": "Custo construção €/m²",
+    "tornMargePromoteur": "Margem promotor",
+    "tornFraisFinanciers": "Custos financeiros",
+    "tornAleas": "Imprevistos obra",
+    "tornFraisCommerciaux": "Custos comerciais",
+    "tornHonArchi": "Honorários arquitecto",
+    "tornVoirie": "Infraestruturas",
+    "tornadoNote": "Leitura: cada barra mostra a variação do encargo fundiário quando a variável muda ±10 %. Barras mais longas = maior sensibilidade — concentre negociação nas 3 primeiras."
   },
   "marche": {
     "title": "Base de dados de mercado",

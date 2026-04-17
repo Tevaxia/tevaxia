@@ -1180,7 +1180,11 @@
       "faq4a": "Non, le crédit Bëllegen Akt est utilisable une seule fois par personne. Si vous revendez et rachetez, vous ne pouvez pas en bénéficier une seconde fois, sauf en cas de divorce avec partage judiciaire. Il est donc important de bien choisir son premier achat résidentiel.",
       "faq5q": "Quand les frais d'acquisition sont-ils payés ?",
       "faq5a": "Les frais sont payés lors de la signature de l'acte authentique chez le notaire. Celui-ci collecte l'ensemble des droits, taxes et émoluments et les reverse aux administrations concernées. Le paiement intervient en général 2-3 mois après le compromis de vente."
-    }
+    },
+    "nonResident": "Je suis non-résident fiscal luxembourgeois",
+    "nonResidentHint": "Frontalier FR/BE/DE ou résident d'un autre pays.",
+    "nonResidentDisclaimerTitle": "Régime non-résident",
+    "nonResidentDisclaimerText": "Pas de Bëllegen Akt ni TVA 3 % (réservés à la résidence principale au LU). Les plus-values éventuelles à la revente relèvent des conventions fiscales entre le LU et votre pays de résidence (double imposition évitée). Consultez un fiscaliste pour votre situation précise (impôt sur la fortune, retenue à la source, convention)."
   },
   "plusValues": {
     "title": "Calculateur de Plus-Values Immobilières",
@@ -1662,7 +1666,12 @@
       "faq3A": "La vacance structurelle représente le délai moyen de relocation entre deux locataires. Au Luxembourg, pour les bureaux prime, la vacance structurelle est de l'ordre de 3 à 6 mois (vacance de 2,5 à 5 %). Pour les bureaux secondaires, elle peut atteindre 12 mois. Notre outil applique ce taux de vacance sur l'ERV uniquement pendant les périodes de relocation identifiées bail par bail.",
       "faq4Q": "Quel horizon d'analyse retenir pour un DCF immobilier ?",
       "faq4A": "L'horizon standard est de 10 ans, ce qui correspond à la durée typique des baux commerciaux au Luxembourg. Pour des actifs avec des baux très longs (15-25 ans, fréquents dans la logistique ou le public), on peut étendre à 15 ans. Un horizon plus court (5-7 ans) est utilisé pour les stratégies value-add ou opportunistes. L'essentiel est que l'horizon couvre au moins un cycle complet de renouvellement des baux."
-    }
+    },
+    "sensitivityTitle": "Matrice de sensibilité",
+    "sensitivitySubtitle": "Valeur DCF selon le taux d'actualisation et le cap rate de sortie (±2 pp autour des hypothèses actuelles).",
+    "capRate": "Cap sortie",
+    "discountRate": "Taux actu.",
+    "sensitivityNote": "Vert = valeur supérieure / rouge = valeur inférieure à l'hypothèse centrale (bleu marine). Standard Argus Enterprise / Forbury pour évaluer la robustesse de la valorisation."
   },
   "carte": {
     "title": "Carte des prix immobiliers",
@@ -2015,7 +2024,18 @@
       "faq3A": "Le risque de commercialisation est majeur dans une opération de promotion. Au Luxembourg, les bonnes pratiques incluent : la pré-commercialisation (viser 30-40 % de réservations avant le démarrage des travaux), le recours à un contrat VEFA conforme à la loi du 18 avril 2008, la diversification de la gamme (mix de surfaces et de standings), et une clause de condition suspensive dans le compromis foncier liée au taux de pré-vente. Notre outil permet de simuler différents scénarios de rythme de vente et leur impact sur la trésorerie et la marge.",
       "faq4Q": "Quel est le délai moyen d'une opération de promotion au Luxembourg ?",
       "faq4A": "Le délai global d'une opération de promotion au Luxembourg est typiquement de 4 à 7 ans. L'obtention du PAP (Plan d'Aménagement Particulier) peut prendre 12 à 24 mois. L'autorisation de construire nécessite 3 à 12 mois supplémentaires. La construction proprement dite dure 18 à 30 mois pour une opération de 20 à 50 logements. La commercialisation commence idéalement 6 à 12 mois avant la livraison. Ces délais longs immobilisent le capital et augmentent les frais financiers, ce que notre outil intègre dans le bilan prévisionnel."
-    }
+    },
+    "tornadoTitle": "Tornado chart — impact ±10 % par variable",
+    "tornadoSubtitle": "Variables triées par amplitude d'impact sur la charge foncière. Rouge = effet défavorable, vert = favorable.",
+    "tornPrixVente": "Prix vente €/m²",
+    "tornCoutConstruction": "Coût construction €/m²",
+    "tornMargePromoteur": "Marge promoteur",
+    "tornFraisFinanciers": "Frais financiers",
+    "tornAleas": "Aléas travaux",
+    "tornFraisCommerciaux": "Frais commerciaux",
+    "tornHonArchi": "Honoraires architecte",
+    "tornVoirie": "Voirie",
+    "tornadoNote": "Lecture : chaque barre indique la variation de la charge foncière admissible si la variable change de ±10 %. Plus la barre est longue, plus l'opération est sensible à cette variable — concentrez vos négociations sur les 3 premières."
   },
   "marche": {
     "title": "Base de données marché",
