@@ -2218,7 +2218,8 @@
       "faq3a": "Trimestralmente.",
       "faq4q": "Posso exportar os dados?",
       "faq4a": "Sim, em formato CSV e PDF."
-    }
+    },
+    "forecastLink": "Ver previsão 12-48 meses →"
   },
   "valorisation": {
     "pageTitle": "Avaliação Imobiliária EVS 2025",
@@ -7281,5 +7282,29 @@
     "recECSDesc": "60-70 % poupança.",
     "recPV": "Painel PV",
     "recPVDesc": "6 kWp = 6.000-9.000 kWh/ano."
+  },
+  "marcheForecast": {
+    "back": "← Mercado",
+    "title": "Previsão preços imobiliários 12-48 meses",
+    "subtitle": "Projecção 3 cenários por comuna, baseada em tendências STATEC / Observatório Habitação.",
+    "badgeData": "Dados STATEC / Observatório",
+    "badgeDisclaimer": "Projecção indicativa, não garantida",
+    "commune": "Comuna",
+    "communePlaceholder": "Pesquisar comuna luxemburguesa...",
+    "currentPrice": "Preço m² atual",
+    "horizon": "Horizonte:",
+    "months": "meses",
+    "pessimiste": "Pessimista",
+    "central": "Central",
+    "optimiste": "Otimista",
+    "cagrReference": "CAGR histórico 5 anos: {cagr} %/ano",
+    "chartTitle": "Evolução preço/m²",
+    "historical": "Histórico",
+    "chartNote": "Linhas tracejadas = projecções.",
+    "methodTitle": "Metodologia",
+    "methodHistorical": "Histórico nacional STATEC.",
+    "methodRatio": "Ajuste comuna por rácio.",
+    "methodProjection": "Capitalização composta por cenário.",
+    "methodDisclaimer": "Indicativo. Para avaliação oficial /valorisation."
   }
 }

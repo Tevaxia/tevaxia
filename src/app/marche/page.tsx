@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { getAllCommunes, getMarketDataCommune } from "@/lib/market-data";
@@ -834,6 +835,15 @@ export default function MarchePage() {
           <p className="mt-2 text-muted">
             {t("subtitle")}
           </p>
+          <Link
+            href="/marche/forecast"
+            className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-[11px] text-sky-800 hover:bg-sky-100"
+          >
+            <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18 9 11.25l4.306 4.307a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+            </svg>
+            {t("forecastLink")}
+          </Link>
         </div>
 
         {/* Tabs */}

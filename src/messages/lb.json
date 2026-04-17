@@ -2218,7 +2218,8 @@
       "faq3a": "Vereteljeerlech.",
       "faq4q": "Kann ech d'Donneeeen exporteieren?",
       "faq4a": "Jo, als CSV a PDF."
-    }
+    },
+    "forecastLink": "Prognos 12-48 Méint →"
   },
   "valorisation": {
     "pageTitle": "Immobiliëbewäertung EVS 2025",
@@ -7281,5 +7282,29 @@
     "recECSDesc": "60-70 % Aspuerung.",
     "recPV": "PV-Anlag",
     "recPVDesc": "6 kWp = 6.000-9.000 kWh/Joer."
+  },
+  "marcheForecast": {
+    "back": "← Marché",
+    "title": "Prognos Immobilie-Präisser 12-48 Méint",
+    "subtitle": "3-Szenarien-Projektioun pro Gemeng, baséiert op STATEC / Observatoire Donnéeën.",
+    "badgeData": "STATEC Donnéeën",
+    "badgeDisclaimer": "Indikativ, net garantéiert",
+    "commune": "Gemeng",
+    "communePlaceholder": "Lëtzebuerger Gemeng sichen...",
+    "currentPrice": "Aktuellen Präis/m²",
+    "horizon": "Horizont:",
+    "months": "Méint",
+    "pessimiste": "Pessimistesch",
+    "central": "Zentral",
+    "optimiste": "Optimistesch",
+    "cagrReference": "Historesch 5-J CAGR: {cagr} %/J",
+    "chartTitle": "Präis/m² Entwécklung",
+    "historical": "Historesch",
+    "chartNote": "Gestréchelt Linnen = Projektiounen.",
+    "methodTitle": "Methodik",
+    "methodHistorical": "National Historique STATEC.",
+    "methodRatio": "Gemeng Upassung.",
+    "methodProjection": "Zinseszinn pro Szenario.",
+    "methodDisclaimer": "Indikativ. Fir offiziell Evaluatioun /valorisation."
   }
 }

@@ -2218,7 +2218,8 @@
       "faq3a": "Les donnees de prix sont mises a jour trimestriellement, alignees sur les publications de l'Observatoire de l'Habitat et du STATEC.",
       "faq4q": "Peut-on exporter les donnees ?",
       "faq4a": "Oui, les tableaux de donnees sont exportables en CSV et PDF pour une utilisation dans vos propres analyses ou rapports."
-    }
+    },
+    "forecastLink": "Voir les prévisions 12-48 mois →"
   },
   "valorisation": {
     "pageTitle": "Valorisation immobilière EVS 2025",
@@ -7281,5 +7282,29 @@
     "recECSDesc": "Pompe à chaleur eau chaude sanitaire — économie 60-70 % vs électrique. Peut être couplé à la PAC chauffage.",
     "recPV": "Installer des panneaux photovoltaïques",
     "recPVDesc": "Autoproduction + revente surplus. Rentabilité 8-12 ans selon orientation. 6 kWc = 6 000-9 000 kWh/an au Luxembourg."
+  },
+  "marcheForecast": {
+    "back": "← Marché",
+    "title": "Prévisions prix immobilier 12-48 mois",
+    "subtitle": "Projection 3 scénarios (pessimiste, central, optimiste) par commune, basée sur les trends historiques STATEC / Observatoire Habitat. Outil d'aide à la décision pour acheteurs / vendeurs.",
+    "badgeData": "Données STATEC / Observatoire Habitat",
+    "badgeDisclaimer": "Projection indicative, non garantie",
+    "commune": "Commune",
+    "communePlaceholder": "Rechercher une commune luxembourgeoise...",
+    "currentPrice": "Prix m² actuel",
+    "horizon": "Horizon :",
+    "months": "mois",
+    "pessimiste": "Pessimiste",
+    "central": "Central",
+    "optimiste": "Optimiste",
+    "cagrReference": "CAGR historique 5 ans : {cagr} %/an",
+    "chartTitle": "Évolution prix m²",
+    "historical": "Historique (national × ratio commune)",
+    "chartNote": "Courbes en pointillés = projections (zone après le pic historique). Les projections supposent une croissance constante ; la réalité comporte des inflexions (crise de taux, réforme fiscale, accord tripartite, cycle économique).",
+    "methodTitle": "Méthodologie",
+    "methodHistorical": "Historique national : PRIX_MOYEN_M2 STATEC/Observatoire 2015-2026, interpolé mensuellement pour la visualisation.",
+    "methodRatio": "Ajustement commune : ratio prix commune actuel / prix national actuel appliqué à l'historique (approximation — le ratio varie dans le temps dans la réalité).",
+    "methodProjection": "Projection : croissance annuelle composée selon chaque scénario, convertie en taux mensuel.",
+    "methodDisclaimer": "Outil indicatif. Pour une évaluation officielle ou une décision d'investissement, consultez un évaluateur certifié TEGOVA REV/TRV ou utilisez /valorisation EVS 2025."
   }
 }

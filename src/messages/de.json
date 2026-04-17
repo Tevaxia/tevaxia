@@ -2218,7 +2218,8 @@
       "faq3a": "Preisdaten werden vierteljaehrlich aktualisiert.",
       "faq4q": "Kann ich die Daten exportieren?",
       "faq4a": "Ja, als CSV und PDF."
-    }
+    },
+    "forecastLink": "Prognose 12-48 Monate →"
   },
   "valorisation": {
     "pageTitle": "Immobilienbewertung EVS 2025",
@@ -7281,5 +7282,29 @@
     "recECSDesc": "60-70 % Einsparung.",
     "recPV": "PV-Anlage",
     "recPVDesc": "6 kWp = 6.000-9.000 kWh/Jahr LU."
+  },
+  "marcheForecast": {
+    "back": "← Markt",
+    "title": "Immobilienpreis-Prognose 12-48 Monate",
+    "subtitle": "3-Szenarien-Projektion (pessimistisch, zentral, optimistisch) pro Gemeinde, basierend auf STATEC / Wohnbeobachtung historischen Trends.",
+    "badgeData": "STATEC / Wohnbeobachtung Daten",
+    "badgeDisclaimer": "Indikative Projektion, nicht garantiert",
+    "commune": "Gemeinde",
+    "communePlaceholder": "Luxemburger Gemeinde suchen...",
+    "currentPrice": "Aktueller Preis/m²",
+    "horizon": "Horizont:",
+    "months": "Monate",
+    "pessimiste": "Pessimistisch",
+    "central": "Zentral",
+    "optimiste": "Optimistisch",
+    "cagrReference": "Historische 5-J-CAGR: {cagr} %/J",
+    "chartTitle": "Preis/m² Entwicklung",
+    "historical": "Historie (national × Gemeindeverhältnis)",
+    "chartNote": "Gestrichelte Linien = Projektionen.",
+    "methodTitle": "Methodik",
+    "methodHistorical": "Nationale Historie STATEC/Observatoire.",
+    "methodRatio": "Gemeindeanpassung durch Verhältnis.",
+    "methodProjection": "Zinseszins pro Szenario.",
+    "methodDisclaimer": "Indikativ. Für offizielle Bewertung /valorisation EVS 2025."
   }
 }

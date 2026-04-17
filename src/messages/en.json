@@ -2218,7 +2218,8 @@
       "faq3a": "Price data is updated quarterly, aligned with Housing Observatory and STATEC publications.",
       "faq4q": "Can I export the data?",
       "faq4a": "Yes, data tables are exportable in CSV and PDF formats."
-    }
+    },
+    "forecastLink": "See 12-48 month forecast →"
   },
   "valorisation": {
     "pageTitle": "Property Valuation EVS 2025",
@@ -7281,5 +7282,29 @@
     "recECSDesc": "HPWH — 60-70 % savings vs electric. Can be coupled with heating HP.",
     "recPV": "Install photovoltaic panels",
     "recPVDesc": "Self-consumption + surplus export. Payback 8-12 yrs. 6 kWp = 6,000-9,000 kWh/yr in Luxembourg."
+  },
+  "marcheForecast": {
+    "back": "← Market",
+    "title": "Real estate price forecast 12-48 months",
+    "subtitle": "3-scenario projection (pessimistic, central, optimistic) by commune, based on STATEC / Housing Observatory historical trends.",
+    "badgeData": "STATEC / Housing Observatory data",
+    "badgeDisclaimer": "Indicative projection, not guaranteed",
+    "commune": "Commune",
+    "communePlaceholder": "Search a Luxembourg commune...",
+    "currentPrice": "Current price/sqm",
+    "horizon": "Horizon:",
+    "months": "months",
+    "pessimiste": "Pessimistic",
+    "central": "Central",
+    "optimiste": "Optimistic",
+    "cagrReference": "5-year historical CAGR: {cagr} %/yr",
+    "chartTitle": "Price/sqm evolution",
+    "historical": "Historical (national × commune ratio)",
+    "chartNote": "Dashed lines = projections. Assumes constant growth; reality includes inflections (rate crises, fiscal reform, economic cycle).",
+    "methodTitle": "Methodology",
+    "methodHistorical": "National history: STATEC/Observatory PRIX_MOYEN_M2 2015-2026, monthly interpolation.",
+    "methodRatio": "Commune adjustment: current commune/national ratio applied to history.",
+    "methodProjection": "Projection: compound annual growth per scenario.",
+    "methodDisclaimer": "Indicative tool. For official valuation use /valorisation EVS 2025 or a TEGOVA REV/TRV expert."
   }
 }
