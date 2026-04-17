@@ -1109,6 +1109,23 @@ En attendant la société, voies opérationnelles :
 
 ---
 
+### Livrables 10e session 2026-04-17 (gaps résiduels — 10 items)
+
+| Chantier | Module | Commit |
+|---|---|---|
+| ✅ **/outils-bancaires remboursement anticipé** — tableau complet indemnité remploi LU (max 6 mois d'intérêts), stratégie durée vs mensualité, break-even + 14 tests Vitest | Bancaire | `82219ae` |
+| ✅ **/convertisseur-surfaces terrain PAG** — section cadastral → constructible (COS/CMU) × zone PAG + retrait voirie + espace vert | Surfaces | `82219ae` |
+| ✅ **/energy/hvac PAC eau-eau** (aquathermie) — 3 produits Viessmann/Waterkotte/Stiebel + SCOP 5.0+ + Klimabonus aligné géothermique | Énergie | `82219ae` |
+| ✅ **/hedonique IC 95 %** + significativité statistique (ns/*/**/***) sur 14 coefficients, erreurs-types bootstrap ACT 2018-2024 | Hédonique | `82219ae` |
+| ✅ **/calculateur-loyer mode copropriété** — toggle + tantièmes/total + travaux collectifs capitalisés intégrés au capital investi au prorata | Loyer | `e1738f3` |
+| ✅ **/propcalc démo cashflow 10 ans** — ComposedChart live avec 5 pays par défaut, sliders apport/taux, KPI rendement/cash-on-cash | PropCalc | `e1738f3` |
+| ✅ **/dcf-multi courbe de liquidité** — NOI annuel + cashflow distribuable (NOI − service dette − CAPEX) + cumul | DCF | `f619310` |
+| ✅ **/dcf-multi vue mensuelle lease-by-lease** — table 12 mois × N baux année 1 avec indexation et franchises | DCF | `f619310` |
+| ✅ **Partage analytics** (/profil/liens-partages) — Migration 033 + RPC `get_shared_link_timeline` + sparkline 30 jours par lien, RGPD-compliant (jour only) | Partage | `425e3cd` |
+| ✅ **/portfolio export fiscal LU 100 F** — CSV annexe 190 revenus locatifs avec intérêts/PNO/taxe/gestion/amortissement + totaux | Portfolio | `9c55201` |
+
+Total session 10 : **+10 gaps BENCHMARK livrés** (FR/EN/DE/PT/LB), **+14 tests Vitest** (561 total), type-check clean.
+
 ### Livrables 9e session 2026-04-17 (OpenAPI + stats agences + tests)
 
 | Chantier | Module | Commit |
