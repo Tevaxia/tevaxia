@@ -1679,7 +1679,12 @@
     "stressLoyer10": "Mutt & ERV -10 %",
     "stressTaux200": "Disk +200bp / Cap +100bp",
     "stressCombo": "Kombinéiert (-15 %, Zënsen +100bp, Liidlech +3pp)",
-    "stressNote": "Standard Argus Enterprise / Forbury fir Investor Due Diligence. Aktiv gréng op all 4 = defensiv; rout op ≥ 2 = Räbatt oder Konditiounen suspensiv froen."
+    "stressNote": "Standard Argus Enterprise / Forbury fir Investor Due Diligence. Aktiv gréng op all 4 = defensiv; rout op ≥ 2 = Räbatt oder Konditiounen suspensiv froen.",
+    "csvTemplate": "CSV-Template",
+    "csvTemplateHint": "CSV-Template eroflueden, fir e Portefeuille ze importéieren",
+    "csvImport": "CSV importéieren",
+    "csvNoRows": "Keng gülteg Zeilen am CSV-Fichier erkannt.",
+    "csvReadError": "Fichier konnt net gelies ginn."
   },
   "carte": {
     "title": "Immobiliëpräiskart",
@@ -3540,7 +3545,9 @@
       "faq3A": "12 bis 18 Méint fir en Eefamillenhaus, 18 bis 24 Méint fir e klengt Méifamillenhaus, 24 bis 36 Méint fir e grousst Projet. Eng Planungsreserv vu 15 bis 20 % ass ratsam.",
       "faq4Q": "Wéivill Prozent fir Architektenhonorar?",
       "faq4A": "8 bis 12 % vun de Baukäschten (ouni MwSt.) fir e Wunnprojet. Ingeniéierbüroen kommen nach 3 bis 5 % dobäi."
-    }
+    },
+    "exporterBordereau": "Borderau CSV",
+    "bordereauHint": "Borderau pro Gewierk eroflueden (Excel-kompatibel)"
   },
   "calculateurVrd": {
     "title": "VRD-Schätzer — Ingenieurbüro",

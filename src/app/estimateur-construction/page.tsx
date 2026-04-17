@@ -395,28 +395,75 @@ export default function EstimateurConstruction() {
               </div>
             </div>
 
-            <PdfButton
-              label="PDF"
-              filename={`estimateur-construction-${new Date().toLocaleDateString("fr-LU")}.pdf`}
-              generateBlob={() => generateConstructionPdfBlob({
-                surfaceBrute,
-                typeBatiment,
-                classeEnergetique,
-                niveauFinition,
-                categories: result.totalParCategorie.map(c => ({ nom: t(c.nomKey), total: c.total, pct: c.pct })),
-                totalConstruction: result.totalConstruction,
-                coutM2Construction: result.coutM2Construction,
-                fraisArchitecte: result.fraisArchitecte,
-                fraisBET: result.fraisBET,
-                etudesSol,
-                raccordements,
-                amenagementExt,
-                fraisAleas: result.fraisAleas,
-                totalFraisAnnexes: result.totalFraisAnnexes,
-                totalProjet: result.totalProjet,
-                coutM2Total: result.coutM2Total,
-              })}
-            />
+            <div className="flex flex-wrap gap-2 justify-center">
+              <PdfButton
+                label="PDF"
+                filename={`estimateur-construction-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                generateBlob={() => generateConstructionPdfBlob({
+                  surfaceBrute,
+                  typeBatiment,
+                  classeEnergetique,
+                  niveauFinition,
+                  categories: result.totalParCategorie.map(c => ({ nom: t(c.nomKey), total: c.total, pct: c.pct })),
+                  totalConstruction: result.totalConstruction,
+                  coutM2Construction: result.coutM2Construction,
+                  fraisArchitecte: result.fraisArchitecte,
+                  fraisBET: result.fraisBET,
+                  etudesSol,
+                  raccordements,
+                  amenagementExt,
+                  fraisAleas: result.fraisAleas,
+                  totalFraisAnnexes: result.totalFraisAnnexes,
+                  totalProjet: result.totalProjet,
+                  coutM2Total: result.coutM2Total,
+                })}
+              />
+              <button
+                onClick={() => {
+                  // Bordereau Excel/CSV : 1 ligne par poste, prêt à envoyer aux entreprises
+                  const sep = ";"; // Excel FR
+                  const lines: string[] = [];
+                  lines.push(["Catégorie","Corps de métier","Prix €/m²","Quantité m²","Total €","% du total"].join(sep));
+                  for (const cat of result.totalParCategorie) {
+                    lines.push([t(cat.nomKey),"","","",Math.round(cat.total).toString(),`${(cat.pct*100).toFixed(1)}%`].join(sep));
+                    for (const tr of cat.trades) {
+                      const pct = result.totalConstruction > 0 ? tr.total / result.totalConstruction : 0;
+                      lines.push([
+                        "",
+                        t(tr.nomKey),
+                        tr.coutAjuste.toString(),
+                        surfaceBrute.toString(),
+                        Math.round(tr.total).toString(),
+                        `${(pct*100).toFixed(1)}%`,
+                      ].join(sep));
+                    }
+                  }
+                  lines.push(["","","","Total construction",Math.round(result.totalConstruction).toString(),""].join(sep));
+                  lines.push(["","","","Honoraires architecte",Math.round(result.fraisArchitecte).toString(),""].join(sep));
+                  lines.push(["","","","Honoraires BET",Math.round(result.fraisBET).toString(),""].join(sep));
+                  lines.push(["","","","Études sol",etudesSol.toString(),""].join(sep));
+                  lines.push(["","","","Raccordements",raccordements.toString(),""].join(sep));
+                  lines.push(["","","","Aménagements ext.",amenagementExt.toString(),""].join(sep));
+                  lines.push(["","","","Aléas",Math.round(result.fraisAleas).toString(),""].join(sep));
+                  lines.push(["","","","TOTAL PROJET",Math.round(result.totalProjet).toString(),"100%"].join(sep));
+                  const csv = "\uFEFF" + lines.join("\n"); // BOM for Excel
+                  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+                  const url = URL.createObjectURL(blob);
+                  const a = document.createElement("a");
+                  a.href = url;
+                  a.download = `bordereau-construction-${new Date().toLocaleDateString("fr-LU")}.csv`;
+                  a.click();
+                  URL.revokeObjectURL(url);
+                }}
+                className="rounded-lg border border-card-border bg-card px-3 py-2 text-sm font-medium text-navy hover:bg-slate-50 inline-flex items-center gap-1.5"
+                title={t("bordereauHint")}
+              >
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                </svg>
+                {t("exporterBordereau")}
+              </button>
+            </div>
 
             {/* --- Coût de construction --- */}
             <ResultPanel

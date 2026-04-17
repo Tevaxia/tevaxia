@@ -79,6 +79,65 @@ export default function DCFMulti() {
     setLeases((prev) => prev.filter((_, i) => i !== index));
   };
 
+  const [csvError, setCsvError] = useState<string | null>(null);
+  const handleImportCsv = (file: File) => {
+    setCsvError(null);
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const text = String(reader.result ?? "");
+        const lines = text.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+        // Detect header
+        const hasHeader = /locataire|tenant/i.test(lines[0] ?? "");
+        const dataLines = hasHeader ? lines.slice(1) : lines;
+        const imported: Lease[] = [];
+        for (const [idx, line] of dataLines.entries()) {
+          const cols = line.split(/[,;\t]/).map((c) => c.trim());
+          // Expected: locataire, surface, loyerAnnuel, dateDebut, dateFin, indexation, ervM2, probaRenouv, franchiseMois, chargesLocataire
+          if (cols.length < 5) continue;
+          const lease: Lease = {
+            id: `csv-${Date.now()}-${idx}`,
+            locataire: cols[0] || `Locataire ${idx + 1}`,
+            surface: Number(cols[1]) || 0,
+            loyerAnnuel: Number(cols[2]) || 0,
+            dateDebut: cols[3] || "2026-01",
+            dateFin: cols[4] || "2030-12",
+            dateBreak: cols[5] || "",
+            indexation: Number(cols[6]) || 2,
+            ervM2: Number(cols[7]) || (Number(cols[1]) > 0 ? Number(cols[2]) / Number(cols[1]) : 0),
+            probabiliteRenouvellement: Number(cols[8]) || 70,
+            franchiseMois: Number(cols[9]) || 0,
+            fitOutContribution: 0,
+            chargesLocataire: Number(cols[10]) || 0,
+            stepRents: undefined,
+          };
+          imported.push(lease);
+        }
+        if (imported.length === 0) {
+          setCsvError(t("csvNoRows"));
+          return;
+        }
+        setLeases(imported);
+      } catch (e) {
+        setCsvError(e instanceof Error ? e.message : String(e));
+      }
+    };
+    reader.onerror = () => setCsvError(t("csvReadError"));
+    reader.readAsText(file, "utf-8");
+  };
+
+  const downloadCsvTemplate = () => {
+    const header = "locataire,surface,loyerAnnuel,dateDebut,dateFin,dateBreak,indexation,ervM2,probabiliteRenouvellement,franchiseMois,chargesLocataire";
+    const example = "Tenant A,300,72000,2025-01,2030-12,,2,250,80,0,4000";
+    const blob = new Blob([`${header}\n${example}\n`], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "dcf-multi-template.csv";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -125,10 +184,31 @@ export default function DCFMulti() {
 
           {/* Baux */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between flex-wrap gap-2">
               <h2 className="text-base font-semibold text-navy">{t("etatLocatif", { count: leases.length })}</h2>
-              <button onClick={addLease} className="rounded-lg bg-navy px-3 py-1.5 text-xs font-medium text-white hover:bg-navy-light transition-colors">{t("ajouterBail")}</button>
+              <div className="flex items-center gap-2">
+                <button onClick={downloadCsvTemplate} className="rounded-lg border border-card-border bg-card px-2.5 py-1.5 text-xs font-medium text-navy hover:bg-slate-50" title={t("csvTemplateHint")}>
+                  {t("csvTemplate")}
+                </button>
+                <label className="rounded-lg border border-navy bg-white px-2.5 py-1.5 text-xs font-medium text-navy hover:bg-navy/5 cursor-pointer">
+                  {t("csvImport")}
+                  <input
+                    type="file"
+                    accept=".csv,text/csv"
+                    className="hidden"
+                    onChange={(e) => {
+                      const f = e.target.files?.[0];
+                      if (f) handleImportCsv(f);
+                      e.currentTarget.value = "";
+                    }}
+                  />
+                </label>
+                <button onClick={addLease} className="rounded-lg bg-navy px-3 py-1.5 text-xs font-medium text-white hover:bg-navy-light transition-colors">{t("ajouterBail")}</button>
+              </div>
             </div>
+            {csvError && (
+              <div className="rounded-lg border border-rose-200 bg-rose-50 p-2 text-xs text-rose-800">{csvError}</div>
+            )}
 
             {leases.map((lease, i) => (
               <div key={lease.id} className="rounded-xl border border-card-border bg-card p-5 shadow-sm">

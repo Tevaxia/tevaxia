@@ -1679,7 +1679,12 @@
     "stressLoyer10": "Loyer & ERV -10 %",
     "stressTaux200": "Actu +200bp / Cap +100bp",
     "stressCombo": "Combiné (-15 %, taux +100bp, vacance +3pp)",
-    "stressNote": "Standard Argus Enterprise / Forbury pour due diligence investisseur. Un actif qui reste en vert sur les 4 stress est considéré défensif ; en rouge sur ≥ 2 = exiger remise de prix ou clauses suspensives."
+    "stressNote": "Standard Argus Enterprise / Forbury pour due diligence investisseur. Un actif qui reste en vert sur les 4 stress est considéré défensif ; en rouge sur ≥ 2 = exiger remise de prix ou clauses suspensives.",
+    "csvTemplate": "Template CSV",
+    "csvTemplateHint": "Télécharger un modèle CSV pour importer un portefeuille",
+    "csvImport": "Importer CSV",
+    "csvNoRows": "Aucune ligne valide détectée dans le fichier CSV.",
+    "csvReadError": "Impossible de lire le fichier."
   },
   "carte": {
     "title": "Carte des prix immobiliers",
@@ -3540,7 +3545,9 @@
       "faq3A": "Les délais varient selon la taille du projet : 12 à 18 mois pour une maison individuelle, 18 à 24 mois pour un petit immeuble collectif (10-20 logements), 24 à 36 mois pour une opération importante (50+ logements ou immeuble de bureaux). Ces délais n'incluent pas les phases d'études et d'autorisations qui peuvent ajouter 12 à 24 mois. Une marge de 15 à 20 % sur le planning est prudente pour absorber les retards.",
       "faq4Q": "Quel pourcentage prévoir pour les honoraires d'architecte ?",
       "faq4A": "Les honoraires d'architecte au Luxembourg sont encadrés par le règlement de l'OAI et calculés en pourcentage du coût des travaux. Pour un projet résidentiel, comptez 8 à 12 % du montant des travaux (hors TVA). Ce pourcentage inclut les phases d'esquisse, avant-projet, projet d'autorisation, dossier d'exécution, appel d'offres, direction des travaux et réception. Les honoraires des bureaux d'études ajoutent 3 à 5 % supplémentaires."
-    }
+    },
+    "exporterBordereau": "Bordereau CSV",
+    "bordereauHint": "Télécharger le bordereau par corps de métier (compatible Excel)"
   },
   "calculateurVrd": {
     "title": "Estimateur VRD — Bureau d'études",

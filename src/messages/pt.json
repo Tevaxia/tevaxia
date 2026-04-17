@@ -1679,7 +1679,12 @@
     "stressLoyer10": "Renda & ERV -10 %",
     "stressTaux200": "Desc +200bp / Cap +100bp",
     "stressCombo": "Combinado (-15 %, taxas +100bp, vacância +3pp)",
-    "stressNote": "Padrão Argus Enterprise / Forbury para due diligence investidor. Ativo verde em todos = defensivo; vermelho em ≥ 2 = pedir desconto ou condições suspensivas."
+    "stressNote": "Padrão Argus Enterprise / Forbury para due diligence investidor. Ativo verde em todos = defensivo; vermelho em ≥ 2 = pedir desconto ou condições suspensivas.",
+    "csvTemplate": "Modelo CSV",
+    "csvTemplateHint": "Descarregar modelo CSV para importar um portefólio",
+    "csvImport": "Importar CSV",
+    "csvNoRows": "Nenhuma linha válida detectada no ficheiro CSV.",
+    "csvReadError": "Não foi possível ler o ficheiro."
   },
   "carte": {
     "title": "Mapa de preços imobiliários",
@@ -3540,7 +3545,9 @@
       "faq3A": "Os prazos variam: 12 a 18 meses para uma moradia individual, 18 a 24 meses para um pequeno edifício coletivo, 24 a 36 meses para uma grande operação. Uma margem de 15 a 20% no planeamento é prudente.",
       "faq4Q": "Que percentagem prever para honorários de arquiteto?",
       "faq4A": "Os honorários de arquiteto no Luxemburgo são regulados pela OAI e representam 8 a 12% do custo das obras para um projeto residencial. Os gabinetes de engenharia acrescentam 3 a 5%."
-    }
+    },
+    "exporterBordereau": "Mapa quantidades CSV",
+    "bordereauHint": "Descarregar mapa por ofício (compatível Excel)"
   },
   "calculateurVrd": {
     "title": "Estimador VRD — Gabinete de engenharia",

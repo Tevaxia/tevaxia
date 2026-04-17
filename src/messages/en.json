@@ -1679,7 +1679,12 @@
     "stressLoyer10": "Rent & ERV -10 %",
     "stressTaux200": "Disc +200bp / Cap +100bp",
     "stressCombo": "Combined (-15 %, rates +100bp, vacancy +3pp)",
-    "stressNote": "Standard Argus Enterprise / Forbury practice for investor due diligence. An asset green on all 4 stresses is defensive; red on ≥ 2 = ask for price discount or conditions precedent."
+    "stressNote": "Standard Argus Enterprise / Forbury practice for investor due diligence. An asset green on all 4 stresses is defensive; red on ≥ 2 = ask for price discount or conditions precedent.",
+    "csvTemplate": "CSV template",
+    "csvTemplateHint": "Download a CSV template to import a portfolio",
+    "csvImport": "Import CSV",
+    "csvNoRows": "No valid rows detected in the CSV file.",
+    "csvReadError": "Could not read the file."
   },
   "carte": {
     "title": "Property Price Map",
@@ -3540,7 +3545,9 @@
       "faq3A": "Timelines vary by project size: 12 to 18 months for a detached house, 18 to 24 months for a small collective building (10-20 units), 24 to 36 months for a major project (50+ units or office building). These timelines exclude design and permit phases which can add 12 to 24 months. A 15 to 20% schedule contingency is prudent.",
       "faq4Q": "What percentage for architect fees?",
       "faq4A": "Architect fees in Luxembourg are governed by OAI regulations and calculated as a percentage of construction cost. For a residential project, expect 8 to 12% of construction cost (excl. VAT). This covers sketch, preliminary design, permit application, execution documents, tendering, construction supervision and handover. Engineering consultant fees add 3 to 5% on top."
-    }
+    },
+    "exporterBordereau": "Bill of quantities CSV",
+    "bordereauHint": "Download the BoQ by trade (Excel-compatible)"
   },
   "calculateurVrd": {
     "title": "VRD Estimator — Engineering Office",
