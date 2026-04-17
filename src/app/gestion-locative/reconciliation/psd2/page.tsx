@@ -65,11 +65,14 @@ export default function Psd2Page() {
         const res = await fetch(`/api/psd2/institutions?country=${country}`);
         if (res.status === 501) { setConfigured(false); setStep("configure"); return; }
         const data = await res.json();
+        if (!res.ok) throw new Error(data?.error ?? `HTTP ${res.status}`);
         setConfigured(true);
         setInstitutions(data.institutions ?? []);
         setStep("select-bank");
       } catch (e) {
+        setConfigured(true);
         setError(e instanceof Error ? e.message : String(e));
+        setStep("select-bank");
       } finally { setLoading(false); }
     })();
   }, [country]);
