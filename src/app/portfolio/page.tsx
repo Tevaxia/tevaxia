@@ -15,6 +15,12 @@ import {
   ResponsiveContainer,
   AreaChart,
   Area,
+  BarChart,
+  Bar,
+  Legend,
+  Line,
+  ComposedChart,
+  CartesianGrid,
 } from "recharts";
 
 const STORAGE_KEY = "tevaxia_portfolio";
@@ -288,6 +294,49 @@ export default function Portfolio() {
   }, [savedValuations]);
 
   /* ---------------------------------------------------------------- */
+  /*  Cash flow 12 mois glissants                                      */
+  /* ---------------------------------------------------------------- */
+
+  const cashFlow12m = useMemo(() => {
+    const monthlyGrossIncome = stats.loyerTotal / 12;
+    // Hypothèses simplifiées (paramétrables à terme)
+    const vacancyRate = 0.05;    // 5 % vacance moyenne
+    const chargesRate = 0.15;    // 15 % charges non récupérables
+    const mortgageRate = 0.035;  // 3.5 % taux
+    const monthlyInterest = stats.detteTotale * (mortgageRate / 12);
+
+    const effectiveIncome = monthlyGrossIncome * (1 - vacancyRate);
+    const charges = effectiveIncome * chargesRate;
+    const netMonthly = effectiveIncome - charges - monthlyInterest;
+
+    const now = new Date();
+    const months: { label: string; income: number; charges: number; dette: number; net: number }[] = [];
+    for (let i = 0; i < 12; i++) {
+      const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+      const label = d.toLocaleDateString("fr-LU", { month: "short", year: "2-digit" });
+      // Saisonnalité légère : décembre/janvier = -10 %, juin-août = +5 %
+      const month = d.getMonth();
+      const season = (month === 11 || month === 0) ? 0.90 : (month >= 5 && month <= 7) ? 1.05 : 1.0;
+      months.push({
+        label,
+        income: Math.round(effectiveIncome * season),
+        charges: -Math.round(charges),
+        dette: -Math.round(monthlyInterest),
+        net: Math.round(netMonthly * season),
+      });
+    }
+    return months;
+  }, [stats.loyerTotal, stats.detteTotale]);
+
+  const cashFlowAnnuel = useMemo(() => {
+    const income = cashFlow12m.reduce((s, m) => s + m.income, 0);
+    const charges = cashFlow12m.reduce((s, m) => s + Math.abs(m.charges), 0);
+    const dette = cashFlow12m.reduce((s, m) => s + Math.abs(m.dette), 0);
+    const net = cashFlow12m.reduce((s, m) => s + m.net, 0);
+    return { income, charges, dette, net };
+  }, [cashFlow12m]);
+
+  /* ---------------------------------------------------------------- */
   /*  Sortable comparison table                                        */
   /* ---------------------------------------------------------------- */
 
@@ -481,6 +530,58 @@ export default function Portfolio() {
             <Link href="/estimation" className="mt-3 inline-block text-sm font-medium text-navy hover:underline">
               {t("startEstimation")} &rarr;
             </Link>
+          </div>
+        )}
+
+        {/* ============================================================ */}
+        {/*  2bis. CASH FLOW 12 MOIS GLISSANTS                            */}
+        {/* ============================================================ */}
+        {stats.loyerTotal > 0 && (
+          <div className="mb-8 rounded-xl border border-card-border bg-card p-6 shadow-sm">
+            <div className="flex items-start justify-between gap-3 mb-4">
+              <div>
+                <h3 className="text-sm font-semibold text-navy">{t("cashflowTitle")}</h3>
+                <p className="mt-0.5 text-[10px] text-muted">{t("cashflowSubtitle")}</p>
+              </div>
+              <div className="text-right">
+                <div className="text-[10px] uppercase tracking-wider text-muted">{t("cashflowNetAnnuel")}</div>
+                <div className={`text-lg font-mono font-bold ${cashFlowAnnuel.net >= 0 ? "text-emerald-700" : "text-rose-700"}`}>
+                  {formatEUR(cashFlowAnnuel.net)}
+                </div>
+              </div>
+            </div>
+            <ResponsiveContainer width="100%" height={260}>
+              <ComposedChart data={cashFlow12m} margin={{ top: 5, right: 10, bottom: 0, left: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e2db" />
+                <XAxis dataKey="label" tick={{ fontSize: 10 }} />
+                <YAxis tick={{ fontSize: 10 }} tickFormatter={(v: number) => `${(v / 1000).toFixed(0)}k`} />
+                <Tooltip formatter={(value) => formatEUR(Number(value))} contentStyle={{ fontSize: 12, borderRadius: 8 }} />
+                <Legend wrapperStyle={{ fontSize: 11 }} />
+                <Bar dataKey="income" stackId="a" fill="#059669" name={t("cashflowIncome")} />
+                <Bar dataKey="charges" stackId="a" fill="#d97706" name={t("cashflowCharges")} />
+                <Bar dataKey="dette" stackId="a" fill="#dc2626" name={t("cashflowDette")} />
+                <Line type="monotone" dataKey="net" stroke="#1B2A4A" strokeWidth={2.5} dot={{ r: 3 }} name={t("cashflowNet")} />
+              </ComposedChart>
+            </ResponsiveContainer>
+            <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+              <div className="rounded bg-emerald-50 border border-emerald-200 px-2 py-1.5">
+                <div className="text-[10px] uppercase text-emerald-700">{t("cashflowIncome")}</div>
+                <div className="font-mono font-bold text-emerald-900">{formatEUR(cashFlowAnnuel.income)}</div>
+              </div>
+              <div className="rounded bg-amber-50 border border-amber-200 px-2 py-1.5">
+                <div className="text-[10px] uppercase text-amber-700">{t("cashflowCharges")}</div>
+                <div className="font-mono font-bold text-amber-900">- {formatEUR(cashFlowAnnuel.charges)}</div>
+              </div>
+              <div className="rounded bg-rose-50 border border-rose-200 px-2 py-1.5">
+                <div className="text-[10px] uppercase text-rose-700">{t("cashflowDette")}</div>
+                <div className="font-mono font-bold text-rose-900">- {formatEUR(cashFlowAnnuel.dette)}</div>
+              </div>
+              <div className={`rounded border px-2 py-1.5 ${cashFlowAnnuel.net >= 0 ? "bg-navy/5 border-navy/20" : "bg-rose-50 border-rose-300"}`}>
+                <div className="text-[10px] uppercase text-navy/70">{t("cashflowNet")}</div>
+                <div className={`font-mono font-bold ${cashFlowAnnuel.net >= 0 ? "text-navy" : "text-rose-900"}`}>{formatEUR(cashFlowAnnuel.net)}</div>
+              </div>
+            </div>
+            <p className="mt-3 text-[10px] text-muted">{t("cashflowNote")}</p>
           </div>
         )}
 

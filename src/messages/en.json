@@ -4362,7 +4362,15 @@
       "faq3A": "Rental income is taxed at the progressive rate (marginal rate of 42% + 9% employment fund contribution). Deductible charges include loan interest, maintenance costs, insurance, property tax and depreciation (2% per year). Capital gains on disposal benefit from a reduced rate after 2 years of ownership. Holding via an SCI or corporate vehicle may offer specific advantages.",
       "faq4Q": "When should I sell a property from my portfolio?",
       "faq4A": "Sell signals include: net yield below 2% with no improvement prospect, major works ahead, CPE class F or G with disproportionate renovation cost, changing neighbourhood dynamics, or a more attractive reinvestment opportunity. Tax-wise, it is preferable to sell after 2 years of ownership to benefit from the reduced capital gains rate."
-    }
+    },
+    "cashflowTitle": "12-month rolling cash flow",
+    "cashflowSubtitle": "Monthly net rental income, with mild LU seasonality (Dec -10 %, summer +5 %). Assumptions: 5 % vacancy, 15 % non-recoverable costs, interest-only debt service at 3.5 %.",
+    "cashflowNetAnnuel": "Estimated annual net",
+    "cashflowIncome": "Net rent",
+    "cashflowCharges": "Costs",
+    "cashflowDette": "Debt service",
+    "cashflowNet": "Net cash flow",
+    "cashflowNote": "Indicative estimate. For a precise forecast, use /gestion-locative with actual rents and bank amortization schedule."
   },
   "hedonique": {
     "title": "Hedonic Valuation",

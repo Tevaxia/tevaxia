@@ -4362,7 +4362,15 @@
       "faq3A": "Mieteinnahmen gi zum progressive Steiersaz besteiert (Spetzesaz 42 % + 9 %). Ofzuchsfäheg sinn Zënsen, Instandhaltung, Versecherungen, Grondsteier an Ofschreiw ung (2 %/Joer).",
       "faq4Q": "Wéini soll een eng Immobilie verkafen?",
       "faq4A": "Verkaafssignaler: Nettorendite ënner 2 %, grouss Rep araturen, CPE-Klass F-G mat onverhältnismäßsegen Sanéierungskäschten, oder eng méi attraktiv Reinvestitiounsméiglechkeet."
-    }
+    },
+    "cashflowTitle": "Cashflow Prognose 12 Méint",
+    "cashflowSubtitle": "Monatlech Netto-Mutteinnamen mat liichter LU-Saisonalitéit (Dez -10 %, Summer +5 %). Hypothesen: 5 % Liidlech, 15 % Charges net rekuperabel, Zënsdengscht 3,5 %.",
+    "cashflowNetAnnuel": "Geschätzten Joeresnetto",
+    "cashflowIncome": "Netto-Mutt",
+    "cashflowCharges": "Käschten",
+    "cashflowDette": "Zënsdengscht",
+    "cashflowNet": "Netto-Cashflow",
+    "cashflowNote": "Indikativ. Fir genau Prognose, benotzt /gestion-locative mat richteg Mutten an Amortéiserungsplang."
   },
   "hedonique": {
     "title": "Hedonesch Bewäertung",

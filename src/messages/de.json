@@ -4362,7 +4362,15 @@
       "faq3A": "Mieteinnahmen werden zum progressiven Steuersatz besteuert (Spitzensatz 42 % + 9 % Beschäftigungsfonds). Abzugsfähig sind Darlehenszinsen, Instandhaltung, Versicherungen, Grundsteuer und Abschreibung (2 %/Jahr). Veräußerungsgewinne profitieren nach 2 Jahren von einem ermäßigten Satz.",
       "faq4Q": "Wann sollte man eine Immobilie aus dem Portfolio verkaufen?",
       "faq4A": "Verkaufssignale: Nettorendite unter 2 % ohne Verbesserungsaussicht, anstehende Großreparaturen, CPE-Klasse F-G mit unverhältnismäßigen Sanierungskosten oder eine attraktivere Reinvestitionsmöglichkeit."
-    }
+    },
+    "cashflowTitle": "Rollierender 12-Monats-Cashflow",
+    "cashflowSubtitle": "Monatliche Netto-Mieteinnahmen mit leichter LU-Saisonalität (Dez -10 %, Sommer +5 %). Annahmen: 5 % Leerstand, 15 % nicht umlegbare Kosten, Zinsendienst 3,5 %.",
+    "cashflowNetAnnuel": "Geschätzter Jahres-Netto",
+    "cashflowIncome": "Netto-Miete",
+    "cashflowCharges": "Kosten",
+    "cashflowDette": "Zinsendienst",
+    "cashflowNet": "Netto-Cashflow",
+    "cashflowNote": "Richtwert. Für genaue Prognose nutzen Sie /gestion-locative mit echten Mieten und Tilgungsplan."
   },
   "hedonique": {
     "title": "Hedonische Bewertung",

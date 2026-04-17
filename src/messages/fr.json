@@ -4362,7 +4362,15 @@
       "faq3A": "Les revenus locatifs sont imposés au barème progressif (taux marginal de 42 % + contribution au fonds pour l'emploi de 9 %). Les charges déductibles incluent les intérêts d'emprunt, les frais d'entretien, les assurances, la taxe foncière et l'amortissement (2 % par an). Les plus-values de cession bénéficient d'un taux réduit après 2 ans de détention. La détention via une SCI ou un véhicule corporate peut offrir des avantages spécifiques.",
       "faq4Q": "Quand faut-il vendre un bien de son portefeuille ?",
       "faq4A": "Les signaux de vente incluent : un rendement net inférieur à 2 % sans perspective d'amélioration, des travaux majeurs à venir, une classe CPE F ou G avec un coût de rénovation disproportionné, un changement de dynamique du quartier, ou une opportunité de réinvestissement plus performante. Fiscalement, il est préférable de vendre après 2 ans de détention pour bénéficier du taux réduit sur les plus-values."
-    }
+    },
+    "cashflowTitle": "Cash flow prévisionnel 12 mois",
+    "cashflowSubtitle": "Revenus locatifs nets mois par mois, avec saisonnalité LU légère (décembre -10 %, été +5 %). Hypothèses : 5 % vacance, 15 % charges non récupérables, service dette intérêt-only à 3,5 %.",
+    "cashflowNetAnnuel": "Net annuel estimé",
+    "cashflowIncome": "Loyers nets",
+    "cashflowCharges": "Charges",
+    "cashflowDette": "Service dette",
+    "cashflowNet": "Cash flow net",
+    "cashflowNote": "Estimation indicative. Pour un prévisionnel précis, utilisez /gestion-locative avec les loyers réels et les échéances d'amortissement du tableau bancaire."
   },
   "hedonique": {
     "title": "Valorisation hédonique",

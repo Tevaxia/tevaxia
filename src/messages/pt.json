@@ -4362,7 +4362,15 @@
       "faq3A": "Os rendimentos locativos são tributados à taxa progressiva (taxa marginal de 42% + contribuição de 9%). Encargos dedutíveis incluem juros, manutenção, seguros, imposto predial e amortização (2%/ano). As mais-valias beneficiam de taxa reduzida após 2 anos.",
       "faq4Q": "Quando vender um imóvel da carteira?",
       "faq4A": "Sinais de venda: rentabilidade líquida inferior a 2% sem perspetiva de melhoria, grandes obras previstas, classe CPE F-G com custo de renovação desproporcionado, ou oportunidade de reinvestimento mais atrativa."
-    }
+    },
+    "cashflowTitle": "Cash flow previsto 12 meses",
+    "cashflowSubtitle": "Rendas líquidas mês a mês, com leve sazonalidade LU (Dez -10 %, verão +5 %). Hipóteses: 5 % vacância, 15 % encargos não repercutíveis, serviço dívida juros-only 3,5 %.",
+    "cashflowNetAnnuel": "Líquido anual estimado",
+    "cashflowIncome": "Rendas líquidas",
+    "cashflowCharges": "Encargos",
+    "cashflowDette": "Serviço dívida",
+    "cashflowNet": "Cash flow líquido",
+    "cashflowNote": "Estimativa indicativa. Para previsão precisa, use /gestion-locative com rendas reais e plano amortização."
   },
   "hedonique": {
     "title": "Avaliação hedónica",
