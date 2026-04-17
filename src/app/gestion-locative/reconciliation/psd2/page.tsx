@@ -168,6 +168,19 @@ export default function Psd2Page() {
               </div>
             )}
 
+            {step === "select-bank" && !loading && institutions.length === 0 && (
+              <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+                <strong>Aucune banque retournée par Enable Banking pour {country}.</strong>
+                <p className="mt-2 text-xs">Causes fréquentes :</p>
+                <ul className="mt-1 ml-4 list-disc text-xs space-y-1">
+                  <li>Ton application n&apos;est pas encore approuvée côté Enable Banking Control Panel</li>
+                  <li>Tu n&apos;as pas activé l&apos;accès aux ASPSPs de ce pays dans la config de ton app</li>
+                  <li>Tu es en mode sandbox — certains ASPSPs ont un suffixe différent</li>
+                </ul>
+                <p className="mt-2 text-xs">Vérifie sur <a href="https://enablebanking.com/cp/" target="_blank" rel="noreferrer" className="underline">enablebanking.com/cp</a> que ton application est Active et qu&apos;elle a accès au pays sélectionné.</p>
+              </div>
+            )}
+
             {step === "done" && accounts.length > 0 && (
               <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
                 <h3 className="text-sm font-semibold text-emerald-900">Connexion établie</h3>
