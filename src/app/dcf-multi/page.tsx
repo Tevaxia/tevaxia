@@ -13,6 +13,17 @@ import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import SEOContent from "@/components/SEOContent";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
+import {
+  ComposedChart,
+  Bar,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip as RechartsTooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 const EMPTY_LEASE: Omit<Lease, "id"> = {
   locataire: "",
@@ -604,6 +615,154 @@ export default function DCFMulti() {
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            {/* Courbe de liquidité : NOI annuel + cashflow equity cumulé */}
+            <div className="rounded-xl border border-card-border bg-card shadow-sm p-5">
+              <h3 className="text-base font-semibold text-navy">{t("liquidityTitle")}</h3>
+              <p className="mt-0.5 text-xs text-muted mb-4">{t("liquiditySubtitle")}</p>
+              {(() => {
+                const serviceDette = montantDette > 0 ? montantDette * (tauxDette / 100) : 0;
+                let cumulEquity = 0;
+                const chartData = result.cashFlows.map((cf) => {
+                  const distribuable = cf.noi - serviceDette - capexAnnuel;
+                  cumulEquity += distribuable;
+                  return {
+                    annee: `A${cf.annee}`,
+                    noi: Math.round(cf.noi),
+                    distribuable: Math.round(distribuable),
+                    cumul: Math.round(cumulEquity),
+                    debtService: serviceDette > 0 ? Math.round(serviceDette) : undefined,
+                  };
+                });
+                return (
+                  <ResponsiveContainer width="100%" height={280}>
+                    <ComposedChart data={chartData} margin={{ top: 5, right: 10, bottom: 0, left: 0 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#e5e2db" />
+                      <XAxis dataKey="annee" tick={{ fontSize: 10 }} />
+                      <YAxis tick={{ fontSize: 10 }} tickFormatter={(v: number) => `${(v / 1000).toFixed(0)}k`} />
+                      <RechartsTooltip
+                        formatter={(v: unknown) => (typeof v === "number" ? formatEUR(v) : "—")}
+                        contentStyle={{ fontSize: 12, borderRadius: 8 }}
+                      />
+                      <Legend wrapperStyle={{ fontSize: 11 }} />
+                      <Bar dataKey="noi" fill="#64748b" name={t("liquidityNoi")} barSize={24} />
+                      <Bar dataKey="distribuable" fill="#0ea5e9" name={t("liquidityDistribuable")} barSize={24} />
+                      <Line type="monotone" dataKey="cumul" stroke="#059669" strokeWidth={2.5} dot={{ r: 3 }} name={t("liquidityCumul")} />
+                    </ComposedChart>
+                  </ResponsiveContainer>
+                );
+              })()}
+              <p className="mt-3 text-[10px] text-muted">{t("liquidityNote")}</p>
+            </div>
+
+            {/* Vue mensuelle lease-by-lease — année 1 */}
+            <div className="rounded-xl border border-card-border bg-card shadow-sm">
+              <div className="px-5 py-4 border-b border-card-border">
+                <h3 className="text-base font-semibold text-navy">{t("monthlyLeaseTitle")}</h3>
+                <p className="mt-0.5 text-xs text-muted">{t("monthlyLeaseSubtitle")}</p>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-[11px]">
+                  <thead>
+                    <tr className="border-b border-card-border bg-background">
+                      <th className="sticky left-0 bg-background px-2 py-2 text-left font-semibold text-navy">{t("locataire")}</th>
+                      {Array.from({ length: 12 }, (_, i) => {
+                        const [y, m] = dateValeur.split("-").map(Number);
+                        const totalMonths = y * 12 + (m - 1) + i;
+                        const ym = `${Math.floor(totalMonths / 12)}-${String((totalMonths % 12) + 1).padStart(2, "0")}`;
+                        return (
+                          <th key={i} className="px-2 py-2 text-right font-semibold text-navy whitespace-nowrap">{ym}</th>
+                        );
+                      })}
+                      <th className="px-2 py-2 text-right font-semibold text-navy border-l border-card-border">{t("monthlyLeaseTotal")}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {leases.map((lease) => {
+                      let total = 0;
+                      const cells = Array.from({ length: 12 }, (_, i) => {
+                        const [y, m] = dateValeur.split("-").map(Number);
+                        const totalMonths = y * 12 + (m - 1) + i;
+                        const ym = `${Math.floor(totalMonths / 12)}-${String((totalMonths % 12) + 1).padStart(2, "0")}`;
+                        const bailActif = lease.dateFin >= ym && lease.dateDebut <= ym;
+                        const monthsSinceStart = Math.max(0, (y * 12 + m - 1) - ((() => {
+                          const [ly, lm] = lease.dateDebut.split("-").map(Number);
+                          return ly * 12 + lm - 1;
+                        })()));
+                        const anneesDepuisDebut = monthsSinceStart / 12;
+                        const loyerIndexe = bailActif
+                          ? (lease.loyerAnnuel / 12) * Math.pow(1 + lease.indexation / 100, anneesDepuisDebut)
+                          : 0;
+                        // Appliquer la franchise : mois couverts par la franchise = premiers N mois du bail
+                        const moisFranchise = lease.franchiseMois;
+                        const monthIndexInLease = monthsSinceStart + 1;
+                        const enFranchise = bailActif && monthIndexInLease <= moisFranchise;
+                        const loyerEffectif = enFranchise ? 0 : loyerIndexe;
+                        total += loyerEffectif;
+                        return { loyer: loyerEffectif, franchise: enFranchise, active: bailActif };
+                      });
+                      return (
+                        <tr key={lease.id} className="border-b border-card-border/40 hover:bg-background/50">
+                          <td className="sticky left-0 bg-card px-2 py-1.5 font-medium whitespace-nowrap">{lease.locataire || "—"}</td>
+                          {cells.map((c, i) => (
+                            <td key={i} className={`px-2 py-1.5 text-right font-mono tabular-nums ${
+                              !c.active ? "text-muted/40" : c.franchise ? "text-amber-700 italic" : ""
+                            }`}>
+                              {c.active ? (c.franchise ? t("monthlyLeaseFranchise") : Math.round(c.loyer).toLocaleString("fr-LU")) : "—"}
+                            </td>
+                          ))}
+                          <td className="px-2 py-1.5 text-right font-mono font-semibold border-l border-card-border">
+                            {Math.round(total).toLocaleString("fr-LU")}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                    <tr className="border-t-2 border-navy bg-navy/5 font-semibold">
+                      <td className="sticky left-0 bg-navy/5 px-2 py-2">{t("monthlyLeaseTotal")}</td>
+                      {Array.from({ length: 12 }, (_, i) => {
+                        const [y, m] = dateValeur.split("-").map(Number);
+                        const totalMonthsBase = y * 12 + (m - 1) + i;
+                        const ym = `${Math.floor(totalMonthsBase / 12)}-${String((totalMonthsBase % 12) + 1).padStart(2, "0")}`;
+                        let monthTotal = 0;
+                        for (const lease of leases) {
+                          const bailActif = lease.dateFin >= ym && lease.dateDebut <= ym;
+                          if (!bailActif) continue;
+                          const [ly, lm] = lease.dateDebut.split("-").map(Number);
+                          const leaseStart = ly * 12 + lm - 1;
+                          const monthsSinceStart = Math.max(0, (y * 12 + m - 1 + i) - leaseStart);
+                          const monthIndexInLease = monthsSinceStart + 1;
+                          if (monthIndexInLease <= lease.franchiseMois) continue;
+                          monthTotal += (lease.loyerAnnuel / 12) * Math.pow(1 + lease.indexation / 100, monthsSinceStart / 12);
+                        }
+                        return (
+                          <td key={i} className="px-2 py-2 text-right font-mono tabular-nums">
+                            {Math.round(monthTotal).toLocaleString("fr-LU")}
+                          </td>
+                        );
+                      })}
+                      <td className="px-2 py-2 text-right font-mono border-l border-card-border">
+                        {Math.round(leases.reduce((s, l) => {
+                          let rowTotal = 0;
+                          for (let i = 0; i < 12; i++) {
+                            const [y, m] = dateValeur.split("-").map(Number);
+                            const totalMonthsBase = y * 12 + (m - 1) + i;
+                            const ym = `${Math.floor(totalMonthsBase / 12)}-${String((totalMonthsBase % 12) + 1).padStart(2, "0")}`;
+                            if (!(l.dateFin >= ym && l.dateDebut <= ym)) continue;
+                            const [ly, lm] = l.dateDebut.split("-").map(Number);
+                            const leaseStart = ly * 12 + lm - 1;
+                            const monthsSinceStart = Math.max(0, (y * 12 + m - 1 + i) - leaseStart);
+                            if (monthsSinceStart + 1 <= l.franchiseMois) continue;
+                            rowTotal += (l.loyerAnnuel / 12) * Math.pow(1 + l.indexation / 100, monthsSinceStart / 12);
+                          }
+                          return s + rowTotal;
+                        }, 0)).toLocaleString("fr-LU")}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p className="px-5 py-3 text-[10px] text-muted">{t("monthlyLeaseNote")}</p>
             </div>
           </div>
         </div>
