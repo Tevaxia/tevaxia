@@ -1,17 +1,17 @@
 import { NextResponse } from "next/server";
-import { isConfigured, getAccountTransactions } from "@/lib/gocardless-bad";
+import { isConfigured, getAccountTransactions } from "@/lib/enable-banking";
 import { createClient } from "@supabase/supabase-js";
 
 export const runtime = "nodejs";
 
 /**
- * GET /api/psd2/transactions?accountId=xxx
- * Récupère les transactions booked + pending du compte.
- * Renvoie un format compatible avec le parser de réconciliation (BankMovement).
+ * GET /api/psd2/transactions?accountId=xxx&dateFrom=YYYY-MM-DD
+ * Récupère les transactions d'un compte Enable Banking et renvoie un format
+ * compatible avec BankMovement de la page réconciliation.
  */
 export async function GET(req: Request) {
   if (!isConfigured()) {
-    return NextResponse.json({ error: "GoCardless BAD not configured" }, { status: 501 });
+    return NextResponse.json({ error: "Enable Banking not configured" }, { status: 501 });
   }
   const token = req.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
   if (!token) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -22,17 +22,24 @@ export async function GET(req: Request) {
   const { data } = await sb.auth.getUser();
   if (!data?.user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-  const accountId = new URL(req.url).searchParams.get("accountId");
+  const qp = new URL(req.url).searchParams;
+  const accountId = qp.get("accountId");
+  const dateFrom = qp.get("dateFrom") ?? undefined;
   if (!accountId) return NextResponse.json({ error: "accountId required" }, { status: 400 });
 
   try {
-    const { booked } = await getAccountTransactions(accountId);
-    const movements = booked.map((t) => ({
-      date: t.bookingDate ?? t.valueDate ?? "",
-      label: (t.remittanceInformationUnstructured ?? t.creditorName ?? t.debtorName ?? "—").slice(0, 100),
-      amount: parseFloat(t.transactionAmount.amount),
-      reference: t.transactionId ?? "",
-    }));
+    const txs = await getAccountTransactions(accountId, dateFrom);
+    const movements = txs
+      .filter((t) => t.status === "BOOK")
+      .map((t) => {
+        const amt = parseFloat(t.transaction_amount.amount);
+        return {
+          date: t.booking_date ?? t.value_date ?? t.transaction_date ?? "",
+          label: (t.remittance_information?.join(" ") ?? t.creditor?.name ?? t.debtor?.name ?? "—").slice(0, 100),
+          amount: t.credit_debit_indicator === "CRDT" ? amt : -amt,
+          reference: t.entry_reference ?? "",
+        };
+      });
     return NextResponse.json({ movements });
   } catch (e) {
     return NextResponse.json({ error: e instanceof Error ? e.message : String(e) }, { status: 502 });

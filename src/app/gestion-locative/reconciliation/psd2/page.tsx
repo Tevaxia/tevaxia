@@ -5,10 +5,11 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/components/AuthProvider";
 
-interface Institution { id: string; name: string; bic: string; logo: string }
+interface Institution { id: string; name: string; country: string; logo: string; bic: string }
+interface AccountData { uid: string; account_id?: { iban?: string }; name?: string; currency?: string }
 interface BankMovement { date: string; label: string; amount: number; reference: string }
 
-type Step = "configure" | "select-bank" | "authenticate" | "fetch" | "done";
+type Step = "loading" | "configure" | "select-bank" | "authenticate" | "done";
 
 export default function Psd2Page() {
   const { user } = useAuth();
@@ -17,10 +18,10 @@ export default function Psd2Page() {
   const [country, setCountry] = useState("LU");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [step, setStep] = useState<Step>("configure");
-  const [selectedInst, setSelectedInst] = useState<Institution | null>(null);
-  const [requisitionId, setRequisitionId] = useState<string | null>(null);
+  const [step, setStep] = useState<Step>("loading");
   const [accounts, setAccounts] = useState<string[]>([]);
+  const [accountsData, setAccountsData] = useState<AccountData[]>([]);
+  const [sessionId, setSessionId] = useState<string | null>(null);
   const [movements, setMovements] = useState<BankMovement[]>([]);
 
   const authFetch = async (input: string, init?: RequestInit) => {
@@ -31,12 +32,38 @@ export default function Psd2Page() {
     return fetch(input, { ...init, headers: { ...(init?.headers ?? {}), Authorization: `Bearer ${token}` } });
   };
 
+  // Callback Enable Banking: ?code=xxx après SCA bancaire
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    if (code && user) {
+      setStep("loading");
+      (async () => {
+        try {
+          const res = await authFetch(`/api/psd2/requisition?code=${encodeURIComponent(code)}`);
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error ?? "Erreur échange code");
+          setSessionId(data.id);
+          setAccounts(data.accounts ?? []);
+          setAccountsData(data.accountsData ?? []);
+          setStep("done");
+          window.history.replaceState({}, "", window.location.pathname);
+        } catch (e) {
+          setError(e instanceof Error ? e.message : String(e));
+          setStep("select-bank");
+        }
+      })();
+    }
+  }, [user]);
+
+  useEffect(() => {
+    const hasCode = new URLSearchParams(window.location.search).has("code");
+    if (hasCode) return;
+    setLoading(true);
     (async () => {
-      setLoading(true);
       try {
         const res = await fetch(`/api/psd2/institutions?country=${country}`);
-        if (res.status === 501) { setConfigured(false); return; }
+        if (res.status === 501) { setConfigured(false); setStep("configure"); return; }
         const data = await res.json();
         setConfigured(true);
         setInstitutions(data.institutions ?? []);
@@ -47,26 +74,8 @@ export default function Psd2Page() {
     })();
   }, [country]);
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const ref = params.get("ref");
-    if (ref) {
-      setRequisitionId(ref);
-      setStep("fetch");
-      (async () => {
-        try {
-          const res = await authFetch(`/api/psd2/requisition?id=${ref}`);
-          const data = await res.json();
-          setAccounts(data.accounts ?? []);
-          setStep("done");
-        } catch (e) { setError(e instanceof Error ? e.message : String(e)); }
-      })();
-    }
-  }, []);
-
   const connect = async (inst: Institution) => {
     if (!user) { setError("Connexion requise"); return; }
-    setSelectedInst(inst);
     setLoading(true);
     setError(null);
     try {
@@ -74,16 +83,15 @@ export default function Psd2Page() {
       const res = await authFetch("/api/psd2/requisition", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ institutionId: inst.id, redirect }),
+        body: JSON.stringify({ institutionId: inst.id, country: inst.country, redirect }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Erreur");
-      setRequisitionId(data.id);
-      setStep("authenticate");
-      window.location.href = `${data.link}?ref=${data.id}`;
+      window.location.href = data.link;
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
-    } finally { setLoading(false); }
+      setLoading(false);
+    }
   };
 
   const loadAccount = async (accId: string) => {
@@ -105,31 +113,26 @@ export default function Psd2Page() {
         <div className="mt-2 mb-6">
           <h1 className="text-2xl font-bold text-navy sm:text-3xl">Connexion bancaire PSD2</h1>
           <p className="mt-2 text-muted">
-            Récupération automatique de vos transactions via <strong>GoCardless Bank Account Data</strong> —
-            API PSD2 conforme SCA (Strong Customer Authentication). Accès 90 jours, renouvelable.
+            Récupération automatique de vos transactions via <strong>Enable Banking</strong> —
+            API PSD2 conforme SCA. Accès 180 jours max (art. 10 RTS PSD2), renouvelable.
           </p>
         </div>
 
         {configured === false && (
           <div className="rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900">
             <strong>Intégration à activer.</strong>
-            <p className="mt-2">
-              L&apos;intégration GoCardless BAD (ex-Nordigen) est prête côté code, mais non encore activée. Pour l&apos;activer :
-            </p>
+            <p className="mt-2">Enable Banking est prêt côté code, mais les clés ne sont pas encore définies sur le serveur.</p>
             <ol className="mt-2 ml-5 list-decimal space-y-1 text-xs">
-              <li>Créer un compte gratuit sur <a href="https://bankaccountdata.gocardless.com/overview/" target="_blank" rel="noreferrer" className="underline">bankaccountdata.gocardless.com</a></li>
-              <li>Générer un Secret ID + Secret Key dans User Secrets</li>
-              <li>Ajouter dans Vercel Project Settings → Environment Variables :
-                <code className="ml-2 block mt-1 p-2 bg-white rounded text-[11px] font-mono">
-                  GOCARDLESS_BAD_SECRET_ID=xxx<br />
-                  GOCARDLESS_BAD_SECRET_KEY=yyy
+              <li>Créer une app sur <a href="https://enablebanking.com/dashboard" target="_blank" rel="noreferrer" className="underline">enablebanking.com/dashboard</a>, télécharger la clé privée RSA (PEM)</li>
+              <li>Dans Vercel → Project Settings → Environment Variables :
+                <code className="ml-2 block mt-1 p-2 bg-white rounded text-[11px] font-mono whitespace-pre-wrap">
+                  ENABLE_BANKING_APP_ID=&lt;app id fourni par Enable&gt;{"\n"}
+                  ENABLE_BANKING_PRIVATE_KEY=-----BEGIN RSA PRIVATE KEY-----\n...\n-----END RSA PRIVATE KEY-----
                 </code>
+                <span className="block mt-1">(remplacer les retours ligne par <code>\n</code> littéral dans la valeur)</span>
               </li>
-              <li>Redéployer — la page affichera alors la liste des banques LU</li>
+              <li>Redéployer → page affichera la liste des banques LU</li>
             </ol>
-            <p className="mt-3 text-xs">
-              Free tier : 100 requisitions/jour, 10 refreshes par compte/jour. Suffisant pour gestion locative &lt; 50 lots.
-            </p>
           </div>
         )}
 
@@ -153,35 +156,33 @@ export default function Psd2Page() {
             {step === "select-bank" && institutions.length > 0 && (
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {institutions.map((i) => (
-                  <button key={i.id} onClick={() => connect(i)}
+                  <button key={`${i.id}-${i.country}`} onClick={() => connect(i)}
                     className="flex items-center gap-3 rounded-xl border border-card-border bg-card p-4 text-left shadow-sm hover:border-navy hover:shadow-md transition">
                     {i.logo && <img src={i.logo} alt={i.name} className="h-10 w-10 object-contain" />}
                     <div>
                       <div className="text-sm font-semibold text-navy">{i.name}</div>
-                      <div className="text-[10px] text-muted font-mono">{i.bic}</div>
+                      <div className="text-[10px] text-muted">{i.country}</div>
                     </div>
                   </button>
                 ))}
               </div>
             )}
 
-            {step === "authenticate" && selectedInst && (
-              <div className="rounded-xl border border-card-border bg-card p-6 text-center">
-                <p className="text-sm">Redirection vers {selectedInst.name}…</p>
-              </div>
-            )}
-
             {step === "done" && accounts.length > 0 && (
               <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
                 <h3 className="text-sm font-semibold text-emerald-900">Connexion établie</h3>
-                <p className="mt-1 text-xs text-emerald-800">{accounts.length} compte(s) disponible(s). Requisition ID: <code className="font-mono">{requisitionId}</code></p>
+                <p className="mt-1 text-xs text-emerald-800">{accounts.length} compte(s) — session <code className="font-mono">{sessionId}</code></p>
                 <div className="mt-3 space-y-2">
-                  {accounts.map((a) => (
-                    <button key={a} onClick={() => loadAccount(a)}
-                      className="w-full rounded-lg border border-emerald-300 bg-white p-2 text-left text-xs font-mono hover:bg-emerald-100">
-                      {a}
-                    </button>
-                  ))}
+                  {accounts.map((uid) => {
+                    const ad = accountsData.find((a) => a.uid === uid);
+                    return (
+                      <button key={uid} onClick={() => loadAccount(uid)}
+                        className="w-full rounded-lg border border-emerald-300 bg-white p-2 text-left text-xs hover:bg-emerald-100">
+                        <span className="font-mono">{ad?.account_id?.iban ?? uid}</span>
+                        {ad?.name && <span className="ml-2 text-muted">{ad.name}</span>}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -216,8 +217,9 @@ export default function Psd2Page() {
         )}
 
         <div className="mt-8 rounded-xl border border-card-border bg-card p-4 text-xs text-muted">
-          <strong>Cadre légal :</strong> PSD2 Directive UE 2015/2366, DORA, SCA obligatoire. Données bancaires traitées par GoCardless
-          (agrément ASPSP UK/EU). Tevaxia n&apos;enregistre jamais vos identifiants bancaires. Chaque connexion est révocable à tout moment.
+          <strong>Cadre légal :</strong> PSD2 Directive UE 2015/2366, DORA, SCA obligatoire. Données bancaires traitées
+          par Enable Banking (agrément AISP EU). Tevaxia n&apos;enregistre jamais vos identifiants bancaires.
+          Chaque connexion est révocable côté banque.
         </div>
       </div>
     </div>

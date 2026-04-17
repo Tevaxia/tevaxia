@@ -159,9 +159,9 @@ export default function ReconciliationPage() {
         <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
           <strong>Connexion bancaire automatique (PSD2) :</strong> évitez l&apos;import manuel via{" "}
           <Link href="/gestion-locative/reconciliation/psd2" className="font-semibold underline hover:text-blue-700">
-            GoCardless Bank Account Data
+            Enable Banking
           </Link>
-          {" "}(gratuit &lt; 100 requisitions/jour). SCA conforme PSD2. Support Spuerkeess, BGL, BIL, ING LU, Raiffeisen, Post.
+          {" "}(API PSD2 SCA conforme, accès 180 jours). Support Spuerkeess, BGL, BIL, ING LU, Raiffeisen, Post.
         </div>
       </div>
     </div>
