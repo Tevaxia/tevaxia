@@ -25,6 +25,17 @@ export default function FraisAcquisition() {
   const [nbAcquereurs, setNbAcquereurs] = useState<1 | 2>(2);
   const [montantHypotheque, setMontantHypotheque] = useState(600000);
 
+  // Frais annexes optionnels (architecte, géomètre, diagnostic, déménagement)
+  const [inclureFraisAnnexes, setInclureFraisAnnexes] = useState(false);
+  const [fraisArchitecte, setFraisArchitecte] = useState(0);
+  const [fraisGeometre, setFraisGeometre] = useState(0);
+  const [fraisDiagnostic, setFraisDiagnostic] = useState(500);
+  const [fraisDemenagement, setFraisDemenagement] = useState(1500);
+  const [fraisCourtage, setFraisCourtage] = useState(0);
+  const totalFraisAnnexes = inclureFraisAnnexes
+    ? fraisArchitecte + fraisGeometre + fraisDiagnostic + fraisDemenagement + fraisCourtage
+    : 0;
+
   // Un non-résident fiscal LU ne peut pas déclarer le bien comme RP LU
   // (sauf cas rares de détachement). On force donc residencePrincipale = false.
   const effRP = nonResident ? false : residencePrincipale;
@@ -166,6 +177,60 @@ export default function FraisAcquisition() {
                 hint={t("montantHypothequeHint")}
               />
             </div>
+
+            <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+              <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionAnnexes")}</h2>
+              <ToggleField
+                label={t("inclureAnnexes")}
+                checked={inclureFraisAnnexes}
+                onChange={setInclureFraisAnnexes}
+                hint={t("inclureAnnexesHint")}
+              />
+              {inclureFraisAnnexes && (
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  <InputField
+                    label={t("fraisArchitecte")}
+                    value={fraisArchitecte}
+                    onChange={(v) => setFraisArchitecte(Number(v))}
+                    suffix="€"
+                    min={0}
+                    hint={t("fraisArchitecteHint")}
+                  />
+                  <InputField
+                    label={t("fraisGeometre")}
+                    value={fraisGeometre}
+                    onChange={(v) => setFraisGeometre(Number(v))}
+                    suffix="€"
+                    min={0}
+                    hint={t("fraisGeometreHint")}
+                  />
+                  <InputField
+                    label={t("fraisDiagnostic")}
+                    value={fraisDiagnostic}
+                    onChange={(v) => setFraisDiagnostic(Number(v))}
+                    suffix="€"
+                    min={0}
+                    hint={t("fraisDiagnosticHint")}
+                  />
+                  <InputField
+                    label={t("fraisDemenagement")}
+                    value={fraisDemenagement}
+                    onChange={(v) => setFraisDemenagement(Number(v))}
+                    suffix="€"
+                    min={0}
+                    hint={t("fraisDemenagementHint")}
+                  />
+                  <InputField
+                    label={t("fraisCourtage")}
+                    value={fraisCourtage}
+                    onChange={(v) => setFraisCourtage(Number(v))}
+                    suffix="€"
+                    min={0}
+                    hint={t("fraisCourtageHint")}
+                  />
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Results */}
@@ -218,13 +283,35 @@ export default function FraisAcquisition() {
               ]}
             />
 
+            {inclureFraisAnnexes && totalFraisAnnexes > 0 && (
+              <ResultPanel
+                title={t("resultAnnexes")}
+                lines={[
+                  ...(fraisArchitecte > 0 ? [{ label: t("fraisArchitecte"), value: formatEUR(fraisArchitecte), sub: true }] : []),
+                  ...(fraisGeometre > 0 ? [{ label: t("fraisGeometre"), value: formatEUR(fraisGeometre), sub: true }] : []),
+                  ...(fraisDiagnostic > 0 ? [{ label: t("fraisDiagnostic"), value: formatEUR(fraisDiagnostic), sub: true }] : []),
+                  ...(fraisDemenagement > 0 ? [{ label: t("fraisDemenagement"), value: formatEUR(fraisDemenagement), sub: true }] : []),
+                  ...(fraisCourtage > 0 ? [{ label: t("fraisCourtage"), value: formatEUR(fraisCourtage), sub: true }] : []),
+                  { label: t("totalAnnexes"), value: formatEUR(totalFraisAnnexes), highlight: true },
+                ]}
+              />
+            )}
+
             <ResultPanel
               title={t("resultTotal")}
               className="border-gold/30"
               lines={[
                 { label: t("prixDuBien"), value: formatEUR(prixBien) },
                 { label: t("totalFrais", { pct: formatPct(result.totalPourcentage) }), value: formatEUR(result.totalFrais) },
-                { label: t("coutTotalAcquisition"), value: formatEUR(result.coutTotalAcquisition), highlight: true, large: true },
+                ...(totalFraisAnnexes > 0
+                  ? [{ label: t("fraisAnnexesLabel"), value: formatEUR(totalFraisAnnexes), sub: true }]
+                  : []),
+                {
+                  label: t("coutTotalAcquisition"),
+                  value: formatEUR(result.coutTotalAcquisition + totalFraisAnnexes),
+                  highlight: true,
+                  large: true,
+                },
               ]}
             />
 

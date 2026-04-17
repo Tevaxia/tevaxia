@@ -70,6 +70,34 @@ export default function CalculateurLoyer() {
     [prixAcquisition, anneeAcquisition, travauxMontant, travauxAnnee, coproTranches, anneeBail, surfaceHabitable, avecColocation, nbColocataires, appliquerVetuste, tauxVetuste, estMeuble]
   );
 
+  // Historique plafond légal : comment le loyer max a évolué aux années clés
+  const historiqueAnnees = useMemo(() => [2015, 2018, 2020, 2023, 2026], []);
+  const historiquePlafonds = useMemo(() => {
+    return historiqueAnnees
+      .filter((a) => a >= anneeAcquisition && a <= new Date().getFullYear())
+      .map((a) => {
+        const r = calculerCapitalInvesti({
+          prixAcquisition,
+          anneeAcquisition,
+          travauxMontant,
+          travauxAnnee: travauxAnnee <= a ? travauxAnnee : anneeAcquisition,
+          tranchesSupplementaires: coproTranches.filter((tr) => tr.annee <= a),
+          anneeBail: a,
+          surfaceHabitable,
+          nbColocataires: avecColocation ? nbColocataires : undefined,
+          appliquerVetuste,
+          tauxVetusteAnnuel: tauxVetuste / 100,
+          estMeuble,
+        });
+        return {
+          annee: a,
+          loyerMensuelMax: r.loyerMensuelMax,
+          loyerM2: r.loyerM2Mensuel,
+          capitalInvesti: r.capitalInvesti,
+        };
+      });
+  }, [historiqueAnnees, anneeAcquisition, prixAcquisition, travauxMontant, travauxAnnee, coproTranches, surfaceHabitable, avecColocation, nbColocataires, appliquerVetuste, tauxVetuste, estMeuble]);
+
   // Scénario post-travaux : inclut les travaux projetés comme tranche supplémentaire
   const resultPostTravaux = useMemo(() => {
     if (!showPostTravaux || postTravauxMontant <= 0) return null;
@@ -408,6 +436,57 @@ export default function CalculateurLoyer() {
                   : []),
               ]}
             />
+
+            {/* Historique plafond légal */}
+            {historiquePlafonds.length >= 2 && (
+              <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+                <h3 className="text-base font-semibold text-navy">{t("historiqueTitle")}</h3>
+                <p className="mt-0.5 text-xs text-muted mb-3">{t("historiqueSubtitle")}</p>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-card-border bg-background/60">
+                        <th className="px-2 py-2 text-left font-semibold text-slate">{t("historiqueColAnnee")}</th>
+                        <th className="px-2 py-2 text-right font-semibold text-slate">{t("historiqueColCapital")}</th>
+                        <th className="px-2 py-2 text-right font-semibold text-slate">{t("historiqueColLoyerMax")}</th>
+                        <th className="px-2 py-2 text-right font-semibold text-slate">{t("historiqueColLoyerM2")}</th>
+                        <th className="px-2 py-2 text-right font-semibold text-slate">{t("historiqueColEvolution")}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {historiquePlafonds.map((h, i) => {
+                        const prev = i > 0 ? historiquePlafonds[i - 1] : null;
+                        const evolPct = prev && prev.loyerMensuelMax > 0
+                          ? ((h.loyerMensuelMax - prev.loyerMensuelMax) / prev.loyerMensuelMax) * 100
+                          : null;
+                        const isCurrent = h.annee === anneeBail;
+                        return (
+                          <tr key={h.annee} className={`border-b border-card-border/40 ${isCurrent ? "bg-navy/5 font-semibold" : ""}`}>
+                            <td className="px-2 py-2">
+                              {h.annee}
+                              {isCurrent && <span className="ml-2 rounded-full bg-navy px-1.5 py-0.5 text-[9px] text-white">{t("historiqueCurrent")}</span>}
+                            </td>
+                            <td className="px-2 py-2 text-right font-mono">{formatEUR(h.capitalInvesti)}</td>
+                            <td className="px-2 py-2 text-right font-mono">{formatEUR2(h.loyerMensuelMax)}</td>
+                            <td className="px-2 py-2 text-right font-mono text-muted">{formatEUR2(h.loyerM2)}</td>
+                            <td className="px-2 py-2 text-right font-mono">
+                              {evolPct !== null ? (
+                                <span className={evolPct > 0 ? "text-success" : evolPct < 0 ? "text-error" : "text-muted"}>
+                                  {evolPct > 0 ? "+" : ""}{evolPct.toFixed(1)} %
+                                </span>
+                              ) : (
+                                <span className="text-muted">—</span>
+                              )}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="mt-3 text-[10px] text-muted">{t("historiqueNote")}</p>
+              </div>
+            )}
 
             {/* Explications */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
