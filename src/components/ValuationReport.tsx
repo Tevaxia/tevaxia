@@ -259,6 +259,9 @@ export interface ReportData {
   expertSociete?: string;
   expertQualifications?: string;
   logoUrl?: string;
+  // Template de rapport : adapte le ton et la mise en avant
+  reportTemplate?: "standard" | "bancaire" | "judiciaire" | "succession";
+  commissionnaire?: string; // Nom du demandeur (banque, juge, notaire)
 }
 
 // ============================================================
@@ -975,6 +978,23 @@ function ValuationDisclaimerPage({ reference }: { reference: string }) {
 // Document assembly
 // ============================================================
 
+function getTemplateTitle(template?: ReportData["reportTemplate"]): string {
+  switch (template) {
+    case "bancaire": return "RAPPORT DE VALORISATION — USAGE BANCAIRE (MLV)";
+    case "judiciaire": return "RAPPORT D'EXPERTISE IMMOBILIÈRE — USAGE JUDICIAIRE";
+    case "succession": return "RAPPORT DE VALORISATION — SUCCESSION / PARTAGE";
+    default: return "RAPPORT DE VALORISATION";
+  }
+}
+
+function getTemplateSubtitle(data: ReportData): string {
+  const base = [data.commune, data.assetType].filter(Boolean).join(" — ");
+  if (data.commissionnaire) {
+    return `${base} · Commissionnaire : ${data.commissionnaire}`;
+  }
+  return base;
+}
+
 function ReportDocument({ data }: { data: ReportData }) {
   const reference = generateRef();
   const bv = bestValue(data);
@@ -983,13 +1003,14 @@ function ReportDocument({ data }: { data: ReportData }) {
   const showEsg = hasEsg(data);
   const showNarrative = !!data.narrative;
   const showCertification = !!(data.expertNom || data.expertSociete || data.expertQualifications);
+  const template = data.reportTemplate ?? "standard";
 
   return (
     <Document>
-      {/* Page 1: Cover */}
+      {/* Page 1: Cover — titre adapté selon le template */}
       <CoverPage
-        title="RAPPORT DE VALORISATION"
-        subtitle={[data.commune, data.assetType].filter(Boolean).join(" — ")}
+        title={getTemplateTitle(template)}
+        subtitle={getTemplateSubtitle(data)}
         value={bv ? fmtEur(bv) : undefined}
         date={data.dateRapport}
         reference={reference}
@@ -997,6 +1018,9 @@ function ReportDocument({ data }: { data: ReportData }) {
 
       {/* Page 2: Identification + KPIs */}
       <IdentificationPage data={data} reference={reference} />
+
+      {/* Template bancaire : reconciliation + MLV en premier (focus CRR) */}
+      {template === "bancaire" && bv && <ReconciliationPage data={data} reference={reference} />}
 
       {/* Page 3: Geography + Demographics + Macro (conditional) */}
       {showGeography && <GeographyPage data={data} reference={reference} />}
@@ -1007,14 +1031,16 @@ function ReportDocument({ data }: { data: ReportData }) {
       {/* Page 5: Methods */}
       <MéthodesPage data={data} reference={reference} />
 
-      {/* Page 6: Reconciliation (conditional — needs at least one value) */}
-      {bv && <ReconciliationPage data={data} reference={reference} />}
+      {/* Page 6: Reconciliation (hors template bancaire déjà affiché) */}
+      {bv && template !== "bancaire" && <ReconciliationPage data={data} reference={reference} />}
 
       {/* Page 7: ESG & Energy (conditional) */}
       {showEsg && <EsgPage data={data} reference={reference} />}
 
-      {/* Page 8: Narrative (conditional) */}
-      {showNarrative && <NarrativePage data={data} reference={reference} />}
+      {/* Page 8: Narrative (conditional) — toujours affichée judiciaire/succession */}
+      {(showNarrative || template === "judiciaire" || template === "succession") && (
+        <NarrativePage data={data} reference={reference} />
+      )}
 
       {/* Page 9: Certification (conditional) */}
       {showCertification && <CertificationPage data={data} reference={reference} />}

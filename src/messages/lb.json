@@ -2939,7 +2939,13 @@
       "faq4A": "D'CSSF verlaangt eng Neibewäertung mindestens all 3 Joer fir Wunnimmobilien an all Joer fir Gewerbeimmobilien.",
       "faq5Q": "Wat kascht en Immobiliëgutachten zu Lëtzebuerg?",
       "faq5A": "D'Honorare variéieren jo no Komplexitéit. Fir eng Standardwunneng rechent mat 1.500 bis 3.000 EUR. Fir en Anlageobjekt 3.000 bis 8.000 EUR."
-    }
+    },
+    "reportTemplateLabel": "Rapport-Template:",
+    "templateStandard": "Standard (komplett)",
+    "templateBancaire": "Bank (MLV-Fokus)",
+    "templateJudiciaire": "Geriichtlech (laang, historesch)",
+    "templateSuccession": "Ierfschaft / Opdeelung",
+    "commissionnairePlaceholder": "Opdrag-Gëeebber (Bank / Riichter / Notar) — fakultativ"
   },
   "onboarding": {
     "heading": "Wat ass Äert Profil?",

@@ -1690,6 +1690,10 @@ export default function Valorisation() {
   const [valeurCapitalisation, setValeurCapitalisation] = useState(0);
   const [valeurDCF, setValeurDCF] = useState(0);
 
+  // Template de rapport PDF + commissionnaire (banque / juge / notaire)
+  const [reportTemplate, setReportTemplate] = useState<"standard" | "bancaire" | "judiciaire" | "succession">("standard");
+  const [commissionnaire, setCommissionnaire] = useState("");
+
   // Stable callback refs
   const onValeurComp = useCallback((v: number) => setValeurComparaison(v), []);
   const onValeurCap = useCallback((v: number) => setValeurCapitalisation(v), []);
@@ -1854,6 +1858,26 @@ export default function Valorisation() {
               <div className="rounded-lg bg-card border border-card-border px-3 py-2"><span className="text-muted">DCF :</span> <span className="font-semibold text-navy">{formatEUR(valeurDCF)}</span></div>
             )}
             {(valeurComparaison > 0 || valeurCapitalisation > 0 || valeurDCF > 0) && (<>
+              <div className="w-full flex flex-wrap items-center gap-2 rounded-lg border border-navy/15 bg-navy/5 px-3 py-2">
+                <label className="text-xs font-semibold text-navy">{t("reportTemplateLabel")}</label>
+                <select
+                  value={reportTemplate}
+                  onChange={(e) => setReportTemplate(e.target.value as typeof reportTemplate)}
+                  className="rounded-md border border-navy/20 bg-white px-2 py-1 text-xs"
+                >
+                  <option value="standard">{t("templateStandard")}</option>
+                  <option value="bancaire">{t("templateBancaire")}</option>
+                  <option value="judiciaire">{t("templateJudiciaire")}</option>
+                  <option value="succession">{t("templateSuccession")}</option>
+                </select>
+                <input
+                  type="text"
+                  value={commissionnaire}
+                  onChange={(e) => setCommissionnaire(e.target.value)}
+                  placeholder={t("commissionnairePlaceholder")}
+                  className="flex-1 min-w-[180px] rounded-md border border-navy/20 bg-white px-2 py-1 text-xs"
+                />
+              </div>
               <SaveButton
                 onClick={() => {
                   sauvegarderEvaluation({
@@ -1913,9 +1937,11 @@ export default function Valorisation() {
                     expertSociete: prof.societe || undefined,
                     expertQualifications: prof.qualifications || undefined,
                     logoUrl: prof.logoUrl || undefined,
+                    reportTemplate,
+                    commissionnaire: commissionnaire.trim() || undefined,
                   });
                 }}
-                filename={`tevaxia-rapport-${new Date().toISOString().split("T")[0]}.pdf`}
+                filename={`tevaxia-rapport-${reportTemplate}-${new Date().toISOString().split("T")[0]}.pdf`}
                 label="PDF"
               />
               <button

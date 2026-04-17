@@ -2939,7 +2939,13 @@
       "faq4A": "For mortgage collateral properties, the CSSF requires revaluation at least every 3 years for residential real estate and every year for commercial real estate (circular 21/773). Under IFRS accounting (IAS 40), investment properties must be revalued at each reporting date if the fair value model is adopted. For successions, the valuation must reflect the value at the date of death.",
       "faq5Q": "How much does a property appraisal cost in Luxembourg?",
       "faq5A": "Property valuer fees in Luxembourg vary depending on the property's complexity and the valuation purpose. For a standard apartment, expect EUR 1,500 to 3,000 for an EVS-compliant report. For an investment building or commercial property, fees generally range from EUR 3,000 to 8,000. Large portfolio valuations benefit from degressive rates. The tevaxia tool provides an instant pre-valuation, useful before commissioning a formal appraisal."
-    }
+    },
+    "reportTemplateLabel": "Report template:",
+    "templateStandard": "Standard (full)",
+    "templateBancaire": "Banking (MLV focus)",
+    "templateJudiciaire": "Judicial (long, historical)",
+    "templateSuccession": "Estate / inheritance",
+    "commissionnairePlaceholder": "Commissioning party (bank / judge / notary) — optional"
   },
   "onboarding": {
     "heading": "What is your profile?",

@@ -2939,7 +2939,13 @@
       "faq4A": "Für Hypothekensicherheiten verlangt die CSSF eine Neubewertung mindestens alle 3 Jahre für Wohnimmobilien und jährlich für Gewerbeimmobilien (Rundschreiben 21/773). Bei IFRS-Bilanzierung (IAS 40) müssen Anlageimmobilien zu jedem Abschlussstichtag neu bewertet werden, wenn das Fair-Value-Modell gewählt wird.",
       "faq5Q": "Was kostet ein Immobiliengutachten in Luxemburg?",
       "faq5A": "Die Honorare eines Immobiliengutachters in Luxemburg variieren je nach Komplexität und Bewertungszweck. Für eine Standardwohnung rechnen Sie mit 1.500 bis 3.000 EUR für ein EVS-konformes Gutachten. Für ein Anlageobjekt oder Gewerbeimmobilie liegen die Honorare bei 3.000 bis 8.000 EUR. Das tevaxia-Tool bietet eine sofortige Vorbewertung."
-    }
+    },
+    "reportTemplateLabel": "Report-Vorlage:",
+    "templateStandard": "Standard (komplett)",
+    "templateBancaire": "Bank (MLV-Fokus)",
+    "templateJudiciaire": "Gerichtlich (lang, historisch)",
+    "templateSuccession": "Erbschaft / Teilung",
+    "commissionnairePlaceholder": "Auftraggeber (Bank / Gericht / Notar) — optional"
   },
   "onboarding": {
     "heading": "Was ist Ihr Profil?",

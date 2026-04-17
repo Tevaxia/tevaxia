@@ -2939,7 +2939,13 @@
       "faq4A": "Para imóveis em garantia hipotecária, a CSSF exige reavaliação no mínimo a cada 3 anos para imóveis residenciais e anualmente para imóveis comerciais. Em contabilidade IFRS (IAS 40), os imóveis de investimento devem ser reavaliados em cada fecho de contas.",
       "faq5Q": "Quanto custa uma perícia imobiliária no Luxemburgo?",
       "faq5A": "Os honorários variam conforme a complexidade. Para um apartamento standard, conte com 1.500 a 3.000 EUR para um relatório conforme EVS. Para um imóvel de rendimento, entre 3.000 e 8.000 EUR. A ferramenta tevaxia oferece uma pré-avaliação instantânea."
-    }
+    },
+    "reportTemplateLabel": "Modelo relatório:",
+    "templateStandard": "Padrão (completo)",
+    "templateBancaire": "Bancário (foco MLV)",
+    "templateJudiciaire": "Judicial (longo, histórico)",
+    "templateSuccession": "Sucessão / partilha",
+    "commissionnairePlaceholder": "Requerente (banco / juiz / notário) — opcional"
   },
   "onboarding": {
     "heading": "Qual é o seu perfil?",

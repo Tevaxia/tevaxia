@@ -2939,7 +2939,13 @@
       "faq4A": "Pour les biens en garantie hypothécaire, la CSSF exige une réévaluation au minimum tous les 3 ans pour l'immobilier résidentiel et tous les ans pour l'immobilier commercial (circulaire 21/773). En comptabilité IFRS (IAS 40), les immeubles de placement doivent être réévalués à chaque clôture si le modèle de la juste valeur est retenu. Pour une succession, l'évaluation doit refléter la valeur au jour du décès.",
       "faq5Q": "Combien coûte une expertise immobilière au Luxembourg ?",
       "faq5A": "Les honoraires d'un expert immobilier au Luxembourg varient selon la complexité du bien et l'objet de l'évaluation. Pour un appartement standard, comptez entre 1 500 et 3 000 EUR pour un rapport conforme EVS. Pour un immeuble de rapport ou un bien commercial, les honoraires se situent généralement entre 3 000 et 8 000 EUR. Les évaluations de portefeuilles importants font l'objet de tarifs dégressifs. L'outil tevaxia permet d'obtenir une pré-évaluation instantanée, utile avant de mandater une expertise formelle."
-    }
+    },
+    "reportTemplateLabel": "Template rapport :",
+    "templateStandard": "Standard (tout complet)",
+    "templateBancaire": "Bancaire (MLV en focus)",
+    "templateJudiciaire": "Judiciaire (long, historique)",
+    "templateSuccession": "Succession / partage",
+    "commissionnairePlaceholder": "Commissionnaire (banque / juge / notaire) — optionnel"
   },
   "onboarding": {
     "heading": "Quel est votre profil ?",
