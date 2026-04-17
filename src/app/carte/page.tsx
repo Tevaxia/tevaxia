@@ -15,6 +15,7 @@ import MarketAlertButton from "@/components/MarketAlertButton";
 import SEOContent from "@/components/SEOContent";
 
 const LeafletMap = dynamic(() => import("@/components/LeafletMap"), { ssr: false });
+import CantonHeatmap from "@/components/CantonHeatmap";
 
 import { getAllCommunes, getMarketDataCommune } from "@/lib/market-data";
 
@@ -187,8 +188,15 @@ export default function Carte() {
           </select>
         </div>
 
+        {/* Heatmap choroplèthe par canton (alternative visuelle rapide) */}
+        <div className="mb-6">
+          <h2 className="mb-2 text-sm font-semibold text-navy">{t("heatmapTitle")}</h2>
+          <CantonHeatmap data={allCommunes} />
+        </div>
+
         {/* Carte Leaflet */}
         <div className="mb-8">
+          <h2 className="mb-2 text-sm font-semibold text-navy">{t("mapDetailTitle")}</h2>
           <LeafletMap
             communes={allCommunes}
             onSelectCommune={setSelectedCommune}

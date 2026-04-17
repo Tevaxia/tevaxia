@@ -1796,7 +1796,9 @@
       "faq4a": "De Market Score (0-100) kombinéiert dräi Faktoren: Attraktivitéit vun der Gemeng, Transaktiounsvolumen a rezent Präisentwécklung.",
       "faq5q": "Enthalen d'Präisser d'Notairegebühren?",
       "faq5a": "Neen, déi ugewise Präisser sinn ouni Gebühren. Zu Lëtzebuerg sinn d'Erwerbskäschten fir bestehend Immobilie ronn 7-10 %."
-    }
+    },
+    "heatmapTitle": "Kanton-Heatmap (Iwwersiicht)",
+    "mapDetailTitle": "Detailléiert Gemengekaart"
   },
   "outilsBancaires": {
     "title": "Bankinstrumenter",
@@ -4345,6 +4347,22 @@
       "confirmRevokeAll": "Confirméieren: all Sessiounen op all Apparater ofmellen?",
       "revokedOk": "✓ All Sessiounen ofgemellt. Weiderleedung...",
       "loading": "Ofmellen..."
+    },
+    "invoices": {
+      "title": "Rechnungen & Bezuelhistoriq",
+      "description": "Är Stripe-Rechnungen (tevaxia Pro Abo). LU-konform PDF.",
+      "authRequired": "Authentifikatioun erfuerdert",
+      "loading": "Luet...",
+      "empty": "Keng Rechnung.",
+      "colNumber": "Nr.",
+      "colDate": "Datum",
+      "colAmount": "Betrag",
+      "colStatus": "Statut",
+      "colActions": "Aktiounen",
+      "statusPaid": "Bezuelt",
+      "statusOpen": "Schëlleg",
+      "view": "Kucken",
+      "legalNote": "10 Joer konservéieren."
     }
   },
   "mesEvaluations": {

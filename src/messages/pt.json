@@ -1796,7 +1796,9 @@
       "faq4a": "O market score (0-100) combina três fatores: atratividade do município, volume de transações e evolução recente dos preços.",
       "faq5q": "Os preços incluem honorários notariais?",
       "faq5a": "Não, os preços exibidos são sem honorários. No Luxemburgo, os custos de aquisição rondam os 7-10 % para imóveis existentes."
-    }
+    },
+    "heatmapTitle": "Mapa de calor por cantão",
+    "mapDetailTitle": "Mapa detalhado por comuna"
   },
   "outilsBancaires": {
     "title": "Ferramentas Bancárias",
@@ -4345,6 +4347,22 @@
       "confirmRevokeAll": "Confirmar: terminar todas as sessões em todos os dispositivos?",
       "revokedOk": "✓ Todas as sessões revogadas. A redirecionar...",
       "loading": "A revogar..."
+    },
+    "invoices": {
+      "title": "Faturas & histórico pagamentos",
+      "description": "As suas faturas Stripe (subscrição tevaxia Pro). PDFs conformes LU.",
+      "authRequired": "Autenticação necessária",
+      "loading": "A carregar faturas...",
+      "empty": "Nenhuma fatura.",
+      "colNumber": "N.º fatura",
+      "colDate": "Data",
+      "colAmount": "Montante",
+      "colStatus": "Estado",
+      "colActions": "Ações",
+      "statusPaid": "Paga",
+      "statusOpen": "Devida",
+      "view": "Ver",
+      "legalNote": "Conservar 10 anos para contabilidade."
     }
   },
   "mesEvaluations": {

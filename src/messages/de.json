@@ -1796,7 +1796,9 @@
       "faq4a": "Der Market Score (0-100) kombiniert drei Faktoren: Attraktivität der Gemeinde, Transaktionsvolumen und jüngste Preisentwicklung.",
       "faq5q": "Enthalten die Preise Notargebühren?",
       "faq5a": "Nein, die angezeigten Preise sind ohne Gebühren. In Luxemburg betragen die Erwerbskosten für Bestandsimmobilien etwa 7-10 %."
-    }
+    },
+    "heatmapTitle": "Kanton-Heatmap (Übersicht)",
+    "mapDetailTitle": "Detaillierte Gemeindekarte"
   },
   "outilsBancaires": {
     "title": "Bankwerkzeuge",
@@ -4345,6 +4347,22 @@
       "confirmRevokeAll": "Alle Sitzungen auf allen Geräten abmelden?",
       "revokedOk": "✓ Alle Sitzungen widerrufen. Weiterleitung...",
       "loading": "Widerrufen..."
+    },
+    "invoices": {
+      "title": "Rechnungen & Zahlungsverlauf",
+      "description": "Ihre Stripe-Rechnungen (tevaxia Pro Abo). LU-konforme PDFs von Stripe mit Reverse-Charge für intra-EU B2B.",
+      "authRequired": "Authentifizierung erforderlich",
+      "loading": "Rechnungen werden geladen...",
+      "empty": "Keine Rechnungen.",
+      "colNumber": "Rechnungs-Nr.",
+      "colDate": "Datum",
+      "colAmount": "Betrag",
+      "colStatus": "Status",
+      "colActions": "Aktionen",
+      "statusPaid": "Bezahlt",
+      "statusOpen": "Fällig",
+      "view": "Anzeigen",
+      "legalNote": "10 Jahre für Buchhaltung aufbewahren."
     }
   },
   "mesEvaluations": {

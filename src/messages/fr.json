@@ -1796,7 +1796,9 @@
       "faq4a": "Le score marché (0-100) combine trois facteurs : l'attractivité de la commune (prix, démographie, services), le dynamisme des transactions (volume et liquidité) et la tendance récente des prix.",
       "faq5q": "Les prix incluent-ils les frais de notaire ?",
       "faq5a": "Non, les prix affichés sont hors frais. Au Luxembourg, les frais d'acquisition (droits d'enregistrement + transcription + notaire) représentent environ 7-10% du prix pour un bien ancien. Utilisez notre calculateur de frais d'acquisition pour une estimation précise."
-    }
+    },
+    "heatmapTitle": "Heatmap par canton (vue synthétique)",
+    "mapDetailTitle": "Carte détaillée par commune"
   },
   "outilsBancaires": {
     "title": "Outils bancaires",
@@ -4345,6 +4347,22 @@
       "confirmRevokeAll": "Confirmer : déconnecter toutes vos sessions sur tous les appareils ? Vous devrez vous reconnecter.",
       "revokedOk": "✓ Toutes les sessions ont été révoquées. Redirection en cours...",
       "loading": "Révocation..."
+    },
+    "invoices": {
+      "title": "Factures & historique paiements",
+      "description": "Vos factures Stripe (abonnement tevaxia Pro). PDF conforme LU fournis directement par Stripe avec mention légale autoliquidation pour le B2B intra-UE.",
+      "authRequired": "Authentification requise",
+      "loading": "Chargement des factures...",
+      "empty": "Aucune facture — soit vous êtes en plan Free, soit le paiement est récent (les factures peuvent prendre 24h à apparaître).",
+      "colNumber": "N° facture",
+      "colDate": "Date",
+      "colAmount": "Montant TTC",
+      "colStatus": "Statut",
+      "colActions": "Actions",
+      "statusPaid": "Payée",
+      "statusOpen": "Due",
+      "view": "Voir",
+      "legalNote": "Les PDF sont générés par Stripe et conformes aux mentions légales LU (art. 61-63 loi TVA 12/02/1979, RGD 24/03/2023). Conservez-les 10 ans pour votre comptabilité."
     }
   },
   "mesEvaluations": {

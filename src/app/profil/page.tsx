@@ -10,6 +10,7 @@ import { getProfile, saveProfile, loadAndMergeProfile, uploadLogo, type UserProf
 import { listMySharedLinks, deleteSharedLink, buildSharedLinkUrl, type SharedLink } from "@/lib/shared-links";
 import { buildDataExport, downloadAsJsonFile } from "@/lib/data-export";
 import DeleteAccountSection from "@/components/DeleteAccountSection";
+import StripeInvoicesSection from "@/components/StripeInvoicesSection";
 import NotificationPreferencesSection from "@/components/NotificationPreferencesSection";
 import TwoFactorSection from "@/components/TwoFactorSection";
 import UpgradeToProButton from "@/components/UpgradeToProButton";
@@ -614,6 +615,9 @@ export default function Profil() {
                 : t("localNote")}
             </p>
           </div>
+
+          {/* Factures Stripe */}
+          <StripeInvoicesSection />
 
           {/* Sécurité : révoquer sessions */}
           <SecuritySection />
