@@ -157,11 +157,11 @@ export default function ReconciliationPage() {
         )}
 
         <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-          <strong>Prochaine étape PSD2 :</strong> connexion directe à votre compte bancaire via{" "}
-          <strong>GoCardless Bank Account Data</strong> (ex-Nordigen, gratuit &lt; 1000 requêtes/jour)
-          ou <strong>Tink</strong> (~0.10€/requête).
-          Évite l&apos;import manuel. Authentification OAuth 2.0 bancaire (SCA Strong Customer Authentication).
-          Support prévu : Spuerkeess, BGL BNP Paribas, BIL, ING Luxembourg, Raiffeisen, Post Finance. Planifié S2 2026.
+          <strong>Connexion bancaire automatique (PSD2) :</strong> évitez l&apos;import manuel via{" "}
+          <Link href="/gestion-locative/reconciliation/psd2" className="font-semibold underline hover:text-blue-700">
+            GoCardless Bank Account Data
+          </Link>
+          {" "}(gratuit &lt; 100 requisitions/jour). SCA conforme PSD2. Support Spuerkeess, BGL, BIL, ING LU, Raiffeisen, Post.
         </div>
       </div>
     </div>
