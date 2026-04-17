@@ -404,6 +404,79 @@ export default function SimulateurAides() {
                               <span className="text-teal">{t("totalKlimabonus")}</span>
                               <span className="font-mono text-teal">{formatEUR(klimaDetail.totalKlima)}</span>
                             </div>
+                            <div className="mt-3 pt-3 border-t border-teal/20 flex justify-end">
+                              <button
+                                type="button"
+                                onClick={async () => {
+                                  const { generateKlimabonusDossierPdfBlob } = await import("@/components/KlimabonusDossierPdf");
+                                  const lignes = klimaDetail.lignes.map((l) => ({
+                                    label: t(l.labelKey),
+                                    coutTravaux: l.coutTravaux,
+                                    klimabonus: l.klimabonus,
+                                    bonusEco: l.bonusEco,
+                                  }));
+                                  const blob = await generateKlimabonusDossierPdfBlob({
+                                    lignes,
+                                    totalTravaux: klimaDetail.totalTravaux,
+                                    totalKlima: klimaDetail.totalKlima,
+                                    totalBonusEco: klimaDetail.totalBonusEco,
+                                    topupSocial,
+                                    labels: {
+                                      title: t("klimaPdfTitle"),
+                                      subtitle: t("klimaPdfSubtitle"),
+                                      dateLabel: t("klimaPdfDate"),
+                                      applicantTitle: t("klimaPdfApplicantTitle"),
+                                      applicantName: t("klimaPdfName"),
+                                      applicantNif: t("klimaPdfNif"),
+                                      applicantAddress: t("klimaPdfAddress"),
+                                      applicantEmail: t("klimaPdfEmail"),
+                                      applicantPhone: t("klimaPdfPhone"),
+                                      workTitle: t("klimaPdfWorkTitle"),
+                                      propertyAddress: t("klimaPdfPropertyAddress"),
+                                      propertyArea: t("klimaPdfPropertyArea"),
+                                      propertyYear: t("klimaPdfPropertyYear"),
+                                      propertyCpe: t("klimaPdfPropertyCpe"),
+                                      measuresTitle: t("klimaPdfMeasuresTitle"),
+                                      colMeasure: t("klimaPdfColMeasure"),
+                                      colCost: t("klimaPdfColCost"),
+                                      colSubsidy: t("klimaPdfColSubsidy"),
+                                      colBonusEco: t("klimaPdfColBonusEco"),
+                                      totalLabel: t("klimaPdfTotal"),
+                                      bonusEcoLabel: t("klimaPdfBonusEco"),
+                                      socialTopup: t("klimaPdfSocialTopup"),
+                                      socialTopupActive: t("klimaPdfSocialActive"),
+                                      checklistTitle: t("klimaPdfChecklistTitle"),
+                                      checklistIntro: t("klimaPdfChecklistIntro"),
+                                      checklist: [
+                                        t("klimaPdfCheck1"),
+                                        t("klimaPdfCheck2"),
+                                        t("klimaPdfCheck3"),
+                                        t("klimaPdfCheck4"),
+                                        t("klimaPdfCheck5"),
+                                        t("klimaPdfCheck6"),
+                                        t("klimaPdfCheck7"),
+                                      ],
+                                      nextSteps: t("klimaPdfNextSteps"),
+                                      nextStepsBody: t("klimaPdfNextStepsBody"),
+                                      disclaimer: t("klimaPdfDisclaimer"),
+                                      footer: t("klimaPdfFooter"),
+                                    },
+                                  });
+                                  const url = URL.createObjectURL(blob);
+                                  const a = document.createElement("a");
+                                  a.href = url;
+                                  a.download = `dossier-klimabonus-${new Date().toLocaleDateString("fr-LU").replace(/\//g, "-")}.pdf`;
+                                  a.click();
+                                  URL.revokeObjectURL(url);
+                                }}
+                                className="inline-flex items-center gap-2 rounded-lg bg-teal px-3 py-1.5 text-xs font-semibold text-white hover:bg-teal/90"
+                              >
+                                <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
+                                {t("klimaPdfDownload")}
+                              </button>
+                            </div>
                           </div>
                         )}
                       </div>

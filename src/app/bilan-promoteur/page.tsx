@@ -55,6 +55,14 @@ export default function BilanPromoteur() {
   // Marge
   const [margePromoteur, setMargePromoteur] = useState(15); // % CA
 
+  // Multi-tranches / phasage
+  const [multiTranchesActive, setMultiTranchesActive] = useState(false);
+  const [trancheT1Pct, setTrancheT1Pct] = useState(40);
+  const [trancheT2Pct, setTrancheT2Pct] = useState(40);
+  const [trancheT1Offset, setTrancheT1Offset] = useState(0);
+  const [trancheT2Offset, setTrancheT2Offset] = useState(12);
+  const [trancheT3Offset, setTrancheT3Offset] = useState(24);
+
   // Plan de trésorerie — VEFA call schedule (standard LU)
   // 5% / 15% / 20% / 20% / 15% / 15% / 10% spread across 24 months
   const vefaSchedule = useMemo(() => {
@@ -733,6 +741,189 @@ export default function BilanPromoteur() {
                     {t("noFinancingNeed")}
                   </p>
                 </div>
+              )}
+            </div>
+
+            {/* Multi-tranches (phasage) */}
+            <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+              <div className="mb-3 flex items-start justify-between gap-3 flex-wrap">
+                <div>
+                  <h3 className="text-base font-semibold text-navy">{t("multiTranchesTitle")}</h3>
+                  <p className="mt-0.5 text-xs text-muted">{t("multiTranchesSubtitle")}</p>
+                </div>
+                <label className="inline-flex items-center gap-2 text-sm">
+                  <input
+                    type="checkbox"
+                    checked={multiTranchesActive}
+                    onChange={(e) => setMultiTranchesActive(e.target.checked)}
+                    className="h-4 w-4"
+                  />
+                  <span className="text-slate">{t("multiTranchesEnable")}</span>
+                </label>
+              </div>
+
+              {multiTranchesActive && (() => {
+                const t1Pct = Math.max(0, Math.min(100, trancheT1Pct));
+                const t2Pct = Math.max(0, Math.min(100 - t1Pct, trancheT2Pct));
+                const t3Pct = Math.max(0, 100 - t1Pct - t2Pct);
+                const tranches = [
+                  { label: "T1", pct: t1Pct, offset: trancheT1Offset, color: "bg-emerald-500" },
+                  { label: "T2", pct: t2Pct, offset: trancheT2Offset, color: "bg-sky-500" },
+                  { label: "T3", pct: t3Pct, offset: trancheT3Offset, color: "bg-amber-500" },
+                ];
+
+                // Consolidated monthly treasury across all 3 tranches over 48 months
+                const horizonMois = 48;
+                const monthlyData: { m: number; exp: number; rev: number; net: number; cumul: number }[] = [];
+                let cumul = 0;
+                for (let m = 1; m <= horizonMois; m++) {
+                  let exp = 0;
+                  let rev = 0;
+                  for (const tr of tranches) {
+                    if (tr.pct === 0) continue;
+                    const mLocal = m - tr.offset;
+                    if (mLocal < 1 || mLocal > 24) continue;
+                    const trancheTotal = (result.totalConstruction + result.coutTerrain) * (tr.pct / 100);
+                    // Construction répartie uniformément sur 24 mois
+                    exp += trancheTotal / 24;
+                    // Terrain : payé au mois 1 de la tranche
+                    if (mLocal === 1 && result.coutTerrain > 0) {
+                      exp += result.coutTerrain * (tr.pct / 100) - result.coutTerrain * (tr.pct / 100) / 24;
+                    }
+                    // Revenue : VEFA tranches × pré-commercialisation × part de la tranche
+                    for (const v of vefaSchedule) {
+                      if (v.month === mLocal) {
+                        rev += result.caTotal * (tr.pct / 100) * (tauxPreCommercialisation / 100) * (v.pct / 100);
+                      }
+                    }
+                  }
+                  const net = rev - exp;
+                  cumul += net;
+                  monthlyData.push({ m, exp, rev, net, cumul });
+                }
+                const peakNeed = Math.min(...monthlyData.map((d) => d.cumul));
+                const peakMonth = monthlyData.find((d) => d.cumul === peakNeed)?.m ?? 0;
+                const totalEnd = monthlyData[monthlyData.length - 1]?.cumul ?? 0;
+
+                return (
+                  <div className="space-y-4">
+                    <div className="grid gap-3 sm:grid-cols-3">
+                      <div>
+                        <label className="block text-xs text-muted mb-1">{t("trancheT1")} ({t1Pct} %)</label>
+                        <input type="range" min={0} max={100} value={trancheT1Pct} onChange={(e) => setTrancheT1Pct(Number(e.target.value))} className="w-full" />
+                        <div className="mt-1 flex items-center gap-1 text-[10px] text-muted">
+                          <span>{t("multiOffset")}</span>
+                          <input type="number" value={trancheT1Offset} onChange={(e) => setTrancheT1Offset(Number(e.target.value))} min={0} max={48} className="w-14 rounded border border-input-border bg-input-bg px-1 py-0.5 text-right font-mono" /> {t("multiMonths")}
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-xs text-muted mb-1">{t("trancheT2")} ({t2Pct} %)</label>
+                        <input type="range" min={0} max={100 - t1Pct} value={trancheT2Pct} onChange={(e) => setTrancheT2Pct(Number(e.target.value))} className="w-full" />
+                        <div className="mt-1 flex items-center gap-1 text-[10px] text-muted">
+                          <span>{t("multiOffset")}</span>
+                          <input type="number" value={trancheT2Offset} onChange={(e) => setTrancheT2Offset(Number(e.target.value))} min={0} max={48} className="w-14 rounded border border-input-border bg-input-bg px-1 py-0.5 text-right font-mono" /> {t("multiMonths")}
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-xs text-muted mb-1">{t("trancheT3")} ({t3Pct} %)</label>
+                        <div className="text-[10px] text-muted">{t("multiAuto")}</div>
+                        <div className="mt-1 flex items-center gap-1 text-[10px] text-muted">
+                          <span>{t("multiOffset")}</span>
+                          <input type="number" value={trancheT3Offset} onChange={(e) => setTrancheT3Offset(Number(e.target.value))} min={0} max={48} className="w-14 rounded border border-input-border bg-input-bg px-1 py-0.5 text-right font-mono" /> {t("multiMonths")}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Table par tranche */}
+                    <div className="overflow-x-auto rounded-lg border border-card-border">
+                      <table className="w-full text-xs">
+                        <thead>
+                          <tr className="border-b border-card-border bg-background">
+                            <th className="px-2 py-1.5 text-left font-semibold text-slate">{t("multiTrancheCol")}</th>
+                            <th className="px-2 py-1.5 text-right font-semibold text-slate">{t("multiPct")}</th>
+                            <th className="px-2 py-1.5 text-right font-semibold text-slate">{t("multiCA")}</th>
+                            <th className="px-2 py-1.5 text-right font-semibold text-slate">{t("multiCoutsConstr")}</th>
+                            <th className="px-2 py-1.5 text-right font-semibold text-slate">{t("multiMarge")}</th>
+                            <th className="px-2 py-1.5 text-left font-semibold text-slate">{t("multiPeriode")}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {tranches.map((tr) => {
+                            const ca = result.caTotal * (tr.pct / 100);
+                            const coutConstr = (result.totalConstruction + result.coutTerrain) * (tr.pct / 100);
+                            const marge = result.margeMontant * (tr.pct / 100);
+                            return (
+                              <tr key={tr.label} className="border-b border-card-border/50">
+                                <td className="px-2 py-1.5 font-semibold">
+                                  <span className={`inline-block w-2 h-2 rounded-full ${tr.color} mr-1.5`} />
+                                  {tr.label}
+                                </td>
+                                <td className="px-2 py-1.5 text-right font-mono">{tr.pct} %</td>
+                                <td className="px-2 py-1.5 text-right font-mono">{formatEUR(ca)}</td>
+                                <td className="px-2 py-1.5 text-right font-mono text-muted">{formatEUR(coutConstr)}</td>
+                                <td className="px-2 py-1.5 text-right font-mono text-emerald-700">{formatEUR(marge)}</td>
+                                <td className="px-2 py-1.5 text-[11px] text-muted font-mono">M{tr.offset + 1} → M{tr.offset + 24}</td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+
+                    {/* Gantt-like visualization : 48 mois */}
+                    <div>
+                      <div className="mb-2 text-xs font-semibold text-slate">{t("multiGantt")}</div>
+                      <div className="space-y-1">
+                        {tranches.map((tr) => (
+                          <div key={tr.label} className="flex items-center gap-2">
+                            <span className="w-7 text-xs font-semibold text-slate">{tr.label}</span>
+                            <div className="flex-1 relative h-4 bg-background rounded border border-card-border/50 overflow-hidden">
+                              {tr.pct > 0 && (
+                                <div
+                                  className={`absolute top-0 h-full ${tr.color} opacity-80`}
+                                  style={{
+                                    left: `${(tr.offset / horizonMois) * 100}%`,
+                                    width: `${Math.min(100, (24 / horizonMois) * 100)}%`,
+                                  }}
+                                />
+                              )}
+                            </div>
+                          </div>
+                        ))}
+                        <div className="flex items-center gap-2 pt-1">
+                          <span className="w-7 text-[10px] text-muted">M</span>
+                          <div className="flex-1 flex text-[10px] text-muted font-mono">
+                            {[0, 12, 24, 36, 48].map((m) => (
+                              <span key={m} style={{ flex: 1 }}>{m}</span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Besoin financement consolidé */}
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className={`rounded-lg p-3 border ${peakNeed < 0 ? "bg-amber-50 border-amber-200" : "bg-emerald-50 border-emerald-200"}`}>
+                        <div className="text-[10px] uppercase text-muted">{t("multiPeakNeed")}</div>
+                        <div className={`mt-0.5 text-sm font-mono font-bold ${peakNeed < 0 ? "text-amber-900" : "text-emerald-900"}`}>
+                          {peakNeed < 0 ? formatEUR(Math.abs(peakNeed)) : t("multiNoPeak")}
+                        </div>
+                        <div className="text-[10px] text-muted">M{peakMonth}</div>
+                      </div>
+                      <div className="rounded-lg p-3 border bg-navy/5 border-navy/20">
+                        <div className="text-[10px] uppercase text-muted">{t("multiCumulEnd")}</div>
+                        <div className={`mt-0.5 text-sm font-mono font-bold ${totalEnd >= 0 ? "text-navy" : "text-rose-700"}`}>
+                          {formatEUR(totalEnd)}
+                        </div>
+                        <div className="text-[10px] text-muted">M{horizonMois}</div>
+                      </div>
+                    </div>
+                    <p className="text-[10px] text-muted">{t("multiNote")}</p>
+                  </div>
+                );
+              })()}
+              {!multiTranchesActive && (
+                <p className="text-xs text-muted italic">{t("multiTranchesHelp")}</p>
               )}
             </div>
 
