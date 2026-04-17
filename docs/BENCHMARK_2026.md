@@ -1103,8 +1103,10 @@ Ces deux verticaux justifient une roadmap « compte & rôles » dédiée, sépar
 | ✅ **Tests energy-banking.ts** (16 tests : LTV ajustement, simulation crédit) | Infra | `f8fa558` |
 | ✅ **Tests dcf-leases.ts** (18 tests : invariants, reversion, taux effect) | Infra | `f8480bd` |
 | ✅ **Tests geoportail.ts** (11 tests : WMS config, viewer URL, coords) | Infra | `4bc4044` |
+| ✅ **Tests locale-path.ts** (14 tests : détection locale, no double-prefix) | Infra | `74556c9` |
+| ✅ **Tests api-utils.ts** (7 tests : handleCalculation wrapper /api/v1) | Infra | `864f703` |
 
-Total Vitest session 7 : **437 → 515 tests** (+88, +20 %).
+Total Vitest session 7 : **437 → 536 tests** (+99, +22.7 %).
 
 ### Livrables 6e session 2026-04-17 (forecast prix + tests)
 
@@ -1213,6 +1215,6 @@ Ce benchmark s'appuie sur :
 - Sources fiscales LU STR : Airbnb Tax Guide Luxembourg 2026 (PwC), guichet.lu, Delano.lu articles 2024-2025 sur régulation Airbnb LU
 - Retours utilisateurs early adopters (conversations avec 3 agences LU, 1 banque régionale, 2 évaluateurs TEGOVA)
 
-**Dernière mise à jour** : 2026-04-17 (7 sessions : 37 gaps livrés + 2 ex-partenariats autonomes + CI Node 24 + **515 tests Vitest** (+165 %) + 14 smoke Playwright + SEO 11 pages).
+**Dernière mise à jour** : 2026-04-17 (7 sessions : 37 gaps livrés + 2 ex-partenariats autonomes + CI Node 24 + **536 tests Vitest** (+176 %) + 14 smoke Playwright + SEO 11 pages).
 
 **Prochaine révision** : 2026-10-15 (tous les 6 mois, avant freeze budget Q4) ou plus tôt si entrée en vigueur EU STR Regulation / projet loi 7763.
