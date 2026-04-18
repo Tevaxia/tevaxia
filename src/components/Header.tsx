@@ -54,6 +54,7 @@ const MENU_GROUPS: MenuGroup[] = [
     key: "hotellerie",
     items: [
       { href: "/hotellerie", key: "hotelHub" },
+      { href: "/pms", key: "pms" },
       { href: "/hotellerie/valorisation", key: "hotelValorisation" },
       { href: "/hotellerie/dscr", key: "hotelDscr" },
       { href: "/hotellerie/exploitation", key: "hotelExploitation" },

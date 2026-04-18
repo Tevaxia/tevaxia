@@ -43,6 +43,7 @@
     "propcalc": "PropCalc",
     "hotellerie": "Hospitality",
     "hotelHub": "Hospitality hub",
+    "pms": "PMS — Bookings & invoicing",
     "hotelValorisation": "Hotel valuation",
     "hotelDscr": "DSCR & hotel financing",
     "hotelExploitation": "Operating P&L",
@@ -185,6 +186,11 @@
         "title": "Hospitality Hub",
         "description": "6 hotel calculators: RevPAR/EBITDA valuation, DSCR, operating P&L, E-2 score, forecast and RevPAR comparison.",
         "tag": "Hotel pre-acquisition"
+      },
+      "pms": {
+        "title": "PMS — Bookings & invoicing",
+        "description": "Full hotel/motel/B&B management software: rooms, seasonal rates, calendar, check-in/out, 3% VAT invoices + tourist tax, iCal OTA feed.",
+        "tag": "New · Hotel operations"
       },
       "gestionLocative": {
         "title": "LU Rental Management",

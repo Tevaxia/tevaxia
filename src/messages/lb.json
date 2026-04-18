@@ -43,6 +43,7 @@
     "propcalc": "PropCalc",
     "hotellerie": "Hotellerie",
     "hotelHub": "Hotellerie-Hub",
+    "pms": "PMS — Reservéierungen & Rechnungen",
     "hotelValorisation": "Hotelbewäertung",
     "hotelDscr": "DSCR & Hotelfinanzéierung",
     "hotelExploitation": "Exploitatiounsbilanz",
@@ -185,6 +186,11 @@
         "title": "Hotellerie-Hub",
         "description": "6 Hotel-Rechner: RevPAR/EBITDA-Bewäertung, DSCR, Exploitatiounsbilanz, E-2-Score, Forecast an RevPAR-Vergläich.",
         "tag": "Hotel-Virakaf"
+      },
+      "pms": {
+        "title": "PMS — Reservéierungen & Rechnungen",
+        "description": "Komplett Software fir Hotel/Motel/B&B ze verwalten: Zëmmeren, Saisontarifer, Kalenner, Check-in/out, Rechnungen MwSt 3 % + Kurtaxe, iCal OTA.",
+        "tag": "Nei · Hotelbetrib"
       },
       "gestionLocative": {
         "title": "LU Lounungsverwaltung",

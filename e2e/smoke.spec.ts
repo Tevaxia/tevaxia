@@ -198,4 +198,10 @@ test.describe("Smoke tests — parcours critiques publics", () => {
     const body = page.locator("body");
     await expect(body).toContainText(/procuration|assemblée|mandataire|copropriété/i);
   });
+
+  test("/pms PMS hub accessible", async ({ page }) => {
+    await page.goto("/pms");
+    const body = page.locator("body");
+    await expect(body).toContainText(/pms|property management|hôtel|hotel|motel|réservation|booking|connect|sign in/i);
+  });
 });

@@ -43,6 +43,7 @@
     "propcalc": "PropCalc",
     "hotellerie": "Hotelaria",
     "hotelHub": "Hub hotelaria",
+    "pms": "PMS — Reservas & faturação",
     "hotelValorisation": "Avaliação hoteleira",
     "hotelDscr": "DSCR & financiamento hotel",
     "hotelExploitation": "Balanço de exploração",
@@ -185,6 +186,11 @@
         "title": "Hub Hotelaria",
         "description": "6 calculadores hoteleiros: avaliação RevPAR/EBITDA, DSCR, exploração, score E-2, previsão e comparação RevPAR.",
         "tag": "Pré-aquisição hotel"
+      },
+      "pms": {
+        "title": "PMS — Reservas & faturação",
+        "description": "Software completo de gestão hotel/motel/B&B: quartos, tarifas sazonais, calendário, check-in/out, faturas IVA 3 % + taxa turística, iCal OTA.",
+        "tag": "Novo · Operações hotel"
       },
       "gestionLocative": {
         "title": "Gestão Locativa LU",

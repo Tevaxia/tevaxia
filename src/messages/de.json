@@ -43,6 +43,7 @@
     "propcalc": "PropCalc",
     "hotellerie": "Hotellerie",
     "hotelHub": "Hotellerie-Hub",
+    "pms": "PMS — Buchungen & Rechnungen",
     "hotelValorisation": "Hotelbewertung",
     "hotelDscr": "DSCR & Hotelfinanzierung",
     "hotelExploitation": "Betriebs-GuV",
@@ -185,6 +186,11 @@
         "title": "Hotellerie-Hub",
         "description": "6 Hotel-Rechner: RevPAR/EBITDA-Bewertung, DSCR, Betriebs-GuV, E-2-Score, Forecast und RevPAR-Vergleich.",
         "tag": "Hotel-Vorerwerb"
+      },
+      "pms": {
+        "title": "PMS — Buchungen & Rechnungen",
+        "description": "Komplette Hotel/Motel/B&B-Verwaltungssoftware: Zimmer, Saisontarife, Kalender, Check-in/out, Rechnungen MwSt 3 % + Kurtaxe, iCal OTA.",
+        "tag": "Neu · Hotelbetrieb"
       },
       "gestionLocative": {
         "title": "LU Vermietungsverwaltung",
