@@ -190,7 +190,11 @@ const TOOLS: HotelTool[] = [
 ];
 
 export default async function HotellerieHub() {
-  const [locale, t] = await Promise.all([getLocale(), getTranslations("hotellerieHub")]);
+  const [locale, t, tBanner] = await Promise.all([
+    getLocale(),
+    getTranslations("hotellerieHub"),
+    getTranslations("hotelPreAcq.banner"),
+  ]);
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   return (
@@ -226,7 +230,7 @@ export default async function HotellerieHub() {
           <Link href={`${lp}/hotellerie/pre-acquisition`}
             className="group relative block overflow-hidden rounded-2xl border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-emerald-50 p-8 shadow-sm transition-all hover:shadow-xl hover:border-emerald-400">
             <div className="absolute top-4 right-4 rounded-full bg-emerald-600 px-3 py-1 text-xs font-bold text-white">
-              NOUVEAU · Workflow unifié
+              {tBanner("badge")}
             </div>
             <div className="grid gap-6 sm:grid-cols-[auto_1fr] items-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-emerald-400 text-white shadow-lg">
@@ -235,24 +239,21 @@ export default async function HotellerieHub() {
                 </svg>
               </div>
               <div>
-                <h2 className="text-xl font-bold text-navy">Workflow pré-acquisition hôtelière</h2>
-                <p className="text-sm text-slate mt-1.5 leading-relaxed">
-                  Triangulation de valorisation 3 méthodes (multiple EBITDA, prix/clé LU, DCF),
-                  DSCR + LTV, business plan 10 ans, exit value, <strong>TRI equity</strong>,
-                  score <strong>go/no-go 0-100</strong>. Alternative au logiciel ARGUS pour acquisitions hôtelières LU.
-                </p>
+                <h2 className="text-xl font-bold text-navy">{tBanner("title")}</h2>
+                <p className="text-sm text-slate mt-1.5 leading-relaxed">{tBanner("desc")}</p>
                 <div className="mt-3 flex flex-wrap gap-2 text-[11px]">
-                  <span className="rounded-full bg-white border border-emerald-200 px-2.5 py-1 font-semibold text-emerald-900">Valorisation 3 méthodes</span>
-                  <span className="rounded-full bg-white border border-emerald-200 px-2.5 py-1 font-semibold text-emerald-900">DSCR / LTV banque LU</span>
-                  <span className="rounded-full bg-white border border-emerald-200 px-2.5 py-1 font-semibold text-emerald-900">Business plan 10 ans</span>
-                  <span className="rounded-full bg-white border border-emerald-200 px-2.5 py-1 font-semibold text-emerald-900">TRI equity + exit</span>
-                  <span className="rounded-full bg-white border border-emerald-200 px-2.5 py-1 font-semibold text-emerald-900">Score go/no-go</span>
+                  <span className="rounded-full bg-white border border-emerald-200 px-2.5 py-1 font-semibold text-emerald-900">{tBanner("tag1")}</span>
+                  <span className="rounded-full bg-white border border-emerald-200 px-2.5 py-1 font-semibold text-emerald-900">{tBanner("tag2")}</span>
+                  <span className="rounded-full bg-white border border-emerald-200 px-2.5 py-1 font-semibold text-emerald-900">{tBanner("tag3")}</span>
+                  <span className="rounded-full bg-white border border-emerald-200 px-2.5 py-1 font-semibold text-emerald-900">{tBanner("tag4")}</span>
+                  <span className="rounded-full bg-white border border-emerald-200 px-2.5 py-1 font-semibold text-emerald-900">{tBanner("tag5")}</span>
                 </div>
               </div>
             </div>
           </Link>
         </div>
       </section>
+
 
       {/* Tools grid */}
       <section className="py-10 sm:py-14">

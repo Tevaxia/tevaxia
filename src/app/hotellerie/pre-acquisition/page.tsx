@@ -2,6 +2,7 @@
 
 import { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { computePreAcquisition, defaultDeal, type PreAcqDeal } from "@/lib/hotellerie/pre-acquisition";
 import type { HotelCategory } from "@/lib/hotellerie/types";
 
@@ -21,6 +22,10 @@ function fmtNum(n: number, digits = 2): string {
 }
 
 export default function PreAcquisitionPage() {
+  const t = useTranslations("hotelPreAcq");
+  const locale = useLocale();
+  const lp = locale === "fr" ? "" : `/${locale}`;
+
   const [deal, setDeal] = useState<PreAcqDeal>(defaultDeal());
   const [hydrated, setHydrated] = useState(false);
 
@@ -47,22 +52,20 @@ export default function PreAcquisitionPage() {
     "bg-rose-600";
 
   const scoreLabel =
-    result.score >= 70 ? "GO — deal attractif" :
-    result.score >= 50 ? "À négocier — points de vigilance" :
-    "NO GO — risques majeurs";
+    result.score >= 70 ? t("scoreGo") :
+    result.score >= 50 ? t("scoreWarn") :
+    t("scoreNoGo");
 
   return (
     <div className="mx-auto max-w-[1400px] px-4 py-6">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h1 className="text-2xl font-bold text-navy">Workflow pré-acquisition hôtelière</h1>
-          <p className="text-sm text-muted mt-1">
-            Triangulation de valorisation, DSCR, business plan 10 ans, exit value, IRR equity, score go/no-go.
-          </p>
+          <h1 className="text-2xl font-bold text-navy">{t("title")}</h1>
+          <p className="text-sm text-muted mt-1">{t("subtitle")}</p>
         </div>
-        <button onClick={() => { if (confirm("Réinitialiser le deal ?")) setDeal(defaultDeal()); }}
+        <button onClick={() => { if (confirm(t("resetConfirm"))) setDeal(defaultDeal()); }}
           className="rounded-lg border border-card-border bg-white px-3 py-2 text-xs font-semibold text-slate hover:bg-background">
-          Réinitialiser
+          {t("reset")}
         </button>
       </div>
 
@@ -70,15 +73,15 @@ export default function PreAcquisitionPage() {
       <section className={`${scoreColor} rounded-xl p-5 text-white mb-6 shadow-lg`}>
         <div className="flex items-center justify-between">
           <div>
-            <div className="text-xs uppercase tracking-wider font-semibold opacity-80">Score global go/no-go</div>
+            <div className="text-xs uppercase tracking-wider font-semibold opacity-80">{t("scoreLabelHeader")}</div>
             <div className="text-4xl font-bold mt-1">{result.score.toFixed(0)}/100</div>
             <div className="text-sm font-semibold mt-1 opacity-95">{scoreLabel}</div>
           </div>
           <div className="text-right">
-            <div className="text-xs uppercase tracking-wider font-semibold opacity-80">Prix demandé</div>
+            <div className="text-xs uppercase tracking-wider font-semibold opacity-80">{t("askingPrice")}</div>
             <div className="text-2xl font-bold mt-1">{fmtEUR(deal.asking_price)}</div>
             <div className="text-xs opacity-90 mt-1">
-              Fair value : {fmtEUR(result.fair_value)} ·{" "}
+              {t("fairValue")} : {fmtEUR(result.fair_value)} ·{" "}
               <span className={result.ask_vs_fair_pct > 0.05 ? "text-rose-100" : "text-emerald-100"}>
                 {result.ask_vs_fair_pct > 0 ? "+" : ""}{fmtPct(result.ask_vs_fair_pct)}
               </span>
@@ -101,88 +104,88 @@ export default function PreAcquisitionPage() {
       <div className="grid gap-5 lg:grid-cols-[380px_1fr]">
         {/* Inputs */}
         <aside className="space-y-4">
-          <Section title="Cible">
-            <Field label="Nom" value={deal.name} onChange={(v) => update("name", v)} />
-            <Field label="Commune" value={deal.commune} onChange={(v) => update("commune", v)} />
-            <SelectField label="Catégorie" value={deal.category}
+          <Section title={t("sections.target")}>
+            <Field label={t("fields.name")} value={deal.name} onChange={(v) => update("name", v)} />
+            <Field label={t("fields.commune")} value={deal.commune} onChange={(v) => update("commune", v)} />
+            <SelectField label={t("fields.category")} value={deal.category}
               options={[
-                { v: "budget", l: "Budget (1-2★)" },
-                { v: "midscale", l: "Midscale (3★)" },
-                { v: "upscale", l: "Upscale (4★)" },
-                { v: "luxury", l: "Luxury (5★)" },
+                { v: "budget", l: t("categories.budget") },
+                { v: "midscale", l: t("categories.midscale") },
+                { v: "upscale", l: t("categories.upscale") },
+                { v: "luxury", l: t("categories.luxury") },
               ]}
               onChange={(v) => update("category", v as HotelCategory)} />
-            <NumField label="Nb chambres" value={deal.nb_rooms} onChange={(v) => update("nb_rooms", v)} />
-            <NumField label="Prix demandé (€)" value={deal.asking_price} step={50000} onChange={(v) => update("asking_price", v)} />
+            <NumField label={t("fields.nbRooms")} value={deal.nb_rooms} onChange={(v) => update("nb_rooms", v)} />
+            <NumField label={t("fields.askingPriceEur")} value={deal.asking_price} step={50000} onChange={(v) => update("asking_price", v)} />
           </Section>
 
-          <Section title="Exploitation actuelle">
-            <NumField label="ADR (€/nuit)" value={deal.adr} step={1} onChange={(v) => update("adr", v)} />
-            <NumField label="Occupancy (0-1)" value={deal.occupancy} step={0.01} onChange={(v) => update("occupancy", v)} />
-            <NumField label="F&B revenu/an (€)" value={deal.fb_revenue} step={10000} onChange={(v) => update("fb_revenue", v)} />
-            <NumField label="Autres revenus/an (€)" value={deal.other_revenue} step={5000} onChange={(v) => update("other_revenue", v)} />
-            <NumField label="Staff cost/an (€)" value={deal.staff_cost} step={10000} onChange={(v) => update("staff_cost", v)} />
-            <NumField label="Énergie/an (€)" value={deal.energy_cost} step={5000} onChange={(v) => update("energy_cost", v)} />
-            <NumField label="Autres opex/an (€)" value={deal.other_opex} step={10000} onChange={(v) => update("other_opex", v)} />
-            <NumField label="Taxe foncière/an (€)" value={deal.taxe_fonciere} step={1000} onChange={(v) => update("taxe_fonciere", v)} />
+          <Section title={t("sections.operation")}>
+            <NumField label={t("fields.adr")} value={deal.adr} step={1} onChange={(v) => update("adr", v)} />
+            <NumField label={t("fields.occupancy")} value={deal.occupancy} step={0.01} onChange={(v) => update("occupancy", v)} />
+            <NumField label={t("fields.fbRevenue")} value={deal.fb_revenue} step={10000} onChange={(v) => update("fb_revenue", v)} />
+            <NumField label={t("fields.otherRevenue")} value={deal.other_revenue} step={5000} onChange={(v) => update("other_revenue", v)} />
+            <NumField label={t("fields.staffCost")} value={deal.staff_cost} step={10000} onChange={(v) => update("staff_cost", v)} />
+            <NumField label={t("fields.energyCost")} value={deal.energy_cost} step={5000} onChange={(v) => update("energy_cost", v)} />
+            <NumField label={t("fields.otherOpex")} value={deal.other_opex} step={10000} onChange={(v) => update("other_opex", v)} />
+            <NumField label={t("fields.taxeFonciere")} value={deal.taxe_fonciere} step={1000} onChange={(v) => update("taxe_fonciere", v)} />
           </Section>
 
-          <Section title="Hypothèses croissance">
-            <NumField label="Croissance ADR/an" value={deal.adr_growth_pct} step={0.005} onChange={(v) => update("adr_growth_pct", v)} />
-            <NumField label="Croissance occupation/an" value={deal.occupancy_growth_pct} step={0.005} onChange={(v) => update("occupancy_growth_pct", v)} />
-            <NumField label="Inflation opex/an" value={deal.opex_inflation_pct} step={0.005} onChange={(v) => update("opex_inflation_pct", v)} />
+          <Section title={t("sections.growth")}>
+            <NumField label={t("fields.adrGrowth")} value={deal.adr_growth_pct} step={0.005} onChange={(v) => update("adr_growth_pct", v)} />
+            <NumField label={t("fields.occGrowth")} value={deal.occupancy_growth_pct} step={0.005} onChange={(v) => update("occupancy_growth_pct", v)} />
+            <NumField label={t("fields.opexInflation")} value={deal.opex_inflation_pct} step={0.005} onChange={(v) => update("opex_inflation_pct", v)} />
           </Section>
 
-          <Section title="Financement">
-            <NumField label="Equity (€)" value={deal.equity} step={100000} onChange={(v) => update("equity", v)} />
-            <NumField label="Dette (€)" value={deal.debt} step={100000} onChange={(v) => update("debt", v)} />
-            <NumField label="Taux dette" value={deal.debt_rate_pct} step={0.005} onChange={(v) => update("debt_rate_pct", v)} />
-            <NumField label="Durée dette (années)" value={deal.debt_term_years} step={1} onChange={(v) => update("debt_term_years", v)} />
+          <Section title={t("sections.financing")}>
+            <NumField label={t("fields.equity")} value={deal.equity} step={100000} onChange={(v) => update("equity", v)} />
+            <NumField label={t("fields.debt")} value={deal.debt} step={100000} onChange={(v) => update("debt", v)} />
+            <NumField label={t("fields.debtRate")} value={deal.debt_rate_pct} step={0.005} onChange={(v) => update("debt_rate_pct", v)} />
+            <NumField label={t("fields.debtTerm")} value={deal.debt_term_years} step={1} onChange={(v) => update("debt_term_years", v)} />
           </Section>
 
-          <Section title="CAPEX & sortie">
-            <NumField label="CAPEX entrée (€)" value={deal.capex_entry} step={50000} onChange={(v) => update("capex_entry", v)} />
-            <NumField label="Réserve FF&E % CA" value={deal.capex_reserve_pct} step={0.005} onChange={(v) => update("capex_reserve_pct", v)} />
-            <SelectField label="Horizon sortie"
+          <Section title={t("sections.capex")}>
+            <NumField label={t("fields.capexEntry")} value={deal.capex_entry} step={50000} onChange={(v) => update("capex_entry", v)} />
+            <NumField label={t("fields.capexReserve")} value={deal.capex_reserve_pct} step={0.005} onChange={(v) => update("capex_reserve_pct", v)} />
+            <SelectField label={t("fields.exitHorizon")}
               value={String(deal.exit_year)}
-              options={[{ v: "5", l: "5 ans" }, { v: "7", l: "7 ans" }, { v: "10", l: "10 ans" }]}
+              options={[{ v: "5", l: t("years.5") }, { v: "7", l: t("years.7") }, { v: "10", l: t("years.10") }]}
               onChange={(v) => update("exit_year", Number(v) as 5 | 7 | 10)} />
-            <NumField label="Cap rate exit" value={deal.exit_cap_rate} step={0.005} onChange={(v) => update("exit_cap_rate", v)} />
+            <NumField label={t("fields.exitCapRate")} value={deal.exit_cap_rate} step={0.005} onChange={(v) => update("exit_cap_rate", v)} />
           </Section>
         </aside>
 
         {/* Results */}
         <main className="space-y-5 min-w-0">
           {/* Snapshot */}
-          <Card title="1. Snapshot exploitation actuelle">
+          <Card title={t("cards.snapshot")}>
             <div className="grid gap-3 sm:grid-cols-3">
-              <Stat label="RevPAR" value={`${fmtNum(result.current_revpar, 1)} €`} />
-              <Stat label="CA total" value={fmtEUR(result.current_total_revenue)} />
-              <Stat label="GOP" value={fmtEUR(result.current_gop)} sub={fmtPct(result.current_gop_margin)} />
-              <Stat label="EBITDA" value={fmtEUR(result.current_ebitda)} sub={fmtPct(result.current_ebitda_margin)} />
-              <Stat label="Revenu CA par chambre" value={fmtEUR(result.current_total_revenue / Math.max(1, deal.nb_rooms))} />
-              <Stat label="Marge EBITDA par chambre" value={fmtEUR(result.current_ebitda / Math.max(1, deal.nb_rooms))} />
+              <Stat label={t("stats.revpar")} value={`${fmtNum(result.current_revpar, 1)} €`} />
+              <Stat label={t("stats.totalRevenue")} value={fmtEUR(result.current_total_revenue)} />
+              <Stat label={t("stats.gop")} value={fmtEUR(result.current_gop)} sub={fmtPct(result.current_gop_margin)} />
+              <Stat label={t("stats.ebitda")} value={fmtEUR(result.current_ebitda)} sub={fmtPct(result.current_ebitda_margin)} />
+              <Stat label={t("stats.revPerRoom")} value={fmtEUR(result.current_total_revenue / Math.max(1, deal.nb_rooms))} />
+              <Stat label={t("stats.ebitdaPerRoom")} value={fmtEUR(result.current_ebitda / Math.max(1, deal.nb_rooms))} />
             </div>
           </Card>
 
           {/* Triangulation valorisation */}
-          <Card title="2. Triangulation valorisation (3 méthodes)">
+          <Card title={t("cards.valuation")}>
             <div className="grid gap-3 sm:grid-cols-3">
-              <MethodCard label="Multiple EBITDA" value={result.val_ebitda_multiple}
-                note={`EBITDA x ${(result.val_ebitda_multiple / Math.max(1, result.current_ebitda)).toFixed(1)}`} />
-              <MethodCard label="Prix/clé" value={result.val_price_per_key}
-                note={`${fmtEUR(result.val_price_per_key / Math.max(1, deal.nb_rooms))} /chambre`} />
-              <MethodCard label="DCF 5 ans + Gordon" value={result.val_dcf} note={`Taux d'actualisation 9%`} />
+              <MethodCard label={t("stats.ebitdaMultiple")} value={result.val_ebitda_multiple}
+                note={`EBITDA × ${(result.val_ebitda_multiple / Math.max(1, result.current_ebitda)).toFixed(1)}`} />
+              <MethodCard label={t("stats.pricePerKey")} value={result.val_price_per_key}
+                note={`${fmtEUR(result.val_price_per_key / Math.max(1, deal.nb_rooms))} ${t("stats.perRoom")}`} />
+              <MethodCard label={t("stats.dcfMethod")} value={result.val_dcf} note={t("stats.dcfDiscountNote")} />
             </div>
             <div className="mt-4 rounded-xl bg-navy/5 border border-navy/20 p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-xs uppercase tracking-wider font-semibold text-muted">Fair value pondérée</div>
+                  <div className="text-xs uppercase tracking-wider font-semibold text-muted">{t("stats.fairValueWeighted")}</div>
                   <div className="text-xl font-bold text-navy mt-1">{fmtEUR(result.fair_value)}</div>
-                  <div className="text-[11px] text-muted mt-0.5">Pondération : 40% EBITDA + 30% prix/clé + 30% DCF</div>
+                  <div className="text-[11px] text-muted mt-0.5">{t("stats.weightingNote")}</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs uppercase tracking-wider font-semibold text-muted">Écart vs demandé</div>
+                  <div className="text-xs uppercase tracking-wider font-semibold text-muted">{t("stats.gapVsAsking")}</div>
                   <div className={`text-xl font-bold mt-1 ${result.ask_vs_fair_pct > 0.05 ? "text-rose-600" : result.ask_vs_fair_pct < -0.05 ? "text-emerald-600" : "text-amber-600"}`}>
                     {result.ask_vs_fair_pct > 0 ? "+" : ""}{fmtPct(result.ask_vs_fair_pct)}
                   </div>
@@ -192,31 +195,32 @@ export default function PreAcquisitionPage() {
           </Card>
 
           {/* Financement */}
-          <Card title="3. Structure de financement">
+          <Card title={t("cards.financing")}>
             <div className="grid gap-3 sm:grid-cols-4">
-              <Stat label="LTV" value={fmtPct(result.ltv)} sub={`${fmtEUR(deal.debt)} / ${fmtEUR(deal.asking_price)}`} />
-              <Stat label="Equity / Dette" value={`${fmtEUR(deal.equity)} / ${fmtEUR(deal.debt)}`} />
-              <Stat label="Annuité dette" value={fmtEUR(result.loan_payment_annual)} sub={`${fmtPct(deal.debt_rate_pct)} sur ${deal.debt_term_years} ans`} />
-              <Stat label="DSCR année 1"
+              <Stat label={t("stats.ltv")} value={fmtPct(result.ltv)} sub={`${fmtEUR(deal.debt)} / ${fmtEUR(deal.asking_price)}`} />
+              <Stat label={t("stats.equityDebt")} value={`${fmtEUR(deal.equity)} / ${fmtEUR(deal.debt)}`} />
+              <Stat label={t("stats.loanPayment")} value={fmtEUR(result.loan_payment_annual)}
+                sub={t("stats.loanPaymentSub", { rate: fmtPct(deal.debt_rate_pct), years: deal.debt_term_years })} />
+              <Stat label={t("stats.dscrYear1")}
                 value={`${fmtNum(result.dscr_year1, 2)}x`}
-                sub={result.dscr_year1 >= 1.35 ? "Bankable" : result.dscr_year1 >= 1.15 ? "Limite" : "Refus probable"}
+                sub={result.dscr_year1 >= 1.35 ? t("stats.dscrBankable") : result.dscr_year1 >= 1.15 ? t("stats.dscrLimit") : t("stats.dscrRefuse")}
                 tone={result.dscr_year1 >= 1.35 ? "emerald" : result.dscr_year1 >= 1.15 ? "amber" : "rose"} />
             </div>
           </Card>
 
           {/* Business plan */}
-          <Card title="4. Business plan 10 ans">
+          <Card title={t("cards.businessPlan")}>
             <div className="overflow-x-auto -mx-2 px-2">
               <table className="w-full text-xs">
                 <thead>
                   <tr className="border-b border-card-border">
-                    <th className="text-left py-2 text-muted font-semibold">Année</th>
-                    <th className="text-right py-2 text-muted font-semibold">CA</th>
-                    <th className="text-right py-2 text-muted font-semibold">GOP</th>
-                    <th className="text-right py-2 text-muted font-semibold">EBITDA</th>
-                    <th className="text-right py-2 text-muted font-semibold">% marge</th>
-                    <th className="text-right py-2 text-muted font-semibold">DSCR</th>
-                    <th className="text-right py-2 text-muted font-semibold">CF equity</th>
+                    <th className="text-left py-2 text-muted font-semibold">{t("table.year")}</th>
+                    <th className="text-right py-2 text-muted font-semibold">{t("table.revenue")}</th>
+                    <th className="text-right py-2 text-muted font-semibold">{t("table.gop")}</th>
+                    <th className="text-right py-2 text-muted font-semibold">{t("table.ebitda")}</th>
+                    <th className="text-right py-2 text-muted font-semibold">{t("table.margin")}</th>
+                    <th className="text-right py-2 text-muted font-semibold">{t("table.dscr")}</th>
+                    <th className="text-right py-2 text-muted font-semibold">{t("table.cfEquity")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -226,7 +230,7 @@ export default function PreAcquisitionPage() {
                       <tr key={p.year} className={`border-b border-card-border/50 ${isExit ? "bg-emerald-50/40 font-semibold" : ""}`}>
                         <td className="py-1.5">
                           Y{p.year}
-                          {isExit && <span className="ml-2 text-[10px] bg-emerald-600 text-white rounded px-1.5 py-0.5">EXIT</span>}
+                          {isExit && <span className="ml-2 text-[10px] bg-emerald-600 text-white rounded px-1.5 py-0.5">{t("table.exit")}</span>}
                         </td>
                         <td className="py-1.5 text-right font-mono">{fmtEUR(p.total_revenue)}</td>
                         <td className="py-1.5 text-right font-mono">{fmtEUR(p.gop)}</td>
@@ -247,44 +251,44 @@ export default function PreAcquisitionPage() {
           </Card>
 
           {/* Exit + IRR */}
-          <Card title={`5. Sortie année ${deal.exit_year} & rendement`}>
+          <Card title={t("cards.exit", { year: deal.exit_year })}>
             <div className="grid gap-3 sm:grid-cols-4">
-              <Stat label="EBITDA exit" value={fmtEUR(result.exit_ebitda)} />
-              <Stat label="Valeur de sortie" value={fmtEUR(result.exit_value)}
-                sub={`Cap rate ${fmtPct(deal.exit_cap_rate)}`} />
-              <Stat label="Solde dette exit" value={fmtEUR(result.debt_balance_at_exit)} />
-              <Stat label="Retour equity" value={fmtEUR(result.equity_return)} tone="emerald" />
+              <Stat label={t("exit.exitEbitda")} value={fmtEUR(result.exit_ebitda)} />
+              <Stat label={t("exit.exitValue")} value={fmtEUR(result.exit_value)}
+                sub={t("exit.capRateNote", { rate: fmtPct(deal.exit_cap_rate) })} />
+              <Stat label={t("exit.debtBalance")} value={fmtEUR(result.debt_balance_at_exit)} />
+              <Stat label={t("exit.equityReturn")} value={fmtEUR(result.equity_return)} tone="emerald" />
             </div>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4">
-                <div className="text-xs uppercase tracking-wider font-semibold text-emerald-900">TRI equity</div>
+                <div className="text-xs uppercase tracking-wider font-semibold text-emerald-900">{t("exit.irrEquity")}</div>
                 <div className="text-3xl font-bold text-emerald-700 mt-1">{fmtPct(result.irr_equity)}</div>
                 <div className="text-[11px] text-emerald-900/80 mt-1">
-                  {result.irr_equity >= 0.15 ? "Excellent pour hôtellerie LU" :
-                   result.irr_equity >= 0.10 ? "Conforme marché" :
-                   result.irr_equity >= 0.05 ? "En dessous attentes" :
-                   "Insuffisant — passer"}
+                  {result.irr_equity >= 0.15 ? t("exit.irrExcellent") :
+                   result.irr_equity >= 0.10 ? t("exit.irrMarket") :
+                   result.irr_equity >= 0.05 ? t("exit.irrBelow") :
+                   t("exit.irrInsufficient")}
                 </div>
               </div>
               <div className="rounded-xl border border-navy/20 bg-navy/5 p-4">
-                <div className="text-xs uppercase tracking-wider font-semibold text-navy">Multiple equity</div>
+                <div className="text-xs uppercase tracking-wider font-semibold text-navy">{t("exit.equityMultiple")}</div>
                 <div className="text-3xl font-bold text-navy mt-1">{fmtNum(result.equity_multiple, 2)}x</div>
                 <div className="text-[11px] text-navy/70 mt-1">
-                  Equity x{fmtNum(result.equity_multiple, 2)} en {deal.exit_year} ans
+                  {t("exit.equityMultipleSub", { m: fmtNum(result.equity_multiple, 2), y: deal.exit_year })}
                 </div>
               </div>
             </div>
           </Card>
 
           {/* Outils liés */}
-          <Card title="6. Aller plus loin — outils liés">
+          <Card title={t("cards.tools")}>
             <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-              <LinkCard href="/hotellerie/due-diligence" title="Due diligence 50 items" desc="Technique, commercial, juridique, fiscal, ESG, RH" />
-              <LinkCard href="/hotellerie/valorisation" title="Valorisation détaillée" desc="3 méthodes, override ratios par catégorie" />
-              <LinkCard href="/hotellerie/dscr" title="DSCR — simulation dette" desc="Covenant limites banques LU" />
-              <LinkCard href="/hotellerie/compset" title="Compset MPI/ARI/RGI" desc="Positionnement vs concurrence" />
-              <LinkCard href="/hotellerie/capex" title="CAPEX plan 10 ans" desc="Rénovation + FF&E lifecycle" />
-              <LinkCard href="/hotellerie/score-e2" title="Score E-2 visa US" desc="Pour investisseurs americains" />
+              <LinkCard href={`${lp}/hotellerie/due-diligence`} title={t("tools.ddTitle")} desc={t("tools.ddDesc")} />
+              <LinkCard href={`${lp}/hotellerie/valorisation`} title={t("tools.valTitle")} desc={t("tools.valDesc")} />
+              <LinkCard href={`${lp}/hotellerie/dscr`} title={t("tools.dscrTitle")} desc={t("tools.dscrDesc")} />
+              <LinkCard href={`${lp}/hotellerie/compset`} title={t("tools.compsetTitle")} desc={t("tools.compsetDesc")} />
+              <LinkCard href={`${lp}/hotellerie/capex`} title={t("tools.capexTitle")} desc={t("tools.capexDesc")} />
+              <LinkCard href={`${lp}/hotellerie/score-e2`} title={t("tools.e2Title")} desc={t("tools.e2Desc")} />
             </div>
           </Card>
         </main>

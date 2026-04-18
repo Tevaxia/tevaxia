@@ -8738,5 +8738,222 @@
       "legendResCount": "Reservéierungen",
       "legendRevenueEur": "Ëmsaz €"
     }
+  },
+  "hotelPreAcq": {
+    "title": "Workflow Hotel-Pre-Acquisition",
+    "subtitle": "Triangulatioun vun der Bewäertung, DSCR, Businessplang 10 Joer, Exit-Wäert, Equity-IRR, Go/No-Go-Score.",
+    "reset": "Zrécksetzen",
+    "resetConfirm": "Deal zrécksetzen?",
+    "scoreLabelHeader": "Gesamten Go/No-Go-Score",
+    "scoreGo": "GO — attraktiven Deal",
+    "scoreWarn": "Verhandelen — Virsiichtspunkten",
+    "scoreNoGo": "NO GO — grouss Risiken",
+    "askingPrice": "Gefrote Präis",
+    "fairValue": "Fair Value",
+    "sections": {
+      "target": "Zil",
+      "operation": "Aktuell Exploitatioun",
+      "growth": "Wuesstumshypothesen",
+      "financing": "Finanzéierung",
+      "capex": "CAPEX & Exit"
+    },
+    "fields": {
+      "name": "Numm",
+      "commune": "Gemeng",
+      "category": "Kategorie",
+      "nbRooms": "Zuel vu Chambren",
+      "askingPriceEur": "Gefrote Präis (€)",
+      "adr": "ADR (€/Nuecht)",
+      "occupancy": "Belegung (0-1)",
+      "fbRevenue": "F&B Ëmsaz/Joer (€)",
+      "otherRevenue": "Aner Ëmsätz/Joer (€)",
+      "staffCost": "Personal/Joer (€)",
+      "energyCost": "Energie/Joer (€)",
+      "otherOpex": "Aner Opex/Joer (€)",
+      "taxeFonciere": "Grondsteier/Joer (€)",
+      "adrGrowth": "ADR-Wuestum/Joer",
+      "occGrowth": "Belegungswuestum/Joer",
+      "opexInflation": "Opex-Inflatioun/Joer",
+      "equity": "Eegekapital (€)",
+      "debt": "Schold (€)",
+      "debtRate": "Zënssaz",
+      "debtTerm": "Scholddauer (Joer)",
+      "capexEntry": "Entrée-CAPEX (€)",
+      "capexReserve": "FF&E-Reserve % Ëmsaz",
+      "exitHorizon": "Exit-Horizont",
+      "exitCapRate": "Exit-Cap-Rate"
+    },
+    "categories": {
+      "budget": "Budget (1-2★)",
+      "midscale": "Midscale (3★)",
+      "upscale": "Upscale (4★)",
+      "luxury": "Luxury (5★)"
+    },
+    "years": {
+      "5": "5 Joer",
+      "7": "7 Joer",
+      "10": "10 Joer"
+    },
+    "cards": {
+      "snapshot": "1. Snapshot vun der aktueller Exploitatioun",
+      "valuation": "2. Bewäertungstriangulatioun (3 Methoden)",
+      "financing": "3. Finanzéierungsstruktur",
+      "businessPlan": "4. Businessplang 10 Joer",
+      "exit": "5. Joer {year} — Exit & Rendement",
+      "tools": "6. Verwandt Tools"
+    },
+    "stats": {
+      "revpar": "RevPAR",
+      "totalRevenue": "Gesamtëmsaz",
+      "gop": "GOP",
+      "ebitda": "EBITDA",
+      "revPerRoom": "Ëmsaz pro Chamber",
+      "ebitdaPerRoom": "EBITDA pro Chamber",
+      "ebitdaMultiple": "EBITDA-Multiple",
+      "pricePerKey": "Präis/Schlëssel",
+      "perRoom": "/Chamber",
+      "dcfMethod": "DCF 5 Joer + Gordon",
+      "dcfDiscountNote": "Discount-Saz 9%",
+      "fairValueWeighted": "Gewiichte Fair Value",
+      "weightingNote": "Gewiichtung: 40% EBITDA + 30% Präis/Schlëssel + 30% DCF",
+      "gapVsAsking": "Ënnerscheed vs gefrote Präis",
+      "ltv": "LTV",
+      "equityDebt": "Eegekapital / Schold",
+      "loanPayment": "Annuitéit Schold",
+      "loanPaymentSub": "{rate} iwwer {years} Joer",
+      "dscrYear1": "DSCR Joer 1",
+      "dscrBankable": "Bankfäeg",
+      "dscrLimit": "Limitt",
+      "dscrRefuse": "Méiglecherweis ofgeleent"
+    },
+    "table": {
+      "year": "Joer",
+      "revenue": "Ëmsaz",
+      "gop": "GOP",
+      "ebitda": "EBITDA",
+      "margin": "% Marge",
+      "dscr": "DSCR",
+      "cfEquity": "Equity-CF",
+      "exit": "EXIT"
+    },
+    "exit": {
+      "exitEbitda": "Exit-EBITDA",
+      "exitValue": "Exit-Wäert",
+      "capRateNote": "Cap-Rate {rate}",
+      "debtBalance": "Restschold beim Exit",
+      "equityReturn": "Equity-Réckfloss",
+      "irrEquity": "Equity-IRR",
+      "equityMultiple": "Equity-Multiple",
+      "equityMultipleSub": "Equity × {m} an {y} Joer",
+      "irrExcellent": "Exzellent fir LU-Hotellerie",
+      "irrMarket": "Marktkonform",
+      "irrBelow": "Ënner den Erwaardungen",
+      "irrInsufficient": "Net genuch — weidergoen"
+    },
+    "tools": {
+      "ddTitle": "Due Diligence 50 Punkten",
+      "ddDesc": "Technesch, kommerziell, juristesch, steierlech, ESG, HR",
+      "valTitle": "Detailléiert Bewäertung",
+      "valDesc": "3 Methoden, Ratio-Override pro Kategorie",
+      "dscrTitle": "DSCR — Scholdssimulatioun",
+      "dscrDesc": "Covenant-Grenzen LU-Banken",
+      "compsetTitle": "Compset MPI/ARI/RGI",
+      "compsetDesc": "Positioun vs Concurrence",
+      "capexTitle": "CAPEX-Plang 10 Joer",
+      "capexDesc": "Renovatioun + FF&E-Lifecycle",
+      "e2Title": "US E-2 Visa-Score",
+      "e2Desc": "Fir amerikanesch Investisseuren"
+    },
+    "banner": {
+      "badge": "NEI · Unified Workflow",
+      "title": "Workflow Hotel-Pre-Acquisition",
+      "desc": "3-Methoden-Bewäertungstriangulatioun (EBITDA-Multiple, LU Präis/Schlëssel, DCF), DSCR + LTV, Businessplang 10 Joer, Exit-Wäert, Equity-IRR, 0-100 Go/No-Go-Score. ARGUS-Alternativ fir LU-Hotelakquisitiounen.",
+      "tag1": "3-Methoden-Bewäertung",
+      "tag2": "DSCR / LTV LU-Banken",
+      "tag3": "Businessplang 10 Joer",
+      "tag4": "Equity-IRR + Exit",
+      "tag5": "Go/No-Go-Score"
+    }
+  },
+  "actionsPrioritaires": {
+    "loading": "Prioritéitsaktiounen ginn berechent…",
+    "signIn": "Umellen",
+    "title": "Prioritéitsaktiounen",
+    "subtitle": "Consolidéiert Vue vun de Modul-iwwergräifenden Aktiounen, déi haut erfuerdert sinn: ofleefend Mandater, ausstoend Ënnerschrëften, Zuelungsverzuch, AG ouni Tagesuerdnung, ze verrechnend No-Shows.",
+    "stats": {
+      "total": "Aktiounen total",
+      "critical": "Kritesch",
+      "warning": "Warnungen",
+      "info": "Infos"
+    },
+    "module": "Modul:",
+    "filter": {
+      "all": "All ({n})",
+      "crm": "CRM ({n})",
+      "syndic": "Syndic ({n})",
+      "pms": "PMS ({n})"
+    },
+    "empty": {
+      "title": "Keng Prioritéitsaktiounen",
+      "sub": "Alles aktuell — gutt gemaach!"
+    },
+    "footer": "Aktualiséierung: Warnungen ginn bei all Säitenbesuch nei berechent. Si baséieren op den aktuellen Statuten vu Mandater, Ënnerschrëften, Zuelungsverzuch, AG a Reservatiounen an Ärem Beräich. E deeglechen Moien-Check ass effizient Routine.",
+    "moduleLabels": {
+      "crm": "Agence-CRM",
+      "syndic": "Syndic Mattbesëtz",
+      "pms": "Hotel-PMS"
+    },
+    "alerts": {
+      "mandateExpiring": "Mandat leeft an {days} Dag/Deeg of",
+      "openMandate": "Mandat opmaachen",
+      "sigPending": "Ënnerschrëft zënter {days}D ausstoend",
+      "sigPendingDetail": "{name} · {doc}",
+      "remindSig": "Erënneren",
+      "unpaid": "Zuelungsverzuch Los {lot} — Etapp {tier} schécken",
+      "unpaidDetail": "{owner} · {label} · {days}D Verspéidung",
+      "manageReminders": "Erënnerungen verwalten",
+      "agNoResol": "AG „{title}\" ouni Beschloss",
+      "agScheduled": "Geplangt fir de {date}",
+      "addAgenda": "Tagesuerdnung bäifügen",
+      "noShow": "No-Show ze verrechnen",
+      "noShowDetail": "{name} · {date}",
+      "treat": "Behandelen"
+    }
+  },
+  "apiDocs": {
+    "metaTitle": "API-Dokumentatioun — tevaxia.lu",
+    "metaDesc": "OpenAPI 3.1-Dokumentatioun vun der tevaxia.lu-API: Schätzung, Batch, co-branded Agence-Rapporten. Sandbox verfügbar.",
+    "back": "← tevaxia.lu",
+    "title": "tevaxia.lu API-Dokumentatioun",
+    "subtitle": "Ëffentlech OpenAPI 3.1-Spezifikatioun — Endpoints, Schemaen, Beispiller.",
+    "cards": {
+      "specRawDesc": "Roh-Spezifikatioun (YAML) fir an Postman, Insomnia, Hoppscotch, Stoplight z'importéieren…",
+      "swaggerUiDesc": "Am Swagger-Explorer opmaachen (automateschen Spezifikatioun-Import).",
+      "swaggerEditorDesc": "Online-Editor, Client-SDK-Generéierung (JS, Python, Java, Go…)."
+    },
+    "auth": {
+      "title": "Authentifikatioun",
+      "desc": "All Ufro muss Äre API-Schlëssel enthalen. Zwou akzeptéiert Header:",
+      "keysInfo": "Är API-Schlësselen verwalte sech vun",
+      "keysInfoSuffix": "(Erstellung, Revokatioun, 30-Deeg Notzungssuivi)."
+    },
+    "sandbox": {
+      "title": "Sandbox — gratis Test ouni Aschreiwung",
+      "desc": "Benotzt de ëffentleche Sandbox-Schlëssel hei drënner fir d'API ouni Kont z'testen. Rate-limitéiert op 60 Ufroen pro Minutt, Äntwerten identesch mat der Produktioun awer net rechnungsfäeg.",
+      "badge": "Sandbox",
+      "warning": "⚠ D'Sandbox ass nëmme liesen an ka ouni Virwarnung deaktivéiert ginn. Fir laangfristeg Notzung erstellt Äre eegene Schlëssel iwwer /profil/api (Free-Plang: 10.000 Ufroen/Mount)."
+    },
+    "ai": {
+      "title": "IA-Endpoints — Analyse & Chat",
+      "intro": "Zwee IA-Endpoints accessibel mat Ärem tevaxia API-Schlëssel (Standard-Rate-Limit):",
+      "footer": "De Server benotzt par défaut Cerebras (Llama 3.1 8B, Fallback Groq Llama 3.3). Wann Dir e BYOK OpenAI/Anthropic-Schlëssel an Ärem Profil konfiguréiert hutt, gëtt dësen automatesch benotzt. Limitt: Rate-Limit-Stuff vun Ärem API-Schlëssel (Free: 10/Min, 200/Dag)."
+    },
+    "example": {
+      "title": "JavaScript-Beispill (Batch)"
+    },
+    "contact": {
+      "question": "Froen zur B2B-Integratioun?",
+      "footer": "— mir äntweren bannent 48 Aarbechtsstonnen a kënnen en dedizéierten SLA, e méi groussen Batch-Endpoint an Integratiouns-Support bidden."
+    }
   }
 }

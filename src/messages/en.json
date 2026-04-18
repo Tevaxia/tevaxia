@@ -8738,5 +8738,222 @@
       "legendResCount": "# bookings",
       "legendRevenueEur": "Revenue €"
     }
+  },
+  "hotelPreAcq": {
+    "title": "Hotel pre-acquisition workflow",
+    "subtitle": "Valuation triangulation, DSCR, 10-year business plan, exit value, equity IRR, go/no-go score.",
+    "reset": "Reset",
+    "resetConfirm": "Reset deal?",
+    "scoreLabelHeader": "Overall go/no-go score",
+    "scoreGo": "GO — attractive deal",
+    "scoreWarn": "Negotiate — watch points",
+    "scoreNoGo": "NO GO — major risks",
+    "askingPrice": "Asking price",
+    "fairValue": "Fair value",
+    "sections": {
+      "target": "Target",
+      "operation": "Current operations",
+      "growth": "Growth assumptions",
+      "financing": "Financing",
+      "capex": "CAPEX & exit"
+    },
+    "fields": {
+      "name": "Name",
+      "commune": "Municipality",
+      "category": "Category",
+      "nbRooms": "Number of rooms",
+      "askingPriceEur": "Asking price (€)",
+      "adr": "ADR (€/night)",
+      "occupancy": "Occupancy (0-1)",
+      "fbRevenue": "F&B revenue/yr (€)",
+      "otherRevenue": "Other revenue/yr (€)",
+      "staffCost": "Staff cost/yr (€)",
+      "energyCost": "Energy/yr (€)",
+      "otherOpex": "Other opex/yr (€)",
+      "taxeFonciere": "Property tax/yr (€)",
+      "adrGrowth": "ADR growth/yr",
+      "occGrowth": "Occupancy growth/yr",
+      "opexInflation": "Opex inflation/yr",
+      "equity": "Equity (€)",
+      "debt": "Debt (€)",
+      "debtRate": "Debt rate",
+      "debtTerm": "Debt term (years)",
+      "capexEntry": "Entry CAPEX (€)",
+      "capexReserve": "FF&E reserve % revenue",
+      "exitHorizon": "Exit horizon",
+      "exitCapRate": "Exit cap rate"
+    },
+    "categories": {
+      "budget": "Budget (1-2★)",
+      "midscale": "Midscale (3★)",
+      "upscale": "Upscale (4★)",
+      "luxury": "Luxury (5★)"
+    },
+    "years": {
+      "5": "5 years",
+      "7": "7 years",
+      "10": "10 years"
+    },
+    "cards": {
+      "snapshot": "1. Current operations snapshot",
+      "valuation": "2. Valuation triangulation (3 methods)",
+      "financing": "3. Financing structure",
+      "businessPlan": "4. 10-year business plan",
+      "exit": "5. Year {year} exit & returns",
+      "tools": "6. Related tools"
+    },
+    "stats": {
+      "revpar": "RevPAR",
+      "totalRevenue": "Total revenue",
+      "gop": "GOP",
+      "ebitda": "EBITDA",
+      "revPerRoom": "Revenue per room",
+      "ebitdaPerRoom": "EBITDA per room",
+      "ebitdaMultiple": "EBITDA multiple",
+      "pricePerKey": "Price/key",
+      "perRoom": "/room",
+      "dcfMethod": "DCF 5 yr + Gordon",
+      "dcfDiscountNote": "Discount rate 9%",
+      "fairValueWeighted": "Weighted fair value",
+      "weightingNote": "Weights: 40% EBITDA + 30% price/key + 30% DCF",
+      "gapVsAsking": "Gap vs asking",
+      "ltv": "LTV",
+      "equityDebt": "Equity / Debt",
+      "loanPayment": "Loan payment",
+      "loanPaymentSub": "{rate} over {years} yr",
+      "dscrYear1": "Year 1 DSCR",
+      "dscrBankable": "Bankable",
+      "dscrLimit": "Borderline",
+      "dscrRefuse": "Likely refusal"
+    },
+    "table": {
+      "year": "Year",
+      "revenue": "Revenue",
+      "gop": "GOP",
+      "ebitda": "EBITDA",
+      "margin": "% margin",
+      "dscr": "DSCR",
+      "cfEquity": "Equity CF",
+      "exit": "EXIT"
+    },
+    "exit": {
+      "exitEbitda": "Exit EBITDA",
+      "exitValue": "Exit value",
+      "capRateNote": "Cap rate {rate}",
+      "debtBalance": "Debt balance at exit",
+      "equityReturn": "Equity return",
+      "irrEquity": "Equity IRR",
+      "equityMultiple": "Equity multiple",
+      "equityMultipleSub": "Equity × {m} in {y} yr",
+      "irrExcellent": "Excellent for LU hospitality",
+      "irrMarket": "In line with market",
+      "irrBelow": "Below expectations",
+      "irrInsufficient": "Insufficient — pass"
+    },
+    "tools": {
+      "ddTitle": "Due diligence 50 items",
+      "ddDesc": "Technical, commercial, legal, tax, ESG, HR",
+      "valTitle": "Detailed valuation",
+      "valDesc": "3 methods, ratio overrides per category",
+      "dscrTitle": "DSCR — debt simulation",
+      "dscrDesc": "LU bank covenant limits",
+      "compsetTitle": "Compset MPI/ARI/RGI",
+      "compsetDesc": "Position vs competition",
+      "capexTitle": "10-year CAPEX plan",
+      "capexDesc": "Renovation + FF&E lifecycle",
+      "e2Title": "US E-2 visa score",
+      "e2Desc": "For American investors"
+    },
+    "banner": {
+      "badge": "NEW · Unified workflow",
+      "title": "Hotel pre-acquisition workflow",
+      "desc": "3-method valuation triangulation (EBITDA multiple, LU price/key, DCF), DSCR + LTV, 10-year business plan, exit value, equity IRR, 0-100 go/no-go score. ARGUS alternative for LU hotel acquisitions.",
+      "tag1": "3-method valuation",
+      "tag2": "DSCR / LTV LU banks",
+      "tag3": "10-year business plan",
+      "tag4": "Equity IRR + exit",
+      "tag5": "Go/no-go score"
+    }
+  },
+  "actionsPrioritaires": {
+    "loading": "Computing priority actions…",
+    "signIn": "Sign in",
+    "title": "Priority actions",
+    "subtitle": "Consolidated view of today's required cross-module actions: expiring mandates, pending signatures, arrears to chase, AG without agenda, no-shows to bill.",
+    "stats": {
+      "total": "Total actions",
+      "critical": "Critical",
+      "warning": "Warnings",
+      "info": "Info"
+    },
+    "module": "Module:",
+    "filter": {
+      "all": "All ({n})",
+      "crm": "CRM ({n})",
+      "syndic": "Syndic ({n})",
+      "pms": "PMS ({n})"
+    },
+    "empty": {
+      "title": "No priority actions",
+      "sub": "All up to date — well done!"
+    },
+    "footer": "Update: alerts refresh each page visit. They are based on current statuses of mandates, signatures, arrears, AG and reservations in your scope. A daily morning check is an efficient routine.",
+    "moduleLabels": {
+      "crm": "Agency CRM",
+      "syndic": "Condominium syndic",
+      "pms": "Hotel PMS"
+    },
+    "alerts": {
+      "mandateExpiring": "Mandate expiring in {days} day(s)",
+      "openMandate": "Open mandate",
+      "sigPending": "Signature pending for {days}d",
+      "sigPendingDetail": "{name} · {doc}",
+      "remindSig": "Remind",
+      "unpaid": "Unpaid lot {lot} — tier {tier} to send",
+      "unpaidDetail": "{owner} · {label} · {days}d late",
+      "manageReminders": "Manage reminders",
+      "agNoResol": "Assembly \"{title}\" without resolution",
+      "agScheduled": "Scheduled for {date}",
+      "addAgenda": "Add agenda",
+      "noShow": "No-show to bill",
+      "noShowDetail": "{name} · {date}",
+      "treat": "Process"
+    }
+  },
+  "apiDocs": {
+    "metaTitle": "API documentation — tevaxia.lu",
+    "metaDesc": "OpenAPI 3.1 documentation for the tevaxia.lu API: estimation, batch, co-branded agency reports. Sandbox available.",
+    "back": "← tevaxia.lu",
+    "title": "tevaxia.lu API documentation",
+    "subtitle": "Public OpenAPI 3.1 specification — endpoints, schemas, examples.",
+    "cards": {
+      "specRawDesc": "Raw spec (YAML) to import into Postman, Insomnia, Hoppscotch, Stoplight…",
+      "swaggerUiDesc": "Open in the Swagger explorer (automatic spec import).",
+      "swaggerEditorDesc": "Online editor, client SDK generation (JS, Python, Java, Go…)."
+    },
+    "auth": {
+      "title": "Authentication",
+      "desc": "Every request must include your API key. Two accepted headers:",
+      "keysInfo": "Manage your API keys from",
+      "keysInfoSuffix": "(create, revoke, 30-day usage tracking)."
+    },
+    "sandbox": {
+      "title": "Sandbox — free test without registration",
+      "desc": "Use the public sandbox key below to test the API without creating an account. Rate-limited to 60 requests per minute, responses identical to production but not billed.",
+      "badge": "Sandbox",
+      "warning": "⚠ The sandbox is read-only and may be disabled without notice. For sustained use, create your own key via /profil/api (Free plan: 10,000 requests/month)."
+    },
+    "ai": {
+      "title": "AI endpoints — analysis & chat",
+      "intro": "Two AI endpoints accessible with your tevaxia API key (standard rate-limit tier):",
+      "footer": "The server uses Cerebras by default (Llama 3.1 8B, Groq Llama 3.3 fallback). If you configured a BYOK OpenAI/Anthropic key in your profile, it will be used automatically. Limit: your API key rate-limit tier (Free: 10/min, 200/day)."
+    },
+    "example": {
+      "title": "JavaScript example (batch)"
+    },
+    "contact": {
+      "question": "B2B integration questions?",
+      "footer": "— we answer within 48 business hours and can provide a dedicated SLA, a larger batch endpoint and integration support."
+    }
   }
 }

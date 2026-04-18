@@ -8738,5 +8738,222 @@
       "legendResCount": "N.º reservas",
       "legendRevenueEur": "Receita €"
     }
+  },
+  "hotelPreAcq": {
+    "title": "Workflow de pré-aquisição hoteleira",
+    "subtitle": "Triangulação de avaliação, DSCR, plano de negócios 10 anos, valor de saída, TIR capital próprio, score go/no-go.",
+    "reset": "Reiniciar",
+    "resetConfirm": "Reiniciar o negócio?",
+    "scoreLabelHeader": "Score global go/no-go",
+    "scoreGo": "GO — negócio atrativo",
+    "scoreWarn": "Negociar — pontos de atenção",
+    "scoreNoGo": "NO GO — riscos maiores",
+    "askingPrice": "Preço pedido",
+    "fairValue": "Fair value",
+    "sections": {
+      "target": "Alvo",
+      "operation": "Exploração atual",
+      "growth": "Hipóteses de crescimento",
+      "financing": "Financiamento",
+      "capex": "CAPEX & saída"
+    },
+    "fields": {
+      "name": "Nome",
+      "commune": "Município",
+      "category": "Categoria",
+      "nbRooms": "N.º de quartos",
+      "askingPriceEur": "Preço pedido (€)",
+      "adr": "ADR (€/noite)",
+      "occupancy": "Ocupação (0-1)",
+      "fbRevenue": "F&B receita/ano (€)",
+      "otherRevenue": "Outras receitas/ano (€)",
+      "staffCost": "Pessoal/ano (€)",
+      "energyCost": "Energia/ano (€)",
+      "otherOpex": "Outras opex/ano (€)",
+      "taxeFonciere": "Contribuição predial/ano (€)",
+      "adrGrowth": "Crescimento ADR/ano",
+      "occGrowth": "Crescimento ocupação/ano",
+      "opexInflation": "Inflação opex/ano",
+      "equity": "Capital próprio (€)",
+      "debt": "Dívida (€)",
+      "debtRate": "Taxa de juro",
+      "debtTerm": "Prazo dívida (anos)",
+      "capexEntry": "CAPEX entrada (€)",
+      "capexReserve": "Reserva FF&E % CA",
+      "exitHorizon": "Horizonte de saída",
+      "exitCapRate": "Cap rate saída"
+    },
+    "categories": {
+      "budget": "Budget (1-2★)",
+      "midscale": "Midscale (3★)",
+      "upscale": "Upscale (4★)",
+      "luxury": "Luxury (5★)"
+    },
+    "years": {
+      "5": "5 anos",
+      "7": "7 anos",
+      "10": "10 anos"
+    },
+    "cards": {
+      "snapshot": "1. Snapshot da exploração atual",
+      "valuation": "2. Triangulação de avaliação (3 métodos)",
+      "financing": "3. Estrutura de financiamento",
+      "businessPlan": "4. Plano de negócios 10 anos",
+      "exit": "5. Ano {year} — saída & retorno",
+      "tools": "6. Ir mais longe — ferramentas"
+    },
+    "stats": {
+      "revpar": "RevPAR",
+      "totalRevenue": "Receita total",
+      "gop": "GOP",
+      "ebitda": "EBITDA",
+      "revPerRoom": "Receita por quarto",
+      "ebitdaPerRoom": "EBITDA por quarto",
+      "ebitdaMultiple": "Multiple EBITDA",
+      "pricePerKey": "Preço/chave",
+      "perRoom": "/quarto",
+      "dcfMethod": "DCF 5 anos + Gordon",
+      "dcfDiscountNote": "Taxa de desconto 9%",
+      "fairValueWeighted": "Fair value ponderado",
+      "weightingNote": "Ponderação: 40% EBITDA + 30% preço/chave + 30% DCF",
+      "gapVsAsking": "Desvio vs pedido",
+      "ltv": "LTV",
+      "equityDebt": "Capital próprio / Dívida",
+      "loanPayment": "Anuidade dívida",
+      "loanPaymentSub": "{rate} sobre {years} anos",
+      "dscrYear1": "DSCR ano 1",
+      "dscrBankable": "Bancável",
+      "dscrLimit": "Limite",
+      "dscrRefuse": "Recusa provável"
+    },
+    "table": {
+      "year": "Ano",
+      "revenue": "Receita",
+      "gop": "GOP",
+      "ebitda": "EBITDA",
+      "margin": "% margem",
+      "dscr": "DSCR",
+      "cfEquity": "CF capital próprio",
+      "exit": "EXIT"
+    },
+    "exit": {
+      "exitEbitda": "EBITDA saída",
+      "exitValue": "Valor de saída",
+      "capRateNote": "Cap rate {rate}",
+      "debtBalance": "Saldo dívida na saída",
+      "equityReturn": "Retorno capital próprio",
+      "irrEquity": "TIR capital próprio",
+      "equityMultiple": "Multiple capital próprio",
+      "equityMultipleSub": "Capital próprio × {m} em {y} anos",
+      "irrExcellent": "Excelente para hotelaria LU",
+      "irrMarket": "Conforme mercado",
+      "irrBelow": "Abaixo das expectativas",
+      "irrInsufficient": "Insuficiente — passar"
+    },
+    "tools": {
+      "ddTitle": "Due diligence 50 itens",
+      "ddDesc": "Técnico, comercial, jurídico, fiscal, ESG, RH",
+      "valTitle": "Avaliação detalhada",
+      "valDesc": "3 métodos, override de rácios por categoria",
+      "dscrTitle": "DSCR — simulação dívida",
+      "dscrDesc": "Limites covenant bancos LU",
+      "compsetTitle": "Compset MPI/ARI/RGI",
+      "compsetDesc": "Posicionamento vs concorrência",
+      "capexTitle": "Plano CAPEX 10 anos",
+      "capexDesc": "Renovação + ciclo FF&E",
+      "e2Title": "Score visto E-2 EUA",
+      "e2Desc": "Para investidores americanos"
+    },
+    "banner": {
+      "badge": "NOVO · Workflow unificado",
+      "title": "Workflow de pré-aquisição hoteleira",
+      "desc": "Triangulação de avaliação em 3 métodos (multiple EBITDA, preço/chave LU, DCF), DSCR + LTV, plano de negócios 10 anos, valor de saída, TIR capital próprio, score go/no-go 0-100. Alternativa ao ARGUS para aquisições hoteleiras LU.",
+      "tag1": "Avaliação 3 métodos",
+      "tag2": "DSCR / LTV bancos LU",
+      "tag3": "Plano de negócios 10 anos",
+      "tag4": "TIR capital próprio + saída",
+      "tag5": "Score go/no-go"
+    }
+  },
+  "actionsPrioritaires": {
+    "loading": "A calcular ações prioritárias…",
+    "signIn": "Entrar",
+    "title": "Ações prioritárias",
+    "subtitle": "Vista consolidada das ações necessárias hoje em todos os módulos: mandatos a expirar, assinaturas pendentes, dívidas a cobrar, AG sem ordem de trabalhos, no-shows a faturar.",
+    "stats": {
+      "total": "Total de ações",
+      "critical": "Críticas",
+      "warning": "Avisos",
+      "info": "Infos"
+    },
+    "module": "Módulo:",
+    "filter": {
+      "all": "Todas ({n})",
+      "crm": "CRM ({n})",
+      "syndic": "Syndic ({n})",
+      "pms": "PMS ({n})"
+    },
+    "empty": {
+      "title": "Sem ações prioritárias",
+      "sub": "Tudo atualizado — bom trabalho!"
+    },
+    "footer": "Atualização: os alertas são recalculados a cada visita à página. Baseiam-se nos estados atuais de mandatos, assinaturas, dívidas, AG e reservas no seu perímetro. Uma verificação diária (manhã) é uma rotina eficaz.",
+    "moduleLabels": {
+      "crm": "CRM agência",
+      "syndic": "Syndic condomínio",
+      "pms": "PMS hotel"
+    },
+    "alerts": {
+      "mandateExpiring": "Mandato expira em {days} dia(s)",
+      "openMandate": "Abrir mandato",
+      "sigPending": "Assinatura pendente há {days}d",
+      "sigPendingDetail": "{name} · {doc}",
+      "remindSig": "Relembrar",
+      "unpaid": "Dívida lote {lot} — nível {tier} a enviar",
+      "unpaidDetail": "{owner} · {label} · {days}d de atraso",
+      "manageReminders": "Gerir lembretes",
+      "agNoResol": "AG \"{title}\" sem deliberação",
+      "agScheduled": "Agendada para {date}",
+      "addAgenda": "Adicionar ordem de trabalhos",
+      "noShow": "No-show a faturar",
+      "noShowDetail": "{name} · {date}",
+      "treat": "Tratar"
+    }
+  },
+  "apiDocs": {
+    "metaTitle": "Documentação API — tevaxia.lu",
+    "metaDesc": "Documentação OpenAPI 3.1 da API tevaxia.lu: estimação, batch, relatórios co-brand agências. Sandbox disponível.",
+    "back": "← tevaxia.lu",
+    "title": "Documentação API tevaxia.lu",
+    "subtitle": "Especificação OpenAPI 3.1 pública — endpoints, esquemas, exemplos.",
+    "cards": {
+      "specRawDesc": "Spec crua (YAML) para importar em Postman, Insomnia, Hoppscotch, Stoplight…",
+      "swaggerUiDesc": "Abrir no explorador Swagger (importação automática da spec).",
+      "swaggerEditorDesc": "Editor online, geração de SDK clientes (JS, Python, Java, Go…)."
+    },
+    "auth": {
+      "title": "Autenticação",
+      "desc": "Cada pedido deve incluir a sua chave API. Dois cabeçalhos aceites:",
+      "keysInfo": "Gere as suas chaves API em",
+      "keysInfoSuffix": "(criação, revogação, seguimento de uso 30 dias)."
+    },
+    "sandbox": {
+      "title": "Sandbox — teste gratuito sem registo",
+      "desc": "Use a chave pública de sandbox abaixo para testar a API sem criar conta. Rate-limit 60 pedidos por minuto, respostas idênticas à produção mas não faturadas.",
+      "badge": "Sandbox",
+      "warning": "⚠ A sandbox é apenas leitura e pode ser desativada sem aviso. Para uso duradouro, crie a sua própria chave via /profil/api (plano Free: 10 000 pedidos/mês)."
+    },
+    "ai": {
+      "title": "Endpoints IA — análise & chat",
+      "intro": "Dois endpoints IA acessíveis com a sua chave API tevaxia (rate-limit tier standard):",
+      "footer": "O servidor usa por defeito Cerebras (Llama 3.1 8B, fallback Groq Llama 3.3). Se configurou uma chave BYOK OpenAI/Anthropic no seu perfil, será usada automaticamente. Limite: rate-limit tier da sua chave API (Free: 10/min, 200/dia)."
+    },
+    "example": {
+      "title": "Exemplo JavaScript (batch)"
+    },
+    "contact": {
+      "question": "Questões de integração B2B?",
+      "footer": "— respondemos em 48 h úteis e podemos fornecer SLA dedicado, endpoint batch maior e suporte de integração."
+    }
   }
 }
