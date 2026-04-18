@@ -5,6 +5,9 @@ import Link from "next/link";
 import { useAuth } from "@/components/AuthProvider";
 import { getProperty } from "@/lib/pms/properties";
 import { buildRevenueForecast, forecastAlert, type ForecastSummary } from "@/lib/pms/forecast";
+import {
+  getEventsInRange, impactMultiplier, IMPACT_LABELS, IMPACT_COLORS,
+} from "@/lib/pms/events-calendar-lu";
 import type { PmsProperty } from "@/lib/pms/types";
 import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/pms/errors";
