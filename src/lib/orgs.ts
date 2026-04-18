@@ -95,6 +95,7 @@ export async function createOrganization(input: {
   contact_phone?: string;
   vat_number?: string;
   brand_color?: string;
+  legal_mention?: string;
 }): Promise<Organization> {
   const client = ensureClient();
   const { data: { user } } = await client.auth.getUser();
@@ -115,6 +116,7 @@ export async function createOrganization(input: {
       contact_phone: input.contact_phone ?? null,
       vat_number: input.vat_number ?? null,
       brand_color: input.brand_color ?? "#0B2447",
+      legal_mention: input.legal_mention ?? null,
     })
     .select("*")
     .single();

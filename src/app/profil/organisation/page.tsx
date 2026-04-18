@@ -23,6 +23,7 @@ import {
   type OrgType,
 } from "@/lib/orgs";
 import { errMsg } from "@/lib/errors";
+import { lookupVies, VIES_COUNTRIES } from "@/lib/vies";
 
 const ROLE_LABEL: Record<OrgRole, string> = {
   admin: "Admin",
@@ -65,6 +66,12 @@ export default function OrgPage() {
   const [newOrgType, setNewOrgType] = useState<OrgType>("agency");
   const [newOrgPhone, setNewOrgPhone] = useState("");
   const [newOrgVat, setNewOrgVat] = useState("");
+  const [newOrgAddress, setNewOrgAddress] = useState("");
+  const [viesCountry, setViesCountry] = useState("LU");
+  const [viesInput, setViesInput] = useState("");
+  const [viesLoading, setViesLoading] = useState(false);
+  const [viesError, setViesError] = useState<string | null>(null);
+  const [viesValidated, setViesValidated] = useState(false);
 
   const [inviteEmail, setInviteEmail] = useState("");
   const [inviteRole, setInviteRole] = useState<OrgRole>("member");
@@ -95,7 +102,7 @@ export default function OrgPage() {
       setMembers(m);
       setInvitations(inv);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Erreur de chargement.");
+      setError(errMsg(e, "Erreur de chargement."));
     }
   }, []);
 
@@ -138,6 +145,41 @@ export default function OrgPage() {
 
   const activeOrg = orgs.find((o) => o.id === activeOrgId) ?? null;
 
+  const handleViesLookup = async () => {
+    const raw = viesInput.trim();
+    if (!raw) return;
+    setViesLoading(true);
+    setViesError(null);
+    setViesValidated(false);
+    try {
+      const result = await lookupVies(viesCountry, raw);
+      if ("error" in result) {
+        const msg = result.error === "vies_user_error"
+          ? `Numéro invalide (VIES : ${result.code ?? "—"})`
+          : result.error === "vies_network_error"
+          ? "Service VIES injoignable, saisie manuelle possible."
+          : result.error === "vies_upstream_error"
+          ? "VIES répond 5xx, réessayez dans quelques secondes."
+          : "Requête VIES échouée.";
+        setViesError(msg);
+        return;
+      }
+      if (!result.valid) {
+        setViesError("Numéro non valide selon VIES.");
+        return;
+      }
+      // Préremplit le formulaire
+      if (result.name) setNewOrgName(result.name);
+      if (result.address) setNewOrgAddress(result.address);
+      setNewOrgVat(result.countryCode + result.vatNumber);
+      setViesValidated(true);
+    } catch (e) {
+      setViesError(errMsg(e, "Erreur de requête."));
+    } finally {
+      setViesLoading(false);
+    }
+  };
+
   const handleCreate = async () => {
     if (!newOrgName.trim()) return;
     setLoading(true);
@@ -148,11 +190,16 @@ export default function OrgPage() {
         org_type: newOrgType,
         contact_phone: newOrgPhone.trim() || undefined,
         vat_number: newOrgVat.trim() || undefined,
+        legal_mention: newOrgAddress.trim() || undefined,
       });
       setNewOrgName("");
       setNewOrgType("agency");
       setNewOrgPhone("");
       setNewOrgVat("");
+      setNewOrgAddress("");
+      setViesInput("");
+      setViesValidated(false);
+      setViesError(null);
       setShowCreate(false);
       setActiveOrgId(created.id);
       await reloadOrgs();
@@ -174,7 +221,7 @@ export default function OrgPage() {
       setInviteEmail("");
       await reloadMembersAndInvites(activeOrgId);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Erreur d'invitation.");
+      setError(errMsg(e, "Erreur d'invitation."));
     } finally {
       setLoading(false);
     }
@@ -186,7 +233,7 @@ export default function OrgPage() {
       await deleteInvitation(id);
       await reloadMembersAndInvites(activeOrgId);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Erreur suppression.");
+      setError(errMsg(e, "Erreur suppression."));
     }
   };
 
@@ -233,7 +280,67 @@ export default function OrgPage() {
         </div>
 
         {showCreate && (
-          <div className="mt-4 border-t border-card-border pt-4">
+          <div className="mt-4 border-t border-card-border pt-4 space-y-5">
+            {/* VIES lookup : préremplit depuis n° TVA intracommunautaire */}
+            <div className="rounded-lg border border-navy/20 bg-navy/5 p-4">
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <div>
+                  <h3 className="text-sm font-semibold text-navy">Préremplir depuis un n° TVA UE</h3>
+                  <p className="text-[11px] text-muted mt-0.5">
+                    Via VIES (Commission européenne) — recommandé. Sinon, remplissez manuellement ci-dessous.
+                  </p>
+                </div>
+                <span className="text-[10px] text-muted font-mono">optionnel</span>
+              </div>
+              <div className="mt-3 grid gap-2 sm:grid-cols-[120px_1fr_auto]">
+                <select
+                  value={viesCountry}
+                  onChange={(e) => { setViesCountry(e.target.value); setViesValidated(false); setViesError(null); }}
+                  className="rounded-lg border border-input-border bg-white px-2 py-2 text-sm"
+                >
+                  {VIES_COUNTRIES.map((c) => (
+                    <option key={c.code} value={c.code}>{c.code} — {c.label}</option>
+                  ))}
+                </select>
+                <input
+                  type="text"
+                  value={viesInput}
+                  onChange={(e) => { setViesInput(e.target.value); setViesValidated(false); setViesError(null); }}
+                  placeholder={viesCountry === "LU" ? "12345678" : viesCountry === "FR" ? "12345678901" : "Numéro TVA sans préfixe"}
+                  className="rounded-lg border border-input-border bg-white px-3 py-2 text-sm font-mono"
+                  onKeyDown={(e) => { if (e.key === "Enter") handleViesLookup(); }}
+                />
+                <button
+                  type="button"
+                  onClick={handleViesLookup}
+                  disabled={viesLoading || !viesInput.trim()}
+                  className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-50"
+                >
+                  {viesLoading ? (
+                    <span className="inline-flex items-center gap-2">
+                      <span className="h-3 w-3 animate-spin rounded-full border-2 border-white/40 border-t-white" />
+                      Recherche…
+                    </span>
+                  ) : (
+                    "Rechercher"
+                  )}
+                </button>
+              </div>
+              {viesError && (
+                <div className="mt-2 rounded-md border border-rose-200 bg-rose-50 px-3 py-2 text-xs text-rose-900">
+                  {viesError}
+                </div>
+              )}
+              {viesValidated && !viesError && (
+                <div className="mt-2 rounded-md border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs text-emerald-900 flex items-start gap-2">
+                  <svg className="h-4 w-4 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" />
+                  </svg>
+                  <span>Numéro validé par VIES, champs préremplis. Vérifiez et ajustez si besoin.</span>
+                </div>
+              )}
+            </div>
+
             <p className="text-xs font-semibold uppercase tracking-wider text-muted">Type d&apos;organisation</p>
             <div className="mt-2 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
               {(Object.keys(ORG_TYPE_LABEL) as OrgType[]).map((key) => {
@@ -256,40 +363,76 @@ export default function OrgPage() {
               })}
             </div>
 
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              <input
-                type="text"
-                placeholder={
-                  newOrgType === "syndic" ? "Nom du cabinet syndic"
-                    : newOrgType === "hotel_group" ? "Nom du groupe hôtelier"
-                    : newOrgType === "bank" ? "Nom de la banque ou institution"
-                    : "Nom de l'organisation"
-                }
-                value={newOrgName}
-                onChange={(e) => setNewOrgName(e.target.value)}
-                className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
-              />
-              <input
-                type="text"
-                placeholder="Téléphone (optionnel)"
-                value={newOrgPhone}
-                onChange={(e) => setNewOrgPhone(e.target.value)}
-                className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
-              />
-              <input
-                type="text"
-                placeholder="N° TVA (optionnel)"
-                value={newOrgVat}
-                onChange={(e) => setNewOrgVat(e.target.value)}
-                className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
-              />
-              <button
-                onClick={handleCreate}
-                disabled={loading || !newOrgName.trim()}
-                className="rounded-lg bg-emerald-600 px-3 py-2 text-sm font-semibold text-white hover:bg-emerald-700 disabled:bg-muted"
-              >
-                Créer l&apos;organisation
-              </button>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted">Détails de l&apos;organisation</p>
+              <div className="mt-2 grid gap-3 sm:grid-cols-2">
+                <label className="text-xs sm:col-span-2">
+                  <span className="text-muted">Nom *</span>
+                  <input
+                    type="text"
+                    placeholder={
+                      newOrgType === "syndic" ? "Nom du cabinet syndic"
+                        : newOrgType === "hotel_group" ? "Nom du groupe hôtelier"
+                        : newOrgType === "bank" ? "Nom de la banque ou institution"
+                        : "Nom de l'organisation"
+                    }
+                    value={newOrgName}
+                    onChange={(e) => setNewOrgName(e.target.value)}
+                    className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm ${
+                      viesValidated ? "border-emerald-300 bg-emerald-50" : "border-input-border bg-input-bg"
+                    }`}
+                  />
+                </label>
+                <label className="text-xs sm:col-span-2">
+                  <span className="text-muted">Adresse (optionnel)</span>
+                  <textarea
+                    rows={2}
+                    placeholder="Rue, code postal, ville, pays"
+                    value={newOrgAddress}
+                    onChange={(e) => setNewOrgAddress(e.target.value)}
+                    className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm ${
+                      viesValidated && newOrgAddress ? "border-emerald-300 bg-emerald-50" : "border-input-border bg-input-bg"
+                    }`}
+                  />
+                </label>
+                <label className="text-xs">
+                  <span className="text-muted">N° TVA (optionnel)</span>
+                  <input
+                    type="text"
+                    placeholder="LU12345678"
+                    value={newOrgVat}
+                    onChange={(e) => setNewOrgVat(e.target.value.toUpperCase())}
+                    className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm font-mono ${
+                      viesValidated ? "border-emerald-300 bg-emerald-50" : "border-input-border bg-input-bg"
+                    }`}
+                  />
+                </label>
+                <label className="text-xs">
+                  <span className="text-muted">Téléphone (optionnel)</span>
+                  <input
+                    type="text"
+                    placeholder="+352 …"
+                    value={newOrgPhone}
+                    onChange={(e) => setNewOrgPhone(e.target.value)}
+                    className="mt-1 w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
+                  />
+                </label>
+              </div>
+              <div className="mt-4 flex items-center justify-end gap-2">
+                <button
+                  onClick={() => { setShowCreate(false); setViesError(null); setViesValidated(false); }}
+                  className="rounded-lg border border-card-border bg-background px-4 py-2 text-sm text-slate hover:border-navy"
+                >
+                  Annuler
+                </button>
+                <button
+                  onClick={handleCreate}
+                  disabled={loading || !newOrgName.trim()}
+                  className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-50"
+                >
+                  {loading ? "Création…" : "Créer l'organisation"}
+                </button>
+              </div>
             </div>
           </div>
         )}
