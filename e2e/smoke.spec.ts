@@ -222,4 +222,22 @@ test.describe("Smoke tests — parcours critiques publics", () => {
     const body = page.locator("body");
     await expect(body).toContainText(/tâche|priority|connect|sign in/i);
   });
+
+  test("/docs hub guides par persona", async ({ page }) => {
+    await page.goto("/docs");
+    const body = page.locator("body");
+    await expect(body).toContainText(/particulier|expert|syndic|hôtelier|investisseur/i);
+  });
+
+  test("/docs/particulier guide accessible", async ({ page }) => {
+    await page.goto("/docs/particulier");
+    const body = page.locator("body");
+    await expect(body).toContainText(/estimation|frais|aides|monte-carlo|achat|location/i);
+  });
+
+  test("/docs/hotellier guide accessible", async ({ page }) => {
+    await page.goto("/docs/hotellier");
+    const body = page.locator("body");
+    await expect(body).toContainText(/pms|revpar|ebitda|usali|tva|ical/i);
+  });
 });
