@@ -1109,6 +1109,19 @@ En attendant la société, voies opérationnelles :
 
 ---
 
+### Livrables 20e session 2026-04-18 (session longue — 6 items)
+
+| Chantier | Module | Commit |
+|---|---|---|
+| ✅ **/hotellerie/capex** — plan 10 ans réserve FF&E + soft/hard/major HVS/PwC | Hôtel | `8d52146` |
+| ✅ **/outils-bancaires comparateur 3 offres** — 3 banques + coût total TCC + meilleure évidente | Bancaire | `8d52146` |
+| ✅ **Tests Vitest nouvelles libs** — +46 tests (607 total) sur 6 libs récentes | Infra | `8d52146` |
+| ✅ **/hotellerie/exploitation stress tests** — 4 scénarios pré-configurés EBITDA delta | Hôtel | `8d52146` |
+| ✅ **Playwright +7 smoke tests** | Infra | `8d52146` |
+| ✅ **/tableau-bord** — dashboard personnel agrégé KPIs + activité + raccourcis | Profil | `8d52146` |
+
+Total session 20 : **+6 gaps BENCHMARK livrés**, 607 Vitest (+46), 45 Playwright smoke.
+
 ### Livrables 19e session 2026-04-18 (session longue — 6 nouveaux + 1 vérifié)
 
 | Chantier | Module | Commit |
