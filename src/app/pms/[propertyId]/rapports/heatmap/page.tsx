@@ -131,7 +131,7 @@ export default function HeatmapPage(props: { params: Promise<{ propertyId: strin
             return (
               <div key={month} className="rounded-lg border border-card-border/40 bg-background/40 p-2">
                 <div className="mb-1 text-center text-xs font-semibold text-navy">{month} {year}</div>
-                <div className="grid grid-cols-7 gap-0.5 text-[8px] text-muted text-center mb-0.5">
+                <div className="grid grid-cols-7 gap-0.5 text-[10px] text-muted text-center mb-0.5">
                   {["L", "M", "M", "J", "V", "S", "D"].map((d, i) => (
                     <div key={i}>{d}</div>
                   ))}
@@ -151,7 +151,7 @@ export default function HeatmapPage(props: { params: Promise<{ propertyId: strin
                           ? `${dateStr}: ${occ.toFixed(0)}% · ${formatEUR(cell.revenue)}`
                           : `${dateStr}: pas d'audit`
                         }
-                        className={`aspect-square rounded-sm flex items-center justify-center text-[7px] font-semibold ${
+                        className={`aspect-square rounded-sm flex items-center justify-center text-[9px] font-semibold ${
                           cell ? occupancyColor(occ) : "bg-slate-50 text-slate-300"
                         } ${occ >= 70 ? "text-white" : "text-slate-700"}`}>
                         {day}

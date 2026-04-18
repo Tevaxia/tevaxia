@@ -191,7 +191,7 @@ export default function CalendarPage(props: { params: Promise<{ propertyId: stri
                             >
                               <Link
                                 href={`/pms/${propertyId}/reservations/${cell.res.id}`}
-                                className="block text-[8px] font-mono text-navy whitespace-nowrap truncate"
+                                className="block text-[10px] font-mono text-navy whitespace-nowrap truncate"
                               >
                                 {isArrival ? cell.res.reservation_number.replace("R-", "") : "·"}
                               </Link>

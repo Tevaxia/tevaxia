@@ -88,40 +88,40 @@ export default function CoproSidebar({ coownershipId, coownershipName }: Props) 
       <aside className={`
         ${mobileOpen ? "fixed inset-y-0 left-0 z-50 w-80 overflow-y-auto" : "hidden"}
         lg:block lg:sticky lg:top-4 lg:self-start lg:h-[calc(100vh-2rem)] lg:overflow-y-auto
-        bg-card border-r lg:border border-card-border lg:rounded-xl p-3
+        bg-card border-r lg:border border-card-border lg:rounded-xl p-4
       `}>
-        <div className="mb-4 px-2">
-          <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">Copropriété</div>
-          <Link href={basePath} className="mt-1 block text-sm font-bold text-navy hover:underline truncate"
+        <div className="mb-5 px-1">
+          <div className="text-xs uppercase tracking-wider text-muted font-semibold">Copropriété</div>
+          <Link href={basePath} className="mt-1 block text-base font-bold text-navy hover:underline truncate"
             onClick={() => setMobileOpen(false)}>
             {coownershipName}
           </Link>
         </div>
 
         {SECTIONS.map((section) => (
-          <div key={section.title} className="mb-4">
-            <div className="px-2 mb-1 text-[9px] uppercase tracking-wider text-muted font-semibold">
+          <div key={section.title} className="mb-5">
+            <div className="px-1 mb-2 text-xs uppercase tracking-wider text-muted font-bold">
               {section.title}
             </div>
-            <ul className="space-y-0.5">
+            <ul className="space-y-1">
               {section.items.map((item) => {
                 const active = isActive(item.href);
                 return (
                   <li key={item.href}>
                     <Link href={`${basePath}${item.href}`}
                       onClick={() => setMobileOpen(false)}
-                      className={`flex items-start gap-2 rounded-md px-2 py-1.5 text-xs transition-colors ${
+                      className={`flex items-start gap-3 rounded-lg px-3 py-2 text-sm transition-colors ${
                         active
                           ? "bg-navy text-white"
                           : "hover:bg-background text-slate"
                       }`}>
-                      <span className="shrink-0 text-base leading-tight">{item.icon}</span>
+                      <span className="shrink-0 text-lg leading-tight">{item.icon}</span>
                       <div className="min-w-0 flex-1">
-                        <div className={`font-semibold ${active ? "" : "text-navy"}`}>
+                        <div className={`font-semibold leading-tight ${active ? "" : "text-navy"}`}>
                           {item.label}
                         </div>
                         {item.description && (
-                          <div className={`text-[10px] ${active ? "text-white/70" : "text-muted"} truncate`}>
+                          <div className={`mt-0.5 text-xs ${active ? "text-white/80" : "text-muted"} truncate`}>
                             {item.description}
                           </div>
                         )}
@@ -134,18 +134,18 @@ export default function CoproSidebar({ coownershipId, coownershipName }: Props) 
           </div>
         ))}
 
-        <div className="mt-4 border-t border-card-border pt-3 px-2 text-[10px] text-muted">
-          <Link href={`${lp}/syndic/portefeuille`} className="block hover:text-navy">
+        <div className="mt-5 border-t border-card-border pt-4 px-1 space-y-1.5 text-xs">
+          <Link href={`${lp}/syndic/portefeuille`} className="block text-muted hover:text-navy font-medium">
             ← Portefeuille multi-copros
           </Link>
-          <Link href={`${lp}/syndic/lettres-types`} className="block mt-1 hover:text-navy">
-            Bibliothèque lettres types
+          <Link href={`${lp}/syndic/lettres-types`} className="block text-muted hover:text-navy font-medium">
+            📝 Bibliothèque lettres types
           </Link>
-          <Link href={`${lp}/syndic/benchmark`} className="block mt-1 hover:text-navy">
-            Benchmark inter-copros
+          <Link href={`${lp}/syndic/benchmark`} className="block text-muted hover:text-navy font-medium">
+            📊 Benchmark inter-copros
           </Link>
-          <Link href={`${lp}/actions-prioritaires`} className="block mt-1 hover:text-navy">
-            Actions prioritaires (cross-modules)
+          <Link href={`${lp}/actions-prioritaires`} className="block text-muted hover:text-navy font-medium">
+            🔔 Actions prioritaires
           </Link>
         </div>
       </aside>

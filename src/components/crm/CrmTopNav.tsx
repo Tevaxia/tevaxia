@@ -53,36 +53,36 @@ export default function CrmTopNav() {
 
   return (
     <nav className="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-card-border">
-      <div className="mx-auto max-w-7xl px-4 py-2">
+      <div className="mx-auto max-w-7xl px-4 py-3">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <Link href="/pro-agences" className="text-xs font-semibold text-muted hover:text-navy">
+            <Link href="/pro-agences" className="text-sm font-semibold text-muted hover:text-navy">
               CRM Agence
             </Link>
             <span className="text-muted">›</span>
           </div>
           <Link href="/actions-prioritaires"
-            className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-900 hover:bg-amber-200">
+            className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-900 hover:bg-amber-200">
             🔔 Actions prioritaires
           </Link>
         </div>
-        <div className="mt-2 flex flex-wrap items-center gap-x-1 gap-y-1">
+        <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-2">
           {(Object.keys(SECTION_LABELS) as (keyof typeof SECTION_LABELS)[]).map((sec, idx) => (
-            <div key={sec} className="flex items-center gap-1">
-              {idx > 0 && <span className="mx-1 text-card-border">·</span>}
-              <span className="text-[9px] uppercase tracking-wider text-muted mr-1 hidden sm:inline">
+            <div key={sec} className="flex items-center gap-1.5">
+              {idx > 0 && <span className="mx-2 text-card-border">·</span>}
+              <span className="text-xs uppercase tracking-wider text-muted font-bold mr-1 hidden md:inline">
                 {SECTION_LABELS[sec]}
               </span>
               {(bySection[sec] ?? []).map((item) => {
                 const active = isActive(item.href);
                 return (
                   <Link key={item.href} href={item.href}
-                    className={`inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-semibold transition-colors ${
+                    className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-semibold transition-colors ${
                       active
                         ? "bg-navy text-white"
                         : "text-slate hover:bg-background hover:text-navy"
                     }`}>
-                    <span>{item.icon}</span>
+                    <span className="text-base">{item.icon}</span>
                     <span>{item.label}</span>
                   </Link>
                 );

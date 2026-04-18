@@ -199,7 +199,7 @@ export default function StrForecastPage() {
                         {MONTH_FR[p.month - 1]}
                       </div>
                       {p.month === 1 && (
-                        <div className="text-[8px] font-bold text-navy">{p.year}</div>
+                        <div className="text-[10px] font-bold text-navy">{p.year}</div>
                       )}
                     </div>
                   );
