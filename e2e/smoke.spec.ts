@@ -240,4 +240,22 @@ test.describe("Smoke tests — parcours critiques publics", () => {
     const body = page.locator("body");
     await expect(body).toContainText(/pms|revpar|ebitda|usali|tva|ical/i);
   });
+
+  test("/esg hub ESG accessible", async ({ page }) => {
+    await page.goto("/esg");
+    const body = page.locator("body");
+    await expect(body).toContainText(/crrem|taxonomie|taxonomy|sfdr|esg/i);
+  });
+
+  test("/esg/crrem-pathways stranding analyzer", async ({ page }) => {
+    await page.goto("/esg/crrem-pathways");
+    const body = page.locator("body");
+    await expect(body).toContainText(/crrem|stranding|pathway|1,5|kWh|pathways/i);
+  });
+
+  test("/esg/taxonomy wizard Climate Delegated Act", async ({ page }) => {
+    await page.goto("/esg/taxonomy");
+    const body = page.locator("body");
+    await expect(body).toContainText(/taxonom|dnsh|substantial|nzeb|activity 7.7/i);
+  });
 });

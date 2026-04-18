@@ -73,6 +73,9 @@ const MENU_GROUPS: MenuGroup[] = [
       { href: "/energy/epbd", key: "energyEpbd" },
       { href: "/energy/estimateur-cpe", key: "energyCpe" },
       { href: "/energy/lenoz", key: "energyLenoz" },
+      { href: "/esg", key: "esgHub" },
+      { href: "/esg/crrem-pathways", key: "esgCrrem" },
+      { href: "/esg/taxonomy", key: "esgTaxonomy" },
     ],
   },
   {

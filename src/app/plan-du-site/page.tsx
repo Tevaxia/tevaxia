@@ -136,6 +136,9 @@ const SECTIONS: Section[] = [
   {
     titleKey: "energy",
     links: [
+      { href: "/esg", key: "esgHub" },
+      { href: "/esg/crrem-pathways", key: "esgCrrem" },
+      { href: "/esg/taxonomy", key: "esgTaxonomy" },
       { href: "/energy", key: "energyHome" },
       { href: "/energy/impact", key: "energyImpact" },
       { href: "/energy/renovation", key: "energyRenovation" },
