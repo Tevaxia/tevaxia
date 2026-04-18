@@ -15,7 +15,9 @@ describe("enable-banking", () => {
   });
 
   describe("isConfigured", () => {
-    it("returns false when env vars absent", async () => {
+    it("returns false when env vars absent", { timeout: 15000 }, async () => {
+      // Cold-import peut dépasser 5 s en CI quand tous les test files
+      // sont chargés en série avant ce test. 15 s laissent une marge sûre.
       const { isConfigured } = await import("../enable-banking");
       expect(isConfigured()).toBe(false);
     });

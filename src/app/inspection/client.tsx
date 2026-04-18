@@ -4,6 +4,9 @@ import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import AiDraftButton from "@/components/AiDraftButton";
+import { generateInspectionPdfBlob, type InspectionReportInput } from "@/components/InspectionPdf";
+import { generateInspectionDocxBlob } from "@/lib/inspection-docx";
+import SaveToGoogleDrive from "@/components/SaveToGoogleDrive";
 
 // ============================================================
 // TEGOVA EVS 2025 — Checklist d'inspection terrain
@@ -11,18 +14,18 @@ import AiDraftButton from "@/components/AiDraftButton";
 // Section → items avec statut OK/NC/NA, notes et horodatage.
 // Sauvegardé en localStorage pour usage offline.
 
-interface CheckItem {
+export interface CheckItem {
   id: string;
   labelKey: string;
 }
 
-interface CheckSection {
+export interface CheckSection {
   id: string;
   titleKey: string;
   items: CheckItem[];
 }
 
-const CHECKLIST: CheckSection[] = [
+export const CHECKLIST: CheckSection[] = [
   {
     id: "identification",
     titleKey: "sectionIdentification",
@@ -114,9 +117,9 @@ const CHECKLIST: CheckSection[] = [
   },
 ];
 
-type ItemStatus = "pending" | "ok" | "nc" | "na";
+export type ItemStatus = "pending" | "ok" | "nc" | "na";
 
-interface InspectionData {
+export interface InspectionData {
   id: string;
   address: string;
   inspector: string;
@@ -256,6 +259,65 @@ export function InspectionClient() {
     const a = document.createElement("a");
     a.href = url;
     a.download = `inspection-${data.id}-${data.date}.txt`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  /**
+   * Prépare l'input partagé PDF + DOCX + Drive avec toutes les traductions
+   * nécessaires (évite de re-résoudre 50+ clés dans chaque helper).
+   */
+  const buildReportInput = (): InspectionReportInput => {
+    const sectionTitles: Record<string, string> = {};
+    const itemLabels: Record<string, string> = {};
+    for (const section of CHECKLIST) {
+      sectionTitles[section.titleKey] = t(section.titleKey as Parameters<typeof t>[0]);
+      for (const item of section.items) {
+        itemLabels[item.labelKey] = t(item.labelKey as Parameters<typeof t>[0]);
+      }
+    }
+    return {
+      data,
+      checklist: CHECKLIST,
+      translations: {
+        title: t("exportHeader"),
+        subtitle: t("exportSubtitle"),
+        reference: t("exportReference"),
+        address: t("exportAdresse"),
+        inspector: t("exportInspecteur"),
+        date: t("exportDate"),
+        timeRange: t("exportTimeRange"),
+        progress: {
+          ok: t("exportStatusOk"),
+          nc: t("exportStatusNc"),
+          na: t("exportStatusNa"),
+          pending: t("exportStatusPending"),
+        },
+        generalNotes: t("exportNotesGenerales"),
+        signatureInspector: t("exportSignatureInspector"),
+        signatureClient: t("exportSignatureClient"),
+        footer: t("exportFooter"),
+        sectionTitles,
+        itemLabels,
+      },
+    };
+  };
+
+  const handleExportPdf = async () => {
+    const blob = await generateInspectionPdfBlob(buildReportInput());
+    triggerDownload(blob, `inspection-${data.id}-${data.date}.pdf`);
+  };
+
+  const handleExportDocx = async () => {
+    const blob = await generateInspectionDocxBlob(buildReportInput());
+    triggerDownload(blob, `inspection-${data.id}-${data.date}.docx`);
+  };
+
+  const triggerDownload = (blob: Blob, filename: string) => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     URL.revokeObjectURL(url);
   };
@@ -400,16 +462,42 @@ export function InspectionClient() {
 
         {/* Actions */}
         <div className="mt-4 flex flex-wrap gap-2">
+          <button onClick={handleExportPdf}
+            className="inline-flex items-center gap-2 rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+            </svg>
+            {t("btnExportPdf")}
+          </button>
+          <button onClick={handleExportDocx}
+            className="inline-flex items-center gap-2 rounded-lg border border-card-border bg-card px-4 py-2 text-sm font-medium text-navy hover:bg-slate-50">
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m6.75 12H9.75m1.5-3.75h-1.5m1.5-3.75h-1.5" />
+            </svg>
+            {t("btnExportDocx")}
+          </button>
           <button onClick={handleExportText}
-            className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
+            className="inline-flex items-center gap-2 rounded-lg border border-card-border bg-card px-4 py-2 text-sm font-medium text-navy hover:bg-slate-50">
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
             {t("btnExportTxt")}
           </button>
           <button onClick={handleExport}
-            className="rounded-lg border border-card-border bg-card px-4 py-2 text-sm font-medium text-navy hover:bg-slate-50">
+            className="inline-flex items-center gap-2 rounded-lg border border-card-border bg-card px-4 py-2 text-sm font-medium text-slate hover:bg-slate-50">
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+            </svg>
             {t("btnExportJson")}
           </button>
+          <SaveToGoogleDrive
+            getBlob={async () => await generateInspectionPdfBlob(buildReportInput())}
+            filename={`inspection-${data.id}-${data.date}.pdf`}
+            mimeType="application/pdf"
+            useFolder
+          />
           <button onClick={handleReset}
-            className="rounded-lg border border-rose-200 bg-rose-50 px-4 py-2 text-sm font-medium text-rose-700 hover:bg-rose-100">
+            className="ml-auto rounded-lg border border-rose-200 bg-rose-50 px-4 py-2 text-sm font-medium text-rose-700 hover:bg-rose-100">
             {t("btnNouvelle")}
           </button>
         </div>
