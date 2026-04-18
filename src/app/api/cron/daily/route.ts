@@ -22,13 +22,17 @@ export const maxDuration = 60;
  *   - GitHub Actions ou n'importe quel scheduler externe
  *   - Supabase Edge Functions avec pg_cron
  */
-export async function POST(req: Request) {
+async function handler(req: Request) {
   const secret = process.env.CRON_SECRET;
   if (!secret) {
     return NextResponse.json({ error: "CRON_SECRET not configured" }, { status: 501 });
   }
-  const providedSecret = req.headers.get("x-cron-secret");
-  if (providedSecret !== secret) {
+  // Vercel Cron envoie GET avec Authorization: Bearer <CRON_SECRET>.
+  // On accepte aussi X-Cron-Secret pour triggers externes (GitHub Actions, Make, etc.).
+  const authHeader = req.headers.get("authorization");
+  const vercelBearer = authHeader?.startsWith("Bearer ") ? authHeader.slice(7) : null;
+  const customHeader = req.headers.get("x-cron-secret");
+  if (vercelBearer !== secret && customHeader !== secret) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -151,3 +155,5 @@ export async function POST(req: Request) {
     duration_ms: Date.now() - new Date(now).getTime(),
   });
 }
+
+export { handler as GET, handler as POST };
