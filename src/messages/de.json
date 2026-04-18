@@ -4663,7 +4663,13 @@
       "codeLabel": "6-stelliger Code",
       "verify": "Prüfen und aktivieren"
     },
-    "settingsTitle": "Kontoeinstellungen",
+    "settingsTitle": "Einstellungen",
+    "tabIdentity": "Identität & Bericht",
+    "tabNotifications": "Benachrichtigungen & KI",
+    "tabSecurity": "Sicherheit",
+    "tabBilling": "Abrechnung",
+    "tabData": "Daten",
+    "unsavedChanges": "Ungespeicherte Änderungen",
     "security": {
       "title": "Kontosicherheit",
       "description": "Bei Verdacht auf Kompromittierung alle aktiven Sitzungen widerrufen. Sie müssen sich auf allen Geräten neu anmelden.",

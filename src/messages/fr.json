@@ -4663,7 +4663,13 @@
       "codeLabel": "Code à 6 chiffres",
       "verify": "Vérifier et activer"
     },
-    "settingsTitle": "Paramètres du compte",
+    "settingsTitle": "Paramètres",
+    "tabIdentity": "Identité & rapport",
+    "tabNotifications": "Notifications & IA",
+    "tabSecurity": "Sécurité",
+    "tabBilling": "Facturation",
+    "tabData": "Données",
+    "unsavedChanges": "Modifications non enregistrées",
     "security": {
       "title": "Sécurité du compte",
       "description": "En cas de suspicion de compromission (mot de passe divulgué, appareil perdu, connexion suspecte), révoquez toutes vos sessions actives. Vous devrez vous reconnecter sur tous vos appareils.",

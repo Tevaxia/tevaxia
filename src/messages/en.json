@@ -4663,7 +4663,13 @@
       "codeLabel": "6-digit code",
       "verify": "Verify and enable"
     },
-    "settingsTitle": "Account settings",
+    "settingsTitle": "Settings",
+    "tabIdentity": "Identity & report",
+    "tabNotifications": "Notifications & AI",
+    "tabSecurity": "Security",
+    "tabBilling": "Billing",
+    "tabData": "Data",
+    "unsavedChanges": "Unsaved changes",
     "security": {
       "title": "Account security",
       "description": "If you suspect a compromise (leaked password, lost device, suspicious login), revoke all active sessions. You will need to sign in again on all devices.",

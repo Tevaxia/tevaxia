@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Link from "next/link";
 import InputField from "@/components/InputField";
 import { useAuth } from "@/components/AuthProvider";
 import { supabase } from "@/lib/supabase";
@@ -375,10 +374,19 @@ function TierAndExportSection({ user }: { user: { id: string } | null }) {
   );
 }
 
+type TabKey = "identity" | "notifications" | "security" | "billing" | "data";
+
+const TABS: { key: TabKey; labelKey: string; icon: string }[] = [
+  { key: "identity", labelKey: "tabIdentity", icon: "M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" },
+  { key: "notifications", labelKey: "tabNotifications", icon: "M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" },
+  { key: "security", labelKey: "tabSecurity", icon: "M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" },
+  { key: "billing", labelKey: "tabBilling", icon: "M2.25 8.25h19.5M2.25 9v9a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9m-19.5 0h19.5m-13.5 4.5h3" },
+  { key: "data", labelKey: "tabData", icon: "M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" },
+];
+
 export default function Profil() {
   const t = useTranslations("profil");
   const locale = useLocale();
-  const lp = locale === "fr" ? "" : `/${locale}`;
   const { user } = useAuth();
   const [profile, setProfile] = useState<UserProfile>(getProfile());
   const [profileTypes, setProfileTypes] = useState<ProfileType[]>([]);
@@ -386,6 +394,8 @@ export default function Profil() {
   const [syncing, setSyncing] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
+  const [dirty, setDirty] = useState(false);
+  const [tab, setTab] = useState<TabKey>("identity");
 
   useEffect(() => {
     // Charge le profil local immédiatement, puis merge avec le cloud
@@ -394,9 +404,27 @@ export default function Profil() {
     loadAndMergeProfile().then((merged) => setProfile(merged));
   }, []);
 
+  // Deep-link des onglets via ?section=
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const s = params.get("section") as TabKey | null;
+    if (s && TABS.some((tb) => tb.key === s)) setTab(s);
+  }, []);
+
+  const changeTab = (next: TabKey) => {
+    setTab(next);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.searchParams.set("section", next);
+      window.history.replaceState({}, "", url.toString());
+    }
+  };
+
   const update = (field: keyof UserProfile, value: string) => {
     setProfile((prev) => ({ ...prev, [field]: value }));
     setSaved(false);
+    setDirty(true);
   };
 
   const handleSave = async () => {
@@ -404,6 +432,7 @@ export default function Profil() {
     await saveProfile(profile);
     setSyncing(false);
     setSaved(true);
+    setDirty(false);
     setTimeout(() => setSaved(false), 2000);
   };
 
@@ -420,15 +449,15 @@ export default function Profil() {
     }
     if (result.url) {
       setProfile((prev) => ({ ...prev, logoUrl: result.url! }));
+      setDirty(true);
       setSaved(false);
     }
-    // Reset input so the same file can be re-selected
     e.target.value = "";
   };
 
   return (
     <div className="bg-background py-8 sm:py-12">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("title")}</h1>
           <p className="mt-1 text-sm text-muted">{t("subtitle")}</p>
@@ -444,197 +473,199 @@ export default function Profil() {
           <ProfileTypeSelector onChange={setProfileTypes} />
         </div>
 
-        <div className="mt-10 mb-4 flex items-center gap-3">
-          <svg className="h-4 w-4 text-muted" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 0 1 1.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 0 1-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 0 1-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 0 1 .12-1.45l.773-.773a1.125 1.125 0 0 1 1.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894Z" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-          </svg>
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">{t("settingsTitle")}</h2>
-          <div className="h-px flex-1 bg-card-border" />
-        </div>
-
-        <div className="space-y-6">
-          <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-            <h2 className="mb-4 text-base font-semibold text-navy">{t("identity")}</h2>
-            <div className="space-y-4">
-              <InputField label={t("fullName")} type="text" value={profile.nomComplet} onChange={(v) => update("nomComplet", v)} hint={t("fullNameHint")} />
-              <InputField label={t("company")} type="text" value={profile.societe} onChange={(v) => update("societe", v)} />
-              <InputField label={t("qualifications")} type="text" value={profile.qualifications} onChange={(v) => update("qualifications", v)} hint={t("qualificationsHint")} />
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-            <h2 className="mb-4 text-base font-semibold text-navy">{t("contactDetails")}</h2>
-            <div className="space-y-4">
-              <InputField label={t("email")} type="text" value={profile.email} onChange={(v) => update("email", v)} />
-              <InputField label={t("phone")} type="text" value={profile.telephone} onChange={(v) => update("telephone", v)} />
-              <InputField label={t("address")} type="text" value={profile.adresse} onChange={(v) => update("adresse", v)} />
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-            <h2 className="mb-4 text-base font-semibold text-navy">{t("report")}</h2>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-slate mb-1">{t("logo")}</label>
-
-                {/* Aperçu du logo actuel */}
-                {profile.logoUrl && (
-                  <div className="mb-3 flex items-center gap-3">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={profile.logoUrl}
-                      alt="Logo"
-                      className="h-16 w-16 rounded-lg border border-card-border object-contain bg-white p-1"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => { update("logoUrl", ""); }}
-                      className="text-xs text-red-600 hover:text-red-800 underline"
-                    >
-                      {t("delete")}
-                    </button>
-                  </div>
-                )}
-
-                {user ? (
-                  /* ── Utilisateur connecté : upload fichier via Supabase Storage ── */
-                  <div>
-                    <label
-                      className={`flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed px-4 py-3 text-sm transition-colors ${
-                        uploading
-                          ? "border-navy/40 bg-navy/5 text-navy/60"
-                          : "border-input-border bg-input-bg text-muted hover:border-navy hover:text-navy"
-                      }`}
-                    >
-                      {uploading ? (
-                        <>
-                          <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
-                          </svg>
-                          {t("uploading")}
-                        </>
-                      ) : (
-                        <>
-                          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-                          </svg>
-                          {t("chooseFile")}
-                        </>
-                      )}
-                      <input
-                        type="file"
-                        accept="image/png,image/jpeg,image/svg+xml"
-                        onChange={handleLogoUpload}
-                        disabled={uploading}
-                        className="sr-only"
-                      />
-                    </label>
-                    <p className="text-xs text-muted mt-1">{t("fileHint")}</p>
-                    {uploadError && (
-                      <p className="text-xs text-red-600 mt-1">{uploadError}</p>
-                    )}
-                  </div>
-                ) : (
-                  /* ── Non connecté : fallback saisie URL ── */
-                  <div>
-                    <div className="flex gap-3 items-start">
-                      <input
-                        type="url"
-                        value={profile.logoUrl || ""}
-                        onChange={(e) => update("logoUrl", e.target.value)}
-                        placeholder="https://example.com/logo.png"
-                        className="flex-1 rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm shadow-sm focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
-                      />
-                    </div>
-                    <p className="text-xs text-muted mt-1">{t("urlHint")}</p>
-                  </div>
-                )}
+        {/* Section paramètres avec onglets */}
+        <div className="mt-10 grid gap-6 lg:grid-cols-[220px_1fr]">
+          {/* Sidebar nav (desktop) / tabs horizontaux (mobile) */}
+          <aside className="lg:sticky lg:top-4 lg:self-start">
+            <div className="rounded-xl border border-card-border bg-card p-2">
+              <div className="px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-muted">
+                {t("settingsTitle")}
               </div>
-              <div>
-                <label className="block text-sm font-medium text-slate">{t("customLegalNotice")}</label>
-                <textarea
-                  value={profile.mentionLegale}
-                  onChange={(e) => update("mentionLegale", e.target.value)}
-                  rows={3}
-                  className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm shadow-sm focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20 resize-y"
-                />
-                <p className="text-xs text-muted">{t("customLegalNoticeHint")}</p>
-              </div>
-            </div>
-          </div>
-
-          <button
-            onClick={handleSave}
-            disabled={syncing}
-            className="w-full rounded-lg bg-navy px-4 py-3 text-sm font-medium text-white hover:bg-navy-light transition-colors disabled:opacity-60"
-          >
-            {syncing ? t("syncing") : saved ? t("profileSaved") : t("saveProfile")}
-          </button>
-
-          {/* Authentification à deux facteurs */}
-          <TwoFactorSection />
-
-          {/* Préférences IA / BYOK */}
-          <AiSettingsSection />
-
-          {/* Préférences notifications + consentements */}
-          <NotificationPreferencesSection />
-
-          {/* Tier affichage + export RGPD */}
-          <TierAndExportSection user={user} />
-
-          {/* Market alerts management section */}
-          <AlertsSection user={user} />
-
-          {/* Shared public links management */}
-          <SharedLinksSection user={user} />
-
-          {user && (
-            <div className="rounded-xl border border-energy/20 bg-energy/5 p-6">
-              <h2 className="text-base font-semibold text-navy mb-3">{t("accountAdvantages")}</h2>
-              <ul className="grid gap-2 sm:grid-cols-2 text-sm text-slate">
-                {([
-                  "advantage1",
-                  "advantage2",
-                  "advantage3",
-                  "advantage4",
-                  "advantage5",
-                  "advantage6",
-                  "advantage7",
-                  "advantage8",
-                  "advantage9",
-                  "advantage10",
-                ] as const).map((key) => (
-                  <li key={key} className="flex items-start gap-2">
-                    <svg className="h-4 w-4 shrink-0 text-energy mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              <nav className="flex flex-row flex-wrap gap-1 lg:flex-col lg:gap-0.5">
+                {TABS.map((tb) => (
+                  <button
+                    key={tb.key}
+                    type="button"
+                    onClick={() => changeTab(tb.key)}
+                    className={`flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium transition-colors ${
+                      tab === tb.key
+                        ? "bg-navy text-white"
+                        : "text-slate hover:bg-card-border/40 hover:text-navy"
+                    }`}
+                  >
+                    <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.6} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d={tb.icon} />
                     </svg>
-                    {t(key)}
-                  </li>
+                    <span>{t(tb.labelKey)}</span>
+                  </button>
                 ))}
-              </ul>
+              </nav>
             </div>
-          )}
+          </aside>
 
-          <div className="rounded-lg bg-amber-50 border border-amber-200 p-3">
-            <p className="text-xs text-amber-800">
-              {user
-                ? t("syncNote")
-                : t("localNote")}
-            </p>
+          {/* Contenu onglet actif */}
+          <div className="space-y-6 min-w-0">
+            {tab === "identity" && (
+              <>
+                <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+                  <h2 className="mb-4 text-base font-semibold text-navy">{t("identity")}</h2>
+                  <div className="space-y-4">
+                    <InputField label={t("fullName")} type="text" value={profile.nomComplet} onChange={(v) => update("nomComplet", v)} hint={t("fullNameHint")} />
+                    <InputField label={t("company")} type="text" value={profile.societe} onChange={(v) => update("societe", v)} />
+                    <InputField label={t("qualifications")} type="text" value={profile.qualifications} onChange={(v) => update("qualifications", v)} hint={t("qualificationsHint")} />
+                  </div>
+                </div>
+
+                <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+                  <h2 className="mb-4 text-base font-semibold text-navy">{t("contactDetails")}</h2>
+                  <div className="space-y-4">
+                    <InputField label={t("email")} type="text" value={profile.email} onChange={(v) => update("email", v)} />
+                    <InputField label={t("phone")} type="text" value={profile.telephone} onChange={(v) => update("telephone", v)} />
+                    <InputField label={t("address")} type="text" value={profile.adresse} onChange={(v) => update("adresse", v)} />
+                  </div>
+                </div>
+
+                <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
+                  <h2 className="mb-4 text-base font-semibold text-navy">{t("report")}</h2>
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-slate mb-1">{t("logo")}</label>
+
+                      {profile.logoUrl && (
+                        <div className="mb-3 flex items-center gap-3">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={profile.logoUrl}
+                            alt="Logo"
+                            className="h-16 w-16 rounded-lg border border-card-border object-contain bg-white p-1"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => { update("logoUrl", ""); }}
+                            className="text-xs text-red-600 hover:text-red-800 underline"
+                          >
+                            {t("delete")}
+                          </button>
+                        </div>
+                      )}
+
+                      {user ? (
+                        <div>
+                          <label
+                            className={`flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed px-4 py-3 text-sm transition-colors ${
+                              uploading
+                                ? "border-navy/40 bg-navy/5 text-navy/60"
+                                : "border-input-border bg-input-bg text-muted hover:border-navy hover:text-navy"
+                            }`}
+                          >
+                            {uploading ? (
+                              <>
+                                <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                                </svg>
+                                {t("uploading")}
+                              </>
+                            ) : (
+                              <>
+                                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                                </svg>
+                                {t("chooseFile")}
+                              </>
+                            )}
+                            <input
+                              type="file"
+                              accept="image/png,image/jpeg,image/svg+xml"
+                              onChange={handleLogoUpload}
+                              disabled={uploading}
+                              className="sr-only"
+                            />
+                          </label>
+                          <p className="text-xs text-muted mt-1">{t("fileHint")}</p>
+                          {uploadError && (
+                            <p className="text-xs text-red-600 mt-1">{uploadError}</p>
+                          )}
+                        </div>
+                      ) : (
+                        <div>
+                          <div className="flex gap-3 items-start">
+                            <input
+                              type="url"
+                              value={profile.logoUrl || ""}
+                              onChange={(e) => update("logoUrl", e.target.value)}
+                              placeholder="https://example.com/logo.png"
+                              className="flex-1 rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm shadow-sm focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
+                            />
+                          </div>
+                          <p className="text-xs text-muted mt-1">{t("urlHint")}</p>
+                        </div>
+                      )}
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-slate">{t("customLegalNotice")}</label>
+                      <textarea
+                        value={profile.mentionLegale}
+                        onChange={(e) => update("mentionLegale", e.target.value)}
+                        rows={3}
+                        className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm shadow-sm focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20 resize-y"
+                      />
+                      <p className="text-xs text-muted">{t("customLegalNoticeHint")}</p>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {tab === "notifications" && (
+              <>
+                <NotificationPreferencesSection />
+                <AiSettingsSection />
+              </>
+            )}
+
+            {tab === "security" && (
+              <>
+                <TwoFactorSection />
+                <SecuritySection />
+                <DeleteAccountSection />
+              </>
+            )}
+
+            {tab === "billing" && (
+              <>
+                <TierAndExportSection user={user} />
+                <StripeInvoicesSection />
+              </>
+            )}
+
+            {tab === "data" && (
+              <>
+                <AlertsSection user={user} />
+                <SharedLinksSection user={user} />
+                {!user && (
+                  <div className="rounded-lg bg-amber-50 border border-amber-200 p-3">
+                    <p className="text-xs text-amber-800">{t("localNote")}</p>
+                  </div>
+                )}
+              </>
+            )}
           </div>
-
-          {/* Factures Stripe */}
-          <StripeInvoicesSection />
-
-          {/* Sécurité : révoquer sessions */}
-          <SecuritySection />
-
-          {/* Danger zone : suppression compte */}
-          <DeleteAccountSection />
         </div>
+
+        {/* Sticky save bar : apparaît uniquement si identity tab + modifs non sauvées */}
+        {tab === "identity" && dirty && (
+          <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 rounded-full border border-navy bg-navy text-white px-4 py-2 shadow-xl animate-in fade-in slide-in-from-bottom-4">
+            <span className="text-xs text-white/80">{t("unsavedChanges")}</span>
+            <button
+              onClick={handleSave}
+              disabled={syncing}
+              className="rounded-full bg-gold px-4 py-1 text-xs font-bold text-navy-dark hover:brightness-105 disabled:opacity-60"
+            >
+              {syncing ? t("syncing") : saved ? t("profileSaved") : t("saveProfile")}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

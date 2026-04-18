@@ -4663,7 +4663,13 @@
       "codeLabel": "6-zifferegen Code",
       "verify": "Préiwen an aktivéieren"
     },
-    "settingsTitle": "Kontoastellungen",
+    "settingsTitle": "Astellungen",
+    "tabIdentity": "Identitéit & Bericht",
+    "tabNotifications": "Notifikatiounen & KI",
+    "tabSecurity": "Sécherheet",
+    "tabBilling": "Facturatioun",
+    "tabData": "Donnéeën",
+    "unsavedChanges": "Net gespäichert Ännerungen",
     "security": {
       "title": "Sécurité vum Kont",
       "description": "Bei Verdacht op Kompromëtt all aktiv Sessiounen ofmellen. Dir musst Iech op all Apparat nei umellen.",
