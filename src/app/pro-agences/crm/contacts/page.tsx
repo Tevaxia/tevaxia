@@ -89,13 +89,65 @@ export default function ContactsPage() {
       <Link href="/pro-agences/crm" className="text-xs text-muted hover:text-navy">← CRM</Link>
       <div className="mt-1 flex items-center justify-between gap-4 flex-wrap">
         <h1 className="text-2xl font-bold text-navy sm:text-3xl">Contacts</h1>
-        <button
-          type="button"
-          onClick={() => setShowForm(!showForm)}
-          className="rounded-md bg-navy px-3 py-1.5 text-xs font-semibold text-white hover:bg-navy-light"
-        >
-          {showForm ? "Fermer" : "+ Nouveau contact"}
-        </button>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={() => {
+              // Export CSV des contacts actuellement affichés (filtrés)
+              if (contacts.length === 0) return;
+              const header = [
+                "Catégorie", "Type", "Prénom", "Nom", "Société",
+                "Email", "Téléphone", "Adresse", "CP", "Ville", "Pays",
+                "Budget_min", "Budget_max",
+                "Surface_min", "Surface_max", "Zones", "Tags", "Notes",
+                "Marketing_OK", "Créé_le", "Modifié_le",
+              ];
+              const rows = contacts.map((c) => [
+                KIND_LABEL[c.kind] ?? c.kind,
+                c.is_company ? "Société" : "Particulier",
+                c.first_name ?? "", c.last_name ?? "", c.company_name ?? "",
+                c.email ?? "", c.phone ?? "",
+                c.address ?? "", c.postal_code ?? "", c.city ?? "", c.country ?? "",
+                c.budget_min ?? "", c.budget_max ?? "",
+                c.target_surface_min ?? "", c.target_surface_max ?? "",
+                (c.target_zones ?? []).join(";"), (c.tags ?? []).join(";"),
+                (c.notes ?? "").replace(/[\r\n]+/g, " "),
+                c.marketing_opt_in ? "oui" : "non",
+                c.created_at, c.updated_at,
+              ]);
+              const esc = (s: string | number) => `"${String(s).replace(/"/g, '""')}"`;
+              const csv = "\uFEFF" +
+                [header.map(esc).join(";")]
+                  .concat(rows.map((r) => r.map(esc).join(";")))
+                  .join("\n");
+              const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = `contacts-export-${new Date().toISOString().slice(0, 10)}.csv`;
+              a.click();
+              URL.revokeObjectURL(url);
+            }}
+            disabled={contacts.length === 0}
+            className="rounded-md border border-navy bg-white px-3 py-1.5 text-xs font-semibold text-navy hover:bg-navy/5 disabled:opacity-50"
+            title="Export CSV conforme RGPD — portabilité des données"
+          >
+            ↓ Export CSV
+          </button>
+          <Link
+            href="/pro-agences/crm/templates"
+            className="rounded-md border border-card-border bg-background px-3 py-1.5 text-xs font-semibold text-slate hover:border-navy"
+          >
+            📧 Templates email
+          </Link>
+          <button
+            type="button"
+            onClick={() => setShowForm(!showForm)}
+            className="rounded-md bg-navy px-3 py-1.5 text-xs font-semibold text-white hover:bg-navy-light"
+          >
+            {showForm ? "Fermer" : "+ Nouveau contact"}
+          </button>
+        </div>
       </div>
 
       {error && <div className="mt-3 rounded-md bg-rose-50 border border-rose-200 p-3 text-xs text-rose-900">{error}</div>}
