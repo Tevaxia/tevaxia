@@ -39,6 +39,7 @@ const SECTIONS: NavSection[] = [
       { href: "/cles-repartition", label: "Clés de répartition", icon: "🔑", description: "Chauffage, ascenseur, escaliers" },
       { href: "/appels", label: "Appels de fonds", icon: "💸", description: "Trimestriels + PDF + paiements" },
       { href: "/rapprochement", label: "Rapprochement bancaire", icon: "🏦", description: "Import CSV banque + matching auto" },
+      { href: "/sepa-virements", label: "Virements SEPA", icon: "💳", description: "Pain.001 XML bulk fournisseurs" },
       { href: "/fonds-travaux", label: "Fonds de travaux", icon: "🏛️", description: "Provision loi 10.06.1999" },
       { href: "/relances", label: "Relances impayés", icon: "⚠️", description: "3 paliers + intérêts légaux" },
     ],
