@@ -1,5 +1,12 @@
-import { describe, it, expect, vi } from "vitest";
-import { computeEstimatedCommission, mandateDaysRemaining } from "../agency-mandates";
+import { describe, it, expect } from "vitest";
+import {
+  computeEstimatedCommission,
+  computeCoMandateSplit,
+  mandateDaysRemaining,
+  mandateProgressPct,
+  nextStatus,
+  MANDATE_PIPELINE_ORDER,
+} from "../agency-mandates";
 
 describe("computeEstimatedCommission", () => {
   it("computes 3% of 750000 = 22500", () => {
@@ -44,5 +51,84 @@ describe("mandateDaysRemaining", () => {
     const d = mandateDaysRemaining(today);
     expect(d).not.toBe(null);
     expect(Math.abs(d!)).toBeLessThanOrEqual(1);
+  });
+});
+
+describe("computeCoMandateSplit", () => {
+  it("sans co-mandat : tout au primaire", () => {
+    const r = computeCoMandateSplit({
+      prix_demande: 500000,
+      commission_pct: 3,
+      is_co_mandate: false,
+      co_agency_commission_pct: null,
+    });
+    expect(r.total).toBe(15000);
+    expect(r.primary).toBe(15000);
+    expect(r.partner).toBe(0);
+  });
+  it("co-mandat sans répartition explicite : 50/50", () => {
+    const r = computeCoMandateSplit({
+      prix_demande: 500000,
+      commission_pct: 3,
+      is_co_mandate: true,
+      co_agency_commission_pct: null,
+    });
+    expect(r.primary).toBe(7500);
+    expect(r.partner).toBe(7500);
+  });
+  it("co-mandat avec part partenaire explicite : 1.5% sur 3% = 50%", () => {
+    const r = computeCoMandateSplit({
+      prix_demande: 500000,
+      commission_pct: 3,
+      is_co_mandate: true,
+      co_agency_commission_pct: 1.5,
+    });
+    expect(r.partner).toBe(7500);
+    expect(r.primary).toBe(7500);
+  });
+  it("clamp partner share ≤ 100%", () => {
+    const r = computeCoMandateSplit({
+      prix_demande: 500000,
+      commission_pct: 3,
+      is_co_mandate: true,
+      co_agency_commission_pct: 10,
+    });
+    expect(r.partner).toBe(15000);
+    expect(r.primary).toBe(0);
+  });
+});
+
+describe("mandateProgressPct", () => {
+  it("prospect = 0%", () => {
+    expect(mandateProgressPct("prospect")).toBe(0);
+  });
+  it("vendu = 100%", () => {
+    expect(mandateProgressPct("vendu")).toBe(100);
+  });
+  it("progression monotone entre les stages actifs", () => {
+    const pcts = MANDATE_PIPELINE_ORDER.map((s) => mandateProgressPct(s));
+    for (let i = 1; i < pcts.length; i++) {
+      expect(pcts[i]).toBeGreaterThanOrEqual(pcts[i - 1]);
+    }
+  });
+  it("abandonne / expire = 0", () => {
+    expect(mandateProgressPct("abandonne")).toBe(0);
+    expect(mandateProgressPct("expire")).toBe(0);
+  });
+});
+
+describe("nextStatus", () => {
+  it("prospect → mandat_signe", () => {
+    expect(nextStatus("prospect")).toBe("mandat_signe");
+  });
+  it("mandat_signe → diffuse", () => {
+    expect(nextStatus("mandat_signe")).toBe("diffuse");
+  });
+  it("vendu : pas de suivant", () => {
+    expect(nextStatus("vendu")).toBeNull();
+  });
+  it("abandonne / expire : hors pipeline, null", () => {
+    expect(nextStatus("abandonne")).toBeNull();
+    expect(nextStatus("expire")).toBeNull();
   });
 });

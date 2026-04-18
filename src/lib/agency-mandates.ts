@@ -1,9 +1,29 @@
 import { supabase, isSupabaseConfigured } from "./supabase";
 
 export type MandateStatus =
-  | "prospect" | "mandat_signe" | "sous_compromis" | "vendu" | "abandonne" | "expire";
+  | "prospect"
+  | "mandat_signe"
+  | "diffuse"
+  | "en_visite"
+  | "offre_recue"
+  | "sous_compromis"
+  | "vendu"
+  | "abandonne"
+  | "expire";
 
 export type MandateType = "exclusif" | "simple" | "semi_exclusif" | "recherche";
+
+export const MANDATE_PIPELINE_ORDER: MandateStatus[] = [
+  "prospect",
+  "mandat_signe",
+  "diffuse",
+  "en_visite",
+  "offre_recue",
+  "sous_compromis",
+  "vendu",
+];
+
+export const MANDATE_TERMINAL_STATES: MandateStatus[] = ["vendu", "abandonne", "expire"];
 
 export interface AgencyMandate {
   id: string;
@@ -14,6 +34,12 @@ export interface AgencyMandate {
   property_commune: string | null;
   property_type: string | null;
   property_surface: number | null;
+  property_bedrooms: number | null;
+  property_bathrooms: number | null;
+  property_floor: number | null;
+  property_year_built: number | null;
+  property_epc_class: string | null;
+  property_description: string | null;
   prix_demande: number | null;
   client_name: string | null;
   client_email: string | null;
@@ -29,6 +55,15 @@ export interface AgencyMandate {
   sold_at: string | null;
   sold_price: number | null;
   notes: string | null;
+  is_co_mandate: boolean;
+  co_agency_name: string | null;
+  co_agency_commission_pct: number | null;
+  co_agency_contact: string | null;
+  is_published: boolean;
+  published_at: string | null;
+  media_count: number;
+  days_to_sign: number | null;
+  days_to_close: number | null;
   created_at: string;
   updated_at: string;
 }
@@ -81,4 +116,44 @@ export function computeEstimatedCommission(m: Pick<AgencyMandate, "prix_demande"
 export function mandateDaysRemaining(endDate: string | null): number | null {
   if (!endDate) return null;
   return Math.floor((new Date(endDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24));
+}
+
+/**
+ * Commission partagée en co-mandat : le mandat principal perçoit sa part,
+ * l'agence partenaire perçoit co_agency_commission_pct du prix de vente.
+ * Si co_agency_commission_pct est null mais is_co_mandate=true, on considère
+ * 50/50 par défaut (usage courant LU).
+ */
+export function computeCoMandateSplit(m: Pick<AgencyMandate,
+  "prix_demande" | "commission_pct" | "is_co_mandate" | "co_agency_commission_pct">): {
+  total: number; primary: number; partner: number;
+} {
+  const total = computeEstimatedCommission(m);
+  if (!m.is_co_mandate || total === 0) return { total, primary: total, partner: 0 };
+  if (m.co_agency_commission_pct != null && m.commission_pct != null && m.commission_pct > 0) {
+    const partnerShare = m.co_agency_commission_pct / m.commission_pct;
+    const partner = total * Math.min(1, Math.max(0, partnerShare));
+    return { total, primary: total - partner, partner };
+  }
+  return { total, primary: total / 2, partner: total / 2 };
+}
+
+export function mandateProgressPct(status: MandateStatus): number {
+  if (status === "abandonne" || status === "expire") return 0;
+  const idx = MANDATE_PIPELINE_ORDER.indexOf(status);
+  if (idx < 0) return 0;
+  return Math.round((idx / (MANDATE_PIPELINE_ORDER.length - 1)) * 100);
+}
+
+export function nextStatus(status: MandateStatus): MandateStatus | null {
+  const idx = MANDATE_PIPELINE_ORDER.indexOf(status);
+  if (idx < 0 || idx >= MANDATE_PIPELINE_ORDER.length - 1) return null;
+  return MANDATE_PIPELINE_ORDER[idx + 1];
+}
+
+export async function getMandate(id: string): Promise<AgencyMandate | null> {
+  if (!isSupabaseConfigured || !supabase) return null;
+  const { data, error } = await supabase.from("agency_mandates").select("*").eq("id", id).maybeSingle();
+  if (error || !data) return null;
+  return data as AgencyMandate;
 }

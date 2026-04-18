@@ -12,10 +12,16 @@ import { listTasks, completeTask, isOverdue } from "@/lib/crm/tasks";
 import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/errors";
 
-const STATUS_ORDER: MandateStatus[] = ["prospect", "mandat_signe", "sous_compromis", "vendu", "abandonne", "expire"];
+const STATUS_ORDER: MandateStatus[] = [
+  "prospect", "mandat_signe", "diffuse", "en_visite", "offre_recue",
+  "sous_compromis", "vendu", "abandonne", "expire",
+];
 const STATUS_LABEL: Record<MandateStatus, string> = {
   prospect: "Prospect",
   mandat_signe: "Mandat signé",
+  diffuse: "Diffusé",
+  en_visite: "En visite",
+  offre_recue: "Offre reçue",
   sous_compromis: "Sous compromis",
   vendu: "Vendu",
   abandonne: "Abandonné",
@@ -64,8 +70,11 @@ export default function CrmDashboardPage() {
   const overdueTasks = tasks.filter(isOverdue);
   const upcomingTasks = tasks.filter((t) => !isOverdue(t));
 
+  const activePipelineStatuses: MandateStatus[] = [
+    "mandat_signe", "diffuse", "en_visite", "offre_recue", "sous_compromis",
+  ];
   const totalPipeline = mandates
-    .filter((m) => m.status === "mandat_signe" || m.status === "sous_compromis")
+    .filter((m) => activePipelineStatuses.includes(m.status))
     .reduce((s, m) => s + (Number(m.commission_amount_estimee) || 0), 0);
 
   return (
@@ -94,7 +103,7 @@ export default function CrmDashboardPage() {
 
       {/* KPIs */}
       <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Kpi label="Mandats en cours" value={(byStatus.mandat_signe.length + byStatus.sous_compromis.length).toString()} />
+        <Kpi label="Mandats en cours" value={activePipelineStatuses.reduce((s, k) => s + byStatus[k].length, 0).toString()} />
         <Kpi label="Prospects" value={byStatus.prospect.length.toString()} />
         <Kpi label="Contacts CRM" value={contacts.length.toString()} />
         <Kpi label="Pipeline commissions" value={formatEUR(totalPipeline)} highlight />
@@ -128,7 +137,7 @@ export default function CrmDashboardPage() {
                 {byStatus[s].slice(0, 5).map((m) => (
                   <Link
                     key={m.id}
-                    href={`/pro-agences/mandats?focus=${m.id}`}
+                    href={`/pro-agences/mandats/${m.id}`}
                     className="block rounded-md border border-card-border bg-card p-2 text-xs hover:border-navy transition-colors"
                   >
                     <div className="font-semibold text-navy truncate">{m.property_address}</div>

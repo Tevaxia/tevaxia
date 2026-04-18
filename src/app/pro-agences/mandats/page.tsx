@@ -7,14 +7,19 @@ import { isSupabaseConfigured } from "@/lib/supabase";
 import {
   listMyMandates, createMandate, updateMandate, deleteMandate,
   computeEstimatedCommission, mandateDaysRemaining,
+  MANDATE_PIPELINE_ORDER,
   type AgencyMandate, type MandateStatus, type MandateType,
 } from "@/lib/agency-mandates";
+import { buildOpenImmoXml, buildPortalCsv, downloadBlob } from "@/lib/agency-xml";
 import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/errors";
 
 const STATUS_LABELS: Record<MandateStatus, string> = {
   prospect: "Prospect",
   mandat_signe: "Mandat signé",
+  diffuse: "Diffusé",
+  en_visite: "En visite",
+  offre_recue: "Offre reçue",
   sous_compromis: "Sous compromis",
   vendu: "Vendu",
   abandonne: "Abandonné",
@@ -24,7 +29,10 @@ const STATUS_LABELS: Record<MandateStatus, string> = {
 const STATUS_COLORS: Record<MandateStatus, string> = {
   prospect: "bg-slate-100 text-slate-800 border-slate-200",
   mandat_signe: "bg-blue-100 text-blue-900 border-blue-200",
-  sous_compromis: "bg-amber-100 text-amber-900 border-amber-200",
+  diffuse: "bg-indigo-100 text-indigo-900 border-indigo-200",
+  en_visite: "bg-violet-100 text-violet-900 border-violet-200",
+  offre_recue: "bg-amber-100 text-amber-900 border-amber-200",
+  sous_compromis: "bg-orange-100 text-orange-900 border-orange-200",
   vendu: "bg-emerald-100 text-emerald-900 border-emerald-200",
   abandonne: "bg-gray-100 text-gray-700 border-gray-200",
   expire: "bg-rose-100 text-rose-900 border-rose-200",
@@ -37,7 +45,11 @@ const TYPE_LABELS: Record<MandateType, string> = {
   recherche: "Recherche (acquéreur)",
 };
 
-const STATUS_ORDER: MandateStatus[] = ["prospect", "mandat_signe", "sous_compromis", "vendu", "abandonne", "expire"];
+const STATUS_ORDER: MandateStatus[] = [
+  ...MANDATE_PIPELINE_ORDER,
+  "abandonne",
+  "expire",
+];
 
 function fmtDate(s: string | null): string {
   if (!s) return "—";
@@ -196,48 +208,36 @@ export default function MandatesPage() {
         <div className="flex gap-2">
           <button
             onClick={() => {
-              const active = mandates.filter((m) => ["mandat_signe", "sous_compromis"].includes(m.status));
-              // Format Athome.lu "Pro Pack" CSV : reference, type, commune, adresse, surface, chambres, prix, date début
-              const header = [
-                "Reference", "Type_Bien", "Commune", "Adresse", "Surface_m2",
-                "Prix_Demande", "Commission_Pct", "Statut", "Date_Debut", "Date_Fin",
-                "Client_Nom", "Client_Email", "Client_Telephone",
-              ];
-              const rows = [
-                `# Export CSV mandats — format Athome.lu / atHome Pro / Immotop compatible`,
-                `# Généré le ${new Date().toLocaleDateString("fr-LU")} · ${active.length} mandats actifs`,
-                "",
-                header.map((h) => `"${h}"`).join(";"),
-                ...active.map((m) => [
-                  m.reference ?? m.id.slice(0, 8),
-                  m.property_type ?? "",
-                  m.property_commune ?? "",
-                  m.property_address,
-                  m.property_surface ?? "",
-                  m.prix_demande ?? "",
-                  m.commission_pct ?? "",
-                  m.status,
-                  m.start_date ?? "",
-                  m.end_date ?? "",
-                  m.client_name ?? "",
-                  m.client_email ?? "",
-                  m.client_phone ?? "",
-                ].map((v) => `"${String(v).replace(/"/g, '""')}"`).join(";")),
-              ];
-              const bom = "\uFEFF";
-              const blob = new Blob([bom + rows.join("\n")], { type: "text/csv;charset=utf-8;" });
-              const url = URL.createObjectURL(blob);
-              const a = document.createElement("a");
-              a.href = url;
-              a.download = `mandats-export-portails-${new Date().toLocaleDateString("fr-LU").replace(/\//g, "-")}.csv`;
-              a.click();
-              URL.revokeObjectURL(url);
+              const active = mandates.filter((m) =>
+                ["mandat_signe","diffuse","en_visite","offre_recue","sous_compromis"].includes(m.status));
+              const csv = buildPortalCsv(active);
+              const stamp = new Date().toLocaleDateString("fr-LU").replace(/\//g, "-");
+              downloadBlob(csv, `mandats-export-portails-${stamp}.csv`, "text/csv;charset=utf-8;");
             }}
             disabled={mandates.length === 0}
             className="rounded-lg border border-navy bg-white px-3 py-2 text-sm font-semibold text-navy hover:bg-navy/5 disabled:opacity-50"
-            title="Export CSV compatible Athome.lu / atHome Pro / Immotop"
+            title="Export CSV compatible athome.lu / Immotop / Immoweb"
           >
-            ↓ Export portails
+            ↓ CSV portails
+          </button>
+          <button
+            onClick={() => {
+              const active = mandates.filter((m) =>
+                ["mandat_signe","diffuse","en_visite","offre_recue","sous_compromis"].includes(m.status));
+              const xml = buildOpenImmoXml(active, {
+                firmenname: "Agence",
+                openimmo_anid: user?.id ?? "tevaxia",
+                lang: "fr",
+                email_zentrale: user?.email ?? "",
+              });
+              const stamp = new Date().toLocaleDateString("fr-LU").replace(/\//g, "-");
+              downloadBlob(xml, `mandats-openimmo-${stamp}.xml`, "application/xml;charset=utf-8");
+            }}
+            disabled={mandates.length === 0}
+            className="rounded-lg border border-navy bg-white px-3 py-2 text-sm font-semibold text-navy hover:bg-navy/5 disabled:opacity-50"
+            title="Export OpenImmo v1.2.7 — standard européen accepté par athome / Immotop / Immoweb"
+          >
+            ↓ OpenImmo
           </button>
           <button onClick={() => setShowForm(!showForm)}
             className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
@@ -354,9 +354,13 @@ export default function MandatesPage() {
                 return (
                   <tr key={m.id} className="border-b border-card-border/40 hover:bg-background/40">
                     <td className="px-3 py-3">
-                      <div className="font-medium text-navy">{m.property_address}</div>
+                      <Link href={`/pro-agences/mandats/${m.id}`}
+                        className="font-medium text-navy hover:underline">
+                        {m.property_address}
+                      </Link>
                       <div className="text-[10px] text-muted">
                         {m.property_commune ?? "—"} · {m.property_type ?? "—"}
+                        {m.is_published && <span className="ml-1 text-emerald-700">· publié</span>}
                       </div>
                     </td>
                     <td className="px-3 py-3 text-xs">
