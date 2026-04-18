@@ -5,9 +5,10 @@ import Link from "next/link";
 import { useAuth } from "@/components/AuthProvider";
 import { getProperty } from "@/lib/pms/properties";
 import { listRooms, listRoomTypes } from "@/lib/pms/rooms";
+import { listRatePlans } from "@/lib/pms/rates";
 import { listReservations, fetchAvailability } from "@/lib/pms/reservations";
 import { aggregateKpis, pickupLast30Days } from "@/lib/pms/kpi";
-import type { PmsAvailabilityRow, PmsProperty, PmsReservation, PmsRoom, PmsRoomType, PmsNightAudit } from "@/lib/pms/types";
+import type { PmsAvailabilityRow, PmsProperty, PmsRatePlan, PmsReservation, PmsRoom, PmsRoomType, PmsNightAudit } from "@/lib/pms/types";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import { formatEUR } from "@/lib/calculations";
 
@@ -25,21 +26,24 @@ export default function PropertyOverviewPage(props: { params: Promise<{ property
   const [reservations, setReservations] = useState<PmsReservation[]>([]);
   const [availability, setAvailability] = useState<PmsAvailabilityRow[]>([]);
   const [audits, setAudits] = useState<PmsNightAudit[]>([]);
+  const [ratePlans, setRatePlans] = useState<PmsRatePlan[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (authLoading || !user) return;
     (async () => {
-      const [p, types, rr, res, avail] = await Promise.all([
+      const [p, types, rr, plans, res, avail] = await Promise.all([
         getProperty(propertyId),
         listRoomTypes(propertyId),
         listRooms(propertyId),
+        listRatePlans(propertyId),
         listReservations(propertyId, { fromDate: plusDaysISO(-30), toDate: plusDaysISO(60) }),
         fetchAvailability(propertyId, todayISO(), plusDaysISO(13)),
       ]);
       setProperty(p);
       setRoomTypes(types);
       setRooms(rr);
+      setRatePlans(plans);
       setReservations(res);
       setAvailability(avail);
 
@@ -90,6 +94,38 @@ export default function PropertyOverviewPage(props: { params: Promise<{ property
           </Link>
         </div>
       </div>
+
+      {/* Banner config incomplète */}
+      {(roomTypes.length === 0 || rooms.length === 0 || ratePlans.length === 0) && (
+        <div className="mt-5 rounded-xl border border-gold bg-gradient-to-r from-gold/15 via-amber-50 to-gold/15 p-5">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <h2 className="text-sm font-semibold text-navy">⚙️ Configuration initiale à finaliser</h2>
+              <p className="mt-1 text-xs text-muted max-w-2xl">
+                Pour accepter des réservations, il faut au moins un type de chambre, une chambre physique et un rate plan.
+                L&apos;assistant vous guide en 2 minutes avec des valeurs types pré-remplies.
+              </p>
+              <ul className="mt-2 flex flex-wrap gap-3 text-[11px]">
+                <li className={roomTypes.length > 0 ? "text-emerald-700" : "text-muted"}>
+                  {roomTypes.length > 0 ? "✅" : "◯"} Types de chambres ({roomTypes.length})
+                </li>
+                <li className={rooms.length > 0 ? "text-emerald-700" : "text-muted"}>
+                  {rooms.length > 0 ? "✅" : "◯"} Chambres physiques ({rooms.length})
+                </li>
+                <li className={ratePlans.length > 0 ? "text-emerald-700" : "text-muted"}>
+                  {ratePlans.length > 0 ? "✅" : "◯"} Rate plans ({ratePlans.length})
+                </li>
+              </ul>
+            </div>
+            <Link
+              href={`/pms/${propertyId}/setup`}
+              className="rounded-md bg-navy px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-navy-light whitespace-nowrap"
+            >
+              Lancer l&apos;assistant →
+            </Link>
+          </div>
+        </div>
+      )}
 
       {/* Navigation sous-module */}
       <nav className="mt-6 flex flex-wrap gap-2 border-b border-card-border pb-3">

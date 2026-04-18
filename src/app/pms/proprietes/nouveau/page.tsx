@@ -93,7 +93,7 @@ export default function NewPropertyPage() {
         invoice_prefix: form.invoice_prefix || "FAC-",
         legal_footer: form.legal_footer || null,
       });
-      router.push(`/pms/${p.id}`);
+      router.push(`/pms/${p.id}/setup`);
     } catch (e) {
       setError(errMsg(e));
       setSaving(false);

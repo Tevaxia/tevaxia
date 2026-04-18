@@ -162,11 +162,33 @@ export default function NewReservationPage(props: { params: Promise<{ propertyId
 
   if (roomTypes.length === 0 || ratePlans.length === 0) {
     return (
-      <div className="mx-auto max-w-4xl px-4 py-10">
+      <div className="mx-auto max-w-3xl px-4 py-10">
         <Link href={`/pms/${propertyId}`} className="text-xs text-navy hover:underline">← {property.name}</Link>
-        <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900">
-          Ajoutez d&apos;abord au moins un type de chambre et un rate plan dans{" "}
-          <Link href={`/pms/${propertyId}/chambres`} className="underline">Chambres &amp; tarifs</Link>.
+        <div className="mt-4 rounded-xl border border-navy bg-navy text-white p-6">
+          <h2 className="text-lg font-bold">Configuration nécessaire</h2>
+          <p className="mt-2 text-sm text-white/80">
+            Avant de créer une réservation, il faut au moins un type de chambre et un rate plan.
+            Notre assistant fait ça en 2 minutes avec des valeurs types pré-remplies.
+          </p>
+          <ul className="mt-3 space-y-1 text-xs text-white/70">
+            <li>{roomTypes.length > 0 ? "✅" : "◯"} Au moins un type de chambre</li>
+            <li>{roomTypes.length > 0 ? "✅" : "◯"} Chambres physiques (numéros, étages)</li>
+            <li>{ratePlans.length > 0 ? "✅" : "◯"} Au moins un rate plan</li>
+          </ul>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Link
+              href={`/pms/${propertyId}/setup`}
+              className="rounded-md bg-gold px-4 py-2 text-sm font-bold text-navy hover:brightness-105"
+            >
+              Lancer l&apos;assistant →
+            </Link>
+            <Link
+              href={`/pms/${propertyId}/chambres`}
+              className="rounded-md border border-white/30 px-4 py-2 text-sm text-white hover:bg-white/10"
+            >
+              Configuration manuelle
+            </Link>
+          </div>
         </div>
       </div>
     );
