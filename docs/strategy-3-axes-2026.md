@@ -184,8 +184,26 @@ Cette stratégie est aussi reflétée dans l'auto-memory (`project_strategy_3_ax
 
 ## Prochaines priorités (T5 candidates)
 
-1. **CRM Kanban drag-drop** pipeline mandats — visuel agence
-2. **Syndic AG en ligne** vote électronique — différenciateur Matera
+1. ~~**CRM Kanban drag-drop** pipeline mandats~~ — **✓ livré** (commit c110607)
+2. ~~**Syndic AG en ligne** vote électronique~~ — **✓ livré** (commit 66e6dfa)
 3. **PMS group bookings + extranet guest** — ouverture corporate
 4. **LuxTrust real integration** — actes notariés (quand dev account ouvert)
 5. **OCR factures syndic** — workflow fournisseur (OpenAI Vision ou Mistral)
+6. **Global cross-module search** — recherche unifiée mandats/contacts/copros/hôtels
+
+## Livraisons additionnelles post-T4 (même session 2026-04-18)
+
+Session ultra-marathon — 21 commits au total dont 7 supplémentaires après la clôture T4 :
+
+- **PMS Pickup report** (1040ad9) — RM metric ventilé par mois de séjour + canaux.
+- **PMS Revenue forecast** (2a772a5) — projection OTB + pickup avec alertes J-2/J-7/J-14.
+- **Syndic AG vote en ligne** (66e6dfa) — détail AG syndic + voting page public portal (migration 053).
+- **CRM Kanban drag-drop** (c110607) — pipeline mandats avec HTML5 native drag-drop.
+- **Syndic PV PDF** (d966478) — export procès-verbal depuis détail AG.
+- **PMS Heatmap annuel** (66cc81f) — calendrier 365 jours colorés par occupancy.
+- **CRM Commissions annuelles** (775b878) — reporting fiscal avec split co-mandat.
+- **Dashboard actions prioritaires** (5d85218) — cross-modules CRM/Syndic/PMS.
+- **CRM Performance agents** (235789c) — classement + podium commissions.
+- **Portail AG link** (4f6d27d) — bouton direct vote AG dans portail copropriétaire.
+
+**Stats finales session** : ~23 commits · ~20 000 lignes · 11 migrations · +190 tests.
