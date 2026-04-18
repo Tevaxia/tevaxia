@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/components/AuthProvider";
 import { useTranslations } from "next-intl";
@@ -8,23 +8,56 @@ import Link from "next/link";
 
 export default function Connexion() {
   const t = useTranslations("connexion");
-  const { user, signOut } = useAuth();
+  const { user, signOut, loading: authLoading } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [profession, setProfession] = useState("");
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [loading, setLoading] = useState(false);
+  const [oauthLoading, setOauthLoading] = useState<null | "google" | "linkedin">(null);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
   // Detect energy section (pathname-based since energy is now on main domain)
   const isEnergy = typeof window !== "undefined" && window.location.pathname.startsWith("/energy");
 
+  // Gère l'affichage d'un état "callback en cours" si on revient d'OAuth
+  // avec ?code= mais que la session n'est pas encore hydratée côté client.
+  // Avec le nouveau handler /auth/callback server-side, l'utilisateur ne
+  // devrait normalement pas voir cet état ; c'est un filet de sécurité.
+  const [isCallback, setIsCallback] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const hasCode = params.has("code") || window.location.hash.includes("access_token");
+    if (hasCode) setIsCallback(true);
+    // Affiche l'erreur renvoyée par /auth/callback
+    const err = params.get("error");
+    if (err) setError(err);
+  }, []);
+
   if (!supabase) {
     return (
       <div className="bg-background py-16">
         <div className="mx-auto max-w-md px-4 text-center">
           <p className="text-muted">{t("authNotConfigured")}</p>
+        </div>
+      </div>
+    );
+  }
+
+  // État callback OAuth : affiche un spinner explicite au lieu du formulaire
+  // pendant que la session s'hydrate (cas de fallback si /auth/callback a raté
+  // ou si provider configuré en client-side flow).
+  if (isCallback && authLoading) {
+    return (
+      <div className="bg-background py-16">
+        <div className="mx-auto max-w-md px-4">
+          <div className="rounded-xl border border-card-border bg-card p-8 shadow-sm text-center">
+            <div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-navy/20 border-t-navy" />
+            <h2 className="mt-4 text-lg font-semibold text-navy">{t("callbackTitle")}</h2>
+            <p className="mt-1 text-sm text-muted">{t("callbackSubtitle")}</p>
+          </div>
         </div>
       </div>
     );
@@ -112,37 +145,65 @@ export default function Connexion() {
           {/* OAuth providers */}
           <div className="space-y-2 mb-6">
             <button
+              disabled={!!oauthLoading}
               onClick={async () => {
                 if (!supabase) return;
-                await supabase.auth.signInWithOAuth({
+                setOauthLoading("google");
+                setError("");
+                const next = isEnergy ? "/energy" : "/mes-evaluations";
+                const { error: oauthError } = await supabase.auth.signInWithOAuth({
                   provider: "google",
-                  options: { redirectTo: `${window.location.origin}/connexion` },
+                  options: {
+                    redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
+                  },
                 });
+                if (oauthError) {
+                  setError(oauthError.message);
+                  setOauthLoading(null);
+                }
               }}
-              className="flex w-full items-center justify-center gap-3 rounded-lg border border-card-border bg-white px-4 py-2.5 text-sm font-medium text-slate hover:bg-background transition-colors"
+              className="flex w-full items-center justify-center gap-3 rounded-lg border border-card-border bg-white px-4 py-2.5 text-sm font-medium text-slate hover:bg-background transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              <svg className="h-5 w-5" viewBox="0 0 24 24">
-                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
-                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-              </svg>
-              {t("continueWithGoogle")}
+              {oauthLoading === "google" ? (
+                <div className="h-5 w-5 animate-spin rounded-full border-2 border-slate/30 border-t-slate" />
+              ) : (
+                <svg className="h-5 w-5" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+              )}
+              {oauthLoading === "google" ? t("redirecting") : t("continueWithGoogle")}
             </button>
             <button
+              disabled={!!oauthLoading}
               onClick={async () => {
                 if (!supabase) return;
-                await supabase.auth.signInWithOAuth({
+                setOauthLoading("linkedin");
+                setError("");
+                const next = isEnergy ? "/energy" : "/mes-evaluations";
+                const { error: oauthError } = await supabase.auth.signInWithOAuth({
                   provider: "linkedin_oidc",
-                  options: { redirectTo: `https://tevaxia.lu/connexion${isEnergy ? "?returnTo=" + encodeURIComponent(window.location.origin) : ""}` },
+                  options: {
+                    redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
+                  },
                 });
+                if (oauthError) {
+                  setError(oauthError.message);
+                  setOauthLoading(null);
+                }
               }}
-              className="flex w-full items-center justify-center gap-3 rounded-lg border border-card-border bg-white px-4 py-2.5 text-sm font-medium text-slate hover:bg-background transition-colors"
+              className="flex w-full items-center justify-center gap-3 rounded-lg border border-card-border bg-white px-4 py-2.5 text-sm font-medium text-slate hover:bg-background transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="#0A66C2">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-              {t("continueWithLinkedIn")}
+              {oauthLoading === "linkedin" ? (
+                <div className="h-5 w-5 animate-spin rounded-full border-2 border-slate/30 border-t-slate" />
+              ) : (
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="#0A66C2">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              )}
+              {oauthLoading === "linkedin" ? t("redirecting") : t("continueWithLinkedIn")}
             </button>
           </div>
 

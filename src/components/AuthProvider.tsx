@@ -39,17 +39,39 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
       setLoading(false);
     });
 
+    // Track if we've already synced in this session to avoid re-running on
+    // chaque TOKEN_REFRESHED / INITIAL_SESSION (déclenché ~1×/heure).
+    let syncedOnce = false;
+
+    const runBackgroundSync = () => {
+      if (syncedOnce) return;
+      syncedOnce = true;
+      // Défère aux idle-frames : ne bloque pas la peinture initiale du layout
+      // post-login (perception 200-800 ms plus rapide selon device).
+      const schedule: (cb: () => void) => void =
+        typeof window !== "undefined" && "requestIdleCallback" in window
+          ? (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback
+          : (cb) => setTimeout(cb, 0);
+      schedule(() => {
+        void syncLocalToCloud();
+        void syncLocalLotsToCloud();
+      });
+    };
+
     // Listen for auth changes (PKCE callback, sign out, token refresh)
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       setUser(session?.user ?? null);
-      if (event === "SIGNED_IN" && typeof window !== "undefined") {
-        const params = new URLSearchParams(window.location.search);
-        if (params.has("code")) {
-          window.history.replaceState({}, "", window.location.pathname);
+      if (event === "SIGNED_OUT") {
+        syncedOnce = false;
+      }
+      if ((event === "SIGNED_IN" || event === "INITIAL_SESSION") && session?.user) {
+        if (typeof window !== "undefined") {
+          const params = new URLSearchParams(window.location.search);
+          if (params.has("code")) {
+            window.history.replaceState({}, "", window.location.pathname);
+          }
         }
-        // Push toute donnée locale vers le cloud (rattrape les sauvegardes hors-ligne)
-        void syncLocalToCloud();
-        void syncLocalLotsToCloud();
+        runBackgroundSync();
       }
     });
 
