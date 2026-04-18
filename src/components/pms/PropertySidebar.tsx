@@ -27,6 +27,7 @@ const SECTIONS: NavSection[] = [
     items: [
       { href: "", label: "Dashboard", icon: "📊", description: "KPIs + today's flash" },
       { href: "/frontdesk", label: "Front desk", icon: "🛎️", description: "Arrivées / départs / in-house" },
+      { href: "/pos", label: "POS restaurant / bar", icon: "🍽️", description: "Saisie rapide F&B + services" },
       { href: "/calendrier", label: "Calendrier / Rooming", icon: "📅", description: "Vue 30 jours" },
     ],
   },
