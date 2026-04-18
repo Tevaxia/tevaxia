@@ -40,6 +40,7 @@ const SECTIONS: NavSection[] = [
       { href: "/appels", label: "Appels de fonds", icon: "💸", description: "Trimestriels + PDF + paiements" },
       { href: "/rapprochement", label: "Rapprochement bancaire", icon: "🏦", description: "Import CSV banque + matching auto" },
       { href: "/sepa-virements", label: "Virements SEPA", icon: "💳", description: "Pain.001 XML bulk fournisseurs" },
+      { href: "/ocr-factures", label: "OCR factures", icon: "📷", description: "Scan PDF/photo → données auto" },
       { href: "/fonds-travaux", label: "Fonds de travaux", icon: "🏛️", description: "Provision loi 10.06.1999" },
       { href: "/relances", label: "Relances impayés", icon: "⚠️", description: "3 paliers + intérêts légaux" },
     ],
