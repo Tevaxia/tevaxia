@@ -8,4 +8,6 @@ export * from "./guests";
 export * from "./invoices";
 export * from "./kpi";
 export * from "./ical";
+export * from "./ical-parser";
 export * from "./folios";
+export * from "./external-calendars";

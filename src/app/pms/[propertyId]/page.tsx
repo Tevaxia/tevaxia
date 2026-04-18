@@ -192,6 +192,7 @@ export default function PropertyOverviewPage(props: { params: Promise<{ property
           { href: `/pms/${propertyId}/reservations`, label: t("navReservations") },
           { href: `/pms/${propertyId}/guests`, label: t("navGuests") },
           { href: `/pms/${propertyId}/factures`, label: t("navInvoices") },
+          { href: `/pms/${propertyId}/channels`, label: "Channels" },
           { href: `/pms/${propertyId}/rapports`, label: t("navReports") },
         ].map((l) => (
           <Link

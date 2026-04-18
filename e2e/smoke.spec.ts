@@ -229,6 +229,12 @@ test.describe("Smoke tests — parcours critiques publics", () => {
     await expect(body).toContainText(/hôtel|hotel|propri|nouvelle|connect|sign in/i);
   });
 
+  test("/esg/crrem-pathways stranding analyzer charge", async ({ page }) => {
+    await page.goto("/esg/crrem-pathways");
+    const body = page.locator("body");
+    await expect(body).toContainText(/crrem|stranding|pathway|kwh/i);
+  });
+
   test("/pro-agences/crm dashboard accessible", async ({ page }) => {
     await page.goto("/pro-agences/crm");
     const body = page.locator("body");
