@@ -183,9 +183,9 @@
         "tag": "Co-ownership / AGM"
       },
       "hotellerie": {
-        "title": "Hospitality Hub",
-        "description": "6 hotel calculators: RevPAR/EBITDA valuation, DSCR, operating P&L, E-2 score, forecast and RevPAR comparison.",
-        "tag": "Hotel pre-acquisition"
+        "title": "Hotel analysis & valuation",
+        "description": "Decision-support calculators: RevPAR/EBITDA valuation, DSCR, operating P&L, E-2 score, forecast, RevPAR market comparison.",
+        "tag": "Financial analysis"
       },
       "pms": {
         "title": "PMS — Bookings & invoicing",
@@ -5698,8 +5698,8 @@
   },
   "hotellerieHub": {
     "badge": "Hotel module",
-    "title": "Hotel pre-acquisition",
-    "description": "6 tools to evaluate a hotel acquisition: RevPAR/EBITDA valuation, DSCR, operating P&L, energy retrofit, market benchmark, E-2 visa score. Accessible to buyers with budgets below €5M.",
+    "title": "Hospitality solutions",
+    "description": "Full suite for hotels, motels and B&Bs in Luxembourg: operational management (PMS: bookings, rooms, 3% VAT invoicing), financial analysis (RevPAR/EBITDA valuation, DSCR), market benchmark and compliance (E-2, Klimabonus tertiary).",
     "tag1": "USALI",
     "tag2": "RevPAR / ADR",
     "tag3": "DSCR / LTV",

@@ -183,9 +183,9 @@
         "tag": "Kopropriétéit / AG"
       },
       "hotellerie": {
-        "title": "Hotellerie-Hub",
-        "description": "6 Hotel-Rechner: RevPAR/EBITDA-Bewäertung, DSCR, Exploitatiounsbilanz, E-2-Score, Forecast an RevPAR-Vergläich.",
-        "tag": "Hotel-Virakaf"
+        "title": "Hotelanalys & -bewäertung",
+        "description": "Entscheedungsrechner: RevPAR/EBITDA-Bewäertung, DSCR, Exploitatiounsbilanz, E-2-Score, Forecast, RevPAR-Maartvergläich.",
+        "tag": "Finanzanalys"
       },
       "pms": {
         "title": "PMS — Reservéierungen & Rechnungen",
@@ -5698,8 +5698,8 @@
   },
   "hotellerieHub": {
     "badge": "Hotelmodul",
-    "title": "Hotel-Virakaf",
-    "description": "6 Tools fir d'Bewäertung vun engem Hotelakaf: RevPAR/EBITDA-Bewäertung, DSCR, Exploitatiounsbilanz, energetesch Sanéierung, Maartbenchmark, E-2 Visa-Score. Zougänglech fir Keefer mat Budgeten ënner 5 Mio. €.",
+    "title": "Hotellerie-Léisungen",
+    "description": "Komplett Suite fir Hoteller, Motelen a B&Bs zu Lëtzebuerg: operationell Gestioun (PMS: Reservéierungen, Zëmmeren, Rechnungen MwSt 3 %), Finanzanalys (RevPAR/EBITDA-Bewäertung, DSCR), Maartbenchmark a Konformitéit (E-2, Klimabonus Tertiair).",
     "tag1": "USALI",
     "tag2": "RevPAR / ADR",
     "tag3": "DSCR / LTV",

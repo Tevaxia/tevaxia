@@ -183,9 +183,9 @@
         "tag": "Wohneigentum / ETV"
       },
       "hotellerie": {
-        "title": "Hotellerie-Hub",
-        "description": "6 Hotel-Rechner: RevPAR/EBITDA-Bewertung, DSCR, Betriebs-GuV, E-2-Score, Forecast und RevPAR-Vergleich.",
-        "tag": "Hotel-Vorerwerb"
+        "title": "Hotelanalyse & -bewertung",
+        "description": "Entscheidungsrechner: RevPAR/EBITDA-Bewertung, DSCR, Betriebs-GuV, E-2-Score, Forecast, RevPAR-Marktvergleich.",
+        "tag": "Finanzanalyse"
       },
       "pms": {
         "title": "PMS — Buchungen & Rechnungen",
@@ -5698,8 +5698,8 @@
   },
   "hotellerieHub": {
     "badge": "Hotelmodul",
-    "title": "Hotel-Vorerwerb",
-    "description": "6 Tools zur Bewertung einer Hotelakquise: RevPAR/EBITDA-Bewertung, DSCR, Betriebs-GuV, energetische Sanierung, Marktbenchmark, E-2-Visa-Score. Zugänglich für Käufer mit Budgets unter 5 Mio. €.",
+    "title": "Hotellerie-Lösungen",
+    "description": "Komplette Suite für Hotels, Motels und B&Bs in Luxemburg: Betriebsverwaltung (PMS: Buchungen, Zimmer, Rechnungen MwSt 3 %), Finanzanalyse (RevPAR/EBITDA-Bewertung, DSCR), Marktbenchmark und Compliance (E-2, Klimabonus Tertiär).",
     "tag1": "USALI",
     "tag2": "RevPAR / ADR",
     "tag3": "DSCR / LTV",

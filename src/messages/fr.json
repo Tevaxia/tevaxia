@@ -183,9 +183,9 @@
         "tag": "Copropriété / AG"
       },
       "hotellerie": {
-        "title": "Hub Hôtellerie",
-        "description": "6 calculateurs hôteliers : valorisation RevPAR/EBITDA, DSCR, exploitation, score E-2, forecast et comparaison RevPAR.",
-        "tag": "Pré-acquisition hôtel"
+        "title": "Analyse & valorisation hôtel",
+        "description": "Calculateurs d'aide à la décision : valorisation RevPAR/EBITDA, DSCR, bilan d'exploitation, score E-2, forecast, comparaison RevPAR marché.",
+        "tag": "Analyse financière"
       },
       "pms": {
         "title": "PMS — Réservations & facturation",
@@ -5698,8 +5698,8 @@
   },
   "hotellerieHub": {
     "badge": "Module hôtellerie",
-    "title": "Pré-acquisition hôtelière",
-    "description": "6 outils pour évaluer une acquisition hôtelière : valorisation RevPAR/EBITDA, DSCR, bilan d'exploitation, rénovation énergétique, benchmark marché, score visa E-2. Accessible aux acheteurs de budgets inférieurs à 5 M€.",
+    "title": "Solutions hôtellerie",
+    "description": "Suite complète pour hôtels, motels et chambres d'hôtes au Luxembourg : gestion opérationnelle (PMS : réservations, chambres, facturation TVA 3 %), analyse financière (valorisation RevPAR/EBITDA, DSCR), benchmark marché et conformité (E-2, Klimabonus tertiaire).",
     "tag1": "USALI",
     "tag2": "RevPAR / ADR",
     "tag3": "DSCR / LTV",
