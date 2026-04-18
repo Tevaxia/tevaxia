@@ -2,6 +2,7 @@
 
 import { useEffect, useState, use } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { getProperty } from "@/lib/pms/properties";
 import { listReservations } from "@/lib/pms/reservations";
@@ -20,6 +21,8 @@ function plusDaysISO(n: number): string {
 
 export default function ReportsPage(props: { params: Promise<{ propertyId: string }> }) {
   const { propertyId } = use(props.params);
+  const tc = useTranslations("pms.common");
+  const t = useTranslations("pms.reports");
   const { user, loading: authLoading } = useAuth();
   const [property, setProperty] = useState<PmsProperty | null>(null);
   const [audits, setAudits] = useState<PmsNightAudit[]>([]);
@@ -67,12 +70,11 @@ export default function ReportsPage(props: { params: Promise<{ propertyId: strin
     setAudits((data ?? []) as PmsNightAudit[]);
   };
 
-  if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">Chargement…</div>;
-  if (!user || !property) return <div className="mx-auto max-w-3xl px-4 py-12 text-center text-sm text-muted"><Link href="/connexion" className="text-navy underline">Connectez-vous</Link></div>;
+  if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{tc("loading")}</div>;
+  if (!user || !property) return <div className="mx-auto max-w-3xl px-4 py-12 text-center text-sm text-muted"><Link href="/connexion" className="text-navy underline">{tc("signInLink")}</Link></div>;
 
   const kpis = aggregateKpis(audits);
 
-  // Données graphiques
   const dailyData = audits.map((a) => ({
     date: a.audit_date.slice(5),
     occupancy: Math.round(Number(a.occupancy_pct) * 10) / 10,
@@ -81,7 +83,6 @@ export default function ReportsPage(props: { params: Promise<{ propertyId: strin
     revenue: Math.round(Number(a.room_revenue)),
   }));
 
-  // Sources réservations
   const sourceStats = reservations.reduce<Record<string, { count: number; revenue: number }>>((acc, r) => {
     const s = r.source;
     if (!acc[s]) acc[s] = { count: 0, revenue: 0 };
@@ -94,7 +95,6 @@ export default function ReportsPage(props: { params: Promise<{ propertyId: strin
     .map(([source, s]) => ({ source, count: s.count, revenue: Math.round(s.revenue) }))
     .sort((a, b) => b.revenue - a.revenue);
 
-  // Export CSV night audits
   const exportCsv = () => {
     const lines = ["date;total_rooms;occupied;occupancy_pct;adr;revpar;room_revenue;taxe_sejour"];
     for (const a of audits) {
@@ -111,7 +111,7 @@ export default function ReportsPage(props: { params: Promise<{ propertyId: strin
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `rapport-${property.name.replace(/\s+/g, "-")}-${period}j.csv`;
+    a.download = `report-${property.name.replace(/\s+/g, "-")}-${period}d.csv`;
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 3000);
   };
@@ -119,46 +119,44 @@ export default function ReportsPage(props: { params: Promise<{ propertyId: strin
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
       <Link href={`/pms/${propertyId}`} className="text-xs text-navy hover:underline">← {property.name}</Link>
-      <h1 className="mt-1 text-2xl font-bold text-navy sm:text-3xl">Rapports &amp; analytics</h1>
+      <h1 className="mt-1 text-2xl font-bold text-navy sm:text-3xl">{t("title")}</h1>
 
       <div className="mt-4 flex flex-wrap items-center gap-3">
         <div className="flex gap-1 text-xs">
           {(["7","30","90","365"] as const).map((p) => (
             <button key={p} type="button" onClick={() => setPeriod(p)}
               className={`rounded-md px-3 py-1 ${period === p ? "bg-navy text-white" : "border border-card-border text-slate hover:border-navy"}`}>
-              {p}j
+              {t(`period${p}` as "period7" | "period30" | "period90" | "period365")}
             </button>
           ))}
         </div>
         <button type="button" onClick={runNightAuditToday}
           className="rounded-md border border-navy bg-navy/5 px-3 py-1.5 text-xs font-semibold text-navy hover:bg-navy/10">
-          Exécuter night audit aujourd&apos;hui
+          {t("runAudit")}
         </button>
         <button type="button" onClick={exportCsv} className="rounded-md border border-card-border bg-background px-3 py-1.5 text-xs font-semibold text-slate hover:border-navy">
-          Export CSV
+          {t("exportCsv")}
         </button>
         <Link
           href={`/api/pms/ical/${propertyId}`}
           target="_blank"
           className="ml-auto rounded-md border border-amber-200 bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-900 hover:bg-amber-100"
         >
-          📅 iCal feed OTA (read-only)
+          {t("icalFeed")}
         </Link>
       </div>
 
-      {/* KPIs */}
       <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Kpi label="Occupation" value={kpis.occupancyPct.toFixed(1) + " %"} tone="emerald" />
-        <Kpi label="ADR" value={formatEUR(kpis.adr)} tone="navy" />
-        <Kpi label="RevPAR" value={formatEUR(kpis.revpar)} tone="navy" />
-        <Kpi label="CA chambres" value={formatEUR(kpis.totalRoomRevenue)} />
+        <Kpi label={t("kpiOccupancy")} value={kpis.occupancyPct.toFixed(1) + " %"} tone="emerald" />
+        <Kpi label={t("kpiAdr")} value={formatEUR(kpis.adr)} tone="navy" />
+        <Kpi label={t("kpiRevpar")} value={formatEUR(kpis.revpar)} tone="navy" />
+        <Kpi label={t("kpiRevenue")} value={formatEUR(kpis.totalRoomRevenue)} />
       </div>
 
-      {/* Charts */}
       {dailyData.length > 0 && (
         <>
           <section className="mt-6 rounded-xl border border-card-border bg-card p-5">
-            <h2 className="text-sm font-semibold text-navy mb-3">Occupation &amp; RevPAR par jour</h2>
+            <h2 className="text-sm font-semibold text-navy mb-3">{t("chartOccTitle")}</h2>
             <div style={{ width: "100%", height: 320 }}>
               <ResponsiveContainer>
                 <ComposedChart data={dailyData}>
@@ -168,16 +166,16 @@ export default function ReportsPage(props: { params: Promise<{ propertyId: strin
                   <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 10 }} label={{ value: "€", angle: 90, position: "insideRight", style: { fontSize: 10 } }} />
                   <Tooltip />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
-                  <Bar yAxisId="left" dataKey="occupancy" fill="#10b981" name="Occupation %" />
-                  <Line yAxisId="right" type="monotone" dataKey="revpar" stroke="#1e3a5f" strokeWidth={2} name="RevPAR" />
-                  <Line yAxisId="right" type="monotone" dataKey="adr" stroke="#d4a84a" strokeWidth={2} strokeDasharray="5 5" name="ADR" />
+                  <Bar yAxisId="left" dataKey="occupancy" fill="#10b981" name={t("legendOccupancy")} />
+                  <Line yAxisId="right" type="monotone" dataKey="revpar" stroke="#1e3a5f" strokeWidth={2} name={t("legendRevpar")} />
+                  <Line yAxisId="right" type="monotone" dataKey="adr" stroke="#d4a84a" strokeWidth={2} strokeDasharray="5 5" name={t("legendAdr")} />
                 </ComposedChart>
               </ResponsiveContainer>
             </div>
           </section>
 
           <section className="mt-6 rounded-xl border border-card-border bg-card p-5">
-            <h2 className="text-sm font-semibold text-navy mb-3">CA chambres par jour</h2>
+            <h2 className="text-sm font-semibold text-navy mb-3">{t("chartRevenueTitle")}</h2>
             <div style={{ width: "100%", height: 260 }}>
               <ResponsiveContainer>
                 <BarChart data={dailyData}>
@@ -185,7 +183,7 @@ export default function ReportsPage(props: { params: Promise<{ propertyId: strin
                   <XAxis dataKey="date" tick={{ fontSize: 10 }} />
                   <YAxis tick={{ fontSize: 10 }} />
                   <Tooltip />
-                  <Bar dataKey="revenue" fill="#1e3a5f" name="CA chambres €" />
+                  <Bar dataKey="revenue" fill="#1e3a5f" name={t("legendRevenue")} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -193,11 +191,10 @@ export default function ReportsPage(props: { params: Promise<{ propertyId: strin
         </>
       )}
 
-      {/* Sources */}
       <section className="mt-6 rounded-xl border border-card-border bg-card p-5">
-        <h2 className="text-sm font-semibold text-navy mb-3">Performance par source ({reservations.length} réservations)</h2>
+        <h2 className="text-sm font-semibold text-navy mb-3">{t("chartSourcesTitle", { n: reservations.length })}</h2>
         {sourceBarData.length === 0 ? (
-          <p className="text-xs text-muted italic">Aucune réservation sur la période.</p>
+          <p className="text-xs text-muted italic">{t("sourcesEmpty")}</p>
         ) : (
           <div style={{ width: "100%", height: 260 }}>
             <ResponsiveContainer>
@@ -208,8 +205,8 @@ export default function ReportsPage(props: { params: Promise<{ propertyId: strin
                 <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 10 }} />
                 <Tooltip />
                 <Legend wrapperStyle={{ fontSize: 11 }} />
-                <Bar yAxisId="left" dataKey="count" fill="#3b82f6" name="Nb réservations" />
-                <Bar yAxisId="right" dataKey="revenue" fill="#10b981" name="CA €" />
+                <Bar yAxisId="left" dataKey="count" fill="#3b82f6" name={t("legendResCount")} />
+                <Bar yAxisId="right" dataKey="revenue" fill="#10b981" name={t("legendRevenueEur")} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -218,8 +215,7 @@ export default function ReportsPage(props: { params: Promise<{ propertyId: strin
 
       {dailyData.length === 0 && (
         <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-5 text-xs text-amber-900">
-          Aucun night audit sur la période. Cliquez &laquo; Exécuter night audit aujourd&apos;hui &raquo; pour snapshooter
-          la situation actuelle (idempotent), ou programmez une tâche cron Supabase pour automatiser l&apos;exécution chaque nuit.
+          {t("noAudits")}
         </div>
       )}
     </div>

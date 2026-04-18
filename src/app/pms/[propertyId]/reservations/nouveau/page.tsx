@@ -3,6 +3,7 @@
 import { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { getProperty } from "@/lib/pms/properties";
 import { listRoomTypes } from "@/lib/pms/rooms";
@@ -20,6 +21,8 @@ const SOURCES: PmsReservationSource[] = ["direct","website","booking","expedia",
 export default function NewReservationPage(props: { params: Promise<{ propertyId: string }> }) {
   const { propertyId } = use(props.params);
   const router = useRouter();
+  const tc = useTranslations("pms.common");
+  const t = useTranslations("pms.newReservation");
   const { user, loading: authLoading } = useAuth();
   const [property, setProperty] = useState<PmsProperty | null>(null);
   const [roomTypes, setRoomTypes] = useState<PmsRoomType[]>([]);
@@ -94,10 +97,10 @@ export default function NewReservationPage(props: { params: Promise<{ propertyId
   })();
 
   const handleSubmit = async () => {
-    if (!form.check_in || !form.check_out) { setError("Dates requises"); return; }
-    if (form.check_out <= form.check_in) { setError("Check-out doit être après check-in"); return; }
-    if (!form.room_type_id || !form.rate_plan_id) { setError("Type et rate plan requis"); return; }
-    if (!preview) { setError("Impossible de calculer le total"); return; }
+    if (!form.check_in || !form.check_out) { setError(t("errDates")); return; }
+    if (form.check_out <= form.check_in) { setError(t("errDateOrder")); return; }
+    if (!form.room_type_id || !form.rate_plan_id) { setError(t("errTypeRate")); return; }
+    if (!preview) { setError(t("errCalc")); return; }
 
     setSaving(true);
     setError(null);
@@ -157,36 +160,33 @@ export default function NewReservationPage(props: { params: Promise<{ propertyId
     }
   };
 
-  if (authLoading || loading) return <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">Chargement…</div>;
-  if (!user || !property) return <div className="mx-auto max-w-3xl px-4 py-12 text-center text-sm text-muted"><Link href="/connexion" className="text-navy underline">Connectez-vous</Link></div>;
+  if (authLoading || loading) return <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">{tc("loading")}</div>;
+  if (!user || !property) return <div className="mx-auto max-w-3xl px-4 py-12 text-center text-sm text-muted"><Link href="/connexion" className="text-navy underline">{tc("signInLink")}</Link></div>;
 
   if (roomTypes.length === 0 || ratePlans.length === 0) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-10">
         <Link href={`/pms/${propertyId}`} className="text-xs text-navy hover:underline">← {property.name}</Link>
         <div className="mt-4 rounded-xl border border-navy bg-navy text-white p-6">
-          <h2 className="text-lg font-bold">Configuration nécessaire</h2>
-          <p className="mt-2 text-sm text-white/80">
-            Avant de créer une réservation, il faut au moins un type de chambre et un rate plan.
-            Notre assistant fait ça en 2 minutes avec des valeurs types pré-remplies.
-          </p>
+          <h2 className="text-lg font-bold">{t("configNeededTitle")}</h2>
+          <p className="mt-2 text-sm text-white/80">{t("configNeededDesc")}</p>
           <ul className="mt-3 space-y-1 text-xs text-white/70">
-            <li>{roomTypes.length > 0 ? "✅" : "◯"} Au moins un type de chambre</li>
-            <li>{roomTypes.length > 0 ? "✅" : "◯"} Chambres physiques (numéros, étages)</li>
-            <li>{ratePlans.length > 0 ? "✅" : "◯"} Au moins un rate plan</li>
+            <li>{roomTypes.length > 0 ? "✅" : "◯"} {t("configCheckTypes")}</li>
+            <li>{roomTypes.length > 0 ? "✅" : "◯"} {t("configCheckRooms")}</li>
+            <li>{ratePlans.length > 0 ? "✅" : "◯"} {t("configCheckPlan")}</li>
           </ul>
           <div className="mt-4 flex flex-wrap gap-2">
             <Link
               href={`/pms/${propertyId}/setup`}
               className="rounded-md bg-gold px-4 py-2 text-sm font-bold text-navy hover:brightness-105"
             >
-              Lancer l&apos;assistant →
+              {t("ctaWizard")}
             </Link>
             <Link
               href={`/pms/${propertyId}/chambres`}
               className="rounded-md border border-white/30 px-4 py-2 text-sm text-white hover:bg-white/10"
             >
-              Configuration manuelle
+              {t("ctaManual")}
             </Link>
           </div>
         </div>
@@ -196,8 +196,8 @@ export default function NewReservationPage(props: { params: Promise<{ propertyId
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
-      <Link href={`/pms/${propertyId}/reservations`} className="text-xs text-navy hover:underline">← Réservations</Link>
-      <h1 className="mt-1 text-2xl font-bold text-navy sm:text-3xl">Nouvelle réservation</h1>
+      <Link href={`/pms/${propertyId}/reservations`} className="text-xs text-navy hover:underline">← {t("backToList")}</Link>
+      <h1 className="mt-1 text-2xl font-bold text-navy sm:text-3xl">{t("title")}</h1>
 
       {error && <div className="mt-3 rounded-md bg-rose-50 border border-rose-200 p-3 text-xs text-rose-900">{error}</div>}
 
@@ -205,25 +205,25 @@ export default function NewReservationPage(props: { params: Promise<{ propertyId
         {/* Partie gauche : formulaire */}
         <div className="lg:col-span-2 space-y-5 rounded-xl border border-card-border bg-card p-5">
           <section>
-            <h2 className="text-sm font-semibold text-navy mb-3">Séjour</h2>
+            <h2 className="text-sm font-semibold text-navy mb-3">{t("stay")}</h2>
             <div className="grid gap-3 sm:grid-cols-4 text-xs">
               <label>
-                <span className="text-muted">Arrivée *</span>
+                <span className="text-muted">{t("arrival")}</span>
                 <input type="date" value={form.check_in} onChange={(e) => setForm({ ...form, check_in: e.target.value })}
                   className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5" />
               </label>
               <label>
-                <span className="text-muted">Départ *</span>
+                <span className="text-muted">{t("departure")}</span>
                 <input type="date" value={form.check_out} onChange={(e) => setForm({ ...form, check_out: e.target.value })}
                   className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5" />
               </label>
               <label>
-                <span className="text-muted">Adultes</span>
+                <span className="text-muted">{t("adults")}</span>
                 <input type="number" min="1" value={form.nb_adults} onChange={(e) => setForm({ ...form, nb_adults: Number(e.target.value) })}
                   className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5" />
               </label>
               <label>
-                <span className="text-muted">Enfants</span>
+                <span className="text-muted">{t("children")}</span>
                 <input type="number" min="0" value={form.nb_children} onChange={(e) => setForm({ ...form, nb_children: Number(e.target.value) })}
                   className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5" />
               </label>
@@ -231,17 +231,17 @@ export default function NewReservationPage(props: { params: Promise<{ propertyId
           </section>
 
           <section>
-            <h2 className="text-sm font-semibold text-navy mb-3">Tarif</h2>
+            <h2 className="text-sm font-semibold text-navy mb-3">{t("rate")}</h2>
             <div className="grid gap-3 sm:grid-cols-2 text-xs">
               <label>
-                <span className="text-muted">Type de chambre</span>
+                <span className="text-muted">{t("roomType")}</span>
                 <select value={form.room_type_id} onChange={(e) => setForm({ ...form, room_type_id: e.target.value })}
                   className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5">
                   {roomTypes.map((rt) => <option key={rt.id} value={rt.id}>{rt.code} — {rt.name}</option>)}
                 </select>
               </label>
               <label>
-                <span className="text-muted">Rate plan</span>
+                <span className="text-muted">{t("ratePlan")}</span>
                 <select value={form.rate_plan_id} onChange={(e) => setForm({ ...form, rate_plan_id: e.target.value })}
                   className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5">
                   {ratePlans.filter((rp) => rp.active).map((rp) => <option key={rp.id} value={rp.id}>{rp.code} — {rp.name}</option>)}
@@ -251,10 +251,10 @@ export default function NewReservationPage(props: { params: Promise<{ propertyId
           </section>
 
           <section>
-            <h2 className="text-sm font-semibold text-navy mb-3">Client</h2>
+            <h2 className="text-sm font-semibold text-navy mb-3">{t("client")}</h2>
             <div className="grid gap-3 sm:grid-cols-2 text-xs">
               <label className="sm:col-span-2">
-                <span className="text-muted">Client existant (optionnel)</span>
+                <span className="text-muted">{t("existingClient")}</span>
                 <select value={form.guest_id} onChange={(e) => {
                   const g = guests.find((gg) => gg.id === e.target.value);
                   setForm({
@@ -265,36 +265,36 @@ export default function NewReservationPage(props: { params: Promise<{ propertyId
                     booker_phone: g?.phone ?? form.booker_phone,
                   });
                 }} className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5">
-                  <option value="">— Nouveau client —</option>
+                  <option value="">{t("newClient")}</option>
                   {guests.map((g) => <option key={g.id} value={g.id}>{g.last_name}, {g.first_name} {g.email ? `(${g.email})` : ""}</option>)}
                 </select>
               </label>
               {!form.guest_id && (
                 <>
                   <label>
-                    <span className="text-muted">Prénom</span>
+                    <span className="text-muted">{t("firstName")}</span>
                     <input value={form.new_guest_first} onChange={(e) => setForm({ ...form, new_guest_first: e.target.value })}
                       className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5" />
                   </label>
                   <label>
-                    <span className="text-muted">Nom</span>
+                    <span className="text-muted">{t("lastName")}</span>
                     <input value={form.new_guest_last} onChange={(e) => setForm({ ...form, new_guest_last: e.target.value })}
                       className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5" />
                   </label>
                   <label className="sm:col-span-2">
-                    <span className="text-muted">Email</span>
+                    <span className="text-muted">{t("clientEmail")}</span>
                     <input type="email" value={form.new_guest_email} onChange={(e) => setForm({ ...form, new_guest_email: e.target.value })}
                       className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5" />
                   </label>
                 </>
               )}
               <label>
-                <span className="text-muted">Nom réservation (si ≠ client)</span>
+                <span className="text-muted">{t("bookerName")}</span>
                 <input value={form.booker_name} onChange={(e) => setForm({ ...form, booker_name: e.target.value })}
                   className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5" />
               </label>
               <label>
-                <span className="text-muted">Téléphone</span>
+                <span className="text-muted">{t("bookerPhone")}</span>
                 <input value={form.booker_phone} onChange={(e) => setForm({ ...form, booker_phone: e.target.value })}
                   className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5" />
               </label>
@@ -302,27 +302,27 @@ export default function NewReservationPage(props: { params: Promise<{ propertyId
           </section>
 
           <section>
-            <h2 className="text-sm font-semibold text-navy mb-3">Source &amp; notes</h2>
+            <h2 className="text-sm font-semibold text-navy mb-3">{t("sourceAndNotes")}</h2>
             <div className="grid gap-3 sm:grid-cols-2 text-xs">
               <label>
-                <span className="text-muted">Source</span>
+                <span className="text-muted">{t("source")}</span>
                 <select value={form.source} onChange={(e) => setForm({ ...form, source: e.target.value as PmsReservationSource })}
                   className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5">
                   {SOURCES.map((s) => <option key={s} value={s}>{s}</option>)}
                 </select>
               </label>
               <label>
-                <span className="text-muted">Réf externe (id Booking/Expedia)</span>
+                <span className="text-muted">{t("externalRef")}</span>
                 <input value={form.external_ref} onChange={(e) => setForm({ ...form, external_ref: e.target.value })}
                   className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5" />
               </label>
               <label className="sm:col-span-2">
-                <span className="text-muted">Demandes spéciales</span>
+                <span className="text-muted">{t("specialRequests")}</span>
                 <textarea rows={2} value={form.special_requests} onChange={(e) => setForm({ ...form, special_requests: e.target.value })}
                   className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5" />
               </label>
               <label className="sm:col-span-2">
-                <span className="text-muted">Notes internes</span>
+                <span className="text-muted">{t("internalNotes")}</span>
                 <textarea rows={2} value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })}
                   className="mt-1 w-full rounded-md border border-card-border bg-background px-2 py-1.5" />
               </label>
@@ -333,35 +333,35 @@ export default function NewReservationPage(props: { params: Promise<{ propertyId
         {/* Partie droite : récap */}
         <aside className="lg:col-span-1">
           <div className="sticky top-4 rounded-xl border border-navy bg-navy text-white p-5 space-y-3">
-            <h2 className="text-sm font-semibold">Récapitulatif</h2>
+            <h2 className="text-sm font-semibold">{t("recapTitle")}</h2>
             {!preview ? (
-              <p className="text-xs text-white/70 italic">Saisissez dates + type + rate plan pour voir le total.</p>
+              <p className="text-xs text-white/70 italic">{t("recapEmpty")}</p>
             ) : (
               <>
                 <div className="text-xs text-white/70">{rt?.name} · {rp?.name}</div>
                 <div className="flex items-center justify-between text-xs">
-                  <span>Nuits</span>
+                  <span>{t("recapNights")}</span>
                   <span className="font-mono">{preview.nights}</span>
                 </div>
                 <div className="flex items-center justify-between text-xs">
-                  <span>Tarif moyen / nuit</span>
+                  <span>{t("recapNightAvg")}</span>
                   <span className="font-mono">{formatEUR(preview.avgNightly)}</span>
                 </div>
                 <div className="flex items-center justify-between text-xs">
-                  <span>Sous-total hébergement</span>
+                  <span>{t("recapLodgingSubtotal")}</span>
                   <span className="font-mono">{formatEUR(preview.total)}</span>
                 </div>
                 <div className="flex items-center justify-between text-xs">
-                  <span>Taxe séjour ({property.taxe_sejour_eur} € × {form.nb_adults} × {preview.nights})</span>
+                  <span>{t("recapTaxe", { amount: property.taxe_sejour_eur ?? 0, adults: form.nb_adults, nights: preview.nights })}</span>
                   <span className="font-mono">{formatEUR(taxeSejour)}</span>
                 </div>
                 <div className="my-2 border-t border-white/20" />
                 <div className="flex items-center justify-between">
-                  <span className="font-semibold">Total TTC</span>
+                  <span className="font-semibold">{t("recapTotalTtc")}</span>
                   <span className="font-mono text-lg font-bold">{formatEUR(preview.total + taxeSejour)}</span>
                 </div>
                 <div className="text-[10px] text-white/60">
-                  TVA {property.tva_rate} % hébergement incluse. Taxe séjour = hors TVA.
+                  {t("recapTvaNote", { rate: property.tva_rate })}
                 </div>
               </>
             )}
@@ -371,7 +371,7 @@ export default function NewReservationPage(props: { params: Promise<{ propertyId
               disabled={saving || !preview}
               className="mt-4 w-full rounded-md bg-gold px-4 py-2 text-sm font-bold text-navy shadow-sm hover:brightness-105 disabled:opacity-50"
             >
-              {saving ? "Enregistrement…" : "Confirmer la réservation"}
+              {saving ? t("saving") : t("submit")}
             </button>
           </div>
         </aside>
