@@ -98,30 +98,46 @@ export async function createOrganization(input: {
   legal_mention?: string;
 }): Promise<Organization> {
   const client = ensureClient();
-  const { data: { user } } = await client.auth.getUser();
-  if (!user) throw new Error("Utilisateur non authentifié.");
+  // getSession() s'assure que le JWT est rafraîchi et vérifie sa validité,
+  // tandis que getUser() peut retourner un user de cache même si JWT expiré.
+  const { data: { session } } = await client.auth.getSession();
+  const user = session?.user;
+  if (!user || !session?.access_token) {
+    throw new Error("Session expirée. Reconnectez-vous pour créer une organisation.");
+  }
 
   const baseSlug = slugify(input.name) || "org";
-  const suffix = Math.random().toString(36).slice(2, 8);
-  const slug = `${baseSlug}-${suffix}`;
 
-  const { data, error } = await client
-    .from("organizations")
-    .insert({
-      name: input.name,
-      slug,
-      org_type: input.org_type ?? "agency",
-      created_by: user.id,
-      contact_email: input.contact_email ?? user.email ?? null,
-      contact_phone: input.contact_phone ?? null,
-      vat_number: input.vat_number ?? null,
-      brand_color: input.brand_color ?? "#0B2447",
-      legal_mention: input.legal_mention ?? null,
-    })
-    .select("*")
-    .single();
+  // 1) Slug unique via RPC DB (évite collision / conflict race)
+  let slug = `${baseSlug}-${Math.random().toString(36).slice(2, 8)}`;
+  try {
+    const { data: suggested } = await client.rpc("suggest_org_slug", { p_base_slug: baseSlug });
+    if (typeof suggested === "string" && suggested.length > 0) slug = suggested;
+  } catch {
+    // fallback silencieux au slug local
+  }
 
-  if (error) throw error;
+  // 2) Insertion via RPC SECURITY DEFINER — contourne le bug RLS INSERT
+  //    où auth.uid() retournait NULL malgré getUser() valide côté client
+  //    (cookies domain ".tevaxia.lu" vs preview deploy, JWT expiré, etc.).
+  const { data, error } = await client.rpc("create_organization", {
+    p_name: input.name,
+    p_slug: slug,
+    p_org_type: input.org_type ?? "agency",
+    p_contact_email: input.contact_email ?? user.email ?? null,
+    p_contact_phone: input.contact_phone ?? null,
+    p_vat_number: input.vat_number ?? null,
+    p_brand_color: input.brand_color ?? "#0B2447",
+    p_legal_mention: input.legal_mention ?? null,
+  });
+
+  if (error) {
+    if (error.message?.includes("not_authenticated")) {
+      throw new Error("Session non reconnue côté serveur. Déconnectez-vous et reconnectez-vous.");
+    }
+    throw error;
+  }
+
   return data as Organization;
 }
 
