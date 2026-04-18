@@ -183,31 +183,10 @@ export default function PropertyOverviewPage(props: { params: Promise<{ property
         </div>
       )}
 
-      {/* Nav */}
-      <nav className="mt-6 flex flex-wrap gap-1.5 border-b border-card-border pb-3 -mb-px">
-        {[
-          { href: `/pms/${propertyId}`, label: t("navDashboard"), active: true },
-          { href: `/pms/${propertyId}/chambres`, label: t("navRooms") },
-          { href: `/pms/${propertyId}/calendrier`, label: t("navCalendar") },
-          { href: `/pms/${propertyId}/reservations`, label: t("navReservations") },
-          { href: `/pms/${propertyId}/guests`, label: t("navGuests") },
-          { href: `/pms/${propertyId}/factures`, label: t("navInvoices") },
-          { href: `/pms/${propertyId}/channels`, label: "Channels" },
-          { href: `/pms/${propertyId}/rapports`, label: t("navReports") },
-        ].map((l) => (
-          <Link
-            key={l.href}
-            href={l.href}
-            className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
-              l.active
-                ? "bg-navy text-white"
-                : "text-slate hover:bg-card-border/40 hover:text-navy"
-            }`}
-          >
-            {l.label}
-          </Link>
-        ))}
-      </nav>
+      {/* Nav remplacée par la sidebar PMS (voir layout.tsx) */}
+      <div className="mt-4 rounded-xl border border-blue-200 bg-blue-50 p-3 text-xs text-blue-900 lg:hidden">
+        👈 Utilisez <strong>Outils PMS</strong> dans la sidebar (bouton ☰ en bas à droite sur mobile) pour accéder au front desk, calendrier, tarifs, channels iCal, USALI, pickup, forecast.
+      </div>
 
       {/* Hero — occupancy today with sparkline */}
       <section className="mt-6 grid gap-4 lg:grid-cols-3">
