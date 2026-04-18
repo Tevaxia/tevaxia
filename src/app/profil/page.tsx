@@ -456,25 +456,19 @@ export default function Profil() {
   };
 
   return (
-    <div className="bg-background py-8 sm:py-12">
+    <div className="bg-background py-6 sm:py-10">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("title")}</h1>
-          <p className="mt-1 text-sm text-muted">{t("subtitle")}</p>
-        </div>
-
         <DashboardHero user={user} profile={profile} />
 
         <div className="mt-8">
           <WorkspacesGrid locale={locale} selectedProfiles={profileTypes} />
-        </div>
-
-        <div className="mt-6">
-          <ProfileTypeSelector onChange={setProfileTypes} />
+          <div className="mt-3">
+            <ProfileTypeSelector onChange={setProfileTypes} />
+          </div>
         </div>
 
         {/* Section paramètres avec onglets */}
-        <div className="mt-10 grid gap-6 lg:grid-cols-[220px_1fr]">
+        <div className="mt-10 pt-8 border-t border-card-border grid gap-6 lg:grid-cols-[220px_1fr]">
           {/* Sidebar nav (desktop) / tabs horizontaux (mobile) */}
           <aside className="lg:sticky lg:top-4 lg:self-start">
             <div className="rounded-xl border border-card-border bg-card p-2">

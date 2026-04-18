@@ -7355,6 +7355,9 @@
   },
   "dashboardHero": {
     "welcome": "Willkommen",
+    "greetMorning": "Guten Morgen",
+    "greetAfternoon": "Guten Tag",
+    "greetEvening": "Guten Abend",
     "defaultUser": "Nutzer",
     "plan": "Tarif",
     "byokActive": "BYOK aktiv",
@@ -7397,6 +7400,8 @@
     "loading": "Lädt…",
     "saved": "Gespeichert",
     "selectedCount": "{count, plural, one {# Profil ausgewählt} other {# Profile ausgewählt}}",
+    "customizeCta": "Arbeitsbereiche anpassen",
+    "clearAll": "Alle löschen",
     "particulier": {
       "label": "Privatperson",
       "description": "Selbstnutzer oder privater Vermieter"

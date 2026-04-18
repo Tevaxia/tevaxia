@@ -7355,6 +7355,9 @@
   },
   "dashboardHero": {
     "welcome": "Welcome",
+    "greetMorning": "Good morning",
+    "greetAfternoon": "Good afternoon",
+    "greetEvening": "Good evening",
     "defaultUser": "User",
     "plan": "Plan",
     "byokActive": "BYOK active",
@@ -7397,6 +7400,8 @@
     "loading": "Loading…",
     "saved": "Saved",
     "selectedCount": "{count, plural, one {# profile selected} other {# profiles selected}}",
+    "customizeCta": "Customise my workspaces",
+    "clearAll": "Clear all",
     "particulier": {
       "label": "Individual",
       "description": "Owner-occupier or individual landlord"

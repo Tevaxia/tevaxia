@@ -16,6 +16,7 @@ export default function ProfileTypeSelector({ onChange }: ProfileTypeSelectorPro
   const [selected, setSelected] = useState<ProfileType[]>([]);
   const [loading, setLoading] = useState(true);
   const [saved, setSaved] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (!user || !supabase) {
@@ -61,64 +62,73 @@ export default function ProfileTypeSelector({ onChange }: ProfileTypeSelectorPro
     void persist(next);
   };
 
-  if (!user || !supabase) return null;
+  if (!user || !supabase || loading) return null;
 
   return (
-    <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <h2 className="text-base font-semibold text-navy">{t("title")}</h2>
-          <p className="mt-0.5 text-xs text-muted">{t("description")}</p>
-        </div>
+    <div>
+      {/* Barre de pilule subtile repliée par défaut */}
+      <div className="flex items-center justify-between gap-3 flex-wrap">
+        <button
+          type="button"
+          onClick={() => setOpen(!open)}
+          className="inline-flex items-center gap-2 text-[11px] text-muted hover:text-navy transition-colors group"
+        >
+          <svg
+            className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-90" : ""}`}
+            fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+          <span className="underline-offset-2 group-hover:underline">
+            {selected.length === 0
+              ? t("customizeCta")
+              : t("selectedCount", { count: selected.length })}
+          </span>
+        </button>
         {saved && (
-          <span className="shrink-0 rounded-full bg-emerald-100 text-emerald-800 px-2.5 py-1 text-[10px] font-semibold">
-            {t("saved")}
+          <span className="rounded-full bg-emerald-50 text-emerald-700 px-2 py-0.5 text-[10px] font-medium ring-1 ring-emerald-100">
+            ✓ {t("saved")}
           </span>
         )}
       </div>
 
-      {loading ? (
-        <p className="mt-4 text-sm text-muted">{t("loading")}</p>
-      ) : (
-        <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-2">
-          {PROFILE_TYPES.map((p) => {
-            const isActive = selected.includes(p.value);
-            return (
-              <button
-                key={p.value}
-                type="button"
-                onClick={() => toggle(p.value)}
-                className={`relative rounded-lg border p-3 text-left transition-all ${
-                  isActive
-                    ? "border-navy bg-navy/5 ring-2 ring-navy/20"
-                    : "border-card-border bg-background hover:bg-slate-50 hover:border-slate-300"
-                }`}
-              >
-                <div className="flex items-center gap-2">
-                  <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${p.color} text-white shadow-sm`}>
-                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d={p.iconPath} />
-                    </svg>
-                  </span>
-                  <span className={`text-sm font-semibold ${isActive ? "text-navy" : "text-foreground"}`}>
-                    {t(`${p.value}.label`)}
-                  </span>
+      {open && (
+        <div className="mt-4 rounded-xl border border-card-border bg-card p-5">
+          <p className="text-xs text-muted mb-4">{t("description")}</p>
+          <div className="flex flex-wrap gap-1.5">
+            {PROFILE_TYPES.map((p) => {
+              const isActive = selected.includes(p.value);
+              return (
+                <button
+                  key={p.value}
+                  type="button"
+                  onClick={() => toggle(p.value)}
+                  title={t(`${p.value}.description`)}
+                  className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+                    isActive
+                      ? "border-navy bg-navy text-white"
+                      : "border-card-border bg-background text-slate hover:border-navy/40 hover:bg-card"
+                  }`}
+                >
                   {isActive && (
-                    <svg className="ml-auto h-4 w-4 text-navy" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                     </svg>
                   )}
-                </div>
-                <p className="mt-1.5 text-[10px] leading-tight text-muted">{t(`${p.value}.description`)}</p>
-              </button>
-            );
-          })}
-        </div>
-      )}
-
-      {selected.length > 0 && (
-        <div className="mt-4 rounded-lg bg-navy/5 border border-navy/10 p-3 text-xs text-navy/80">
-          {t("selectedCount", { count: selected.length })}
+                  {t(`${p.value}.label`)}
+                </button>
+              );
+            })}
+          </div>
+          {selected.length > 0 && (
+            <button
+              type="button"
+              onClick={() => { setSelected([]); onChange?.([]); void persist([]); }}
+              className="mt-3 text-[11px] text-muted hover:text-rose-600 underline underline-offset-2"
+            >
+              {t("clearAll")}
+            </button>
+          )}
         </div>
       )}
     </div>

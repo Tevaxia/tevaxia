@@ -7355,6 +7355,9 @@
   },
   "dashboardHero": {
     "welcome": "Wëllkomm",
+    "greetMorning": "Gudde Moien",
+    "greetAfternoon": "Gudden Dag",
+    "greetEvening": "Gudden Owend",
     "defaultUser": "Benotzer",
     "plan": "Plang",
     "byokActive": "BYOK aktiv",
@@ -7397,6 +7400,8 @@
     "loading": "Lued…",
     "saved": "Gespäichert",
     "selectedCount": "{count, plural, one {# Profil ausgewielt} other {# Profiler ausgewielt}}",
+    "customizeCta": "Meng Espaces personaliséieren",
+    "clearAll": "Alles läschen",
     "particulier": {
       "label": "Privatpersoun",
       "description": "Proprietär oder privat Locateur"

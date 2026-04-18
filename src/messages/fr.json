@@ -7355,6 +7355,9 @@
   },
   "dashboardHero": {
     "welcome": "Bienvenue",
+    "greetMorning": "Bonjour",
+    "greetAfternoon": "Bon après-midi",
+    "greetEvening": "Bonsoir",
     "defaultUser": "Utilisateur",
     "plan": "Plan",
     "byokActive": "BYOK actif",
@@ -7397,6 +7400,8 @@
     "loading": "Chargement…",
     "saved": "Enregistré",
     "selectedCount": "{count, plural, one {# profil sélectionné} other {# profils sélectionnés}}",
+    "customizeCta": "Personnaliser mes espaces",
+    "clearAll": "Tout effacer",
     "particulier": {
       "label": "Particulier",
       "description": "Propriétaire occupant ou bailleur individuel"
