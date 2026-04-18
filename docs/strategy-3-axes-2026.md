@@ -233,3 +233,193 @@ Session ultra-marathon — 21 commits au total dont 7 supplémentaires après la
 **Total FINAL session** : **~49 commits** · ~28 000 lignes · **12 migrations** (045–054) · +220 tests · **854 tests** passent.
 
 **Migration 054 à appliquer manuellement dans Supabase Dashboard SQL Editor** pour résoudre erreur RLS création organisation.
+
+### Round 5 — UX unification benchmark concurrents mondiaux
+
+Feedback utilisateur : outils syndic/PMS/CRM éparpillés, accès pas clair. Benchmark Matera / Immoware24 / Domus (syndic), Mews / Cloudbeds / OPERA / Apaleo (PMS), Apimo / HubSpot RE / Propertybase (CRM) et application des patterns UX standards.
+
+- **Syndic sidebar copropriété** (764eb7d) — layout `/syndic/coproprietes/[id]/layout.tsx` + `CoproSidebar` 260px persistant avec 4 sections organisées (Général 3, Finance 6, AG 2, Travaux 1) + liens transverses (portefeuille, lettres types, benchmark, actions prioritaires). Mobile drawer bottom sheet.
+- **PMS sidebar propriété** (8fb5155) — layout `/pms/[propertyId]/layout.tsx` + `PropertySidebar` 260px avec 6 sections × 17 items (Opérations jour, Réservations, Tarifs & distribution, Chambres & Setup, Facturation, Reporting). Toutes pages T2-T5 accessibles d'un clic.
+- **CRM top nav** (8122c77) — layout `/pro-agences/crm/layout.tsx` + `CrmTopNav` sticky top 4 sections (Pipeline, Contacts, Outils, Reporting). Badge 🔔 Actions prioritaires accessible partout.
+- **UX police + audit tailles minuscules** (b3cfb22) — retour utilisateur "pas facile à lire" : labels 12→14px, descriptions 10→12px, titres sections 9→12px bold, icônes 16→18px, padding items +50%. Audit global `text-[7/8/9px]` → `[9/10px]` sur heatmap, calendrier, str/forecast.
+
+**Total FINAL session** : **~53 commits** · ~29 500 lignes · **12 migrations** (045–054) · +220 tests · **854 tests** passent · **3 layouts nav unifiés** conformes best practices mondiales.
+
+---
+
+## État des blockers business (pas encore attaqués)
+
+Ces 3 blockers décidés en début de stratégie restent ouverts et nécessitent action hors code.
+
+### PMS — Channel manager réel (au-delà iCal lite)
+- **Lite livré** : iCal import 8 sources OTA (Airbnb, Booking, VRBO, HomeAway, Expedia, Agoda, TripAdvisor, custom). One-way, 15 min–3h de latence selon portail.
+- **Pro requis** : SiteMinder certification partenaire (2–4 semaines de dev + certification) OU direct Booking Connectivity Partner (3 mois).
+- **Action** : contacter SiteMinder business dev quand prêt pour démo client.
+
+### Syndic — Compta intégration bancaire PSD2 multi-comptes
+- **Infra PSD2 existe** : Enable Banking sandbox déjà intégré côté Gestion Locative + syndic.
+- **Reste à faire** : UI multi-comptes par copropriété (1 syndicat = 1 RIB séparé en LU) + rapprochement automatique factures fournisseurs + appels de fonds.
+- **Action** : dev 2–3 semaines quand syndic pilote en place.
+
+### CRM — API partenaire athome.lu
+- **Fallback livré** : export OpenImmo v1.2.7 XML qui est reconnu par la plupart des portails européens (mais pas athome.lu natif).
+- **Critique** : sans athome, aucune agence LU n'adopte. Si OpenImmo fonctionne côté athome (à tester), fin de l'histoire. Sinon : business dev athome pour API partenaire OU flux XML custom.
+- **Action** : test OpenImmo côté athome + contact business dev athome en parallèle.
+
+---
+
+## Checklist migration manuelle Supabase
+
+À appliquer dans **Supabase Dashboard → SQL Editor** dans l'ordre (copier-coller fichier entier) :
+
+- [ ] `supabase/migrations/045_agency_mandates_stages.sql` — enum stages mandats
+- [ ] `supabase/migrations/046_agency_mandates_pipeline.sql` — tables diffusion + offers
+- [ ] `supabase/migrations/047_syndic_allocation_keys.sql` — clés répartition + budget lines
+- [ ] `supabase/migrations/048_pms_folios.sql` — folios client
+- [ ] `supabase/migrations/049_pms_external_calendars.sql` — iCal OTA import
+- [ ] `supabase/migrations/050_syndic_reminders.sql` — relances 3 paliers
+- [ ] `supabase/migrations/051_agency_signatures.sql` — eIDAS signatures
+- [ ] `supabase/migrations/052_syndic_portal_extended.sql` — RPC mon compte
+- [ ] `supabase/migrations/053_syndic_portal_voting.sql` — vote AG portail
+- [ ] `supabase/migrations/054_create_org_rpc.sql` — fix RLS création org (**CRITIQUE, débloque UI Mon agence**)
+
+Les migrations ne sont pas auto-déployées avec Vercel. Elles doivent être appliquées manuellement ou via `supabase db push` si CLI configuré.
+
+---
+
+## Config Vercel requise
+
+- **CRON_SECRET** (string aléatoire 32+ chars) — requis pour `/api/cron/daily`.
+- **PMS_ICAL_SHARE_SECRET** (déjà configuré probablement) — pour flux iCal sortant par token public.
+- **SUPABASE_SERVICE_ROLE_KEY** (déjà configuré) — requis pour cron + signature + portail.
+
+Activer Vercel Cron (Pro plan) : `vercel.json` livré avec schedule `0 2 * * *` → `/api/cron/daily`.
+
+---
+
+## Prochaines priorités (T5-T6 candidates restantes)
+
+Après la méga-session, ces items sont encore ouverts :
+
+1. **PMS group bookings + allotements** — événements, mariages, conférences (>10 chambres par commande groupée).
+2. **PMS POS restaurant/bar** — intégration folio automatique (breakfast/lunch/dinner/bar/minibar direct sur folio du guest).
+3. **LuxTrust qualified signature** — actes notariés + compromis, nécessite dev account LuxTrust approuvé (business dev).
+4. **OCR factures syndic** — upload PDF facture fournisseur → extraction montant + TVA + IBAN auto via OpenAI Vision / Mistral Pixtral / Claude Vision.
+5. **Syndic banking reconciliation PSD2** — import transactions via Enable Banking et matching automatique avec appels de fonds (réf de paiement unique).
+6. **PMS Revenue forecast v2** — intégration événements LU (Bouneweger Mess, Foire de Luxembourg, Kirchberg congrès) pour ajuster pickup attendu.
+7. **CRM nurturing email drip** — séquences auto 3 emails J+7/J+30/J+90 pour prospects silencieux.
+8. **Syndic convocation multi-format** — envoi email groupé des convocations AG avec PDF joint + lien portail personnalisé par copropriétaire.
+9. **Onboarding wizard** — tour guidé nouveau syndic / agence / hôtelier pour configurer rapidement 1ère copro/mandat/hôtel.
+10. **Mentions légales + CGU tevaxia** — finaliser pages `/confidentialite`, `/mentions-legales` avec références eIDAS / RGPD / CSSF explicites.
+
+---
+
+## Décisions structurantes à prendre en 2026
+
+### 1. Hébergement Supabase : payant vs self-hosted
+- **Actuel** : Supabase Cloud plan gratuit / Pro €25/mois.
+- **Échelle** : RLS policies + triggers + RPC rapidement limités si > 500 coproprietes ou > 10 000 mandats.
+- **Option** : self-host Supabase sur Hetzner (€20/mois) ou Scaleway LU.
+- **Recommandation** : rester Cloud tant que < 5 clients pilote, migrer self-host LU à l'approche GDPR-plus stricte (données locales).
+
+### 2. Stockage PDF : Supabase Storage vs S3 LU
+- **Actuel** : documents générés côté client (PDF blob → download), non stockés.
+- **Besoin futur** : archivage réglementaire (PV AG 10 ans, factures LU 10 ans, KYC 5 ans).
+- **Recommandation** : Supabase Storage bucket dédié + durée de rétention via cron auto-delete, ou S3 Scaleway LU (meilleure conformité résidence données LU).
+
+### 3. Channel manager : build vs buy
+- Build SiteMinder partner integration (2–4 semaines) vs acquisition d'un channel manager LU existant (~€50k).
+- Build-first recommandé, acquisition seulement si gros client pilote l'exige.
+
+### 4. LuxTrust : dev account officiel
+- Compte dev LuxTrust gratuit pour POC, production payante ~€500/mois + certificats.
+- Valeur livrée : signatures qualifiées pour compromis de vente (pas juste simple eIDAS).
+- Recommandation : demander dev account dès Q3 2026, activer prod dès 1er client payant.
+
+---
+
+## Références externes utilisées
+
+### Standards techniques
+- **USALI v11** — Uniform System of Accounts for the Lodging Industry (AHLA, HOTREC)
+- **OpenImmo v1.2.7** — standard européen XML immobilier
+- **iCal RFC 5545** — format calendriers
+- **ISO 20022 pain.001** — virements SEPA (non implémenté encore)
+- **eIDAS UE 910/2014** — signature électronique
+- **CRREM v3.0 (2024)** — courbes décarbonation
+- **EU Taxonomy 2020/852** — Climate Delegated Act
+- **SFDR 2019/2088** — reporting ESG financier
+- **EPBD IV 2024** — performance énergétique bâtiments
+
+### Lois LU référencées dans le code
+- Loi 16.05.1975 — statut copropriété
+- Loi 10.06.1999 — fonds travaux obligatoire
+- Loi 28.12.1988 — professions immobilières (règlement 04.07.2000 mandats)
+- Loi 18.04.2004 — taux intérêt légal (5,75 % en 2026)
+- Loi 12.02.1979 — TVA (hébergement 3 %, F&B 17 %, taxe séjour art. 44)
+- Règlement grand-ducal 24.03.2023 — facturation électronique
+- Règlement grand-ducal 23.07.2016 — nZEB LU
+- Loi 31.05.1999 — fiche police (hôtellerie)
+- Règlement 17.06.2011 — police des étrangers
+
+### Concurrents benchmarkés
+- **Syndic** : Matera (FR), Immoware24 (DE), Domus, Syndic One
+- **PMS** : Mews, Cloudbeds, Oracle OPERA, Apaleo, protel, StayNTouch
+- **CRM agence** : Apimo (dominant FR), HubSpot real estate, Propertybase, Follow Up Boss, Hektor
+- **Rate shopping** : SiteMinder, Duetto, Lighthouse
+- **Channel manager** : SiteMinder (recommandé), Hotel-Spider, Cubilis
+
+---
+
+## Positionnement cible 12 mois
+
+**"La plateforme référence immobilière luxembourgeoise"**
+
+3 verticaux opérationnels + couche référentielle commune (ESG, observatoires, AML/KYC, évaluation) qui alimente les 3. Inattaquable localement grâce à la conformité LU extrême (droit, fiscalité, langues LB native, LuxTrust, PSD2 LU, compliance CSSF).
+
+Pas de concurrent direct multi-vertical au LU. Matera ne fait que syndic. Apimo ne fait que CRM. Mews ne fait que PMS. **tevaxia = les 3 + le référentiel LU.**
+
+Cible commerciale T1 2027 : 2 hôtels + 2 copros + 3 agences pilotes en production payante. Validation positionnement avant scale-up T2 2027+.
+
+---
+
+## Rituels de maintenance
+
+### Quotidien (automatisé via `/api/cron/daily` à 02:00 UTC)
+- Mark no-shows PMS (check_in < hier)
+- Mark overdue syndic (due_date + 15j)
+- Expire mandats CRM (end_date < today)
+- Expire signatures eIDAS (expires_at < now)
+
+### Hebdomadaire (manuel, lundi matin)
+- `/actions-prioritaires` : parcourir alertes cross-modules
+- `/syndic/portefeuille` : prioriser recouvrement par impayés
+- Sync iCal OTA manuelle si agence n'a pas automatisé
+
+### Mensuel
+- Clôture night audit mensuel + USALI monthly PDF
+- Export CSV contacts CRM pour backup local
+- Review pickup / forecast PMS pour ajuster rate plans
+
+### Trimestriel / annuel
+- Annexes comptables AG (annuel)
+- PV AG (post-AG)
+- Convocations AG (15j avant AG)
+- Appels de fonds trimestriels syndic
+
+---
+
+## Contact / debug
+
+- **Repo** : https://github.com/Interne52105110/tevaxia
+- **Prod** : https://www.tevaxia.lu (Vercel auto-deploy sur push master)
+- **Supabase** : Dashboard SQL Editor pour migrations
+- **Erreurs connues** :
+  - Si "new row violates RLS policy for organizations" : appliquer migration 054.
+  - Si cookie session absent en preview Vercel : domain `.tevaxia.lu` configuré dans `lib/supabase.ts`, les preview deploys ne reçoivent pas le cookie.
+  - Si Supabase RPC not found : migrations 045–054 non appliquées en prod.
+
+---
+
+**Fin du document.** Dernière mise à jour : 2026-04-18, commit b3cfb22.
+
