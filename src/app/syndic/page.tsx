@@ -1059,9 +1059,9 @@ export default function SyndicPage() {
                 </svg>
               </div>
               <div>
-                <div className="text-sm font-semibold text-navy">Pack syndic complet</div>
+                <div className="text-sm font-semibold text-navy">Outils complémentaires</div>
                 <p className="text-xs text-muted leading-relaxed">
-                  Tous les outils utiles aux syndics et gestionnaires de copropriété — règle des 5 %, portefeuille, énergie, conformité.
+                  Calculateurs et modules utilisés en complément de la gestion syndic — loyer légal, portefeuille, énergie, AML/KYC.
                 </p>
               </div>
             </div>
