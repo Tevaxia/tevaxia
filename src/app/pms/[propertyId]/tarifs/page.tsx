@@ -71,7 +71,13 @@ export default function SeasonalRatesPage(props: { params: Promise<{ propertyId:
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
-      <Link href={`/pms/${propertyId}`} className="text-xs text-navy hover:underline">← {property.name}</Link>
+      <div className="flex items-center justify-between">
+        <Link href={`/pms/${propertyId}`} className="text-xs text-navy hover:underline">← {property.name}</Link>
+        <Link href={`/pms/${propertyId}/tarifs/bulk`}
+          className="rounded-lg border border-navy bg-white px-3 py-1.5 text-xs font-semibold text-navy hover:bg-navy/5">
+          ⚡ Édition en masse
+        </Link>
+      </div>
       <h1 className="mt-1 text-2xl font-bold text-navy sm:text-3xl">{t("title")}</h1>
       <p className="mt-1 text-sm text-muted">{t("intro")}</p>
 
