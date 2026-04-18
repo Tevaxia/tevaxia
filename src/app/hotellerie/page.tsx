@@ -331,6 +331,8 @@ export default async function HotellerieHub() {
           { questionKey: "faq2q", answerKey: "faq2a" },
           { questionKey: "faq3q", answerKey: "faq3a" },
           { questionKey: "faq4q", answerKey: "faq4a" },
+          { questionKey: "faq5q", answerKey: "faq5a" },
+          { questionKey: "faq6q", answerKey: "faq6a" },
         ]}
         relatedLinks={[
           { href: "/valorisation", labelKey: "valorisation" },
