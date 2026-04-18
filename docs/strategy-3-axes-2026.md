@@ -157,3 +157,35 @@ Puis on boucle en ajoutant une couche sur chaque axe chaque sprint.
 ## Mémoire projet
 
 Cette stratégie est aussi reflétée dans l'auto-memory (`project_strategy_3_axes_2026.md`) pour être récupérée automatiquement dans toutes les futures sessions.
+
+## Accompli 2026-04-18 (T2 → T4 en une session)
+
+### CRM agence
+- **T2** : Pipeline mandats étendu (prospect → mandat_signé → diffusé → en_visite → offre_reçue → sous_compromis → vendu). Tables diffusion portails (10 sources) + offres structurées (conditions suspensives, acceptation auto → sous_compromis). Export OpenImmo v1.2.7 + CSV portails LU.
+- **T3** : Matching acquéreur ↔ mandat avec scoring /100 (budget 40 + surface 30 + zone 20 + type 10). Pages bidirectionnelles (liste acquéreurs pour un mandat + liste mandats pour un acquéreur).
+- **T4** : Signature électronique eIDAS simple (règlement UE 910/2014). Page publique `/signer/[token]`, preuve IP + UA + hash SHA-256, workflow draft→sent→viewed→signed avec audit trail immuable.
+
+### Syndic copropriété
+- **T2** : Clés de répartition spéciales (8 modèles LU : chauffage, ascenseur, escaliers A/B, parking, espaces verts…). Budget détaillé par compte × nature × clé. Vue `budget_vs_actual` temps réel. RPC `generate_charges_with_key` remplace logique TS.
+- **T3** : 5 annexes comptables PDF (état financier, compte gestion général/travaux, dettes/créances, détail dépenses). Loi 16.05.1975 + 10.06.1999.
+- **T4** : Relances impayés 3 paliers (J+15/J+30/J+60) avec intérêts légaux LU 5,75 % (loi 18.04.2004). PDF lettre formelle + mention recommandé palier 3. Historique immutable > 24h pour preuve Juge de Paix. Portail copropriétaire `/mon-compte` étendu avec solde + relances reçues (transparence totale).
+
+### PMS hôtellerie
+- **T2** : Folios client in-house (19 catégories USALI) avec auto-posting nuits + taxe séjour au check-in. RPC `pms_settle_folio` → facture immuable TVA LU (3/17/0).
+- **T3** : Import iCal (channel manager lite) — 8 sources OTA (Airbnb/Booking/VRBO/Expedia…). Parseur RFC 5545 maison. Upsert par UID + annulation auto quand UID disparaît.
+- **T4** : Rapport USALI v11 mensuel (standard AHLA/HOTREC) avec KPIs Occupancy/ADR/RevPAR/TRevPAR + YoY + ventilation 4 buckets + PDF pro.
+
+### Stats globales (commit 6e7b2f9)
+- **10 commits** en une session
+- **~15 000 lignes** ajoutées (TypeScript + SQL + PDF)
+- **9 migrations** (045–052)
+- **+122 tests** (678 → 800, tous passants)
+- **Positionnement tenu** : 100% conforme spec LU (droit, fiscalité, langues, LuxTrust prep)
+
+## Prochaines priorités (T5 candidates)
+
+1. **CRM Kanban drag-drop** pipeline mandats — visuel agence
+2. **Syndic AG en ligne** vote électronique — différenciateur Matera
+3. **PMS group bookings + extranet guest** — ouverture corporate
+4. **LuxTrust real integration** — actes notariés (quand dev account ouvert)
+5. **OCR factures syndic** — workflow fournisseur (OpenAI Vision ou Mistral)
