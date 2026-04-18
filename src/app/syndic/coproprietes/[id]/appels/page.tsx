@@ -12,8 +12,9 @@ import { getCoownership, listUnits, type Coownership, type CoownershipUnit } fro
 import {
   listCalls, createCall, updateCall, deleteCall,
   listCharges, generateChargesForCall, markChargePaid, resetCharge,
-  type CoownershipCall, type UnitCharge, type CallStatus,
+  type CoownershipCall, type UnitCharge, type CallStatus, type CallNature,
 } from "@/lib/coownership-finance";
+import { listAllocationKeys, type AllocationKey } from "@/lib/coownership-allocations";
 import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/errors";
 
@@ -46,6 +47,7 @@ export default function FundsCallsPage() {
   const [coown, setCoown] = useState<Coownership | null>(null);
   const [units, setUnits] = useState<CoownershipUnit[]>([]);
   const [calls, setCalls] = useState<CoownershipCall[]>([]);
+  const [keys, setKeys] = useState<AllocationKey[]>([]);
   const [activeCallId, setActiveCallId] = useState<string | null>(null);
   const [charges, setCharges] = useState<UnitCharge[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -62,12 +64,14 @@ export default function FundsCallsPage() {
     bank_bic: "",
     bank_account_holder: "",
     payment_reference_template: "COPRO-{lot}-{period}",
+    allocation_key_id: null,
+    nature: "courantes",
   });
 
   const refresh = async () => {
     try {
-      const [c, u, cs] = await Promise.all([getCoownership(id), listUnits(id), listCalls(id)]);
-      setCoown(c); setUnits(u); setCalls(cs);
+      const [c, u, cs, ks] = await Promise.all([getCoownership(id), listUnits(id), listCalls(id), listAllocationKeys(id)]);
+      setCoown(c); setUnits(u); setCalls(cs); setKeys(ks);
       if (activeCallId && cs.find((x) => x.id === activeCallId)) {
         setCharges(await listCharges(activeCallId));
       } else if (cs.length > 0) {
@@ -104,6 +108,8 @@ export default function FundsCallsPage() {
         payment_reference_template: draft.payment_reference_template ?? "COPRO-{lot}-{period}",
         notes: null,
         status: "draft",
+        allocation_key_id: draft.allocation_key_id ?? null,
+        nature: draft.nature ?? "courantes",
       });
       setShowNewCall(false);
       setActiveCallId(created.id);
@@ -230,6 +236,29 @@ export default function FundsCallsPage() {
               <input type="text" placeholder={t("placeholderHolder")} value={draft.bank_account_holder ?? ""}
                 onChange={(e) => setDraft((p) => ({ ...p, bank_account_holder: e.target.value }))}
                 className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm sm:col-span-3" />
+
+              <div className="sm:col-span-2">
+                <label className="block text-xs text-muted mb-1">Clé de répartition</label>
+                <select value={draft.allocation_key_id ?? ""}
+                  onChange={(e) => setDraft((p) => ({ ...p, allocation_key_id: e.target.value || null }))}
+                  className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm">
+                  <option value="">Tantièmes généraux (par défaut)</option>
+                  {keys.filter((k) => k.code !== "tantiemes_generaux").map((k) => (
+                    <option key={k.id} value={k.id}>{k.label}{k.total_shares > 0 ? "" : " (aucune part définie)"}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-xs text-muted mb-1">Nature</label>
+                <select value={draft.nature ?? "courantes"}
+                  onChange={(e) => setDraft((p) => ({ ...p, nature: e.target.value as CallNature }))}
+                  className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm">
+                  <option value="courantes">Charges courantes</option>
+                  <option value="travaux">Travaux</option>
+                  <option value="fonds_travaux">Fonds travaux</option>
+                  <option value="exceptionnel">Exceptionnel</option>
+                </select>
+              </div>
             </div>
             <div className="mt-3 flex justify-end">
               <button onClick={handleCreateCall}

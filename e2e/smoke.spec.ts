@@ -71,6 +71,12 @@ test.describe("Smoke tests — parcours critiques publics", () => {
     await expect(body).toContainText(/benchmark|connect|sign in/i);
   });
 
+  test("/syndic/coproprietes hub accessible", async ({ page }) => {
+    await page.goto("/syndic/coproprietes");
+    const body = page.locator("body");
+    await expect(body).toContainText(/copropri|syndic|connect|sign in/i);
+  });
+
   test("/marche/forecast prévisions prix avec 3 scénarios", async ({ page }) => {
     await page.goto("/marche/forecast");
     const body = page.locator("body");

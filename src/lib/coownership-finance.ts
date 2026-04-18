@@ -18,6 +18,7 @@ export interface CoownershipBudget {
 }
 
 export type CallStatus = "draft" | "issued" | "partially_paid" | "paid" | "overdue" | "cancelled";
+export type CallNature = "courantes" | "travaux" | "fonds_travaux" | "exceptionnel";
 
 export interface CoownershipCall {
   id: string;
@@ -34,6 +35,8 @@ export interface CoownershipCall {
   payment_reference_template: string | null;
   status: CallStatus;
   notes: string | null;
+  allocation_key_id: string | null;
+  nature: CallNature | null;
   created_by: string | null;
   created_at: string;
   updated_at: string;
@@ -159,60 +162,17 @@ export async function listCharges(callId: string): Promise<UnitCharge[]> {
 
 /**
  * Génère automatiquement les charges individuelles à partir d'un appel.
- * La répartition est : amount_due_lot = total_amount × tantiemes_lot / total_tantiemes.
- * Idempotent : écrase les lignes existantes pour ce call (utile pour regénérer
- * après modification du montant total).
+ * Utilise la RPC `generate_charges_with_key` qui applique la clé de
+ * répartition définie sur l'appel (allocation_key_id). Si aucune clé
+ * n'est spécifiée, la clé système "tantiemes_generaux" est utilisée
+ * par défaut (répartition classique par tantièmes).
+ * Idempotent : écrase les lignes existantes pour ce call en statut draft.
  */
 export async function generateChargesForCall(callId: string): Promise<number> {
   const client = ensureClient();
-
-  const { data: call, error: callErr } = await client
-    .from("coownership_calls")
-    .select("*")
-    .eq("id", callId)
-    .single();
-  if (callErr || !call) throw new Error("Call not found");
-
-  const { data: coown, error: coownErr } = await client
-    .from("coownerships")
-    .select("total_tantiemes")
-    .eq("id", call.coownership_id)
-    .single();
-  if (coownErr || !coown) throw new Error("Coownership not found");
-
-  const { data: units, error: unitsErr } = await client
-    .from("coownership_units")
-    .select("id, lot_number, tantiemes")
-    .eq("coownership_id", call.coownership_id);
-  if (unitsErr) throw unitsErr;
-
-  const totalTant = (coown as { total_tantiemes: number }).total_tantiemes;
-  const total = call.total_amount;
-  const template = call.payment_reference_template || "COPRO-{lot}-{period}";
-  const periodCode = String(call.period_start).slice(0, 7); // YYYY-MM
-
-  // Supprime d'abord les charges existantes (pour regénération propre,
-  // conserve amount_paid ? Non : simpler — mais on ne régénère que si draft)
-  if (call.status === "draft") {
-    await client.from("coownership_unit_charges").delete().eq("call_id", callId);
-  }
-
-  type UnitRow = { id: string; lot_number: string; tantiemes: number };
-  const rows = (units as UnitRow[]).map((u) => ({
-    call_id: callId,
-    unit_id: u.id,
-    amount_due: Math.round(total * (u.tantiemes / totalTant) * 100) / 100,
-    amount_paid: 0,
-    payment_reference: template.replace("{lot}", u.lot_number).replace("{period}", periodCode),
-  }));
-
-  const { error: insErr } = await client.from("coownership_unit_charges").upsert(rows, {
-    onConflict: "call_id,unit_id",
-    ignoreDuplicates: false,
-  });
-  if (insErr) throw insErr;
-
-  return rows.length;
+  const { data, error } = await client.rpc("generate_charges_with_key", { p_call_id: callId });
+  if (error) throw error;
+  return Number(data ?? 0);
 }
 
 export async function markChargePaid(chargeId: string, amount: number, method: string): Promise<void> {
