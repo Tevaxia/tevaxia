@@ -72,12 +72,26 @@ create table if not exists kyc_archives (
   sha256 text not null, -- intégrité
   archived_by uuid references auth.users(id) on delete set null,
   archived_at timestamptz not null default now(),
-  -- Rétention calculée dynamiquement : date fin relation + 5 ans (ou +5 ans par défaut si ouvert)
-  retention_until timestamptz generated always as (
-    coalesce(archived_at + interval '5 years', archived_at + interval '5 years')
-  ) stored,
+  -- Rétention : archived_at + 5 ans (loi 12.11.2004 art. 3 §6).
+  -- NB : colonne rempli par trigger BEFORE INSERT car
+  -- `timestamptz + interval` est STABLE (pas IMMUTABLE) donc interdit
+  -- dans une colonne GENERATED ALWAYS (erreur 42P17).
+  retention_until timestamptz not null,
   metadata jsonb default '{}'::jsonb
 );
+
+create or replace function kyc_archive_set_retention() returns trigger language plpgsql as $$
+begin
+  if new.retention_until is null then
+    new.retention_until := new.archived_at + interval '5 years';
+  end if;
+  return new;
+end;
+$$;
+drop trigger if exists kyc_archive_set_retention_trg on kyc_archives;
+create trigger kyc_archive_set_retention_trg
+  before insert on kyc_archives
+  for each row execute function kyc_archive_set_retention();
 
 create index if not exists kyc_archives_case_idx
   on kyc_archives(case_id, archived_at desc);
