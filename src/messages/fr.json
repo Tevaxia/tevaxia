@@ -9469,5 +9469,40 @@
         "body": "La règle des 5 % plafonne les loyers long terme LU — mais le STR est-il plus rentable après charges, commissions OTA et impôts ? Nos outils vous donnent la réponse chiffrée."
       }
     }
+  },
+  "strObservatoire": {
+    "back": "Location courte durée",
+    "title": "Observatoire STR Luxembourg",
+    "subtitle": "Données agrégées Airbnb/Booking/Vrbo par commune et zone. ADR médian, percentiles P25-P75, occupation, nuitées disponibles, listings actifs. Sources : AirDNA sample, observations tevaxia Q4 2025 + rapports Airbnb Market Reports.",
+    "kpi": {
+      "listings": "Listings LU",
+      "growth": "+{pct}% YoY",
+      "adrMedian": "ADR médian filtré",
+      "occupancyMedian": "Occupation médiane",
+      "activeListings": "Annonces actives (filtre)"
+    },
+    "filter": {
+      "all": "Toutes zones",
+      "luVille": "Luxembourg-Ville",
+      "sud": "Sud (Esch, Differdange)",
+      "nord": "Nord tourisme",
+      "moselle": "Moselle / Mondorf"
+    },
+    "table": {
+      "zone": "Zone",
+      "adrP25": "ADR P25",
+      "adrMedian": "ADR médian",
+      "adrP75": "ADR P75",
+      "occupancy": "Occupation",
+      "revpar": "RevPAR",
+      "listings": "Listings"
+    },
+    "footer": {
+      "updateLabel": "Mise à jour :",
+      "update": "Q4 2025 (trimestrielle). Ces données sont indicatives et à considérer comme un benchmark macro. Pour un pricing précis par bien, combinez avec",
+      "compset": "et votre propre compset (voisins directs).",
+      "sourcesLabel": "Sources :",
+      "sources": "AirDNA échantillon LU, Airbnb Market Reports, panel tevaxia. Pour l'accès API complet, licence AirDNA payante (~$200-500/mois selon usage)."
+    }
   }
 }

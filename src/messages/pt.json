@@ -9469,5 +9469,40 @@
         "body": "A regra dos 5 % limita as rendas longa duracao LU — mas o STR e mais rentavel apos custos, comissoes OTA e impostos? As nossas ferramentas dao-lhe a resposta em numeros."
       }
     }
+  },
+  "strObservatoire": {
+    "back": "Alojamento curto",
+    "title": "Observatorio STR Luxemburgo",
+    "subtitle": "Dados agregados Airbnb/Booking/Vrbo por municipio e zona. ADR mediano, percentis P25-P75, ocupacao, noites disponiveis, listagens ativas. Fontes: amostra AirDNA, observacoes tevaxia Q4 2025 + Airbnb Market Reports.",
+    "kpi": {
+      "listings": "Listagens LU",
+      "growth": "+{pct}% YoY",
+      "adrMedian": "ADR mediano filtrado",
+      "occupancyMedian": "Ocupacao mediana",
+      "activeListings": "Listagens ativas (filtro)"
+    },
+    "filter": {
+      "all": "Todas zonas",
+      "luVille": "Luxemburgo-Cidade",
+      "sud": "Sul (Esch, Differdange)",
+      "nord": "Norte turismo",
+      "moselle": "Mosela / Mondorf"
+    },
+    "table": {
+      "zone": "Zona",
+      "adrP25": "ADR P25",
+      "adrMedian": "ADR mediano",
+      "adrP75": "ADR P75",
+      "occupancy": "Ocupacao",
+      "revpar": "RevPAR",
+      "listings": "Listagens"
+    },
+    "footer": {
+      "updateLabel": "Atualizacao:",
+      "update": "Q4 2025 (trimestral). Estes dados sao indicativos e devem ser considerados um benchmark macro. Para pricing preciso por imovel, combine com",
+      "compset": "e o seu proprio compset (vizinhos diretos).",
+      "sourcesLabel": "Fontes:",
+      "sources": "Amostra AirDNA LU, Airbnb Market Reports, painel tevaxia. Para acesso API completo, licenca AirDNA paga (~$200-500/mes conforme uso)."
+    }
   }
 }

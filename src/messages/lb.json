@@ -9469,5 +9469,40 @@
         "body": "D'5%-Regel plaffonéiert LU-Laangzäit-Lounen — mee ass STR no Käschten, OTA-Provisiounen a Steiere rentabler? Eis Tools gi Iech d'Zuelenäntwert."
       }
     }
+  },
+  "strObservatoire": {
+    "back": "Kuerzzäitvermietung",
+    "title": "STR Lëtzebuerg Observatoire",
+    "subtitle": "Aggregéiert Airbnb/Booking/Vrbo-Donnéeë no Gemeng an Zone. Median ADR, P25-P75 Percentilen, Belegung, verfügbar Nuechten, aktiv Listings. Quellen: AirDNA-Sample, tevaxia-Observatiounen Q4 2025 + Airbnb Market Reports.",
+    "kpi": {
+      "listings": "LU-Listings",
+      "growth": "+{pct}% YoY",
+      "adrMedian": "Gefiltert Median-ADR",
+      "occupancyMedian": "Median-Belegung",
+      "activeListings": "Aktiv Listings (Filter)"
+    },
+    "filter": {
+      "all": "All Zonen",
+      "luVille": "Lëtzebuerg-Stad",
+      "sud": "Süden (Esch, Differdange)",
+      "nord": "Nord-Tourismus",
+      "moselle": "Musel / Mondorf"
+    },
+    "table": {
+      "zone": "Zone",
+      "adrP25": "ADR P25",
+      "adrMedian": "Median ADR",
+      "adrP75": "ADR P75",
+      "occupancy": "Belegung",
+      "revpar": "RevPAR",
+      "listings": "Listings"
+    },
+    "footer": {
+      "updateLabel": "Aktualiséierung:",
+      "update": "Q4 2025 (véierteljärlech). Dës Donnéeë sinn indikativ an als Makro-Benchmark ze betruechten. Fir präzist Pricing pro Objet kombinéiert mat",
+      "compset": "an Ärem eegene Compset (direkt Nopesch).",
+      "sourcesLabel": "Quellen:",
+      "sources": "AirDNA LU-Sample, Airbnb Market Reports, tevaxia-Panel. Fir komplett API-Zougang, AirDNA bezuelent Lizenz (~$200-500/Mount no Notzung)."
+    }
   }
 }
