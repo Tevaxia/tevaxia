@@ -8986,5 +8986,121 @@
       "question": "Questions d'intégration B2B ?",
       "footer": "— nous répondons sous 48 h ouvrées et pouvons fournir un SLA dédié, un endpoint batch plus volumineux et un support d'intégration."
     }
+  },
+  "facturation": {
+    "meta": {
+      "title": "Facturation électronique FR + LU — tevaxia.lu",
+      "description": "Module de facturation électronique Factur-X (EN 16931) spécialisé immobilier FR + LU, connecté à Gestion locative, Syndic, PMS et Bail commercial."
+    },
+    "hero": {
+      "badge": "Réforme e-invoicing FR · obligatoire 01/09/2026",
+      "title": "Facturation électronique, intégrée à tes outils immobiliers",
+      "subtitle": "Génération Factur-X (PDF/A-3 + XML EN 16931), 5 templates métier immo (bailleur, syndic, hôtelier, bail commercial, expert), TVA FR + LU, archivage probatoire 10 ans.",
+      "note": "Status : opérateur de dématérialisation — transit PPF via PDP partenaire. Travaux d'agrément PDP en cours.",
+      "ctaEmit": "Émettre une facture Factur-X",
+      "ctaPricing": "Voir les tarifs"
+    },
+    "diff": {
+      "title": "Ce que les concurrents ne font pas",
+      "intro": "Pennylane fait de la compta. Sellsy fait du CRM. Qonto fait de la banque. tevaxia connecte la facturation à tes cas d'usage immobiliers.",
+      "locative": {
+        "title": "Gestion locative",
+        "desc": "Clic « Émettre loyer » sur l'échéancier → Factur-X générée, indexation IRL/ILAT/IPC automatique, référence mandat SEPA."
+      },
+      "syndic": {
+        "title": "Syndic copropriété",
+        "desc": "Répartition des charges par tantièmes → émission groupée aux copropriétaires, TVA exempte, référence compte copro."
+      },
+      "pms": {
+        "title": "PMS hôtellerie",
+        "desc": "Au check-out → facture TVA 3 % LU (hébergement) + 17 % (F&B) + taxe de séjour + Factur-X transmise à la PA du client corporate."
+      },
+      "bail": {
+        "title": "Bail commercial",
+        "desc": "Génération trimestrielle automatique avec indexation ILAT/ILC, ventilation loyer/charges/taxes, preuves INSEE attachées."
+      },
+      "expert": {
+        "title": "Expert / évaluation",
+        "desc": "Honoraires avec ventilation par mission TEGOVA (REV/TRV), frais déplacement, rapport EVS 2025 en référence."
+      },
+      "generic": {
+        "title": "Générique",
+        "desc": "Pour toutes les autres prestations : template propre, ajout lignes libres, TVA FR (20/10/5,5/2,1) ou LU (17/14/8/3)."
+      }
+    },
+    "compliance": {
+      "title": "Conformité légale",
+      "statusTitle": "Statut agrément :",
+      "statusBody": "tevaxia opère actuellement comme opérateur de dématérialisation (OD). Le transit des factures vers le Portail Public de Facturation (PPF) se fait via une PDP (plateforme de dématérialisation partenaire) tierce agréée. Les travaux d'agrément PDP en propre sont en cours. L'émission Factur-X côté fournisseur et la réception/archivage côté destinataire sont pleinement opérationnels.",
+      "fr": {
+        "title": "France",
+        "i1": "Factur-X v1.0.07 — PDF/A-3 + CII D22B EN 16931",
+        "i2": "Art. 242 nonies A annexe II CGI — mentions et numérotation",
+        "i3": "Art. L102 B LPF — archivage 10 ans",
+        "i4": "Réforme e-invoicing : réception obligatoire 01/09/2026, émission progressive"
+      },
+      "lu": {
+        "title": "Luxembourg",
+        "i1": "Règlement grand-ducal 22.12.2006 (amendé 2023) — facturation électronique",
+        "i2": "Peppol BIS Billing 3.0 pour échanges B2G",
+        "i3": "TVA LU 3 / 8 / 14 / 17 % + franchise en base art. 57",
+        "i4": "Conservation 10 ans — art. 65 §1 L. TVA + art. 11 Code commerce"
+      }
+    },
+    "pricing": {
+      "title": "Tarifs",
+      "subtitle": "Freemium calibré pour les SCI de 1 à 3 lots, extensible aux agences multi-entités.",
+      "free": {
+        "name": "Free",
+        "period": "gratuit",
+        "f1": "5 factures émises / mois",
+        "f2": "Réception illimitée",
+        "f3": "Factur-X + archivage 10 ans",
+        "f4": "1 template (générique)",
+        "f5": "Paiement Stripe optionnel"
+      },
+      "essentiel": {
+        "name": "Essentiel",
+        "period": "mois",
+        "badge": "Populaire",
+        "f1": "50 factures émises / mois",
+        "f2": "Réception illimitée",
+        "f3": "5 templates métier immo",
+        "f4": "Relances auto + indexation IPC/ILAT",
+        "f5": "Export FEC (comptable)"
+      },
+      "pro": {
+        "name": "Pro",
+        "period": "mois",
+        "f1": "Émission illimitée",
+        "f2": "Multi-structures (5 SIREN/RCS)",
+        "f3": "API publique",
+        "f4": "Personnalisation complète",
+        "f5": "Support prioritaire"
+      }
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "q1": {
+        "q": "tevaxia est-il une PDP agréée par la DGFiP ?",
+        "a": "Non, pas encore. Les travaux d'agrément sont en cours (AFNOR, capital, ISO 27001). En attendant, tevaxia opère comme opérateur de dématérialisation (OD) et le transit vers le PPF se fait via une PDP tierce agréée. Cette architecture est parfaitement légale et utilisée par la majorité des éditeurs SaaS."
+      },
+      "q2": {
+        "q": "Puis-je utiliser tevaxia dès maintenant pour me mettre en conformité au 01/09/2026 ?",
+        "a": "Oui. Dès aujourd'hui tu peux émettre des Factur-X conformes EN 16931 et les envoyer par email. Le branchement PPF via PDP partenaire sera activé avant le 1er septembre 2026 pour les clients abonnés."
+      },
+      "q3": {
+        "q": "La liste des plateformes agréées sur impots.gouv.fr me dit que tevaxia n'y figure pas ?",
+        "a": "Exact — tevaxia.lu n'est pas encore dans le registre des PDP DGFiP. Si tu as besoin d'une PDP agréée dès maintenant pour la réception, choisis une PDP tierce (liste officielle sur impots.gouv.fr). tevaxia émettra et archivera, la PDP tierce assurera la réception."
+      },
+      "q4": {
+        "q": "Le LU est-il concerné par la réforme FR ?",
+        "a": "Non, la réforme FR 01/09/2026 ne s'applique qu'aux assujettis TVA français. Le LU a son propre calendrier e-invoicing via Peppol BIS Billing 3.0 (B2G obligatoire, B2B en cours). tevaxia supporte les deux normes."
+      },
+      "q5": {
+        "q": "Mes données sont-elles stockées en France / UE ?",
+        "a": "Oui. Les factures sont stockées sur Supabase (AWS eu-central-1, Francfort). Aucune donnée ne transite par un service d'IA externe pour l'OCR (traitement local navigateur). Voir Politique de confidentialité."
+      }
+    }
   }
 }

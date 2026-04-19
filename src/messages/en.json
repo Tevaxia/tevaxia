@@ -8986,5 +8986,121 @@
       "question": "B2B integration questions?",
       "footer": "— we answer within 48 business hours and can provide a dedicated SLA, a larger batch endpoint and integration support."
     }
+  },
+  "facturation": {
+    "meta": {
+      "title": "Electronic invoicing FR + LU — tevaxia.lu",
+      "description": "Factur-X (EN 16931) electronic invoicing module specialised in FR + LU real estate, connected to Rental Management, Syndic, PMS and Commercial Lease."
+    },
+    "hero": {
+      "badge": "FR e-invoicing reform · mandatory 01/09/2026",
+      "title": "Electronic invoicing, integrated with your real estate tools",
+      "subtitle": "Factur-X generation (PDF/A-3 + XML EN 16931), 5 real estate templates (landlord, syndic, hotelier, commercial lease, valuer), FR + LU VAT, 10-year legal archiving.",
+      "note": "Status: dematerialisation operator — PPF transit via partner PDP. Own PDP accreditation in progress.",
+      "ctaEmit": "Issue a Factur-X invoice",
+      "ctaPricing": "See pricing"
+    },
+    "diff": {
+      "title": "What competitors don't do",
+      "intro": "Pennylane does accounting. Sellsy does CRM. Qonto does banking. tevaxia connects invoicing to your real estate use cases.",
+      "locative": {
+        "title": "Rental management",
+        "desc": "Click « Issue rent » on the schedule → Factur-X generated, automatic IRL/ILAT/IPC indexing, SEPA mandate reference."
+      },
+      "syndic": {
+        "title": "Condominium syndic",
+        "desc": "Charge allocation by shares → grouped issuance to co-owners, exempt VAT, co-owner account reference."
+      },
+      "pms": {
+        "title": "Hotel PMS",
+        "desc": "At check-out → invoice LU VAT 3% (lodging) + 17% (F&B) + city tax + Factur-X sent to corporate client's PA."
+      },
+      "bail": {
+        "title": "Commercial lease",
+        "desc": "Automatic quarterly generation with ILAT/ILC indexing, rent/charges/tax breakdown, INSEE evidence attached."
+      },
+      "expert": {
+        "title": "Valuer / expert",
+        "desc": "Fees with breakdown per TEGOVA mission (REV/TRV), travel expenses, EVS 2025 report reference."
+      },
+      "generic": {
+        "title": "Generic",
+        "desc": "For all other services: clean template, free line items, FR VAT (20/10/5.5/2.1) or LU (17/14/8/3)."
+      }
+    },
+    "compliance": {
+      "title": "Legal compliance",
+      "statusTitle": "Accreditation status:",
+      "statusBody": "tevaxia currently operates as a dematerialisation operator (OD). Invoice transit to the Public Invoicing Portal (PPF) is via a third-party accredited partner PDP. Own PDP accreditation work is in progress. Factur-X issuance on the supplier side and reception/archiving on the recipient side are fully operational.",
+      "fr": {
+        "title": "France",
+        "i1": "Factur-X v1.0.07 — PDF/A-3 + CII D22B EN 16931",
+        "i2": "Art. 242 nonies A annex II CGI — mentions and numbering",
+        "i3": "Art. L102 B LPF — 10-year archiving",
+        "i4": "E-invoicing reform: mandatory reception 01/09/2026, progressive issuance"
+      },
+      "lu": {
+        "title": "Luxembourg",
+        "i1": "Grand-ducal regulation 22.12.2006 (amended 2023) — electronic invoicing",
+        "i2": "Peppol BIS Billing 3.0 for B2G exchanges",
+        "i3": "LU VAT 3 / 8 / 14 / 17% + base franchise art. 57",
+        "i4": "10-year retention — art. 65 §1 VAT Law + art. 11 Commercial Code"
+      }
+    },
+    "pricing": {
+      "title": "Pricing",
+      "subtitle": "Freemium calibrated for 1–3 lot SCIs, scalable to multi-entity agencies.",
+      "free": {
+        "name": "Free",
+        "period": "free",
+        "f1": "5 issued invoices / month",
+        "f2": "Unlimited reception",
+        "f3": "Factur-X + 10-year archiving",
+        "f4": "1 template (generic)",
+        "f5": "Optional Stripe payment"
+      },
+      "essentiel": {
+        "name": "Essential",
+        "period": "month",
+        "badge": "Popular",
+        "f1": "50 issued invoices / month",
+        "f2": "Unlimited reception",
+        "f3": "5 real estate templates",
+        "f4": "Auto reminders + IPC/ILAT indexing",
+        "f5": "FEC export (accountant)"
+      },
+      "pro": {
+        "name": "Pro",
+        "period": "month",
+        "f1": "Unlimited issuance",
+        "f2": "Multi-structure (5 SIREN/RCS)",
+        "f3": "Public API",
+        "f4": "Full customisation",
+        "f5": "Priority support"
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "q": "Is tevaxia a DGFiP-accredited PDP?",
+        "a": "Not yet. Accreditation work is in progress (AFNOR, capital, ISO 27001). Meanwhile, tevaxia operates as a dematerialisation operator (OD) and PPF transit goes through a third-party accredited PDP. This architecture is perfectly legal and used by most SaaS publishers."
+      },
+      "q2": {
+        "q": "Can I use tevaxia now to comply by 01/09/2026?",
+        "a": "Yes. From today you can issue EN 16931 compliant Factur-X and send them by email. PPF connection via partner PDP will be activated before 1 September 2026 for paid subscribers."
+      },
+      "q3": {
+        "q": "The impots.gouv.fr accredited list says tevaxia isn't there?",
+        "a": "Correct — tevaxia.lu is not yet in the DGFiP PDP registry. If you need an accredited PDP now for reception, choose a third-party PDP (official list on impots.gouv.fr). tevaxia will issue and archive, the third-party PDP will handle reception."
+      },
+      "q4": {
+        "q": "Is LU affected by the FR reform?",
+        "a": "No, the 01/09/2026 FR reform only applies to French VAT-registered entities. LU has its own e-invoicing schedule via Peppol BIS Billing 3.0 (mandatory B2G, B2B in progress). tevaxia supports both standards."
+      },
+      "q5": {
+        "q": "Is my data stored in France / EU?",
+        "a": "Yes. Invoices are stored on Supabase (AWS eu-central-1, Frankfurt). No data passes through any external AI service for OCR (local browser processing). See Privacy Policy."
+      }
+    }
   }
 }

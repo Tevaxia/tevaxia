@@ -8986,5 +8986,121 @@
       "question": "Froen zur B2B-Integratioun?",
       "footer": "— mir äntweren bannent 48 Aarbechtsstonnen a kënnen en dedizéierten SLA, e méi groussen Batch-Endpoint an Integratiouns-Support bidden."
     }
+  },
+  "facturation": {
+    "meta": {
+      "title": "Elektronesch Rechnungsstellung FR + LU — tevaxia.lu",
+      "description": "Factur-X (EN 16931) Modul fir elektronesch Rechnungsstellung, spezialiséiert op Immobilien FR + LU, verbonne mat Locatiounsgestioun, Syndic, PMS a Gewerbemiete."
+    },
+    "hero": {
+      "badge": "FR E-Rechnungsreform · obligatoresch 01.09.2026",
+      "title": "Elektronesch Rechnungsstellung, integréiert an Är Immobilien-Tools",
+      "subtitle": "Factur-X-Generéierung (PDF/A-3 + XML EN 16931), 5 Immobilien-Schablounen (Locateur, Syndic, Hôtelier, Gewerbemiete, Evaluateur), FR + LU TVA, 10-Joer-Beweisaarchivéierung.",
+      "note": "Status: Dematerialisatiouns-Operateur — PPF-Transit iwwer Partner-PDP. Eegent PDP-Akkreditatioun an Aarbecht.",
+      "ctaEmit": "Factur-X-Rechnung erstellen",
+      "ctaPricing": "Präisser kucken"
+    },
+    "diff": {
+      "title": "Wat d'Concurrence net mécht",
+      "intro": "Pennylane mécht Comptabilitéit. Sellsy mécht CRM. Qonto mécht Banking. tevaxia verbënnt d'Rechnungsstellung mat Äre Immobilien-Benotzungsfäll.",
+      "locative": {
+        "title": "Locatiounsgestioun",
+        "desc": "Klick „Loyer ausstellen\" um Zäitplang → Factur-X generéiert, automatesch IRL/ILAT/IPC-Indexéierung, SEPA-Mandat-Referenz."
+      },
+      "syndic": {
+        "title": "Syndic Matbesëtz",
+        "desc": "Käschteopdeelung no Deeler → gruppéiert Ausgab un Co-Proprietären, TVA-befreit, Co-Proprietär-Kontoreferenz."
+      },
+      "pms": {
+        "title": "Hotel-PMS",
+        "desc": "Beim Check-out → Rechnung LU TVA 3% (Iwwernaachtung) + 17% (F&B) + Verweiltaxe + Factur-X un PA vum Firmekliit."
+      },
+      "bail": {
+        "title": "Gewerbemiete",
+        "desc": "Automatesch véierteljärlech Generéierung mat ILAT/ILC-Indexéierung, Loyer/Käschten/Steier-Opdeelung, INSEE-Belager ugehaangen."
+      },
+      "expert": {
+        "title": "Evaluateur / Expert",
+        "desc": "Honoraren mat Opdeelung pro TEGOVA-Missioun (REV/TRV), Reesonkäschten, EVS 2025-Bericht Referenz."
+      },
+      "generic": {
+        "title": "Generesch",
+        "desc": "Fir all aner Déngschter: proper Schablon, fräi Zeilen, FR TVA (20/10/5,5/2,1) oder LU (17/14/8/3)."
+      }
+    },
+    "compliance": {
+      "title": "Rechtskonformitéit",
+      "statusTitle": "Akkreditatioun-Status:",
+      "statusBody": "tevaxia agéiert aktuell als Dematerialisatiouns-Operateur (OD). De Rechnungstransit zum Public Invoicing Portal (PPF) geschitt iwwer eng akkreditéiert Drëtt-Partei Partner-PDP. D'eegen PDP-Akkreditatiounsaarbechten lafen. D'Factur-X-Ausstellung fournisseur-säit an den Empfang/Archivéierung empfänger-säit sinn voll operatiounell.",
+      "fr": {
+        "title": "Frankräich",
+        "i1": "Factur-X v1.0.07 — PDF/A-3 + CII D22B EN 16931",
+        "i2": "Art. 242 nonies A Annexe II CGI — Mentiounen an Nummeréierung",
+        "i3": "Art. L102 B LPF — 10-Joer-Archivéierung",
+        "i4": "E-Rechnungsreform: obligatorescht Empfang 01.09.2026, progressiv Ausstellung"
+      },
+      "lu": {
+        "title": "Lëtzebuerg",
+        "i1": "Groussherzogleche Réglement 22.12.2006 (geännert 2023) — elektronesch Rechnungsstellung",
+        "i2": "Peppol BIS Billing 3.0 fir B2G-Austausch",
+        "i3": "LU TVA 3 / 8 / 14 / 17% + Basis-Franchise Art. 57",
+        "i4": "10-Joer-Opbewahrung — Art. 65 §1 TVA-Gesetz + Art. 11 Handelscode"
+      }
+    },
+    "pricing": {
+      "title": "Präisser",
+      "subtitle": "Freemium kalibréiert fir SCIen mat 1-3 Louter, skaléierbar op Multi-Entity-Agencen.",
+      "free": {
+        "name": "Free",
+        "period": "gratis",
+        "f1": "5 ausgestallte Rechnungen / Mount",
+        "f2": "Onbeschränkten Empfang",
+        "f3": "Factur-X + 10-Joer-Archivéierung",
+        "f4": "1 Schablon (generesch)",
+        "f5": "Fakultativ Stripe-Bezuelung"
+      },
+      "essentiel": {
+        "name": "Essentiel",
+        "period": "Mount",
+        "badge": "Populär",
+        "f1": "50 ausgestallte Rechnungen / Mount",
+        "f2": "Onbeschränkten Empfang",
+        "f3": "5 Immobilien-Schablounen",
+        "f4": "Auto-Relances + IPC/ILAT-Indexéierung",
+        "f5": "FEC-Export (Comptabel)"
+      },
+      "pro": {
+        "name": "Pro",
+        "period": "Mount",
+        "f1": "Onbeschränkten Ausstellung",
+        "f2": "Multi-Struktur (5 SIREN/RCS)",
+        "f3": "Ëffentlech API",
+        "f4": "Voll Personnaliséierung",
+        "f5": "Prioritéitsupport"
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "q": "Ass tevaxia eng DGFiP-akkreditéiert PDP?",
+        "a": "Nach net. Akkreditatiounsaarbechten lafen (AFNOR, Kapital, ISO 27001). An der Tëschenzäit agéiert tevaxia als Dematerialisatiouns-Operateur (OD) an de PPF-Transit geet iwwer eng akkreditéiert Drëtt-Partei PDP. Dës Architektur ass komplett legal a gëtt vun de meeschten SaaS-Editeuren benotzt."
+      },
+      "q2": {
+        "q": "Kann ech tevaxia elo benotzen fir bis den 01.09.2026 konform ze sinn?",
+        "a": "Jo. Vun haut un kënnt Dir EN 16931-konform Factur-X ausstellen a per E-Mail schécken. D'PPF-Verbindung iwwer Partner-PDP gëtt virum 1. September 2026 fir bezuelend Abonnée aktivéiert."
+      },
+      "q3": {
+        "q": "D'Lëscht op impots.gouv.fr seet datt tevaxia net derbäi ass?",
+        "a": "Richteg — tevaxia.lu ass nach net am DGFiP PDP-Registère. Wann Dir elo eng akkreditéiert PDP fir den Empfang braucht, wielt eng Drëtt-Partei PDP (offiziell Lëscht op impots.gouv.fr). tevaxia stellt aus an archivéiert, d'Drëtt-Partei PDP iwwerhëlt den Empfang."
+      },
+      "q4": {
+        "q": "Ass LU vun der FR-Reform betraff?",
+        "a": "Nee, d'FR-Reform vum 01.09.2026 gëllt nëmmen fir franséisch TVA-Assujettis. LU huet säin eegene E-Rechnungszäitplang iwwer Peppol BIS Billing 3.0 (B2G obligatoresch, B2B an Aarbecht). tevaxia ënnerstëtzt béid Normen."
+      },
+      "q5": {
+        "q": "Ginn meng Donnéeën a Frankräich / EU gespäichert?",
+        "a": "Jo. Rechnungen ginn op Supabase (AWS eu-central-1, Frankfurt) gespäichert. Keng Donnéeë ginn duerch en externen IA-Déngscht fir OCR (lokal Browser-Verschaffung). Kuckt d'Dateschutzrichtlinn."
+      }
+    }
   }
 }

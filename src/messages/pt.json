@@ -8986,5 +8986,121 @@
       "question": "Questões de integração B2B?",
       "footer": "— respondemos em 48 h úteis e podemos fornecer SLA dedicado, endpoint batch maior e suporte de integração."
     }
+  },
+  "facturation": {
+    "meta": {
+      "title": "Faturacao eletronica FR + LU — tevaxia.lu",
+      "description": "Modulo de faturacao eletronica Factur-X (EN 16931) especializado em imobiliario FR + LU, ligado a Gestao Locativa, Syndic, PMS e Arrendamento Comercial."
+    },
+    "hero": {
+      "badge": "Reforma FR e-invoicing · obrigatoria 01/09/2026",
+      "title": "Faturacao eletronica, integrada nas suas ferramentas imobiliarias",
+      "subtitle": "Geracao Factur-X (PDF/A-3 + XML EN 16931), 5 templates imobiliarios (senhorio, syndic, hoteleiro, arrendamento comercial, avaliador), IVA FR + LU, arquivamento probatorio 10 anos.",
+      "note": "Estado: operador de desmaterializacao — transito PPF via PDP parceira. Trabalhos de credenciacao PDP propria em curso.",
+      "ctaEmit": "Emitir fatura Factur-X",
+      "ctaPricing": "Ver precos"
+    },
+    "diff": {
+      "title": "O que a concorrencia nao faz",
+      "intro": "Pennylane faz contabilidade. Sellsy faz CRM. Qonto faz bancos. tevaxia liga a faturacao aos seus casos de uso imobiliarios.",
+      "locative": {
+        "title": "Gestao locativa",
+        "desc": "Clique « Emitir renda » no calendario → Factur-X gerada, indexacao IRL/ILAT/IPC automatica, referencia mandato SEPA."
+      },
+      "syndic": {
+        "title": "Syndic condominio",
+        "desc": "Reparticao de encargos por permilagens → emissao agrupada aos condominos, IVA isento, referencia conta condomino."
+      },
+      "pms": {
+        "title": "PMS hoteleiro",
+        "desc": "No check-out → fatura IVA 3% LU (alojamento) + 17% (F&B) + taxa de estadia + Factur-X enviada a PA do cliente corporativo."
+      },
+      "bail": {
+        "title": "Arrendamento comercial",
+        "desc": "Geracao trimestral automatica com indexacao ILAT/ILC, repartição renda/encargos/taxa, provas INSEE anexadas."
+      },
+      "expert": {
+        "title": "Perito / avaliador",
+        "desc": "Honorarios com repartição por missao TEGOVA (REV/TRV), despesas deslocacao, relatorio EVS 2025 em referencia."
+      },
+      "generic": {
+        "title": "Generico",
+        "desc": "Para todos os outros servicos: template limpo, linhas livres, IVA FR (20/10/5,5/2,1) ou LU (17/14/8/3)."
+      }
+    },
+    "compliance": {
+      "title": "Conformidade legal",
+      "statusTitle": "Estado de credenciacao:",
+      "statusBody": "A tevaxia opera atualmente como operador de desmaterializacao (OD). O transito das faturas para o Portal Publico de Faturacao (PPF) e feito via uma PDP (plataforma de desmaterializacao parceira) terceira credenciada. Os trabalhos de credenciacao PDP propria estao em curso. A emissao Factur-X lado fornecedor e a recepcao/arquivamento lado destinatario estao plenamente operacionais.",
+      "fr": {
+        "title": "Franca",
+        "i1": "Factur-X v1.0.07 — PDF/A-3 + CII D22B EN 16931",
+        "i2": "Art. 242 nonies A anexo II CGI — mencoes e numeracao",
+        "i3": "Art. L102 B LPF — arquivamento 10 anos",
+        "i4": "Reforma e-invoicing: recepcao obrigatoria 01/09/2026, emissao progressiva"
+      },
+      "lu": {
+        "title": "Luxemburgo",
+        "i1": "Regulamento grao-ducal 22.12.2006 (alterado 2023) — faturacao eletronica",
+        "i2": "Peppol BIS Billing 3.0 para trocas B2G",
+        "i3": "IVA LU 3 / 8 / 14 / 17% + franquia de base art. 57",
+        "i4": "Conservacao 10 anos — art. 65 §1 Lei IVA + art. 11 Codigo Comercial"
+      }
+    },
+    "pricing": {
+      "title": "Precos",
+      "subtitle": "Freemium calibrado para SCIs de 1-3 lotes, escalavel a agencias multi-entidade.",
+      "free": {
+        "name": "Free",
+        "period": "gratis",
+        "f1": "5 faturas emitidas / mes",
+        "f2": "Recepcao ilimitada",
+        "f3": "Factur-X + arquivamento 10 anos",
+        "f4": "1 template (generico)",
+        "f5": "Pagamento Stripe opcional"
+      },
+      "essentiel": {
+        "name": "Essencial",
+        "period": "mes",
+        "badge": "Popular",
+        "f1": "50 faturas emitidas / mes",
+        "f2": "Recepcao ilimitada",
+        "f3": "5 templates imobiliarios",
+        "f4": "Lembretes auto + indexacao IPC/ILAT",
+        "f5": "Exportacao FEC (contabilista)"
+      },
+      "pro": {
+        "name": "Pro",
+        "period": "mes",
+        "f1": "Emissao ilimitada",
+        "f2": "Multi-estrutura (5 SIREN/RCS)",
+        "f3": "API publica",
+        "f4": "Personalizacao completa",
+        "f5": "Suporte prioritario"
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "q": "A tevaxia e uma PDP credenciada pela DGFiP?",
+        "a": "Ainda nao. Os trabalhos de credenciacao estao em curso (AFNOR, capital, ISO 27001). Entretanto, a tevaxia opera como operador de desmaterializacao (OD) e o transito para o PPF e feito via uma PDP terceira credenciada. Esta arquitetura e perfeitamente legal e usada pela maioria dos editores SaaS."
+      },
+      "q2": {
+        "q": "Posso usar a tevaxia agora para estar em conformidade a 01/09/2026?",
+        "a": "Sim. Desde hoje pode emitir Factur-X conformes EN 16931 e envia-las por email. A ligacao PPF via PDP parceira sera ativada antes de 1 de setembro de 2026 para os clientes pagos."
+      },
+      "q3": {
+        "q": "A lista em impots.gouv.fr diz que a tevaxia nao esta la?",
+        "a": "Correto — a tevaxia.lu ainda nao esta no registo de PDPs DGFiP. Se precisar de uma PDP credenciada ja para recepcao, escolha uma PDP terceira (lista oficial em impots.gouv.fr). A tevaxia emitira e arquivara, a PDP terceira trata da recepcao."
+      },
+      "q4": {
+        "q": "LU e afetado pela reforma FR?",
+        "a": "Nao, a reforma FR 01/09/2026 so se aplica a sujeitos passivos de IVA franceses. LU tem o seu proprio calendario e-invoicing via Peppol BIS Billing 3.0 (B2G obrigatorio, B2B em curso). A tevaxia suporta ambas as normas."
+      },
+      "q5": {
+        "q": "Os meus dados sao armazenados em Franca / UE?",
+        "a": "Sim. As faturas sao armazenadas no Supabase (AWS eu-central-1, Frankfurt). Nenhum dado transita por servico de IA externo para OCR (tratamento local no navegador). Ver Politica de privacidade."
+      }
+    }
   }
 }
