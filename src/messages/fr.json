@@ -9644,5 +9644,92 @@
     "prev": "Précédent",
     "next": "Suivant",
     "backToHome": "Retour à l'accueil"
+  },
+  "strRentabilite": {
+    "back": "Location courte durée",
+    "title": "Rentabilité STR (Airbnb / Booking / Vrbo)",
+    "subtitle": "Calculez le revenu net annuel de votre bien loué en courte durée au Luxembourg, toutes charges et impôts inclus.",
+    "save": "Sauvegarder",
+    "saved": "Sauvegardé !",
+    "sections": {
+      "property": "Le bien",
+      "commercial": "Performance commerciale",
+      "costs": "Charges opérationnelles",
+      "tax": "Fiscalité"
+    },
+    "form": {
+      "commune": "Commune",
+      "surface": "Surface",
+      "capacity": "Capacité voyageurs",
+      "acqPrice": "Prix d'acquisition",
+      "acqPriceHint": "Pour calculer yield brut/net",
+      "adr": "ADR (prix moyen/nuit)",
+      "adrHint": "Référence Luxembourg-Ville : 90-180 €/nuit selon quartier",
+      "occupancy": "Taux d'occupation",
+      "occupancyHint": "= {n} nuits/an",
+      "channel": "Canal principal",
+      "stayLength": "Durée moyenne séjour",
+      "stayLengthHint": "LU moyen ~3 nuits",
+      "nightsSuffix": "nuits",
+      "daysSuffix": "jours",
+      "cleaning": "Ménage / séjour",
+      "cleaningHint": "LU : 30-70 €",
+      "vacancy": "Vacance entre séjours",
+      "pno": "Assurance PNO annuelle",
+      "pnoHint": "Majorée pour CT (+50-100% vs LT)",
+      "internetTv": "Internet + TV / an",
+      "utilities": "Électricité + eau / an",
+      "utilitiesHint": "Payé par l'hôte en STR",
+      "furnitureAmort": "Amortissement mobilier",
+      "subscriptions": "Abonnements (Guesty, PriceLabs...)",
+      "marginalRate": "Taux marginal d'IR",
+      "marginalRateHint": "Max LU : 45,78 % (42 % × contribution emploi 1,09)",
+      "commission": "commission",
+      "direct": "Réservation directe (0%)"
+    },
+    "tax": {
+      "low": "Taux faible (~11%)",
+      "mid": "Intermédiaire (~22%)",
+      "avg": "Moyen (~30%)",
+      "high": "Élevé (~39%)",
+      "max": "Marginal max LU (~45,78%)"
+    },
+    "result": {
+      "netLabel": "Revenu net annuel après impôt",
+      "perMonth": "soit {n}/mois après tout (charges, OTA, IR)",
+      "netYield": "Yield net",
+      "breakdown": "Décomposition",
+      "grossRevenue": "Revenu brut",
+      "otaCommission": "Commission OTA",
+      "afterOta": "Revenu après OTA",
+      "cleaningTotal": "Ménage ({n} séjours)",
+      "linenTotal": "Linge",
+      "consumablesTotal": "Consommables",
+      "fixedTotal": "Charges fixes annuelles",
+      "opCharges": "Total charges exploitation",
+      "netBeforeTax": "Net avant impôt",
+      "taxEstimated": "IR estimé ({pct}%)",
+      "netAfterTax": "Net après impôt",
+      "metrics": "Métriques opérationnelles"
+    },
+    "metrics": {
+      "stays": "Nombre de séjours/an",
+      "nightsRented": "Nuits louées/an",
+      "revpar": "RevPAR (revenu/jour dispo)",
+      "adrEffective": "ADR effectif (après OTA)",
+      "costRatio": "Ratio charges/CA",
+      "grossYield": "Yield brut",
+      "netYield": "Yield net"
+    },
+    "ltCompare": {
+      "title": "Vs location longue durée (règle 5% indicative)",
+      "strNet": "STR net/an",
+      "ltNet": "LT net/an (règle 5%)",
+      "delta": "Écart STR vs LT",
+      "favorStr": "en faveur du STR",
+      "favorLt": "en faveur du LT",
+      "warn": "Attention : au-delà de 90 jours de STR/an, licence d'hébergement obligatoire au LU. Voir",
+      "complianceLink": "l'outil conformité"
+    }
   }
 }

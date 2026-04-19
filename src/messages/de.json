@@ -9644,5 +9644,92 @@
     "prev": "Zurück",
     "next": "Weiter",
     "backToHome": "Zur Startseite"
+  },
+  "strRentabilite": {
+    "back": "Kurzzeitvermietung",
+    "title": "STR-Rendite (Airbnb / Booking / Vrbo)",
+    "subtitle": "Berechnen Sie das jährliche Nettoeinkommen Ihrer Kurzzeitvermietung in Luxemburg, alle Kosten und Steuern inkl.",
+    "save": "Speichern",
+    "saved": "Gespeichert!",
+    "sections": {
+      "property": "Die Immobilie",
+      "commercial": "Kommerzielle Performance",
+      "costs": "Betriebskosten",
+      "tax": "Besteuerung"
+    },
+    "form": {
+      "commune": "Gemeinde",
+      "surface": "Fläche",
+      "capacity": "Gästekapazität",
+      "acqPrice": "Anschaffungspreis",
+      "acqPriceHint": "Zur Berechnung Brutto-/Nettorendite",
+      "adr": "ADR (Ø Preis/Nacht)",
+      "adrHint": "Referenz Luxemburg-Stadt: €90-180/Nacht je Viertel",
+      "occupancy": "Auslastung",
+      "occupancyHint": "= {n} Nächte/Jahr",
+      "channel": "Hauptkanal",
+      "stayLength": "Ø Aufenthaltsdauer",
+      "stayLengthHint": "LU Ø ~3 Nächte",
+      "nightsSuffix": "Nächte",
+      "daysSuffix": "Tage",
+      "cleaning": "Reinigung / Aufenthalt",
+      "cleaningHint": "LU: €30-70",
+      "vacancy": "Leerstand zwischen Aufenthalten",
+      "pno": "Jährliche PNO-Versicherung",
+      "pnoHint": "Erhöht für KT (+50-100% vs LT)",
+      "internetTv": "Internet + TV / Jahr",
+      "utilities": "Strom + Wasser / Jahr",
+      "utilitiesHint": "Vom Gastgeber in STR bezahlt",
+      "furnitureAmort": "Möbelabschreibung",
+      "subscriptions": "Abonnements (Guesty, PriceLabs...)",
+      "marginalRate": "Grenzsteuersatz",
+      "marginalRateHint": "LU max: 45,78% (42% × Beschäftigungsbeitrag 1,09)",
+      "commission": "Provision",
+      "direct": "Direktbuchung (0%)"
+    },
+    "tax": {
+      "low": "Niedriger Satz (~11%)",
+      "mid": "Mittel (~22%)",
+      "avg": "Durchschnitt (~30%)",
+      "high": "Hoch (~39%)",
+      "max": "LU Grenzsatz max (~45,78%)"
+    },
+    "result": {
+      "netLabel": "Jährliches Nettoeinkommen nach Steuer",
+      "perMonth": "d.h. {n}/Monat nach allem (Kosten, OTA, IR)",
+      "netYield": "Nettorendite",
+      "breakdown": "Aufschlüsselung",
+      "grossRevenue": "Bruttoumsatz",
+      "otaCommission": "OTA-Provision",
+      "afterOta": "Umsatz nach OTA",
+      "cleaningTotal": "Reinigung ({n} Aufenthalte)",
+      "linenTotal": "Bettwäsche",
+      "consumablesTotal": "Verbrauchsmaterial",
+      "fixedTotal": "Jährliche Fixkosten",
+      "opCharges": "Betriebskosten gesamt",
+      "netBeforeTax": "Netto vor Steuer",
+      "taxEstimated": "Geschätzte IR ({pct}%)",
+      "netAfterTax": "Netto nach Steuer",
+      "metrics": "Betriebskennzahlen"
+    },
+    "metrics": {
+      "stays": "Aufenthalte/Jahr",
+      "nightsRented": "Vermietete Nächte/Jahr",
+      "revpar": "RevPAR (Umsatz/verfügbarer Tag)",
+      "adrEffective": "Effektiver ADR (nach OTA)",
+      "costRatio": "Kosten-/Umsatzverhältnis",
+      "grossYield": "Bruttorendite",
+      "netYield": "Nettorendite"
+    },
+    "ltCompare": {
+      "title": "Vs Langzeitvermietung (5%-Regel indikativ)",
+      "strNet": "STR netto/Jahr",
+      "ltNet": "LT netto/Jahr (5%-Regel)",
+      "delta": "Differenz STR vs LT",
+      "favorStr": "zugunsten STR",
+      "favorLt": "zugunsten LT",
+      "warn": "Warnung: über 90 STR-Tage/Jahr ist eine Beherbergungslizenz in LU verpflichtend. Siehe",
+      "complianceLink": "das Compliance-Tool"
+    }
   }
 }

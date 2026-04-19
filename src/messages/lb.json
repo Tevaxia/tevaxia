@@ -9644,5 +9644,92 @@
     "prev": "Zréck",
     "next": "Weider",
     "backToHome": "Op den Home zréck"
+  },
+  "strRentabilite": {
+    "back": "Kuerzzäitvermietung",
+    "title": "STR-Rendement (Airbnb / Booking / Vrbo)",
+    "subtitle": "Berechent d'jäerlecht Nettoakommes vun Ärer Kuerzzäitvermietung zu Lëtzebuerg, all Käschten a Steier abegraff.",
+    "save": "Späicheren",
+    "saved": "Gespäichert!",
+    "sections": {
+      "property": "D'Immobilie",
+      "commercial": "Kommerziell Performance",
+      "costs": "Betribskäschten",
+      "tax": "Besteierung"
+    },
+    "form": {
+      "commune": "Gemeng",
+      "surface": "Surface",
+      "capacity": "Gäst-Kapacitéit",
+      "acqPrice": "Akafspräis",
+      "acqPriceHint": "Fir Brutto-/Nettorendement ze berechnen",
+      "adr": "ADR (Duerschnëttspräis/Nuecht)",
+      "adrHint": "Referenz Lëtzebuerg-Stad: €90-180/Nuecht no Quartier",
+      "occupancy": "Belegung",
+      "occupancyHint": "= {n} Nuechten/Joer",
+      "channel": "Haaptkanal",
+      "stayLength": "Duerschnëttlech Séjourdauer",
+      "stayLengthHint": "LU Duerschnëtt ~3 Nuechten",
+      "nightsSuffix": "Nuechten",
+      "daysSuffix": "Deeg",
+      "cleaning": "Botzung / Séjour",
+      "cleaningHint": "LU: €30-70",
+      "vacancy": "Leerstand tëscht Séjouren",
+      "pno": "Jäerlech PNO-Versécherung",
+      "pnoHint": "Erhéicht fir KT (+50-100% vs LT)",
+      "internetTv": "Internet + TV / Joer",
+      "utilities": "Stroum + Waasser / Joer",
+      "utilitiesHint": "Vum Gastgeber an STR bezuelt",
+      "furnitureAmort": "Miwwelen-Amortisatioun",
+      "subscriptions": "Abonnementer (Guesty, PriceLabs...)",
+      "marginalRate": "Marginalen IR-Saz",
+      "marginalRateHint": "LU max: 45,78% (42% × Beschäftegungsbäitrag 1,09)",
+      "commission": "Provisioun",
+      "direct": "Direkt Reservatioun (0%)"
+    },
+    "tax": {
+      "low": "Niddrege Saz (~11%)",
+      "mid": "Mëttel (~22%)",
+      "avg": "Duerschnëtt (~30%)",
+      "high": "Héich (~39%)",
+      "max": "LU marginal max (~45,78%)"
+    },
+    "result": {
+      "netLabel": "Jäerlecht Nettoakommes no Steier",
+      "perMonth": "also {n}/Mount no allem (Käschten, OTA, IR)",
+      "netYield": "Nettorendement",
+      "breakdown": "Opdeelung",
+      "grossRevenue": "Bruttoëmsaz",
+      "otaCommission": "OTA-Provisioun",
+      "afterOta": "Ëmsaz no OTA",
+      "cleaningTotal": "Botzung ({n} Séjouren)",
+      "linenTotal": "Bettwäsch",
+      "consumablesTotal": "Verbrauchsmaterial",
+      "fixedTotal": "Jäerlech Fixkäschten",
+      "opCharges": "Betribskäschten total",
+      "netBeforeTax": "Netto virum Steier",
+      "taxEstimated": "Geschätzten IR ({pct}%)",
+      "netAfterTax": "Netto no Steier",
+      "metrics": "Betribskennzifferen"
+    },
+    "metrics": {
+      "stays": "Séjouren/Joer",
+      "nightsRented": "Vermiete Nuechten/Joer",
+      "revpar": "RevPAR (Ëmsaz/verfügbaren Dag)",
+      "adrEffective": "Effektive ADR (no OTA)",
+      "costRatio": "Käschten-/Ëmsaz-Verhältnis",
+      "grossYield": "Bruttorendement",
+      "netYield": "Nettorendement"
+    },
+    "ltCompare": {
+      "title": "Vs Laangzäitvermietung (5%-Regel indikativ)",
+      "strNet": "STR netto/Joer",
+      "ltNet": "LT netto/Joer (5%-Regel)",
+      "delta": "Ënnerscheed STR vs LT",
+      "favorStr": "zugonschten vum STR",
+      "favorLt": "zugonschten vum LT",
+      "warn": "Warnung: iwwer 90 STR-Deeg/Joer ass eng Hébergement-Lizenz zu LU obligatoresch. Kuckt",
+      "complianceLink": "dat Conformitéits-Tool"
+    }
   }
 }

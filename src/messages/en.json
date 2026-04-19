@@ -9644,5 +9644,92 @@
     "prev": "Previous",
     "next": "Next",
     "backToHome": "Back to home"
+  },
+  "strRentabilite": {
+    "back": "Short-term rentals",
+    "title": "STR yield (Airbnb / Booking / Vrbo)",
+    "subtitle": "Calculate the annual net income of your short-term rental property in Luxembourg, all costs and taxes included.",
+    "save": "Save",
+    "saved": "Saved!",
+    "sections": {
+      "property": "The property",
+      "commercial": "Commercial performance",
+      "costs": "Operating costs",
+      "tax": "Taxation"
+    },
+    "form": {
+      "commune": "Municipality",
+      "surface": "Surface",
+      "capacity": "Guest capacity",
+      "acqPrice": "Acquisition price",
+      "acqPriceHint": "To compute gross/net yield",
+      "adr": "ADR (avg price/night)",
+      "adrHint": "Reference Luxembourg-City: €90-180/night depending on district",
+      "occupancy": "Occupancy rate",
+      "occupancyHint": "= {n} nights/year",
+      "channel": "Main channel",
+      "stayLength": "Avg stay length",
+      "stayLengthHint": "LU avg ~3 nights",
+      "nightsSuffix": "nights",
+      "daysSuffix": "days",
+      "cleaning": "Cleaning / stay",
+      "cleaningHint": "LU: €30-70",
+      "vacancy": "Vacancy between stays",
+      "pno": "Annual PNO insurance",
+      "pnoHint": "Increased for ST (+50-100% vs LT)",
+      "internetTv": "Internet + TV / year",
+      "utilities": "Electricity + water / year",
+      "utilitiesHint": "Paid by host in STR",
+      "furnitureAmort": "Furniture depreciation",
+      "subscriptions": "Subscriptions (Guesty, PriceLabs...)",
+      "marginalRate": "Marginal IR rate",
+      "marginalRateHint": "LU max: 45.78% (42% × employment contribution 1.09)",
+      "commission": "commission",
+      "direct": "Direct booking (0%)"
+    },
+    "tax": {
+      "low": "Low rate (~11%)",
+      "mid": "Intermediate (~22%)",
+      "avg": "Average (~30%)",
+      "high": "High (~39%)",
+      "max": "LU max marginal (~45.78%)"
+    },
+    "result": {
+      "netLabel": "Annual net income after tax",
+      "perMonth": "i.e. {n}/month after everything (costs, OTA, IR)",
+      "netYield": "Net yield",
+      "breakdown": "Breakdown",
+      "grossRevenue": "Gross revenue",
+      "otaCommission": "OTA commission",
+      "afterOta": "Revenue after OTA",
+      "cleaningTotal": "Cleaning ({n} stays)",
+      "linenTotal": "Linen",
+      "consumablesTotal": "Consumables",
+      "fixedTotal": "Annual fixed costs",
+      "opCharges": "Total operating costs",
+      "netBeforeTax": "Net before tax",
+      "taxEstimated": "Estimated IR ({pct}%)",
+      "netAfterTax": "Net after tax",
+      "metrics": "Operating metrics"
+    },
+    "metrics": {
+      "stays": "Number of stays/year",
+      "nightsRented": "Nights rented/year",
+      "revpar": "RevPAR (revenue/available day)",
+      "adrEffective": "Effective ADR (after OTA)",
+      "costRatio": "Cost/revenue ratio",
+      "grossYield": "Gross yield",
+      "netYield": "Net yield"
+    },
+    "ltCompare": {
+      "title": "Vs long-term rental (5% rule indicative)",
+      "strNet": "STR net/year",
+      "ltNet": "LT net/year (5% rule)",
+      "delta": "STR vs LT delta",
+      "favorStr": "in favor of STR",
+      "favorLt": "in favor of LT",
+      "warn": "Warning: beyond 90 STR days/year, accommodation license mandatory in LU. See",
+      "complianceLink": "the compliance tool"
+    }
   }
 }

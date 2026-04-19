@@ -9644,5 +9644,92 @@
     "prev": "Anterior",
     "next": "Seguinte",
     "backToHome": "Voltar ao inicio"
+  },
+  "strRentabilite": {
+    "back": "Alojamento curto",
+    "title": "Rentabilidade STR (Airbnb / Booking / Vrbo)",
+    "subtitle": "Calcule o rendimento liquido anual do seu imovel em alojamento curto no Luxemburgo, todos custos e impostos incluidos.",
+    "save": "Guardar",
+    "saved": "Guardado!",
+    "sections": {
+      "property": "O imovel",
+      "commercial": "Performance comercial",
+      "costs": "Custos operacionais",
+      "tax": "Fiscalidade"
+    },
+    "form": {
+      "commune": "Municipio",
+      "surface": "Area",
+      "capacity": "Capacidade hospedes",
+      "acqPrice": "Preco aquisicao",
+      "acqPriceHint": "Para calcular yield bruto/liquido",
+      "adr": "ADR (preco medio/noite)",
+      "adrHint": "Referencia Luxemburgo-Cidade: €90-180/noite conforme zona",
+      "occupancy": "Taxa ocupacao",
+      "occupancyHint": "= {n} noites/ano",
+      "channel": "Canal principal",
+      "stayLength": "Duracao media estadia",
+      "stayLengthHint": "LU medio ~3 noites",
+      "nightsSuffix": "noites",
+      "daysSuffix": "dias",
+      "cleaning": "Limpeza / estadia",
+      "cleaningHint": "LU: €30-70",
+      "vacancy": "Vazio entre estadias",
+      "pno": "Seguro PNO anual",
+      "pnoHint": "Aumentado para CT (+50-100% vs LT)",
+      "internetTv": "Internet + TV / ano",
+      "utilities": "Eletricidade + agua / ano",
+      "utilitiesHint": "Pago pelo anfitriao em STR",
+      "furnitureAmort": "Amortizacao mobiliario",
+      "subscriptions": "Subscricoes (Guesty, PriceLabs...)",
+      "marginalRate": "Taxa marginal IRS",
+      "marginalRateHint": "LU max: 45,78% (42% × contribuicao emprego 1,09)",
+      "commission": "comissao",
+      "direct": "Reserva direta (0%)"
+    },
+    "tax": {
+      "low": "Taxa baixa (~11%)",
+      "mid": "Intermedia (~22%)",
+      "avg": "Media (~30%)",
+      "high": "Elevada (~39%)",
+      "max": "LU marginal max (~45,78%)"
+    },
+    "result": {
+      "netLabel": "Rendimento liquido anual apos imposto",
+      "perMonth": "ou seja {n}/mes apos tudo (custos, OTA, IRS)",
+      "netYield": "Yield liquido",
+      "breakdown": "Decomposicao",
+      "grossRevenue": "Receita bruta",
+      "otaCommission": "Comissao OTA",
+      "afterOta": "Receita apos OTA",
+      "cleaningTotal": "Limpeza ({n} estadias)",
+      "linenTotal": "Roupa cama",
+      "consumablesTotal": "Consumiveis",
+      "fixedTotal": "Custos fixos anuais",
+      "opCharges": "Custos operacao total",
+      "netBeforeTax": "Liquido antes imposto",
+      "taxEstimated": "IRS estimado ({pct}%)",
+      "netAfterTax": "Liquido apos imposto",
+      "metrics": "Metricas operacionais"
+    },
+    "metrics": {
+      "stays": "Estadias/ano",
+      "nightsRented": "Noites alugadas/ano",
+      "revpar": "RevPAR (receita/dia disponivel)",
+      "adrEffective": "ADR efetivo (apos OTA)",
+      "costRatio": "Ratio custos/receita",
+      "grossYield": "Yield bruto",
+      "netYield": "Yield liquido"
+    },
+    "ltCompare": {
+      "title": "Vs arrendamento longa duracao (regra 5% indicativa)",
+      "strNet": "STR liquido/ano",
+      "ltNet": "LT liquido/ano (regra 5%)",
+      "delta": "Desvio STR vs LT",
+      "favorStr": "a favor do STR",
+      "favorLt": "a favor do LT",
+      "warn": "Atencao: alem de 90 dias STR/ano, licenca alojamento obrigatoria em LU. Ver",
+      "complianceLink": "a ferramenta conformidade"
+    }
   }
 }
