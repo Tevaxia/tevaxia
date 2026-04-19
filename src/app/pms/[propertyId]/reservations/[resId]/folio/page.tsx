@@ -19,7 +19,7 @@ import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/pms/errors";
 import { buildPmsFacturX } from "@/lib/facturation/factur-x-pms-builder";
 import { generateFacturXPdf } from "@/lib/facturation/factur-x-pdf";
-import { track } from "@/lib/analytics";
+import { track, captureError } from "@/lib/analytics";
 
 const QUICK_CATEGORIES: { cat: PmsChargeCategory; label: string; defaultPrice: number }[] = [
   { cat: "breakfast", label: "Petit-déj", defaultPrice: 15 },
@@ -216,6 +216,7 @@ export default function FolioPage(props: { params: Promise<{ propertyId: string;
         total_ttc: folio?.total_ttc ?? 0,
       });
     } catch (e) {
+      captureError(e, { module: "pms_facturx", action: "generate", reservation_number: reservation?.reservation_number });
       setError(errMsg(e));
     }
   };

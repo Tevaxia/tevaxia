@@ -13,7 +13,7 @@ import {
 } from "@/lib/syndic-bank-import";
 import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/errors";
-import { track } from "@/lib/analytics";
+import { track, captureError } from "@/lib/analytics";
 
 interface Psd2Institution { id: string; name: string; country: string; logo: string; bic: string }
 interface Psd2Account { uid: string; account_id?: { iban?: string }; name?: string; currency?: string }
@@ -106,6 +106,7 @@ export default function RapprochementPage() {
         });
         window.history.replaceState({}, "", window.location.pathname);
       } catch (e) {
+        captureError(e, { module: "syndic_psd2", action: "callback_code_exchange", coownership_id: coownershipId });
         setError(errMsg(e));
         setPsd2Step("idle");
       }
@@ -180,6 +181,7 @@ export default function RapprochementPage() {
         nb_matches: matchTransactions(txs, unpaid).filter((m) => m.match_score >= 60).length,
       });
     } catch (e) {
+      captureError(e, { module: "syndic_psd2", action: "fetch_transactions", coownership_id: coownershipId });
       setError(errMsg(e));
       setPsd2Step("accounts");
     }

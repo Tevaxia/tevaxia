@@ -6,7 +6,7 @@ import { useParams } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
 import { parseInvoiceText, type ExtractedInvoice } from "@/lib/syndic-ocr-parser";
 import { formatEUR } from "@/lib/calculations";
-import { track } from "@/lib/analytics";
+import { track, captureError } from "@/lib/analytics";
 
 type Stage = "idle" | "extracting_pdf" | "ocr_running" | "parsing" | "done" | "error";
 
@@ -137,6 +137,7 @@ export default function OcrFacturesPage() {
         file_size_kb: Math.round(file.size / 1024),
       });
     } catch (e) {
+      captureError(e, { module: "syndic_ocr", action: "extract", coownership_id: coownershipId });
       setError((e as Error).message);
       setStage("error");
     }

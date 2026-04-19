@@ -16,6 +16,7 @@ import {
 } from "@/lib/coownership-accounting";
 import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/errors";
+import { SkeletonStat, SkeletonTable } from "@/components/Skeleton";
 
 type DraftLine = { account_id: string; debit: number; credit: number; line_label: string };
 
@@ -87,7 +88,21 @@ export default function AccountingPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeYear]);
 
-  if (!coown) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
+  if (!coown) {
+    return (
+      <div className="mx-auto max-w-7xl px-4 py-8">
+        <div className="h-7 w-64 animate-pulse rounded bg-card-border/50" />
+        <div className="mt-2 h-3 w-80 animate-pulse rounded bg-card-border/50" />
+        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          {Array.from({ length: 3 }, (_, i) => <SkeletonStat key={i} />)}
+        </div>
+        <div className="mt-4">
+          <SkeletonTable rows={6} cols={5} />
+        </div>
+        <div className="sr-only">{t("loading")}</div>
+      </div>
+    );
+  }
 
   const needsSeed = accounts.length === 0;
 

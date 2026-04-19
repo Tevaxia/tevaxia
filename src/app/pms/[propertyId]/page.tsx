@@ -18,6 +18,7 @@ import { formatEUR } from "@/lib/calculations";
 import {
   ResponsiveContainer, AreaChart, Area, Tooltip, YAxis,
 } from "recharts";
+import { SkeletonStat, SkeletonCard } from "@/components/Skeleton";
 
 function todayISO(): string { return new Date().toISOString().slice(0, 10); }
 function plusDaysISO(days: number): string {
@@ -82,7 +83,22 @@ export default function PropertyOverviewPage(props: { params: Promise<{ property
     })();
   }, [propertyId, user, authLoading]);
 
-  if (authLoading || loading) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{tc("loading")}</div>;
+  if (authLoading || loading) {
+    return (
+      <div className="mx-auto max-w-7xl px-4 py-8">
+        <div className="h-7 w-64 animate-pulse rounded bg-card-border/50" />
+        <div className="mt-2 h-3 w-80 animate-pulse rounded bg-card-border/50" />
+        <div className="mt-6 grid gap-3 sm:grid-cols-4">
+          {Array.from({ length: 4 }, (_, i) => <SkeletonStat key={i} />)}
+        </div>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          <SkeletonCard />
+          <SkeletonCard />
+        </div>
+        <div className="sr-only">{tc("loading")}</div>
+      </div>
+    );
+  }
   if (!user) return <div className="mx-auto max-w-3xl px-4 py-12 text-center text-sm text-muted"><Link href="/connexion" className="text-navy underline">{tc("signInLink")}</Link></div>;
   if (!property) return <div className="mx-auto max-w-3xl px-4 py-12 text-center text-sm text-muted">{tc("propertyNotFound")}</div>;
 

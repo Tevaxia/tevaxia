@@ -19,7 +19,7 @@ import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/errors";
 import { buildCoproFacturX } from "@/lib/facturation/factur-x-syndic-builder";
 import { generateFacturXPdf } from "@/lib/facturation/factur-x-pdf";
-import { track } from "@/lib/analytics";
+import { track, captureError } from "@/lib/analytics";
 
 const STATUS_COLOR: Record<CallStatus, string> = {
   draft: "bg-slate-100 text-slate-800",
@@ -223,16 +223,21 @@ export default function FundsCallsPage() {
   const downloadAllFacturX = async (call: CoownershipCall) => {
     if (!coown) return;
     let count = 0;
-    for (const charge of charges) {
-      const unit = units.find((u) => u.id === charge.unit_id);
-      if (unit) {
-        await downloadFacturX(call, unit, charge);
-        count++;
-        // small delay so browser doesn't throttle multi-downloads
-        await new Promise((r) => setTimeout(r, 200));
+    try {
+      for (const charge of charges) {
+        const unit = units.find((u) => u.id === charge.unit_id);
+        if (unit) {
+          await downloadFacturX(call, unit, charge);
+          count++;
+          // small delay so browser doesn't throttle multi-downloads
+          await new Promise((r) => setTimeout(r, 200));
+        }
       }
+      track("syndic_facturx_batch", { call_id: call.id, nb_invoices: count, total_amount: call.total_amount });
+    } catch (e) {
+      captureError(e, { module: "syndic_facturx_batch", call_id: call.id, partial_count: count });
+      setError(errMsg(e, t("error")));
     }
-    track("syndic_facturx_batch", { call_id: call.id, nb_invoices: count, total_amount: call.total_amount });
   };
 
   if (!coown) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
