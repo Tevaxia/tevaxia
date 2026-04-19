@@ -9234,15 +9234,31 @@
     }
   },
   "syndicContextBar": {
-    "backToSyndic": "Zurück zum Syndic-Modul",
-    "otherTools": "Andere Tools:",
+    "backToSyndic": "Syndic",
+    "switcherButton": "Syndic-Tools",
+    "switcherPanelTitle": "Zu anderem Tool wechseln",
+    "catCore": "Haupt",
+    "catCalc": "Rechner",
+    "catAsset": "Vermögen",
+    "catEnergy": "Energie",
+    "catCompliance": "Compliance",
+    "catAnalysis": "Analyse",
+    "catDocs": "Dokumente",
     "coproprietes": "Meine WEGs",
-    "loyerLegal": "Legale Miete",
+    "coproprietesDesc": "Buchhaltung, HV, Umlagen, Miteigentümerportal.",
+    "loyerLegal": "Legale Miete — 5%-Regel",
+    "loyerLegalDesc": "LU-Mietobergrenze nach investiertem Kapital + Arbeiten.",
     "portefeuille": "Portfolio",
+    "portefeuilleDesc": "Vermögenskonsolidierung: Wert, Rendite, Verteilung.",
     "portfolioEnergie": "Energieportfolio",
+    "portfolioEnergieDesc": "CPE, CO₂, CRREM Stranding über gesamtes Portfolio.",
     "epbd": "EPBD Fristen",
+    "epbdDesc": "Kalender 2030 / 2050 verpflichtender Schwellen je Gebäude.",
     "amlKyc": "AML / KYC",
-    "benchmark": "Benchmark",
-    "lettresTypes": "Musterbriefe"
+    "amlKycDesc": "Prüfungen und CSSF-Schwellen WEG-Einträge / Übertragungen.",
+    "benchmark": "Inter-WEG Benchmark",
+    "benchmarkDesc": "Kosten, Rückstände, Rücklagen vs Portfolio-Median.",
+    "lettresTypes": "Musterbriefe",
+    "lettresTypesDesc": "10 editierbare Vorlagen, DOCX / PDF Export."
   }
 }

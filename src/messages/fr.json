@@ -9234,15 +9234,31 @@
     }
   },
   "syndicContextBar": {
-    "backToSyndic": "Retour module Syndic",
-    "otherTools": "Autres outils :",
+    "backToSyndic": "Syndic",
+    "switcherButton": "Outils syndic",
+    "switcherPanelTitle": "Basculer vers un autre outil",
+    "catCore": "Principal",
+    "catCalc": "Calculateur",
+    "catAsset": "Patrimoine",
+    "catEnergy": "Énergie",
+    "catCompliance": "Conformité",
+    "catAnalysis": "Analyse",
+    "catDocs": "Documents",
     "coproprietes": "Mes copropriétés",
-    "loyerLegal": "Loyer légal",
+    "coproprietesDesc": "Compta, AG, appels de fonds, portail copropriétaire.",
+    "loyerLegal": "Loyer légal — règle 5 %",
+    "loyerLegalDesc": "Plafond loyer LU selon capital investi + travaux.",
     "portefeuille": "Portefeuille",
-    "portfolioEnergie": "Portfolio énergie",
+    "portefeuilleDesc": "Consolidation patrimoine : valeur, rendement, exposition.",
+    "portfolioEnergie": "Portfolio énergétique",
+    "portfolioEnergieDesc": "CPE, CO₂, stranding CRREM sur tout le patrimoine.",
     "epbd": "Échéances EPBD",
+    "epbdDesc": "Calendrier 2030 / 2050 seuils obligatoires par bâtiment.",
     "amlKyc": "AML / KYC",
-    "benchmark": "Benchmark",
-    "lettresTypes": "Lettres types"
+    "amlKycDesc": "Vérifications et seuils CSSF entrées copro / cessions.",
+    "benchmark": "Benchmark inter-copros",
+    "benchmarkDesc": "Comparatif charges, impayés, fonds vs médiane portefeuille.",
+    "lettresTypes": "Lettres types",
+    "lettresTypesDesc": "10 modèles courriers éditables, export DOCX / PDF."
   }
 }

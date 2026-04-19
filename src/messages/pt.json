@@ -9234,15 +9234,31 @@
     }
   },
   "syndicContextBar": {
-    "backToSyndic": "Voltar ao modulo Syndic",
-    "otherTools": "Outras ferramentas:",
+    "backToSyndic": "Syndic",
+    "switcherButton": "Ferramentas syndic",
+    "switcherPanelTitle": "Mudar para outra ferramenta",
+    "catCore": "Principal",
+    "catCalc": "Calculadora",
+    "catAsset": "Patrimonio",
+    "catEnergy": "Energia",
+    "catCompliance": "Conformidade",
+    "catAnalysis": "Analise",
+    "catDocs": "Documentos",
     "coproprietes": "Os meus condominios",
-    "loyerLegal": "Renda legal",
+    "coproprietesDesc": "Contabilidade, AGs, chamadas de fundos, portal condomino.",
+    "loyerLegal": "Renda legal — regra 5 %",
+    "loyerLegalDesc": "Tecto de renda LU segundo capital investido + obras.",
     "portefeuille": "Portfolio",
+    "portefeuilleDesc": "Consolidacao patrimonio: valor, rendimento, exposicao.",
     "portfolioEnergie": "Portfolio energetico",
+    "portfolioEnergieDesc": "CPE, CO₂, stranding CRREM em todo o patrimonio.",
     "epbd": "Prazos EPBD",
+    "epbdDesc": "Calendario 2030 / 2050 limites obrigatorios por edificio.",
     "amlKyc": "AML / KYC",
-    "benchmark": "Benchmark",
-    "lettresTypes": "Modelos de carta"
+    "amlKycDesc": "Verificacoes e limites CSSF entradas condomino / cessoes.",
+    "benchmark": "Benchmark inter-condominios",
+    "benchmarkDesc": "Encargos, dividas, fundo vs mediana do portfolio.",
+    "lettresTypes": "Modelos de carta",
+    "lettresTypesDesc": "10 modelos editaveis, exportacao DOCX / PDF."
   }
 }

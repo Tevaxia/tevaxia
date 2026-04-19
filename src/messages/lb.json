@@ -9234,15 +9234,31 @@
     }
   },
   "syndicContextBar": {
-    "backToSyndic": "Zréck zum Syndic-Modul",
-    "otherTools": "Aner Tools:",
+    "backToSyndic": "Syndic",
+    "switcherButton": "Syndic-Tools",
+    "switcherPanelTitle": "Op aner Tool wiesselen",
+    "catCore": "Haapt",
+    "catCalc": "Rechner",
+    "catAsset": "Verméigen",
+    "catEnergy": "Energie",
+    "catCompliance": "Conformitéit",
+    "catAnalysis": "Analyse",
+    "catDocs": "Dokumenter",
     "coproprietes": "Meng Coproprietéiten",
-    "loyerLegal": "Legale Loyer",
+    "coproprietesDesc": "Comptabilitéit, AG, Aruffer, Co-Proprietär-Portal.",
+    "loyerLegal": "Legale Loyer — 5%-Regel",
+    "loyerLegalDesc": "LU Loyer-Limite no investéiert Kapital + Aarbechten.",
     "portefeuille": "Portfolio",
+    "portefeuilleDesc": "Verméigenskonsolidéierung: Wäert, Rendement, Verdeelung.",
     "portfolioEnergie": "Energieportfolio",
+    "portfolioEnergieDesc": "CPE, CO₂, CRREM Stranding iwwert ganze Portfolio.",
     "epbd": "EPBD Eekonferenzen",
+    "epbdDesc": "Kalenner 2030 / 2050 obligatoresch Schwellen pro Gebai.",
     "amlKyc": "AML / KYC",
-    "benchmark": "Benchmark",
-    "lettresTypes": "Musterbréiwer"
+    "amlKycDesc": "Verifikatiounen a CSSF-Schwellen Coprop-Entréen / Cessiounen.",
+    "benchmark": "Inter-Copros Benchmark",
+    "benchmarkDesc": "Chargen, Retarden, Fong vs Portfolio-Medianen.",
+    "lettresTypes": "Musterbréiwer",
+    "lettresTypesDesc": "10 editéierbar Schablounen, DOCX / PDF Export."
   }
 }

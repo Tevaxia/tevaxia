@@ -9234,15 +9234,31 @@
     }
   },
   "syndicContextBar": {
-    "backToSyndic": "Back to Syndic module",
-    "otherTools": "Other tools:",
+    "backToSyndic": "Syndic",
+    "switcherButton": "Syndic tools",
+    "switcherPanelTitle": "Switch to another tool",
+    "catCore": "Main",
+    "catCalc": "Calculator",
+    "catAsset": "Assets",
+    "catEnergy": "Energy",
+    "catCompliance": "Compliance",
+    "catAnalysis": "Analysis",
+    "catDocs": "Documents",
     "coproprietes": "My condos",
-    "loyerLegal": "Legal rent",
+    "coproprietesDesc": "Accounting, AGs, fund calls, co-owner portal.",
+    "loyerLegal": "Legal rent — 5% rule",
+    "loyerLegalDesc": "LU rent cap based on invested capital + works.",
     "portefeuille": "Portfolio",
+    "portefeuilleDesc": "Asset consolidation: value, yield, exposure.",
     "portfolioEnergie": "Energy portfolio",
+    "portfolioEnergieDesc": "CPE, CO₂, CRREM stranding across the portfolio.",
     "epbd": "EPBD deadlines",
+    "epbdDesc": "2030 / 2050 mandatory threshold calendar per building.",
     "amlKyc": "AML / KYC",
-    "benchmark": "Benchmark",
-    "lettresTypes": "Template letters"
+    "amlKycDesc": "Verifications and CSSF thresholds for condo entries / transfers.",
+    "benchmark": "Inter-condo benchmark",
+    "benchmarkDesc": "Charges, arrears, works fund vs portfolio median.",
+    "lettresTypes": "Template letters",
+    "lettresTypesDesc": "10 editable letter templates, DOCX / PDF export."
   }
 }
