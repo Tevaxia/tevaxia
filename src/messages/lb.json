@@ -9341,5 +9341,69 @@
     "observatoireDesc": "LU-Hotelmaart-Trends.",
     "pms": "Operatif PMS",
     "pmsDesc": "Reservatiounen, Folios, Check-in/out vun Ären Hotelen."
+  },
+  "globalSearch": {
+    "loading": "Lueden…",
+    "signIn": "Umellen",
+    "title": "Global Sich",
+    "subtitle": "Sicht an all den tevaxia-Entitéiten: Mandater, CRM-Kontakter, Coproprietéiten, Hotelobjeten a Reservatiounen. Respektéiert Äre Zougangsberäich (RLS).",
+    "placeholder": "Sichen… (Numm, Adress, E-Mail, Referenz, Reservatiouns-Nr.)",
+    "searching": "Sich…",
+    "minChars": "Mindestens 2 Zeechen aginn · Grouss-/Klengschreiwung egal",
+    "filterAll": "All ({n})",
+    "noResults": "Keng Resultater fir « {query} ».",
+    "supabaseUnavailable": "Supabase net konfiguréiert",
+    "footer": "Sich: limitéiert op 5 Resultater pro Entitéit fir Schnellegkeet. Fir spezifesch Sich (avancéiert Filter, Sortéierung, Export) benotzt déi dedizéiert Säiten vu jidder Modul. SQL-Pattern: ILIKE %query% — Grouss-/Klengschreiwung egal, Deelübereenstëmmung an allen relevant Texkolonnen.",
+    "footerStrong": "Sich:",
+    "type": {
+      "mandate": "Immobilien-Mandat",
+      "contact": "CRM-Kontakt",
+      "coownership": "Coproprietéit",
+      "pms_property": "PMS-Objet",
+      "pms_reservation": "PMS-Reservatioun"
+    }
+  },
+  "dashboardPage": {
+    "loading": "Dashboard gëtt gelueden…",
+    "title": "Perséinleche Tableau de bord",
+    "subtitle": "Konsolidéiert Vue vun Ärer ganzer tevaxia.lu-Aktivitéit: Bewäertungen, Locatiounsportfolio, Mandater, Deelungslinks.",
+    "signInTitle": "Perséinleche Tableau de bord",
+    "signInIntro": "fir op Ären konsolidéierten Tableau de bord ze zougräifen.",
+    "signInLink": "Umellen",
+    "kpi": {
+      "evaluations": "Gespäichert Bewäertungen",
+      "rentalLots": "Locatiounsloter",
+      "activeMandates": "Aktiv Mandater",
+      "activeShareLinks": "Aktiv Deelungslinks",
+      "patrimoine": "Kumuléiert Bewäertungswäert",
+      "viewPortfolio": "Portfolio kucken →",
+      "commissions": "Erhaalt Provisiounen (geschloss Verkäf)",
+      "salesClosed": "{n} geschlossen Verkaf/Verkäf",
+      "shareLinkViews": "Kumuléiert Deelungslink-Vuen",
+      "viewAnalytics": "Analytics kucken →"
+    },
+    "sections": {
+      "recentEvals": "Lescht Bewäertungen",
+      "activeMandates": "Aktiv Mandater",
+      "recentActivity": "Lescht Aktivitéit",
+      "shortcuts": "Tool-Raccourci",
+      "viewAll": "All kucken →"
+    },
+    "empty": {
+      "evals": "Keng gespäichert Bewäertungen. Fänkt un mat",
+      "or": "oder",
+      "mandates": "Keng aktiv Mandater.",
+      "activity": "Nach keng Aktivitéit registréiert."
+    },
+    "shortcuts": {
+      "estimation": "Schätzung",
+      "valorisation": "EVS-Bewäertung",
+      "gestionLocative": "Locatiounsgestioun",
+      "dcfMulti": "DCF Multi",
+      "syndic": "Syndic / Coprop",
+      "hotellerie": "Hotellerie",
+      "str": "STR / Airbnb",
+      "portfolio": "Portfolio"
+    }
   }
 }

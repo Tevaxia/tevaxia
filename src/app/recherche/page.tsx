@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef, useCallback } from "react";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import { formatEUR } from "@/lib/calculations";
@@ -14,14 +15,6 @@ interface SearchResult {
   url: string;
   amount?: number;
 }
-
-const TYPE_LABELS: Record<SearchResult["type"], string> = {
-  mandate: "Mandat immobilier",
-  contact: "Contact CRM",
-  coownership: "Copropriété",
-  pms_property: "Propriété PMS",
-  pms_reservation: "Réservation PMS",
-};
 
 const TYPE_COLORS: Record<SearchResult["type"], string> = {
   mandate: "bg-indigo-100 text-indigo-900",
@@ -40,6 +33,9 @@ const TYPE_ICONS: Record<SearchResult["type"], string> = {
 };
 
 export default function GlobalSearchPage() {
+  const t = useTranslations("globalSearch");
+  const locale = useLocale();
+  const lp = locale === "fr" ? "" : `/${locale}`;
   const { user, loading: authLoading } = useAuth();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -51,7 +47,7 @@ export default function GlobalSearchPage() {
 
   const search = useCallback(async (q: string) => {
     if (q.length < 2) { setResults([]); return; }
-    if (!isSupabaseConfigured || !supabase) { setError("Supabase non configuré"); return; }
+    if (!isSupabaseConfigured || !supabase) { setError(t("supabaseUnavailable")); return; }
     setLoading(true);
     setError(null);
     try {
@@ -67,7 +63,7 @@ export default function GlobalSearchPage() {
       setError((e as Error).message);
     }
     setLoading(false);
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
@@ -85,18 +81,14 @@ export default function GlobalSearchPage() {
   };
   for (const r of results) countsByType[r.type]++;
 
-  if (authLoading) return <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">Chargement…</div>;
-  if (!user) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href="/connexion" className="text-navy underline">Se connecter</Link></div>;
+  if (authLoading) return <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
+  if (!user) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href={`${lp}/connexion`} className="text-navy underline">{t("signIn")}</Link></div>;
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
-      <h1 className="text-2xl font-bold text-navy">Recherche globale</h1>
-      <p className="mt-1 text-sm text-muted">
-        Rechercher dans toutes les entités tevaxia : mandats, contacts CRM, copropriétés,
-        propriétés hôtelières et réservations. Respecte votre périmètre d&apos;accès (RLS).
-      </p>
+      <h1 className="text-2xl font-bold text-navy">{t("title")}</h1>
+      <p className="mt-1 text-sm text-muted">{t("subtitle")}</p>
 
-      {/* Search input */}
       <div className="mt-6">
         <div className="relative">
           <input
@@ -104,46 +96,42 @@ export default function GlobalSearchPage() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Rechercher… (nom, adresse, email, référence, n° réservation)"
+            placeholder={t("placeholder")}
             className="w-full rounded-xl border-2 border-navy/20 bg-white px-5 py-3 text-base shadow-sm focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
           />
           {loading && (
             <div className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-muted">
-              Recherche…
+              {t("searching")}
             </div>
           )}
         </div>
-        <div className="mt-2 text-[11px] text-muted">
-          Tapez au moins 2 caractères · recherche insensible à la casse
-        </div>
+        <div className="mt-2 text-[11px] text-muted">{t("minChars")}</div>
       </div>
 
       {error && <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-900">{error}</div>}
 
-      {/* Filters */}
       {results.length > 0 && (
         <div className="mt-5 flex flex-wrap gap-2 text-xs">
           <button onClick={() => setFilter("all")}
             className={`rounded-full px-3 py-1 font-semibold ${
               filter === "all" ? "bg-navy text-white" : "bg-card border border-card-border text-slate"
             }`}>
-            Tous ({results.length})
+            {t("filterAll", { n: results.length })}
           </button>
           {(Object.entries(countsByType) as [SearchResult["type"], number][]).filter(([, c]) => c > 0).map(([k, c]) => (
             <button key={k} onClick={() => setFilter(k)}
               className={`rounded-full px-3 py-1 font-semibold ${
                 filter === k ? "bg-navy text-white" : "bg-card border border-card-border text-slate"
               }`}>
-              {TYPE_ICONS[k]} {TYPE_LABELS[k]} ({c})
+              {TYPE_ICONS[k]} {t(`type.${k}`)} ({c})
             </button>
           ))}
         </div>
       )}
 
-      {/* Results */}
       {query.length >= 2 && !loading && results.length === 0 && (
         <div className="mt-8 rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-          Aucun résultat pour &laquo;&nbsp;{query}&nbsp;&raquo;.
+          {t("noResults", { query })}
         </div>
       )}
 
@@ -158,7 +146,7 @@ export default function GlobalSearchPage() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
                   <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${TYPE_COLORS[r.type]}`}>
-                    {TYPE_LABELS[r.type]}
+                    {t(`type.${r.type}`)}
                   </span>
                   {r.amount != null && (
                     <span className="rounded-full bg-background px-2 py-0.5 text-[10px] font-mono">
@@ -176,10 +164,7 @@ export default function GlobalSearchPage() {
       )}
 
       <div className="mt-8 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-        <strong>Recherche :</strong> limite 5 résultats par entité pour rester rapide.
-        Pour recherches spécifiques (filtres avancés, tri, export), utilisez les pages
-        dédiées de chaque module. Pattern SQL : <code>ILIKE %query%</code> —
-        insensible à la casse, match partiel dans toutes les colonnes text pertinentes.
+        <strong>{t("footerStrong")}</strong> {t("footer")}
       </div>
     </div>
   );

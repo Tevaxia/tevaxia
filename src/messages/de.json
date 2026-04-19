@@ -9341,5 +9341,69 @@
     "observatoireDesc": "LU-Hotelmarkt-Trends.",
     "pms": "Operatives PMS",
     "pmsDesc": "Reservierungen, Folios, Check-in/out Ihrer Häuser."
+  },
+  "globalSearch": {
+    "loading": "Wird geladen…",
+    "signIn": "Anmelden",
+    "title": "Globale Suche",
+    "subtitle": "Suche über alle tevaxia-Entitäten: Mandate, CRM-Kontakte, WEGs, Hotelobjekte und Reservierungen. Respektiert Ihren Zugriffsbereich (RLS).",
+    "placeholder": "Suchen… (Name, Adresse, E-Mail, Referenz, Reservierungs-Nr.)",
+    "searching": "Suche…",
+    "minChars": "Mindestens 2 Zeichen eingeben · Groß-/Kleinschreibung egal",
+    "filterAll": "Alle ({n})",
+    "noResults": "Keine Ergebnisse für « {query} ».",
+    "supabaseUnavailable": "Supabase nicht konfiguriert",
+    "footer": "Suche: begrenzt auf 5 Ergebnisse pro Entität für Geschwindigkeit. Für spezifische Suchen (erweiterte Filter, Sortierung, Export) verwenden Sie die dedizierten Seiten jedes Moduls. SQL-Pattern: ILIKE %query% — Groß-/Kleinschreibung egal, Teilübereinstimmung in allen relevanten Textspalten.",
+    "footerStrong": "Suche:",
+    "type": {
+      "mandate": "Immobilien-Mandat",
+      "contact": "CRM-Kontakt",
+      "coownership": "WEG",
+      "pms_property": "PMS-Objekt",
+      "pms_reservation": "PMS-Reservierung"
+    }
+  },
+  "dashboardPage": {
+    "loading": "Dashboard wird geladen…",
+    "title": "Persönliches Dashboard",
+    "subtitle": "Konsolidierte Ansicht Ihrer gesamten tevaxia.lu-Aktivität: Bewertungen, Mietportfolio, Mandate, Freigabelinks.",
+    "signInTitle": "Persönliches Dashboard",
+    "signInIntro": "um auf Ihr konsolidiertes Dashboard zuzugreifen.",
+    "signInLink": "Anmelden",
+    "kpi": {
+      "evaluations": "Gespeicherte Bewertungen",
+      "rentalLots": "Mieteinheiten",
+      "activeMandates": "Aktive Mandate",
+      "activeShareLinks": "Aktive Freigabelinks",
+      "patrimoine": "Kumulierter Bewertungswert",
+      "viewPortfolio": "Portfolio ansehen →",
+      "commissions": "Erhaltene Provisionen (abgeschlossene Verkäufe)",
+      "salesClosed": "{n} abgeschlossene(r) Verkauf/Verkäufe",
+      "shareLinkViews": "Kumulierte Freigabelink-Aufrufe",
+      "viewAnalytics": "Analytics ansehen →"
+    },
+    "sections": {
+      "recentEvals": "Letzte Bewertungen",
+      "activeMandates": "Aktive Mandate",
+      "recentActivity": "Letzte Aktivität",
+      "shortcuts": "Tool-Verknüpfungen",
+      "viewAll": "Alle ansehen →"
+    },
+    "empty": {
+      "evals": "Keine gespeicherten Bewertungen. Beginnen Sie mit",
+      "or": "oder",
+      "mandates": "Keine aktiven Mandate.",
+      "activity": "Noch keine Aktivität aufgezeichnet."
+    },
+    "shortcuts": {
+      "estimation": "Schätzung",
+      "valorisation": "EVS-Bewertung",
+      "gestionLocative": "Mietverwaltung",
+      "dcfMulti": "DCF Multi",
+      "syndic": "Syndic / WEG",
+      "hotellerie": "Hotellerie",
+      "str": "STR / Airbnb",
+      "portfolio": "Portfolio"
+    }
   }
 }

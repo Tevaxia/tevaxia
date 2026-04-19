@@ -9341,5 +9341,69 @@
     "observatoireDesc": "Tendances marché hôtelier LU.",
     "pms": "PMS opérationnel",
     "pmsDesc": "Réservations, folios, check-in/out de tes propriétés."
+  },
+  "globalSearch": {
+    "loading": "Chargement…",
+    "signIn": "Se connecter",
+    "title": "Recherche globale",
+    "subtitle": "Rechercher dans toutes les entités tevaxia : mandats, contacts CRM, copropriétés, propriétés hôtelières et réservations. Respecte votre périmètre d'accès (RLS).",
+    "placeholder": "Rechercher… (nom, adresse, email, référence, n° réservation)",
+    "searching": "Recherche…",
+    "minChars": "Tapez au moins 2 caractères · recherche insensible à la casse",
+    "filterAll": "Tous ({n})",
+    "noResults": "Aucun résultat pour « {query} ».",
+    "supabaseUnavailable": "Supabase non configuré",
+    "footer": "Recherche : limite 5 résultats par entité pour rester rapide. Pour recherches spécifiques (filtres avancés, tri, export), utilisez les pages dédiées de chaque module. Pattern SQL : ILIKE %query% — insensible à la casse, match partiel dans toutes les colonnes text pertinentes.",
+    "footerStrong": "Recherche :",
+    "type": {
+      "mandate": "Mandat immobilier",
+      "contact": "Contact CRM",
+      "coownership": "Copropriété",
+      "pms_property": "Propriété PMS",
+      "pms_reservation": "Réservation PMS"
+    }
+  },
+  "dashboardPage": {
+    "loading": "Chargement du tableau de bord…",
+    "title": "Tableau de bord personnel",
+    "subtitle": "Vue consolidée de toute votre activité tevaxia.lu : évaluations, portefeuille locatif, mandats, liens partagés.",
+    "signInTitle": "Tableau de bord personnel",
+    "signInIntro": "pour accéder à votre tableau de bord consolidé.",
+    "signInLink": "Connectez-vous",
+    "kpi": {
+      "evaluations": "Évaluations enregistrées",
+      "rentalLots": "Lots locatifs",
+      "activeMandates": "Mandats actifs",
+      "activeShareLinks": "Liens partagés actifs",
+      "patrimoine": "Valeur cumulée évaluations",
+      "viewPortfolio": "Voir portfolio →",
+      "commissions": "Commissions perçues (ventes closes)",
+      "salesClosed": "{n} vente(s) close(s)",
+      "shareLinkViews": "Vues cumulées liens partagés",
+      "viewAnalytics": "Voir analytics →"
+    },
+    "sections": {
+      "recentEvals": "Dernières évaluations",
+      "activeMandates": "Mandats actifs",
+      "recentActivity": "Activité récente",
+      "shortcuts": "Raccourcis outils",
+      "viewAll": "Voir tout →"
+    },
+    "empty": {
+      "evals": "Aucune évaluation enregistrée. Commencez par",
+      "or": "ou",
+      "mandates": "Aucun mandat actif.",
+      "activity": "Aucune activité enregistrée pour le moment."
+    },
+    "shortcuts": {
+      "estimation": "Estimation",
+      "valorisation": "Valorisation EVS",
+      "gestionLocative": "Gestion locative",
+      "dcfMulti": "DCF multi",
+      "syndic": "Syndic / Copro",
+      "hotellerie": "Hôtellerie",
+      "str": "STR / Airbnb",
+      "portfolio": "Portfolio"
+    }
   }
 }

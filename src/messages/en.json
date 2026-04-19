@@ -9341,5 +9341,69 @@
     "observatoireDesc": "LU hotel market trends.",
     "pms": "Operational PMS",
     "pmsDesc": "Reservations, folios, check-in/out of your properties."
+  },
+  "globalSearch": {
+    "loading": "Loading…",
+    "signIn": "Sign in",
+    "title": "Global search",
+    "subtitle": "Search across all tevaxia entities: mandates, CRM contacts, condos, hotel properties and reservations. Respects your access scope (RLS).",
+    "placeholder": "Search… (name, address, email, reference, reservation #)",
+    "searching": "Searching…",
+    "minChars": "Type at least 2 characters · case-insensitive",
+    "filterAll": "All ({n})",
+    "noResults": "No results for « {query} ».",
+    "supabaseUnavailable": "Supabase not configured",
+    "footer": "Search: limited to 5 results per entity for speed. For specific searches (advanced filters, sort, export), use the dedicated pages of each module. SQL pattern: ILIKE %query% — case-insensitive, partial match across all relevant text columns.",
+    "footerStrong": "Search:",
+    "type": {
+      "mandate": "Real estate mandate",
+      "contact": "CRM contact",
+      "coownership": "Condominium",
+      "pms_property": "PMS property",
+      "pms_reservation": "PMS reservation"
+    }
+  },
+  "dashboardPage": {
+    "loading": "Loading dashboard…",
+    "title": "Personal dashboard",
+    "subtitle": "Consolidated view of all your tevaxia.lu activity: valuations, rental portfolio, mandates, shared links.",
+    "signInTitle": "Personal dashboard",
+    "signInIntro": "to access your consolidated dashboard.",
+    "signInLink": "Sign in",
+    "kpi": {
+      "evaluations": "Saved valuations",
+      "rentalLots": "Rental units",
+      "activeMandates": "Active mandates",
+      "activeShareLinks": "Active share links",
+      "patrimoine": "Cumulative valuation",
+      "viewPortfolio": "View portfolio →",
+      "commissions": "Earned commissions (closed sales)",
+      "salesClosed": "{n} closed sale(s)",
+      "shareLinkViews": "Cumulative share link views",
+      "viewAnalytics": "View analytics →"
+    },
+    "sections": {
+      "recentEvals": "Recent valuations",
+      "activeMandates": "Active mandates",
+      "recentActivity": "Recent activity",
+      "shortcuts": "Tool shortcuts",
+      "viewAll": "View all →"
+    },
+    "empty": {
+      "evals": "No saved valuations. Start with",
+      "or": "or",
+      "mandates": "No active mandates.",
+      "activity": "No activity recorded yet."
+    },
+    "shortcuts": {
+      "estimation": "Estimation",
+      "valorisation": "EVS valuation",
+      "gestionLocative": "Rental management",
+      "dcfMulti": "DCF multi",
+      "syndic": "Syndic / Condo",
+      "hotellerie": "Hospitality",
+      "str": "STR / Airbnb",
+      "portfolio": "Portfolio"
+    }
   }
 }
