@@ -13,6 +13,7 @@ import {
 } from "@/lib/syndic-bank-import";
 import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/errors";
+import { track } from "@/lib/analytics";
 
 interface Psd2Institution { id: string; name: string; country: string; logo: string; bic: string }
 interface Psd2Account { uid: string; account_id?: { iban?: string }; name?: string; currency?: string }
@@ -99,6 +100,10 @@ export default function RapprochementPage() {
         if (!res.ok) throw new Error(data.error ?? "Erreur échange code");
         setPsd2Accounts((data.accountsData ?? []) as Psd2Account[]);
         setPsd2Step("accounts");
+        track("psd2_connected", {
+          accounts: (data.accountsData ?? []).length,
+          country: psd2Country,
+        });
         window.history.replaceState({}, "", window.location.pathname);
       } catch (e) {
         setError(errMsg(e));
@@ -170,6 +175,10 @@ export default function RapprochementPage() {
       });
       setMatches(matchTransactions(txs, unpaid));
       setPsd2Step("done");
+      track("psd2_transactions_imported", {
+        nb_transactions: txs.length,
+        nb_matches: matchTransactions(txs, unpaid).filter((m) => m.match_score >= 60).length,
+      });
     } catch (e) {
       setError(errMsg(e));
       setPsd2Step("accounts");

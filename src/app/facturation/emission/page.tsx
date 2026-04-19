@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { computeTotals, validateInvoice, formatInvoiceNumber, VAT_RATES_FR, VAT_RATES_LU, type FacturXInvoice, type FacturXLine, type VatCategoryCode } from "@/lib/facturation/factur-x";
 import { generateFacturXPdf } from "@/lib/facturation/factur-x-pdf";
 import { saveToHistory } from "@/lib/facturation/history";
+import { track } from "@/lib/analytics";
 
 type TemplateId = "generic" | "landlord" | "syndic" | "hotel" | "lease" | "valuer";
 
@@ -192,6 +193,14 @@ export default function EmissionPage() {
       URL.revokeObjectURL(xmlUrl);
       // Sauvegarde historique (silencieux si non-auth)
       void saveToHistory(inv, template);
+      track("facturation_generated", {
+        template,
+        currency: inv.currency,
+        nb_lines: inv.lines.length,
+        seller_country: inv.seller.country_code,
+        buyer_country: inv.buyer.country_code,
+        total_ttc: totals.grand_total,
+      });
       setSuccess(t("successMsg"));
     } catch (e) {
       setErrors([(e as Error).message]);

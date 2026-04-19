@@ -15,6 +15,7 @@ import {
 import {
   exportToDocx, exportToPdf, downloadBlob, downloadBytes, safeFilename,
 } from "@/lib/coownership-letter-export";
+import { track } from "@/lib/analytics";
 
 const DEFAULT_VARS: Record<string, string> = {
   copropriete: "Résidence Les Jardins",
@@ -71,6 +72,10 @@ export default function SyndicLetterTemplatesPage() {
     setCustoms(loadCustomTemplates());
     setEditing(null);
     setSelected(final);
+    track(isOfficial ? "letter_forked" : "letter_edited", {
+      template_id: updated.id,
+      category: updated.category,
+    });
     showFlash(isOfficial ? "Modèle dupliqué et modifié ✓" : "Modifications enregistrées ✓");
   };
 
@@ -89,18 +94,29 @@ export default function SyndicLetterTemplatesPage() {
     setImporting(false);
     setSelected(tpl);
     setFilter("custom");
+    track("letter_imported", { category, body_length: body.length });
     showFlash("Modèle importé ✓");
   };
 
   const handleImportFile = async (file: File, category: SyndicTemplateCategory) => {
     try {
-      const text = await file.text();
-      const lines = text.split(/\r?\n/);
+      let text: string;
+      const isDocx = file.name.toLowerCase().endsWith(".docx") ||
+        file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+      if (isDocx) {
+        const mammoth = await import("mammoth/mammoth.browser");
+        const arrayBuffer = await file.arrayBuffer();
+        const result = await mammoth.extractRawText({ arrayBuffer });
+        text = result.value;
+      } else {
+        text = await file.text();
+      }
+      const lines = text.split(/\r?\n/).filter((l, i, arr) => i === 0 || l.length > 0 || arr[i - 1].length > 0);
       const subjectLine = lines.find((l) => l.trim().length > 0) ?? file.name;
       const bodyLines = lines.slice(lines.indexOf(subjectLine) + 1).join("\n").trim();
       handleImport(file.name.replace(/\.[^.]+$/, ""), category, subjectLine.trim(), bodyLines || text);
-    } catch {
-      alert("Impossible de lire le fichier (txt, md attendus)");
+    } catch (e) {
+      alert(`Impossible de lire le fichier : ${(e as Error).message}`);
     }
   };
 
@@ -286,6 +302,7 @@ function SyndicTemplatePreview({ template, vars, onChangeVar, onEdit, onFlash }:
     try {
       const blob = await exportToDocx(rendered);
       downloadBlob(blob, `${filename}.docx`);
+      track("letter_exported", { format: "docx", template_id: template.id, category: template.category });
       onFlash("DOCX téléchargé ✓");
     } finally {
       setExporting(false);
@@ -297,6 +314,7 @@ function SyndicTemplatePreview({ template, vars, onChangeVar, onEdit, onFlash }:
     try {
       const bytes = await exportToPdf(rendered);
       downloadBytes(bytes, `${filename}.pdf`, "application/pdf");
+      track("letter_exported", { format: "pdf", template_id: template.id, category: template.category });
       onFlash("PDF téléchargé ✓");
     } finally {
       setExporting(false);
@@ -309,6 +327,7 @@ function SyndicTemplatePreview({ template, vars, onChangeVar, onEdit, onFlash }:
       const blob = await exportToDocx(rendered);
       downloadBlob(blob, `${filename}.docx`);
       window.open("https://drive.google.com/drive/my-drive", "_blank", "noopener");
+      track("letter_exported", { format: "google_drive", template_id: template.id, category: template.category });
       onFlash("DOCX téléchargé + Google Drive ouvert. Glisse-dépose le fichier.");
     } finally {
       setExporting(false);
@@ -517,8 +536,7 @@ function ImportModal({ onImport, onImportFile, onClose }: {
           <div className="rounded-xl border border-card-border bg-background p-4">
             <div className="text-xs font-bold uppercase tracking-wider text-navy mb-2">Option 1 — Fichier texte</div>
             <p className="text-xs text-muted mb-3">
-              Upload d&apos;un fichier <code>.txt</code> ou <code>.md</code> : la 1re ligne devient le sujet, le reste le corps du courrier.
-              Pour du Word, copie-colle le texte dans l&apos;option 2 ci-dessous.
+              Upload <code>.docx</code> (Word), <code>.txt</code> ou <code>.md</code> : la 1re ligne devient le sujet, le reste le corps. Le formatage Word complexe (tableaux, images) n&apos;est pas conservé — seul le texte brut est extrait.
             </p>
             <div className="flex items-center gap-2">
               <select value={category} onChange={(e) => setCategory(e.target.value as SyndicTemplateCategory)}
@@ -527,7 +545,7 @@ function ImportModal({ onImport, onImportFile, onClose }: {
                   <option key={v} value={v}>{l}</option>
                 ))}
               </select>
-              <input type="file" accept=".txt,.md,text/plain"
+              <input type="file" accept=".txt,.md,.docx,text/plain,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 onChange={(e) => {
                   const f = e.target.files?.[0];
                   if (f) onImportFile(f, category);

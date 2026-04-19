@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
 import { parseInvoiceText, type ExtractedInvoice } from "@/lib/syndic-ocr-parser";
 import { formatEUR } from "@/lib/calculations";
+import { track } from "@/lib/analytics";
 
 type Stage = "idle" | "extracting_pdf" | "ocr_running" | "parsing" | "done" | "error";
 
@@ -128,6 +129,13 @@ export default function OcrFacturesPage() {
       const result = parseInvoiceText(text);
       setExtracted(result);
       setStage("done");
+      track("ocr_extracted", {
+        method,
+        confidence: result.confidence,
+        fields_detected: result.detected_fields.length,
+        file_type: file.type || "unknown",
+        file_size_kb: Math.round(file.size / 1024),
+      });
     } catch (e) {
       setError((e as Error).message);
       setStage("error");
