@@ -229,9 +229,7 @@ export default async function HotellerieHub() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link href={`${lp}/hotellerie/pre-acquisition`}
             className="group relative block overflow-hidden rounded-2xl border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-emerald-50 p-8 shadow-sm transition-all hover:shadow-xl hover:border-emerald-400">
-            <div className="absolute top-4 right-4 rounded-full bg-emerald-600 px-3 py-1 text-xs font-bold text-white">
-              {tBanner("badge")}
-            </div>
+
             <div className="grid gap-6 sm:grid-cols-[auto_1fr] items-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-emerald-400 text-white shadow-lg">
                 <svg className="h-9 w-9" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">

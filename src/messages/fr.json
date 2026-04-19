@@ -1568,7 +1568,6 @@
   },
   "simulateurAides": {
     "title": "Simulateur d'aides à l'acquisition",
-    "badge": "2026",
     "subtitle": "Estimez les aides étatiques, communales et les économies fiscales auxquelles vous pouvez prétendre pour votre projet immobilier au Luxembourg.",
     "sectionProjet": "Votre projet",
     "typeProjet": "Type de projet",
@@ -8923,7 +8922,6 @@
       "e2Desc": "Pour investisseurs américains"
     },
     "banner": {
-      "badge": "NOUVEAU · Workflow unifié",
       "title": "Workflow pré-acquisition hôtelière",
       "desc": "Triangulation de valorisation 3 méthodes (multiple EBITDA, prix/clé LU, DCF), DSCR + LTV, business plan 10 ans, exit value, TRI fonds propres, score go/no-go 0-100. Alternative au logiciel ARGUS pour acquisitions hôtelières LU.",
       "tag1": "Valorisation 3 méthodes",
@@ -9412,7 +9410,6 @@
       "description": "7 calculateurs STR pour hôtes Airbnb/Booking au Luxembourg : rentabilité nette après impôt, conformité (seuil 3 mois, licence, EU Reg 2026), arbitrage long vs court terme, pricing dynamique."
     },
     "hero": {
-      "badge": "Nouveau vertical — avril 2026",
       "title": "Location courte durée au Luxembourg",
       "subtitle": "7 outils gratuits pour les hôtes Airbnb, Booking, Vrbo et saisonnier au Luxembourg. Rentabilité réaliste, conformité légale 2026, arbitrage entre location longue et courte durée.",
       "tag1": "Seuil 3 mois / an",

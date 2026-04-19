@@ -254,9 +254,6 @@ export default function SimulateurAides() {
             <h1 className="text-2xl font-bold text-navy sm:text-3xl">
               {t("title")}
             </h1>
-            <span className="rounded-full bg-gold/20 px-3 py-0.5 text-xs font-semibold text-gold-dark">
-              {t("badge")}
-            </span>
           </div>
           <p className="mt-2 text-muted">
             {t("subtitle")}

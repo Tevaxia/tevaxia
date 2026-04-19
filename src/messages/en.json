@@ -1568,7 +1568,6 @@
   },
   "simulateurAides": {
     "title": "Housing Assistance Simulator",
-    "badge": "2026",
     "subtitle": "Estimate the state, municipal and tax benefits you may be entitled to for your real estate project in Luxembourg.",
     "sectionProjet": "Your project",
     "typeProjet": "Project type",
@@ -8923,7 +8922,6 @@
       "e2Desc": "For American investors"
     },
     "banner": {
-      "badge": "NEW · Unified workflow",
       "title": "Hotel pre-acquisition workflow",
       "desc": "3-method valuation triangulation (EBITDA multiple, LU price/key, DCF), DSCR + LTV, 10-year business plan, exit value, equity IRR, 0-100 go/no-go score. ARGUS alternative for LU hotel acquisitions.",
       "tag1": "3-method valuation",
@@ -9412,7 +9410,6 @@
       "description": "7 STR calculators for Airbnb/Booking hosts in Luxembourg: net yield after tax, compliance (3-month threshold, license, EU Reg 2026), long vs short-term arbitrage, dynamic pricing."
     },
     "hero": {
-      "badge": "New vertical — April 2026",
       "title": "Short-term rentals in Luxembourg",
       "subtitle": "7 free tools for Airbnb, Booking, Vrbo and seasonal hosts in Luxembourg. Realistic yield, 2026 legal compliance, arbitrage between long and short-term rental.",
       "tag1": "3-month / year threshold",

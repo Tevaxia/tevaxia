@@ -92,11 +92,7 @@ export default async function StrHub() {
     <div className="bg-background">
       <section className="relative overflow-hidden bg-gradient-to-br from-orange-900 via-rose-800 to-pink-800 py-20">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-orange-400"></span>
-            {t("hero.badge")}
-          </div>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
             {t("hero.title")}
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg leading-8 text-white/80">

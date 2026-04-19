@@ -66,10 +66,7 @@ export default function EsgHubPage() {
           }}
         />
         <div className="relative mx-auto max-w-5xl px-4 text-center text-white">
-          <span className="inline-block rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold ring-1 ring-white/20">
-            Nouveau module
-          </span>
-          <h1 className="mt-4 text-3xl sm:text-5xl font-bold tracking-tight">ESG immobilier Luxembourg</h1>
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">ESG immobilier Luxembourg</h1>
           <p className="mt-4 text-sm sm:text-base text-white/75 max-w-3xl mx-auto">
             Stranding analysis CRREM, qualification Taxonomie UE, préparation SFDR Art. 8/9 et CRR Pillar 3 ESG —
             calibration Luxembourg, trajectoires Paris-aligned 1,5 °C, critères Climate Delegated Act. Pensé pour
