@@ -9789,5 +9789,99 @@
       "ltMonths": "LT ({n} months)",
       "totalMixed": "Total mixed"
     }
+  },
+  "strComplianceEu": {
+    "back": "Short-term rentals",
+    "title": "EU STR Register 2024/1028",
+    "subtitle": "Preparation of the registration file for the single European short-term rental register. Regulation (EU) 2024/1028 — entry into force mid-2026. Obligations: mandatory identification number on all listings, transmission of nights to municipalities.",
+    "regNumber": {
+      "label": "Pre-filled identification number",
+      "note": "Indicative format — to be validated by your municipality upon official submission. Final format imposed by the Ministry of Tourism."
+    },
+    "section1": "1. Owner identity",
+    "section2": "2. The rented property",
+    "section3": "3. Operation",
+    "fields": {
+      "hostName": "Full name",
+      "hostEmail": "Email",
+      "hostAddress": "Residence address",
+      "hostPhone": "Phone",
+      "hostTaxId": "LU tax ID (13 digits)",
+      "rcsl": "RCSL (if company)",
+      "propertyAddress": "Property address",
+      "propertyCommune": "Municipality",
+      "surface": "Surface m²",
+      "maxCapacity": "Max capacity",
+      "primaryResidence": "The property is my primary residence",
+      "platforms": "Platforms used",
+      "nightsPlanned": "Nights planned over 12 months"
+    },
+    "propertyTypes": {
+      "apartment": "Entire apartment",
+      "house": "Entire house",
+      "room": "Private room"
+    },
+    "warnLicense": "More than 90 days/year = LU accommodation license required.",
+    "seeCompliance": "See /str/compliance",
+    "timing": {
+      "label": "EU Regulation 2024/1028 timing:",
+      "body": "entry into force mid-2026. Each member state must set up its national register. For Luxembourg, the Ministry of Tourism will likely be the competent authority (to be confirmed in Mémorial A). Platforms (Airbnb, Booking) will have to transmit per-property nights to authorities."
+    },
+    "downloadPdf": "Download PDF file"
+  },
+  "strPortefeuille": {
+    "back": "Short-term rentals",
+    "title": "STR portfolio",
+    "subtitle": "Multi-property dashboard for STR concierge or investor (10-50 units). Aggregated ADR/occupancy/revenue, LU license status (90-day threshold), EU 2024/1028 registration.",
+    "signIn": "Sign in to manage your STR portfolio.",
+    "loading": "Loading…",
+    "cancel": "Cancel",
+    "addProperty": "+ Add property",
+    "delete": "Delete",
+    "empty": "No properties. Add one to start.",
+    "confirmDelete": "Delete this property from portfolio?",
+    "kpi": {
+      "nbProps": "# properties",
+      "annualRevenue": "Estimated annual revenue",
+      "avgAdr": "Average ADR",
+      "avgOccupancy": "Average occupancy"
+    },
+    "licenses": {
+      "summary": "Licenses: {obtained} obtained · {pending} in progress · {eu}/{total} EU-registered"
+    },
+    "types": {
+      "apartment": "Apartment",
+      "house": "House",
+      "room": "Room",
+      "studio": "Studio",
+      "villa": "Villa"
+    },
+    "license": {
+      "notRequired": "Not required (< 90d)",
+      "pending": "In progress",
+      "obtained": "Obtained",
+      "expired": "Expired"
+    },
+    "form": {
+      "name": "Name",
+      "commune": "Municipality",
+      "surface": "Surface m²",
+      "capacity": "Capacity pax",
+      "adr": "ADR €",
+      "occupancy": "Occupancy %",
+      "primaryOta": "Primary OTA",
+      "addBtn": "Add to portfolio"
+    },
+    "table": {
+      "name": "Name",
+      "type": "Type",
+      "commune": "Municipality",
+      "surface": "Surface",
+      "adr": "ADR",
+      "occ": "Occ.",
+      "revenue": "Annual rev.",
+      "license": "License",
+      "actions": "Actions"
+    }
   }
 }

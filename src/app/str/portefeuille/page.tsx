@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { supabase } from "@/lib/supabase";
 import { formatEUR, formatPct } from "@/lib/calculations";
@@ -26,14 +27,6 @@ interface StrProperty {
   notes: string | null;
 }
 
-const PROPERTY_TYPE_LABELS: Record<StrProperty["property_type"], string> = {
-  apartment: "Appartement",
-  house: "Maison",
-  room: "Chambre",
-  studio: "Studio",
-  villa: "Villa",
-};
-
 const LICENSE_COLORS: Record<StrProperty["license_status"], string> = {
   not_required: "bg-slate-100 text-slate-700",
   pending: "bg-amber-100 text-amber-800",
@@ -41,14 +34,11 @@ const LICENSE_COLORS: Record<StrProperty["license_status"], string> = {
   expired: "bg-rose-100 text-rose-800",
 };
 
-const LICENSE_LABELS: Record<StrProperty["license_status"], string> = {
-  not_required: "Non requise (< 90j)",
-  pending: "En cours",
-  obtained: "Obtenue",
-  expired: "Expirée",
-};
-
 export default function StrPortefeuillePage() {
+  const t = useTranslations("strPortefeuille");
+  const locale = useLocale();
+  const lp = locale === "fr" ? "" : `/${locale}`;
+
   const { user } = useAuth();
   const [properties, setProperties] = useState<StrProperty[]>([]);
   const [loading, setLoading] = useState(true);
@@ -58,6 +48,21 @@ export default function StrPortefeuillePage() {
     property_type: "apartment", avg_adr: 100, avg_occupancy_pct: 60,
     license_status: "not_required", primary_ota: "Airbnb",
   });
+
+  const PROPERTY_TYPE_LABELS: Record<StrProperty["property_type"], string> = {
+    apartment: t("types.apartment"),
+    house: t("types.house"),
+    room: t("types.room"),
+    studio: t("types.studio"),
+    villa: t("types.villa"),
+  };
+
+  const LICENSE_LABELS: Record<StrProperty["license_status"], string> = {
+    not_required: t("license.notRequired"),
+    pending: t("license.pending"),
+    obtained: t("license.obtained"),
+    expired: t("license.expired"),
+  };
 
   const refresh = async () => {
     if (!user || !supabase) return;
@@ -84,7 +89,7 @@ export default function StrPortefeuillePage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!supabase || !confirm("Supprimer ce bien du portefeuille ?")) return;
+    if (!supabase || !confirm(t("confirmDelete"))) return;
     await supabase.from("str_properties").delete().eq("id", id);
     await refresh();
   };
@@ -99,83 +104,85 @@ export default function StrPortefeuillePage() {
     return { total, avgAdr, avgOcc, licensesPending, licensesObtained, euRegistered };
   }, [properties]);
 
-  if (!user) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">Connectez-vous pour gérer votre portefeuille STR.</div>;
-  if (loading) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">Chargement…</div>;
+  if (!user) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{t("signIn")}</div>;
+  if (loading) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
 
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Link href="/str" className="text-xs text-muted hover:text-navy">&larr; Location courte durée</Link>
+        <Link href={`${lp}/str`} className="text-xs text-muted hover:text-navy">&larr; {t("back")}</Link>
         <div className="mt-2 mb-6">
-          <h1 className="text-2xl font-bold text-navy sm:text-3xl">Portefeuille STR</h1>
-          <p className="mt-2 text-muted">
-            Dashboard multi-biens pour conciergerie ou investisseur courte durée (10-50 biens).
-            Suivi ADR/occupation/revenu agrégé, statut licence LU (seuil 90j), enregistrement EU 2024/1028.
-          </p>
+          <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("title")}</h1>
+          <p className="mt-2 text-muted">{t("subtitle")}</p>
         </div>
 
         <div className="mb-6 grid gap-3 sm:grid-cols-4">
           <div className="rounded-xl border border-card-border bg-card p-4">
-            <div className="text-xs text-muted">Nb biens</div>
+            <div className="text-xs text-muted">{t("kpi.nbProps")}</div>
             <div className="mt-1 text-2xl font-bold text-navy">{properties.length}</div>
           </div>
           <div className="rounded-xl border border-card-border bg-card p-4">
-            <div className="text-xs text-muted">Revenu annuel estimé</div>
+            <div className="text-xs text-muted">{t("kpi.annualRevenue")}</div>
             <div className="mt-1 text-2xl font-bold text-emerald-700">{formatEUR(stats.total)}</div>
           </div>
           <div className="rounded-xl border border-card-border bg-card p-4">
-            <div className="text-xs text-muted">ADR moyen</div>
+            <div className="text-xs text-muted">{t("kpi.avgAdr")}</div>
             <div className="mt-1 text-2xl font-bold text-navy">{stats.avgAdr.toFixed(0)} €</div>
           </div>
           <div className="rounded-xl border border-card-border bg-card p-4">
-            <div className="text-xs text-muted">Occupation moyenne</div>
+            <div className="text-xs text-muted">{t("kpi.avgOccupancy")}</div>
             <div className="mt-1 text-2xl font-bold text-navy">{formatPct(stats.avgOcc)}</div>
           </div>
         </div>
 
         <div className="mb-4 flex items-center justify-between">
           <div className="text-sm text-muted">
-            Licences : {stats.licensesObtained} obtenues · {stats.licensesPending} en cours · {stats.euRegistered}/{properties.length} enregistrées EU
+            {t("licenses.summary", {
+              obtained: stats.licensesObtained,
+              pending: stats.licensesPending,
+              eu: stats.euRegistered,
+              total: properties.length,
+            })}
           </div>
           <button onClick={() => setShowNew(!showNew)}
             className="rounded-lg bg-rose-600 px-3 py-2 text-xs font-semibold text-white hover:bg-rose-700">
-            {showNew ? "Annuler" : "+ Ajouter un bien"}
+            {showNew ? t("cancel") : t("addProperty")}
           </button>
         </div>
 
         {showNew && (
           <div className="mb-4 rounded-xl border border-rose-200 bg-rose-50 p-4">
             <div className="grid gap-3 sm:grid-cols-3">
-              <input type="text" placeholder="Nom" value={newProp.name} onChange={(e) => setNewProp({ ...newProp, name: e.target.value })}
+              <input type="text" placeholder={t("form.name")} value={newProp.name} onChange={(e) => setNewProp({ ...newProp, name: e.target.value })}
                 className="rounded-lg border border-input-border bg-white px-3 py-2 text-sm" />
-              <input type="text" placeholder="Commune" value={newProp.commune ?? ""} onChange={(e) => setNewProp({ ...newProp, commune: e.target.value })}
+              <input type="text" placeholder={t("form.commune")} value={newProp.commune ?? ""} onChange={(e) => setNewProp({ ...newProp, commune: e.target.value })}
                 className="rounded-lg border border-input-border bg-white px-3 py-2 text-sm" />
               <select value={newProp.property_type} onChange={(e) => setNewProp({ ...newProp, property_type: e.target.value as StrProperty["property_type"] })}
                 className="rounded-lg border border-input-border bg-white px-3 py-2 text-sm">
                 {Object.entries(PROPERTY_TYPE_LABELS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
               </select>
-              <input type="number" placeholder="Surface m²" value={newProp.surface || ""}
+              <input type="number" placeholder={t("form.surface")} value={newProp.surface || ""}
                 onChange={(e) => setNewProp({ ...newProp, surface: Number(e.target.value) })}
                 className="rounded-lg border border-input-border bg-white px-3 py-2 text-sm" />
-              <input type="number" placeholder="Capacité pax" value={newProp.capacity || ""}
+              <input type="number" placeholder={t("form.capacity")} value={newProp.capacity || ""}
                 onChange={(e) => setNewProp({ ...newProp, capacity: Number(e.target.value) })}
                 className="rounded-lg border border-input-border bg-white px-3 py-2 text-sm" />
-              <input type="number" placeholder="ADR €" value={newProp.avg_adr || ""}
+              <input type="number" placeholder={t("form.adr")} value={newProp.avg_adr || ""}
                 onChange={(e) => setNewProp({ ...newProp, avg_adr: Number(e.target.value) })}
                 className="rounded-lg border border-input-border bg-white px-3 py-2 text-sm" />
-              <input type="number" placeholder="Occupation %" value={newProp.avg_occupancy_pct || ""}
+              <input type="number" placeholder={t("form.occupancy")} value={newProp.avg_occupancy_pct || ""}
                 onChange={(e) => setNewProp({ ...newProp, avg_occupancy_pct: Number(e.target.value) })}
                 className="rounded-lg border border-input-border bg-white px-3 py-2 text-sm" />
               <select value={newProp.license_status} onChange={(e) => setNewProp({ ...newProp, license_status: e.target.value as StrProperty["license_status"] })}
                 className="rounded-lg border border-input-border bg-white px-3 py-2 text-sm">
                 {Object.entries(LICENSE_LABELS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
               </select>
-              <input type="text" placeholder="OTA principal" value={newProp.primary_ota ?? ""} onChange={(e) => setNewProp({ ...newProp, primary_ota: e.target.value })}
+              <input type="text" placeholder={t("form.primaryOta")} value={newProp.primary_ota ?? ""} onChange={(e) => setNewProp({ ...newProp, primary_ota: e.target.value })}
                 className="rounded-lg border border-input-border bg-white px-3 py-2 text-sm" />
             </div>
             <button onClick={handleAdd} disabled={!newProp.name}
               className="mt-3 rounded-lg bg-rose-600 px-4 py-2 text-sm font-semibold text-white hover:bg-rose-700 disabled:opacity-40">
-              Ajouter au portefeuille
+              {t("form.addBtn")}
             </button>
           </div>
         )}
@@ -184,20 +191,20 @@ export default function StrPortefeuillePage() {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-card-border bg-background text-left">
-                <th className="px-4 py-2 text-xs font-semibold text-slate">Nom</th>
-                <th className="px-4 py-2 text-xs font-semibold text-slate">Type</th>
-                <th className="px-4 py-2 text-xs font-semibold text-slate">Commune</th>
-                <th className="px-4 py-2 text-xs font-semibold text-slate text-right">Surface</th>
-                <th className="px-4 py-2 text-xs font-semibold text-slate text-right">ADR</th>
-                <th className="px-4 py-2 text-xs font-semibold text-slate text-right">Occ.</th>
-                <th className="px-4 py-2 text-xs font-semibold text-slate text-right">Revenu an</th>
-                <th className="px-4 py-2 text-xs font-semibold text-slate">Licence</th>
-                <th className="px-4 py-2 text-xs font-semibold text-slate text-right">Actions</th>
+                <th className="px-4 py-2 text-xs font-semibold text-slate">{t("table.name")}</th>
+                <th className="px-4 py-2 text-xs font-semibold text-slate">{t("table.type")}</th>
+                <th className="px-4 py-2 text-xs font-semibold text-slate">{t("table.commune")}</th>
+                <th className="px-4 py-2 text-xs font-semibold text-slate text-right">{t("table.surface")}</th>
+                <th className="px-4 py-2 text-xs font-semibold text-slate text-right">{t("table.adr")}</th>
+                <th className="px-4 py-2 text-xs font-semibold text-slate text-right">{t("table.occ")}</th>
+                <th className="px-4 py-2 text-xs font-semibold text-slate text-right">{t("table.revenue")}</th>
+                <th className="px-4 py-2 text-xs font-semibold text-slate">{t("table.license")}</th>
+                <th className="px-4 py-2 text-xs font-semibold text-slate text-right">{t("table.actions")}</th>
               </tr>
             </thead>
             <tbody>
               {properties.length === 0 ? (
-                <tr><td colSpan={9} className="p-8 text-center text-muted">Aucun bien. Ajoutez-en pour démarrer.</td></tr>
+                <tr><td colSpan={9} className="p-8 text-center text-muted">{t("empty")}</td></tr>
               ) : properties.map((p) => (
                 <tr key={p.id} className="border-b border-card-border/50 hover:bg-background">
                   <td className="px-4 py-2 font-medium text-navy">{p.name}</td>
@@ -214,7 +221,7 @@ export default function StrPortefeuillePage() {
                   </td>
                   <td className="px-4 py-2 text-right">
                     <button onClick={() => handleDelete(p.id)}
-                      className="text-muted hover:text-rose-600 text-xs">Supprimer</button>
+                      className="text-muted hover:text-rose-600 text-xs">{t("delete")}</button>
                   </td>
                 </tr>
               ))}
@@ -231,10 +238,10 @@ export default function StrPortefeuillePage() {
                 `ADR moyen: ${stats.avgAdr.toFixed(0)}€ · Occupation moyenne: ${formatPct(stats.avgOcc)}`,
                 `Licences obtenues: ${stats.licensesObtained}/${properties.length}`,
                 `Enregistrement EU 2024/1028: ${stats.euRegistered}/${properties.length}`,
-                "",
+                ``,
                 `Détail: ${properties.slice(0, 10).map((p) => `${p.name} (${p.commune}, ${p.surface}m², ADR ${p.avg_adr}€, occ ${p.avg_occupancy_pct}%)`).join(" / ")}`,
               ].join("\n")}
-              prompt="Analyse ce portefeuille STR (conciergerie Airbnb/Booking) au Luxembourg. Livre : (1) diagnostic performance globale vs benchmark LU (ADR moyen quartiers, occupation cible selon typologie), (2) compliance réglementaire — combien de biens dépassent 90j donc nécessitent licence, combien sont au registre EU 2024/1028, (3) risques de concentration géographique (si trop dans Luxembourg-Ville), de saisonnalité (mix ville/tourisme nord), de typologie (studios vs maisons), (4) recommandations scaling : nouveaux biens où ? diversification ? automatisation via PMS type Hostaway/Guesty ? passage en société SOPARFI ?, (5) indicateur SaaS à suivre pour une conciergerie professionnelle : NPS, turnover guests, review score moyen, coût par booking, LTV host. Concret pour un opérateur pro LU."
+              prompt="Analyse ce portefeuille STR au Luxembourg. Diagnostic performance, compliance, risques de concentration, scaling, KPIs SaaS conciergerie pro LU."
             />
           </div>
         )}

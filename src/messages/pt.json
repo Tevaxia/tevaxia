@@ -9789,5 +9789,99 @@
       "ltMonths": "LT ({n} meses)",
       "totalMixed": "Total misto"
     }
+  },
+  "strComplianceEu": {
+    "back": "Alojamento curto",
+    "title": "Registo UE STR 2024/1028",
+    "subtitle": "Preparacao do dossier de registo no registo unico europeu dos alojamentos curto prazo. Regulamento (UE) 2024/1028 — entrada em vigor meados 2026. Obrigacoes: numero identificacao obrigatorio em todos anuncios, transmissao das noites aos municipios.",
+    "regNumber": {
+      "label": "Numero identificacao pre-preenchido",
+      "note": "Formato indicativo — a validar pelo seu municipio no deposito oficial. Formato final imposto pelo Ministerio do Turismo."
+    },
+    "section1": "1. Identidade proprietario",
+    "section2": "2. O alojamento locado",
+    "section3": "3. Exploracao",
+    "fields": {
+      "hostName": "Nome completo",
+      "hostEmail": "Email",
+      "hostAddress": "Endereco residencia",
+      "hostPhone": "Telefone",
+      "hostTaxId": "NIF LU (13 digitos)",
+      "rcsl": "RCSL (se sociedade)",
+      "propertyAddress": "Endereco do imovel",
+      "propertyCommune": "Municipio",
+      "surface": "Area m²",
+      "maxCapacity": "Capacidade max",
+      "primaryResidence": "O imovel e a minha residencia principal",
+      "platforms": "Plataformas usadas",
+      "nightsPlanned": "Noites previstas em 12 meses"
+    },
+    "propertyTypes": {
+      "apartment": "Apartamento inteiro",
+      "house": "Casa inteira",
+      "room": "Quarto privado"
+    },
+    "warnLicense": "Mais de 90 dias/ano = licenca alojamento LU obrigatoria.",
+    "seeCompliance": "Ver /str/compliance",
+    "timing": {
+      "label": "Timing Regulamento UE 2024/1028:",
+      "body": "entrada em vigor meados 2026. Cada Estado-membro deve montar o seu registo nacional. Para o Luxemburgo, o Ministerio do Turismo sera provavelmente a autoridade competente (a confirmar no Mémorial A). As plataformas (Airbnb, Booking) terao de transmitir as noites por imovel identificado as autoridades."
+    },
+    "downloadPdf": "Descarregar dossier PDF"
+  },
+  "strPortefeuille": {
+    "back": "Alojamento curto",
+    "title": "Portfolio STR",
+    "subtitle": "Painel multi-imoveis para concierge ou investidor STR (10-50 unidades). ADR/ocupacao/receita agregados, estado licenca LU (limite 90d), registo UE 2024/1028.",
+    "signIn": "Inicie sessao para gerir o seu portfolio STR.",
+    "loading": "A carregar…",
+    "cancel": "Cancelar",
+    "addProperty": "+ Adicionar imovel",
+    "delete": "Eliminar",
+    "empty": "Sem imoveis. Adicione um para comecar.",
+    "confirmDelete": "Eliminar este imovel do portfolio?",
+    "kpi": {
+      "nbProps": "N. imoveis",
+      "annualRevenue": "Receita anual estimada",
+      "avgAdr": "ADR medio",
+      "avgOccupancy": "Ocupacao media"
+    },
+    "licenses": {
+      "summary": "Licencas: {obtained} obtidas · {pending} em curso · {eu}/{total} registados UE"
+    },
+    "types": {
+      "apartment": "Apartamento",
+      "house": "Casa",
+      "room": "Quarto",
+      "studio": "Estudio",
+      "villa": "Moradia"
+    },
+    "license": {
+      "notRequired": "Nao requerida (< 90d)",
+      "pending": "Em curso",
+      "obtained": "Obtida",
+      "expired": "Caducada"
+    },
+    "form": {
+      "name": "Nome",
+      "commune": "Municipio",
+      "surface": "Area m²",
+      "capacity": "Capacidade pax",
+      "adr": "ADR €",
+      "occupancy": "Ocupacao %",
+      "primaryOta": "OTA principal",
+      "addBtn": "Adicionar ao portfolio"
+    },
+    "table": {
+      "name": "Nome",
+      "type": "Tipo",
+      "commune": "Municipio",
+      "surface": "Area",
+      "adr": "ADR",
+      "occ": "Oc.",
+      "revenue": "Rec. anual",
+      "license": "Licenca",
+      "actions": "Acoes"
+    }
   }
 }

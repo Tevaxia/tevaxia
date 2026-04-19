@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { pdf, Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 
 const pdfStyles = StyleSheet.create({
@@ -117,6 +118,10 @@ function generateRegistrationNumber(form: EuRegistryForm): string {
 const PLATFORMS = ["Airbnb", "Booking.com", "Vrbo", "Expedia", "Direct"];
 
 export default function EuRegistryPage() {
+  const t = useTranslations("strComplianceEu");
+  const locale = useLocale();
+  const lp = locale === "fr" ? "" : `/${locale}`;
+
   const [form, setForm] = useState<EuRegistryForm>({
     hostName: "",
     hostAddress: "",
@@ -156,72 +161,66 @@ export default function EuRegistryPage() {
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <Link href="/str" className="text-xs text-muted hover:text-navy">&larr; Location courte durée</Link>
+        <Link href={`${lp}/str`} className="text-xs text-muted hover:text-navy">&larr; {t("back")}</Link>
         <div className="mt-2 mb-6">
-          <h1 className="text-2xl font-bold text-navy sm:text-3xl">Registre EU STR 2024/1028</h1>
-          <p className="mt-2 text-muted">
-            Préparation du dossier d&apos;enregistrement au registre unique européen des locations de courte durée.
-            Règlement (UE) 2024/1028 — entrée en vigueur mi-2026. Obligations : numéro d&apos;identification obligatoire
-            sur toutes les annonces, transmission des nuitées aux communes.
-          </p>
+          <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("title")}</h1>
+          <p className="mt-2 text-muted">{t("subtitle")}</p>
         </div>
 
         <div className="rounded-xl border-2 border-blue-200 bg-blue-50 p-5 mb-6">
-          <div className="text-xs uppercase tracking-wider text-blue-700">Numéro d&apos;identification pré-rempli</div>
+          <div className="text-xs uppercase tracking-wider text-blue-700">{t("regNumber.label")}</div>
           <div className="mt-1 text-2xl font-bold font-mono text-blue-900">{registrationNumber}</div>
-          <p className="mt-1 text-xs text-blue-800">
-            Format indicatif — à valider par votre commune lors du dépôt officiel. Format final imposé par le Ministère du Tourisme.
-          </p>
+          <p className="mt-1 text-xs text-blue-800">{t("regNumber.note")}</p>
         </div>
 
         <div className="space-y-6">
           <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-            <h2 className="text-base font-semibold text-navy mb-4">1. Identité propriétaire</h2>
+            <h2 className="text-base font-semibold text-navy mb-4">{t("section1")}</h2>
             <div className="grid gap-3 sm:grid-cols-2">
               <input type="text" value={form.hostName} onChange={(e) => setForm({ ...form, hostName: e.target.value })}
-                placeholder="Nom complet" className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
+                placeholder={t("fields.hostName")} className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
               <input type="email" value={form.hostEmail} onChange={(e) => setForm({ ...form, hostEmail: e.target.value })}
-                placeholder="Email" className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
+                placeholder={t("fields.hostEmail")} className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
               <input type="text" value={form.hostAddress} onChange={(e) => setForm({ ...form, hostAddress: e.target.value })}
-                placeholder="Adresse résidence" className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
+                placeholder={t("fields.hostAddress")} className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
               <input type="tel" value={form.hostPhone} onChange={(e) => setForm({ ...form, hostPhone: e.target.value })}
-                placeholder="Téléphone" className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
+                placeholder={t("fields.hostPhone")} className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
               <input type="text" value={form.hostTaxId} onChange={(e) => setForm({ ...form, hostTaxId: e.target.value })}
-                placeholder="N° fiscal LU (13 chiffres)" className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
+                placeholder={t("fields.hostTaxId")} className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
               <input type="text" value={form.businessRegistrationLU} onChange={(e) => setForm({ ...form, businessRegistrationLU: e.target.value })}
-                placeholder="RCSL (si société)" className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
+                placeholder={t("fields.rcsl")} className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </div>
           </div>
 
           <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-            <h2 className="text-base font-semibold text-navy mb-4">2. Le logement loué</h2>
+            <h2 className="text-base font-semibold text-navy mb-4">{t("section2")}</h2>
             <div className="grid gap-3 sm:grid-cols-2">
               <input type="text" value={form.propertyAddress} onChange={(e) => setForm({ ...form, propertyAddress: e.target.value })}
-                placeholder="Adresse du bien" className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm sm:col-span-2" />
+                placeholder={t("fields.propertyAddress")} className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm sm:col-span-2" />
               <input type="text" value={form.propertyCommune} onChange={(e) => setForm({ ...form, propertyCommune: e.target.value })}
-                placeholder="Commune" className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
+                placeholder={t("fields.propertyCommune")} className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
               <select value={form.propertyType} onChange={(e) => setForm({ ...form, propertyType: e.target.value as EuRegistryForm["propertyType"] })}
                 className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm">
-                <option value="apartment">Appartement entier</option>
-                <option value="house">Maison entière</option>
-                <option value="room">Chambre privée</option>
+                <option value="apartment">{t("propertyTypes.apartment")}</option>
+                <option value="house">{t("propertyTypes.house")}</option>
+                <option value="room">{t("propertyTypes.room")}</option>
               </select>
               <input type="number" value={form.surface} onChange={(e) => setForm({ ...form, surface: Number(e.target.value) })}
-                placeholder="Surface m²" className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
+                placeholder={t("fields.surface")} className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
               <input type="number" value={form.maxCapacity} onChange={(e) => setForm({ ...form, maxCapacity: Number(e.target.value) })}
-                placeholder="Capacité max" className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
+                placeholder={t("fields.maxCapacity")} className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
               <label className="flex items-center gap-2 text-sm sm:col-span-2">
                 <input type="checkbox" checked={form.isPrimaryResidence}
                   onChange={(e) => setForm({ ...form, isPrimaryResidence: e.target.checked })} />
-                Le bien est ma résidence principale
+                {t("fields.primaryResidence")}
               </label>
             </div>
           </div>
 
           <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-            <h2 className="text-base font-semibold text-navy mb-4">3. Exploitation</h2>
+            <h2 className="text-base font-semibold text-navy mb-4">{t("section3")}</h2>
             <div>
-              <label className="block text-sm font-medium text-slate mb-2">Plateformes utilisées</label>
+              <label className="block text-sm font-medium text-slate mb-2">{t("fields.platforms")}</label>
               <div className="flex flex-wrap gap-2">
                 {PLATFORMS.map((p) => (
                   <button key={p} onClick={() => togglePlatform(p)}
@@ -232,30 +231,28 @@ export default function EuRegistryPage() {
               </div>
             </div>
             <div className="mt-4">
-              <label className="block text-sm font-medium text-slate mb-1">Nuitées prévues sur 12 mois</label>
+              <label className="block text-sm font-medium text-slate mb-1">{t("fields.nightsPlanned")}</label>
               <input type="number" value={form.expectedNightsPerYear}
                 onChange={(e) => setForm({ ...form, expectedNightsPerYear: Number(e.target.value) })}
                 className="w-full sm:w-48 rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
               {form.expectedNightsPerYear > 90 && (
                 <p className="mt-2 text-xs text-rose-700">
-                  ⚠ Plus de 90 jours/an = licence d&apos;hébergement LU requise.{" "}
-                  <Link href="/str/compliance" className="underline">Voir /str/compliance</Link>
+                  ⚠ {t("warnLicense")}{" "}
+                  <Link href={`${lp}/str/compliance`} className="underline">{t("seeCompliance")}</Link>
                 </p>
               )}
             </div>
           </div>
 
           <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs text-amber-900">
-            <strong>Timing Règlement UE 2024/1028 :</strong> entrée en vigueur mi-2026. Chaque État membre doit mettre en place son registre national.
-            Pour le Luxembourg, le Ministère du Tourisme sera probablement autorité compétente (à confirmer au Mémorial A).
-            Les plateformes (Airbnb, Booking) devront transmettre aux autorités les nuitées par bien identifié.
+            <strong>{t("timing.label")}</strong> {t("timing.body")}
           </div>
 
           <div className="flex gap-2">
             <button onClick={downloadPdf}
               disabled={!form.hostName || !form.propertyAddress}
               className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-40">
-              📄 Télécharger le dossier PDF
+              📄 {t("downloadPdf")}
             </button>
           </div>
         </div>

@@ -9789,5 +9789,99 @@
       "ltMonths": "LT ({n} mois)",
       "totalMixed": "Total mixte"
     }
+  },
+  "strComplianceEu": {
+    "back": "Location courte durée",
+    "title": "Registre EU STR 2024/1028",
+    "subtitle": "Préparation du dossier d'enregistrement au registre unique européen des locations de courte durée. Règlement (UE) 2024/1028 — entrée en vigueur mi-2026. Obligations : numéro d'identification obligatoire sur toutes les annonces, transmission des nuitées aux communes.",
+    "regNumber": {
+      "label": "Numéro d'identification pré-rempli",
+      "note": "Format indicatif — à valider par votre commune lors du dépôt officiel. Format final imposé par le Ministère du Tourisme."
+    },
+    "section1": "1. Identité propriétaire",
+    "section2": "2. Le logement loué",
+    "section3": "3. Exploitation",
+    "fields": {
+      "hostName": "Nom complet",
+      "hostEmail": "Email",
+      "hostAddress": "Adresse résidence",
+      "hostPhone": "Téléphone",
+      "hostTaxId": "N° fiscal LU (13 chiffres)",
+      "rcsl": "RCSL (si société)",
+      "propertyAddress": "Adresse du bien",
+      "propertyCommune": "Commune",
+      "surface": "Surface m²",
+      "maxCapacity": "Capacité max",
+      "primaryResidence": "Le bien est ma résidence principale",
+      "platforms": "Plateformes utilisées",
+      "nightsPlanned": "Nuitées prévues sur 12 mois"
+    },
+    "propertyTypes": {
+      "apartment": "Appartement entier",
+      "house": "Maison entière",
+      "room": "Chambre privée"
+    },
+    "warnLicense": "Plus de 90 jours/an = licence d'hébergement LU requise.",
+    "seeCompliance": "Voir /str/compliance",
+    "timing": {
+      "label": "Timing Règlement UE 2024/1028 :",
+      "body": "entrée en vigueur mi-2026. Chaque État membre doit mettre en place son registre national. Pour le Luxembourg, le Ministère du Tourisme sera probablement autorité compétente (à confirmer au Mémorial A). Les plateformes (Airbnb, Booking) devront transmettre aux autorités les nuitées par bien identifié."
+    },
+    "downloadPdf": "Télécharger le dossier PDF"
+  },
+  "strPortefeuille": {
+    "back": "Location courte durée",
+    "title": "Portefeuille STR",
+    "subtitle": "Dashboard multi-biens pour conciergerie ou investisseur courte durée (10-50 biens). Suivi ADR/occupation/revenu agrégé, statut licence LU (seuil 90j), enregistrement EU 2024/1028.",
+    "signIn": "Connectez-vous pour gérer votre portefeuille STR.",
+    "loading": "Chargement…",
+    "cancel": "Annuler",
+    "addProperty": "+ Ajouter un bien",
+    "delete": "Supprimer",
+    "empty": "Aucun bien. Ajoutez-en pour démarrer.",
+    "confirmDelete": "Supprimer ce bien du portefeuille ?",
+    "kpi": {
+      "nbProps": "Nb biens",
+      "annualRevenue": "Revenu annuel estimé",
+      "avgAdr": "ADR moyen",
+      "avgOccupancy": "Occupation moyenne"
+    },
+    "licenses": {
+      "summary": "Licences : {obtained} obtenues · {pending} en cours · {eu}/{total} enregistrées EU"
+    },
+    "types": {
+      "apartment": "Appartement",
+      "house": "Maison",
+      "room": "Chambre",
+      "studio": "Studio",
+      "villa": "Villa"
+    },
+    "license": {
+      "notRequired": "Non requise (< 90j)",
+      "pending": "En cours",
+      "obtained": "Obtenue",
+      "expired": "Expirée"
+    },
+    "form": {
+      "name": "Nom",
+      "commune": "Commune",
+      "surface": "Surface m²",
+      "capacity": "Capacité pax",
+      "adr": "ADR €",
+      "occupancy": "Occupation %",
+      "primaryOta": "OTA principal",
+      "addBtn": "Ajouter au portefeuille"
+    },
+    "table": {
+      "name": "Nom",
+      "type": "Type",
+      "commune": "Commune",
+      "surface": "Surface",
+      "adr": "ADR",
+      "occ": "Occ.",
+      "revenue": "Revenu an",
+      "license": "Licence",
+      "actions": "Actions"
+    }
   }
 }

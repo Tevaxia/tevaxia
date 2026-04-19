@@ -9789,5 +9789,99 @@
       "ltMonths": "LT ({n} Monate)",
       "totalMixed": "Gesamt gemischt"
     }
+  },
+  "strComplianceEu": {
+    "back": "Kurzzeitvermietung",
+    "title": "EU STR-Register 2024/1028",
+    "subtitle": "Vorbereitung des Registrierungsdossiers im einheitlichen europäischen Kurzzeitvermietungs-Register. Verordnung (EU) 2024/1028 — Inkrafttreten Mitte 2026. Verpflichtungen: Pflichtidentifikationsnummer auf allen Listings, Übermittlung der Übernachtungen an Gemeinden.",
+    "regNumber": {
+      "label": "Vorausgefüllte Identifikationsnummer",
+      "note": "Indikatives Format — bei offizieller Einreichung von Ihrer Gemeinde zu validieren. Endgültiges Format vom Tourismusministerium vorgegeben."
+    },
+    "section1": "1. Eigentümer-Identität",
+    "section2": "2. Die vermietete Unterkunft",
+    "section3": "3. Betrieb",
+    "fields": {
+      "hostName": "Vollständiger Name",
+      "hostEmail": "E-Mail",
+      "hostAddress": "Wohnadresse",
+      "hostPhone": "Telefon",
+      "hostTaxId": "LU Steuernummer (13 Stellen)",
+      "rcsl": "RCSL (falls Gesellschaft)",
+      "propertyAddress": "Objektadresse",
+      "propertyCommune": "Gemeinde",
+      "surface": "Fläche m²",
+      "maxCapacity": "Max. Kapazität",
+      "primaryResidence": "Die Immobilie ist mein Hauptwohnsitz",
+      "platforms": "Genutzte Plattformen",
+      "nightsPlanned": "Geplante Übernachtungen über 12 Monate"
+    },
+    "propertyTypes": {
+      "apartment": "Gesamte Wohnung",
+      "house": "Gesamtes Haus",
+      "room": "Privatzimmer"
+    },
+    "warnLicense": "Mehr als 90 Tage/Jahr = LU-Beherbergungslizenz erforderlich.",
+    "seeCompliance": "Siehe /str/compliance",
+    "timing": {
+      "label": "Timing EU-Verordnung 2024/1028:",
+      "body": "Inkrafttreten Mitte 2026. Jeder Mitgliedstaat muss sein nationales Register einrichten. Für Luxemburg wird das Tourismusministerium wahrscheinlich die zuständige Behörde sein (im Mémorial A zu bestätigen). Plattformen (Airbnb, Booking) müssen den Behörden die Übernachtungen pro identifiziertem Objekt übermitteln."
+    },
+    "downloadPdf": "PDF-Dossier herunterladen"
+  },
+  "strPortefeuille": {
+    "back": "Kurzzeitvermietung",
+    "title": "STR-Portfolio",
+    "subtitle": "Multi-Objekt-Dashboard für STR-Concierge oder Investor (10-50 Einheiten). Aggregierte ADR/Auslastung/Umsatz, LU-Lizenzstatus (90-Tage-Schwelle), EU 2024/1028-Registrierung.",
+    "signIn": "Melden Sie sich an, um Ihr STR-Portfolio zu verwalten.",
+    "loading": "Laden…",
+    "cancel": "Abbrechen",
+    "addProperty": "+ Objekt hinzufügen",
+    "delete": "Löschen",
+    "empty": "Keine Objekte. Fügen Sie eines hinzu, um zu starten.",
+    "confirmDelete": "Dieses Objekt aus dem Portfolio löschen?",
+    "kpi": {
+      "nbProps": "Anz. Objekte",
+      "annualRevenue": "Geschätzter Jahresumsatz",
+      "avgAdr": "Durchschnittlicher ADR",
+      "avgOccupancy": "Durchschnittliche Auslastung"
+    },
+    "licenses": {
+      "summary": "Lizenzen: {obtained} erhalten · {pending} in Bearbeitung · {eu}/{total} EU-registriert"
+    },
+    "types": {
+      "apartment": "Wohnung",
+      "house": "Haus",
+      "room": "Zimmer",
+      "studio": "Studio",
+      "villa": "Villa"
+    },
+    "license": {
+      "notRequired": "Nicht erforderlich (< 90T)",
+      "pending": "In Bearbeitung",
+      "obtained": "Erhalten",
+      "expired": "Abgelaufen"
+    },
+    "form": {
+      "name": "Name",
+      "commune": "Gemeinde",
+      "surface": "Fläche m²",
+      "capacity": "Kapazität pax",
+      "adr": "ADR €",
+      "occupancy": "Auslastung %",
+      "primaryOta": "Haupt-OTA",
+      "addBtn": "Zum Portfolio hinzufügen"
+    },
+    "table": {
+      "name": "Name",
+      "type": "Typ",
+      "commune": "Gemeinde",
+      "surface": "Fläche",
+      "adr": "ADR",
+      "occ": "Ausl.",
+      "revenue": "Jahresums.",
+      "license": "Lizenz",
+      "actions": "Aktionen"
+    }
   }
 }

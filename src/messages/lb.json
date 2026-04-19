@@ -9789,5 +9789,99 @@
       "ltMonths": "LT ({n} Méint)",
       "totalMixed": "Total gemëscht"
     }
+  },
+  "strComplianceEu": {
+    "back": "Kuerzzäitvermietung",
+    "title": "EU STR-Registre 2024/1028",
+    "subtitle": "Virbereedung vum Registréierungsdossier am eenzegen europäesche Kuerzzäitvermietungs-Registre. Verordnung (EU) 2024/1028 — Inkrafttriede Mëtt 2026. Verflichtungen: obligatoresch Identifikatiounsnummer op all Listings, Iwwermëttlung vun den Nuechten un d'Gemengen.",
+    "regNumber": {
+      "label": "Virausgefëllt Identifikatiounsnummer",
+      "note": "Indikativt Format — bei offizieller Ofgab vun Ärer Gemeng ze validéieren. Endgültegt Format vum Tourismusministère virginn."
+    },
+    "section1": "1. Proprietär-Identitéit",
+    "section2": "2. D'vermiete Wunneng",
+    "section3": "3. Exploitatioun",
+    "fields": {
+      "hostName": "Vollstännegen Numm",
+      "hostEmail": "E-Mail",
+      "hostAddress": "Wunnadress",
+      "hostPhone": "Telefon",
+      "hostTaxId": "LU Steiernummer (13 Ziffern)",
+      "rcsl": "RCSL (wann Gesellschaft)",
+      "propertyAddress": "Objetsadress",
+      "propertyCommune": "Gemeng",
+      "surface": "Surface m²",
+      "maxCapacity": "Max. Kapacitéit",
+      "primaryResidence": "D'Immobilie ass meng Haaptwunneng",
+      "platforms": "Genotzt Plattformen",
+      "nightsPlanned": "Geplangte Nuechten iwwer 12 Méint"
+    },
+    "propertyTypes": {
+      "apartment": "Ganzt Appartement",
+      "house": "Ganzt Haus",
+      "room": "Privatchamber"
+    },
+    "warnLicense": "Méi wéi 90 Deeg/Joer = LU-Hébergement-Lizenz erfuerderlech.",
+    "seeCompliance": "Kuckt /str/compliance",
+    "timing": {
+      "label": "Timing EU-Verordnung 2024/1028:",
+      "body": "Inkrafttriede Mëtt 2026. All Memberstaat muss säin nationale Registre opbauen. Fir Lëtzebuerg wäert de Tourismusministère wahrscheinlech zoustänneg sinn (am Mémorial A ze bestätegen). Plattformen (Airbnb, Booking) mussen den Autoritéiten d'Nuechte pro identifizéiertem Objet iwwermëttelen."
+    },
+    "downloadPdf": "PDF-Dossier erofluedelen"
+  },
+  "strPortefeuille": {
+    "back": "Kuerzzäitvermietung",
+    "title": "STR-Portfolio",
+    "subtitle": "Multi-Objet-Dashboard fir STR-Conciergerie oder Investisseur (10-50 Unitéiten). Aggregéiert ADR/Belegung/Ëmsaz, LU-Lizenzstatus (90-Deeg-Schwell), EU 2024/1028-Registréierung.",
+    "signIn": "Mellt Iech un fir Äert STR-Portfolio ze verwalten.",
+    "loading": "Lueden…",
+    "cancel": "Ofbriechen",
+    "addProperty": "+ Objet bäifügen",
+    "delete": "Läschen",
+    "empty": "Keng Objeten. Füügt een bäi fir ze starten.",
+    "confirmDelete": "Dëst Objet aus dem Portfolio läschen?",
+    "kpi": {
+      "nbProps": "Zuel Objeten",
+      "annualRevenue": "Geschätzt Jorakommes",
+      "avgAdr": "Duerschnëtts-ADR",
+      "avgOccupancy": "Duerschnëttsbelegung"
+    },
+    "licenses": {
+      "summary": "Lizenzen: {obtained} kritt · {pending} an Aarbecht · {eu}/{total} EU-registréiert"
+    },
+    "types": {
+      "apartment": "Appartement",
+      "house": "Haus",
+      "room": "Chamber",
+      "studio": "Studio",
+      "villa": "Villa"
+    },
+    "license": {
+      "notRequired": "Net erfuerderlech (< 90D)",
+      "pending": "An Aarbecht",
+      "obtained": "Kritt",
+      "expired": "Ofgelaf"
+    },
+    "form": {
+      "name": "Numm",
+      "commune": "Gemeng",
+      "surface": "Surface m²",
+      "capacity": "Kapacitéit pax",
+      "adr": "ADR €",
+      "occupancy": "Belegung %",
+      "primaryOta": "Haapt-OTA",
+      "addBtn": "Zum Portfolio bäifügen"
+    },
+    "table": {
+      "name": "Numm",
+      "type": "Typ",
+      "commune": "Gemeng",
+      "surface": "Surface",
+      "adr": "ADR",
+      "occ": "Bel.",
+      "revenue": "Jorëmsaz",
+      "license": "Lizenz",
+      "actions": "Aktiounen"
+    }
   }
 }
