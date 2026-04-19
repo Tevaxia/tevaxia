@@ -259,11 +259,37 @@ Utilisateur a appliqué les 10 migrations Supabase en prod. Session reprend sur 
 
 **Total session cumulé (run 1 + run 2)** : **~60 commits** · ~33 000 lignes · **13 migrations** (045–055) · +295 tests · **916 tests** passent.
 
-### Checklist migrations Supabase supplémentaires
+### Round 7 — Facturation, finitions et legal (2026-04-19)
 
-Nouvelle migration ajoutée dans cette run (à appliquer) :
+Session longue (~14 commits) qui clôture les T5-T6 restants et lance le nouveau module Facturation électronique en V1.2 complet.
 
-- [ ] `supabase/migrations/055_pms_groups.sql` — table pms_groups + trigger sync rooms_booked + colonne group_id sur pms_reservations
+**Syndic** :
+- **OCR factures 100% gratuit** (4bf93af) — lib `syndic-ocr-parser.ts` heuristique 14 champs (fournisseur, IBAN, BIC, TVA, montants, dates ISO) + page `/ocr-factures` avec PDF.js + Tesseract.js fallback, **traitement 100% navigateur**, zéro appel IA externe. 18 tests.
+- **Rapprochement bancaire PSD2 live** (c747056) — intégration Enable Banking sur page `/rapprochement` : sélection banque LU/BE/FR/DE/NL, SCA LuxTrust, import transactions 90j max, auto-matching contre appels impayés (réutilise scoring existant).
+
+**Hôtellerie** :
+- **Workflow pré-acquisition hôtelière** (df70508) — `/hotellerie/pre-acquisition` ARGUS-killer : triangulation valorisation 3 méthodes (multiple EBITDA, prix/clé LU, DCF 5y + Gordon), DSCR + LTV, business plan 10 ans, exit value 5/7/10 ans, TRI equity + equity multiple, score go/no-go 0-100 avec 5 signals. Persistance localStorage. 15 tests unitaires.
+
+**Facturation électronique V1 → V1.2** (nouveau module) :
+- **V1 core** (0dcfeff) — lib `factur-x.ts` : XML CII D22B conforme EN 16931, 5 profils Factur-X, calculs totaux ventilés TVA, tables FR (20/10/5,5/2,1) + LU (17/14/8/3), validation 11 business rules, numérotation CGI. 42 tests. Landing `/facturation` 5 langues.
+- **Pivot messaging honnête** (dedbfb7) — retire claims vaporware « agrément PDP en cours », repositionne en « outil de préparation, tu gardes la main sur ta PA ». Q5 FAQ explique pourquoi pas d'intégration API PAs directe.
+- **V1.1** (d2062b8) — UI émission `/facturation/emission` avec formulaire complet + 6 templates métier + totaux live + validation EN 16931 avant génération + double-download PDF+XML. Lib `factur-x-pdf.ts` (pdf-lib) : rendu A4 + embed XML pièce jointe + métadonnées XMP Factur-X. API `POST /api/v1/facturation/generate` protégée par X-API-Key (pdf/xml/json). Hook `/gestion-locative/paiements` bouton Factur-X par ligne de loyer.
+- **V1.2** (f78b385) — **migration 056** `factur_x_history` + RLS owner-only + fonction purge. Page `/facturation/historique` liste/re-download/édition/suppression. Hook auto : emission sauvegarde dans historique après génération réussie. Rétention 12 mois.
+
+**Legal & UX** :
+- **CGU complètes i18n 5 langues** (7762108) — 10 articles (objet, accès, tarifs, engagements, responsabilité, PI, RGPD, durée, modification, droit applicable). Page `/cgu` + lien footer.
+- **Fix i18n 3 pages critiques** (0c461a8) — `/hotellerie/pre-acquisition`, `/actions-prioritaires`, `/api-docs` refactorés avec useTranslations. ~120 clés × 5 langues.
+- **Copy `/syndic` moins racoleur** (4d46402) — « Pack syndic complet » → « Outils complémentaires ». Memory `feedback_tone_marketing` enregistrée.
+- **Footer épuré** (2d5d4d1) — 6 colonnes → 4 (logo + légal + sources + contact), retire doublons du header.
+- **MAJ confidentialité + mentions légales 5 langues** (2f2d4db) — 4 nouvelles catégories de données (B2B métier, PSD2, OCR, paiements), 2 sous-traitants ajoutés (Stripe IE, Enable Banking FI), obligations LU 10 ans compta et 5 ans AML, mention traitement client-side OCR + JWT RS256 PSD2.
+
+**Total session cumulé (runs 1+2+3)** : **~74 commits** · ~37 500 lignes · **14 migrations** (045–056) · +310 tests · **991 tests** passent.
+
+### Checklist migrations Supabase
+
+- [x] 045-054 (appliquées round 5)
+- [x] 055 pms_groups (appliquée round 6)
+- [x] 056 facturation_history (appliquée round 7, 2026-04-19)
 
 ---
 
@@ -437,9 +463,10 @@ Cible commerciale T1 2027 : 2 hôtels + 2 copros + 3 agences pilotes en producti
 - **Erreurs connues** :
   - Si "new row violates RLS policy for organizations" : appliquer migration 054.
   - Si cookie session absent en preview Vercel : domain `.tevaxia.lu` configuré dans `lib/supabase.ts`, les preview deploys ne reçoivent pas le cookie.
-  - Si Supabase RPC not found : migrations 045–054 non appliquées en prod.
+  - Si Supabase RPC not found : migrations 045–056 non appliquées en prod.
+  - Si `/facturation/historique` affiche vide malgré factures générées : vérifier que migration 056 est appliquée.
 
 ---
 
-**Fin du document.** Dernière mise à jour : 2026-04-18, commit b3cfb22.
+**Fin du document.** Dernière mise à jour : 2026-04-19, commit `f78b385`.
 

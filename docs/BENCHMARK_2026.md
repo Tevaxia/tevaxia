@@ -630,7 +630,7 @@
 
 ---
 
-## 25bis. 🆕 Short-Term Rentals / Airbnb / Saisonnier — **à créer (0% couvert)**
+## 25bis. Short-Term Rentals / Airbnb / Saisonnier — **100% livré**
 
 **Usage cible** : propriétaire LU qui loue son bien en courte durée (Airbnb, Booking Stays, Vrbo) ; investisseur arbitrant entre location long terme (règle 5%) et court terme ; gestionnaire STR pro (conciergerie, multi-biens).
 
@@ -658,9 +658,9 @@
 - **Intelligence données** : **AirDNA** (données marché STR — ADR, occupation, RevPAR par ville/quartier, référence mondiale), Transparent, Key Data
 - **Niche LU** : **aucun SaaS dédié**. Services de conciergerie traditionnels (My Lux Stay, Quintessential Lux) en humain uniquement → opportunité SaaS.
 
-**État actuel sur tevaxia : 0% de couverture** (seule l'hôtellerie « classique » est couverte).
+**État actuel sur tevaxia : 100% livré** — modules `/str/rentabilite`, `/str/compliance`, `/str/arbitrage`, `/str/forecast`, `/str/pricing`, `/str/observatoire`, `/str/portefeuille` en production (commits `8b1c8f9`, `4228ad6`, `ad6f599`, `4450ceb`, `ab0ba79`).
 
-**Ce qu'on devrait construire** :
+**Détail des modules livrés** :
 
 ### 25bis.A — `/str/rentabilite` — Calculateur rentabilité STR LU
 Simuler le revenu annuel net d'un bien loué en Airbnb/Booking au Luxembourg.
@@ -999,6 +999,102 @@ ALTER TABLE organizations
 - Hôtellerie indépendants LU + Grande Région : ~200 hôtels budgets inférieurs à 5 M€, mal servis par OPERA/Mews (trop chers) → TAM ~€500k-1M ARR.
 
 Ces deux verticaux justifient une roadmap « compte & rôles » dédiée, séparée du travail générique sur `/profil`.
+
+---
+
+## 31. Facturation électronique (`/facturation`) — **livré 2026-04-19**
+
+**Usage cible** : tout assujetti TVA FR concerné par la réforme e-invoicing du 01/09/2026 (réception obligatoire toutes entreprises, émission progressive 2026-2027 selon taille). LU : migration progressive vers Peppol BIS Billing 3.0 (B2G obligatoire).
+
+**Contexte réglementaire** :
+- **France** : Art. 289 bis CGI + Ordonnance 2021-1190. Factur-X obligatoire format mixte (PDF/A-3 + XML EN 16931 CII) ou CII/UBL seul via PPF/PDP. Réception 01/09/2026 toutes tailles. Émission échelonnée (GE/ETI 01/09/2026, PME/TPE 01/09/2027). Archivage 10 ans Art. L102 B LPF.
+- **Luxembourg** : Règlement grand-ducal 22.12.2006 (amendé 2023). Peppol BIS Billing 3.0 pour B2G depuis 2022, extension B2B en discussion. Art. 65 §1 Loi TVA — conservation 10 ans.
+- **EN 16931** : norme sémantique UE (Directive 2014/55 + UE 2020/4). CII D22B (UN/CEFACT) ou UBL 2.1 (OASIS).
+
+**Benchmarks concurrents** (avril 2026) :
+- **PDP agréées DGFiP** (liste officielle impots.gouv.fr) : Docaposte, Esker, Generix, Cegid, Sellsy PDP, Sage, Pennylane, Qonto, Tenor… >90 acteurs
+- **Éditeurs SaaS spécialisés immo** : **aucun concurrent LU**. En FR : Rentila (bailleurs), Immofacile (syndics) — pas de Factur-X natif avant 2026
+- **Factur-X open source** : Mustang (Java), facturx-java, factur-x-python, factur-x-php — majoritairement côté back-office. Zéro solution JS/TS packagée UI-ready.
+
+**État actuel sur tevaxia : V1.2 livré, statut OD (pas PDP agréée)**
+
+**Modules livrés** :
+
+### 31.A — `/facturation` (landing) — positionnement honnête
+- Pitch « outil de préparation Factur-X, tu gardes la main sur ta PA »
+- 6 différenciateurs métier immo (bailleur, syndic, hôtelier, bail commercial, expert, générique)
+- Compliance FR (Art. 242 nonies A, L102 B LPF) + LU (RGD 22.12.2006, Peppol, Art. 65 §1)
+- Pricing freemium : Free 0€ (5/mois) / Essentiel 12€ (50/mois) / Pro 29€ (illimité)
+- FAQ transparente : PDP non agréée, Q5 explique pourquoi pas d'intégration directe API PAs
+
+### 31.B — `/facturation/emission` — formulaire complet
+- 6 templates métier (générique / bailleur / syndic / hôtel LU / bail commercial / expert) avec pré-remplissage lignes + notes + TVA par défaut
+- Vendeur + acheteur avec SIREN/RCS/TVA intracom + 7 pays UE
+- Lignes ajoutables avec Qté, PU HT, taux TVA (FR 20/10/5,5/2,1 ou LU 17/14/8/3), catégorie TVA (S/E/Z/AE/K)
+- Paiement IBAN/BIC + référence + conditions
+- Notes libres multi-lignes
+- Totaux live par taux TVA + grand total
+- Validation EN 16931 BR-* avant génération
+- Double-download PDF/A-3 + XML standalone
+- Persistance draft localStorage
+
+### 31.C — `src/lib/facturation/factur-x.ts` — lib core (42 tests)
+- Génération XML CII D22B conforme Factur-X v1.0.07 / EN 16931
+- 5 profils (MINIMUM / BASIC_WL / BASIC / EN_16931 / EXTENDED)
+- Calcul totaux avec ventilation TVA par taux (BR-CO-17), remises ligne
+- Tables TVA FR + LU
+- Validation 11 business rules EN 16931 (BR-02 à BR-27)
+- Numérotation Art. 242 nonies A annexe II CGI
+
+### 31.D — `src/lib/facturation/factur-x-pdf.ts` — PDF/A-3 (via pdf-lib)
+- Rendu visuel A4 : header, vendeur/acheteur, table lignes, totaux, paiement, notes, footer Factur-X
+- Embed XML EN 16931 en pièce jointe (AFRelationship Alternative)
+- Métadonnées XMP Factur-X 1.0 profil BASIC dans catalogue PDF
+- Pur JS (pas de dep native), fonctionne client + serveur
+
+### 31.E — `POST /api/v1/facturation/generate` — API publique
+- Protection par X-API-Key (plan Pro)
+- Body JSON FacturXInvoice
+- Formats de sortie : pdf (défaut) / xml / json (base64)
+- Validation EN 16931 avant génération, HTTP 422 si erreurs
+
+### 31.F — `/facturation/historique` — plan Essentiel+ (migration 056)
+- Table `factur_x_history` Supabase, RLS owner-only, rétention 12 mois
+- Liste avec recherche (numéro / client / vendeur)
+- Re-download identique (régénération depuis JSON, signature reproducible)
+- Édition (charge dans draft emission)
+- Suppression
+- Fonction `purge_expired_factur_x_history()` pour cron quotidien
+
+### 31.G — Hook `/gestion-locative/lot/[id]/paiements` — intégration workflow
+- Bouton « Factur-X » sur chaque ligne de loyer
+- Pré-remplit le draft emission (seller = bailleur, buyer = locataire, ligne loyer exempt TVA art. 261 D CGI, charges séparées)
+- localStorage transfer + navigate
+
+**Différenciateurs vs concurrents** :
+| Critère | tevaxia | Pennylane | Sellsy | Mustang (OSS) |
+|---------|---------|-----------|--------|---------------|
+| Templates métier immo | ✅ 6 | ❌ | ❌ | ❌ |
+| TVA LU native | ✅ 3/8/14/17% | ⚠ FR only | ⚠ FR only | ❌ |
+| PDP agréée DGFiP | ❌ | ✅ | ✅ | N/A |
+| Freemium | ✅ 5/mois | ❌ | ❌ | N/A (lib) |
+| Hook gestion locative | ✅ | ❌ | ❌ | ❌ |
+| Factur-X client-side | ✅ | ❌ | ❌ | ❌ |
+| API publique | ✅ (Pro) | ✅ | ✅ | N/A |
+
+**Roadmap V2 (à planifier)** :
+- **V1.3** : conformité PDF/A-3B stricte (ICC profile, veritypdf validation)
+- **V1.4** : hook syndic (répartition charges → factures groupées copropriétaires)
+- **V1.5** : hook PMS (check-out hôtel → Factur-X TVA 3% + taxe séjour auto)
+- **V2** : connecteur PDP partenaire (Docaposte/Sellsy/Tenor — transit PPF)
+- **V2.1** : Peppol BIS Billing 3.0 pour flux B2G LU
+- **V3** : dossier agrément PDP DGFiP (business dev 6-12 mois, capital, ISO 27001, AFNOR)
+
+**Impact business estimé** :
+- ~350 000 entreprises FR touchées par l'obligation réception 01/09/2026
+- ~4 600 établissements hôteliers / hébergement LU (STATEC 2024)
+- ~80 000 bailleurs SCI particuliers en FR cherchant un outil gratuit (TAM niche)
+- Pricing freemium → conversion naturelle au 2e mois pour bailleur >5 lots
 
 ---
 
