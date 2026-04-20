@@ -92,7 +92,13 @@
       "rgpd": "GDPR compliant",
       "rgpdDesc": "Export, deletion, consents",
       "tests": "172 automated tests",
-      "testsDesc": "Verified code quality"
+      "testsDesc": "Verified code quality",
+      "agileTitle": "Agile development",
+      "agileDesc": "New modules shipped every 2 weeks. Public backlog on github.com/Tevaxia.",
+      "customTitle": "Custom work possible",
+      "customDesc": "A specific format, an unusual calculation, a bespoke integration: 1 to 3 weeks of dev.",
+      "supportTitle": "Support under 24 hours",
+      "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days, from a human who knows the product."
     },
     "missingTool": "Missing a tool?",
     "missingToolDescription": "tevaxia.lu is under active development. If you need a specific calculator, a feature for your professional practice, or if you find an error in our calculations — let us know.",

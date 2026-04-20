@@ -33,6 +33,17 @@ const ENERGY_PAGES = [
   "/epbd", "/estimateur-cpe", "/lenoz", "/portfolio", "/hvac",
 ];
 
+// Landing pages persona-spécifiques pour paid traffic (Google/Bing Ads).
+// Priorité haute car destinations de campagnes et points de conversion.
+const SOLUTIONS_PAGES = [
+  "/solutions/syndic",
+  "/solutions/agence",
+  "/solutions/hotel",
+  "/solutions/expert-evaluateur",
+  "/solutions/investisseur",
+  "/solutions/particulier",
+];
+
 function localeUrl(page: string, locale: string) {
   if (locale === "fr") return `${BASE}${page}`;
   return `${BASE}/${locale}${page}`;
@@ -74,6 +85,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Pages outils — priorité moyenne
   addPages(entries, MEDIUM_PRIORITY, now, 0.8, "monthly");
+
+  // Landings persona-spécifiques — priorité élevée (conversion pages)
+  addPages(entries, SOLUTIONS_PAGES, now, 0.9, "weekly");
 
   // Pages utilitaires — priorité basse
   addPages(entries, LOW_PRIORITY, now, 0.6, "monthly");

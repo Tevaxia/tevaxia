@@ -92,7 +92,13 @@
       "rgpd": "DSGVO-konform",
       "rgpdDesc": "Export, Löschung, Einwilligungen",
       "tests": "172 automatisierte Tests",
-      "testsDesc": "Verifizierte Codequalität"
+      "testsDesc": "Verifizierte Codequalität",
+      "agileTitle": "Agile Entwicklung",
+      "agileDesc": "Neue Module alle 2 Wochen. Öffentliches Backlog auf github.com/Tevaxia.",
+      "customTitle": "Individuelle Entwicklung",
+      "customDesc": "Spezielles Format, ungewöhnliche Berechnung, maßgeschneiderte Integration: 1 bis 3 Wochen Entwicklung.",
+      "supportTitle": "Support innerhalb von 24 Stunden",
+      "supportDesc": "E-Mail an contact@tevaxia.lu. Durchschnittliche Antwort unter 6 Stunden an Werktagen."
     },
     "missingTool": "Fehlt Ihnen ein Tool?",
     "missingToolDescription": "tevaxia.lu befindet sich im aktiven Aufbau. Wenn Sie einen bestimmten Rechner, eine Funktion für Ihre berufliche Praxis benötigen oder einen Fehler in unseren Berechnungen feststellen — lassen Sie es uns wissen.",

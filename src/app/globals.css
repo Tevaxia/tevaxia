@@ -57,11 +57,18 @@ body {
   color: var(--foreground);
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #C8A95140; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #C8A95180; }
+/* Custom scrollbar — navy solid, better discoverability + accessibility */
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: #F1EFEA; }
+::-webkit-scrollbar-thumb {
+  background: #1B2A4A;
+  border-radius: 6px;
+  border: 2px solid #F1EFEA;
+}
+::-webkit-scrollbar-thumb:hover { background: #2D4A7A; }
+
+/* Firefox */
+html { scrollbar-width: auto; scrollbar-color: #1B2A4A #F1EFEA; }
 
 /* Number input arrows removal */
 input[type="number"]::-webkit-inner-spin-button,
