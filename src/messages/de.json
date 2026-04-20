@@ -83,26 +83,16 @@
     "heroTitle": "40+ LU Immobilien-Tools,",
     "heroHighlight": "ein Ort",
     "heroDescription": "Privatperson, Investor, Bauträger, Makler, Hausverwalter, Bank oder Hotelier — wählen Sie Ihr Profil und greifen Sie auf die passenden Tools zu. Öffentliche Daten, LU-konform, 5 Sprachen.",
-    "personas": {
-      "title": "Finden Sie die für Ihren Beruf passende Lösung",
-      "subtitle": "Jedes Profil hat seine eigenen Tools, LU-Rechtspflichten und Workflows. Klicken Sie auf Ihr Profil, um die dedizierten Module und Anwendungsfälle zu sehen.",
-      "seeSolution": "Lösung ansehen",
-      "items": {
-        "syndic": { "title": "Hausverwaltung / Syndic", "desc": "Online-Eigentümerversammlungen, Factur-X-Mittelabrufe, LU-Buchhaltung, konform Gesetz 16.05.1975." },
-        "agence": { "title": "Immobilienmakler", "desc": "OpenImmo-Mandatspipeline, Kontakt-CRM, Käufer-Matching, Objekt-PDFs." },
-        "hotel": { "title": "Hotellerie", "desc": "Multi-Objekt-PMS, USALI-Folios, LU-MwSt 3%-Rechnung, 90-Tage-Forecast." },
-        "expert-evaluateur": { "title": "Gutachter / Experte", "desc": "TEGOVA EVS 2025-Bericht in 20 Min, 8 Methoden, 9 Asset-Typen." },
-        "investisseur": { "title": "Investor", "desc": "Renditerechner, LU-Erwerbskosten, Veräußerungsgewinne, Multi-Mieter-DCF." },
-        "particulier": { "title": "Privatperson", "desc": "Schätzung, Bëllegen Akt, 5%-Mietdeckel, Förderrechner, Kauf vs. Miete." }
-      }
-    },
     "trust": {
-      "agileTitle": "Agile Entwicklung",
-      "agileDesc": "Neue Module alle 2 Wochen. Öffentliches Backlog auf github.com/Tevaxia.",
-      "customTitle": "Individuelle Entwicklung",
-      "customDesc": "Spezielles Format, ungewöhnliche Berechnung, maßgeschneiderte Integration: 1 bis 3 Wochen Entwicklung.",
-      "supportTitle": "Support innerhalb von 24 Stunden",
-      "supportDesc": "E-Mail an contact@tevaxia.lu. Durchschnittliche Antwort unter 6 Stunden an Werktagen, von einem Menschen, der das Produkt kennt."
+      "heading": "Solide Grundlagen",
+      "tegova": "TEGOVA EVS 2025",
+      "tegovaDesc": "Konforme Methodik",
+      "data": "Öffentliche Daten LU",
+      "dataDesc": "data.public.lu, STATEC",
+      "rgpd": "DSGVO-konform",
+      "rgpdDesc": "Export, Löschung, Einwilligungen",
+      "tests": "172 automatisierte Tests",
+      "testsDesc": "Verifizierte Codequalität"
     },
     "missingTool": "Fehlt Ihnen ein Tool?",
     "missingToolDescription": "tevaxia.lu befindet sich im aktiven Aufbau. Wenn Sie einen bestimmten Rechner, eine Funktion für Ihre berufliche Praxis benötigen oder einen Fehler in unseren Berechnungen feststellen — lassen Sie es uns wissen.",
@@ -320,17 +310,6 @@
     },
     "heroCta1": "Meine Tools finden",
     "heroCta2": "40+ Module entdecken",
-    "trust": {
-      "heading": "Solide Grundlagen",
-      "tegova": "TEGOVA EVS 2025",
-      "tegovaDesc": "Konforme Methodik",
-      "data": "Öffentliche Daten LU",
-      "dataDesc": "data.public.lu, STATEC",
-      "rgpd": "DSGVO-konform",
-      "rgpdDesc": "Export, Löschung, Einwilligungen",
-      "tests": "172 automatisierte Tests",
-      "testsDesc": "Verifizierte Codequalität"
-    },
     "guideSection": {
       "title": "Häufige Fragen zur Immobilie in Luxemburg",
       "subtitle": "12 praktische Leitfäden mit Gesetzesverweisen. Jede Antwort verlinkt auf ein Berechnungstool.",

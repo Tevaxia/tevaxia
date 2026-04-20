@@ -83,44 +83,16 @@
     "heroTitle": "40+ LU real estate tools,",
     "heroHighlight": "one place",
     "heroDescription": "Homeowner, investor, developer, agent, property manager, bank or hotelier — pick your profile and access the tools for your job. Public data, Luxembourg compliance, 5 languages.",
-    "personas": {
-      "title": "Find the solution built for your role",
-      "subtitle": "Each profile has its own tools, LU legal obligations and workflows. Click yours to see the dedicated modules and use cases.",
-      "seeSolution": "See the solution",
-      "items": {
-        "syndic": {
-          "title": "Property manager / Syndic",
-          "desc": "Online AGMs, Factur-X fund calls, LU accounting, compliant with 16.05.1975 law."
-        },
-        "agence": {
-          "title": "Real estate agency",
-          "desc": "OpenImmo mandate pipeline, contact CRM, buyer matching, property PDF sheets."
-        },
-        "hotel": {
-          "title": "Hospitality",
-          "desc": "Multi-property PMS, USALI folios, LU 3% VAT invoicing, 90-day forecast."
-        },
-        "expert-evaluateur": {
-          "title": "Valuer / Expert",
-          "desc": "TEGOVA EVS 2025 report in 20 min, 8 methods, 9 asset types."
-        },
-        "investisseur": {
-          "title": "Investor",
-          "desc": "Yield calculator, LU acquisition fees, capital gains, multi-tenant DCF."
-        },
-        "particulier": {
-          "title": "Individual buyer",
-          "desc": "Estimation, Bëllegen Akt, 5% rent cap, subsidy simulator, buy vs rent."
-        }
-      }
-    },
     "trust": {
-      "agileTitle": "Agile development",
-      "agileDesc": "New modules shipped every 2 weeks. Public backlog on github.com/Tevaxia.",
-      "customTitle": "Custom work possible",
-      "customDesc": "A specific format, an unusual calculation, a bespoke integration: 1 to 3 weeks of dev.",
-      "supportTitle": "Support under 24 hours",
-      "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days, from a human who knows the product."
+      "heading": "Solid foundations",
+      "tegova": "TEGOVA EVS 2025",
+      "tegovaDesc": "Compliant methodology",
+      "data": "LU public data",
+      "dataDesc": "data.public.lu, STATEC",
+      "rgpd": "GDPR compliant",
+      "rgpdDesc": "Export, deletion, consents",
+      "tests": "172 automated tests",
+      "testsDesc": "Verified code quality"
     },
     "missingTool": "Missing a tool?",
     "missingToolDescription": "tevaxia.lu is under active development. If you need a specific calculator, a feature for your professional practice, or if you find an error in our calculations — let us know.",
@@ -338,17 +310,6 @@
     },
     "heroCta1": "Find my tools",
     "heroCta2": "Explore 40+ modules",
-    "trust": {
-      "heading": "Solid foundations",
-      "tegova": "TEGOVA EVS 2025",
-      "tegovaDesc": "Compliant methodology",
-      "data": "LU public data",
-      "dataDesc": "data.public.lu, STATEC",
-      "rgpd": "GDPR compliant",
-      "rgpdDesc": "Export, deletion, consents",
-      "tests": "172 automated tests",
-      "testsDesc": "Verified code quality"
-    },
     "guideSection": {
       "title": "Frequently asked questions about Luxembourg real estate",
       "subtitle": "12 practical guides with legal references. Each answer links to a calculation tool.",
@@ -5891,9 +5852,18 @@
         "cta": "Start for free",
         "ctaSecondary": "See how it works",
         "kpis": [
-          { "value": "15 h", "label": "saved per AGM" },
-          { "value": "100%", "label": "16.05.1975 law compliant" },
-          { "value": "<24 h", "label": "support response time" }
+          {
+            "value": "15 h",
+            "label": "saved per AGM"
+          },
+          {
+            "value": "100%",
+            "label": "16.05.1975 law compliant"
+          },
+          {
+            "value": "<24 h",
+            "label": "support response time"
+          }
         ]
       },
       "problem": {
@@ -5942,18 +5912,54 @@
         "title": "Everything a Luxembourg property manager actually needs",
         "intro": "Features built for the Grand Duchy's legal framework: 16 May 1975 law, AGM majority rules, VAT exemption art. 44 §1 f, 10-year archiving.",
         "items": [
-          { "title": "Online AGMs with weighted voting", "desc": "Electronic voting weighted by tantièmes, simple / absolute / double / unanimity majorities handled automatically." },
-          { "title": "Convocations + PDF minutes", "desc": "Per-unit convocation with legal agenda, auto-generated minutes after the AGM with each resolution's results." },
-          { "title": "Factur-X fund calls", "desc": "PDF/A-3 + CII D22B XML compliant with EN 16931, SEPA mandate reference, art. 261 D CGI exemption applied." },
-          { "title": "3-tier unpaid reminders", "desc": "Friendly reminder, formal notice, demand for payment. Luxembourg legal interest rates computed automatically." },
-          { "title": "5 AGM accounting annexes", "desc": "Balance, journal, budget forecast, charge allocation, unpaid status. PDFs ready to distribute." },
-          { "title": "PSD2 bank reconciliation", "desc": "Connection to BCEE, BIL, Banque Raiffeisen, Post Finance via Enable Banking. Automatic reconciliation." },
-          { "title": "Configurable allocation keys", "desc": "General tantièmes, operating tantièmes, special charges per staircase/building, custom shares." },
-          { "title": "Co-owner portal", "desc": "Each co-owner accesses their own space: voting, statement, convocations, minutes, online payment." },
-          { "title": "10 editable letter templates", "desc": "Reminders, convocations, formal notices, proxies. Fully customisable, DOCX / PDF / Google Drive export." },
-          { "title": "Free invoice OCR", "desc": "Upload supplier invoices, automatic extraction via PDF.js + Tesseract.js. Zero manual data entry." },
-          { "title": "Bulk SEPA transfers", "desc": "pain.001 XML generation for grouped supplier payments, compatible with all Luxembourg banks." },
-          { "title": "Charges benchmark", "desc": "Compare your per-m² charges with the Luxembourg average by residence type and construction year." }
+          {
+            "title": "Online AGMs with weighted voting",
+            "desc": "Electronic voting weighted by tantièmes, simple / absolute / double / unanimity majorities handled automatically."
+          },
+          {
+            "title": "Convocations + PDF minutes",
+            "desc": "Per-unit convocation with legal agenda, auto-generated minutes after the AGM with each resolution's results."
+          },
+          {
+            "title": "Factur-X fund calls",
+            "desc": "PDF/A-3 + CII D22B XML compliant with EN 16931, SEPA mandate reference, art. 261 D CGI exemption applied."
+          },
+          {
+            "title": "3-tier unpaid reminders",
+            "desc": "Friendly reminder, formal notice, demand for payment. Luxembourg legal interest rates computed automatically."
+          },
+          {
+            "title": "5 AGM accounting annexes",
+            "desc": "Balance, journal, budget forecast, charge allocation, unpaid status. PDFs ready to distribute."
+          },
+          {
+            "title": "PSD2 bank reconciliation",
+            "desc": "Connection to BCEE, BIL, Banque Raiffeisen, Post Finance via Enable Banking. Automatic reconciliation."
+          },
+          {
+            "title": "Configurable allocation keys",
+            "desc": "General tantièmes, operating tantièmes, special charges per staircase/building, custom shares."
+          },
+          {
+            "title": "Co-owner portal",
+            "desc": "Each co-owner accesses their own space: voting, statement, convocations, minutes, online payment."
+          },
+          {
+            "title": "10 editable letter templates",
+            "desc": "Reminders, convocations, formal notices, proxies. Fully customisable, DOCX / PDF / Google Drive export."
+          },
+          {
+            "title": "Free invoice OCR",
+            "desc": "Upload supplier invoices, automatic extraction via PDF.js + Tesseract.js. Zero manual data entry."
+          },
+          {
+            "title": "Bulk SEPA transfers",
+            "desc": "pain.001 XML generation for grouped supplier payments, compatible with all Luxembourg banks."
+          },
+          {
+            "title": "Charges benchmark",
+            "desc": "Compare your per-m² charges with the Luxembourg average by residence type and construction year."
+          }
         ]
       },
       "trust": {
@@ -8321,56 +8327,206 @@
       "notSure": "Not sure which profile fits you? The 'Individual' guide is a good starting point. You can always select multiple profiles in your /profil dashboard."
     },
     "toolLabels": {
-      "estimation": { "title": "Instant estimate", "desc": "Indicative value in 30s, 100 LU communes, 8 adjustments." },
-      "fraisAcquisition": { "title": "LU acquisition costs", "desc": "Bëllegen Akt, registration, 3% VAT new build." },
-      "simulateurAides": { "title": "Aid simulator", "desc": "5 layers: state, renovation, private, commune, heritage." },
-      "plusValues": { "title": "Capital gains tax", "desc": "Art. 102bis LIR, €50k allowance, primary residence exempt." },
-      "achatLocation": { "title": "Buy vs rent", "desc": "Monte-Carlo 1000 scenarios, break-even, buy > rent probability." },
-      "wizardParticulier": { "title": "Individual wizard", "desc": "Guided purchase path, auto-save, shareable advisor mode." },
-      "guide": { "title": "LU property guide", "desc": "Reference articles: lease, fees, capital gains, energy, syndic." },
-      "carte": { "title": "LU heatmap", "desc": "Gradient 0-15k €/m² per commune, rental yield toggle." },
-      "valorisation": { "title": "EVS 2025 valuation", "desc": "Signable TEGOVA report, SHA-256, DCF + comparables, bank MLV." },
-      "hedonique": { "title": "Hedonic model", "desc": "14 coefficients calibrated ACT 2018-2024, CI 95%, MAPE 14.7%." },
-      "dcfMulti": { "title": "Multi-tenant DCF", "desc": "Break options, step rents, CAPEX, IRR equity, LP/GP waterfall." },
-      "verify": { "title": "Signature verification", "desc": "Public SHA-256 check of tevaxia report via /verify." },
-      "indices": { "title": "Indices & composites", "desc": "4 weighted components, history Q1 2020 → Q1 2026." },
-      "organisation": { "title": "My organisation", "desc": "Agency or firm, roles, per-agent stats, VIES lookup." },
-      "transparence": { "title": "Transparency page", "desc": "MAPE 14.7%, R², public hedonic coefficients." },
-      "apiDocs": { "title": "API documentation", "desc": "OpenAPI 3.1, examples, quotas, MLV/DCF/estimation endpoints." },
-      "syndicHub": { "title": "Syndic hub", "desc": "Condominiums, works fund (bill 7763), owner portals." },
-      "coproprietes": { "title": "My condominiums", "desc": "Units CRUD, shares, charges, general meetings, messaging." },
-      "procuration": { "title": "Proxy for GM", "desc": "PDF generator law 16.05.1975 art. 7/11, LU compliant." },
-      "syndicBenchmark": { "title": "Syndic benchmark", "desc": "Fees/unit vs LU average, drift alerts." },
-      "energyPortfolio": { "title": "Energy portfolio", "desc": "Aggregated EPC, CRREM stranding risk, renovation plan." },
-      "amlKyc": { "title": "AML / KYC", "desc": "5-year archives (law 12.11.2004), case mgmt, sanctions screening." },
-      "pms": { "title": "Hotel/motel PMS", "desc": "Bookings, rooms, seasonal rates, 3% VAT invoicing." },
-      "hotellerieHub": { "title": "Hospitality Solutions hub", "desc": "6 analysis tools + operational PMS + LU benchmark." },
-      "hotellerieGroupe": { "title": "Hotel group dashboard", "desc": "Multi-hotel, consolidated RevPAR, EBITDA, owner reports." },
-      "exploitation": { "title": "USALI P&L", "desc": "5-year P&L: revenue → GOP → EBITDA, USALI 11th ed." },
-      "hotelCapex": { "title": "10-year hotel CAPEX", "desc": "FF&E reserve + soft/hard/major refresh, HVS/PwC standards." },
-      "housekeeping": { "title": "Housekeeping staffing", "desc": "Adaptive HOTREC, 7-day forecast by business curve." },
-      "observatoireLu": { "title": "LU hotel observatory", "desc": "STATEC + Eurostat + STR EMEA, quarterly occ/ADR/RevPAR." },
-      "benchmark": { "title": "Group benchmark", "desc": "Hotels ranking composite score, MPI/ARI/RGI." },
-      "portfolio": { "title": "Multi-asset portfolio", "desc": "Value tracking, yield, LTV, 12-month cashflow, tax export." },
-      "bilanPromoteur": { "title": "Developer P&L", "desc": "Tornado ±10% on 8 variables, phased tranches, execution tracking." },
-      "outilsBancaires": { "title": "Banking tools", "desc": "ECB/OAT/mortgage rates 8y, early repayment, 3-offer comparison." },
-      "marcheForecast": { "title": "Price forecast", "desc": "12-48 months, 3 scenarios per commune (pessimistic/central/optimistic)." },
-      "proAgences": { "title": "Agencies B2B offer", "desc": "Co-branded estimate + fees + aids report in 1 PDF." },
-      "mandats": { "title": "Mandate pipeline", "desc": "CRM prospect → compromise → sale, commissions, 30-day alerts." },
-      "crm": { "title": "Agencies CRM", "desc": "Contacts, interactions, tasks, Kanban, documents." },
-      "ficheBien": { "title": "Property sheet PDF", "desc": "Co-brandable A4: specs + estimate + fees + financing." },
-      "liensPartages": { "title": "Public shared links", "desc": "Read-only views for clients, view analytics + comments." },
-      "vefa": { "title": "VEFA calculator", "desc": "Funds calls, construction delay, intrinsic/extrinsic GFA." },
-      "estimateurConstruction": { "title": "Construction estimator", "desc": "STATEC material indices, CSV export per trade." },
-      "calculateurVrd": { "title": "VRD calculator", "desc": "CCAP/CCTP templates law 08/04/2018, 10 articles + DQE." },
-      "pagPap": { "title": "PAG / PAP", "desc": "Buildable zones, COS/CMU, address search (geoportail)." },
-      "convertisseurSurfaces": { "title": "Surface converter", "desc": "Cadastral → buildable, PAG + road setback + green space." },
-      "apiKeys": { "title": "My API keys", "desc": "Create, rotate, quotas, call logs, HMAC webhooks." },
-      "apiBanques": { "title": "Banks API", "desc": "MLV valuation, LTV, CRR/EBA/CSSF endpoints." },
-      "strHub": { "title": "STR / Airbnb hub", "desc": "Profitability, 3-month LU compliance, long vs short-term arbitrage." },
-      "strForecast": { "title": "STR forecast", "desc": "12-month forecast, seasonality, occupancy sensitivity." },
-      "strPortefeuille": { "title": "STR portfolio", "desc": "Multi-property concierge, ADR/RevPAR comparison." },
-      "ais": { "title": "AIS (social rental)", "desc": "75% allowance calculator, LU public partners." }
+      "estimation": {
+        "title": "Instant estimate",
+        "desc": "Indicative value in 30s, 100 LU communes, 8 adjustments."
+      },
+      "fraisAcquisition": {
+        "title": "LU acquisition costs",
+        "desc": "Bëllegen Akt, registration, 3% VAT new build."
+      },
+      "simulateurAides": {
+        "title": "Aid simulator",
+        "desc": "5 layers: state, renovation, private, commune, heritage."
+      },
+      "plusValues": {
+        "title": "Capital gains tax",
+        "desc": "Art. 102bis LIR, €50k allowance, primary residence exempt."
+      },
+      "achatLocation": {
+        "title": "Buy vs rent",
+        "desc": "Monte-Carlo 1000 scenarios, break-even, buy > rent probability."
+      },
+      "wizardParticulier": {
+        "title": "Individual wizard",
+        "desc": "Guided purchase path, auto-save, shareable advisor mode."
+      },
+      "guide": {
+        "title": "LU property guide",
+        "desc": "Reference articles: lease, fees, capital gains, energy, syndic."
+      },
+      "carte": {
+        "title": "LU heatmap",
+        "desc": "Gradient 0-15k €/m² per commune, rental yield toggle."
+      },
+      "valorisation": {
+        "title": "EVS 2025 valuation",
+        "desc": "Signable TEGOVA report, SHA-256, DCF + comparables, bank MLV."
+      },
+      "hedonique": {
+        "title": "Hedonic model",
+        "desc": "14 coefficients calibrated ACT 2018-2024, CI 95%, MAPE 14.7%."
+      },
+      "dcfMulti": {
+        "title": "Multi-tenant DCF",
+        "desc": "Break options, step rents, CAPEX, IRR equity, LP/GP waterfall."
+      },
+      "verify": {
+        "title": "Signature verification",
+        "desc": "Public SHA-256 check of tevaxia report via /verify."
+      },
+      "indices": {
+        "title": "Indices & composites",
+        "desc": "4 weighted components, history Q1 2020 → Q1 2026."
+      },
+      "organisation": {
+        "title": "My organisation",
+        "desc": "Agency or firm, roles, per-agent stats, VIES lookup."
+      },
+      "transparence": {
+        "title": "Transparency page",
+        "desc": "MAPE 14.7%, R², public hedonic coefficients."
+      },
+      "apiDocs": {
+        "title": "API documentation",
+        "desc": "OpenAPI 3.1, examples, quotas, MLV/DCF/estimation endpoints."
+      },
+      "syndicHub": {
+        "title": "Syndic hub",
+        "desc": "Condominiums, works fund (bill 7763), owner portals."
+      },
+      "coproprietes": {
+        "title": "My condominiums",
+        "desc": "Units CRUD, shares, charges, general meetings, messaging."
+      },
+      "procuration": {
+        "title": "Proxy for GM",
+        "desc": "PDF generator law 16.05.1975 art. 7/11, LU compliant."
+      },
+      "syndicBenchmark": {
+        "title": "Syndic benchmark",
+        "desc": "Fees/unit vs LU average, drift alerts."
+      },
+      "energyPortfolio": {
+        "title": "Energy portfolio",
+        "desc": "Aggregated EPC, CRREM stranding risk, renovation plan."
+      },
+      "amlKyc": {
+        "title": "AML / KYC",
+        "desc": "5-year archives (law 12.11.2004), case mgmt, sanctions screening."
+      },
+      "pms": {
+        "title": "Hotel/motel PMS",
+        "desc": "Bookings, rooms, seasonal rates, 3% VAT invoicing."
+      },
+      "hotellerieHub": {
+        "title": "Hospitality Solutions hub",
+        "desc": "6 analysis tools + operational PMS + LU benchmark."
+      },
+      "hotellerieGroupe": {
+        "title": "Hotel group dashboard",
+        "desc": "Multi-hotel, consolidated RevPAR, EBITDA, owner reports."
+      },
+      "exploitation": {
+        "title": "USALI P&L",
+        "desc": "5-year P&L: revenue → GOP → EBITDA, USALI 11th ed."
+      },
+      "hotelCapex": {
+        "title": "10-year hotel CAPEX",
+        "desc": "FF&E reserve + soft/hard/major refresh, HVS/PwC standards."
+      },
+      "housekeeping": {
+        "title": "Housekeeping staffing",
+        "desc": "Adaptive HOTREC, 7-day forecast by business curve."
+      },
+      "observatoireLu": {
+        "title": "LU hotel observatory",
+        "desc": "STATEC + Eurostat + STR EMEA, quarterly occ/ADR/RevPAR."
+      },
+      "benchmark": {
+        "title": "Group benchmark",
+        "desc": "Hotels ranking composite score, MPI/ARI/RGI."
+      },
+      "portfolio": {
+        "title": "Multi-asset portfolio",
+        "desc": "Value tracking, yield, LTV, 12-month cashflow, tax export."
+      },
+      "bilanPromoteur": {
+        "title": "Developer P&L",
+        "desc": "Tornado ±10% on 8 variables, phased tranches, execution tracking."
+      },
+      "outilsBancaires": {
+        "title": "Banking tools",
+        "desc": "ECB/OAT/mortgage rates 8y, early repayment, 3-offer comparison."
+      },
+      "marcheForecast": {
+        "title": "Price forecast",
+        "desc": "12-48 months, 3 scenarios per commune (pessimistic/central/optimistic)."
+      },
+      "proAgences": {
+        "title": "Agencies B2B offer",
+        "desc": "Co-branded estimate + fees + aids report in 1 PDF."
+      },
+      "mandats": {
+        "title": "Mandate pipeline",
+        "desc": "CRM prospect → compromise → sale, commissions, 30-day alerts."
+      },
+      "crm": {
+        "title": "Agencies CRM",
+        "desc": "Contacts, interactions, tasks, Kanban, documents."
+      },
+      "ficheBien": {
+        "title": "Property sheet PDF",
+        "desc": "Co-brandable A4: specs + estimate + fees + financing."
+      },
+      "liensPartages": {
+        "title": "Public shared links",
+        "desc": "Read-only views for clients, view analytics + comments."
+      },
+      "vefa": {
+        "title": "VEFA calculator",
+        "desc": "Funds calls, construction delay, intrinsic/extrinsic GFA."
+      },
+      "estimateurConstruction": {
+        "title": "Construction estimator",
+        "desc": "STATEC material indices, CSV export per trade."
+      },
+      "calculateurVrd": {
+        "title": "VRD calculator",
+        "desc": "CCAP/CCTP templates law 08/04/2018, 10 articles + DQE."
+      },
+      "pagPap": {
+        "title": "PAG / PAP",
+        "desc": "Buildable zones, COS/CMU, address search (geoportail)."
+      },
+      "convertisseurSurfaces": {
+        "title": "Surface converter",
+        "desc": "Cadastral → buildable, PAG + road setback + green space."
+      },
+      "apiKeys": {
+        "title": "My API keys",
+        "desc": "Create, rotate, quotas, call logs, HMAC webhooks."
+      },
+      "apiBanques": {
+        "title": "Banks API",
+        "desc": "MLV valuation, LTV, CRR/EBA/CSSF endpoints."
+      },
+      "strHub": {
+        "title": "STR / Airbnb hub",
+        "desc": "Profitability, 3-month LU compliance, long vs short-term arbitrage."
+      },
+      "strForecast": {
+        "title": "STR forecast",
+        "desc": "12-month forecast, seasonality, occupancy sensitivity."
+      },
+      "strPortefeuille": {
+        "title": "STR portfolio",
+        "desc": "Multi-property concierge, ADR/RevPAR comparison."
+      },
+      "ais": {
+        "title": "AIS (social rental)",
+        "desc": "75% allowance calculator, LU public partners."
+      }
     },
     "particulier": {
       "title": "Individual guide",
@@ -9814,9 +9970,18 @@
     "subtitle": "Month-by-month ADR pricing recommendation based on LU-specific seasonality (weather, events, trade shows), with weekend and last-minute rules. Free local alternative to PriceLabs / Wheelhouse / Beyond Pricing.",
     "params": "Pricing parameters",
     "months": {
-      "jan": "Jan", "feb": "Feb", "mar": "Mar", "apr": "Apr",
-      "may": "May", "jun": "Jun", "jul": "Jul", "aug": "Aug",
-      "sep": "Sep", "oct": "Oct", "nov": "Nov", "dec": "Dec"
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec"
     },
     "zones": {
       "luxembourg_ville": "Luxembourg-City Centre",
@@ -10039,7 +10204,9 @@
     "back": "Short-term rentals",
     "title": "Long-term vs short-term arbitrage",
     "subtitle": "Compare 3 quantified scenarios: long-term rental (5% rule), pure STR (Airbnb/Booking), or mixed (seasonal STR + LT rest). Net-after-tax calculation based on your Luxembourg tax profile.",
-    "tax": { "max": "LU max (~45.78%)" },
+    "tax": {
+      "max": "LU max (~45.78%)"
+    },
     "scenarios": {
       "lt": "Long-term (5% rule)",
       "str": "Pure STR (Airbnb/Booking)",

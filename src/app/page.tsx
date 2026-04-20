@@ -470,43 +470,6 @@ export default async function Home() {
       {/* Onboarding by intent */}
       <OnboardingIntent />
 
-      {/* Solutions by persona */}
-      <section className="bg-card border-y border-card-border py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-navy sm:text-3xl">{t("personas.title")}</h2>
-            <p className="mt-3 text-slate">{t("personas.subtitle")}</p>
-          </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { slug: "syndic", icon: "🏛️" },
-              { slug: "agence", icon: "🏘️" },
-              { slug: "hotel", icon: "🏨" },
-              { slug: "expert-evaluateur", icon: "📐" },
-              { slug: "investisseur", icon: "📈" },
-              { slug: "particulier", icon: "🏠" },
-            ].map((p) => (
-              <Link
-                key={p.slug}
-                href={`${lp}/solutions/${p.slug}`}
-                className="group rounded-xl border border-card-border bg-background p-5 hover:border-navy hover:shadow-lg transition-all"
-              >
-                <div className="text-3xl mb-3">{p.icon}</div>
-                <h3 className="text-sm font-bold text-navy group-hover:text-navy-light">
-                  {t(`personas.items.${p.slug}.title`)}
-                </h3>
-                <p className="mt-1 text-xs text-slate leading-relaxed">
-                  {t(`personas.items.${p.slug}.desc`)}
-                </p>
-                <div className="mt-3 text-xs font-semibold text-gold-dark">
-                  {t("personas.seeSolution")} →
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Trust signals band */}
       <section className="bg-navy py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

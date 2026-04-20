@@ -83,26 +83,16 @@
     "heroTitle": "40+ ferramentas imobiliárias LU,",
     "heroHighlight": "num só lugar",
     "heroDescription": "Particular, investidor, promotor, agente, síndico, banco ou hoteleiro — escolha o seu perfil e aceda às ferramentas do seu ofício. Dados públicos, conformidade luxemburguesa, 5 línguas.",
-    "personas": {
-      "title": "Encontre a solução para o seu ofício",
-      "subtitle": "Cada perfil tem as suas ferramentas, obrigações legais LU e fluxos de trabalho. Clique no seu para ver os módulos e casos de uso dedicados.",
-      "seeSolution": "Ver a solução",
-      "items": {
-        "syndic": { "title": "Síndico de condomínio", "desc": "AGs online, chamadas de fundos Factur-X, contabilidade LU, conforme lei 16.05.1975." },
-        "agence": { "title": "Agência imobiliária", "desc": "Pipeline mandatos OpenImmo, CRM contactos, matching comprador, fichas de imóvel PDF." },
-        "hotel": { "title": "Hotelaria", "desc": "PMS multi-estabelecimentos, folios USALI, faturação IVA 3% LU, forecast 90 dias." },
-        "expert-evaluateur": { "title": "Avaliador / Perito", "desc": "Relatório EVS 2025 conforme TEGOVA em 20 min, 8 métodos, 9 tipos de ativos." },
-        "investisseur": { "title": "Investidor", "desc": "Simulador rentabilidade, custos aquisição LU, mais-valias, DCF multi-inquilinos." },
-        "particulier": { "title": "Particular", "desc": "Estimativa, Bëllegen Akt, tecto 5% renda, simulador apoios, comprar vs arrendar." }
-      }
-    },
     "trust": {
-      "agileTitle": "Desenvolvimento ágil",
-      "agileDesc": "Novos módulos entregues a cada 2 semanas. Backlog público em github.com/Tevaxia.",
-      "customTitle": "Personalização possível",
-      "customDesc": "Formato específico, cálculo atípico, integração à medida: 1 a 3 semanas de desenvolvimento.",
-      "supportTitle": "Suporte em menos de 24 h",
-      "supportDesc": "Email para contact@tevaxia.lu. Resposta média em menos de 6 horas em dias úteis, por um humano que conhece o produto."
+      "heading": "Fundações sólidas",
+      "tegova": "TEGOVA EVS 2025",
+      "tegovaDesc": "Metodologia conforme",
+      "data": "Dados públicos LU",
+      "dataDesc": "data.public.lu, STATEC",
+      "rgpd": "RGPD conforme",
+      "rgpdDesc": "Exportação, supressão, consentimentos",
+      "tests": "172 testes automatizados",
+      "testsDesc": "Qualidade de código verificada"
     },
     "missingTool": "Falta-lhe uma ferramenta?",
     "missingToolDescription": "tevaxia.lu está em construção ativa. Se necessita de uma calculadora específica, de uma funcionalidade para a sua prática profissional, ou se constata um erro nos nossos cálculos — informe-nos.",
@@ -320,17 +310,6 @@
     },
     "heroCta1": "Encontrar as minhas ferramentas",
     "heroCta2": "Explorar 40+ módulos",
-    "trust": {
-      "heading": "Fundações sólidas",
-      "tegova": "TEGOVA EVS 2025",
-      "tegovaDesc": "Metodologia conforme",
-      "data": "Dados públicos LU",
-      "dataDesc": "data.public.lu, STATEC",
-      "rgpd": "RGPD conforme",
-      "rgpdDesc": "Exportação, supressão, consentimentos",
-      "tests": "172 testes automatizados",
-      "testsDesc": "Qualidade de código verificada"
-    },
     "guideSection": {
       "title": "Perguntas frequentes sobre imobiliário no Luxemburgo",
       "subtitle": "12 guias práticos com referências legais. Cada resposta liga a uma ferramenta de cálculo.",

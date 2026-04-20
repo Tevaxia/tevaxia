@@ -83,26 +83,16 @@
     "heroTitle": "40+ LU Immobilien-Tools,",
     "heroHighlight": "een Plaz",
     "heroDescription": "Privatpersoun, Investisseur, Promoteur, Agent, Syndic, Bank oder Hotelier — wielt Äert Profil a kritt Zougang zu den Tools fir Äre Beruff. Ëffentlech Donnéeën, LU-konform, 5 Sproochen.",
-    "personas": {
-      "title": "Fannt d'Léisung fir Äre Beruff",
-      "subtitle": "All Profil huet seng eegen Tools, LU-Gesetzesobligatiounen a Workflows. Klickt op Äert fir déi dedizéiert Module an Notzungsfäll ze gesinn.",
-      "seeSolution": "Léisung kucken",
-      "items": {
-        "syndic": { "title": "Syndic / Kopropriétéit", "desc": "Online-Generalversammlungen, Factur-X-Fongerufer, LU-Buchhaltung, konform Gesetz 16.05.1975." },
-        "agence": { "title": "Immobilien-Agence", "desc": "OpenImmo-Mandatspipeline, Kontakt-CRM, Acquéreur-Matching, Objet-PDFs." },
-        "hotel": { "title": "Hotellerie", "desc": "Multi-Hotel-PMS, USALI-Folios, LU-TVA 3%-Rechnung, 90-Deeg-Forecast." },
-        "expert-evaluateur": { "title": "Evaluateur / Expert", "desc": "TEGOVA EVS 2025-Bericht an 20 Min, 8 Methoden, 9 Asset-Typen." },
-        "investisseur": { "title": "Investisseur", "desc": "Rentabilitéitsrechner, LU-Kafkäschten, Wäertzouwuess, Multi-Locataire-DCF." },
-        "particulier": { "title": "Privat", "desc": "Schätzung, Bëllegen Akt, 5%-Loyerplafong, Hëllefenrechner, Kafen vs Lounen." }
-      }
-    },
     "trust": {
-      "agileTitle": "Agile Entwécklung",
-      "agileDesc": "Nei Moduler all 2 Wochen. Ëffentlecht Backlog op github.com/Tevaxia.",
-      "customTitle": "Mass-Entwécklung méiglech",
-      "customDesc": "Spezifescht Format, ausseruerdentlech Berechnung, mass-Integration: 1 bis 3 Wochen Entwécklung.",
-      "supportTitle": "Support an manner wéi 24 Stonnen",
-      "supportDesc": "Email un contact@tevaxia.lu. Duerchschnëttlech Äntwert ënner 6 Stonnen u Wierkdeeg, vun engem Mënsch deen d'Produkt kennt."
+      "heading": "Solid Grondlagen",
+      "tegova": "TEGOVA EVS 2025",
+      "tegovaDesc": "Konform Methodik",
+      "data": "Ëffentlech Donnéeën LU",
+      "dataDesc": "data.public.lu, STATEC",
+      "rgpd": "DSGVO-konform",
+      "rgpdDesc": "Export, Läschung, Zoustëmmungen",
+      "tests": "172 automatiséiert Tester",
+      "testsDesc": "Verifizéiert Codequalitéit"
     },
     "missingTool": "Feelt Iech en Tool?",
     "missingToolDescription": "tevaxia.lu gëtt aktiv weiderentwéckelt. Wann Dir e spezifesche Rechner braucht, eng Funktioun fir Är berufflech Praxis, oder wann Dir e Feeler a sengen Berechnunge gesitt — sot eis Bescheed.",
@@ -320,17 +310,6 @@
     },
     "heroCta1": "Meng Tools fannen",
     "heroCta2": "40+ Moduler entdecken",
-    "trust": {
-      "heading": "Solid Grondlagen",
-      "tegova": "TEGOVA EVS 2025",
-      "tegovaDesc": "Konform Methodik",
-      "data": "Ëffentlech Donnéeën LU",
-      "dataDesc": "data.public.lu, STATEC",
-      "rgpd": "DSGVO-konform",
-      "rgpdDesc": "Export, Läschung, Zoustëmmungen",
-      "tests": "172 automatiséiert Tester",
-      "testsDesc": "Verifizéiert Codequalitéit"
-    },
     "guideSection": {
       "title": "Heefeg Froen iwwer Immobilien zu Lëtzebuerg",
       "subtitle": "12 praktesch Guiden mat Gesetzesverwäiser. All Äntwert verlinkt op en Berechnungstool.",
