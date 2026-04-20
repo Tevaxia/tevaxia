@@ -635,6 +635,15 @@ export default function Profil() {
 
             {tab === "data" && (
               <>
+                <div className="rounded-xl border border-card-border bg-card p-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h2 className="text-base font-semibold text-navy">Sauvegardes</h2>
+                      <p className="mt-1 text-xs text-muted max-w-xl">Exportez ZIP complet de vos données (syndic, CRM, PMS, évaluations…) vers votre disque ou votre Google Drive — droit RGPD Article 20.</p>
+                    </div>
+                    <a href="/profil/sauvegardes" className="shrink-0 rounded-lg border border-navy bg-white px-3 py-1.5 text-xs font-medium text-navy hover:bg-navy/5">Gérer →</a>
+                  </div>
+                </div>
                 <AlertsSection user={user} />
                 <SharedLinksSection user={user} />
                 {!user && (

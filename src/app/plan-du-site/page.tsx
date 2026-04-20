@@ -177,6 +177,7 @@ const SECTIONS: Section[] = [
       { href: "/profil/api", key: "apiKeys" },
       { href: "/profil/liens-partages", key: "liensPartages" },
       { href: "/profil/confidentialite", key: "consentements" },
+      { href: "/profil/sauvegardes", key: "sauvegardes" },
       { href: "/pricing", key: "tarifs" },
     ],
   },
