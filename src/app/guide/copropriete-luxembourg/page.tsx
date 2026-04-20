@@ -1,13 +1,18 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
+import { localizedAlternates } from "@/lib/seo";
 import { ArticleJsonLd } from "@/components/JsonLd";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("guide.copropriete");
+  const [t, locale] = await Promise.all([
+    getTranslations("guide.copropriete"),
+    getLocale(),
+  ]);
   return {
     title: t("title"),
     description: t("metaDescription"),
+    alternates: localizedAlternates("/guide/copropriete-luxembourg", locale),
   };
 }
 
