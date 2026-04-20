@@ -36,6 +36,7 @@ const ENERGY_PAGES = [
 // Landing pages persona-spécifiques pour paid traffic (Google/Bing Ads).
 // Priorité haute car destinations de campagnes et points de conversion.
 const SOLUTIONS_PAGES = [
+  "/solutions",
   "/solutions/syndic",
   "/solutions/agence",
   "/solutions/hotel",

@@ -11280,5 +11280,127 @@
       "license": "Lizenz",
       "actions": "Aktionen"
     }
+  },
+  "solutionsHub": {
+    "meta": {
+      "title": "Luxembourg real estate solutions by profile — tevaxia.lu",
+      "description": "Syndic, agency, hotel, valuer, investor, individual: find the tevaxia.lu solution built for your role. LU compliance, public data, 5 languages."
+    },
+    "hero": {
+      "badge": "6 solutions built per role",
+      "title": "Find the solution built for your role",
+      "subtitle": "Each profile has its own legal obligations, workflows and source data specific to the Luxembourg market. Rather than searching across 40+ tools, start with your role."
+    },
+    "personas": {
+      "cta": "See the detailed solution",
+      "syndic": {
+        "title": "Co-ownership syndic",
+        "desc": "Online AGMs with tantième-weighted voting, Factur-X fund calls, LU co-ownership accounting, PSD2 bank reconciliation. Compliant with 16 May 1975 law."
+      },
+      "agence": {
+        "title": "Real estate agency",
+        "desc": "OpenImmo mandate pipeline, contact CRM with /100 buyer matching, drag-drop Kanban, co-branded property PDFs, eIDAS signature."
+      },
+      "hotel": {
+        "title": "Hospitality",
+        "desc": "Multi-property PMS, USALI 19-category auto-posting folios, LU VAT 3%/8%/17% invoicing, 90-day forecast, iCal OTA."
+      },
+      "expert-evaluateur": {
+        "title": "Valuer / Expert",
+        "desc": "TEGOVA EVS 2025 compliant report in 20 min, 8 methods, 9 asset types, auto-filled data (98 communes + 12 macro series)."
+      },
+      "investisseur": {
+        "title": "Investor",
+        "desc": "Yield simulator with Bëllegen Akt, multi-tenant DCF, VEFA interim interest, LU capital gains, multi-asset portfolio."
+      },
+      "particulier": {
+        "title": "Individual",
+        "desc": "Estimation, acquisition fees with Bëllegen Akt, 5 layers of stackable aids (Klimabonus included), legal 5% rent cap."
+      }
+    },
+    "compare": {
+      "title": "Quick comparator",
+      "intro": "If you hesitate between two profiles, compare daily usage, legal compliance and implemented standards.",
+      "profileCol": "Profile",
+      "dailyCol": "Daily usage",
+      "complianceCol": "LU compliance",
+      "standardsCol": "Standards",
+      "rows": {
+        "syndic": {
+          "daily": "Run AGMs, fund calls, unpaid reminders, co-ownership accounting",
+          "compliance": "16 May 1975 law, VAT art. 44 §1 f exemption",
+          "standards": "EN 16931, Peppol, ISO 20022"
+        },
+        "agence": {
+          "daily": "Mandates, contacts, portal distribution, buyer matching",
+          "compliance": "eIDAS EU 910/2014, GDPR consent",
+          "standards": "OpenImmo 1.2.8, eIDAS"
+        },
+        "hotel": {
+          "daily": "Reservations, folios, invoicing, revenue management",
+          "compliance": "3% accommodation VAT, communal city tax",
+          "standards": "USALI 11th ed., STR, iCal"
+        },
+        "expert-evaluateur": {
+          "daily": "Property valuations, reports, field inspections",
+          "compliance": "TEGOVA EVS 2025, Charte 5th ed.",
+          "standards": "EVS 2025, Red Book, RICS"
+        },
+        "investisseur": {
+          "daily": "Yield, DCF, financing simulations, portfolio",
+          "compliance": "Bëllegen Akt, LU capital gains, CSSF rules",
+          "standards": "CRR, ECB, Basel III"
+        },
+        "particulier": {
+          "daily": "Estimation, fees, aids, buy/rent comparison",
+          "compliance": "21.09.2006 law, 5% rule, Klimabonus",
+          "standards": "IRL, Observatoire Habitat, STATEC"
+        }
+      }
+    },
+    "faq": {
+      "title": "Questions common to all 6 profiles",
+      "intro": "About the pricing model, custom work, support, security and migration.",
+      "items": [
+        {
+          "q": "How much does the tevaxia subscription cost?",
+          "a": "No per-module or per-user billing within each profile. A single tevaxia subscription gives access to all tools for your role, without quotas or volume limits. Full pricing on the /pricing page."
+        },
+        {
+          "q": "Can I request custom development?",
+          "a": "Yes. A specific format (convocation, report, accounting export), an atypical calculation (custom weighting, proprietary business rule), a dedicated integration: development in 1 to 3 weeks depending on complexity. Free quote."
+        },
+        {
+          "q": "What's the support response time?",
+          "a": "Average response under 6 hours on business days, maximum 24 hours. Email contact@tevaxia.lu. No chatbot, no numbered tickets: you speak with a human who knows the product."
+        },
+        {
+          "q": "Is data hosted in the EU?",
+          "a": "Yes. Supabase (AWS eu-central-1, Frankfurt) with user-level Row Level Security, HTTPS in transit, GDPR compliant. Full data export to ZIP at any time (GDPR article 20)."
+        },
+        {
+          "q": "How do I migrate from another tool?",
+          "a": "CSV or Excel import depending on data type. Automatic column mapping with preview. Free migration assistance: we help you import the first dataset."
+        },
+        {
+          "q": "What's the release cadence?",
+          "a": "Releases every 2 weeks on average. Public backlog on github.com/Tevaxia, your requests are visible and can be prioritised. Auto-updated: no version to install, everything runs SaaS."
+        },
+        {
+          "q": "Is tevaxia multilingual?",
+          "a": "Yes, 5 languages: French, English, German, Portuguese and Luxembourgish. Every page, every PDF, every notification is available in all 5 languages. Persona landings are currently complete in FR and EN, with DE/LB/PT being translated."
+        },
+        {
+          "q": "Can tevaxia be used outside Luxembourg?",
+          "a": "The platform is primarily calibrated for the Luxembourg legal framework (3% VAT, Bëllegen Akt, 5% rule, TEGOVA). Some modules also work for France and Belgium (Factur-X, DCF, buy/rent comparator). For cross-border usage, contact us to confirm coverage."
+        }
+      ]
+    },
+    "orientation": {
+      "title": "Not sure which profile matches you?",
+      "desc": "Write us your activity in 2 lines, we'll direct you to the most suitable solution within 24 hours.",
+      "ctaContact": "Email contact@tevaxia.lu",
+      "ctaHome": "Back to home"
+    }
   }
 }

@@ -5844,6 +5844,128 @@
       "faq5a": "Oui, PropCalc est compatible avec les principaux page builders (Elementor, Divi, WPBakery) et s'integre dans les themes WooCommerce sans conflit."
     }
   },
+  "solutionsHub": {
+    "meta": {
+      "title": "Solutions immobilières Luxembourg par profil — tevaxia.lu",
+      "description": "Syndic, agence, hôtellerie, expert évaluateur, investisseur, particulier : trouvez la solution tevaxia.lu adaptée à votre métier. Conformité LU, données publiques, 5 langues."
+    },
+    "hero": {
+      "badge": "6 solutions pensées par métier",
+      "title": "Trouvez la solution adaptée à votre métier",
+      "subtitle": "Chaque profil a ses obligations légales, ses workflows et ses données sources spécifiques au marché luxembourgeois. Plutôt que de chercher dans 40+ outils, commencez par votre métier."
+    },
+    "personas": {
+      "cta": "Voir la solution détaillée",
+      "syndic": {
+        "title": "Syndic de copropriété",
+        "desc": "AG en ligne avec vote pondéré, appels de fonds Factur-X, comptabilité copropriété LU, réconciliation bancaire PSD2. Conforme loi du 16 mai 1975."
+      },
+      "agence": {
+        "title": "Agence immobilière",
+        "desc": "Pipeline mandats OpenImmo, CRM contacts avec matching acquéreur /100, Kanban drag-drop, fiches bien PDF co-brandées, signature eIDAS."
+      },
+      "hotel": {
+        "title": "Hôtellerie",
+        "desc": "PMS multi-établissements, folios auto-posting USALI 19 catégories, facturation TVA LU 3%/8%/17%, forecast 90j, iCal OTA."
+      },
+      "expert-evaluateur": {
+        "title": "Expert évaluateur",
+        "desc": "Rapport EVS 2025 conforme TEGOVA en 20 min, 8 méthodes, 9 types d'actifs, données auto-remplies (98 communes + 12 séries macro)."
+      },
+      "investisseur": {
+        "title": "Investisseur",
+        "desc": "Simulateur rentabilité avec Bëllegen Akt, DCF multi-locataires, VEFA intérêts intercalaires, plus-values LU, portfolio multi-actifs."
+      },
+      "particulier": {
+        "title": "Particulier",
+        "desc": "Estimation, frais d'acquisition avec Bëllegen Akt, 5 couches d'aides cumulables (Klimabonus inclus), plafond 5% loyer légal."
+      }
+    },
+    "compare": {
+      "title": "Comparateur rapide",
+      "intro": "Si vous hésitez entre deux profils, comparez l'usage quotidien, la conformité légale et les standards implémentés.",
+      "profileCol": "Profil",
+      "dailyCol": "Usage quotidien",
+      "complianceCol": "Conformité LU",
+      "standardsCol": "Standards",
+      "rows": {
+        "syndic": {
+          "daily": "Gérer AG, appels de fonds, impayés, comptabilité copropriété",
+          "compliance": "Loi du 16 mai 1975, TVA art. 44 §1 f exemption",
+          "standards": "EN 16931, Peppol, ISO 20022"
+        },
+        "agence": {
+          "daily": "Mandats, contacts, diffusion portails, matching acquéreur",
+          "compliance": "eIDAS UE 910/2014, RGPD consentement",
+          "standards": "OpenImmo 1.2.8, eIDAS"
+        },
+        "hotel": {
+          "daily": "Réservations, folios, facturation, revenue management",
+          "compliance": "TVA 3% hébergement, taxe séjour communale",
+          "standards": "USALI 11th ed., STR, iCal"
+        },
+        "expert-evaluateur": {
+          "daily": "Expertises immobilières, rapports, inspections terrain",
+          "compliance": "TEGOVA EVS 2025, Charte 5e éd.",
+          "standards": "EVS 2025, Red Book, RICS"
+        },
+        "investisseur": {
+          "daily": "Rentabilité, DCF, simulations financement, portfolio",
+          "compliance": "Bëllegen Akt, plus-values LU, règles CSSF",
+          "standards": "CRR, ECB, Basel III"
+        },
+        "particulier": {
+          "daily": "Estimation, frais, aides, comparaison achat/location",
+          "compliance": "Loi 21.09.2006, règle 5%, Klimabonus",
+          "standards": "IRL, Observatoire Habitat, STATEC"
+        }
+      }
+    },
+    "faq": {
+      "title": "Questions communes aux 6 profils",
+      "intro": "Sur le modèle tarifaire, le sur-mesure, le support, la sécurité et la migration.",
+      "items": [
+        {
+          "q": "Combien coûte l'abonnement tevaxia ?",
+          "a": "Pas de facturation par module ou par utilisateur au sein de chaque profil. Un seul abonnement tevaxia donne accès à tous les outils de votre métier, sans quota ni limite de volume. Grille tarifaire détaillée sur la page /pricing."
+        },
+        {
+          "q": "Puis-je demander un développement sur-mesure ?",
+          "a": "Oui. Un format spécifique (convocation, rapport, export comptable), un calcul atypique (pondération personnalisée, règle métier propre), une intégration dédiée (portail particulier, API tierce) : développement en 1 à 3 semaines selon complexité, chiffrage gratuit."
+        },
+        {
+          "q": "Quel est le délai de réponse du support ?",
+          "a": "Réponse moyenne sous 6 heures les jours ouvrés, maximum 24 heures. Par email à contact@tevaxia.lu. Pas de chatbot, pas de tickets numérotés : vous échangez avec un humain qui connaît le produit."
+        },
+        {
+          "q": "Les données sont-elles hébergées en UE ?",
+          "a": "Oui. Supabase (AWS eu-central-1, Francfort) avec Row Level Security par utilisateur, HTTPS en transit, conformité RGPD. Export de toutes vos données en ZIP à tout moment (droit RGPD article 20). Suppression totale possible sur simple demande."
+        },
+        {
+          "q": "Comment migrer depuis un autre outil ?",
+          "a": "Import CSV ou Excel selon le type de données (contacts, mandats, copropriétés, propriétés hôtelières, simulations). Mapping automatique des colonnes avec preview. Assistance migration sans frais supplémentaires : nous vous aidons à importer le premier jeu de données."
+        },
+        {
+          "q": "Quelle est la fréquence des mises à jour ?",
+          "a": "Livraisons toutes les 2 semaines en moyenne. Backlog public sur github.com/Tevaxia, vos demandes sont visibles et priorisables. Mise à jour automatique chez vous : pas de version à installer, tout tourne en SaaS."
+        },
+        {
+          "q": "Tevaxia est-il multilingue ?",
+          "a": "Oui, 5 langues : français, anglais, allemand, portugais et luxembourgeois. Chaque page, chaque PDF, chaque notification est disponible dans les 5 langues. Les landings persona sont actuellement en FR et EN complètes, avec DE/LB/PT en cours de traduction."
+        },
+        {
+          "q": "Peut-on utiliser tevaxia hors du Luxembourg ?",
+          "a": "La plateforme est principalement calibrée pour le cadre légal luxembourgeois (TVA 3%, Bëllegen Akt, règle 5%, TEGOVA). Certains modules fonctionnent aussi pour la France et la Belgique (Factur-X, DCF, comparateur achat/location). Pour un usage transfrontalier, contactez-nous pour confirmer la couverture."
+        }
+      ]
+    },
+    "orientation": {
+      "title": "Pas sûr du profil qui vous correspond ?",
+      "desc": "Écrivez-nous votre activité en 2 lignes, nous vous orientons vers la solution la plus adaptée en moins de 24 h.",
+      "ctaContact": "Écrire à contact@tevaxia.lu",
+      "ctaHome": "Retour à l'accueil"
+    }
+  },
   "solutions": {
     "agence": {
       "meta": {
