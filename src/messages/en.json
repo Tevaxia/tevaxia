@@ -83,6 +83,45 @@
     "heroTitle": "40+ LU real estate tools,",
     "heroHighlight": "one place",
     "heroDescription": "Homeowner, investor, developer, agent, property manager, bank or hotelier — pick your profile and access the tools for your job. Public data, Luxembourg compliance, 5 languages.",
+    "personas": {
+      "title": "Find the solution built for your role",
+      "subtitle": "Each profile has its own tools, LU legal obligations and workflows. Click yours to see the dedicated modules and use cases.",
+      "seeSolution": "See the solution",
+      "items": {
+        "syndic": {
+          "title": "Property manager / Syndic",
+          "desc": "Online AGMs, Factur-X fund calls, LU accounting, compliant with 16.05.1975 law."
+        },
+        "agence": {
+          "title": "Real estate agency",
+          "desc": "OpenImmo mandate pipeline, contact CRM, buyer matching, property PDF sheets."
+        },
+        "hotel": {
+          "title": "Hospitality",
+          "desc": "Multi-property PMS, USALI folios, LU 3% VAT invoicing, 90-day forecast."
+        },
+        "expert-evaluateur": {
+          "title": "Valuer / Expert",
+          "desc": "TEGOVA EVS 2025 report in 20 min, 8 methods, 9 asset types."
+        },
+        "investisseur": {
+          "title": "Investor",
+          "desc": "Yield calculator, LU acquisition fees, capital gains, multi-tenant DCF."
+        },
+        "particulier": {
+          "title": "Individual buyer",
+          "desc": "Estimation, Bëllegen Akt, 5% rent cap, subsidy simulator, buy vs rent."
+        }
+      }
+    },
+    "trust": {
+      "agileTitle": "Agile development",
+      "agileDesc": "New modules shipped every 2 weeks. Public backlog on github.com/Tevaxia.",
+      "customTitle": "Custom work possible",
+      "customDesc": "A specific format, an unusual calculation, a bespoke integration: 1 to 3 weeks of dev.",
+      "supportTitle": "Support under 24 hours",
+      "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days, from a human who knows the product."
+    },
     "missingTool": "Missing a tool?",
     "missingToolDescription": "tevaxia.lu is under active development. If you need a specific calculator, a feature for your professional practice, or if you find an error in our calculations — let us know.",
     "upcomingModules": "Upcoming modules",
@@ -5836,6 +5875,148 @@
       "faq4a": "Yes, the project is open source on GitHub. Contributions are welcome via pull requests.",
       "faq5q": "Is PropCalc compatible with page builders?",
       "faq5a": "Yes, compatible with Elementor, Divi, WPBakery and WooCommerce themes."
+    }
+  },
+  "solutions": {
+    "syndic": {
+      "meta": {
+        "title": "Co-ownership management software Luxembourg, 16.05.1975 law compliant",
+        "description": "Run your co-ownerships without Excel weekends: online AGMs, Factur-X fund calls, LU accounting, PSD2 bank reconciliation. Free trial."
+      },
+      "hero": {
+        "badge": "Built for Luxembourg co-ownerships",
+        "title": "Your co-ownership management, without",
+        "titleAccent": "weekends on Excel",
+        "subtitle": "Online AGMs with tantième-weighted voting, fund calls generated in Factur-X, Luxembourg co-ownership accounting and automatic bank reconciliation. Built for professional property managers who are tired of juggling 4 different tools.",
+        "cta": "Start for free",
+        "ctaSecondary": "See how it works",
+        "kpis": [
+          { "value": "15 h", "label": "saved per AGM" },
+          { "value": "100%", "label": "16.05.1975 law compliant" },
+          { "value": "<24 h", "label": "support response time" }
+        ]
+      },
+      "problem": {
+        "title": "Managing a co-ownership in 2026 shouldn't still look like this",
+        "intro": "Between the 16 May 1975 law, quarterly fund calls, unpaid reminders, AGM prep and bookkeeping, a property manager's week fills up on its own. Unless the right tools take the load off.",
+        "items": [
+          {
+            "title": "Preparing an AGM in 3 days",
+            "desc": "Convocations due within 15 days, agenda to draft, proxies to collect, minutes to type after the fact. Admin load eats up the time that should go to the actual issues.",
+            "stat": "~15 hours per AGM"
+          },
+          {
+            "title": "Chasing unpaid charges by hand",
+            "desc": "Tracking who owes what, monitoring deadlines, computing legal interest, preparing formal notices. Without a dedicated tool, things slip, get forgotten, and the treasury shrinks.",
+            "stat": "3–7% chronic unpaid rate"
+          },
+          {
+            "title": "Juggling Excel, bank, accounting",
+            "desc": "Reconciling incoming transfers with fund calls, entering them in accounting, building AGM annexes from 3 different sources. Every step carries error risk that eventually surfaces in the assembly.",
+            "stat": "4 tools used on average"
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "One platform, three steps",
+        "intro": "No complex migration, no 2-day training. Import your co-ownerships, set allocation keys once, and the tool takes over.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Your co-ownerships imported",
+            "desc": "Excel import, manual entry or API. Units, tantièmes, co-owners, contracts, accounting history. Works with any syndic that already has a structure in place."
+          },
+          {
+            "number": "2",
+            "title": "AGMs and fund calls run themselves",
+            "desc": "Per-unit PDF convocations, tantième-weighted electronic voting, auto-generated minutes. Factur-X fund calls compliant with EN 16931 sent to co-owners with SEPA reference."
+          },
+          {
+            "number": "3",
+            "title": "Bookkeeping takes care of itself",
+            "desc": "Every fund call, every incoming payment, every entered expense feeds the accounting journal. The 5 AGM annexes are generated in PDF in one click when needed."
+          }
+        ]
+      },
+      "features": {
+        "title": "Everything a Luxembourg property manager actually needs",
+        "intro": "Features built for the Grand Duchy's legal framework: 16 May 1975 law, AGM majority rules, VAT exemption art. 44 §1 f, 10-year archiving.",
+        "items": [
+          { "title": "Online AGMs with weighted voting", "desc": "Electronic voting weighted by tantièmes, simple / absolute / double / unanimity majorities handled automatically." },
+          { "title": "Convocations + PDF minutes", "desc": "Per-unit convocation with legal agenda, auto-generated minutes after the AGM with each resolution's results." },
+          { "title": "Factur-X fund calls", "desc": "PDF/A-3 + CII D22B XML compliant with EN 16931, SEPA mandate reference, art. 261 D CGI exemption applied." },
+          { "title": "3-tier unpaid reminders", "desc": "Friendly reminder, formal notice, demand for payment. Luxembourg legal interest rates computed automatically." },
+          { "title": "5 AGM accounting annexes", "desc": "Balance, journal, budget forecast, charge allocation, unpaid status. PDFs ready to distribute." },
+          { "title": "PSD2 bank reconciliation", "desc": "Connection to BCEE, BIL, Banque Raiffeisen, Post Finance via Enable Banking. Automatic reconciliation." },
+          { "title": "Configurable allocation keys", "desc": "General tantièmes, operating tantièmes, special charges per staircase/building, custom shares." },
+          { "title": "Co-owner portal", "desc": "Each co-owner accesses their own space: voting, statement, convocations, minutes, online payment." },
+          { "title": "10 editable letter templates", "desc": "Reminders, convocations, formal notices, proxies. Fully customisable, DOCX / PDF / Google Drive export." },
+          { "title": "Free invoice OCR", "desc": "Upload supplier invoices, automatic extraction via PDF.js + Tesseract.js. Zero manual data entry." },
+          { "title": "Bulk SEPA transfers", "desc": "pain.001 XML generation for grouped supplier payments, compatible with all Luxembourg banks." },
+          { "title": "Charges benchmark", "desc": "Compare your per-m² charges with the Luxembourg average by residence type and construction year." }
+        ]
+      },
+      "trust": {
+        "title": "Why property managers choose us",
+        "agileTitle": "Agile development, regular releases",
+        "agileDesc": "New modules shipped every two weeks. Public backlog, your requests go to production fast.",
+        "customTitle": "Custom development available",
+        "customDesc": "A specific convocation format, an unusual tantième calculation, an export to your accounting firm: we build the adaptation in 1 to 3 weeks depending on complexity.",
+        "supportTitle": "Support in under 24 h",
+        "supportDesc": "Via email at contact@tevaxia.lu. Average response under 6 hours on business days. No ticket numbers, no chatbot: a human who knows the product."
+      },
+      "pricing": {
+        "title": "Included in your tevaxia subscription",
+        "subtitle": "No per-co-ownership billing, no AGM quota, no premium module. Everything available on the free tier to test, and in the general subscription for daily use.",
+        "features": [
+          "Unlimited co-ownerships",
+          "Online AGMs with tantième-weighted voting",
+          "Factur-X fund calls compliant with EN 16931",
+          "Luxembourg co-ownership accounting",
+          "PSD2 bank reconciliation (Enable Banking)",
+          "Co-owner portal with individual access",
+          "5 AGM PDF accounting annexes",
+          "3-tier unpaid reminders with LU legal interest rates",
+          "16 May 1975 law compliant"
+        ],
+        "ctaPlatform": "See tevaxia plans",
+        "ctaEmit": "Go to syndic module"
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          {
+            "q": "I'm moving from [another tool] to tevaxia, how does migration work?",
+            "a": "Standard Excel import (units, co-owners, charge history), then allocation key configuration. Picking up an ongoing accounting year takes 2 to 4 hours depending on complexity. We help you through this at no extra cost."
+          },
+          {
+            "q": "Is the tool compliant with Luxembourg co-ownership law?",
+            "a": "Yes, the 16 May 1975 law (co-ownership status) is built in: simple / absolute / double / unanimity majority rules, 15-day convocation deadline, accounting obligations, 10-year archiving. Accounting annexes follow the format expected by auditors."
+          },
+          {
+            "q": "Is an online AGM legally valid?",
+            "a": "Yes, provided the co-ownership rules allow it or a prior physical AGM resolution has approved it. The practice has been common in Luxembourg since 2020. The signed electronic minutes are archivable as legal evidence."
+          },
+          {
+            "q": "Can fund calls be issued for VAT-exempt co-ownerships?",
+            "a": "Yes, art. 44 §1 f of the VAT law exempts co-ownership management. The module automatically applies the correct exemption and generates exempted Factur-X (category E in EN 16931). No risk of wrongly charged VAT."
+          },
+          {
+            "q": "Is co-owner data secure?",
+            "a": "Stored on Supabase (AWS eu-central-1 Frankfurt) with Row Level Security per user: even administrators cannot access data from a syndic that is not theirs. GDPR-compliant, HTTPS encryption in transit. Full data export to ZIP available at any time."
+          },
+          {
+            "q": "How long before I'm operational?",
+            "a": "A syndic managing 1 to 5 co-ownerships is operational in 1 to 2 hours: account creation, first co-ownership import, allocation key setup, first fund call. Beyond 10 co-ownerships, allow 4 to 6 hours for a full import."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Ready to take your evenings back",
+        "desc": "Create your free account, import your first co-ownership and generate a test fund call in 15 minutes. Zero commitment.",
+        "cta": "Start for free",
+        "ctaSecondary": "See the syndic module live"
+      }
     }
   },
   "syndic": {

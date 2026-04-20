@@ -470,6 +470,72 @@ export default async function Home() {
       {/* Onboarding by intent */}
       <OnboardingIntent />
 
+      {/* Solutions by persona */}
+      <section className="bg-card border-y border-card-border py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold text-navy sm:text-3xl">{t("personas.title")}</h2>
+            <p className="mt-3 text-slate">{t("personas.subtitle")}</p>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { slug: "syndic", icon: "🏛️" },
+              { slug: "agence", icon: "🏘️" },
+              { slug: "hotel", icon: "🏨" },
+              { slug: "expert-evaluateur", icon: "📐" },
+              { slug: "investisseur", icon: "📈" },
+              { slug: "particulier", icon: "🏠" },
+            ].map((p) => (
+              <Link
+                key={p.slug}
+                href={`${lp}/solutions/${p.slug}`}
+                className="group rounded-xl border border-card-border bg-background p-5 hover:border-navy hover:shadow-lg transition-all"
+              >
+                <div className="text-3xl mb-3">{p.icon}</div>
+                <h3 className="text-sm font-bold text-navy group-hover:text-navy-light">
+                  {t(`personas.items.${p.slug}.title`)}
+                </h3>
+                <p className="mt-1 text-xs text-slate leading-relaxed">
+                  {t(`personas.items.${p.slug}.desc`)}
+                </p>
+                <div className="mt-3 text-xs font-semibold text-gold-dark">
+                  {t("personas.seeSolution")} →
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust signals band */}
+      <section className="bg-navy py-14">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="flex items-start gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold/15 text-gold text-xl">⚡</div>
+              <div>
+                <h3 className="text-sm font-bold text-white">{t("trust.agileTitle")}</h3>
+                <p className="mt-1 text-xs text-white/70 leading-relaxed">{t("trust.agileDesc")}</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold/15 text-gold text-xl">🛠️</div>
+              <div>
+                <h3 className="text-sm font-bold text-white">{t("trust.customTitle")}</h3>
+                <p className="mt-1 text-xs text-white/70 leading-relaxed">{t("trust.customDesc")}</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold/15 text-gold text-xl">💬</div>
+              <div>
+                <h3 className="text-sm font-bold text-white">{t("trust.supportTitle")}</h3>
+                <p className="mt-1 text-xs text-white/70 leading-relaxed">{t("trust.supportDesc")}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Modules grid */}
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

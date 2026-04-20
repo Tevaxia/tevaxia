@@ -83,6 +83,45 @@
     "heroTitle": "40+ outils immobiliers LU,",
     "heroHighlight": "un seul endroit",
     "heroDescription": "Particulier, investisseur, promoteur, agent, syndic, banque ou hôtelier — choisissez votre profil et accédez aux outils adaptés à votre métier. Données publiques, conformité luxembourgeoise, 5 langues.",
+    "personas": {
+      "title": "Trouvez la solution adaptée à votre métier",
+      "subtitle": "Chaque profil a ses outils, ses obligations légales LU et ses workflows. Cliquez sur le vôtre pour voir les modules et cas d'usage dédiés.",
+      "seeSolution": "Voir la solution",
+      "items": {
+        "syndic": {
+          "title": "Syndic de copropriété",
+          "desc": "AG en ligne, appels de fonds Factur-X, comptabilité LU, conforme loi 16.05.1975."
+        },
+        "agence": {
+          "title": "Agence immobilière",
+          "desc": "Pipeline mandats OpenImmo, CRM contacts, matching acquéreur, fiches bien PDF."
+        },
+        "hotel": {
+          "title": "Hôtellerie",
+          "desc": "PMS multi-établissements, folios USALI, facturation TVA 3% LU, forecast 90j."
+        },
+        "expert-evaluateur": {
+          "title": "Expert évaluateur",
+          "desc": "Rapport EVS 2025 conforme TEGOVA en 20 min, 8 méthodes, 9 types d'actifs."
+        },
+        "investisseur": {
+          "title": "Investisseur",
+          "desc": "Simulateur rentabilité, frais d'acquisition LU, plus-values, DCF multi-locataires."
+        },
+        "particulier": {
+          "title": "Particulier",
+          "desc": "Estimation, Bëllegen Akt, plafond 5% loyer, simulateur aides, achat vs location."
+        }
+      }
+    },
+    "trust": {
+      "agileTitle": "Développement agile",
+      "agileDesc": "Nouveaux modules livrés toutes les 2 semaines. Backlog public sur github.com/Tevaxia.",
+      "customTitle": "Sur-mesure possible",
+      "customDesc": "Un format spécifique, un calcul atypique, une intégration sur-mesure : 1 à 3 semaines de dev.",
+      "supportTitle": "Support en moins de 24 h",
+      "supportDesc": "Email à contact@tevaxia.lu. Réponse moyenne sous 6 h les jours ouvrés, par un humain qui connaît le produit."
+    },
     "missingTool": "Un outil vous manque ?",
     "missingToolDescription": "tevaxia.lu est en construction active. Si vous avez besoin d'un calculateur spécifique, d'une fonctionnalité pour votre pratique professionnelle, ou si vous constatez une erreur dans nos calculs — faites-le nous savoir.",
     "upcomingModules": "Prochains modules prévus",
@@ -5836,6 +5875,148 @@
       "faq4a": "Oui, le projet est open source sur GitHub. Les contributions (code, traductions, donnees pays) sont bienvenues via pull requests.",
       "faq5q": "PropCalc fonctionne-t-il avec WooCommerce ou Jetstreambuilder ?",
       "faq5a": "Oui, PropCalc est compatible avec les principaux page builders (Elementor, Divi, WPBakery) et s'integre dans les themes WooCommerce sans conflit."
+    }
+  },
+  "solutions": {
+    "syndic": {
+      "meta": {
+        "title": "Logiciel de syndic au Luxembourg, conforme loi 16.05.1975",
+        "description": "Gérez vos copropriétés sans soirées sur Excel : AG en ligne, appels de fonds Factur-X, comptabilité LU, réconciliation bancaire PSD2. Essai gratuit."
+      },
+      "hero": {
+        "badge": "Spécialisé copropriétés Luxembourg",
+        "title": "Votre syndic de copropriété sans",
+        "titleAccent": "soirées sur Excel",
+        "subtitle": "Assemblées générales en ligne avec vote pondéré, appels de fonds générés en Factur-X, comptabilité copropriété luxembourgeoise et réconciliation bancaire automatique. Pensé pour les syndics professionnels et les gestionnaires de résidences qui ne veulent plus jongler entre 4 outils.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir comment ça marche",
+        "kpis": [
+          { "value": "15 h", "label": "économisées par AG" },
+          { "value": "100 %", "label": "conforme loi 16.05.1975" },
+          { "value": "<24 h", "label": "délai de réponse support" }
+        ]
+      },
+      "problem": {
+        "title": "Gérer une copropriété au Luxembourg, en 2026, ne devrait plus ressembler à ça",
+        "intro": "Entre la loi du 16 mai 1975, les appels de fonds trimestriels, les relances d'impayés, la préparation d'AG et la comptabilité à tenir, la semaine d'un syndic se remplit toute seule. Sauf quand on a les bons outils.",
+        "items": [
+          {
+            "title": "Préparer une AG en 3 jours",
+            "desc": "Convocations à envoyer dans les 15 jours, ordre du jour à rédiger, procurations à collecter, procès-verbal à taper après coup. La charge administrative engloutit le temps qu'il faudrait passer sur les vrais sujets.",
+            "stat": "~15 heures par AG"
+          },
+          {
+            "title": "Relancer les impayés manuellement",
+            "desc": "Tenir à jour qui doit quoi, suivre les échéances, calculer les intérêts légaux, préparer la mise en demeure. Sans outil dédié, on oublie, on laisse filer, et le fonds de trésorerie fond.",
+            "stat": "3 à 7 % d'impayés chroniques"
+          },
+          {
+            "title": "Jongler entre Excel, banque, compta",
+            "desc": "Rapprocher les virements reçus avec les appels de fonds, saisir en compta, préparer les annexes d'AG à partir de 3 sources différentes. À chaque étape, un risque d'erreur qui remonte en assemblée.",
+            "stat": "4 outils utilisés en moyenne"
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "Une seule plateforme, trois étapes",
+        "intro": "Pas de migration complexe, pas de formation de 2 jours. Vous importez vos copropriétés, vous configurez les clés de répartition une fois, et l'outil prend le relais.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Vos copropriétés importées",
+            "desc": "Import depuis Excel, saisie manuelle ou API. Lots, tantièmes, copropriétaires, contrats, historique comptable. Compatible avec tout syndic ayant déjà une structure en place."
+          },
+          {
+            "number": "2",
+            "title": "L'AG et les appels de fonds s'exécutent seuls",
+            "desc": "Convocations PDF par lot, vote électronique pondéré par tantièmes, PV généré automatiquement. Appels de fonds Factur-X conformes EN 16931 envoyés aux copropriétaires avec référence SEPA."
+          },
+          {
+            "number": "3",
+            "title": "La comptabilité se tient toute seule",
+            "desc": "Chaque appel de fonds, chaque paiement reçu, chaque dépense saisie alimente le journal comptable. Les 5 annexes d'AG se génèrent en PDF en 1 clic au moment voulu."
+          }
+        ]
+      },
+      "features": {
+        "title": "Tout ce dont un syndic luxembourgeois a besoin",
+        "intro": "Fonctionnalités conçues pour le cadre légal du Grand-Duché : loi du 16 mai 1975, règles de majorité AG, TVA exempte art. 44 §1 f, archivage 10 ans.",
+        "items": [
+          { "title": "AG en ligne avec vote pondéré", "desc": "Vote électronique pondéré par tantièmes, majorités simple, absolue, double et unanimité gérées automatiquement." },
+          { "title": "Convocations + PV PDF", "desc": "Convocation par lot avec ordre du jour légal, PV généré après l'AG avec résultats de chaque résolution." },
+          { "title": "Appels de fonds Factur-X", "desc": "PDF/A-3 + XML CII D22B conformes EN 16931, référence mandat SEPA, art. 261 D CGI appliqué." },
+          { "title": "Relances impayés 3 paliers", "desc": "Relance amiable, mise en demeure, sommation de payer. Intérêts légaux luxembourgeois calculés automatiquement." },
+          { "title": "5 annexes comptables d'AG", "desc": "Balance, journal, budget prévisionnel, répartition des charges, état des impayés. PDF prêts à distribuer." },
+          { "title": "Réconciliation bancaire PSD2", "desc": "Connexion BCEE, BIL, Banque Raiffeisen, Post Finance via Enable Banking. Rapprochement automatique." },
+          { "title": "Clés de répartition paramétrables", "desc": "Tantièmes généraux, tantièmes de fonctionnement, charges spéciales par escalier/bâtiment, quote-parts personnalisées." },
+          { "title": "Portail copropriétaire", "desc": "Chaque copropriétaire accède à son espace : vote, relevé de compte, convocations, PV, paiement en ligne." },
+          { "title": "10 lettres-types éditables", "desc": "Relances, convocations, mises en demeure, procurations. Personnalisables, export DOCX / PDF / Google Drive." },
+          { "title": "OCR factures gratuit", "desc": "Upload des factures fournisseurs, extraction automatique via PDF.js + Tesseract.js. Zéro saisie manuelle." },
+          { "title": "SEPA virements en masse", "desc": "Génération pain.001 XML pour paiements groupés aux fournisseurs, compatible avec toutes banques luxembourgeoises." },
+          { "title": "Benchmark charges", "desc": "Comparaison de vos charges au m² avec la moyenne luxembourgeoise par type de résidence et année de construction." }
+        ]
+      },
+      "trust": {
+        "title": "Pourquoi les syndics nous choisissent",
+        "agileTitle": "Développement agile, livraisons régulières",
+        "agileDesc": "Nouveaux modules livrés toutes les 2 semaines. Backlog public, vos demandes arrivent rapidement en production.",
+        "customTitle": "Sur-mesure possible",
+        "customDesc": "Un format de convocation spécifique, un calcul de tantièmes atypique, un export vers votre cabinet comptable : nous développons les adaptations en 1 à 3 semaines selon la complexité.",
+        "supportTitle": "Support en moins de 24 h",
+        "supportDesc": "Par email à contact@tevaxia.lu. Réponse moyenne sous 6 heures les jours ouvrés. Pas de ticket numéroté, pas de chatbot : un humain qui connaît le produit."
+      },
+      "pricing": {
+        "title": "Inclus dans votre abonnement tevaxia",
+        "subtitle": "Pas de facturation par copropriété gérée, pas de quota d'AG, pas de module premium. Tout est disponible dès le compte gratuit pour tester, et dans l'abonnement général pour une utilisation quotidienne.",
+        "features": [
+          "Copropriétés illimitées",
+          "Assemblées générales en ligne avec vote pondéré",
+          "Appels de fonds Factur-X conformes EN 16931",
+          "Comptabilité copropriété luxembourgeoise",
+          "Réconciliation bancaire PSD2 (Enable Banking)",
+          "Portail copropriétaire avec accès individualisé",
+          "5 annexes comptables d'AG en PDF",
+          "Relances impayés 3 paliers avec intérêts légaux LU",
+          "Conforme loi du 16 mai 1975"
+        ],
+        "ctaPlatform": "Voir les offres tevaxia",
+        "ctaEmit": "Accéder au module syndic"
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          {
+            "q": "Je passe de [autre logiciel] à tevaxia, comment on migre ?",
+            "a": "Import Excel standard (lots, copropriétaires, historique de charges), puis configuration des clés de répartition. La reprise d'un exercice comptable en cours se fait en 2 à 4 heures selon la complexité. Nous vous accompagnons sans frais supplémentaires."
+          },
+          {
+            "q": "L'outil est-il conforme à la loi luxembourgeoise sur la copropriété ?",
+            "a": "Oui, la loi du 16 mai 1975 (statut de la copropriété) est intégrée : règles de majorité simple, absolue, double et unanimité, délai de convocation de 15 jours, obligations de tenue de comptabilité, archivage 10 ans. Les annexes comptables suivent le format attendu par les commissaires aux comptes."
+          },
+          {
+            "q": "Est-ce que l'AG en ligne est juridiquement valable ?",
+            "a": "Oui, à condition que le règlement de copropriété l'autorise ou qu'une résolution d'AG physique l'ait approuvé au préalable. La pratique est courante au Luxembourg depuis 2020. Le PV électronique signé reste archivable comme preuve légale."
+          },
+          {
+            "q": "Peut-on faire des appels de fonds pour une copropriété sans TVA ?",
+            "a": "Oui, l'article 44 §1 f de la loi TVA exonère la gestion de copropriété. Le module applique automatiquement la bonne exonération et génère des Factur-X exempted (catégorie E en EN 16931). Pas de risque de TVA erronée facturée aux copropriétaires."
+          },
+          {
+            "q": "Les données des copropriétaires sont-elles sécurisées ?",
+            "a": "Stockées sur Supabase (AWS eu-central-1 Francfort), avec Row Level Security par utilisateur : même les administrateurs n'ont pas accès aux données d'un syndic qui n'est pas le leur. Conforme RGPD, chiffrement HTTPS en transit. Export de toutes vos données possible à tout moment en ZIP."
+          },
+          {
+            "q": "Combien de temps avant d'être opérationnel ?",
+            "a": "Un syndic qui gère 1 à 5 copropriétés est opérationnel en 1 à 2 heures : création du compte, import de la première copro, configuration des clés de répartition, premier appel de fonds. Au-delà de 10 copropriétés, prévoir 4 à 6 heures pour un import complet."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Prêt à reprendre vos soirées",
+        "desc": "Créez votre compte gratuitement, importez votre première copropriété et testez la génération d'un appel de fonds en 15 minutes. Zéro engagement.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir le module syndic en live"
+      }
     }
   },
   "syndic": {
