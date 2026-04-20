@@ -5,8 +5,10 @@ import { useTranslations } from "next-intl";
 import LocaleLink from "@/components/LocaleLink";
 import { useAuth } from "@/components/AuthProvider";
 import BackupButton from "@/components/BackupButton";
+import BackupRestoreZone from "@/components/BackupRestoreZone";
 import { availableModules, type BackupModule } from "@/lib/backup";
 import { lastBackupPerModule, listBackups, type BackupRecord } from "@/lib/backup/history";
+import { getReminderSettings, setReminderFrequency, type ReminderFrequency } from "@/lib/backup/reminders";
 
 function daysSince(iso: string): number {
   const then = new Date(iso).getTime();
@@ -20,12 +22,19 @@ export default function SauvegardesPage() {
   const [lastByModule, setLastByModule] = useState<Record<string, BackupRecord>>({});
   const [history, setHistory] = useState<BackupRecord[]>([]);
   const [refreshTick, setRefreshTick] = useState(0);
+  const [freqs, setFreqs] = useState<Partial<Record<BackupModule, ReminderFrequency>>>({});
 
   useEffect(() => {
     if (!user) return;
     lastBackupPerModule().then(setLastByModule).catch(() => setLastByModule({}));
     listBackups(20).then(setHistory).catch(() => setHistory([]));
+    setFreqs(getReminderSettings());
   }, [user, refreshTick]);
+
+  const handleFreqChange = (module: BackupModule, freq: ReminderFrequency) => {
+    setReminderFrequency(module, freq);
+    setFreqs((cur) => ({ ...cur, [module]: freq }));
+  };
 
   if (loading) return null;
 
@@ -57,6 +66,7 @@ export default function SauvegardesPage() {
       <div className="space-y-4">
         {modules.map((m) => {
           const last = lastByModule[m];
+          const currentFreq: ReminderFrequency = freqs[m] ?? "off";
           return (
             <div key={m} className="rounded-xl border border-card-border bg-card p-5">
               <div className="flex flex-wrap items-start justify-between gap-3">
@@ -74,6 +84,22 @@ export default function SauvegardesPage() {
                       <span className="text-amber-700">{t("never")}</span>
                     )}
                   </p>
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    <label htmlFor={`freq-${m}`} className="text-[11px] text-muted">
+                      {t("reminderTitle")}
+                    </label>
+                    <select
+                      id={`freq-${m}`}
+                      value={currentFreq}
+                      onChange={(e) => handleFreqChange(m, e.target.value as ReminderFrequency)}
+                      className="rounded-md border border-card-border bg-white px-2 py-1 text-[11px] text-navy"
+                    >
+                      <option value="off">{t("frequencyOff")}</option>
+                      <option value="weekly">{t("frequencyWeekly")}</option>
+                      <option value="monthly">{t("frequencyMonthly")}</option>
+                      <option value="quarterly">{t("frequencyQuarterly")}</option>
+                    </select>
+                  </div>
                 </div>
                 <div onClick={() => setTimeout(() => setRefreshTick((x) => x + 1), 2000)}>
                   <BackupButton module={m} />
@@ -82,6 +108,10 @@ export default function SauvegardesPage() {
             </div>
           );
         })}
+      </div>
+
+      <div className="mt-10">
+        <BackupRestoreZone />
       </div>
 
       <div className="mt-10">

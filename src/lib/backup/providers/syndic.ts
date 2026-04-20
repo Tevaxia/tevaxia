@@ -5,6 +5,8 @@
  * Tout est fetché côté client via Supabase (RLS scope par org_id).
  */
 
+import { createElement } from "react";
+import type { ReactElement } from "react";
 import type { ExportProvider, ExportContext, BackupBundle } from "../types";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import { listCoownerships, listUnits } from "@/lib/coownerships";
@@ -14,6 +16,11 @@ import { listBudgetLines } from "@/lib/coownership-budgets";
 import { listAllocationKeys, listUnitAllocations } from "@/lib/coownership-allocations";
 import { listYears, listAccounts, listEntries } from "@/lib/coownership-accounting";
 import { listRemindersSent, listUnpaidCharges } from "@/lib/coownership-reminders";
+import { getProfile } from "@/lib/profile";
+
+function safeFilename(s: string): string {
+  return s.replace(/[^a-z0-9-_]+/gi, "-").replace(/^-+|-+$/g, "").slice(0, 80);
+}
 
 async function collect(ctx: ExportContext): Promise<BackupBundle> {
   if (!isSupabaseConfigured || !supabase || !ctx.orgId) {
@@ -37,6 +44,12 @@ async function collect(ctx: ExportContext): Promise<BackupBundle> {
   const entriesAll: unknown[] = [];
   const remindersAll: unknown[] = [];
   const unpaidAll: unknown[] = [];
+
+  // PDFs : lazy-load @react-pdf/renderer seulement si besoin
+  const binaries: Record<string, Uint8Array> = {};
+  let pdfModule: typeof import("@react-pdf/renderer") | null = null;
+  let AssemblyMinutesPdf: typeof import("@/components/AssemblyMinutesPdf").default | null = null;
+  const profile = getProfile();
 
   for (const copro of coownerships) {
     const [units, assemblies, budgets, calls, allocationKeys, accountingYears, accounts, reminders, unpaid] = await Promise.all([
@@ -64,9 +77,38 @@ async function collect(ctx: ExportContext): Promise<BackupBundle> {
     for (const ag of assemblies) {
       const resolutions = await listResolutions(ag.id);
       resolutionsAll.push(...resolutions);
+      const votesByResolution: Record<string, unknown[]> = {};
       for (const r of resolutions) {
         const votes = await listVotes(r.id);
         votesAll.push(...votes);
+        votesByResolution[r.id] = votes;
+      }
+
+      // PV PDF pour AG closed/in_progress avec résolutions
+      const shouldGenPdf = resolutions.length > 0 && (ag.status === "closed" || ag.status === "in_progress");
+      if (shouldGenPdf) {
+        try {
+          if (!pdfModule) pdfModule = await import("@react-pdf/renderer");
+          if (!AssemblyMinutesPdf) {
+            const mod = await import("@/components/AssemblyMinutesPdf");
+            AssemblyMinutesPdf = mod.default;
+          }
+          const element = createElement(AssemblyMinutesPdf, {
+            coownership: { name: copro.name, address: copro.address, total_tantiemes: copro.total_tantiemes },
+            syndic: { name: profile.nomComplet || profile.societe || "Syndic", email: profile.email },
+            assembly: ag,
+            resolutions,
+            votesByResolution: votesByResolution as Record<string, import("@/lib/coownership-assemblies").AssemblyVote[]>,
+          }) as ReactElement;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const blob = await pdfModule.pdf(element as any).toBlob();
+          const buf = new Uint8Array(await blob.arrayBuffer());
+          const date = ag.scheduled_at ? new Date(ag.scheduled_at).toISOString().slice(0, 10) : "undated";
+          const name = `PV-AG-${safeFilename(copro.name)}-${safeFilename(ag.title)}-${date}.pdf`;
+          binaries[name] = buf;
+        } catch {
+          // Best-effort : si la génération PDF échoue, on continue l'export sans
+        }
       }
     }
 
@@ -139,7 +181,10 @@ async function collect(ctx: ExportContext): Promise<BackupBundle> {
     unpaid_charges: unpaidAll.length,
   };
 
-  return { files, counts };
+  const pdfCount = Object.keys(binaries).length;
+  if (pdfCount > 0) counts.pv_pdfs = pdfCount;
+
+  return { files, counts, binaries };
 }
 
 export const syndicProvider: ExportProvider = {

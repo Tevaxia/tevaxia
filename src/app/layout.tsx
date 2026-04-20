@@ -13,6 +13,7 @@ import PostHogProvider from "@/components/PostHogProvider";
 import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
 import { OrganizationJsonLd, WebSiteJsonLd, PersonJsonLd } from "@/components/JsonLd";
 import AiChatWidget from "@/components/AiChatWidget";
+import BackupReminderToast from "@/components/BackupReminderToast";
 import ModuleContextBar from "@/components/ModuleContextBar";
 import { Suspense } from "react";
 
@@ -138,6 +139,7 @@ export default async function RootLayout({
               <Footer />
               <CookieBanner />
               <AiChatWidget />
+              <BackupReminderToast />
             </PostHogProvider>
           </AuthProvider>
         </NextIntlClientProvider>
