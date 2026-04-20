@@ -6455,6 +6455,202 @@
         "ctaSecondary": "Voir tous les outils"
       }
     },
+    "promoteur": {
+      "meta": {
+        "title": "Logiciel promoteur immobilier Luxembourg — bilan, VEFA, coûts construction",
+        "description": "Bilan promoteur avec plan de trésorerie, simulateur VEFA avec intérêts intercalaires, estimateur coûts construction STATEC, VRD et surfaces OAI/ILNAS."
+      },
+      "hero": {
+        "badge": "Pour promoteurs et marchands de biens LU",
+        "title": "Bilan promoteur et simulation VEFA,",
+        "titleAccent": "sans ressaisir 3 fois vos coûts",
+        "subtitle": "Bilan promoteur complet avec plan de trésorerie et marge prévisionnelle, simulateur VEFA avec intérêts intercalaires et TVA 3% LU, estimateur coûts construction référencés STATEC 17 postes, calculateur VRD par lot, convertisseur surfaces OAI/ILNAS. Pensé pour les promoteurs immobiliers et marchands de biens luxembourgeois.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir comment ça marche",
+        "kpis": [
+          { "value": "17 postes", "label": "STATEC intégrés" },
+          { "value": "9 lots", "label": "VRD paramétrables" },
+          { "value": "<24 h", "label": "délai de réponse support" }
+        ]
+      },
+      "problem": {
+        "title": "Monter un projet immobilier au Luxembourg, c'est jongler entre 6 tableurs",
+        "intro": "Le coût de construction dans un Excel, la VEFA dans un autre, les intérêts intercalaires à la main, le plan de trésorerie qu'on refait à chaque itération. Résultat : l'instant où on voit si le projet marge vraiment arrive très tard.",
+        "items": [
+          { "title": "Coûts de construction flous", "desc": "Chiffrage basé sur le dernier projet comparable, sans référence STATEC à jour. À l'arrivée, écart de 10 à 20% qui vient sabrer la marge.", "stat": "±10-20% écart typique" },
+          { "title": "VEFA intérêts intercalaires complexes", "desc": "Échéancier des appels de fonds par tranche, taux du crédit court, TVA 3% à ventiler sur la bonne base : beaucoup d'erreurs possibles.", "stat": "~3 h par simulation" },
+          { "title": "Pas de plan de trésorerie dynamique", "desc": "Un retard de 3 mois sur le permis, un dépassement de 5% sur le gros œuvre : il faut refaire le tableur à la main pour voir l'impact sur la marge finale.", "stat": "~8 h de refonte par modif" }
+        ]
+      },
+      "howItWorks": {
+        "title": "Du chiffrage à la commercialisation, trois étapes",
+        "intro": "Vous saisissez le terrain et la programmation. Le système chiffre la construction, projette la VEFA et calcule la marge. Vous ajustez et comparez.",
+        "steps": [
+          { "number": "1", "title": "Terrain et programmation", "desc": "Prix terrain, surface constructible PAG, programmation (nombre de lots, typologie, surfaces), commune. Vérification règles PAG/PAP automatique." },
+          { "number": "2", "title": "Coûts construction + VRD", "desc": "Chiffrage par corps de métier STATEC (17 postes), ajustement par classe énergétique (AAA-C), finitions. VRD 9 lots (terrassement, voirie, réseaux, éclairage) avec prix sourcés." },
+          { "number": "3", "title": "Bilan promoteur + VEFA", "desc": "Plan de trésorerie mois par mois, simulation des appels de fonds VEFA, intérêts intercalaires sur crédit construction, TVA 3% logement neuf, marge brute et marge nette." }
+        ]
+      },
+      "features": {
+        "title": "Tous les outils du montage d'opération immobilière",
+        "intro": "Spécifiques aux normes luxembourgeoises (STATEC, OAI FC.04, ILNAS 101:2016, TVA 3% VEFA, règlement PAG/PAP) et aux pratiques du marché.",
+        "items": [
+          { "title": "Bilan promoteur complet", "desc": "CA prévisionnel par lot, coûts totaux, frais financiers, marge brute et nette, IRR projet." },
+          { "title": "Plan de trésorerie mensuel", "desc": "Encaissements VEFA et décaissements construction par mois. Point mort identifié." },
+          { "title": "Simulateur VEFA", "desc": "Intérêts intercalaires, TVA 3% sur base imposable, garantie financière d'achèvement, plan d'échéance appels de fonds standard." },
+          { "title": "Estimateur construction STATEC", "desc": "17 postes (gros œuvre, second œuvre, équipements), indice STATEC octobre 2025 : 1 173,24. Ajustement par classe énergétique." },
+          { "title": "Calculateur VRD (9 lots)", "desc": "Terrassement, voirie, assainissement, AEP, éclairage, espaces verts. Prix sourcés Batiprix 2026 (coeff. LU ×1,20), CTG 002 & 009, CSDC-CT, Administration de l'eau." },
+          { "title": "Convertisseur surfaces ACT", "desc": "SCB / SCP / surface utile / surface habitable selon ILNAS 101:2016. Pondération ACT pour caves, balcons, terrasses. Normes OAI FC.04." },
+          { "title": "PAG-PAP analysis", "desc": "Règles d'urbanisme PAG et PAP par commune (COS, CUS, recul, hauteur). Surface constructible théorique." },
+          { "title": "Terres agricoles", "desc": "Estimateur valeur terres agricoles, rentabilité en bail à ferme, conversion en constructible (probabilité PAG, plus-value potentielle)." },
+          { "title": "Comparaison scénarios", "desc": "Plusieurs scénarios en parallèle : programme A (100% logement) vs programme B (mixte logement+commerce), classe AAA vs A+, etc." },
+          { "title": "Sensibilité marge", "desc": "Stress test sur durée, coût construction, prix de vente. Marge dans le pire cas affichée." },
+          { "title": "Rapport PDF pour banque", "desc": "Dossier financement promoteur complet : bilan, plan trésorerie, garanties, pré-commercialisation, expertises." },
+          { "title": "Données 98 communes", "desc": "Prix vente par commune, démographie, règles d'urbanisme. Vérification pré-commercialisation." }
+        ]
+      },
+      "trust": {
+        "title": "Pourquoi les promoteurs LU nous choisissent",
+        "agileTitle": "Développement agile, livraisons régulières",
+        "agileDesc": "Nouveaux modules livrés toutes les 2 semaines. Mise à jour automatique des indices STATEC.",
+        "customTitle": "Sur-mesure possible",
+        "customDesc": "Un format de bilan spécifique à votre banque, un plan comptable LUX GAAP particulier, un export pour votre contrôleur de gestion : développement en 1 à 3 semaines.",
+        "supportTitle": "Support en moins de 24 h",
+        "supportDesc": "Email à contact@tevaxia.lu. Réponse moyenne sous 6 h en jours ouvrés, par un humain qui connaît la promotion immobilière LU."
+      },
+      "pricing": {
+        "title": "Inclus dans votre abonnement tevaxia",
+        "subtitle": "Pas de facturation par projet, pas de quota de simulations. Tous les outils promoteur sont inclus dans l'abonnement général.",
+        "features": [
+          "Bilans promoteur illimités",
+          "VEFA avec intérêts intercalaires",
+          "Estimateur construction STATEC 17 postes",
+          "Calculateur VRD 9 lots sourcés",
+          "Convertisseur surfaces ACT OAI/ILNAS",
+          "Analyse PAG/PAP 98 communes",
+          "Comparaison de scénarios illimitée",
+          "Rapport PDF pour banque",
+          "Stress test marge multi-paramètres"
+        ],
+        "ctaPlatform": "Voir les offres tevaxia",
+        "ctaEmit": "Accéder au bilan promoteur"
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          { "q": "Les indices STATEC sont-ils à jour ?", "a": "Oui, l'indice du coût de construction est mis à jour trimestriellement (dernière valeur : octobre 2025 = 1 173,24). Les 17 postes STATEC sont couverts, ajustés par classe énergétique (AAA à C) et niveau de finition." },
+          { "q": "La TVA 3% logement neuf est-elle bien gérée ?", "a": "Oui, pour les primo-acquéreurs résidents qui occuperont le logement 2 ans minimum. L'outil applique la bonne base imposable (prix hors-sol + honoraires de promotion), comparaison 3% vs 17% pour voir l'économie client." },
+          { "q": "Puis-je paramétrer mes propres coûts de construction ?", "a": "Oui, les 17 postes STATEC servent de référence mais sont tous ajustables. Vous pouvez aussi sauvegarder des templates par type d'opération (résidentiel standard, haute gamme, logement social)." },
+          { "q": "Le VRD est-il adapté aux règles luxembourgeoises ?", "a": "Oui, les 9 lots VRD sont chiffrés avec les prix Batiprix 2026 (coefficient LU ×1,20), CTG 002 & 009 (règles d'hygiène routes), CSDC-CT (Ponts & Chaussées) et Administration de l'eau (assainissement)." },
+          { "q": "La conversion de surfaces respecte-t-elle les normes OAI/ILNAS ?", "a": "Oui, ILNAS 101:2016 pour les 4 types de surface (SCB, SCP, surface utile, surface habitable). Pondération ACT selon OAI FC.04 pour caves, balcons, terrasses, combles." },
+          { "q": "Puis-je exporter mon bilan pour ma banque ou mon conseiller ?", "a": "Oui, PDF « Dossier financement promoteur » complet : bilan, plan de trésorerie mensuel, garanties prévues, engagement pré-commercialisation, sensibilité marge. Partage view-only possible avec lien limité 7-90 jours." }
+        ]
+      },
+      "finalCta": {
+        "title": "Prêt à chiffrer vos projets plus vite",
+        "desc": "Créez votre compte, saisissez votre premier projet et obtenez votre bilan en 30 minutes. Zéro engagement.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir le bilan promoteur"
+      }
+    },
+    "banque": {
+      "meta": {
+        "title": "Logiciel valorisation immobilière pour banques Luxembourg — CRR, LTV, DSCR",
+        "description": "Valorisation EVS 2025 conforme CRR, stress test +2%, outils LTV/DSCR, AML/KYC, portfolio énergétique CRREM. Pour analystes crédit et risk LU."
+      },
+      "hero": {
+        "badge": "Pour banques et analystes crédit LU",
+        "title": "Analyse de crédit immo conforme",
+        "titleAccent": "CRR + EVS 2025 dans un seul outil",
+        "subtitle": "Valorisation EVS 2025 avec valeur hypothécaire CRR (haircut énergétique), LTV / DSCR / capacité d'emprunt selon profils CSSF, AML/KYC avec vérification sanctions UE, portfolio énergétique CRREM stranding. Pensé pour les analystes crédit, risk managers et compliance officers luxembourgeois.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir comment ça marche",
+        "kpis": [
+          { "value": "CRR + EVS 2025", "label": "double conformité" },
+          { "value": "CRREM stranding", "label": "haircut énergétique" },
+          { "value": "<24 h", "label": "délai de réponse support" }
+        ]
+      },
+      "problem": {
+        "title": "Analyser un crédit immo au Luxembourg demande 5 outils séparés",
+        "intro": "Valeur marché dans un outil, valeur hypothécaire dans un autre, AML/KYC via un portail externe, stress test à la main. Les dossiers prennent 3 jours là où ils pourraient prendre 3 heures.",
+        "items": [
+          { "title": "Valeur hypothécaire CRR manuelle", "desc": "Calcul du haircut énergétique selon la classe du bien, ajustement pour actif stranded (CRREM 2030+), vérification conformité Règlement 575/2013 : beaucoup de passes à la main.", "stat": "~2 h par dossier" },
+          { "title": "AML/KYC sur plusieurs plateformes", "desc": "Vérification sanctions UE (CFSP), PEP, ultimate beneficial owner, origine des fonds sur 3 outils différents. Pas de piste d'audit consolidée.", "stat": "~1 h par dossier" },
+          { "title": "Pas de vue portfolio énergétique", "desc": "Quels biens du portefeuille sont stranded 2030 ou 2040 selon CRREM ? Quelle provision à passer pour haircut énergétique ? Pas d'outil consolidé.", "stat": "~0 banque LU équipée" }
+        ]
+      },
+      "howItWorks": {
+        "title": "De l'analyse crédit au reporting risk, trois étapes",
+        "intro": "Vous saisissez le dossier client. L'outil calcule valeur marché + valeur hypothécaire, applique le haircut énergétique, vérifie l'AML/KYC, sort le rapport.",
+        "steps": [
+          { "number": "1", "title": "Dossier emprunteur + bien", "desc": "Profil emprunteur (résident, non-résident, investisseur), bien (adresse, surface, classe énergétique, année), montant, durée, taux." },
+          { "number": "2", "title": "Valorisation + CRR + LTV/DSCR", "desc": "Valeur marché EVS 2025 (8 méthodes), valeur hypothécaire CRR avec haircut CRREM, LTV selon profil CSSF, DSCR cible 1.25, stress test +2% et chômage." },
+          { "number": "3", "title": "AML/KYC + rapport risk", "desc": "Vérification sanctions UE, PEP, UBO, origine fonds. Rapport risk PDF avec opinion structurée (APPROVED / REVIEW / DECLINED) prêt pour comité de crédit." }
+        ]
+      },
+      "features": {
+        "title": "L'analyse crédit immo bancaire complète",
+        "intro": "Conforme Règlement UE 575/2013 (CRR), exigences CSSF, EN 16931, RGPD et directives EBA sur les garanties immobilières.",
+        "items": [
+          { "title": "Valorisation EVS 2025", "desc": "8 méthodes TEGOVA, 9 types d'actifs, données 98 communes LU, sensibilité automatique. Conforme Charte 5e éd." },
+          { "title": "Valeur hypothécaire CRR", "desc": "Haircut énergétique selon CRREM stranding year, ajustement classe énergétique, conforme Art. 208 CRR 575/2013." },
+          { "title": "LTV / DSCR / capacité", "desc": "LTV max par profil (80% résident, 70% non-résident, 60% investisseur), DSCR cible 1.25, capacité d'emprunt." },
+          { "title": "Stress test +2% + chômage", "desc": "Simulations risk : +2% taux, chômage 6 mois, baisse valeur 10-20%. Affichage LTV et DSCR stressés." },
+          { "title": "AML/KYC intégré", "desc": "Vérification sanctions UE (CFSP), PEP, UBO, origine des fonds. Piste d'audit consolidée, export JSON." },
+          { "title": "Portfolio énergétique CRREM", "desc": "Vue stranding 2030 / 2040 / 2050 par bien. Provision haircut énergétique à passer. Tracking rénovations prévues." },
+          { "title": "Rapport risk PDF", "desc": "Opinion structurée APPROVED / REVIEW / DECLINED avec justification. Pré-comité ou comité de crédit." },
+          { "title": "API REST pour CRM bancaire", "desc": "Intégration via API : valorisation, LTV, stress test, AML/KYC. Webhook pour push automatique." },
+          { "title": "Transparence modèle", "desc": "MAPE et R² publiés, 29 coefficients hédoniques sourcés. Auditabilité pour BCL et CSSF." },
+          { "title": "Valorisation hôtelière", "desc": "Méthodes spécifiques hôtels (capitalisation RevPAR × multiple, DSCR 1.25 hôtel). Pour banques fiancement hôtellerie." },
+          { "title": "DCF bureaux + commerces", "desc": "DCF multi-locataires bail par bail. Break options, step rents, CAPEX planifié. IRR equity et projet." },
+          { "title": "Données macro live", "desc": "OAT 10 ans, taux hypothécaires, indice construction, inflation. Connexion BCE + STATEC. Mise à jour mensuelle." }
+        ]
+      },
+      "trust": {
+        "title": "Pourquoi les banques LU nous considèrent",
+        "agileTitle": "Développement agile, livraisons régulières",
+        "agileDesc": "Nouveaux modules livrés toutes les 2 semaines. Mise à jour auto des règlements CRR, CRREM et directives EBA.",
+        "customTitle": "Intégration sur-mesure",
+        "customDesc": "Intégration à votre core banking (Temenos T24, Avaloq, Finastra), format de rapport interne, workflow de comité : développement en 1 à 3 semaines.",
+        "supportTitle": "Support en moins de 24 h",
+        "supportDesc": "Email à contact@tevaxia.lu. Réponse moyenne sous 6 h en jours ouvrés, par un humain qui connaît le CRR et l'EVS 2025."
+      },
+      "pricing": {
+        "title": "Inclus dans votre abonnement tevaxia",
+        "subtitle": "Pas de facturation par dossier analysé. L'ensemble des outils bancaires est inclus dans l'abonnement général.",
+        "features": [
+          "Valorisations EVS 2025 illimitées",
+          "Valeur hypothécaire CRR avec haircut CRREM",
+          "LTV / DSCR / capacité d'emprunt",
+          "Stress test +2% et chômage",
+          "AML/KYC avec piste d'audit",
+          "Portfolio énergétique CRREM stranding",
+          "Rapport risk PDF structuré",
+          "API REST pour intégration CRM",
+          "DCF multi-locataires + valorisation hôtelière"
+        ],
+        "ctaPlatform": "Voir les offres tevaxia",
+        "ctaEmit": "Accéder aux outils bancaires"
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          { "q": "Comment est calculée la valeur hypothécaire CRR ?", "a": "Valeur de marché EVS 2025 moins haircut énergétique basé sur la classe énergétique du bien et sa trajectoire CRREM. Un actif stranded avant 2030 reçoit un haircut de 20-30%, conforme à l'esprit de l'Art. 208 CRR. Affichage transparent du calcul pour chaque bien." },
+          { "q": "L'AML/KYC couvre-t-il les exigences CSSF ?", "a": "Oui : vérification sanctions UE (CFSP), PEP (personnes politiquement exposées), UBO (ultimate beneficial owner), origine des fonds. Piste d'audit consolidée avec horodatage. Rapport exportable pour contrôles CSSF." },
+          { "q": "Le stress test est-il conforme aux exigences EBA ?", "a": "Oui, les scénarios par défaut (+2% taux, chômage 6 mois, baisse valeur 10-20%) correspondent aux attentes EBA sur les tests de résistance. Paramètres ajustables pour stress tests internes plus sévères." },
+          { "q": "Peut-on intégrer via API à notre core banking ?", "a": "Oui, API REST avec authentification OAuth 2.0. Endpoints : valorisation, LTV, stress test, AML/KYC. Webhook pour push automatique vers votre CRM. Documentation OpenAPI 3.1 publique." },
+          { "q": "Comment est gérée la conformité BCL et CSSF ?", "a": "Modèle hédonique avec MAPE et R² publics pour auditabilité, 29 coefficients sourcés documentés, back-test sur 20 biens LU. Page /transparence publique. Les équipes compliance peuvent auditer le modèle sans demande particulière." },
+          { "q": "Les données clients sont-elles sécurisées au standard bancaire ?", "a": "Stockage Supabase (AWS eu-central-1 Francfort), Row Level Security par utilisateur, HTTPS en transit, ISO 27001. Isolation stricte par organisation : même les administrateurs tevaxia n'accèdent pas aux données d'une banque." }
+        ]
+      },
+      "finalCta": {
+        "title": "Prêt à accélérer vos dossiers crédit",
+        "desc": "Créez votre compte pilote, connectez un dossier test et obtenez votre valorisation + CRR + AML/KYC en 10 minutes. Contactez-nous pour un POC dédié banque.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir les outils bancaires"
+      }
+    },
     "syndic": {
       "meta": {
         "title": "Logiciel de syndic au Luxembourg, conforme loi 16.05.1975",

@@ -6952,6 +6952,376 @@
         "cta": "Start for free",
         "ctaSecondary": "See the syndic module live"
       }
+    },
+    "promoteur": {
+      "meta": {
+        "title": "Real estate developer software Luxembourg — P&L, VEFA, construction costs",
+        "description": "Developer P&L with cash-flow plan, VEFA simulator with interim interest, STATEC construction cost estimator, road works and OAI/ILNAS surface conversion."
+      },
+      "hero": {
+        "badge": "For LU developers and property dealers",
+        "title": "Developer P&L and VEFA simulation,",
+        "titleAccent": "without re-entering costs three times",
+        "subtitle": "Complete developer P&L with monthly cash-flow plan and forecast margin, VEFA simulator with interim interest and LU 3% VAT, STATEC-referenced construction cost estimator (17 trades), road works calculator (9 lots), OAI/ILNAS surface converter. Built for Luxembourg property developers and dealers.",
+        "cta": "Start for free",
+        "ctaSecondary": "See how it works",
+        "kpis": [
+          {
+            "value": "17 trades",
+            "label": "STATEC integrated"
+          },
+          {
+            "value": "9 lots",
+            "label": "road works configurable"
+          },
+          {
+            "value": "<24 h",
+            "label": "support response time"
+          }
+        ]
+      },
+      "problem": {
+        "title": "Running a real estate project in Luxembourg means juggling 6 spreadsheets",
+        "intro": "Construction cost in one Excel, VEFA in another, interim interest by hand, cash-flow plan redone at every iteration. Result: you only see whether the project actually yields margin very late in the process.",
+        "items": [
+          {
+            "title": "Fuzzy construction costs",
+            "desc": "Pricing based on the last comparable project, no up-to-date STATEC reference. In the end, a 10-20% gap that eats into the margin.",
+            "stat": "±10-20% typical gap"
+          },
+          {
+            "title": "Complex VEFA interim interest",
+            "desc": "Tranche-by-tranche fund call schedule, short-term credit rate, 3% VAT to allocate on the right base: many possible errors.",
+            "stat": "~3 h per simulation"
+          },
+          {
+            "title": "No dynamic cash-flow plan",
+            "desc": "A 3-month permit delay, a 5% overrun on structural works: you have to redo the spreadsheet by hand to see the impact on final margin.",
+            "stat": "~8 h rework per change"
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "From pricing to commercialisation, three steps",
+        "intro": "You enter the land and the programme. The system prices construction, projects VEFA and computes margin. You adjust and compare.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Land and programme",
+            "desc": "Land price, buildable surface per PAG, programme (number of units, types, surfaces), commune. Automatic PAG/PAP rule check."
+          },
+          {
+            "number": "2",
+            "title": "Construction + road works",
+            "desc": "Pricing by STATEC trade (17 items), adjustment by energy class (AAA-C), finishes. Road works 9 lots with sourced prices."
+          },
+          {
+            "number": "3",
+            "title": "Developer P&L + VEFA",
+            "desc": "Monthly cash-flow plan, VEFA fund call simulation, interim interest on construction credit, 3% new-build VAT, gross and net margin."
+          }
+        ]
+      },
+      "features": {
+        "title": "All the real estate project build-up tools",
+        "intro": "Specific to Luxembourg standards (STATEC, OAI FC.04, ILNAS 101:2016, 3% VEFA VAT, PAG/PAP regulation) and market practices.",
+        "items": [
+          {
+            "title": "Complete developer P&L",
+            "desc": "Revenue forecast per unit, total costs, financial charges, gross and net margin, project IRR."
+          },
+          {
+            "title": "Monthly cash-flow plan",
+            "desc": "Monthly VEFA collections and construction disbursements. Breakeven identified."
+          },
+          {
+            "title": "VEFA simulator",
+            "desc": "Interim interest, 3% VAT on taxable base, financial completion guarantee, standard fund call schedule."
+          },
+          {
+            "title": "STATEC construction estimator",
+            "desc": "17 trades, STATEC October 2025 index: 1 173.24. Adjustment by energy class."
+          },
+          {
+            "title": "Road works calculator (9 lots)",
+            "desc": "Earthworks, roads, sewage, water supply, lighting, green spaces. Sourced prices Batiprix 2026 (LU coef. ×1.20), CTG 002 & 009, CSDC-CT."
+          },
+          {
+            "title": "ACT surface converter",
+            "desc": "SCB / SCP / usable / habitable per ILNAS 101:2016. ACT weighting for cellars, balconies, terraces. OAI FC.04 standards."
+          },
+          {
+            "title": "PAG-PAP analysis",
+            "desc": "PAG and PAP urban planning rules per commune (COS, CUS, setback, height). Theoretical buildable surface."
+          },
+          {
+            "title": "Agricultural land",
+            "desc": "Agricultural land valuation, farm lease yield, conversion to building land (PAG probability, potential capital gain)."
+          },
+          {
+            "title": "Scenario comparison",
+            "desc": "Multiple scenarios in parallel: programme A (100% residential) vs B (mixed residential+retail), AAA vs A+ class."
+          },
+          {
+            "title": "Margin sensitivity",
+            "desc": "Stress test on duration, construction cost, selling price. Worst-case margin displayed."
+          },
+          {
+            "title": "Bank PDF report",
+            "desc": "Complete developer financing file: P&L, cash-flow plan, guarantees, pre-commercialisation, valuations."
+          },
+          {
+            "title": "98 commune data",
+            "desc": "Sale prices per commune, demographics, urban rules. Pre-commercialisation check."
+          }
+        ]
+      },
+      "trust": {
+        "title": "Why LU developers choose us",
+        "agileTitle": "Agile development, regular releases",
+        "agileDesc": "New modules shipped every 2 weeks. Automatic STATEC index updates.",
+        "customTitle": "Custom work possible",
+        "customDesc": "A specific P&L format for your bank, a particular LUX GAAP chart of accounts, an export for your controlling: development in 1 to 3 weeks.",
+        "supportTitle": "Support in under 24 h",
+        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days, by a human who knows LU real estate development."
+      },
+      "pricing": {
+        "title": "Included in your tevaxia subscription",
+        "subtitle": "No per-project billing, no simulation quota. All developer tools are included in the general subscription.",
+        "features": [
+          "Unlimited developer P&L",
+          "VEFA with interim interest",
+          "STATEC construction estimator 17 trades",
+          "Road works calculator 9 sourced lots",
+          "OAI/ILNAS ACT surface converter",
+          "PAG/PAP analysis 98 communes",
+          "Unlimited scenario comparison",
+          "Bank PDF report",
+          "Multi-parameter margin stress test"
+        ],
+        "ctaPlatform": "See tevaxia plans",
+        "ctaEmit": "Go to developer P&L"
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          {
+            "q": "Are STATEC indices up to date?",
+            "a": "Yes, the construction cost index is updated quarterly (latest value: October 2025 = 1 173.24). The 17 STATEC trades are covered, adjusted by energy class (AAA to C) and finish level."
+          },
+          {
+            "q": "Is 3% new-build VAT properly handled?",
+            "a": "Yes, for resident first-time buyers occupying the property for 2 years minimum. The tool applies the right taxable base (off-plan price + promotion fees), 3% vs 17% comparison to see the client saving."
+          },
+          {
+            "q": "Can I configure my own construction costs?",
+            "a": "Yes, the 17 STATEC trades serve as reference but are all adjustable. You can save templates by operation type (standard residential, premium, social housing)."
+          },
+          {
+            "q": "Does road works match Luxembourg rules?",
+            "a": "Yes, the 9 road works lots use Batiprix 2026 prices (LU coefficient ×1.20), CTG 002 & 009 (road hygiene rules), CSDC-CT (Roads & Bridges) and Administration de l'eau (sewerage)."
+          },
+          {
+            "q": "Does surface conversion respect OAI/ILNAS standards?",
+            "a": "Yes, ILNAS 101:2016 for the 4 surface types (SCB, SCP, usable, habitable). ACT weighting per OAI FC.04 for cellars, balconies, terraces, attics."
+          },
+          {
+            "q": "Can I export my P&L for my bank or advisor?",
+            "a": "Yes, complete Developer financing file PDF: P&L, monthly cash-flow plan, expected guarantees, pre-commercialisation commitment, margin sensitivity. View-only sharing possible with 7-90 day limited link."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Ready to price your projects faster",
+        "desc": "Create your account, enter your first project and get your P&L in 30 minutes. Zero commitment.",
+        "cta": "Start for free",
+        "ctaSecondary": "See developer P&L"
+      }
+    },
+    "banque": {
+      "meta": {
+        "title": "Real estate valuation software for banks Luxembourg — CRR, LTV, DSCR",
+        "description": "CRR-compliant EVS 2025 valuation, +2% stress test, LTV/DSCR tools, AML/KYC, CRREM energy portfolio. For LU credit analysts and risk managers."
+      },
+      "hero": {
+        "badge": "For LU banks and credit analysts",
+        "title": "Real estate credit analysis,",
+        "titleAccent": "CRR + EVS 2025 in one tool",
+        "subtitle": "EVS 2025 valuation with CRR mortgage lending value (energy haircut), LTV / DSCR / borrowing capacity per CSSF profile, AML/KYC with EU sanctions check, CRREM stranding energy portfolio. Built for Luxembourg credit analysts, risk managers and compliance officers.",
+        "cta": "Start for free",
+        "ctaSecondary": "See how it works",
+        "kpis": [
+          {
+            "value": "CRR + EVS 2025",
+            "label": "dual compliance"
+          },
+          {
+            "value": "CRREM stranding",
+            "label": "energy haircut"
+          },
+          {
+            "value": "<24 h",
+            "label": "support response time"
+          }
+        ]
+      },
+      "problem": {
+        "title": "Analysing a real estate loan in Luxembourg means 5 separate tools",
+        "intro": "Market value in one tool, mortgage lending value in another, AML/KYC via external portal, stress test by hand. Files take 3 days when they could take 3 hours.",
+        "items": [
+          {
+            "title": "Manual CRR mortgage lending value",
+            "desc": "Energy haircut calculation by property class, stranded asset adjustment (CRREM 2030+), Regulation 575/2013 compliance check: many manual passes.",
+            "stat": "~2 h per file"
+          },
+          {
+            "title": "AML/KYC across multiple platforms",
+            "desc": "EU sanctions check (CFSP), PEP, ultimate beneficial owner, source of funds on 3 different tools. No consolidated audit trail.",
+            "stat": "~1 h per file"
+          },
+          {
+            "title": "No energy portfolio view",
+            "desc": "Which portfolio properties are stranded 2030 or 2040 per CRREM? What provision for energy haircut? No consolidated tool.",
+            "stat": "~0 LU banks equipped"
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "From credit analysis to risk reporting, three steps",
+        "intro": "You enter the client file. The tool computes market value + mortgage lending value, applies the energy haircut, checks AML/KYC, produces the report.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Borrower + property file",
+            "desc": "Borrower profile (resident, non-resident, investor), property (address, surface, energy class, year), amount, duration, rate."
+          },
+          {
+            "number": "2",
+            "title": "Valuation + CRR + LTV/DSCR",
+            "desc": "EVS 2025 market value (8 methods), CRR mortgage lending value with CRREM haircut, LTV per CSSF profile, DSCR target 1.25, +2% rate and unemployment stress test."
+          },
+          {
+            "number": "3",
+            "title": "AML/KYC + risk report",
+            "desc": "EU sanctions, PEP, UBO, source of funds check. Risk PDF report with structured opinion (APPROVED / REVIEW / DECLINED) ready for credit committee."
+          }
+        ]
+      },
+      "features": {
+        "title": "Complete bank real estate credit analysis",
+        "intro": "Compliant with EU Regulation 575/2013 (CRR), CSSF requirements, EN 16931, GDPR and EBA guidelines on real estate collateral.",
+        "items": [
+          {
+            "title": "EVS 2025 valuation",
+            "desc": "8 TEGOVA methods, 9 asset types, 98 LU commune data, automatic sensitivity. Charte 5th ed. compliant."
+          },
+          {
+            "title": "CRR mortgage lending value",
+            "desc": "Energy haircut per CRREM stranding year, energy class adjustment, compliant with CRR 575/2013 Art. 208."
+          },
+          {
+            "title": "LTV / DSCR / capacity",
+            "desc": "Max LTV by profile (80% resident, 70% non-resident, 60% investor), DSCR target 1.25, borrowing capacity."
+          },
+          {
+            "title": "+2% stress test + unemployment",
+            "desc": "Risk simulations: +2% rate, 6-month unemployment, 10-20% value drop. Stressed LTV and DSCR displayed."
+          },
+          {
+            "title": "Integrated AML/KYC",
+            "desc": "EU sanctions check (CFSP), PEP, UBO, source of funds. Consolidated audit trail, JSON export."
+          },
+          {
+            "title": "CRREM energy portfolio",
+            "desc": "Stranding 2030 / 2040 / 2050 view per property. Energy haircut provision. Renovation tracking."
+          },
+          {
+            "title": "Risk PDF report",
+            "desc": "APPROVED / REVIEW / DECLINED structured opinion with justification. Pre-committee or credit committee."
+          },
+          {
+            "title": "REST API for bank CRM",
+            "desc": "API integration: valuation, LTV, stress test, AML/KYC. Webhook for automatic push."
+          },
+          {
+            "title": "Model transparency",
+            "desc": "Public MAPE and R², 29 sourced hedonic coefficients. Auditability for BCL and CSSF."
+          },
+          {
+            "title": "Hotel valuation",
+            "desc": "Hotel-specific methods (RevPAR × multiple capitalisation, hotel DSCR 1.25). For hospitality financing banks."
+          },
+          {
+            "title": "Office + retail DCF",
+            "desc": "Multi-tenant DCF lease by lease. Break options, step rents, planned CAPEX. Equity and project IRR."
+          },
+          {
+            "title": "Live macro data",
+            "desc": "10-year OAT, mortgage rates, construction index, inflation. ECB + STATEC connection. Monthly updates."
+          }
+        ]
+      },
+      "trust": {
+        "title": "Why LU banks consider us",
+        "agileTitle": "Agile development, regular releases",
+        "agileDesc": "New modules shipped every 2 weeks. Auto-updates for CRR, CRREM regulations and EBA guidelines.",
+        "customTitle": "Custom integration",
+        "customDesc": "Integration with your core banking (Temenos T24, Avaloq, Finastra), internal report format, committee workflow: development in 1 to 3 weeks.",
+        "supportTitle": "Support in under 24 h",
+        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days, by a human who knows CRR and EVS 2025."
+      },
+      "pricing": {
+        "title": "Included in your tevaxia subscription",
+        "subtitle": "No per-file billing. All banking tools are included in the general subscription.",
+        "features": [
+          "Unlimited EVS 2025 valuations",
+          "CRR mortgage lending value with CRREM haircut",
+          "LTV / DSCR / borrowing capacity",
+          "+2% and unemployment stress test",
+          "AML/KYC with audit trail",
+          "CRREM stranding energy portfolio",
+          "Structured risk PDF report",
+          "REST API for CRM integration",
+          "Multi-tenant DCF + hotel valuation"
+        ],
+        "ctaPlatform": "See tevaxia plans",
+        "ctaEmit": "Go to banking tools"
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          {
+            "q": "How is CRR mortgage lending value computed?",
+            "a": "EVS 2025 market value minus energy haircut based on property energy class and CRREM trajectory. A pre-2030 stranded asset gets a 20-30% haircut, consistent with CRR Art. 208 spirit. Transparent calculation displayed per property."
+          },
+          {
+            "q": "Does AML/KYC cover CSSF requirements?",
+            "a": "Yes: EU sanctions check (CFSP), PEP (politically exposed persons), UBO (ultimate beneficial owner), source of funds. Consolidated audit trail with timestamps. Exportable report for CSSF audits."
+          },
+          {
+            "q": "Is the stress test EBA-compliant?",
+            "a": "Yes, default scenarios (+2% rate, 6-month unemployment, 10-20% value drop) match EBA expectations on resilience testing. Parameters adjustable for stricter internal stress tests."
+          },
+          {
+            "q": "Can we integrate via API with our core banking?",
+            "a": "Yes, REST API with OAuth 2.0 authentication. Endpoints: valuation, LTV, stress test, AML/KYC. Webhook for automatic push to your CRM. Public OpenAPI 3.1 documentation."
+          },
+          {
+            "q": "How is BCL and CSSF compliance handled?",
+            "a": "Hedonic model with public MAPE and R² for auditability, 29 sourced coefficients documented, back-test on 20 LU properties. Public /transparence page. Compliance teams can audit the model without special request."
+          },
+          {
+            "q": "Is client data secure at banking standard?",
+            "a": "Supabase storage (AWS eu-central-1 Frankfurt), user-level Row Level Security, HTTPS in transit, ISO 27001. Strict isolation per organisation: even tevaxia administrators cannot access a bank's data."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Ready to accelerate your credit files",
+        "desc": "Create your pilot account, connect a test file and get your valuation + CRR + AML/KYC in 10 minutes. Contact us for a dedicated bank POC.",
+        "cta": "Start for free",
+        "ctaSecondary": "See banking tools"
+      }
     }
   },
   "syndic": {
