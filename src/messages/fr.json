@@ -5839,6 +5839,492 @@
     }
   },
   "solutions": {
+    "agence": {
+      "meta": {
+        "title": "CRM agence immobilière Luxembourg — pipeline mandats, matching, OpenImmo",
+        "description": "Centralisez mandats, contacts, tâches dans un seul CRM pensé pour les agences LU. Matching acquéreur automatique, fiches bien PDF co-brandées, signature eIDAS."
+      },
+      "hero": {
+        "badge": "CRM immobilier pour agences LU",
+        "title": "Votre pipeline mandats dans",
+        "titleAccent": "un seul outil, pas quatre",
+        "subtitle": "Gestion des mandats au format OpenImmo, CRM contacts avec matching acquéreur automatique, Kanban glisser-déposer, fiches bien PDF co-brandées et signature électronique eIDAS. Conçu pour les agences immobilières luxembourgeoises qui veulent arrêter de jongler entre plusieurs outils.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir comment ça marche",
+        "kpis": [
+          { "value": "/100", "label": "scoring matching acquéreur" },
+          { "value": "OpenImmo", "label": "format standard LU/DE" },
+          { "value": "<24 h", "label": "délai de réponse support" }
+        ]
+      },
+      "problem": {
+        "title": "Votre business tourne sur plusieurs outils qui ne se parlent pas",
+        "intro": "Les mandats dans Excel, les contacts dans Gmail, les tâches dans Notion, les visites sur WhatsApp. Chaque information vit à un endroit différent et rien ne remonte à qui décide.",
+        "items": [
+          { "title": "Mandats dispersés entre 3 outils", "desc": "Entre le CRM d'agence, la plateforme de diffusion, le tableur de suivi et les échanges email, impossible de voir l'état d'un mandat d'un coup d'œil.", "stat": "~4 outils utilisés en parallèle" },
+          { "title": "Matching acquéreur au feeling", "desc": "Un nouveau mandat arrive, vous cherchez dans la base acquéreur à la main. Rayon, budget, typologie, date de projet : tout est ailleurs, donc on oublie des candidats.", "stat": "30-40% de matches manqués" },
+          { "title": "Diffusion portails manuelle", "desc": "Saisie du bien sur athome, immotop, wort, puis re-saisie si un prix bouge. Les incohérences entre portails dégradent votre image.", "stat": "~45 min par diffusion" }
+        ]
+      },
+      "howItWorks": {
+        "title": "Un seul CRM, trois étapes",
+        "intro": "Pas de formation de 2 jours, pas de migration hasardeuse. Vous importez vos contacts, vous créez votre premier mandat, le matching s'exécute automatiquement.",
+        "steps": [
+          { "number": "1", "title": "Vos contacts importés en CSV", "desc": "Import de votre base acquéreur existante (Excel, Gmail, autre CRM). Mapping automatique des colonnes. Jusqu'à 10 000 contacts en 2 minutes." },
+          { "number": "2", "title": "Mandats en pipeline Kanban", "desc": "Création de mandat avec format OpenImmo. Kanban drag-drop par statut (prospection, signé, diffusé, sous offre, vendu). Diffusion vers athome / immotop / wort en un clic." },
+          { "number": "3", "title": "Matching scoring /100 automatique", "desc": "Dès qu'un mandat ou un acquéreur entre en base, l'algo calcule les correspondances. Vous recevez la liste triée par score, prêt à contacter." }
+        ]
+      },
+      "features": {
+        "title": "Les fonctionnalités qui font vraiment gagner du temps",
+        "intro": "Pensé pour les équipes de 1 à 20 agents, avec les workflows du marché immobilier luxembourgeois.",
+        "items": [
+          { "title": "Pipeline mandats Kanban", "desc": "Drag-drop entre statuts, vue par agent, par ville ou par prix. Filtres sauvegardés." },
+          { "title": "Format OpenImmo natif", "desc": "Export XML OpenImmo 1.2.8 standard, compatible athome.lu, immotop.lu, wort.lu, immoscout24.de." },
+          { "title": "Matching acquéreur /100", "desc": "Score basé sur budget, rayon, typologie, surface, DPE, date projet. Triable et exportable." },
+          { "title": "CRM contacts complet", "desc": "Import CSV, tags, interactions, tâches, historique. Sync bidirectionnel avec Gmail." },
+          { "title": "Fiches bien PDF co-brandées", "desc": "Logo, charte graphique, mention légale REV. Génération en 10 secondes." },
+          { "title": "Bons de visite PDF", "desc": "Avec log timeline et signature électronique. Valable juridiquement." },
+          { "title": "Signature eIDAS mandats", "desc": "Signature électronique avancée (eIDAS), valeur juridique au Luxembourg." },
+          { "title": "Séquences nurturing", "desc": "Drip campaigns pour réchauffer les acquéreurs tièdes : 3 à 7 emails automatiques." },
+          { "title": "Emails types (10 modèles)", "desc": "Offre, mise en relation, relance, confirmation de visite, rupture de mandat, etc." },
+          { "title": "Commissions agents", "desc": "Calcul automatique des commissions trimestrielles par agent. Export comptable." },
+          { "title": "Performance agents", "desc": "Classement : mandats signés, ventes, CA, commissions. Benchmark anonyme inter-agence." },
+          { "title": "Portail acquéreur", "desc": "Espace dédié pour chaque acquéreur : biens proposés, documents, messages." }
+        ]
+      },
+      "trust": {
+        "title": "Pourquoi les agences LU nous choisissent",
+        "agileTitle": "Développement agile, livraisons régulières",
+        "agileDesc": "Nouveaux modules livrés toutes les 2 semaines. Backlog public, vos demandes remontent rapidement.",
+        "customTitle": "Intégrations sur-mesure",
+        "customDesc": "Un portail spécifique (athome, immoscout24.de, idealista), un format d'export comptable particulier : nous développons en 1 à 3 semaines.",
+        "supportTitle": "Support en moins de 24 h",
+        "supportDesc": "Email à contact@tevaxia.lu. Réponse moyenne sous 6 heures en jours ouvrés. Un humain, pas un chatbot."
+      },
+      "pricing": {
+        "title": "Inclus dans votre abonnement tevaxia",
+        "subtitle": "Pas de facturation par mandat, pas de facturation par contact. L'ensemble du CRM est inclus dans l'abonnement général.",
+        "features": [
+          "Mandats illimités au format OpenImmo",
+          "Contacts illimités avec import CSV",
+          "Matching acquéreur automatique /100",
+          "Pipeline Kanban drag-drop",
+          "Fiches bien PDF co-brandées",
+          "Bons de visite et signature eIDAS",
+          "Séquences nurturing automatisées",
+          "Commissions agents et performance",
+          "10 modèles d'emails éditables"
+        ],
+        "ctaPlatform": "Voir les offres tevaxia",
+        "ctaEmit": "Accéder au CRM"
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          { "q": "Est-ce compatible avec athome.lu et les portails LU ?", "a": "Oui, l'export OpenImmo 1.2.8 est le format standard accepté par athome.lu, immotop.lu, wort.lu, ainsi que immoscout24.de et idealista.it/pt. Diffusion en un clic vers les portails connectés." },
+          { "q": "Comment fonctionne le matching acquéreur ?", "a": "L'algorithme compare chaque mandat à chaque acquéreur sur 6 critères pondérés : budget, rayon géographique, typologie (maison/appartement), surface, classe énergétique, date de projet. Résultat : un score sur 100 avec breakdown par critère, triable dans votre interface." },
+          { "q": "Je viens d'un autre CRM, comment on migre ?", "a": "Import CSV standard (contacts, mandats, historique). Mapping automatique des colonnes avec preview avant import. La plupart des agences sont opérationnelles en 2 à 4 heures. Assistance migration sans frais supplémentaires." },
+          { "q": "Puis-je gérer plusieurs agences / agents avec rôles séparés ?", "a": "Oui, le module supporte les organisations multi-entités avec rôles (admin, agent, assistant). Chaque agent ne voit que les mandats et contacts qui lui sont attribués, sauf si vous activez la visibilité partagée." },
+          { "q": "La signature eIDAS est-elle valable juridiquement ?", "a": "Oui, la signature électronique avancée eIDAS (règlement UE 910/2014) a valeur juridique équivalente à la signature manuscrite au Luxembourg et dans toute l'UE. Traçabilité complète du signataire, horodatage et intégrité garantie." },
+          { "q": "Les données contacts sont-elles sécurisées (RGPD) ?", "a": "Données stockées sur Supabase (AWS eu-central-1 Francfort), Row Level Security par utilisateur, HTTPS en transit. Export complet de vos données en ZIP à tout moment (droit RGPD article 20). Consentement contacts traçable." }
+        ]
+      },
+      "finalCta": {
+        "title": "Prêt à consolider votre business",
+        "desc": "Créez votre compte, importez votre base contacts et lancez votre premier matching en 15 minutes. Zéro engagement.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir le CRM en live"
+      }
+    },
+    "hotel": {
+      "meta": {
+        "title": "PMS hôtel Luxembourg — folios USALI, TVA 3%, forecast, channel manager",
+        "description": "Property Management System pensé pour l'hôtellerie luxembourgeoise : folios auto-posting USALI 19 catégories, facturation TVA 3% LU, forecast 90j, iCal OTA."
+      },
+      "hero": {
+        "badge": "PMS multi-établissements pour LU",
+        "title": "Votre PMS hôtel adapté à la",
+        "titleAccent": "TVA 3% LU et USALI",
+        "subtitle": "Property Management System complet : chambres, rate plans, réservations, folios avec auto-posting USALI 19 catégories, facturation TVA LU 3%/8%/17%, forecast 90 jours, channel manager iCal. Construit pour les hôteliers luxembourgeois qui veulent un outil complet sans la facture mensuelle des PMS traditionnels.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir comment ça marche",
+        "kpis": [
+          { "value": "19", "label": "catégories USALI" },
+          { "value": "3 / 8 / 17%", "label": "TVA LU gérée" },
+          { "value": "<24 h", "label": "délai de réponse support" }
+        ]
+      },
+      "problem": {
+        "title": "Gérer un hôtel au Luxembourg sans outil dédié, c'est épuisant",
+        "intro": "Entre les 4 OTA à surveiller, les folios à taper à la main, la TVA 3% à ventiler correctement et les owner reports à compiler, la journée passe sans qu'on ait avancé sur ce qui compte vraiment.",
+        "items": [
+          { "title": "Réservations réparties sur 4+ OTA", "desc": "Booking, Airbnb, Expedia, site direct. Chaque OTA son interface, son mapping, sa synchronisation. Les double-bookings sont inévitables sans channel manager.", "stat": "1-2 double-bookings / mois" },
+          { "title": "Folios tapés à la main", "desc": "Chaque consommation (petit-déjeuner, minibar, parking) saisie manuellement dans un tableur. Au check-out, construction laborieuse de la facture avec bonne TVA par ligne.", "stat": "~12 min par check-out" },
+          { "title": "Pas de forecast, pricing statique", "desc": "Les rates changent une fois par saison. Aucune visibilité sur le RevPAR prévisionnel, aucune optimisation des tarifs selon les événements locaux (Foire Internationale, Schueberfouer).", "stat": "15-25% revenue non capté" }
+        ]
+      },
+      "howItWorks": {
+        "title": "Un PMS complet, trois étapes",
+        "intro": "Setup guidé pour saisir vos chambres et rate plans. Une fois configuré, le système prend le relais sur les folios, la facturation et le reporting.",
+        "steps": [
+          { "number": "1", "title": "Setup wizard guidé", "desc": "Création de votre établissement, chambres par type, rate plans par saison, tarifs de base. 20 minutes en moyenne pour un hôtel de 15 chambres." },
+          { "number": "2", "title": "Réservations et folios automatiques", "desc": "Import iCal depuis Booking / Airbnb / VRBO, saisie réservation directe, auto-posting dans le folio avec la bonne TVA LU (3% hébergement, 17% F&B, 0% taxe séjour)." },
+          { "number": "3", "title": "Facturation et reporting", "desc": "Au check-out : facture PDF TVA conforme + Factur-X EN 16931 pour les clients corporate. Rapport USALI mensuel en 1 clic, forecast 90 jours avec bandes confiance." }
+        ]
+      },
+      "features": {
+        "title": "Tout ce dont un hôtelier luxembourgeois a besoin",
+        "intro": "Spécifique à la réglementation hôtelière LU (TVA 3%, taxe séjour communale) et aux standards du secteur (USALI, STR).",
+        "items": [
+          { "title": "Setup wizard guidé", "desc": "Configuration de l'établissement en 20 min : chambres, rate plans, saisons, tarifs." },
+          { "title": "Rate plans multi-saisons", "desc": "Tarifs basse/haute saison, promos weekend, groupes, semaine Foire Internationale." },
+          { "title": "Calendrier + heatmap occupancy", "desc": "Vue annuelle, occupation quotidienne par chambre, détection des creux à boost." },
+          { "title": "Réservations directes + OTA", "desc": "Saisie directe ou import iCal Booking / Airbnb / VRBO. Synchro bidirectionnelle." },
+          { "title": "Folios USALI 19 catégories", "desc": "Auto-posting par consommation : room, breakfast, minibar, spa, phone, laundry, etc." },
+          { "title": "Facturation TVA LU", "desc": "Ventilation automatique 3% / 8% / 17% selon catégorie. Facture PDF + Factur-X." },
+          { "title": "Rapport USALI mensuel", "desc": "Format standard mondial (revenue + expenses). Exportable PDF et CSV." },
+          { "title": "Forecast 90 jours Holt-Winters", "desc": "Modèle statistique avec saisonnalité hebdo, intervalle confiance 95%, MAPE backtest." },
+          { "title": "Pickup report", "desc": "Comparaison des réservations sur fenêtre glissante. Alerte si décalage vs objectif." },
+          { "title": "POS restaurant/bar", "desc": "Saisie consommations F&B, posting automatique dans le folio client." },
+          { "title": "Groupes et allotements", "desc": "Blocs de chambres pour mariages, séminaires, MICE. Tarification groupe séparée." },
+          { "title": "Calendrier événements LU", "desc": "Foire Internationale, Schueberfouer, ING Marathon, MICE. Impact sur les tarifs." }
+        ]
+      },
+      "trust": {
+        "title": "Pourquoi les hôteliers LU nous choisissent",
+        "agileTitle": "Développement agile, livraisons régulières",
+        "agileDesc": "Nouveaux modules livrés toutes les 2 semaines. Backlog public sur github.com/Tevaxia.",
+        "customTitle": "Intégrations sur-mesure",
+        "customDesc": "Un channel manager spécifique, un export comptable LUX GAAP : nous développons en 1 à 3 semaines.",
+        "supportTitle": "Support en moins de 24 h",
+        "supportDesc": "Email à contact@tevaxia.lu. Réponse moyenne sous 6 heures en jours ouvrés."
+      },
+      "pricing": {
+        "title": "Inclus dans votre abonnement tevaxia",
+        "subtitle": "Pas de facturation par chambre, pas de facturation par réservation. Le PMS complet est inclus dans l'abonnement général, sans limite de volume.",
+        "features": [
+          "Établissements et chambres illimités",
+          "Réservations illimitées",
+          "Folios USALI 19 catégories avec auto-posting",
+          "Facturation TVA LU 3% / 8% / 17% + Factur-X",
+          "Rapport USALI mensuel + forecast 90 jours",
+          "iCal import/export (Booking, Airbnb, VRBO)",
+          "POS restaurant/bar + groupes MICE",
+          "Heatmap occupancy et pickup report"
+        ],
+        "ctaPlatform": "Voir les offres tevaxia",
+        "ctaEmit": "Accéder au PMS"
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          { "q": "Est-ce compatible avec Booking.com et Airbnb ?", "a": "Oui, par iCal. Vous récupérez le lien iCal de chaque OTA dans leur interface, vous le collez dans tevaxia, et les réservations remontent toutes les 15 min. Fonctionne aussi dans l'autre sens : votre calendrier tevaxia est exposé en iCal pour éviter les double-bookings." },
+          { "q": "Comment fonctionne la TVA 3% hébergement LU ?", "a": "La TVA 3% s'applique aux nuitées d'hébergement à vocation touristique. Notre module applique automatiquement 3% sur les catégories USALI room + extra_bed, 17% sur F&B (breakfast, lunch, dinner, bar, minibar, room_service), 0% sur taxe_sejour (reversée à la commune). Pas d'erreur de TVA possible au check-out." },
+          { "q": "Mes clients corporate veulent du Factur-X, c'est géré ?", "a": "Oui. Au check-out, option « Facture corporate » active la génération Factur-X (PDF/A-3 + XML EN 16931 embarqué). Les 19 catégories USALI deviennent des lignes de facture avec leur TVA respective." },
+          { "q": "Le forecast 90 jours est-il fiable ?", "a": "Le modèle Holt-Winters triple exponential smoothing avec saisonnalité hebdomadaire donne typiquement un MAPE (Mean Absolute Percentage Error) de 8-15% selon la régularité de l'historique. Performant pour planifier les staff et ajuster les tarifs. Moins fiable sur les périodes exceptionnelles." },
+          { "q": "Puis-je gérer plusieurs hôtels depuis un seul compte ?", "a": "Oui. Multi-property natif : chaque établissement a ses chambres, rate plans, réservations, folios, comptabilité séparés. Dashboard consolidé pour vue portfolio. Fonctionne pour les groupes hôteliers jusqu'à 15-20 établissements." },
+          { "q": "Mes données sont-elles hébergées en UE ?", "a": "Supabase (AWS eu-central-1, Francfort). Row Level Security par utilisateur, chiffrement HTTPS en transit. Export complet des données clients en ZIP à tout moment (RGPD art. 20)." }
+        ]
+      },
+      "finalCta": {
+        "title": "Prêt à reprendre le contrôle de vos opérations",
+        "desc": "Créez votre compte, configurez votre premier établissement en 20 minutes et enregistrez votre première réservation. Zéro engagement.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir le PMS en live"
+      }
+    },
+    "expert-evaluateur": {
+      "meta": {
+        "title": "Logiciel expertise immobilière TEGOVA EVS 2025 — Luxembourg",
+        "description": "Rapport d'évaluation EVS 2025 conforme en 20 min : 8 méthodes, 9 types d'actifs, données auto-remplies (98 communes + 12 séries macro), signature SHA-256."
+      },
+      "hero": {
+        "badge": "Conforme TEGOVA EVS 2025 et Charte 5e éd.",
+        "title": "Rapport EVS 2025 conforme en",
+        "titleAccent": "20 minutes au lieu de 4 heures",
+        "subtitle": "Module de valorisation 11 sections + annexes conforme TEGOVA European Valuation Standards 2025 et Charte de l'expertise 5e éd. 8 méthodes, 9 types d'actifs, données auto-remplies pour 98 communes luxembourgeoises. Pensé pour les REV, TRV et experts indépendants.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir comment ça marche",
+        "kpis": [
+          { "value": "11", "label": "sections + annexes" },
+          { "value": "8 / 9", "label": "méthodes / actifs" },
+          { "value": "98", "label": "communes documentées" }
+        ]
+      },
+      "problem": {
+        "title": "Rédiger un rapport d'expertise, c'est 60% de recherche de données",
+        "intro": "Chercher les comparables, croiser les sources macro, vérifier les textes légaux, mettre en forme le rapport selon la Charte. La partie analytique qui fait la vraie valeur de l'expert ne représente qu'une petite partie du temps.",
+        "items": [
+          { "title": "4 heures par rapport en moyenne", "desc": "Un rapport EVS 2025 complet demande typiquement 3 à 5 heures entre la collecte de données (macro, comparables, fiscalité, urbanisme) et la mise en forme finale selon la Charte.", "stat": "~4 h par rapport" },
+          { "title": "Données éparpillées sur 10 sources", "desc": "STATEC pour les macro, Observatoire de l'Habitat pour les prix, Geoportail pour le cadastre, Land Registry pour les mutations, ECB pour les taux, INSEE pour l'IRL, LENOZ pour l'énergie.", "stat": "~10 sources par rapport" },
+          { "title": "Risque de non-conformité Charte", "desc": "Les 11 sections obligatoires, les hypothèses spéciales EVS 5, la mention d'incertitude matérielle, la certification expert : un oubli et le rapport devient contestable.", "stat": "0 % de marge d'erreur acceptable" }
+        ]
+      },
+      "howItWorks": {
+        "title": "De la mission au rapport signé, trois étapes",
+        "intro": "Vous saisissez l'adresse et les paramètres du bien. Le système charge les données de contexte, vous choisissez vos méthodes, le rapport PDF se génère.",
+        "steps": [
+          { "number": "1", "title": "Adresse + paramètres bien", "desc": "Commune, surface, année de construction, classe énergétique, type d'actif. Les données macro, démographiques et urbanistiques se chargent automatiquement." },
+          { "number": "2", "title": "Méthodes et comparables", "desc": "Choix parmi 8 méthodes (comparaison, capitalisation, DCF, valeur hypothécaire CRR, résiduelle énergétique, terme et réversion, etc.). Comparables suggérés par proximité." },
+          { "number": "3", "title": "Rapport PDF signé", "desc": "Génération serveur-side du rapport 11 sections + annexes, signature SHA-256, logo et qualifications REV. PDF conforme Charte 5e éd." }
+        ]
+      },
+      "features": {
+        "title": "Pensé pour les experts indépendants et cabinets",
+        "intro": "Chaque fonctionnalité répond à une contrainte du métier d'expert au Luxembourg : conformité TEGOVA, traçabilité, données publiques, signature probante.",
+        "items": [
+          { "title": "11 sections EVS 2025", "desc": "Mission, situation, juridique, urbanistique, description, locative, marché, SWOT, évaluation, conclusions, certification." },
+          { "title": "8 méthodes de valorisation", "desc": "Comparaison, capitalisation directe, DCF, valeur hypothécaire CRR, résiduelle énergétique, terme et réversion, IRR, monitoring." },
+          { "title": "9 types d'actifs", "desc": "Résidentiel, bureaux, commerces, logistique, hôtels, industriel, mixte, développement, terrains." },
+          { "title": "98 communes documentées", "desc": "Population, croissance, densité, revenu médian, chômage, étrangers, superficie, canton, prix." },
+          { "title": "12 séries macro 2015-2026", "desc": "OAT 10 ans, taux hypothécaires, indice construction STATEC, PIB, inflation, volume transactions, prix m², loyers, vacance bureaux, BCE." },
+          { "title": "Comparables automatiques", "desc": "Suggestions par commune, typologie, surface, année de construction. Ajustements explicables." },
+          { "title": "Hypothèses spéciales EVS 5", "desc": "Gestion des hypothèses contraignantes et de l'incertitude matérielle selon EVS 5 et Red Book." },
+          { "title": "PDF server-side signé", "desc": "Génération côté serveur pour cohérence, signature SHA-256 pour non-répudiation, logo expert." },
+          { "title": "Jauge de confiance", "desc": "Confidence score basé sur nombre de comparables, dispersion, âge des données. Affiché en hero PDF." },
+          { "title": "Inspection terrain TEGOVA", "desc": "Checklist 41 points EVS 2025. Offline sur téléphone, synchro au retour, import dans le rapport." },
+          { "title": "Modèle hédonique", "desc": "29 coefficients sourcés (surface, étage, DPE, commune, proximité transport). MAPE et R² publiés." },
+          { "title": "Transparence modèle", "desc": "Page /transparence publique : back-test sur 20 biens LU, MAPE et R² affichés, méthode documentée." }
+        ]
+      },
+      "trust": {
+        "title": "Pourquoi les experts LU nous choisissent",
+        "agileTitle": "Développement agile, livraisons régulières",
+        "agileDesc": "Nouveaux modules livrés toutes les 2 semaines. Backlog public.",
+        "customTitle": "Templates personnalisés",
+        "customDesc": "Un format de rapport spécifique à votre cabinet, une méthode propre, un logo co-brandé : développement en 1 à 3 semaines.",
+        "supportTitle": "Support en moins de 24 h",
+        "supportDesc": "Email à contact@tevaxia.lu. Réponse moyenne sous 6 heures en jours ouvrés, par un humain qui connaît TEGOVA."
+      },
+      "pricing": {
+        "title": "Inclus dans votre abonnement tevaxia",
+        "subtitle": "Pas de facturation par rapport, pas de quota mensuel. L'ensemble du module de valorisation est inclus dans l'abonnement général.",
+        "features": [
+          "Rapports EVS 2025 illimités",
+          "8 méthodes de valorisation",
+          "9 types d'actifs supportés",
+          "Données macro et communales auto-remplies",
+          "Comparables automatiques par proximité",
+          "Signature SHA-256 + logo expert",
+          "Inspection TEGOVA 41 points (offline)",
+          "Modèle hédonique avec MAPE/R² publics"
+        ],
+        "ctaPlatform": "Voir les offres tevaxia",
+        "ctaEmit": "Accéder au module valorisation"
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          { "q": "Le rapport est-il conforme à la Charte de l'expertise 5e éd. ?", "a": "Oui, les 11 sections obligatoires sont structurées selon la trame TEGOVA/Charte : mission, situation géographique, juridique, urbanistique, description, locative, étude de marché, SWOT, évaluation avec sensibilité, réconciliation, conclusions et certification expert. Les hypothèses spéciales EVS 5 et la mention d'incertitude matérielle sont incluses." },
+          { "q": "Puis-je choisir uniquement les méthodes pertinentes pour mon bien ?", "a": "Oui. Toggle par méthode : vous activez comparaison + capitalisation pour un bureau en location, DCF seule pour un investissement, résiduelle énergétique pour une rénovation lourde. Chaque méthode retenue apparaît dans la réconciliation finale." },
+          { "q": "Les données communales sont-elles à jour ?", "a": "Oui, les prix au m² proviennent de l'Observatoire de l'Habitat (data.public.lu, mise à jour trimestrielle), les données démographiques de STATEC (mise à jour annuelle), les taux macro de la BCE (mise à jour mensuelle). Date de source affichée dans le rapport." },
+          { "q": "Puis-je personnaliser le PDF avec mon logo et mes qualifications ?", "a": "Oui, dans votre profil : logo PNG/SVG (500 Ko max), nom complet, qualifications (ex : REV TEGOVA, MRICS), mention légale personnalisée, coordonnées. Tout apparaît en page de couverture et en pied de page." },
+          { "q": "La signature SHA-256 a-t-elle valeur probante ?", "a": "La signature SHA-256 garantit l'intégrité du document (tout changement invalide le hash). Elle ne remplace pas une signature eIDAS légalement qualifiée, mais elle fournit une preuve cryptographique que le rapport n'a pas été altéré après émission. Utile en contentieux." },
+          { "q": "Comment sont gérées les hypothèses spéciales EVS 5 ?", "a": "Section dédiée du rapport : vous listez les hypothèses contraignantes (état du bien supposé, permis en cours supposé obtenu, etc.), l'outil affiche le warning EVS 5 obligatoire et adapte la valeur selon vos inputs. La réconciliation finale intègre ces hypothèses dans le score de confiance." }
+        ]
+      },
+      "finalCta": {
+        "title": "Prêt à gagner 3 heures par rapport",
+        "desc": "Créez votre compte, personnalisez votre profil et générez votre premier rapport EVS 2025 en 20 minutes. Zéro engagement.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir le module valorisation"
+      }
+    },
+    "investisseur": {
+      "meta": {
+        "title": "Simulateur investissement immobilier Luxembourg — rentabilité, DCF, fiscalité",
+        "description": "Rentabilité, frais d'acquisition avec Bëllegen Akt, DCF multi-locataires, plus-values, VEFA avec intérêts intercalaires. Fiscalité LU intégrée."
+      },
+      "hero": {
+        "badge": "Simulateur investissement LU complet",
+        "title": "Votre rentabilité réelle,",
+        "titleAccent": "fiscalité LU comprise",
+        "subtitle": "Simulateur de rentabilité immobilière avec frais d'acquisition Bëllegen Akt, DCF multi-locataires bail par bail, VEFA avec intérêts intercalaires, plus-values, portfolio multi-actifs et outils bancaires (LTV, DSCR, valeur hypothécaire CRR). Pensé pour les investisseurs particuliers et SCI luxembourgeoises.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir comment ça marche",
+        "kpis": [
+          { "value": "Bëllegen Akt", "label": "abattement intégré" },
+          { "value": "LU + FR + BE", "label": "fiscalités gérées" },
+          { "value": "<24 h", "label": "délai de réponse support" }
+        ]
+      },
+      "problem": {
+        "title": "Calculer sa rentabilité au Luxembourg, c'est 8 simulateurs différents",
+        "intro": "Frais de notaire sur un site, plus-values sur un autre, DCF dans Excel maison, TVA 3% VEFA difficile à trouver. Entre temps, on oublie des postes ou on fait des erreurs qui faussent la décision d'investir.",
+        "items": [
+          { "title": "Frais d'acquisition sous-estimés", "desc": "Droits d'enregistrement 7%, transcription, Bëllegen Akt (abattement jusqu'à 40 000 € sous conditions), frais de notaire, TVA 3% logement neuf : beaucoup d'investisseurs calculent faux et bloquent leur plan de financement.", "stat": "3-7% écart typique" },
+          { "title": "Rentabilité brute vs nette flou", "desc": "Entre rendement brut (loyer / prix), rendement net (frais déduits) et rendement net net (après IRPP), les chiffres ne veulent pas dire la même chose. Un rendement brut à 5% peut finir à 2% après impôts.", "stat": "~40% écart brut vs net net" },
+          { "title": "Pas d'outil DCF adapté LU", "desc": "Les simulateurs Excel trouvés en ligne sont calibrés FR ou BE. Pas de règle 5%, pas de bail commercial LU, pas de plus-values LU à 10%.", "stat": "95% des outils non-LU" }
+        ]
+      },
+      "howItWorks": {
+        "title": "De l'estimation à la décision, trois étapes",
+        "intro": "Vous saisissez le bien. Le système calcule rentabilité, fiscalité, DCF. Vous comparez les scénarios et décidez.",
+        "steps": [
+          { "number": "1", "title": "Saisie du bien et du financement", "desc": "Prix, surface, commune, typologie, apport, durée du prêt, taux. Les frais d'acquisition (Bëllegen Akt compris) se calculent automatiquement." },
+          { "number": "2", "title": "Simulations parallèles", "desc": "Rentabilité, DCF 10 ans, VEFA intérêts intercalaires, plus-values à la revente, cash-flow mensuel. Visualisation en graphiques interactifs." },
+          { "number": "3", "title": "Comparaison de scénarios", "desc": "Sauvegardez plusieurs scénarios (bien A vs bien B, 100% apport vs crédit, location nue vs meublée). Rapport PDF exportable pour votre banquier." }
+        ]
+      },
+      "features": {
+        "title": "L'ensemble des outils financiers immo LU",
+        "intro": "Chaque calcul respecte la réglementation luxembourgeoise : Bëllegen Akt, TVA 3% VEFA, plus-values 10%, taux CSSF, règle des 5%.",
+        "items": [
+          { "title": "Frais d'acquisition LU", "desc": "Droits 7%, transcription, notaire, Bëllegen Akt avec conditions d'éligibilité, TVA 3% VEFA." },
+          { "title": "Rentabilité complète", "desc": "Brut, net, net net. Avec vacance, charges, taxe foncière, PNO, gestion, maintenance." },
+          { "title": "DCF multi-locataires", "desc": "Bail par bail avec break options, step rents, CAPEX planifié, IRR equity et IRR projet." },
+          { "title": "Simulateur VEFA", "desc": "Intérêts intercalaires, TVA 3%, garantie achèvement, plan d'échéance appels de fonds." },
+          { "title": "Plus-values LU", "desc": "Abattement pour durée détention, taux effectif, cas résidence principale vs investissement." },
+          { "title": "Comparateur achat vs location", "desc": "NPV sur durée configurable, coût d'opportunité, seuil de bascule break-even." },
+          { "title": "Portfolio multi-actifs", "desc": "Consolidation vue : valeur totale, rendement moyen, exposition géo, diversification." },
+          { "title": "Outils bancaires", "desc": "LTV, DSCR, valeur hypothécaire CRR, stress test +2% taux, capacité d'emprunt." },
+          { "title": "Bilan promoteur", "desc": "CA prévisionnel, coûts construction STATEC, frais financiers, marge promoteur." },
+          { "title": "98 communes LU", "desc": "Prix au m², loyers, rendements, démographie, revenus médians. Mise à jour trimestrielle." },
+          { "title": "Macro live", "desc": "OAT 10 ans, taux hypothécaires, indice construction, inflation. Connexion BCE + STATEC." },
+          { "title": "Rapport PDF pour banque", "desc": "Dossier financement complet : simulation, DCF, stress test, garanties. Prêt à envoyer." }
+        ]
+      },
+      "trust": {
+        "title": "Pourquoi les investisseurs LU nous choisissent",
+        "agileTitle": "Développement agile, livraisons régulières",
+        "agileDesc": "Nouveaux modules livrés toutes les 2 semaines. Backlog public.",
+        "customTitle": "Sur-mesure possible",
+        "customDesc": "Un calcul spécifique à votre stratégie, un export vers votre comptable : développement en 1 à 3 semaines.",
+        "supportTitle": "Support en moins de 24 h",
+        "supportDesc": "Email à contact@tevaxia.lu. Réponse moyenne sous 6 heures, par un humain qui connaît la fiscalité LU."
+      },
+      "pricing": {
+        "title": "Inclus dans votre abonnement tevaxia",
+        "subtitle": "Pas de facturation par simulation, pas de quota. Tous les outils d'investissement sont inclus dans l'abonnement général.",
+        "features": [
+          "Simulations illimitées",
+          "Frais d'acquisition LU avec Bëllegen Akt",
+          "DCF multi-locataires bail par bail",
+          "VEFA avec intérêts intercalaires",
+          "Plus-values LU (investissement et résidence principale)",
+          "Portfolio multi-actifs consolidé",
+          "Outils bancaires LTV / DSCR / CRR",
+          "Macro live BCE + STATEC"
+        ],
+        "ctaPlatform": "Voir les offres tevaxia",
+        "ctaEmit": "Accéder au portfolio"
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          { "q": "L'abattement Bëllegen Akt est-il bien géré ?", "a": "Oui, l'outil vérifie les conditions d'éligibilité (résidence principale occupée minimum 2 ans, engagement du couple/célibataire) et applique l'abattement jusqu'à 40 000 € par personne sur les droits d'enregistrement. Affichage clair du montant abattu vs non abattu." },
+          { "q": "La TVA 3% logement neuf est-elle bien intégrée ?", "a": "Oui, le simulateur VEFA applique automatiquement le taux 3% sur la base imposable (prix hors-sol + honoraires de promotion), sous réserve de résidence principale occupée 2 ans minimum. Comparaison automatique entre scénario TVA 3% et TVA 17% pour voir l'économie." },
+          { "q": "Le DCF multi-locataires gère-t-il les breaks français et LU ?", "a": "Oui. Chaque bail peut avoir sa durée, son indexation (IRL, ILAT, ILC, IPC), ses step rents programmées, ses break options (3/6/9 typiques FR), son CAPEX planifié. L'IRR est calculé sur les cash-flows réels, pas une moyenne lissée." },
+          { "q": "Les plus-values LU sont-elles bien calculées ?", "a": "Oui. Le module gère les 3 cas : résidence principale (exonération totale sous conditions), résidence secondaire (taux demi-global après 2 ans), investissement (taux global jusqu'à 2 ans, demi-global 2-10 ans). Abattement durée détention et déductions des travaux incluses." },
+          { "q": "Les outils bancaires (LTV, DSCR, CRR) suivent-ils les règles CSSF ?", "a": "Oui. LTV max selon profil emprunteur (80% résident, 70% non-résident, 60% investisseur). DSCR cible 1.25. Valeur hypothécaire CRR avec haircut énergétique pour actifs stranded. Stress test +2% conforme aux exigences des banques luxembourgeoises." },
+          { "q": "Puis-je partager mes simulations avec mon banquier ou mon notaire ?", "a": "Oui. Génération de PDF dédié « Dossier financement » avec simulation complète, DCF, stress test, tableau d'amortissement. Option de partage view-only avec lien à durée limitée (7 à 90 jours). Le destinataire n'a pas besoin de compte." }
+        ]
+      },
+      "finalCta": {
+        "title": "Prêt à décider vite et bien",
+        "desc": "Créez votre compte, saisissez votre premier scénario et obtenez votre rentabilité complète en 5 minutes. Zéro engagement.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir le portfolio en live"
+      }
+    },
+    "particulier": {
+      "meta": {
+        "title": "Outils immobiliers pour particuliers au Luxembourg — estimation, aides, loyer",
+        "description": "Estimation, frais d'acquisition avec Bëllegen Akt, simulateur aides étatiques et communales, plafond 5% loyer, achat vs location. Gratuit, 5 langues."
+      },
+      "hero": {
+        "badge": "Outils gratuits pour particuliers LU",
+        "title": "Acheter, louer, rénover au Luxembourg",
+        "titleAccent": "sans passer par un cabinet",
+        "subtitle": "Estimation d'un bien, calcul des frais d'acquisition avec Bëllegen Akt, simulation des aides étatiques et communales (Klimabonus inclus), vérification du plafond 5% loyer légal, comparaison achat vs location. Conçu pour les particuliers et primo-accédants luxembourgeois.",
+        "cta": "Démarrer gratuitement",
+        "ctaSecondary": "Voir les outils",
+        "kpis": [
+          { "value": "0 €", "label": "sans inscription" },
+          { "value": "5 couches", "label": "d'aides cumulables" },
+          { "value": "98", "label": "communes couvertes" }
+        ]
+      },
+      "problem": {
+        "title": "Acheter au Luxembourg en 2026 demande trop de démarches",
+        "intro": "Entre la fiscalité, les aides cumulables, le plafond de loyer légal, les frais d'acquisition, la TVA 3% VEFA, on passe des heures à chercher et comparer avant même de contacter un agent.",
+        "items": [
+          { "title": "Frais d'acquisition opaques", "desc": "Droits d'enregistrement, transcription, notaire, Bëllegen Akt : qui paie quoi, et combien reste à décaisser vraiment ? Les simulateurs trouvés en ligne oublient souvent la moitié.", "stat": "8-12% du prix typiquement" },
+          { "title": "Aides difficiles à retrouver", "desc": "Prime accession, Klimabonus, prime logement étatique, aides communales (30+ communes ont les leurs), TVA 3% travaux rénovation. Beaucoup de ménages en oublient 2 000 à 8 000 €.", "stat": "~5 000 € oubliés en moyenne" },
+          { "title": "Plafond 5% loyer mal connu", "desc": "La règle des 5% (loyer max = 5% du capital investi indexé + travaux) protège les locataires et cadre les propriétaires. Dépasser le plafond, c'est s'exposer à un recours juridique.", "stat": "~15% des baux en dépassement" }
+        ]
+      },
+      "howItWorks": {
+        "title": "Des outils clairs, trois étapes",
+        "intro": "Pas d'inscription requise pour commencer. Chaque outil donne une réponse précise en quelques minutes.",
+        "steps": [
+          { "number": "1", "title": "Saisissez votre situation", "desc": "Bien visé, apport, commune, statut (primo-accédant, résident, non-résident), projet (achat, location, rénovation). Pas de compte nécessaire pour les outils de base." },
+          { "number": "2", "title": "Obtenez vos chiffres", "desc": "Estimation du bien, frais d'acquisition détaillés, liste des aides cumulables, comparaison achat vs location. Tous les calculs expliqués ligne par ligne." },
+          { "number": "3", "title": "Exportez ou partagez", "desc": "PDF gratuit à télécharger ou partage de lien view-only (avec compte). À amener chez votre banque, notaire ou agent." }
+        ]
+      },
+      "features": {
+        "title": "Tous les outils dont un particulier LU a besoin",
+        "intro": "Spécifiques au cadre luxembourgeois (Bëllegen Akt, TVA 3%, règle 5%, Klimabonus), tous en 5 langues (FR/EN/DE/LB/PT).",
+        "items": [
+          { "title": "Estimation instantanée", "desc": "Prix au m² par commune et quartier, modèle hédonique avec 29 coefficients sourcés." },
+          { "title": "Frais d'acquisition détaillés", "desc": "Droits 7%, transcription, notaire, Bëllegen Akt avec conditions, TVA 3% VEFA." },
+          { "title": "Simulateur aides 5 couches", "desc": "Prime logement étatique, Klimabonus, Klimaprêt 1,5%, aides communales (30+ communes), TVA 3% travaux." },
+          { "title": "Plafond 5% loyer légal", "desc": "Calcul du loyer max selon capital investi indexé + travaux. Vérifie conformité loi 21.09.2006." },
+          { "title": "Achat vs location", "desc": "Comparaison NPV sur durée, coût d'opportunité. Seuil de bascule break-even." },
+          { "title": "Carte des prix", "desc": "Carte interactive 100 communes + quartiers de Luxembourg-Ville avec prix et rendements." },
+          { "title": "Plus-values", "desc": "Résidence principale (exonération), résidence secondaire, investissement. Abattement durée." },
+          { "title": "VEFA intérêts intercalaires", "desc": "Calcul des intérêts pendant la construction et coût total avec TVA 3%." },
+          { "title": "Guides juridiques", "desc": "Bail habitation, bail commercial, plus-value, copropriété, Klimabonus. En 5 langues." },
+          { "title": "Comparer deux biens", "desc": "Side-by-side : prix, rendement, frais, aides, distance travail. Recommandation automatique." },
+          { "title": "Wizard particulier", "desc": "Parcours guidé 4 étapes : estimation + frais + aides + loyer légal en un seul flux." },
+          { "title": "Inspection terrain TEGOVA", "desc": "Checklist 41 points pour visiter un bien : structure, énergie, humidité, conformité." }
+        ]
+      },
+      "trust": {
+        "title": "Pourquoi les particuliers LU nous utilisent",
+        "agileTitle": "Développement agile, livraisons régulières",
+        "agileDesc": "Nouveaux outils livrés toutes les 2 semaines. Mise à jour auto des barèmes fiscaux.",
+        "customTitle": "Adaptable si nécessaire",
+        "customDesc": "Une commune spécifique, une aide récente : contact@tevaxia.lu et nous l'intégrons en 1 à 2 semaines.",
+        "supportTitle": "Support en moins de 24 h",
+        "supportDesc": "Email à contact@tevaxia.lu. Réponse moyenne sous 6 heures en jours ouvrés, par un humain."
+      },
+      "pricing": {
+        "title": "Gratuit, sans inscription pour l'essentiel",
+        "subtitle": "Tous les outils de base sont utilisables sans compte. Créez un compte gratuit pour sauvegarder vos simulations, exporter en PDF et accéder à l'historique.",
+        "features": [
+          "Estimation, frais, aides, loyer sans compte",
+          "Export PDF avec compte gratuit",
+          "Sauvegarde cloud multi-appareils",
+          "Historique des simulations",
+          "Partage lien view-only",
+          "Comparaison jusqu'à 5 scénarios",
+          "Alertes marché par commune",
+          "5 langues (FR / EN / DE / LB / PT)"
+        ],
+        "ctaPlatform": "Voir les offres tevaxia",
+        "ctaEmit": "Estimer un bien"
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          { "q": "L'estimation est-elle fiable ?", "a": "L'estimation utilise un modèle hédonique calibré sur les données de l'Observatoire de l'Habitat (prix de transaction réels), pondéré par la commune, la typologie, la surface, la classe énergétique et l'année de construction. Le MAPE (erreur moyenne) est de ~12%, comparable aux outils bancaires. Reste une estimation : une expertise certifiée REV est recommandée pour un financement bancaire." },
+          { "q": "Le Bëllegen Akt est-il calculé correctement ?", "a": "Oui. Le module vérifie les conditions : résidence principale, occupation effective 2 ans minimum, célibataire ou couple. Abattement jusqu'à 40 000 € par personne sur les droits d'enregistrement. Affichage séparé de la partie abattue et non abattue pour transparence." },
+          { "q": "Les aides communales sont-elles à jour ?", "a": "Oui, plus de 30 communes luxembourgeoises ont leurs barèmes intégrés (aide rénovation façade, Klimapakt, patrimoine). Mise à jour manuelle lors des changements de règlements communaux. Si votre commune n'est pas listée, contactez-nous et on l'ajoute sous 1 à 2 semaines." },
+          { "q": "La règle des 5% loyer s'applique-t-elle à toutes les locations ?", "a": "Oui pour les baux résidentiels relevant de la loi du 21 septembre 2006 (contrat type bail à usage d'habitation). Exceptions : bail commercial, location meublée courte durée, résidences services étudiants. Le module calcule le plafond exact selon le capital investi indexé + travaux amortis." },
+          { "q": "Puis-je utiliser les outils sans créer de compte ?", "a": "Oui, tous les outils de base (estimation, frais, aides, loyer, achat vs location, carte) fonctionnent sans inscription. Le compte gratuit débloque l'export PDF, la sauvegarde cloud, l'historique et le partage de liens." },
+          { "q": "Mes données sont-elles conservées ?", "a": "Sans compte, rien n'est conservé côté serveur (tout tourne dans votre navigateur). Avec un compte gratuit, vos simulations sont stockées sur Supabase (AWS eu-central-1, Francfort), avec Row Level Security par utilisateur. Suppression totale possible à tout moment (droit RGPD à l'effacement)." }
+        ]
+      },
+      "finalCta": {
+        "title": "Prêt à y voir clair",
+        "desc": "Commencez par estimer votre bien ou simuler vos frais. Sans inscription, sans engagement, en 2 minutes.",
+        "cta": "Estimer un bien gratuitement",
+        "ctaSecondary": "Voir tous les outils"
+      }
+    },
     "syndic": {
       "meta": {
         "title": "Logiciel de syndic au Luxembourg, conforme loi 16.05.1975",
