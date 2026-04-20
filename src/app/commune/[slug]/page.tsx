@@ -1,26 +1,10 @@
 import type { Metadata } from "next";
-import { getMarketDataCommune, getAllCommunes } from "@/lib/market-data";
+import { getAllCommunes, getCommuneBySlug, slugifyCommune } from "@/lib/market-data";
 import { COMMUNE_COORDS } from "@/lib/communes-coords";
 import CommunePageClient from "./CommunePageClient";
 
 const BASE = "https://tevaxia.lu";
 const LOCALES = ["fr", "en", "de", "pt", "lb"] as const;
-
-/** Convert a commune name to its URL slug */
-function communeToSlug(commune: string): string {
-  return commune.toLowerCase().replace(/\s+/g, "-");
-}
-
-/** Convert a URL slug back to a commune name (best-effort) */
-function slugToCommune(slug: string): string {
-  return slug
-    .split("-")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join("-")
-    .replace("Sur-", "sur-")
-    .replace("Les-", "les-")
-    .replace("La-", "la-");
-}
 
 function buildLocaleUrl(page: string, locale: string): string {
   if (locale === "fr") return `${BASE}${page}`;
@@ -31,7 +15,7 @@ function buildLocaleUrl(page: string, locale: string): string {
 /*  generateStaticParams — pre-render all known commune pages         */
 /* ------------------------------------------------------------------ */
 export function generateStaticParams() {
-  return getAllCommunes().map((c) => ({ slug: communeToSlug(c) }));
+  return getAllCommunes().map((c) => ({ slug: slugifyCommune(c) }));
 }
 
 /* ------------------------------------------------------------------ */
@@ -43,8 +27,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const communeName = slugToCommune(slug);
-  const commune = getMarketDataCommune(communeName) || getMarketDataCommune(slug);
+  const commune = getCommuneBySlug(slug);
 
   if (!commune) {
     return {
@@ -52,6 +35,8 @@ export async function generateMetadata({
       description: "Cette commune n'a pas été trouvée dans notre base de données immobilières au Luxembourg.",
     };
   }
+
+  const normSlug = slugifyCommune(commune.commune);
 
   const prixStr = commune.prixM2Existant
     ? `${commune.prixM2Existant.toLocaleString("fr-LU")} EUR/m2`
@@ -63,7 +48,7 @@ export async function generateMetadata({
     ? `Prix immobilier à ${commune.commune} (canton ${commune.canton}) : ${prixStr} en moyenne (${commune.periode}). Tendances, loyers, rendement et outils d'estimation sur tevaxia.lu.`
     : `Marché immobilier à ${commune.commune} (canton ${commune.canton}). Tendances, loyers, rendement et outils d'estimation sur tevaxia.lu.`;
 
-  const pagePath = `/commune/${slug}`;
+  const pagePath = `/commune/${normSlug}`;
   const canonical = `${BASE}${pagePath}`;
 
   const languages: Record<string, string> = {};
@@ -106,12 +91,11 @@ export async function generateMetadata({
 /*  JSON-LD structured data                                           */
 /* ------------------------------------------------------------------ */
 function buildJsonLd(slug: string) {
-  const communeName = slugToCommune(slug);
-  const commune = getMarketDataCommune(communeName) || getMarketDataCommune(slug);
+  const commune = getCommuneBySlug(slug);
   if (!commune) return null;
 
   const coords = COMMUNE_COORDS[commune.commune];
-  const canonical = `${BASE}/commune/${slug}`;
+  const canonical = `${BASE}/commune/${slugifyCommune(commune.commune)}`;
 
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -189,7 +173,7 @@ function buildBreadcrumbJsonLd(slug: string, communeName: string) {
         "@type": "ListItem",
         position: 3,
         name: communeName,
-        item: `${BASE}/commune/${slug}`,
+        item: `${BASE}/commune/${slugifyCommune(slug)}`,
       },
     ],
   };
@@ -204,7 +188,8 @@ export default async function CommunePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const communeName = slugToCommune(slug);
+  const commune = getCommuneBySlug(slug);
+  const communeName = commune?.commune ?? slug;
   const jsonLd = buildJsonLd(slug);
   const breadcrumbJsonLd = buildBreadcrumbJsonLd(slug, communeName);
 

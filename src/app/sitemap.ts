@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllCommunes } from "@/lib/market-data";
+import { getAllCommunes, slugifyCommune } from "@/lib/market-data";
 
 const BASE = "https://tevaxia.lu";
 const LOCALES = ["fr", "en", "de", "pt", "lb"] as const;
@@ -85,7 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Pages communes — très bon pour la longue traîne SEO
   const communes = getAllCommunes();
   for (const commune of communes) {
-    const slug = commune.toLowerCase().replace(/\s+/g, "-");
+    const slug = slugifyCommune(commune);
     const page = `/commune/${slug}`;
     for (const locale of LOCALES) {
       entries.push({

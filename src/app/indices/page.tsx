@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { getAllCommunes, getMarketDataCommune, type MarketDataCommune } from "@/lib/market-data";
+import { getAllCommunes, getMarketDataCommune, slugifyCommune, type MarketDataCommune } from "@/lib/market-data";
 import { computeMarketScore, getScoreColor } from "@/lib/market-score";
 import { formatEUR } from "@/lib/calculations";
 import { PriceEvolutionChart, PriceIndexChart } from "@/components/PriceChart";
@@ -279,7 +279,7 @@ export default function IndicesPage() {
                 return (
                   <Link
                     key={c.commune}
-                    href={`/commune/${c.commune.toLowerCase().replace(/\s+/g, "-")}`}
+                    href={`/commune/${slugifyCommune(c.commune)}`}
                     className="flex items-center justify-between text-sm py-1.5 px-2 rounded-lg hover:bg-background transition-colors"
                   >
                     <div className="flex items-center gap-2">
@@ -307,7 +307,7 @@ export default function IndicesPage() {
                 return (
                   <Link
                     key={c.commune}
-                    href={`/commune/${c.commune.toLowerCase().replace(/\s+/g, "-")}`}
+                    href={`/commune/${slugifyCommune(c.commune)}`}
                     className="flex items-center justify-between text-sm py-1.5 px-2 rounded-lg hover:bg-background transition-colors"
                   >
                     <div className="flex items-center gap-2">
@@ -373,7 +373,7 @@ export default function IndicesPage() {
                     <tr key={c.commune} className="border-b border-card-border last:border-0 hover:bg-background/50 transition-colors">
                       <td className="px-4 py-3">
                         <Link
-                          href={`/commune/${c.commune.toLowerCase().replace(/\s+/g, "-")}`}
+                          href={`/commune/${slugifyCommune(c.commune)}`}
                           className="font-medium text-navy hover:underline"
                         >
                           {c.commune}

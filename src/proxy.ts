@@ -11,6 +11,14 @@ function getHost(request: NextRequest): string {
   ).replace(/:\d+$/, "");
 }
 
+function asciiSlug(s: string): string {
+  return s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/['']/g, "")
+    .toLowerCase();
+}
+
 /**
  * Proxy unifié :
  * 1. 301 redirect energy.tevaxia.lu/* → tevaxia.lu/{locale}/energy/*
@@ -44,6 +52,19 @@ export function proxy(request: NextRequest) {
     url.search = request.nextUrl.search;
 
     return NextResponse.redirect(url, 301);
+  }
+
+  // --- Redirect 301 : /commune/<slug-avec-accent> → /commune/<slug-ascii> ---
+  const communeMatch = pathname.match(/^(\/(?:en|de|pt|lb))?\/commune\/(.+?)\/?$/);
+  if (communeMatch) {
+    const [, localePrefix = "", rawSlug] = communeMatch;
+    const decoded = decodeURIComponent(rawSlug);
+    const normalized = asciiSlug(decoded);
+    if (normalized !== decoded) {
+      const url = request.nextUrl.clone();
+      url.pathname = `${localePrefix}/commune/${normalized}`;
+      return NextResponse.redirect(url, 301);
+    }
   }
 
   // --- Domaine principal : injecter x-url pour next-intl ---

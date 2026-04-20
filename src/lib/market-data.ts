@@ -662,6 +662,20 @@ export function getMarketDataCommune(commune: string): MarketDataCommune | undef
   return MARKET_DATA.find((c) => c.commune.toLowerCase() === commune.toLowerCase());
 }
 
+export function slugifyCommune(s: string): string {
+  return s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/['']/g, "")
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+}
+
+export function getCommuneBySlug(slug: string): MarketDataCommune | undefined {
+  const normSlug = slugifyCommune(decodeURIComponent(slug));
+  return MARKET_DATA.find((c) => slugifyCommune(c.commune) === normSlug);
+}
+
 export function getAllCommunes(): string[] {
   return MARKET_DATA.map((c) => c.commune).sort();
 }

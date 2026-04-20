@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import { useMemo } from "react";
 import Link from "next/link";
-import { getMarketDataCommune } from "@/lib/market-data";
+import { getCommuneBySlug } from "@/lib/market-data";
 import { getDemographics } from "@/lib/demographics";
 import { formatEUR } from "@/lib/calculations";
 import { PriceEvolutionChart } from "@/components/PriceChart";
@@ -13,10 +13,9 @@ import MarketAlertButton from "@/components/MarketAlertButton";
 export default function CommunePageClient() {
   const params = useParams();
   const slug = typeof params.slug === "string" ? params.slug : "";
-  const communeName = slug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join("-").replace("Sur-", "sur-").replace("Les-", "les-").replace("La-", "la-");
 
-  const commune = useMemo(() => getMarketDataCommune(communeName) || getMarketDataCommune(slug), [communeName, slug]);
-  const demo = useMemo(() => getDemographics(communeName), [communeName]);
+  const commune = useMemo(() => getCommuneBySlug(slug), [slug]);
+  const demo = useMemo(() => (commune ? getDemographics(commune.commune) : undefined), [commune]);
 
   if (!commune) {
     return (
