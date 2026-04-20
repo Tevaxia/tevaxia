@@ -11,6 +11,8 @@ interface IntentCard {
   icon: React.ReactNode;
   color: string;
   links: { href: string; label: string }[];
+  /** Slug de la landing persona associée dans /solutions/{slug}. */
+  solutionSlug?: string;
 }
 
 export default function OnboardingIntent() {
@@ -25,6 +27,7 @@ export default function OnboardingIntent() {
       title: t("particulier.title"),
       description: t("particulier.description"),
       color: "from-blue-600 to-blue-500",
+      solutionSlug: "particulier",
       icon: (
         <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
@@ -45,6 +48,7 @@ export default function OnboardingIntent() {
       title: t("investisseur.title"),
       description: t("investisseur.description"),
       color: "from-gold-dark to-gold",
+      solutionSlug: "investisseur",
       icon: (
         <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -85,6 +89,7 @@ export default function OnboardingIntent() {
       title: t("agent.title"),
       description: t("agent.description"),
       color: "from-rose-600 to-pink-500",
+      solutionSlug: "agence",
       icon: (
         <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
@@ -102,6 +107,7 @@ export default function OnboardingIntent() {
       title: t("syndic.title"),
       description: t("syndic.description"),
       color: "from-orange-600 to-amber-500",
+      solutionSlug: "syndic",
       icon: (
         <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
@@ -139,6 +145,7 @@ export default function OnboardingIntent() {
       title: t("hotellerie.title"),
       description: t("hotellerie.description"),
       color: "from-purple-700 to-purple-500",
+      solutionSlug: "hotel",
       icon: (
         <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m18-18v18M6 8.25h2.25M6 12h2.25m-2.25 3.75h2.25M9.75 8.25h.008v.008H9.75V8.25zm.375 3.75h.008v.008h-.008V12zm.375 3.75h.008v.008h-.008v-.008zm5.625-7.5h.008v.008h-.008V8.25zm.375 3.75h.008v.008h-.008V12zm.375 3.75h.008v.008h-.008v-.008z" />
@@ -171,6 +178,17 @@ export default function OnboardingIntent() {
         <p className="mt-2 text-center text-sm text-muted">
           {t("subheading")}
         </p>
+        <div className="mt-4 text-center">
+          <Link
+            href={`${lp}/solutions`}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-navy-light transition-colors"
+          >
+            {t("allSolutions")}
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </Link>
+        </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
           {INTENTS.map((intent) => {
             const isOpen = expanded === intent.id;
@@ -203,6 +221,17 @@ export default function OnboardingIntent() {
                 </button>
                 {isOpen && (
                   <div className="mt-2 rounded-xl border border-card-border bg-card p-3 shadow-sm animate-in fade-in slide-in-from-top-2 duration-200">
+                    {intent.solutionSlug && (
+                      <Link
+                        href={`${lp}/solutions/${intent.solutionSlug}`}
+                        className="mb-2 flex items-center justify-between rounded-lg border border-navy bg-navy px-3 py-2.5 text-sm font-semibold text-white hover:bg-navy-light transition-colors"
+                      >
+                        {t("viewSolution")}
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                      </Link>
+                    )}
                     <div className="space-y-1.5">
                       {intent.links.map((link) => (
                         <Link

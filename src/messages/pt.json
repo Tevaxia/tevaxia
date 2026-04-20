@@ -3403,6 +3403,8 @@
   "onboarding": {
     "heading": "Qual é o seu perfil?",
     "subheading": "7 portas de entrada — particulares, profissionais, bancos, hotelaria. Escolha a sua.",
+    "viewSolution": "Ver a solução detalhada",
+    "allSolutions": "Explorar todas as soluções",
     "particulier": {
       "title": "Particular",
       "description": "Comprar, vender ou arrendar",

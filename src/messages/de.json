@@ -3403,6 +3403,8 @@
   "onboarding": {
     "heading": "Was ist Ihr Profil?",
     "subheading": "7 Eingangstüren — Privatpersonen, Profis, Banken, Hotellerie. Wählen Sie Ihres.",
+    "viewSolution": "Detaillierte Lösung ansehen",
+    "allSolutions": "Alle Lösungen ansehen",
     "particulier": {
       "title": "Privatperson",
       "description": "Kaufen, verkaufen oder vermieten",

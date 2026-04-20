@@ -29,6 +29,7 @@ export default function Footer() {
               <li><LocaleLink href="/mentions-legales" className="hover:text-white transition-colors">{tc("legalNotice")}</LocaleLink></li>
               <li><LocaleLink href="/confidentialite" className="hover:text-white transition-colors">{tc("privacy")}</LocaleLink></li>
               <li><LocaleLink href="/cgu" className="hover:text-white transition-colors">CGU</LocaleLink></li>
+              <li><LocaleLink href="/solutions" className="hover:text-white transition-colors">Solutions</LocaleLink></li>
               <li><LocaleLink href="/plan-du-site" className="hover:text-white transition-colors">Plan du site</LocaleLink></li>
             </ul>
           </div>

@@ -3403,6 +3403,8 @@
   "onboarding": {
     "heading": "What is your profile?",
     "subheading": "7 entry doors — individuals, pros, banks, hospitality. Pick yours.",
+    "viewSolution": "See the detailed solution",
+    "allSolutions": "Explore all solutions",
     "particulier": {
       "title": "Individual",
       "description": "Buy, sell or rent your home",
