@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
+import { localizedAlternates } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("facturation.meta");
+  const [t, locale] = await Promise.all([
+    getTranslations("facturation.meta"),
+    getLocale(),
+  ]);
   return {
     title: t("title"),
     description: t("description"),
     robots: { index: true, follow: true },
+    alternates: localizedAlternates("/facturation", locale),
   };
 }
 
