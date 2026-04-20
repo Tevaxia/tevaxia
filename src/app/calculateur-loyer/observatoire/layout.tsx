@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Observatoire des loyers Luxembourg — 19 zones × 5 typologies | tevaxia.lu",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
       "19 zones × 5 typologies. Loyers médians P25/P75, trend 12 mois.",
     type: "website",
   },
-  alternates: { canonical: "/calculateur-loyer/observatoire" },
+  alternates: localizedAlternates("/calculateur-loyer/observatoire", "fr"),
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

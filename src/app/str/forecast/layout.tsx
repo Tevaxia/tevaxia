@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Prévisionnel 12 mois STR Luxembourg — Holt-Winters occupation + ADR | tevaxia.lu",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
       "Projection 6-24 mois occupation/ADR/revenu avec IC 95 %. Import CSV PMS.",
     type: "website",
   },
-  alternates: { canonical: "/str/forecast" },
+  alternates: localizedAlternates("/str/forecast", "fr"),
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

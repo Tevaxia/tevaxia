@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Prévisions prix immobilier Luxembourg 12-48 mois — 3 scénarios | tevaxia.lu",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
       "3 scénarios configurables par commune, basés sur données STATEC + Observatoire Habitat.",
     type: "website",
   },
-  alternates: { canonical: "/marche/forecast" },
+  alternates: localizedAlternates("/marche/forecast", "fr"),
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

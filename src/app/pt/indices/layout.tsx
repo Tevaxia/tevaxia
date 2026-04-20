@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Luxembourg Property Price Index 2026 — Price per m² by Municipality, Trends",
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
     locale: "en",
     type: "article",
   },
+  alternates: localizedAlternates("/indices", "pt"),
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

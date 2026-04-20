@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Observatoire hôtelier Luxembourg — Occupation, RevPAR, ADR public | tevaxia.lu",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
       "Occupation, RevPAR, ADR par catégorie. STATEC + Eurostat + STR EMEA.",
     type: "website",
   },
-  alternates: { canonical: "/hotellerie/observatoire-lu" },
+  alternates: localizedAlternates("/hotellerie/observatoire-lu", "fr"),
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

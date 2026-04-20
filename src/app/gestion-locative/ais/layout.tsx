@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Gestion locative sociale AIS Luxembourg — Abattement fiscal 75 % | tevaxia.lu",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
       "Conditions d'éligibilité + calcul économie fiscale + liste partenaires AIS agréés LU.",
     type: "website",
   },
-  alternates: { canonical: "/gestion-locative/ais" },
+  alternates: localizedAlternates("/gestion-locative/ais", "fr"),
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

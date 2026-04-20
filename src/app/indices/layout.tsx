@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Indice prix immobilier Luxembourg 2026 — Prix au m² par commune, tendances",
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
     locale: "fr_LU",
     type: "article",
   },
+  alternates: localizedAlternates("/indices", "fr"),
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

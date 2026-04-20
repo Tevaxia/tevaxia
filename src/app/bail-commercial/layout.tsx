@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Bail commercial Luxembourg — IPC, pas-de-porte, coût total | tevaxia.lu",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
       "Indexation IPC, pas-de-porte, coût total. Loi 03/02/2018.",
     type: "website",
   },
-  alternates: { canonical: "/bail-commercial" },
+  alternates: localizedAlternates("/bail-commercial", "fr"),
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
