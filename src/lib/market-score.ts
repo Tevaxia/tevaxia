@@ -1,87 +1,74 @@
 import type { MarketDataCommune } from "@/lib/market-data";
 
+export type MarketScoreLevel = "tres_actif" | "actif" | "modere" | "calme";
+export type MarketScoreComponentKey = "liquidite" | "tendance_prix" | "rendement" | "densite_donnees";
+
 export interface MarketScoreResult {
   score: number; // 0-100
-  level: "Tres actif" | "Actif" | "Modere" | "Calme";
-  components: { label: string; score: number }[];
+  level: MarketScoreLevel;
+  components: { key: MarketScoreComponentKey; score: number }[];
 }
 
 export function computeMarketScore(commune: MarketDataCommune): MarketScoreResult {
-  const components: { label: string; score: number }[] = [];
+  const components: { key: MarketScoreComponentKey; score: number }[] = [];
 
-  // 1. Liquidity (nbTransactions)
   const tx = commune.nbTransactions ?? 0;
   const liquidityScore = tx > 100 ? 25 : tx > 50 ? 20 : tx > 20 ? 15 : 10;
-  components.push({ label: "Liquidite", score: liquidityScore });
+  components.push({ key: "liquidite", score: liquidityScore });
 
-  // 2. Price trend (compare existant vs annonces)
-  let trendScore = 15; // neutral default
+  let trendScore = 15;
   if (commune.prixM2Existant && commune.prixM2Annonces) {
     const ecart = (commune.prixM2Annonces - commune.prixM2Existant) / commune.prixM2Existant;
-    if (ecart > 0.02) {
-      trendScore = 25; // positive: annonces above transactions = demand
-    } else if (ecart < -0.02) {
-      trendScore = 10; // negative: annonces below transactions
-    }
+    if (ecart > 0.02) trendScore = 25;
+    else if (ecart < -0.02) trendScore = 10;
   }
-  components.push({ label: "Tendance prix", score: trendScore });
+  components.push({ key: "tendance_prix", score: trendScore });
 
-  // 3. Yield (if loyerM2 and prixM2 exist)
-  let yieldScore = 15; // default
+  let yieldScore = 15;
   if (commune.loyerM2Annonces && commune.prixM2Existant) {
     const rendement = (commune.loyerM2Annonces * 12) / commune.prixM2Existant * 100;
-    if (rendement > 4) {
-      yieldScore = 25;
-    } else if (rendement > 3) {
-      yieldScore = 20;
-    } else {
-      yieldScore = 15;
-    }
+    if (rendement > 4) yieldScore = 25;
+    else if (rendement > 3) yieldScore = 20;
+    else yieldScore = 15;
   }
-  components.push({ label: "Rendement", score: yieldScore });
+  components.push({ key: "rendement", score: yieldScore });
 
-  // 4. Data density (has quartiers?)
   const densityScore = commune.quartiers && commune.quartiers.length > 0 ? 25 : 15;
-  components.push({ label: "Densite donnees", score: densityScore });
+  components.push({ key: "densite_donnees", score: densityScore });
 
   const score = components.reduce((sum, c) => sum + c.score, 0);
 
-  let level: MarketScoreResult["level"];
-  if (score >= 80) {
-    level = "Tres actif";
-  } else if (score >= 65) {
-    level = "Actif";
-  } else if (score >= 50) {
-    level = "Modere";
-  } else {
-    level = "Calme";
-  }
+  let level: MarketScoreLevel;
+  if (score >= 80) level = "tres_actif";
+  else if (score >= 65) level = "actif";
+  else if (score >= 50) level = "modere";
+  else level = "calme";
 
   return { score, level, components };
 }
 
-export function getScoreColor(level: MarketScoreResult["level"]): string {
+export function getScoreColor(level: MarketScoreLevel): string {
   switch (level) {
-    case "Tres actif":
+    case "tres_actif":
       return "bg-green-100 text-green-800";
-    case "Actif":
+    case "actif":
       return "bg-blue-100 text-blue-800";
-    case "Modere":
+    case "modere":
       return "bg-amber-100 text-amber-800";
-    case "Calme":
+    case "calme":
       return "bg-gray-100 text-gray-600";
   }
 }
 
-export function getScoreBarColor(level: MarketScoreResult["level"]): string {
+export function getScoreBarColor(level: MarketScoreLevel): string {
   switch (level) {
-    case "Tres actif":
+    case "tres_actif":
       return "bg-green-500";
-    case "Actif":
+    case "actif":
       return "bg-blue-500";
-    case "Modere":
+    case "modere":
       return "bg-amber-500";
-    case "Calme":
+    case "calme":
       return "bg-gray-400";
   }
 }

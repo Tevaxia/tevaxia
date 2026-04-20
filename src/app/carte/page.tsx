@@ -58,6 +58,7 @@ function getYieldColor(yieldPct: number | null): string {
 
 export default function Carte() {
   const t = useTranslations("carte");
+  const tCommune = useTranslations("commune");
   const [search, setSearch] = useState("");
   const [selectedCommune, setSelectedCommune] = useState<MarketDataCommune | null>(null);
   const [sortBy, setSortBy] = useState<"prix" | "canton" | "nom">("canton");
@@ -381,7 +382,7 @@ export default function Carte() {
                           <div className="flex items-center justify-between mb-1.5">
                             <span className="text-xs text-muted">{t("marketScore")}</span>
                             <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${color}`}>
-                              {score.level} ({score.score}/100)
+                              {tCommune(`scoreLevels.${score.level}`)} ({score.score}/100)
                             </span>
                           </div>
                           <div className="h-2 rounded-full bg-gray-200">
@@ -389,8 +390,8 @@ export default function Carte() {
                           </div>
                           <div className="mt-1.5 grid grid-cols-2 gap-1">
                             {score.components.map((comp) => (
-                              <div key={comp.label} className="flex items-center justify-between text-[10px]">
-                                <span className="text-muted">{comp.label}</span>
+                              <div key={comp.key} className="flex items-center justify-between text-[10px]">
+                                <span className="text-muted">{tCommune(`scoreComponents.${comp.key}`)}</span>
                                 <span className="font-mono font-medium text-slate">{comp.score}/25</span>
                               </div>
                             ))}
