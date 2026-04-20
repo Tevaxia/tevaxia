@@ -457,7 +457,7 @@ Cible commerciale T1 2027 : 2 hôtels + 2 copros + 3 agences pilotes en producti
 
 ## Contact / debug
 
-- **Repo** : https://github.com/Interne52105110/tevaxia
+- **Repo** : https://github.com/Tevaxia/tevaxia
 - **Prod** : https://www.tevaxia.lu (Vercel auto-deploy sur push master)
 - **Supabase** : Dashboard SQL Editor pour migrations
 - **Erreurs connues** :

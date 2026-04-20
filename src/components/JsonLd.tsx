@@ -62,9 +62,8 @@ export function OrganizationJsonLd() {
         "EPBD directive"
       ],
       "sameAs": [
-        "https://github.com/Interne52105110/tevaxia",
-        "https://www.linkedin.com/company/tevaxia",
-        "https://github.com/tevaxia"
+        "https://github.com/Tevaxia",
+        "https://www.linkedin.com/company/tevaxia"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
