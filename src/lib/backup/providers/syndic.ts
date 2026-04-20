@@ -49,7 +49,12 @@ async function collect(ctx: ExportContext): Promise<BackupBundle> {
   const binaries: Record<string, Uint8Array> = {};
   let pdfModule: typeof import("@react-pdf/renderer") | null = null;
   let AssemblyMinutesPdf: typeof import("@/components/AssemblyMinutesPdf").default | null = null;
+  let FundsCallPdf: typeof import("@/components/FundsCallPdf").default | null = null;
   const profile = getProfile();
+
+  // Plafond pour ne pas exploser le ZIP (N grosses copro × 4 calls × 40 units)
+  const MAX_PDFS = 150;
+  const pdfBudget = () => Object.keys(binaries).length < MAX_PDFS;
 
   for (const copro of coownerships) {
     const [units, assemblies, budgets, calls, allocationKeys, accountingYears, accounts, reminders, unpaid] = await Promise.all([
@@ -112,9 +117,79 @@ async function collect(ctx: ExportContext): Promise<BackupBundle> {
       }
     }
 
+    // Appels de fonds : PDF par (call × unit charge). On limite aux 12 derniers mois
+    // pour rester dans le budget, et on respecte MAX_PDFS global.
+    const twelveMonthsAgo = Date.now() - 365 * 24 * 3600 * 1000;
+    const recentCalls = calls.filter((c) => {
+      const d = new Date(c.due_date).getTime();
+      return !isNaN(d) && d >= twelveMonthsAgo;
+    });
+    const unitsById = new Map(units.map((u) => [u.id, u]));
+
     for (const call of calls) {
       const charges = await listCharges(call.id);
       chargesAll.push(...charges);
+
+      if (!recentCalls.includes(call)) continue;
+      if (!pdfBudget()) continue;
+
+      for (const charge of charges) {
+        if (!pdfBudget()) break;
+        const unit = unitsById.get(charge.unit_id);
+        if (!unit) continue;
+        if (charge.amount_due <= 0) continue;
+
+        try {
+          if (!pdfModule) pdfModule = await import("@react-pdf/renderer");
+          if (!FundsCallPdf) {
+            const mod = await import("@/components/FundsCallPdf");
+            FundsCallPdf = mod.default;
+          }
+          const el = createElement(FundsCallPdf, {
+            coownership: {
+              name: copro.name,
+              address: copro.address,
+              commune: copro.commune,
+              total_tantiemes: copro.total_tantiemes,
+            },
+            syndic: {
+              name: profile.nomComplet || profile.societe || "Syndic",
+              email: profile.email,
+              phone: profile.telephone,
+            },
+            call: {
+              label: call.label,
+              period_start: call.period_start,
+              period_end: call.period_end,
+              due_date: call.due_date,
+              total_amount: call.total_amount,
+              bank_iban: call.bank_iban,
+              bank_bic: call.bank_bic,
+              bank_account_holder: call.bank_account_holder,
+            },
+            unit: {
+              lot_number: unit.lot_number,
+              unit_type: unit.unit_type,
+              floor: unit.floor,
+              surface_m2: unit.surface_m2,
+              tantiemes: unit.tantiemes,
+              owner_name: unit.owner_name,
+              owner_address: unit.owner_address,
+            },
+            charge: {
+              amount_due: charge.amount_due,
+              payment_reference: charge.payment_reference,
+            },
+          }) as ReactElement;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const blob = await pdfModule.pdf(el as any).toBlob();
+          const buf = new Uint8Array(await blob.arrayBuffer());
+          const name = `appel-fonds-${safeFilename(copro.name)}-${safeFilename(call.label)}-lot${safeFilename(unit.lot_number)}.pdf`;
+          binaries[name] = buf;
+        } catch {
+          // Best-effort
+        }
+      }
     }
 
     for (const key of allocationKeys) {
@@ -182,7 +257,7 @@ async function collect(ctx: ExportContext): Promise<BackupBundle> {
   };
 
   const pdfCount = Object.keys(binaries).length;
-  if (pdfCount > 0) counts.pv_pdfs = pdfCount;
+  if (pdfCount > 0) counts.pdfs = pdfCount;
 
   return { files, counts, binaries };
 }

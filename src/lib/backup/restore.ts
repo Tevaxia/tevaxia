@@ -6,19 +6,21 @@
  * 2. Preview : affiche le module + counts (lecture seule)
  * 3. Apply : upsert les entités selon skipExisting (défaut true)
  *
- * V2 scope — n'applique que les modules "plats" (sans relations complexes) :
- *   - evaluations (localStorage)
- *   - inspection (localStorage)
- *
- * Les autres modules sont en preview-only (V3 pour l'apply complet).
+ * V3 scope :
+ *   - evaluations, inspection (localStorage)
+ *   - syndic complet (coownerships → units → AG → résolutions → votes →
+ *     budgets → calls → charges → allocations → accounting → reminders)
+ *   - PMS basique (properties → rooms → rate plans → reservations → guests → invoices → folios)
+ *   - CRM agences (contacts, tasks, interactions, mandates)
  */
 
 import { unzipSync, strFromU8 } from "fflate";
 import type { BackupManifest, BackupModule } from "./types";
+import { upsertRows, parseJsonArray, RestoreAccumulator } from "./restore-helpers";
 
 export interface ParsedBackup {
   manifest: BackupManifest;
-  files: Record<string, string>; // nom (sans prefix) → contenu JSON
+  files: Record<string, string>;
   pdfCount: number;
 }
 
@@ -29,7 +31,13 @@ export interface RestoreResult {
   errors: string[];
 }
 
-const SUPPORTED_RESTORE: BackupModule[] = ["evaluations", "inspection"];
+const SUPPORTED_RESTORE: BackupModule[] = [
+  "evaluations",
+  "inspection",
+  "syndic",
+  "pms",
+  "crm-agences",
+];
 
 export function canRestore(module: BackupModule): boolean {
   return SUPPORTED_RESTORE.includes(module);
@@ -69,10 +77,6 @@ export async function parseBackupZip(file: File | Blob): Promise<ParsedBackup> {
   return { manifest, files, pdfCount };
 }
 
-/**
- * Applique un backup parsé selon les règles du module.
- * Renvoie RestoreResult avec compteurs.
- */
 export async function applyBackup(
   parsed: ParsedBackup,
   opts: { skipExisting?: boolean } = {},
@@ -88,14 +92,20 @@ export async function applyBackup(
   };
 
   if (!canRestore(manifest.module)) {
-    result.errors.push(`Restauration non supportée pour le module « ${manifest.module} » (V3).`);
+    result.errors.push(`Restauration non supportée pour le module « ${manifest.module} » (V4).`);
     return result;
   }
 
-  if (manifest.module === "evaluations") {
-    await applyEvaluations(files, skipExisting, result);
-  } else if (manifest.module === "inspection") {
-    await applyInspection(files, skipExisting, result);
+  try {
+    switch (manifest.module) {
+      case "evaluations": await applyEvaluations(files, skipExisting, result); break;
+      case "inspection": await applyInspection(files, skipExisting, result); break;
+      case "syndic": await applySyndic(files, skipExisting, result); break;
+      case "pms": await applyPms(files, skipExisting, result); break;
+      case "crm-agences": await applyCrm(files, skipExisting, result); break;
+    }
+  } catch (e) {
+    result.errors.push(e instanceof Error ? e.message : String(e));
   }
 
   result.applied = result.errors.length === 0;
@@ -103,7 +113,7 @@ export async function applyBackup(
 }
 
 // ──────────────────────────────────────────────────────────────
-// MODULE APPLIERS
+// LOCAL STORAGE MODULES
 // ──────────────────────────────────────────────────────────────
 
 async function applyEvaluations(
@@ -140,7 +150,6 @@ async function applyEvaluations(
     const id = item.id ? String(item.id) : null;
     if (id && existingIds.has(id)) {
       if (skipExisting) { skipped++; continue; }
-      // Overwrite : remplace in-place
       const idx = merged.findIndex((e) => String(e.id) === id);
       if (idx >= 0) merged[idx] = item;
       imported++;
@@ -183,4 +192,108 @@ async function applyInspection(
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     result.imported.draft = 1;
   }
+}
+
+// ──────────────────────────────────────────────────────────────
+// SUPABASE MODULES — ordered by FK dependency
+// ──────────────────────────────────────────────────────────────
+
+/** Champs à retirer avant upsert : Supabase régénère timestamps + triggers. */
+const OMIT_META = ["created_at", "updated_at"];
+
+interface TableMapping {
+  file: string;
+  table: string;
+  omit?: string[];
+}
+
+async function applyOrderedTables(
+  files: Record<string, string>,
+  skipExisting: boolean,
+  mappings: TableMapping[],
+): Promise<{ imported: Record<string, number>; skipped: Record<string, number>; errors: string[] }> {
+  const acc = new RestoreAccumulator();
+  for (const { file, table, omit } of mappings) {
+    const rows = parseJsonArray(files, file);
+    if (rows.length === 0) continue;
+    const res = await upsertRows({
+      table,
+      rows,
+      skipExisting,
+      omit: [...OMIT_META, ...(omit ?? [])],
+    });
+    acc.add(res);
+  }
+  return { imported: acc.getImported(), skipped: acc.getSkipped(), errors: acc.getErrors() };
+}
+
+async function applySyndic(
+  files: Record<string, string>,
+  skipExisting: boolean,
+  result: RestoreResult,
+): Promise<void> {
+  const mappings: TableMapping[] = [
+    { file: "coownerships.json", table: "coownerships" },
+    { file: "units.json", table: "coownership_units" },
+    { file: "assemblies.json", table: "coownership_assemblies" },
+    { file: "resolutions.json", table: "assembly_resolutions" },
+    { file: "votes.json", table: "assembly_votes" },
+    { file: "allocation_keys.json", table: "coownership_allocation_keys" },
+    { file: "unit_allocations.json", table: "coownership_unit_allocations" },
+    { file: "budgets.json", table: "coownership_budgets" },
+    { file: "budget_lines.json", table: "coownership_budget_lines" },
+    { file: "calls.json", table: "coownership_calls" },
+    { file: "charges.json", table: "coownership_unit_charges" },
+    { file: "accounting_years.json", table: "coownership_accounting_years" },
+    { file: "accounts.json", table: "accounting_accounts" },
+    { file: "entries.json", table: "accounting_entries" },
+    { file: "reminders.json", table: "coownership_reminders" },
+  ];
+  const out = await applyOrderedTables(files, skipExisting, mappings);
+  Object.assign(result.imported, out.imported);
+  Object.assign(result.skipped, out.skipped);
+  result.errors.push(...out.errors);
+}
+
+async function applyPms(
+  files: Record<string, string>,
+  skipExisting: boolean,
+  result: RestoreResult,
+): Promise<void> {
+  const mappings: TableMapping[] = [
+    { file: "properties.json", table: "pms_properties" },
+    { file: "room_types.json", table: "pms_room_types" },
+    { file: "rooms.json", table: "pms_rooms" },
+    { file: "rate_plans.json", table: "pms_rate_plans" },
+    { file: "seasonal_rates.json", table: "pms_seasonal_rates" },
+    { file: "groups.json", table: "pms_groups" },
+    { file: "guests.json", table: "pms_guests" },
+    { file: "reservations.json", table: "pms_reservations" },
+    { file: "reservation_lines.json", table: "pms_reservation_rooms" },
+    { file: "payments.json", table: "pms_payments" },
+    { file: "folios.json", table: "pms_folios" },
+    { file: "folio_charges.json", table: "pms_folio_charges" },
+    { file: "invoices.json", table: "pms_invoices" },
+  ];
+  const out = await applyOrderedTables(files, skipExisting, mappings);
+  Object.assign(result.imported, out.imported);
+  Object.assign(result.skipped, out.skipped);
+  result.errors.push(...out.errors);
+}
+
+async function applyCrm(
+  files: Record<string, string>,
+  skipExisting: boolean,
+  result: RestoreResult,
+): Promise<void> {
+  const mappings: TableMapping[] = [
+    { file: "contacts.json", table: "crm_contacts" },
+    { file: "mandates.json", table: "agency_mandates" },
+    { file: "interactions.json", table: "crm_interactions" },
+    { file: "tasks.json", table: "crm_tasks" },
+  ];
+  const out = await applyOrderedTables(files, skipExisting, mappings);
+  Object.assign(result.imported, out.imported);
+  Object.assign(result.skipped, out.skipped);
+  result.errors.push(...out.errors);
 }
