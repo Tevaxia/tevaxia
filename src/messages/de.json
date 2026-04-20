@@ -9162,15 +9162,15 @@
     },
     "hero": {
       "badge": "FR E-Rechnungsreform · verpflichtend 01.09.2026",
-      "title": "Bereiten Sie Ihre konformen Factur-X vor, ohne sich an eine Plattform zu binden",
-      "subtitle": "PDF/A-3 + XML EN 16931-Erzeugung, 5 Immobilien-Vorlagen (Vermieter, Syndic, Hotelier, Gewerbemiete, Gutachter), FR + LU MwSt. Sie laden die Datei herunter und importieren sie in die PA Ihrer Wahl.",
-      "note": "Nur Vorbereitungstool. tevaxia ist keine DGFiP-akkreditierte PDP — Empfang und PPF-Transit bleiben Ihre Verantwortung über die Plattform Ihrer Wahl (offizielle Liste auf impots.gouv.fr).",
+      "title": "Factur-X-Vorbereitung ohne Plattform-Bindung",
+      "subtitle": "PDF/A-3 + XML EN 16931-Erzeugung, 5 auf Immobilien-Situationen zugeschnittene Vorlagen (Vermieter, Syndic, Hotelier, Gewerbemiete, Gutachter), FR + LU MwSt. Laden Sie die Datei herunter und importieren Sie sie in die Dematerialisierungsplattform Ihrer Wahl.",
+      "note": "Nur Vorbereitungstool. tevaxia ist keine DGFiP-akkreditierte PDP — Empfang und PPF-Transit werden über die Plattform Ihrer Wahl abgewickelt (offizielle Liste auf impots.gouv.fr).",
       "ctaEmit": "Factur-X vorbereiten",
-      "ctaPricing": "Preise ansehen"
+      "ctaPricing": "tevaxia-Pakete ansehen"
     },
     "diff": {
-      "title": "Was die Konkurrenz nicht macht",
-      "intro": "Pennylane macht Buchhaltung. Sellsy macht CRM. Qonto macht Banking. tevaxia verbindet Rechnungsstellung mit Ihren Immobilien-Anwendungsfällen.",
+      "title": "Branchenvorlagen für Immobilien",
+      "intro": "Fünf auf die gängigsten Situationen der Immobilienbranche abgestimmte Vorlagen, mit vorausgefüllten Feldern, Berechnungen und Rechtsverweisen je nach Geschäftskontext.",
       "locative": {
         "title": "Mietverwaltung",
         "desc": "Klick „Miete fakturieren\" im Zeitplan → Factur-X generiert, automatische IRL/ILAT/IPC-Indexierung, SEPA-Mandatsreferenz."
@@ -9199,7 +9199,7 @@
     "compliance": {
       "title": "Rechtskonformität",
       "statusTitle": "Unsere Rolle:",
-      "statusBody": "tevaxia ist ein Factur-X-Vorbereitungstool. Wir erzeugen PDF/A-3 + XML-Dateien konform zu EN 16931; Sie importieren sie in eine akkreditierte Dematerialisierungsplattform (PDP) oder direkt ins Public Invoicing Portal (PPF). Wir empfangen und transportieren keine Rechnungen. Diese Trennung lässt Ihnen völlige Freiheit bei der Wahl Ihrer PA — Sie können jederzeit wechseln, Sie sind nicht an tevaxia gebunden.",
+      "statusBody": "tevaxia ist ein Factur-X-Vorbereitungstool. PDF/A-3 + XML-Dateien konform zu EN 16931 werden lokal erzeugt; Sie importieren sie in eine akkreditierte Dematerialisierungsplattform (PDP) oder direkt ins Public Invoicing Portal (PPF). tevaxia empfängt und transportiert keine Rechnungen. Diese Trennung lässt Ihnen Freiheit bei der Plattform-Wahl — Sie können jederzeit wechseln.",
       "fr": {
         "title": "Frankreich",
         "i1": "Factur-X v1.0.07 — PDF/A-3 + CII D22B EN 16931",
@@ -9216,62 +9216,44 @@
       }
     },
     "pricing": {
-      "title": "Preise",
-      "subtitle": "Freemium kalibriert für SCIs mit 1-3 Einheiten, skalierbar auf Multi-Entity-Agenturen.",
-      "free": {
-        "name": "Free",
-        "period": "kostenlos",
-        "f1": "5 Factur-X vorbereitet / Monat",
-        "f2": "PDF/A-3 + XML Download",
-        "f3": "1 Vorlage (generisch)",
-        "f4": "EN 16931-Validierung integriert",
-        "f5": "Keine Registrierung nötig"
-      },
-      "essentiel": {
-        "name": "Essential",
-        "period": "Monat",
-        "badge": "Beliebt",
-        "f1": "50 Factur-X vorbereitet / Monat",
-        "f2": "5 Immobilien-Vorlagen",
-        "f3": "IRL / ILAT / IPC-Indexierung",
-        "f4": "12-Monats-Browser-Historie + JSON-Export",
-        "f5": "Fortlaufende Nummerierung CGI"
-      },
-      "pro": {
-        "name": "Pro",
-        "period": "Monat",
-        "f1": "Unbegrenzte Factur-X",
-        "f2": "Multi-Struktur (5 SIREN/RCS)",
-        "f3": "Öffentliche Generierungs-API",
-        "f4": "Vollständige Anpassung (Logo, AGB, IBAN)",
-        "f5": "Prioritäts-Support"
-      }
+      "title": "In Ihrem tevaxia-Abonnement enthalten",
+      "subtitle": "Die Factur-X-Vorbereitung ist fester Bestandteil der Plattform. Kein Premium-Modul, keine Abrechnung pro Rechnung — Ausstellung, Historie und 5 Branchenvorlagen sind für jedes Konto verfügbar.",
+      "features": [
+        "Unbegrenzte PDF/A-3 + XML EN 16931-Erzeugung",
+        "5 Immobilien-Vorlagen (Vermieter, Syndic, Hotel, Gewerbemiete, Gutachter)",
+        "Fortlaufende Nummerierung gemäß Art. 242 nonies A CGI",
+        "12-Monats-Historie für angemeldete Benutzer",
+        "Automatische IRL / ILAT / IPC-Indexierung",
+        "Frankreich MwSt (20 / 10 / 5,5 / 2,1%) und Luxemburg (17 / 14 / 8 / 3%)"
+      ],
+      "ctaPlatform": "tevaxia-Pakete ansehen",
+      "ctaEmit": "Rechnung vorbereiten"
     },
     "faq": {
       "title": "FAQ",
       "q1": {
         "q": "Ist tevaxia eine DGFiP-akkreditierte PDP?",
-        "a": "Nein. tevaxia ist ein Factur-X-Vorbereitungstool. Für Empfang und Transit zum PPF müssen Sie eine akkreditierte PDP (offizielle Liste auf impots.gouv.fr) oder das PPF direkt nutzen. Diese Trennung ist gewollt: Sie sind nicht an unsere zukünftigen Entscheidungen gebunden, Sie können die PDP jederzeit wechseln."
+        "a": "Nein. tevaxia ist ein Factur-X-Vorbereitungstool. Für Empfang und Transit zum PPF müssen Sie eine akkreditierte PDP (offizielle Liste auf impots.gouv.fr) oder das PPF direkt nutzen. Diese Trennung ist gewollt: Sie wählen Ihre PDP frei und können jederzeit wechseln."
       },
       "q2": {
-        "q": "Wie nutze ich tevaxia mit meiner PA?",
-        "a": "Sie erstellen Ihre Rechnung in tevaxia (Formular + Immobilien-Vorlage), laden die Factur-X-Datei herunter (PDF/A-3 + eingebettetes XML) und importieren sie in Ihre Plattform: Pennylane, Sellsy, Dougs, Qonto, Tiime, Docaposte usw. Alle akzeptieren das Standard Factur-X-Format."
+        "q": "Wie nutze ich tevaxia mit einer Dematerialisierungsplattform?",
+        "a": "Erstellen Sie die Rechnung in tevaxia (Formular + Branchenvorlage), laden Sie die Factur-X-Datei herunter (PDF/A-3 mit eingebettetem XML) und importieren Sie sie in Ihre Dematerialisierungsplattform. Alle DGFiP-akkreditierten PDPs akzeptieren das Standard Factur-X-Format."
       },
       "q3": {
         "q": "Kann ich tevaxia nutzen, um bis zum 01.09.2026 konform zu sein?",
-        "a": "tevaxia ermöglicht Ihnen, EN 16931-konforme Factur-X zu erzeugen. Für vollständige Konformität mit der FR-Reform brauchen Sie zusätzlich eine Empfangslösung (PDP oder PPF). Unser Tool deckt die Ausstellung ab; der verpflichtende Empfang ab 01.09.2026 ist separat zu regeln."
+        "a": "tevaxia erzeugt EN 16931-konforme Factur-X. Für vollständige Konformität mit der französischen Reform ist zusätzlich eine Empfangslösung erforderlich (akkreditierte PDP oder PPF). Unser Tool deckt die Ausstellung ab; der verpflichtende Empfang ab 01.09.2026 wird separat gehandhabt."
       },
       "q4": {
-        "q": "Ist LU von der FR-Reform betroffen?",
-        "a": "Nein, die FR-Reform vom 01.09.2026 gilt nur für französische MwSt-Pflichtige. LU hat einen eigenen E-Rechnungszeitplan via Peppol BIS Billing 3.0 (B2G verpflichtend, B2B in Arbeit). tevaxia unterstützt beide Standards."
+        "q": "Ist Luxemburg von der französischen Reform betroffen?",
+        "a": "Nein, die Reform vom 01.09.2026 gilt nur für französische MwSt-Pflichtige. Luxemburg hat einen eigenen E-Rechnungszeitplan via Peppol BIS Billing 3.0 (B2G verpflichtend, B2B in Arbeit). tevaxia unterstützt beide Standards."
       },
       "q5": {
-        "q": "Warum keine direkte Integration der PA-APIs (Pennylane, Qonto…)?",
-        "a": "Weil jede API alle 6 Monate geändert wird und jede Partnerschaft teuer zu pflegen ist. Statt von 3 oder 4 Drittanbieter-APIs abhängig zu sein, geben wir Ihnen die konforme Datei und Sie wählen Ihre PA. Sie gewinnen Autonomie, wir bleiben einfach und kostenlos beim Wesentlichen."
+        "q": "Warum eine Datei statt direkter API?",
+        "a": "APIs von Dematerialisierungsplattformen ändern sich regelmäßig und dedizierte Integrationen erfordern laufende Wartung. Eine konforme Standard-Datei kann je nach Präferenz manuell oder über die API Ihrer Plattform importiert werden, ohne Abhängigkeit von einer technischen Partnerschaft."
       },
       "q6": {
-        "q": "Werden meine Daten in der EU gespeichert?",
-        "a": "Ihre Rechnungen werden in Ihrem Browser erzeugt und direkt heruntergeladen. Wenn Sie angemeldet sind und die 12-Monats-Historie nutzen (Essential+ Plan), werden die Daten auf Supabase (AWS eu-central-1, Frankfurt) gespeichert. Siehe Datenschutzerklärung."
+        "q": "Werden die Daten in der EU gespeichert?",
+        "a": "Rechnungen werden lokal im Browser erzeugt und direkt heruntergeladen. Für angemeldete Benutzer wird die 12-Monats-Historie auf Supabase (AWS eu-central-1, Frankfurt) gespeichert. Siehe Datenschutzerklärung."
       }
     },
     "emission": {

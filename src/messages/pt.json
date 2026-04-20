@@ -9162,15 +9162,15 @@
     },
     "hero": {
       "badge": "Reforma FR e-invoicing · obrigatoria 01/09/2026",
-      "title": "Prepare as suas Factur-X conformes sem ficar preso a uma plataforma",
-      "subtitle": "Geracao PDF/A-3 + XML EN 16931, 5 templates imobiliarios (senhorio, syndic, hoteleiro, arrendamento comercial, avaliador), IVA FR + LU. Descarrega o ficheiro e injeta-o na PA da sua escolha.",
-      "note": "So ferramenta de preparacao. A tevaxia nao e uma PDP credenciada DGFiP — a recepcao e o transito PPF ficam a seu cargo via a plataforma da sua escolha (lista oficial em impots.gouv.fr).",
+      "title": "Preparacao Factur-X sem dependencia de plataforma",
+      "subtitle": "Geracao PDF/A-3 + XML EN 16931, 5 templates ajustados a situacoes imobiliarias (senhorio, syndic, hoteleiro, arrendamento comercial, avaliador), IVA FR + LU. Descarregue o ficheiro e importe-o na plataforma de desmaterializacao a sua escolha.",
+      "note": "So ferramenta de preparacao. A tevaxia nao e uma PDP credenciada DGFiP — a recepcao e o transito PPF sao geridos via a plataforma a sua escolha (lista oficial em impots.gouv.fr).",
       "ctaEmit": "Preparar uma Factur-X",
-      "ctaPricing": "Ver precos"
+      "ctaPricing": "Ver planos tevaxia"
     },
     "diff": {
-      "title": "O que a concorrencia nao faz",
-      "intro": "Pennylane faz contabilidade. Sellsy faz CRM. Qonto faz bancos. tevaxia liga a faturacao aos seus casos de uso imobiliarios.",
+      "title": "Templates imobiliarios especializados",
+      "intro": "Cinco templates calibrados para as situacoes mais comuns do sector imobiliario, com campos, calculos e referencias legais pre-preenchidas conforme o contexto de negocio.",
       "locative": {
         "title": "Gestao locativa",
         "desc": "Clique « Emitir renda » no calendario → Factur-X gerada, indexacao IRL/ILAT/IPC automatica, referencia mandato SEPA."
@@ -9199,7 +9199,7 @@
     "compliance": {
       "title": "Conformidade legal",
       "statusTitle": "O nosso papel:",
-      "statusBody": "A tevaxia e uma ferramenta de preparacao Factur-X. Geramos os ficheiros PDF/A-3 + XML conformes a EN 16931; vai injeta-los numa plataforma de desmaterializacao credenciada (PDP) ou diretamente no Portal Publico de Faturacao (PPF). Nao recebemos nem transitamos faturas. Esta separacao mantem-no totalmente livre para escolher a sua PA — pode mudar quando quiser, nao esta preso a tevaxia.",
+      "statusBody": "A tevaxia e uma ferramenta de preparacao Factur-X. Os ficheiros PDF/A-3 + XML conformes a EN 16931 sao gerados localmente; importa-os numa plataforma de desmaterializacao credenciada (PDP) ou diretamente no Portal Publico de Faturacao (PPF). A tevaxia nao recebe nem transita faturas. Esta separacao mantem liberdade de escolha da plataforma — pode mudar a qualquer momento.",
       "fr": {
         "title": "Franca",
         "i1": "Factur-X v1.0.07 — PDF/A-3 + CII D22B EN 16931",
@@ -9216,62 +9216,44 @@
       }
     },
     "pricing": {
-      "title": "Precos",
-      "subtitle": "Freemium calibrado para SCIs de 1-3 lotes, escalavel a agencias multi-entidade.",
-      "free": {
-        "name": "Free",
-        "period": "gratis",
-        "f1": "5 Factur-X preparadas / mes",
-        "f2": "Download PDF/A-3 + XML",
-        "f3": "1 template (generico)",
-        "f4": "Validacao EN 16931 integrada",
-        "f5": "Sem registo necessario"
-      },
-      "essentiel": {
-        "name": "Essencial",
-        "period": "mes",
-        "badge": "Popular",
-        "f1": "50 Factur-X preparadas / mes",
-        "f2": "5 templates imobiliarios",
-        "f3": "Indexacao IRL / ILAT / IPC",
-        "f4": "Historico 12 meses navegador + exportacao JSON",
-        "f5": "Numeracao sequencial CGI"
-      },
-      "pro": {
-        "name": "Pro",
-        "period": "mes",
-        "f1": "Factur-X ilimitadas",
-        "f2": "Multi-estrutura (5 SIREN/RCS)",
-        "f3": "API publica de geracao",
-        "f4": "Personalizacao completa (logo, CGV, IBAN)",
-        "f5": "Suporte prioritario"
-      }
+      "title": "Incluido na sua subscricao tevaxia",
+      "subtitle": "A preparacao Factur-X e parte integrante da plataforma. Sem modulo premium, sem faturacao por utilizacao — emissao, historico e 5 templates de negocio disponiveis em todas as contas.",
+      "features": [
+        "Geracao PDF/A-3 + XML EN 16931 ilimitada",
+        "5 templates imobiliarios (senhorio, syndic, hotel, arrendamento comercial, avaliador)",
+        "Numeracao sequencial conforme Art. 242 nonies A CGI",
+        "Historico 12 meses para utilizadores autenticados",
+        "Indexacao IRL / ILAT / IPC automatica",
+        "IVA Franca (20 / 10 / 5,5 / 2,1%) e Luxemburgo (17 / 14 / 8 / 3%)"
+      ],
+      "ctaPlatform": "Ver planos tevaxia",
+      "ctaEmit": "Preparar uma fatura"
     },
     "faq": {
       "title": "FAQ",
       "q1": {
         "q": "A tevaxia e uma PDP credenciada pela DGFiP?",
-        "a": "Nao. A tevaxia e uma ferramenta de preparacao Factur-X. Para recepcao e transito ao PPF, deve passar por uma PDP credenciada (lista oficial em impots.gouv.fr) ou pelo PPF diretamente. Esta separacao e deliberada: nao esta refem das nossas decisoes futuras, pode mudar de PDP quando quiser."
+        "a": "Nao. A tevaxia e uma ferramenta de preparacao Factur-X. Para recepcao e transito ao PPF, tem de passar por uma PDP credenciada (lista oficial em impots.gouv.fr) ou pelo PPF diretamente. Esta separacao e deliberada: mantem liberdade de escolha da PDP e pode mudar a qualquer momento."
       },
       "q2": {
-        "q": "Como usar a tevaxia com a minha PA?",
-        "a": "Cria a fatura na tevaxia (formulario + template imobiliario), descarrega o ficheiro Factur-X (PDF/A-3 + XML incorporado), depois importa-o na sua plataforma: Pennylane, Sellsy, Dougs, Qonto, Tiime, Docaposte, etc. Todas aceitam o formato standard Factur-X."
+        "q": "Como utilizar a tevaxia com uma plataforma de desmaterializacao?",
+        "a": "Crie a fatura na tevaxia (formulario + template de negocio), descarregue o ficheiro Factur-X (PDF/A-3 com XML incorporado), depois importe-o na sua plataforma de desmaterializacao. Todas as PDPs credenciadas DGFiP aceitam o formato standard Factur-X."
       },
       "q3": {
         "q": "Posso usar a tevaxia para estar em conformidade a 01/09/2026?",
-        "a": "A tevaxia permite gerar Factur-X conformes EN 16931. Para conformidade total com a reforma FR, precisa tambem de uma solucao de recepcao (PDP ou PPF). A nossa ferramenta cobre a emissao; a recepcao obrigatoria a partir de 01/09/2026 deve ser tratada separadamente."
+        "a": "A tevaxia gera Factur-X conformes EN 16931. Para conformidade total com a reforma francesa, tambem e necessaria uma solucao de recepcao (PDP credenciada ou PPF). A nossa ferramenta cobre a emissao; a recepcao obrigatoria a partir de 01/09/2026 e gerida separadamente."
       },
       "q4": {
-        "q": "LU e afetado pela reforma FR?",
-        "a": "Nao, a reforma FR 01/09/2026 so se aplica a sujeitos passivos de IVA franceses. LU tem o seu proprio calendario e-invoicing via Peppol BIS Billing 3.0 (B2G obrigatorio, B2B em curso). A tevaxia suporta ambas as normas."
+        "q": "O Luxemburgo e afetado pela reforma francesa?",
+        "a": "Nao, a reforma de 01/09/2026 so se aplica a sujeitos passivos de IVA franceses. O Luxemburgo tem o seu proprio calendario e-invoicing via Peppol BIS Billing 3.0 (B2G obrigatorio, B2B em curso). A tevaxia suporta ambas as normas."
       },
       "q5": {
-        "q": "Porque nao integrar diretamente as APIs das PAs (Pennylane, Qonto…)?",
-        "a": "Porque cada API muda a cada 6 meses e cada parceria custa caro a manter. Em vez de depender de 3 ou 4 APIs terceiras, damos-lhe o ficheiro conforme e escolhe a sua PA. Ganha autonomia, mantemo-nos simples e gratis no essencial."
+        "q": "Porque usar um ficheiro em vez de uma API direta?",
+        "a": "As APIs das plataformas de desmaterializacao evoluem regularmente e cada integracao dedicada exige manutencao continua. Um ficheiro conforme standard pode ser importado manualmente ou atraves da API da sua plataforma conforme preferencia, sem dependencia de uma parceria tecnica."
       },
       "q6": {
-        "q": "Os meus dados sao armazenados na UE?",
-        "a": "As suas faturas sao geradas no seu navegador e descarregadas diretamente. Se estiver ligado e usar o historico 12 meses (plano Essencial+), os dados sao armazenados no Supabase (AWS eu-central-1, Frankfurt). Ver Politica de privacidade."
+        "q": "Os dados sao armazenados na UE?",
+        "a": "As faturas sao geradas localmente no navegador e descarregadas diretamente. Para utilizadores autenticados, o historico 12 meses e armazenado no Supabase (AWS eu-central-1, Frankfurt). Ver Politica de privacidade."
       }
     },
     "emission": {

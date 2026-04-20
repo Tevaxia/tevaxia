@@ -90,41 +90,30 @@ export default async function FacturationLanding() {
         </div>
       </section>
 
-      {/* Pricing */}
+      {/* Inclus dans l'abonnement */}
       <section id="pricing" className="py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-navy sm:text-3xl text-center">{t("pricing.title")}</h2>
-          <p className="mt-3 text-center text-slate max-w-2xl mx-auto">{t("pricing.subtitle")}</p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-3">
-            <PricingCard
-              name={t("pricing.free.name")}
-              price="0 €"
-              period={t("pricing.free.period")}
-              features={[
-                t("pricing.free.f1"), t("pricing.free.f2"), t("pricing.free.f3"),
-                t("pricing.free.f4"), t("pricing.free.f5"),
-              ]}
-            />
-            <PricingCard
-              name={t("pricing.essentiel.name")}
-              price="12 €"
-              period={t("pricing.essentiel.period")}
-              features={[
-                t("pricing.essentiel.f1"), t("pricing.essentiel.f2"), t("pricing.essentiel.f3"),
-                t("pricing.essentiel.f4"), t("pricing.essentiel.f5"),
-              ]}
-              highlight
-              badge={t("pricing.essentiel.badge")}
-            />
-            <PricingCard
-              name={t("pricing.pro.name")}
-              price="29 €"
-              period={t("pricing.pro.period")}
-              features={[
-                t("pricing.pro.f1"), t("pricing.pro.f2"), t("pricing.pro.f3"),
-                t("pricing.pro.f4"), t("pricing.pro.f5"),
-              ]}
-            />
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-card-border bg-card p-8 shadow-sm">
+            <h2 className="text-2xl font-bold text-navy sm:text-3xl">{t("pricing.title")}</h2>
+            <p className="mt-3 text-slate">{t("pricing.subtitle")}</p>
+            <ul className="mt-6 grid gap-2 sm:grid-cols-2">
+              {(t.raw("pricing.features") as string[]).map((f, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-slate">
+                  <span className="text-emerald-600 mt-0.5">✓</span>
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href={`${lp}/pricing`}
+                className="inline-flex items-center gap-2 rounded-lg border border-navy bg-white px-4 py-2 text-sm font-semibold text-navy hover:bg-navy hover:text-white transition-colors">
+                {t("pricing.ctaPlatform")}
+              </Link>
+              <Link href={`${lp}/facturation/emission`}
+                className="inline-flex items-center gap-2 rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light transition-colors">
+                {t("pricing.ctaEmit")} →
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -166,36 +155,6 @@ function ComplianceItem({ title, items }: { title: string; items: string[] }) {
           <li key={i} className="flex items-start gap-2">
             <span className="text-emerald-600 mt-0.5">✓</span>
             <span>{it}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-function PricingCard({ name, price, period, features, highlight, badge }: {
-  name: string; price: string; period: string; features: string[];
-  highlight?: boolean; badge?: string;
-}) {
-  return (
-    <div className={`rounded-2xl border p-6 relative ${
-      highlight ? "border-navy bg-navy text-white shadow-lg scale-[1.02]" : "border-card-border bg-card"
-    }`}>
-      {badge && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3 py-1 text-[10px] font-bold uppercase text-navy-dark tracking-wider">
-          {badge}
-        </div>
-      )}
-      <div className={`text-xs font-semibold uppercase tracking-wider ${highlight ? "text-white/60" : "text-muted"}`}>{name}</div>
-      <div className="mt-2 flex items-baseline gap-1">
-        <span className={`text-4xl font-bold ${highlight ? "text-white" : "text-navy"}`}>{price}</span>
-        <span className={`text-xs ${highlight ? "text-white/60" : "text-muted"}`}>/ {period}</span>
-      </div>
-      <ul className="mt-6 space-y-2 text-sm">
-        {features.map((f, i) => (
-          <li key={i} className="flex items-start gap-2">
-            <span className={highlight ? "text-gold" : "text-emerald-600"}>✓</span>
-            <span className={highlight ? "text-white/90" : "text-slate"}>{f}</span>
           </li>
         ))}
       </ul>

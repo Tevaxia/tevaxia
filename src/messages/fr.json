@@ -9158,19 +9158,19 @@
   "facturation": {
     "meta": {
       "title": "Préparation Factur-X FR + LU — tevaxia.lu",
-      "description": "Outil de préparation Factur-X (EN 16931) pour l'immobilier FR + LU. Génère les fichiers PDF/A-3 + XML conformes, tu gardes le choix de ta plateforme de réception."
+      "description": "Outil de préparation Factur-X (EN 16931) pour l'immobilier FR + LU. Génère les fichiers PDF/A-3 + XML conformes, vous gardez le choix de votre plateforme de réception."
     },
     "hero": {
       "badge": "Réforme e-invoicing FR · obligatoire 01/09/2026",
-      "title": "Prépare tes Factur-X conformes, sans t'enfermer dans une plateforme",
-      "subtitle": "Génération PDF/A-3 + XML EN 16931, 5 templates métier immo (bailleur, syndic, hôtelier, bail commercial, expert), TVA FR + LU. Tu télécharges le fichier et tu l'injectes dans la PA de ton choix.",
-      "note": "Outil de préparation uniquement. tevaxia n'est pas une PDP agréée DGFiP — la réception et le transit PPF restent à ta charge via la plateforme de ton choix (liste officielle sur impots.gouv.fr).",
+      "title": "Préparation Factur-X conforme, sans dépendance de plateforme",
+      "subtitle": "Génération PDF/A-3 + XML EN 16931, 5 templates adaptés aux situations immobilières (bailleur, syndic, hôtelier, bail commercial, expert), TVA FR + LU. Téléchargez le fichier pour l'importer dans la plateforme de dématérialisation de votre choix.",
+      "note": "Outil de préparation uniquement. tevaxia n'est pas une PDP agréée DGFiP — la réception et le transit PPF restent à gérer via la plateforme de votre choix (liste officielle sur impots.gouv.fr).",
       "ctaEmit": "Préparer une Factur-X",
-      "ctaPricing": "Voir les tarifs"
+      "ctaPricing": "Voir les offres tevaxia"
     },
     "diff": {
-      "title": "Ce que les concurrents ne font pas",
-      "intro": "Pennylane fait de la compta. Sellsy fait du CRM. Qonto fait de la banque. tevaxia connecte la facturation à tes cas d'usage immobiliers.",
+      "title": "Intégrations métier immobilières",
+      "intro": "Cinq templates calibrés pour les situations les plus courantes du secteur immobilier, avec les champs, calculs et références légales pré-remplis selon le contexte métier.",
       "locative": {
         "title": "Gestion locative",
         "desc": "Clic « Émettre loyer » sur l'échéancier → Factur-X générée, indexation IRL/ILAT/IPC automatique, référence mandat SEPA."
@@ -9199,7 +9199,7 @@
     "compliance": {
       "title": "Conformité légale",
       "statusTitle": "Notre rôle :",
-      "statusBody": "tevaxia est un outil de préparation Factur-X. Nous générons les fichiers PDF/A-3 + XML conformes EN 16931 ; toi tu les injectes dans une plateforme de dématérialisation partenaire (PDP) agréée DGFiP ou dans le Portail Public de Facturation (PPF) directement. Nous ne recevons ni ne transitons de factures. Cette séparation te laisse totalement libre de ton choix de PA — tu peux changer quand tu veux, tu n'es pas lié à tevaxia.",
+      "statusBody": "tevaxia est un outil de préparation Factur-X. Les fichiers PDF/A-3 + XML conformes EN 16931 sont générés localement ; vous les importez dans une plateforme de dématérialisation partenaire (PDP) agréée DGFiP ou dans le Portail Public de Facturation (PPF) directement. tevaxia ne reçoit ni ne transite de factures. Cette séparation vous laisse libre du choix de plateforme — vous pouvez en changer à tout moment.",
       "fr": {
         "title": "France",
         "i1": "Factur-X v1.0.07 — PDF/A-3 + CII D22B EN 16931",
@@ -9216,62 +9216,44 @@
       }
     },
     "pricing": {
-      "title": "Tarifs",
-      "subtitle": "Freemium calibré pour les SCI de 1 à 3 lots, extensible aux agences multi-entités.",
-      "free": {
-        "name": "Free",
-        "period": "gratuit",
-        "f1": "5 Factur-X préparées / mois",
-        "f2": "Téléchargement PDF/A-3 + XML",
-        "f3": "1 template (générique)",
-        "f4": "Validation EN 16931 intégrée",
-        "f5": "Pas d'inscription requise"
-      },
-      "essentiel": {
-        "name": "Essentiel",
-        "period": "mois",
-        "badge": "Populaire",
-        "f1": "50 Factur-X préparées / mois",
-        "f2": "5 templates métier immo",
-        "f3": "Indexation IRL / ILAT / IPC",
-        "f4": "Historique 12 mois navigateur + export JSON",
-        "f5": "Numérotation séquentielle CGI"
-      },
-      "pro": {
-        "name": "Pro",
-        "period": "mois",
-        "f1": "Factur-X illimitées",
-        "f2": "Multi-structures (5 SIREN/RCS)",
-        "f3": "API publique de génération",
-        "f4": "Personnalisation complète (logo, CGV, IBAN)",
-        "f5": "Support prioritaire"
-      }
+      "title": "Inclus dans votre abonnement tevaxia",
+      "subtitle": "La préparation Factur-X fait partie intégrante de la plateforme. Pas de module premium, pas de facturation à l'usage — émission, historique et 5 templates métier disponibles pour tous les comptes.",
+      "features": [
+        "Génération PDF/A-3 + XML EN 16931 illimitée",
+        "5 templates immobiliers (bailleur, syndic, hôtel, bail commercial, expert)",
+        "Numérotation séquentielle conforme Art. 242 nonies A CGI",
+        "Historique 12 mois pour les utilisateurs connectés",
+        "Indexation IRL / ILAT / IPC automatique",
+        "TVA France (20 / 10 / 5,5 / 2,1 %) et Luxembourg (17 / 14 / 8 / 3 %)"
+      ],
+      "ctaPlatform": "Voir les offres tevaxia",
+      "ctaEmit": "Préparer une facture"
     },
     "faq": {
       "title": "Questions fréquentes",
       "q1": {
         "q": "tevaxia est-il une PDP agréée par la DGFiP ?",
-        "a": "Non. tevaxia est un outil de préparation Factur-X. Pour la réception et le transit vers le PPF, tu dois passer par une PDP agréée (liste officielle sur impots.gouv.fr) ou par le PPF directement. Cette séparation est volontaire : tu n'es pas otage de nos décisions futures, tu peux changer de PDP quand tu veux."
+        "a": "Non. tevaxia est un outil de préparation Factur-X. Pour la réception et le transit vers le PPF, il faut passer par une PDP agréée (liste officielle sur impots.gouv.fr) ou par le PPF directement. Cette séparation est volontaire : vous restez libre du choix de PDP et pouvez en changer à tout moment."
       },
       "q2": {
-        "q": "Comment utiliser tevaxia avec ma PA ?",
-        "a": "Tu crées ta facture dans tevaxia (formulaire + template métier), tu télécharges le fichier Factur-X (PDF/A-3 + XML embarqué), puis tu l'importes dans ta plateforme : Pennylane, Sellsy, Dougs, Qonto, Tiime, Docaposte, etc. Elles acceptent toutes le format Factur-X standard."
+        "q": "Comment utiliser tevaxia avec une plateforme de dématérialisation ?",
+        "a": "Créez la facture dans tevaxia (formulaire + template métier), téléchargez le fichier Factur-X (PDF/A-3 avec XML embarqué), puis importez-le dans votre plateforme de dématérialisation. Toutes les PDP agréées DGFiP acceptent le format Factur-X standard."
       },
       "q3": {
         "q": "Puis-je utiliser tevaxia pour me mettre en conformité au 01/09/2026 ?",
-        "a": "tevaxia te permet de générer des Factur-X conformes EN 16931. Pour la conformité complète à la réforme FR, il te faut aussi une solution de réception (PDP ou PPF). Notre outil couvre la partie émission ; la réception obligatoire au 01/09/2026 est à gérer séparément."
+        "a": "tevaxia génère des Factur-X conformes EN 16931. Pour la conformité complète à la réforme française, il faut également une solution de réception (PDP agréée ou PPF). Notre outil couvre la partie émission ; la réception obligatoire au 01/09/2026 est à gérer séparément."
       },
       "q4": {
-        "q": "Le LU est-il concerné par la réforme FR ?",
-        "a": "Non, la réforme FR 01/09/2026 ne s'applique qu'aux assujettis TVA français. Le LU a son propre calendrier e-invoicing via Peppol BIS Billing 3.0 (B2G obligatoire, B2B en cours). tevaxia supporte les deux normes."
+        "q": "Le Luxembourg est-il concerné par la réforme française ?",
+        "a": "Non, la réforme du 01/09/2026 ne s'applique qu'aux assujettis TVA français. Le Luxembourg a son propre calendrier e-invoicing via Peppol BIS Billing 3.0 (B2G obligatoire, B2B en cours). tevaxia supporte les deux normes."
       },
       "q5": {
-        "q": "Pourquoi ne pas intégrer directement les API des PA (Pennylane, Qonto…) ?",
-        "a": "Parce que chaque API change tous les 6 mois et chaque partenariat coûte cher à maintenir. Plutôt que de dépendre de 3 ou 4 API tierces, on te donne le fichier conforme et tu choisis ta PA. Tu gagnes en autonomie, on reste simple et gratuit sur l'essentiel."
+        "q": "Pourquoi passer par un fichier plutôt qu'une API directe ?",
+        "a": "Les API des plateformes de dématérialisation évoluent régulièrement et une intégration dédiée demande une maintenance continue. Un fichier conforme standard peut être importé manuellement ou via l'API de votre plateforme selon votre préférence, sans dépendance à un partenariat technique."
       },
       "q6": {
-        "q": "Mes données sont-elles stockées en UE ?",
-        "a": "Tes factures sont générées dans ton navigateur et téléchargées directement. Si tu es connecté et utilises l'historique 12 mois (plan Essentiel+), les données sont stockées sur Supabase (AWS eu-central-1, Francfort). Voir Politique de confidentialité."
+        "q": "Les données sont-elles stockées en UE ?",
+        "a": "Les factures sont générées localement dans le navigateur puis téléchargées. Pour les utilisateurs connectés, l'historique 12 mois est stocké sur Supabase (AWS eu-central-1, Francfort). Voir la Politique de confidentialité."
       }
     },
     "emission": {
