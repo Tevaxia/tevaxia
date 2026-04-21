@@ -5847,1480 +5847,1480 @@
     }
   },
   "solutions": {
-    "agence": {
+    "syndic": {
       "meta": {
-        "title": "Real estate agency CRM Luxembourg — mandate pipeline, matching, OpenImmo",
-        "description": "Centralise mandates, contacts and tasks in one CRM built for LU agencies. Automatic buyer matching, co-branded property PDFs, eIDAS signature."
+        "title": "Syndic-Software Lëtzebuerg, konform Gesetz vum 16.05.1975",
+        "description": "Verwalt Är Matbesëtzer ouni Weekender un Excel: Online-Generalversammlungen, Factur-X Fongsopruff, LU Kompabilitéit, PSD2 Bankreconciliatioun. Gratis Test."
       },
       "hero": {
-        "badge": "Real estate CRM for LU agencies",
-        "title": "Your mandate pipeline in",
-        "titleAccent": "one tool, not four",
-        "subtitle": "OpenImmo-format mandate management, contact CRM with automatic buyer matching, drag-drop Kanban, co-branded property PDFs and eIDAS electronic signature. Built for Luxembourg real estate agencies tired of juggling multiple tools.",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
+        "badge": "Fir Lëtzebuerger Matbesëtzer gebaut",
+        "title": "Äre Syndic, ouni",
+        "titleAccent": "Weekender un Excel",
+        "subtitle": "Online-Generalversammlungen mat Ofstëmmung no Tantièmen, Factur-X Fongsopruff konform, Lëtzebuerger Matbesëtz-Kompabilitéit an automatesch Bankreconciliatioun. Gebaut fir professionell Syndicen, déi genuch hunn tëscht 4 Outillen ze jongléieren.",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "Kuckt wéi et funktionéiert",
         "kpis": [
           {
-            "value": "/100",
-            "label": "buyer matching score"
+            "value": "15 St",
+            "label": "pro GV gespuert"
           },
           {
-            "value": "OpenImmo",
-            "label": "LU/DE standard format"
+            "value": "100 %",
+            "label": "konform Gesetz 16.05.1975"
           },
           {
-            "value": "<24 h",
-            "label": "support response time"
+            "value": "<24 St",
+            "label": "Support-Äntwertzäit"
           }
         ]
       },
       "problem": {
-        "title": "Your business runs on several tools that don't talk to each other",
-        "intro": "Mandates in Excel, contacts in Gmail, tasks in Notion, visits on WhatsApp. Every piece of info lives in a different place and nothing makes it back to the decision-maker.",
+        "title": "E Matbesëtz zu Lëtzebuerg 2026 ze geréieren sollt net méi esou ausgesinn",
+        "intro": "Tëscht dem Gesetz vum 16. Mee 1975, trimestriellen Fongsopruff, Rappelen, GV-Virbereedung a Kompabilitéit fëllt d'Woch vun engem Syndic sech vun alleng. Ausser déi richteg Outillen huelen d'Laascht ewech.",
         "items": [
           {
-            "title": "Mandates scattered across 3 tools",
-            "desc": "Between the agency CRM, portal distribution, tracker spreadsheet and email threads, you can't see a mandate's status at a glance.",
-            "stat": "~4 parallel tools"
+            "title": "GV-Virbereedung op 3 Deeg",
+            "desc": "Aluedungen bannent 15 Deeg, Tagesuerdnung ausschaffen, Vollmuechten sammelen, Protokoll duerno tippen. De Verwaltungsopwand ësst d'Zäit, déi fir déi richteg Themen sollt benotzt ginn.",
+            "stat": "~15 Stonnen pro GV"
           },
           {
-            "title": "Buyer matching done by feel",
-            "desc": "A new mandate comes in, you scan your buyer database manually. Radius, budget, type, project date: all scattered, so candidates get missed.",
-            "stat": "30-40% missed matches"
+            "title": "Rappelen mat der Hand",
+            "desc": "Suivéieren wien wat schëlleg ass, Fristen iwwerwaachen, legal Zënsen ausrechnen, formell Mise en demeure virbereeden. Ouni spezialiséierten Outil entwëscht eppes an d'Keess schrëmpft.",
+            "stat": "3-7 % chronesch onbezuelt"
           },
           {
-            "title": "Manual portal distribution",
-            "desc": "Property entered on athome, immotop, wort; re-entered when price changes. Inconsistencies between portals hurt your brand.",
-            "stat": "~45 min per distribution"
+            "title": "Excel, Bank a Kompabilitéit jongléieren",
+            "desc": "Erakomend Bezuelungen mat Fongsopruff ofgläichen, an d'Kompabilitéit erfaassen, GV-Annexen aus 3 Quelle beienee bauen. All Schrëtt bréngt Feelerrisiko mat sech.",
+            "stat": "4 Outillen am Schnëtt"
           }
         ]
       },
       "howItWorks": {
-        "title": "One CRM, three steps",
-        "intro": "No 2-day training, no risky migration. Import your contacts, create your first mandate, matching runs automatically.",
+        "title": "Eng Plattform, dräi Schrëtt",
+        "intro": "Keng komplex Migratioun, keng Formatioun iwwer 2 Deeg. Dir importéiert Är Matbesëtzer, konfiguréiert eemol d'Verdeelungsschlësselen, an den Outil iwwerhëlt.",
         "steps": [
           {
             "number": "1",
-            "title": "Contacts imported via CSV",
-            "desc": "Import your existing buyer database. Automatic column mapping. Up to 10,000 contacts in 2 minutes."
+            "title": "Är Matbesëtzer importéiert",
+            "desc": "Excel-Import, manuell Agab oder API. Eenheeten, Tantièmen, Matbesëtzer, Kontrakter, Buchhaltungshistorie. Funktionéiert mat all Syndic, dee scho strukturéiert ass."
           },
           {
             "number": "2",
-            "title": "Mandates in Kanban pipeline",
-            "desc": "Create mandate in OpenImmo format. Drag-drop Kanban by status. One-click distribution to athome / immotop / wort."
+            "title": "GV a Fongsopruff lafen alleng",
+            "desc": "PDF-Aluedungen pro Eenheet, elektronesch Ofstëmmung no Tantièmen gewiicht, Protokoll automatesch generéiert. Factur-X Fongsopruff konform EN 16931 un d'Matbesëtzer mat SEPA-Referenz."
           },
           {
             "number": "3",
-            "title": "Automatic /100 matching",
-            "desc": "As soon as a mandate or buyer enters the database, the algorithm computes matches. You get a score-sorted list, ready to contact."
+            "title": "Kompabilitéit leeft vun alleng",
+            "desc": "All Fongsopruff, all erakomend Bezuelung, all erfaasst Ausgab fléisst an d'Buchhaltungsjournal. Déi 5 GV-Annexe ginn op Knäppchen als PDF generéiert."
           }
         ]
       },
       "features": {
-        "title": "The features that actually save time",
-        "intro": "Built for teams of 1 to 20 agents, with workflows from the Luxembourg real estate market.",
+        "title": "Alles wat e Lëtzebuerger Syndic wierklech brauch",
+        "intro": "Funktiounen gebaut fir de Rechtsrahmen vum Grand-Duché: Gesetz vum 16. Mee 1975, GV-Majoritéitsreegelen, TVA-Befreiung Art. 44 §1 f, 10-Joer-Archivéierung.",
         "items": [
           {
-            "title": "Kanban mandate pipeline",
-            "desc": "Drag-drop between statuses, view by agent, city or price. Saved filters."
+            "title": "Online-GV mat gewiichter Ofstëmmung",
+            "desc": "Elektronesch Ofstëmmung no Tantièmen gewiicht, einfach / absolut / duebel / eestëmmeg Majoritéiten automatesch behandelt."
           },
           {
-            "title": "Native OpenImmo format",
-            "desc": "Standard XML OpenImmo 1.2.8 export, compatible with athome.lu, immotop.lu, wort.lu, immoscout24.de."
+            "title": "Aluedungen + PDF-Protokoller",
+            "desc": "Aluedung pro Eenheet mat legaler Tagesuerdnung, Protokoll automatesch generéiert no der GV mat de Resultater."
           },
           {
-            "title": "/100 buyer matching",
-            "desc": "Score based on budget, radius, type, surface, EPC, project date. Sortable and exportable."
+            "title": "Factur-X Fongsopruff",
+            "desc": "PDF/A-3 + CII D22B XML konform EN 16931, SEPA-Mandats-Referenz, Art. 261 D CGI Befreiung ugewannt."
           },
           {
-            "title": "Complete contact CRM",
-            "desc": "CSV import, tags, interactions, tasks, history. Bidirectional Gmail sync."
+            "title": "Rappelen op 3 Niveauen",
+            "desc": "Frëndlech Erënnerung, formell Mise en demeure, Bezuelungsuerder. Lëtzebuerger legal Zënsen automatesch ausgerechent."
           },
           {
-            "title": "Co-branded property PDFs",
-            "desc": "Logo, brand guidelines, REV legal notice. Generated in 10 seconds."
+            "title": "5 GV-Komptabilitéitsannexen",
+            "desc": "Bilanz, Journal, Budget, Käschteverdeelung, Status vun oppenen Creancen. PDF prett fir ze verdeelen."
           },
           {
-            "title": "Visit slip PDFs",
-            "desc": "With timeline log and electronic signature. Legally valid."
+            "title": "PSD2 Bankreconciliatioun",
+            "desc": "Verbindung mat BCEE, BIL, Banque Raiffeisen, Post Finance iwwer Enable Banking. Automatesch Reconciliatioun."
           },
           {
-            "title": "eIDAS mandate signature",
-            "desc": "Advanced electronic signature (eIDAS), legally binding in Luxembourg."
+            "title": "Konfiguréierbar Verdeelungsschlësselen",
+            "desc": "Allgemeng Tantièmen, Exploitatioun-Tantièmen, Spezialkäschten pro Trapp/Gebai, individuell Undeeler."
           },
           {
-            "title": "Nurturing sequences",
-            "desc": "Drip campaigns to warm up lukewarm buyers: 3 to 7 automatic emails."
+            "title": "Matbesëtzer-Portal",
+            "desc": "All Matbesëtzer huet säi Beräich: Ofstëmmung, Kontoauszuch, Aluedungen, Protokoller, Online-Bezuelung."
           },
           {
-            "title": "Email templates (10 models)",
-            "desc": "Offer, introduction, follow-up, visit confirmation, mandate termination, etc."
+            "title": "10 editéierbar Bréif-Schablounen",
+            "desc": "Rappelen, Aluedungen, formell Bekanntmaachungen, Vollmuechten. Komplett upassbar, DOCX / PDF / Google Drive Export."
           },
           {
-            "title": "Agent commissions",
-            "desc": "Automatic quarterly commission calculation per agent. Accounting export."
+            "title": "Gratis Rechnungs-OCR",
+            "desc": "Liwwerantsrechnungen eroplueden, automatesch Extraktioun iwwer PDF.js + Tesseract.js. Keng manuell Agab."
           },
           {
-            "title": "Agent performance",
-            "desc": "Ranking: mandates signed, sales, revenue, commissions. Anonymous inter-agency benchmark."
+            "title": "SEPA Sammel-Iwwerweisungen",
+            "desc": "pain.001 XML-Generatioun fir gruppéiert Liwwerantsbezuelungen, kompatibel mat alle Lëtzebuerger Banken."
           },
           {
-            "title": "Buyer portal",
-            "desc": "Dedicated space for each buyer: offered properties, documents, messages."
+            "title": "Käschte-Benchmark",
+            "desc": "Vergläich vun Äre Käschten pro m² mam Lëtzebuerger Duerchschnëtt no Wunnengstyp a Baujoer."
           }
         ]
       },
       "trust": {
-        "title": "Why LU agencies choose us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every 2 weeks. Public backlog, your requests go to production fast.",
-        "customTitle": "Custom integrations",
-        "customDesc": "A specific portal (athome, immoscout24.de, idealista), a particular accounting export: we build it in 1 to 3 weeks.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days. A human, not a chatbot."
+        "title": "Firwat LU Syndicen eis wielen",
+        "agileTitle": "Agile Entwécklung, regelméisseg Releases",
+        "agileDesc": "Nei Moduler all 2 Wochen geliwwert. Ëffentleche Backlog, Är Ufroen ginn séier a Produktioun.",
+        "customTitle": "Individuell Entwécklung verfügbar",
+        "customDesc": "Spezifescht Aluedungs-Format, ongewéinlech Tantièmen-Berechnung, Export op Är Komptabilitéit: Entwécklung an 1 bis 3 Wochen.",
+        "supportTitle": "Support ënner 24 St",
+        "supportDesc": "E-Mail un contact@tevaxia.lu. Duerchschnëttsäntwert ënner 6 Stonnen op Schaffdeeg. Keng Ticketnummeren, kee Chatbot."
       },
       "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-mandate billing, no per-contact billing. The entire CRM is included in the general subscription.",
+        "title": "An Ärem tevaxia-Abonnement abegraff",
+        "subtitle": "Keng Facturatioun pro Matbesëtz, kee GV-Quota, kee Premium-Modul. Alles am Freemium fir ze testen verfügbar, am allgemengen Abonnement fir den alldeegleche Gebrauch.",
         "features": [
-          "Unlimited OpenImmo-format mandates",
-          "Unlimited contacts with CSV import",
-          "Automatic /100 buyer matching",
-          "Drag-drop Kanban pipeline",
-          "Co-branded property PDFs",
-          "Visit slips and eIDAS signature",
-          "Automated nurturing sequences",
-          "Agent commissions and performance",
-          "10 editable email templates"
+          "Onlimitéiert Matbesëtzer",
+          "Online-GV mat Ofstëmmung no Tantièmen",
+          "Factur-X Fongsopruff konform EN 16931",
+          "Lëtzebuerger Matbesëtz-Komptabilitéit",
+          "PSD2 Bankreconciliatioun (Enable Banking)",
+          "Matbesëtzer-Portal mat individuellem Zougang",
+          "5 GV PDF-Komptabilitéitsannexen",
+          "Rappelen op 3 Niveauen mat LU Zënsen",
+          "Konform Gesetz vum 16. Mee 1975"
         ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to the CRM"
+        "ctaPlatform": "tevaxia-Päck kucken",
+        "ctaEmit": "Op de Syndic-Modul"
       },
       "faq": {
-        "title": "Frequently asked questions",
+        "title": "Dacks gestallten Froen",
         "items": [
           {
-            "q": "Is it compatible with athome.lu and LU portals?",
-            "a": "Yes, the OpenImmo 1.2.8 export is the standard format accepted by athome.lu, immotop.lu, wort.lu, as well as immoscout24.de and idealista.it/pt. One-click distribution to connected portals."
+            "q": "Ech wiesselen vun [engem aneren Outil] op tevaxia, wéi migréieren ech?",
+            "a": "Standard-Excel-Import (Eenheeten, Matbesëtzer, Käschten-Historie), duerno Konfiguratioun vun de Verdeelungsschlësselen. D'Iwwerhuele vun engem lafende Geschäftsjoer dauert 2 bis 4 Stonnen. Mir hëllefen Iech ouni Zousazkäschten."
           },
           {
-            "q": "How does buyer matching work?",
-            "a": "The algorithm compares each mandate to each buyer on 6 weighted criteria: budget, geographic radius, property type, surface, energy class, project date. Result: a score out of 100 with breakdown per criterion."
+            "q": "Ass den Outil konform mam Lëtzebuerger Matbesëtzerecht?",
+            "a": "Jo, d'Gesetz vum 16. Mee 1975 ass integréiert: einfach / absolut / duebel / eestëmmeg Majoritéiten, 15-Deeg-Aluedungsfrist, Buchhaltungsflichten, 10-Joer-Archivéierung."
           },
           {
-            "q": "I'm coming from another CRM, how do I migrate?",
-            "a": "Standard CSV import (contacts, mandates, history). Automatic column mapping with preview. Most agencies are operational in 2 to 4 hours. Migration assistance at no extra cost."
+            "q": "Ass eng Online-GV rechtsgëlteg?",
+            "a": "Jo, sou laang d'Matbesëtzreegelen et erlaben oder eng fréier physesch GV et genehmegt huet. D'Praxis ass zënter 2020 zu Lëtzebuerg verbreet."
           },
           {
-            "q": "Can I manage multiple agencies / agents with separate roles?",
-            "a": "Yes, the module supports multi-entity organisations with roles (admin, agent, assistant). Each agent only sees mandates and contacts assigned to them."
+            "q": "Kënne Fongsopruff fir TVA-befreit Matbesëtzer erausgi ginn?",
+            "a": "Jo, Art. 44 §1 f vum TVA-Gesetz befreit Matbesëtz-Verwaltung. De Modul applizéiert automatesch déi richteg Befreiung."
           },
           {
-            "q": "Is eIDAS signature legally valid?",
-            "a": "Yes, the advanced eIDAS electronic signature (EU regulation 910/2014) has legal value equivalent to a handwritten signature in Luxembourg and throughout the EU."
+            "q": "Sinn d'Matbesëtzer-Donnéeë sécher?",
+            "a": "Gespäichert op Supabase (AWS eu-central-1 Frankfurt) mat Row Level Security, RGPD-konform, HTTPS-Verschlësselung."
           },
           {
-            "q": "Is contact data GDPR-secure?",
-            "a": "Data stored on Supabase (AWS eu-central-1 Frankfurt), user-level Row Level Security, HTTPS in transit. Full data export to ZIP at any time (GDPR article 20)."
+            "q": "Wéi laang bis ech operativ sinn?",
+            "a": "E Syndic mat 1 bis 5 Matbesëtzer ass an 1 bis 2 Stonnen operativ. Iwwer 10 Matbesëtzer, 4 bis 6 Stonne fir komplette Import."
           }
         ]
       },
       "finalCta": {
-        "title": "Ready to consolidate your business",
-        "desc": "Create your account, import your contact database and run your first matching in 15 minutes. Zero commitment.",
-        "cta": "Start for free",
-        "ctaSecondary": "See the CRM live"
+        "title": "Prett fir Är Owender zréckzehuelen",
+        "desc": "Kont gratis erstellen, éischt Matbesëtz importéieren, Test-Fongsopruff an 15 Minutte generéieren. Null Engagement.",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "Syndic-Modul live kucken"
+      }
+    },
+    "agence": {
+      "meta": {
+        "title": "Immobilienagence CRM Lëtzebuerg : Mandatspipeline, Matching, OpenImmo",
+        "description": "Zentraliséiert Mandater, Kontakter an Tâchen an engem CRM gebaut fir LU Agencen. Automatescht Keefer-Matching, Co-Branding Immobilie-PDFs, eIDAS-Ënnerschrëft."
+      },
+      "hero": {
+        "badge": "Immobilien-CRM fir LU Agencen",
+        "title": "Är Mandatspipeline an",
+        "titleAccent": "engem Outil, net véier",
+        "subtitle": "Mandatsverwaltung am OpenImmo-Format, Kontakt-CRM mat automatescht Keefer-Matching, Kanban Drag-Drop, Co-Branding Immobilie-PDFs an eIDAS elektronesch Ënnerschrëft. Gebaut fir Lëtzebuerger Immobilienagencen, déi genuch hunn tëscht verschiddenen Outillen ze jongléieren.",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "Kuckt wéi et funktionéiert",
+        "kpis": [
+          {
+            "value": "/100",
+            "label": "Keefer-Matching-Score"
+          },
+          {
+            "value": "OpenImmo",
+            "label": "LU/DE Standardformat"
+          },
+          {
+            "value": "<24 St",
+            "label": "Support-Äntwertzäit"
+          }
+        ]
+      },
+      "problem": {
+        "title": "Äert Business leeft op e puer Outillen, déi net mateneen schwätzen",
+        "intro": "Mandater am Excel, Kontakter am Gmail, Tâchen am Notion, Besichtegungen op WhatsApp. All Informatioun wunnt op enger anerer Plaz, an näischt kënnt beim Decideur un.",
+        "items": [
+          {
+            "title": "Mandater verspreet op 3 Outillen",
+            "desc": "Tëscht Agence-CRM, Portalverdeelung, Tracker-Tabell an E-Mail-Threaden kënnt Dir de Status vun engem Mandat net mat engem Bléck gesinn.",
+            "stat": "~4 parallel Outillen"
+          },
+          {
+            "title": "Keefer-Matching op Gefill",
+            "desc": "En neit Mandat kënnt eran, Dir duerchsicht Är Keeferdatebank manuell. Rayon, Budget, Typ, Projetsdatum: alles verspreet, also ginn Kandidaten iwwersinn.",
+            "stat": "30-40 % verpasst Matches"
+          },
+          {
+            "title": "Manuell Portalverdeelung",
+            "desc": "Immobilie op athome, immotop, wort agedroen; nach eng Kéier agedroen bei Präisännerung. Inkonsistenzen tëscht Portaler schueden Ärer Mark.",
+            "stat": "~45 min pro Verdeelung"
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "E CRM, dräi Schrëtt",
+        "intro": "Keng 2-Deeg-Formatioun, keng risikant Migratioun. Kontakter importéieren, éischt Mandat erstellen, Matching leeft automatesch.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Kontakter iwwer CSV importéiert",
+            "desc": "Import vun Ärer bestoender Keeferdatebank. Automatescht Kolonn-Mapping. Bis zu 10.000 Kontakter an 2 Minutten."
+          },
+          {
+            "number": "2",
+            "title": "Mandater an der Kanban-Pipeline",
+            "desc": "Mandat am OpenImmo-Format erstellen. Drag-Drop Kanban no Status. Ee-Klick-Verdeelung op athome / immotop / wort."
+          },
+          {
+            "number": "3",
+            "title": "Automatescht /100-Matching",
+            "desc": "Soubal e Mandat oder Keefer an d'Datebank kënnt, rechent den Algorithmus d'Matches aus. Dir kritt eng no Score sortéiert Lëscht, prett fir ze kontaktéieren."
+          }
+        ]
+      },
+      "features": {
+        "title": "Déi Funktiounen déi wierklech Zäit spueren",
+        "intro": "Gebaut fir Equipen vun 1 bis 20 Agenten, mat Workflows aus dem Lëtzebuerger Immobiliemaart.",
+        "items": [
+          {
+            "title": "Kanban Mandatspipeline",
+            "desc": "Drag-Drop tëscht Statussen, Siicht no Agent, Stad oder Präis. Gespäichert Filteren."
+          },
+          {
+            "title": "Natiivt OpenImmo-Format",
+            "desc": "Standard XML OpenImmo 1.2.8 Export, kompatibel mat athome.lu, immotop.lu, wort.lu, immoscout24.de."
+          },
+          {
+            "title": "/100 Keefer-Matching",
+            "desc": "Score op Basis vu Budget, Rayon, Typ, Fläch, EPC, Projetsdatum. Sortéierbar an exportéierbar."
+          },
+          {
+            "title": "Komplett Kontakt-CRM",
+            "desc": "CSV-Import, Tags, Interaktiounen, Tâchen, Historie. Bidirektional Gmail-Sync."
+          },
+          {
+            "title": "Co-Branding Immobilie-PDFs",
+            "desc": "Logo, Markeguidelines, REV legal Notiz. A 10 Sekonnen generéiert."
+          },
+          {
+            "title": "Besichtegungszedelen PDFs",
+            "desc": "Mat Timeline-Log an elektronescher Ënnerschrëft. Rechtsgëlteg."
+          },
+          {
+            "title": "eIDAS Mandatsënnerschrëft",
+            "desc": "Fortgeschratt elektronesch Ënnerschrëft (eIDAS), rechtsverbindlech zu Lëtzebuerg."
+          },
+          {
+            "title": "Nurturing-Sequenzen",
+            "desc": "Drip-Kampagnen fir lauwarm Keefer z'erwiermen: 3 bis 7 automatesch E-Mailen."
+          },
+          {
+            "title": "E-Mail-Schablounen (10 Modeller)",
+            "desc": "Offer, Virstellung, Follow-up, Besichtegungsbestätegung, Mandatsopléisung asw."
+          },
+          {
+            "title": "Agent-Kommissiounen",
+            "desc": "Automatesch trimestriell Kommissiounsberechnung pro Agent. Komptabilitéits-Export."
+          },
+          {
+            "title": "Agent-Performance",
+            "desc": "Ranking: ënnerschriwwe Mandater, Verkaf, Ëmsaz, Kommissiounen. Anonyme Inter-Agence-Benchmark."
+          },
+          {
+            "title": "Keefer-Portal",
+            "desc": "Dedizéierte Beräich fir all Keefer: ugebuede Immobilien, Dokumenter, Messagen."
+          }
+        ]
+      },
+      "trust": {
+        "title": "Firwat LU Agencen eis wielen",
+        "agileTitle": "Agile Entwécklung, regelméisseg Releases",
+        "agileDesc": "Nei Moduler all 2 Wochen geliwwert. Ëffentleche Backlog op github.com/Tevaxia.",
+        "customTitle": "Individuell Entwécklung méiglech",
+        "customDesc": "Spezifesch Upassungen, dedizéiert Integratiounen: Entwécklung an 1 bis 3 Wochen.",
+        "supportTitle": "Support ënner 24 St",
+        "supportDesc": "E-Mail un contact@tevaxia.lu. Duerchschnëttsäntwert ënner 6 Stonnen op Schaffdeeg."
+      },
+      "pricing": {
+        "title": "An Ärem tevaxia-Abonnement abegraff",
+        "subtitle": "Keng Facturatioun pro Mandat, keng pro Kontakt. Dat ganzt CRM ass am allgemengen Abonnement abegraff.",
+        "features": [
+          "Onlimitéiert OpenImmo-Mandater",
+          "Onlimitéiert Kontakter mat CSV-Import",
+          "Automatescht /100 Keefer-Matching",
+          "Drag-Drop Kanban-Pipeline",
+          "Co-Branding Immobilie-PDFs",
+          "Besichtegungszedelen an eIDAS-Ënnerschrëft",
+          "Automatiséiert Nurturing-Sequenzen",
+          "Agent-Kommissiounen a Performance",
+          "10 editéierbar E-Mail-Schablounen"
+        ],
+        "ctaPlatform": "tevaxia-Päck kucken",
+        "ctaEmit": "Op d'CRM"
+      },
+      "faq": {
+        "title": "Dacks gestallten Froen",
+        "items": [
+          {
+            "q": "Ass et kompatibel mat athome.lu an LU-Portaler?",
+            "a": "Jo, den OpenImmo 1.2.8 Export ass de Standardformat, dee vun athome.lu, immotop.lu, wort.lu, sou wéi immoscout24.de an idealista.it/pt akzeptéiert gëtt."
+          },
+          {
+            "q": "Wéi funktionéiert de Keefer-Matching?",
+            "a": "Den Algorithmus vergläicht all Mandat mat all Keefer no 6 gewiichte Kritären: Budget, Rayon, Typ, Fläch, Energieklass, Projetsdatum."
+          },
+          {
+            "q": "Ech kommen vun engem aneren CRM, wéi migréieren ech?",
+            "a": "Standard-CSV-Import. Automatescht Kolonn-Mapping mat Virschau. Déi meescht Agencen si bannent 2 bis 4 Stonnen operativ. Gratis Migratiouns-Hëllef."
+          },
+          {
+            "q": "Kann ech méi Agencen / Agente mat getrennte Rollen verwalten?",
+            "a": "Jo, Multi-Entity-Organisatioune mat Rollen (Admin, Agent, Assistent). All Agent gesäit nëmmen déi Mandater a Kontakter, déi him zougedeelt sinn."
+          },
+          {
+            "q": "Ass d'eIDAS-Ënnerschrëft rechtsgëlteg?",
+            "a": "Jo, déi fortgeschratt eIDAS elektronesch Ënnerschrëft (EU-Verordnung 910/2014) huet rechtlech Gëltegkeet gläichwäerteg mat der handgeschriwwener Ënnerschrëft."
+          },
+          {
+            "q": "Sinn d'Kontakt-Donnéeë RGPD-sécher?",
+            "a": "Donnéeën op Supabase (AWS eu-central-1 Frankfurt), user-baséiert Row Level Security, HTTPS. Komplette Datenexport als ZIP zu all Moment."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Prett fir Äert Business ze konsolidéieren",
+        "desc": "Kont erstellen, Kontakt-Datebank importéieren, éischt Matching an 15 Minutten ausféieren. Null Engagement.",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "CRM live kucken"
       }
     },
     "hotel": {
       "meta": {
-        "title": "Hotel PMS Luxembourg — USALI folios, 3% VAT, forecast, channel manager",
-        "description": "Property Management System built for Luxembourg hospitality: auto-posting USALI 19 categories, LU 3% VAT invoicing, 90-day forecast, iCal OTA."
+        "title": "Hotel-PMS Lëtzebuerg : USALI-Folios, 3 % TVA, Forecast, Channel Manager",
+        "description": "Property Management System gebaut fir d'Lëtzebuerger Hotellerie: Auto-Posting USALI 19 Kategorien, LU TVA 3 % Rechnung, 90-Deeg-Forecast, iCal OTA."
       },
       "hero": {
-        "badge": "Multi-property PMS for LU",
-        "title": "Your hotel PMS tuned for",
-        "titleAccent": "LU 3% VAT and USALI",
-        "subtitle": "Complete Property Management System: rooms, rate plans, reservations, folios with USALI 19-category auto-posting, LU VAT 3%/8%/17% invoicing, 90-day forecast, iCal channel manager. Built for Luxembourg hoteliers who want a complete tool without the traditional PMS monthly bill.",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
+        "badge": "Multi-Etablissement-PMS fir LU",
+        "title": "Äert Hotel-PMS ofgestëmmt op",
+        "titleAccent": "LU 3 % TVA an USALI",
+        "subtitle": "Komplett Property Management System: Zëmmeren, Rate Plans, Reservatiounen, Folios mat USALI 19 Kategorien Auto-Posting, LU TVA 3 %/8 %/17 % Rechnung, 90-Deeg-Forecast, iCal Channel Manager. Gebaut fir Lëtzebuerger Hoteliere, déi e komplette Outil wëllen ouni déi monatlech Rechnung vun traditionellen PMS.",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "Kuckt wéi et funktionéiert",
         "kpis": [
           {
             "value": "19",
-            "label": "USALI categories"
+            "label": "USALI-Kategorien"
           },
           {
-            "value": "3 / 8 / 17%",
-            "label": "LU VAT handled"
+            "value": "3 / 8 / 17 %",
+            "label": "LU TVA behandelt"
           },
           {
-            "value": "<24 h",
-            "label": "support response time"
+            "value": "<24 St",
+            "label": "Support-Äntwertzäit"
           }
         ]
       },
       "problem": {
-        "title": "Running a Luxembourg hotel without a dedicated tool is exhausting",
-        "intro": "Between 4+ OTAs to watch, folios typed by hand, 3% VAT allocated correctly and owner reports to compile, the day goes by without real progress on what matters.",
+        "title": "E Lëtzebuerger Hotel ouni dedizéierten Outil ze féieren ass erschëpfend",
+        "intro": "Tëscht 4+ OTAs iwwerwaachen, Folios mat der Hand tippt, 3 % TVA richteg verdeelt an Owner-Reporten zesummestellen, vergeet den Dag ouni richtege Fortschrëtt bei den essentiellen Saachen.",
         "items": [
           {
-            "title": "Reservations spread across 4+ OTAs",
-            "desc": "Booking, Airbnb, Expedia, direct site. Each OTA its interface, mapping, sync. Double-bookings are inevitable without a channel manager.",
-            "stat": "1-2 double-bookings / month"
+            "title": "Reservatiounen verspreet op 4+ OTAs",
+            "desc": "Booking, Airbnb, Expedia, Direktseit. All OTA huet hir Uewerfläch, Mapping, Sync. Duebelbuchungen sinn ouni Channel Manager onvermeidbar.",
+            "stat": "1-2 Duebelbuchungen / Mount"
           },
           {
-            "title": "Folios typed by hand",
-            "desc": "Each consumption (breakfast, minibar, parking) manually entered in a spreadsheet. At check-out, tedious invoice building with the right VAT per line.",
-            "stat": "~12 min per check-out"
+            "title": "Folios mat der Hand tippt",
+            "desc": "All Konsum (Kaffi, Minibar, Parking) manuell an d'Tabell agedroen. Um Check-out ëmständlech Rechnungs-Opbau mat der richteger TVA pro Linn.",
+            "stat": "~12 min pro Check-out"
           },
           {
-            "title": "No forecast, static pricing",
-            "desc": "Rates change once per season. No visibility on projected RevPAR, no tariff optimisation for local events (Foire Internationale, Schueberfouer).",
-            "stat": "15-25% revenue uncaptured"
+            "title": "Kee Forecast, statesch Präisser",
+            "desc": "Tariffer änneren eng Kéier pro Saison. Keng Siicht op de geplangten RevPAR, keng Präis-Optimiséierung fir lokal Evenementer (Foire Internationale, Schueberfouer).",
+            "stat": "15-25 % net erfaassten Ëmsaz"
           }
         ]
       },
       "howItWorks": {
-        "title": "Complete PMS, three steps",
-        "intro": "Guided setup to enter your rooms and rate plans. Once configured, the system takes over folios, invoicing and reporting.",
+        "title": "Komplett PMS, dräi Schrëtt",
+        "intro": "Gefouert Setup fir Zëmmeren a Rate Plans anzeginn. No der Konfiguratioun iwwerhëlt d'System Folios, Rechnungen a Reporting.",
         "steps": [
           {
             "number": "1",
-            "title": "Guided setup wizard",
-            "desc": "Create your property, rooms by type, rate plans by season, base tariffs. 20 minutes on average for a 15-room hotel."
+            "title": "Gefouerten Setup-Wizard",
+            "desc": "Etablissement erstellen, Zëmmeren no Typ, Rate Plans no Saison, Basistariffer. Am Schnëtt 20 Minutten fir en Hotel mat 15 Zëmmeren."
           },
           {
             "number": "2",
-            "title": "Automatic reservations and folios",
-            "desc": "iCal import from Booking / Airbnb / VRBO, direct reservation entry, auto-posting into the folio with correct LU VAT."
+            "title": "Automatesch Reservatiounen a Folios",
+            "desc": "iCal-Import vu Booking / Airbnb / VRBO, direkt Reservatiounsagab, Auto-Posting an de Folio mat der richteger LU TVA."
           },
           {
             "number": "3",
-            "title": "Invoicing and reporting",
-            "desc": "At check-out: VAT-compliant PDF invoice + Factur-X EN 16931 for corporate clients. Monthly USALI report in 1 click, 90-day forecast with confidence bands."
+            "title": "Rechnung a Reporting",
+            "desc": "Um Check-out: TVA-konform PDF-Rechnung + Factur-X EN 16931 fir Firmenclienten. Monatleche USALI-Report op Knäppchen, 90-Deeg-Forecast mat Konfidenzbänner."
           }
         ]
       },
       "features": {
-        "title": "Everything a Luxembourg hotelier actually needs",
-        "intro": "Specific to LU hospitality regulations (3% VAT, communal city tax) and industry standards (USALI, STR).",
+        "title": "Alles wat e Lëtzebuerger Hotelier wierklech brauch",
+        "intro": "Spezifesch fir LU Hospitality-Reegelen (3 % TVA, Gemengetaxe) a Branche-Standarden (USALI, STR).",
         "items": [
           {
-            "title": "Guided setup wizard",
-            "desc": "Property configuration in 20 min: rooms, rate plans, seasons, tariffs."
+            "title": "Gefouerten Setup-Wizard",
+            "desc": "Etablissementskonfiguratioun an 20 min: Zëmmeren, Rate Plans, Saisonen, Tariffer."
           },
           {
-            "title": "Multi-season rate plans",
-            "desc": "Low/high season tariffs, weekend promos, groups, Foire Internationale week."
+            "title": "Multi-Saison Rate Plans",
+            "desc": "Basis-/Héichsaison-Tariffer, Weekend-Promos, Gruppen, Woch vun der Foire Internationale."
           },
           {
-            "title": "Calendar + occupancy heatmap",
-            "desc": "Annual view, daily occupancy per room, detect weak spots to boost."
+            "title": "Kalenner + Belegungs-Heatmap",
+            "desc": "Joressiicht, deeglech Belegung pro Zëmmer, Schwaachstellen identifizéieren."
           },
           {
-            "title": "Direct + OTA reservations",
-            "desc": "Direct entry or iCal import Booking / Airbnb / VRBO. Bidirectional sync."
+            "title": "Direkt + OTA-Reservatiounen",
+            "desc": "Direkt Agab oder iCal-Import Booking / Airbnb / VRBO. Bidirektional Sync."
           },
           {
-            "title": "19-category USALI folios",
-            "desc": "Auto-posting by consumption: room, breakfast, minibar, spa, phone, laundry, etc."
+            "title": "USALI 19-Kategorien-Folios",
+            "desc": "Auto-Posting no Konsum: Zëmmer, Kaffi, Minibar, Spa, Telefon, Wäsch asw."
           },
           {
-            "title": "LU VAT invoicing",
-            "desc": "Automatic 3% / 8% / 17% allocation by category. PDF invoice + Factur-X."
+            "title": "LU TVA Rechnung",
+            "desc": "Automatesch 3 % / 8 % / 17 % Zouweisung no Kategorie. PDF-Rechnung + Factur-X."
           },
           {
-            "title": "Monthly USALI report",
-            "desc": "World standard format (revenue + expenses). Exportable PDF and CSV."
+            "title": "Monatleche USALI-Report",
+            "desc": "Weltstandardformat (Ëmsaz + Käschten). Als PDF a CSV exportéierbar."
           },
           {
-            "title": "90-day Holt-Winters forecast",
-            "desc": "Statistical model with weekly seasonality, 95% confidence interval, MAPE backtest."
+            "title": "90-Deeg Holt-Winters Forecast",
+            "desc": "Statistescht Modell mat wëchentlecher Saisonalitéit, 95 % Konfidenzintervall, MAPE-Backtest."
           },
           {
-            "title": "Pickup report",
-            "desc": "Reservation comparison on rolling window. Alert if offset vs target."
+            "title": "Pickup-Report",
+            "desc": "Reservatiounsvergläich op rullendem Fënster. Alarm bei Ofweichung vum Zil."
           },
           {
-            "title": "Restaurant/bar POS",
-            "desc": "F&B consumption entry, automatic posting into guest folio."
+            "title": "Restaurant/Bar-POS",
+            "desc": "F&B-Konsumagab, automatescht Posting an de Gaaschte-Folio."
           },
           {
-            "title": "Groups and allocations",
-            "desc": "Room blocks for weddings, seminars, MICE. Separate group pricing."
+            "title": "Gruppen an Allotments",
+            "desc": "Zëmmerblocken fir Hochzäiten, Seminaren, MICE. Separat Gruppentariffer."
           },
           {
-            "title": "LU events calendar",
-            "desc": "Foire Internationale, Schueberfouer, ING Marathon, MICE. Rate impact."
+            "title": "LU-Evenementer-Kalenner",
+            "desc": "Foire Internationale, Schueberfouer, ING-Marathon, MICE. Präisauswierkung."
           }
         ]
       },
       "trust": {
-        "title": "Why LU hoteliers choose us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every 2 weeks. Public backlog on github.com/Tevaxia.",
-        "customTitle": "Custom integrations",
-        "customDesc": "A specific channel manager, a LUX GAAP accounting export: we build it in 1 to 3 weeks.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days."
+        "title": "Firwat LU Hotelieren eis wielen",
+        "agileTitle": "Agile Entwécklung, regelméisseg Releases",
+        "agileDesc": "Nei Moduler all 2 Wochen geliwwert. Ëffentleche Backlog op github.com/Tevaxia.",
+        "customTitle": "Individuell Entwécklung méiglech",
+        "customDesc": "Spezifesch Upassungen, dedizéiert Integratiounen: Entwécklung an 1 bis 3 Wochen.",
+        "supportTitle": "Support ënner 24 St",
+        "supportDesc": "E-Mail un contact@tevaxia.lu. Duerchschnëttsäntwert ënner 6 Stonnen op Schaffdeeg."
       },
       "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-room billing, no per-reservation billing. The complete PMS is included in the general subscription with no volume limit.",
+        "title": "An Ärem tevaxia-Abonnement abegraff",
+        "subtitle": "Keng Facturatioun pro Zëmmer, keng pro Reservatioun. Dat komplette PMS ass am allgemengen Abonnement abegraff.",
         "features": [
-          "Unlimited properties and rooms",
-          "Unlimited reservations",
-          "USALI 19-category folios with auto-posting",
-          "LU VAT 3% / 8% / 17% invoicing + Factur-X",
-          "Monthly USALI report + 90-day forecast",
-          "iCal import/export (Booking, Airbnb, VRBO)",
-          "Restaurant/bar POS + MICE groups",
-          "Occupancy heatmap and pickup report"
+          "Onlimitéiert Etablissementer a Zëmmeren",
+          "Onlimitéiert Reservatiounen",
+          "USALI 19-Kategorien-Folios mat Auto-Posting",
+          "LU TVA 3 % / 8 % / 17 %-Rechnung + Factur-X",
+          "Monatleche USALI-Report + 90-Deeg-Forecast",
+          "iCal Import/Export (Booking, Airbnb, VRBO)",
+          "Restaurant/Bar-POS + MICE-Gruppen",
+          "Belegungs-Heatmap a Pickup-Report"
         ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to the PMS"
+        "ctaPlatform": "tevaxia-Päck kucken",
+        "ctaEmit": "Op de PMS"
       },
       "faq": {
-        "title": "Frequently asked questions",
+        "title": "Dacks gestallten Froen",
         "items": [
           {
-            "q": "Is it compatible with Booking.com and Airbnb?",
-            "a": "Yes, via iCal. You grab each OTA's iCal link from their interface, paste it into tevaxia, and reservations come in every 15 min."
+            "q": "Ass et kompatibel mat Booking.com an Airbnb?",
+            "a": "Jo, iwwer iCal. Dir huelt all OTA iCal-Link aus hirer Uewerfläch, setzt en an tevaxia an, a Reservatioune kommen all 15 min eran."
           },
           {
-            "q": "How does LU 3% accommodation VAT work?",
-            "a": "3% VAT applies to accommodation nights for tourism purposes. Our module automatically applies 3% on USALI room + extra_bed, 17% on F&B, 0% on taxe_sejour (paid to the commune)."
+            "q": "Wéi funktionéiert d'LU 3 %-Logement-TVA?",
+            "a": "3 % TVA gëllt fir Tourismus-Iwwernuechtungen. Eise Modul applizéiert automatesch 3 % op USALI-Zëmmer + Zousazbett, 17 % op F&B, 0 % op Séjour-Taxe."
           },
           {
-            "q": "My corporate clients want Factur-X, is it supported?",
-            "a": "Yes. At check-out, the Corporate invoice option activates Factur-X generation (PDF/A-3 + embedded EN 16931 XML)."
+            "q": "Meng Firmenclienten wëlle Factur-X, gëtt et ënnerstëtzt?",
+            "a": "Jo. Um Check-out aktivéiert d'Optioun Firmenrechnung d'Factur-X-Generatioun (PDF/A-3 + agebautem EN 16931 XML)."
           },
           {
-            "q": "Is the 90-day forecast reliable?",
-            "a": "The Holt-Winters model with weekly seasonality typically yields a MAPE of 8-15% depending on history regularity."
+            "q": "Ass den 90-Deeg-Forecast zouverléisseg?",
+            "a": "D'Holt-Winters-Modell mat wëchentlecher Saisonalitéit liwwert typesch MAPE vun 8-15 %. Gutt fir d'Personalplanung."
           },
           {
-            "q": "Can I manage multiple hotels from one account?",
-            "a": "Yes. Native multi-property: each establishment has its own rooms, rate plans, reservations, folios. Consolidated dashboard for portfolio view."
+            "q": "Kann ech méi Hoteller vun engem Kont verwalten?",
+            "a": "Jo. Natiiv Multi-Property. Konsolidéiert Dashboard fir Portfolio-Siicht. Funktionéiert fir Hotelgruppe bis 15-20 Etablissementer."
           },
           {
-            "q": "Is my data hosted in the EU?",
-            "a": "Supabase (AWS eu-central-1, Frankfurt). Row Level Security, HTTPS in transit. Full guest data export to ZIP at any time."
+            "q": "Sinn meng Donnéeën an der EU gehost?",
+            "a": "Supabase (AWS eu-central-1, Frankfurt). Row Level Security, HTTPS. Komplette Gaascht-Datenexport als ZIP zu all Moment."
           }
         ]
       },
       "finalCta": {
-        "title": "Ready to take back control of your operations",
-        "desc": "Create your account, configure your first property in 20 minutes and record your first reservation. Zero commitment.",
-        "cta": "Start for free",
-        "ctaSecondary": "See the PMS live"
+        "title": "Prett fir d'Kontroll iwwer Äre Betrib zréckzehuelen",
+        "desc": "Kont erstellen, éischt Etablissement an 20 Minutte konfiguréieren, éischt Reservatioun erfaassen. Null Engagement.",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "PMS live kucken"
       }
     },
     "expert-evaluateur": {
       "meta": {
-        "title": "Real estate valuation software TEGOVA EVS 2025 — Luxembourg",
-        "description": "EVS 2025 compliant valuation report in 20 min: 8 methods, 9 asset types, auto-filled data (98 communes + 12 macro series), SHA-256 signature."
+        "title": "Schätzer-Software TEGOVA EVS 2025 fir Lëtzebuerg",
+        "description": "EVS-2025-konforme Bewäertungsrapport an 20 min: 8 Methoden, 9 Asset-Typen, automatesch ausgefëllt Daten (98 Gemengen + 12 Makro-Serien), SHA-256-Ënnerschrëft."
       },
       "hero": {
-        "badge": "TEGOVA EVS 2025 + Charte 5th ed. compliant",
-        "title": "EVS 2025 compliant report in",
-        "titleAccent": "20 minutes instead of 4 hours",
-        "subtitle": "Valuation module with 11 sections + annexes compliant with TEGOVA European Valuation Standards 2025 and Charte de l'expertise 5th ed. 8 methods, 9 asset types, data auto-filled for 98 Luxembourg communes.",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
+        "badge": "TEGOVA EVS 2025 + Charte 5e éd. konform",
+        "title": "EVS-2025-konforme Rapport an",
+        "titleAccent": "20 Minutten amplaz vun 4 Stonnen",
+        "subtitle": "Bewäertungsmodul mat 11 Sektiounen + Annexe konform TEGOVA European Valuation Standards 2025 a Charte de l'expertise 5e éd. 8 Methoden, 9 Asset-Typen, Daten fir 98 Lëtzebuerger Gemengen automatesch ausgefëllt. Gebaut fir REV, TRV an onofhängeg Schätzer.",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "Kuckt wéi et funktionéiert",
         "kpis": [
           {
             "value": "11",
-            "label": "sections + annexes"
+            "label": "Sektiounen + Annexe"
           },
           {
             "value": "8 / 9",
-            "label": "methods / assets"
+            "label": "Methoden / Assets"
           },
           {
             "value": "98",
-            "label": "documented communes"
+            "label": "dokumentéiert Gemengen"
           }
         ]
       },
       "problem": {
-        "title": "Writing a valuation report is 60% data lookup",
-        "intro": "Finding comparables, cross-referencing macro sources, checking legal texts, formatting according to the Charte. The analytical part that makes the expert's real value is only a small slice of total time.",
+        "title": "E Bewäertungsrapport ze schreiwen ass zu 60 % Datenrecherche",
+        "intro": "Vergläichsobjet fannen, Makroquellen kräizvergläichen, Rechtstexter iwwerpréiwen, no der Charte formatéieren. Den analytesche Deel, deen de richtege Mehrwäert vum Expert duerstellt, ass nëmmen e klengen Undeel vun der Gesamtzäit.",
         "items": [
           {
-            "title": "4 hours per report on average",
-            "desc": "A complete EVS 2025 report typically takes 3 to 5 hours between data collection and final formatting per the Charte.",
-            "stat": "~4 h per report"
+            "title": "4 Stonne pro Rapport am Schnëtt",
+            "desc": "E komplette EVS-2025-Rapport dauert typesch 3 bis 5 Stonnen tëscht Datensammelen an der finaler Formatéierung no der Charte.",
+            "stat": "~4 St pro Rapport"
           },
           {
-            "title": "Data scattered across 10 sources",
-            "desc": "STATEC, Observatoire de l'Habitat, Geoportail, Land Registry, ECB, INSEE, LENOZ.",
-            "stat": "~10 sources per report"
+            "title": "Daten verspreet op 10 Quellen",
+            "desc": "STATEC fir Makro, Observatoire de l'Habitat fir Präisser, Geoportail fir Kadaster, Land Registry fir Transferen, EZB fir Zënsen, INSEE fir IRL, LENOZ fir Energie.",
+            "stat": "~10 Quelle pro Rapport"
           },
           {
-            "title": "Charte non-compliance risk",
-            "desc": "11 mandatory sections, EVS 5 special assumptions, material uncertainty disclosure: one omission and the report becomes challengeable.",
-            "stat": "0% acceptable error margin"
+            "title": "Non-Conformitéits-Risiko Charte",
+            "desc": "Déi 11 obligatoresch Sektiounen, EVS 5 Spezialhypothesen, wesentlech Onsécherheetsangab: eng Ausloossung an de Rapport ass ufechtbar.",
+            "stat": "0 % akzeptabel Feelermarge"
           }
         ]
       },
       "howItWorks": {
-        "title": "From mission to signed report, three steps",
-        "intro": "You enter the address and property parameters. The system loads context data, you choose methods, the PDF report is generated.",
+        "title": "Vun der Missioun bis zum ënnerschriwwene Rapport, dräi Schrëtt",
+        "intro": "Dir gitt Adress an Immobilieparameter an. D'System lued d'Kontextdaten, Dir wielt d'Methoden, de PDF-Rapport gëtt erstallt.",
         "steps": [
           {
             "number": "1",
-            "title": "Address + property parameters",
-            "desc": "Commune, surface, year built, energy class, asset type. Macro, demographic and urban data load automatically."
+            "title": "Adress + Immobilieparameter",
+            "desc": "Gemeng, Fläch, Baujoer, Energieklass, Asset-Typ. Makro-, demografesch an urbanistesch Daten lueden automatesch."
           },
           {
             "number": "2",
-            "title": "Methods and comparables",
-            "desc": "Choose from 8 methods. Comparables suggested by proximity."
+            "title": "Methoden a Vergläicher",
+            "desc": "Wielt tëscht 8 Methoden. Vergläichsobjet no Nopeschaft virgeschloen."
           },
           {
             "number": "3",
-            "title": "Signed PDF report",
-            "desc": "Server-side generation of the 11-section + annexes report, SHA-256 signature, REV logo and qualifications."
+            "title": "Ënnerschriwwene PDF-Rapport",
+            "desc": "Server-side Generatioun vum 11-Sektiounen-Rapport, SHA-256-Ënnerschrëft, REV-Logo a Qualifikatiounen."
           }
         ]
       },
       "features": {
-        "title": "Built for independent valuers and firms",
-        "intro": "Each feature answers a real constraint of the valuer's work in Luxembourg: TEGOVA compliance, traceability, public data, provable signature.",
+        "title": "Gebaut fir onofhängeg Schätzer a Kanzleien",
+        "intro": "All Funktioun beäntwert eng richteg Aschränkung vun der Schätzertätegkeet zu Lëtzebuerg: TEGOVA-Konformitéit, Réckverfollegbarkeet, ëffentlech Daten, beweisbar Ënnerschrëft.",
         "items": [
           {
-            "title": "11 EVS 2025 sections",
-            "desc": "Mission, location, legal, urbanism, description, rental, market, SWOT, valuation, conclusions, certification."
+            "title": "11 EVS-2025-Sektiounen",
+            "desc": "Missioun, Standuert, Recht, Urbanismus, Beschreiwung, Loyer, Maart, SWOT, Bewäertung, Konklusiounen, Zertifizéierung."
           },
           {
-            "title": "8 valuation methods",
-            "desc": "Comparison, direct capitalisation, DCF, CRR mortgage lending value, energy residual, term and reversion, IRR, monitoring."
+            "title": "8 Bewäertungsmethoden",
+            "desc": "Vergläich, direkt Kapitaliséierung, DCF, CRR-Bélégowäert, energetesch Residualmethod, Term and Reversion, IRR, Monitoring."
           },
           {
-            "title": "9 asset types",
-            "desc": "Residential, office, retail, logistics, hotels, industrial, mixed, development, land."
+            "title": "9 Asset-Typen",
+            "desc": "Wunnen, Büro, Detailhandel, Logistik, Hoteller, Industrie, gemëscht, Entwécklung, Terrain."
           },
           {
-            "title": "98 documented communes",
-            "desc": "Population, growth, density, median income, unemployment, foreign residents, area, canton, prices."
+            "title": "98 dokumentéiert Gemengen",
+            "desc": "Populatioun, Wuesstum, Dicht, Medianerevenue, Chômage, auslännesch Awunner, Fläch, Kanton, Präisser."
           },
           {
-            "title": "12 macro series 2015-2026",
-            "desc": "10-year OAT, mortgage rates, STATEC construction index, GDP, inflation, transaction volume, m² prices, rents, office vacancy, ECB."
+            "title": "12 Makro-Serien 2015-2026",
+            "desc": "10-Joer-OAT, Hypothéik-Zënsen, STATEC-Baukäschten-Index, PIB, Inflatioun, Transaktiounsvolumen, m²-Präisser, Loyeren, Bürovakanz, EZB."
           },
           {
-            "title": "Automatic comparables",
-            "desc": "Suggestions by commune, type, surface, year built. Explainable adjustments."
+            "title": "Automatesch Vergläichsobjet",
+            "desc": "Virschléi no Gemeng, Typ, Fläch, Baujoer. Erklärbar Ajustementer."
           },
           {
-            "title": "EVS 5 special assumptions",
-            "desc": "Binding assumptions and material uncertainty handled per EVS 5 and Red Book."
+            "title": "EVS 5 Spezialhypothesen",
+            "desc": "Verbindlech Hypothesen a wesentlech Onsécherheet no EVS 5 a Red Book."
           },
           {
-            "title": "Server-side signed PDF",
-            "desc": "Server-side generation for consistency, SHA-256 signature for non-repudiation, expert logo."
+            "title": "Server-side ënnerschriwwe PDF",
+            "desc": "Server-side Generatioun fir Konsistenz, SHA-256-Ënnerschrëft fir Net-Ofstreitung, Schätzer-Logo."
           },
           {
-            "title": "Confidence gauge",
-            "desc": "Confidence score based on number of comparables, dispersion, data age."
+            "title": "Konfidenzanzeig",
+            "desc": "Konfidenzscore op Basis vun der Zuel vu Vergläicher, Sträiung, Datenalter."
           },
           {
-            "title": "TEGOVA field inspection",
-            "desc": "EVS 2025 41-point checklist. Offline on phone, sync on return, import into the report."
+            "title": "TEGOVA-Feldinspektioun",
+            "desc": "EVS-2025 41-Punkte-Checklëscht. Offline um Handy, Sync beim Zréckkommen, Import an de Rapport."
           },
           {
-            "title": "Hedonic model",
-            "desc": "29 sourced coefficients. Published MAPE and R²."
+            "title": "Hedonescht Modell",
+            "desc": "29 belegt Koeffizienten. Verëffentlechte MAPE a R²."
           },
           {
-            "title": "Model transparency",
-            "desc": "Public /transparence page: back-test on 20 LU properties, MAPE and R² displayed."
+            "title": "Modell-Transparenz",
+            "desc": "Ëffentlech /transparence-Säit: Back-Test op 20 LU-Immobilien, MAPE a R² ugewisen."
           }
         ]
       },
       "trust": {
-        "title": "Why LU valuers choose us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every 2 weeks. Public backlog.",
-        "customTitle": "Custom templates",
-        "customDesc": "A specific report format, a proprietary method, a co-branded logo: development in 1 to 3 weeks.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours, by a human who knows TEGOVA."
+        "title": "Firwat LU Schätzer eis wielen",
+        "agileTitle": "Agile Entwécklung, regelméisseg Releases",
+        "agileDesc": "Nei Moduler all 2 Wochen geliwwert. Ëffentleche Backlog op github.com/Tevaxia.",
+        "customTitle": "Individuell Entwécklung méiglech",
+        "customDesc": "Spezifesch Upassungen, dedizéiert Integratiounen: Entwécklung an 1 bis 3 Wochen.",
+        "supportTitle": "Support ënner 24 St",
+        "supportDesc": "E-Mail un contact@tevaxia.lu. Duerchschnëttsäntwert ënner 6 Stonnen op Schaffdeeg."
       },
       "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-report billing, no monthly quota. The entire valuation module is included in the general subscription.",
+        "title": "An Ärem tevaxia-Abonnement abegraff",
+        "subtitle": "Keng Facturatioun pro Rapport, kee Méintquota. Dat ganzt Bewäertungsmodul ass am allgemengen Abonnement abegraff.",
         "features": [
-          "Unlimited EVS 2025 reports",
-          "8 valuation methods",
-          "9 supported asset types",
-          "Auto-filled macro and commune data",
-          "Automatic comparables by proximity",
-          "SHA-256 signature + expert logo",
-          "TEGOVA 41-point inspection (offline)",
-          "Hedonic model with public MAPE/R²"
+          "Onlimitéiert EVS-2025-Rapporten",
+          "8 Bewäertungsmethoden",
+          "9 ënnerstëtzt Asset-Typen",
+          "Automatesch ausgefëllt Makro- a Gemengen-Daten",
+          "Automatesch Vergläichsobjet no Nopeschaft",
+          "SHA-256-Ënnerschrëft + Schätzer-Logo",
+          "TEGOVA 41-Punkte-Inspektioun (offline)",
+          "Hedonescht Modell mat ëffentlechem MAPE/R²"
         ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to valuation module"
+        "ctaPlatform": "tevaxia-Päck kucken",
+        "ctaEmit": "Op de Bewäertungsmodul"
       },
       "faq": {
-        "title": "Frequently asked questions",
+        "title": "Dacks gestallten Froen",
         "items": [
           {
-            "q": "Is the report Charte 5th ed. compliant?",
-            "a": "Yes, the 11 mandatory sections follow the TEGOVA/Charte structure. EVS 5 special assumptions and material uncertainty disclosure are included."
+            "q": "Ass de Rapport Charte 5e éd. konform?",
+            "a": "Jo, déi 11 obligatoresch Sektiounen follegen der TEGOVA/Charte-Struktur. EVS-5-Spezialhypothesen a wesentlech Onsécherheet abegraff."
           },
           {
-            "q": "Can I select only the methods relevant to my property?",
-            "a": "Yes. Toggle per method: activate comparison + capitalisation for a rented office, DCF alone for an investment, energy residual for a heavy renovation."
+            "q": "Kann ech nëmmen déi relevant Methoden fir meng Immobilie wielen?",
+            "a": "Jo. Toggle pro Methode: Vergläich + Kapitaliséierung fir geléinte Büro aktivéieren, DCF eleng fir Investitioun, energetesch Residualmethod fir schwéier Renovéierung."
           },
           {
-            "q": "Is commune data up to date?",
-            "a": "Yes, per-m² prices come from the Observatoire de l'Habitat (quarterly), demographics from STATEC (annual), macro rates from ECB (monthly). Source date displayed in the report."
+            "q": "Sinn d'Gemengen-Donnéeën aktuell?",
+            "a": "Jo, m²-Präisser vum Observatoire de l'Habitat (trimestriell), Demografie vum STATEC (jäerlech), Makrosäz vun der EZB (monatlech)."
           },
           {
-            "q": "Can I customise the PDF with my logo and qualifications?",
-            "a": "Yes, in your profile: logo, full name, qualifications (e.g. REV TEGOVA, MRICS), custom legal notice, contact details."
+            "q": "Kann ech de PDF mat mengem Logo a Qualifikatiounen upassen?",
+            "a": "Jo, an Ärem Profil: Logo, kompletten Numm, Qualifikatiounen (z.B. REV TEGOVA, MRICS), ugepassten legale Vermierk."
           },
           {
-            "q": "Does the SHA-256 signature have legal weight?",
-            "a": "The SHA-256 signature guarantees document integrity. It does not replace a legally qualified eIDAS signature, but provides cryptographic proof that the report was not altered after issuance."
+            "q": "Huet d'SHA-256-Ënnerschrëft rechtlecht Gewiicht?",
+            "a": "D'SHA-256-Ënnerschrëft garantéiert d'Integritéit vum Dokument. Si ersetzt keng rechtlech qualifizéiert eIDAS-Ënnerschrëft, gëtt awer kryptografesche Beweis datt de Rapport net geännert gouf."
           },
           {
-            "q": "How are EVS 5 special assumptions handled?",
-            "a": "Dedicated section: you list binding assumptions, the tool displays the mandatory EVS 5 warning and adjusts value based on inputs."
+            "q": "Wéi ginn EVS-5-Spezialhypothesen behandelt?",
+            "a": "Dedizéiert Sektioun: Dir lëscht d'verbindlech Hypothesen, den Outil weist d'obligatoresch EVS-5-Warnung a passt de Wäert op Basis vun den Inputen un."
           }
         ]
       },
       "finalCta": {
-        "title": "Ready to save 3 hours per report",
-        "desc": "Create your account, personalise your profile and generate your first EVS 2025 report in 20 minutes. Zero commitment.",
-        "cta": "Start for free",
-        "ctaSecondary": "See the valuation module"
+        "title": "Prett fir 3 Stonne pro Rapport ze spueren",
+        "desc": "Kont erstellen, Profil personaliséieren, éischten EVS-2025-Rapport an 20 Minutte generéieren. Null Engagement.",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "Bewäertungsmodul kucken"
       }
     },
     "investisseur": {
       "meta": {
-        "title": "Luxembourg real estate investment simulator — yield, DCF, taxation",
-        "description": "Yield, acquisition fees with Bëllegen Akt, multi-tenant DCF, capital gains, VEFA with interim interest. LU taxation built in."
+        "title": "Lëtzebuerger Immobilien-Investment-Simulator : Rendement, DCF, Besteierung",
+        "description": "Rendement, Acquisitiounskäschten mat Bëllegen Akt, Multi-Locataire-DCF, Plus-valuen, VEFA mat Zwëschenzënsen. LU Besteierung integréiert."
       },
       "hero": {
-        "badge": "Complete LU investment simulator",
-        "title": "Your actual yield,",
-        "titleAccent": "LU taxation included",
-        "subtitle": "Real estate yield simulator with Bëllegen Akt acquisition fees, multi-tenant lease-by-lease DCF, VEFA with interim interest, capital gains, multi-asset portfolio and banking tools (LTV, DSCR, CRR).",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
+        "badge": "Komplette LU Investment-Simulator",
+        "title": "Äert tatsächlecht Rendement,",
+        "titleAccent": "LU Besteierung abegraff",
+        "subtitle": "Immobilien-Rendementsimulator mat Bëllegen-Akt Acquisitiounskäschten, Multi-Locataire-DCF no Bail, VEFA mat Zwëschenzënsen, Plus-valuen, Multi-Asset-Portfolio a Bank-Outillen (LTV, DSCR, CRR).",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "Kuckt wéi et funktionéiert",
         "kpis": [
           {
             "value": "Bëllegen Akt",
-            "label": "deduction built in"
+            "label": "Ofzuch integréiert"
           },
           {
             "value": "LU + FR + BE",
-            "label": "tax regimes handled"
+            "label": "Steiersystemer behandelt"
           },
           {
-            "value": "<24 h",
-            "label": "support response time"
+            "value": "<24 St",
+            "label": "Support-Äntwertzäit"
           }
         ]
       },
       "problem": {
-        "title": "Computing LU yield means juggling 8 different simulators",
-        "intro": "Notary fees on one site, capital gains on another, DCF in a homemade Excel. In the process, you forget items or make errors that bias the investment decision.",
+        "title": "LU-Rendement ze rechne bedeit mat 8 verschiddene Simulatoren ze jongléieren",
+        "intro": "Notarskäschten op enger Säit, Plus-valuen op enger anerer, DCF am selwergemaachten Excel. Dobäi vergësst een Elementer oder mécht Feeler, déi d'Investitiounsentscheedung verzerren.",
         "items": [
           {
-            "title": "Underestimated acquisition fees",
-            "desc": "7% duties, transcription, Bëllegen Akt (up to 40,000 € deduction), notary, 3% VAT new-build: many investors compute wrong and block their financing plan.",
-            "stat": "3-7% typical gap"
+            "title": "Ënnerschätzt Acquisitiounskäschten",
+            "desc": "7 % Agraangsdroit, Transcriptioun, Bëllegen Akt (bis 40.000 € Ofzuch), Notar, 3 % TVA Neibau: vill Investisseuren rechnen falsch a blockéieren hire Finanzéierungsplang.",
+            "stat": "3-7 % typesch Spann"
           },
           {
-            "title": "Gross vs net yield confusion",
-            "desc": "Between gross, net, and net-net (after tax), numbers don't mean the same thing. A 5% gross yield can end at 2% after taxes.",
-            "stat": "~40% gross vs net-net gap"
+            "title": "Brutto vs Netto Rendement Duerchernee",
+            "desc": "Tëscht Brutto, Netto an Netto-Netto (no Steier) bedeiten d'Zuele net datselwecht. E 5 % Bruttorendement kann no Steier bei 2 % eenegen.",
+            "stat": "~40 % Brutto vs Netto-Netto"
           },
           {
-            "title": "No DCF tool adapted to LU",
-            "desc": "Online Excel simulators are calibrated for FR or BE. No 5% rule, no LU commercial lease, no LU 10% capital gains.",
-            "stat": "95% tools not-LU"
+            "title": "Kee un LU ugepassten DCF-Outil",
+            "desc": "Online Excel-Simulatoren si fir FR oder BE kalibréiert. Keng 5 %-Reegel, kee LU Handelsbail, keng LU 10 % Plus-valuen.",
+            "stat": "95 % Outillen net LU"
           }
         ]
       },
       "howItWorks": {
-        "title": "From estimation to decision, three steps",
-        "intro": "You enter the property. The system computes yield, taxation, DCF. You compare scenarios and decide.",
+        "title": "Vun der Schätzung zur Entscheedung, dräi Schrëtt",
+        "intro": "Dir gitt d'Immobilie an. D'System rechent Rendement, Besteierung, DCF. Dir vergläicht Szenarien an decidéiert.",
         "steps": [
           {
             "number": "1",
-            "title": "Property and financing entry",
-            "desc": "Price, surface, commune, type, down payment, loan duration, rate. Acquisition fees (Bëllegen Akt) calculated automatically."
+            "title": "Immobilie- a Finanzéierungsagab",
+            "desc": "Präis, Fläch, Gemeng, Typ, Apport, Kreditdauer, Zënssaz. Acquisitiounskäschten (Bëllegen Akt) automatesch ausgerechent."
           },
           {
             "number": "2",
-            "title": "Parallel simulations",
-            "desc": "Yield, 10-year DCF, VEFA interim interest, resale capital gains, monthly cash-flow. Interactive charts."
+            "title": "Parallel Simulatiounen",
+            "desc": "Rendement, 10-Joer-DCF, VEFA-Zwëschenzënsen, Plus-valuen beim Verkaf, monatlechen Cashflow. Interaktiv Grafiken."
           },
           {
             "number": "3",
-            "title": "Scenario comparison",
-            "desc": "Save multiple scenarios. Exportable PDF for your banker."
+            "title": "Szenarievergläich",
+            "desc": "Méi Szenarie späicheren. Exportéierbart PDF fir Äre Bankberuder."
           }
         ]
       },
       "features": {
-        "title": "The full LU real estate financial toolkit",
-        "intro": "Each calculation respects Luxembourg regulations: Bëllegen Akt, 3% VEFA VAT, 10% capital gains, CSSF rates, 5% rule.",
+        "title": "D'komplett LU Immobilie-Finanz-Toolkit",
+        "intro": "All Berechnung respektéiert d'Lëtzebuerger Reegelen: Bëllegen Akt, 3 % VEFA-TVA, 10 % Plus-valuen, CSSF-Säz, 5 %-Reegel.",
         "items": [
           {
-            "title": "LU acquisition fees",
-            "desc": "7% duties, transcription, notary, Bëllegen Akt with eligibility conditions, 3% VEFA VAT."
+            "title": "LU Acquisitiounskäschten",
+            "desc": "7 % Droit, Transcriptioun, Notar, Bëllegen Akt mat Konditiounen, 3 % VEFA-TVA."
           },
           {
-            "title": "Complete yield",
-            "desc": "Gross, net, net-net. With vacancy, charges, property tax, landlord insurance, management, maintenance."
+            "title": "Komplett Rendement",
+            "desc": "Brutto, Netto, Netto-Netto. Mat Vakanz, Käschten, Foncier, Versécherung, Verwaltung, Ënnerhalt."
           },
           {
-            "title": "Multi-tenant DCF",
-            "desc": "Lease by lease with break options, step rents, planned CAPEX, equity IRR and project IRR."
+            "title": "Multi-Locataire-DCF",
+            "desc": "Bail fir Bail mat Break-Optiounen, Step Rents, geplangtem CAPEX, Equity-IRR a Projet-IRR."
           },
           {
-            "title": "VEFA simulator",
-            "desc": "Interim interest, 3% VAT, completion guarantee, fund call schedule."
+            "title": "VEFA-Simulator",
+            "desc": "Zwëschenzënsen, 3 % TVA, Fäerdegstellungsgarantie, Fongsopruff-Plang."
           },
           {
-            "title": "LU capital gains",
-            "desc": "Holding period allowance, effective rate, primary vs investment residence cases."
+            "title": "LU Plus-valuen",
+            "desc": "Besëtzdauer-Ofschlag, effektive Saz, Haaptwunneng vs Investitioun."
           },
           {
-            "title": "Buy vs rent comparator",
-            "desc": "NPV over configurable duration, opportunity cost, break-even threshold."
+            "title": "Kaaf-vs-Locatioun Komparator",
+            "desc": "NPV iwwer konfiguréierbar Dauer, Opportunitéitskäschten, Break-even-Schwell."
           },
           {
-            "title": "Multi-asset portfolio",
-            "desc": "Consolidated view: total value, average yield, geographic exposure, diversification."
+            "title": "Multi-Asset-Portfolio",
+            "desc": "Konsolidéiert Siicht: Gesamtwäert, Duerchschnëttsrendement, geographesch Expositioun, Diversifikatioun."
           },
           {
-            "title": "Banking tools",
-            "desc": "LTV, DSCR, CRR mortgage lending value, +2% rate stress test, borrowing capacity."
+            "title": "Bank-Outillen",
+            "desc": "LTV, DSCR, CRR-Bélégowäert, +2 %-Zënsstresstest, Kreditkapazitéit."
           },
           {
-            "title": "Developer P&L",
-            "desc": "Revenue forecast, STATEC construction costs, financial charges, developer margin."
+            "title": "Promoteur-Bilanz",
+            "desc": "Ëmsazprojet, STATEC-Baukäschten, Finanzéierungskäschten, Promoteur-Marge."
           },
           {
-            "title": "98 LU communes",
-            "desc": "Per-m² prices, rents, yields, demographics, median income. Quarterly updates."
+            "title": "98 LU Gemengen",
+            "desc": "Präis pro m², Loyeren, Rendementer, Demografie, Medianerevenue. Trimestriell Updates."
           },
           {
-            "title": "Live macro",
-            "desc": "10-year OAT, mortgage rates, construction index, inflation. ECB + STATEC connection."
+            "title": "Live-Makro",
+            "desc": "10-Joer-OAT, Hypothéik-Zënsen, Baukäschten-Index, Inflatioun. EZB + STATEC."
           },
           {
-            "title": "Bank PDF report",
-            "desc": "Complete financing file: simulation, DCF, stress test, collateral. Ready to send."
+            "title": "Bank PDF-Rapport",
+            "desc": "Komplett Finanzéierungsakt: Simulatioun, DCF, Stresstest, Sécherheeten."
           }
         ]
       },
       "trust": {
-        "title": "Why LU investors choose us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every 2 weeks. Public backlog.",
-        "customTitle": "Custom work available",
-        "customDesc": "A specific calculation for your strategy, an export to your accountant: development in 1 to 3 weeks.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours, by a human who knows LU taxation."
+        "title": "Firwat LU Investisseure eis wielen",
+        "agileTitle": "Agile Entwécklung, regelméisseg Releases",
+        "agileDesc": "Nei Moduler all 2 Wochen geliwwert. Ëffentleche Backlog op github.com/Tevaxia.",
+        "customTitle": "Individuell Entwécklung méiglech",
+        "customDesc": "Spezifesch Upassungen, dedizéiert Integratiounen: Entwécklung an 1 bis 3 Wochen.",
+        "supportTitle": "Support ënner 24 St",
+        "supportDesc": "E-Mail un contact@tevaxia.lu. Duerchschnëttsäntwert ënner 6 Stonnen op Schaffdeeg."
       },
       "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-simulation billing, no quota. All investment tools are included in the general subscription.",
+        "title": "An Ärem tevaxia-Abonnement abegraff",
+        "subtitle": "Keng Facturatioun pro Simulatioun, kee Quota. All Investment-Outillen sinn am allgemengen Abonnement abegraff.",
         "features": [
-          "Unlimited simulations",
-          "LU acquisition fees with Bëllegen Akt",
-          "Multi-tenant lease-by-lease DCF",
-          "VEFA with interim interest",
-          "LU capital gains",
-          "Consolidated multi-asset portfolio",
-          "Banking tools LTV / DSCR / CRR",
-          "Live macro ECB + STATEC"
+          "Onlimitéiert Simulatiounen",
+          "LU Acquisitiounskäschten mat Bëllegen Akt",
+          "Multi-Locataire-DCF no Bail",
+          "VEFA mat Zwëschenzënsen",
+          "LU Plus-valuen",
+          "Konsolidéiert Multi-Asset-Portfolio",
+          "Bank-Outillen LTV / DSCR / CRR",
+          "Live-Makro EZB + STATEC"
         ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to portfolio"
+        "ctaPlatform": "tevaxia-Päck kucken",
+        "ctaEmit": "Op de Portfolio"
       },
       "faq": {
-        "title": "Frequently asked questions",
+        "title": "Dacks gestallten Froen",
         "items": [
           {
-            "q": "Is Bëllegen Akt deduction properly handled?",
-            "a": "Yes, the tool checks eligibility conditions and applies up to 40,000 € per person deduction on registration duties."
+            "q": "Gëtt de Bëllegen-Akt-Ofzuch richteg behandelt?",
+            "a": "Jo, den Outil iwwerpréift d'Berechtegungskonditiounen an applizéiert bis zu 40.000 € pro Persoun Ofzuch op d'Agraangsdroit."
           },
           {
-            "q": "Is 3% new-build VAT properly included?",
-            "a": "Yes, the VEFA simulator automatically applies the 3% rate subject to primary residence occupied 2 years minimum."
+            "q": "Gëtt 3 % Neibau-TVA korrekt integréiert?",
+            "a": "Jo, de VEFA-Simulator applizéiert automatesch den 3 %-Saz ënner der Konditioun Haaptwunnsëtz 2 Joer Mindestokkupatioun."
           },
           {
-            "q": "Does the multi-tenant DCF handle French and LU breaks?",
-            "a": "Yes. Each lease can have its duration, indexation (IRL, ILAT, ILC, IPC), scheduled step rents, break options, planned CAPEX."
+            "q": "Behandelt de Multi-Locataire-DCF franséisch a LU Breaks?",
+            "a": "Jo. All Bail kann Dauer, Indexéierung, geplangte Step Rents, Break-Optiounen, geplangtem CAPEX hunn."
           },
           {
-            "q": "Are LU capital gains properly calculated?",
-            "a": "Yes. Primary residence exemption, secondary residence half-global rate, investment global/half-global rate depending on holding period."
+            "q": "Ginn LU Plus-valuen korrekt ausgerechent?",
+            "a": "Jo. Haaptwunneng Befreiung, Zweetwunneng Halleft-Global-Saz, Investitioun Global-/Halleft-Global-Saz no der Halleng."
           },
           {
-            "q": "Do banking tools (LTV, DSCR, CRR) follow CSSF rules?",
-            "a": "Yes. LTV max by borrower profile, DSCR target 1.25, CRR mortgage lending value with energy haircut. +2% stress test."
+            "q": "Folgen d'Bank-Outillen (LTV, DSCR, CRR) de CSSF-Reegelen?",
+            "a": "Jo. Max LTV pro Emprunteur-Profil, DSCR-Zil 1,25, CRR-Bélégowäert mat Energie-Haircut. +2 %-Stresstest."
           },
           {
-            "q": "Can I share my simulations with my banker?",
-            "a": "Yes. Dedicated Financing file PDF. View-only sharing option with limited duration link (7 to 90 days)."
+            "q": "Kann ech meng Simulatioune mat mengem Bankberuder deelen?",
+            "a": "Jo. Dedizéierten Finanzéierungsakt-PDF. View-only-Deelen mat 7-90-Deeg-Link."
           }
         ]
       },
       "finalCta": {
-        "title": "Ready to decide fast and well",
-        "desc": "Create your account, enter your first scenario and get your full yield in 5 minutes. Zero commitment.",
-        "cta": "Start for free",
-        "ctaSecondary": "See the portfolio live"
+        "title": "Prett fir séier a gutt ze decidéieren",
+        "desc": "Kont erstellen, éischt Szenario aginn, komplett Rendement a 5 Minutte kréien. Null Engagement.",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "Portfolio live kucken"
       }
     },
     "particulier": {
       "meta": {
-        "title": "Real estate tools for individuals in Luxembourg — estimation, aids, rent",
-        "description": "Estimation, acquisition fees with Bëllegen Akt, state + commune aid simulator, 5% rent cap, buy vs rent. Free, 5 languages."
+        "title": "Immobilie-Outillen fir Privatpersounen zu Lëtzebuerg : Schätzung, Aiden, Loyer",
+        "description": "Schätzung, Acquisitiounskäschten mat Bëllegen Akt, Aiden-Simulator Staat + Gemeng, 5 %-Loyer-Plafong, Kaaf vs Locatioun. Gratis, 5 Sproochen."
       },
       "hero": {
-        "badge": "Free tools for LU individuals",
-        "title": "Buying, renting, renovating in Luxembourg",
-        "titleAccent": "without hiring a consultancy",
-        "subtitle": "Property estimation, acquisition fee calculation with Bëllegen Akt, state + commune aid simulation (Klimabonus included), legal 5% rent cap check, buy vs rent comparison.",
-        "cta": "Start for free",
-        "ctaSecondary": "See the tools",
+        "badge": "Gratis Outillen fir LU Privatpersounen",
+        "title": "Kafen, lounen, renovéieren zu Lëtzebuerg",
+        "titleAccent": "ouni Conseil-Entreprise",
+        "subtitle": "Immobilie-Schätzung, Acquisitiounskäschten-Berechnung mat Bëllegen Akt, Staat + Gemengen-Aiden Simulatioun (Klimabonus abegraff), legale 5 %-Loyer-Plafong Check, Kaaf-vs-Locatioun Vergläich. Gebaut fir Lëtzebuerger Privatpersounen an Éischtkeefer.",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "Outillen kucken",
         "kpis": [
           {
             "value": "0 €",
-            "label": "no signup required"
+            "label": "keng Umeldung néideg"
           },
           {
-            "value": "5 layers",
-            "label": "of stackable aids"
+            "value": "5 Niveauen",
+            "label": "kumuléierbar Aiden"
           },
           {
             "value": "98",
-            "label": "communes covered"
+            "label": "ofgedeckt Gemengen"
           }
         ]
       },
       "problem": {
-        "title": "Buying in Luxembourg in 2026 takes too much paperwork",
-        "intro": "Between taxation, stackable aids, legal rent cap, acquisition fees, hours are spent before even contacting an agent.",
+        "title": "Zu Lëtzebuerg 2026 ze kafe verlaangt ze vill Pabeierkrom",
+        "intro": "Tëscht Besteierung, kumuléierbaren Aiden, legalem Loyer-Plafong, Acquisitiounskäschten ginn Stonne mat Sichen a Vergläiche verbruecht, ier een iwwerhaapt eng Agence kontaktéiert.",
         "items": [
           {
-            "title": "Opaque acquisition fees",
-            "desc": "Registration duties, transcription, notary, Bëllegen Akt: who pays what, and how much actually comes out of pocket?",
-            "stat": "8-12% of price typically"
+            "title": "Onkloer Acquisitiounskäschten",
+            "desc": "Agraangsdroit, Transcriptioun, Notar, Bëllegen Akt: wien bezilt wat, a wéivill kënnt wierklech aus der Täsch? Online-Simulatoren verpassen dacks d'Halschent.",
+            "stat": "8-12 % vum Präis typesch"
           },
           {
-            "title": "Hard-to-find aids",
-            "desc": "Purchase grant, Klimabonus, state housing grant, commune aids, 3% renovation VAT. Many households miss 2,000 to 8,000 €.",
-            "stat": "~5,000 € missed on average"
+            "title": "Schwéier ze fannen Aiden",
+            "desc": "Kaafprimes, Klimabonus, Wunnengsprimes, Gemengenhëllefen, 3 % Renovéierungs-TVA. Vill Stéit verpassen 2.000 bis 8.000 €.",
+            "stat": "~5.000 € am Schnëtt verpasst"
           },
           {
-            "title": "5% rent cap poorly known",
-            "desc": "The 5% rule protects tenants and frames landlords. Going over exposes you to legal recourse.",
-            "stat": "~15% of leases in breach"
+            "title": "5 %-Loyer-Plafong wéineg bekannt",
+            "desc": "Déi 5 %-Reegel schützt d'Locataire a rahmt d'Locateur. Iwwerschreidung setzt Iech legalen Schrëtt aus.",
+            "stat": "~15 % vun de Baaln verletzt"
           }
         ]
       },
       "howItWorks": {
-        "title": "Clear tools, three steps",
-        "intro": "No signup to get started. Each tool gives a precise answer in a few minutes.",
+        "title": "Kloer Outillen, dräi Schrëtt",
+        "intro": "Keng Umeldung néideg fir unzefänken. All Outil gëtt eng genau Äntwert a puer Minutten.",
         "steps": [
           {
             "number": "1",
-            "title": "Enter your situation",
-            "desc": "Target property, down payment, commune, status, project. No account required for basic tools."
+            "title": "Är Situatioun aginn",
+            "desc": "Zilimmobilie, Apport, Gemeng, Status, Projet. Kee Kont fir Basis-Outillen néideg."
           },
           {
             "number": "2",
-            "title": "Get your numbers",
-            "desc": "Property estimation, detailed acquisition fees, list of stackable aids, buy vs rent comparison."
+            "title": "Är Zuele kréien",
+            "desc": "Immobilie-Schätzung, detailléiert Acquisitiounskäschten, Lëscht vu kumuléierbaren Aiden, Kaaf-vs-Locatioun Vergläich."
           },
           {
             "number": "3",
-            "title": "Export or share",
-            "desc": "Free PDF download or view-only link sharing (with account). Take it to your bank, notary or agent."
+            "title": "Exportéieren oder deelen",
+            "desc": "Gratis PDF-Download oder View-only-Link-Deelen (mat Kont). Mat op d'Bank, den Notar oder d'Agence huelen."
           }
         ]
       },
       "features": {
-        "title": "All the tools a Luxembourg individual needs",
-        "intro": "Specific to the Luxembourg framework (Bëllegen Akt, 3% VAT, 5% rule, Klimabonus), all in 5 languages.",
+        "title": "All d'Outillen déi eng Lëtzebuerger Privatpersoun brauch",
+        "intro": "Spezifesch fir de Lëtzebuerger Kader (Bëllegen Akt, 3 % TVA, 5 %-Reegel, Klimabonus), all an 5 Sproochen.",
         "items": [
           {
-            "title": "Instant estimation",
-            "desc": "Per-m² price by commune and neighbourhood, hedonic model with 29 sourced coefficients."
+            "title": "Direkt Schätzung",
+            "desc": "Präis pro m² no Gemeng a Quartier, hedonescht Modell mat 29 belegt Koeffizienten."
           },
           {
-            "title": "Detailed acquisition fees",
-            "desc": "7% duties, transcription, notary, Bëllegen Akt with conditions, 3% VEFA VAT."
+            "title": "Detailléiert Acquisitiounskäschten",
+            "desc": "7 % Droit, Transcriptioun, Notar, Bëllegen Akt mat Konditiounen, 3 % VEFA-TVA."
           },
           {
-            "title": "5-layer aids simulator",
-            "desc": "State housing grant, Klimabonus, 1.5% Klimaprêt, commune aids (30+ communes), 3% renovation VAT."
+            "title": "5-Niveau-Aiden-Simulator",
+            "desc": "Staatlech Wunnengsprimes, Klimabonus, 1,5 % Klimaprêt, Gemengenhëllefen, 3 % Renovéierungs-TVA."
           },
           {
-            "title": "5% legal rent cap",
-            "desc": "Max rent calculation based on indexed invested capital + amortised works."
+            "title": "5 % legale Loyer-Plafong",
+            "desc": "Max-Loyer-Berechnung op Basis vum indexéierten investéierte Kapital + amortiséiert Aarbechten."
           },
           {
-            "title": "Buy vs rent",
-            "desc": "NPV comparison over duration, opportunity cost. Break-even threshold."
+            "title": "Kaaf vs Locatioun",
+            "desc": "NPV-Vergläich iwwer Dauer, Opportunitéitskäschten. Break-even-Schwell."
           },
           {
-            "title": "Price map",
-            "desc": "Interactive map 100 communes + Luxembourg-City neighbourhoods with prices and yields."
+            "title": "Präis-Kaart",
+            "desc": "Interaktiv Kaart 100 Gemengen + Stad Lëtzebuerg Quartiere mat Präisser a Rendementer."
           },
           {
-            "title": "Capital gains",
-            "desc": "Primary residence (exemption), secondary, investment. Holding period allowance."
+            "title": "Plus-valuen",
+            "desc": "Haaptwunneng (Befreiung), Zweetwunneng, Investitioun. Besëtzdauer-Ofschlag."
           },
           {
-            "title": "VEFA interim interest",
-            "desc": "Interest during construction and total cost with 3% VAT."
+            "title": "VEFA-Zwëschenzënsen",
+            "desc": "Zënse während der Bauphase a Gesamtkäschte mat 3 % TVA."
           },
           {
-            "title": "Legal guides",
-            "desc": "Residential lease, commercial lease, capital gains, co-ownership, Klimabonus."
+            "title": "Rechtlech Guiden",
+            "desc": "Wunnungsloyer, Handelsloyer, Plus-valuen, Matbesëtz, Klimabonus."
           },
           {
-            "title": "Compare two properties",
-            "desc": "Side-by-side: price, yield, fees, aids, commute distance. Automatic recommendation."
+            "title": "Zwou Immobilie vergläichen",
+            "desc": "Side-by-side: Präis, Rendement, Käschten, Aiden, Pendeldistanz. Automatesch Empfehlung."
           },
           {
-            "title": "Individual wizard",
-            "desc": "4-step guided flow: estimation + fees + aids + legal rent in one path."
+            "title": "Privatpersoun-Wizard",
+            "desc": "4-Schrëtt-Flow: Schätzung + Käschten + Aiden + legale Loyer an engem Wee."
           },
           {
-            "title": "TEGOVA field inspection",
-            "desc": "41-point checklist for visiting a property."
+            "title": "TEGOVA-Feldinspektioun",
+            "desc": "41-Punkte-Checklëscht fir Immobilie-Besichtegung."
           }
         ]
       },
       "trust": {
-        "title": "Why LU individuals use us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New tools shipped every 2 weeks. Tax brackets auto-updated.",
-        "customTitle": "Adaptable when needed",
-        "customDesc": "A specific commune, a recent aid: email contact@tevaxia.lu and we integrate it in 1 to 2 weeks.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days."
+        "title": "Firwat LU Privatpersounen eis benotzen",
+        "agileTitle": "Agile Entwécklung, regelméisseg Releases",
+        "agileDesc": "Nei Moduler all 2 Wochen geliwwert. Ëffentleche Backlog op github.com/Tevaxia.",
+        "customTitle": "Individuell Entwécklung méiglech",
+        "customDesc": "Spezifesch Upassungen, dedizéiert Integratiounen: Entwécklung an 1 bis 3 Wochen.",
+        "supportTitle": "Support ënner 24 St",
+        "supportDesc": "E-Mail un contact@tevaxia.lu. Duerchschnëttsäntwert ënner 6 Stonnen op Schaffdeeg."
       },
       "pricing": {
-        "title": "Free, no signup for the essentials",
-        "subtitle": "All basic tools work without an account. Create a free account to save simulations, export PDFs and access history.",
+        "title": "Gratis, keng Umeldung fir dat Wesentlechst",
+        "subtitle": "All Basis-Outille funktionéieren ouni Kont. Gratis Kont erstellen fir Simulatiounen ze späicheren, PDFs ze exportéieren an op d'Historie zouzegräifen.",
         "features": [
-          "Estimation, fees, aids, rent without account",
-          "PDF export with free account",
-          "Multi-device cloud saving",
-          "Simulation history",
-          "View-only link sharing",
-          "Comparison of up to 5 scenarios",
-          "Market alerts per commune",
-          "5 languages (FR / EN / DE / LB / PT)"
+          "Schätzung, Käschten, Aiden, Loyer ouni Kont",
+          "PDF-Export mat gratis Kont",
+          "Multi-Device Cloud-Späichere",
+          "Simulatiounshistorie",
+          "View-only-Link-Deelen",
+          "Vergläich vu bis zu 5 Szenarien",
+          "Maart-Notifikatioune pro Gemeng",
+          "5 Sproochen (FR / EN / DE / LB / PT)"
         ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Estimate a property"
+        "ctaPlatform": "tevaxia-Päck kucken",
+        "ctaEmit": "Immobilie schätzen"
       },
       "faq": {
-        "title": "Frequently asked questions",
+        "title": "Dacks gestallten Froen",
         "items": [
           {
-            "q": "Is the estimation reliable?",
-            "a": "MAPE of ~12%, comparable to bank tools. Still an estimate: a certified REV valuation is recommended for bank financing."
+            "q": "Ass d'Schätzung zouverléisseg?",
+            "a": "MAPE vu ~12 %, vergläichbar mat Bank-Outillen. Et bleift eng Schätzung: eng zertifizéiert REV-Bewäertung ass fir d'Bankfinanzéierung empfohlen."
           },
           {
-            "q": "Is Bëllegen Akt calculated correctly?",
-            "a": "Yes. Conditions checked (primary residence, 2 years occupation). Up to 40,000 € per person deduction."
+            "q": "Gëtt de Bëllegen Akt korrekt ausgerechent?",
+            "a": "Jo. Konditiounen iwwerpréift (Haaptwunneng, 2 Joer Okkupatioun). Bis zu 40.000 € pro Persoun Ofzuch."
           },
           {
-            "q": "Are commune aids up to date?",
-            "a": "Yes, over 30 communes have their scales integrated. Contact us if yours is missing."
+            "q": "Sinn d'Gemengen-Aiden aktuell?",
+            "a": "Jo, iwwer 30 Gemengen hunn hir Säz integréiert. Kontaktéiert eis, wann Är feelt."
           },
           {
-            "q": "Does the 5% rent rule apply to all rentals?",
-            "a": "Yes for residential leases under the 21 September 2006 law. Exceptions: commercial lease, short-term furnished, student residences."
+            "q": "Gëllt d'5 %-Loyer-Reegel fir all Lounen?",
+            "a": "Jo fir Wunnraum-Lounen ënner dem Gesetz vum 21.09.2006. Ausnamen: Handelsloyer, kuerzfristeg méubléiert, Studenterezidenzen."
           },
           {
-            "q": "Can I use the tools without creating an account?",
-            "a": "Yes, all basic tools work without signup. The free account unlocks PDF export, cloud saving, history and link sharing."
+            "q": "Kann ech d'Outillen ouni Kont benotzen?",
+            "a": "Jo, all Basis-Outille funktionéieren ouni Umeldung. De gratis Kont fräi schalt PDF-Export, Cloud-Späichere, Historie a Link-Deelen."
           },
           {
-            "q": "Is my data kept?",
-            "a": "Without an account, nothing is kept server-side. With a free account, stored on Supabase (AWS eu-central-1, Frankfurt) with RLS."
+            "q": "Ginn meng Donnéeën opbewahrt?",
+            "a": "Ouni Kont bleift näischt server-side. Mat gratis Kont op Supabase (AWS eu-central-1, Frankfurt) mat RLS gespäichert."
           }
         ]
       },
       "finalCta": {
-        "title": "Ready to see clearly",
-        "desc": "Start by estimating your property or simulating your fees. No signup, no commitment, in 2 minutes.",
-        "cta": "Estimate a property free",
-        "ctaSecondary": "See all the tools"
-      }
-    },
-    "syndic": {
-      "meta": {
-        "title": "Co-ownership management software Luxembourg, 16.05.1975 law compliant",
-        "description": "Run your co-ownerships without Excel weekends: online AGMs, Factur-X fund calls, LU accounting, PSD2 bank reconciliation. Free trial."
-      },
-      "hero": {
-        "badge": "Built for Luxembourg co-ownerships",
-        "title": "Your co-ownership management, without",
-        "titleAccent": "weekends on Excel",
-        "subtitle": "Online AGMs with tantième-weighted voting, fund calls generated in Factur-X, Luxembourg co-ownership accounting and automatic bank reconciliation. Built for professional property managers who are tired of juggling 4 different tools.",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
-        "kpis": [
-          {
-            "value": "15 h",
-            "label": "saved per AGM"
-          },
-          {
-            "value": "100%",
-            "label": "16.05.1975 law compliant"
-          },
-          {
-            "value": "<24 h",
-            "label": "support response time"
-          }
-        ]
-      },
-      "problem": {
-        "title": "Managing a co-ownership in 2026 shouldn't still look like this",
-        "intro": "Between the 16 May 1975 law, quarterly fund calls, unpaid reminders, AGM prep and bookkeeping, a property manager's week fills up on its own. Unless the right tools take the load off.",
-        "items": [
-          {
-            "title": "Preparing an AGM in 3 days",
-            "desc": "Convocations due within 15 days, agenda to draft, proxies to collect, minutes to type after the fact. Admin load eats up the time that should go to the actual issues.",
-            "stat": "~15 hours per AGM"
-          },
-          {
-            "title": "Chasing unpaid charges by hand",
-            "desc": "Tracking who owes what, monitoring deadlines, computing legal interest, preparing formal notices. Without a dedicated tool, things slip, get forgotten, and the treasury shrinks.",
-            "stat": "3–7% chronic unpaid rate"
-          },
-          {
-            "title": "Juggling Excel, bank, accounting",
-            "desc": "Reconciling incoming transfers with fund calls, entering them in accounting, building AGM annexes from 3 different sources. Every step carries error risk that eventually surfaces in the assembly.",
-            "stat": "4 tools used on average"
-          }
-        ]
-      },
-      "howItWorks": {
-        "title": "One platform, three steps",
-        "intro": "No complex migration, no 2-day training. Import your co-ownerships, set allocation keys once, and the tool takes over.",
-        "steps": [
-          {
-            "number": "1",
-            "title": "Your co-ownerships imported",
-            "desc": "Excel import, manual entry or API. Units, tantièmes, co-owners, contracts, accounting history. Works with any syndic that already has a structure in place."
-          },
-          {
-            "number": "2",
-            "title": "AGMs and fund calls run themselves",
-            "desc": "Per-unit PDF convocations, tantième-weighted electronic voting, auto-generated minutes. Factur-X fund calls compliant with EN 16931 sent to co-owners with SEPA reference."
-          },
-          {
-            "number": "3",
-            "title": "Bookkeeping takes care of itself",
-            "desc": "Every fund call, every incoming payment, every entered expense feeds the accounting journal. The 5 AGM annexes are generated in PDF in one click when needed."
-          }
-        ]
-      },
-      "features": {
-        "title": "Everything a Luxembourg property manager actually needs",
-        "intro": "Features built for the Grand Duchy's legal framework: 16 May 1975 law, AGM majority rules, VAT exemption art. 44 §1 f, 10-year archiving.",
-        "items": [
-          {
-            "title": "Online AGMs with weighted voting",
-            "desc": "Electronic voting weighted by tantièmes, simple / absolute / double / unanimity majorities handled automatically."
-          },
-          {
-            "title": "Convocations + PDF minutes",
-            "desc": "Per-unit convocation with legal agenda, auto-generated minutes after the AGM with each resolution's results."
-          },
-          {
-            "title": "Factur-X fund calls",
-            "desc": "PDF/A-3 + CII D22B XML compliant with EN 16931, SEPA mandate reference, art. 261 D CGI exemption applied."
-          },
-          {
-            "title": "3-tier unpaid reminders",
-            "desc": "Friendly reminder, formal notice, demand for payment. Luxembourg legal interest rates computed automatically."
-          },
-          {
-            "title": "5 AGM accounting annexes",
-            "desc": "Balance, journal, budget forecast, charge allocation, unpaid status. PDFs ready to distribute."
-          },
-          {
-            "title": "PSD2 bank reconciliation",
-            "desc": "Connection to BCEE, BIL, Banque Raiffeisen, Post Finance via Enable Banking. Automatic reconciliation."
-          },
-          {
-            "title": "Configurable allocation keys",
-            "desc": "General tantièmes, operating tantièmes, special charges per staircase/building, custom shares."
-          },
-          {
-            "title": "Co-owner portal",
-            "desc": "Each co-owner accesses their own space: voting, statement, convocations, minutes, online payment."
-          },
-          {
-            "title": "10 editable letter templates",
-            "desc": "Reminders, convocations, formal notices, proxies. Fully customisable, DOCX / PDF / Google Drive export."
-          },
-          {
-            "title": "Free invoice OCR",
-            "desc": "Upload supplier invoices, automatic extraction via PDF.js + Tesseract.js. Zero manual data entry."
-          },
-          {
-            "title": "Bulk SEPA transfers",
-            "desc": "pain.001 XML generation for grouped supplier payments, compatible with all Luxembourg banks."
-          },
-          {
-            "title": "Charges benchmark",
-            "desc": "Compare your per-m² charges with the Luxembourg average by residence type and construction year."
-          }
-        ]
-      },
-      "trust": {
-        "title": "Why property managers choose us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every two weeks. Public backlog, your requests go to production fast.",
-        "customTitle": "Custom development available",
-        "customDesc": "A specific convocation format, an unusual tantième calculation, an export to your accounting firm: we build the adaptation in 1 to 3 weeks depending on complexity.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Via email at contact@tevaxia.lu. Average response under 6 hours on business days. No ticket numbers, no chatbot: a human who knows the product."
-      },
-      "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-co-ownership billing, no AGM quota, no premium module. Everything available on the free tier to test, and in the general subscription for daily use.",
-        "features": [
-          "Unlimited co-ownerships",
-          "Online AGMs with tantième-weighted voting",
-          "Factur-X fund calls compliant with EN 16931",
-          "Luxembourg co-ownership accounting",
-          "PSD2 bank reconciliation (Enable Banking)",
-          "Co-owner portal with individual access",
-          "5 AGM PDF accounting annexes",
-          "3-tier unpaid reminders with LU legal interest rates",
-          "16 May 1975 law compliant"
-        ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to syndic module"
-      },
-      "faq": {
-        "title": "Frequently asked questions",
-        "items": [
-          {
-            "q": "I'm moving from [another tool] to tevaxia, how does migration work?",
-            "a": "Standard Excel import (units, co-owners, charge history), then allocation key configuration. Picking up an ongoing accounting year takes 2 to 4 hours depending on complexity. We help you through this at no extra cost."
-          },
-          {
-            "q": "Is the tool compliant with Luxembourg co-ownership law?",
-            "a": "Yes, the 16 May 1975 law (co-ownership status) is built in: simple / absolute / double / unanimity majority rules, 15-day convocation deadline, accounting obligations, 10-year archiving. Accounting annexes follow the format expected by auditors."
-          },
-          {
-            "q": "Is an online AGM legally valid?",
-            "a": "Yes, provided the co-ownership rules allow it or a prior physical AGM resolution has approved it. The practice has been common in Luxembourg since 2020. The signed electronic minutes are archivable as legal evidence."
-          },
-          {
-            "q": "Can fund calls be issued for VAT-exempt co-ownerships?",
-            "a": "Yes, art. 44 §1 f of the VAT law exempts co-ownership management. The module automatically applies the correct exemption and generates exempted Factur-X (category E in EN 16931). No risk of wrongly charged VAT."
-          },
-          {
-            "q": "Is co-owner data secure?",
-            "a": "Stored on Supabase (AWS eu-central-1 Frankfurt) with Row Level Security per user: even administrators cannot access data from a syndic that is not theirs. GDPR-compliant, HTTPS encryption in transit. Full data export to ZIP available at any time."
-          },
-          {
-            "q": "How long before I'm operational?",
-            "a": "A syndic managing 1 to 5 co-ownerships is operational in 1 to 2 hours: account creation, first co-ownership import, allocation key setup, first fund call. Beyond 10 co-ownerships, allow 4 to 6 hours for a full import."
-          }
-        ]
-      },
-      "finalCta": {
-        "title": "Ready to take your evenings back",
-        "desc": "Create your free account, import your first co-ownership and generate a test fund call in 15 minutes. Zero commitment.",
-        "cta": "Start for free",
-        "ctaSecondary": "See the syndic module live"
+        "title": "Prett fir kloer ze gesinn",
+        "desc": "Fänkt mat der Immobilie-Schätzung oder der Käschte-Simulatioun un. Keng Umeldung, keen Engagement, an 2 Minutten.",
+        "cta": "Immobilie gratis schätzen",
+        "ctaSecondary": "All Outillen kucken"
       }
     },
     "promoteur": {
       "meta": {
-        "title": "Real estate developer software Luxembourg — P&L, VEFA, construction costs",
-        "description": "Developer P&L with cash-flow plan, VEFA simulator with interim interest, STATEC construction cost estimator, road works and OAI/ILNAS surface conversion."
+        "title": "Promoteur-Software Lëtzebuerg : Bilanz, VEFA, Baukäschten",
+        "description": "Promoteur-Bilanz mat Cashflow-Plang, VEFA-Simulator mat Zwëschenzënsen, STATEC-Baukäschten-Schätzer, Stroossebau- an OAI/ILNAS-Fläch-Ëmwandlung."
       },
       "hero": {
-        "badge": "For LU developers and property dealers",
-        "title": "Developer P&L and VEFA simulation,",
-        "titleAccent": "without re-entering costs three times",
-        "subtitle": "Complete developer P&L with monthly cash-flow plan and forecast margin, VEFA simulator with interim interest and LU 3% VAT, STATEC-referenced construction cost estimator (17 trades), road works calculator (9 lots), OAI/ILNAS surface converter. Built for Luxembourg property developers and dealers.",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
+        "badge": "Fir LU Promoteuren a Marchands de biens",
+        "title": "Promoteur-Bilanz a VEFA-Simulatioun,",
+        "titleAccent": "ouni Käschten dräi Mol anzeginn",
+        "subtitle": "Komplett Promoteur-Bilanz mat monatlechem Cashflow-Plang a prospektiver Marge, VEFA-Simulator mat Zwëschenzënsen an LU 3 % TVA, STATEC-referenzéierte Baukäschten-Schätzer (17 Gewerker), Stroossebau-Rechner (9 Lous), OAI/ILNAS-Fläch-Ëmwandler. Gebaut fir Lëtzebuerger Promoteuren a Marchands de biens.",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "Kuckt wéi et funktionéiert",
         "kpis": [
           {
-            "value": "17 trades",
-            "label": "STATEC integrated"
+            "value": "17 Gewerker",
+            "label": "STATEC integréiert"
           },
           {
-            "value": "9 lots",
-            "label": "road works configurable"
+            "value": "9 Lous",
+            "label": "Stroossebau konfiguréierbar"
           },
           {
-            "value": "<24 h",
-            "label": "support response time"
+            "value": "<24 St",
+            "label": "Support-Äntwertzäit"
           }
         ]
       },
       "problem": {
-        "title": "Running a real estate project in Luxembourg means juggling 6 spreadsheets",
-        "intro": "Construction cost in one Excel, VEFA in another, interim interest by hand, cash-flow plan redone at every iteration. Result: you only see whether the project actually yields margin very late in the process.",
+        "title": "En Immobilieprojet zu Lëtzebuerg opzesetzen heescht mat 6 Tabellen ze jongléieren",
+        "intro": "Baukäschten an engem Excel, VEFA an engem aneren, Zwëschenzënse mat der Hand, Cashflow-Plang bei all Iteratioun nei gemaach. Resultat: de Moment wou een gesäit ob de Projet wierklech Marge bréngt, kënnt ganz spéit.",
         "items": [
           {
-            "title": "Fuzzy construction costs",
-            "desc": "Pricing based on the last comparable project, no up-to-date STATEC reference. In the end, a 10-20% gap that eats into the margin.",
-            "stat": "±10-20% typical gap"
+            "title": "Onscharf Baukäschten",
+            "desc": "Präisfindung op Basis vum leschte Vergläichsprojet, keng aktuell STATEC-Referenz. Um Enn 10-20 % Spann déi d'Marge ësst.",
+            "stat": "±10-20 % typesch Spann"
           },
           {
-            "title": "Complex VEFA interim interest",
-            "desc": "Tranche-by-tranche fund call schedule, short-term credit rate, 3% VAT to allocate on the right base: many possible errors.",
-            "stat": "~3 h per simulation"
+            "title": "Komplex VEFA-Zwëschenzënsen",
+            "desc": "Fongsopruff-Plang pro Tranche, Kuerzzäit-Kreditzënssaz, 3 % TVA op der richteger Basis ze verdeelen: vill méiglech Feeler.",
+            "stat": "~3 St pro Simulatioun"
           },
           {
-            "title": "No dynamic cash-flow plan",
-            "desc": "A 3-month permit delay, a 5% overrun on structural works: you have to redo the spreadsheet by hand to see the impact on final margin.",
-            "stat": "~8 h rework per change"
+            "title": "Keen dynameschen Cashflow-Plang",
+            "desc": "3 Méint Baugenehmegung-Verspéidung, 5 % Iwwerschreidung um Rohbau: een muss d'Tabell mat der Hand nei maachen fir den Effekt op d'Enn-Marge ze gesinn.",
+            "stat": "~8 St Iwwerschaffung pro Ännerung"
           }
         ]
       },
       "howItWorks": {
-        "title": "From pricing to commercialisation, three steps",
-        "intro": "You enter the land and the programme. The system prices construction, projects VEFA and computes margin. You adjust and compare.",
+        "title": "Vun der Präisfindung bis zur Vermaartung, dräi Schrëtt",
+        "intro": "Dir gitt Terrain a Programm an. D'System rechent Baukäschten, projektéiert VEFA a rechent Marge.",
         "steps": [
           {
             "number": "1",
-            "title": "Land and programme",
-            "desc": "Land price, buildable surface per PAG, programme (number of units, types, surfaces), commune. Automatic PAG/PAP rule check."
+            "title": "Terrain a Programm",
+            "desc": "Terrainspräis, bebaubar Fläch no PAG, Programm (Zuel vun Eenheeten, Typen, Flächen), Gemeng. Automatesch PAG/PAP-Reegelpréiwung."
           },
           {
             "number": "2",
-            "title": "Construction + road works",
-            "desc": "Pricing by STATEC trade (17 items), adjustment by energy class (AAA-C), finishes. Road works 9 lots with sourced prices."
+            "title": "Baukäschten + Stroossebau",
+            "desc": "Präisfindung no STATEC-Gewerk (17 Posten), Upassung no Energieklass (AAA-C), Ausbau. Stroossebau 9 Lous mat belegte Präisser."
           },
           {
             "number": "3",
-            "title": "Developer P&L + VEFA",
-            "desc": "Monthly cash-flow plan, VEFA fund call simulation, interim interest on construction credit, 3% new-build VAT, gross and net margin."
+            "title": "Promoteur-Bilanz + VEFA",
+            "desc": "Monatlechen Cashflow-Plang, VEFA-Fongsopruff-Simulatioun, Zwëschenzënsen op Baukredit, 3 % Neibau-TVA, Brutto- an Nettomarge."
           }
         ]
       },
       "features": {
-        "title": "All the real estate project build-up tools",
-        "intro": "Specific to Luxembourg standards (STATEC, OAI FC.04, ILNAS 101:2016, 3% VEFA VAT, PAG/PAP regulation) and market practices.",
+        "title": "All d'Outillen fir den Opbau vun engem Immobilieprojet",
+        "intro": "Spezifesch fir Lëtzebuerger Normen (STATEC, OAI FC.04, ILNAS 101:2016, 3 % VEFA-TVA, PAG/PAP) a Maart-Praktiken.",
         "items": [
           {
-            "title": "Complete developer P&L",
-            "desc": "Revenue forecast per unit, total costs, financial charges, gross and net margin, project IRR."
+            "title": "Komplett Promoteur-Bilanz",
+            "desc": "Ëmsazprojet pro Eenheet, Gesamtkäschten, Finanzéierungskäschten, Brutto- an Nettomarge, Projet-IRR."
           },
           {
-            "title": "Monthly cash-flow plan",
-            "desc": "Monthly VEFA collections and construction disbursements. Breakeven identified."
+            "title": "Monatlechen Cashflow-Plang",
+            "desc": "Monatlech VEFA-Recetten a Bau-Ausgaben. Break-even identifizéiert."
           },
           {
-            "title": "VEFA simulator",
-            "desc": "Interim interest, 3% VAT on taxable base, financial completion guarantee, standard fund call schedule."
+            "title": "VEFA-Simulator",
+            "desc": "Zwëschenzënsen, 3 % TVA op der richteger Basis, financiell Fäerdegstellungsgarantie, Standard-Fongsopruff-Plang."
           },
           {
-            "title": "STATEC construction estimator",
-            "desc": "17 trades, STATEC October 2025 index: 1 173.24. Adjustment by energy class."
+            "title": "STATEC-Bau-Schätzer",
+            "desc": "17 Gewerker, STATEC-Index Oktober 2025: 1.173,24. Upassung no Energieklass."
           },
           {
-            "title": "Road works calculator (9 lots)",
-            "desc": "Earthworks, roads, sewage, water supply, lighting, green spaces. Sourced prices Batiprix 2026 (LU coef. ×1.20), CTG 002 & 009, CSDC-CT."
+            "title": "Stroossebau-Rechner (9 Lous)",
+            "desc": "Äerdaarbechten, Stroossen, Ofwaasser, Waasserversuergung, Beliichtung, Gréngflächen. Belegt Präisser Batiprix 2026 (LU-Koef. ×1,20), CTG, CSDC-CT."
           },
           {
-            "title": "ACT surface converter",
-            "desc": "SCB / SCP / usable / habitable per ILNAS 101:2016. ACT weighting for cellars, balconies, terraces. OAI FC.04 standards."
+            "title": "ACT-Fläch-Ëmwandler",
+            "desc": "SCB / SCP / benotzbar / bewunnbar nom ILNAS 101:2016. ACT-Gewiichtung nom OAI FC.04."
           },
           {
-            "title": "PAG-PAP analysis",
-            "desc": "PAG and PAP urban planning rules per commune (COS, CUS, setback, height). Theoretical buildable surface."
+            "title": "PAG-PAP-Analyse",
+            "desc": "PAG- a PAP-Urbanismusreegele pro Gemeng (COS, CUS, Ofstand, Héicht)."
           },
           {
-            "title": "Agricultural land",
-            "desc": "Agricultural land valuation, farm lease yield, conversion to building land (PAG probability, potential capital gain)."
+            "title": "Landwirtschaftsflächen",
+            "desc": "Landwirtschaftsflächen-Bewäertung, Paachrendement, Ëmwandlung an Bauland."
           },
           {
-            "title": "Scenario comparison",
-            "desc": "Multiple scenarios in parallel: programme A (100% residential) vs B (mixed residential+retail), AAA vs A+ class."
+            "title": "Szenarievergläich",
+            "desc": "Méi Szenarie parallel: Programm A (100 % Wunneng) vs B (gemëscht)."
           },
           {
-            "title": "Margin sensitivity",
-            "desc": "Stress test on duration, construction cost, selling price. Worst-case margin displayed."
+            "title": "Marge-Sensibilitéit",
+            "desc": "Stresstest op Dauer, Baukäschten, Verkafspräis. Worst-Case-Marge ugewisen."
           },
           {
-            "title": "Bank PDF report",
-            "desc": "Complete developer financing file: P&L, cash-flow plan, guarantees, pre-commercialisation, valuations."
+            "title": "Bank PDF-Rapport",
+            "desc": "Komplett Promoteur-Finanzéierungsakt: Bilanz, Cashflow-Plang, Garantien, Virvermaartung."
           },
           {
-            "title": "98 commune data",
-            "desc": "Sale prices per commune, demographics, urban rules. Pre-commercialisation check."
+            "title": "98 Gemengen-Daten",
+            "desc": "Verkafspräisser pro Gemeng, Demografie, Urbanismusreegelen. Virvermaartungspréiwung."
           }
         ]
       },
       "trust": {
-        "title": "Why LU developers choose us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every 2 weeks. Automatic STATEC index updates.",
-        "customTitle": "Custom work possible",
-        "customDesc": "A specific P&L format for your bank, a particular LUX GAAP chart of accounts, an export for your controlling: development in 1 to 3 weeks.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days, by a human who knows LU real estate development."
+        "title": "Firwat LU Promoteure eis wielen",
+        "agileTitle": "Agile Entwécklung, regelméisseg Releases",
+        "agileDesc": "Nei Moduler all 2 Wochen geliwwert. Ëffentleche Backlog op github.com/Tevaxia.",
+        "customTitle": "Individuell Entwécklung méiglech",
+        "customDesc": "Spezifesch Upassungen, dedizéiert Integratiounen: Entwécklung an 1 bis 3 Wochen.",
+        "supportTitle": "Support ënner 24 St",
+        "supportDesc": "E-Mail un contact@tevaxia.lu. Duerchschnëttsäntwert ënner 6 Stonnen op Schaffdeeg."
       },
       "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-project billing, no simulation quota. All developer tools are included in the general subscription.",
+        "title": "An Ärem tevaxia-Abonnement abegraff",
+        "subtitle": "Keng Facturatioun pro Projet, kee Simulatiounsquota. All Promoteur-Outillen sinn am allgemengen Abonnement abegraff.",
         "features": [
-          "Unlimited developer P&L",
-          "VEFA with interim interest",
-          "STATEC construction estimator 17 trades",
-          "Road works calculator 9 sourced lots",
-          "OAI/ILNAS ACT surface converter",
-          "PAG/PAP analysis 98 communes",
-          "Unlimited scenario comparison",
-          "Bank PDF report",
-          "Multi-parameter margin stress test"
+          "Onlimitéiert Promoteur-Bilanzen",
+          "VEFA mat Zwëschenzënsen",
+          "STATEC-Bau-Schätzer 17 Gewerker",
+          "Stroossebau-Rechner 9 belegt Lous",
+          "OAI/ILNAS ACT-Fläch-Ëmwandler",
+          "PAG/PAP-Analyse 98 Gemengen",
+          "Onlimitéiert Szenarievergläich",
+          "Bank PDF-Rapport",
+          "Multi-Parameter-Marge-Stresstest"
         ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to developer P&L"
+        "ctaPlatform": "tevaxia-Päck kucken",
+        "ctaEmit": "Op d'Promoteur-Bilanz"
       },
       "faq": {
-        "title": "Frequently asked questions",
+        "title": "Dacks gestallten Froen",
         "items": [
           {
-            "q": "Are STATEC indices up to date?",
-            "a": "Yes, the construction cost index is updated quarterly (latest value: October 2025 = 1 173.24). The 17 STATEC trades are covered, adjusted by energy class (AAA to C) and finish level."
+            "q": "Sinn d'STATEC-Indexen aktuell?",
+            "a": "Jo, de Baukäschten-Index gëtt trimestriell aktualiséiert (aktuellste Wäert: Oktober 2025 = 1.173,24). Déi 17 STATEC-Gewerker sinn ofgedeckt."
           },
           {
-            "q": "Is 3% new-build VAT properly handled?",
-            "a": "Yes, for resident first-time buyers occupying the property for 2 years minimum. The tool applies the right taxable base (off-plan price + promotion fees), 3% vs 17% comparison to see the client saving."
+            "q": "Gëtt 3 % Neibau-TVA richteg behandelt?",
+            "a": "Jo, fir Resident-Éischtkeefer, déi d'Immobilie mindestens 2 Joer bewunnen."
           },
           {
-            "q": "Can I configure my own construction costs?",
-            "a": "Yes, the 17 STATEC trades serve as reference but are all adjustable. You can save templates by operation type (standard residential, premium, social housing)."
+            "q": "Kann ech eegen Baukäschte konfiguréieren?",
+            "a": "Jo, déi 17 STATEC-Gewerker déngen als Referenz, sinn awer all upassbar."
           },
           {
-            "q": "Does road works match Luxembourg rules?",
-            "a": "Yes, the 9 road works lots use Batiprix 2026 prices (LU coefficient ×1.20), CTG 002 & 009 (road hygiene rules), CSDC-CT (Roads & Bridges) and Administration de l'eau (sewerage)."
+            "q": "Entsprécht de Stroossebau Lëtzebuerger Reegelen?",
+            "a": "Jo, déi 9 Stroossebau-Lous benotzen Batiprix-2026-Präisser (LU-Koeffizient ×1,20), CTG 002 & 009, CSDC-CT."
           },
           {
-            "q": "Does surface conversion respect OAI/ILNAS standards?",
-            "a": "Yes, ILNAS 101:2016 for the 4 surface types (SCB, SCP, usable, habitable). ACT weighting per OAI FC.04 for cellars, balconies, terraces, attics."
+            "q": "Respektéiert d'Fläch-Ëmwandlung OAI/ILNAS-Normen?",
+            "a": "Jo, ILNAS 101:2016 fir déi 4 Fläch-Typen. ACT-Gewiichtung nom OAI FC.04."
           },
           {
-            "q": "Can I export my P&L for my bank or advisor?",
-            "a": "Yes, complete Developer financing file PDF: P&L, monthly cash-flow plan, expected guarantees, pre-commercialisation commitment, margin sensitivity. View-only sharing possible with 7-90 day limited link."
+            "q": "Kann ech meng Bilanz fir meng Bank exportéieren?",
+            "a": "Jo, komplette Promoteur-Finanzéierungsakt-PDF: Bilanz, monatlechen Cashflow-Plang, Marge-Sensibilitéit. View-only-Deele méiglech."
           }
         ]
       },
       "finalCta": {
-        "title": "Ready to price your projects faster",
-        "desc": "Create your account, enter your first project and get your P&L in 30 minutes. Zero commitment.",
-        "cta": "Start for free",
-        "ctaSecondary": "See developer P&L"
+        "title": "Prett fir Är Projeten méi séier ze kalkuléieren",
+        "desc": "Kont erstellen, éischt Projet aginn, Bilanz an 30 Minutte kréien. Null Engagement.",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "Promoteur-Bilanz kucken"
       }
     },
     "banque": {
       "meta": {
-        "title": "Real estate valuation software for banks Luxembourg — CRR, LTV, DSCR",
-        "description": "CRR-compliant EVS 2025 valuation, +2% stress test, LTV/DSCR tools, AML/KYC, CRREM energy portfolio. For LU credit analysts and risk managers."
+        "title": "Immobilien-Bewäertungssoftware fir Banken Lëtzebuerg : CRR, LTV, DSCR",
+        "description": "CRR-konform EVS-2025-Bewäertung, +2 %-Stresstest, LTV/DSCR-Outillen, AML/KYC, CRREM-Energie-Portfolio. Fir LU Kredit-Analysten a Risk Managers."
       },
       "hero": {
-        "badge": "For LU banks and credit analysts",
-        "title": "Real estate credit analysis,",
-        "titleAccent": "CRR + EVS 2025 in one tool",
-        "subtitle": "EVS 2025 valuation with CRR mortgage lending value (energy haircut), LTV / DSCR / borrowing capacity per CSSF profile, AML/KYC with EU sanctions check, CRREM stranding energy portfolio. Built for Luxembourg credit analysts, risk managers and compliance officers.",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
+        "badge": "Fir LU Banken a Kredit-Analysten",
+        "title": "Immobilie-Kredit-Analyse,",
+        "titleAccent": "CRR + EVS 2025 an engem Outil",
+        "subtitle": "EVS-2025-Bewäertung mat CRR-Bélégowäert (Energie-Haircut), LTV / DSCR / Kreditkapazitéit pro CSSF-Profil, AML/KYC mat EU-Sanktiounspréiwung, CRREM-Stranding-Energie-Portfolio. Gebaut fir Lëtzebuerger Kredit-Analysten, Risk Managers a Compliance Officers.",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "Kuckt wéi et funktionéiert",
         "kpis": [
           {
             "value": "CRR + EVS 2025",
-            "label": "dual compliance"
+            "label": "dual Konformitéit"
           },
           {
-            "value": "CRREM stranding",
-            "label": "energy haircut"
+            "value": "CRREM-Stranding",
+            "label": "Energie-Haircut"
           },
           {
-            "value": "<24 h",
-            "label": "support response time"
+            "value": "<24 St",
+            "label": "Support-Äntwertzäit"
           }
         ]
       },
       "problem": {
-        "title": "Analysing a real estate loan in Luxembourg means 5 separate tools",
-        "intro": "Market value in one tool, mortgage lending value in another, AML/KYC via external portal, stress test by hand. Files take 3 days when they could take 3 hours.",
+        "title": "Eng Immobilien-Kredit-Analyse zu Lëtzebuerg heescht 5 getrennt Outillen",
+        "intro": "Maartwäert an engem Outil, Bélégowäert an engem aneren, AML/KYC iwwer extern Portal, Stresstest mat der Hand. Akten brauchen 3 Deeg, wou se 3 Stonne brauche kéinten.",
         "items": [
           {
-            "title": "Manual CRR mortgage lending value",
-            "desc": "Energy haircut calculation by property class, stranded asset adjustment (CRREM 2030+), Regulation 575/2013 compliance check: many manual passes.",
-            "stat": "~2 h per file"
+            "title": "Manuellen CRR-Bélégowäert",
+            "desc": "Energie-Haircut-Berechnung no Immobilie-Energieklass, Stranded-Asset-Upassung (CRREM 2030+), Check vun der CRR 575/2013-Konformitéit: vill manuell Duerchgäng.",
+            "stat": "~2 St pro Akt"
           },
           {
-            "title": "AML/KYC across multiple platforms",
-            "desc": "EU sanctions check (CFSP), PEP, ultimate beneficial owner, source of funds on 3 different tools. No consolidated audit trail.",
-            "stat": "~1 h per file"
+            "title": "AML/KYC iwwer méi Plattformen",
+            "desc": "EU-Sanktiounspréiwung (CFSP), PEP, Ultimate Beneficial Owner, Hierkonft vun de Suen op 3 verschiddenen Outillen. Kee konsolidéierten Audit-Trail.",
+            "stat": "~1 St pro Akt"
           },
           {
-            "title": "No energy portfolio view",
-            "desc": "Which portfolio properties are stranded 2030 or 2040 per CRREM? What provision for energy haircut? No consolidated tool.",
-            "stat": "~0 LU banks equipped"
+            "title": "Keng Energie-Portfolio-Siicht",
+            "desc": "Wéi eng Portfolio-Immobilie si 2030 oder 2040 gestrandet no CRREM? Wéi eng Réckstellung fir Energie-Haircut? Kee konsolidéierten Outil.",
+            "stat": "~0 LU Banke equipéiert"
           }
         ]
       },
       "howItWorks": {
-        "title": "From credit analysis to risk reporting, three steps",
-        "intro": "You enter the client file. The tool computes market value + mortgage lending value, applies the energy haircut, checks AML/KYC, produces the report.",
+        "title": "Vun der Kredit-Analyse bis zum Risiko-Reporting, dräi Schrëtt",
+        "intro": "Dir gitt d'Clientakt an. Den Outil rechent Maartwäert + Bélégowäert, applizéiert Energie-Haircut, préift AML/KYC, liwwert de Rapport.",
         "steps": [
           {
             "number": "1",
-            "title": "Borrower + property file",
-            "desc": "Borrower profile (resident, non-resident, investor), property (address, surface, energy class, year), amount, duration, rate."
+            "title": "Emprunteur- + Immobilie-Akt",
+            "desc": "Emprunteur-Profil (Resident, Net-Resident, Investisseur), Immobilie (Adress, Fläch, Energieklass, Joer), Betrag, Dauer, Zënssaz."
           },
           {
             "number": "2",
-            "title": "Valuation + CRR + LTV/DSCR",
-            "desc": "EVS 2025 market value (8 methods), CRR mortgage lending value with CRREM haircut, LTV per CSSF profile, DSCR target 1.25, +2% rate and unemployment stress test."
+            "title": "Bewäertung + CRR + LTV/DSCR",
+            "desc": "EVS-2025-Maartwäert (8 Methoden), CRR-Bélégowäert mat CRREM-Haircut, LTV pro CSSF-Profil, DSCR-Zil 1,25, +2 %-Zëns- a Chômage-Stresstest."
           },
           {
             "number": "3",
-            "title": "AML/KYC + risk report",
-            "desc": "EU sanctions, PEP, UBO, source of funds check. Risk PDF report with structured opinion (APPROVED / REVIEW / DECLINED) ready for credit committee."
+            "title": "AML/KYC + Risiko-Rapport",
+            "desc": "EU-Sanktiounen, PEP, UBO, Hierkonft-Suen-Check. Risiko-PDF-Rapport mat strukturéierter Meenung (APPROVED / REVIEW / DECLINED) prett fir de Kredit-Comité."
           }
         ]
       },
       "features": {
-        "title": "Complete bank real estate credit analysis",
-        "intro": "Compliant with EU Regulation 575/2013 (CRR), CSSF requirements, EN 16931, GDPR and EBA guidelines on real estate collateral.",
+        "title": "Komplett Bank-Immobilien-Kredit-Analyse",
+        "intro": "Konform mat der EU-Verordnung 575/2013 (CRR), CSSF-Ufuerderungen, EN 16931, RGPD an EBA-Guidelines zu Immobilien-Sécherheeten.",
         "items": [
           {
-            "title": "EVS 2025 valuation",
-            "desc": "8 TEGOVA methods, 9 asset types, 98 LU commune data, automatic sensitivity. Charte 5th ed. compliant."
+            "title": "EVS-2025-Bewäertung",
+            "desc": "8 TEGOVA-Methoden, 9 Asset-Typen, 98 LU-Gemengen-Daten, automatesch Sensibilitéit. Charte 5e éd. konform."
           },
           {
-            "title": "CRR mortgage lending value",
-            "desc": "Energy haircut per CRREM stranding year, energy class adjustment, compliant with CRR 575/2013 Art. 208."
+            "title": "CRR-Bélégowäert",
+            "desc": "Energie-Haircut pro CRREM-Stranding-Joer, Energieklass-Upassung, konform CRR 575/2013 Art. 208."
           },
           {
-            "title": "LTV / DSCR / capacity",
-            "desc": "Max LTV by profile (80% resident, 70% non-resident, 60% investor), DSCR target 1.25, borrowing capacity."
+            "title": "LTV / DSCR / Kapazitéit",
+            "desc": "Max LTV pro Profil (80 % Resident, 70 % Net-Resident, 60 % Investisseur), DSCR-Zil 1,25, Kreditkapazitéit."
           },
           {
-            "title": "+2% stress test + unemployment",
-            "desc": "Risk simulations: +2% rate, 6-month unemployment, 10-20% value drop. Stressed LTV and DSCR displayed."
+            "title": "+2 %-Stresstest + Chômage",
+            "desc": "Risikosimulatiounen: +2 %-Zëns, 6-Méint-Chômage, 10-20 % Wäertverloscht."
           },
           {
-            "title": "Integrated AML/KYC",
-            "desc": "EU sanctions check (CFSP), PEP, UBO, source of funds. Consolidated audit trail, JSON export."
+            "title": "Integréiert AML/KYC",
+            "desc": "EU-Sanktiounspréiwung (CFSP), PEP, UBO, Hierkonft vun de Suen. Konsolidéierten Audit-Trail, JSON-Export."
           },
           {
-            "title": "CRREM energy portfolio",
-            "desc": "Stranding 2030 / 2040 / 2050 view per property. Energy haircut provision. Renovation tracking."
+            "title": "CRREM-Energie-Portfolio",
+            "desc": "Stranding-Siicht 2030 / 2040 / 2050 pro Immobilie. Energie-Haircut-Réckstellung. Renovéierungs-Tracking."
           },
           {
-            "title": "Risk PDF report",
-            "desc": "APPROVED / REVIEW / DECLINED structured opinion with justification. Pre-committee or credit committee."
+            "title": "Risiko-PDF-Rapport",
+            "desc": "APPROVED / REVIEW / DECLINED strukturéiert Meenung mat Begrënnung. Vir- oder Haapt-Kredit-Comité."
           },
           {
-            "title": "REST API for bank CRM",
-            "desc": "API integration: valuation, LTV, stress test, AML/KYC. Webhook for automatic push."
+            "title": "REST-API fir Bank-CRM",
+            "desc": "API-Integratioun: Bewäertung, LTV, Stresstest, AML/KYC. Webhook fir automatesche Push."
           },
           {
-            "title": "Model transparency",
-            "desc": "Public MAPE and R², 29 sourced hedonic coefficients. Auditability for BCL and CSSF."
+            "title": "Modell-Transparenz",
+            "desc": "Ëffentlech MAPE a R², 29 belegt hedonesch Koeffizienten. Auditéierbarkeet fir BCL a CSSF."
           },
           {
-            "title": "Hotel valuation",
-            "desc": "Hotel-specific methods (RevPAR × multiple capitalisation, hotel DSCR 1.25). For hospitality financing banks."
+            "title": "Hotel-Bewäertung",
+            "desc": "Hotel-spezifesch Methoden (RevPAR × Multiplikator-Kapitaliséierung, Hotel-DSCR 1,25)."
           },
           {
-            "title": "Office + retail DCF",
-            "desc": "Multi-tenant DCF lease by lease. Break options, step rents, planned CAPEX. Equity and project IRR."
+            "title": "Büro + Detailhandel DCF",
+            "desc": "Multi-Locataire-DCF no Bail. Break-Optiounen, Step Rents, geplangtem CAPEX."
           },
           {
-            "title": "Live macro data",
-            "desc": "10-year OAT, mortgage rates, construction index, inflation. ECB + STATEC connection. Monthly updates."
+            "title": "Live-Makro-Daten",
+            "desc": "10-Joer-OAT, Hypothéik-Zënsen, Baukäschten-Index, Inflatioun. EZB + STATEC."
           }
         ]
       },
       "trust": {
-        "title": "Why LU banks consider us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every 2 weeks. Auto-updates for CRR, CRREM regulations and EBA guidelines.",
-        "customTitle": "Custom integration",
-        "customDesc": "Integration with your core banking (Temenos T24, Avaloq, Finastra), internal report format, committee workflow: development in 1 to 3 weeks.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days, by a human who knows CRR and EVS 2025."
+        "title": "Firwat LU Banken eis a Betruecht zéien",
+        "agileTitle": "Agile Entwécklung, regelméisseg Releases",
+        "agileDesc": "Nei Moduler all 2 Wochen geliwwert. Ëffentleche Backlog op github.com/Tevaxia.",
+        "customTitle": "Individuell Entwécklung méiglech",
+        "customDesc": "Spezifesch Upassungen, dedizéiert Integratiounen: Entwécklung an 1 bis 3 Wochen.",
+        "supportTitle": "Support ënner 24 St",
+        "supportDesc": "E-Mail un contact@tevaxia.lu. Duerchschnëttsäntwert ënner 6 Stonnen op Schaffdeeg."
       },
       "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-file billing. All banking tools are included in the general subscription.",
+        "title": "An Ärem tevaxia-Abonnement abegraff",
+        "subtitle": "Keng Facturatioun pro Akt. All Bank-Outillen sinn am allgemengen Abonnement abegraff.",
         "features": [
-          "Unlimited EVS 2025 valuations",
-          "CRR mortgage lending value with CRREM haircut",
-          "LTV / DSCR / borrowing capacity",
-          "+2% and unemployment stress test",
-          "AML/KYC with audit trail",
-          "CRREM stranding energy portfolio",
-          "Structured risk PDF report",
-          "REST API for CRM integration",
-          "Multi-tenant DCF + hotel valuation"
+          "Onlimitéiert EVS-2025-Bewäertungen",
+          "CRR-Bélégowäert mat CRREM-Haircut",
+          "LTV / DSCR / Kreditkapazitéit",
+          "+2 %- a Chômage-Stresstest",
+          "AML/KYC mat Audit-Trail",
+          "CRREM-Stranding-Energie-Portfolio",
+          "Strukturéierte Risiko-PDF-Rapport",
+          "REST-API fir CRM-Integratioun",
+          "Multi-Locataire-DCF + Hotel-Bewäertung"
         ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to banking tools"
+        "ctaPlatform": "tevaxia-Päck kucken",
+        "ctaEmit": "Op d'Bank-Outillen"
       },
       "faq": {
-        "title": "Frequently asked questions",
+        "title": "Dacks gestallten Froen",
         "items": [
           {
-            "q": "How is CRR mortgage lending value computed?",
-            "a": "EVS 2025 market value minus energy haircut based on property energy class and CRREM trajectory. A pre-2030 stranded asset gets a 20-30% haircut, consistent with CRR Art. 208 spirit. Transparent calculation displayed per property."
+            "q": "Wéi gëtt de CRR-Bélégowäert ausgerechent?",
+            "a": "EVS-2025-Maartwäert minus Energie-Haircut op Basis vun der Immobilie-Energieklass an der CRREM-Trajectoire. Een Asset dat virum 2030 gestrandet ass kritt 20-30 % Haircut."
           },
           {
-            "q": "Does AML/KYC cover CSSF requirements?",
-            "a": "Yes: EU sanctions check (CFSP), PEP (politically exposed persons), UBO (ultimate beneficial owner), source of funds. Consolidated audit trail with timestamps. Exportable report for CSSF audits."
+            "q": "Deckt AML/KYC d'CSSF-Ufuerderungen of?",
+            "a": "Jo: EU-Sanktiounspréiwung (CFSP), PEP, UBO, Hierkonft vun de Suen. Konsolidéierten Audit-Trail mat Zäitstempelen. Exportéierbare Rapport fir CSSF-Auditen."
           },
           {
-            "q": "Is the stress test EBA-compliant?",
-            "a": "Yes, default scenarios (+2% rate, 6-month unemployment, 10-20% value drop) match EBA expectations on resilience testing. Parameters adjustable for stricter internal stress tests."
+            "q": "Ass de Stresstest EBA-konform?",
+            "a": "Jo, d'Standardszenarien (+2 %-Zëns, 6-Méint-Chômage, 10-20 % Wäertverloscht) entspriechen den EBA-Erwaardungen un Resilienz-Teschter."
           },
           {
-            "q": "Can we integrate via API with our core banking?",
-            "a": "Yes, REST API with OAuth 2.0 authentication. Endpoints: valuation, LTV, stress test, AML/KYC. Webhook for automatic push to your CRM. Public OpenAPI 3.1 documentation."
+            "q": "Kënne mir iwwer API un eise Core Banking intégréieren?",
+            "a": "Jo, REST-API mat OAuth 2.0. Endpunkten: Bewäertung, LTV, Stresstest, AML/KYC. Webhook fir automatesche Push. Ëffentlech OpenAPI 3.1 Dokumentatioun."
           },
           {
-            "q": "How is BCL and CSSF compliance handled?",
-            "a": "Hedonic model with public MAPE and R² for auditability, 29 sourced coefficients documented, back-test on 20 LU properties. Public /transparence page. Compliance teams can audit the model without special request."
+            "q": "Wéi gëtt d'BCL- a CSSF-Konformitéit behandelt?",
+            "a": "Hedonescht Modell mat ëffentlechem MAPE a R² fir d'Auditéierbarkeet, 29 belegt Koeffizienten dokumentéiert. Ëffentlech /transparence-Säit."
           },
           {
-            "q": "Is client data secure at banking standard?",
-            "a": "Supabase storage (AWS eu-central-1 Frankfurt), user-level Row Level Security, HTTPS in transit, ISO 27001. Strict isolation per organisation: even tevaxia administrators cannot access a bank's data."
+            "q": "Sinn d'Clientendaten op Bankenniveau sécher?",
+            "a": "Supabase-Späicheren (AWS eu-central-1 Frankfurt), Row Level Security, HTTPS, ISO 27001. Strikt Isolatioun pro Organisatioun."
           }
         ]
       },
       "finalCta": {
-        "title": "Ready to accelerate your credit files",
-        "desc": "Create your pilot account, connect a test file and get your valuation + CRR + AML/KYC in 10 minutes. Contact us for a dedicated bank POC.",
-        "cta": "Start for free",
-        "ctaSecondary": "See banking tools"
+        "title": "Prett fir Är Kreditakte méi séier ze maachen",
+        "desc": "Pilot-Kont erstellen, Test-Akt verbannen, Bewäertung + CRR + AML/KYC an 10 Minutte kréien. Kontaktéiert eis fir e Bank-POC.",
+        "cta": "Gratis ufänken",
+        "ctaSecondary": "Bank-Outillen kucken"
       }
     }
   },
@@ -11655,124 +11655,124 @@
   },
   "solutionsHub": {
     "meta": {
-      "title": "Luxembourg real estate solutions by profile — tevaxia.lu",
-      "description": "Syndic, agency, hotel, valuer, investor, individual: find the tevaxia.lu solution built for your role. LU compliance, public data, 5 languages."
+      "title": "Lëtzebuerger Immobilielésungen no Profil : tevaxia.lu",
+      "description": "Syndic, Agence, Hotellerie, Schätzer, Investisseur, Privatpersoun: fannt déi tevaxia.lu-Lésung fir Äre Beruff. LU-Konformitéit, ëffentlech Daten, 5 Sproochen."
     },
     "hero": {
-      "badge": "6 solutions built per role",
-      "title": "Find the solution built for your role",
-      "subtitle": "Each profile has its own legal obligations, workflows and source data specific to the Luxembourg market. Rather than searching across 40+ tools, start with your role."
+      "badge": "6 Lésungen geduecht no Beruff",
+      "title": "Fannt déi Lésung déi zu Ärem Beruff passt",
+      "subtitle": "All Profil huet seng eege rechtlech Flichten, Workflows a Quelldaten, déi spezifesch fir de Lëtzebuerger Maart sinn. Anstatt an 40+ Outillen ze sichen, fänkt bei Ärem Beruff un."
     },
     "personas": {
-      "cta": "See the detailed solution",
+      "cta": "Detailléiert Lésung kucken",
       "syndic": {
-        "title": "Co-ownership syndic",
-        "desc": "Online AGMs with tantième-weighted voting, Factur-X fund calls, LU co-ownership accounting, PSD2 bank reconciliation. Compliant with 16 May 1975 law."
+        "title": "Syndic de copropriété",
+        "desc": "Online-GV mat Ofstëmmung no Tantièmen, Factur-X Fongsopruff, LU Matbesëtz-Komptabilitéit, PSD2 Bankreconciliatioun. Konform Gesetz vum 16. Mee 1975."
       },
       "agence": {
-        "title": "Real estate agency",
-        "desc": "OpenImmo mandate pipeline, contact CRM with /100 buyer matching, drag-drop Kanban, co-branded property PDFs, eIDAS signature."
+        "title": "Immobilienagence",
+        "desc": "OpenImmo Mandatspipeline, Kontakt-CRM mat /100 Keefer-Matching, Drag-Drop Kanban, Co-Branding Immobilie-PDFs, eIDAS-Ënnerschrëft."
       },
       "hotel": {
-        "title": "Hospitality",
-        "desc": "Multi-property PMS, USALI 19-category auto-posting folios, LU VAT 3%/8%/17% invoicing, 90-day forecast, iCal OTA."
+        "title": "Hotellerie",
+        "desc": "Multi-Etablissement-PMS, USALI 19 Kategorien Auto-Posting-Folios, LU TVA 3 %/8 %/17 % Rechnung, 90-Deeg-Forecast, iCal OTA."
       },
       "expert-evaluateur": {
-        "title": "Valuer / Expert",
-        "desc": "TEGOVA EVS 2025 compliant report in 20 min, 8 methods, 9 asset types, auto-filled data (98 communes + 12 macro series)."
+        "title": "Schätzer / Expert",
+        "desc": "TEGOVA EVS 2025-konforme Rapport an 20 min, 8 Methoden, 9 Asset-Typen, automatesch ausgefëllt Daten (98 Gemengen + 12 Makro-Serien)."
       },
       "investisseur": {
-        "title": "Investor",
-        "desc": "Yield simulator with Bëllegen Akt, multi-tenant DCF, VEFA interim interest, LU capital gains, multi-asset portfolio."
+        "title": "Investisseur",
+        "desc": "Rendementsimulator mat Bëllegen Akt, Multi-Locataire-DCF, VEFA-Zwëschenzënsen, LU Plus-valuen, Multi-Asset-Portfolio."
       },
       "particulier": {
-        "title": "Individual",
-        "desc": "Estimation, acquisition fees with Bëllegen Akt, 5 layers of stackable aids (Klimabonus included), legal 5% rent cap."
+        "title": "Privatpersoun",
+        "desc": "Schätzung, Acquisitiounskäschten mat Bëllegen Akt, 5 Schichten vu kumuléierbaren Aiden (Klimabonus abegraff), legale 5 %-Loyer-Plafong."
       }
     },
     "compare": {
-      "title": "Quick comparator",
-      "intro": "If you hesitate between two profiles, compare daily usage, legal compliance and implemented standards.",
-      "profileCol": "Profile",
-      "dailyCol": "Daily usage",
-      "complianceCol": "LU compliance",
+      "title": "Schnelle Komparator",
+      "intro": "Wann Dir tëscht zwee Profiler zéckt, vergläicht den alldeegleche Gebrauch, déi legal Konformitéit an déi implementéiert Standards.",
+      "profileCol": "Profil",
+      "dailyCol": "Alldeegleche Gebrauch",
+      "complianceCol": "LU-Konformitéit",
       "standardsCol": "Standards",
       "rows": {
         "syndic": {
-          "daily": "Run AGMs, fund calls, unpaid reminders, co-ownership accounting",
-          "compliance": "16 May 1975 law, VAT art. 44 §1 f exemption",
+          "daily": "GV, Fongsopruff, Rappelen, Matbesëtz-Komptabilitéit geréieren",
+          "compliance": "Gesetz vum 16. Mee 1975, TVA Art. 44 §1 f Befreiung",
           "standards": "EN 16931, Peppol, ISO 20022"
         },
         "agence": {
-          "daily": "Mandates, contacts, portal distribution, buyer matching",
-          "compliance": "eIDAS EU 910/2014, GDPR consent",
+          "daily": "Mandater, Kontakter, Portalverdeelung, Keefer-Matching",
+          "compliance": "eIDAS UE 910/2014, RGPD Zoustëmmung",
           "standards": "OpenImmo 1.2.8, eIDAS"
         },
         "hotel": {
-          "daily": "Reservations, folios, invoicing, revenue management",
-          "compliance": "3% accommodation VAT, communal city tax",
+          "daily": "Reservatiounen, Folios, Rechnung, Revenue Management",
+          "compliance": "3 %-Logement-TVA, kommunal Séjour-Taxe",
           "standards": "USALI 11th ed., STR, iCal"
         },
         "expert-evaluateur": {
-          "daily": "Property valuations, reports, field inspections",
-          "compliance": "TEGOVA EVS 2025, Charte 5th ed.",
+          "daily": "Immobilie-Bewäertungen, Rapporten, Feldinspektiounen",
+          "compliance": "TEGOVA EVS 2025, Charte 5e éd.",
           "standards": "EVS 2025, Red Book, RICS"
         },
         "investisseur": {
-          "daily": "Yield, DCF, financing simulations, portfolio",
-          "compliance": "Bëllegen Akt, LU capital gains, CSSF rules",
-          "standards": "CRR, ECB, Basel III"
+          "daily": "Rendement, DCF, Finanzéierungssimulatiounen, Portfolio",
+          "compliance": "Bëllegen Akt, LU Plus-valuen, CSSF-Reegelen",
+          "standards": "CRR, EZB, Basel III"
         },
         "particulier": {
-          "daily": "Estimation, fees, aids, buy/rent comparison",
-          "compliance": "21.09.2006 law, 5% rule, Klimabonus",
+          "daily": "Schätzung, Käschten, Aiden, Kaaf/Locatioun-Vergläich",
+          "compliance": "Gesetz 21.09.2006, 5 %-Reegel, Klimabonus",
           "standards": "IRL, Observatoire Habitat, STATEC"
         }
       }
     },
     "faq": {
-      "title": "Questions common to all 6 profiles",
-      "intro": "About the pricing model, custom work, support, security and migration.",
+      "title": "Gemeinsam Froe fir déi 6 Profiler",
+      "intro": "Zum Präismodell, zur individueller Entwécklung, zum Support, zur Sécherheet an zur Migratioun.",
       "items": [
         {
-          "q": "How much does the tevaxia subscription cost?",
-          "a": "No per-module or per-user billing within each profile. A single tevaxia subscription gives access to all tools for your role, without quotas or volume limits. Full pricing on the /pricing page."
+          "q": "Wéivill kascht den tevaxia-Abonnement?",
+          "a": "Keng Facturatioun pro Modul oder pro Benotzer bannent all Profil. Een eenzegen tevaxia-Abonnement gëtt Zougang zu alle Outillen fir Äre Beruff, ouni Quoten oder Volumelimitten. Komplett Präisopstellung op der /pricing-Säit."
         },
         {
-          "q": "Can I request custom development?",
-          "a": "Yes. A specific format (convocation, report, accounting export), an atypical calculation (custom weighting, proprietary business rule), a dedicated integration: development in 1 to 3 weeks depending on complexity. Free quote."
+          "q": "Kann ech eng individuell Entwécklung ufroen?",
+          "a": "Jo. Spezifescht Format, atypesch Berechnung, dedizéiert Integratioun: Entwécklung an 1 bis 3 Wochen no Komplexitéit. Gratis Devis."
         },
         {
-          "q": "What's the support response time?",
-          "a": "Average response under 6 hours on business days, maximum 24 hours. Email contact@tevaxia.lu. No chatbot, no numbered tickets: you speak with a human who knows the product."
+          "q": "Wat ass d'Support-Äntwertzäit?",
+          "a": "Duerchschnëttsäntwert ënner 6 Stonnen op Schaffdeeg, maximal 24 Stonnen. E-Mail un contact@tevaxia.lu. Kee Chatbot, keng nummeréiert Ticketen: Dir schwätzt mat engem Mënsch, deen d'Produkt kennt."
         },
         {
-          "q": "Is data hosted in the EU?",
-          "a": "Yes. Supabase (AWS eu-central-1, Frankfurt) with user-level Row Level Security, HTTPS in transit, GDPR compliant. Full data export to ZIP at any time (GDPR article 20)."
+          "q": "Sinn d'Donnéeën an der EU gehost?",
+          "a": "Jo. Supabase (AWS eu-central-1, Frankfurt) mat user-baséiert Row Level Security, HTTPS, RGPD-konform. Komplette Datenexport als ZIP zu all Moment."
         },
         {
-          "q": "How do I migrate from another tool?",
-          "a": "CSV or Excel import depending on data type. Automatic column mapping with preview. Free migration assistance: we help you import the first dataset."
+          "q": "Wéi migréieren ech vun engem aneren Outil?",
+          "a": "CSV- oder Excel-Import no der Datenaart. Automatescht Kolonn-Mapping mat Virschau. Gratis Migratiouns-Hëllef."
         },
         {
-          "q": "What's the release cadence?",
-          "a": "Releases every 2 weeks on average. Public backlog on github.com/Tevaxia, your requests are visible and can be prioritised. Auto-updated: no version to install, everything runs SaaS."
+          "q": "Wéi dacks ginn d'Updates verëffentlecht?",
+          "a": "Releases am Schnëtt all 2 Wochen. Ëffentleche Backlog op github.com/Tevaxia. Auto-Updates: näischt z'installéieren."
         },
         {
-          "q": "Is tevaxia multilingual?",
-          "a": "Yes, 5 languages: French, English, German, Portuguese and Luxembourgish. Every page, every PDF, every notification is available in all 5 languages. Persona landings are currently complete in FR and EN, with DE/LB/PT being translated."
+          "q": "Ass tevaxia multilingual?",
+          "a": "Jo, 5 Sproochen: Franséisch, Englesch, Däitsch, Portugisesch a Lëtzebuergesch. D'Persona-Landings si momentan komplett op FR an EN, mat DE/LB/PT an der Iwwersetzung."
         },
         {
-          "q": "Can tevaxia be used outside Luxembourg?",
-          "a": "The platform is primarily calibrated for the Luxembourg legal framework (3% VAT, Bëllegen Akt, 5% rule, TEGOVA). Some modules also work for France and Belgium (Factur-X, DCF, buy/rent comparator). For cross-border usage, contact us to confirm coverage."
+          "q": "Kann een tevaxia ausserhalb vu Lëtzebuerg benotzen?",
+          "a": "D'Plattform ass haaptsächlech fir de Lëtzebuerger Rechtsrahmen kalibréiert (3 % TVA, Bëllegen Akt, 5 %-Reegel, TEGOVA). E puer Moduler funktionéieren och fir Frankräich a Belsch (Factur-X, DCF, Kaaf/Locatioun-Komparator)."
         }
       ]
     },
     "orientation": {
-      "title": "Not sure which profile matches you?",
-      "desc": "Write us your activity in 2 lines, we'll direct you to the most suitable solution within 24 hours.",
-      "ctaContact": "Email contact@tevaxia.lu",
-      "ctaHome": "Back to home"
+      "title": "Net sécher wéi ee Profil zu Iech passt?",
+      "desc": "Schreift eis Är Tätegkeet op 2 Zeilen, mir orientéieren Iech a manner wéi 24 Stonnen op déi passend Lésung.",
+      "ctaContact": "E-Mail un contact@tevaxia.lu",
+      "ctaHome": "Zréck op d'Startsäit"
     }
   }
 }
