@@ -5847,1480 +5847,1480 @@
     }
   },
   "solutions": {
-    "agence": {
+    "syndic": {
       "meta": {
-        "title": "Real estate agency CRM Luxembourg — mandate pipeline, matching, OpenImmo",
-        "description": "Centralise mandates, contacts and tasks in one CRM built for LU agencies. Automatic buyer matching, co-branded property PDFs, eIDAS signature."
+        "title": "Software de administração de condomínios Luxemburgo, conforme lei 16.05.1975",
+        "description": "Administre os seus condomínios sem fins de semana no Excel: assembleias gerais em linha, chamadas de fundos Factur-X, contabilidade LU, reconciliação bancária PSD2. Teste gratuito."
       },
       "hero": {
-        "badge": "Real estate CRM for LU agencies",
-        "title": "Your mandate pipeline in",
-        "titleAccent": "one tool, not four",
-        "subtitle": "OpenImmo-format mandate management, contact CRM with automatic buyer matching, drag-drop Kanban, co-branded property PDFs and eIDAS electronic signature. Built for Luxembourg real estate agencies tired of juggling multiple tools.",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
+        "badge": "Concebido para condomínios luxemburgueses",
+        "title": "A sua administração de condomínios, sem",
+        "titleAccent": "fins de semana no Excel",
+        "subtitle": "Assembleias gerais em linha com voto ponderado por permilagens, chamadas de fundos em conformidade Factur-X, contabilidade de condomínio luxemburguesa e reconciliação bancária automática. Concebido para administradores de condomínio profissionais cansados de gerir quatro ferramentas em paralelo.",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver como funciona",
         "kpis": [
           {
-            "value": "/100",
-            "label": "buyer matching score"
+            "value": "15 h",
+            "label": "poupadas por AG"
           },
           {
-            "value": "OpenImmo",
-            "label": "LU/DE standard format"
+            "value": "100 %",
+            "label": "conforme lei 16.05.1975"
           },
           {
             "value": "<24 h",
-            "label": "support response time"
+            "label": "tempo de resposta do suporte"
           }
         ]
       },
       "problem": {
-        "title": "Your business runs on several tools that don't talk to each other",
-        "intro": "Mandates in Excel, contacts in Gmail, tasks in Notion, visits on WhatsApp. Every piece of info lives in a different place and nothing makes it back to the decision-maker.",
+        "title": "Administrar um condomínio no Luxemburgo em 2026 não devia continuar a ter este aspeto",
+        "intro": "Entre a lei de 16 de maio de 1975, as chamadas de fundos trimestrais, as cobranças, a preparação das AG e a contabilidade, a semana de um administrador enche-se sozinha. A menos que as ferramentas certas aliviem a carga.",
         "items": [
           {
-            "title": "Mandates scattered across 3 tools",
-            "desc": "Between the agency CRM, portal distribution, tracker spreadsheet and email threads, you can't see a mandate's status at a glance.",
-            "stat": "~4 parallel tools"
+            "title": "Preparação de AG em 3 dias",
+            "desc": "Convocatórias com 15 dias, ordem do dia a redigir, procurações a recolher, ata a escrever mais tarde. O trabalho administrativo absorve o tempo que devia ser dedicado aos temas de fundo.",
+            "stat": "~15 horas por AG"
           },
           {
-            "title": "Buyer matching done by feel",
-            "desc": "A new mandate comes in, you scan your buyer database manually. Radius, budget, type, project date: all scattered, so candidates get missed.",
-            "stat": "30-40% missed matches"
+            "title": "Cobranças feitas à mão",
+            "desc": "Seguir quem deve o quê, controlar prazos, calcular juros legais, preparar cartas registadas. Sem ferramenta dedicada, algo escapa sempre, e a tesouraria sofre.",
+            "stat": "3-7 % cronicamente por cobrar"
           },
           {
-            "title": "Manual portal distribution",
-            "desc": "Property entered on athome, immotop, wort; re-entered when price changes. Inconsistencies between portals hurt your brand.",
-            "stat": "~45 min per distribution"
+            "title": "Excel, banco e contabilidade em paralelo",
+            "desc": "Reconciliar recebimentos com as chamadas de fundos, lançar em contabilidade, montar os anexos da AG a partir de três origens. Cada etapa é uma oportunidade de erro.",
+            "stat": "4 ferramentas em média"
           }
         ]
       },
       "howItWorks": {
-        "title": "One CRM, three steps",
-        "intro": "No 2-day training, no risky migration. Import your contacts, create your first mandate, matching runs automatically.",
+        "title": "Uma plataforma, três passos",
+        "intro": "Sem migração complexa, sem formação de dois dias. Importa os seus condomínios, configura uma vez as chaves de repartição, e a ferramenta assume o resto.",
         "steps": [
           {
             "number": "1",
-            "title": "Contacts imported via CSV",
-            "desc": "Import your existing buyer database. Automatic column mapping. Up to 10,000 contacts in 2 minutes."
+            "title": "Os seus condomínios importados",
+            "desc": "Importação Excel, introdução manual ou API. Lotes, permilagens, condóminos, contratos, histórico contabilístico. Funciona com qualquer administrador já estruturado."
           },
           {
             "number": "2",
-            "title": "Mandates in Kanban pipeline",
-            "desc": "Create mandate in OpenImmo format. Drag-drop Kanban by status. One-click distribution to athome / immotop / wort."
+            "title": "AG e chamadas de fundos funcionam sozinhas",
+            "desc": "Convocatórias PDF por lote, voto eletrónico ponderado por permilagens, ata gerada automaticamente. Chamadas de fundos Factur-X conformes EN 16931 enviadas aos condóminos com referência SEPA."
           },
           {
             "number": "3",
-            "title": "Automatic /100 matching",
-            "desc": "As soon as a mandate or buyer enters the database, the algorithm computes matches. You get a score-sorted list, ready to contact."
+            "title": "Contabilidade que se escreve sozinha",
+            "desc": "Cada chamada de fundos, cada recebimento, cada despesa lançada flui para o diário contabilístico. Os 5 anexos da AG são gerados em PDF com um clique."
           }
         ]
       },
       "features": {
-        "title": "The features that actually save time",
-        "intro": "Built for teams of 1 to 20 agents, with workflows from the Luxembourg real estate market.",
+        "title": "Tudo o que um administrador de condomínios luxemburguês precisa mesmo",
+        "intro": "Funcionalidades concebidas para o enquadramento legal do Grão-Ducado: lei de 16 de maio de 1975, regras de maioria em AG, isenção de IVA art. 44 §1 f, arquivo de 10 anos.",
         "items": [
           {
-            "title": "Kanban mandate pipeline",
-            "desc": "Drag-drop between statuses, view by agent, city or price. Saved filters."
+            "title": "AG em linha com voto ponderado",
+            "desc": "Voto eletrónico ponderado por permilagens, maiorias simples / absoluta / dupla / unanimidade tratadas automaticamente."
           },
           {
-            "title": "Native OpenImmo format",
-            "desc": "Standard XML OpenImmo 1.2.8 export, compatible with athome.lu, immotop.lu, wort.lu, immoscout24.de."
+            "title": "Convocatórias + ata em PDF",
+            "desc": "Convocatória por lote com ordem do dia legal, ata gerada automaticamente após a AG com os resultados dos votos."
           },
           {
-            "title": "/100 buyer matching",
-            "desc": "Score based on budget, radius, type, surface, EPC, project date. Sortable and exportable."
+            "title": "Chamadas de fundos Factur-X",
+            "desc": "PDF/A-3 + XML CII D22B conforme EN 16931, referência de mandato SEPA, isenção art. 261 D CGI aplicada."
           },
           {
-            "title": "Complete contact CRM",
-            "desc": "CSV import, tags, interactions, tasks, history. Bidirectional Gmail sync."
+            "title": "Cobranças em 3 níveis",
+            "desc": "Lembrete amigável, carta registada, intimação de pagamento. Juros legais luxemburgueses calculados automaticamente."
           },
           {
-            "title": "Co-branded property PDFs",
-            "desc": "Logo, brand guidelines, REV legal notice. Generated in 10 seconds."
+            "title": "5 anexos contabilísticos da AG",
+            "desc": "Balanço, diário, orçamento, repartição de despesas, estado de dívidas. PDFs prontos a distribuir."
           },
           {
-            "title": "Visit slip PDFs",
-            "desc": "With timeline log and electronic signature. Legally valid."
+            "title": "Reconciliação bancária PSD2",
+            "desc": "Ligação à BCEE, BIL, Banque Raiffeisen, Post Finance via Enable Banking. Reconciliação automática."
           },
           {
-            "title": "eIDAS mandate signature",
-            "desc": "Advanced electronic signature (eIDAS), legally binding in Luxembourg."
+            "title": "Chaves de repartição configuráveis",
+            "desc": "Permilagens gerais, permilagens de exploração, despesas especiais por escada/edifício, quotas individualizadas."
           },
           {
-            "title": "Nurturing sequences",
-            "desc": "Drip campaigns to warm up lukewarm buyers: 3 to 7 automatic emails."
+            "title": "Portal do condómino",
+            "desc": "Cada condómino tem a sua área: voto, extrato de conta, convocatórias, atas, pagamento em linha."
           },
           {
-            "title": "Email templates (10 models)",
-            "desc": "Offer, introduction, follow-up, visit confirmation, mandate termination, etc."
+            "title": "10 modelos de cartas editáveis",
+            "desc": "Cobranças, convocatórias, notificações formais, procurações. Totalmente personalizáveis, exportação DOCX / PDF / Google Drive."
           },
           {
-            "title": "Agent commissions",
-            "desc": "Automatic quarterly commission calculation per agent. Accounting export."
+            "title": "OCR de faturas gratuito",
+            "desc": "Carrega as faturas de fornecedores, extração automática via PDF.js + Tesseract.js. Zero introdução manual."
           },
           {
-            "title": "Agent performance",
-            "desc": "Ranking: mandates signed, sales, revenue, commissions. Anonymous inter-agency benchmark."
+            "title": "Transferências SEPA em lote",
+            "desc": "Geração de XML pain.001 para pagamentos agrupados a fornecedores, compatível com todos os bancos luxemburgueses."
           },
           {
-            "title": "Buyer portal",
-            "desc": "Dedicated space for each buyer: offered properties, documents, messages."
+            "title": "Benchmark de despesas",
+            "desc": "Comparação das suas despesas por m² com a média luxemburguesa por tipo de fração e ano de construção."
           }
         ]
       },
       "trust": {
-        "title": "Why LU agencies choose us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every 2 weeks. Public backlog, your requests go to production fast.",
-        "customTitle": "Custom integrations",
-        "customDesc": "A specific portal (athome, immoscout24.de, idealista), a particular accounting export: we build it in 1 to 3 weeks.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days. A human, not a chatbot."
+        "title": "Porque é que os administradores de condomínio LU nos escolhem",
+        "agileTitle": "Desenvolvimento ágil, releases regulares",
+        "agileDesc": "Novos módulos entregues a cada 2 semanas. Backlog público, os seus pedidos passam rapidamente a produção.",
+        "customTitle": "Desenvolvimento à medida disponível",
+        "customDesc": "Formato de convocatória específico, cálculo de permilagem invulgar, exportação para a sua contabilidade: desenvolvimento em 1 a 3 semanas.",
+        "supportTitle": "Suporte em menos de 24 h",
+        "supportDesc": "E-mail para contact@tevaxia.lu. Resposta média em menos de 6 horas nos dias úteis. Sem números de ticket, sem chatbot."
       },
       "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-mandate billing, no per-contact billing. The entire CRM is included in the general subscription.",
+        "title": "Incluído na sua subscrição tevaxia",
+        "subtitle": "Sem faturação por condomínio, sem quota de AG, sem módulo premium. Tudo disponível em freemium para testar, na subscrição geral para utilização diária.",
         "features": [
-          "Unlimited OpenImmo-format mandates",
-          "Unlimited contacts with CSV import",
-          "Automatic /100 buyer matching",
-          "Drag-drop Kanban pipeline",
-          "Co-branded property PDFs",
-          "Visit slips and eIDAS signature",
-          "Automated nurturing sequences",
-          "Agent commissions and performance",
-          "10 editable email templates"
+          "Condomínios ilimitados",
+          "AG em linha com voto ponderado por permilagens",
+          "Chamadas de fundos Factur-X conformes EN 16931",
+          "Contabilidade de condomínio luxemburguesa",
+          "Reconciliação bancária PSD2 (Enable Banking)",
+          "Portal do condómino com acesso individual",
+          "5 anexos contabilísticos PDF da AG",
+          "Cobranças 3 níveis com juros LU",
+          "Conforme lei de 16 de maio de 1975"
         ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to the CRM"
+        "ctaPlatform": "Ver planos tevaxia",
+        "ctaEmit": "Ir para o módulo de administração"
       },
       "faq": {
-        "title": "Frequently asked questions",
+        "title": "Perguntas frequentes",
         "items": [
           {
-            "q": "Is it compatible with athome.lu and LU portals?",
-            "a": "Yes, the OpenImmo 1.2.8 export is the standard format accepted by athome.lu, immotop.lu, wort.lu, as well as immoscout24.de and idealista.it/pt. One-click distribution to connected portals."
+            "q": "Estou a mudar de [outra ferramenta] para a tevaxia, como migrar?",
+            "a": "Importação Excel padrão (lotes, condóminos, histórico de despesas), depois configuração das chaves de repartição. A retoma de um exercício a decorrer demora 2 a 4 horas. Acompanhamos sem custos adicionais."
           },
           {
-            "q": "How does buyer matching work?",
-            "a": "The algorithm compares each mandate to each buyer on 6 weighted criteria: budget, geographic radius, property type, surface, energy class, project date. Result: a score out of 100 with breakdown per criterion."
+            "q": "A ferramenta está conforme ao direito luxemburguês do condomínio?",
+            "a": "Sim, a lei de 16 de maio de 1975 está integrada: maiorias simples / absoluta / dupla / unanimidade, prazo de convocatória de 15 dias, obrigações contabilísticas, arquivo de 10 anos."
           },
           {
-            "q": "I'm coming from another CRM, how do I migrate?",
-            "a": "Standard CSV import (contacts, mandates, history). Automatic column mapping with preview. Most agencies are operational in 2 to 4 hours. Migration assistance at no extra cost."
+            "q": "Uma AG em linha tem valor legal?",
+            "a": "Sim, desde que o regulamento do condomínio o permita ou que uma deliberação anterior de AG física o tenha autorizado. A prática generalizou-se no Luxemburgo desde 2020."
           },
           {
-            "q": "Can I manage multiple agencies / agents with separate roles?",
-            "a": "Yes, the module supports multi-entity organisations with roles (admin, agent, assistant). Each agent only sees mandates and contacts assigned to them."
+            "q": "As chamadas de fundos podem ser emitidas para condomínios isentos de IVA?",
+            "a": "Sim, o art. 44 §1 f da lei do IVA isenta a administração de condomínios. O módulo aplica automaticamente a isenção correta."
           },
           {
-            "q": "Is eIDAS signature legally valid?",
-            "a": "Yes, the advanced eIDAS electronic signature (EU regulation 910/2014) has legal value equivalent to a handwritten signature in Luxembourg and throughout the EU."
+            "q": "Os dados dos condóminos estão seguros?",
+            "a": "Armazenados no Supabase (AWS eu-central-1 Frankfurt) com Row Level Security, conforme RGPD, encriptação HTTPS."
           },
           {
-            "q": "Is contact data GDPR-secure?",
-            "a": "Data stored on Supabase (AWS eu-central-1 Frankfurt), user-level Row Level Security, HTTPS in transit. Full data export to ZIP at any time (GDPR article 20)."
+            "q": "Quanto tempo até estar operacional?",
+            "a": "Um administrador com 1 a 5 condomínios fica operacional em 1 a 2 horas. Acima de 10 condomínios, 4 a 6 horas para importação completa."
           }
         ]
       },
       "finalCta": {
-        "title": "Ready to consolidate your business",
-        "desc": "Create your account, import your contact database and run your first matching in 15 minutes. Zero commitment.",
-        "cta": "Start for free",
-        "ctaSecondary": "See the CRM live"
+        "title": "Pronto para recuperar os seus serões",
+        "desc": "Criar uma conta gratuita, importar o primeiro condomínio, gerar uma chamada de fundos de teste em 15 minutos. Zero compromisso.",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver o módulo de administração em direto"
+      }
+    },
+    "agence": {
+      "meta": {
+        "title": "CRM imobiliário Luxemburgo, pipeline de mandatos, matching, OpenImmo",
+        "description": "Centralize mandatos, contactos e tarefas num CRM concebido para agências LU. Matching automático de compradores, PDFs de imóvel em co-branding, assinatura eIDAS."
+      },
+      "hero": {
+        "badge": "CRM imobiliário para agências LU",
+        "title": "A sua pipeline de mandatos numa",
+        "titleAccent": "só ferramenta, não em quatro",
+        "subtitle": "Gestão de mandatos em formato OpenImmo, CRM de contactos com matching automático de compradores, kanban drag and drop, PDFs de imóvel em co-branding e assinatura eletrónica eIDAS. Concebido para agentes imobiliários luxemburgueses cansados de fazer malabarismo com várias ferramentas.",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver como funciona",
+        "kpis": [
+          {
+            "value": "/100",
+            "label": "pontuação de matching de compradores"
+          },
+          {
+            "value": "OpenImmo",
+            "label": "formato padrão LU/DE"
+          },
+          {
+            "value": "<24 h",
+            "label": "tempo de resposta do suporte"
+          }
+        ]
+      },
+      "problem": {
+        "title": "O seu negócio funciona em várias ferramentas que não comunicam entre si",
+        "intro": "Mandatos no Excel, contactos no Gmail, tarefas no Notion, visitas no WhatsApp. Cada informação vive num sítio diferente, e nada chega ao decisor.",
+        "items": [
+          {
+            "title": "Mandatos espalhados por 3 ferramentas",
+            "desc": "Entre o CRM da agência, a difusão nos portais, a folha de acompanhamento e os tópicos de e-mail, é impossível ver o estado de um mandato num só olhar.",
+            "stat": "~4 ferramentas em paralelo"
+          },
+          {
+            "title": "Matching de compradores feito a olho",
+            "desc": "Entra um novo mandato, percorre a base de compradores à mão. Raio, orçamento, tipo, data do projeto: tudo disperso, pelo que se esquecem candidatos.",
+            "stat": "30-40 % de matches falhados"
+          },
+          {
+            "title": "Difusão manual nos portais",
+            "desc": "Imóvel introduzido em athome, immotop, wort; reintroduzido à primeira alteração de preço. As incoerências entre portais prejudicam a imagem da marca.",
+            "stat": "~45 min por difusão"
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "Um CRM, três passos",
+        "intro": "Sem formação de dois dias, sem migração arriscada. Importa os contactos, cria o primeiro mandato, o matching é lançado automaticamente.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Contactos importados via CSV",
+            "desc": "Importação da sua base de compradores existente. Mapeamento de colunas automático. Até 10.000 contactos em 2 minutos."
+          },
+          {
+            "number": "2",
+            "title": "Mandatos em pipeline kanban",
+            "desc": "Cria um mandato em formato OpenImmo. Kanban drag and drop por estado. Difusão com um clique para athome / immotop / wort."
+          },
+          {
+            "number": "3",
+            "title": "Matching automático /100",
+            "desc": "Assim que entra um mandato ou um comprador na base, o algoritmo calcula os matches. Recebe uma lista ordenada por pontuação, pronta a contactar."
+          }
+        ]
+      },
+      "features": {
+        "title": "As funcionalidades que poupam mesmo tempo",
+        "intro": "Concebidas para equipas de 1 a 20 agentes, com fluxos extraídos do mercado imobiliário luxemburguês.",
+        "items": [
+          {
+            "title": "Pipeline de mandatos kanban",
+            "desc": "Drag and drop entre estados, vista por agente, cidade ou preço. Filtros guardados."
+          },
+          {
+            "title": "Formato OpenImmo nativo",
+            "desc": "Exportação XML padrão OpenImmo 1.2.8, compatível com athome.lu, immotop.lu, wort.lu, immoscout24.de."
+          },
+          {
+            "title": "Matching de compradores /100",
+            "desc": "Pontuação baseada em orçamento, raio, tipo, área, classe energética, data do projeto. Ordenável e exportável."
+          },
+          {
+            "title": "CRM de contactos completo",
+            "desc": "Importação CSV, etiquetas, interações, tarefas, histórico. Sincronização Gmail bidirecional."
+          },
+          {
+            "title": "PDFs de imóvel em co-branding",
+            "desc": "Logótipo, identidade gráfica, menção legal REV. Gerados em 10 segundos."
+          },
+          {
+            "title": "Guias de visita em PDF",
+            "desc": "Com registo cronológico e assinatura eletrónica. Validade jurídica."
+          },
+          {
+            "title": "Assinatura eIDAS de mandatos",
+            "desc": "Assinatura eletrónica avançada (eIDAS), juridicamente vinculativa no Luxemburgo."
+          },
+          {
+            "title": "Sequências de nurturing",
+            "desc": "Campanhas drip para aquecer compradores mornos: 3 a 7 e-mails automáticos."
+          },
+          {
+            "title": "Modelos de e-mail (10 modelos)",
+            "desc": "Proposta, apresentação, seguimento, confirmação de visita, rescisão de mandato, etc."
+          },
+          {
+            "title": "Comissões dos agentes",
+            "desc": "Cálculo automático trimestral das comissões por agente. Exportação contabilística."
+          },
+          {
+            "title": "Desempenho dos agentes",
+            "desc": "Classificação: mandatos assinados, vendas, volume de negócios, comissões. Benchmark anónimo inter-agências."
+          },
+          {
+            "title": "Portal do comprador",
+            "desc": "Área dedicada para cada comprador: imóveis propostos, documentos, mensagens."
+          }
+        ]
+      },
+      "trust": {
+        "title": "Porque é que as agências LU nos escolhem",
+        "agileTitle": "Desenvolvimento ágil, releases regulares",
+        "agileDesc": "Novos módulos entregues a cada 2 semanas. Backlog público em github.com/Tevaxia.",
+        "customTitle": "Desenvolvimento à medida possível",
+        "customDesc": "Adaptações específicas, integrações dedicadas: desenvolvimento em 1 a 3 semanas.",
+        "supportTitle": "Suporte em menos de 24 h",
+        "supportDesc": "E-mail para contact@tevaxia.lu. Resposta média em menos de 6 horas nos dias úteis."
+      },
+      "pricing": {
+        "title": "Incluído na sua subscrição tevaxia",
+        "subtitle": "Sem faturação por mandato, sem faturação por contacto. Todo o CRM está incluído na subscrição geral.",
+        "features": [
+          "Mandatos OpenImmo ilimitados",
+          "Contactos ilimitados com importação CSV",
+          "Matching automático de compradores /100",
+          "Pipeline kanban drag and drop",
+          "PDFs de imóvel em co-branding",
+          "Guias de visita e assinatura eIDAS",
+          "Sequências de nurturing automatizadas",
+          "Comissões e desempenho dos agentes",
+          "10 modelos de e-mail editáveis"
+        ],
+        "ctaPlatform": "Ver planos tevaxia",
+        "ctaEmit": "Ir para o CRM"
+      },
+      "faq": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "q": "É compatível com o athome.lu e os portais LU?",
+            "a": "Sim, a exportação OpenImmo 1.2.8 é o formato padrão aceite pelo athome.lu, immotop.lu, wort.lu, assim como pelo immoscout24.de e idealista.it/pt."
+          },
+          {
+            "q": "Como funciona o matching de compradores?",
+            "a": "O algoritmo compara cada mandato com cada comprador segundo 6 critérios ponderados: orçamento, raio, tipo, área, classe energética, data do projeto."
+          },
+          {
+            "q": "Venho de outro CRM, como migro?",
+            "a": "Importação CSV padrão. Mapeamento automático das colunas com pré-visualização. A maioria das agências fica operacional em 2 a 4 horas. Acompanhamento na migração gratuito."
+          },
+          {
+            "q": "Posso gerir várias agências / agentes com papéis separados?",
+            "a": "Sim, organizações multi-entidade com papéis (Admin, Agente, Assistente). Cada agente só vê os mandatos e contactos que lhe estão atribuídos."
+          },
+          {
+            "q": "A assinatura eIDAS tem valor jurídico?",
+            "a": "Sim, a assinatura eletrónica avançada eIDAS (Regulamento UE 910/2014) tem validade jurídica equivalente à assinatura manuscrita."
+          },
+          {
+            "q": "Os dados dos contactos estão seguros em matéria de RGPD?",
+            "a": "Dados no Supabase (AWS eu-central-1 Frankfurt), Row Level Security por utilizador, HTTPS. Exportação completa dos dados em ZIP a qualquer momento."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Pronto para consolidar o seu negócio",
+        "desc": "Criar uma conta, importar a base de contactos, lançar o primeiro matching em 15 minutos. Zero compromisso.",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver o CRM em direto"
       }
     },
     "hotel": {
       "meta": {
-        "title": "Hotel PMS Luxembourg — USALI folios, 3% VAT, forecast, channel manager",
-        "description": "Property Management System built for Luxembourg hospitality: auto-posting USALI 19 categories, LU 3% VAT invoicing, 90-day forecast, iCal OTA."
+        "title": "PMS hoteleiro Luxemburgo, folios USALI, IVA 3 %, forecast, channel manager",
+        "description": "Property Management System concebido para a hotelaria luxemburguesa: auto-posting USALI 19 categorias, faturação IVA LU 3 %, forecast a 90 dias, iCal OTA."
       },
       "hero": {
-        "badge": "Multi-property PMS for LU",
-        "title": "Your hotel PMS tuned for",
-        "titleAccent": "LU 3% VAT and USALI",
-        "subtitle": "Complete Property Management System: rooms, rate plans, reservations, folios with USALI 19-category auto-posting, LU VAT 3%/8%/17% invoicing, 90-day forecast, iCal channel manager. Built for Luxembourg hoteliers who want a complete tool without the traditional PMS monthly bill.",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
+        "badge": "PMS multi-propriedade para LU",
+        "title": "O seu PMS hoteleiro alinhado com",
+        "titleAccent": "o IVA LU a 3 % e o USALI",
+        "subtitle": "Property Management System completo: quartos, rate plans, reservas, folios com auto-posting USALI 19 categorias, faturação IVA LU 3 %/8 %/17 %, forecast a 90 dias, channel manager iCal. Concebido para hoteleiros luxemburgueses que querem uma ferramenta completa sem a fatura mensal dos PMS tradicionais.",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver como funciona",
         "kpis": [
           {
             "value": "19",
-            "label": "USALI categories"
+            "label": "categorias USALI"
           },
           {
-            "value": "3 / 8 / 17%",
-            "label": "LU VAT handled"
+            "value": "3 / 8 / 17 %",
+            "label": "IVA LU tratado"
           },
           {
             "value": "<24 h",
-            "label": "support response time"
+            "label": "tempo de resposta do suporte"
           }
         ]
       },
       "problem": {
-        "title": "Running a Luxembourg hotel without a dedicated tool is exhausting",
-        "intro": "Between 4+ OTAs to watch, folios typed by hand, 3% VAT allocated correctly and owner reports to compile, the day goes by without real progress on what matters.",
+        "title": "Gerir um hotel luxemburguês sem ferramenta dedicada é esgotante",
+        "intro": "Entre vigiar 4+ OTA, escrever folios à mão, atribuir corretamente o IVA a 3 % e compilar os relatórios para os proprietários, o dia passa sem avanço real no essencial.",
         "items": [
           {
-            "title": "Reservations spread across 4+ OTAs",
-            "desc": "Booking, Airbnb, Expedia, direct site. Each OTA its interface, mapping, sync. Double-bookings are inevitable without a channel manager.",
-            "stat": "1-2 double-bookings / month"
+            "title": "Reservas dispersas por 4+ OTA",
+            "desc": "Booking, Airbnb, Expedia, site direto. Cada OTA tem a sua interface, o seu mapeamento, a sua sincronização. As sobre-reservas são inevitáveis sem channel manager.",
+            "stat": "1-2 sobre-reservas / mês"
           },
           {
-            "title": "Folios typed by hand",
-            "desc": "Each consumption (breakfast, minibar, parking) manually entered in a spreadsheet. At check-out, tedious invoice building with the right VAT per line.",
-            "stat": "~12 min per check-out"
+            "title": "Folios escritos à mão",
+            "desc": "Cada consumo (pequeno-almoço, mini-bar, estacionamento) introduzido manualmente numa folha. No check-out, montagem penosa da fatura com o IVA correto por linha.",
+            "stat": "~12 min por check-out"
           },
           {
-            "title": "No forecast, static pricing",
-            "desc": "Rates change once per season. No visibility on projected RevPAR, no tariff optimisation for local events (Foire Internationale, Schueberfouer).",
-            "stat": "15-25% revenue uncaptured"
+            "title": "Sem forecast, preços estáticos",
+            "desc": "Tarifas alteradas uma vez por época. Sem visibilidade sobre o RevPAR previsto, sem otimização tarifária para os eventos locais (Feira Internacional, Schueberfouer).",
+            "stat": "15-25 % de receita não captada"
           }
         ]
       },
       "howItWorks": {
-        "title": "Complete PMS, three steps",
-        "intro": "Guided setup to enter your rooms and rate plans. Once configured, the system takes over folios, invoicing and reporting.",
+        "title": "PMS completo, três passos",
+        "intro": "Configuração guiada para introduzir quartos e rate plans. Depois da configuração, o sistema assume os folios, a faturação e o reporting.",
         "steps": [
           {
             "number": "1",
-            "title": "Guided setup wizard",
-            "desc": "Create your property, rooms by type, rate plans by season, base tariffs. 20 minutes on average for a 15-room hotel."
+            "title": "Assistente de configuração guiado",
+            "desc": "Cria a propriedade, os quartos por tipo, os rate plans por época, os tarifários de base. 20 minutos em média para um hotel de 15 quartos."
           },
           {
             "number": "2",
-            "title": "Automatic reservations and folios",
-            "desc": "iCal import from Booking / Airbnb / VRBO, direct reservation entry, auto-posting into the folio with correct LU VAT."
+            "title": "Reservas e folios automáticos",
+            "desc": "Importação iCal Booking / Airbnb / VRBO, introdução direta de reservas, auto-posting no folio com IVA LU correto."
           },
           {
             "number": "3",
-            "title": "Invoicing and reporting",
-            "desc": "At check-out: VAT-compliant PDF invoice + Factur-X EN 16931 for corporate clients. Monthly USALI report in 1 click, 90-day forecast with confidence bands."
+            "title": "Faturação e reporting",
+            "desc": "No check-out: fatura PDF conforme o IVA + Factur-X para clientes empresariais. Relatório USALI mensal com um clique, forecast a 90 dias com intervalos de confiança."
           }
         ]
       },
       "features": {
-        "title": "Everything a Luxembourg hotelier actually needs",
-        "intro": "Specific to LU hospitality regulations (3% VAT, communal city tax) and industry standards (USALI, STR).",
+        "title": "Tudo o que um hoteleiro luxemburguês precisa mesmo",
+        "intro": "Específico para as regras do hospitality LU (IVA 3 %, taxa municipal) e para as normas setoriais (USALI, STR).",
         "items": [
           {
-            "title": "Guided setup wizard",
-            "desc": "Property configuration in 20 min: rooms, rate plans, seasons, tariffs."
+            "title": "Assistente de configuração guiado",
+            "desc": "Configuração da propriedade em 20 min: quartos, rate plans, épocas, tarifas."
           },
           {
-            "title": "Multi-season rate plans",
-            "desc": "Low/high season tariffs, weekend promos, groups, Foire Internationale week."
+            "title": "Rate plans multi-época",
+            "desc": "Tarifas época baixa/alta, promoções fim de semana, grupos, semana da Feira Internacional."
           },
           {
-            "title": "Calendar + occupancy heatmap",
-            "desc": "Annual view, daily occupancy per room, detect weak spots to boost."
+            "title": "Calendário + heatmap de ocupação",
+            "desc": "Vista anual, ocupação diária por quarto, identificar pontos fracos."
           },
           {
-            "title": "Direct + OTA reservations",
-            "desc": "Direct entry or iCal import Booking / Airbnb / VRBO. Bidirectional sync."
+            "title": "Reservas diretas + OTA",
+            "desc": "Introdução direta ou importação iCal Booking / Airbnb / VRBO. Sincronização bidirecional."
           },
           {
-            "title": "19-category USALI folios",
-            "desc": "Auto-posting by consumption: room, breakfast, minibar, spa, phone, laundry, etc."
+            "title": "Folios USALI 19 categorias",
+            "desc": "Auto-posting por consumo: quarto, pequeno-almoço, mini-bar, spa, telefone, lavandaria, etc."
           },
           {
-            "title": "LU VAT invoicing",
-            "desc": "Automatic 3% / 8% / 17% allocation by category. PDF invoice + Factur-X."
+            "title": "Faturação IVA LU",
+            "desc": "Atribuição automática 3 % / 8 % / 17 % por categoria. Fatura PDF + Factur-X."
           },
           {
-            "title": "Monthly USALI report",
-            "desc": "World standard format (revenue + expenses). Exportable PDF and CSV."
+            "title": "Relatório USALI mensal",
+            "desc": "Formato norma mundial (receita + despesas). Exportável em PDF e CSV."
           },
           {
-            "title": "90-day Holt-Winters forecast",
-            "desc": "Statistical model with weekly seasonality, 95% confidence interval, MAPE backtest."
+            "title": "Forecast Holt-Winters a 90 dias",
+            "desc": "Modelo estatístico com sazonalidade semanal, intervalo de confiança 95 %, backtest MAPE."
           },
           {
-            "title": "Pickup report",
-            "desc": "Reservation comparison on rolling window. Alert if offset vs target."
+            "title": "Relatório de pickup",
+            "desc": "Comparação de reservas em janela móvel. Alerta em caso de desvio face ao objetivo."
           },
           {
-            "title": "Restaurant/bar POS",
-            "desc": "F&B consumption entry, automatic posting into guest folio."
+            "title": "POS de restaurante/bar",
+            "desc": "Registo de consumos F&B, posting automático no folio do hóspede."
           },
           {
-            "title": "Groups and allocations",
-            "desc": "Room blocks for weddings, seminars, MICE. Separate group pricing."
+            "title": "Grupos e allotments",
+            "desc": "Blocos de quartos para casamentos, seminários, MICE. Tarifas de grupo separadas."
           },
           {
-            "title": "LU events calendar",
-            "desc": "Foire Internationale, Schueberfouer, ING Marathon, MICE. Rate impact."
+            "title": "Calendário de eventos LU",
+            "desc": "Feira Internacional, Schueberfouer, Maratona ING, MICE. Impacto tarifário."
           }
         ]
       },
       "trust": {
-        "title": "Why LU hoteliers choose us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every 2 weeks. Public backlog on github.com/Tevaxia.",
-        "customTitle": "Custom integrations",
-        "customDesc": "A specific channel manager, a LUX GAAP accounting export: we build it in 1 to 3 weeks.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days."
+        "title": "Porque é que os hoteleiros LU nos escolhem",
+        "agileTitle": "Desenvolvimento ágil, releases regulares",
+        "agileDesc": "Novos módulos entregues a cada 2 semanas. Backlog público em github.com/Tevaxia.",
+        "customTitle": "Desenvolvimento à medida possível",
+        "customDesc": "Adaptações específicas, integrações dedicadas: desenvolvimento em 1 a 3 semanas.",
+        "supportTitle": "Suporte em menos de 24 h",
+        "supportDesc": "E-mail para contact@tevaxia.lu. Resposta média em menos de 6 horas nos dias úteis."
       },
       "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-room billing, no per-reservation billing. The complete PMS is included in the general subscription with no volume limit.",
+        "title": "Incluído na sua subscrição tevaxia",
+        "subtitle": "Sem faturação por quarto, sem faturação por reserva. O PMS completo está incluído na subscrição geral.",
         "features": [
-          "Unlimited properties and rooms",
-          "Unlimited reservations",
-          "USALI 19-category folios with auto-posting",
-          "LU VAT 3% / 8% / 17% invoicing + Factur-X",
-          "Monthly USALI report + 90-day forecast",
-          "iCal import/export (Booking, Airbnb, VRBO)",
-          "Restaurant/bar POS + MICE groups",
-          "Occupancy heatmap and pickup report"
+          "Propriedades e quartos ilimitados",
+          "Reservas ilimitadas",
+          "Folios USALI 19 categorias com auto-posting",
+          "Faturação IVA LU 3 % / 8 % / 17 % + Factur-X",
+          "Relatório USALI mensal + forecast a 90 dias",
+          "Importação/Exportação iCal (Booking, Airbnb, VRBO)",
+          "POS de restaurante/bar + grupos MICE",
+          "Heatmap de ocupação e relatório de pickup"
         ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to the PMS"
+        "ctaPlatform": "Ver planos tevaxia",
+        "ctaEmit": "Ir para o PMS"
       },
       "faq": {
-        "title": "Frequently asked questions",
+        "title": "Perguntas frequentes",
         "items": [
           {
-            "q": "Is it compatible with Booking.com and Airbnb?",
-            "a": "Yes, via iCal. You grab each OTA's iCal link from their interface, paste it into tevaxia, and reservations come in every 15 min."
+            "q": "É compatível com o Booking.com e o Airbnb?",
+            "a": "Sim, via iCal. Copia cada ligação iCal da OTA a partir da interface deles, cola na tevaxia, e as reservas são importadas a cada 15 min."
           },
           {
-            "q": "How does LU 3% accommodation VAT work?",
-            "a": "3% VAT applies to accommodation nights for tourism purposes. Our module automatically applies 3% on USALI room + extra_bed, 17% on F&B, 0% on taxe_sejour (paid to the commune)."
+            "q": "Como funciona o IVA 3 % LU em alojamento?",
+            "a": "O IVA 3 % aplica-se às noites turísticas. O nosso módulo aplica automaticamente 3 % aos USALI quarto + cama extra, 17 % ao F&B, 0 % à taxa turística."
           },
           {
-            "q": "My corporate clients want Factur-X, is it supported?",
-            "a": "Yes. At check-out, the Corporate invoice option activates Factur-X generation (PDF/A-3 + embedded EN 16931 XML)."
+            "q": "Os meus clientes empresariais querem Factur-X, é suportado?",
+            "a": "Sim. No check-out, a opção fatura empresa ativa a geração Factur-X (PDF/A-3 + XML EN 16931 embutido)."
           },
           {
-            "q": "Is the 90-day forecast reliable?",
-            "a": "The Holt-Winters model with weekly seasonality typically yields a MAPE of 8-15% depending on history regularity."
+            "q": "O forecast a 90 dias é fiável?",
+            "a": "O modelo Holt-Winters com sazonalidade semanal fornece tipicamente um MAPE de 8-15 %. Adequado para planeamento de pessoal."
           },
           {
-            "q": "Can I manage multiple hotels from one account?",
-            "a": "Yes. Native multi-property: each establishment has its own rooms, rate plans, reservations, folios. Consolidated dashboard for portfolio view."
+            "q": "Posso gerir vários hotéis a partir de uma conta?",
+            "a": "Sim. Multi-property nativo. Dashboard consolidado para visão de portefólio. Funciona para grupos hoteleiros até 15-20 propriedades."
           },
           {
-            "q": "Is my data hosted in the EU?",
-            "a": "Supabase (AWS eu-central-1, Frankfurt). Row Level Security, HTTPS in transit. Full guest data export to ZIP at any time."
+            "q": "Os meus dados estão alojados na UE?",
+            "a": "Supabase (AWS eu-central-1, Frankfurt). Row Level Security, HTTPS. Exportação completa dos dados dos hóspedes em ZIP a qualquer momento."
           }
         ]
       },
       "finalCta": {
-        "title": "Ready to take back control of your operations",
-        "desc": "Create your account, configure your first property in 20 minutes and record your first reservation. Zero commitment.",
-        "cta": "Start for free",
-        "ctaSecondary": "See the PMS live"
+        "title": "Pronto para retomar o controlo da sua exploração",
+        "desc": "Criar uma conta, configurar a primeira propriedade em 20 minutos, registar a primeira reserva. Zero compromisso.",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver o PMS em direto"
       }
     },
     "expert-evaluateur": {
       "meta": {
-        "title": "Real estate valuation software TEGOVA EVS 2025 — Luxembourg",
-        "description": "EVS 2025 compliant valuation report in 20 min: 8 methods, 9 asset types, auto-filled data (98 communes + 12 macro series), SHA-256 signature."
+        "title": "Software de avaliador TEGOVA EVS 2025, Luxemburgo",
+        "description": "Relatório de avaliação conforme EVS 2025 em 20 min: 8 métodos, 9 tipos de ativos, dados pré-preenchidos (98 comunas + 12 séries macro), assinatura SHA-256."
       },
       "hero": {
-        "badge": "TEGOVA EVS 2025 + Charte 5th ed. compliant",
-        "title": "EVS 2025 compliant report in",
-        "titleAccent": "20 minutes instead of 4 hours",
-        "subtitle": "Valuation module with 11 sections + annexes compliant with TEGOVA European Valuation Standards 2025 and Charte de l'expertise 5th ed. 8 methods, 9 asset types, data auto-filled for 98 Luxembourg communes.",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
+        "badge": "Conforme TEGOVA EVS 2025 + Carta 5.ª ed.",
+        "title": "Relatório conforme EVS 2025 em",
+        "titleAccent": "20 minutos em vez de 4 horas",
+        "subtitle": "Módulo de avaliação com 11 secções + anexos conforme TEGOVA European Valuation Standards 2025 e Carta do perito 5.ª edição. 8 métodos, 9 tipos de ativos, dados de 98 comunas luxemburguesas pré-preenchidos. Concebido para peritos REV, TRV e avaliadores independentes.",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver como funciona",
         "kpis": [
           {
             "value": "11",
-            "label": "sections + annexes"
+            "label": "secções + anexos"
           },
           {
             "value": "8 / 9",
-            "label": "methods / assets"
+            "label": "métodos / ativos"
           },
           {
             "value": "98",
-            "label": "documented communes"
+            "label": "comunas documentadas"
           }
         ]
       },
       "problem": {
-        "title": "Writing a valuation report is 60% data lookup",
-        "intro": "Finding comparables, cross-referencing macro sources, checking legal texts, formatting according to the Charte. The analytical part that makes the expert's real value is only a small slice of total time.",
+        "title": "Redigir um relatório de avaliação é 60 % investigação de dados",
+        "intro": "Encontrar comparáveis, cruzar fontes macro, verificar textos legais, formatar segundo a Carta. A parte analítica, a que traz o verdadeiro valor acrescentado do perito, representa só uma pequena fração do tempo total.",
         "items": [
           {
-            "title": "4 hours per report on average",
-            "desc": "A complete EVS 2025 report typically takes 3 to 5 hours between data collection and final formatting per the Charte.",
-            "stat": "~4 h per report"
+            "title": "4 horas por relatório em média",
+            "desc": "Um relatório EVS 2025 completo demora tipicamente entre 3 e 5 horas, entre recolha de dados e formatação final conforme a Carta.",
+            "stat": "~4 h por relatório"
           },
           {
-            "title": "Data scattered across 10 sources",
-            "desc": "STATEC, Observatoire de l'Habitat, Geoportail, Land Registry, ECB, INSEE, LENOZ.",
-            "stat": "~10 sources per report"
+            "title": "Dados dispersos em 10 fontes",
+            "desc": "STATEC para macro, Observatoire de l'Habitat para preços, Geoportail para cadastro, Land Registry para transações, BCE para taxas, INSEE para IRL, LENOZ para energia.",
+            "stat": "~10 fontes por relatório"
           },
           {
-            "title": "Charte non-compliance risk",
-            "desc": "11 mandatory sections, EVS 5 special assumptions, material uncertainty disclosure: one omission and the report becomes challengeable.",
-            "stat": "0% acceptable error margin"
+            "title": "Risco de não conformidade com a Carta",
+            "desc": "As 11 secções obrigatórias, os pressupostos especiais EVS 5, a menção de incerteza material: uma omissão e o relatório torna-se contestável.",
+            "stat": "0 % de margem de erro aceitável"
           }
         ]
       },
       "howItWorks": {
-        "title": "From mission to signed report, three steps",
-        "intro": "You enter the address and property parameters. The system loads context data, you choose methods, the PDF report is generated.",
+        "title": "Do mandato ao relatório assinado, três passos",
+        "intro": "Introduz o endereço e os parâmetros do imóvel. O sistema carrega os dados de contexto, escolhe os métodos, o relatório PDF é gerado.",
         "steps": [
           {
             "number": "1",
-            "title": "Address + property parameters",
-            "desc": "Commune, surface, year built, energy class, asset type. Macro, demographic and urban data load automatically."
+            "title": "Endereço + parâmetros do imóvel",
+            "desc": "Comuna, área, ano de construção, classe energética, tipo de ativo. Dados macro, demográficos e urbanísticos carregam automaticamente."
           },
           {
             "number": "2",
-            "title": "Methods and comparables",
-            "desc": "Choose from 8 methods. Comparables suggested by proximity."
+            "title": "Métodos e comparáveis",
+            "desc": "Escolha entre 8 métodos. Comparáveis sugeridos por proximidade."
           },
           {
             "number": "3",
-            "title": "Signed PDF report",
-            "desc": "Server-side generation of the 11-section + annexes report, SHA-256 signature, REV logo and qualifications."
+            "title": "Relatório PDF assinado",
+            "desc": "Geração server-side do relatório com 11 secções, assinatura SHA-256, logótipo e qualificações REV."
           }
         ]
       },
       "features": {
-        "title": "Built for independent valuers and firms",
-        "intro": "Each feature answers a real constraint of the valuer's work in Luxembourg: TEGOVA compliance, traceability, public data, provable signature.",
+        "title": "Concebido para avaliadores independentes e gabinetes",
+        "intro": "Cada funcionalidade responde a uma restrição real da atividade de avaliador no Luxemburgo: conformidade TEGOVA, rastreabilidade, dados públicos, assinatura comprovável.",
         "items": [
           {
-            "title": "11 EVS 2025 sections",
-            "desc": "Mission, location, legal, urbanism, description, rental, market, SWOT, valuation, conclusions, certification."
+            "title": "11 secções EVS 2025",
+            "desc": "Mandato, localização, jurídico, urbanismo, descrição, arrendamento, mercado, SWOT, avaliação, conclusões, certificação."
           },
           {
-            "title": "8 valuation methods",
-            "desc": "Comparison, direct capitalisation, DCF, CRR mortgage lending value, energy residual, term and reversion, IRR, monitoring."
+            "title": "8 métodos de avaliação",
+            "desc": "Comparação, capitalização direta, DCF, valor de garantia CRR, residual energético, Term and Reversion, IRR, monitorização."
           },
           {
-            "title": "9 asset types",
-            "desc": "Residential, office, retail, logistics, hotels, industrial, mixed, development, land."
+            "title": "9 tipos de ativos",
+            "desc": "Residencial, escritórios, retalho, logística, hotéis, industrial, misto, promoção, terrenos."
           },
           {
-            "title": "98 documented communes",
-            "desc": "Population, growth, density, median income, unemployment, foreign residents, area, canton, prices."
+            "title": "98 comunas documentadas",
+            "desc": "População, crescimento, densidade, rendimento mediano, desemprego, residentes estrangeiros, área, cantão, preços."
           },
           {
-            "title": "12 macro series 2015-2026",
-            "desc": "10-year OAT, mortgage rates, STATEC construction index, GDP, inflation, transaction volume, m² prices, rents, office vacancy, ECB."
+            "title": "12 séries macro 2015-2026",
+            "desc": "OAT 10 anos, taxas hipotecárias, índice de custos de construção STATEC, PIB, inflação, volume de transações, preços m², rendas, taxa de vacância em escritórios, BCE."
           },
           {
-            "title": "Automatic comparables",
-            "desc": "Suggestions by commune, type, surface, year built. Explainable adjustments."
+            "title": "Comparáveis automáticos",
+            "desc": "Sugestões por comuna, tipo, área, ano de construção. Ajustamentos explicáveis."
           },
           {
-            "title": "EVS 5 special assumptions",
-            "desc": "Binding assumptions and material uncertainty handled per EVS 5 and Red Book."
+            "title": "Pressupostos especiais EVS 5",
+            "desc": "Pressupostos vinculativos e incerteza material conforme EVS 5 e Red Book."
           },
           {
-            "title": "Server-side signed PDF",
-            "desc": "Server-side generation for consistency, SHA-256 signature for non-repudiation, expert logo."
+            "title": "PDF assinado server-side",
+            "desc": "Geração server-side para consistência, assinatura SHA-256 para não repúdio, logótipo do perito."
           },
           {
-            "title": "Confidence gauge",
-            "desc": "Confidence score based on number of comparables, dispersion, data age."
+            "title": "Indicador de confiança",
+            "desc": "Pontuação de confiança baseada no número de comparáveis, dispersão, idade dos dados."
           },
           {
-            "title": "TEGOVA field inspection",
-            "desc": "EVS 2025 41-point checklist. Offline on phone, sync on return, import into the report."
+            "title": "Inspeção no terreno TEGOVA",
+            "desc": "Checklist de 41 pontos EVS 2025. Offline no telemóvel, sincronização ao regressar, importação para o relatório."
           },
           {
-            "title": "Hedonic model",
-            "desc": "29 sourced coefficients. Published MAPE and R²."
+            "title": "Modelo hedónico",
+            "desc": "29 coeficientes fundamentados. MAPE e R² publicados."
           },
           {
-            "title": "Model transparency",
-            "desc": "Public /transparence page: back-test on 20 LU properties, MAPE and R² displayed."
+            "title": "Transparência do modelo",
+            "desc": "Página /transparence pública: back-test em 20 imóveis LU, MAPE e R² apresentados."
           }
         ]
       },
       "trust": {
-        "title": "Why LU valuers choose us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every 2 weeks. Public backlog.",
-        "customTitle": "Custom templates",
-        "customDesc": "A specific report format, a proprietary method, a co-branded logo: development in 1 to 3 weeks.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours, by a human who knows TEGOVA."
+        "title": "Porque é que os avaliadores LU nos escolhem",
+        "agileTitle": "Desenvolvimento ágil, releases regulares",
+        "agileDesc": "Novos módulos entregues a cada 2 semanas. Backlog público em github.com/Tevaxia.",
+        "customTitle": "Desenvolvimento à medida possível",
+        "customDesc": "Adaptações específicas, integrações dedicadas: desenvolvimento em 1 a 3 semanas.",
+        "supportTitle": "Suporte em menos de 24 h",
+        "supportDesc": "E-mail para contact@tevaxia.lu. Resposta média em menos de 6 horas nos dias úteis."
       },
       "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-report billing, no monthly quota. The entire valuation module is included in the general subscription.",
+        "title": "Incluído na sua subscrição tevaxia",
+        "subtitle": "Sem faturação por relatório, sem quota mensal. Todo o módulo de avaliação está incluído na subscrição geral.",
         "features": [
-          "Unlimited EVS 2025 reports",
-          "8 valuation methods",
-          "9 supported asset types",
-          "Auto-filled macro and commune data",
-          "Automatic comparables by proximity",
-          "SHA-256 signature + expert logo",
-          "TEGOVA 41-point inspection (offline)",
-          "Hedonic model with public MAPE/R²"
+          "Relatórios EVS 2025 ilimitados",
+          "8 métodos de avaliação",
+          "9 tipos de ativos suportados",
+          "Dados macro e comunais pré-preenchidos",
+          "Comparáveis automáticos por proximidade",
+          "Assinatura SHA-256 + logótipo do perito",
+          "Inspeção TEGOVA 41 pontos (offline)",
+          "Modelo hedónico com MAPE/R² público"
         ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to valuation module"
+        "ctaPlatform": "Ver planos tevaxia",
+        "ctaEmit": "Ir para o módulo de avaliação"
       },
       "faq": {
-        "title": "Frequently asked questions",
+        "title": "Perguntas frequentes",
         "items": [
           {
-            "q": "Is the report Charte 5th ed. compliant?",
-            "a": "Yes, the 11 mandatory sections follow the TEGOVA/Charte structure. EVS 5 special assumptions and material uncertainty disclosure are included."
+            "q": "O relatório está conforme à Carta 5.ª ed.?",
+            "a": "Sim, as 11 secções obrigatórias seguem a estrutura TEGOVA/Carta. Pressupostos especiais EVS 5 e incerteza material incluídos."
           },
           {
-            "q": "Can I select only the methods relevant to my property?",
-            "a": "Yes. Toggle per method: activate comparison + capitalisation for a rented office, DCF alone for an investment, energy residual for a heavy renovation."
+            "q": "Posso escolher apenas os métodos relevantes para o meu imóvel?",
+            "a": "Sim. Toggle por método: ativar comparação + capitalização para um escritório arrendado, DCF sozinho para um investimento, residual energético para uma renovação pesada."
           },
           {
-            "q": "Is commune data up to date?",
-            "a": "Yes, per-m² prices come from the Observatoire de l'Habitat (quarterly), demographics from STATEC (annual), macro rates from ECB (monthly). Source date displayed in the report."
+            "q": "Os dados comunais estão atualizados?",
+            "a": "Sim, preços m² do Observatoire de l'Habitat (trimestrais), demografia STATEC (anual), taxas macro BCE (mensais)."
           },
           {
-            "q": "Can I customise the PDF with my logo and qualifications?",
-            "a": "Yes, in your profile: logo, full name, qualifications (e.g. REV TEGOVA, MRICS), custom legal notice, contact details."
+            "q": "Posso personalizar o PDF com o meu logótipo e as minhas qualificações?",
+            "a": "Sim, no seu perfil: logótipo, nome completo, qualificações (ex. REV TEGOVA, MRICS), menção legal personalizada."
           },
           {
-            "q": "Does the SHA-256 signature have legal weight?",
-            "a": "The SHA-256 signature guarantees document integrity. It does not replace a legally qualified eIDAS signature, but provides cryptographic proof that the report was not altered after issuance."
+            "q": "A assinatura SHA-256 tem peso legal?",
+            "a": "A assinatura SHA-256 garante a integridade do documento. Não substitui uma assinatura eIDAS juridicamente qualificada, mas fornece prova criptográfica de que o relatório não foi alterado."
           },
           {
-            "q": "How are EVS 5 special assumptions handled?",
-            "a": "Dedicated section: you list binding assumptions, the tool displays the mandatory EVS 5 warning and adjusts value based on inputs."
+            "q": "Como são tratados os pressupostos especiais EVS 5?",
+            "a": "Secção dedicada: lista os pressupostos vinculativos, a ferramenta apresenta o aviso obrigatório EVS 5 e ajusta o valor com base nos inputs."
           }
         ]
       },
       "finalCta": {
-        "title": "Ready to save 3 hours per report",
-        "desc": "Create your account, personalise your profile and generate your first EVS 2025 report in 20 minutes. Zero commitment.",
-        "cta": "Start for free",
-        "ctaSecondary": "See the valuation module"
+        "title": "Pronto para poupar 3 horas por relatório",
+        "desc": "Criar uma conta, personalizar o perfil, gerar o primeiro relatório EVS 2025 em 20 minutos. Zero compromisso.",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver o módulo de avaliação"
       }
     },
     "investisseur": {
       "meta": {
-        "title": "Luxembourg real estate investment simulator — yield, DCF, taxation",
-        "description": "Yield, acquisition fees with Bëllegen Akt, multi-tenant DCF, capital gains, VEFA with interim interest. LU taxation built in."
+        "title": "Simulador de investimento imobiliário Luxemburgo, rentabilidade, DCF, fiscalidade",
+        "description": "Rentabilidade, custos de aquisição com Bëllegen Akt, DCF multi-inquilino, mais-valias, VEFA com juros intercalares. Fiscalidade LU integrada."
       },
       "hero": {
-        "badge": "Complete LU investment simulator",
-        "title": "Your actual yield,",
-        "titleAccent": "LU taxation included",
-        "subtitle": "Real estate yield simulator with Bëllegen Akt acquisition fees, multi-tenant lease-by-lease DCF, VEFA with interim interest, capital gains, multi-asset portfolio and banking tools (LTV, DSCR, CRR).",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
+        "badge": "Simulador de investimento LU completo",
+        "title": "A sua rentabilidade real,",
+        "titleAccent": "fiscalidade LU incluída",
+        "subtitle": "Simulador de rentabilidade imobiliária com custos de aquisição Bëllegen Akt, DCF multi-inquilino arrendamento a arrendamento, VEFA com juros intercalares, mais-valias, portefólio multi-ativos e ferramentas bancárias (LTV, DSCR, CRR).",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver como funciona",
         "kpis": [
           {
             "value": "Bëllegen Akt",
-            "label": "deduction built in"
+            "label": "dedução integrada"
           },
           {
             "value": "LU + FR + BE",
-            "label": "tax regimes handled"
+            "label": "regimes fiscais tratados"
           },
           {
             "value": "<24 h",
-            "label": "support response time"
+            "label": "tempo de resposta do suporte"
           }
         ]
       },
       "problem": {
-        "title": "Computing LU yield means juggling 8 different simulators",
-        "intro": "Notary fees on one site, capital gains on another, DCF in a homemade Excel. In the process, you forget items or make errors that bias the investment decision.",
+        "title": "Calcular a rentabilidade LU significa fazer malabarismo com 8 simuladores diferentes",
+        "intro": "Custos de notário num site, mais-valias noutro, DCF num Excel caseiro. Nisto, esquecem-se rubricas ou cometem-se erros que distorcem a decisão de investimento.",
         "items": [
           {
-            "title": "Underestimated acquisition fees",
-            "desc": "7% duties, transcription, Bëllegen Akt (up to 40,000 € deduction), notary, 3% VAT new-build: many investors compute wrong and block their financing plan.",
-            "stat": "3-7% typical gap"
+            "title": "Custos de aquisição subestimados",
+            "desc": "7 % de direitos de registo, transcrição, Bëllegen Akt (até 40.000 € de dedução), notário, IVA 3 % novo: muitos investidores calculam mal e bloqueiam o seu plano de financiamento.",
+            "stat": "3-7 % de diferença típica"
           },
           {
-            "title": "Gross vs net yield confusion",
-            "desc": "Between gross, net, and net-net (after tax), numbers don't mean the same thing. A 5% gross yield can end at 2% after taxes.",
-            "stat": "~40% gross vs net-net gap"
+            "title": "Confusão rentabilidade bruta vs líquida",
+            "desc": "Entre bruta, líquida e líquida-líquida (depois de impostos), os números não querem dizer a mesma coisa. Uma rentabilidade bruta de 5 % pode acabar em 2 % depois de impostos.",
+            "stat": "~40 % bruta vs líquida-líquida"
           },
           {
-            "title": "No DCF tool adapted to LU",
-            "desc": "Online Excel simulators are calibrated for FR or BE. No 5% rule, no LU commercial lease, no LU 10% capital gains.",
-            "stat": "95% tools not-LU"
+            "title": "Nenhuma ferramenta de DCF adaptada ao LU",
+            "desc": "Os simuladores Excel em linha estão calibrados para FR ou BE. Sem regra dos 5 %, sem arrendamentos comerciais LU, sem mais-valias a 10 % LU.",
+            "stat": "95 % das ferramentas não-LU"
           }
         ]
       },
       "howItWorks": {
-        "title": "From estimation to decision, three steps",
-        "intro": "You enter the property. The system computes yield, taxation, DCF. You compare scenarios and decide.",
+        "title": "Da avaliação à decisão, três passos",
+        "intro": "Introduz o imóvel. O sistema calcula a rentabilidade, a fiscalidade, o DCF. Compara cenários e decide.",
         "steps": [
           {
             "number": "1",
-            "title": "Property and financing entry",
-            "desc": "Price, surface, commune, type, down payment, loan duration, rate. Acquisition fees (Bëllegen Akt) calculated automatically."
+            "title": "Introdução do imóvel e do financiamento",
+            "desc": "Preço, área, comuna, tipo, entrada, prazo do crédito, taxa. Custos de aquisição (Bëllegen Akt) calculados automaticamente."
           },
           {
             "number": "2",
-            "title": "Parallel simulations",
-            "desc": "Yield, 10-year DCF, VEFA interim interest, resale capital gains, monthly cash-flow. Interactive charts."
+            "title": "Simulações em paralelo",
+            "desc": "Rentabilidade, DCF a 10 anos, juros intercalares VEFA, mais-valias à venda, cash-flow mensal. Gráficos interativos."
           },
           {
             "number": "3",
-            "title": "Scenario comparison",
-            "desc": "Save multiple scenarios. Exportable PDF for your banker."
+            "title": "Comparação de cenários",
+            "desc": "Guardar vários cenários. PDF exportável para o seu banqueiro."
           }
         ]
       },
       "features": {
-        "title": "The full LU real estate financial toolkit",
-        "intro": "Each calculation respects Luxembourg regulations: Bëllegen Akt, 3% VEFA VAT, 10% capital gains, CSSF rates, 5% rule.",
+        "title": "A caixa de ferramentas financeira imobiliária LU completa",
+        "intro": "Cada cálculo respeita a regulamentação luxemburguesa: Bëllegen Akt, IVA VEFA 3 %, mais-valias 10 %, taxas CSSF, regra dos 5 %.",
         "items": [
           {
-            "title": "LU acquisition fees",
-            "desc": "7% duties, transcription, notary, Bëllegen Akt with eligibility conditions, 3% VEFA VAT."
+            "title": "Custos de aquisição LU",
+            "desc": "7 % de direitos, transcrição, notário, Bëllegen Akt com pré-requisitos, IVA VEFA 3 %."
           },
           {
-            "title": "Complete yield",
-            "desc": "Gross, net, net-net. With vacancy, charges, property tax, landlord insurance, management, maintenance."
+            "title": "Rentabilidade completa",
+            "desc": "Bruta, líquida, líquida-líquida. Com vacância, encargos, contribuição predial, seguro, administração, manutenção."
           },
           {
-            "title": "Multi-tenant DCF",
-            "desc": "Lease by lease with break options, step rents, planned CAPEX, equity IRR and project IRR."
+            "title": "DCF multi-inquilino",
+            "desc": "Arrendamento a arrendamento com break options, step rents, CAPEX programado, TIR equity e TIR projeto."
           },
           {
-            "title": "VEFA simulator",
-            "desc": "Interim interest, 3% VAT, completion guarantee, fund call schedule."
+            "title": "Simulador VEFA",
+            "desc": "Juros intercalares, IVA 3 %, garantia de acabamento, plano de chamadas de fundos."
           },
           {
-            "title": "LU capital gains",
-            "desc": "Holding period allowance, effective rate, primary vs investment residence cases."
+            "title": "Mais-valias LU",
+            "desc": "Abatimento por tempo de detenção, taxa efetiva, residência principal vs investimento."
           },
           {
-            "title": "Buy vs rent comparator",
-            "desc": "NPV over configurable duration, opportunity cost, break-even threshold."
+            "title": "Comparador comprar vs arrendar",
+            "desc": "VAL em prazo configurável, custo de oportunidade, limiar de break-even."
           },
           {
-            "title": "Multi-asset portfolio",
-            "desc": "Consolidated view: total value, average yield, geographic exposure, diversification."
+            "title": "Portefólio multi-ativos",
+            "desc": "Vista consolidada: valor total, rentabilidade média, exposição geográfica, diversificação."
           },
           {
-            "title": "Banking tools",
-            "desc": "LTV, DSCR, CRR mortgage lending value, +2% rate stress test, borrowing capacity."
+            "title": "Ferramentas bancárias",
+            "desc": "LTV, DSCR, valor de garantia CRR, stress test de taxa +2 %, capacidade de endividamento."
           },
           {
-            "title": "Developer P&L",
-            "desc": "Revenue forecast, STATEC construction costs, financial charges, developer margin."
+            "title": "Conta de exploração do promotor",
+            "desc": "Previsão de receitas, custos de construção STATEC, custos financeiros, margem do promotor."
           },
           {
-            "title": "98 LU communes",
-            "desc": "Per-m² prices, rents, yields, demographics, median income. Quarterly updates."
+            "title": "98 comunas LU",
+            "desc": "Preços por m², rendas, rentabilidades, demografia, rendimento mediano. Atualizações trimestrais."
           },
           {
-            "title": "Live macro",
-            "desc": "10-year OAT, mortgage rates, construction index, inflation. ECB + STATEC connection."
+            "title": "Macro em direto",
+            "desc": "OAT 10 anos, taxas hipotecárias, índice de custos de construção, inflação. BCE + STATEC."
           },
           {
-            "title": "Bank PDF report",
-            "desc": "Complete financing file: simulation, DCF, stress test, collateral. Ready to send."
+            "title": "Relatório PDF bancário",
+            "desc": "Dossier de financiamento completo: simulação, DCF, stress test, garantias."
           }
         ]
       },
       "trust": {
-        "title": "Why LU investors choose us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every 2 weeks. Public backlog.",
-        "customTitle": "Custom work available",
-        "customDesc": "A specific calculation for your strategy, an export to your accountant: development in 1 to 3 weeks.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours, by a human who knows LU taxation."
+        "title": "Porque é que os investidores LU nos escolhem",
+        "agileTitle": "Desenvolvimento ágil, releases regulares",
+        "agileDesc": "Novos módulos entregues a cada 2 semanas. Backlog público em github.com/Tevaxia.",
+        "customTitle": "Desenvolvimento à medida possível",
+        "customDesc": "Adaptações específicas, integrações dedicadas: desenvolvimento em 1 a 3 semanas.",
+        "supportTitle": "Suporte em menos de 24 h",
+        "supportDesc": "E-mail para contact@tevaxia.lu. Resposta média em menos de 6 horas nos dias úteis."
       },
       "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-simulation billing, no quota. All investment tools are included in the general subscription.",
+        "title": "Incluído na sua subscrição tevaxia",
+        "subtitle": "Sem faturação por simulação, sem quota. Todas as ferramentas de investimento estão incluídas na subscrição geral.",
         "features": [
-          "Unlimited simulations",
-          "LU acquisition fees with Bëllegen Akt",
-          "Multi-tenant lease-by-lease DCF",
-          "VEFA with interim interest",
-          "LU capital gains",
-          "Consolidated multi-asset portfolio",
-          "Banking tools LTV / DSCR / CRR",
-          "Live macro ECB + STATEC"
+          "Simulações ilimitadas",
+          "Custos de aquisição LU com Bëllegen Akt",
+          "DCF multi-inquilino arrendamento a arrendamento",
+          "VEFA com juros intercalares",
+          "Mais-valias LU",
+          "Portefólio multi-ativos consolidado",
+          "Ferramentas bancárias LTV / DSCR / CRR",
+          "Macro em direto BCE + STATEC"
         ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to portfolio"
+        "ctaPlatform": "Ver planos tevaxia",
+        "ctaEmit": "Ir para o portefólio"
       },
       "faq": {
-        "title": "Frequently asked questions",
+        "title": "Perguntas frequentes",
         "items": [
           {
-            "q": "Is Bëllegen Akt deduction properly handled?",
-            "a": "Yes, the tool checks eligibility conditions and applies up to 40,000 € per person deduction on registration duties."
+            "q": "A dedução Bëllegen Akt é tratada corretamente?",
+            "a": "Sim, a ferramenta verifica as condições de elegibilidade e aplica até 40.000 € por pessoa de dedução sobre os direitos de registo."
           },
           {
-            "q": "Is 3% new-build VAT properly included?",
-            "a": "Yes, the VEFA simulator automatically applies the 3% rate subject to primary residence occupied 2 years minimum."
+            "q": "O IVA 3 % novo é integrado corretamente?",
+            "a": "Sim, o simulador VEFA aplica automaticamente a taxa de 3 % sujeita à ocupação mínima de 2 anos de residência principal."
           },
           {
-            "q": "Does the multi-tenant DCF handle French and LU breaks?",
-            "a": "Yes. Each lease can have its duration, indexation (IRL, ILAT, ILC, IPC), scheduled step rents, break options, planned CAPEX."
+            "q": "O DCF multi-inquilino trata breaks franceses e LU?",
+            "a": "Sim. Cada arrendamento pode ter o seu prazo, indexação, step rents programadas, break options, CAPEX programado."
           },
           {
-            "q": "Are LU capital gains properly calculated?",
-            "a": "Yes. Primary residence exemption, secondary residence half-global rate, investment global/half-global rate depending on holding period."
+            "q": "As mais-valias LU são calculadas corretamente?",
+            "a": "Sim. Residência principal isenção, secundária taxa meio-global, investimento taxa global/meio-global consoante o tempo de detenção."
           },
           {
-            "q": "Do banking tools (LTV, DSCR, CRR) follow CSSF rules?",
-            "a": "Yes. LTV max by borrower profile, DSCR target 1.25, CRR mortgage lending value with energy haircut. +2% stress test."
+            "q": "As ferramentas bancárias (LTV, DSCR, CRR) seguem as regras CSSF?",
+            "a": "Sim. LTV máximo por perfil de mutuário, DSCR alvo 1,25, valor de garantia CRR com haircut energético. Stress test +2 %."
           },
           {
-            "q": "Can I share my simulations with my banker?",
-            "a": "Yes. Dedicated Financing file PDF. View-only sharing option with limited duration link (7 to 90 days)."
+            "q": "Posso partilhar as minhas simulações com o meu banqueiro?",
+            "a": "Sim. PDF dossier de financiamento dedicado. Partilha view-only com ligação de 7-90 dias."
           }
         ]
       },
       "finalCta": {
-        "title": "Ready to decide fast and well",
-        "desc": "Create your account, enter your first scenario and get your full yield in 5 minutes. Zero commitment.",
-        "cta": "Start for free",
-        "ctaSecondary": "See the portfolio live"
+        "title": "Pronto para decidir depressa e bem",
+        "desc": "Criar uma conta, introduzir o primeiro cenário, obter a rentabilidade completa em 5 minutos. Zero compromisso.",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver o portefólio em direto"
       }
     },
     "particulier": {
       "meta": {
-        "title": "Real estate tools for individuals in Luxembourg — estimation, aids, rent",
-        "description": "Estimation, acquisition fees with Bëllegen Akt, state + commune aid simulator, 5% rent cap, buy vs rent. Free, 5 languages."
+        "title": "Ferramentas imobiliárias para particulares no Luxemburgo, avaliação, apoios, arrendamento",
+        "description": "Avaliação, custos de aquisição com Bëllegen Akt, simulador de apoios Estado + Comuna, teto de arrendamento 5 %, comprar vs arrendar. Gratuito, 5 línguas."
       },
       "hero": {
-        "badge": "Free tools for LU individuals",
-        "title": "Buying, renting, renovating in Luxembourg",
-        "titleAccent": "without hiring a consultancy",
-        "subtitle": "Property estimation, acquisition fee calculation with Bëllegen Akt, state + commune aid simulation (Klimabonus included), legal 5% rent cap check, buy vs rent comparison.",
-        "cta": "Start for free",
-        "ctaSecondary": "See the tools",
+        "badge": "Ferramentas gratuitas para particulares LU",
+        "title": "Comprar, arrendar, renovar no Luxemburgo",
+        "titleAccent": "sem empresa de consultoria",
+        "subtitle": "Avaliação de imóveis, cálculo dos custos de aquisição com Bëllegen Akt, simulação de apoios Estado + Comuna (Klimabonus incluído), verificação do teto de arrendamento legal de 5 %, comparação comprar vs arrendar. Concebido para particulares e primeiros compradores luxemburgueses.",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver as ferramentas",
         "kpis": [
           {
             "value": "0 €",
-            "label": "no signup required"
+            "label": "sem registo necessário"
           },
           {
-            "value": "5 layers",
-            "label": "of stackable aids"
+            "value": "5 níveis",
+            "label": "de apoios cumuláveis"
           },
           {
             "value": "98",
-            "label": "communes covered"
+            "label": "comunas abrangidas"
           }
         ]
       },
       "problem": {
-        "title": "Buying in Luxembourg in 2026 takes too much paperwork",
-        "intro": "Between taxation, stackable aids, legal rent cap, acquisition fees, hours are spent before even contacting an agent.",
+        "title": "Comprar no Luxemburgo em 2026 pede demasiada papelada",
+        "intro": "Entre a fiscalidade, os apoios cumuláveis, o teto de arrendamento legal, os custos de aquisição, passam-se horas a pesquisar e a comparar antes mesmo de contactar uma agência.",
         "items": [
           {
-            "title": "Opaque acquisition fees",
-            "desc": "Registration duties, transcription, notary, Bëllegen Akt: who pays what, and how much actually comes out of pocket?",
-            "stat": "8-12% of price typically"
+            "title": "Custos de aquisição opacos",
+            "desc": "Direitos de registo, transcrição, notário, Bëllegen Akt: quem paga o quê, e quanto sai efetivamente do bolso? Os simuladores em linha esquecem-se frequentemente de metade.",
+            "stat": "8-12 % do preço tipicamente"
           },
           {
-            "title": "Hard-to-find aids",
-            "desc": "Purchase grant, Klimabonus, state housing grant, commune aids, 3% renovation VAT. Many households miss 2,000 to 8,000 €.",
-            "stat": "~5,000 € missed on average"
+            "title": "Apoios difíceis de encontrar",
+            "desc": "Prémio à aquisição, Klimabonus, prémio de habitação do Estado, apoios comunais, IVA 3 % em renovação. Muitos agregados perdem 2.000 a 8.000 €.",
+            "stat": "~5.000 € perdidos em média"
           },
           {
-            "title": "5% rent cap poorly known",
-            "desc": "The 5% rule protects tenants and frames landlords. Going over exposes you to legal recourse.",
-            "stat": "~15% of leases in breach"
+            "title": "Teto de arrendamento de 5 % pouco conhecido",
+            "desc": "A regra dos 5 % protege os arrendatários e enquadra os senhorios. Ultrapassá-la expõe a ações judiciais.",
+            "stat": "~15 % dos arrendamentos infringem"
           }
         ]
       },
       "howItWorks": {
-        "title": "Clear tools, three steps",
-        "intro": "No signup to get started. Each tool gives a precise answer in a few minutes.",
+        "title": "Ferramentas claras, três passos",
+        "intro": "Sem inscrição necessária para começar. Cada ferramenta dá uma resposta precisa em alguns minutos.",
         "steps": [
           {
             "number": "1",
-            "title": "Enter your situation",
-            "desc": "Target property, down payment, commune, status, project. No account required for basic tools."
+            "title": "Introduzir a sua situação",
+            "desc": "Imóvel pretendido, entrada, comuna, estado civil, projeto. Sem conta necessário para as ferramentas de base."
           },
           {
             "number": "2",
-            "title": "Get your numbers",
-            "desc": "Property estimation, detailed acquisition fees, list of stackable aids, buy vs rent comparison."
+            "title": "Obter os seus números",
+            "desc": "Avaliação do imóvel, custos de aquisição detalhados, lista de apoios cumuláveis, comparação comprar vs arrendar."
           },
           {
             "number": "3",
-            "title": "Export or share",
-            "desc": "Free PDF download or view-only link sharing (with account). Take it to your bank, notary or agent."
+            "title": "Exportar ou partilhar",
+            "desc": "Descarga PDF gratuita ou partilha via ligação view-only (com conta). Levar para o banco, notário ou agência."
           }
         ]
       },
       "features": {
-        "title": "All the tools a Luxembourg individual needs",
-        "intro": "Specific to the Luxembourg framework (Bëllegen Akt, 3% VAT, 5% rule, Klimabonus), all in 5 languages.",
+        "title": "Todas as ferramentas de que um particular luxemburguês precisa",
+        "intro": "Específicas para o enquadramento luxemburguês (Bëllegen Akt, IVA 3 %, regra dos 5 %, Klimabonus), todas disponíveis em 5 línguas.",
         "items": [
           {
-            "title": "Instant estimation",
-            "desc": "Per-m² price by commune and neighbourhood, hedonic model with 29 sourced coefficients."
+            "title": "Avaliação instantânea",
+            "desc": "Preço por m² por comuna e bairro, modelo hedónico com 29 coeficientes fundamentados."
           },
           {
-            "title": "Detailed acquisition fees",
-            "desc": "7% duties, transcription, notary, Bëllegen Akt with conditions, 3% VEFA VAT."
+            "title": "Custos de aquisição detalhados",
+            "desc": "7 % de direitos, transcrição, notário, Bëllegen Akt com pré-requisitos, IVA VEFA 3 %."
           },
           {
-            "title": "5-layer aids simulator",
-            "desc": "State housing grant, Klimabonus, 1.5% Klimaprêt, commune aids (30+ communes), 3% renovation VAT."
+            "title": "Simulador de apoios 5 níveis",
+            "desc": "Prémio de habitação do Estado, Klimabonus, Klimaprêt 1,5 %, apoios comunais, IVA 3 % em renovação."
           },
           {
-            "title": "5% legal rent cap",
-            "desc": "Max rent calculation based on indexed invested capital + amortised works."
+            "title": "Teto de arrendamento legal 5 %",
+            "desc": "Cálculo da renda máxima baseada no capital investido indexado + obras amortizadas."
           },
           {
-            "title": "Buy vs rent",
-            "desc": "NPV comparison over duration, opportunity cost. Break-even threshold."
+            "title": "Comprar vs arrendar",
+            "desc": "Comparação VAL no prazo, custo de oportunidade. Limiar de break-even."
           },
           {
-            "title": "Price map",
-            "desc": "Interactive map 100 communes + Luxembourg-City neighbourhoods with prices and yields."
+            "title": "Mapa de preços",
+            "desc": "Mapa interativo 100 comunas + bairros da cidade do Luxemburgo com preços e rentabilidades."
           },
           {
-            "title": "Capital gains",
-            "desc": "Primary residence (exemption), secondary, investment. Holding period allowance."
+            "title": "Mais-valias",
+            "desc": "Residência principal (isenção), secundária, investimento. Abatimento por tempo de detenção."
           },
           {
-            "title": "VEFA interim interest",
-            "desc": "Interest during construction and total cost with 3% VAT."
+            "title": "Juros intercalares VEFA",
+            "desc": "Juros durante a fase de construção e custo total com IVA 3 %."
           },
           {
-            "title": "Legal guides",
-            "desc": "Residential lease, commercial lease, capital gains, co-ownership, Klimabonus."
+            "title": "Guias jurídicos",
+            "desc": "Arrendamento habitacional, comercial, mais-valias, condomínio, Klimabonus."
           },
           {
-            "title": "Compare two properties",
-            "desc": "Side-by-side: price, yield, fees, aids, commute distance. Automatic recommendation."
+            "title": "Comparar dois imóveis",
+            "desc": "Lado a lado: preço, rentabilidade, encargos, apoios, distância casa-trabalho. Recomendação automática."
           },
           {
-            "title": "Individual wizard",
-            "desc": "4-step guided flow: estimation + fees + aids + legal rent in one path."
+            "title": "Assistente do particular",
+            "desc": "Fluxo em 4 passos: avaliação + encargos + apoios + arrendamento legal num só percurso."
           },
           {
-            "title": "TEGOVA field inspection",
-            "desc": "41-point checklist for visiting a property."
+            "title": "Inspeção no terreno TEGOVA",
+            "desc": "Checklist de 41 pontos para visita de imóvel."
           }
         ]
       },
       "trust": {
-        "title": "Why LU individuals use us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New tools shipped every 2 weeks. Tax brackets auto-updated.",
-        "customTitle": "Adaptable when needed",
-        "customDesc": "A specific commune, a recent aid: email contact@tevaxia.lu and we integrate it in 1 to 2 weeks.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days."
+        "title": "Porque é que os particulares LU nos utilizam",
+        "agileTitle": "Desenvolvimento ágil, releases regulares",
+        "agileDesc": "Novos módulos entregues a cada 2 semanas. Backlog público em github.com/Tevaxia.",
+        "customTitle": "Desenvolvimento à medida possível",
+        "customDesc": "Adaptações específicas, integrações dedicadas: desenvolvimento em 1 a 3 semanas.",
+        "supportTitle": "Suporte em menos de 24 h",
+        "supportDesc": "E-mail para contact@tevaxia.lu. Resposta média em menos de 6 horas nos dias úteis."
       },
       "pricing": {
-        "title": "Free, no signup for the essentials",
-        "subtitle": "All basic tools work without an account. Create a free account to save simulations, export PDFs and access history.",
+        "title": "Gratuito, sem registo para o essencial",
+        "subtitle": "Todas as ferramentas de base funcionam sem conta. Criar uma conta gratuita para guardar as simulações, exportar PDFs e aceder ao histórico.",
         "features": [
-          "Estimation, fees, aids, rent without account",
-          "PDF export with free account",
-          "Multi-device cloud saving",
-          "Simulation history",
-          "View-only link sharing",
-          "Comparison of up to 5 scenarios",
-          "Market alerts per commune",
-          "5 languages (FR / EN / DE / LB / PT)"
+          "Avaliação, encargos, apoios, arrendamento sem conta",
+          "Exportação PDF com conta gratuita",
+          "Armazenamento na nuvem multi-dispositivo",
+          "Histórico das simulações",
+          "Partilha view-only",
+          "Comparação até 5 cenários",
+          "Alertas de mercado por comuna",
+          "5 línguas (FR / EN / DE / LB / PT)"
         ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Estimate a property"
+        "ctaPlatform": "Ver planos tevaxia",
+        "ctaEmit": "Avaliar um imóvel"
       },
       "faq": {
-        "title": "Frequently asked questions",
+        "title": "Perguntas frequentes",
         "items": [
           {
-            "q": "Is the estimation reliable?",
-            "a": "MAPE of ~12%, comparable to bank tools. Still an estimate: a certified REV valuation is recommended for bank financing."
+            "q": "A avaliação é fiável?",
+            "a": "MAPE de ~12 %, comparável às ferramentas bancárias. Continua a ser uma estimativa: uma avaliação REV certificada é recomendada para um financiamento bancário."
           },
           {
-            "q": "Is Bëllegen Akt calculated correctly?",
-            "a": "Yes. Conditions checked (primary residence, 2 years occupation). Up to 40,000 € per person deduction."
+            "q": "O Bëllegen Akt é calculado corretamente?",
+            "a": "Sim. Condições verificadas (residência principal, 2 anos de ocupação). Até 40.000 € por pessoa de dedução."
           },
           {
-            "q": "Are commune aids up to date?",
-            "a": "Yes, over 30 communes have their scales integrated. Contact us if yours is missing."
+            "q": "Os apoios comunais estão atualizados?",
+            "a": "Sim, mais de 30 comunas têm as suas taxas integradas. Contacte-nos se a sua estiver em falta."
           },
           {
-            "q": "Does the 5% rent rule apply to all rentals?",
-            "a": "Yes for residential leases under the 21 September 2006 law. Exceptions: commercial lease, short-term furnished, student residences."
+            "q": "A regra de arrendamento 5 % aplica-se a todos os arrendamentos?",
+            "a": "Sim para os arrendamentos habitacionais ao abrigo da lei 21.09.2006. Exceções: arrendamentos comerciais, mobilados de curta duração, residências estudantis."
           },
           {
-            "q": "Can I use the tools without creating an account?",
-            "a": "Yes, all basic tools work without signup. The free account unlocks PDF export, cloud saving, history and link sharing."
+            "q": "Posso utilizar as ferramentas sem conta?",
+            "a": "Sim, todas as ferramentas de base funcionam sem registo. A conta gratuita desbloqueia a exportação PDF, o armazenamento na nuvem, o histórico e a partilha por ligação."
           },
           {
-            "q": "Is my data kept?",
-            "a": "Without an account, nothing is kept server-side. With a free account, stored on Supabase (AWS eu-central-1, Frankfurt) with RLS."
+            "q": "Os meus dados são guardados?",
+            "a": "Sem conta, nada permanece do lado do servidor. Com conta gratuita, armazenados no Supabase (AWS eu-central-1, Frankfurt) com RLS."
           }
         ]
       },
       "finalCta": {
-        "title": "Ready to see clearly",
-        "desc": "Start by estimating your property or simulating your fees. No signup, no commitment, in 2 minutes.",
-        "cta": "Estimate a property free",
-        "ctaSecondary": "See all the tools"
-      }
-    },
-    "syndic": {
-      "meta": {
-        "title": "Co-ownership management software Luxembourg, 16.05.1975 law compliant",
-        "description": "Run your co-ownerships without Excel weekends: online AGMs, Factur-X fund calls, LU accounting, PSD2 bank reconciliation. Free trial."
-      },
-      "hero": {
-        "badge": "Built for Luxembourg co-ownerships",
-        "title": "Your co-ownership management, without",
-        "titleAccent": "weekends on Excel",
-        "subtitle": "Online AGMs with tantième-weighted voting, fund calls generated in Factur-X, Luxembourg co-ownership accounting and automatic bank reconciliation. Built for professional property managers who are tired of juggling 4 different tools.",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
-        "kpis": [
-          {
-            "value": "15 h",
-            "label": "saved per AGM"
-          },
-          {
-            "value": "100%",
-            "label": "16.05.1975 law compliant"
-          },
-          {
-            "value": "<24 h",
-            "label": "support response time"
-          }
-        ]
-      },
-      "problem": {
-        "title": "Managing a co-ownership in 2026 shouldn't still look like this",
-        "intro": "Between the 16 May 1975 law, quarterly fund calls, unpaid reminders, AGM prep and bookkeeping, a property manager's week fills up on its own. Unless the right tools take the load off.",
-        "items": [
-          {
-            "title": "Preparing an AGM in 3 days",
-            "desc": "Convocations due within 15 days, agenda to draft, proxies to collect, minutes to type after the fact. Admin load eats up the time that should go to the actual issues.",
-            "stat": "~15 hours per AGM"
-          },
-          {
-            "title": "Chasing unpaid charges by hand",
-            "desc": "Tracking who owes what, monitoring deadlines, computing legal interest, preparing formal notices. Without a dedicated tool, things slip, get forgotten, and the treasury shrinks.",
-            "stat": "3–7% chronic unpaid rate"
-          },
-          {
-            "title": "Juggling Excel, bank, accounting",
-            "desc": "Reconciling incoming transfers with fund calls, entering them in accounting, building AGM annexes from 3 different sources. Every step carries error risk that eventually surfaces in the assembly.",
-            "stat": "4 tools used on average"
-          }
-        ]
-      },
-      "howItWorks": {
-        "title": "One platform, three steps",
-        "intro": "No complex migration, no 2-day training. Import your co-ownerships, set allocation keys once, and the tool takes over.",
-        "steps": [
-          {
-            "number": "1",
-            "title": "Your co-ownerships imported",
-            "desc": "Excel import, manual entry or API. Units, tantièmes, co-owners, contracts, accounting history. Works with any syndic that already has a structure in place."
-          },
-          {
-            "number": "2",
-            "title": "AGMs and fund calls run themselves",
-            "desc": "Per-unit PDF convocations, tantième-weighted electronic voting, auto-generated minutes. Factur-X fund calls compliant with EN 16931 sent to co-owners with SEPA reference."
-          },
-          {
-            "number": "3",
-            "title": "Bookkeeping takes care of itself",
-            "desc": "Every fund call, every incoming payment, every entered expense feeds the accounting journal. The 5 AGM annexes are generated in PDF in one click when needed."
-          }
-        ]
-      },
-      "features": {
-        "title": "Everything a Luxembourg property manager actually needs",
-        "intro": "Features built for the Grand Duchy's legal framework: 16 May 1975 law, AGM majority rules, VAT exemption art. 44 §1 f, 10-year archiving.",
-        "items": [
-          {
-            "title": "Online AGMs with weighted voting",
-            "desc": "Electronic voting weighted by tantièmes, simple / absolute / double / unanimity majorities handled automatically."
-          },
-          {
-            "title": "Convocations + PDF minutes",
-            "desc": "Per-unit convocation with legal agenda, auto-generated minutes after the AGM with each resolution's results."
-          },
-          {
-            "title": "Factur-X fund calls",
-            "desc": "PDF/A-3 + CII D22B XML compliant with EN 16931, SEPA mandate reference, art. 261 D CGI exemption applied."
-          },
-          {
-            "title": "3-tier unpaid reminders",
-            "desc": "Friendly reminder, formal notice, demand for payment. Luxembourg legal interest rates computed automatically."
-          },
-          {
-            "title": "5 AGM accounting annexes",
-            "desc": "Balance, journal, budget forecast, charge allocation, unpaid status. PDFs ready to distribute."
-          },
-          {
-            "title": "PSD2 bank reconciliation",
-            "desc": "Connection to BCEE, BIL, Banque Raiffeisen, Post Finance via Enable Banking. Automatic reconciliation."
-          },
-          {
-            "title": "Configurable allocation keys",
-            "desc": "General tantièmes, operating tantièmes, special charges per staircase/building, custom shares."
-          },
-          {
-            "title": "Co-owner portal",
-            "desc": "Each co-owner accesses their own space: voting, statement, convocations, minutes, online payment."
-          },
-          {
-            "title": "10 editable letter templates",
-            "desc": "Reminders, convocations, formal notices, proxies. Fully customisable, DOCX / PDF / Google Drive export."
-          },
-          {
-            "title": "Free invoice OCR",
-            "desc": "Upload supplier invoices, automatic extraction via PDF.js + Tesseract.js. Zero manual data entry."
-          },
-          {
-            "title": "Bulk SEPA transfers",
-            "desc": "pain.001 XML generation for grouped supplier payments, compatible with all Luxembourg banks."
-          },
-          {
-            "title": "Charges benchmark",
-            "desc": "Compare your per-m² charges with the Luxembourg average by residence type and construction year."
-          }
-        ]
-      },
-      "trust": {
-        "title": "Why property managers choose us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every two weeks. Public backlog, your requests go to production fast.",
-        "customTitle": "Custom development available",
-        "customDesc": "A specific convocation format, an unusual tantième calculation, an export to your accounting firm: we build the adaptation in 1 to 3 weeks depending on complexity.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Via email at contact@tevaxia.lu. Average response under 6 hours on business days. No ticket numbers, no chatbot: a human who knows the product."
-      },
-      "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-co-ownership billing, no AGM quota, no premium module. Everything available on the free tier to test, and in the general subscription for daily use.",
-        "features": [
-          "Unlimited co-ownerships",
-          "Online AGMs with tantième-weighted voting",
-          "Factur-X fund calls compliant with EN 16931",
-          "Luxembourg co-ownership accounting",
-          "PSD2 bank reconciliation (Enable Banking)",
-          "Co-owner portal with individual access",
-          "5 AGM PDF accounting annexes",
-          "3-tier unpaid reminders with LU legal interest rates",
-          "16 May 1975 law compliant"
-        ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to syndic module"
-      },
-      "faq": {
-        "title": "Frequently asked questions",
-        "items": [
-          {
-            "q": "I'm moving from [another tool] to tevaxia, how does migration work?",
-            "a": "Standard Excel import (units, co-owners, charge history), then allocation key configuration. Picking up an ongoing accounting year takes 2 to 4 hours depending on complexity. We help you through this at no extra cost."
-          },
-          {
-            "q": "Is the tool compliant with Luxembourg co-ownership law?",
-            "a": "Yes, the 16 May 1975 law (co-ownership status) is built in: simple / absolute / double / unanimity majority rules, 15-day convocation deadline, accounting obligations, 10-year archiving. Accounting annexes follow the format expected by auditors."
-          },
-          {
-            "q": "Is an online AGM legally valid?",
-            "a": "Yes, provided the co-ownership rules allow it or a prior physical AGM resolution has approved it. The practice has been common in Luxembourg since 2020. The signed electronic minutes are archivable as legal evidence."
-          },
-          {
-            "q": "Can fund calls be issued for VAT-exempt co-ownerships?",
-            "a": "Yes, art. 44 §1 f of the VAT law exempts co-ownership management. The module automatically applies the correct exemption and generates exempted Factur-X (category E in EN 16931). No risk of wrongly charged VAT."
-          },
-          {
-            "q": "Is co-owner data secure?",
-            "a": "Stored on Supabase (AWS eu-central-1 Frankfurt) with Row Level Security per user: even administrators cannot access data from a syndic that is not theirs. GDPR-compliant, HTTPS encryption in transit. Full data export to ZIP available at any time."
-          },
-          {
-            "q": "How long before I'm operational?",
-            "a": "A syndic managing 1 to 5 co-ownerships is operational in 1 to 2 hours: account creation, first co-ownership import, allocation key setup, first fund call. Beyond 10 co-ownerships, allow 4 to 6 hours for a full import."
-          }
-        ]
-      },
-      "finalCta": {
-        "title": "Ready to take your evenings back",
-        "desc": "Create your free account, import your first co-ownership and generate a test fund call in 15 minutes. Zero commitment.",
-        "cta": "Start for free",
-        "ctaSecondary": "See the syndic module live"
+        "title": "Pronto para ver as coisas com clareza",
+        "desc": "Começar pela avaliação de um imóvel ou pela simulação dos encargos. Sem inscrição, sem compromisso, em 2 minutos.",
+        "cta": "Avaliar um imóvel gratuitamente",
+        "ctaSecondary": "Ver todas as ferramentas"
       }
     },
     "promoteur": {
       "meta": {
-        "title": "Real estate developer software Luxembourg — P&L, VEFA, construction costs",
-        "description": "Developer P&L with cash-flow plan, VEFA simulator with interim interest, STATEC construction cost estimator, road works and OAI/ILNAS surface conversion."
+        "title": "Software de promotor imobiliário Luxemburgo, conta de exploração, VEFA, custos de construção",
+        "description": "Conta de exploração do promotor com plano de tesouraria, simulador VEFA com juros intercalares, estimador de custos de construção STATEC, obras de urbanização e conversão de áreas OAI/ILNAS."
       },
       "hero": {
-        "badge": "For LU developers and property dealers",
-        "title": "Developer P&L and VEFA simulation,",
-        "titleAccent": "without re-entering costs three times",
-        "subtitle": "Complete developer P&L with monthly cash-flow plan and forecast margin, VEFA simulator with interim interest and LU 3% VAT, STATEC-referenced construction cost estimator (17 trades), road works calculator (9 lots), OAI/ILNAS surface converter. Built for Luxembourg property developers and dealers.",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
+        "badge": "Para promotores e marchands de biens LU",
+        "title": "Conta de exploração do promotor e simulação VEFA,",
+        "titleAccent": "sem voltar a introduzir os custos três vezes",
+        "subtitle": "Conta de exploração do promotor completa com plano de tesouraria mensal e previsão de margem, simulador VEFA com juros intercalares e IVA LU 3 %, estimador de custos de construção referenciado STATEC (17 ofícios), calculador de obras de urbanização (9 lotes), conversor de áreas OAI/ILNAS. Concebido para promotores imobiliários e marchands de biens luxemburgueses.",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver como funciona",
         "kpis": [
           {
-            "value": "17 trades",
-            "label": "STATEC integrated"
+            "value": "17 ofícios",
+            "label": "STATEC integrados"
           },
           {
-            "value": "9 lots",
-            "label": "road works configurable"
+            "value": "9 lotes",
+            "label": "urbanização configurável"
           },
           {
             "value": "<24 h",
-            "label": "support response time"
+            "label": "tempo de resposta do suporte"
           }
         ]
       },
       "problem": {
-        "title": "Running a real estate project in Luxembourg means juggling 6 spreadsheets",
-        "intro": "Construction cost in one Excel, VEFA in another, interim interest by hand, cash-flow plan redone at every iteration. Result: you only see whether the project actually yields margin very late in the process.",
+        "title": "Montar um projeto imobiliário no Luxemburgo significa fazer malabarismo com 6 folhas",
+        "intro": "Custos de construção num Excel, VEFA noutro, juros intercalares à mão, plano de tesouraria refeito a cada iteração. Resultado: o momento em que se vê se o projeto faz mesmo margem chega muito tarde.",
         "items": [
           {
-            "title": "Fuzzy construction costs",
-            "desc": "Pricing based on the last comparable project, no up-to-date STATEC reference. In the end, a 10-20% gap that eats into the margin.",
-            "stat": "±10-20% typical gap"
+            "title": "Custos de construção imprecisos",
+            "desc": "Valorização feita com base no último projeto comparável, sem referência STATEC atualizada. No final, 10-20 % de diferença que consome a margem.",
+            "stat": "±10-20 % de diferença típica"
           },
           {
-            "title": "Complex VEFA interim interest",
-            "desc": "Tranche-by-tranche fund call schedule, short-term credit rate, 3% VAT to allocate on the right base: many possible errors.",
-            "stat": "~3 h per simulation"
+            "title": "Juros intercalares VEFA complexos",
+            "desc": "Plano de chamadas de fundos por tranche, taxa de crédito de curto prazo, IVA 3 % a atribuir à base correta: muitos erros possíveis.",
+            "stat": "~3 h por simulação"
           },
           {
-            "title": "No dynamic cash-flow plan",
-            "desc": "A 3-month permit delay, a 5% overrun on structural works: you have to redo the spreadsheet by hand to see the impact on final margin.",
-            "stat": "~8 h rework per change"
+            "title": "Sem plano de tesouraria dinâmico",
+            "desc": "3 meses de atraso na licença de construção, 5 % de derrapagem na estrutura: é preciso refazer a folha à mão para ver o efeito na margem final.",
+            "stat": "~8 h de revisão por alteração"
           }
         ]
       },
       "howItWorks": {
-        "title": "From pricing to commercialisation, three steps",
-        "intro": "You enter the land and the programme. The system prices construction, projects VEFA and computes margin. You adjust and compare.",
+        "title": "Da valorização à comercialização, três passos",
+        "intro": "Introduz o terreno e o programa. O sistema calcula os custos de construção, projeta a VEFA e calcula a margem.",
         "steps": [
           {
             "number": "1",
-            "title": "Land and programme",
-            "desc": "Land price, buildable surface per PAG, programme (number of units, types, surfaces), commune. Automatic PAG/PAP rule check."
+            "title": "Terreno e programa",
+            "desc": "Preço do terreno, área construível segundo PAG, programa (número de lotes, tipos, áreas), comuna. Verificação automática das regras PAG/PAP."
           },
           {
             "number": "2",
-            "title": "Construction + road works",
-            "desc": "Pricing by STATEC trade (17 items), adjustment by energy class (AAA-C), finishes. Road works 9 lots with sourced prices."
+            "title": "Custos de construção + urbanização",
+            "desc": "Valorização por ofício STATEC (17 rubricas), ajustamento por classe energética (AAA-C), acabamentos. Urbanização 9 lotes com preços fundamentados."
           },
           {
             "number": "3",
-            "title": "Developer P&L + VEFA",
-            "desc": "Monthly cash-flow plan, VEFA fund call simulation, interim interest on construction credit, 3% new-build VAT, gross and net margin."
+            "title": "Conta de exploração + VEFA",
+            "desc": "Plano de tesouraria mensal, simulação de chamadas de fundos VEFA, juros intercalares em crédito de construção, IVA 3 % novo, margem bruta e líquida."
           }
         ]
       },
       "features": {
-        "title": "All the real estate project build-up tools",
-        "intro": "Specific to Luxembourg standards (STATEC, OAI FC.04, ILNAS 101:2016, 3% VEFA VAT, PAG/PAP regulation) and market practices.",
+        "title": "Todas as ferramentas para montar um projeto imobiliário",
+        "intro": "Específicas para as normas luxemburguesas (STATEC, OAI FC.04, ILNAS 101:2016, IVA VEFA 3 %, PAG/PAP) e para as práticas do mercado.",
         "items": [
           {
-            "title": "Complete developer P&L",
-            "desc": "Revenue forecast per unit, total costs, financial charges, gross and net margin, project IRR."
+            "title": "Conta de exploração do promotor completa",
+            "desc": "Previsão de receitas por lote, custos totais, custos financeiros, margem bruta e líquida, TIR do projeto."
           },
           {
-            "title": "Monthly cash-flow plan",
-            "desc": "Monthly VEFA collections and construction disbursements. Breakeven identified."
+            "title": "Plano de tesouraria mensal",
+            "desc": "Receitas VEFA mensais e despesas de construção mês a mês. Break-even identificado."
           },
           {
-            "title": "VEFA simulator",
-            "desc": "Interim interest, 3% VAT on taxable base, financial completion guarantee, standard fund call schedule."
+            "title": "Simulador VEFA",
+            "desc": "Juros intercalares, IVA 3 % em base tributável, garantia financeira de acabamento, plano de chamadas de fundos padrão."
           },
           {
-            "title": "STATEC construction estimator",
-            "desc": "17 trades, STATEC October 2025 index: 1 173.24. Adjustment by energy class."
+            "title": "Estimador de construção STATEC",
+            "desc": "17 ofícios, índice STATEC outubro 2025: 1.173,24. Ajustamento por classe energética."
           },
           {
-            "title": "Road works calculator (9 lots)",
-            "desc": "Earthworks, roads, sewage, water supply, lighting, green spaces. Sourced prices Batiprix 2026 (LU coef. ×1.20), CTG 002 & 009, CSDC-CT."
+            "title": "Calculador de urbanização (9 lotes)",
+            "desc": "Movimentação de terras, vias, saneamento, abastecimento de água, iluminação, espaços verdes. Preços fundamentados Batiprix 2026 (coef. LU ×1,20), CTG, CSDC-CT."
           },
           {
-            "title": "ACT surface converter",
-            "desc": "SCB / SCP / usable / habitable per ILNAS 101:2016. ACT weighting for cellars, balconies, terraces. OAI FC.04 standards."
+            "title": "Conversor de áreas ACT",
+            "desc": "SCB / SCP / utilizável / habitável conforme ILNAS 101:2016. Ponderação ACT conforme OAI FC.04."
           },
           {
-            "title": "PAG-PAP analysis",
-            "desc": "PAG and PAP urban planning rules per commune (COS, CUS, setback, height). Theoretical buildable surface."
+            "title": "Análise PAG-PAP",
+            "desc": "Regras urbanísticas PAG e PAP por comuna (COS, CUS, afastamento, altura)."
           },
           {
-            "title": "Agricultural land",
-            "desc": "Agricultural land valuation, farm lease yield, conversion to building land (PAG probability, potential capital gain)."
+            "title": "Áreas agrícolas",
+            "desc": "Valorização de áreas agrícolas, rendimento de arrendamento rural, conversão em terreno urbanizável."
           },
           {
-            "title": "Scenario comparison",
-            "desc": "Multiple scenarios in parallel: programme A (100% residential) vs B (mixed residential+retail), AAA vs A+ class."
+            "title": "Comparação de cenários",
+            "desc": "Vários cenários em paralelo: programa A (100 % habitação) vs B (misto)."
           },
           {
-            "title": "Margin sensitivity",
-            "desc": "Stress test on duration, construction cost, selling price. Worst-case margin displayed."
+            "title": "Sensibilidade de margem",
+            "desc": "Stress test em prazo, custos de construção, preço de venda. Margem worst-case apresentada."
           },
           {
-            "title": "Bank PDF report",
-            "desc": "Complete developer financing file: P&L, cash-flow plan, guarantees, pre-commercialisation, valuations."
+            "title": "Relatório PDF bancário",
+            "desc": "Dossier de financiamento de promotor completo: conta de exploração, plano de tesouraria, garantias, pré-comercialização."
           },
           {
-            "title": "98 commune data",
-            "desc": "Sale prices per commune, demographics, urban rules. Pre-commercialisation check."
+            "title": "Dados de 98 comunas",
+            "desc": "Preços de venda por comuna, demografia, regras urbanísticas. Verificação de pré-comercialização."
           }
         ]
       },
       "trust": {
-        "title": "Why LU developers choose us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every 2 weeks. Automatic STATEC index updates.",
-        "customTitle": "Custom work possible",
-        "customDesc": "A specific P&L format for your bank, a particular LUX GAAP chart of accounts, an export for your controlling: development in 1 to 3 weeks.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days, by a human who knows LU real estate development."
+        "title": "Porque é que os promotores LU nos escolhem",
+        "agileTitle": "Desenvolvimento ágil, releases regulares",
+        "agileDesc": "Novos módulos entregues a cada 2 semanas. Backlog público em github.com/Tevaxia.",
+        "customTitle": "Desenvolvimento à medida possível",
+        "customDesc": "Adaptações específicas, integrações dedicadas: desenvolvimento em 1 a 3 semanas.",
+        "supportTitle": "Suporte em menos de 24 h",
+        "supportDesc": "E-mail para contact@tevaxia.lu. Resposta média em menos de 6 horas nos dias úteis."
       },
       "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-project billing, no simulation quota. All developer tools are included in the general subscription.",
+        "title": "Incluído na sua subscrição tevaxia",
+        "subtitle": "Sem faturação por projeto, sem quota de simulação. Todas as ferramentas de promoção estão incluídas na subscrição geral.",
         "features": [
-          "Unlimited developer P&L",
-          "VEFA with interim interest",
-          "STATEC construction estimator 17 trades",
-          "Road works calculator 9 sourced lots",
-          "OAI/ILNAS ACT surface converter",
-          "PAG/PAP analysis 98 communes",
-          "Unlimited scenario comparison",
-          "Bank PDF report",
-          "Multi-parameter margin stress test"
+          "Conta de exploração do promotor ilimitada",
+          "VEFA com juros intercalares",
+          "Estimador de construção STATEC 17 ofícios",
+          "Calculador de urbanização 9 lotes fundamentados",
+          "Conversor de áreas OAI/ILNAS ACT",
+          "Análise PAG/PAP 98 comunas",
+          "Comparação de cenários ilimitada",
+          "Relatório PDF bancário",
+          "Stress test de margem multi-parâmetro"
         ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to developer P&L"
+        "ctaPlatform": "Ver planos tevaxia",
+        "ctaEmit": "Ir para a conta de exploração do promotor"
       },
       "faq": {
-        "title": "Frequently asked questions",
+        "title": "Perguntas frequentes",
         "items": [
           {
-            "q": "Are STATEC indices up to date?",
-            "a": "Yes, the construction cost index is updated quarterly (latest value: October 2025 = 1 173.24). The 17 STATEC trades are covered, adjusted by energy class (AAA to C) and finish level."
+            "q": "Os índices STATEC estão atualizados?",
+            "a": "Sim, o índice de custos de construção é atualizado trimestralmente (valor mais recente: outubro 2025 = 1.173,24). Os 17 ofícios STATEC estão cobertos."
           },
           {
-            "q": "Is 3% new-build VAT properly handled?",
-            "a": "Yes, for resident first-time buyers occupying the property for 2 years minimum. The tool applies the right taxable base (off-plan price + promotion fees), 3% vs 17% comparison to see the client saving."
+            "q": "O IVA 3 % novo é tratado corretamente?",
+            "a": "Sim, para compradores residentes em primeira aquisição que ocupem o imóvel pelo menos 2 anos."
           },
           {
-            "q": "Can I configure my own construction costs?",
-            "a": "Yes, the 17 STATEC trades serve as reference but are all adjustable. You can save templates by operation type (standard residential, premium, social housing)."
+            "q": "Posso configurar custos de construção próprios?",
+            "a": "Sim, os 17 ofícios STATEC servem de referência mas são todos ajustáveis."
           },
           {
-            "q": "Does road works match Luxembourg rules?",
-            "a": "Yes, the 9 road works lots use Batiprix 2026 prices (LU coefficient ×1.20), CTG 002 & 009 (road hygiene rules), CSDC-CT (Roads & Bridges) and Administration de l'eau (sewerage)."
+            "q": "A urbanização corresponde às regras luxemburguesas?",
+            "a": "Sim, os 9 lotes de urbanização utilizam preços Batiprix 2026 (coeficiente LU ×1,20), CTG 002 & 009, CSDC-CT."
           },
           {
-            "q": "Does surface conversion respect OAI/ILNAS standards?",
-            "a": "Yes, ILNAS 101:2016 for the 4 surface types (SCB, SCP, usable, habitable). ACT weighting per OAI FC.04 for cellars, balconies, terraces, attics."
+            "q": "A conversão de áreas respeita as normas OAI/ILNAS?",
+            "a": "Sim, ILNAS 101:2016 para os 4 tipos de área. Ponderação ACT conforme OAI FC.04."
           },
           {
-            "q": "Can I export my P&L for my bank or advisor?",
-            "a": "Yes, complete Developer financing file PDF: P&L, monthly cash-flow plan, expected guarantees, pre-commercialisation commitment, margin sensitivity. View-only sharing possible with 7-90 day limited link."
+            "q": "Posso exportar a conta de exploração para o meu banco?",
+            "a": "Sim, PDF dossier de financiamento de promotor completo: conta de exploração, plano de tesouraria mensal, sensibilidade de margem. Partilha view-only possível."
           }
         ]
       },
       "finalCta": {
-        "title": "Ready to price your projects faster",
-        "desc": "Create your account, enter your first project and get your P&L in 30 minutes. Zero commitment.",
-        "cta": "Start for free",
-        "ctaSecondary": "See developer P&L"
+        "title": "Pronto para orçamentar os seus projetos mais depressa",
+        "desc": "Criar uma conta, introduzir o primeiro projeto, obter a conta de exploração em 30 minutos. Zero compromisso.",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver a conta de exploração do promotor"
       }
     },
     "banque": {
       "meta": {
-        "title": "Real estate valuation software for banks Luxembourg — CRR, LTV, DSCR",
-        "description": "CRR-compliant EVS 2025 valuation, +2% stress test, LTV/DSCR tools, AML/KYC, CRREM energy portfolio. For LU credit analysts and risk managers."
+        "title": "Software de avaliação imobiliária para bancos Luxemburgo, CRR, LTV, DSCR",
+        "description": "Avaliação EVS 2025 conforme CRR, stress test +2 %, ferramentas LTV/DSCR, AML/KYC, portefólio energético CRREM. Para analistas de crédito e risk managers LU."
       },
       "hero": {
-        "badge": "For LU banks and credit analysts",
-        "title": "Real estate credit analysis,",
-        "titleAccent": "CRR + EVS 2025 in one tool",
-        "subtitle": "EVS 2025 valuation with CRR mortgage lending value (energy haircut), LTV / DSCR / borrowing capacity per CSSF profile, AML/KYC with EU sanctions check, CRREM stranding energy portfolio. Built for Luxembourg credit analysts, risk managers and compliance officers.",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
+        "badge": "Para bancos e analistas de crédito LU",
+        "title": "Análise de crédito imobiliário,",
+        "titleAccent": "CRR + EVS 2025 numa só ferramenta",
+        "subtitle": "Avaliação EVS 2025 com valor de garantia CRR (haircut energético), LTV / DSCR / capacidade de endividamento por perfil CSSF, AML/KYC com verificação de sanções UE, portefólio energético CRREM stranding. Concebido para analistas de crédito, risk managers e compliance officers luxemburgueses.",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver como funciona",
         "kpis": [
           {
             "value": "CRR + EVS 2025",
-            "label": "dual compliance"
+            "label": "dupla conformidade"
           },
           {
             "value": "CRREM stranding",
-            "label": "energy haircut"
+            "label": "haircut energético"
           },
           {
             "value": "<24 h",
-            "label": "support response time"
+            "label": "tempo de resposta do suporte"
           }
         ]
       },
       "problem": {
-        "title": "Analysing a real estate loan in Luxembourg means 5 separate tools",
-        "intro": "Market value in one tool, mortgage lending value in another, AML/KYC via external portal, stress test by hand. Files take 3 days when they could take 3 hours.",
+        "title": "Uma análise de crédito imobiliário no Luxemburgo significa 5 ferramentas separadas",
+        "intro": "Valor de mercado numa ferramenta, valor de garantia noutra, AML/KYC em portal externo, stress test à mão. Os processos demoram 3 dias quando podiam demorar 3 horas.",
         "items": [
           {
-            "title": "Manual CRR mortgage lending value",
-            "desc": "Energy haircut calculation by property class, stranded asset adjustment (CRREM 2030+), Regulation 575/2013 compliance check: many manual passes.",
-            "stat": "~2 h per file"
+            "title": "Valor de garantia CRR manual",
+            "desc": "Cálculo do haircut energético segundo a classe energética do imóvel, ajustamento stranded asset (CRREM 2030+), verificação de conformidade CRR 575/2013: muitas iterações manuais.",
+            "stat": "~2 h por processo"
           },
           {
-            "title": "AML/KYC across multiple platforms",
-            "desc": "EU sanctions check (CFSP), PEP, ultimate beneficial owner, source of funds on 3 different tools. No consolidated audit trail.",
-            "stat": "~1 h per file"
+            "title": "AML/KYC em várias plataformas",
+            "desc": "Verificação de sanções UE (CFSP), PEP, Ultimate Beneficial Owner, origem dos fundos em 3 ferramentas diferentes. Nenhum audit trail consolidado.",
+            "stat": "~1 h por processo"
           },
           {
-            "title": "No energy portfolio view",
-            "desc": "Which portfolio properties are stranded 2030 or 2040 per CRREM? What provision for energy haircut? No consolidated tool.",
-            "stat": "~0 LU banks equipped"
+            "title": "Sem vista de portefólio energético",
+            "desc": "Que imóveis do portefólio estarão stranded em 2030 ou 2040 segundo o CRREM? Que provisão para haircut energético? Nenhuma ferramenta consolidada.",
+            "stat": "~0 bancos LU equipados"
           }
         ]
       },
       "howItWorks": {
-        "title": "From credit analysis to risk reporting, three steps",
-        "intro": "You enter the client file. The tool computes market value + mortgage lending value, applies the energy haircut, checks AML/KYC, produces the report.",
+        "title": "Da análise de crédito ao reporting de risco, três passos",
+        "intro": "Introduz o processo do cliente. A ferramenta calcula valor de mercado + valor de garantia, aplica o haircut energético, verifica AML/KYC, entrega o relatório.",
         "steps": [
           {
             "number": "1",
-            "title": "Borrower + property file",
-            "desc": "Borrower profile (resident, non-resident, investor), property (address, surface, energy class, year), amount, duration, rate."
+            "title": "Dossier do mutuário + imóvel",
+            "desc": "Perfil do mutuário (residente, não residente, investidor), imóvel (endereço, área, classe energética, ano), montante, prazo, taxa."
           },
           {
             "number": "2",
-            "title": "Valuation + CRR + LTV/DSCR",
-            "desc": "EVS 2025 market value (8 methods), CRR mortgage lending value with CRREM haircut, LTV per CSSF profile, DSCR target 1.25, +2% rate and unemployment stress test."
+            "title": "Avaliação + CRR + LTV/DSCR",
+            "desc": "Valor de mercado EVS 2025 (8 métodos), valor de garantia CRR com haircut CRREM, LTV por perfil CSSF, DSCR alvo 1,25, stress test taxa +2 % e desemprego."
           },
           {
             "number": "3",
-            "title": "AML/KYC + risk report",
-            "desc": "EU sanctions, PEP, UBO, source of funds check. Risk PDF report with structured opinion (APPROVED / REVIEW / DECLINED) ready for credit committee."
+            "title": "AML/KYC + relatório de risco",
+            "desc": "Verificação de sanções UE, PEP, UBO, origem dos fundos. Relatório PDF de risco com parecer estruturado (APPROVED / REVIEW / DECLINED) pronto para comité de crédito."
           }
         ]
       },
       "features": {
-        "title": "Complete bank real estate credit analysis",
-        "intro": "Compliant with EU Regulation 575/2013 (CRR), CSSF requirements, EN 16931, GDPR and EBA guidelines on real estate collateral.",
+        "title": "Análise de crédito imobiliário bancária completa",
+        "intro": "Conforme ao Regulamento UE 575/2013 (CRR), requisitos CSSF, EN 16931, RGPD e diretrizes EBA sobre garantias imobiliárias.",
         "items": [
           {
-            "title": "EVS 2025 valuation",
-            "desc": "8 TEGOVA methods, 9 asset types, 98 LU commune data, automatic sensitivity. Charte 5th ed. compliant."
+            "title": "Avaliação EVS 2025",
+            "desc": "8 métodos TEGOVA, 9 tipos de ativos, dados 98 comunas LU, sensibilidade automática. Conforme Carta 5.ª ed."
           },
           {
-            "title": "CRR mortgage lending value",
-            "desc": "Energy haircut per CRREM stranding year, energy class adjustment, compliant with CRR 575/2013 Art. 208."
+            "title": "Valor de garantia CRR",
+            "desc": "Haircut energético por ano de stranding CRREM, ajustamento por classe energética, conforme CRR 575/2013 art. 208."
           },
           {
-            "title": "LTV / DSCR / capacity",
-            "desc": "Max LTV by profile (80% resident, 70% non-resident, 60% investor), DSCR target 1.25, borrowing capacity."
+            "title": "LTV / DSCR / capacidade",
+            "desc": "LTV máximo por perfil (80 % residente, 70 % não residente, 60 % investidor), DSCR alvo 1,25, capacidade de endividamento."
           },
           {
-            "title": "+2% stress test + unemployment",
-            "desc": "Risk simulations: +2% rate, 6-month unemployment, 10-20% value drop. Stressed LTV and DSCR displayed."
+            "title": "Stress test +2 % + desemprego",
+            "desc": "Simulações de risco: taxa +2 %, 6 meses de desemprego, desvalorização 10-20 %."
           },
           {
-            "title": "Integrated AML/KYC",
-            "desc": "EU sanctions check (CFSP), PEP, UBO, source of funds. Consolidated audit trail, JSON export."
+            "title": "AML/KYC integrado",
+            "desc": "Verificação de sanções UE (CFSP), PEP, UBO, origem dos fundos. Audit trail consolidado, exportação JSON."
           },
           {
-            "title": "CRREM energy portfolio",
-            "desc": "Stranding 2030 / 2040 / 2050 view per property. Energy haircut provision. Renovation tracking."
+            "title": "Portefólio energético CRREM",
+            "desc": "Vista stranding 2030 / 2040 / 2050 por imóvel. Provisão haircut energético. Acompanhamento de obras de renovação."
           },
           {
-            "title": "Risk PDF report",
-            "desc": "APPROVED / REVIEW / DECLINED structured opinion with justification. Pre-committee or credit committee."
+            "title": "Relatório PDF de risco",
+            "desc": "Parecer estruturado APPROVED / REVIEW / DECLINED com justificação. Comité de crédito preliminar ou principal."
           },
           {
-            "title": "REST API for bank CRM",
-            "desc": "API integration: valuation, LTV, stress test, AML/KYC. Webhook for automatic push."
+            "title": "API REST para CRM bancário",
+            "desc": "Integração API: avaliação, LTV, stress test, AML/KYC. Webhook para push automático."
           },
           {
-            "title": "Model transparency",
-            "desc": "Public MAPE and R², 29 sourced hedonic coefficients. Auditability for BCL and CSSF."
+            "title": "Transparência do modelo",
+            "desc": "MAPE e R² públicos, 29 coeficientes hedónicos fundamentados documentados. Auditabilidade para BCL e CSSF."
           },
           {
-            "title": "Hotel valuation",
-            "desc": "Hotel-specific methods (RevPAR × multiple capitalisation, hotel DSCR 1.25). For hospitality financing banks."
+            "title": "Avaliação hoteleira",
+            "desc": "Métodos específicos do setor hoteleiro (RevPAR × multiplicador de capitalização, DSCR hoteleiro 1,25)."
           },
           {
-            "title": "Office + retail DCF",
-            "desc": "Multi-tenant DCF lease by lease. Break options, step rents, planned CAPEX. Equity and project IRR."
+            "title": "DCF escritórios + retalho",
+            "desc": "DCF multi-inquilino arrendamento a arrendamento. Break options, step rents, CAPEX programado."
           },
           {
-            "title": "Live macro data",
-            "desc": "10-year OAT, mortgage rates, construction index, inflation. ECB + STATEC connection. Monthly updates."
+            "title": "Dados macro em direto",
+            "desc": "OAT 10 anos, taxas hipotecárias, índice de custos de construção, inflação. BCE + STATEC."
           }
         ]
       },
       "trust": {
-        "title": "Why LU banks consider us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every 2 weeks. Auto-updates for CRR, CRREM regulations and EBA guidelines.",
-        "customTitle": "Custom integration",
-        "customDesc": "Integration with your core banking (Temenos T24, Avaloq, Finastra), internal report format, committee workflow: development in 1 to 3 weeks.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Email contact@tevaxia.lu. Average response under 6 hours on business days, by a human who knows CRR and EVS 2025."
+        "title": "Porque é que os bancos LU nos consideram",
+        "agileTitle": "Desenvolvimento ágil, releases regulares",
+        "agileDesc": "Novos módulos entregues a cada 2 semanas. Backlog público em github.com/Tevaxia.",
+        "customTitle": "Desenvolvimento à medida possível",
+        "customDesc": "Adaptações específicas, integrações dedicadas: desenvolvimento em 1 a 3 semanas.",
+        "supportTitle": "Suporte em menos de 24 h",
+        "supportDesc": "E-mail para contact@tevaxia.lu. Resposta média em menos de 6 horas nos dias úteis."
       },
       "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-file billing. All banking tools are included in the general subscription.",
+        "title": "Incluído na sua subscrição tevaxia",
+        "subtitle": "Sem faturação por processo. Todas as ferramentas bancárias estão incluídas na subscrição geral.",
         "features": [
-          "Unlimited EVS 2025 valuations",
-          "CRR mortgage lending value with CRREM haircut",
-          "LTV / DSCR / borrowing capacity",
-          "+2% and unemployment stress test",
-          "AML/KYC with audit trail",
-          "CRREM stranding energy portfolio",
-          "Structured risk PDF report",
-          "REST API for CRM integration",
-          "Multi-tenant DCF + hotel valuation"
+          "Avaliações EVS 2025 ilimitadas",
+          "Valor de garantia CRR com haircut CRREM",
+          "LTV / DSCR / capacidade de endividamento",
+          "Stress test +2 % e desemprego",
+          "AML/KYC com audit trail",
+          "Portefólio energético CRREM stranding",
+          "Relatório PDF de risco estruturado",
+          "API REST para integração CRM",
+          "DCF multi-inquilino + avaliação hoteleira"
         ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to banking tools"
+        "ctaPlatform": "Ver planos tevaxia",
+        "ctaEmit": "Ir para as ferramentas bancárias"
       },
       "faq": {
-        "title": "Frequently asked questions",
+        "title": "Perguntas frequentes",
         "items": [
           {
-            "q": "How is CRR mortgage lending value computed?",
-            "a": "EVS 2025 market value minus energy haircut based on property energy class and CRREM trajectory. A pre-2030 stranded asset gets a 20-30% haircut, consistent with CRR Art. 208 spirit. Transparent calculation displayed per property."
+            "q": "Como é calculado o valor de garantia CRR?",
+            "a": "Valor de mercado EVS 2025 menos haircut energético baseado na classe energética do imóvel e na trajetória CRREM. Um ativo stranded antes de 2030 recebe um haircut de 20-30 %."
           },
           {
-            "q": "Does AML/KYC cover CSSF requirements?",
-            "a": "Yes: EU sanctions check (CFSP), PEP (politically exposed persons), UBO (ultimate beneficial owner), source of funds. Consolidated audit trail with timestamps. Exportable report for CSSF audits."
+            "q": "O AML/KYC cobre os requisitos CSSF?",
+            "a": "Sim: verificação de sanções UE (CFSP), PEP, UBO, origem dos fundos. Audit trail consolidado com timestamps. Relatório exportável para auditorias CSSF."
           },
           {
-            "q": "Is the stress test EBA-compliant?",
-            "a": "Yes, default scenarios (+2% rate, 6-month unemployment, 10-20% value drop) match EBA expectations on resilience testing. Parameters adjustable for stricter internal stress tests."
+            "q": "O stress test está conforme à EBA?",
+            "a": "Sim, os cenários padrão (+2 % de taxa, 6 meses de desemprego, desvalorização 10-20 %) correspondem às expectativas EBA em matéria de testes de resiliência."
           },
           {
-            "q": "Can we integrate via API with our core banking?",
-            "a": "Yes, REST API with OAuth 2.0 authentication. Endpoints: valuation, LTV, stress test, AML/KYC. Webhook for automatic push to your CRM. Public OpenAPI 3.1 documentation."
+            "q": "Podemos integrar via API ao nosso core banking?",
+            "a": "Sim, API REST com OAuth 2.0. Endpoints: avaliação, LTV, stress test, AML/KYC. Webhook para push automático. Documentação pública OpenAPI 3.1."
           },
           {
-            "q": "How is BCL and CSSF compliance handled?",
-            "a": "Hedonic model with public MAPE and R² for auditability, 29 sourced coefficients documented, back-test on 20 LU properties. Public /transparence page. Compliance teams can audit the model without special request."
+            "q": "Como é tratada a conformidade BCL e CSSF?",
+            "a": "Modelo hedónico com MAPE e R² públicos para auditabilidade, 29 coeficientes fundamentados documentados. Página /transparence pública."
           },
           {
-            "q": "Is client data secure at banking standard?",
-            "a": "Supabase storage (AWS eu-central-1 Frankfurt), user-level Row Level Security, HTTPS in transit, ISO 27001. Strict isolation per organisation: even tevaxia administrators cannot access a bank's data."
+            "q": "Os dados dos clientes estão seguros ao nível bancário?",
+            "a": "Armazenamento Supabase (AWS eu-central-1 Frankfurt), Row Level Security, HTTPS, ISO 27001. Isolamento estrito por organização."
           }
         ]
       },
       "finalCta": {
-        "title": "Ready to accelerate your credit files",
-        "desc": "Create your pilot account, connect a test file and get your valuation + CRR + AML/KYC in 10 minutes. Contact us for a dedicated bank POC.",
-        "cta": "Start for free",
-        "ctaSecondary": "See banking tools"
+        "title": "Pronto para acelerar os seus processos de crédito",
+        "desc": "Criar uma conta piloto, ligar um processo de teste, obter avaliação + CRR + AML/KYC em 10 minutos. Contacte-nos para uma POC bancária.",
+        "cta": "Começar gratuitamente",
+        "ctaSecondary": "Ver as ferramentas bancárias"
       }
     }
   },
@@ -11655,124 +11655,124 @@
   },
   "solutionsHub": {
     "meta": {
-      "title": "Luxembourg real estate solutions by profile — tevaxia.lu",
-      "description": "Syndic, agency, hotel, valuer, investor, individual: find the tevaxia.lu solution built for your role. LU compliance, public data, 5 languages."
+      "title": "Soluções imobiliárias luxemburguesas por perfil, tevaxia.lu",
+      "description": "Administração de condomínios, agência, hotelaria, avaliador, investidor, particular: encontre a solução tevaxia.lu para a sua profissão. Conformidade LU, dados públicos, 5 línguas."
     },
     "hero": {
-      "badge": "6 solutions built per role",
-      "title": "Find the solution built for your role",
-      "subtitle": "Each profile has its own legal obligations, workflows and source data specific to the Luxembourg market. Rather than searching across 40+ tools, start with your role."
+      "badge": "6 soluções específicas por setor",
+      "title": "Encontre a solução adequada à sua profissão",
+      "subtitle": "Cada perfil tem as suas obrigações legais, fluxos de trabalho e fontes de dados específicas do mercado luxemburguês. Em vez de procurar em mais de 40 ferramentas, comece pela sua profissão."
     },
     "personas": {
-      "cta": "See the detailed solution",
+      "cta": "Ver a solução detalhada",
       "syndic": {
-        "title": "Co-ownership syndic",
-        "desc": "Online AGMs with tantième-weighted voting, Factur-X fund calls, LU co-ownership accounting, PSD2 bank reconciliation. Compliant with 16 May 1975 law."
+        "title": "Administração de condomínios / Síndico",
+        "desc": "AG em linha com voto ponderado por permilagens, chamadas de fundos Factur-X, contabilidade de condomínio LU, reconciliação bancária PSD2. Conforme lei de 16 de maio de 1975."
       },
       "agence": {
-        "title": "Real estate agency",
-        "desc": "OpenImmo mandate pipeline, contact CRM with /100 buyer matching, drag-drop Kanban, co-branded property PDFs, eIDAS signature."
+        "title": "Agência imobiliária",
+        "desc": "Pipeline de mandatos OpenImmo, CRM de contactos com matching de compradores /100, kanban drag and drop, PDFs de imóvel em co-branding, assinatura eIDAS."
       },
       "hotel": {
-        "title": "Hospitality",
-        "desc": "Multi-property PMS, USALI 19-category auto-posting folios, LU VAT 3%/8%/17% invoicing, 90-day forecast, iCal OTA."
+        "title": "Hotelaria",
+        "desc": "PMS multi-propriedade, folios auto-posting USALI 19 categorias, faturação IVA LU 3 %/8 %/17 %, forecast a 90 dias, iCal OTA."
       },
       "expert-evaluateur": {
-        "title": "Valuer / Expert",
-        "desc": "TEGOVA EVS 2025 compliant report in 20 min, 8 methods, 9 asset types, auto-filled data (98 communes + 12 macro series)."
+        "title": "Avaliador / Perito",
+        "desc": "Relatório conforme TEGOVA EVS 2025 em 20 min, 8 métodos, 9 tipos de ativos, dados pré-preenchidos (98 comunas + 12 séries macro)."
       },
       "investisseur": {
-        "title": "Investor",
-        "desc": "Yield simulator with Bëllegen Akt, multi-tenant DCF, VEFA interim interest, LU capital gains, multi-asset portfolio."
+        "title": "Investidor",
+        "desc": "Simulador de rentabilidade com Bëllegen Akt, DCF multi-inquilino, juros intercalares VEFA, mais-valias LU, portefólio multi-ativos."
       },
       "particulier": {
-        "title": "Individual",
-        "desc": "Estimation, acquisition fees with Bëllegen Akt, 5 layers of stackable aids (Klimabonus included), legal 5% rent cap."
+        "title": "Particular",
+        "desc": "Avaliação, custos de aquisição com Bëllegen Akt, 5 níveis de apoios cumuláveis (Klimabonus incluído), teto de arrendamento legal de 5 %."
       }
     },
     "compare": {
-      "title": "Quick comparator",
-      "intro": "If you hesitate between two profiles, compare daily usage, legal compliance and implemented standards.",
-      "profileCol": "Profile",
-      "dailyCol": "Daily usage",
-      "complianceCol": "LU compliance",
-      "standardsCol": "Standards",
+      "title": "Comparação rápida",
+      "intro": "Se está indeciso entre dois perfis, compare a utilização diária, a conformidade legal e as normas implementadas.",
+      "profileCol": "Perfil",
+      "dailyCol": "Utilização diária",
+      "complianceCol": "Conformidade LU",
+      "standardsCol": "Normas",
       "rows": {
         "syndic": {
-          "daily": "Run AGMs, fund calls, unpaid reminders, co-ownership accounting",
-          "compliance": "16 May 1975 law, VAT art. 44 §1 f exemption",
+          "daily": "Gerir AG, chamadas de fundos, cobranças, contabilidade de condomínio",
+          "compliance": "Lei de 16 de maio de 1975, isenção de IVA art. 44 §1 f",
           "standards": "EN 16931, Peppol, ISO 20022"
         },
         "agence": {
-          "daily": "Mandates, contacts, portal distribution, buyer matching",
-          "compliance": "eIDAS EU 910/2014, GDPR consent",
+          "daily": "Mandatos, contactos, difusão em portais, matching de compradores",
+          "compliance": "eIDAS UE 910/2014, consentimento RGPD",
           "standards": "OpenImmo 1.2.8, eIDAS"
         },
         "hotel": {
-          "daily": "Reservations, folios, invoicing, revenue management",
-          "compliance": "3% accommodation VAT, communal city tax",
-          "standards": "USALI 11th ed., STR, iCal"
+          "daily": "Reservas, folios, faturação, revenue management",
+          "compliance": "IVA 3 % alojamento, taxa municipal",
+          "standards": "USALI 11.ª ed., STR, iCal"
         },
         "expert-evaluateur": {
-          "daily": "Property valuations, reports, field inspections",
-          "compliance": "TEGOVA EVS 2025, Charte 5th ed.",
+          "daily": "Avaliações imobiliárias, relatórios, inspeções no terreno",
+          "compliance": "TEGOVA EVS 2025, Carta 5.ª ed.",
           "standards": "EVS 2025, Red Book, RICS"
         },
         "investisseur": {
-          "daily": "Yield, DCF, financing simulations, portfolio",
-          "compliance": "Bëllegen Akt, LU capital gains, CSSF rules",
-          "standards": "CRR, ECB, Basel III"
+          "daily": "Rentabilidade, DCF, simulações de financiamento, portefólio",
+          "compliance": "Bëllegen Akt, mais-valias LU, regras CSSF",
+          "standards": "CRR, BCE, Basileia III"
         },
         "particulier": {
-          "daily": "Estimation, fees, aids, buy/rent comparison",
-          "compliance": "21.09.2006 law, 5% rule, Klimabonus",
+          "daily": "Avaliação, encargos, apoios, comparação comprar/arrendar",
+          "compliance": "Lei 21.09.2006, regra dos 5 %, Klimabonus",
           "standards": "IRL, Observatoire Habitat, STATEC"
         }
       }
     },
     "faq": {
-      "title": "Questions common to all 6 profiles",
-      "intro": "About the pricing model, custom work, support, security and migration.",
+      "title": "Perguntas comuns aos 6 perfis",
+      "intro": "Sobre o modelo de preços, o desenvolvimento à medida, o suporte, a segurança e a migração.",
       "items": [
         {
-          "q": "How much does the tevaxia subscription cost?",
-          "a": "No per-module or per-user billing within each profile. A single tevaxia subscription gives access to all tools for your role, without quotas or volume limits. Full pricing on the /pricing page."
+          "q": "Qual é o custo da subscrição tevaxia?",
+          "a": "Sem faturação por módulo nem por utilizador dentro de cada perfil. Uma única subscrição tevaxia dá acesso a todas as ferramentas da sua profissão, sem quotas nem limites de volume. Preçário completo na página /pricing."
         },
         {
-          "q": "Can I request custom development?",
-          "a": "Yes. A specific format (convocation, report, accounting export), an atypical calculation (custom weighting, proprietary business rule), a dedicated integration: development in 1 to 3 weeks depending on complexity. Free quote."
+          "q": "Posso pedir desenvolvimento à medida?",
+          "a": "Sim. Formato específico, cálculo atípico, integração dedicada: desenvolvimento em 1 a 3 semanas consoante a complexidade. Orçamento gratuito."
         },
         {
-          "q": "What's the support response time?",
-          "a": "Average response under 6 hours on business days, maximum 24 hours. Email contact@tevaxia.lu. No chatbot, no numbered tickets: you speak with a human who knows the product."
+          "q": "Qual é o tempo de resposta do suporte?",
+          "a": "Resposta média em menos de 6 horas nos dias úteis, máximo 24 horas. E-mail contact@tevaxia.lu. Sem chatbot, sem tickets numerados: fala com uma pessoa que conhece o produto."
         },
         {
-          "q": "Is data hosted in the EU?",
-          "a": "Yes. Supabase (AWS eu-central-1, Frankfurt) with user-level Row Level Security, HTTPS in transit, GDPR compliant. Full data export to ZIP at any time (GDPR article 20)."
+          "q": "Os dados estão alojados na UE?",
+          "a": "Sim. Supabase (AWS eu-central-1, Frankfurt) com Row Level Security por utilizador, HTTPS, conforme RGPD. Exportação completa dos dados em ZIP a qualquer momento."
         },
         {
-          "q": "How do I migrate from another tool?",
-          "a": "CSV or Excel import depending on data type. Automatic column mapping with preview. Free migration assistance: we help you import the first dataset."
+          "q": "Como migrar a partir de outra ferramenta?",
+          "a": "Importação CSV ou Excel consoante o tipo de dados. Mapeamento automático das colunas com pré-visualização. Acompanhamento na migração gratuito."
         },
         {
-          "q": "What's the release cadence?",
-          "a": "Releases every 2 weeks on average. Public backlog on github.com/Tevaxia, your requests are visible and can be prioritised. Auto-updated: no version to install, everything runs SaaS."
+          "q": "Com que frequência são publicadas as atualizações?",
+          "a": "Releases em média a cada 2 semanas. Backlog público em github.com/Tevaxia. Atualizações automáticas: nada a instalar."
         },
         {
-          "q": "Is tevaxia multilingual?",
-          "a": "Yes, 5 languages: French, English, German, Portuguese and Luxembourgish. Every page, every PDF, every notification is available in all 5 languages. Persona landings are currently complete in FR and EN, with DE/LB/PT being translated."
+          "q": "A tevaxia é multilingue?",
+          "a": "Sim, 5 línguas: francês, inglês, alemão, português e luxemburguês. As landings de persona estão atualmente completamente em FR e EN, com DE/LB/PT em tradução."
         },
         {
-          "q": "Can tevaxia be used outside Luxembourg?",
-          "a": "The platform is primarily calibrated for the Luxembourg legal framework (3% VAT, Bëllegen Akt, 5% rule, TEGOVA). Some modules also work for France and Belgium (Factur-X, DCF, buy/rent comparator). For cross-border usage, contact us to confirm coverage."
+          "q": "A tevaxia pode ser utilizada fora do Luxemburgo?",
+          "a": "A plataforma está principalmente calibrada para o enquadramento legal luxemburguês (IVA 3 %, Bëllegen Akt, regra dos 5 %, TEGOVA). Alguns módulos funcionam também para França e Bélgica (Factur-X, DCF, comparador comprar/arrendar)."
         }
       ]
     },
     "orientation": {
-      "title": "Not sure which profile matches you?",
-      "desc": "Write us your activity in 2 lines, we'll direct you to the most suitable solution within 24 hours.",
-      "ctaContact": "Email contact@tevaxia.lu",
-      "ctaHome": "Back to home"
+      "title": "Não tem a certeza de qual é o perfil adequado?",
+      "desc": "Escreva-nos a sua atividade em 2 linhas, orientamo-lo em menos de 24 horas para a solução mais adequada.",
+      "ctaContact": "Enviar e-mail a contact@tevaxia.lu",
+      "ctaHome": "Voltar à página inicial"
     }
   }
 }
