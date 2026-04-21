@@ -46,6 +46,8 @@ const MENU_GROUPS: MenuGroup[] = [
       { href: "/convertisseur-surfaces", key: "convertisseurSurfaces" },
       { href: "/portfolio", key: "portfolio" },
       { href: "/syndic", key: "syndic" },
+      { href: "/gestion-locative", key: "gestionLocative" },
+      { href: "/bail-commercial", key: "bailCommercial" },
       { href: "/aml-kyc", key: "amlKyc" },
       { href: "/pro-agences", key: "proAgences" },
       { href: "/facturation", key: "facturation" },

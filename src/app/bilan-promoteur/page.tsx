@@ -12,6 +12,7 @@ import SaveButton from "@/components/SaveButton";
 import SEOContent from "@/components/SEOContent";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
 import PdfExtractButton from "@/components/PdfExtractButton";
+import RelatedTools from "@/components/RelatedTools";
 
 export default function BilanPromoteur() {
   const t = useTranslations("bilanPromoteur");
@@ -1313,6 +1314,8 @@ export default function BilanPromoteur() {
             </div>
           )}
         </div>
+
+        <RelatedTools keys={["estimateurConstruction", "calculateurVrd", "vefa", "valorisation"]} />
       </div>
 
       <SEOContent

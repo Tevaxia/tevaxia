@@ -16,6 +16,7 @@ import { formatEUR } from "@/lib/calculations";
 import { PriceEvolutionChart } from "@/components/PriceChart";
 import { generateMarchePdfBlob, PdfButton } from "@/components/ToolsPdf";
 import SEOContent from "@/components/SEOContent";
+import RelatedTools from "@/components/RelatedTools";
 
 // ---------------------------------------------------------------------------
 // CSV export helper
@@ -870,6 +871,8 @@ export default function MarchePage() {
         {activeTab === "logistique" && <TabLogistique />}
         {activeTab === "terrains" && <TabTerrains />}
         {activeTab === "macro" && <TabMacro />}
+
+        <RelatedTools keys={["carte", "indices", "estimation", "valorisation"]} />
       </div>
     </div>
 

@@ -8,6 +8,7 @@ import ResultPanel from "@/components/ResultPanel";
 import { formatEUR, formatPct } from "@/lib/calculations";
 import { listerEvaluations, type SavedValuation } from "@/lib/storage";
 import SEOContent from "@/components/SEOContent";
+import RelatedTools from "@/components/RelatedTools";
 import {
   XAxis,
   YAxis,
@@ -1044,6 +1045,8 @@ export default function Portfolio() {
             </div>
           </div>
         </div>
+
+        <RelatedTools keys={["dcfMulti", "valorisation", "esgCrrem", "energyRenovation"]} />
       </div>
 
       <SEOContent

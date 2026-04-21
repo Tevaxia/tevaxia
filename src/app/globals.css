@@ -68,7 +68,10 @@ body {
 ::-webkit-scrollbar-thumb:hover { background: #2D4A7A; }
 
 /* Firefox */
-html { scrollbar-width: auto; scrollbar-color: #1B2A4A #F1EFEA; }
+html { scrollbar-width: auto; scrollbar-color: #1B2A4A #F1EFEA; scroll-behavior: smooth; }
+
+section[id] { scroll-margin-top: 5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 /* Number input arrows removal */
 input[type="number"]::-webkit-inner-spin-button,

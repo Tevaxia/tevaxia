@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
 import { localizedAlternates } from "@/lib/seo";
 import { ArticleJsonLd } from "@/components/JsonLd";
+import RelatedGuides from "@/components/RelatedGuides";
 
 export async function generateMetadata(): Promise<Metadata> {
   const [t, locale] = await Promise.all([
@@ -87,6 +88,8 @@ export default async function GuideIaTevaxia() {
             </details>
           </div>
         </section>
+
+        <RelatedGuides currentSlug="ia-tevaxia" />
 
         <ArticleJsonLd headline={t("title")} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />

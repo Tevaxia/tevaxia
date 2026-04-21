@@ -58,7 +58,9 @@
     "proAgences": "Oferta agências B2B",
     "apiBanques": "API bancos",
     "guide": "Guia Imobiliário LU",
-    "sourcesExternes": "Fontes"
+    "sourcesExternes": "Fontes",
+    "gestionLocative": "Gestão de arrendamento",
+    "bailCommercial": "Arrendamento comercial"
   },
   "common": {
     "language": "Língua",
@@ -77,7 +79,21 @@
     "linkCopied": "Ligação copiada!",
     "home": "Início",
     "authorByline": "Por Erwan Bargain, REV TEGOVA",
-    "authorBylineDate": "Atualizado: abril de 2026"
+    "authorBylineDate": "Atualizado: abril de 2026",
+    "relatedToolsTitle": "Ferramentas relacionadas",
+    "relatedToolsSubtitle": "Complete a sua análise com estas outras ferramentas tevaxia.",
+    "relatedGuidesTitle": "Artigos relacionados",
+    "relatedGuidesSubtitle": "Continue a leitura com estes guias complementares.",
+    "toc": {
+      "label": "Conteúdo",
+      "hero": "Apresentação",
+      "problem": "Problema",
+      "how": "Como funciona",
+      "features": "Funcionalidades",
+      "trust": "A nossa abordagem",
+      "pricing": "Preços",
+      "faq": "FAQ"
+    }
   },
   "home": {
     "heroTitle": "40+ ferramentas imobiliárias LU,",
@@ -1970,7 +1986,9 @@
     "toolAidsDesc": "5 camadas acumuláveis",
     "toolBuyRent": "Comprar ou arrendar?",
     "toolBuyRentDesc": "Comparar ao longo do tempo",
-    "sourceFooter": "Fonte: Observatoire de l'Habitat (data.public.lu) — atos notariais. Os dados são fornecidos a título informativo."
+    "sourceFooter": "Fonte: Observatoire de l'Habitat (data.public.lu) — atos notariais. Os dados são fornecidos a título informativo.",
+    "relatedTitle": "Comunas vizinhas",
+    "relatedSubtitle": "Explore as comunas do cantão {canton} e arredores."
   },
   "carte": {
     "title": "Mapa de preços imobiliários",

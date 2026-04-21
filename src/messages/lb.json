@@ -58,7 +58,9 @@
     "proAgences": "B2B Offer Agencen",
     "apiBanques": "Banken-API",
     "guide": "LU Immobilie-Guide",
-    "sourcesExternes": "Quellen"
+    "sourcesExternes": "Quellen",
+    "gestionLocative": "Locatiounsverwaltung",
+    "bailCommercial": "Commercielle Loyersvertrag"
   },
   "common": {
     "language": "Sprooch",
@@ -77,7 +79,21 @@
     "linkCopied": "Link kopéiert!",
     "home": "Haaptsäit",
     "authorByline": "Vum Erwan Bargain, REV TEGOVA",
-    "authorBylineDate": "Aktualiséiert: Abrëll 2026"
+    "authorBylineDate": "Aktualiséiert: Abrëll 2026",
+    "relatedToolsTitle": "Verbonne Tools",
+    "relatedToolsSubtitle": "Vervollstänegt Är Analys mat deenen anere tevaxia-Tools.",
+    "relatedGuidesTitle": "Verbonne Artikelen",
+    "relatedGuidesSubtitle": "Liest weider mat dëse complementäre Guiden.",
+    "toc": {
+      "label": "Inhalt",
+      "hero": "Iwwersiicht",
+      "problem": "Problem",
+      "how": "Funktiounsweis",
+      "features": "Funktiounen",
+      "trust": "Eis Approche",
+      "pricing": "Präisser",
+      "faq": "FAQ"
+    }
   },
   "home": {
     "heroTitle": "40+ LU Immobilien-Tools,",
@@ -1970,7 +1986,9 @@
     "toolAidsDesc": "5 kumuléierbar Niveauen",
     "toolBuyRent": "Kafen oder lounen?",
     "toolBuyRentDesc": "Op der Dauer vergläichen",
-    "sourceFooter": "Quell: Observatoire de l'Habitat (data.public.lu) — Notarakten. D'Donnéeë ginn zu Informatiounszwecker zur Verfügung gestallt."
+    "sourceFooter": "Quell: Observatoire de l'Habitat (data.public.lu) — Notarakten. D'Donnéeë ginn zu Informatiounszwecker zur Verfügung gestallt.",
+    "relatedTitle": "Nopeschgemengen",
+    "relatedSubtitle": "Entdeckt Gemengen am Kanton {canton} a ronderëm."
   },
   "carte": {
     "title": "Immobiliëpräiskart",

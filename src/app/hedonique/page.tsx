@@ -7,6 +7,7 @@ import ResultPanel from "@/components/ResultPanel";
 import { formatEUR } from "@/lib/calculations";
 import { rechercherCommune, type SearchResult } from "@/lib/market-data";
 import SEOContent from "@/components/SEOContent";
+import RelatedTools from "@/components/RelatedTools";
 
 // Modèle hédonique simplifié
 // Prix = β0 + β1×Surface + β2×Localisation + β3×Étage + β4×État + β5×Énergie + β6×Parking + β7×Extérieur + β8×Année
@@ -417,6 +418,8 @@ export default function Hedonique() {
             )}
           </div>
         </div>
+
+        <RelatedTools keys={["valorisation", "comparer", "estimation", "indices"]} />
       </div>
 
       <SEOContent

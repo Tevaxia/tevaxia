@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import TableOfContents from "./TableOfContents";
 
 export interface PersonaProblem {
   title: string;
@@ -90,13 +91,38 @@ export interface PersonaLandingProps {
 
   /** Optional icon for hero (SVG element) */
   heroIcon?: ReactNode;
+
+  /** TOC labels (localized) */
+  toc?: {
+    label: string;
+    hero: string;
+    problem: string;
+    how: string;
+    features: string;
+    trust: string;
+    pricing: string;
+    faq: string;
+  };
 }
 
 export default function PersonaLanding(p: PersonaLandingProps) {
+  const tocItems = p.toc
+    ? [
+        { id: "hero", label: p.toc.hero },
+        { id: "problem", label: p.toc.problem },
+        { id: "how", label: p.toc.how },
+        { id: "features", label: p.toc.features },
+        { id: "trust", label: p.toc.trust },
+        { id: "pricing", label: p.toc.pricing },
+        { id: "faq", label: p.toc.faq },
+      ]
+    : [];
+
   return (
     <div className="bg-background">
+      {p.toc && <TableOfContents items={tocItems} label={p.toc.label} />}
       {/* Hero */}
-      <section className="bg-gradient-to-br from-navy via-navy to-navy-dark py-16 sm:py-24">
+      <section id="hero" className="bg-gradient-to-br from-navy via-navy to-navy-dark py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
             <div>
@@ -147,7 +173,7 @@ export default function PersonaLanding(p: PersonaLandingProps) {
       </section>
 
       {/* Problem */}
-      <section className="py-16 sm:py-20">
+      <section id="problem" className="py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-3xl font-bold text-navy sm:text-4xl">{p.problem.title}</h2>
@@ -196,7 +222,7 @@ export default function PersonaLanding(p: PersonaLandingProps) {
       </section>
 
       {/* Features */}
-      <section className="py-16 sm:py-20">
+      <section id="features" className="py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-3xl font-bold text-navy sm:text-4xl">{p.features.title}</h2>
@@ -221,7 +247,7 @@ export default function PersonaLanding(p: PersonaLandingProps) {
       </section>
 
       {/* Trust signals */}
-      <section className="bg-navy py-16">
+      <section id="trust" className="bg-navy py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-white sm:text-3xl text-center">{p.trust.title}</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -277,7 +303,7 @@ export default function PersonaLanding(p: PersonaLandingProps) {
       </section>
 
       {/* FAQ */}
-      <section className="bg-card border-t border-card-border py-16 sm:py-20">
+      <section id="faq" className="bg-card border-t border-card-border py-16 sm:py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-navy sm:text-4xl">{p.faq.title}</h2>
           <div className="mt-8 space-y-4">

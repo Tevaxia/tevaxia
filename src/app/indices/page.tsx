@@ -8,6 +8,7 @@ import { computeMarketScore, getScoreColor } from "@/lib/market-score";
 import { formatEUR } from "@/lib/calculations";
 import { PriceEvolutionChart, PriceIndexChart } from "@/components/PriceChart";
 import SEOContent from "@/components/SEOContent";
+import RelatedTools from "@/components/RelatedTools";
 import {
   LineChart,
   Line,
@@ -419,6 +420,8 @@ export default function IndicesPage() {
             {t("estimate_property")}
           </Link>
         </div>
+
+        <RelatedTools keys={["marche", "estimation", "valorisation", "carte"]} />
 
         {/* Source */}
         <p className="mt-6 text-xs text-muted text-center">

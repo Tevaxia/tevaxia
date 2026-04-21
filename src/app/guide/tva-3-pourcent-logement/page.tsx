@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
 import { localizedAlternates } from "@/lib/seo";
 import { ArticleJsonLd } from "@/components/JsonLd";
+import RelatedGuides from "@/components/RelatedGuides";
 
 export async function generateMetadata(): Promise<Metadata> {
   const [t, locale] = await Promise.all([
@@ -124,6 +125,8 @@ export default async function GuideTva3Pourcent() {
             </details>
           </div>
         </section>
+
+        <RelatedGuides currentSlug="tva-3-pourcent-logement" />
 
         <ArticleJsonLd headline={t("title")} />
         <script

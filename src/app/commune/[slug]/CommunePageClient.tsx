@@ -4,12 +4,14 @@ import { useParams } from "next/navigation";
 import { useMemo } from "react";
 import { useTranslations } from "next-intl";
 import LocaleLink from "@/components/LocaleLink";
-import { getCommuneBySlug } from "@/lib/market-data";
+import { getCommuneBySlug, getAllMarketData } from "@/lib/market-data";
 import { getDemographics } from "@/lib/demographics";
 import { formatEUR } from "@/lib/calculations";
 import { PriceEvolutionChart } from "@/components/PriceChart";
 import { computeMarketScore, getScoreColor, getScoreBarColor } from "@/lib/market-score";
 import MarketAlertButton from "@/components/MarketAlertButton";
+import RelatedCommunes from "@/components/RelatedCommunes";
+import RelatedTools from "@/components/RelatedTools";
 
 export default function CommunePageClient() {
   const params = useParams();
@@ -211,6 +213,9 @@ export default function CommunePageClient() {
             <p className="text-xs text-muted text-center">{t("sourceFooter")}</p>
           </div>
         </div>
+
+        <RelatedCommunes current={commune} pool={getAllMarketData()} />
+        <RelatedTools keys={["estimation", "loyer", "frais", "aides", "valorisation", "carte"]} />
       </div>
     </div>
   );

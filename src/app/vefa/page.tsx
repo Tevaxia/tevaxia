@@ -8,6 +8,7 @@ import ResultPanel from "@/components/ResultPanel";
 import { calculerEmolumentsNotaire, formatEUR, formatPct } from "@/lib/calculations";
 import SEOContent from "@/components/SEOContent";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
+import RelatedTools from "@/components/RelatedTools";
 
 // ── Luxembourg VEFA milestones ──────────────────────────────
 interface MilestoneDef {
@@ -839,6 +840,8 @@ export default function VefaCalculator() {
             </div>
           </div>
         </div>
+
+        <RelatedTools keys={["estimation", "frais", "bilanPromoteur", "achatLocation"]} />
       </div>
     </div>
 

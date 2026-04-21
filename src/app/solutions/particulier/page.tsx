@@ -16,9 +16,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ParticulierSolutionPage() {
-  const [t, locale] = await Promise.all([
+  const [t, locale, ttoc] = await Promise.all([
     getTranslations("solutions.particulier"),
     getLocale(),
+    getTranslations("common.toc"),
   ]);
   const lp = locale === "fr" ? "" : `/${locale}`;
 
@@ -78,6 +79,16 @@ export default async function ParticulierSolutionPage() {
         ctaHref: `${lp}/connexion`,
         ctaSecondary: t("finalCta.ctaSecondary"),
         ctaSecondaryHref: `${lp}/estimation`,
+      }}
+      toc={{
+        label: ttoc("label"),
+        hero: ttoc("hero"),
+        problem: ttoc("problem"),
+        how: ttoc("how"),
+        features: ttoc("features"),
+        trust: ttoc("trust"),
+        pricing: ttoc("pricing"),
+        faq: ttoc("faq"),
       }}
     />
   );

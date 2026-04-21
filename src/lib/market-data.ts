@@ -680,6 +680,10 @@ export function getAllCommunes(): string[] {
   return MARKET_DATA.map((c) => c.commune).sort();
 }
 
+export function getAllMarketData(): MarketDataCommune[] {
+  return MARKET_DATA;
+}
+
 export function getCommunesParCanton(): Record<string, string[]> {
   const result: Record<string, string[]> = {};
   for (const c of MARKET_DATA) {

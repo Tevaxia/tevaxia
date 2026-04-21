@@ -13,6 +13,7 @@ import ConfidenceGauge from "@/components/ConfidenceGauge";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SEOContent from "@/components/SEOContent";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
+import RelatedTools from "@/components/RelatedTools";
 
 // ============================================================
 // TYPE LABELS — maps SavedValuation.type to a human-readable label
@@ -840,6 +841,8 @@ export default function Comparer() {
             />
           </div>
         )}
+
+        <RelatedTools keys={["valorisation", "hedonique", "estimation", "marche"]} />
 
         {/* Disclaimer */}
         <p className="mt-8 text-xs text-muted text-center leading-relaxed max-w-2xl mx-auto">

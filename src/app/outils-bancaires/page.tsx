@@ -9,6 +9,7 @@ import {
   Legend, ResponsiveContainer,
 } from "recharts";
 import SEOContent from "@/components/SEOContent";
+import RelatedTools from "@/components/RelatedTools";
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import {
@@ -1006,6 +1007,8 @@ export default function OutilsBancaires() {
 
         {/* Historique taux BCE / OAT / hypothécaire */}
         <RatesHistoryChart />
+
+        <RelatedTools keys={["achatLocation", "frais", "aides", "estimation"]} />
       </div>
 
       <SEOContent

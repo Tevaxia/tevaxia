@@ -23,6 +23,7 @@ import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import SEOContent from "@/components/SEOContent";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
+import RelatedTools from "@/components/RelatedTools";
 
 // Box-Muller : échantillon normal N(mean, sd)
 function sampleNormal(mean: number, sd: number): number {
@@ -841,8 +842,9 @@ export default function AchatVsLocation() {
             )}
           </div>
         </div>
-      </div>
 
+        <RelatedTools keys={["estimation", "loyer", "frais", "aides"]} />
+      </div>
     </div>
 
     <SEOContent

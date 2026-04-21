@@ -13,6 +13,7 @@ import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import SEOContent from "@/components/SEOContent";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
+import RelatedTools from "@/components/RelatedTools";
 import { errMsg } from "@/lib/errors";
 import {
   ComposedChart,
@@ -1003,6 +1004,8 @@ export default function DCFMulti() {
             </div>
           </div>
         </div>
+
+        <RelatedTools keys={["portfolio", "valorisation", "bancaire", "indices"]} />
       </div>
 
       <SEOContent

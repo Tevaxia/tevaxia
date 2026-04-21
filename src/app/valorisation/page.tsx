@@ -45,6 +45,7 @@ import { evaluerChecklist, scoreChecklist } from "@/lib/evs-checklist";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
+import RelatedTools from "@/components/RelatedTools";
 import ShareLinkButton from "@/components/ShareLinkButton";
 import SignReportButton from "@/components/SignReportButton";
 import ReportModeEVS from "@/components/ReportModeEVS";
@@ -2121,6 +2122,8 @@ export default function Valorisation() {
             valeurMarchePourMLV={valeurMarchePourMLV}
           />
         )}
+
+        <RelatedTools keys={["hedonique", "comparer", "dcfMulti", "indices", "marche", "estimation"]} />
       </div>
 
       <SEOContent
