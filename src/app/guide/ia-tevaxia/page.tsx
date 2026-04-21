@@ -4,6 +4,7 @@ import { getTranslations, getLocale } from "next-intl/server";
 import { localizedAlternates } from "@/lib/seo";
 import { ArticleJsonLd } from "@/components/JsonLd";
 import RelatedGuides from "@/components/RelatedGuides";
+import AutoLink from "@/components/AutoLink";
 
 export async function generateMetadata(): Promise<Metadata> {
   const [t, locale] = await Promise.all([
@@ -43,19 +44,19 @@ export default async function GuideIaTevaxia() {
         </Link>
 
         <h1 className="mt-4 text-2xl font-bold text-navy sm:text-3xl">{t("title")}</h1>
-        <p className="mt-4 text-base text-slate-700 leading-relaxed">{t("intro")}</p>
+        <p className="mt-4 text-base text-slate-700 leading-relaxed"><AutoLink currentPath="/guide/ia-tevaxia">{t("intro")}</AutoLink></p>
 
         <h2 className="mt-8 text-xl font-semibold text-navy">{t("section1Title")}</h2>
-        <p className="mt-3 text-base text-slate-700 leading-relaxed">{t("section1Content")}</p>
+        <p className="mt-3 text-base text-slate-700 leading-relaxed"><AutoLink currentPath="/guide/ia-tevaxia">{t("section1Content")}</AutoLink></p>
 
         <h2 className="mt-8 text-xl font-semibold text-navy">{t("section2Title")}</h2>
-        <p className="mt-3 text-base text-slate-700 leading-relaxed">{t("section2Content")}</p>
+        <p className="mt-3 text-base text-slate-700 leading-relaxed"><AutoLink currentPath="/guide/ia-tevaxia">{t("section2Content")}</AutoLink></p>
 
         <h2 className="mt-8 text-xl font-semibold text-navy">{t("section3Title")}</h2>
-        <p className="mt-3 text-base text-slate-700 leading-relaxed">{t("section3Content")}</p>
+        <p className="mt-3 text-base text-slate-700 leading-relaxed"><AutoLink currentPath="/guide/ia-tevaxia">{t("section3Content")}</AutoLink></p>
 
         <h2 className="mt-8 text-xl font-semibold text-navy">{t("section4Title")}</h2>
-        <p className="mt-3 text-base text-slate-700 leading-relaxed">{t("section4Content")}</p>
+        <p className="mt-3 text-base text-slate-700 leading-relaxed"><AutoLink currentPath="/guide/ia-tevaxia">{t("section4Content")}</AutoLink></p>
 
         <p className="mt-8 text-xs text-muted">{tc("authorByline")} · {tc("authorBylineDate")}</p>
 
