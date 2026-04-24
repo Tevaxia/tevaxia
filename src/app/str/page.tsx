@@ -110,11 +110,14 @@ export default async function StrHub() {
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {TOOLS.map((tool) => (
+            {TOOLS.map((tool, idx) => {
+              const isLast = idx === TOOLS.length - 1;
+              const alignLg = isLast && TOOLS.length % 3 === 1 ? "lg:col-start-2" : "";
+              return (
               <Link
                 key={tool.href}
                 href={`${lp}${tool.href}`}
-                className="group relative flex flex-col rounded-2xl border border-card-border bg-card p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-0.5"
+                className={`group relative flex flex-col rounded-2xl border border-card-border bg-card p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-0.5 ${alignLg}`}
               >
                 <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${tool.color} text-white shadow-sm`}>
                   {tool.icon}
@@ -129,7 +132,8 @@ export default async function StrHub() {
                   </svg>
                 </div>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
