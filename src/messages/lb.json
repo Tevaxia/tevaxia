@@ -12117,5 +12117,24 @@
     "dtEvaluator": "Bewerter",
     "limitsStrong": "Limitten vum Déngscht:",
     "limitsBody": "dëse Mechanismus bitt e zäitgestempelt Audit-Spuer, huet awer net de Wäert vun enger qualifizéierter elektronescher eIDAS-Ënnerschrëft (LuxTrust, QTSP). Fir eng méi staark rechtlech Opposabilitéit, benotzt en akkreditéierten QTSP. Den Hash beweist nëmmen, datt d'Donnéeën zanter dem hei registréierten Moment vun der Ënnerschrëft net geännert goufen."
+  },
+  "invitation": {
+    "title": "Invitatioun fir op eng Agence bäizetrieden",
+    "tokenLabel": "Token:",
+    "noSupabase": "Supabase ass op dësem Ëmfeld net konfiguréiert.",
+    "checkingSession": "Sessioun gëtt gepréift…",
+    "mustSignIn": "Dir musst mat der E-Mail ageloggt sinn, un déi d'Invitatioun geschéckt gouf.",
+    "signIn": "Umellen",
+    "accepting": "Akzeptéiere leeft…",
+    "successHeadline": "Wëllkomm an der Agence!",
+    "successBody": "Dir sidd elo Member. Gitt op Äre Agence-Workspace.",
+    "myAgency": "Meng Agence",
+    "errExpired": "Dës Invitatioun ass ofgelaf (Gëltegkeet 14 Deeg).",
+    "errAlreadyAccepted": "Dës Invitatioun gouf scho ugeholl.",
+    "errEmailMismatch": "D'E-Mail vun Ärem Kont entsprécht net där vun der Invitatioun.",
+    "errNotFound": "Dës Invitatioun existéiert net oder gouf annuléiert.",
+    "errNotAuthenticated": "Umeldung erfuerderlech.",
+    "errGeneric": "Ongëlteg Invitatioun.",
+    "backHome": "Zréck op den Ufank"
   }
 }

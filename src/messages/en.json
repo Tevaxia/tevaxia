@@ -12117,5 +12117,24 @@
     "dtEvaluator": "Valuer",
     "limitsStrong": "Service limits:",
     "limitsBody": "this mechanism offers a time-stamped audit trail but does not have the value of a qualified eIDAS electronic signature (LuxTrust, QTSP). For stronger legal enforceability, use an accredited QTSP. The hash only proves that the data has not been modified since the moment of the signature recorded here."
+  },
+  "invitation": {
+    "title": "Invitation to join an agency",
+    "tokenLabel": "Token:",
+    "noSupabase": "Supabase is not configured on this environment.",
+    "checkingSession": "Checking session…",
+    "mustSignIn": "You must be signed in with the email the invitation was sent to.",
+    "signIn": "Sign in",
+    "accepting": "Accepting…",
+    "successHeadline": "Welcome to the agency!",
+    "successBody": "You are now a member. Go to your agency workspace.",
+    "myAgency": "My agency",
+    "errExpired": "This invitation has expired (14-day validity).",
+    "errAlreadyAccepted": "This invitation has already been accepted.",
+    "errEmailMismatch": "Your account email does not match the invitation's.",
+    "errNotFound": "This invitation does not exist or has been cancelled.",
+    "errNotAuthenticated": "Sign-in required.",
+    "errGeneric": "Invalid invitation.",
+    "backHome": "Back to home"
   }
 }

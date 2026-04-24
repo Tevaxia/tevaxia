@@ -1,0 +1,111 @@
+#!/usr/bin/env node
+import fs from 'node:fs';
+import path from 'node:path';
+
+const MSG_DIR = path.resolve('src/messages');
+
+const K = {
+  fr: {
+    title: "Invitation à rejoindre une agence",
+    tokenLabel: "Token :",
+    noSupabase: "Supabase n'est pas configuré sur cet environnement.",
+    checkingSession: "Vérification de la session…",
+    mustSignIn: "Vous devez être connecté avec l'email destinataire de l'invitation.",
+    signIn: "Se connecter",
+    accepting: "Acceptation en cours…",
+    successHeadline: "Bienvenue dans l'agence !",
+    successBody: "Vous êtes maintenant membre. Accédez à votre espace agence.",
+    myAgency: "Mon agence",
+    errExpired: "Cette invitation a expiré (validité 14 jours).",
+    errAlreadyAccepted: "Cette invitation a déjà été acceptée.",
+    errEmailMismatch: "L'email de votre compte ne correspond pas à celui de l'invitation.",
+    errNotFound: "Cette invitation n'existe pas ou a été annulée.",
+    errNotAuthenticated: "Connexion requise.",
+    errGeneric: "Invitation invalide.",
+    backHome: "Retour à l'accueil",
+  },
+  en: {
+    title: "Invitation to join an agency",
+    tokenLabel: "Token:",
+    noSupabase: "Supabase is not configured on this environment.",
+    checkingSession: "Checking session…",
+    mustSignIn: "You must be signed in with the email the invitation was sent to.",
+    signIn: "Sign in",
+    accepting: "Accepting…",
+    successHeadline: "Welcome to the agency!",
+    successBody: "You are now a member. Go to your agency workspace.",
+    myAgency: "My agency",
+    errExpired: "This invitation has expired (14-day validity).",
+    errAlreadyAccepted: "This invitation has already been accepted.",
+    errEmailMismatch: "Your account email does not match the invitation's.",
+    errNotFound: "This invitation does not exist or has been cancelled.",
+    errNotAuthenticated: "Sign-in required.",
+    errGeneric: "Invalid invitation.",
+    backHome: "Back to home",
+  },
+  de: {
+    title: "Einladung, einer Agentur beizutreten",
+    tokenLabel: "Token:",
+    noSupabase: "Supabase ist in dieser Umgebung nicht konfiguriert.",
+    checkingSession: "Sitzung wird geprüft…",
+    mustSignIn: "Sie müssen mit der E-Mail angemeldet sein, an die die Einladung gesendet wurde.",
+    signIn: "Anmelden",
+    accepting: "Annahme läuft…",
+    successHeadline: "Willkommen in der Agentur!",
+    successBody: "Sie sind jetzt Mitglied. Gehen Sie zu Ihrem Agentur-Arbeitsbereich.",
+    myAgency: "Meine Agentur",
+    errExpired: "Diese Einladung ist abgelaufen (Gültigkeit 14 Tage).",
+    errAlreadyAccepted: "Diese Einladung wurde bereits angenommen.",
+    errEmailMismatch: "Die E-Mail Ihres Kontos stimmt nicht mit der Einladung überein.",
+    errNotFound: "Diese Einladung existiert nicht oder wurde storniert.",
+    errNotAuthenticated: "Anmeldung erforderlich.",
+    errGeneric: "Ungültige Einladung.",
+    backHome: "Zur Startseite",
+  },
+  pt: {
+    title: "Convite para se juntar a uma agência",
+    tokenLabel: "Token:",
+    noSupabase: "O Supabase não está configurado neste ambiente.",
+    checkingSession: "A verificar a sessão…",
+    mustSignIn: "Tem de ter sessão iniciada com o email destinatário do convite.",
+    signIn: "Iniciar sessão",
+    accepting: "A aceitar…",
+    successHeadline: "Bem-vindo à agência!",
+    successBody: "É agora membro. Aceda ao seu espaço agência.",
+    myAgency: "A minha agência",
+    errExpired: "Este convite expirou (validade de 14 dias).",
+    errAlreadyAccepted: "Este convite já foi aceite.",
+    errEmailMismatch: "O email da sua conta não corresponde ao do convite.",
+    errNotFound: "Este convite não existe ou foi cancelado.",
+    errNotAuthenticated: "Sessão necessária.",
+    errGeneric: "Convite inválido.",
+    backHome: "Voltar ao início",
+  },
+  lb: {
+    title: "Invitatioun fir op eng Agence bäizetrieden",
+    tokenLabel: "Token:",
+    noSupabase: "Supabase ass op dësem Ëmfeld net konfiguréiert.",
+    checkingSession: "Sessioun gëtt gepréift…",
+    mustSignIn: "Dir musst mat der E-Mail ageloggt sinn, un déi d'Invitatioun geschéckt gouf.",
+    signIn: "Umellen",
+    accepting: "Akzeptéiere leeft…",
+    successHeadline: "Wëllkomm an der Agence!",
+    successBody: "Dir sidd elo Member. Gitt op Äre Agence-Workspace.",
+    myAgency: "Meng Agence",
+    errExpired: "Dës Invitatioun ass ofgelaf (Gëltegkeet 14 Deeg).",
+    errAlreadyAccepted: "Dës Invitatioun gouf scho ugeholl.",
+    errEmailMismatch: "D'E-Mail vun Ärem Kont entsprécht net där vun der Invitatioun.",
+    errNotFound: "Dës Invitatioun existéiert net oder gouf annuléiert.",
+    errNotAuthenticated: "Umeldung erfuerderlech.",
+    errGeneric: "Ongëlteg Invitatioun.",
+    backHome: "Zréck op den Ufank",
+  },
+};
+
+for (const [lang, v] of Object.entries(K)) {
+  const file = path.join(MSG_DIR, `${lang}.json`);
+  const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+  data.invitation = v;
+  fs.writeFileSync(file, JSON.stringify(data, null, 2) + '\n');
+  console.log(`Updated ${lang}: +${Object.keys(v).length} keys in invitation`);
+}

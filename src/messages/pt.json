@@ -12117,5 +12117,24 @@
     "dtEvaluator": "Avaliador",
     "limitsStrong": "Limites do serviço:",
     "limitsBody": "este mecanismo oferece um registo de auditoria com carimbo temporal, mas não tem o valor de uma assinatura eletrónica qualificada eIDAS (LuxTrust, QTSP). Para uma oposição jurídica reforçada, utilize um QTSP acreditado. O hash prova apenas que os dados não foram modificados desde o momento da assinatura registada aqui."
+  },
+  "invitation": {
+    "title": "Convite para se juntar a uma agência",
+    "tokenLabel": "Token:",
+    "noSupabase": "O Supabase não está configurado neste ambiente.",
+    "checkingSession": "A verificar a sessão…",
+    "mustSignIn": "Tem de ter sessão iniciada com o email destinatário do convite.",
+    "signIn": "Iniciar sessão",
+    "accepting": "A aceitar…",
+    "successHeadline": "Bem-vindo à agência!",
+    "successBody": "É agora membro. Aceda ao seu espaço agência.",
+    "myAgency": "A minha agência",
+    "errExpired": "Este convite expirou (validade de 14 dias).",
+    "errAlreadyAccepted": "Este convite já foi aceite.",
+    "errEmailMismatch": "O email da sua conta não corresponde ao do convite.",
+    "errNotFound": "Este convite não existe ou foi cancelado.",
+    "errNotAuthenticated": "Sessão necessária.",
+    "errGeneric": "Convite inválido.",
+    "backHome": "Voltar ao início"
   }
 }

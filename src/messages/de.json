@@ -12117,5 +12117,24 @@
     "dtEvaluator": "Sachverständiger",
     "limitsStrong": "Dienstgrenzen:",
     "limitsBody": "dieser Mechanismus bietet eine zeitgestempelte Prüfpfad, aber nicht den Wert einer qualifizierten elektronischen eIDAS-Signatur (LuxTrust, QTSP). Für eine stärkere rechtliche Durchsetzbarkeit nutzen Sie einen akkreditierten QTSP. Der Hash beweist nur, dass die Daten seit dem hier aufgezeichneten Signaturzeitpunkt nicht geändert wurden."
+  },
+  "invitation": {
+    "title": "Einladung, einer Agentur beizutreten",
+    "tokenLabel": "Token:",
+    "noSupabase": "Supabase ist in dieser Umgebung nicht konfiguriert.",
+    "checkingSession": "Sitzung wird geprüft…",
+    "mustSignIn": "Sie müssen mit der E-Mail angemeldet sein, an die die Einladung gesendet wurde.",
+    "signIn": "Anmelden",
+    "accepting": "Annahme läuft…",
+    "successHeadline": "Willkommen in der Agentur!",
+    "successBody": "Sie sind jetzt Mitglied. Gehen Sie zu Ihrem Agentur-Arbeitsbereich.",
+    "myAgency": "Meine Agentur",
+    "errExpired": "Diese Einladung ist abgelaufen (Gültigkeit 14 Tage).",
+    "errAlreadyAccepted": "Diese Einladung wurde bereits angenommen.",
+    "errEmailMismatch": "Die E-Mail Ihres Kontos stimmt nicht mit der Einladung überein.",
+    "errNotFound": "Diese Einladung existiert nicht oder wurde storniert.",
+    "errNotAuthenticated": "Anmeldung erforderlich.",
+    "errGeneric": "Ungültige Einladung.",
+    "backHome": "Zur Startseite"
   }
 }

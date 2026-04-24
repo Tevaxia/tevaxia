@@ -12117,5 +12117,24 @@
     "dtEvaluator": "Évaluateur",
     "limitsStrong": "Limites du service :",
     "limitsBody": "ce mécanisme offre une piste d'audit horodatée mais n'a pas la valeur d'une signature électronique qualifiée eIDAS (LuxTrust, QTSP). Pour une opposabilité juridique renforcée, utilisez un QTSP agréé. Le hash prouve uniquement que les données n'ont pas été modifiées depuis le moment de la signature enregistrée ici."
+  },
+  "invitation": {
+    "title": "Invitation à rejoindre une agence",
+    "tokenLabel": "Token :",
+    "noSupabase": "Supabase n'est pas configuré sur cet environnement.",
+    "checkingSession": "Vérification de la session…",
+    "mustSignIn": "Vous devez être connecté avec l'email destinataire de l'invitation.",
+    "signIn": "Se connecter",
+    "accepting": "Acceptation en cours…",
+    "successHeadline": "Bienvenue dans l'agence !",
+    "successBody": "Vous êtes maintenant membre. Accédez à votre espace agence.",
+    "myAgency": "Mon agence",
+    "errExpired": "Cette invitation a expiré (validité 14 jours).",
+    "errAlreadyAccepted": "Cette invitation a déjà été acceptée.",
+    "errEmailMismatch": "L'email de votre compte ne correspond pas à celui de l'invitation.",
+    "errNotFound": "Cette invitation n'existe pas ou a été annulée.",
+    "errNotAuthenticated": "Connexion requise.",
+    "errGeneric": "Invitation invalide.",
+    "backHome": "Retour à l'accueil"
   }
 }
