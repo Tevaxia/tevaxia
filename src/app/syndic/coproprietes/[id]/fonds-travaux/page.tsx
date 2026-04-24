@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import {
   getCoownership, updateCoownership,
@@ -12,13 +13,6 @@ import {
 import { formatEUR } from "@/lib/calculations";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
 
-const MOVEMENT_LABELS: Record<WorksFundMovement["movement_type"], string> = {
-  contribution: "Cotisation",
-  withdrawal: "Prélèvement (travaux)",
-  adjustment: "Ajustement",
-  interest: "Intérêts",
-};
-
 const MOVEMENT_COLORS: Record<WorksFundMovement["movement_type"], string> = {
   contribution: "text-emerald-700 bg-emerald-50",
   withdrawal: "text-rose-700 bg-rose-50",
@@ -27,9 +21,19 @@ const MOVEMENT_COLORS: Record<WorksFundMovement["movement_type"], string> = {
 };
 
 export default function FondsTravauxPage() {
+  const t = useTranslations("syndicFondsTravaux");
+  const locale = useLocale();
+  const lp = locale === "fr" ? "" : `/${locale}`;
   const params = useParams();
   const id = String(params?.id ?? "");
   const { user } = useAuth();
+
+  const MOVEMENT_LABELS: Record<WorksFundMovement["movement_type"], string> = useMemo(() => ({
+    contribution: t("mvContribution"),
+    withdrawal: t("mvWithdrawal"),
+    adjustment: t("mvAdjustment"),
+    interest: t("mvInterest"),
+  }), [t]);
 
   const [coown, setCoown] = useState<Coownership | null>(null);
   const [movements, setMovements] = useState<WorksFundMovement[]>([]);
@@ -37,7 +41,6 @@ export default function FondsTravauxPage() {
   const [annualContribution, setAnnualContribution] = useState(0);
   const [savingTarget, setSavingTarget] = useState(false);
 
-  // New movement form
   const [showForm, setShowForm] = useState(false);
   const [newMv, setNewMv] = useState<{ type: WorksFundMovement["movement_type"]; amount: number; description: string; project: string; date: string }>({
     type: "contribution",
@@ -91,61 +94,59 @@ export default function FondsTravauxPage() {
   };
 
   const handleDelete = async (mvId: string) => {
-    if (!confirm("Supprimer ce mouvement du fonds ?")) return;
+    if (!confirm(t("confirmDelete"))) return;
     await deleteWorksFundMovement(mvId);
     await refresh();
   };
 
   if (!coown) {
-    return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">Chargement…</div>;
+    return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
   }
 
   const balance = coown.works_fund_balance ?? 0;
   const nbLots = coown.nb_lots || 1;
   const balancePerLot = balance / nbLots;
-
-  // Recommandation selon projet 7763 : 5% du budget annuel en fonds de travaux
   const recommendedAnnual = annualContribution > 0 ? annualContribution : 0;
   const yearsOfReserves = recommendedAnnual > 0 ? balance / recommendedAnnual : 0;
 
   return (
     <div className="bg-background min-h-screen py-8 sm:py-12">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <Link href={`/syndic/coproprietes/${id}`} className="text-xs text-muted hover:text-navy">&larr; {coown.name}</Link>
-        <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">Fonds de travaux</h1>
+        <Link href={`${lp}/syndic/coproprietes/${id}`} className="text-xs text-muted hover:text-navy">{t("backCoown", { name: coown.name })}</Link>
+        <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">{t("pageTitle")}</h1>
         <p className="mt-1 text-sm text-muted">
-          Capitalisation pour gros travaux futurs — anticipation du projet de loi 7763 (modernisation loi 16 mai 1975).
+          {t("pageSubtitle")}
         </p>
 
         <div className="mt-6 grid gap-6 sm:grid-cols-3">
           <div className="rounded-2xl bg-gradient-to-br from-navy to-navy-light p-6 text-white shadow-lg">
-            <div className="text-xs uppercase tracking-wider text-white/60">Solde courant</div>
+            <div className="text-xs uppercase tracking-wider text-white/60">{t("kpiBalance")}</div>
             <div className="mt-2 text-3xl font-bold">{formatEUR(balance)}</div>
             <div className="mt-1 text-xs text-white/60">
-              {formatEUR(Math.round(balancePerLot))} / lot ({nbLots} lots)
+              {t("kpiPerLot", { amount: formatEUR(Math.round(balancePerLot)), n: nbLots })}
             </div>
           </div>
           <div className="rounded-2xl border border-card-border bg-card p-6 shadow-sm">
-            <div className="text-xs uppercase tracking-wider text-muted">Cotisation annuelle votée</div>
+            <div className="text-xs uppercase tracking-wider text-muted">{t("kpiAnnual")}</div>
             <div className="mt-2 text-3xl font-bold text-navy">{formatEUR(annualContribution)}</div>
-            <div className="mt-1 text-xs text-muted">{targetPct.toFixed(1)}% budget prévisionnel</div>
+            <div className="mt-1 text-xs text-muted">{t("kpiAnnualHint", { pct: targetPct.toFixed(1) })}</div>
           </div>
           <div className="rounded-2xl border border-card-border bg-card p-6 shadow-sm">
-            <div className="text-xs uppercase tracking-wider text-muted">Couverture</div>
-            <div className="mt-2 text-3xl font-bold text-emerald-700">{yearsOfReserves.toFixed(1)} ans</div>
-            <div className="mt-1 text-xs text-muted">de cotisations en réserve</div>
+            <div className="text-xs uppercase tracking-wider text-muted">{t("kpiCoverage")}</div>
+            <div className="mt-2 text-3xl font-bold text-emerald-700">{t("kpiCoverageValue", { n: yearsOfReserves.toFixed(1) })}</div>
+            <div className="mt-1 text-xs text-muted">{t("kpiCoverageHint")}</div>
           </div>
         </div>
 
         {/* Paramétrage */}
         <div className="mt-8 rounded-xl border border-card-border bg-card p-6 shadow-sm">
-          <h2 className="text-base font-semibold text-navy">Paramétrage du fonds</h2>
+          <h2 className="text-base font-semibold text-navy">{t("paramsTitle")}</h2>
           <p className="mt-1 text-xs text-muted">
-            Le projet de loi 7763 prévoit une cotisation minimale de <strong>5% du budget prévisionnel annuel</strong>. À ajuster selon l&apos;âge du bâtiment et l&apos;état.
+            {t("paramsHint")}
           </p>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="block text-sm font-medium text-slate mb-1">% du budget annuel</label>
+              <label className="block text-sm font-medium text-slate mb-1">{t("fieldPctBudget")}</label>
               <input
                 type="number"
                 value={targetPct}
@@ -157,7 +158,7 @@ export default function FondsTravauxPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate mb-1">Cotisation annuelle (EUR)</label>
+              <label className="block text-sm font-medium text-slate mb-1">{t("fieldAnnualContrib")}</label>
               <input
                 type="number"
                 value={annualContribution}
@@ -173,7 +174,7 @@ export default function FondsTravauxPage() {
               disabled={savingTarget}
               className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-60"
             >
-              {savingTarget ? "Enregistrement…" : "Enregistrer"}
+              {savingTarget ? t("btnSaving") : t("btnSave")}
             </button>
           </div>
         </div>
@@ -181,12 +182,12 @@ export default function FondsTravauxPage() {
         {/* Mouvements */}
         <div className="mt-8">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-base font-semibold text-navy">Historique des mouvements</h2>
+            <h2 className="text-base font-semibold text-navy">{t("historyTitle")}</h2>
             <button
               onClick={() => setShowForm(!showForm)}
               className="rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-emerald-700"
             >
-              {showForm ? "Annuler" : "+ Nouveau mouvement"}
+              {showForm ? t("btnCancel") : t("btnNewMovement")}
             </button>
           </div>
 
@@ -194,7 +195,7 @@ export default function FondsTravauxPage() {
             <div className="mb-4 rounded-xl border border-emerald-200 bg-emerald-50 p-4">
               <div className="grid gap-3 sm:grid-cols-2">
                 <div>
-                  <label className="block text-xs font-medium text-slate mb-1">Type</label>
+                  <label className="block text-xs font-medium text-slate mb-1">{t("formType")}</label>
                   <select
                     value={newMv.type}
                     onChange={(e) => setNewMv({ ...newMv, type: e.target.value as WorksFundMovement["movement_type"] })}
@@ -206,7 +207,7 @@ export default function FondsTravauxPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-slate mb-1">Date</label>
+                  <label className="block text-xs font-medium text-slate mb-1">{t("formDate")}</label>
                   <input
                     type="date"
                     value={newMv.date}
@@ -215,7 +216,7 @@ export default function FondsTravauxPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-slate mb-1">Montant (EUR)</label>
+                  <label className="block text-xs font-medium text-slate mb-1">{t("formAmount")}</label>
                   <input
                     type="number"
                     value={newMv.amount}
@@ -225,22 +226,22 @@ export default function FondsTravauxPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-slate mb-1">Projet lié (facultatif)</label>
+                  <label className="block text-xs font-medium text-slate mb-1">{t("formProject")}</label>
                   <input
                     type="text"
                     value={newMv.project}
                     onChange={(e) => setNewMv({ ...newMv, project: e.target.value })}
-                    placeholder="ex: Ravalement façade 2027"
+                    placeholder={t("formProjectPlaceholder")}
                     className="w-full rounded-lg border border-input-border bg-white px-3 py-2 text-sm"
                   />
                 </div>
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-medium text-slate mb-1">Description</label>
+                  <label className="block text-xs font-medium text-slate mb-1">{t("formDescription")}</label>
                   <input
                     type="text"
                     value={newMv.description}
                     onChange={(e) => setNewMv({ ...newMv, description: e.target.value })}
-                    placeholder="ex: Cotisation annuelle 2026 votée AG 15/03/2026"
+                    placeholder={t("formDescriptionPlaceholder")}
                     className="w-full rounded-lg border border-input-border bg-white px-3 py-2 text-sm"
                   />
                 </div>
@@ -251,7 +252,7 @@ export default function FondsTravauxPage() {
                   disabled={!newMv.amount}
                   className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700 disabled:opacity-40"
                 >
-                  Enregistrer le mouvement
+                  {t("btnAddMovement")}
                 </button>
               </div>
             </div>
@@ -260,17 +261,17 @@ export default function FondsTravauxPage() {
           <div className="rounded-xl border border-card-border bg-card shadow-sm overflow-hidden">
             {movements.length === 0 ? (
               <div className="p-8 text-center text-sm text-muted">
-                Aucun mouvement pour l&apos;instant. Commencez par enregistrer la cotisation annuelle votée en AG.
+                {t("emptyMovements")}
               </div>
             ) : (
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-card-border bg-background text-left">
-                    <th className="px-4 py-2 font-semibold text-slate">Date</th>
-                    <th className="px-4 py-2 font-semibold text-slate">Type</th>
-                    <th className="px-4 py-2 font-semibold text-slate">Projet</th>
-                    <th className="px-4 py-2 font-semibold text-slate">Description</th>
-                    <th className="px-4 py-2 font-semibold text-slate text-right">Montant</th>
+                    <th className="px-4 py-2 font-semibold text-slate">{t("colDate")}</th>
+                    <th className="px-4 py-2 font-semibold text-slate">{t("colTypeHeader")}</th>
+                    <th className="px-4 py-2 font-semibold text-slate">{t("colProject")}</th>
+                    <th className="px-4 py-2 font-semibold text-slate">{t("colDescription")}</th>
+                    <th className="px-4 py-2 font-semibold text-slate text-right">{t("colAmount")}</th>
                     <th className="px-4 py-2"></th>
                   </tr>
                 </thead>
@@ -283,8 +284,8 @@ export default function FondsTravauxPage() {
                           {MOVEMENT_LABELS[mv.movement_type]}
                         </span>
                       </td>
-                      <td className="px-4 py-2 text-xs text-muted">{mv.related_works_project ?? "—"}</td>
-                      <td className="px-4 py-2 text-xs text-muted truncate max-w-[200px]">{mv.description ?? "—"}</td>
+                      <td className="px-4 py-2 text-xs text-muted">{mv.related_works_project ?? t("dash")}</td>
+                      <td className="px-4 py-2 text-xs text-muted truncate max-w-[200px]">{mv.description ?? t("dash")}</td>
                       <td className={`px-4 py-2 text-right font-mono font-semibold ${mv.movement_type === "withdrawal" ? "text-rose-700" : "text-emerald-700"}`}>
                         {mv.movement_type === "withdrawal" ? "-" : "+"}{formatEUR(mv.amount)}
                       </td>
@@ -293,7 +294,7 @@ export default function FondsTravauxPage() {
                           onClick={() => handleDelete(mv.id)}
                           className="text-muted hover:text-rose-600 text-xs"
                         >
-                          Supprimer
+                          {t("btnDelete")}
                         </button>
                       </td>
                     </tr>
@@ -321,8 +322,7 @@ export default function FondsTravauxPage() {
         </div>
 
         <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900">
-          <strong>Note réglementaire :</strong> Le projet de loi 7763 (modernisation de la loi du 16 mai 1975) prévoit un <strong>fonds de travaux obligatoire</strong> pour
-          toutes les copropriétés LU, avec une cotisation minimale annuelle. Cette page anticipe l&apos;entrée en vigueur — adaptez les paramètres dès publication au Mémorial A.
+          <strong>{t("regulatoryTitle")}</strong> {t("regulatoryBody")}
         </div>
       </div>
     </div>
