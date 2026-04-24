@@ -11792,5 +11792,36 @@
       "ctaContact": "E-Mail an contact@tevaxia.lu",
       "ctaHome": "Zurück zur Startseite"
     }
+  },
+  "partage": {
+    "loading": "Freigabe wird geladen…",
+    "noService": "Freigabedienst in dieser Umgebung nicht konfiguriert.",
+    "errorExpired": "Dieser Freigabe-Link ist abgelaufen.",
+    "errorViewLimit": "Dieser Link hat sein Aufruflimit erreicht.",
+    "errorNotFound": "Link nicht gefunden oder widerrufen.",
+    "errorInvalid": "Ungültiger Link.",
+    "backHome": "← Zur Startseite",
+    "publicShare": "Öffentliche Freigabe",
+    "defaultTitle": "Geteilte Berechnung",
+    "readOnly": "Nur-Lese-Ansicht",
+    "viewsOne": "{count} Aufruf",
+    "viewsMany": "{count} Aufrufe",
+    "expiresOn": "läuft ab am {date}",
+    "printButton": "Drucken / PDF",
+    "printTitle": "Drucken oder als PDF speichern",
+    "disclaimerStrong": "Indikative Berechnung, geteilt über tevaxia.lu",
+    "disclaimerBody": "kostenlose Tools zur Immobilienanalyse in Luxemburg. Um diese Berechnung zu prüfen oder neu zu erstellen,",
+    "openCalculator": "zum Rechner",
+    "commentFormTitle": "Eine Frage, ein Kommentar?",
+    "commentFormSubtitle": "Hinterlassen Sie eine Nachricht für den Autor dieser Freigabe. Keine Registrierung nötig. Name und E-Mail sind optional.",
+    "commentName": "Ihr Name (optional)",
+    "commentEmail": "Ihre E-Mail (optional)",
+    "commentMessage": "Ihre Frage oder Ihr Kommentar",
+    "commentSent": "✓ Gesendet. Vielen Dank!",
+    "commentRateLimited": "Bitte warten Sie 1 Minute zwischen zwei Kommentaren.",
+    "commentError": "Fehler beim Senden.",
+    "commentCharCount": "{count} / 4000 Zeichen",
+    "commentSend": "Senden",
+    "commentSending": "Senden…"
   }
 }

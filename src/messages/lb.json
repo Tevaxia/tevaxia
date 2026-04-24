@@ -11792,5 +11792,36 @@
       "ctaContact": "E-Mail un contact@tevaxia.lu",
       "ctaHome": "Zréck op d'Startsäit"
     }
+  },
+  "partage": {
+    "loading": "D'Partage gëtt gelueden…",
+    "noService": "Partage-Déngscht ass op dësem Ëmfeld net konfiguréiert.",
+    "errorExpired": "Dëse Partage-Link ass ofgelaf.",
+    "errorViewLimit": "Dëse Link huet seng Vue-Limite erreecht.",
+    "errorNotFound": "Link net fonnt oder zréckgezunn.",
+    "errorInvalid": "Ongëltege Link.",
+    "backHome": "← Zréck op den Ufank",
+    "publicShare": "Ëffentleche Partage",
+    "defaultTitle": "Gedeelte Berechnung",
+    "readOnly": "Nëmmen-Liesen Affichage",
+    "viewsOne": "{count} Vue",
+    "viewsMany": "{count} Vuen",
+    "expiresOn": "leeft of de {date}",
+    "printButton": "Drécken / PDF",
+    "printTitle": "Drécken oder als PDF späicheren",
+    "disclaimerStrong": "Indikativ Berechnung gedeelt iwwer tevaxia.lu",
+    "disclaimerBody": "gratis Tools fir Lëtzebuerger Immobilieanalys. Fir dës Berechnung z'iwwerpréiwen oder nei ze maachen,",
+    "openCalculator": "gitt op de Rechner",
+    "commentFormTitle": "Eng Fro, e Kommentar?",
+    "commentFormSubtitle": "Loosst dem Auteur vun dësem Partage eng Noriicht. Ouni Umeldung. Numm an E-Mail si fakultativ.",
+    "commentName": "Ären Numm (fakultativ)",
+    "commentEmail": "Är E-Mail (fakultativ)",
+    "commentMessage": "Är Fro oder Äre Kommentar",
+    "commentSent": "✓ Geschéckt. Merci!",
+    "commentRateLimited": "Waart w.e.g. 1 Minutt tëscht 2 Kommentaren.",
+    "commentError": "Feeler beim Schécken.",
+    "commentCharCount": "{count} / 4000 Zeechen",
+    "commentSend": "Schécken",
+    "commentSending": "Schécke…"
   }
 }

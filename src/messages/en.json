@@ -11792,5 +11792,36 @@
       "license": "License",
       "actions": "Actions"
     }
+  },
+  "partage": {
+    "loading": "Loading share…",
+    "noService": "Sharing service not configured on this environment.",
+    "errorExpired": "This share link has expired.",
+    "errorViewLimit": "This link has reached its view limit.",
+    "errorNotFound": "Link not found or revoked.",
+    "errorInvalid": "Invalid link.",
+    "backHome": "← Back to home",
+    "publicShare": "Public share",
+    "defaultTitle": "Shared calculation",
+    "readOnly": "Read-only view",
+    "viewsOne": "{count} view",
+    "viewsMany": "{count} views",
+    "expiresOn": "expires on {date}",
+    "printButton": "Print / PDF",
+    "printTitle": "Print or save as PDF",
+    "disclaimerStrong": "Indicative calculation shared via tevaxia.lu",
+    "disclaimerBody": "free Luxembourg real estate analysis tools. To verify or redo this calculation,",
+    "openCalculator": "open the calculator",
+    "commentFormTitle": "A question, a comment?",
+    "commentFormSubtitle": "Leave a message for the author of this share. No sign-up. Name and email are optional.",
+    "commentName": "Your name (optional)",
+    "commentEmail": "Your email (optional)",
+    "commentMessage": "Your question or comment",
+    "commentSent": "✓ Sent. Thank you!",
+    "commentRateLimited": "Please wait 1 minute between comments.",
+    "commentError": "Error while sending.",
+    "commentCharCount": "{count} / 4000 characters",
+    "commentSend": "Send",
+    "commentSending": "Sending…"
   }
 }

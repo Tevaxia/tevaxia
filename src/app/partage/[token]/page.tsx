@@ -3,11 +3,12 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { fetchSharedLinkByToken, postSharedLinkComment, type SharedLinkPublic } from "@/lib/shared-links";
 import { isSupabaseConfigured } from "@/lib/supabase";
 
 function CommentForm({ token }: { token: string }) {
+  const t = useTranslations("partage");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -37,17 +38,15 @@ function CommentForm({ token }: { token: string }) {
 
   return (
     <div className="mt-8 rounded-xl border border-card-border bg-card p-5 shadow-sm print:hidden">
-      <h3 className="text-sm font-semibold text-navy">Une question, un commentaire ?</h3>
-      <p className="mt-0.5 text-xs text-muted">
-        Laissez un message à l&apos;auteur de ce partage. Sans inscription. Le nom et l&apos;email sont optionnels.
-      </p>
+      <h3 className="text-sm font-semibold text-navy">{t("commentFormTitle")}</h3>
+      <p className="mt-0.5 text-xs text-muted">{t("commentFormSubtitle")}</p>
       <form onSubmit={onSubmit} className="mt-3 space-y-2">
         <div className="grid gap-2 sm:grid-cols-2">
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Votre nom (optionnel)"
+            placeholder={t("commentName")}
             maxLength={100}
             className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
           />
@@ -55,7 +54,7 @@ function CommentForm({ token }: { token: string }) {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Votre email (optionnel)"
+            placeholder={t("commentEmail")}
             maxLength={200}
             className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
           />
@@ -63,7 +62,7 @@ function CommentForm({ token }: { token: string }) {
         <textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Votre question ou commentaire"
+          placeholder={t("commentMessage")}
           rows={3}
           maxLength={4000}
           required
@@ -71,17 +70,17 @@ function CommentForm({ token }: { token: string }) {
         />
         <div className="flex items-center justify-between gap-3">
           <p className="text-[10px] text-muted">
-            {status === "sent" && <span className="text-emerald-700 font-medium">✓ Envoyé. Merci !</span>}
-            {status === "error" && errKey === "rate_limited" && <span className="text-amber-700">Merci d&apos;attendre 1 minute entre 2 commentaires.</span>}
-            {status === "error" && errKey !== "rate_limited" && <span className="text-rose-700">Erreur lors de l&apos;envoi.</span>}
-            {status === "idle" && `${message.length} / 4000 caractères`}
+            {status === "sent" && <span className="text-emerald-700 font-medium">{t("commentSent")}</span>}
+            {status === "error" && errKey === "rate_limited" && <span className="text-amber-700">{t("commentRateLimited")}</span>}
+            {status === "error" && errKey !== "rate_limited" && <span className="text-rose-700">{t("commentError")}</span>}
+            {status === "idle" && t("commentCharCount", { count: message.length })}
           </p>
           <button
             type="submit"
             disabled={status === "sending" || !message.trim()}
             className="rounded-lg bg-navy px-4 py-2 text-xs font-semibold text-white hover:bg-navy-light disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {status === "sending" ? "Envoi…" : "Envoyer"}
+            {status === "sending" ? t("commentSending") : t("commentSend")}
           </button>
         </div>
       </form>
@@ -613,7 +612,9 @@ function GenericPayloadView({ payload }: { payload: Record<string, unknown> }) {
 export default function SharedPage() {
   const params = useParams();
   const locale = useLocale();
+  const t = useTranslations("partage");
   const lp = locale === "fr" ? "" : `/${locale}`;
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "en" ? "en-GB" : locale === "de" ? "de-DE" : locale === "pt" ? "pt-PT" : "fr-FR";
   const token = String(params?.token ?? "");
 
   const [data, setData] = useState<SharedLinkPublic | null>(null);
@@ -632,14 +633,14 @@ export default function SharedPage() {
   }, [token]);
 
   if (loading) {
-    return <div className="mx-auto max-w-2xl px-4 py-16 text-center text-muted">Chargement du partage…</div>;
+    return <div className="mx-auto max-w-2xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
   }
 
   if (!isSupabaseConfigured) {
     return (
       <div className="mx-auto max-w-2xl px-4 py-16">
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-6 text-amber-900">
-          Service de partage non configuré sur cet environnement.
+          {t("noService")}
         </div>
       </div>
     );
@@ -649,15 +650,21 @@ export default function SharedPage() {
     return (
       <div className="mx-auto max-w-2xl px-4 py-16">
         <div className="rounded-xl border border-rose-200 bg-rose-50 p-6 text-rose-900">
-          {data?.error === "expired" && "Ce lien de partage a expiré."}
-          {data?.error === "view_limit_reached" && "Ce lien a atteint sa limite de vues."}
-          {data?.error === "not_found" && "Lien introuvable ou révoqué."}
-          {!data?.error && "Lien invalide."}
+          {data?.error === "expired" && t("errorExpired")}
+          {data?.error === "view_limit_reached" && t("errorViewLimit")}
+          {data?.error === "not_found" && t("errorNotFound")}
+          {!data?.error && t("errorInvalid")}
         </div>
-        <Link href={`${lp}/`} className="mt-4 inline-flex text-sm text-navy hover:underline">← Retour à l&apos;accueil</Link>
+        <Link href={`${lp}/`} className="mt-4 inline-flex text-sm text-navy hover:underline">{t("backHome")}</Link>
       </div>
     );
   }
+
+  const viewCount = data.view_count ?? 0;
+  const viewsLabel = viewCount > 1 ? t("viewsMany", { count: viewCount }) : t("viewsOne", { count: viewCount });
+  const expiresLabel = data.expires_at
+    ? t("expiresOn", { date: new Date(data.expires_at).toLocaleDateString(dateLocale) })
+    : t("expiresOn", { date: "—" });
 
   return (
     <div className="bg-background min-h-screen">
@@ -665,21 +672,20 @@ export default function SharedPage() {
         <div className="mb-6 flex items-start justify-between print:hidden">
           <div>
             <Link href={`${lp}/`} className="text-xs text-muted hover:text-navy">← tevaxia.lu</Link>
-            <h1 className="mt-2 text-2xl font-bold text-navy">Partage public — {data.title || "Calcul partagé"}</h1>
+            <h1 className="mt-2 text-2xl font-bold text-navy">{t("publicShare")} : {data.title || t("defaultTitle")}</h1>
             <p className="mt-1 text-xs text-muted">
-              Vue read-only · {data.view_count} vue{(data.view_count ?? 0) > 1 ? "s" : ""} · expire le{" "}
-              {data.expires_at ? new Date(data.expires_at).toLocaleDateString("fr-FR") : "—"}
+              {t("readOnly")} · {viewsLabel} · {expiresLabel}
             </p>
           </div>
           <button
             onClick={() => window.print()}
             className="inline-flex items-center gap-1.5 rounded-lg border border-navy bg-white px-3 py-2 text-xs font-semibold text-navy hover:bg-navy/5"
-            title="Imprimer ou sauvegarder en PDF"
+            title={t("printTitle")}
           >
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z" />
             </svg>
-            Imprimer / PDF
+            {t("printButton")}
           </button>
         </div>
 
@@ -700,9 +706,8 @@ export default function SharedPage() {
         )}
 
         <div className="mt-10 rounded-xl border border-blue-200 bg-blue-50 p-5 text-sm text-blue-900 print:mt-6">
-          <strong>Calcul indicatif partagé via tevaxia.lu</strong> — outils gratuits d&apos;analyse immobilière luxembourgeoise.
-          Pour vérifier ou refaire ce calcul,{" "}
-          <Link href={`${lp}/bilan-promoteur`} className="underline hover:no-underline">accédez au calculateur</Link>.
+          <strong>{t("disclaimerStrong")}</strong> · {t("disclaimerBody")}{" "}
+          <Link href={`${lp}/bilan-promoteur`} className="underline hover:no-underline">{t("openCalculator")}</Link>.
         </div>
 
         <CommentForm token={token} />

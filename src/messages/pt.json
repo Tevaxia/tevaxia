@@ -11792,5 +11792,36 @@
       "ctaContact": "Enviar e-mail a contact@tevaxia.lu",
       "ctaHome": "Voltar à página inicial"
     }
+  },
+  "partage": {
+    "loading": "A carregar a partilha…",
+    "noService": "Serviço de partilha não configurado neste ambiente.",
+    "errorExpired": "Esta ligação de partilha expirou.",
+    "errorViewLimit": "Esta ligação atingiu o seu limite de visualizações.",
+    "errorNotFound": "Ligação não encontrada ou revogada.",
+    "errorInvalid": "Ligação inválida.",
+    "backHome": "← Voltar ao início",
+    "publicShare": "Partilha pública",
+    "defaultTitle": "Cálculo partilhado",
+    "readOnly": "Vista apenas leitura",
+    "viewsOne": "{count} visualização",
+    "viewsMany": "{count} visualizações",
+    "expiresOn": "expira a {date}",
+    "printButton": "Imprimir / PDF",
+    "printTitle": "Imprimir ou guardar em PDF",
+    "disclaimerStrong": "Cálculo indicativo partilhado via tevaxia.lu",
+    "disclaimerBody": "ferramentas gratuitas de análise imobiliária no Luxemburgo. Para verificar ou refazer este cálculo,",
+    "openCalculator": "aceda à calculadora",
+    "commentFormTitle": "Uma questão, um comentário?",
+    "commentFormSubtitle": "Deixe uma mensagem ao autor desta partilha. Sem inscrição. Nome e email são opcionais.",
+    "commentName": "O seu nome (opcional)",
+    "commentEmail": "O seu email (opcional)",
+    "commentMessage": "A sua questão ou comentário",
+    "commentSent": "✓ Enviado. Obrigado!",
+    "commentRateLimited": "Aguarde 1 minuto entre 2 comentários.",
+    "commentError": "Erro no envio.",
+    "commentCharCount": "{count} / 4000 caracteres",
+    "commentSend": "Enviar",
+    "commentSending": "A enviar…"
   }
 }
