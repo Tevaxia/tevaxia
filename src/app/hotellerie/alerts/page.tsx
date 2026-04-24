@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { supabase } from "@/lib/supabase";
 
@@ -26,40 +27,21 @@ interface HotelRow {
   category: string | null;
 }
 
-const ALERT_TYPE_LABELS: Record<AlertRow["alert_type"], { title: string; desc: string; icon: string }> = {
-  pickup_deviation: {
-    title: "Dérive pickup vs forecast",
-    desc: "Alerte si le taux de réservations à date diverge du forecast de plus de X%",
-    icon: "📉",
-  },
-  adr_compset_change: {
-    title: "Changement ADR compset",
-    desc: "Alerte si l'ADR moyen du compset varie de X% sur Y jours",
-    icon: "💰",
-  },
-  occupancy_drop: {
-    title: "Chute d'occupation",
-    desc: "Alerte si le taux d'occupation 7 jours tombe sous X%",
-    icon: "🛏",
-  },
-  revpar_delta: {
-    title: "Dérive RevPAR baseline",
-    desc: "Alerte si le RevPAR s'écarte de la baseline historique de plus de X%",
-    icon: "📊",
-  },
-  gop_margin_below: {
-    title: "GOP margin sous benchmark",
-    desc: "Alerte si la GOP margin mensuelle passe sous le benchmark catégorie",
-    icon: "⚠️",
-  },
-};
-
 export default function YieldAlertsPage() {
   const { user } = useAuth();
+  const t = useTranslations("hotelAlerts");
   const [hotels, setHotels] = useState<HotelRow[]>([]);
   const [alerts, setAlerts] = useState<AlertRow[]>([]);
   const [selectedHotel, setSelectedHotel] = useState<string>("");
   const [loading, setLoading] = useState(true);
+
+  const ALERT_TYPE_LABELS: Record<AlertRow["alert_type"], { title: string; desc: string; icon: string }> = {
+    pickup_deviation: { title: t("typePickupTitle"), desc: t("typePickupDesc"), icon: "📉" },
+    adr_compset_change: { title: t("typeAdrTitle"), desc: t("typeAdrDesc"), icon: "💰" },
+    occupancy_drop: { title: t("typeOccTitle"), desc: t("typeOccDesc"), icon: "🛏" },
+    revpar_delta: { title: t("typeRevparTitle"), desc: t("typeRevparDesc"), icon: "📊" },
+    gop_margin_below: { title: t("typeGopTitle"), desc: t("typeGopDesc"), icon: "⚠️" },
+  };
 
   const refresh = async () => {
     if (!user || !supabase) return;
@@ -103,7 +85,7 @@ export default function YieldAlertsPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!supabase || !confirm("Supprimer cette alerte ?")) return;
+    if (!supabase || !confirm(t("confirmDelete"))) return;
     await supabase.from("hotel_yield_alerts").delete().eq("id", id);
     await refresh();
   };
@@ -114,8 +96,8 @@ export default function YieldAlertsPage() {
     await refresh();
   };
 
-  if (!user) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">Connectez-vous pour gérer les alertes.</div>;
-  if (loading) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">Chargement…</div>;
+  if (!user) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{t("mustSignIn")}</div>;
+  if (loading) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
 
   const hotelAlerts = alerts.filter((a) => a.hotel_id === selectedHotel);
   const availableTypes = (Object.keys(ALERT_TYPE_LABELS) as AlertRow["alert_type"][])
@@ -124,37 +106,35 @@ export default function YieldAlertsPage() {
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <Link href="/hotellerie" className="text-xs text-muted hover:text-navy">&larr; Hôtellerie</Link>
+        <Link href="/hotellerie" className="text-xs text-muted hover:text-navy">{t("backHub")}</Link>
         <div className="mt-2 mb-6">
-          <h1 className="text-2xl font-bold text-navy sm:text-3xl">Yield alerts « agentic »</h1>
+          <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("pageTitle")}</h1>
           <p className="mt-2 text-muted">
-            Alertes automatiques quand votre pickup, ADR, occupation ou GOP margin dévie de la norme.
-            Fait partie de l&apos;évolution RMS 2026 : l&apos;IA ne recommande plus, elle <strong>agit</strong>.
+            {t("pageSubtitle")} <strong>{t("pageSubtitleAct")}</strong>.
           </p>
         </div>
 
         {hotels.length === 0 ? (
           <div className="rounded-xl border border-dashed border-card-border p-8 text-center text-sm text-muted">
-            Aucun hôtel enregistré. Créez-en un d&apos;abord depuis{" "}
+            {t("noHotelsTitle")}{" "}
             <Link href="/hotellerie/groupe" className="text-navy underline">/hotellerie/groupe</Link>.
           </div>
         ) : (
           <>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-slate mb-1">Hôtel</label>
+              <label className="block text-sm font-medium text-slate mb-1">{t("hotelLabel")}</label>
               <select value={selectedHotel} onChange={(e) => setSelectedHotel(e.target.value)}
                 className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm">
                 {hotels.map((h) => (
-                  <option key={h.id} value={h.id}>{h.name} {h.nb_chambres ? `(${h.nb_chambres} ch.)` : ""}</option>
+                  <option key={h.id} value={h.id}>{h.name} {h.nb_chambres ? `(${h.nb_chambres} ${t("chambresSuffix")})` : ""}</option>
                 ))}
               </select>
             </div>
 
-            {/* Alertes configurées */}
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-              <h2 className="text-base font-semibold text-navy mb-4">Alertes actives ({hotelAlerts.length})</h2>
+              <h2 className="text-base font-semibold text-navy mb-4">{t("activeAlertsTitle", { n: hotelAlerts.length })}</h2>
               {hotelAlerts.length === 0 ? (
-                <p className="text-sm text-muted">Aucune alerte configurée pour cet hôtel.</p>
+                <p className="text-sm text-muted">{t("noAlertsConfigured")}</p>
               ) : (
                 <div className="space-y-3">
                   {hotelAlerts.map((a) => {
@@ -169,14 +149,14 @@ export default function YieldAlertsPage() {
                             </div>
                             <p className="text-xs text-muted mt-0.5">{meta.desc}</p>
                             <div className="mt-2 flex items-center gap-2 text-xs">
-                              <label>Seuil %</label>
+                              <label>{t("thresholdLabel")}</label>
                               <input type="number" value={a.threshold_pct}
                                 onChange={(e) => handleThresholdChange(a.id, Number(e.target.value))}
                                 className="w-20 rounded border border-card-border bg-white px-2 py-0.5 text-xs font-mono" />
-                              <span className="text-muted">sur {a.threshold_days} jours</span>
+                              <span className="text-muted">{t("overDays", { n: a.threshold_days })}</span>
                               {a.trigger_count > 0 && (
                                 <span className="ml-auto text-[10px] rounded-full bg-rose-100 text-rose-800 px-2 py-0.5">
-                                  {a.trigger_count} déclenchement{a.trigger_count > 1 ? "s" : ""}
+                                  {a.trigger_count > 1 ? t("triggersMany", { n: a.trigger_count }) : t("triggersOne", { n: a.trigger_count })}
                                 </span>
                               )}
                             </div>
@@ -184,11 +164,11 @@ export default function YieldAlertsPage() {
                           <div className="flex flex-col items-end gap-1">
                             <button onClick={() => handleToggle(a.id, a.is_active)}
                               className={`rounded-full px-3 py-1 text-xs font-medium ${a.is_active ? "bg-emerald-600 text-white" : "border border-card-border bg-white text-slate"}`}>
-                              {a.is_active ? "Active" : "Inactive"}
+                              {a.is_active ? t("btnActive") : t("btnInactive")}
                             </button>
                             <button onClick={() => handleDelete(a.id)}
                               className="text-xs text-muted hover:text-rose-600">
-                              Supprimer
+                              {t("btnDelete")}
                             </button>
                           </div>
                         </div>
@@ -199,15 +179,14 @@ export default function YieldAlertsPage() {
               )}
             </div>
 
-            {/* Ajout */}
             {availableTypes.length > 0 && (
               <div className="mt-6 rounded-xl border border-card-border bg-card p-6 shadow-sm">
-                <h2 className="text-base font-semibold text-navy mb-3">Ajouter une alerte</h2>
+                <h2 className="text-base font-semibold text-navy mb-3">{t("addAlertTitle")}</h2>
                 <div className="grid gap-2 sm:grid-cols-2">
-                  {availableTypes.map((t) => {
-                    const meta = ALERT_TYPE_LABELS[t];
+                  {availableTypes.map((tp) => {
+                    const meta = ALERT_TYPE_LABELS[tp];
                     return (
-                      <button key={t} onClick={() => handleCreate(t)}
+                      <button key={tp} onClick={() => handleCreate(tp)}
                         className="rounded-lg border border-card-border bg-background p-3 text-left hover:bg-slate-50 hover:border-navy/30">
                         <div className="flex items-center gap-2">
                           <span className="text-lg">{meta.icon}</span>
@@ -222,9 +201,7 @@ export default function YieldAlertsPage() {
             )}
 
             <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-5 text-xs text-blue-900">
-              <strong>Backend cron :</strong> les alertes sont évaluées quotidiennement à 07:00 UTC via Supabase cron (pg_cron).
-              L&apos;email de notification utilise Supabase Auth SMTP (configurable). La transition vers les notifications push nécessite
-              un worker web push (VAPID keys à configurer côté ops).
+              <strong>{t("cronStrong")}</strong> {t("cronBody")}
             </div>
           </>
         )}

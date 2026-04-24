@@ -2,17 +2,19 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { COMPSET_LU, averageADR, averageOccupancy, averageRevPAR, type HotelCategory } from "@/lib/hotellerie/compset-lu";
 
-const CATEGORIES: { value: HotelCategory; label: string; color: string }[] = [
-  { value: "budget", label: "Budget 1-2★", color: "bg-slate-100 text-slate-800" },
-  { value: "midscale", label: "Midscale 3★", color: "bg-blue-100 text-blue-800" },
-  { value: "upscale", label: "Upscale 4★", color: "bg-purple-100 text-purple-800" },
-  { value: "luxury", label: "Luxury 5★", color: "bg-amber-100 text-amber-800" },
-];
-
 export default function CompsetPage() {
+  const t = useTranslations("hotelCompset");
   const [category, setCategory] = useState<HotelCategory | "all">("all");
+
+  const CATEGORIES: { value: HotelCategory; label: string; color: string }[] = [
+    { value: "budget", label: t("catBudget"), color: "bg-slate-100 text-slate-800" },
+    { value: "midscale", label: t("catMidscale"), color: "bg-blue-100 text-blue-800" },
+    { value: "upscale", label: t("catUpscale"), color: "bg-purple-100 text-purple-800" },
+    { value: "luxury", label: t("catLuxury"), color: "bg-amber-100 text-amber-800" },
+  ];
 
   const filtered = useMemo(() => {
     return category === "all" ? COMPSET_LU : COMPSET_LU.filter((c) => c.category === category);
@@ -26,19 +28,16 @@ export default function CompsetPage() {
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Link href="/hotellerie" className="text-xs text-muted hover:text-navy">&larr; Hôtellerie</Link>
+        <Link href="/hotellerie" className="text-xs text-muted hover:text-navy">{t("backHub")}</Link>
         <div className="mt-2 mb-8">
-          <h1 className="text-2xl font-bold text-navy sm:text-3xl">Compset hôtelier Luxembourg + Grande Région</h1>
-          <p className="mt-2 text-muted">
-            Benchmarks ADR, occupation et RevPAR par zone et catégorie. Sources : STR EMEA Performance Report Q4 2025,
-            Horwath HTL European Hotel Valuation Index 2025, observatoire tevaxia. Mise à jour trimestrielle.
-          </p>
+          <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("pageTitle")}</h1>
+          <p className="mt-2 text-muted">{t("pageSubtitle")}</p>
         </div>
 
         <div className="flex flex-wrap gap-2 mb-6">
           <button onClick={() => setCategory("all")}
             className={`rounded-lg px-3 py-2 text-xs font-medium ${category === "all" ? "bg-navy text-white" : "border border-card-border bg-card text-slate hover:bg-slate-50"}`}>
-            Toutes catégories
+            {t("filterAll")}
           </button>
           {CATEGORIES.map((c) => (
             <button key={c.value} onClick={() => setCategory(c.value)}
@@ -48,34 +47,32 @@ export default function CompsetPage() {
           ))}
         </div>
 
-        {/* KPI globaux filtrés */}
         <div className="grid gap-3 sm:grid-cols-3 mb-8">
           <div className="rounded-xl border border-card-border bg-card p-5 shadow-sm">
-            <div className="text-xs uppercase tracking-wider text-muted">ADR moyen</div>
+            <div className="text-xs uppercase tracking-wider text-muted">{t("kpiAdrAvg")}</div>
             <div className="mt-1 text-2xl font-bold text-navy">{averageADR(filtered)} €</div>
-            <div className="text-xs text-muted">{filtered.length} zones × catégories</div>
+            <div className="text-xs text-muted">{t("kpiZonesCategories", { n: filtered.length })}</div>
           </div>
           <div className="rounded-xl border border-card-border bg-card p-5 shadow-sm">
-            <div className="text-xs uppercase tracking-wider text-muted">Occupation moyenne</div>
+            <div className="text-xs uppercase tracking-wider text-muted">{t("kpiOccupancyAvg")}</div>
             <div className="mt-1 text-2xl font-bold text-navy">{(averageOccupancy(filtered) * 100).toFixed(1)}%</div>
           </div>
           <div className="rounded-xl border border-card-border bg-card p-5 shadow-sm">
-            <div className="text-xs uppercase tracking-wider text-muted">RevPAR moyen</div>
+            <div className="text-xs uppercase tracking-wider text-muted">{t("kpiRevparAvg")}</div>
             <div className="mt-1 text-2xl font-bold text-navy">{averageRevPAR(filtered)} €</div>
           </div>
         </div>
 
-        {/* Tableau */}
         <div className="rounded-xl border border-card-border bg-card shadow-sm overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-card-border bg-background text-left">
-                <th className="px-4 py-2 font-semibold text-slate">Zone</th>
-                <th className="px-4 py-2 font-semibold text-slate">Catégorie</th>
-                <th className="px-4 py-2 font-semibold text-slate text-right">ADR</th>
-                <th className="px-4 py-2 font-semibold text-slate text-right">Occupation</th>
-                <th className="px-4 py-2 font-semibold text-slate text-right">RevPAR</th>
-                <th className="px-4 py-2 font-semibold text-slate">Source</th>
+                <th className="px-4 py-2 font-semibold text-slate">{t("thZone")}</th>
+                <th className="px-4 py-2 font-semibold text-slate">{t("thCategory")}</th>
+                <th className="px-4 py-2 font-semibold text-slate text-right">{t("thAdr")}</th>
+                <th className="px-4 py-2 font-semibold text-slate text-right">{t("thOccupancy")}</th>
+                <th className="px-4 py-2 font-semibold text-slate text-right">{t("thRevpar")}</th>
+                <th className="px-4 py-2 font-semibold text-slate">{t("thSource")}</th>
               </tr>
             </thead>
             <tbody>
@@ -99,15 +96,11 @@ export default function CompsetPage() {
         </div>
 
         <p className="mt-4 text-xs text-muted">
-          <strong>{zones.length} zones couvertes</strong> — Luxembourg Centre, Gare, Kirchberg, Findel, Esch-sur-Alzette, Ettelbruck, Diekirch, Mersch,
-          Metz (FR), Saarbrücken (DE), Trier (DE), Liège (BE).
+          <strong>{t("zonesCovered", { n: zones.length })}</strong> {t("zonesCoveredDesc")}
         </p>
 
         <div className="mt-8 rounded-xl border border-blue-200 bg-blue-50 p-5 text-sm text-blue-900">
-          <strong>À propos des données :</strong> les benchmarks ci-dessus sont des moyennes annualisées 2025
-          combinant sources publiques (STR EMEA Performance Report, Horwath HTL HVI) et panel tevaxia. Les valeurs
-          sont indicatives — pour une analyse précise avant acquisition, abonnez-vous à STR Global / CoStar (€5-20k/an)
-          ou à Horwath HTL. Contactez-nous si vous souhaitez contribuer au panel Hotrec LU en partage réciproque.
+          <strong>{t("aboutStrong")}</strong> {t("aboutBody")}
         </div>
       </div>
     </div>
