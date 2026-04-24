@@ -13377,5 +13377,33 @@
     "warningBody": "verifique com o seu regulamento de copropriedade o número máximo de frações que um mandatário pode representar (frequentemente 5 %). O próprio administrador geralmente não pode ser mandatário salvo autorização expressa. A procuração deve estar assinada e datada antes da assembleia. A menção manuscrita «bon pour pouvoir» é recomendada.",
     "legalStrong": "Enquadramento legal LU:",
     "legalBody": "lei alterada de 16 de maio de 1975 sobre a copropriedade, artigos 7 (assembleia geral) e 11 (representação). O modelo gerado aqui é indicativo e conforme às práticas. Para casos particulares (mandatário administrador, procuração em branco, comproprietário menor/protegido), consulte o seu administrador ou notário."
+  },
+  "syndicPortefeuille": {
+    "backHub": "← Administrador",
+    "loading": "A carregar a carteira…",
+    "signIn": "Iniciar sessão",
+    "pageTitle": "Carteira do administrador",
+    "pageSubtitle": "Vista consolidada das copropriedades geridas. Priorização por montante de incumprimentos decrescente para direcionar as ações de cobrança.",
+    "kpiCoowns": "Copropriedades",
+    "kpiLots": "Lotes geridos",
+    "kpiOutstanding": "Incumprimentos totais",
+    "kpiUnpaid": "Encargos em incumprimento",
+    "kpiAssemblies": "AG planeadas",
+    "emptyState": "Nenhuma copropriedade no seu perímetro.",
+    "createLink": "Criar uma copropriedade",
+    "statLots": "Lotes",
+    "statTantiemes": "Frações",
+    "outstandingLabel": "Incumprimentos",
+    "chargesCount": "{n} encargo(s)",
+    "sendReminders": "→ Enviar avisos",
+    "noUnpaid": "✓ Sem incumprimentos",
+    "agPrefix": "AG {title}",
+    "lastClosedYear": "Último exercício encerrado: {year}",
+    "agAnnexes": "Anexos AG →",
+    "btnAccounting": "Contabilidade",
+    "btnCalls": "Chamadas",
+    "btnAgm": "AG",
+    "routineStrong": "Rotina do administrador:",
+    "routineBody": "vista de segunda de manhã para planear a semana. Copropriedades ordenadas por incumprimentos decrescentes para priorizar a cobrança. As AG planeadas assinalam as preparações (convocatória, ordem do dia, anexos) a antecipar 15 dias antes."
   }
 }

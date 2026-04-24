@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import { formatEUR } from "@/lib/calculations";
@@ -22,6 +23,9 @@ interface CoownershipSummary {
 
 export default function SyndicPortefeuillePage() {
   const { user, loading: authLoading } = useAuth();
+  const t = useTranslations("syndicPortefeuille");
+  const locale = useLocale();
+  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const [coowns, setCoowns] = useState<CoownershipSummary[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -40,7 +44,6 @@ export default function SyndicPortefeuillePage() {
 
       const out: CoownershipSummary[] = [];
       for (const c of rows) {
-        // Stats parallèles
         const [unitsRes, unpaidRes, assemblyRes, yearRes] = await Promise.all([
           supabase.from("coownership_units").select("id", { count: "exact", head: true })
             .eq("coownership_id", c.id),
@@ -80,8 +83,8 @@ export default function SyndicPortefeuillePage() {
 
   useEffect(() => { if (!authLoading && user) void reload(); }, [user, authLoading, reload]);
 
-  if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">Chargement du portefeuille…</div>;
-  if (!user) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href="/connexion" className="text-navy underline">Se connecter</Link></div>;
+  if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
+  if (!user) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href="/connexion" className="text-navy underline">{t("signIn")}</Link></div>;
 
   const totals = {
     nbCoowns: coowns.length,
@@ -93,31 +96,27 @@ export default function SyndicPortefeuillePage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
-      <Link href="/syndic" className="text-xs text-muted hover:text-navy">← Syndic</Link>
+      <Link href="/syndic" className="text-xs text-muted hover:text-navy">{t("backHub")}</Link>
 
       <div className="mt-3">
-        <h1 className="text-2xl font-bold text-navy">Portefeuille syndic</h1>
-        <p className="mt-1 text-sm text-muted">
-          Vue consolidée des copropriétés gérées. Priorisation par montant d&apos;impayés
-          décroissant pour cibler les actions de recouvrement.
-        </p>
+        <h1 className="text-2xl font-bold text-navy">{t("pageTitle")}</h1>
+        <p className="mt-1 text-sm text-muted">{t("pageSubtitle")}</p>
       </div>
 
       {error && <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-900">{error}</div>}
 
-      {/* KPIs */}
       <div className="mt-6 grid gap-3 sm:grid-cols-5">
-        <Kpi label="Copropriétés" value={String(totals.nbCoowns)} />
-        <Kpi label="Lots gérés" value={String(totals.nbLots)} />
-        <Kpi label="Impayés totaux" value={formatEUR(totals.totalOutstanding)} tone="rose" />
-        <Kpi label="Charges impayées" value={String(totals.nbUnpaid)} tone="amber" />
-        <Kpi label="AG planifiées" value={String(totals.nbAssemblies)} tone="blue" />
+        <Kpi label={t("kpiCoowns")} value={String(totals.nbCoowns)} />
+        <Kpi label={t("kpiLots")} value={String(totals.nbLots)} />
+        <Kpi label={t("kpiOutstanding")} value={formatEUR(totals.totalOutstanding)} tone="rose" />
+        <Kpi label={t("kpiUnpaid")} value={String(totals.nbUnpaid)} tone="amber" />
+        <Kpi label={t("kpiAssemblies")} value={String(totals.nbAssemblies)} tone="blue" />
       </div>
 
       {coowns.length === 0 ? (
         <div className="mt-8 rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-          Aucune copropriété dans votre périmètre.{" "}
-          <Link href="/syndic/coproprietes" className="text-navy underline">Créer une copropriété</Link>
+          {t("emptyState")}{" "}
+          <Link href="/syndic/coproprietes" className="text-navy underline">{t("createLink")}</Link>
         </div>
       ) : (
         <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -138,46 +137,46 @@ export default function SyndicPortefeuillePage() {
                 )}
 
                 <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
-                  <Stat label="Lots" value={String(c.nb_lots)} />
-                  <Stat label="Tantièmes" value={c.total_tantiemes.toLocaleString("fr-LU")} />
+                  <Stat label={t("statLots")} value={String(c.nb_lots)} />
+                  <Stat label={t("statTantiemes")} value={c.total_tantiemes.toLocaleString(dateLocale)} />
                 </div>
 
                 {c.total_outstanding > 0 ? (
                   <div className="mt-3 rounded-lg border border-rose-200 bg-rose-100/50 p-2">
                     <div className="text-[10px] uppercase tracking-wider text-rose-700 font-semibold">
-                      Impayés
+                      {t("outstandingLabel")}
                     </div>
                     <div className="mt-0.5 flex items-baseline justify-between">
                       <span className="text-lg font-bold text-rose-900">{formatEUR(c.total_outstanding)}</span>
                       <span className="text-[10px] text-rose-700">
-                        {c.nb_unpaid} charge(s)
+                        {t("chargesCount", { n: c.nb_unpaid })}
                       </span>
                     </div>
                     <Link href={`/syndic/coproprietes/${c.id}/relances`}
                       className="mt-1 block text-[11px] text-rose-700 underline">
-                      → Envoyer relances
+                      {t("sendReminders")}
                     </Link>
                   </div>
                 ) : (
                   <div className="mt-3 rounded-lg border border-emerald-200 bg-emerald-50 p-2 text-center text-xs text-emerald-800">
-                    ✓ Aucun impayé
+                    {t("noUnpaid")}
                   </div>
                 )}
 
                 {c.next_assembly && (
                   <div className="mt-3 rounded-lg border border-blue-200 bg-blue-50 p-2 text-xs">
-                    <div className="font-semibold text-blue-900">AG {c.next_assembly.title}</div>
+                    <div className="font-semibold text-blue-900">{t("agPrefix", { title: c.next_assembly.title })}</div>
                     <div className="mt-0.5 text-[10px] text-blue-700">
-                      {new Date(c.next_assembly.scheduled_at).toLocaleDateString("fr-LU", { weekday: "short", day: "numeric", month: "short" })}
+                      {new Date(c.next_assembly.scheduled_at).toLocaleDateString(dateLocale, { weekday: "short", day: "numeric", month: "short" })}
                     </div>
                   </div>
                 )}
 
                 {c.last_closed_year && (
                   <div className="mt-3 text-[10px] text-muted">
-                    Dernier exercice clos : {c.last_closed_year}
+                    {t("lastClosedYear", { year: c.last_closed_year })}
                     <Link href={`/syndic/coproprietes/${c.id}/annexes`} className="ml-1 text-navy underline">
-                      Annexes AG →
+                      {t("agAnnexes")}
                     </Link>
                   </div>
                 )}
@@ -185,15 +184,15 @@ export default function SyndicPortefeuillePage() {
                 <div className="mt-3 flex gap-1 text-[10px]">
                   <Link href={`/syndic/coproprietes/${c.id}/comptabilite`}
                     className="flex-1 rounded border border-card-border bg-white px-2 py-1 text-center text-slate hover:bg-background">
-                    Compta
+                    {t("btnAccounting")}
                   </Link>
                   <Link href={`/syndic/coproprietes/${c.id}/appels`}
                     className="flex-1 rounded border border-card-border bg-white px-2 py-1 text-center text-slate hover:bg-background">
-                    Appels
+                    {t("btnCalls")}
                   </Link>
                   <Link href={`/syndic/coproprietes/${c.id}/assemblees`}
                     className="flex-1 rounded border border-card-border bg-white px-2 py-1 text-center text-slate hover:bg-background">
-                    AG
+                    {t("btnAgm")}
                   </Link>
                 </div>
               </div>
@@ -203,10 +202,7 @@ export default function SyndicPortefeuillePage() {
       )}
 
       <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-        <strong>Routine syndic :</strong> vue lundi matin pour planifier la semaine.
-        Copropriétés triées par impayés décroissants pour prioriser le recouvrement.
-        Les AG planifiées signalent les préparations (convocation, ODJ, annexes)
-        à anticiper 15 jours avant.
+        <strong>{t("routineStrong")}</strong> {t("routineBody")}
       </div>
     </div>
   );

@@ -13377,5 +13377,33 @@
     "warningBody": "prüfen Sie in Ihrer Miteigentums-Ordnung die maximale Anzahl Anteile, die ein Bevollmächtigter vertreten darf (oft 5 %). Der Verwalter selbst kann in der Regel nicht Bevollmächtigter sein, sofern nicht ausdrücklich genehmigt. Die Vollmacht muss vor der Versammlung unterschrieben und datiert sein. Der handgeschriebene Vermerk „bon pour pouvoir“ wird empfohlen.",
     "legalStrong": "LU-Rechtsrahmen:",
     "legalBody": "geändertes Gesetz vom 16. Mai 1975 über Miteigentum, Artikel 7 (Eigentümerversammlung) und 11 (Vertretung). Die hier erzeugte Vorlage ist indikativ und praxiskonform. Für Sonderfälle (Verwalter-Vollmacht, Blankovollmacht, minderjähriger/geschützter Miteigentümer) konsultieren Sie Ihren Verwalter oder Notar."
+  },
+  "syndicPortefeuille": {
+    "backHub": "← Verwalter",
+    "loading": "Portfolio wird geladen…",
+    "signIn": "Anmelden",
+    "pageTitle": "Verwalter-Portfolio",
+    "pageSubtitle": "Konsolidierte Sicht auf die verwalteten Miteigentümer. Priorisiert nach abnehmenden Zahlungsrückständen für gezielte Beitreibungsmaßnahmen.",
+    "kpiCoowns": "Miteigentum",
+    "kpiLots": "Verwaltete Lots",
+    "kpiOutstanding": "Gesamtrückstände",
+    "kpiUnpaid": "Unbezahlte Lasten",
+    "kpiAssemblies": "Geplante EV",
+    "emptyState": "Kein Miteigentum in Ihrem Bereich.",
+    "createLink": "Miteigentum erstellen",
+    "statLots": "Lots",
+    "statTantiemes": "Anteile",
+    "outstandingLabel": "Rückstände",
+    "chargesCount": "{n} Last(en)",
+    "sendReminders": "→ Mahnungen senden",
+    "noUnpaid": "✓ Keine Rückstände",
+    "agPrefix": "EV {title}",
+    "lastClosedYear": "Zuletzt abgeschlossenes Jahr: {year}",
+    "agAnnexes": "EV-Anlagen →",
+    "btnAccounting": "Buchhaltung",
+    "btnCalls": "Aufrufe",
+    "btnAgm": "EV",
+    "routineStrong": "Verwalter-Routine:",
+    "routineBody": "Montagmorgen-Sicht zur Wochenplanung. Miteigentum nach abnehmenden Rückständen sortiert zur Priorisierung der Beitreibung. Geplante EV signalisieren Vorbereitungen (Einberufung, TO, Anlagen) 15 Tage im Voraus."
   }
 }

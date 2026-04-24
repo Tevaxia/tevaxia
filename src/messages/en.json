@@ -13377,5 +13377,33 @@
     "warningBody": "check with your condominium rules the maximum number of shares a proxy can represent (often 5%). The syndic itself generally cannot act as proxy unless expressly authorised. The proxy must be signed and dated before the meeting. The handwritten mention \"bon pour pouvoir\" is recommended.",
     "legalStrong": "LU legal framework:",
     "legalBody": "amended law of 16 May 1975 on condominiums, articles 7 (general meeting) and 11 (representation). The template generated here is indicative and compliant with practices. For special cases (syndic proxy, blank power of attorney, minor/protected co-owner), consult your syndic or notary."
+  },
+  "syndicPortefeuille": {
+    "backHub": "← Syndic",
+    "loading": "Loading portfolio…",
+    "signIn": "Sign in",
+    "pageTitle": "Syndic portfolio",
+    "pageSubtitle": "Consolidated view of managed condominiums. Prioritised by decreasing arrears to target recovery actions.",
+    "kpiCoowns": "Condominiums",
+    "kpiLots": "Lots managed",
+    "kpiOutstanding": "Total arrears",
+    "kpiUnpaid": "Unpaid charges",
+    "kpiAssemblies": "Planned AGMs",
+    "emptyState": "No condominium in your scope.",
+    "createLink": "Create a condominium",
+    "statLots": "Lots",
+    "statTantiemes": "Shares",
+    "outstandingLabel": "Arrears",
+    "chargesCount": "{n} charge(s)",
+    "sendReminders": "→ Send reminders",
+    "noUnpaid": "✓ No arrears",
+    "agPrefix": "AGM {title}",
+    "lastClosedYear": "Last closed year: {year}",
+    "agAnnexes": "AGM annexes →",
+    "btnAccounting": "Accounting",
+    "btnCalls": "Calls",
+    "btnAgm": "AGM",
+    "routineStrong": "Syndic routine:",
+    "routineBody": "Monday morning view to plan the week. Condominiums sorted by decreasing arrears to prioritise recovery. Planned AGMs flag preparations (convocation, agenda, annexes) to be anticipated 15 days ahead."
   }
 }

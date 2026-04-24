@@ -13377,5 +13377,33 @@
     "warningBody": "iwwerpréift mat Ärem Kopropriétéit-Reglement déi maximal Unzuel Tantièmen, déi e Mandataire representéiere kann (oft 5 %). De Syndic selwer kann allgemeng net Mandataire sinn, ausser ausdrécklech Erlabnis. D'Procuratioun muss virun der Versammlung ënnerschriwwen an datéiert sinn. D'Handschrëft-Ausspriich „bon pour pouvoir“ gëtt empfohlen.",
     "legalStrong": "LU legale Kader:",
     "legalBody": "geännert Gesetz vum 16. Mee 1975 iwwer d'Kopropriétéit, Artikelen 7 (Generalversammlung) an 11 (Representatioun). D'Schabloun, déi hei erstallt gëtt, ass indikativ a konform mat de Praktiken. Fir spezifesch Fäll (Syndic-Mandataire, Blanco-Vollmaacht, minderjähregen/geschützten Kopropriétaire), konsultéiert Äre Syndic oder Notaire."
+  },
+  "syndicPortefeuille": {
+    "backHub": "← Syndic",
+    "loading": "Portfolio gëtt gelueden…",
+    "signIn": "Umellen",
+    "pageTitle": "Syndic-Portfolio",
+    "pageSubtitle": "Konsolidéiert Vue vun de verwalten Kopropriétéiten. Priorisatioun no erofgoangenen Onbezuelt-Beträg fir gezielt Recouvrement-Aktiounen.",
+    "kpiCoowns": "Kopropriétéiten",
+    "kpiLots": "Verwalt Lots",
+    "kpiOutstanding": "Gesamt Onbezuelt",
+    "kpiUnpaid": "Onbezuelt Käschten",
+    "kpiAssemblies": "Geplangt AG",
+    "emptyState": "Keng Kopropriétéit an Ärem Beräich.",
+    "createLink": "Eng Kopropriétéit erstellen",
+    "statLots": "Lots",
+    "statTantiemes": "Tantièmen",
+    "outstandingLabel": "Onbezuelt",
+    "chargesCount": "{n} Käscht(en)",
+    "sendReminders": "→ Mahnunge schécken",
+    "noUnpaid": "✓ Keng Onbezuelt",
+    "agPrefix": "AG {title}",
+    "lastClosedYear": "Lescht ofgeschlossenen Exercice: {year}",
+    "agAnnexes": "AG-Annexen →",
+    "btnAccounting": "Comptabilitéit",
+    "btnCalls": "Appels",
+    "btnAgm": "AG",
+    "routineStrong": "Syndic-Routine:",
+    "routineBody": "Méinde Moien-Vue fir d'Woch ze plangen. Kopropriétéiten no erofgoangenen Onbezuelt sortéiert fir d'Recouvrement ze prioriséieren. Déi geplangt AGs signaliséieren d'Virbereedungen (Convocatioun, ODJ, Annexen) 15 Deeg virdrun."
   }
 }

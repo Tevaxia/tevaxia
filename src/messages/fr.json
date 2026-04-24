@@ -13377,5 +13377,33 @@
     "warningBody": "vérifiez avec votre règlement de copropriété le nombre maximum de tantièmes qu'un mandataire peut représenter (souvent 5 %). Le syndic lui-même ne peut généralement pas être mandataire sauf autorisation expresse. La procuration doit être signée et datée avant l'assemblée. La mention manuscrite « bon pour pouvoir » est recommandée.",
     "legalStrong": "Cadre légal LU :",
     "legalBody": "loi modifiée du 16 mai 1975 sur la copropriété, articles 7 (assemblée générale) et 11 (représentation). Le modèle généré ici est indicatif et conforme aux pratiques. Pour des cas particuliers (mandataire syndic, pouvoir in blanco, copropriétaire mineur/protégé), consultez votre syndic ou notaire."
+  },
+  "syndicPortefeuille": {
+    "backHub": "← Syndic",
+    "loading": "Chargement du portefeuille…",
+    "signIn": "Se connecter",
+    "pageTitle": "Portefeuille syndic",
+    "pageSubtitle": "Vue consolidée des copropriétés gérées. Priorisation par montant d'impayés décroissant pour cibler les actions de recouvrement.",
+    "kpiCoowns": "Copropriétés",
+    "kpiLots": "Lots gérés",
+    "kpiOutstanding": "Impayés totaux",
+    "kpiUnpaid": "Charges impayées",
+    "kpiAssemblies": "AG planifiées",
+    "emptyState": "Aucune copropriété dans votre périmètre.",
+    "createLink": "Créer une copropriété",
+    "statLots": "Lots",
+    "statTantiemes": "Tantièmes",
+    "outstandingLabel": "Impayés",
+    "chargesCount": "{n} charge(s)",
+    "sendReminders": "→ Envoyer relances",
+    "noUnpaid": "✓ Aucun impayé",
+    "agPrefix": "AG {title}",
+    "lastClosedYear": "Dernier exercice clos : {year}",
+    "agAnnexes": "Annexes AG →",
+    "btnAccounting": "Compta",
+    "btnCalls": "Appels",
+    "btnAgm": "AG",
+    "routineStrong": "Routine syndic :",
+    "routineBody": "vue lundi matin pour planifier la semaine. Copropriétés triées par impayés décroissants pour prioriser le recouvrement. Les AG planifiées signalent les préparations (convocation, ODJ, annexes) à anticiper 15 jours avant."
   }
 }
