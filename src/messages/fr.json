@@ -7790,6 +7790,10 @@
       "faq4a": "Non. Le rapport co-brandé ne redirige pas vers tevaxia.lu. Le prospect voit votre marque uniquement — nous intervenons en fournisseur d'outils, jamais en intermédiaire.",
       "faqTitle": "Questions fréquentes",
       "relatedTitle": "Aller plus loin"
+    },
+    "meta": {
+      "title": "Offre agences immobilières, rapports co-brandés | tevaxia.lu",
+      "description": "Pour les agences LU/BE : génération automatique de rapports d'estimation co-brandés (estimation + frais + aides) en 1 PDF. Multi-utilisateurs, logo agence, données prospect."
     }
   },
   "hotellerieCalc": {

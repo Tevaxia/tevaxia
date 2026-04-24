@@ -3,11 +3,13 @@ import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 import SEOContent from "@/components/SEOContent";
 
-export const metadata: Metadata = {
-  title: "Offre agences immobilières — rapports co-brandés | tevaxia.lu",
-  description:
-    "Pour les agences LU/BE : génération automatique de rapports d'estimation co-brandés (estimation + frais + aides) en 1 PDF. Multi-utilisateurs, logo agence, données prospect.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("proAgences.meta");
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default async function ProAgences() {
   const [locale, t] = await Promise.all([getLocale(), getTranslations("proAgences")]);

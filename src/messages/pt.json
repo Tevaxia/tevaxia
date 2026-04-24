@@ -7668,6 +7668,10 @@
       "faq4a": "Não. O relatório co-branded não redireciona. O prospeto só vê a sua marca.",
       "faqTitle": "Perguntas frequentes",
       "relatedTitle": "Saber mais"
+    },
+    "meta": {
+      "title": "Oferta agências imobiliárias, relatórios co-marcados | tevaxia.lu",
+      "description": "Para agências LU/BE: geração automática de relatórios de avaliação co-marcados (estimativa + taxas + apoios) em 1 PDF. Multi-utilizador, logótipo da agência, dados do cliente."
     }
   },
   "hotellerieCalc": {
