@@ -14290,5 +14290,30 @@
     "btnCancel": "Annuléieren",
     "btnDelete": "Läschen",
     "confirmDelete": "Dës Aufgab läschen?"
+  },
+  "proaCrmContactMatches": {
+    "loading": "Gelueden…",
+    "login": "Umellen",
+    "contactNotFound": "Kontakt net fonnt.",
+    "errorGeneric": "Feeler",
+    "breadContacts": "Kontakter",
+    "breadMatches": "Matchéiert Bienen",
+    "pageTitle": "Passend Bienen, {name}",
+    "pageSubtitle": "Aktiv Mandater geordent no Affinitéit mat de Krittäre vun dësem Acquéreur.",
+    "budgetLabel": "Budget: {min}–{max}",
+    "budgetUnknown": "?",
+    "budgetNotSet": "Budget net agedroe",
+    "surfaceLabel": "Surface: {min}–{max} m²",
+    "zonesLabel": "Zonen: {list}",
+    "prefsLabel": "Preferenzen: {list}",
+    "enrichTip": "💡 Beräichert de Profil (Budget + Zilzonen) fir d'Matching ze verbesseren.",
+    "btnEdit": "Änneren →",
+    "thresholdLabel": "Schwell:",
+    "thresholdAll": "All",
+    "threshold40": "≥ 40",
+    "threshold70": "≥ 70",
+    "emptyMatches": "Kee aktivt Mandat passt zu de Krittäre vun dësem Acquéreur.",
+    "dash": "—",
+    "scoreOver": "/100"
   }
 }

@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import {
@@ -14,6 +15,9 @@ import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/errors";
 
 export default function ContactMatchesPage() {
+  const t = useTranslations("proaCrmContactMatches");
+  const locale = useLocale();
+  const lp = locale === "fr" ? "" : `/${locale}`;
   const params = useParams<{ id: string }>();
   const contactId = params?.id;
   const { user, loading: authLoading } = useAuth();
@@ -33,76 +37,80 @@ export default function ContactMatchesPage() {
       const results = await findMandatesForContact(contactId, { minScore });
       setMatches(results);
     } catch (e) {
-      setError(errMsg(e, "Erreur"));
+      setError(errMsg(e, t("errorGeneric")));
     }
     setLoading(false);
-  }, [contactId, user, minScore]);
+  }, [contactId, user, minScore, t]);
 
   useEffect(() => { void reload(); }, [reload]);
 
   if (authLoading || loading) {
-    return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">Chargement…</div>;
+    return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
   }
   if (!user) return (
     <div className="mx-auto max-w-4xl px-4 py-12 text-center">
-      <Link href="/connexion" className="text-navy underline">Se connecter</Link>
+      <Link href={`${lp}/connexion`} className="text-navy underline">{t("login")}</Link>
     </div>
   );
   if (!contact) return (
     <div className="mx-auto max-w-4xl px-4 py-12 text-center text-sm text-muted">
-      Contact introuvable.
+      {t("contactNotFound")}
     </div>
   );
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
       <div className="flex items-center gap-2 text-xs text-muted">
-        <Link href="/pro-agences/crm/contacts" className="hover:text-navy">Contacts</Link>
+        <Link href={`${lp}/pro-agences/crm/contacts`} className="hover:text-navy">{t("breadContacts")}</Link>
         <span>/</span>
-        <Link href={`/pro-agences/crm/contacts/${contactId}`} className="hover:text-navy">
+        <Link href={`${lp}/pro-agences/crm/contacts/${contactId}`} className="hover:text-navy">
           {contactDisplayName(contact)}
         </Link>
         <span>/</span>
-        <span className="text-navy">Biens matchés</span>
+        <span className="text-navy">{t("breadMatches")}</span>
       </div>
 
       <h1 className="mt-3 text-2xl font-bold text-navy">
-        Biens correspondants — {contactDisplayName(contact)}
+        {t("pageTitle", { name: contactDisplayName(contact) })}
       </h1>
       <p className="mt-1 text-sm text-muted">
-        Mandats actifs classés par affinité avec les critères de cet acquéreur.
+        {t("pageSubtitle")}
       </p>
 
-      {/* Rappel critères acquéreur */}
       <div className="mt-4 rounded-xl border border-card-border bg-card p-4 text-xs">
         <div className="flex flex-wrap gap-3">
           {contact.budget_min != null || contact.budget_max != null ? (
             <span className="rounded-full bg-background px-2 py-1">
-              Budget : {contact.budget_min ? formatEUR(contact.budget_min) : "?"}
-              –{contact.budget_max ? formatEUR(contact.budget_max) : "?"}
+              {t("budgetLabel", {
+                min: contact.budget_min ? formatEUR(contact.budget_min) : t("budgetUnknown"),
+                max: contact.budget_max ? formatEUR(contact.budget_max) : t("budgetUnknown"),
+              })}
             </span>
-          ) : <span className="text-muted italic">Budget non renseigné</span>}
+          ) : <span className="text-muted italic">{t("budgetNotSet")}</span>}
           {contact.target_surface_min != null || contact.target_surface_max != null ? (
             <span className="rounded-full bg-background px-2 py-1">
-              Surface : {contact.target_surface_min ?? "?"}–{contact.target_surface_max ?? "?"} m²
+              {t("surfaceLabel", {
+                min: contact.target_surface_min ?? t("budgetUnknown"),
+                max: contact.target_surface_max ?? t("budgetUnknown"),
+              })}
             </span>
           ) : null}
           {contact.target_zones && contact.target_zones.length > 0 && (
             <span className="rounded-full bg-background px-2 py-1">
-              Zones : {contact.target_zones.join(", ")}
+              {t("zonesLabel", { list: contact.target_zones.join(", ") })}
             </span>
           )}
           {contact.tags && contact.tags.length > 0 && (
             <span className="rounded-full bg-background px-2 py-1">
-              Préférences : {contact.tags.join(", ")}
+              {t("prefsLabel", { list: contact.tags.join(", ") })}
             </span>
           )}
         </div>
         {(!contact.budget_min && !contact.budget_max) || !contact.target_zones?.length ? (
           <div className="mt-2 text-[11px] text-amber-700">
-            💡 Enrichissez le profil (budget + zones cibles) pour améliorer le matching.
-            <Link href={`/pro-agences/crm/contacts/${contactId}`} className="ml-1 underline">
-              Modifier →
+            {t("enrichTip")}
+            <Link href={`${lp}/pro-agences/crm/contacts/${contactId}`} className="ml-1 underline">
+              {t("btnEdit")}
             </Link>
           </div>
         ) : null}
@@ -110,28 +118,26 @@ export default function ContactMatchesPage() {
 
       {error && <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-900">{error}</div>}
 
-      {/* Filter */}
       <div className="mt-5 flex items-center gap-2 text-xs">
-        <span className="text-muted">Seuil :</span>
+        <span className="text-muted">{t("thresholdLabel")}</span>
         {[0, 40, 70].map((s) => (
           <button key={s} onClick={() => setMinScore(s)}
             className={`rounded-full px-3 py-1 font-semibold ${
               minScore === s ? "bg-navy text-white" : "bg-card border border-card-border text-slate"
             }`}>
-            {s === 0 ? "Tous" : s === 40 ? "≥ 40" : "≥ 70"}
+            {s === 0 ? t("thresholdAll") : s === 40 ? t("threshold40") : t("threshold70")}
           </button>
         ))}
       </div>
 
-      {/* Matches */}
       {matches.length === 0 ? (
         <div className="mt-6 rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-          Aucun mandat actif ne correspond aux critères de cet acquéreur.
+          {t("emptyMatches")}
         </div>
       ) : (
         <div className="mt-4 space-y-3">
           {matches.map((m) => (
-            <Link key={m.mandate.id} href={`/pro-agences/mandats/${m.mandate.id}`}
+            <Link key={m.mandate.id} href={`${lp}/pro-agences/mandats/${m.mandate.id}`}
               className="block rounded-xl border border-card-border bg-card p-4 hover:border-navy">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div className="flex-1 min-w-0">
@@ -142,16 +148,16 @@ export default function ContactMatchesPage() {
                     </span>
                   </div>
                   <div className="mt-1 flex flex-wrap gap-2 text-[11px] text-muted">
-                    <span>{m.mandate.property_commune ?? "—"}</span>
+                    <span>{m.mandate.property_commune ?? t("dash")}</span>
                     <span>·</span>
-                    <span>{m.mandate.property_type ?? "—"}</span>
+                    <span>{m.mandate.property_type ?? t("dash")}</span>
                     {m.mandate.prix_demande && <><span>·</span><span className="font-mono">{formatEUR(m.mandate.prix_demande)}</span></>}
                     {m.mandate.property_surface && <><span>·</span><span>{m.mandate.property_surface} m²</span></>}
                   </div>
                 </div>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-navy">{m.score.total}</div>
-                  <div className="text-[9px] uppercase tracking-wider text-muted">/100</div>
+                  <div className="text-[9px] uppercase tracking-wider text-muted">{t("scoreOver")}</div>
                 </div>
               </div>
               <div className="mt-2 grid grid-cols-4 gap-2 text-[10px]">

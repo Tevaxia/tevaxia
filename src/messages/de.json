@@ -14290,5 +14290,30 @@
     "btnCancel": "Abbrechen",
     "btnDelete": "Lösch.",
     "confirmDelete": "Diese Aufgabe löschen?"
+  },
+  "proaCrmContactMatches": {
+    "loading": "Laden…",
+    "login": "Anmelden",
+    "contactNotFound": "Kontakt nicht gefunden.",
+    "errorGeneric": "Fehler",
+    "breadContacts": "Kontakte",
+    "breadMatches": "Passende Objekte",
+    "pageTitle": "Passende Objekte, {name}",
+    "pageSubtitle": "Aktive Mandate sortiert nach Übereinstimmung mit den Kriterien dieses Käufers.",
+    "budgetLabel": "Budget: {min}–{max}",
+    "budgetUnknown": "?",
+    "budgetNotSet": "Budget nicht angegeben",
+    "surfaceLabel": "Fläche: {min}–{max} m²",
+    "zonesLabel": "Zonen: {list}",
+    "prefsLabel": "Präferenzen: {list}",
+    "enrichTip": "💡 Profil ergänzen (Budget + Zielzonen), um das Matching zu verbessern.",
+    "btnEdit": "Bearbeiten →",
+    "thresholdLabel": "Schwelle:",
+    "thresholdAll": "Alle",
+    "threshold40": "≥ 40",
+    "threshold70": "≥ 70",
+    "emptyMatches": "Kein aktives Mandat passt zu den Kriterien dieses Käufers.",
+    "dash": "—",
+    "scoreOver": "/100"
   }
 }

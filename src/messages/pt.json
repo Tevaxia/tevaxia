@@ -14290,5 +14290,30 @@
     "btnCancel": "Cancelar",
     "btnDelete": "Elim.",
     "confirmDelete": "Eliminar esta tarefa?"
+  },
+  "proaCrmContactMatches": {
+    "loading": "A carregar…",
+    "login": "Iniciar sessão",
+    "contactNotFound": "Contacto não encontrado.",
+    "errorGeneric": "Erro",
+    "breadContacts": "Contactos",
+    "breadMatches": "Imóveis correspondentes",
+    "pageTitle": "Imóveis correspondentes, {name}",
+    "pageSubtitle": "Mandatos ativos ordenados por afinidade com os critérios deste comprador.",
+    "budgetLabel": "Orçamento: {min}–{max}",
+    "budgetUnknown": "?",
+    "budgetNotSet": "Orçamento não indicado",
+    "surfaceLabel": "Área: {min}–{max} m²",
+    "zonesLabel": "Zonas: {list}",
+    "prefsLabel": "Preferências: {list}",
+    "enrichTip": "💡 Enriqueça o perfil (orçamento + zonas-alvo) para melhorar o matching.",
+    "btnEdit": "Editar →",
+    "thresholdLabel": "Limiar:",
+    "thresholdAll": "Todos",
+    "threshold40": "≥ 40",
+    "threshold70": "≥ 70",
+    "emptyMatches": "Nenhum mandato ativo corresponde aos critérios deste comprador.",
+    "dash": "—",
+    "scoreOver": "/100"
   }
 }

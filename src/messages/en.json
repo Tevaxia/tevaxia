@@ -14290,5 +14290,30 @@
     "btnCancel": "Cancel",
     "btnDelete": "Del.",
     "confirmDelete": "Delete this task?"
+  },
+  "proaCrmContactMatches": {
+    "loading": "Loading…",
+    "login": "Sign in",
+    "contactNotFound": "Contact not found.",
+    "errorGeneric": "Error",
+    "breadContacts": "Contacts",
+    "breadMatches": "Matched properties",
+    "pageTitle": "Matching properties, {name}",
+    "pageSubtitle": "Active mandates ranked by fit with this buyer's criteria.",
+    "budgetLabel": "Budget: {min}–{max}",
+    "budgetUnknown": "?",
+    "budgetNotSet": "Budget not set",
+    "surfaceLabel": "Surface: {min}–{max} m²",
+    "zonesLabel": "Zones: {list}",
+    "prefsLabel": "Preferences: {list}",
+    "enrichTip": "💡 Enrich the profile (budget + target zones) to improve matching.",
+    "btnEdit": "Edit →",
+    "thresholdLabel": "Threshold:",
+    "thresholdAll": "All",
+    "threshold40": "≥ 40",
+    "threshold70": "≥ 70",
+    "emptyMatches": "No active mandate matches this buyer's criteria.",
+    "dash": "—",
+    "scoreOver": "/100"
   }
 }

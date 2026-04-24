@@ -14290,5 +14290,30 @@
     "btnCancel": "Annuler",
     "btnDelete": "Suppr.",
     "confirmDelete": "Supprimer cette tâche ?"
+  },
+  "proaCrmContactMatches": {
+    "loading": "Chargement…",
+    "login": "Se connecter",
+    "contactNotFound": "Contact introuvable.",
+    "errorGeneric": "Erreur",
+    "breadContacts": "Contacts",
+    "breadMatches": "Biens matchés",
+    "pageTitle": "Biens correspondants, {name}",
+    "pageSubtitle": "Mandats actifs classés par affinité avec les critères de cet acquéreur.",
+    "budgetLabel": "Budget : {min}–{max}",
+    "budgetUnknown": "?",
+    "budgetNotSet": "Budget non renseigné",
+    "surfaceLabel": "Surface : {min}–{max} m²",
+    "zonesLabel": "Zones : {list}",
+    "prefsLabel": "Préférences : {list}",
+    "enrichTip": "💡 Enrichissez le profil (budget + zones cibles) pour améliorer le matching.",
+    "btnEdit": "Modifier →",
+    "thresholdLabel": "Seuil :",
+    "thresholdAll": "Tous",
+    "threshold40": "≥ 40",
+    "threshold70": "≥ 70",
+    "emptyMatches": "Aucun mandat actif ne correspond aux critères de cet acquéreur.",
+    "dash": "—",
+    "scoreOver": "/100"
   }
 }
