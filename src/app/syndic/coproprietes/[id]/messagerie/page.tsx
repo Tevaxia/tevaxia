@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { supabase } from "@/lib/supabase";
 import { getCoownership, type Coownership } from "@/lib/coownerships";
@@ -27,6 +28,10 @@ interface Message {
 }
 
 export default function MessageriePage() {
+  const t = useTranslations("syndicMessagerie");
+  const locale = useLocale();
+  const lp = locale === "fr" ? "" : `/${locale}`;
+  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const params = useParams();
   const id = String(params?.id ?? "");
   const { user } = useAuth();
@@ -94,7 +99,7 @@ export default function MessageriePage() {
     await supabase.from("coownership_messages").insert({
       thread_id: activeThread.id,
       author_kind: "syndic",
-      author_name: user.email ?? "Syndic",
+      author_name: user.email ?? t("defaultSyndicName"),
       author_user_id: user.id,
       body: newMessage.trim(),
     });
@@ -106,55 +111,55 @@ export default function MessageriePage() {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); void handleSendMessage(); }
   };
 
-  if (!coown) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">Chargement…</div>;
+  if (!coown) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
 
   return (
     <div className="bg-background min-h-screen py-8 sm:py-12">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <Link href={`/syndic/coproprietes/${id}`} className="text-xs text-muted hover:text-navy">&larr; {coown.name}</Link>
-        <h1 className="mt-2 text-2xl font-bold text-navy">Messagerie</h1>
-        <p className="mt-1 text-sm text-muted">Communications en temps réel avec les copropriétaires. Announces publiques, threads privés, incidents.</p>
+        <Link href={`${lp}/syndic/coproprietes/${id}`} className="text-xs text-muted hover:text-navy">{t("backCoown", { name: coown.name })}</Link>
+        <h1 className="mt-2 text-2xl font-bold text-navy">{t("pageTitle")}</h1>
+        <p className="mt-1 text-sm text-muted">{t("pageSubtitle")}</p>
 
         <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_2fr] h-[calc(100vh-250px)] min-h-[500px]">
           {/* Sidebar threads */}
           <div className="rounded-xl border border-card-border bg-card flex flex-col overflow-hidden">
             <div className="border-b border-card-border p-3 flex items-center justify-between">
-              <span className="text-sm font-semibold text-navy">Conversations</span>
+              <span className="text-sm font-semibold text-navy">{t("sidebarTitle")}</span>
               <button onClick={() => setShowNewThread(!showNewThread)}
                 className="rounded-lg bg-navy px-2 py-1 text-xs text-white hover:bg-navy-light">
-                {showNewThread ? "Annuler" : "+ Nouveau"}
+                {showNewThread ? t("btnCancel") : t("btnNew")}
               </button>
             </div>
             {showNewThread && (
               <div className="border-b border-card-border bg-navy/5 p-3 space-y-2">
-                <input type="text" placeholder="Sujet" value={newThreadSubject}
+                <input type="text" placeholder={t("subjectPlaceholder")} value={newThreadSubject}
                   onChange={(e) => setNewThreadSubject(e.target.value)}
                   className="w-full rounded border border-input-border bg-white px-2 py-1 text-sm" />
                 <select value={newThreadKind} onChange={(e) => setNewThreadKind(e.target.value as Thread["kind"])}
                   className="w-full rounded border border-input-border bg-white px-2 py-1 text-xs">
-                  <option value="announcement">📢 Annonce (tous)</option>
-                  <option value="private">💬 Privé</option>
-                  <option value="incident">⚠ Incident</option>
+                  <option value="announcement">{t("kindAnnouncement")}</option>
+                  <option value="private">{t("kindPrivate")}</option>
+                  <option value="incident">{t("kindIncident")}</option>
                 </select>
                 <button onClick={handleCreateThread} disabled={!newThreadSubject.trim()}
                   className="w-full rounded bg-emerald-600 py-1 text-xs text-white disabled:opacity-40">
-                  Créer
+                  {t("btnCreate")}
                 </button>
               </div>
             )}
             <div className="flex-1 overflow-y-auto divide-y divide-card-border/50">
               {threads.length === 0 ? (
-                <p className="p-4 text-xs text-muted">Aucune conversation</p>
-              ) : threads.map((t) => (
-                <button key={t.id} onClick={() => setActiveThread(t)}
-                  className={`w-full text-left p-3 hover:bg-background ${activeThread?.id === t.id ? "bg-navy/5" : ""}`}>
+                <p className="p-4 text-xs text-muted">{t("emptyThreads")}</p>
+              ) : threads.map((th) => (
+                <button key={th.id} onClick={() => setActiveThread(th)}
+                  className={`w-full text-left p-3 hover:bg-background ${activeThread?.id === th.id ? "bg-navy/5" : ""}`}>
                   <div className="flex items-center gap-1 text-[10px] text-muted">
-                    {t.kind === "announcement" && "📢"}
-                    {t.kind === "private" && "💬"}
-                    {t.kind === "incident" && "⚠"}
-                    {" "}{new Date(t.last_message_at).toLocaleDateString("fr-LU")}
+                    {th.kind === "announcement" && "📢"}
+                    {th.kind === "private" && "💬"}
+                    {th.kind === "incident" && "⚠"}
+                    {" "}{new Date(th.last_message_at).toLocaleDateString(dateLocale)}
                   </div>
-                  <div className="text-sm font-semibold text-navy truncate">{t.subject}</div>
+                  <div className="text-sm font-semibold text-navy truncate">{th.subject}</div>
                 </button>
               ))}
             </div>
@@ -171,32 +176,31 @@ export default function MessageriePage() {
                   {messages.map((m) => (
                     <div key={m.id}
                       className={`max-w-[75%] rounded-xl px-3 py-2 text-sm ${m.author_kind === "syndic" ? "ml-auto bg-navy text-white" : "mr-auto bg-background border border-card-border"}`}>
-                      <div className="text-[10px] opacity-70 mb-0.5">{m.author_name} · {new Date(m.created_at).toLocaleString("fr-LU", { dateStyle: "short", timeStyle: "short" })}</div>
+                      <div className="text-[10px] opacity-70 mb-0.5">{m.author_name} · {new Date(m.created_at).toLocaleString(dateLocale, { dateStyle: "short", timeStyle: "short" })}</div>
                       <div className="whitespace-pre-wrap">{m.body}</div>
                     </div>
                   ))}
                 </div>
                 <div className="border-t border-card-border p-3 flex gap-2">
                   <textarea value={newMessage} onChange={(e) => setNewMessage(e.target.value)}
-                    onKeyDown={onKeyDown} placeholder="Écrire un message…" rows={2}
+                    onKeyDown={onKeyDown} placeholder={t("messagePlaceholder")} rows={2}
                     className="flex-1 resize-none rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
                   <button onClick={() => void handleSendMessage()} disabled={!newMessage.trim()}
                     className="rounded-lg bg-navy px-4 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-40">
-                    Envoyer
+                    {t("btnSend")}
                   </button>
                 </div>
               </>
             ) : (
               <div className="flex-1 flex items-center justify-center text-muted text-sm p-6">
-                Sélectionnez une conversation ou créez-en une.
+                {t("selectThread")}
               </div>
             )}
           </div>
         </div>
 
         <div className="mt-4 rounded-lg border border-blue-200 bg-blue-50 p-3 text-xs text-blue-900">
-          <strong>Realtime actif :</strong> les messages s&apos;affichent instantanément via Supabase Realtime (WebSocket).
-          Les copropriétaires peuvent répondre depuis leur portail <code>/copropriete/[token]</code>.
+          <strong>{t("realtimeTitle")}</strong> {t("realtimeBody")}<code>/copropriete/[token]</code>{t("portalSuffix")}
         </div>
       </div>
     </div>

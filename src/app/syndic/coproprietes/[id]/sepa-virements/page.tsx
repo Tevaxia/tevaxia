@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { getCoownership, type Coownership } from "@/lib/coownerships";
 import {
@@ -14,6 +15,9 @@ import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/errors";
 
 export default function SepaVirementsPage() {
+  const t = useTranslations("syndicSepa");
+  const locale = useLocale();
+  const lp = locale === "fr" ? "" : `/${locale}`;
   const params = useParams();
   const coownershipId = String(params?.id ?? "");
   const { user, loading: authLoading } = useAuth();
@@ -103,7 +107,7 @@ export default function SepaVirementsPage() {
     });
 
     if (errors.length > 0) {
-      setError(errors.map((e) => (e.paymentIndex != null ? `L${e.paymentIndex + 1} ` : "") + e.message).join(" · "));
+      setError(errors.map((e) => (e.paymentIndex != null ? t("errorLinePrefix", { n: e.paymentIndex + 1 }) : "") + e.message).join(" · "));
       return;
     }
 
@@ -124,54 +128,50 @@ export default function SepaVirementsPage() {
     URL.revokeObjectURL(url);
   };
 
-  if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">Chargement…</div>;
-  if (!user || !coown) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href="/connexion" className="text-navy underline">Se connecter</Link></div>;
+  if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
+  if (!user || !coown) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href={`${lp}/connexion`} className="text-navy underline">{t("login")}</Link></div>;
 
   const debtorIbanValid = !debtor.iban || validateIban(debtor.iban);
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-6">
-      <h1 className="text-2xl font-bold text-navy">Virements SEPA — fournisseurs</h1>
-      <p className="mt-1 text-sm text-muted">
-        Générez un fichier XML pain.001.001.09 (SEPA Credit Transfer) importable
-        dans votre web banking LU (BCEE, BIL, BGL, Spuerkeess, Raiffeisen, ING)
-        pour exécuter N virements fournisseurs en lot en une validation.
-      </p>
+      <h1 className="text-2xl font-bold text-navy">{t("pageTitle")}</h1>
+      <p className="mt-1 text-sm text-muted">{t("pageSubtitle")}</p>
 
       {error && <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-900">{error}</div>}
 
       {/* Donneur d'ordre */}
       <section className="mt-6 rounded-xl border border-card-border bg-card p-5">
         <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">
-          Donneur d&apos;ordre (syndicat)
+          {t("debtorTitle")}
         </h2>
         <div className="grid gap-3 sm:grid-cols-3">
           <label className="text-xs">
-            <div className="mb-1 font-semibold text-slate">Nom *</div>
+            <div className="mb-1 font-semibold text-slate">{t("fieldName")}</div>
             <input type="text" value={debtor.name}
               onChange={(e) => setDebtor({ ...debtor, name: e.target.value })}
               className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
           </label>
           <label className="text-xs">
-            <div className="mb-1 font-semibold text-slate">IBAN *</div>
+            <div className="mb-1 font-semibold text-slate">{t("fieldIban")}</div>
             <input type="text" value={debtor.iban}
               onChange={(e) => setDebtor({ ...debtor, iban: e.target.value })}
-              placeholder="LU28 0019 ..."
+              placeholder={t("ibanPlaceholder")}
               className={`w-full rounded-lg border bg-input-bg px-3 py-2 text-sm font-mono ${
                 debtorIbanValid ? "border-input-border" : "border-rose-400 bg-rose-50"
               }`} />
           </label>
           <label className="text-xs">
-            <div className="mb-1 font-semibold text-slate">BIC (optionnel)</div>
+            <div className="mb-1 font-semibold text-slate">{t("fieldBic")}</div>
             <input type="text" value={debtor.bic}
               onChange={(e) => setDebtor({ ...debtor, bic: e.target.value.toUpperCase() })}
-              placeholder="BCEELULL"
+              placeholder={t("bicPlaceholder")}
               className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm font-mono" />
           </label>
         </div>
         <div className="mt-3">
           <label className="text-xs">
-            <div className="mb-1 font-semibold text-slate">Date d&apos;exécution souhaitée</div>
+            <div className="mb-1 font-semibold text-slate">{t("executionDate")}</div>
             <input type="date" value={executionDate}
               onChange={(e) => setExecutionDate(e.target.value)}
               className="w-48 rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
@@ -183,11 +183,11 @@ export default function SepaVirementsPage() {
       <section className="mt-4 rounded-xl border border-card-border bg-card p-5">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-sm font-bold uppercase tracking-wider text-navy">
-            Virements fournisseurs ({payments.length})
+            {t("paymentsTitle", { n: payments.length })}
           </h2>
           <button onClick={addPayment}
             className="rounded-lg bg-navy px-3 py-1.5 text-xs font-semibold text-white hover:bg-navy-light">
-            + Ajouter
+            {t("btnAdd")}
           </button>
         </div>
 
@@ -198,50 +198,50 @@ export default function SepaVirementsPage() {
               <div key={p.id} className="rounded-lg border border-card-border/50 bg-background/40 p-3">
                 <div className="flex items-start justify-between mb-2">
                   <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">
-                    Ligne {idx + 1}
+                    {t("lineLabel", { n: idx + 1 })}
                   </div>
                   {payments.length > 1 && (
                     <button onClick={() => removePayment(idx)}
                       className="text-xs text-rose-700 hover:underline">
-                      Supprimer
+                      {t("btnDelete")}
                     </button>
                   )}
                 </div>
                 <div className="grid gap-2 sm:grid-cols-4">
                   <label className="text-xs">
-                    <div className="mb-1 text-muted">Bénéficiaire *</div>
+                    <div className="mb-1 text-muted">{t("fieldBeneficiary")}</div>
                     <input type="text" value={p.creditor_name}
                       onChange={(e) => updatePayment(idx, "creditor_name", e.target.value)}
-                      placeholder="SARL Ascenseurs Kone"
+                      placeholder={t("beneficiaryPlaceholder")}
                       className="w-full rounded border border-input-border bg-input-bg px-2 py-1 text-xs" />
                   </label>
                   <label className="text-xs">
-                    <div className="mb-1 text-muted">IBAN *</div>
+                    <div className="mb-1 text-muted">{t("fieldIban")}</div>
                     <input type="text" value={p.creditor_iban}
                       onChange={(e) => updatePayment(idx, "creditor_iban", e.target.value)}
-                      placeholder="LU..."
+                      placeholder={t("creditorIbanPlaceholder")}
                       className={`w-full rounded border bg-input-bg px-2 py-1 text-xs font-mono ${
                         ibanValid ? "border-input-border" : "border-rose-400 bg-rose-50"
                       }`} />
                   </label>
                   <label className="text-xs">
-                    <div className="mb-1 text-muted">BIC (optionnel)</div>
+                    <div className="mb-1 text-muted">{t("fieldBic")}</div>
                     <input type="text" value={p.creditor_bic}
                       onChange={(e) => updatePayment(idx, "creditor_bic", e.target.value.toUpperCase())}
                       className="w-full rounded border border-input-border bg-input-bg px-2 py-1 text-xs font-mono" />
                   </label>
                   <label className="text-xs">
-                    <div className="mb-1 text-muted">Montant (€) *</div>
+                    <div className="mb-1 text-muted">{t("fieldAmount")}</div>
                     <input type="number" step="0.01" value={p.amount}
                       onChange={(e) => updatePayment(idx, "amount", e.target.value)}
-                      placeholder="0.00"
+                      placeholder={t("amountPlaceholder")}
                       className="w-full rounded border border-input-border bg-input-bg px-2 py-1 text-xs font-mono text-right" />
                   </label>
                   <label className="text-xs sm:col-span-4">
-                    <div className="mb-1 text-muted">Communication *</div>
+                    <div className="mb-1 text-muted">{t("fieldRemittance")}</div>
                     <input type="text" value={p.remittance_info}
                       onChange={(e) => updatePayment(idx, "remittance_info", e.target.value)}
-                      placeholder="Facture 2026-0234 entretien ascenseur mai"
+                      placeholder={t("remittancePlaceholder")}
                       className="w-full rounded border border-input-border bg-input-bg px-2 py-1 text-xs" />
                   </label>
                 </div>
@@ -251,29 +251,25 @@ export default function SepaVirementsPage() {
         </div>
 
         <div className="mt-4 flex items-center justify-between rounded-lg bg-navy/5 p-3">
-          <span className="text-sm font-semibold text-navy">Total à virer</span>
+          <span className="text-sm font-semibold text-navy">{t("totalLabel")}</span>
           <span className="text-xl font-bold text-navy">{formatEUR(total)}</span>
         </div>
       </section>
 
       <div className="mt-5 flex justify-end gap-2">
-        <Link href={`/syndic/coproprietes/${coownershipId}`}
+        <Link href={`${lp}/syndic/coproprietes/${coownershipId}`}
           className="rounded-lg border border-card-border bg-white px-4 py-2 text-sm font-semibold text-slate">
-          Annuler
+          {t("btnCancel")}
         </Link>
         <button onClick={generateXml}
           disabled={!debtor.name.trim() || !debtorIbanValid || total <= 0}
           className="rounded-lg bg-emerald-600 px-6 py-2 text-sm font-semibold text-white hover:bg-emerald-700 disabled:opacity-50">
-          ↓ Générer fichier SEPA XML
+          {t("btnGenerate")}
         </button>
       </div>
 
       <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-        <strong>Utilisation :</strong> téléchargez le XML, importez-le dans votre web
-        banking (BCEE : Virements → Import fichiers SEPA · BIL : Import SCT · Spuerkeess :
-        SEPA Bulk Upload) puis validez avec votre LuxTrust / Token. Les banques appliqueront
-        les virements à la date d&apos;exécution souhaitée si fonds disponibles.
-        Format ISO 20022 pain.001.001.09 accepté par toutes les banques SEPA (UE + EEE).
+        <strong>{t("usageTitle")}</strong> {t("usageBody")}
       </div>
     </div>
   );

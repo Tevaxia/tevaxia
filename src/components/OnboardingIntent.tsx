@@ -41,6 +41,7 @@ export default function OnboardingIntent() {
         { href: "/calculateur-loyer", label: t("particulier.link4") },
         { href: "/achat-vs-location", label: t("particulier.link5") },
         { href: "/plus-values", label: t("particulier.link6") },
+        { href: "/str", label: t("particulier.link7") },
       ],
     },
     {

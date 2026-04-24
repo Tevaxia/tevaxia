@@ -3,6 +3,7 @@
 import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { parseInvoiceText, type ExtractedInvoice } from "@/lib/syndic-ocr-parser";
 import { formatEUR } from "@/lib/calculations";
@@ -11,6 +12,9 @@ import { track, captureError } from "@/lib/analytics";
 type Stage = "idle" | "extracting_pdf" | "ocr_running" | "parsing" | "done" | "error";
 
 export default function OcrFacturesPage() {
+  const t = useTranslations("syndicOcr");
+  const locale = useLocale();
+  const lp = locale === "fr" ? "" : `/${locale}`;
   const params = useParams();
   const coownershipId = String(params?.id ?? "");
   const { user, loading: authLoading } = useAuth();
@@ -23,7 +27,6 @@ export default function OcrFacturesPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const extractPdfText = async (file: File): Promise<string> => {
-    // Dynamic import pour éviter bloat SSR
     const pdfjs = await import("pdfjs-dist");
     pdfjs.GlobalWorkerOptions.workerSrc = new URL(
       "pdfjs-dist/build/pdf.worker.min.mjs",
@@ -47,7 +50,6 @@ export default function OcrFacturesPage() {
 
   const extractWithTesseract = async (file: File): Promise<string> => {
     const Tesseract = (await import("tesseract.js")).default;
-    // Pour les images directes
     if (file.type.startsWith("image/")) {
       const { data } = await Tesseract.recognize(file, "fra+eng", {
         logger: (m: { status: string; progress: number }) => {
@@ -58,8 +60,6 @@ export default function OcrFacturesPage() {
       });
       return data.text;
     }
-    // Pour les PDFs scannés : on passe d'abord par pdf.js pour extraire les images
-    // puis on les OCRise page par page
     const pdfjs = await import("pdfjs-dist");
     pdfjs.GlobalWorkerOptions.workerSrc = new URL(
       "pdfjs-dist/build/pdf.worker.min.mjs",
@@ -107,7 +107,6 @@ export default function OcrFacturesPage() {
       if (file.type === "application/pdf") {
         setStage("extracting_pdf");
         text = await extractPdfText(file);
-        // Si le PDF est scanné (peu de texte extrait), fallback Tesseract
         if (text.trim().length < 50) {
           setStage("ocr_running");
           setMethod("tesseract_ocr");
@@ -121,7 +120,7 @@ export default function OcrFacturesPage() {
         setMethod("tesseract_ocr");
         text = await extractWithTesseract(file);
       } else {
-        throw new Error("Format non supporté. Utilisez PDF ou image (JPG/PNG).");
+        throw new Error(t("formatError"));
       }
 
       setStage("parsing");
@@ -141,19 +140,16 @@ export default function OcrFacturesPage() {
       setError((e as Error).message);
       setStage("error");
     }
-  }, []);
+  }, [coownershipId, method, t]);
 
-  if (authLoading) return <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">Chargement…</div>;
-  if (!user) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href="/connexion" className="text-navy underline">Se connecter</Link></div>;
+  if (authLoading) return <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
+  if (!user) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href={`${lp}/connexion`} className="text-navy underline">{t("login")}</Link></div>;
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-6">
-      <h1 className="text-2xl font-bold text-navy">OCR factures fournisseurs</h1>
+      <h1 className="text-2xl font-bold text-navy">{t("pageTitle")}</h1>
       <p className="mt-1 text-sm text-muted">
-        Extraction automatique des informations clés d&apos;une facture (montant, TVA,
-        IBAN, n° facture, date, échéance) via <strong>PDF.js</strong> (factures
-        digitales) ou <strong>Tesseract.js</strong> (factures scannées). 100%
-        gratuit, 100% client-side, aucune donnée envoyée à un service externe.
+        {t("pageSubtitlePrefix")}<strong>{t("pageSubtitlePdfjs")}</strong>{t("pageSubtitleMiddle")}<strong>{t("pageSubtitleTesseract")}</strong>{t("pageSubtitleSuffix")}
       </p>
 
       {error && <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-sm text-rose-900">{error}</div>}
@@ -162,10 +158,9 @@ export default function OcrFacturesPage() {
       {stage === "idle" && (
         <div className="mt-6 rounded-xl border-2 border-dashed border-navy/20 bg-navy/5 p-12 text-center">
           <div className="text-5xl mb-3">📄</div>
-          <h2 className="text-lg font-bold text-navy">Uploadez une facture</h2>
+          <h2 className="text-lg font-bold text-navy">{t("uploadTitle")}</h2>
           <p className="mt-2 text-xs text-muted">
-            PDF digital (préféré, instantané) ou PDF scanné / image (OCR Tesseract,
-            plus long).
+            {t("uploadHint")}
           </p>
           <input type="file" ref={fileInputRef}
             accept="application/pdf,image/jpeg,image/png,image/jpg"
@@ -173,10 +168,10 @@ export default function OcrFacturesPage() {
             className="hidden" />
           <button onClick={() => fileInputRef.current?.click()}
             className="mt-6 rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white hover:bg-navy-light">
-            Choisir un fichier
+            {t("btnChoose")}
           </button>
           <div className="mt-4 text-[11px] text-muted">
-            Formats : PDF · JPG · PNG · Limite 20 MB
+            {t("uploadFormats")}
           </div>
         </div>
       )}
@@ -186,9 +181,9 @@ export default function OcrFacturesPage() {
         <div className="mt-6 rounded-xl border border-navy/20 bg-navy/5 p-8 text-center">
           <div className="text-3xl mb-3">⏳</div>
           <h2 className="text-lg font-bold text-navy">
-            {stage === "extracting_pdf" && "Extraction du texte PDF…"}
-            {stage === "ocr_running" && "OCR Tesseract en cours (30s-2min selon taille)…"}
-            {stage === "parsing" && "Analyse des champs…"}
+            {stage === "extracting_pdf" && t("stageExtractPdf")}
+            {stage === "ocr_running" && t("stageOcr")}
+            {stage === "parsing" && t("stageParsing")}
           </h2>
           <div className="mt-4 mx-auto max-w-md">
             <div className="h-3 w-full rounded-full bg-background overflow-hidden">
@@ -198,7 +193,7 @@ export default function OcrFacturesPage() {
           </div>
           {method === "tesseract_ocr" && (
             <div className="mt-3 text-[11px] text-muted">
-              💡 Tesseract.js charge ~20MB de données OCR la 1re fois (cache ensuite).
+              {t("tesseractNote")}
             </div>
           )}
         </div>
@@ -210,66 +205,65 @@ export default function OcrFacturesPage() {
           <div className="mt-6 flex items-center gap-3">
             <button onClick={() => { setStage("idle"); setExtracted(null); setRawText(""); }}
               className="rounded-lg border border-card-border bg-white px-4 py-2 text-sm font-semibold text-slate">
-              ← Nouveau fichier
+              {t("btnNewFile")}
             </button>
             <span className="text-sm text-muted">
-              Méthode : <strong>{method === "pdf_text" ? "PDF.js (texte digital)" : "Tesseract.js (OCR)"}</strong>
+              {t("methodLabelPrefix")}<strong>{method === "pdf_text" ? t("methodPdfText") : t("methodTesseract")}</strong>
             </span>
             <span className={`rounded-full px-3 py-1 text-xs font-bold ${
               extracted.confidence >= 70 ? "bg-emerald-100 text-emerald-900" :
               extracted.confidence >= 40 ? "bg-amber-100 text-amber-900" :
               "bg-rose-100 text-rose-900"
             }`}>
-              Confiance {extracted.confidence}%
+              {t("confidenceBadge", { n: extracted.confidence })}
             </span>
           </div>
 
           <section className="mt-5 rounded-xl border border-card-border bg-card p-5">
             <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">
-              Données extraites ({extracted.detected_fields.length} champs trouvés)
+              {t("dataTitle", { n: extracted.detected_fields.length })}
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
-              <Field label="Fournisseur" value={extracted.supplier_name} />
-              <Field label="N° TVA" value={extracted.supplier_vat} mono />
-              <Field label="IBAN" value={extracted.supplier_iban} mono />
-              <Field label="BIC" value={extracted.supplier_bic} mono />
-              <Field label="N° facture" value={extracted.invoice_number} mono />
-              <Field label="Date facture" value={extracted.invoice_date} mono />
-              <Field label="Date échéance" value={extracted.due_date} mono />
-              <Field label="Référence paiement" value={extracted.payment_reference} mono />
-              <Field label="Montant HT"
-                value={extracted.amount_ht !== null ? formatEUR(extracted.amount_ht) : null} mono />
-              <Field label="Montant TVA"
-                value={extracted.amount_tva !== null ? formatEUR(extracted.amount_tva) : null} mono />
-              <Field label="Taux TVA"
-                value={extracted.tva_rate !== null ? `${extracted.tva_rate}%` : null} mono />
-              <Field label="Montant TTC"
+              <Field label={t("fieldSupplier")} value={extracted.supplier_name} notDetected={t("notDetected")} />
+              <Field label={t("fieldVat")} value={extracted.supplier_vat} mono notDetected={t("notDetected")} />
+              <Field label={t("fieldIban")} value={extracted.supplier_iban} mono notDetected={t("notDetected")} />
+              <Field label={t("fieldBic")} value={extracted.supplier_bic} mono notDetected={t("notDetected")} />
+              <Field label={t("fieldInvoiceNumber")} value={extracted.invoice_number} mono notDetected={t("notDetected")} />
+              <Field label={t("fieldInvoiceDate")} value={extracted.invoice_date} mono notDetected={t("notDetected")} />
+              <Field label={t("fieldDueDate")} value={extracted.due_date} mono notDetected={t("notDetected")} />
+              <Field label={t("fieldPaymentRef")} value={extracted.payment_reference} mono notDetected={t("notDetected")} />
+              <Field label={t("fieldAmountHt")}
+                value={extracted.amount_ht !== null ? formatEUR(extracted.amount_ht) : null} mono notDetected={t("notDetected")} />
+              <Field label={t("fieldAmountTva")}
+                value={extracted.amount_tva !== null ? formatEUR(extracted.amount_tva) : null} mono notDetected={t("notDetected")} />
+              <Field label={t("fieldTvaRate")}
+                value={extracted.tva_rate !== null ? `${extracted.tva_rate}%` : null} mono notDetected={t("notDetected")} />
+              <Field label={t("fieldAmountTtc")}
                 value={extracted.amount_ttc !== null ? formatEUR(extracted.amount_ttc) : null}
-                mono highlight />
+                mono highlight notDetected={t("notDetected")} />
             </div>
 
             {extracted.confidence < 70 && (
               <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-900">
-                ⚠️ Confiance faible. Vérifiez manuellement toutes les valeurs avant saisie
-                en comptabilité.
+                {t("lowConfidence")}
               </div>
             )}
 
             {/* Boutons actions */}
             <div className="mt-5 flex flex-wrap gap-2">
               {extracted.supplier_iban && extracted.amount_ttc && (
-                <Link href={`/syndic/coproprietes/${coownershipId}/sepa-virements`}
+                <Link href={`${lp}/syndic/coproprietes/${coownershipId}/sepa-virements`}
                   className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
-                  → Créer virement SEPA
+                  {t("btnCreateSepa")}
                 </Link>
               )}
               <button onClick={async () => {
                 const json = JSON.stringify(extracted, null, 2);
                 await navigator.clipboard.writeText(json);
-                alert("Données JSON copiées dans le presse-papier");
+                alert(t("jsonCopied"));
               }}
                 className="rounded-lg border border-navy bg-white px-4 py-2 text-sm font-semibold text-navy hover:bg-navy/5">
-                📋 Copier JSON
+                {t("btnCopyJson")}
               </button>
             </div>
           </section>
@@ -277,7 +271,7 @@ export default function OcrFacturesPage() {
           {/* Raw text collapsible */}
           <details className="mt-4">
             <summary className="cursor-pointer text-xs text-muted font-semibold">
-              Texte brut extrait ({rawText.length} caractères)
+              {t("rawTextLabel", { n: rawText.length })}
             </summary>
             <pre className="mt-2 rounded-lg border border-card-border bg-background p-3 text-[10px] whitespace-pre-wrap max-h-96 overflow-y-auto font-mono">
               {rawText}
@@ -287,28 +281,28 @@ export default function OcrFacturesPage() {
       )}
 
       <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-        <strong>Comment ça marche :</strong>
+        <strong>{t("howTitle")}</strong>
         <ul className="mt-1 ml-4 list-disc space-y-1">
-          <li>PDF.js essaie d&apos;abord d&apos;extraire le texte natif (digital, instantané).</li>
-          <li>Si le PDF est scanné (moins de 50 caractères trouvés), Tesseract.js OCR démarre.</li>
-          <li>Tesseract télécharge ~20MB de données FRA+ENG la 1re fois puis cache localement.</li>
-          <li>Parser heuristique identifie montants / TVA / IBAN / dates via regex LU/EU.</li>
-          <li>100% client-side, aucune donnée envoyée à un service externe.</li>
-          <li>Confiance ≥ 70% : automatisable · &lt; 70% : validation manuelle requise.</li>
+          <li>{t("howItem1")}</li>
+          <li>{t("howItem2")}</li>
+          <li>{t("howItem3")}</li>
+          <li>{t("howItem4")}</li>
+          <li>{t("howItem5")}</li>
+          <li>{t("howItem6")}</li>
         </ul>
       </div>
     </div>
   );
 }
 
-function Field({ label, value, mono, highlight }: {
-  label: string; value: string | null; mono?: boolean; highlight?: boolean;
+function Field({ label, value, mono, highlight, notDetected }: {
+  label: string; value: string | null; mono?: boolean; highlight?: boolean; notDetected: string;
 }) {
   return (
     <div className={`rounded-lg border ${highlight ? "border-navy bg-navy/5" : "border-card-border/50 bg-background"} p-3`}>
       <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">{label}</div>
       <div className={`mt-1 text-sm ${mono ? "font-mono" : ""} ${highlight ? "text-lg font-bold text-navy" : "text-slate"} ${value === null ? "text-muted italic" : ""}`}>
-        {value ?? "— non détecté"}
+        {value ?? notDetected}
       </div>
     </div>
   );
