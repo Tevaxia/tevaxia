@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { createOrganization, type OrgType } from "@/lib/orgs";
 import { createCoownership } from "@/lib/coownerships";
@@ -14,13 +15,13 @@ type Persona = "syndic" | "agency" | "hotel";
 
 export default function OnboardingPage() {
   const router = useRouter();
+  const t = useTranslations("onboardingWizard");
   const { user, loading: authLoading } = useAuth();
   const [persona, setPersona] = useState<Persona | null>(null);
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Organization
   const [orgForm, setOrgForm] = useState({
     name: "",
     contact_email: "",
@@ -28,7 +29,6 @@ export default function OnboardingPage() {
     vat_number: "",
   });
 
-  // Entity depending on persona
   const [coproForm, setCoproForm] = useState({
     name: "Résidence ",
     address: "",
@@ -63,7 +63,7 @@ export default function OnboardingPage() {
 
   const handleCreateOrg = async () => {
     if (!persona || !orgForm.name.trim()) {
-      setError("Nom de l'organisation requis."); return;
+      setError(t("errOrgNameRequired")); return;
     }
     setLoading(true); setError(null);
     try {
@@ -78,7 +78,7 @@ export default function OnboardingPage() {
       setCreatedOrgId(org.id);
       setStep(3);
     } catch (e) {
-      setError(errMsg(e, "Erreur création organisation"));
+      setError(errMsg(e, t("errOrgCreate")));
     }
     setLoading(false);
   };
@@ -87,8 +87,8 @@ export default function OnboardingPage() {
     setLoading(true); setError(null);
     try {
       if (persona === "syndic") {
-        if (!coproForm.name.trim()) { setError("Nom copropriété requis"); setLoading(false); return; }
-        if (!createdOrgId) { setError("Organisation manquante"); setLoading(false); return; }
+        if (!coproForm.name.trim()) { setError(t("errCoproNameRequired")); setLoading(false); return; }
+        if (!createdOrgId) { setError(t("errOrgMissing")); setLoading(false); return; }
         const c = await createCoownership({
           org_id: createdOrgId,
           name: coproForm.name,
@@ -97,7 +97,7 @@ export default function OnboardingPage() {
         });
         setCreatedEntityId(c.id);
       } else if (persona === "hotel") {
-        if (!hotelForm.name.trim()) { setError("Nom de l'hôtel requis"); setLoading(false); return; }
+        if (!hotelForm.name.trim()) { setError(t("errHotelNameRequired")); setLoading(false); return; }
         const p = await createProperty({
           name: hotelForm.name,
           property_type: hotelForm.property_type,
@@ -105,7 +105,7 @@ export default function OnboardingPage() {
         });
         setCreatedEntityId(p.id);
       } else if (persona === "agency") {
-        if (!mandateForm.property_address.trim()) { setError("Adresse du bien requise"); setLoading(false); return; }
+        if (!mandateForm.property_address.trim()) { setError(t("errPropertyAddressRequired")); setLoading(false); return; }
         const m = await createMandate({
           property_address: mandateForm.property_address,
           property_commune: mandateForm.property_commune,
@@ -120,7 +120,7 @@ export default function OnboardingPage() {
       }
       setStep(4);
     } catch (e) {
-      setError(errMsg(e, "Erreur création"));
+      setError(errMsg(e, t("errGeneric")));
     }
     setLoading(false);
   };
@@ -137,18 +137,15 @@ export default function OnboardingPage() {
     }
   };
 
-  if (authLoading) return <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">Chargement…</div>;
-  if (!user) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href="/connexion" className="text-navy underline">Se connecter pour commencer</Link></div>;
+  if (authLoading) return <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
+  if (!user) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href="/connexion" className="text-navy underline">{t("signInCta")}</Link></div>;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
       <div className="text-center">
-        <div className="text-xs uppercase tracking-wider text-muted font-semibold">Bienvenue sur tevaxia</div>
-        <h1 className="mt-2 text-3xl font-bold text-navy">Configuration rapide (3 minutes)</h1>
-        <p className="mt-2 text-sm text-muted">
-          En 3 étapes vous aurez créé votre organisation et votre premier dossier.
-          Tout est éditable ensuite.
-        </p>
+        <div className="text-xs uppercase tracking-wider text-muted font-semibold">{t("heroKicker")}</div>
+        <h1 className="mt-2 text-3xl font-bold text-navy">{t("heroTitle")}</h1>
+        <p className="mt-2 text-sm text-muted">{t("heroSubtitle")}</p>
       </div>
 
       {/* Stepper */}
@@ -172,23 +169,23 @@ export default function OnboardingPage() {
       {/* Step 1 : Persona */}
       {step === 1 && (
         <div className="mt-8">
-          <h2 className="text-lg font-bold text-navy mb-4">1. Quel est votre métier ?</h2>
+          <h2 className="text-lg font-bold text-navy mb-4">{t("step1Title")}</h2>
           <div className="grid gap-3 sm:grid-cols-3">
-            <PersonaCard persona="syndic" icon="🏢" label="Syndic"
-              description="Gestion copropriétés, AG, comptabilité, appels de fonds"
+            <PersonaCard persona="syndic" icon="🏢" label={t("personaSyndic")}
+              description={t("personaSyndicDesc")}
               selected={persona === "syndic"} onClick={() => setPersona("syndic")} />
-            <PersonaCard persona="agency" icon="🏠" label="Agence immobilière"
-              description="Mandats, pipeline, CRM, signatures, fiches biens"
+            <PersonaCard persona="agency" icon="🏠" label={t("personaAgency")}
+              description={t("personaAgencyDesc")}
               selected={persona === "agency"} onClick={() => setPersona("agency")} />
-            <PersonaCard persona="hotel" icon="🏨" label="Hôtelier"
-              description="PMS, réservations, USALI, channel manager, folios"
+            <PersonaCard persona="hotel" icon="🏨" label={t("personaHotel")}
+              description={t("personaHotelDesc")}
               selected={persona === "hotel"} onClick={() => setPersona("hotel")} />
           </div>
           <div className="mt-6 flex justify-end">
             <button onClick={() => persona && setStep(2)}
               disabled={!persona}
               className="rounded-lg bg-navy px-6 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-50">
-              Continuer →
+              {t("continueBtn")}
             </button>
           </div>
         </div>
@@ -197,36 +194,36 @@ export default function OnboardingPage() {
       {/* Step 2 : Organization */}
       {step === 2 && persona && (
         <div className="mt-8">
-          <h2 className="text-lg font-bold text-navy mb-1">2. Votre organisation</h2>
+          <h2 className="text-lg font-bold text-navy mb-1">{t("step2Title")}</h2>
           <p className="text-sm text-muted mb-4">
-            {persona === "syndic" && "Le cabinet syndic ou la société de gestion."}
-            {persona === "agency" && "L'agence immobilière."}
-            {persona === "hotel" && "La société propriétaire ou exploitante."}
+            {persona === "syndic" && t("step2SubSyndic")}
+            {persona === "agency" && t("step2SubAgency")}
+            {persona === "hotel" && t("step2SubHotel")}
           </p>
           <div className="grid gap-4">
-            <Field label="Nom *" value={orgForm.name}
+            <Field label={t("fieldOrgName")} value={orgForm.name}
               onChange={(v) => setOrgForm({ ...orgForm, name: v })}
               placeholder={
-                persona === "syndic" ? "ex. Cabinet Muller & Associés" :
-                persona === "agency" ? "ex. Immo Luxembourg SARL" :
-                "ex. Hôtels du Grand-Duché SARL"
+                persona === "syndic" ? t("phOrgSyndic") :
+                persona === "agency" ? t("phOrgAgency") :
+                t("phOrgHotel")
               } />
-            <Field label="Email contact" type="email" value={orgForm.contact_email}
+            <Field label={t("fieldContactEmail")} type="email" value={orgForm.contact_email}
               onChange={(v) => setOrgForm({ ...orgForm, contact_email: v })} />
-            <Field label="Téléphone" type="tel" value={orgForm.contact_phone}
+            <Field label={t("fieldPhone")} type="tel" value={orgForm.contact_phone}
               onChange={(v) => setOrgForm({ ...orgForm, contact_phone: v })} />
-            <Field label="N° TVA (optionnel)" value={orgForm.vat_number}
+            <Field label={t("fieldVat")} value={orgForm.vat_number}
               onChange={(v) => setOrgForm({ ...orgForm, vat_number: v })}
-              placeholder="LU12345678" />
+              placeholder={t("phVat")} />
           </div>
           <div className="mt-6 flex justify-between">
             <button onClick={() => setStep(1)}
               className="rounded-lg border border-card-border px-4 py-2 text-sm font-semibold text-slate">
-              ← Retour
+              {t("backBtn")}
             </button>
             <button onClick={handleCreateOrg} disabled={loading}
               className="rounded-lg bg-navy px-6 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-50">
-              {loading ? "Création…" : "Créer l'organisation →"}
+              {loading ? t("creating") : t("createOrgBtn")}
             </button>
           </div>
         </div>
@@ -235,62 +232,62 @@ export default function OnboardingPage() {
       {/* Step 3 : First entity */}
       {step === 3 && persona && (
         <div className="mt-8">
-          <h2 className="text-lg font-bold text-navy mb-1">3. Votre premier dossier</h2>
+          <h2 className="text-lg font-bold text-navy mb-1">{t("step3Title")}</h2>
           <p className="text-sm text-muted mb-4">
-            {persona === "syndic" && "Ajoutez votre première copropriété (vous en ajouterez d'autres ensuite)."}
-            {persona === "agency" && "Ajoutez votre premier mandat (bien en vente)."}
-            {persona === "hotel" && "Ajoutez votre première propriété hôtelière."}
+            {persona === "syndic" && t("step3SubSyndic")}
+            {persona === "agency" && t("step3SubAgency")}
+            {persona === "hotel" && t("step3SubHotel")}
           </p>
 
           {persona === "syndic" && (
             <div className="grid gap-3">
-              <Field label="Nom de la copropriété *" value={coproForm.name}
+              <Field label={t("fieldCoproName")} value={coproForm.name}
                 onChange={(v) => setCoproForm({ ...coproForm, name: v })}
-                placeholder="ex. Résidence Les Jardins" />
-              <Field label="Adresse" value={coproForm.address}
+                placeholder={t("phCoproName")} />
+              <Field label={t("fieldAddress")} value={coproForm.address}
                 onChange={(v) => setCoproForm({ ...coproForm, address: v })}
-                placeholder="ex. 15 rue de la Paix" />
+                placeholder={t("phAddress")} />
               <div className="grid grid-cols-3 gap-3">
-                <Field label="Commune" value={coproForm.commune}
+                <Field label={t("fieldCommune")} value={coproForm.commune}
                   onChange={(v) => setCoproForm({ ...coproForm, commune: v })} />
-                <Field label="Année construction" type="number" value={String(coproForm.year_built)}
+                <Field label={t("fieldYearBuilt")} type="number" value={String(coproForm.year_built)}
                   onChange={(v) => setCoproForm({ ...coproForm, year_built: Number(v) })} />
-                <Field label="Nb étages" type="number" value={String(coproForm.nb_floors)}
+                <Field label={t("fieldFloors")} type="number" value={String(coproForm.nb_floors)}
                   onChange={(v) => setCoproForm({ ...coproForm, nb_floors: Number(v) })} />
               </div>
               <label className="flex items-center gap-2 text-sm">
                 <input type="checkbox" checked={coproForm.has_elevator}
                   onChange={(e) => setCoproForm({ ...coproForm, has_elevator: e.target.checked })} />
-                Ascenseur
+                {t("fieldElevator")}
               </label>
             </div>
           )}
 
           {persona === "hotel" && (
             <div className="grid gap-3">
-              <Field label="Nom de l'hôtel *" value={hotelForm.name}
+              <Field label={t("fieldHotelName")} value={hotelForm.name}
                 onChange={(v) => setHotelForm({ ...hotelForm, name: v })}
-                placeholder="ex. Hôtel du Parc" />
-              <Field label="Commune" value={hotelForm.commune}
+                placeholder={t("phHotelName")} />
+              <Field label={t("fieldCommune")} value={hotelForm.commune}
                 onChange={(v) => setHotelForm({ ...hotelForm, commune: v })} />
             </div>
           )}
 
           {persona === "agency" && (
             <div className="grid gap-3">
-              <Field label="Adresse du bien *" value={mandateForm.property_address}
+              <Field label={t("fieldPropertyAddr")} value={mandateForm.property_address}
                 onChange={(v) => setMandateForm({ ...mandateForm, property_address: v })}
-                placeholder="ex. 15 rue de la Faïencerie, Limpertsberg" />
+                placeholder={t("phPropertyAddr")} />
               <div className="grid grid-cols-2 gap-3">
-                <Field label="Commune" value={mandateForm.property_commune}
+                <Field label={t("fieldCommune")} value={mandateForm.property_commune}
                   onChange={(v) => setMandateForm({ ...mandateForm, property_commune: v })} />
-                <Field label="Prix demandé (€)" type="number" value={String(mandateForm.prix_demande)}
+                <Field label={t("fieldPrixDemande")} type="number" value={String(mandateForm.prix_demande)}
                   onChange={(v) => setMandateForm({ ...mandateForm, prix_demande: Number(v) })} />
               </div>
               <div className="grid grid-cols-2 gap-3">
-                <Field label="Nom client (mandant)" value={mandateForm.client_name}
+                <Field label={t("fieldClientName")} value={mandateForm.client_name}
                   onChange={(v) => setMandateForm({ ...mandateForm, client_name: v })} />
-                <Field label="Email client" type="email" value={mandateForm.client_email}
+                <Field label={t("fieldClientEmail")} type="email" value={mandateForm.client_email}
                   onChange={(v) => setMandateForm({ ...mandateForm, client_email: v })} />
               </div>
             </div>
@@ -299,11 +296,11 @@ export default function OnboardingPage() {
           <div className="mt-6 flex justify-between">
             <button onClick={() => setStep(2)}
               className="rounded-lg border border-card-border px-4 py-2 text-sm font-semibold text-slate">
-              ← Retour
+              {t("backBtn")}
             </button>
             <button onClick={handleCreateEntity} disabled={loading}
               className="rounded-lg bg-emerald-600 px-6 py-2 text-sm font-semibold text-white hover:bg-emerald-700 disabled:opacity-50">
-              {loading ? "Création…" : "Créer le dossier →"}
+              {loading ? t("creating") : t("createEntityBtn")}
             </button>
           </div>
         </div>
@@ -313,47 +310,47 @@ export default function OnboardingPage() {
       {step === 4 && (
         <div className="mt-8 text-center">
           <div className="text-6xl mb-3">🎉</div>
-          <h2 className="text-2xl font-bold text-navy">Parfait, tout est prêt !</h2>
+          <h2 className="text-2xl font-bold text-navy">{t("step4Title")}</h2>
           <p className="mt-3 text-sm text-muted">
-            {persona === "syndic" && "Votre première copropriété est créée. Passez à l'ajout des lots et copropriétaires, puis initialisez le plan comptable."}
-            {persona === "agency" && "Votre premier mandat est créé. Ajoutez des photos, définissez la diffusion portails, trouvez les acquéreurs matchés."}
-            {persona === "hotel" && "Votre première propriété est créée. Configurez les chambres, rate plans et commencez à prendre des réservations."}
+            {persona === "syndic" && t("step4BodySyndic")}
+            {persona === "agency" && t("step4BodyAgency")}
+            {persona === "hotel" && t("step4BodyHotel")}
           </p>
           <div className="mt-8 rounded-xl border border-blue-200 bg-blue-50 p-4 text-left text-xs text-blue-900">
-            <strong>Prochaines étapes recommandées :</strong>
+            <strong>{t("nextStepsTitle")}</strong>
             {persona === "syndic" && (
               <ul className="mt-2 ml-5 list-disc space-y-1">
-                <li>Ajouter les lots + tantièmes dans la fiche copropriété</li>
-                <li>Initialiser le plan comptable (bouton &laquo; Comptabilité &raquo;)</li>
-                <li>Créer un premier appel de fonds trimestriel</li>
-                <li>Configurer les clés de répartition (chauffage, ascenseur)</li>
+                <li>{t("syndicStep1")}</li>
+                <li>{t("syndicStep2")}</li>
+                <li>{t("syndicStep3")}</li>
+                <li>{t("syndicStep4")}</li>
               </ul>
             )}
             {persona === "agency" && (
               <ul className="mt-2 ml-5 list-disc space-y-1">
-                <li>Ajouter le descriptif + photos dans l'aperçu du mandat</li>
-                <li>Configurer la diffusion sur athome / Immotop / Immoweb</li>
-                <li>Lancer le matching automatique avec vos contacts CRM</li>
-                <li>Faire signer le mandat par votre client (eIDAS)</li>
+                <li>{t("agencyStep1")}</li>
+                <li>{t("agencyStep2")}</li>
+                <li>{t("agencyStep3")}</li>
+                <li>{t("agencyStep4")}</li>
               </ul>
             )}
             {persona === "hotel" && (
               <ul className="mt-2 ml-5 list-disc space-y-1">
-                <li>Ajouter les types de chambres + chambres physiques</li>
-                <li>Définir les rate plans (BAR, non-remboursable, etc.)</li>
-                <li>Configurer les channels iCal (Airbnb, Booking)</li>
-                <li>Prendre la première réservation</li>
+                <li>{t("hotelStep1")}</li>
+                <li>{t("hotelStep2")}</li>
+                <li>{t("hotelStep3")}</li>
+                <li>{t("hotelStep4")}</li>
               </ul>
             )}
           </div>
           <div className="mt-6 flex gap-3 justify-center">
             <button onClick={handleFinish}
               className="rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white hover:bg-navy-light">
-              Aller au dossier →
+              {t("goToDossier")}
             </button>
             <Link href="/tableau-bord"
               className="rounded-lg border border-card-border bg-white px-6 py-3 text-sm font-semibold text-slate hover:bg-background">
-              Tableau de bord
+              {t("goToDashboard")}
             </Link>
           </div>
         </div>
