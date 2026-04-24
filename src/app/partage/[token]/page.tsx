@@ -126,27 +126,28 @@ interface BilanPromoteurPayload {
 }
 
 function BilanPromoteurView({ payload, title }: { payload: BilanPromoteurPayload; title: string | null | undefined }) {
+  const t = useTranslations("partage.views.bilan");
   const { results, inputs } = payload;
   return (
     <div className="space-y-6">
       <div className="rounded-2xl bg-gradient-to-br from-amber-600 to-orange-700 p-6 text-white shadow-lg">
-        <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">Bilan promoteur</div>
-        <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || "Opération immobilière"}</div>
+        <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">{t("badge")}</div>
+        <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || t("fallbackTitle")}</div>
         <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
           <div>
-            <div className="text-xs text-white/70">Charge foncière</div>
+            <div className="text-xs text-white/70">{t("chargeFonciere")}</div>
             <div className="text-lg font-bold">{formatEUR(results.chargeFonciere)}</div>
           </div>
           <div>
-            <div className="text-xs text-white/70">CA total</div>
+            <div className="text-xs text-white/70">{t("caTotal")}</div>
             <div className="text-lg font-bold">{formatEUR(results.caTotal)}</div>
           </div>
           <div>
-            <div className="text-xs text-white/70">Marge brute</div>
+            <div className="text-xs text-white/70">{t("margeBrute")}</div>
             <div className="text-lg font-bold">{formatEUR(results.margeMontant)}</div>
           </div>
           <div>
-            <div className="text-xs text-white/70">% marge effective</div>
+            <div className="text-xs text-white/70">{t("margeEffective")}</div>
             <div className="text-lg font-bold">{formatPct(results.margeEffective)}</div>
           </div>
         </div>
@@ -154,47 +155,47 @@ function BilanPromoteurView({ payload, title }: { payload: BilanPromoteurPayload
 
       <div className="grid gap-4 lg:grid-cols-2">
         <div className="rounded-xl border border-card-border bg-card p-5">
-          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Hypothèses opération</h3>
+          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("hypotheses")}</h3>
           <dl className="mt-3 divide-y divide-card-border/50 text-sm">
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Type</dt><dd className="font-medium text-navy">{String(inputs.typeOperation ?? "—")}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Surface vendable</dt><dd className="font-medium text-navy">{String(inputs.surfaceVendable ?? "—")} m²</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Prix de vente</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.prixVenteM2))} /m²</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Parkings</dt><dd className="font-medium text-navy">{String(inputs.nbParkings ?? 0)} × {formatEUR(Number(inputs.prixParking))}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Surface terrain</dt><dd className="font-medium text-navy">{String(inputs.surfaceTerrain ?? "—")} m²</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Coût construction</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.coutConstructionM2))} /m²</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Marge promoteur cible</dt><dd className="font-medium text-navy">{Number(inputs.margePromoteur ?? 0)} % CA</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Pré-commercialisation</dt><dd className="font-medium text-navy">{Number(inputs.tauxPreCommercialisation ?? 0)} %</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("type")}</dt><dd className="font-medium text-navy">{String(inputs.typeOperation ?? "—")}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("surfaceVendable")}</dt><dd className="font-medium text-navy">{String(inputs.surfaceVendable ?? "—")} m²</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("prixVente")}</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.prixVenteM2))} /m²</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("parkings")}</dt><dd className="font-medium text-navy">{String(inputs.nbParkings ?? 0)} × {formatEUR(Number(inputs.prixParking))}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("surfaceTerrain")}</dt><dd className="font-medium text-navy">{String(inputs.surfaceTerrain ?? "—")} m²</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("coutConstruction")}</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.coutConstructionM2))} /m²</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("margePromoteurCible")}</dt><dd className="font-medium text-navy">{Number(inputs.margePromoteur ?? 0)} {t("pctCa")}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("preCommercialisation")}</dt><dd className="font-medium text-navy">{Number(inputs.tauxPreCommercialisation ?? 0)} %</dd></div>
           </dl>
         </div>
 
         <div className="rounded-xl border border-card-border bg-card p-5">
-          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Compte de résultat</h3>
+          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("compteResultat")}</h3>
           <dl className="mt-3 divide-y divide-card-border/50 text-sm">
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Recettes logements</dt><dd className="font-medium text-navy">{formatEUR(results.caLogements)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Recettes parkings</dt><dd className="font-medium text-navy">{formatEUR(results.caParkings)}</dd></div>
-            <div className="flex justify-between py-1.5 font-semibold"><dt className="text-navy">Total recettes</dt><dd className="text-navy">{formatEUR(results.caTotal)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("recettesLogements")}</dt><dd className="font-medium text-navy">{formatEUR(results.caLogements)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("recettesParkings")}</dt><dd className="font-medium text-navy">{formatEUR(results.caParkings)}</dd></div>
+            <div className="flex justify-between py-1.5 font-semibold"><dt className="text-navy">{t("totalRecettes")}</dt><dd className="text-navy">{formatEUR(results.caTotal)}</dd></div>
             {results.coutTerrain > 0 && (
-              <div className="flex justify-between py-1.5"><dt className="text-muted">- Terrain</dt><dd className="font-medium text-rose-700">- {formatEUR(results.coutTerrain)}</dd></div>
+              <div className="flex justify-between py-1.5"><dt className="text-muted">- {t("terrain")}</dt><dd className="font-medium text-rose-700">- {formatEUR(results.coutTerrain)}</dd></div>
             )}
-            <div className="flex justify-between py-1.5"><dt className="text-muted">- Construction ({formatPct(results.ratioConstructionCA)})</dt><dd className="font-medium text-rose-700">- {formatEUR(results.totalConstruction)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">- Frais & honoraires ({formatPct(results.ratioFraisCA)})</dt><dd className="font-medium text-rose-700">- {formatEUR(results.totalFrais)}</dd></div>
-            <div className="flex justify-between py-1.5 font-semibold border-t border-card-border mt-1 pt-2"><dt className="text-navy">Marge brute</dt><dd className="text-amber-700">{formatEUR(results.margeMontant)} ({formatPct(results.margeEffective)})</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">- {t("construction")} ({formatPct(results.ratioConstructionCA)})</dt><dd className="font-medium text-rose-700">- {formatEUR(results.totalConstruction)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">- {t("fraisHonoraires")} ({formatPct(results.ratioFraisCA)})</dt><dd className="font-medium text-rose-700">- {formatEUR(results.totalFrais)}</dd></div>
+            <div className="flex justify-between py-1.5 font-semibold border-t border-card-border mt-1 pt-2"><dt className="text-navy">{t("margeBrute")}</dt><dd className="text-amber-700">{formatEUR(results.margeMontant)} ({formatPct(results.margeEffective)})</dd></div>
           </dl>
         </div>
       </div>
 
       <div className="rounded-xl border border-card-border bg-card p-5">
-        <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Détail des coûts</h3>
+        <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("detailCouts")}</h3>
         <div className="mt-3 grid gap-2 sm:grid-cols-2 text-sm">
-          <div className="flex justify-between py-1"><span className="text-muted">Construction (gros œuvre)</span><span className="font-medium text-navy">{formatEUR(results.coutsConstruction)}</span></div>
-          <div className="flex justify-between py-1"><span className="text-muted">Honoraires architecte</span><span className="font-medium text-navy">{formatEUR(results.coutsArchitecte)}</span></div>
-          <div className="flex justify-between py-1"><span className="text-muted">Honoraires BET</span><span className="font-medium text-navy">{formatEUR(results.coutsBET)}</span></div>
-          <div className="flex justify-between py-1"><span className="text-muted">Études autres</span><span className="font-medium text-navy">{formatEUR(results.coutsEtudes)}</span></div>
-          <div className="flex justify-between py-1"><span className="text-muted">Aléas</span><span className="font-medium text-navy">{formatEUR(results.coutsAleas)}</span></div>
-          <div className="flex justify-between py-1"><span className="text-muted">Frais financiers</span><span className="font-medium text-navy">{formatEUR(results.fFinanciers)}</span></div>
-          <div className="flex justify-between py-1"><span className="text-muted">Frais commerciaux</span><span className="font-medium text-navy">{formatEUR(results.fCommerciaux)}</span></div>
-          <div className="flex justify-between py-1"><span className="text-muted">Assurances</span><span className="font-medium text-navy">{formatEUR(results.fAssurances)}</span></div>
-          <div className="flex justify-between py-1"><span className="text-muted">Frais de gestion</span><span className="font-medium text-navy">{formatEUR(results.fGestion)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("constructionGO")}</span><span className="font-medium text-navy">{formatEUR(results.coutsConstruction)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("honorairesArchitecte")}</span><span className="font-medium text-navy">{formatEUR(results.coutsArchitecte)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("honorairesBET")}</span><span className="font-medium text-navy">{formatEUR(results.coutsBET)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("etudesAutres")}</span><span className="font-medium text-navy">{formatEUR(results.coutsEtudes)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("aleas")}</span><span className="font-medium text-navy">{formatEUR(results.coutsAleas)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("fraisFinanciers")}</span><span className="font-medium text-navy">{formatEUR(results.fFinanciers)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("fraisCommerciaux")}</span><span className="font-medium text-navy">{formatEUR(results.fCommerciaux)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("assurances")}</span><span className="font-medium text-navy">{formatEUR(results.fAssurances)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("fraisGestion")}</span><span className="font-medium text-navy">{formatEUR(results.fGestion)}</span></div>
         </div>
       </div>
     </div>
@@ -226,16 +227,17 @@ interface HotelValorisationPayload {
 }
 
 function HotelValorisationView({ payload, title }: { payload: HotelValorisationPayload; title: string | null | undefined }) {
+  const t = useTranslations("partage.views.hotelVal");
   const { results, inputs } = payload;
   return (
     <div className="space-y-6">
       <div className="rounded-2xl bg-gradient-to-br from-purple-700 to-purple-900 p-6 text-white shadow-lg">
-        <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">Valorisation hôtelière</div>
-        <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || "Hôtel"}</div>
-        <div className="mt-3 text-sm text-white/70">Valeur de marché estimée</div>
+        <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">{t("badge")}</div>
+        <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || t("fallbackTitle")}</div>
+        <div className="mt-3 text-sm text-white/70">{t("valeurMarche")}</div>
         <div className="mt-1 text-3xl sm:text-4xl font-bold">{formatEUR(results.valeurCentrale)}</div>
         <div className="mt-2 text-sm text-white/80">
-          Fourchette : {formatEUR(results.fourchetteBasse)} – {formatEUR(results.fourchetteHaute)}
+          {t("fourchette")} : {formatEUR(results.fourchetteBasse)} – {formatEUR(results.fourchetteHaute)}
         </div>
         <div className="mt-3 flex flex-wrap gap-2 text-xs">
           <span className="rounded-full bg-white/15 px-3 py-1">DCF : {formatEUR(results.valeurDCF)}</span>
@@ -246,36 +248,36 @@ function HotelValorisationView({ payload, title }: { payload: HotelValorisationP
 
       <div className="grid gap-4 lg:grid-cols-2">
         <div className="rounded-xl border border-card-border bg-card p-5">
-          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Caractéristiques</h3>
+          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("caracteristiques")}</h3>
           <dl className="mt-3 divide-y divide-card-border/50 text-sm">
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Chambres</dt><dd className="font-medium text-navy">{String(inputs.nbChambres ?? "—")}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Catégorie</dt><dd className="font-medium text-navy">{String(inputs.category ?? "—")}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">ADR</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.adr))} /nuit</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Occupation</dt><dd className="font-medium text-navy">{Math.round(Number(inputs.occupancy ?? 0) * 100)} %</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">RevPAR</dt><dd className="font-medium text-navy">{formatEUR(results.revPAR)} /nuit/chambre</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("chambres")}</dt><dd className="font-medium text-navy">{String(inputs.nbChambres ?? "—")}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("categorie")}</dt><dd className="font-medium text-navy">{String(inputs.category ?? "—")}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("adr")}</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.adr))} {t("parNuit")}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("occupation")}</dt><dd className="font-medium text-navy">{Math.round(Number(inputs.occupancy ?? 0) * 100)} %</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("revpar")}</dt><dd className="font-medium text-navy">{formatEUR(results.revPAR)} {t("parNuitChambre")}</dd></div>
           </dl>
         </div>
 
         <div className="rounded-xl border border-card-border bg-card p-5">
-          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Compte d&apos;exploitation</h3>
+          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("compteExploitation")}</h3>
           <dl className="mt-3 divide-y divide-card-border/50 text-sm">
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Revenu chambres</dt><dd className="font-medium text-navy">{formatEUR(results.revenuRoomsAnnuel)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">F&amp;B</dt><dd className="font-medium text-navy">{formatEUR(results.breakdown?.fb)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Autres (MICE, spa…)</dt><dd className="font-medium text-navy">{formatEUR(results.breakdown?.autres)}</dd></div>
-            <div className="flex justify-between py-1.5 font-semibold"><dt className="text-navy">Revenu total</dt><dd className="text-navy">{formatEUR(results.revenuTotalAnnuel)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">- Charges totales</dt><dd className="font-medium text-rose-700">- {formatEUR(results.charges?.total)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">GOP ({formatPct(results.gopMargin)})</dt><dd className="font-medium text-emerald-700">{formatEUR(results.gop)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">- Réserve FF&amp;E</dt><dd className="font-medium text-rose-700">- {formatEUR(results.ffe)}</dd></div>
-            <div className="flex justify-between py-1.5 font-semibold border-t border-card-border mt-1 pt-2"><dt className="text-navy">EBITDA ({formatPct(results.ebitdaMargin)})</dt><dd className="text-purple-700">{formatEUR(results.ebitda)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("revenuChambres")}</dt><dd className="font-medium text-navy">{formatEUR(results.revenuRoomsAnnuel)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("fnb")}</dt><dd className="font-medium text-navy">{formatEUR(results.breakdown?.fb)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("autresMice")}</dt><dd className="font-medium text-navy">{formatEUR(results.breakdown?.autres)}</dd></div>
+            <div className="flex justify-between py-1.5 font-semibold"><dt className="text-navy">{t("revenuTotal")}</dt><dd className="text-navy">{formatEUR(results.revenuTotalAnnuel)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">- {t("chargesTotales")}</dt><dd className="font-medium text-rose-700">- {formatEUR(results.charges?.total)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("gop")} ({formatPct(results.gopMargin)})</dt><dd className="font-medium text-emerald-700">{formatEUR(results.gop)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">- {t("reserveFfe")}</dt><dd className="font-medium text-rose-700">- {formatEUR(results.ffe)}</dd></div>
+            <div className="flex justify-between py-1.5 font-semibold border-t border-card-border mt-1 pt-2"><dt className="text-navy">{t("ebitda")} ({formatPct(results.ebitdaMargin)})</dt><dd className="text-purple-700">{formatEUR(results.ebitda)}</dd></div>
           </dl>
         </div>
       </div>
 
       <div className="rounded-xl border border-card-border bg-card p-5">
-        <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Méthodologie</h3>
+        <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("methodologie")}</h3>
         <div className="mt-3 grid gap-2 sm:grid-cols-2 text-sm">
-          <div className="flex justify-between py-1"><span className="text-muted">Cap rate appliqué</span><span className="font-medium text-navy">{formatPct(results.capRateUsed, 2)}</span></div>
-          <div className="flex justify-between py-1"><span className="text-muted">Prix/chambre comparable</span><span className="font-medium text-navy">{formatEUR(results.pricePerKeyUsed)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("capRate")}</span><span className="font-medium text-navy">{formatPct(results.capRateUsed, 2)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("prixChambreComp")}</span><span className="font-medium text-navy">{formatEUR(results.pricePerKeyUsed)}</span></div>
         </div>
       </div>
     </div>
@@ -302,6 +304,7 @@ interface HotelDscrPayload {
 }
 
 function HotelDscrView({ payload, title }: { payload: HotelDscrPayload; title: string | null | undefined }) {
+  const t = useTranslations("partage.views.hotelDscr");
   const { results, inputs } = payload;
   const diagColors: Record<string, string> = {
     critique: "from-rose-600 to-rose-800",
@@ -314,44 +317,44 @@ function HotelDscrView({ payload, title }: { payload: HotelDscrPayload; title: s
   return (
     <div className="space-y-6">
       <div className={`rounded-2xl bg-gradient-to-br ${grad} p-6 text-white shadow-lg`}>
-        <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">DSCR &amp; financement hôtel</div>
-        <div className="mt-2 text-xl font-semibold">{title || "Simulation de financement"}</div>
-        <div className="mt-4 text-sm text-white/80">DSCR central</div>
+        <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">{t("badge")}</div>
+        <div className="mt-2 text-xl font-semibold">{title || t("fallbackTitle")}</div>
+        <div className="mt-4 text-sm text-white/80">{t("dscrCentral")}</div>
         <div className="mt-1 text-5xl font-bold">{results.dscrCentral?.toFixed?.(2)}</div>
         <div className="mt-1 text-sm text-white/90">{results.diagnosticLabel}</div>
       </div>
 
       <div className="grid gap-4 lg:grid-cols-2">
         <div className="rounded-xl border border-card-border bg-card p-5">
-          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Stress tests</h3>
+          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("stressTests")}</h3>
           <dl className="mt-3 divide-y divide-card-border/50 text-sm">
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Central</dt><dd className="font-semibold text-navy">{results.dscrCentral?.toFixed?.(2)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Occupation -10 pts</dt><dd className={`font-medium ${results.dscrStressOccupation < 1 ? "text-rose-700" : "text-navy"}`}>{results.dscrStressOccupation?.toFixed?.(2)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">ADR -10 %</dt><dd className={`font-medium ${results.dscrStressADR < 1 ? "text-rose-700" : "text-navy"}`}>{results.dscrStressADR?.toFixed?.(2)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Double choc</dt><dd className={`font-medium ${results.dscrStressDouble < 1 ? "text-rose-700" : "text-navy"}`}>{results.dscrStressDouble?.toFixed?.(2)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("central")}</dt><dd className="font-semibold text-navy">{results.dscrCentral?.toFixed?.(2)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("occMoins10")}</dt><dd className={`font-medium ${results.dscrStressOccupation < 1 ? "text-rose-700" : "text-navy"}`}>{results.dscrStressOccupation?.toFixed?.(2)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("adrMoins10")}</dt><dd className={`font-medium ${results.dscrStressADR < 1 ? "text-rose-700" : "text-navy"}`}>{results.dscrStressADR?.toFixed?.(2)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("doubleChoc")}</dt><dd className={`font-medium ${results.dscrStressDouble < 1 ? "text-rose-700" : "text-navy"}`}>{results.dscrStressDouble?.toFixed?.(2)}</dd></div>
           </dl>
         </div>
 
         <div className="rounded-xl border border-card-border bg-card p-5">
-          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Structure de financement</h3>
+          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("structureFinancement")}</h3>
           <dl className="mt-3 divide-y divide-card-border/50 text-sm">
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Total projet</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.prixAcquisition ?? 0) + Number(inputs.travaux ?? 0))}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Apport</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.apport))}</dd></div>
-            <div className="flex justify-between py-1.5 font-semibold"><dt className="text-navy">Dette</dt><dd className="text-navy">{formatEUR(results.montantDette)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">LTV</dt><dd className={`font-medium ${results.ltv > 0.75 ? "text-rose-700" : "text-navy"}`}>{formatPct(results.ltv, 1)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Mensualité</dt><dd className="font-medium text-navy">{formatEUR(results.mensualite)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Service dette annuel</dt><dd className="font-medium text-navy">{formatEUR(results.serviceDetteAnnuel)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("totalProjet")}</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.prixAcquisition ?? 0) + Number(inputs.travaux ?? 0))}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("apport")}</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.apport))}</dd></div>
+            <div className="flex justify-between py-1.5 font-semibold"><dt className="text-navy">{t("dette")}</dt><dd className="text-navy">{formatEUR(results.montantDette)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("ltv")}</dt><dd className={`font-medium ${results.ltv > 0.75 ? "text-rose-700" : "text-navy"}`}>{formatPct(results.ltv, 1)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("mensualite")}</dt><dd className="font-medium text-navy">{formatEUR(results.mensualite)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("serviceDette")}</dt><dd className="font-medium text-navy">{formatEUR(results.serviceDetteAnnuel)}</dd></div>
           </dl>
         </div>
       </div>
 
       <div className="rounded-xl border border-card-border bg-card p-5">
-        <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Capacité d&apos;emprunt &amp; coût du crédit</h3>
+        <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("capaciteEmprunt")}</h3>
         <div className="mt-3 grid gap-2 sm:grid-cols-2 text-sm">
-          <div className="flex justify-between py-1"><span className="text-muted">Max empruntable (DSCR {Number(inputs.dscrCible ?? 0).toFixed(2)})</span><span className="font-semibold text-navy">{formatEUR(results.maxEmpruntable)}</span></div>
-          <div className="flex justify-between py-1"><span className="text-muted">Capital emprunté</span><span className="font-medium text-navy">{formatEUR(results.montantDette)}</span></div>
-          <div className="flex justify-between py-1"><span className="text-muted">Total intérêts</span><span className="font-medium text-navy">{formatEUR(results.totalInterets)}</span></div>
-          <div className="flex justify-between py-1"><span className="text-muted">Coût total crédit</span><span className="font-semibold text-navy">{formatEUR(results.coutTotalCredit)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("maxEmpruntable", { cible: Number(inputs.dscrCible ?? 0).toFixed(2) })}</span><span className="font-semibold text-navy">{formatEUR(results.maxEmpruntable)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("capitalEmprunte")}</span><span className="font-medium text-navy">{formatEUR(results.montantDette)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("totalInterets")}</span><span className="font-medium text-navy">{formatEUR(results.totalInterets)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("coutTotalCredit")}</span><span className="font-semibold text-navy">{formatEUR(results.coutTotalCredit)}</span></div>
         </div>
       </div>
     </div>
@@ -371,6 +374,7 @@ interface EstimationPayload {
 }
 
 function EstimationView({ payload, title }: { payload: EstimationPayload; title: string | null | undefined }) {
+  const t = useTranslations("partage.views.estimation");
   const { results, inputs } = payload;
   const confBg: Record<string, string> = {
     forte: "from-emerald-600 to-emerald-800",
@@ -380,37 +384,37 @@ function EstimationView({ payload, title }: { payload: EstimationPayload; title:
   return (
     <div className="space-y-6">
       <div className={`rounded-2xl bg-gradient-to-br ${confBg[results.confiance] ?? "from-navy to-navy-light"} p-6 text-white shadow-lg`}>
-        <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">Estimation immobilière</div>
-        <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || "Estimation"}</div>
-        <div className="mt-4 text-sm text-white/80">Estimation centrale</div>
+        <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">{t("badge")}</div>
+        <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || t("fallbackTitle")}</div>
+        <div className="mt-4 text-sm text-white/80">{t("estimationCentrale")}</div>
         <div className="mt-1 text-4xl font-bold">{formatEUR(results.estimationCentrale)}</div>
         <div className="mt-2 text-sm text-white/90">
-          Fourchette : {formatEUR(results.estimationBasse)} – {formatEUR(results.estimationHaute)}
+          {t("fourchette")} : {formatEUR(results.estimationBasse)} – {formatEUR(results.estimationHaute)}
         </div>
         <div className="mt-2 text-xs text-white/80">
-          Prix au m² ajusté : <span className="font-semibold">{formatEUR(results.prixM2Ajuste)}</span>
-          {" · Confiance : "}<span className="font-semibold capitalize">{results.confiance}</span>
+          {t("prixM2Ajuste")} : <span className="font-semibold">{formatEUR(results.prixM2Ajuste)}</span>
+          {" · "}{t("confiance")} : <span className="font-semibold capitalize">{results.confiance}</span>
         </div>
       </div>
 
       <div className="grid gap-4 lg:grid-cols-2">
         <div className="rounded-xl border border-card-border bg-card p-5">
-          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Bien</h3>
+          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("bien")}</h3>
           <dl className="mt-3 divide-y divide-card-border/50 text-sm">
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Commune</dt><dd className="font-medium text-navy">{String(inputs.commune ?? "—")}</dd></div>
-            {inputs.quartier ? <div className="flex justify-between py-1.5"><dt className="text-muted">Quartier</dt><dd className="font-medium text-navy">{String(inputs.quartier)}</dd></div> : null}
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Surface</dt><dd className="font-medium text-navy">{String(inputs.surface ?? "—")} m²</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Chambres</dt><dd className="font-medium text-navy">{String(inputs.nbChambres ?? "—")}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Étage</dt><dd className="font-medium text-navy">{String(inputs.etage ?? "—")}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">État</dt><dd className="font-medium text-navy">{String(inputs.etat ?? "—")}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Classe énergie</dt><dd className="font-medium text-navy">{String(inputs.classeEnergie ?? "—")}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("commune")}</dt><dd className="font-medium text-navy">{String(inputs.commune ?? "—")}</dd></div>
+            {inputs.quartier ? <div className="flex justify-between py-1.5"><dt className="text-muted">{t("quartier")}</dt><dd className="font-medium text-navy">{String(inputs.quartier)}</dd></div> : null}
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("surface")}</dt><dd className="font-medium text-navy">{String(inputs.surface ?? "—")} m²</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("chambres")}</dt><dd className="font-medium text-navy">{String(inputs.nbChambres ?? "—")}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("etage")}</dt><dd className="font-medium text-navy">{String(inputs.etage ?? "—")}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("etat")}</dt><dd className="font-medium text-navy">{String(inputs.etat ?? "—")}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("classeEnergie")}</dt><dd className="font-medium text-navy">{String(inputs.classeEnergie ?? "—")}</dd></div>
           </dl>
         </div>
 
         <div className="rounded-xl border border-card-border bg-card p-5">
-          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Ajustements appliqués</h3>
+          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("ajustements")}</h3>
           {(results.ajustements ?? []).length === 0 ? (
-            <p className="mt-3 text-sm text-muted">Aucun ajustement.</p>
+            <p className="mt-3 text-sm text-muted">{t("aucunAjustement")}</p>
           ) : (
             <ul className="mt-3 divide-y divide-card-border/50 text-sm">
               {results.ajustements.map((a, i) => (
@@ -451,27 +455,28 @@ interface DcfMultiPayload {
 }
 
 function DcfMultiView({ payload, title }: { payload: DcfMultiPayload; title: string | null | undefined }) {
+  const t = useTranslations("partage.views.dcf");
   const { results } = payload;
   return (
     <div className="space-y-6">
       <div className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-950 p-6 text-white shadow-lg">
-        <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">DCF multi-locataires</div>
-        <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || "Analyse DCF"}</div>
+        <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">{t("badge")}</div>
+        <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || t("fallbackTitle")}</div>
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
           <div>
-            <div className="text-xs text-white/70">Valeur DCF</div>
+            <div className="text-xs text-white/70">{t("valeurDCF")}</div>
             <div className="text-lg font-bold">{formatEUR(results.valeurDCF)}</div>
           </div>
           <div>
-            <div className="text-xs text-white/70">TRI / IRR</div>
+            <div className="text-xs text-white/70">{t("tri")}</div>
             <div className="text-lg font-bold">{formatPct(results.irr, 2)}</div>
           </div>
           <div>
-            <div className="text-xs text-white/70">WAULT</div>
-            <div className="text-lg font-bold">{results.wault?.toFixed?.(1)} ans</div>
+            <div className="text-xs text-white/70">{t("wault")}</div>
+            <div className="text-lg font-bold">{results.wault?.toFixed?.(1)} {t("ans")}</div>
           </div>
           <div>
-            <div className="text-xs text-white/70">Occupation</div>
+            <div className="text-xs text-white/70">{t("occupation")}</div>
             <div className="text-lg font-bold">{results.tauxOccupation?.toFixed?.(0)}%</div>
           </div>
         </div>
@@ -479,41 +484,41 @@ function DcfMultiView({ payload, title }: { payload: DcfMultiPayload; title: str
 
       <div className="grid gap-4 lg:grid-cols-2">
         <div className="rounded-xl border border-card-border bg-card p-5">
-          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">État locatif</h3>
+          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("etatLocatif")}</h3>
           <dl className="mt-3 divide-y divide-card-border/50 text-sm">
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Surface totale</dt><dd className="font-medium text-navy">{results.surfaceTotale} m²</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Loyer annuel</dt><dd className="font-medium text-navy">{formatEUR(results.loyerTotalAnnuel)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Loyer moyen /m²</dt><dd className="font-medium text-navy">{formatEUR(results.loyerMoyenM2)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">ERV moyen /m²</dt><dd className="font-medium text-navy">{formatEUR(results.ervMoyenM2)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Potentiel de reversion</dt><dd className="font-medium text-navy">{results.potentielReversion > 0 ? "+" : ""}{results.potentielReversion?.toFixed?.(1)}%</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("surfaceTotale")}</dt><dd className="font-medium text-navy">{results.surfaceTotale} m²</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("loyerAnnuel")}</dt><dd className="font-medium text-navy">{formatEUR(results.loyerTotalAnnuel)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("loyerMoyenM2")}</dt><dd className="font-medium text-navy">{formatEUR(results.loyerMoyenM2)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("ervMoyenM2")}</dt><dd className="font-medium text-navy">{formatEUR(results.ervMoyenM2)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("potentielReversion")}</dt><dd className="font-medium text-navy">{results.potentielReversion > 0 ? "+" : ""}{results.potentielReversion?.toFixed?.(1)}%</dd></div>
           </dl>
         </div>
 
         <div className="rounded-xl border border-card-border bg-card p-5">
-          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Composantes de la valeur</h3>
+          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("composantesValeur")}</h3>
           <dl className="mt-3 divide-y divide-card-border/50 text-sm">
-            <div className="flex justify-between py-1.5"><dt className="text-muted">NOI actualisés</dt><dd className="font-medium text-navy">{formatEUR(results.totalNOIActualise)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">NOI stabilisé</dt><dd className="font-medium text-navy">{formatEUR(results.noiStabilise)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Valeur terminale brute</dt><dd className="font-medium text-navy">{formatEUR(results.valeurTerminaleBrute)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">- Frais de cession</dt><dd className="font-medium text-rose-700">- {formatEUR(results.fraisCession)}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">Valeur terminale actualisée</dt><dd className="font-medium text-navy">{formatEUR(results.valeurTerminaleActualisee)}</dd></div>
-            <div className="flex justify-between py-1.5 font-semibold border-t border-card-border mt-1 pt-2"><dt className="text-navy">Valeur DCF totale</dt><dd className="text-slate-800">{formatEUR(results.valeurDCF)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("noiActualises")}</dt><dd className="font-medium text-navy">{formatEUR(results.totalNOIActualise)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("noiStabilise")}</dt><dd className="font-medium text-navy">{formatEUR(results.noiStabilise)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("valeurTermBrute")}</dt><dd className="font-medium text-navy">{formatEUR(results.valeurTerminaleBrute)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">- {t("fraisCession")}</dt><dd className="font-medium text-rose-700">- {formatEUR(results.fraisCession)}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("valeurTermActu")}</dt><dd className="font-medium text-navy">{formatEUR(results.valeurTerminaleActualisee)}</dd></div>
+            <div className="flex justify-between py-1.5 font-semibold border-t border-card-border mt-1 pt-2"><dt className="text-navy">{t("valeurDCFTotale")}</dt><dd className="text-slate-800">{formatEUR(results.valeurDCF)}</dd></div>
           </dl>
         </div>
       </div>
 
       {(results.leaseDetails?.length ?? 0) > 0 && (
         <div className="rounded-xl border border-card-border bg-card p-5 overflow-x-auto">
-          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider mb-3">Baux</h3>
+          <h3 className="text-sm font-semibold text-navy uppercase tracking-wider mb-3">{t("baux")}</h3>
           <table className="w-full text-xs">
             <thead>
               <tr className="border-b border-card-border text-muted">
-                <th className="px-2 py-2 text-left font-medium">Locataire</th>
-                <th className="px-2 py-2 text-right font-medium">Surface</th>
-                <th className="px-2 py-2 text-right font-medium">Loyer /m²</th>
-                <th className="px-2 py-2 text-right font-medium">ERV /m²</th>
-                <th className="px-2 py-2 text-right font-medium">Écart ERV</th>
-                <th className="px-2 py-2 text-right font-medium">Durée restante</th>
+                <th className="px-2 py-2 text-left font-medium">{t("locataire")}</th>
+                <th className="px-2 py-2 text-right font-medium">{t("surfaceTotale")}</th>
+                <th className="px-2 py-2 text-right font-medium">{t("loyerM2")}</th>
+                <th className="px-2 py-2 text-right font-medium">{t("ervM2")}</th>
+                <th className="px-2 py-2 text-right font-medium">{t("ecartERV")}</th>
+                <th className="px-2 py-2 text-right font-medium">{t("dureeRestante")}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-card-border/50">
@@ -524,7 +529,7 @@ function DcfMultiView({ payload, title }: { payload: DcfMultiPayload; title: str
                   <td className="px-2 py-2 text-right">{formatEUR(d.loyerM2)}</td>
                   <td className="px-2 py-2 text-right">{formatEUR(d.ervM2)}</td>
                   <td className={`px-2 py-2 text-right ${d.ecartERV > 0 ? "text-emerald-700" : d.ecartERV < -5 ? "text-rose-700" : ""}`}>{d.ecartERV > 0 ? "+" : ""}{d.ecartERV?.toFixed?.(1)}%</td>
-                  <td className={`px-2 py-2 text-right ${d.dureeRestante < 2 ? "text-rose-700 font-semibold" : ""}`}>{d.dureeRestante?.toFixed?.(1)} ans</td>
+                  <td className={`px-2 py-2 text-right ${d.dureeRestante < 2 ? "text-rose-700 font-semibold" : ""}`}>{d.dureeRestante?.toFixed?.(1)} {t("ans")}</td>
                 </tr>
               ))}
             </tbody>
@@ -546,49 +551,50 @@ interface ValorisationPayload {
 }
 
 function ValorisationView({ payload, title }: { payload: ValorisationPayload; title: string | null | undefined }) {
+  const t = useTranslations("partage.views.valo");
   const { results, inputs } = payload;
   return (
     <div className="space-y-6">
       <div className="rounded-2xl bg-gradient-to-br from-gold to-amber-700 p-6 text-white shadow-lg">
-        <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">Valorisation TEGOVA</div>
-        <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || "Rapport de valorisation"}</div>
+        <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">{t("badge")}</div>
+        <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || t("fallbackTitle")}</div>
         {results.valeurRetenue ? (
           <>
-            <div className="mt-4 text-sm text-white/80">Valeur retenue</div>
+            <div className="mt-4 text-sm text-white/80">{t("valeurRetenue")}</div>
             <div className="mt-1 text-4xl font-bold">{formatEUR(results.valeurRetenue)}</div>
           </>
         ) : null}
       </div>
 
       <div className="rounded-xl border border-card-border bg-card p-5">
-        <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Paramètres</h3>
+        <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("parametres")}</h3>
         <dl className="mt-3 divide-y divide-card-border/50 text-sm">
-          <div className="flex justify-between py-1.5"><dt className="text-muted">Commune</dt><dd className="font-medium text-navy">{String(inputs.commune ?? "—")}</dd></div>
-          <div className="flex justify-between py-1.5"><dt className="text-muted">Type d&apos;actif</dt><dd className="font-medium text-navy">{String(inputs.assetType ?? "—")}</dd></div>
-          <div className="flex justify-between py-1.5"><dt className="text-muted">Type de valeur (EVS)</dt><dd className="font-medium text-navy">{String(inputs.evsType ?? "—")}</dd></div>
-          <div className="flex justify-between py-1.5"><dt className="text-muted">Surface</dt><dd className="font-medium text-navy">{String(inputs.surface ?? "—")} m²</dd></div>
-          {inputs.prixM2Commune ? <div className="flex justify-between py-1.5"><dt className="text-muted">Prix /m² commune (réf.)</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.prixM2Commune))}</dd></div> : null}
+          <div className="flex justify-between py-1.5"><dt className="text-muted">{t("commune")}</dt><dd className="font-medium text-navy">{String(inputs.commune ?? "—")}</dd></div>
+          <div className="flex justify-between py-1.5"><dt className="text-muted">{t("typeActif")}</dt><dd className="font-medium text-navy">{String(inputs.assetType ?? "—")}</dd></div>
+          <div className="flex justify-between py-1.5"><dt className="text-muted">{t("typeValeurEVS")}</dt><dd className="font-medium text-navy">{String(inputs.evsType ?? "—")}</dd></div>
+          <div className="flex justify-between py-1.5"><dt className="text-muted">{t("surface")}</dt><dd className="font-medium text-navy">{String(inputs.surface ?? "—")} m²</dd></div>
+          {inputs.prixM2Commune ? <div className="flex justify-between py-1.5"><dt className="text-muted">{t("prixM2CommuneRef")}</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.prixM2Commune))}</dd></div> : null}
         </dl>
       </div>
 
       <div className="rounded-xl border border-card-border bg-card p-5">
-        <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Approches de valeur</h3>
+        <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("approches")}</h3>
         <div className="mt-3 grid gap-3 sm:grid-cols-3">
           {results.valeurComparaison ? (
             <div className="rounded-lg border border-card-border bg-background p-4">
-              <div className="text-xs uppercase text-muted">Comparaison</div>
+              <div className="text-xs uppercase text-muted">{t("comparaison")}</div>
               <div className="mt-1 text-lg font-bold text-navy">{formatEUR(results.valeurComparaison)}</div>
             </div>
           ) : null}
           {results.valeurCapitalisation ? (
             <div className="rounded-lg border border-card-border bg-background p-4">
-              <div className="text-xs uppercase text-muted">Capitalisation</div>
+              <div className="text-xs uppercase text-muted">{t("capitalisation")}</div>
               <div className="mt-1 text-lg font-bold text-navy">{formatEUR(results.valeurCapitalisation)}</div>
             </div>
           ) : null}
           {results.valeurDCF ? (
             <div className="rounded-lg border border-card-border bg-background p-4">
-              <div className="text-xs uppercase text-muted">DCF</div>
+              <div className="text-xs uppercase text-muted">{t("dcf")}</div>
               <div className="mt-1 text-lg font-bold text-navy">{formatEUR(results.valeurDCF)}</div>
             </div>
           ) : null}
@@ -599,9 +605,10 @@ function ValorisationView({ payload, title }: { payload: ValorisationPayload; ti
 }
 
 function GenericPayloadView({ payload }: { payload: Record<string, unknown> }) {
+  const t = useTranslations("partage.views.generic");
   return (
     <div className="rounded-xl border border-card-border bg-card p-5">
-      <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">Données partagées</h3>
+      <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("title")}</h3>
       <pre className="mt-3 overflow-x-auto rounded-lg bg-background p-3 text-xs text-navy">
         {JSON.stringify(payload, null, 2)}
       </pre>
