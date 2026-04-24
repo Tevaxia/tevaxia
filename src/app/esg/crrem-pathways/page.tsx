@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import {
   analyzeStranding, simulateRetrofit, DEFAULT_RETROFIT_SCENARIOS,
   ASSET_TYPE_LABELS, LU_ENERGY_SOURCE_LABELS, EPBD_DEADLINES,
@@ -23,7 +24,10 @@ function initialMix(): Partial<Record<LuEnergySource, number>> {
 }
 
 export default function CrremPathwaysPage() {
-  const [name, setName] = useState("Mon bien");
+  const t = useTranslations("esgCrrem");
+  const locale = useLocale();
+  const numLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const [name, setName] = useState(t("nameDefault"));
   const [assetType, setAssetType] = useState<CrremAssetType>("residential_mfh");
   const [floorAreaM2, setFloorAreaM2] = useState(150);
   const [energyMix, setEnergyMix] = useState<Partial<Record<LuEnergySource, number>>>(initialMix());
@@ -64,14 +68,12 @@ export default function CrremPathwaysPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:py-10">
-      <Link href="/esg" className="text-xs text-muted hover:text-navy">← ESG</Link>
+      <Link href="/esg" className="text-xs text-muted hover:text-navy">{t("backHub")}</Link>
       <div className="mt-1 flex items-start justify-between flex-wrap gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-navy sm:text-3xl">CRREM Pathways — Stranding risk analyzer</h1>
+          <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("pageTitle")}</h1>
           <p className="mt-1 text-sm text-muted max-w-3xl">
-            Évaluation du risque d&apos;échouement (stranding) d&apos;un actif immobilier selon la
-            trajectoire CRREM 1,5 °C. Calibration LU (réseau électrique 79 gCO₂/kWh, gaz 201 gCO₂/kWh).
-            Support des 8 classes d&apos;actifs CRREM 2024. Conforme SFDR Art. 8/9 et reporting PAI 2.
+            {t("pageSubtitle")}
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -85,10 +87,10 @@ export default function CrremPathwaysPage() {
         {/* Inputs panel */}
         <aside className="space-y-4">
           <section className="rounded-xl border border-card-border bg-card p-5">
-            <h2 className="text-sm font-semibold text-navy mb-3">Actif immobilier</h2>
+            <h2 className="text-sm font-semibold text-navy mb-3">{t("assetSection")}</h2>
             <div className="space-y-3 text-xs">
               <label className="block">
-                <span className="text-muted">Nom / référence</span>
+                <span className="text-muted">{t("nameLabel")}</span>
                 <input
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -96,7 +98,7 @@ export default function CrremPathwaysPage() {
                 />
               </label>
               <label className="block">
-                <span className="text-muted">Classe d&apos;actif (CRREM)</span>
+                <span className="text-muted">{t("assetTypeLabel")}</span>
                 <select
                   value={assetType}
                   onChange={(e) => setAssetType(e.target.value as CrremAssetType)}
@@ -108,7 +110,7 @@ export default function CrremPathwaysPage() {
                 </select>
               </label>
               <label className="block">
-                <span className="text-muted">Surface utile (m²)</span>
+                <span className="text-muted">{t("floorAreaLabel")}</span>
                 <input
                   type="number"
                   min={10}
@@ -121,8 +123,8 @@ export default function CrremPathwaysPage() {
           </section>
 
           <section className="rounded-xl border border-card-border bg-card p-5">
-            <h2 className="text-sm font-semibold text-navy mb-1">Consommation annuelle</h2>
-            <p className="text-[11px] text-muted mb-3">kWh par source (PCI). Total actuel : <span className="font-mono font-semibold text-navy">{totalKwh.toLocaleString("fr-LU")} kWh</span></p>
+            <h2 className="text-sm font-semibold text-navy mb-1">{t("consumptionTitle")}</h2>
+            <p className="text-[11px] text-muted mb-3">{t("consumptionNote", { total: totalKwh.toLocaleString(numLocale) })}</p>
             <div className="space-y-2 text-xs">
               {ENERGY_SOURCES.map((src) => (
                 <div key={src} className="flex items-center gap-2">
@@ -141,7 +143,7 @@ export default function CrremPathwaysPage() {
           </section>
 
           <section className="rounded-xl border border-card-border bg-card p-5">
-            <h2 className="text-sm font-semibold text-navy mb-3">Scénario rénovation</h2>
+            <h2 className="text-sm font-semibold text-navy mb-3">{t("scenarioTitle")}</h2>
             <div className="space-y-2">
               <button
                 type="button"
@@ -152,7 +154,7 @@ export default function CrremPathwaysPage() {
                     : "border-card-border text-slate hover:border-navy/40"
                 }`}
               >
-                Aucun (baseline do-nothing)
+                {t("noScenario")}
               </button>
               {DEFAULT_RETROFIT_SCENARIOS.map((s, i) => (
                 <button
@@ -177,21 +179,21 @@ export default function CrremPathwaysPage() {
           {/* KPIs */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <Kpi
-              label="Intensité énergie"
+              label={t("kpiEnergy")}
               value={`${Math.round(active.currentEnergyKwhM2)}`}
-              unit="kWh/m²/an"
+              unit={t("energyUnit")}
               tone={active.currentEnergyKwhM2 > baseline.timeline[0].energyKwhM2 ? "rose" : "emerald"}
             />
             <Kpi
-              label="Intensité carbone"
+              label={t("kpiCarbon")}
               value={`${active.currentCarbonKgM2.toFixed(1)}`}
-              unit="kgCO₂e/m²/an"
+              unit={t("carbonUnit")}
               tone={active.currentCarbonKgM2 > baseline.timeline[0].carbonKgM2 ? "rose" : "emerald"}
             />
             <Kpi
-              label="Année stranding"
-              value={active.strandingYear ? String(active.strandingYear) : "✓ aligné"}
-              unit={active.yearsUntilStranding != null && active.yearsUntilStranding >= 0 ? `dans ${active.yearsUntilStranding} ans` : active.strandingYear ? "déjà stranded" : "trajectoire OK"}
+              label={t("kpiStrandingYear")}
+              value={active.strandingYear ? String(active.strandingYear) : t("aligned")}
+              unit={active.yearsUntilStranding != null && active.yearsUntilStranding >= 0 ? t("inYears", { n: active.yearsUntilStranding }) : active.strandingYear ? t("alreadyStranded") : t("trajectoryOk")}
               tone={
                 active.strandingYear == null
                   ? "emerald"
@@ -203,45 +205,43 @@ export default function CrremPathwaysPage() {
               }
             />
             <Kpi
-              label="Net-zero année"
+              label={t("kpiNetZero")}
               value={active.netZeroYear ? String(active.netZeroYear) : "—"}
-              unit="pathway ≤ 2 kgCO₂/m²"
+              unit={t("netZeroUnit")}
               tone="navy"
             />
           </div>
 
           {/* Gap KPIs */}
           <section className="rounded-xl border border-card-border bg-card p-5">
-            <h2 className="text-sm font-semibold text-navy mb-3">Gap à combler vs trajectoire CRREM 1,5 °C</h2>
+            <h2 className="text-sm font-semibold text-navy mb-3">{t("gapTitle")}</h2>
             <div className="grid gap-3 sm:grid-cols-3 text-xs">
-              <GapRow year={2030} energy={active.gapEnergy2030} carbon={active.gapCarbon2030} />
-              <GapRow year={2040} energy={active.gapEnergy2040} carbon={active.gapCarbon2040} />
-              <GapRow year={2050} energy={active.gapEnergy2050} carbon={active.gapCarbon2050} />
+              <GapRow year={2030} energy={active.gapEnergy2030} carbon={active.gapCarbon2030} t={t} />
+              <GapRow year={2040} energy={active.gapEnergy2040} carbon={active.gapCarbon2040} t={t} />
+              <GapRow year={2050} energy={active.gapEnergy2050} carbon={active.gapCarbon2050} t={t} />
             </div>
             {retrofit && baseline.strandingYear && (
               <div className="mt-4 rounded-lg bg-emerald-50 border border-emerald-200 p-3 text-xs text-emerald-900">
-                <strong>Rénovation simulée</strong> : stranding repoussé de{" "}
-                <span className="font-mono">{baseline.strandingYear}</span> à{" "}
-                <span className="font-mono font-bold">{retrofit.strandingYear ?? "aligné 2050"}</span>
-                {retrofit.strandingYear == null && " — trajectoire respectée jusqu'en 2050."}
+                <strong>{t("retrofitStrong")}</strong> : {t("retrofitBody", { from: baseline.strandingYear, to: retrofit.strandingYear ?? t("retrofitAligned2050") })}
+                {retrofit.strandingYear == null && t("retrofitSuffixAligned")}
               </div>
             )}
           </section>
 
           {/* Chart énergie */}
           <section className="rounded-xl border border-card-border bg-card p-5">
-            <h2 className="text-sm font-semibold text-navy mb-3">Trajectoire énergétique (kWh/m²/an)</h2>
+            <h2 className="text-sm font-semibold text-navy mb-3">{t("energyChartTitle")}</h2>
             <div style={{ width: "100%", height: 320 }}>
               <ResponsiveContainer>
                 <ComposedChart data={chartData}>
                   <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
                   <XAxis dataKey="year" tick={{ fontSize: 11 }} />
-                  <YAxis tick={{ fontSize: 11 }} label={{ value: "kWh/m²/an", angle: -90, position: "insideLeft", style: { fontSize: 10 } }} />
+                  <YAxis tick={{ fontSize: 11 }} label={{ value: t("energyUnit"), angle: -90, position: "insideLeft", style: { fontSize: 10 } }} />
                   <Tooltip />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
-                  <Area type="monotone" dataKey="pathway" stroke="#10b981" fill="#10b981" fillOpacity={0.12} name="CRREM 1,5 °C pathway" />
-                  <Line type="monotone" dataKey="asset" stroke="#ef4444" strokeWidth={2} name="Intensité actuelle (baseline)" dot={false} />
-                  {retrofit && <Line type="monotone" dataKey="retrofit" stroke="#1e3a5f" strokeWidth={2} strokeDasharray="5 5" name="Intensité après rénovation" dot={false} />}
+                  <Area type="monotone" dataKey="pathway" stroke="#10b981" fill="#10b981" fillOpacity={0.12} name={t("legendPathway")} />
+                  <Line type="monotone" dataKey="asset" stroke="#ef4444" strokeWidth={2} name={t("legendBaseline")} dot={false} />
+                  {retrofit && <Line type="monotone" dataKey="retrofit" stroke="#1e3a5f" strokeWidth={2} strokeDasharray="5 5" name={t("legendRetrofit")} dot={false} />}
                   {EPBD_DEADLINES.map((d) => (
                     <ReferenceLine key={d.year} x={d.year} stroke="#d4a84a" strokeDasharray="2 2" label={{ value: `EPBD ${d.minClass}`, fill: "#d4a84a", fontSize: 9, position: "top" }} />
                   ))}
@@ -252,18 +252,18 @@ export default function CrremPathwaysPage() {
 
           {/* Chart carbone */}
           <section className="rounded-xl border border-card-border bg-card p-5">
-            <h2 className="text-sm font-semibold text-navy mb-3">Trajectoire carbone (kgCO₂e/m²/an)</h2>
+            <h2 className="text-sm font-semibold text-navy mb-3">{t("carbonChartTitle")}</h2>
             <div style={{ width: "100%", height: 280 }}>
               <ResponsiveContainer>
                 <ComposedChart data={carbonData}>
                   <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
                   <XAxis dataKey="year" tick={{ fontSize: 11 }} />
-                  <YAxis tick={{ fontSize: 11 }} label={{ value: "kgCO₂e/m²/an", angle: -90, position: "insideLeft", style: { fontSize: 10 } }} />
+                  <YAxis tick={{ fontSize: 11 }} label={{ value: t("carbonUnit"), angle: -90, position: "insideLeft", style: { fontSize: 10 } }} />
                   <Tooltip />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
-                  <Area type="monotone" dataKey="pathwayC" stroke="#10b981" fill="#10b981" fillOpacity={0.12} name="CRREM 1,5 °C pathway" />
-                  <Line type="monotone" dataKey="assetC" stroke="#ef4444" strokeWidth={2} name="Carbone actuel" dot={false} />
-                  {retrofit && <Line type="monotone" dataKey="retrofitC" stroke="#1e3a5f" strokeWidth={2} strokeDasharray="5 5" name="Après rénovation" dot={false} />}
+                  <Area type="monotone" dataKey="pathwayC" stroke="#10b981" fill="#10b981" fillOpacity={0.12} name={t("legendPathway")} />
+                  <Line type="monotone" dataKey="assetC" stroke="#ef4444" strokeWidth={2} name={t("legendCarbonBaseline")} dot={false} />
+                  {retrofit && <Line type="monotone" dataKey="retrofitC" stroke="#1e3a5f" strokeWidth={2} strokeDasharray="5 5" name={t("legendCarbonRetrofit")} dot={false} />}
                 </ComposedChart>
               </ResponsiveContainer>
             </div>
@@ -271,10 +271,10 @@ export default function CrremPathwaysPage() {
 
           {/* Compliance context */}
           <section className="rounded-xl border border-card-border bg-card p-5 text-xs text-slate space-y-2">
-            <h2 className="text-sm font-semibold text-navy mb-2">Conformité réglementaire</h2>
+            <h2 className="text-sm font-semibold text-navy mb-2">{t("complianceTitle")}</h2>
             <div className="grid gap-2 sm:grid-cols-2">
               <div className="rounded-md bg-background border border-card-border p-3">
-                <div className="font-semibold text-navy mb-1">EPBD LU — échéances</div>
+                <div className="font-semibold text-navy mb-1">{t("epbdTitle")}</div>
                 <ul className="space-y-0.5 text-[11px]">
                   {EPBD_DEADLINES.map((d) => (
                     <li key={d.year} className="flex justify-between">
@@ -285,19 +285,17 @@ export default function CrremPathwaysPage() {
                 </ul>
               </div>
               <div className="rounded-md bg-background border border-card-border p-3">
-                <div className="font-semibold text-navy mb-1">SFDR / PAI</div>
+                <div className="font-semibold text-navy mb-1">{t("paiTitle")}</div>
                 <ul className="space-y-0.5 text-[11px] text-muted">
-                  <li>PAI 2 : Émissions GES kgCO₂e/m²</li>
-                  <li>PAI 5 : Consommation énergétique kWh/m²</li>
-                  <li>PAI 17 : Exposition fossiles (gaz/fioul %)</li>
-                  <li>Art. 8/9 : reporting trajectoire 1,5 °C</li>
+                  <li>{t("pai2")}</li>
+                  <li>{t("pai5")}</li>
+                  <li>{t("pai17")}</li>
+                  <li>{t("paiArt89")}</li>
                 </ul>
               </div>
             </div>
             <p className="text-[10px] text-muted mt-2">
-              Analyse indicative. Pour un reporting SFDR officiel, consultez votre Risk Officer + auditeur ESG agréé.
-              Les trajectoires CRREM v3.0 (2024) sont les pathways 1,5 °C Paris-aligned pour les moyennes EU. Pour un
-              asset spécifique LU, la trajectoire carbone peut être plus permissive grâce au grid 79 gCO₂/kWh vs EU 244.
+              {t("disclaimer")}
             </p>
           </section>
         </div>
@@ -322,19 +320,23 @@ function Kpi({ label, value, unit, tone }: { label: string; value: string; unit?
   );
 }
 
-function GapRow({ year, energy, carbon }: { year: number; energy: number; carbon: number }) {
+type TFn = (key: string, values?: Record<string, string | number | Date>) => string;
+
+function GapRow({ year, energy, carbon, t }: { year: number; energy: number; carbon: number; t: TFn }) {
   const aligned = energy === 0 && carbon === 0;
+  const energyValue = energy > 0 ? `−${Math.round(energy)} kWh/m²` : t("gapOk");
+  const carbonValue = carbon > 0 ? `−${carbon.toFixed(1)} kgCO₂/m²` : t("gapOk");
   return (
     <div className={`rounded-lg border p-3 ${aligned ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50"}`}>
       <div className="flex items-center justify-between">
         <span className="font-semibold text-slate">{year}</span>
-        {aligned && <span className="text-[10px] font-bold text-emerald-700">✓ aligné</span>}
+        {aligned && <span className="text-[10px] font-bold text-emerald-700">{t("gapAligned")}</span>}
       </div>
       <div className={`mt-1 text-[11px] ${aligned ? "text-emerald-800" : "text-rose-900"}`}>
-        Énergie : <span className="font-mono font-semibold">{energy > 0 ? `−${Math.round(energy)} kWh/m²` : "OK"}</span>
+        {t("gapEnergy", { value: energyValue })}
       </div>
       <div className={`text-[11px] ${aligned ? "text-emerald-800" : "text-rose-900"}`}>
-        Carbone : <span className="font-mono font-semibold">{carbon > 0 ? `−${carbon.toFixed(1)} kgCO₂/m²` : "OK"}</span>
+        {t("gapCarbon", { value: carbonValue })}
       </div>
     </div>
   );
