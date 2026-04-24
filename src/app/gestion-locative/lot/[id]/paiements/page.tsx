@@ -229,13 +229,13 @@ export default function PaymentsPage() {
               const tok = await createTenantToken({ lot_id: id, tenant_name: null, tenant_email: null, expires_in_days: 365 });
               const url = buildTenantPortalUrl(tok.token);
               await navigator.clipboard.writeText(url);
-              alert(`Lien portail locataire copié ✓\n\n${url}\n\nÀ transmettre au locataire par email.`);
+              alert(t("tenantPortalCopied", { url }));
             } catch (err) {
-              alert("Erreur : " + (err instanceof Error ? err.message : "inconnue"));
+              alert(t("errCopyGeneric", { msg: err instanceof Error ? err.message : t("errUnknown") }));
             }
           }}
             className="rounded-lg bg-gradient-to-r from-teal-600 to-cyan-600 px-3 py-2 text-sm font-semibold text-white hover:from-teal-700 hover:to-cyan-700">
-            🔗 Générer lien portail locataire
+            {t("tenantPortalBtn")}
           </button>
         </div>
 
@@ -261,10 +261,10 @@ export default function PaymentsPage() {
 
         {/* Graphique cumul paiements */}
         <div className="mt-6 rounded-xl border border-card-border bg-card p-5">
-          <h3 className="text-base font-semibold text-navy">Cumul mensuel {selectedYear}</h3>
-          <p className="mt-0.5 text-xs text-muted mb-3">Loyers perçus cumulés vs loyers dus cumulés.</p>
+          <h3 className="text-base font-semibold text-navy">{t("cumTitle", { year: selectedYear })}</h3>
+          <p className="mt-0.5 text-xs text-muted mb-3">{t("cumSubtitle")}</p>
           {(() => {
-            const monthLabels = ["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Aoû","Sep","Oct","Nov","Déc"];
+            const monthLabels = [t("month1Short"),t("month2Short"),t("month3Short"),t("month4Short"),t("month5Short"),t("month6Short"),t("month7Short"),t("month8Short"),t("month9Short"),t("month10Short"),t("month11Short"),t("month12Short")];
             const expectedMonthly = lot.loyerMensuelActuel + lot.chargesMensuelles;
             let cumPaid = 0;
             let cumExpected = 0;
@@ -308,9 +308,9 @@ export default function PaymentsPage() {
                   );
                 })}
                 <div className="mt-3 flex items-center gap-4 text-[10px] text-muted">
-                  <span className="flex items-center gap-1.5"><span className="inline-block h-2.5 w-4 rounded bg-navy/20" /> Dû</span>
-                  <span className="flex items-center gap-1.5"><span className="inline-block h-2.5 w-4 rounded bg-emerald-500" /> Perçu (à jour)</span>
-                  <span className="flex items-center gap-1.5"><span className="inline-block h-2.5 w-4 rounded bg-amber-500" /> Perçu (en retard)</span>
+                  <span className="flex items-center gap-1.5"><span className="inline-block h-2.5 w-4 rounded bg-navy/20" /> {t("legendDue")}</span>
+                  <span className="flex items-center gap-1.5"><span className="inline-block h-2.5 w-4 rounded bg-emerald-500" /> {t("legendPaidOnTime")}</span>
+                  <span className="flex items-center gap-1.5"><span className="inline-block h-2.5 w-4 rounded bg-amber-500" /> {t("legendPaidLate")}</span>
                 </div>
               </div>
             );
@@ -391,7 +391,7 @@ export default function PaymentsPage() {
                           )}
                           <button onClick={() => prefillFacturX(p, m)}
                             className="rounded-md bg-amber-50 border border-amber-200 px-2 py-1 text-[11px] font-medium text-amber-900 hover:bg-amber-100"
-                            title="Pré-remplir une Factur-X pour ce mois">
+                            title={t("facturxTitle")}>
                             Factur-X
                           </button>
                           <button onClick={() => { setEditingId(p.id); setEditAmount(p.amount_total); }}
