@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import { generateProcurationPdfBlob } from "@/components/ProcurationPdf";
 
 export default function ProcurationPage() {
+  const t = useTranslations("syndicProc");
   const [coownershipName, setCoownershipName] = useState("");
   const [coownershipAddress, setCoownershipAddress] = useState("");
   const [unitLabel, setUnitLabel] = useState("");
@@ -21,7 +23,7 @@ export default function ProcurationPage() {
 
   const handleGenerate = async () => {
     if (!coownershipName || !ownerName || !mandataireName || !assemblyLocation) {
-      alert("Merci de remplir les champs obligatoires (*).");
+      alert(t("alertMissing"));
       return;
     }
     setGenerating(true);
@@ -53,55 +55,54 @@ export default function ProcurationPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
-      <Link href="/syndic" className="text-xs text-muted hover:text-navy">← Syndic / Copropriété</Link>
-      <h1 className="mt-2 text-2xl font-bold text-navy">Procuration AG — générateur PDF</h1>
+      <Link href="/syndic" className="text-xs text-muted hover:text-navy">{t("backHub")}</Link>
+      <h1 className="mt-2 text-2xl font-bold text-navy">{t("pageTitle")}</h1>
       <p className="mt-1 text-sm text-muted">
-        Générez une procuration pour représentation à une AG de copropriété conforme à la loi du
-        16 mai 1975 (articles 7 et 11). À remettre signée au mandataire désigné.
+        {t("pageSubtitle")}
       </p>
 
       <div className="mt-6 space-y-6">
         <div className="rounded-xl border border-card-border bg-card p-5">
-          <h2 className="text-base font-semibold text-navy mb-3">Mandant (copropriétaire)</h2>
+          <h2 className="text-base font-semibold text-navy mb-3">{t("mandantTitle")}</h2>
           <div className="grid gap-3 sm:grid-cols-2">
-            <InputField label="Nom, prénom *" type="text" value={ownerName} onChange={setOwnerName} />
-            <InputField label="Adresse" type="text" value={ownerAddress} onChange={setOwnerAddress} />
-            <InputField label="Numéro de lot" type="text" value={unitLabel} onChange={setUnitLabel} hint="ex. A-12 (3e étage gauche)" />
-            <InputField label="Tantièmes / millièmes" value={unitTantiemes} onChange={(v) => setUnitTantiemes(Number(v))} min={0} max={10000} />
+            <InputField label={t("inputName")} type="text" value={ownerName} onChange={setOwnerName} />
+            <InputField label={t("inputAddress")} type="text" value={ownerAddress} onChange={setOwnerAddress} />
+            <InputField label={t("inputLot")} type="text" value={unitLabel} onChange={setUnitLabel} hint={t("inputLotHint")} />
+            <InputField label={t("inputTantiemes")} value={unitTantiemes} onChange={(v) => setUnitTantiemes(Number(v))} min={0} max={10000} />
           </div>
         </div>
 
         <div className="rounded-xl border border-card-border bg-card p-5">
-          <h2 className="text-base font-semibold text-navy mb-3">Mandataire (représentant)</h2>
+          <h2 className="text-base font-semibold text-navy mb-3">{t("mandataireTitle")}</h2>
           <div className="grid gap-3 sm:grid-cols-2">
-            <InputField label="Nom, prénom *" type="text" value={mandataireName} onChange={setMandataireName} hint="La personne qui vous représentera à l'AG" />
-            <InputField label="Adresse" type="text" value={mandataireAddress} onChange={setMandataireAddress} />
+            <InputField label={t("inputName")} type="text" value={mandataireName} onChange={setMandataireName} hint={t("inputMandataireNameHint")} />
+            <InputField label={t("inputAddress")} type="text" value={mandataireAddress} onChange={setMandataireAddress} />
           </div>
         </div>
 
         <div className="rounded-xl border border-card-border bg-card p-5">
-          <h2 className="text-base font-semibold text-navy mb-3">Copropriété</h2>
+          <h2 className="text-base font-semibold text-navy mb-3">{t("copropTitle")}</h2>
           <div className="grid gap-3 sm:grid-cols-2">
-            <InputField label="Nom / référence copropriété *" type="text" value={coownershipName} onChange={setCoownershipName} />
-            <InputField label="Adresse" type="text" value={coownershipAddress} onChange={setCoownershipAddress} />
+            <InputField label={t("inputCoprop")} type="text" value={coownershipName} onChange={setCoownershipName} />
+            <InputField label={t("inputAddress")} type="text" value={coownershipAddress} onChange={setCoownershipAddress} />
           </div>
         </div>
 
         <div className="rounded-xl border border-card-border bg-card p-5">
-          <h2 className="text-base font-semibold text-navy mb-3">Assemblée générale</h2>
+          <h2 className="text-base font-semibold text-navy mb-3">{t("agTitle")}</h2>
           <div className="grid gap-3 sm:grid-cols-2">
-            <InputField label="Date AG *" type="text" value={assemblyDate} onChange={setAssemblyDate} hint="YYYY-MM-DD" />
+            <InputField label={t("inputAgDate")} type="text" value={assemblyDate} onChange={setAssemblyDate} hint={t("dateHint")} />
             <InputField
-              label="Type"
+              label={t("inputType")}
               type="select"
               value={assemblyType}
               onChange={(v) => setAssemblyType(v as "ordinaire" | "extraordinaire")}
               options={[
-                { value: "ordinaire", label: "Ordinaire (annuelle)" },
-                { value: "extraordinaire", label: "Extraordinaire" },
+                { value: "ordinaire", label: t("typeOrdinaire") },
+                { value: "extraordinaire", label: t("typeExtra") },
               ]}
             />
-            <InputField label="Lieu *" type="text" value={assemblyLocation} onChange={setAssemblyLocation} hint="ex. Bureau du syndic, 5 rue X, L-2000 Luxembourg" />
+            <InputField label={t("inputPlace")} type="text" value={assemblyLocation} onChange={setAssemblyLocation} hint={t("inputPlaceHint")} />
           </div>
         </div>
 
@@ -110,22 +111,15 @@ export default function ProcurationPage() {
           disabled={generating}
           className="inline-flex items-center gap-2 rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-50"
         >
-          {generating ? "Génération…" : "📄 Télécharger la procuration PDF"}
+          {generating ? t("generating") : t("downloadBtn")}
         </button>
 
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs text-amber-900">
-          <strong>⚠ Avant envoi :</strong> vérifiez avec votre règlement de copropriété le nombre maximum
-          de tantièmes qu&apos;un mandataire peut représenter (souvent 5 %). Le syndic lui-même ne peut
-          généralement pas être mandataire sauf autorisation expresse. La procuration doit être signée et
-          datée avant l&apos;assemblée. La mention manuscrite &quot;bon pour pouvoir&quot; est
-          recommandée.
+          <strong>{t("warningStrong")}</strong> {t("warningBody")}
         </div>
 
         <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-          <strong>Cadre légal LU :</strong> loi modifiée du 16 mai 1975 sur la copropriété,
-          articles 7 (assemblée générale) et 11 (représentation). Le modèle généré ici est indicatif
-          et conforme aux pratiques. Pour des cas particuliers (mandataire syndic, pouvoir in blanco,
-          copropriétaire mineur/protégé), consultez votre syndic ou notaire.
+          <strong>{t("legalStrong")}</strong> {t("legalBody")}
         </div>
       </div>
     </div>
