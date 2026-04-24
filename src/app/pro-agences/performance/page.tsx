@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback, useMemo } from "react";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import { computeCoMandateSplit, type AgencyMandate } from "@/lib/agency-mandates";
@@ -16,7 +17,7 @@ interface AgentStats {
   mandates_signed: number;
   mandates_sold: number;
   mandates_abandoned: number;
-  conversion_rate: number; // sold / signed
+  conversion_rate: number;
   avg_days_to_sign: number;
   avg_days_to_close: number;
   commissions_perceived: number;
@@ -24,6 +25,9 @@ interface AgentStats {
 }
 
 export default function AgentPerformancePage() {
+  const t = useTranslations("proaPerformance");
+  const locale = useLocale();
+  const lp = locale === "fr" ? "" : `/${locale}`;
   const { user, loading: authLoading } = useAuth();
   const [agents, setAgents] = useState<AgentStats[]>([]);
   const [loading, setLoading] = useState(true);
@@ -37,12 +41,10 @@ export default function AgentPerformancePage() {
     }
     setLoading(true);
     try {
-      // Charge tous les mandats visibles par l'user (RLS filtre auto)
       const { data: mandatesData } = await supabase
         .from("agency_mandates").select("*");
       const mandates = (mandatesData ?? []) as AgencyMandate[];
 
-      // Group by user_id
       const byAgent = new Map<string, AgencyMandate[]>();
       for (const m of mandates) {
         const list = byAgent.get(m.user_id) ?? [];
@@ -50,7 +52,6 @@ export default function AgentPerformancePage() {
         byAgent.set(m.user_id, list);
       }
 
-      // Charge noms agents (essaie tables profiles + fallback user_id)
       const userIds = Array.from(byAgent.keys());
       let nameMap = new Map<string, string>();
       if (userIds.length > 0) {
@@ -119,19 +120,18 @@ export default function AgentPerformancePage() {
       ? agents.reduce((s, a) => s + a.conversion_rate, 0) / agents.length : 0,
   }), [agents]);
 
-  if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">Chargement…</div>;
-  if (!user) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href="/connexion" className="text-navy underline">Se connecter</Link></div>;
+  if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
+  if (!user) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href={`${lp}/connexion`} className="text-navy underline">{t("login")}</Link></div>;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
-      <Link href="/pro-agences" className="text-xs text-muted hover:text-navy">← Pro agences</Link>
+      <Link href={`${lp}/pro-agences`} className="text-xs text-muted hover:text-navy">{t("backHub")}</Link>
 
       <div className="mt-3 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-navy">Performance agents</h1>
+          <h1 className="text-2xl font-bold text-navy">{t("pageTitle")}</h1>
           <p className="mt-1 text-sm text-muted">
-            Classement des agents par commissions perçues {year}, avec métriques
-            conversion / cycle de vente / pipeline. Visible par les admins d&apos;organisation.
+            {t("pageSubtitle", { year })}
           </p>
         </div>
         <select value={year} onChange={(e) => setYear(Number(e.target.value))}
@@ -142,19 +142,17 @@ export default function AgentPerformancePage() {
 
       {error && <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-900">{error}</div>}
 
-      {/* Totals */}
       <div className="mt-6 grid gap-3 sm:grid-cols-5">
-        <Kpi label="Agents" value={String(totals.agents)} />
-        <Kpi label="Ventes closées" value={String(totals.totalSold)} />
-        <Kpi label="Taux conversion moyen" value={`${totals.avgConversion.toFixed(1)}%`} />
-        <Kpi label="Commissions perçues" value={formatEUR(totals.totalCommissions)} tone="emerald" />
-        <Kpi label="Pipeline total" value={formatEUR(totals.totalPipeline)} tone="blue" />
+        <Kpi label={t("kpiAgents")} value={String(totals.agents)} />
+        <Kpi label={t("kpiSold")} value={String(totals.totalSold)} />
+        <Kpi label={t("kpiAvgConv")} value={`${totals.avgConversion.toFixed(1)}%`} />
+        <Kpi label={t("kpiCommissions")} value={formatEUR(totals.totalCommissions)} tone="emerald" />
+        <Kpi label={t("kpiPipeline")} value={formatEUR(totals.totalPipeline)} tone="blue" />
       </div>
 
-      {/* Table */}
       {agents.length === 0 ? (
         <div className="mt-6 rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-          Aucun agent avec mandats visibles dans votre périmètre.
+          {t("emptyAgents")}
         </div>
       ) : (
         <section className="mt-6 rounded-xl border border-card-border bg-card p-5 overflow-x-auto">
@@ -162,15 +160,15 @@ export default function AgentPerformancePage() {
             <thead>
               <tr className="border-b border-card-border text-[10px] uppercase tracking-wider text-muted">
                 <th className="px-3 py-2 text-left">#</th>
-                <th className="px-3 py-2 text-left">Agent</th>
-                <th className="px-3 py-2 text-right">Mandats</th>
-                <th className="px-3 py-2 text-right">Signés</th>
-                <th className="px-3 py-2 text-right">Vendus {year}</th>
-                <th className="px-3 py-2 text-right">Conversion</th>
-                <th className="px-3 py-2 text-right">Délai signe</th>
-                <th className="px-3 py-2 text-right">Délai vente</th>
-                <th className="px-3 py-2 text-right">Commission €</th>
-                <th className="px-3 py-2 text-right">Pipeline €</th>
+                <th className="px-3 py-2 text-left">{t("colAgent")}</th>
+                <th className="px-3 py-2 text-right">{t("colMandates")}</th>
+                <th className="px-3 py-2 text-right">{t("colSigned")}</th>
+                <th className="px-3 py-2 text-right">{t("colSoldYear", { year })}</th>
+                <th className="px-3 py-2 text-right">{t("colConversion")}</th>
+                <th className="px-3 py-2 text-right">{t("colDelaySign")}</th>
+                <th className="px-3 py-2 text-right">{t("colDelayClose")}</th>
+                <th className="px-3 py-2 text-right">{t("colCommission")}</th>
+                <th className="px-3 py-2 text-right">{t("colPipeline")}</th>
               </tr>
             </thead>
             <tbody>
@@ -189,13 +187,13 @@ export default function AgentPerformancePage() {
                     {a.mandates_sold}
                   </td>
                   <td className="px-3 py-1.5 text-right font-mono text-xs">
-                    {a.conversion_rate > 0 ? `${a.conversion_rate.toFixed(1)}%` : "—"}
+                    {a.conversion_rate > 0 ? `${a.conversion_rate.toFixed(1)}%` : t("dash")}
                   </td>
                   <td className="px-3 py-1.5 text-right font-mono text-xs text-muted">
-                    {a.avg_days_to_sign > 0 ? `${a.avg_days_to_sign.toFixed(0)}j` : "—"}
+                    {a.avg_days_to_sign > 0 ? `${a.avg_days_to_sign.toFixed(0)}${t("daySuffix")}` : t("dash")}
                   </td>
                   <td className="px-3 py-1.5 text-right font-mono text-xs text-muted">
-                    {a.avg_days_to_close > 0 ? `${a.avg_days_to_close.toFixed(0)}j` : "—"}
+                    {a.avg_days_to_close > 0 ? `${a.avg_days_to_close.toFixed(0)}${t("daySuffix")}` : t("dash")}
                   </td>
                   <td className="px-3 py-1.5 text-right font-mono text-xs font-bold text-emerald-700">
                     {formatEUR(a.commissions_perceived)}
@@ -208,7 +206,7 @@ export default function AgentPerformancePage() {
             </tbody>
             <tfoot>
               <tr className="bg-navy text-white font-bold">
-                <td colSpan={8} className="px-3 py-2 text-right">Totaux</td>
+                <td colSpan={8} className="px-3 py-2 text-right">{t("totals")}</td>
                 <td className="px-3 py-2 text-right font-mono">{formatEUR(totals.totalCommissions)}</td>
                 <td className="px-3 py-2 text-right font-mono">{formatEUR(totals.totalPipeline)}</td>
               </tr>
@@ -218,11 +216,7 @@ export default function AgentPerformancePage() {
       )}
 
       <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-        <strong>Métriques USALI (revenue management adapté immo) :</strong>
-        conversion = ventes closées / mandats signés · cycle vente = délai entre signé et
-        acte authentique. Un cycle &lt; 90 jours est sain en marché LU. Conversion &gt; 70 %
-        indique un bon qualitative de leads. Pipeline × probabilité moyenne = projection
-        commission T+3 mois.
+        <strong>{t("infoTitle")}</strong> {t("infoBody")}
       </div>
     </div>
   );

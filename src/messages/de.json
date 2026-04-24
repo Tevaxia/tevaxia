@@ -14171,5 +14171,32 @@
     "btnDownload": "📄 Objektblatt-PDF herunterladen",
     "usageTitle": "Verwendung:",
     "usageBody": "Senden Sie dieses Blatt per E-Mail an Ihre Kaufinteressenten. Es vereint auf einer A4-Seite Merkmale, die unabhängige tevaxia-Bewertung, das Erwerbsbudget und den Finanzierungsplan. Portables PDF, keine Abhängigkeit von Drittseiten."
+  },
+  "proaPerformance": {
+    "backHub": "← Pro Agenturen",
+    "loading": "Laden…",
+    "login": "Anmelden",
+    "pageTitle": "Maklerleistung",
+    "pageSubtitle": "Makler nach erzielten Provisionen {year}, mit Kennzahlen für Konversion / Verkaufszyklus / Pipeline. Für Organisationsadmins sichtbar.",
+    "kpiAgents": "Makler",
+    "kpiSold": "Abgeschlossene Verkäufe",
+    "kpiAvgConv": "Durchschnittliche Konversionsrate",
+    "kpiCommissions": "Erzielte Provisionen",
+    "kpiPipeline": "Gesamte Pipeline",
+    "emptyAgents": "Kein Makler mit für Sie sichtbaren Mandaten.",
+    "colAgent": "Makler",
+    "colMandates": "Mandate",
+    "colSigned": "Unterzeichnet",
+    "colSoldYear": "Verkauft {year}",
+    "colConversion": "Konversion",
+    "colDelaySign": "Vorlaufzeit Vertrag",
+    "colDelayClose": "Vorlaufzeit Verkauf",
+    "colCommission": "Provision €",
+    "colPipeline": "Pipeline €",
+    "dash": "—",
+    "daySuffix": "T",
+    "totals": "Summen",
+    "infoTitle": "USALI-Kennzahlen (Revenue Management für Immobilien):",
+    "infoBody": "Konversion = abgeschlossene Verkäufe / unterzeichnete Mandate · Verkaufszyklus = Zeit zwischen Vertragsunterzeichnung und notarieller Beurkundung. Ein Zyklus < 90 Tage gilt im LU-Markt als gesund. Konversion > 70% deutet auf hochwertige Leads hin. Pipeline × durchschnittliche Wahrscheinlichkeit = Provisionsprojektion T+3 Monate."
   }
 }

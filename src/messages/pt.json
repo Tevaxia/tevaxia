@@ -14171,5 +14171,32 @@
     "btnDownload": "📄 Descarregar ficha do imóvel PDF",
     "usageTitle": "Utilização:",
     "usageBody": "envie esta ficha aos seus potenciais compradores por email. Numa página A4 reúne características, a avaliação independente tevaxia, o orçamento de aquisição e o plano de financiamento. Versão PDF portátil, sem dependência de site externo."
+  },
+  "proaPerformance": {
+    "backHub": "← Pro agências",
+    "loading": "A carregar…",
+    "login": "Iniciar sessão",
+    "pageTitle": "Desempenho dos agentes",
+    "pageSubtitle": "Classificação dos agentes por comissões recebidas em {year}, com métricas de conversão / ciclo de venda / pipeline. Visível para admins da organização.",
+    "kpiAgents": "Agentes",
+    "kpiSold": "Vendas concluídas",
+    "kpiAvgConv": "Taxa média de conversão",
+    "kpiCommissions": "Comissões recebidas",
+    "kpiPipeline": "Pipeline total",
+    "emptyAgents": "Nenhum agente com mandatos visíveis no seu perímetro.",
+    "colAgent": "Agente",
+    "colMandates": "Mandatos",
+    "colSigned": "Assinados",
+    "colSoldYear": "Vendidos {year}",
+    "colConversion": "Conversão",
+    "colDelaySign": "Prazo assinatura",
+    "colDelayClose": "Prazo venda",
+    "colCommission": "Comissão €",
+    "colPipeline": "Pipeline €",
+    "dash": "—",
+    "daySuffix": "d",
+    "totals": "Totais",
+    "infoTitle": "Métricas USALI (revenue management adaptado a imobiliário):",
+    "infoBody": "conversão = vendas concluídas / mandatos assinados · ciclo venda = tempo entre assinatura e escritura. Um ciclo < 90 dias é saudável no mercado LU. Conversão > 70% indica boa qualidade de leads. Pipeline × probabilidade média = projeção de comissão T+3 meses."
   }
 }

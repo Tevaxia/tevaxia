@@ -14171,5 +14171,32 @@
     "btnDownload": "📄 Bien-Fiche PDF eroflueden",
     "usageTitle": "Notzung:",
     "usageBody": "schéckt dës Fiche per E-Mail un Är potenziell Acquéreurer. Op enger A4-Säit vereent se Caractéristiquen, déi onofhängeg tevaxia-Schätzung, den Acquisitiounsbudget an de Finanzéierungsplang. Portabel PDF, keng Ofhängegkeet vun Drëtt-Sitten."
+  },
+  "proaPerformance": {
+    "backHub": "← Pro Agencen",
+    "loading": "Gelueden…",
+    "login": "Umellen",
+    "pageTitle": "Maklerleeschtung",
+    "pageSubtitle": "Klassement vun de Makler no Provisiounen kritt {year}, mat Konversiouns- / Verkafszyklus- / Pipeline-Metriken. Sichtbar fir Admins vun der Organisatioun.",
+    "kpiAgents": "Makler",
+    "kpiSold": "Ofgeschloss Verkäf",
+    "kpiAvgConv": "Duerchschnëttlech Konversiounsquote",
+    "kpiCommissions": "Kritte Provisiounen",
+    "kpiPipeline": "Total Pipeline",
+    "emptyAgents": "Kee Makler mat sichtbare Mandater an Ärem Perimeter.",
+    "colAgent": "Makler",
+    "colMandates": "Mandater",
+    "colSigned": "Ënnerschriwwen",
+    "colSoldYear": "Verkaf {year}",
+    "colConversion": "Konversioun",
+    "colDelaySign": "Delai Ënnerschrëft",
+    "colDelayClose": "Delai Verkaf",
+    "colCommission": "Provisioun €",
+    "colPipeline": "Pipeline €",
+    "dash": "—",
+    "daySuffix": "D",
+    "totals": "Totaux",
+    "infoTitle": "USALI-Metriken (Revenue Management ugepasst un Immobilien):",
+    "infoBody": "Konversioun = ofgeschloss Verkäf / ënnerschriwwe Mandater · Verkafszyklus = Zäit tëschent Ënnerschrëft an authentescher Akt. E Zyklus < 90 Deeg ass gesond am LU-Maart. Konversioun > 70% weist op gutt Lead-Qualitéit. Pipeline × duerchschnëttlech Wahrscheinlechkeet = Provisiounsprojektioun T+3 Méint."
   }
 }

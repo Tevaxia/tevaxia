@@ -14171,5 +14171,32 @@
     "btnDownload": "📄 Télécharger la fiche bien PDF",
     "usageTitle": "Utilisation :",
     "usageBody": "envoyez cette fiche à vos prospects acquéreurs par email. Elle réunit sur une page A4 les caractéristiques, l'estimation indépendante tevaxia, le budget acquisition et le plan de financement. Version PDF portable, pas de dépendance site tiers."
+  },
+  "proaPerformance": {
+    "backHub": "← Pro agences",
+    "loading": "Chargement…",
+    "login": "Se connecter",
+    "pageTitle": "Performance agents",
+    "pageSubtitle": "Classement des agents par commissions perçues {year}, avec métriques conversion / cycle de vente / pipeline. Visible par les admins d'organisation.",
+    "kpiAgents": "Agents",
+    "kpiSold": "Ventes closées",
+    "kpiAvgConv": "Taux conversion moyen",
+    "kpiCommissions": "Commissions perçues",
+    "kpiPipeline": "Pipeline total",
+    "emptyAgents": "Aucun agent avec mandats visibles dans votre périmètre.",
+    "colAgent": "Agent",
+    "colMandates": "Mandats",
+    "colSigned": "Signés",
+    "colSoldYear": "Vendus {year}",
+    "colConversion": "Conversion",
+    "colDelaySign": "Délai signe",
+    "colDelayClose": "Délai vente",
+    "colCommission": "Commission €",
+    "colPipeline": "Pipeline €",
+    "dash": "—",
+    "daySuffix": "j",
+    "totals": "Totaux",
+    "infoTitle": "Métriques USALI (revenue management adapté immo) :",
+    "infoBody": "conversion = ventes closées / mandats signés · cycle vente = délai entre signé et acte authentique. Un cycle < 90 jours est sain en marché LU. Conversion > 70 % indique un bon qualitative de leads. Pipeline × probabilité moyenne = projection commission T+3 mois."
   }
 }

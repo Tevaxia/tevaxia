@@ -14171,5 +14171,32 @@
     "btnDownload": "📄 Download property sheet PDF",
     "usageTitle": "Usage:",
     "usageBody": "email this sheet to your prospective buyers. On one A4 page it brings together features, the independent tevaxia valuation, the acquisition budget and the financing plan. Portable PDF, no third-party site dependency."
+  },
+  "proaPerformance": {
+    "backHub": "← Pro agencies",
+    "loading": "Loading…",
+    "login": "Sign in",
+    "pageTitle": "Agent performance",
+    "pageSubtitle": "Agents ranked by commissions earned in {year}, with conversion / sales cycle / pipeline metrics. Visible to organisation admins.",
+    "kpiAgents": "Agents",
+    "kpiSold": "Closed sales",
+    "kpiAvgConv": "Average conversion rate",
+    "kpiCommissions": "Commissions earned",
+    "kpiPipeline": "Total pipeline",
+    "emptyAgents": "No agent with mandates visible in your scope.",
+    "colAgent": "Agent",
+    "colMandates": "Mandates",
+    "colSigned": "Signed",
+    "colSoldYear": "Sold {year}",
+    "colConversion": "Conversion",
+    "colDelaySign": "Sign lead time",
+    "colDelayClose": "Close lead time",
+    "colCommission": "Commission €",
+    "colPipeline": "Pipeline €",
+    "dash": "—",
+    "daySuffix": "d",
+    "totals": "Totals",
+    "infoTitle": "USALI metrics (revenue management adapted to real estate):",
+    "infoBody": "conversion = closed sales / signed mandates · sales cycle = time from signing to authentic deed. A cycle < 90 days is healthy in the LU market. Conversion > 70% indicates good lead quality. Pipeline × average probability = T+3 month commission projection."
   }
 }
