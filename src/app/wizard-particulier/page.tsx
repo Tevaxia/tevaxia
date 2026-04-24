@@ -347,15 +347,15 @@ export default function WizardParticulier() {
         {step === 0 && (
           <div className="space-y-5">
             <div className="rounded-xl border border-card-border bg-card p-6">
-              <h2 className="text-base font-semibold text-navy">Où et quoi ?</h2>
-              <p className="mt-1 text-xs text-muted">Recherchez votre commune ou quartier, puis décrivez le bien envisagé.</p>
+              <h2 className="text-base font-semibold text-navy">{t("step1.title")}</h2>
+              <p className="mt-1 text-xs text-muted">{t("step1.subtitle")}</p>
 
               <div className="mt-4 relative">
                 <input
                   type="text"
                   value={communeSearch}
                   onChange={(e) => { setCommuneSearch(e.target.value); if (!e.target.value) setSelectedResult(null); }}
-                  placeholder="Ex. Luxembourg, Belair, Esch-sur-Alzette…"
+                  placeholder={t("step1.searchPlaceholder")}
                   className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-3 text-sm"
                 />
                 {communeSearch.length >= 2 && searchResults.length > 0 && !selectedResult && (
@@ -382,35 +382,35 @@ export default function WizardParticulier() {
 
               {selectedResult && (
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                  <InputField label="Surface habitable" value={surface} onChange={(v) => setSurface(Number(v) || 0)} suffix="m²" min={10} max={500} />
-                  <InputField label="Nombre de chambres" value={nbChambres} onChange={(v) => setNbChambres(Number(v) || 0)} min={0} max={10} />
-                  <InputField label="Étage" type="select" value={etage} onChange={setEtage} options={[
-                    { value: "rdc", label: "Rez-de-chaussée" },
-                    { value: "entre", label: "Étage intermédiaire" },
-                    { value: "dernier", label: "Dernier étage" },
-                    { value: "maison", label: "Maison" },
+                  <InputField label={t("step1.surface")} value={surface} onChange={(v) => setSurface(Number(v) || 0)} suffix="m²" min={10} max={500} />
+                  <InputField label={t("step1.nbChambres")} value={nbChambres} onChange={(v) => setNbChambres(Number(v) || 0)} min={0} max={10} />
+                  <InputField label={t("step1.etage")} type="select" value={etage} onChange={setEtage} options={[
+                    { value: "rdc", label: t("step1.etageRdc") },
+                    { value: "entre", label: t("step1.etageEntre") },
+                    { value: "dernier", label: t("step1.etageDernier") },
+                    { value: "maison", label: t("step1.etageMaison") },
                   ]} />
-                  <InputField label="État" type="select" value={etat} onChange={setEtat} options={[
-                    { value: "neuf", label: "Neuf" },
-                    { value: "renove", label: "Rénové récent" },
-                    { value: "bon", label: "Bon état" },
-                    { value: "rafraichir", label: "À rafraîchir" },
-                    { value: "renover", label: "À rénover" },
+                  <InputField label={t("step1.etat")} type="select" value={etat} onChange={setEtat} options={[
+                    { value: "neuf", label: t("step1.etatNeuf") },
+                    { value: "renove", label: t("step1.etatRenove") },
+                    { value: "bon", label: t("step1.etatBon") },
+                    { value: "rafraichir", label: t("step1.etatRafraichir") },
+                    { value: "renover", label: t("step1.etatRenover") },
                   ]} />
-                  <InputField label="Extérieur" type="select" value={exterieur} onChange={setExterieur} options={[
-                    { value: "aucun", label: "Aucun" },
-                    { value: "balcon", label: "Balcon" },
-                    { value: "terrasse", label: "Terrasse" },
-                    { value: "jardin", label: "Jardin" },
+                  <InputField label={t("step1.exterieur")} type="select" value={exterieur} onChange={setExterieur} options={[
+                    { value: "aucun", label: t("step1.extAucun") },
+                    { value: "balcon", label: t("step1.extBalcon") },
+                    { value: "terrasse", label: t("step1.extTerrasse") },
+                    { value: "jardin", label: t("step1.extJardin") },
                   ]} />
-                  <InputField label="Classe énergie" type="select" value={classeEnergie} onChange={setClasseEnergie} options={["A", "B", "C", "D", "E", "F", "G"].map((c) => ({ value: c, label: c }))} />
+                  <InputField label={t("step1.classeEnergie")} type="select" value={classeEnergie} onChange={setClasseEnergie} options={["A", "B", "C", "D", "E", "F", "G"].map((c) => ({ value: c, label: c }))} />
                   <label className="flex items-center gap-2 text-sm">
                     <input type="checkbox" checked={parking} onChange={(e) => setParking(e.target.checked)} className="h-4 w-4" />
-                    <span>Parking privatif</span>
+                    <span>{t("step1.parking")}</span>
                   </label>
                   <label className="flex items-center gap-2 text-sm">
                     <input type="checkbox" checked={estNeuf} onChange={(e) => setEstNeuf(e.target.checked)} className="h-4 w-4" />
-                    <span>Construction neuve (VEFA / moins de 2 ans)</span>
+                    <span>{t("step1.neuf")}</span>
                   </label>
                 </div>
               )}
@@ -418,14 +418,14 @@ export default function WizardParticulier() {
 
             {estimation && (
               <div className="rounded-2xl bg-gradient-to-br from-navy to-navy-light p-6 text-white shadow-lg">
-                <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">Estimation indicative</div>
+                <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">{t("step1.resultBadge")}</div>
                 <div className="mt-2 text-3xl sm:text-4xl font-bold">{formatEUR(estimation.estimationCentrale)}</div>
                 <div className="mt-1 text-sm text-white/90">
-                  Fourchette : {formatEUR(estimation.estimationBasse)} – {formatEUR(estimation.estimationHaute)}
+                  {t("step1.fourchette")} : {formatEUR(estimation.estimationBasse)} – {formatEUR(estimation.estimationHaute)}
                 </div>
                 <div className="mt-2 text-xs text-white/80">
-                  Prix au m² ajusté : <span className="font-semibold">{formatEUR(estimation.prixM2Ajuste)}</span>
-                  {" · Confiance : "}<span className="font-semibold capitalize">{estimation.confiance}</span>
+                  {t("step1.prixM2Ajuste")} : <span className="font-semibold">{formatEUR(estimation.prixM2Ajuste)}</span>
+                  {" · "}{t("step1.confiance")} : <span className="font-semibold capitalize">{estimation.confiance}</span>
                 </div>
               </div>
             )}
@@ -436,76 +436,77 @@ export default function WizardParticulier() {
         {step === 1 && (
           <div className="space-y-5">
             <div className="rounded-xl border border-card-border bg-card p-6">
-              <h2 className="text-base font-semibold text-navy">Frais d&apos;acquisition</h2>
-              <p className="mt-1 text-xs text-muted">
-                Droits d&apos;enregistrement (7 % ou 3,5 % temporaire), crédit Bëllegen Akt, TVA 3 % si neuf + RP, notaire, hypothèque.
-              </p>
+              <h2 className="text-base font-semibold text-navy">{t("step2.title")}</h2>
+              <p className="mt-1 text-xs text-muted">{t("step2.subtitle")}</p>
 
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <InputField
-                  label="Prix négocié (laisser 0 pour utiliser l'estimation)"
+                  label={t("step2.prixNegocie")}
                   value={prixNegocie}
                   onChange={(v) => setPrixNegocie(Number(v) || 0)}
                   suffix="€"
-                  hint={estimation ? `Estimation centrale : ${formatEUR(estimation.estimationCentrale)}` : undefined}
+                  hint={estimation ? t("step2.estimationCentraleHint", { value: formatEUR(estimation.estimationCentrale) }) : undefined}
                 />
                 <InputField
-                  label="Montant hypothèque envisagé"
+                  label={t("step2.montantHypo")}
                   value={montantHypotheque}
                   onChange={(v) => setMontantHypotheque(Number(v) || 0)}
                   suffix="€"
-                  hint="Pour estimer les frais d'inscription hypothécaire"
+                  hint={t("step2.montantHypoHint")}
                 />
                 <label className="flex items-center gap-2 text-sm">
                   <input type="checkbox" checked={residencePrincipale} onChange={(e) => setResidencePrincipale(e.target.checked)} className="h-4 w-4" />
-                  <span>Résidence principale (→ Bëllegen Akt + TVA 3%)</span>
+                  <span>{t("step2.residencePrincipale")}</span>
                 </label>
                 <InputField
-                  label="Nombre d'acquéreurs (crédit Bëllegen Akt)"
+                  label={t("step2.nbAcquereurs")}
                   type="select"
                   value={String(nbAcquereurs)}
                   onChange={(v) => setNbAcquereurs(Number(v) === 2 ? 2 : 1)}
-                  options={[{ value: "1", label: "Seul" }, { value: "2", label: "Couple" }]}
+                  options={[{ value: "1", label: t("step2.seul") }, { value: "2", label: t("step2.couple") }]}
                 />
               </div>
             </div>
 
             {frais && (
               <div className="rounded-xl border border-card-border bg-card p-6">
-                <div className="text-xs uppercase tracking-wider text-muted font-semibold">Total des frais</div>
+                <div className="text-xs uppercase tracking-wider text-muted font-semibold">{t("step2.totalFrais")}</div>
                 <div className="mt-1 text-3xl font-bold text-navy">{formatEUR(frais.totalFrais)}</div>
                 <div className="mt-1 text-sm text-muted">
-                  Soit <span className="font-semibold">{formatPct(frais.totalPourcentage)}</span> du prix · coût total {formatEUR(frais.coutTotalAcquisition)}
+                  {t("step2.percentDuPrix", {
+                    pct: formatPct(frais.totalPourcentage),
+                    total: formatEUR(frais.coutTotalAcquisition),
+                  })}
                 </div>
 
                 <div className="mt-4 divide-y divide-card-border/50 text-sm">
                   <div className="flex justify-between py-1.5">
-                    <span className="text-muted">Droits d&apos;enregistrement + transcription</span>
+                    <span className="text-muted">{t("step2.droitsEnregistrement")}</span>
                     <span className="font-medium">{formatEUR(frais.droitsTotal)}</span>
                   </div>
                   {frais.creditBellegenAkt > 0 && (
                     <div className="flex justify-between py-1.5">
-                      <span className="text-muted">- Crédit Bëllegen Akt</span>
+                      <span className="text-muted">{t("step2.creditBellegenAkt")}</span>
                       <span className="font-medium text-emerald-700">- {formatEUR(frais.creditBellegenAkt)}</span>
                     </div>
                   )}
                   <div className="flex justify-between py-1.5">
-                    <span className="text-muted">Droits après crédit</span>
+                    <span className="text-muted">{t("step2.droitsApresCredit")}</span>
                     <span className="font-medium">{formatEUR(frais.droitsApresCredit)}</span>
                   </div>
                   {frais.montantTva > 0 && (
                     <div className="flex justify-between py-1.5">
-                      <span className="text-muted">TVA {(frais.tauxTva * 100).toFixed(0)} %{frais.faveurFiscaleTva > 0 ? ` (faveur ${formatEUR(frais.faveurFiscaleTva)})` : ""}</span>
+                      <span className="text-muted">{t("step2.tva", { pct: (frais.tauxTva * 100).toFixed(0) })}{frais.faveurFiscaleTva > 0 ? ` ${t("step2.tvaFaveur", { value: formatEUR(frais.faveurFiscaleTva) })}` : ""}</span>
                       <span className="font-medium">{formatEUR(frais.montantTva)}</span>
                     </div>
                   )}
                   <div className="flex justify-between py-1.5">
-                    <span className="text-muted">Émoluments notaire</span>
+                    <span className="text-muted">{t("step2.emoluments")}</span>
                     <span className="font-medium">{formatEUR(frais.emolumentsNotaire)}</span>
                   </div>
                   {frais.fraisHypotheque > 0 && (
                     <div className="flex justify-between py-1.5">
-                      <span className="text-muted">Frais hypothécaires</span>
+                      <span className="text-muted">{t("step2.fraisHypo")}</span>
                       <span className="font-medium">{formatEUR(frais.fraisHypotheque)}</span>
                     </div>
                   )}
@@ -519,28 +520,26 @@ export default function WizardParticulier() {
         {step === 2 && (
           <div className="space-y-5">
             <div className="rounded-xl border border-card-border bg-card p-6">
-              <h2 className="text-base font-semibold text-navy">Aides de l&apos;État</h2>
-              <p className="mt-1 text-xs text-muted">
-                5 couches : aides étatiques, rénovation énergétique, aides privées, communales, patrimoine.
-              </p>
+              <h2 className="text-base font-semibold text-navy">{t("step3.title")}</h2>
+              <p className="mt-1 text-xs text-muted">{t("step3.subtitle")}</p>
 
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <InputField
-                  label="Revenu annuel brut du ménage"
+                  label={t("step3.revenuMenage")}
                   value={revenuMenage}
                   onChange={(v) => setRevenuMenage(Number(v) || 0)}
                   suffix="€"
-                  hint="Plafond selon composition du ménage"
+                  hint={t("step3.revenuMenageHint")}
                 />
                 <InputField
-                  label="Nombre d'enfants à charge"
+                  label={t("step3.nbEnfants")}
                   value={nbEnfants}
                   onChange={(v) => setNbEnfants(Number(v) || 0)}
                   min={0}
                   max={10}
                 />
                 <InputField
-                  label="Type de bien"
+                  label={t("step3.typeBien")}
                   type="select"
                   value={typeBienAides}
                   onChange={(v) => setTypeBienAides(v as "appartement" | "maison_rangee" | "maison_jumelee" | "maison_isolee")}
@@ -551,14 +550,14 @@ export default function WizardParticulier() {
 
             {aides && (
               <div className="rounded-xl border border-card-border bg-card p-6">
-                <div className="text-xs uppercase tracking-wider text-muted font-semibold">Total aides (cash + économies)</div>
+                <div className="text-xs uppercase tracking-wider text-muted font-semibold">{t("step3.totalAides")}</div>
                 <div className="mt-1 text-3xl font-bold text-emerald-700">{formatEUR(aides.totalGeneral)}</div>
                 <div className="mt-1 text-sm text-muted">
-                  Cash direct : {formatEUR(aides.totalAidesDirectes)} · économies : {formatEUR(aides.totalEconomies)}
+                  {t("step3.cashEco", { cash: formatEUR(aides.totalAidesDirectes), eco: formatEUR(aides.totalEconomies) })}
                 </div>
 
                 {aides.aides.length === 0 ? (
-                  <p className="mt-4 text-sm text-muted">Aucune aide détectée pour ce profil.</p>
+                  <p className="mt-4 text-sm text-muted">{t("step3.aucuneAide")}</p>
                 ) : (
                   <div className="mt-4 space-y-2">
                     {aides.aides.slice(0, 10).map((a, i) => (
@@ -573,7 +572,10 @@ export default function WizardParticulier() {
                       </div>
                     ))}
                     {aides.aides.length > 10 && (
-                      <p className="text-xs text-muted">+ {aides.aides.length - 10} autres aides détaillées dans le <Link href={`${lp}/simulateur-aides`} className="text-navy underline">simulateur complet</Link>.</p>
+                      <p className="text-xs text-muted">
+                        {t("step3.autresAides", { n: aides.aides.length - 10 })}{" "}
+                        <Link href={`${lp}/simulateur-aides`} className="text-navy underline">{t("step3.simulateurComplet")}</Link>.
+                      </p>
                     )}
                   </div>
                 )}
@@ -586,22 +588,20 @@ export default function WizardParticulier() {
         {step === 3 && (
           <div className="space-y-5">
             <div className="rounded-xl border border-card-border bg-card p-6">
-              <h2 className="text-base font-semibold text-navy">Mise en location future ? — Règle des 5 %</h2>
-              <p className="mt-1 text-xs text-muted">
-                Au Luxembourg, le loyer annuel maximum = 5 % du capital investi réévalué (avec décote de vétusté). Ignorez cette étape si vous achetez pour vous loger.
-              </p>
+              <h2 className="text-base font-semibold text-navy">{t("step4.title")}</h2>
+              <p className="mt-1 text-xs text-muted">{t("step4.subtitle")}</p>
 
               <label className="mt-4 flex items-center gap-2 text-sm">
                 <input type="checkbox" checked={envisageLocatif} onChange={(e) => setEnvisageLocatif(e.target.checked)} className="h-4 w-4" />
-                <span>J&apos;envisage de louer ce bien (estimer le plafond légal)</span>
+                <span>{t("step4.envisageLocatif")}</span>
               </label>
 
               {envisageLocatif && (
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                  <InputField label="Année d'acquisition (réelle ou cible)" value={anneeAcquisition} onChange={(v) => setAnneeAcquisition(Number(v) || currentYear)} min={1960} max={currentYear + 5} />
-                  <InputField label="Montant travaux (si applicable)" value={travauxMontant} onChange={(v) => setTravauxMontant(Number(v) || 0)} suffix="€" />
+                  <InputField label={t("step4.anneeAcquisition")} value={anneeAcquisition} onChange={(v) => setAnneeAcquisition(Number(v) || currentYear)} min={1960} max={currentYear + 5} />
+                  <InputField label={t("step4.travauxMontant")} value={travauxMontant} onChange={(v) => setTravauxMontant(Number(v) || 0)} suffix="€" />
                   {travauxMontant > 0 && (
-                    <InputField label="Année des travaux" value={travauxAnnee} onChange={(v) => setTravauxAnnee(Number(v) || currentYear)} min={1960} max={currentYear + 5} />
+                    <InputField label={t("step4.travauxAnnee")} value={travauxAnnee} onChange={(v) => setTravauxAnnee(Number(v) || currentYear)} min={1960} max={currentYear + 5} />
                   )}
                 </div>
               )}
@@ -609,18 +609,18 @@ export default function WizardParticulier() {
 
             {loyer && envisageLocatif && (
               <div className="rounded-xl border border-card-border bg-card p-6">
-                <div className="text-xs uppercase tracking-wider text-muted font-semibold">Loyer mensuel légal maximum</div>
-                <div className="mt-1 text-3xl font-bold text-navy">{formatEUR(loyer.loyerMensuelMax)} <span className="text-sm text-muted">/ mois</span></div>
+                <div className="text-xs uppercase tracking-wider text-muted font-semibold">{t("step4.loyerMaxTitle")}</div>
+                <div className="mt-1 text-3xl font-bold text-navy">{formatEUR(loyer.loyerMensuelMax)} <span className="text-sm text-muted">{t("step4.parMois")}</span></div>
                 <div className="mt-1 text-sm text-muted">
-                  Soit {formatEUR(loyer.loyerM2Mensuel)}/m²/mois · {formatEUR(loyer.loyerAnnuelMax)} /an
+                  {t("step4.detailLoyer", { m2: formatEUR(loyer.loyerM2Mensuel), annuel: formatEUR(loyer.loyerAnnuelMax) })}
                 </div>
                 <div className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
-                  <div className="flex justify-between"><span className="text-muted">Capital investi réévalué</span><span className="font-medium">{formatEUR(loyer.capitalInvesti)}</span></div>
-                  <div className="flex justify-between"><span className="text-muted">Prix réévalué</span><span className="font-medium">{formatEUR(loyer.prixReevalue)}</span></div>
+                  <div className="flex justify-between"><span className="text-muted">{t("step4.capitalInvesti")}</span><span className="font-medium">{formatEUR(loyer.capitalInvesti)}</span></div>
+                  <div className="flex justify-between"><span className="text-muted">{t("step4.prixReevalue")}</span><span className="font-medium">{formatEUR(loyer.prixReevalue)}</span></div>
                   {loyer.travauxReevalues > 0 && (
-                    <div className="flex justify-between"><span className="text-muted">Travaux réévalués</span><span className="font-medium">{formatEUR(loyer.travauxReevalues)}</span></div>
+                    <div className="flex justify-between"><span className="text-muted">{t("step4.travauxReevalues")}</span><span className="font-medium">{formatEUR(loyer.travauxReevalues)}</span></div>
                   )}
-                  <div className="flex justify-between"><span className="text-muted">Décote vétusté</span><span className="font-medium">- {formatEUR(loyer.decoteVetuste)} ({loyer.decoteVetustePct.toFixed(1)} %)</span></div>
+                  <div className="flex justify-between"><span className="text-muted">{t("step4.decoteVetuste")}</span><span className="font-medium">- {formatEUR(loyer.decoteVetuste)} ({loyer.decoteVetustePct.toFixed(1)} %)</span></div>
                 </div>
               </div>
             )}
@@ -631,48 +631,48 @@ export default function WizardParticulier() {
         {step === 4 && (
           <div className="space-y-5">
             <div className="rounded-2xl bg-gradient-to-br from-emerald-600 to-emerald-800 p-6 text-white shadow-lg">
-              <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">Récapitulatif de votre projet</div>
+              <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">{t("step5.badge")}</div>
               <div className="mt-2 text-lg font-semibold">
                 {selectedResult?.quartier?.nom ?? selectedResult?.commune.commune ?? "—"} · {surface} m² · {nbChambres} ch.
               </div>
               <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 <div>
-                  <div className="text-xs text-white/70">Prix retenu</div>
+                  <div className="text-xs text-white/70">{t("step5.prixRetenu")}</div>
                   <div className="text-lg font-bold">{formatEUR(prixRetenu)}</div>
                 </div>
                 <div>
-                  <div className="text-xs text-white/70">+ Frais</div>
+                  <div className="text-xs text-white/70">{t("step5.plusFrais")}</div>
                   <div className="text-lg font-bold">{formatEUR(frais?.totalFrais ?? 0)}</div>
                 </div>
                 <div>
-                  <div className="text-xs text-white/70">- Aides cash</div>
+                  <div className="text-xs text-white/70">{t("step5.moinsAidesCash")}</div>
                   <div className="text-lg font-bold">{formatEUR(aidesCash)}</div>
                 </div>
                 <div>
-                  <div className="text-xs text-white/70">Coût net estimé</div>
+                  <div className="text-xs text-white/70">{t("step5.coutNet")}</div>
                   <div className="text-lg font-bold">{formatEUR(coutNetEstime)}</div>
                 </div>
               </div>
             </div>
 
             <div className="rounded-xl border border-card-border bg-card p-6">
-              <h3 className="text-base font-semibold text-navy">Pour aller plus loin</h3>
+              <h3 className="text-base font-semibold text-navy">{t("step5.pourAllerPlusLoin")}</h3>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
                 <Link href={`${lp}/outils-bancaires`} className="rounded-lg border border-card-border bg-background p-4 hover:bg-slate-50">
-                  <div className="text-sm font-semibold text-navy">Capacité d&apos;emprunt &amp; DSCR</div>
-                  <div className="mt-1 text-xs text-muted">Vérifiez si votre taux d&apos;effort et votre LTV passent les critères bancaires LU.</div>
+                  <div className="text-sm font-semibold text-navy">{t("step5.bancairesTitle")}</div>
+                  <div className="mt-1 text-xs text-muted">{t("step5.bancairesDesc")}</div>
                 </Link>
                 <Link href={`${lp}/simulateur-aides`} className="rounded-lg border border-card-border bg-background p-4 hover:bg-slate-50">
-                  <div className="text-sm font-semibold text-navy">Simulateur d&apos;aides détaillé</div>
-                  <div className="mt-1 text-xs text-muted">Les 5 couches (étatique, énergie, privée, communale, patrimoine) avec conditions et sources légales.</div>
+                  <div className="text-sm font-semibold text-navy">{t("step5.aidesTitle")}</div>
+                  <div className="mt-1 text-xs text-muted">{t("step5.aidesDesc")}</div>
                 </Link>
                 <Link href={`${lp}/plus-values`} className="rounded-lg border border-card-border bg-background p-4 hover:bg-slate-50">
-                  <div className="text-sm font-semibold text-navy">Plus-value à la revente</div>
-                  <div className="mt-1 text-xs text-muted">Simulez l&apos;impôt sur plus-value selon la durée de détention.</div>
+                  <div className="text-sm font-semibold text-navy">{t("step5.plusValuesTitle")}</div>
+                  <div className="mt-1 text-xs text-muted">{t("step5.plusValuesDesc")}</div>
                 </Link>
                 <Link href={`${lp}/carte`} className="rounded-lg border border-card-border bg-background p-4 hover:bg-slate-50">
-                  <div className="text-sm font-semibold text-navy">Carte des prix</div>
-                  <div className="mt-1 text-xs text-muted">Comparez votre commune aux 100 autres couvertes par l&apos;Observatoire de l&apos;Habitat.</div>
+                  <div className="text-sm font-semibold text-navy">{t("step5.carteTitle")}</div>
+                  <div className="mt-1 text-xs text-muted">{t("step5.carteDesc")}</div>
                 </Link>
               </div>
             </div>
@@ -680,28 +680,28 @@ export default function WizardParticulier() {
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => {
-                  const subject = `Mon projet immobilier — ${selectedResult?.commune.commune ?? "Luxembourg"}`;
+                  const subject = t("step5.emailSubject", { commune: selectedResult?.commune.commune ?? "Luxembourg" });
                   const lines = [
-                    `Récapitulatif estimé via tevaxia.lu`,
+                    t("step5.emailHeader"),
                     ``,
-                    `Bien : ${selectedResult?.quartier?.nom ?? selectedResult?.commune.commune ?? "—"}`,
-                    `Surface : ${surface} m² · ${nbChambres} chambres · classe ${classeEnergie}`,
-                    `Type : ${estNeuf ? "Neuf (VEFA)" : "Existant"}`,
+                    `${t("step5.emailLabelBien")} : ${selectedResult?.quartier?.nom ?? selectedResult?.commune.commune ?? "—"}`,
+                    t("step5.emailLabelSurface", { surface, chambres: nbChambres, classe: classeEnergie }),
+                    `${t("step5.emailLabelType")} : ${estNeuf ? t("step5.emailTypeNeuf") : t("step5.emailTypeExistant")}`,
                     ``,
-                    `— Estimation —`,
-                    `Prix estimé : ${formatEUR(estimation?.estimationCentrale ?? 0)}`,
-                    `Fourchette : ${formatEUR(estimation?.estimationBasse ?? 0)} — ${formatEUR(estimation?.estimationHaute ?? 0)}`,
+                    t("step5.emailSectionEstimation"),
+                    t("step5.emailPrixEstime", { value: formatEUR(estimation?.estimationCentrale ?? 0) }),
+                    t("step5.emailFourchette", { bas: formatEUR(estimation?.estimationBasse ?? 0), haut: formatEUR(estimation?.estimationHaute ?? 0) }),
                     ``,
-                    `— Budget —`,
-                    `Prix retenu : ${formatEUR(prixRetenu)}`,
-                    `Frais acquisition : ${formatEUR(frais?.totalFrais ?? 0)}`,
-                    `Aides cash : ${formatEUR(aidesCash)}`,
-                    `Coût net estimé : ${formatEUR(coutNetEstime)}`,
+                    t("step5.emailSectionBudget"),
+                    t("step5.emailPrixRetenu", { value: formatEUR(prixRetenu) }),
+                    t("step5.emailFraisAcq", { value: formatEUR(frais?.totalFrais ?? 0) }),
+                    t("step5.emailAidesCash", { value: formatEUR(aidesCash) }),
+                    t("step5.emailCoutNet", { value: formatEUR(coutNetEstime) }),
                     ``,
-                    envisageLocatif && loyer ? `— Location —` : "",
-                    envisageLocatif && loyer ? `Loyer légal max (règle 5 %) : ${formatEUR(loyer.loyerMensuelMax)} / mois` : "",
+                    envisageLocatif && loyer ? t("step5.emailSectionLocation") : "",
+                    envisageLocatif && loyer ? t("step5.emailLoyerMax", { value: formatEUR(loyer.loyerMensuelMax) }) : "",
                     ``,
-                    `Source : tevaxia.lu (outils gratuits analyse immo LU) — ${window.location.origin}`,
+                    t("step5.emailSource", { url: window.location.origin }),
                   ].filter(Boolean);
                   const body = encodeURIComponent(lines.join("\n"));
                   window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${body}`;
@@ -711,7 +711,7 @@ export default function WizardParticulier() {
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                 </svg>
-                Envoyer ce récap par email
+                {t("step5.btnEmail")}
               </button>
               <button
                 onClick={() => window.print()}
@@ -720,24 +720,24 @@ export default function WizardParticulier() {
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18" />
                 </svg>
-                Imprimer / PDF
+                {t("step5.btnPrint")}
               </button>
               <button
                 onClick={shareConseiller}
                 className={`rounded-lg border px-4 py-2 text-sm font-semibold inline-flex items-center gap-2 ${
                   copiedUrl ? "border-emerald-500 bg-emerald-50 text-emerald-900" : "border-navy bg-white text-navy hover:bg-navy/5"
                 }`}
-                title="Copier une URL pré-remplie (mode agent/conseiller)"
+                title={t("step5.btnShareTitle")}
               >
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
                 </svg>
-                {copiedUrl ? "URL copiée ✓" : "Partager ce scénario (lien)"}
+                {copiedUrl ? t("step5.btnShareCopied") : t("step5.btnShare")}
               </button>
             </div>
 
             <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs text-amber-900">
-              Estimations indicatives basées sur les données publiques Observatoire de l&apos;Habitat / data.public.lu et les barèmes fiscaux luxembourgeois. Pour un avis formel (banque, succession, expertise judiciaire), faites établir un rapport TEGOVA EVS 2025 par un évaluateur certifié.
+              {t("step5.disclaimer")}
             </div>
           </div>
         )}
