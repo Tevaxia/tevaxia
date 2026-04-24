@@ -416,7 +416,9 @@
         "faq4a": "30.000-80.000 EUR para uma moradia, parcialmente coberto pelo Klimabonus.",
         "faq5q": "Como obter o Klimabonus?",
         "faq5a": "Contactar Myenergy, realizar auditoria, pedir premio apos obras."
-      }
+      },
+      "auditTitle": "Auditoria energética rápida",
+      "auditDesc": "Diagnostique a classe CPE da sua habitação em 10 perguntas: isolamento, vidros, aquecimento, ventilação. Resultado instantâneo A a I."
     },
     "impact": {
       "title": "Impacto da classe energética no valor",

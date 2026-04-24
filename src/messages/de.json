@@ -416,7 +416,9 @@
         "faq4a": "Komplettrenovierung: 30.000-80.000 EUR fuer ein Haus, teilweise durch Klimabonus gedeckt.",
         "faq5q": "Wie erhalte ich den Klimabonus?",
         "faq5a": "Myenergy kontaktieren, Energieaudit durchfuehren, nach Abschluss der Arbeiten Antrag beim Umweltministerium stellen."
-      }
+      },
+      "auditTitle": "Schneller Energie-Audit",
+      "auditDesc": "Ermitteln Sie die CPE-Klasse Ihrer Wohnung in 10 Fragen: Dämmung, Verglasung, Heizung, Lüftung. Sofortiges Ergebnis A bis I."
     },
     "impact": {
       "title": "Auswirkung der Energieklasse auf den Wert",

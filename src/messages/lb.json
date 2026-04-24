@@ -416,7 +416,9 @@
         "faq4a": "30.000-80.000 EUR fir en Haus.",
         "faq5q": "Wei kreen ech de Klimabonus?",
         "faq5a": "Myenergy kontakteieren, Audit maachen, Primm no den Aarbechte froen."
-      }
+      },
+      "auditTitle": "Séier Energie-Audit",
+      "auditDesc": "Diagnostizéiert d'CPE-Klass vun Ärer Wunneng an 10 Froen: Isolatioun, Verglasung, Heizung, Lëftung. Direktt Resultat A bis I."
     },
     "impact": {
       "title": "Impakt vun der Energieklass op de Wäert",

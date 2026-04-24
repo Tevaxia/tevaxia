@@ -416,7 +416,9 @@
         "faq4a": "A full renovation costs EUR 30,000-80,000 for a house, partly covered by Klimabonus (up to 50%).",
         "faq5q": "How do I get the Klimabonus?",
         "faq5a": "Contact Myenergy for free advice, conduct an energy audit, then apply after works to the Ministry of the Environment."
-      }
+      },
+      "auditTitle": "Quick energy audit",
+      "auditDesc": "Diagnose your home's EPC class in 10 questions: insulation, glazing, heating, ventilation. Instant A to I result."
     },
     "impact": {
       "title": "Energy class impact on property value",

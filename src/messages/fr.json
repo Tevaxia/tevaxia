@@ -416,7 +416,9 @@
         "faq4a": "Une renovation complete (isolation + chauffage + ventilation) coute 30 000 a 80 000 EUR pour une maison, partiellement couvert par le Klimabonus (jusqu'a 50 % du cout).",
         "faq5q": "Comment beneficier du Klimabonus ?",
         "faq5a": "Contactez Myenergy pour un conseil gratuit, realisez un audit energetique, puis deposez votre demande de prime aupres du Ministere de l'Environnement apres les travaux."
-      }
+      },
+      "auditTitle": "Audit énergétique rapide",
+      "auditDesc": "Diagnostiquez la classe CPE de votre logement en 10 questions : isolation, vitrage, chauffage, ventilation. Résultat instantané A à I."
     },
     "impact": {
       "title": "Impact de la classe énergie sur la valeur",
