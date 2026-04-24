@@ -2,6 +2,7 @@
 
 import { useEffect, useState, use, useCallback } from "react";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { DEFAULT_CONSENT_TEXT, STATUS_LABELS, STATUS_COLORS, DOCUMENT_TYPE_LABELS } from "@/lib/agency-signatures";
 import type { SignatureStatus, SignatureDocumentType } from "@/lib/agency-signatures";
 
@@ -21,6 +22,10 @@ interface PublicRequest {
 
 export default function SignerPage(props: { params: Promise<{ token: string }> }) {
   const { token } = use(props.params);
+  const locale = useLocale();
+  const t = useTranslations("signer");
+  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+
   const [request, setRequest] = useState<PublicRequest | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -35,17 +40,17 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
     try {
       const res = await fetch(`/api/signatures/${token}`);
       if (res.status === 410) {
-        setError("Ce lien de signature a expiré.");
+        setError(t("errExpired"));
       } else if (!res.ok) {
-        setError("Demande introuvable ou lien invalide.");
+        setError(t("errNotFound"));
       } else {
         setRequest(await res.json());
       }
     } catch {
-      setError("Erreur de chargement.");
+      setError(t("errLoad"));
     }
     setLoading(false);
-  }, [token]);
+  }, [token, t]);
 
   useEffect(() => { void reload(); }, [reload]);
 
@@ -65,18 +70,18 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
       });
       if (!res.ok) {
         const err = await res.json();
-        setError(err.error ?? "Erreur signature");
+        setError(err.error ?? t("errSignGeneric"));
       } else {
         setDone("signed");
       }
     } catch {
-      setError("Erreur réseau.");
+      setError(t("errNetwork"));
     }
     setSubmitting(false);
   };
 
   const handleDecline = async () => {
-    if (!declineReason.trim()) { setError("Motif de refus requis."); return; }
+    if (!declineReason.trim()) { setError(t("errDeclineReasonRequired")); return; }
     setSubmitting(true);
     try {
       const res = await fetch(`/api/signatures/${token}`, {
@@ -86,12 +91,12 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
       });
       if (!res.ok) {
         const err = await res.json();
-        setError(err.error ?? "Erreur");
+        setError(err.error ?? t("errGeneric"));
       } else {
         setDone("declined");
       }
     } catch {
-      setError("Erreur réseau.");
+      setError(t("errNetwork"));
     }
     setSubmitting(false);
   };
@@ -99,7 +104,7 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
   if (loading) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">
-        Chargement du document à signer…
+        {t("loading")}
       </div>
     );
   }
@@ -111,10 +116,10 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
           <div className="text-4xl mb-2">⚠️</div>
           <h1 className="text-xl font-bold text-rose-900">{error}</h1>
           <p className="mt-3 text-sm text-rose-700">
-            Contactez l&apos;émetteur du document pour obtenir un nouveau lien.
+            {t("errContactSender")}
           </p>
           <Link href="/" className="mt-4 inline-block text-sm text-navy underline">
-            Retour au site tevaxia.lu
+            {t("backSite")}
           </Link>
         </div>
       </div>
@@ -131,10 +136,10 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
       <div className="flex items-start justify-between gap-3 border-b border-card-border pb-4">
         <div>
           <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">
-            Signature électronique eIDAS
+            {t("eidasKicker")}
           </div>
           <h1 className="mt-1 text-2xl font-bold text-navy">
-            {DOCUMENT_TYPE_LABELS[request.document_type]} à signer
+            {t("docToSign", { type: DOCUMENT_TYPE_LABELS[request.document_type] })}
           </h1>
           <p className="mt-1 text-sm text-muted">
             {request.signer_name} · {request.signer_email}
@@ -145,7 +150,7 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
             {STATUS_LABELS[request.status]}
           </span>
           <div className="mt-2 text-[10px] text-muted">
-            Expire le {new Date(request.expires_at).toLocaleDateString("fr-LU")}
+            {t("expiresOn", { date: new Date(request.expires_at).toLocaleDateString(dateLocale) })}
           </div>
         </div>
       </div>
@@ -154,21 +159,21 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
       {done === "signed" && (
         <div className="mt-6 rounded-xl border-2 border-emerald-300 bg-emerald-50 p-6 text-center">
           <div className="text-4xl mb-2">✓</div>
-          <h2 className="text-xl font-bold text-emerald-900">Document signé électroniquement</h2>
+          <h2 className="text-xl font-bold text-emerald-900">{t("signedTitle")}</h2>
           <p className="mt-2 text-sm text-emerald-800">
-            Votre signature a été enregistrée avec horodatage. L&apos;émetteur du document a été notifié.
+            {t("signedBody")}
           </p>
           <p className="mt-3 text-[11px] text-emerald-700">
-            Signé le {new Date().toLocaleString("fr-LU")}
+            {t("signedOn", { date: new Date().toLocaleString(dateLocale) })}
           </p>
         </div>
       )}
 
       {done === "declined" && (
         <div className="mt-6 rounded-xl border-2 border-rose-300 bg-rose-50 p-6 text-center">
-          <h2 className="text-xl font-bold text-rose-900">Refus enregistré</h2>
+          <h2 className="text-xl font-bold text-rose-900">{t("declinedTitle")}</h2>
           <p className="mt-2 text-sm text-rose-800">
-            Votre refus a été transmis à l&apos;émetteur du document.
+            {t("declinedBody")}
           </p>
         </div>
       )}
@@ -182,19 +187,17 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
           </pre>
         </div>
         <div className="mt-4 rounded-lg bg-background/60 p-3 text-[11px] text-muted">
-          <strong>Hash SHA-256 du document :</strong>
+          <strong>{t("hashLabel")}</strong>
           <div className="mt-1 font-mono text-[10px] break-all">{request.document_hash}</div>
           <div className="mt-2">
-            Toute modification du document invalide ce hash et donc la signature. Cette empreinte
-            cryptographique garantit l&apos;intégrité du texte que vous signez.
+            {t("hashExplain")}
           </div>
         </div>
       </div>
 
       {alreadyProcessed && !done && (
         <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
-          Cette demande a déjà été traitée (statut : {STATUS_LABELS[request.status]}).
-          Aucune action supplémentaire n&apos;est possible.
+          {t("alreadyProcessed", { status: STATUS_LABELS[request.status] })}
         </div>
       )}
 
@@ -219,11 +222,11 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
               <div className="mt-5 flex flex-wrap gap-2">
                 <button onClick={handleSign} disabled={!consentAccepted || submitting}
                   className="rounded-lg bg-emerald-600 px-6 py-3 text-sm font-bold text-white hover:bg-emerald-700 disabled:opacity-40">
-                  {submitting ? "Signature en cours…" : "✍️ Signer électroniquement"}
+                  {submitting ? t("signing") : t("signBtn")}
                 </button>
                 <button onClick={() => setShowDecline(true)}
                   className="rounded-lg border border-rose-200 bg-white px-4 py-3 text-sm font-semibold text-rose-700 hover:bg-rose-50">
-                  Refuser de signer
+                  {t("declineBtn")}
                 </button>
               </div>
             </div>
@@ -232,9 +235,9 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
           {/* Decline form */}
           {showDecline && (
             <div className="mt-6 rounded-xl border border-rose-200 bg-rose-50 p-5">
-              <h3 className="text-sm font-bold text-rose-900 mb-2">Refus de signature</h3>
+              <h3 className="text-sm font-bold text-rose-900 mb-2">{t("declineTitle")}</h3>
               <label className="block">
-                <div className="text-xs text-rose-800 mb-1">Motif du refus (obligatoire)</div>
+                <div className="text-xs text-rose-800 mb-1">{t("declineReasonLabel")}</div>
                 <textarea value={declineReason}
                   onChange={(e) => setDeclineReason(e.target.value)}
                   rows={4}
@@ -243,11 +246,11 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
               <div className="mt-3 flex gap-2">
                 <button onClick={handleDecline} disabled={!declineReason.trim() || submitting}
                   className="rounded-lg bg-rose-600 px-4 py-2 text-sm font-semibold text-white hover:bg-rose-700 disabled:opacity-50">
-                  Confirmer le refus
+                  {t("confirmDeclineBtn")}
                 </button>
                 <button onClick={() => setShowDecline(false)}
                   className="rounded-lg border border-rose-200 bg-white px-4 py-2 text-sm text-rose-700">
-                  Annuler
+                  {t("cancelBtn")}
                 </button>
               </div>
             </div>
@@ -256,17 +259,13 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
       )}
 
       <div className="mt-8 rounded-xl border border-card-border bg-background/40 p-4 text-[11px] text-muted">
-        <div className="font-semibold text-navy mb-1">À propos de la signature électronique</div>
-        Cette signature est conforme au règlement européen eIDAS (UE 910/2014) — niveau
-        &laquo;&nbsp;signature électronique simple&nbsp;&raquo;, valable pour les contrats commerciaux.
-        Elle enregistre votre adresse IP, votre navigateur et l&apos;horodatage comme preuve.
-        Pour les actes notariés ou compromis de vente, une signature qualifiée (LuxTrust) reste
-        obligatoire.
+        <div className="font-semibold text-navy mb-1">{t("aboutTitle")}</div>
+        {t("aboutBody")}
       </div>
 
       <div className="mt-6 text-center text-[10px] text-muted">
-        Plateforme tevaxia.lu — <Link href="/confidentialite" className="underline">Confidentialité</Link> ·{" "}
-        <Link href="/mentions-legales" className="underline">Mentions légales</Link>
+        {t("platformLabel")} · <Link href="/confidentialite" className="underline">{t("linkPrivacy")}</Link> ·{" "}
+        <Link href="/mentions-legales" className="underline">{t("linkLegal")}</Link>
       </div>
     </div>
   );
