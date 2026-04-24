@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback, useMemo } from "react";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { listMyMandates, computeCoMandateSplit, type AgencyMandate } from "@/lib/agency-mandates";
 import { formatEUR } from "@/lib/calculations";
@@ -11,6 +12,10 @@ import {
 } from "recharts";
 
 export default function CommissionsPage() {
+  const t = useTranslations("proaCommissions");
+  const locale = useLocale();
+  const lp = locale === "fr" ? "" : `/${locale}`;
+  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const { user, loading: authLoading } = useAuth();
   const [mandates, setMandates] = useState<AgencyMandate[]>([]);
   const [loading, setLoading] = useState(true);
@@ -35,19 +40,16 @@ export default function CommissionsPage() {
       ["mandat_signe", "diffuse", "en_visite", "offre_recue", "sous_compromis"].includes(m.status),
     );
 
-    // Commissions perçues ce year
     const totalPerceived = soldThisYear.reduce((s, m) => {
       const split = computeCoMandateSplit(m);
       return s + (Number(m.commission_amount_percue) || split.primary);
     }, 0);
 
-    // Pipeline total (estimé)
     const totalPipeline = activePipeline.reduce((s, m) => {
       const split = computeCoMandateSplit(m);
       return s + split.primary;
     }, 0);
 
-    // Par mois
     const byMonth: Record<number, { nb: number; amount: number; avg: number }> = {};
     for (let i = 0; i < 12; i++) byMonth[i] = { nb: 0, amount: 0, avg: 0 };
     for (const m of soldThisYear) {
@@ -73,14 +75,14 @@ export default function CommissionsPage() {
   }, [mandates, year]);
 
   const MONTHS = [
-    "Jan", "Fév", "Mar", "Avr", "Mai", "Juin",
-    "Juil", "Août", "Sept", "Oct", "Nov", "Déc",
+    t("monthJan"), t("monthFeb"), t("monthMar"), t("monthApr"), t("monthMay"), t("monthJun"),
+    t("monthJul"), t("monthAug"), t("monthSep"), t("monthOct"), t("monthNov"), t("monthDec"),
   ];
 
   if (authLoading || loading) {
-    return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">Chargement…</div>;
+    return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
   }
-  if (!user) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href="/connexion" className="text-navy underline">Se connecter</Link></div>;
+  if (!user) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href={`${lp}/connexion`} className="text-navy underline">{t("login")}</Link></div>;
 
   const chartData = MONTHS.map((label, i) => ({
     month: label,
@@ -90,14 +92,13 @@ export default function CommissionsPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
-      <Link href="/pro-agences" className="text-xs text-muted hover:text-navy">← Pro agences</Link>
+      <Link href={`${lp}/pro-agences`} className="text-xs text-muted hover:text-navy">{t("backHub")}</Link>
 
       <div className="mt-3 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-navy">Commissions — {year}</h1>
+          <h1 className="text-2xl font-bold text-navy">{t("pageTitle", { year })}</h1>
           <p className="mt-1 text-sm text-muted">
-            Récapitulatif annuel des commissions perçues + pipeline. Utile pour
-            déclaration fiscale personnelle (ISR LU catégorie professions indépendantes).
+            {t("pageSubtitle")}
           </p>
         </div>
         <select value={year} onChange={(e) => setYear(Number(e.target.value))}
@@ -110,19 +111,17 @@ export default function CommissionsPage() {
 
       {error && <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-900">{error}</div>}
 
-      {/* KPIs */}
       <div className="mt-6 grid gap-3 sm:grid-cols-4">
-        <Kpi label="Ventes closées" value={String(stats.soldThisYear.length)} sub={`sur ${stats.sold.length} total`} />
-        <Kpi label="Commissions perçues" value={formatEUR(stats.totalPerceived)} tone="emerald" />
-        <Kpi label="Commission moyenne" value={formatEUR(stats.avgCommission)} sub="par vente" />
-        <Kpi label="Pipeline estimé" value={formatEUR(stats.totalPipeline)}
-          sub={`${stats.activePipeline.length} mandats actifs`} tone="blue" />
+        <Kpi label={t("kpiSold")} value={String(stats.soldThisYear.length)} sub={t("kpiSoldSub", { n: stats.sold.length })} />
+        <Kpi label={t("kpiPerceived")} value={formatEUR(stats.totalPerceived)} tone="emerald" />
+        <Kpi label={t("kpiAvg")} value={formatEUR(stats.avgCommission)} sub={t("kpiAvgSub")} />
+        <Kpi label={t("kpiPipeline")} value={formatEUR(stats.totalPipeline)}
+          sub={t("kpiPipelineSub", { n: stats.activePipeline.length })} tone="blue" />
       </div>
 
-      {/* Chart */}
       <section className="mt-6 rounded-xl border border-card-border bg-card p-5">
         <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">
-          Commissions par mois
+          {t("chartTitle")}
         </h2>
         <ResponsiveContainer width="100%" height={240}>
           <BarChart data={chartData}>
@@ -132,30 +131,29 @@ export default function CommissionsPage() {
             <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 10 }} />
             <Tooltip formatter={(v, name) => name === "commissions" ? formatEUR(Number(v)) : v} />
             <Legend wrapperStyle={{ fontSize: 10 }} />
-            <Bar yAxisId="left" dataKey="commissions" fill="#0B2447" name="Commissions €" />
-            <Bar yAxisId="right" dataKey="nb" fill="#10B981" name="Nb ventes" />
+            <Bar yAxisId="left" dataKey="commissions" fill="#0B2447" name={t("chartLegendCom")} />
+            <Bar yAxisId="right" dataKey="nb" fill="#10B981" name={t("chartLegendNb")} />
           </BarChart>
         </ResponsiveContainer>
       </section>
 
-      {/* Table ventes */}
       {stats.soldThisYear.length > 0 && (
         <section className="mt-6 rounded-xl border border-card-border bg-card p-5">
           <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">
-            Détail ventes closées {year}
+            {t("detailTitle", { year })}
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-card-border text-[10px] uppercase tracking-wider text-muted">
-                  <th className="px-3 py-2 text-left">Vendu le</th>
-                  <th className="px-3 py-2 text-left">Bien</th>
-                  <th className="px-3 py-2 text-left">Client</th>
-                  <th className="px-3 py-2 text-right">Prix vendu</th>
-                  <th className="px-3 py-2 text-right">Taux %</th>
-                  <th className="px-3 py-2 text-right">Commission</th>
-                  <th className="px-3 py-2 text-center">Co-mandat</th>
-                  <th className="px-3 py-2 text-right">Délai</th>
+                  <th className="px-3 py-2 text-left">{t("colSoldAt")}</th>
+                  <th className="px-3 py-2 text-left">{t("colProperty")}</th>
+                  <th className="px-3 py-2 text-left">{t("colClient")}</th>
+                  <th className="px-3 py-2 text-right">{t("colSoldPrice")}</th>
+                  <th className="px-3 py-2 text-right">{t("colRate")}</th>
+                  <th className="px-3 py-2 text-right">{t("colCommission")}</th>
+                  <th className="px-3 py-2 text-center">{t("colCoMandate")}</th>
+                  <th className="px-3 py-2 text-right">{t("colDelay")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -167,32 +165,32 @@ export default function CommissionsPage() {
                     return (
                       <tr key={m.id} className="border-b border-card-border/40">
                         <td className="px-3 py-1.5 text-xs">
-                          {m.sold_at ? new Date(m.sold_at).toLocaleDateString("fr-LU") : "—"}
+                          {m.sold_at ? new Date(m.sold_at).toLocaleDateString(dateLocale) : t("dash")}
                         </td>
                         <td className="px-3 py-1.5">
-                          <Link href={`/pro-agences/mandats/${m.id}`}
+                          <Link href={`${lp}/pro-agences/mandats/${m.id}`}
                             className="font-medium text-navy hover:underline">
                             {m.property_address}
                           </Link>
-                          <div className="text-[10px] text-muted">{m.property_commune ?? "—"}</div>
+                          <div className="text-[10px] text-muted">{m.property_commune ?? t("dash")}</div>
                         </td>
-                        <td className="px-3 py-1.5 text-xs">{m.client_name ?? "—"}</td>
+                        <td className="px-3 py-1.5 text-xs">{m.client_name ?? t("dash")}</td>
                         <td className="px-3 py-1.5 text-right font-mono text-xs">
-                          {m.sold_price ? formatEUR(Number(m.sold_price)) : "—"}
+                          {m.sold_price ? formatEUR(Number(m.sold_price)) : t("dash")}
                         </td>
-                        <td className="px-3 py-1.5 text-right text-xs">{m.commission_pct ?? "—"}%</td>
+                        <td className="px-3 py-1.5 text-right text-xs">{m.commission_pct ?? t("dash")}%</td>
                         <td className="px-3 py-1.5 text-right font-mono text-xs font-semibold text-emerald-700">
                           {formatEUR(amount)}
                         </td>
                         <td className="px-3 py-1.5 text-center">
                           {m.is_co_mandate ? (
                             <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] text-amber-900">
-                              ✓ ({m.co_agency_name ?? "—"})
+                              ✓ ({m.co_agency_name ?? t("dash")})
                             </span>
-                          ) : "—"}
+                          ) : t("dash")}
                         </td>
                         <td className="px-3 py-1.5 text-right text-xs text-muted">
-                          {m.days_to_close ?? "—"}j
+                          {m.days_to_close ?? t("dash")}{t("daySuffix")}
                         </td>
                       </tr>
                     );
@@ -200,7 +198,7 @@ export default function CommissionsPage() {
               </tbody>
               <tfoot>
                 <tr className="bg-background font-bold">
-                  <td colSpan={5} className="px-3 py-2 text-right">Total {year}</td>
+                  <td colSpan={5} className="px-3 py-2 text-right">{t("totalYear", { year })}</td>
                   <td className="px-3 py-2 text-right font-mono text-emerald-700">{formatEUR(stats.totalPerceived)}</td>
                   <td colSpan={2}></td>
                 </tr>
@@ -210,22 +208,21 @@ export default function CommissionsPage() {
         </section>
       )}
 
-      {/* Pipeline actif */}
       {stats.activePipeline.length > 0 && (
         <section className="mt-6 rounded-xl border border-card-border bg-card p-5">
           <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">
-            Pipeline actif ({stats.activePipeline.length} mandats)
+            {t("pipelineTitle", { n: stats.activePipeline.length })}
           </h2>
           <div className="text-xs text-muted mb-3">
-            Commission estimée si tous les mandats actifs concluaient au prix demandé : <strong>{formatEUR(stats.totalPipeline)}</strong>.
+            {t("pipelineHint")} <strong>{formatEUR(stats.totalPipeline)}</strong>.
           </div>
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-card-border text-[10px] uppercase tracking-wider text-muted">
-                <th className="px-3 py-2 text-left">Bien</th>
-                <th className="px-3 py-2 text-left">Statut</th>
-                <th className="px-3 py-2 text-right">Prix demandé</th>
-                <th className="px-3 py-2 text-right">Commission est.</th>
+                <th className="px-3 py-2 text-left">{t("colProperty")}</th>
+                <th className="px-3 py-2 text-left">{t("colStatus")}</th>
+                <th className="px-3 py-2 text-right">{t("colAskPrice")}</th>
+                <th className="px-3 py-2 text-right">{t("colEstCom")}</th>
               </tr>
             </thead>
             <tbody>
@@ -234,14 +231,14 @@ export default function CommissionsPage() {
                 return (
                   <tr key={m.id} className="border-b border-card-border/40">
                     <td className="px-3 py-1.5">
-                      <Link href={`/pro-agences/mandats/${m.id}`}
+                      <Link href={`${lp}/pro-agences/mandats/${m.id}`}
                         className="font-medium text-navy hover:underline">
                         {m.property_address}
                       </Link>
                     </td>
                     <td className="px-3 py-1.5 text-xs text-muted">{m.status}</td>
                     <td className="px-3 py-1.5 text-right font-mono text-xs">
-                      {m.prix_demande ? formatEUR(Number(m.prix_demande)) : "—"}
+                      {m.prix_demande ? formatEUR(Number(m.prix_demande)) : t("dash")}
                     </td>
                     <td className="px-3 py-1.5 text-right font-mono text-xs text-blue-700">
                       {formatEUR(split.primary)}
@@ -251,7 +248,7 @@ export default function CommissionsPage() {
               })}
               {stats.activePipeline.length > 20 && (
                 <tr><td colSpan={4} className="px-3 py-2 text-center text-[10px] text-muted">
-                  …{stats.activePipeline.length - 20} mandats supplémentaires
+                  {t("moreMandates", { n: stats.activePipeline.length - 20 })}
                 </td></tr>
               )}
             </tbody>
@@ -260,10 +257,7 @@ export default function CommissionsPage() {
       )}
 
       <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-        <strong>Fiscalité LU :</strong> les commissions d&apos;agent immobilier sont imposables
-        dans la catégorie des revenus de profession libérale (art. 91 LIR), déductibles
-        du chiffre d&apos;affaires des charges professionnelles. Les co-mandats sont partagés
-        à la signature de l&apos;acte notarié — ce tableau ventile automatiquement votre part.
+        <strong>{t("fiscalityTitle")}</strong> {t("fiscalityBody")}
       </div>
     </div>
   );
