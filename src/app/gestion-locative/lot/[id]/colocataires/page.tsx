@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { getLot, type RentalLot } from "@/lib/gestion-locative";
 import {
@@ -27,17 +27,24 @@ const STATUS_COLOR: Record<CotenantStatus, string> = {
 
 export default function CotenantsPage() {
   const locale = useLocale();
+  const t = useTranslations("glColoc");
+  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const lp = locale === "fr" ? "" : `/${locale}`;
   const params = useParams();
   const id = String(params?.id ?? "");
   const { user, loading: authLoading } = useAuth();
+
+  const STATUS_LABELS: Record<CotenantStatus, string> = {
+    active: t("statusActive"),
+    pending: t("statusPending"),
+    left: t("statusLeft"),
+  };
 
   const [lot, setLot] = useState<RentalLot | null>(null);
   const [cotenants, setCotenants] = useState<Cotenant[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // New cotenant form
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -61,11 +68,11 @@ export default function CotenantsPage() {
         setCotenants(list);
       }
     } catch (e) {
-      setError(errMsg(e, "Erreur"));
+      setError(errMsg(e, t("errGeneric")));
     } finally {
       setLoading(false);
     }
-  }, [id, user]);
+  }, [id, user, t]);
 
   useEffect(() => {
     if (id && user) void refresh();
@@ -73,7 +80,7 @@ export default function CotenantsPage() {
 
   const handleCreate = async () => {
     if (!form.name.trim()) {
-      setError("Nom requis.");
+      setError(t("errNameRequired"));
       return;
     }
     try {
@@ -93,7 +100,7 @@ export default function CotenantsPage() {
       setError(null);
       await refresh();
     } catch (e) {
-      setError(errMsg(e, "Erreur création."));
+      setError(errMsg(e, t("errCreate")));
     }
   };
 
@@ -103,7 +110,7 @@ export default function CotenantsPage() {
   };
 
   const handleDelete = async (cotId: string) => {
-    if (!confirm("Supprimer ce colocataire ?")) return;
+    if (!confirm(t("confirmDelete"))) return;
     await deleteCotenant(cotId);
     await refresh();
   };
@@ -123,22 +130,22 @@ export default function CotenantsPage() {
     return (
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-6 text-amber-900">
-          Supabase non configuré — la gestion colocation nécessite Supabase (migration 030).
+          {t("supabaseRequired")}
         </div>
       </div>
     );
   }
 
-  if (authLoading) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">Chargement…</div>;
+  if (authLoading) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
   if (!user) return (
     <div className="mx-auto max-w-4xl px-4 py-12 text-center">
-      <Link href={`${lp}/connexion`} className="text-navy underline">Se connecter</Link> pour gérer les colocataires.
+      <Link href={`${lp}/connexion`} className="text-navy underline">{t("signIn")}</Link> {t("signInPrompt")}
     </div>
   );
-  if (loading) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">Chargement…</div>;
+  if (loading) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
   if (!lot) return (
     <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">
-      Lot introuvable. <Link href={`${lp}/gestion-locative/portefeuille`} className="text-navy underline">Retour</Link>
+      {t("lotNotFound")} <Link href={`${lp}/gestion-locative/portefeuille`} className="text-navy underline">{t("backLink")}</Link>
     </div>
   );
 
@@ -152,34 +159,33 @@ export default function CotenantsPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
       <Link href={`${lp}/gestion-locative/lot/${id}`} className="text-xs text-muted hover:text-navy">
-        ← {lot.name}
+        {t("backLot", { lotName: lot.name })}
       </Link>
-      <h1 className="mt-2 text-2xl font-bold text-navy">Colocataires — {lot.name}</h1>
+      <h1 className="mt-2 text-2xl font-bold text-navy">{t("pageTitle", { lotName: lot.name })}</h1>
       <p className="mt-1 text-sm text-muted">
-        Gestion colocation : un bail unique, N colocataires avec quote-part de loyer et caution.
-        Loyer total : <span className="font-mono font-semibold">{formatEUR(loyerTotal)}</span>/mois.
+        {t("pageSubtitle", { rent: formatEUR(loyerTotal) })}
       </p>
 
       {error && <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-800">{error}</div>}
 
       <div className="mt-6 grid grid-cols-3 gap-3">
         <div className="rounded-xl border border-card-border bg-card p-4 text-center">
-          <div className="text-xs text-muted">Colocataires actifs</div>
+          <div className="text-xs text-muted">{t("kpiActive")}</div>
           <div className="mt-1 text-2xl font-bold text-navy">
             {cotenants.filter((c) => c.status === "active").length}
           </div>
         </div>
         <div className={`rounded-xl border p-4 text-center ${shareValid ? "border-emerald-200 bg-emerald-50" : "border-amber-200 bg-amber-50"}`}>
-          <div className="text-xs text-muted">Total quotes-parts</div>
+          <div className="text-xs text-muted">{t("kpiTotalShare")}</div>
           <div className={`mt-1 text-2xl font-bold ${shareValid ? "text-emerald-900" : "text-amber-900"}`}>
             {totalShare.toFixed(1)} %
           </div>
-          {!shareValid && <div className="text-[10px] text-amber-700">Doit totaliser 100 %</div>}
+          {!shareValid && <div className="text-[10px] text-amber-700">{t("kpiShareWarn")}</div>}
         </div>
         <div className="rounded-xl border border-card-border bg-card p-4 text-center">
-          <div className="text-xs text-muted">Caution totale</div>
+          <div className="text-xs text-muted">{t("kpiDeposit")}</div>
           <div className="mt-1 text-2xl font-bold text-navy">{formatEUR(totalDeposit)}</div>
-          <div className="text-[10px] text-muted">plafond légal LU : 2 × loyer</div>
+          <div className="text-[10px] text-muted">{t("kpiDepositHint")}</div>
         </div>
       </div>
 
@@ -188,14 +194,14 @@ export default function CotenantsPage() {
           onClick={() => setShowForm(!showForm)}
           className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light"
         >
-          {showForm ? "Annuler" : "+ Ajouter un colocataire"}
+          {showForm ? t("btnCancel") : t("btnAddCoc")}
         </button>
         {cotenants.length > 0 && !shareValid && (
           <button
             onClick={handleAutoBalance}
             className="rounded-lg border border-navy bg-white px-3 py-2 text-xs font-semibold text-navy hover:bg-navy/5"
           >
-            Équilibrer automatiquement
+            {t("btnAutoBalance")}
           </button>
         )}
       </div>
@@ -204,7 +210,7 @@ export default function CotenantsPage() {
         <div className="mt-4 rounded-xl border border-navy/20 bg-navy/5 p-5 space-y-3">
           <div className="grid gap-3 sm:grid-cols-2">
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Nom *</div>
+              <div className="mb-1 font-semibold text-slate">{t("formName")}</div>
               <input
                 type="text"
                 value={form.name}
@@ -213,7 +219,7 @@ export default function CotenantsPage() {
               />
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Email</div>
+              <div className="mb-1 font-semibold text-slate">{t("formEmail")}</div>
               <input
                 type="email"
                 value={form.email}
@@ -222,7 +228,7 @@ export default function CotenantsPage() {
               />
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Téléphone</div>
+              <div className="mb-1 font-semibold text-slate">{t("formPhone")}</div>
               <input
                 type="tel"
                 value={form.phone}
@@ -231,7 +237,7 @@ export default function CotenantsPage() {
               />
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Quote-part (%)</div>
+              <div className="mb-1 font-semibold text-slate">{t("formShare")}</div>
               <input
                 type="number"
                 value={form.share_pct}
@@ -243,7 +249,7 @@ export default function CotenantsPage() {
               />
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Caution (€)</div>
+              <div className="mb-1 font-semibold text-slate">{t("formDeposit")}</div>
               <input
                 type="number"
                 value={form.deposit_amount}
@@ -254,7 +260,7 @@ export default function CotenantsPage() {
               />
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Début bail</div>
+              <div className="mb-1 font-semibold text-slate">{t("formLeaseStart")}</div>
               <input
                 type="date"
                 value={form.bail_start}
@@ -263,7 +269,7 @@ export default function CotenantsPage() {
               />
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Fin bail</div>
+              <div className="mb-1 font-semibold text-slate">{t("formLeaseEnd")}</div>
               <input
                 type="date"
                 value={form.bail_end}
@@ -272,15 +278,15 @@ export default function CotenantsPage() {
               />
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Statut</div>
+              <div className="mb-1 font-semibold text-slate">{t("formStatus")}</div>
               <select
                 value={form.status}
                 onChange={(e) => setForm((f) => ({ ...f, status: e.target.value as CotenantStatus }))}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
               >
-                <option value="active">Actif</option>
-                <option value="pending">En attente</option>
-                <option value="left">Parti</option>
+                <option value="active">{t("statusActive")}</option>
+                <option value="pending">{t("statusPending")}</option>
+                <option value="left">{t("statusLeft")}</option>
               </select>
             </label>
           </div>
@@ -288,27 +294,27 @@ export default function CotenantsPage() {
             onClick={handleCreate}
             className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light"
           >
-            Créer
+            {t("btnCreate")}
           </button>
         </div>
       )}
 
       {cotenants.length === 0 ? (
         <div className="mt-8 rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-          Aucun colocataire enregistré. Ajoutez-en pour répartir le loyer et la caution.
+          {t("emptyState")}
         </div>
       ) : (
         <div className="mt-6 rounded-xl border border-card-border bg-card overflow-hidden">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-card-border bg-background/60">
-                <th className="px-4 py-3 text-left font-semibold text-navy">Nom</th>
-                <th className="px-4 py-3 text-left font-semibold text-navy">Contact</th>
-                <th className="px-4 py-3 text-right font-semibold text-navy">Part %</th>
-                <th className="px-4 py-3 text-right font-semibold text-navy">Loyer nom.</th>
-                <th className="px-4 py-3 text-right font-semibold text-navy">Caution</th>
-                <th className="px-4 py-3 text-left font-semibold text-navy">Bail</th>
-                <th className="px-4 py-3 text-center font-semibold text-navy">Statut</th>
+                <th className="px-4 py-3 text-left font-semibold text-navy">{t("thName")}</th>
+                <th className="px-4 py-3 text-left font-semibold text-navy">{t("thContact")}</th>
+                <th className="px-4 py-3 text-right font-semibold text-navy">{t("thSharePct")}</th>
+                <th className="px-4 py-3 text-right font-semibold text-navy">{t("thNomRent")}</th>
+                <th className="px-4 py-3 text-right font-semibold text-navy">{t("thDeposit")}</th>
+                <th className="px-4 py-3 text-left font-semibold text-navy">{t("thLease")}</th>
+                <th className="px-4 py-3 text-center font-semibold text-navy">{t("thStatus")}</th>
                 <th className="px-4 py-3 text-right font-semibold text-navy"></th>
               </tr>
             </thead>
@@ -339,18 +345,18 @@ export default function CotenantsPage() {
                     </td>
                     <td className="px-4 py-3 text-right font-mono text-xs">{formatEUR(Number(c.deposit_amount))}</td>
                     <td className="px-4 py-3 text-xs text-muted font-mono">
-                      {c.bail_start ? new Date(c.bail_start).toLocaleDateString("fr-LU", { month: "short", year: "2-digit" }) : "—"}
+                      {c.bail_start ? new Date(c.bail_start).toLocaleDateString(dateLocale, { month: "short", year: "2-digit" }) : "—"}
                       {" → "}
-                      {c.bail_end ? new Date(c.bail_end).toLocaleDateString("fr-LU", { month: "short", year: "2-digit" }) : "∞"}
+                      {c.bail_end ? new Date(c.bail_end).toLocaleDateString(dateLocale, { month: "short", year: "2-digit" }) : "∞"}
                     </td>
                     <td className="px-4 py-3 text-center">
                       <span className={`inline-block rounded-full px-2 py-0.5 text-[10px] ${STATUS_COLOR[c.status]}`}>
-                        {c.status}
+                        {STATUS_LABELS[c.status]}
                       </span>
                     </td>
                     <td className="px-4 py-3 text-right">
                       <button onClick={() => handleDelete(c.id)} className="text-xs text-rose-700 hover:underline">
-                        Supprimer
+                        {t("btnDelete")}
                       </button>
                     </td>
                   </tr>
@@ -362,10 +368,7 @@ export default function CotenantsPage() {
       )}
 
       <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs text-amber-900">
-        <strong>Note :</strong> au Luxembourg, en colocation, la loi du 21 septembre 2006 prévoit une solidarité entre
-        colocataires pour le paiement du loyer. Le plafond légal de la caution est de 2 mois de loyer (art. 5),
-        à répartir selon les quotes-parts inscrites au bail. La notification de départ d&apos;un colocataire
-        solidaire respecte un préavis de 3 mois (art. 12-1).
+        <strong>{t("legalStrong")}</strong> {t("legalBody")}
       </div>
     </div>
   );
