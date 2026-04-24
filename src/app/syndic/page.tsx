@@ -186,12 +186,12 @@ function generateLots(nbLots: number, surfaceTotale: number): Lot[] {
   return lots;
 }
 
-function fmt(n: number): string {
-  return n.toLocaleString("fr-LU", { maximumFractionDigits: 0 });
+function fmt(n: number, locale = "fr-LU"): string {
+  return n.toLocaleString(locale, { maximumFractionDigits: 0 });
 }
 
-function fmtDec(n: number, dec = 1): string {
-  return n.toLocaleString("fr-LU", { maximumFractionDigits: dec, minimumFractionDigits: dec });
+function fmtDec(n: number, dec = 1, locale = "fr-LU"): string {
+  return n.toLocaleString(locale, { maximumFractionDigits: dec, minimumFractionDigits: dec });
 }
 
 /* ------------------------------------------------------------------ */
