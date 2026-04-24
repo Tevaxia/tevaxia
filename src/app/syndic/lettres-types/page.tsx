@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import {
   SYNDIC_LETTER_TEMPLATES, SYNDIC_CATEGORY_LABELS, SYNDIC_CATEGORY_COLORS,
   renderSyndicTemplate,
@@ -35,6 +35,7 @@ const DEFAULT_VARS: Record<string, string> = {
 
 export default function SyndicLetterTemplatesPage() {
   const locale = useLocale();
+  const t = useTranslations("syndicLettres");
   const lp = locale === "fr" ? "" : `/${locale}`;
 
   const [filter, setFilter] = useState<SyndicTemplateCategory | "all" | "custom">("all");
@@ -65,7 +66,7 @@ export default function SyndicLetterTemplatesPage() {
     // Les templates "officiels" édités deviennent des customs (fork)
     const isOfficial = SYNDIC_LETTER_TEMPLATES.some((t) => t.id === updated.id);
     const final: SyndicLetterTemplate = isOfficial
-      ? { ...updated, id: `custom-${updated.id}-${Date.now().toString(36)}`, title: `${updated.title} (personnalisé)` }
+      ? { ...updated, id: `custom-${updated.id}-${Date.now().toString(36)}`, title: `${updated.title} ${t("customSuffix")}` }
       : updated;
     final.variables = extractVariables(final.body, final.subject);
     upsertCustomTemplate(final);
@@ -76,15 +77,15 @@ export default function SyndicLetterTemplatesPage() {
       template_id: updated.id,
       category: updated.category,
     });
-    showFlash(isOfficial ? "Modèle dupliqué et modifié ✓" : "Modifications enregistrées ✓");
+    showFlash(isOfficial ? t("flashForked") : t("flashEdited"));
   };
 
   const handleDeleteCustom = (id: string) => {
-    if (!confirm("Supprimer définitivement ce modèle personnalisé ?")) return;
+    if (!confirm(t("confirmDelete"))) return;
     deleteCustomTemplate(id);
     setCustoms(loadCustomTemplates());
     if (selected?.id === id) setSelected(null);
-    showFlash("Modèle supprimé");
+    showFlash(t("flashDeleted"));
   };
 
   const handleImport = (title: string, category: SyndicTemplateCategory, subject: string, body: string) => {
@@ -95,7 +96,7 @@ export default function SyndicLetterTemplatesPage() {
     setSelected(tpl);
     setFilter("custom");
     track("letter_imported", { category, body_length: body.length });
-    showFlash("Modèle importé ✓");
+    showFlash(t("flashImported"));
   };
 
   const handleImportFile = async (file: File, category: SyndicTemplateCategory) => {
@@ -116,7 +117,7 @@ export default function SyndicLetterTemplatesPage() {
       const bodyLines = lines.slice(lines.indexOf(subjectLine) + 1).join("\n").trim();
       handleImport(file.name.replace(/\.[^.]+$/, ""), category, subjectLine.trim(), bodyLines || text);
     } catch (e) {
-      alert(`Impossible de lire le fichier : ${(e as Error).message}`);
+      alert(t("fileReadError", { msg: (e as Error).message }));
     }
   };
 
@@ -124,20 +125,19 @@ export default function SyndicLetterTemplatesPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
-      <Link href={`${lp}/syndic`} className="text-xs text-muted hover:text-navy">← Syndic</Link>
+      <Link href={`${lp}/syndic`} className="text-xs text-muted hover:text-navy">{t("backHub")}</Link>
 
       <div className="mt-3 flex items-start justify-between gap-4 flex-wrap">
         <div>
-          <h1 className="text-2xl font-bold text-navy">Bibliothèque lettres types syndic</h1>
+          <h1 className="text-2xl font-bold text-navy">{t("pageTitle")}</h1>
           <p className="mt-1 text-sm text-muted">
-            {SYNDIC_LETTER_TEMPLATES.length} modèles officiels + {customs.length} personnalisés.
-            Éditables, exportables en DOCX / PDF / Google Drive.
+            {t("pageSubtitle", { official: SYNDIC_LETTER_TEMPLATES.length, custom: customs.length })}
           </p>
         </div>
         <div className="flex gap-2">
           <button onClick={() => setImporting(true)}
             className="rounded-lg border border-navy bg-white px-3 py-2 text-xs font-semibold text-navy hover:bg-navy hover:text-white transition-colors">
-            + Importer un modèle
+            {t("btnImport")}
           </button>
         </div>
       </div>
@@ -154,24 +154,24 @@ export default function SyndicLetterTemplatesPage() {
           className={`rounded-full px-3 py-1 text-xs font-semibold ${
             filter === "all" ? "bg-navy text-white" : "bg-card border border-card-border text-slate"
           }`}>
-          Tous ({allTemplates.length})
+          {t("filterAll", { n: allTemplates.length })}
         </button>
         {customs.length > 0 && (
           <button onClick={() => setFilter("custom")}
             className={`rounded-full px-3 py-1 text-xs font-semibold ${
               filter === "custom" ? "bg-navy text-white" : "bg-amber-100 border border-amber-300 text-amber-900"
             }`}>
-            ★ Mes modèles ({customs.length})
+            {t("filterMine", { n: customs.length })}
           </button>
         )}
         {(Object.entries(SYNDIC_CATEGORY_LABELS) as [SyndicTemplateCategory, string][]).map(([k, l]) => {
-          const count = allTemplates.filter((t) => t.category === k).length;
+          const count = allTemplates.filter((tpl) => tpl.category === k).length;
           return (
             <button key={k} onClick={() => setFilter(k)}
               className={`rounded-full px-3 py-1 text-xs font-semibold ${
                 filter === k ? "bg-navy text-white" : SYNDIC_CATEGORY_COLORS[k]
               }`}>
-              {l} ({count})
+              {t("filterCat", { label: l, n: count })}
             </button>
           );
         })}
@@ -180,47 +180,47 @@ export default function SyndicLetterTemplatesPage() {
       <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_420px]">
         {/* Liste */}
         <div className="space-y-3">
-          {filtered.map((t) => (
-            <div key={t.id}
+          {filtered.map((tpl) => (
+            <div key={tpl.id}
               className={`rounded-xl border transition-colors ${
-                selected?.id === t.id
+                selected?.id === tpl.id
                   ? "border-navy bg-navy/5 ring-1 ring-navy"
                   : "border-card-border bg-card hover:bg-background"
               }`}>
-              <button onClick={() => setSelected(t)}
+              <button onClick={() => setSelected(tpl)}
                 className="w-full text-left p-4">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${SYNDIC_CATEGORY_COLORS[t.category]}`}>
-                    {SYNDIC_CATEGORY_LABELS[t.category]}
+                  <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${SYNDIC_CATEGORY_COLORS[tpl.category]}`}>
+                    {SYNDIC_CATEGORY_LABELS[tpl.category]}
                   </span>
-                  {isCustom(t) && (
+                  {isCustom(tpl) && (
                     <span className="rounded-full bg-amber-100 text-amber-900 px-2 py-0.5 text-[10px] font-semibold">
-                      ★ Personnalisé
+                      {t("badgeCustom")}
                     </span>
                   )}
                 </div>
-                <h3 className="mt-1 text-sm font-bold text-navy">{t.title}</h3>
-                {t.description && <p className="mt-0.5 text-xs text-muted">{t.description}</p>}
+                <h3 className="mt-1 text-sm font-bold text-navy">{tpl.title}</h3>
+                {tpl.description && <p className="mt-0.5 text-xs text-muted">{tpl.description}</p>}
                 <div className="mt-2 flex flex-wrap gap-1">
-                  {t.variables.slice(0, 6).map((v) => (
+                  {tpl.variables.slice(0, 6).map((v) => (
                     <span key={v} className="rounded bg-background px-1.5 py-0.5 text-[9px] font-mono text-muted">
                       {`{${v}}`}
                     </span>
                   ))}
-                  {t.variables.length > 6 && (
-                    <span className="text-[9px] text-muted">+{t.variables.length - 6}</span>
+                  {tpl.variables.length > 6 && (
+                    <span className="text-[9px] text-muted">+{tpl.variables.length - 6}</span>
                   )}
                 </div>
               </button>
               <div className="border-t border-card-border/50 px-4 py-2 flex justify-end gap-2">
-                <button onClick={() => setEditing(t)}
+                <button onClick={() => setEditing(tpl)}
                   className="text-[11px] font-semibold text-navy hover:underline">
-                  ✎ Modifier
+                  {t("btnEdit")}
                 </button>
-                {isCustom(t) && (
-                  <button onClick={() => handleDeleteCustom(t.id)}
+                {isCustom(tpl) && (
+                  <button onClick={() => handleDeleteCustom(tpl.id)}
                     className="text-[11px] font-semibold text-rose-700 hover:underline">
-                    Supprimer
+                    {t("btnDelete")}
                   </button>
                 )}
               </div>
@@ -240,14 +240,14 @@ export default function SyndicLetterTemplatesPage() {
             />
           ) : (
             <div className="rounded-xl border-2 border-dashed border-card-border p-8 text-center text-sm text-muted">
-              Sélectionnez un modèle à gauche.
+              {t("previewEmpty")}
             </div>
           )}
         </div>
       </div>
 
       <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-        <strong>Usage :</strong> les modifications des modèles officiels créent une copie personnalisée (les originaux restent intacts). Les modèles personnalisés sont stockés localement dans ton navigateur (localStorage) — ils ne quittent pas ton poste.
+        <strong>{t("usageStrong")}</strong> {t("usageBody")}
       </div>
 
       {/* Modal éditeur */}
@@ -279,6 +279,7 @@ function SyndicTemplatePreview({ template, vars, onChangeVar, onEdit, onFlash }:
   onEdit: () => void;
   onFlash: (msg: string) => void;
 }) {
+  const t = useTranslations("syndicLettres");
   const rendered = renderSyndicTemplate(template, vars);
   const [email, setEmail] = useState("");
   const [exporting, setExporting] = useState(false);
@@ -293,7 +294,7 @@ function SyndicTemplatePreview({ template, vars, onChangeVar, onEdit, onFlash }:
   const copyBody = async () => {
     try {
       await navigator.clipboard.writeText(rendered.body);
-      onFlash("Corps copié dans le presse-papier ✓");
+      onFlash(t("flashCopied"));
     } catch { /* silence */ }
   };
 
@@ -303,7 +304,7 @@ function SyndicTemplatePreview({ template, vars, onChangeVar, onEdit, onFlash }:
       const blob = await exportToDocx(rendered);
       downloadBlob(blob, `${filename}.docx`);
       track("letter_exported", { format: "docx", template_id: template.id, category: template.category });
-      onFlash("DOCX téléchargé ✓");
+      onFlash(t("flashDocx"));
     } finally {
       setExporting(false);
     }
@@ -315,7 +316,7 @@ function SyndicTemplatePreview({ template, vars, onChangeVar, onEdit, onFlash }:
       const bytes = await exportToPdf(rendered);
       downloadBytes(bytes, `${filename}.pdf`, "application/pdf");
       track("letter_exported", { format: "pdf", template_id: template.id, category: template.category });
-      onFlash("PDF téléchargé ✓");
+      onFlash(t("flashPdf"));
     } finally {
       setExporting(false);
     }
@@ -328,7 +329,7 @@ function SyndicTemplatePreview({ template, vars, onChangeVar, onEdit, onFlash }:
       downloadBlob(blob, `${filename}.docx`);
       window.open("https://drive.google.com/drive/my-drive", "_blank", "noopener");
       track("letter_exported", { format: "google_drive", template_id: template.id, category: template.category });
-      onFlash("DOCX téléchargé + Google Drive ouvert. Glisse-dépose le fichier.");
+      onFlash(t("flashDrive"));
     } finally {
       setExporting(false);
     }
@@ -339,20 +340,20 @@ function SyndicTemplatePreview({ template, vars, onChangeVar, onEdit, onFlash }:
       <div className="flex items-start justify-between gap-2">
         <div>
           <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">
-            Modèle sélectionné
+            {t("selectedLabel")}
           </div>
           <h3 className="mt-0.5 text-sm font-bold text-navy">{template.title}</h3>
         </div>
         <button onClick={onEdit}
           className="rounded-md border border-navy bg-white px-2 py-1 text-[11px] font-semibold text-navy hover:bg-navy hover:text-white">
-          ✎ Modifier
+          {t("btnEdit")}
         </button>
       </div>
 
       {template.variables.length > 0 && (
         <div className="border-t border-card-border pt-3">
           <div className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-2">
-            Variables ({template.variables.length})
+            {t("variablesLabel", { n: template.variables.length })}
           </div>
           <div className="grid grid-cols-1 gap-2">
             {template.variables.map((v) => (
@@ -369,16 +370,16 @@ function SyndicTemplatePreview({ template, vars, onChangeVar, onEdit, onFlash }:
 
       <div className="border-t border-card-border pt-3">
         <label className="text-[10px]">
-          <span className="text-muted font-semibold uppercase tracking-wider">Email destinataire</span>
+          <span className="text-muted font-semibold uppercase tracking-wider">{t("emailLabel")}</span>
           <input type="email" value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="destinataire@example.com"
+            placeholder={t("emailPlaceholder")}
             className="mt-0.5 w-full rounded border border-input-border bg-input-bg px-2 py-1.5 text-xs" />
         </label>
       </div>
 
       <div className="border-t border-card-border pt-3">
-        <div className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-1">Aperçu</div>
+        <div className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-1">{t("previewHeader")}</div>
         <div className="rounded border border-card-border/50 bg-background p-3 text-xs">
           <div className="font-semibold text-navy mb-1">{rendered.subject}</div>
           <pre className="whitespace-pre-wrap font-sans text-slate text-[11px] leading-relaxed max-h-72 overflow-y-auto">
@@ -390,23 +391,23 @@ function SyndicTemplatePreview({ template, vars, onChangeVar, onEdit, onFlash }:
       <div className="border-t border-card-border pt-3 grid grid-cols-2 gap-2">
         <a href={mailtoUrl()}
           className="rounded-lg bg-navy px-3 py-2 text-center text-xs font-semibold text-white hover:bg-navy-light">
-          📧 Email
+          {t("btnEmail")}
         </a>
         <button onClick={copyBody}
           className="rounded-lg border border-navy bg-white px-3 py-2 text-xs font-semibold text-navy hover:bg-navy/5">
-          📋 Copier
+          {t("btnCopy")}
         </button>
         <button onClick={doExportDocx} disabled={exporting}
           className="rounded-lg border border-blue-400 bg-blue-50 px-3 py-2 text-xs font-semibold text-blue-900 hover:bg-blue-100 disabled:opacity-50">
-          📄 DOCX
+          {t("btnDocx")}
         </button>
         <button onClick={doExportPdf} disabled={exporting}
           className="rounded-lg border border-rose-400 bg-rose-50 px-3 py-2 text-xs font-semibold text-rose-900 hover:bg-rose-100 disabled:opacity-50">
-          📕 PDF
+          {t("btnPdf")}
         </button>
         <button onClick={doExportGoogleDrive} disabled={exporting}
           className="col-span-2 rounded-lg border border-emerald-400 bg-emerald-50 px-3 py-2 text-xs font-semibold text-emerald-900 hover:bg-emerald-100 disabled:opacity-50">
-          ☁ Google Drive (DOCX + ouvre Drive)
+          {t("btnDrive")}
         </button>
       </div>
     </div>
@@ -419,6 +420,7 @@ function EditorModal({ template, onSave, onClose, isOfficial }: {
   onClose: () => void;
   isOfficial: boolean;
 }) {
+  const t = useTranslations("syndicLettres");
   const [title, setTitle] = useState(template.title);
   const [description, setDescription] = useState(template.description);
   const [category, setCategory] = useState(template.category);
@@ -434,10 +436,10 @@ function EditorModal({ template, onSave, onClose, isOfficial }: {
         onClick={(e) => e.stopPropagation()}>
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h2 className="text-lg font-bold text-navy">Modifier le modèle</h2>
+            <h2 className="text-lg font-bold text-navy">{t("editModalTitle")}</h2>
             {isOfficial && (
               <p className="mt-1 text-xs text-amber-900 bg-amber-50 border border-amber-200 rounded px-2 py-1 inline-block">
-                ⚠ Modèle officiel — une copie personnalisée sera créée, l'original reste intact.
+                {t("officialWarn")}
               </p>
             )}
           </div>
@@ -447,12 +449,12 @@ function EditorModal({ template, onSave, onClose, isOfficial }: {
         <div className="space-y-3">
           <div className="grid gap-3 sm:grid-cols-2">
             <label className="text-xs">
-              <div className="text-muted font-medium mb-0.5">Titre</div>
+              <div className="text-muted font-medium mb-0.5">{t("fieldTitle")}</div>
               <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}
                 className="w-full rounded border border-input-border bg-input-bg px-2 py-1.5 text-sm" />
             </label>
             <label className="text-xs">
-              <div className="text-muted font-medium mb-0.5">Catégorie</div>
+              <div className="text-muted font-medium mb-0.5">{t("fieldCategory")}</div>
               <select value={category} onChange={(e) => setCategory(e.target.value as SyndicTemplateCategory)}
                 className="w-full rounded border border-input-border bg-input-bg px-2 py-1.5 text-sm">
                 {(Object.entries(SYNDIC_CATEGORY_LABELS) as [SyndicTemplateCategory, string][]).map(([v, l]) => (
@@ -462,19 +464,19 @@ function EditorModal({ template, onSave, onClose, isOfficial }: {
             </label>
           </div>
           <label className="text-xs block">
-            <div className="text-muted font-medium mb-0.5">Description</div>
+            <div className="text-muted font-medium mb-0.5">{t("fieldDescription")}</div>
             <input type="text" value={description} onChange={(e) => setDescription(e.target.value)}
               className="w-full rounded border border-input-border bg-input-bg px-2 py-1.5 text-sm" />
           </label>
           <label className="text-xs block">
-            <div className="text-muted font-medium mb-0.5">Sujet (email / titre)</div>
+            <div className="text-muted font-medium mb-0.5">{t("fieldSubject")}</div>
             <input type="text" value={subject} onChange={(e) => setSubject(e.target.value)}
               className="w-full rounded border border-input-border bg-input-bg px-2 py-1.5 text-sm" />
           </label>
           <label className="text-xs block">
             <div className="flex items-center justify-between mb-0.5">
-              <span className="text-muted font-medium">Corps du courrier</span>
-              <span className="text-muted">Utilise {"{variable}"} pour les champs dynamiques</span>
+              <span className="text-muted font-medium">{t("fieldBody")}</span>
+              <span className="text-muted">{t("fieldBodyHint")}</span>
             </div>
             <textarea value={body} onChange={(e) => setBody(e.target.value)}
               className="w-full rounded border border-input-border bg-input-bg px-2 py-2 text-xs font-mono leading-relaxed"
@@ -482,11 +484,11 @@ function EditorModal({ template, onSave, onClose, isOfficial }: {
           </label>
           <div className="rounded-lg border border-card-border bg-background p-3">
             <div className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-1">
-              Variables détectées ({detectedVars.length})
+              {t("detectedVariables", { n: detectedVars.length })}
             </div>
             <div className="flex flex-wrap gap-1">
               {detectedVars.length === 0 ? (
-                <span className="text-[11px] text-muted italic">aucune</span>
+                <span className="text-[11px] text-muted italic">{t("noneDetected")}</span>
               ) : detectedVars.map((v) => (
                 <span key={v} className="rounded bg-white border border-card-border px-1.5 py-0.5 text-[10px] font-mono text-navy">
                   {`{${v}}`}
@@ -499,11 +501,11 @@ function EditorModal({ template, onSave, onClose, isOfficial }: {
         <div className="mt-5 flex justify-end gap-2">
           <button onClick={onClose}
             className="rounded-lg border border-card-border bg-white px-4 py-2 text-xs font-semibold text-slate hover:bg-background">
-            Annuler
+            {t("btnCancel")}
           </button>
           <button onClick={() => onSave({ ...template, title, description, category, subject, body, variables: detectedVars })}
             className="rounded-lg bg-navy px-4 py-2 text-xs font-semibold text-white hover:bg-navy-light">
-            ✓ Enregistrer
+            {t("btnSave")}
           </button>
         </div>
       </div>
@@ -516,7 +518,8 @@ function ImportModal({ onImport, onImportFile, onClose }: {
   onImportFile: (file: File, category: SyndicTemplateCategory) => void;
   onClose: () => void;
 }) {
-  const [title, setTitle] = useState("Mon modèle personnalisé");
+  const t = useTranslations("syndicLettres");
+  const [title, setTitle] = useState(t("defaultCustomTitle"));
   const [category, setCategory] = useState<SyndicTemplateCategory>("amiable");
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
@@ -527,16 +530,16 @@ function ImportModal({ onImport, onImportFile, onClose }: {
       <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-xl bg-card p-6 shadow-2xl"
         onClick={(e) => e.stopPropagation()}>
         <div className="flex items-start justify-between mb-4">
-          <h2 className="text-lg font-bold text-navy">Importer un modèle personnalisé</h2>
+          <h2 className="text-lg font-bold text-navy">{t("importModalTitle")}</h2>
           <button onClick={onClose} className="text-muted hover:text-navy text-xl">✕</button>
         </div>
 
         <div className="space-y-4">
           {/* Import fichier */}
           <div className="rounded-xl border border-card-border bg-background p-4">
-            <div className="text-xs font-bold uppercase tracking-wider text-navy mb-2">Option 1 — Fichier texte</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-navy mb-2">{t("importOption1")}</div>
             <p className="text-xs text-muted mb-3">
-              Upload <code>.docx</code> (Word), <code>.txt</code> ou <code>.md</code> : la 1re ligne devient le sujet, le reste le corps. Le formatage Word complexe (tableaux, images) n&apos;est pas conservé — seul le texte brut est extrait.
+              {t("importOption1Body")}
             </p>
             <div className="flex items-center gap-2">
               <select value={category} onChange={(e) => setCategory(e.target.value as SyndicTemplateCategory)}
@@ -556,23 +559,23 @@ function ImportModal({ onImport, onImportFile, onClose }: {
 
           {/* Saisie manuelle */}
           <div className="rounded-xl border border-card-border bg-background p-4">
-            <div className="text-xs font-bold uppercase tracking-wider text-navy mb-2">Option 2 — Saisie / copier-coller</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-navy mb-2">{t("importOption2")}</div>
             <div className="space-y-2">
               <label className="text-xs block">
-                <div className="text-muted mb-0.5">Titre</div>
+                <div className="text-muted mb-0.5">{t("fieldTitle")}</div>
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}
                   className="w-full rounded border border-input-border bg-input-bg px-2 py-1.5 text-sm" />
               </label>
               <label className="text-xs block">
-                <div className="text-muted mb-0.5">Sujet</div>
+                <div className="text-muted mb-0.5">{t("fieldSubject")}</div>
                 <input type="text" value={subject} onChange={(e) => setSubject(e.target.value)}
-                  placeholder="Ex : Convocation assemblée générale..."
+                  placeholder={t("importSubjectPlaceholder")}
                   className="w-full rounded border border-input-border bg-input-bg px-2 py-1.5 text-sm" />
               </label>
               <label className="text-xs block">
-                <div className="text-muted mb-0.5">Corps (utilise {"{variable}"} pour champs dynamiques)</div>
+                <div className="text-muted mb-0.5">{t("importBodyHint")}</div>
                 <textarea value={body} onChange={(e) => setBody(e.target.value)}
-                  placeholder="Madame, Monsieur,&#10;&#10;Je vous prie..."
+                  placeholder={t("importBodyPlaceholder")}
                   className="w-full rounded border border-input-border bg-input-bg px-2 py-2 text-xs font-mono"
                   rows={10} />
               </label>
@@ -583,12 +586,12 @@ function ImportModal({ onImport, onImportFile, onClose }: {
         <div className="mt-5 flex justify-end gap-2">
           <button onClick={onClose}
             className="rounded-lg border border-card-border bg-white px-4 py-2 text-xs font-semibold text-slate hover:bg-background">
-            Annuler
+            {t("btnCancel")}
           </button>
           <button onClick={() => onImport(title, category, subject, body)}
             disabled={!title.trim() || !subject.trim() || !body.trim()}
             className="rounded-lg bg-navy px-4 py-2 text-xs font-semibold text-white hover:bg-navy-light disabled:opacity-50">
-            ✓ Créer le modèle
+            {t("btnCreateTpl")}
           </button>
         </div>
       </div>
