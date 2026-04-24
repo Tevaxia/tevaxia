@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/components/AuthProvider";
 import { errMsg } from "@/lib/errors";
@@ -14,6 +15,7 @@ type Step = "loading" | "configure" | "select-bank" | "authenticate" | "done";
 
 export default function Psd2Page() {
   const { user } = useAuth();
+  const t = useTranslations("glPsd2");
   const [configured, setConfigured] = useState<boolean | null>(null);
   const [institutions, setInstitutions] = useState<Institution[]>([]);
   const [country, setCountry] = useState("LU");
@@ -26,14 +28,13 @@ export default function Psd2Page() {
   const [movements, setMovements] = useState<BankMovement[]>([]);
 
   const authFetch = async (input: string, init?: RequestInit) => {
-    if (!supabase) throw new Error("Supabase indisponible");
+    if (!supabase) throw new Error(t("errSupabase"));
     const { data: { session } } = await supabase.auth.getSession();
     const token = session?.access_token;
-    if (!token) throw new Error("Connexion requise");
+    if (!token) throw new Error(t("errSignIn"));
     return fetch(input, { ...init, headers: { ...(init?.headers ?? {}), Authorization: `Bearer ${token}` } });
   };
 
-  // Callback Enable Banking: ?code=xxx après SCA bancaire
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
@@ -43,7 +44,7 @@ export default function Psd2Page() {
         try {
           const res = await authFetch(`/api/psd2/requisition?code=${encodeURIComponent(code)}`);
           const data = await res.json();
-          if (!res.ok) throw new Error(data.error ?? "Erreur échange code");
+          if (!res.ok) throw new Error(data.error ?? t("errExchange"));
           setSessionId(data.id);
           setAccounts(data.accounts ?? []);
           setAccountsData(data.accountsData ?? []);
@@ -55,7 +56,7 @@ export default function Psd2Page() {
         }
       })();
     }
-  }, [user]);
+  }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     const hasCode = new URLSearchParams(window.location.search).has("code");
@@ -79,7 +80,7 @@ export default function Psd2Page() {
   }, [country]);
 
   const connect = async (inst: Institution) => {
-    if (!user) { setError("Connexion requise"); return; }
+    if (!user) { setError(t("errSignIn")); return; }
     setLoading(true);
     setError(null);
     try {
@@ -90,7 +91,7 @@ export default function Psd2Page() {
         body: JSON.stringify({ institutionId: inst.id, country: inst.country, redirect }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Erreur");
+      if (!res.ok) throw new Error(data.error ?? t("errGeneric"));
       window.location.href = data.link;
     } catch (e) {
       setError(errMsg(e, String(e)));
@@ -103,7 +104,7 @@ export default function Psd2Page() {
     try {
       const res = await authFetch(`/api/psd2/transactions?accountId=${accId}`);
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Erreur");
+      if (!res.ok) throw new Error(data.error ?? t("errGeneric"));
       setMovements(data.movements ?? []);
     } catch (e) {
       setError(errMsg(e, String(e)));
@@ -113,29 +114,26 @@ export default function Psd2Page() {
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <Link href="/gestion-locative/reconciliation" className="text-xs text-muted hover:text-navy">&larr; Réconciliation</Link>
+        <Link href="/gestion-locative/reconciliation" className="text-xs text-muted hover:text-navy">{t("backRec")}</Link>
         <div className="mt-2 mb-6">
-          <h1 className="text-2xl font-bold text-navy sm:text-3xl">Connexion bancaire PSD2</h1>
-          <p className="mt-2 text-muted">
-            Récupération automatique de vos transactions via <strong>Enable Banking</strong> —
-            API PSD2 conforme SCA. Accès 180 jours max (art. 10 RTS PSD2), renouvelable.
-          </p>
+          <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("pageTitle")}</h1>
+          <p className="mt-2 text-muted">{t("pageSubtitle")}</p>
         </div>
 
         {configured === false && (
           <div className="rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900">
-            <strong>Intégration à activer.</strong>
-            <p className="mt-2">Enable Banking est prêt côté code, mais les clés ne sont pas encore définies sur le serveur.</p>
+            <strong>{t("configStrong")}</strong>
+            <p className="mt-2">{t("configBody")}</p>
             <ol className="mt-2 ml-5 list-decimal space-y-1 text-xs">
-              <li>Créer une app sur <a href="https://enablebanking.com/dashboard" target="_blank" rel="noreferrer" className="underline">enablebanking.com/dashboard</a>, télécharger la clé privée RSA (PEM)</li>
-              <li>Dans Vercel → Project Settings → Environment Variables :
+              <li>{t("configStep1")}</li>
+              <li>{t("configStep2")}
                 <code className="ml-2 block mt-1 p-2 bg-white rounded text-[11px] font-mono whitespace-pre-wrap">
-                  ENABLE_BANKING_APP_ID=&lt;app id fourni par Enable&gt;{"\n"}
+                  ENABLE_BANKING_APP_ID=&lt;app id&gt;{"\n"}
                   ENABLE_BANKING_PRIVATE_KEY=-----BEGIN RSA PRIVATE KEY-----\n...\n-----END RSA PRIVATE KEY-----
                 </code>
-                <span className="block mt-1">(remplacer les retours ligne par <code>\n</code> littéral dans la valeur)</span>
+                <span className="block mt-1">{t("configStep2Note")}</span>
               </li>
-              <li>Redéployer → page affichera la liste des banques LU</li>
+              <li>{t("configStep3")}</li>
             </ol>
           </div>
         )}
@@ -143,7 +141,7 @@ export default function Psd2Page() {
         {configured === true && (
           <>
             <div className="mb-4 flex items-center gap-3 flex-wrap">
-              <label className="text-sm text-muted">Pays :</label>
+              <label className="text-sm text-muted">{t("countryLabel")}</label>
               <select value={country} onChange={(e) => setCountry(e.target.value)}
                 className="rounded-lg border border-card-border bg-card px-3 py-1.5 text-sm">
                 <option value="LU">Luxembourg</option>
@@ -153,10 +151,10 @@ export default function Psd2Page() {
                 <option value="NL">Pays-Bas</option>
                 <option value="FI">Finlande (sandbox)</option>
               </select>
-              <span className="text-[11px] text-muted">En mode sandbox Enable Banking, seule la Finlande (FI) retourne des ASPSPs de test. Pour LU, il faut passer l&apos;app en production.</span>
+              <span className="text-[11px] text-muted">{t("sandboxNote")}</span>
             </div>
 
-            {loading && <p className="text-sm text-muted">Chargement…</p>}
+            {loading && <p className="text-sm text-muted">{t("loading")}</p>}
             {error && <p className="rounded-lg bg-rose-50 border border-rose-200 p-3 text-sm text-rose-800">{error}</p>}
 
             {step === "select-bank" && institutions.length > 0 && (
@@ -176,21 +174,21 @@ export default function Psd2Page() {
 
             {step === "select-bank" && !loading && institutions.length === 0 && (
               <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
-                <strong>Aucune banque retournée par Enable Banking pour {country}.</strong>
-                <p className="mt-2 text-xs">Causes fréquentes :</p>
+                <strong>{t("noBanksStrong", { country })}</strong>
+                <p className="mt-2 text-xs">{t("noBanksCauses")}</p>
                 <ul className="mt-1 ml-4 list-disc text-xs space-y-1">
-                  <li>Ton application n&apos;est pas encore approuvée côté Enable Banking Control Panel</li>
-                  <li>Tu n&apos;as pas activé l&apos;accès aux ASPSPs de ce pays dans la config de ton app</li>
-                  <li>Tu es en mode sandbox — certains ASPSPs ont un suffixe différent</li>
+                  <li>{t("noBanksCause1")}</li>
+                  <li>{t("noBanksCause2")}</li>
+                  <li>{t("noBanksCause3")}</li>
                 </ul>
-                <p className="mt-2 text-xs">Vérifie sur <a href="https://enablebanking.com/cp/" target="_blank" rel="noreferrer" className="underline">enablebanking.com/cp</a> que ton application est Active et qu&apos;elle a accès au pays sélectionné.</p>
+                <p className="mt-2 text-xs">{t("noBanksVerify")}</p>
               </div>
             )}
 
             {step === "done" && accounts.length > 0 && (
               <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
-                <h3 className="text-sm font-semibold text-emerald-900">Connexion établie</h3>
-                <p className="mt-1 text-xs text-emerald-800">{accounts.length} compte(s) — session <code className="font-mono">{sessionId}</code></p>
+                <h3 className="text-sm font-semibold text-emerald-900">{t("connectedTitle")}</h3>
+                <p className="mt-1 text-xs text-emerald-800">{t("connectedDetail", { n: accounts.length, session: sessionId ?? "" })}</p>
                 <div className="mt-3 space-y-2">
                   {accounts.map((uid) => {
                     const ad = accountsData.find((a) => a.uid === uid);
@@ -211,10 +209,10 @@ export default function Psd2Page() {
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-card-border bg-background">
-                      <th className="px-4 py-2 text-left text-xs font-semibold text-slate">Date</th>
-                      <th className="px-4 py-2 text-left text-xs font-semibold text-slate">Libellé</th>
-                      <th className="px-4 py-2 text-right text-xs font-semibold text-slate">Montant</th>
-                      <th className="px-4 py-2 text-right text-xs font-semibold text-slate">Réf.</th>
+                      <th className="px-4 py-2 text-left text-xs font-semibold text-slate">{t("thDate")}</th>
+                      <th className="px-4 py-2 text-left text-xs font-semibold text-slate">{t("thLabel")}</th>
+                      <th className="px-4 py-2 text-right text-xs font-semibold text-slate">{t("thAmount")}</th>
+                      <th className="px-4 py-2 text-right text-xs font-semibold text-slate">{t("thRef")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -236,15 +234,12 @@ export default function Psd2Page() {
         )}
 
         <div className="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs text-amber-900">
-          <strong>Mode sandbox.</strong> L&apos;intégration technique est prête et fonctionne sur les ASPSPs de test Finlande.
-          Le passage en production (ASPSPs LU réels : Spuerkeess, BGL, BIL, ING…) nécessite l&apos;enregistrement d&apos;une société
-          (SARL-S LU prévue) — Enable Banking demande une entité légale identifiable pour activer le mode prod.
-          En attendant, la <Link href="/gestion-locative/reconciliation" className="underline">réconciliation par import CAMT.053/CSV</Link> est la voie recommandée.
+          <strong>{t("sandboxStrong")}</strong> {t("sandboxBody")}{" "}
+          <Link href="/gestion-locative/reconciliation" className="underline">{t("sandboxLink")}</Link>{" "}
+          {t("sandboxSuffix")}
         </div>
         <div className="mt-4 rounded-xl border border-card-border bg-card p-4 text-xs text-muted">
-          <strong>Cadre légal :</strong> PSD2 Directive UE 2015/2366, DORA, SCA obligatoire. Données bancaires traitées
-          par Enable Banking (agrément AISP EU). Tevaxia n&apos;enregistre jamais vos identifiants bancaires.
-          Chaque connexion est révocable côté banque.
+          <strong>{t("legalStrong")}</strong> {t("legalBody")}
         </div>
       </div>
     </div>
