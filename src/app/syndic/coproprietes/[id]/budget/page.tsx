@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { getCoownership, type Coownership } from "@/lib/coownerships";
 import { listAccounts, listYears, openYear, type Account, type AccountingYear, CLASSE_LABEL } from "@/lib/coownership-accounting";
@@ -26,6 +26,7 @@ function consumedColor(pct: number | null): string {
 }
 
 export default function BudgetPage() {
+  const t = useTranslations("syndicBudget");
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
   const { user } = useAuth();
@@ -59,10 +60,10 @@ export default function BudgetPage() {
       setCoown(c); setYears(ys); setAccounts(ac); setKeys(ks);
       setLines(ls); setActualRows(av);
     } catch (e) {
-      setError(errMsg(e, "Erreur de chargement"));
+      setError(errMsg(e, t("errorLoad")));
     }
     setLoading(false);
-  }, [id, activeYear]);
+  }, [id, activeYear, t]);
 
   useEffect(() => { if (user) void reload(); }, [user, reload]);
 
@@ -87,36 +88,36 @@ export default function BudgetPage() {
       });
       await reload();
     } catch (e) {
-      setError(errMsg(e, "Erreur"));
+      setError(errMsg(e, t("errorGeneric")));
     }
   };
 
   const removeLine = async (lineId: string) => {
-    if (!confirm("Supprimer cette ligne de budget ?")) return;
+    if (!confirm(t("confirmDeleteLine"))) return;
     await deleteBudgetLine(lineId);
     await reload();
   };
 
   const clonePrevious = async () => {
     if (!id) return;
-    if (!confirm(`Cloner le budget ${activeYear - 1} vers ${activeYear} avec indexation +2% ?`)) return;
+    if (!confirm(t("confirmClone", { y: activeYear - 1, y2: activeYear }))) return;
     try {
       const n = await cloneBudgetFromPreviousYear(id, activeYear - 1, activeYear, 0.02);
-      alert(`${n} lignes clonées.`);
+      alert(t("linesCloned", { n }));
       await reload();
     } catch (e) {
-      setError(errMsg(e, "Erreur clonage"));
+      setError(errMsg(e, t("errorClone")));
     }
   };
 
   const handleOpenYear = async (y: number) => {
     if (!id) return;
     try { await openYear(id, y); await reload(); }
-    catch (e) { setError(errMsg(e, "Erreur")); }
+    catch (e) { setError(errMsg(e, t("errorGeneric"))); }
   };
 
   if (loading || !coown) {
-    return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">Chargement…</div>;
+    return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
   }
 
   const chargeAccounts = accounts.filter((a) => a.classe === 6);
@@ -139,7 +140,7 @@ export default function BudgetPage() {
         <td className="px-3 py-2">
           <input type="number" step={100}
             value={amt || ""}
-            placeholder="0"
+            placeholder={t("budgetPlaceholder")}
             onChange={(e) => setEditing({ ...editing, [edKey]: Number(e.target.value) || 0 })}
             onBlur={async () => {
               if (edValue !== undefined && edValue !== line?.amount_budgeted) {
@@ -151,21 +152,21 @@ export default function BudgetPage() {
             className="w-28 rounded border border-input-border bg-input-bg px-2 py-1 text-right text-xs font-mono" />
         </td>
         <td className="px-3 py-2 text-right font-mono text-xs">
-          {actual ? formatEUR(actual.amount_actual) : "—"}
+          {actual ? formatEUR(actual.amount_actual) : t("dash")}
         </td>
         <td className="px-3 py-2 text-right">
           {actual && actual.amount_budgeted > 0 ? (
             <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold ${consumedColor(actual.pct_consumed)}`}>
               {actual.pct_consumed?.toFixed(1)}%
             </span>
-          ) : <span className="text-[10px] text-muted">—</span>}
+          ) : <span className="text-[10px] text-muted">{t("dash")}</span>}
         </td>
         <td className="px-3 py-2 text-right font-mono text-xs">
           {actual && actual.amount_budgeted > 0 ? (
             <span className={actual.variance >= 0 ? "text-emerald-700" : "text-rose-700"}>
               {actual.variance >= 0 ? "+" : ""}{formatEUR(actual.variance)}
             </span>
-          ) : "—"}
+          ) : t("dash")}
         </td>
         <td className="px-3 py-2">
           <select value={nature}
@@ -180,7 +181,7 @@ export default function BudgetPage() {
           <select value={keyId ?? ""}
             onChange={async (e) => await saveBudget(account, amt, nature, e.target.value || null)}
             className="rounded border border-input-border bg-input-bg px-2 py-1 text-[10px] max-w-[140px]">
-            <option value="">— tantièmes par défaut —</option>
+            <option value="">{t("defaultKey")}</option>
             {keys.map((k) => (
               <option key={k.id} value={k.id}>{k.label}</option>
             ))}
@@ -199,12 +200,11 @@ export default function BudgetPage() {
     <div className="bg-background min-h-screen py-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Link href={`${lp}/syndic/coproprietes/${id}`} className="text-xs text-muted hover:text-navy">
-          ← {coown.name}
+          {t("backCoown", { name: coown.name })}
         </Link>
-        <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">Budget prévisionnel</h1>
+        <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">{t("pageTitle")}</h1>
         <p className="mt-1 text-sm text-muted">
-          Budget par compte avec comparatif réalisé en temps réel. Base des appels de fonds et
-          des annexes comptables pour l&apos;AG annuelle (loi copropriété LU 1988).
+          {t("pageSubtitle")}
         </p>
 
         {error && <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-900">{error}</div>}
@@ -217,10 +217,10 @@ export default function BudgetPage() {
                 className={`rounded-lg border px-3 py-2 text-xs font-semibold ${
                   y === activeYear ? "border-navy bg-navy text-white" : "border-card-border bg-card text-navy hover:bg-slate-50"
                 }`}>
-                Exercice {y}
+                {t("yearLabel", { y })}
                 {!years.find((yr) => yr.year === y) && (
                   <span className="ml-1 rounded-full bg-slate-100 px-1.5 py-0.5 text-[9px] font-normal text-slate-600">
-                    Non ouvert
+                    {t("yearNotOpen")}
                   </span>
                 )}
               </button>
@@ -230,13 +230,13 @@ export default function BudgetPage() {
             {!years.find((y) => y.year === activeYear) && (
               <button onClick={() => handleOpenYear(activeYear)}
                 className="rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-emerald-700">
-                Ouvrir exercice {activeYear}
+                {t("btnOpenYear", { y: activeYear })}
               </button>
             )}
             {lines.length === 0 && years.find((y) => y.year === activeYear - 1) && (
               <button onClick={clonePrevious}
                 className="rounded-lg border border-navy bg-white px-3 py-1.5 text-xs font-semibold text-navy hover:bg-navy/5">
-                Cloner {activeYear - 1} (+2%)
+                {t("btnClonePrev", { y: activeYear - 1 })}
               </button>
             )}
           </div>
@@ -244,67 +244,67 @@ export default function BudgetPage() {
 
         {accounts.length === 0 ? (
           <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900">
-            Le plan comptable n&apos;est pas encore initialisé.{" "}
+            {t("accountsNotInit")}{" "}
             <Link href={`${lp}/syndic/coproprietes/${id}/comptabilite`} className="underline font-semibold">
-              Aller à la comptabilité
+              {t("goToAccounting")}
             </Link>{" "}
-            pour l&apos;initialiser.
+            {t("accountsInitSuffix")}
           </div>
         ) : (
           <>
             {/* KPIs budget vs réalisé */}
             <div className="mt-6 grid gap-3 sm:grid-cols-4">
               <div className="rounded-xl border border-card-border bg-card p-4">
-                <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">Budget charges</div>
+                <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("kpiBudgetCharges")}</div>
                 <div className="mt-1 text-2xl font-bold text-navy">{formatEUR(summary.expensesBudgeted)}</div>
-                <div className="mt-0.5 text-[11px] text-muted">Réalisé : {formatEUR(summary.expensesActual)}</div>
+                <div className="mt-0.5 text-[11px] text-muted">{t("kpiActualPrefix", { v: formatEUR(summary.expensesActual) })}</div>
               </div>
               <div className={`rounded-xl border p-4 ${
                 summary.pctConsumed !== null && summary.pctConsumed > 100
                   ? "border-rose-200 bg-rose-50"
                   : "border-card-border bg-card"
               }`}>
-                <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">Consommation</div>
+                <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("kpiConsumption")}</div>
                 <div className={`mt-1 text-2xl font-bold ${
                   summary.pctConsumed !== null && summary.pctConsumed > 100 ? "text-rose-900" : "text-navy"
                 }`}>
-                  {summary.pctConsumed !== null ? `${summary.pctConsumed.toFixed(1)}%` : "—"}
+                  {summary.pctConsumed !== null ? `${summary.pctConsumed.toFixed(1)}%` : t("dash")}
                 </div>
                 <div className="mt-0.5 text-[11px] text-muted">
-                  {summary.pctConsumed !== null && summary.pctConsumed > 100 ? "Dépassement budget" : "Sous budget"}
+                  {summary.pctConsumed !== null && summary.pctConsumed > 100 ? t("kpiConsumptionOver") : t("kpiConsumptionUnder")}
                 </div>
               </div>
               <div className="rounded-xl border border-card-border bg-card p-4">
-                <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">Appels prévus</div>
+                <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("kpiIncome")}</div>
                 <div className="mt-1 text-2xl font-bold text-emerald-700">{formatEUR(summary.incomeBudgeted)}</div>
-                <div className="mt-0.5 text-[11px] text-muted">Encaissé : {formatEUR(summary.incomeActual)}</div>
+                <div className="mt-0.5 text-[11px] text-muted">{t("kpiCashed", { v: formatEUR(summary.incomeActual) })}</div>
               </div>
               <div className="rounded-xl border border-card-border bg-card p-4">
-                <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">Écart</div>
+                <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("kpiVariance")}</div>
                 <div className={`mt-1 text-2xl font-bold ${summary.variance >= 0 ? "text-emerald-700" : "text-rose-700"}`}>
                   {summary.variance >= 0 ? "+" : ""}{formatEUR(summary.variance)}
                 </div>
-                <div className="mt-0.5 text-[11px] text-muted">Budget - réalisé</div>
+                <div className="mt-0.5 text-[11px] text-muted">{t("kpiVarianceHint")}</div>
               </div>
             </div>
 
             {/* Tables */}
             <div className="mt-6">
               <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-2">
-                Charges prévisionnelles (classe {CLASSE_LABEL[6]})
+                {t("chargesTitle", { label: CLASSE_LABEL[6] })}
               </h2>
               <div className="rounded-xl border border-card-border bg-card overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-card-border bg-background/60">
-                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Compte</th>
-                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Libellé</th>
-                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Budget</th>
-                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Réalisé</th>
-                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">%</th>
-                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Écart</th>
-                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Nature</th>
-                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Clé</th>
+                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colAccount")}</th>
+                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colLabel")}</th>
+                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colBudget")}</th>
+                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colActual")}</th>
+                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colPct")}</th>
+                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colVariance")}</th>
+                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colNature")}</th>
+                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colKey")}</th>
                       <th className="px-3 py-2"></th>
                     </tr>
                   </thead>
@@ -315,20 +315,20 @@ export default function BudgetPage() {
 
             <div className="mt-6">
               <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-2">
-                Produits prévisionnels (classe {CLASSE_LABEL[7]})
+                {t("incomeTitle", { label: CLASSE_LABEL[7] })}
               </h2>
               <div className="rounded-xl border border-card-border bg-card overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-card-border bg-background/60">
-                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Compte</th>
-                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Libellé</th>
-                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Budget</th>
-                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Réalisé</th>
-                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">%</th>
-                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Écart</th>
-                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Nature</th>
-                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Clé</th>
+                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colAccount")}</th>
+                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colLabel")}</th>
+                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colBudget")}</th>
+                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colActual")}</th>
+                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colPct")}</th>
+                      <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colVariance")}</th>
+                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colNature")}</th>
+                      <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colKey")}</th>
                       <th className="px-3 py-2"></th>
                     </tr>
                   </thead>
@@ -340,20 +340,20 @@ export default function BudgetPage() {
             {otherAccounts.length > 0 && (
               <details className="mt-6">
                 <summary className="cursor-pointer text-xs font-semibold text-muted">
-                  Autres comptes (classes 1-5) — avancé
+                  {t("otherTitle")}
                 </summary>
                 <div className="mt-2 rounded-xl border border-card-border bg-card overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="border-b border-card-border bg-background/60">
-                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Compte</th>
-                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Libellé</th>
-                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Budget</th>
-                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Réalisé</th>
-                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">%</th>
-                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Écart</th>
-                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Nature</th>
-                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Clé</th>
+                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colAccount")}</th>
+                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colLabel")}</th>
+                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colBudget")}</th>
+                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colActual")}</th>
+                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colPct")}</th>
+                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colVariance")}</th>
+                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colNature")}</th>
+                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colKey")}</th>
                         <th className="px-3 py-2"></th>
                       </tr>
                     </thead>
@@ -364,10 +364,7 @@ export default function BudgetPage() {
             )}
 
             <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-              <strong>Nature des charges :</strong> courantes (budget annuel voté), travaux (hors budget,
-              vote spécifique), fonds travaux (provision loi 10 juin 1999 — obligatoire &gt; 10 lots au LU),
-              exceptionnel (sinistre, contentieux). La ventilation définit la répartition dans les appels
-              de fonds et les annexes comptables de l&apos;AG.
+              <strong>{t("natureInfoTitle")}</strong> {t("natureInfoBody")}
             </div>
           </>
         )}

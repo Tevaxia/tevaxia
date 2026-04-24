@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { getCoownership, listUnits, type Coownership, type CoownershipUnit } from "@/lib/coownerships";
 import {
@@ -16,8 +16,10 @@ import {
 import { errMsg } from "@/lib/errors";
 
 export default function AllocationKeysPage() {
+  const t = useTranslations("syndicCles");
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
+  const numberLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const { user } = useAuth();
   const params = useParams();
   const id = String(params?.id ?? "");
@@ -29,9 +31,8 @@ export default function AllocationKeysPage() {
   const [allocs, setAllocs] = useState<UnitAllocation[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  const [editing, setEditing] = useState<Record<string, number>>({}); // unit_id → shares draft
+  const [editing, setEditing] = useState<Record<string, number>>({});
 
-  // Form nouveau key custom
   const [newKeyOpen, setNewKeyOpen] = useState(false);
   const [newKey, setNewKey] = useState({ code: "", label: "", description: "" });
 
@@ -43,10 +44,10 @@ export default function AllocationKeysPage() {
       setCoown(c); setUnits(u); setKeys(k);
       if (!activeKeyId && k.length > 0) setActiveKeyId(k[0].id);
     } catch (e) {
-      setError(errMsg(e, "Erreur"));
+      setError(errMsg(e, t("errorGeneric")));
     }
     setLoading(false);
-  }, [id, activeKeyId]);
+  }, [id, activeKeyId, t]);
 
   useEffect(() => { if (user) void reload(); }, [user, reload]);
 
@@ -75,7 +76,7 @@ export default function AllocationKeysPage() {
       setAllocs(fresh);
       await reload();
     } catch (e) {
-      setError(errMsg(e, "Erreur"));
+      setError(errMsg(e, t("errorGeneric")));
     }
   };
 
@@ -87,7 +88,7 @@ export default function AllocationKeysPage() {
   const createCustomKey = async () => {
     const codeErr = validateKeyCode(newKey.code);
     if (codeErr) { setError(codeErr); return; }
-    if (!newKey.label.trim()) { setError("Libellé requis."); return; }
+    if (!newKey.label.trim()) { setError(t("labelRequired")); return; }
     try {
       const k = await createAllocationKey({
         coownership_id: id,
@@ -100,53 +101,51 @@ export default function AllocationKeysPage() {
       setActiveKeyId(k.id);
       await reload();
     } catch (e) {
-      setError(errMsg(e, "Erreur création"));
+      setError(errMsg(e, t("errorCreate")));
     }
   };
 
   const addTemplate = async (tplCode: string) => {
-    const tpl = LU_ALLOCATION_TEMPLATES.find((t) => t.code === tplCode);
+    const tpl = LU_ALLOCATION_TEMPLATES.find((tp) => tp.code === tplCode);
     if (!tpl) return;
     try {
       const k = await createFromTemplate(id, tpl);
       setActiveKeyId(k.id);
       await reload();
     } catch (e) {
-      setError(errMsg(e, "Erreur"));
+      setError(errMsg(e, t("errorGeneric")));
     }
   };
 
   const removeKey = async (k: AllocationKey) => {
-    if (k.is_system) { alert("Les clés système ne peuvent pas être supprimées."); return; }
-    if (!confirm(`Supprimer "${k.label}" ? Les parts associées seront perdues.`)) return;
+    if (k.is_system) { alert(t("systemCantDelete")); return; }
+    if (!confirm(t("confirmDeleteKey", { label: k.label }))) return;
     try {
       await deleteAllocationKey(k.id);
       if (activeKeyId === k.id) setActiveKeyId(null);
       await reload();
     } catch (e) {
-      setError(errMsg(e, "Erreur suppression"));
+      setError(errMsg(e, t("errorDelete")));
     }
   };
 
   const availableTemplates = LU_ALLOCATION_TEMPLATES.filter(
-    (t) => !keys.some((k) => k.code === t.code),
+    (tp) => !keys.some((k) => k.code === tp.code),
   );
 
   if (loading || !coown) {
-    return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">Chargement…</div>;
+    return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
   }
 
   return (
     <div className="bg-background min-h-screen py-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Link href={`${lp}/syndic/coproprietes/${id}`} className="text-xs text-muted hover:text-navy">
-          ← {coown.name}
+          {t("backCoown", { name: coown.name })}
         </Link>
-        <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">Clés de répartition</h1>
+        <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">{t("pageTitle")}</h1>
         <p className="mt-1 text-sm text-muted">
-          Définissez des règles de répartition spécifiques aux charges : chauffage au prorata des
-          surfaces chauffées, ascenseur exonéré au rez-de-chaussée, escalier A/B séparés, etc.
-          Conforme pratique copropriété LU (loi 16 mai 1975 + règlement).
+          {t("pageSubtitle")}
         </p>
 
         {error && <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-900">{error}</div>}
@@ -156,31 +155,31 @@ export default function AllocationKeysPage() {
           <div>
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">
-                {keys.length} clé(s)
+                {t("sidebarCount", { n: keys.length })}
               </h2>
               <button onClick={() => setNewKeyOpen(!newKeyOpen)}
                 className="rounded-lg bg-navy px-3 py-1 text-xs font-semibold text-white hover:bg-navy-light">
-                {newKeyOpen ? "Annuler" : "+ Personnalisée"}
+                {newKeyOpen ? t("btnCancel") : t("btnAddCustom")}
               </button>
             </div>
 
             {newKeyOpen && (
               <div className="mb-3 rounded-xl border border-navy/20 bg-navy/5 p-3 space-y-2">
-                <input type="text" placeholder="code (ex. chauffage_bat_a)"
+                <input type="text" placeholder={t("newKeyCodePlaceholder")}
                   value={newKey.code}
                   onChange={(e) => setNewKey({ ...newKey, code: e.target.value.toLowerCase() })}
                   className="w-full rounded border border-input-border bg-input-bg px-2 py-1 text-xs font-mono" />
-                <input type="text" placeholder="Libellé (ex. Chauffage bâtiment A)"
+                <input type="text" placeholder={t("newKeyLabelPlaceholder")}
                   value={newKey.label}
                   onChange={(e) => setNewKey({ ...newKey, label: e.target.value })}
                   className="w-full rounded border border-input-border bg-input-bg px-2 py-1 text-xs" />
-                <input type="text" placeholder="Description (facultative)"
+                <input type="text" placeholder={t("newKeyDescPlaceholder")}
                   value={newKey.description}
                   onChange={(e) => setNewKey({ ...newKey, description: e.target.value })}
                   className="w-full rounded border border-input-border bg-input-bg px-2 py-1 text-xs" />
                 <button onClick={createCustomKey}
                   className="w-full rounded bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-emerald-700">
-                  Créer
+                  {t("btnCreate")}
                 </button>
               </div>
             )}
@@ -201,7 +200,7 @@ export default function AllocationKeysPage() {
                       </div>
                       <div className="mt-0.5 text-[10px] font-mono text-muted truncate">{k.code}</div>
                       <div className="mt-1 text-[11px] text-muted">
-                        Total : <span className="font-mono">{Number(k.total_shares).toLocaleString("fr-LU")}</span>
+                        {t("keyTotalLabel", { n: Number(k.total_shares).toLocaleString(numberLocale) })}
                       </div>
                     </div>
                     {!k.is_system && (
@@ -219,14 +218,14 @@ export default function AllocationKeysPage() {
             {availableTemplates.length > 0 && (
               <div className="mt-5">
                 <div className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-2">
-                  Modèles LU recommandés
+                  {t("templatesTitle")}
                 </div>
                 <div className="space-y-1">
-                  {availableTemplates.map((t) => (
-                    <button key={t.code} onClick={() => addTemplate(t.code)}
+                  {availableTemplates.map((tp) => (
+                    <button key={tp.code} onClick={() => addTemplate(tp.code)}
                       className="w-full text-left rounded-lg border border-dashed border-navy/30 bg-background p-2 hover:bg-navy/5 transition-colors">
-                      <div className="text-xs font-semibold text-navy">+ {t.label}</div>
-                      <div className="text-[10px] text-muted mt-0.5">{t.description}</div>
+                      <div className="text-xs font-semibold text-navy">{t("templateAdd", { label: tp.label })}</div>
+                      <div className="text-[10px] text-muted mt-0.5">{tp.description}</div>
                     </button>
                   ))}
                 </div>
@@ -238,7 +237,7 @@ export default function AllocationKeysPage() {
           <div>
             {!activeKey ? (
               <div className="rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-                Sélectionnez une clé à gauche ou créez-en une nouvelle.
+                {t("emptyActive")}
               </div>
             ) : (
               <>
@@ -249,14 +248,14 @@ export default function AllocationKeysPage() {
                   )}
                   <div className="mt-3 flex flex-wrap gap-3 text-xs">
                     <span className="rounded-full bg-background px-3 py-1">
-                      Code : <span className="font-mono font-semibold text-navy">{activeKey.code}</span>
+                      {t("activeKeyCode")} <span className="font-mono font-semibold text-navy">{activeKey.code}</span>
                     </span>
                     <span className="rounded-full bg-background px-3 py-1">
-                      Total parts : <span className="font-mono font-semibold text-navy">{Number(activeKey.total_shares).toLocaleString("fr-LU")}</span>
+                      {t("activeKeyTotal")} <span className="font-mono font-semibold text-navy">{Number(activeKey.total_shares).toLocaleString(numberLocale)}</span>
                     </span>
                     {activeKey.is_system && (
                       <span className="rounded-full bg-emerald-100 text-emerald-900 px-3 py-1">
-                        Clé système
+                        {t("systemBadge")}
                       </span>
                     )}
                   </div>
@@ -267,12 +266,12 @@ export default function AllocationKeysPage() {
                     <table className="w-full text-sm">
                       <thead>
                         <tr className="border-b border-card-border bg-background/60">
-                          <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Lot</th>
-                          <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Type</th>
-                          <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Propriétaire</th>
-                          <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Tantièmes</th>
-                          <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Parts ({activeKey.label})</th>
-                          <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Part %</th>
+                          <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colLot")}</th>
+                          <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colType")}</th>
+                          <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colOwner")}</th>
+                          <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colTantiemes")}</th>
+                          <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colSharesFor", { label: activeKey.label })}</th>
+                          <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colPct")}</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -283,17 +282,17 @@ export default function AllocationKeysPage() {
                             <tr key={u.id} className="border-b border-card-border/40 hover:bg-background/40">
                               <td className="px-3 py-2 font-medium text-navy">{u.lot_number}</td>
                               <td className="px-3 py-2 text-xs text-muted">{u.unit_type}</td>
-                              <td className="px-3 py-2 text-xs">{u.owner_name || "—"}</td>
+                              <td className="px-3 py-2 text-xs">{u.owner_name || t("dash")}</td>
                               <td className="px-3 py-2 text-right font-mono text-xs text-muted">
-                                {u.tantiemes.toLocaleString("fr-LU")}
+                                {u.tantiemes.toLocaleString(numberLocale)}
                               </td>
                               <td className="px-3 py-2 text-right">
                                 <input type="number" step="0.01"
                                   value={editing[u.id] !== undefined ? editing[u.id] : (shares || "")}
-                                  placeholder="0"
+                                  placeholder={t("sharesPlaceholder")}
                                   disabled={activeKey.is_system && activeKey.code === "tantiemes_generaux"}
                                   title={activeKey.is_system && activeKey.code === "tantiemes_generaux"
-                                    ? "Les tantièmes généraux sont synchronisés avec la colonne tantièmes du lot"
+                                    ? t("sharesDisabledTitle")
                                     : ""}
                                   onChange={(e) => setEditing({ ...editing, [u.id]: Number(e.target.value) || 0 })}
                                   onBlur={async () => {
@@ -304,7 +303,7 @@ export default function AllocationKeysPage() {
                                   className="w-24 rounded border border-input-border bg-input-bg px-2 py-1 text-right text-xs font-mono disabled:opacity-60" />
                               </td>
                               <td className="px-3 py-2 text-right font-mono text-xs">
-                                {pct > 0 ? `${pct.toFixed(2)}%` : "—"}
+                                {pct > 0 ? `${pct.toFixed(2)}%` : t("dash")}
                               </td>
                             </tr>
                           );
@@ -312,15 +311,15 @@ export default function AllocationKeysPage() {
                       </tbody>
                       <tfoot>
                         <tr className="border-t border-card-border bg-background font-semibold">
-                          <td colSpan={3} className="px-3 py-2 text-right">Total</td>
+                          <td colSpan={3} className="px-3 py-2 text-right">{t("totalLabel")}</td>
                           <td className="px-3 py-2 text-right font-mono">
-                            {units.reduce((s, u) => s + u.tantiemes, 0).toLocaleString("fr-LU")}
+                            {units.reduce((s, u) => s + u.tantiemes, 0).toLocaleString(numberLocale)}
                           </td>
                           <td className="px-3 py-2 text-right font-mono text-navy">
-                            {totalShares.toLocaleString("fr-LU", { maximumFractionDigits: 2 })}
+                            {totalShares.toLocaleString(numberLocale, { maximumFractionDigits: 2 })}
                           </td>
                           <td className="px-3 py-2 text-right font-mono">
-                            {totalShares > 0 ? "100.00%" : "—"}
+                            {totalShares > 0 ? "100.00%" : t("dash")}
                           </td>
                         </tr>
                       </tfoot>
@@ -330,16 +329,12 @@ export default function AllocationKeysPage() {
 
                 {activeKey.code === "tantiemes_generaux" && (
                   <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs text-amber-900">
-                    <strong>Clé système :</strong> les tantièmes généraux sont synchronisés automatiquement
-                    avec la colonne <code>tantiemes</code> de chaque lot (édition dans la page copropriété).
+                    <strong>{t("systemNoteTitle")}</strong> {t("systemNoteBody")}
                   </div>
                 )}
 
                 <div className="mt-4 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-                  <strong>Utilisation :</strong> dans le <Link href={`${lp}/syndic/coproprietes/${id}/budget`} className="underline font-semibold">budget prévisionnel</Link>,
-                  assignez cette clé à un compte (ex. 606 Énergie → clé chauffage).
-                  Lors de la génération d&apos;un appel de fonds, la répartition utilisera automatiquement
-                  les parts définies ici plutôt que les tantièmes généraux.
+                  <strong>{t("usageTitle")}</strong> {t("usageBody1")}<Link href={`${lp}/syndic/coproprietes/${id}/budget`} className="underline font-semibold">{t("usageLinkBudget")}</Link>{t("usageBody2")}
                 </div>
               </>
             )}
