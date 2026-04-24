@@ -3,12 +3,12 @@
 import { useEffect, useState, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { pdf } from "@react-pdf/renderer";
 import { useAuth } from "@/components/AuthProvider";
 import { getCoownership, type Coownership } from "@/lib/coownerships";
 import {
-  getAssembly, listResolutions, createResolution, updateResolution, deleteResolution,
+  getAssembly, listResolutions, createResolution, deleteResolution,
   listVotes, setVote, sendConvocation, openAssembly, closeAssembly,
   resolutionVerdict, expressedCount,
   STATUS_LABEL, MAJORITY_LABEL, VOTE_LABEL,
@@ -41,9 +41,11 @@ const RESULT_COLORS: Record<Resolution["result"], string> = {
 };
 
 export default function AssemblyDetailPage() {
+  const t = useTranslations("syndicAssemblyDetail");
   const params = useParams();
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
+  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const coownershipId = String(params?.id ?? "");
   const assemblyId = String(params?.assemblyId ?? "");
   const { user, loading: authLoading } = useAuth();
@@ -71,10 +73,10 @@ export default function AssemblyDetailPage() {
       setCoown(c); setAssembly(a); setResolutions(r);
       if (!activeResolutionId && r.length > 0) setActiveResolutionId(r[0].id);
     } catch (e) {
-      setError(errMsg(e, "Erreur"));
+      setError(errMsg(e, t("errorGeneric")));
     }
     setLoading(false);
-  }, [coownershipId, assemblyId, activeResolutionId]);
+  }, [coownershipId, assemblyId, activeResolutionId, t]);
 
   useEffect(() => { if (user) void reload(); }, [user, reload]);
 
@@ -90,7 +92,7 @@ export default function AssemblyDetailPage() {
   );
 
   const handleCreateRes = async () => {
-    if (!draftRes.title.trim()) { setError("Titre requis"); return; }
+    if (!draftRes.title.trim()) { setError(t("errorTitleRequired")); return; }
     try {
       const r = await createResolution({
         assembly_id: assemblyId,
@@ -108,7 +110,7 @@ export default function AssemblyDetailPage() {
   };
 
   const handleDeleteRes = async (id: string) => {
-    if (!confirm("Supprimer cette résolution et tous ses votes ?")) return;
+    if (!confirm(t("confirmDeleteRes"))) return;
     await deleteResolution(id);
     if (activeResolutionId === id) setActiveResolutionId(null);
     await reload();
@@ -139,7 +141,7 @@ export default function AssemblyDetailPage() {
       <ConvocationPdf
         coownership={{ name: coown.name, address: coown.address, commune: coown.commune }}
         syndic={{
-          name: profile.nomComplet || profile.societe || "Syndic",
+          name: profile.nomComplet || profile.societe || t("defaultSyndicName"),
           address: profile.adresse, email: profile.email, phone: profile.telephone,
         }}
         assembly={assembly}
@@ -156,7 +158,6 @@ export default function AssemblyDetailPage() {
 
   const downloadMinutesPdf = async () => {
     if (!assembly || !coown) return;
-    // Charge tous les votes de toutes les résolutions
     const votesMap: Record<string, AssemblyVote[]> = {};
     await Promise.all(resolutions.map(async (r) => {
       votesMap[r.id] = await listVotes(r.id);
@@ -166,7 +167,7 @@ export default function AssemblyDetailPage() {
       <AssemblyMinutesPdf
         coownership={{ name: coown.name, address: coown.address, total_tantiemes: coown.total_tantiemes }}
         syndic={{
-          name: profile.nomComplet || profile.societe || "Syndic",
+          name: profile.nomComplet || profile.societe || t("defaultSyndicName"),
           email: profile.email,
         }}
         assembly={assembly}
@@ -183,9 +184,9 @@ export default function AssemblyDetailPage() {
   };
 
   if (loading || !coown || !assembly) {
-    return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">Chargement…</div>;
+    return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
   }
-  if (!user) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href="/connexion" className="text-navy underline">Se connecter</Link></div>;
+  if (!user) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href={`${lp}/connexion`} className="text-navy underline">{t("login")}</Link></div>;
 
   const totalTantiemes = coown.total_tantiemes;
   const nbVotedUnits = votes.filter((v) => v.vote !== "absent").length;
@@ -196,7 +197,7 @@ export default function AssemblyDetailPage() {
       <div className="flex items-center gap-2 text-xs text-muted">
         <Link href={`${lp}/syndic/coproprietes/${coownershipId}`} className="hover:text-navy">{coown.name}</Link>
         <span>/</span>
-        <Link href={`${lp}/syndic/coproprietes/${coownershipId}/assemblees`} className="hover:text-navy">Assemblées</Link>
+        <Link href={`${lp}/syndic/coproprietes/${coownershipId}/assemblees`} className="hover:text-navy">{t("breadAssemblies")}</Link>
         <span>/</span>
         <span className="text-navy">{assembly.title}</span>
       </div>
@@ -211,9 +212,9 @@ export default function AssemblyDetailPage() {
             </span>
           </div>
           <div className="mt-1 text-xs text-muted">
-            {assembly.assembly_type === "ordinary" ? "AG ordinaire" : "AG extraordinaire"}
+            {assembly.assembly_type === "ordinary" ? t("agOrdinary") : t("agExtraordinary")}
             {" · "}
-            {new Date(assembly.scheduled_at).toLocaleString("fr-LU", { dateStyle: "full", timeStyle: "short" })}
+            {new Date(assembly.scheduled_at).toLocaleString(dateLocale, { dateStyle: "full", timeStyle: "short" })}
             {assembly.location && ` · ${assembly.location}`}
           </div>
         </div>
@@ -221,37 +222,37 @@ export default function AssemblyDetailPage() {
           {assembly.status === "draft" && (
             <button onClick={() => advanceStatus("convene")}
               className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">
-              Convoquer
+              {t("btnConvene")}
             </button>
           )}
           {assembly.status === "convened" && (
             <button onClick={() => advanceStatus("open")}
               className="rounded-lg bg-amber-600 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-700">
-              Ouvrir la séance
+              {t("btnOpen")}
             </button>
           )}
           {assembly.status === "in_progress" && (
             <button onClick={() => advanceStatus("close")}
               className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700">
-              Clôturer
+              {t("btnClose")}
             </button>
           )}
           {resolutions.length > 0 && (assembly.status === "draft" || assembly.status === "convened") && (
             <button onClick={downloadConvocationPdf}
               className="rounded-lg border border-blue-400 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-900 hover:bg-blue-100">
-              ↓ Convocation PDF
+              {t("btnDownloadConvocation")}
             </button>
           )}
           {(assembly.status === "in_progress" || assembly.status === "closed") && resolutions.length > 0 && (
             <button onClick={downloadMinutesPdf}
               className="rounded-lg border border-navy bg-white px-4 py-2 text-sm font-semibold text-navy hover:bg-navy/5">
-              ↓ PV PDF
+              {t("btnDownloadMinutes")}
             </button>
           )}
           {assembly.virtual_url && (
             <a href={assembly.virtual_url} target="_blank" rel="noopener noreferrer"
               className="rounded-lg border border-navy bg-white px-4 py-2 text-sm font-semibold text-navy">
-              Visioconférence
+              {t("btnVideoconf")}
             </a>
           )}
         </div>
@@ -262,23 +263,23 @@ export default function AssemblyDetailPage() {
       {/* KPIs */}
       <div className="mt-5 grid gap-3 sm:grid-cols-4">
         <div className="rounded-xl border border-card-border bg-card p-3">
-          <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">Résolutions</div>
+          <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("kpiResolutions")}</div>
           <div className="mt-1 text-xl font-bold text-navy">{resolutions.length}</div>
         </div>
         <div className="rounded-xl border border-card-border bg-card p-3">
-          <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">Approuvées</div>
+          <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("kpiApproved")}</div>
           <div className="mt-1 text-xl font-bold text-emerald-700">
             {resolutions.filter((r) => r.result === "approved").length}
           </div>
         </div>
         <div className="rounded-xl border border-card-border bg-card p-3">
-          <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">Rejetées</div>
+          <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("kpiRejected")}</div>
           <div className="mt-1 text-xl font-bold text-rose-700">
             {resolutions.filter((r) => r.result === "rejected").length}
           </div>
         </div>
         <div className="rounded-xl border border-card-border bg-card p-3">
-          <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">Quorum requis</div>
+          <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">{t("kpiQuorum")}</div>
           <div className="mt-1 text-xl font-bold text-navy">{assembly.quorum_pct}%</div>
         </div>
       </div>
@@ -288,7 +289,7 @@ export default function AssemblyDetailPage() {
         <div>
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">
-              Ordre du jour
+              {t("agendaTitle")}
             </h2>
             {assembly.status !== "closed" && assembly.status !== "cancelled" && (
               <button onClick={() => setShowNewRes(!showNewRes)}
@@ -300,11 +301,11 @@ export default function AssemblyDetailPage() {
 
           {showNewRes && (
             <div className="mb-3 rounded-xl border border-navy/20 bg-navy/5 p-3 space-y-2">
-              <input type="text" placeholder="Titre de la résolution"
+              <input type="text" placeholder={t("newResTitle")}
                 value={draftRes.title}
                 onChange={(e) => setDraftRes({ ...draftRes, title: e.target.value })}
                 className="w-full rounded border border-input-border bg-input-bg px-2 py-1 text-xs" />
-              <textarea placeholder="Description / détail"
+              <textarea placeholder={t("newResDesc")}
                 value={draftRes.description} rows={3}
                 onChange={(e) => setDraftRes({ ...draftRes, description: e.target.value })}
                 className="w-full rounded border border-input-border bg-input-bg px-2 py-1 text-xs" />
@@ -317,14 +318,14 @@ export default function AssemblyDetailPage() {
               </select>
               <button onClick={handleCreateRes}
                 className="w-full rounded bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white">
-                Créer
+                {t("btnCreate")}
               </button>
             </div>
           )}
 
           {resolutions.length === 0 ? (
             <div className="rounded-xl border-2 border-dashed border-card-border p-4 text-center text-xs text-muted">
-              Aucune résolution à l&apos;ODJ.
+              {t("emptyAgenda")}
             </div>
           ) : (
             <ol className="space-y-1">
@@ -342,12 +343,12 @@ export default function AssemblyDetailPage() {
                       <div className="flex items-start justify-between gap-2">
                         <span className="text-xs font-mono text-muted">#{r.number}</span>
                         <span className={`rounded-full px-1.5 py-0.5 text-[9px] font-semibold ${RESULT_COLORS[r.result]}`}>
-                          {r.result === "approved" ? "Approuvée" : r.result === "rejected" ? "Rejetée" : "En cours"}
+                          {r.result === "approved" ? t("resApproved") : r.result === "rejected" ? t("resRejected") : t("resPending")}
                         </span>
                       </div>
                       <div className="mt-1 text-xs font-semibold text-navy line-clamp-2">{r.title}</div>
                       <div className="mt-1 text-[9px] text-muted">
-                        Exprimé : {pctExp.toFixed(0)}% des tantièmes
+                        {t("agendaExpressed", { pct: pctExp.toFixed(0) })}
                       </div>
                       <div className="mt-1 h-1 w-full rounded-full bg-background overflow-hidden">
                         <div className="h-full bg-navy" style={{ width: `${Math.min(100, pctExp)}%` }} />
@@ -364,7 +365,7 @@ export default function AssemblyDetailPage() {
         <div>
           {!activeResolution ? (
             <div className="rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-              Sélectionnez une résolution dans l&apos;ordre du jour.
+              {t("emptySelectRes")}
             </div>
           ) : (
             <>
@@ -372,7 +373,7 @@ export default function AssemblyDetailPage() {
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1 min-w-0">
                     <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">
-                      Résolution #{activeResolution.number}
+                      {t("resPrefix", { n: activeResolution.number })}
                     </div>
                     <h3 className="mt-1 text-lg font-bold text-navy">{activeResolution.title}</h3>
                     {activeResolution.description && (
@@ -383,7 +384,7 @@ export default function AssemblyDetailPage() {
                     </div>
                   </div>
                   <span className={`rounded-full px-3 py-1 text-xs font-semibold ${RESULT_COLORS[activeResolution.result]}`}>
-                    {activeResolution.result === "approved" ? "Approuvée" : activeResolution.result === "rejected" ? "Rejetée" : "En cours"}
+                    {activeResolution.result === "approved" ? t("resApproved") : activeResolution.result === "rejected" ? t("resRejected") : t("resPending")}
                   </span>
                 </div>
 
@@ -392,16 +393,16 @@ export default function AssemblyDetailPage() {
                   const v = resolutionVerdict(activeResolution, totalTantiemes);
                   return (
                     <div className="mt-4 space-y-2">
-                      <ResultBar label="Pour" count={activeResolution.votes_yes_tantiemes}
-                        total={totalTantiemes} color="bg-emerald-500" />
-                      <ResultBar label="Contre" count={activeResolution.votes_no_tantiemes}
-                        total={totalTantiemes} color="bg-rose-500" />
-                      <ResultBar label="Abstention" count={activeResolution.votes_abstain_tantiemes}
-                        total={totalTantiemes} color="bg-amber-500" />
-                      <ResultBar label="Absent" count={activeResolution.votes_absent_tantiemes}
-                        total={totalTantiemes} color="bg-slate-400" />
+                      <ResultBar label={t("barYes")} count={activeResolution.votes_yes_tantiemes}
+                        total={totalTantiemes} color="bg-emerald-500" t={t} />
+                      <ResultBar label={t("barNo")} count={activeResolution.votes_no_tantiemes}
+                        total={totalTantiemes} color="bg-rose-500" t={t} />
+                      <ResultBar label={t("barAbstain")} count={activeResolution.votes_abstain_tantiemes}
+                        total={totalTantiemes} color="bg-amber-500" t={t} />
+                      <ResultBar label={t("barAbsent")} count={activeResolution.votes_absent_tantiemes}
+                        total={totalTantiemes} color="bg-slate-400" t={t} />
                       <div className="mt-2 text-xs text-muted">
-                        {v.pctExpressed.toFixed(1)}% des tantièmes exprimés — seuil {v.reachedThreshold}%
+                        {t("barExpressedInfo", { pct: v.pctExpressed.toFixed(1), threshold: v.reachedThreshold })}
                       </div>
                     </div>
                   );
@@ -410,7 +411,7 @@ export default function AssemblyDetailPage() {
                 <div className="mt-4 flex justify-end">
                   <button onClick={() => handleDeleteRes(activeResolution.id)}
                     className="text-xs text-rose-700 hover:underline">
-                    Supprimer cette résolution
+                    {t("btnDeleteRes")}
                   </button>
                 </div>
               </div>
@@ -419,25 +420,25 @@ export default function AssemblyDetailPage() {
               <div className="mt-4 rounded-xl border border-card-border bg-card p-5">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-sm font-bold uppercase tracking-wider text-navy">
-                    Votes par lot ({nbVotedUnits} exprimés sur {votes.length})
+                    {t("votesTitle", { ok: nbVotedUnits, total: votes.length })}
                   </h3>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="border-b border-card-border text-[10px] uppercase tracking-wider text-muted">
-                        <th className="px-2 py-2 text-left">Lot</th>
-                        <th className="px-2 py-2 text-left">Votant</th>
-                        <th className="px-2 py-2 text-right">Tantièmes</th>
-                        <th className="px-2 py-2 text-center">Vote</th>
-                        <th className="px-2 py-2 text-center">Actions</th>
+                        <th className="px-2 py-2 text-left">{t("colLot")}</th>
+                        <th className="px-2 py-2 text-left">{t("colVoter")}</th>
+                        <th className="px-2 py-2 text-right">{t("colTantiemes")}</th>
+                        <th className="px-2 py-2 text-center">{t("colVote")}</th>
+                        <th className="px-2 py-2 text-center">{t("colActions")}</th>
                       </tr>
                     </thead>
                     <tbody>
                       {sortedVotes.map((v) => (
                         <tr key={v.id} className="border-b border-card-border/40">
                           <td className="px-2 py-1.5 font-mono text-xs">{v.unit_id.slice(-6)}</td>
-                          <td className="px-2 py-1.5 text-xs">{v.voter_name ?? "—"}</td>
+                          <td className="px-2 py-1.5 text-xs">{v.voter_name ?? t("dash")}</td>
                           <td className="px-2 py-1.5 text-right font-mono text-xs">{v.tantiemes_at_vote}</td>
                           <td className="px-2 py-1.5 text-center">
                             <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${VOTE_COLORS[v.vote]}`}>
@@ -469,22 +470,22 @@ export default function AssemblyDetailPage() {
       </div>
 
       <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-        <strong>Vote en ligne :</strong> les copropriétaires peuvent voter depuis leur espace
-        personnel (lien portail) sur les résolutions d&apos;une AG &laquo;&nbsp;convoquée&nbsp;&raquo; ou
-        &laquo;&nbsp;en cours&nbsp;&raquo;. Les votes sont pondérés par les tantièmes et le résultat
-        est recalculé automatiquement selon le type de majorité (simple / absolue / double / unanimité).
+        <strong>{t("infoTitle")}</strong> {t("infoBody")}
       </div>
     </div>
   );
 }
 
-function ResultBar({ label, count, total, color }: { label: string; count: number; total: number; color: string }) {
+function ResultBar({ label, count, total, color, t }: {
+  label: string; count: number; total: number; color: string;
+  t: (key: string, values?: Record<string, string | number | Date>) => string;
+}) {
   const pct = total > 0 ? (count / total) * 100 : 0;
   return (
     <div>
       <div className="flex items-center justify-between text-[11px]">
         <span className="font-semibold">{label}</span>
-        <span className="text-muted">{count} tantièmes ({pct.toFixed(1)}%)</span>
+        <span className="text-muted">{t("barCountDetail", { n: count, pct: pct.toFixed(1) })}</span>
       </div>
       <div className="mt-1 h-2 w-full rounded-full bg-background overflow-hidden">
         <div className={`h-full ${color}`} style={{ width: `${Math.min(100, pct)}%` }} />
