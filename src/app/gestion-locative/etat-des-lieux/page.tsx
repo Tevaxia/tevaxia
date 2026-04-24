@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { pdf } from "@react-pdf/renderer";
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 
@@ -18,69 +19,6 @@ interface RoomSection {
   items: RoomItem[];
 }
 
-const DEFAULT_SECTIONS: RoomSection[] = [
-  { id: "general", name: "Général / accès", items: [
-    { id: "cles", label: "Clés remises (nombre + trousseau)", state: "", notes: "" },
-    { id: "boite_aux_lettres", label: "Boîte aux lettres + clé", state: "", notes: "" },
-    { id: "interphone", label: "Interphone / digicode", state: "", notes: "" },
-  ]},
-  { id: "sejour", name: "Séjour / salon", items: [
-    { id: "sol", label: "Revêtement sol", state: "", notes: "" },
-    { id: "murs", label: "Murs et peinture", state: "", notes: "" },
-    { id: "plafond", label: "Plafond", state: "", notes: "" },
-    { id: "fenetres", label: "Fenêtres et menuiseries", state: "", notes: "" },
-    { id: "volets", label: "Volets / stores", state: "", notes: "" },
-    { id: "prises", label: "Prises électriques", state: "", notes: "" },
-    { id: "luminaires", label: "Luminaires", state: "", notes: "" },
-  ]},
-  { id: "cuisine", name: "Cuisine", items: [
-    { id: "meubles", label: "Meubles hauts et bas", state: "", notes: "" },
-    { id: "plan_travail", label: "Plan de travail", state: "", notes: "" },
-    { id: "evier", label: "Évier et robinetterie", state: "", notes: "" },
-    { id: "hotte", label: "Hotte aspirante", state: "", notes: "" },
-    { id: "plaques", label: "Plaques de cuisson", state: "", notes: "" },
-    { id: "four", label: "Four / micro-ondes", state: "", notes: "" },
-    { id: "frigo", label: "Réfrigérateur", state: "", notes: "" },
-    { id: "lave_vaisselle", label: "Lave-vaisselle", state: "", notes: "" },
-  ]},
-  { id: "chambre1", name: "Chambre 1", items: [
-    { id: "sol", label: "Revêtement sol", state: "", notes: "" },
-    { id: "murs", label: "Murs et peinture", state: "", notes: "" },
-    { id: "placards", label: "Placards intégrés", state: "", notes: "" },
-    { id: "fenetres", label: "Fenêtres et volets", state: "", notes: "" },
-  ]},
-  { id: "sdb", name: "Salle de bains / WC", items: [
-    { id: "sol", label: "Revêtement sol", state: "", notes: "" },
-    { id: "faience", label: "Faïence et joints", state: "", notes: "" },
-    { id: "lavabo", label: "Lavabo et robinetterie", state: "", notes: "" },
-    { id: "douche", label: "Douche / baignoire", state: "", notes: "" },
-    { id: "wc", label: "WC", state: "", notes: "" },
-    { id: "seche_serviette", label: "Sèche-serviettes / radiateur", state: "", notes: "" },
-    { id: "vmc", label: "VMC / aération", state: "", notes: "" },
-  ]},
-  { id: "chauffage", name: "Chauffage / énergie", items: [
-    { id: "chaudiere", label: "Chaudière / PAC (état, entretien)", state: "", notes: "" },
-    { id: "radiateurs", label: "Radiateurs", state: "", notes: "" },
-    { id: "compteur_elec", label: "Compteur électrique (relevé)", state: "", notes: "" },
-    { id: "compteur_gaz", label: "Compteur gaz (relevé)", state: "", notes: "" },
-    { id: "compteur_eau", label: "Compteur eau (relevé)", state: "", notes: "" },
-  ]},
-  { id: "exterieur", name: "Extérieurs (balcon, terrasse, jardin, cave)", items: [
-    { id: "balcon", label: "Balcon / terrasse", state: "", notes: "" },
-    { id: "cave", label: "Cave", state: "", notes: "" },
-    { id: "parking", label: "Parking / garage", state: "", notes: "" },
-  ]},
-];
-
-const STATE_LABELS: Record<RoomItem["state"], { label: string; color: string }> = {
-  "": { label: "—", color: "bg-gray-100 text-gray-500" },
-  neuf: { label: "Neuf", color: "bg-emerald-100 text-emerald-800" },
-  bon: { label: "Bon état", color: "bg-green-100 text-green-700" },
-  usage: { label: "État d'usage", color: "bg-amber-100 text-amber-800" },
-  a_remplacer: { label: "À remplacer / dégradé", color: "bg-rose-100 text-rose-800" },
-};
-
-// PDF styles
 const pdfStyles = StyleSheet.create({
   page: { padding: 36, fontSize: 10, fontFamily: "Helvetica", color: "#0B2447" },
   title: { fontSize: 16, fontWeight: "bold", marginBottom: 12 },
@@ -103,22 +41,34 @@ interface EdlPdfProps {
   waterMeter: string;
   elecMeter: string;
   gasMeter: string;
+  stateLabels: Record<string, string>;
+  labels: {
+    title: string;
+    landlord: string;
+    tenant: string;
+    keysMeters: string;
+    obsGeneral: string;
+    signLandlord: string;
+    signTenant: string;
+    footer: string;
+  };
 }
 
-function EdlPdf({ meta, sections, notesGeneral, keysCount, waterMeter, elecMeter, gasMeter }: EdlPdfProps) {
+function EdlPdf({ meta, sections, notesGeneral, keysCount, waterMeter, elecMeter, gasMeter, stateLabels, labels }: EdlPdfProps) {
   return (
     <Document>
       <Page size="A4" style={pdfStyles.page}>
-        <Text style={pdfStyles.title}>État des lieux — {meta.type === "entree" ? "Entrée" : "Sortie"}</Text>
+        <Text style={pdfStyles.title}>{labels.title}</Text>
         <Text style={pdfStyles.subtitle}>
           {meta.lotName} · {meta.address} · {meta.date}
         </Text>
         <Text style={pdfStyles.subtitle}>
-          Bailleur : {meta.bailleur} · Locataire : {meta.locataire}
+          {labels.landlord} · {labels.tenant}
         </Text>
 
-        <Text style={pdfStyles.sectionTitle}>Clés et relevés compteurs</Text>
-        <Text style={{ fontSize: 9 }}>Clés remises : {keysCount} · Eau : {waterMeter || "—"} · Électricité : {elecMeter || "—"} · Gaz : {gasMeter || "—"}</Text>
+        <Text style={pdfStyles.sectionTitle}>{labels.keysMeters.split(":")[0].trim()}</Text>
+        <Text style={{ fontSize: 9 }}>{labels.keysMeters}</Text>
+        {void keysCount /* referenced via labels */}{void waterMeter}{void elecMeter}{void gasMeter}
 
         {sections.map((sec) => (
           <View key={sec.id} wrap={false}>
@@ -126,7 +76,7 @@ function EdlPdf({ meta, sections, notesGeneral, keysCount, waterMeter, elecMeter
             {sec.items.filter((it) => it.state || it.notes).map((it) => (
               <View key={it.id} style={pdfStyles.row}>
                 <Text style={pdfStyles.label}>{it.label}</Text>
-                <Text style={pdfStyles.state}>{STATE_LABELS[it.state].label}</Text>
+                <Text style={pdfStyles.state}>{stateLabels[it.state] ?? "—"}</Text>
                 <Text style={pdfStyles.notes}>{it.notes || ""}</Text>
               </View>
             ))}
@@ -135,31 +85,93 @@ function EdlPdf({ meta, sections, notesGeneral, keysCount, waterMeter, elecMeter
 
         {notesGeneral && (
           <>
-            <Text style={pdfStyles.sectionTitle}>Observations générales</Text>
+            <Text style={pdfStyles.sectionTitle}>{labels.obsGeneral}</Text>
             <Text style={{ fontSize: 9 }}>{notesGeneral}</Text>
           </>
         )}
 
         <View style={pdfStyles.signBlock}>
           <View style={pdfStyles.signBox}>
-            <Text>Le bailleur</Text>
+            <Text>{labels.signLandlord}</Text>
             <Text style={{ marginTop: 2, fontSize: 8, color: "#475569" }}>{meta.bailleur}</Text>
           </View>
           <View style={pdfStyles.signBox}>
-            <Text>Le locataire</Text>
+            <Text>{labels.signTenant}</Text>
             <Text style={{ marginTop: 2, fontSize: 8, color: "#475569" }}>{meta.locataire}</Text>
           </View>
         </View>
 
-        <Text style={pdfStyles.footer}>
-          État des lieux conforme à la loi modifiée du 21 septembre 2006 (art. 9) — document contradictoire entre bailleur et locataire
-        </Text>
+        <Text style={pdfStyles.footer}>{labels.footer}</Text>
       </Page>
     </Document>
   );
 }
 
 export default function EtatDesLieuxPage() {
+  const t = useTranslations("glEdl");
+
+  const DEFAULT_SECTIONS: RoomSection[] = [
+    { id: "general", name: t("sectionGeneral"), items: [
+      { id: "cles", label: t("itemCles"), state: "", notes: "" },
+      { id: "boite_aux_lettres", label: t("itemBoite"), state: "", notes: "" },
+      { id: "interphone", label: t("itemInterphone"), state: "", notes: "" },
+    ]},
+    { id: "sejour", name: t("sectionSejour"), items: [
+      { id: "sol", label: t("itemSol"), state: "", notes: "" },
+      { id: "murs", label: t("itemMurs"), state: "", notes: "" },
+      { id: "plafond", label: t("itemPlafond"), state: "", notes: "" },
+      { id: "fenetres", label: t("itemFenetres"), state: "", notes: "" },
+      { id: "volets", label: t("itemVolets"), state: "", notes: "" },
+      { id: "prises", label: t("itemPrises"), state: "", notes: "" },
+      { id: "luminaires", label: t("itemLuminaires"), state: "", notes: "" },
+    ]},
+    { id: "cuisine", name: t("sectionCuisine"), items: [
+      { id: "meubles", label: t("itemMeubles"), state: "", notes: "" },
+      { id: "plan_travail", label: t("itemPlanTravail"), state: "", notes: "" },
+      { id: "evier", label: t("itemEvier"), state: "", notes: "" },
+      { id: "hotte", label: t("itemHotte"), state: "", notes: "" },
+      { id: "plaques", label: t("itemPlaques"), state: "", notes: "" },
+      { id: "four", label: t("itemFour"), state: "", notes: "" },
+      { id: "frigo", label: t("itemFrigo"), state: "", notes: "" },
+      { id: "lave_vaisselle", label: t("itemLaveVaisselle"), state: "", notes: "" },
+    ]},
+    { id: "chambre1", name: t("sectionChambre1"), items: [
+      { id: "sol", label: t("itemSol"), state: "", notes: "" },
+      { id: "murs", label: t("itemMurs"), state: "", notes: "" },
+      { id: "placards", label: t("itemPlacards"), state: "", notes: "" },
+      { id: "fenetres", label: t("itemFenetresVolets"), state: "", notes: "" },
+    ]},
+    { id: "sdb", name: t("sectionSdb"), items: [
+      { id: "sol", label: t("itemSol"), state: "", notes: "" },
+      { id: "faience", label: t("itemFaience"), state: "", notes: "" },
+      { id: "lavabo", label: t("itemLavabo"), state: "", notes: "" },
+      { id: "douche", label: t("itemDouche"), state: "", notes: "" },
+      { id: "wc", label: t("itemWc"), state: "", notes: "" },
+      { id: "seche_serviette", label: t("itemSecheServiette"), state: "", notes: "" },
+      { id: "vmc", label: t("itemVmc"), state: "", notes: "" },
+    ]},
+    { id: "chauffage", name: t("sectionChauffage"), items: [
+      { id: "chaudiere", label: t("itemChaudiere"), state: "", notes: "" },
+      { id: "radiateurs", label: t("itemRadiateurs"), state: "", notes: "" },
+      { id: "compteur_elec", label: t("itemCompteurElec"), state: "", notes: "" },
+      { id: "compteur_gaz", label: t("itemCompteurGaz"), state: "", notes: "" },
+      { id: "compteur_eau", label: t("itemCompteurEau"), state: "", notes: "" },
+    ]},
+    { id: "exterieur", name: t("sectionExterieur"), items: [
+      { id: "balcon", label: t("itemBalcon"), state: "", notes: "" },
+      { id: "cave", label: t("itemCave"), state: "", notes: "" },
+      { id: "parking", label: t("itemParking"), state: "", notes: "" },
+    ]},
+  ];
+
+  const STATE_LABELS: Record<RoomItem["state"], { label: string; color: string }> = {
+    "": { label: t("stateEmpty"), color: "bg-gray-100 text-gray-500" },
+    neuf: { label: t("stateNeuf"), color: "bg-emerald-100 text-emerald-800" },
+    bon: { label: t("stateBon"), color: "bg-green-100 text-green-700" },
+    usage: { label: t("stateUsage"), color: "bg-amber-100 text-amber-800" },
+    a_remplacer: { label: t("stateARemplacer"), color: "bg-rose-100 text-rose-800" },
+  };
+
   const [sections, setSections] = useState<RoomSection[]>(DEFAULT_SECTIONS);
   const [lotName, setLotName] = useState("");
   const [address, setAddress] = useState("");
@@ -189,6 +201,23 @@ export default function EtatDesLieuxPage() {
   }, [sections]);
 
   const handleExportPDF = async () => {
+    const stateLabelsFlat: Record<string, string> = {
+      "": t("stateEmpty"),
+      neuf: t("stateNeuf"),
+      bon: t("stateBon"),
+      usage: t("stateUsage"),
+      a_remplacer: t("stateARemplacer"),
+    };
+    const labels = {
+      title: type === "entree" ? t("pdfTitleEntree") : t("pdfTitleSortie"),
+      landlord: t("pdfBailleur", { name: bailleur }),
+      tenant: t("pdfLocataire", { name: locataire }),
+      keysMeters: t("pdfKeysMeters", { keys: keysCount, water: waterMeter || "—", elec: elecMeter || "—", gas: gasMeter || "—" }),
+      obsGeneral: t("pdfObsGeneral"),
+      signLandlord: t("pdfSignLandlord"),
+      signTenant: t("pdfSignTenant"),
+      footer: t("pdfFooter"),
+    };
     const blob = await pdf(
       <EdlPdf
         meta={{ lotName, address, type, date, bailleur, locataire }}
@@ -198,6 +227,8 @@ export default function EtatDesLieuxPage() {
         waterMeter={waterMeter}
         elecMeter={elecMeter}
         gasMeter={gasMeter}
+        stateLabels={stateLabelsFlat}
+        labels={labels}
       />,
     ).toBlob();
     const url = URL.createObjectURL(blob);
@@ -212,89 +243,83 @@ export default function EtatDesLieuxPage() {
   return (
     <div className="bg-background min-h-screen py-6 sm:py-10">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <Link href="/gestion-locative" className="text-xs text-muted hover:text-navy">&larr; Gestion locative</Link>
+        <Link href="/gestion-locative" className="text-xs text-muted hover:text-navy">{t("backHub")}</Link>
         <div className="mt-2 mb-6">
-          <h1 className="text-2xl font-bold text-navy sm:text-3xl">État des lieux (mobile-friendly)</h1>
-          <p className="mt-1 text-sm text-muted">
-            Checklist contradictoire conforme à l&apos;art. 9 de la loi du 21 septembre 2006 sur le bail d&apos;habitation LU.
-            Optimisé pour saisie sur smartphone/tablette sur site.
-          </p>
+          <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("pageTitle")}</h1>
+          <p className="mt-1 text-sm text-muted">{t("pageSubtitle")}</p>
         </div>
 
-        {/* Header / méta */}
         <div className="rounded-xl border border-card-border bg-card p-5 shadow-sm space-y-3">
           <div className="grid gap-3 sm:grid-cols-2">
             <div>
-              <label className="block text-xs font-medium text-slate mb-1">Type</label>
+              <label className="block text-xs font-medium text-slate mb-1">{t("typeLabel")}</label>
               <div className="flex rounded-lg border border-input-border overflow-hidden">
-                {(["entree", "sortie"] as const).map((t) => (
-                  <button key={t} onClick={() => setType(t)}
-                    className={`flex-1 py-2 text-sm font-medium ${type === t ? "bg-navy text-white" : "bg-background text-muted hover:bg-slate-50"}`}>
-                    {t === "entree" ? "Entrée" : "Sortie"}
+                {(["entree", "sortie"] as const).map((opt) => (
+                  <button key={opt} onClick={() => setType(opt)}
+                    className={`flex-1 py-2 text-sm font-medium ${type === opt ? "bg-navy text-white" : "bg-background text-muted hover:bg-slate-50"}`}>
+                    {opt === "entree" ? t("typeEntree") : t("typeSortie")}
                   </button>
                 ))}
               </div>
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate mb-1">Date</label>
+              <label className="block text-xs font-medium text-slate mb-1">{t("dateLabel")}</label>
               <input type="date" value={date} onChange={(e) => setDate(e.target.value)}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate mb-1">Nom du bien</label>
+              <label className="block text-xs font-medium text-slate mb-1">{t("nameLabel")}</label>
               <input type="text" value={lotName} onChange={(e) => setLotName(e.target.value)}
-                placeholder="Ex: Appartement 2 rue de la Gare, Luxembourg"
+                placeholder={t("namePlaceholder")}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate mb-1">Adresse complète</label>
+              <label className="block text-xs font-medium text-slate mb-1">{t("addressLabel")}</label>
               <input type="text" value={address} onChange={(e) => setAddress(e.target.value)}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate mb-1">Bailleur</label>
+              <label className="block text-xs font-medium text-slate mb-1">{t("landlordLabel")}</label>
               <input type="text" value={bailleur} onChange={(e) => setBailleur(e.target.value)}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate mb-1">Locataire</label>
+              <label className="block text-xs font-medium text-slate mb-1">{t("tenantLabel")}</label>
               <input type="text" value={locataire} onChange={(e) => setLocataire(e.target.value)}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </div>
           </div>
         </div>
 
-        {/* Clés + compteurs */}
         <div className="mt-4 rounded-xl border border-card-border bg-card p-5 shadow-sm">
-          <h2 className="text-sm font-semibold text-navy mb-3">Clés et relevés compteurs</h2>
+          <h2 className="text-sm font-semibold text-navy mb-3">{t("metersTitle")}</h2>
           <div className="grid gap-3 sm:grid-cols-4">
             <div>
-              <label className="block text-xs font-medium text-slate mb-1">Nb clés</label>
+              <label className="block text-xs font-medium text-slate mb-1">{t("nbKeysLabel")}</label>
               <input type="number" value={keysCount} onChange={(e) => setKeysCount(Number(e.target.value))}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate mb-1">Compteur eau (m³)</label>
+              <label className="block text-xs font-medium text-slate mb-1">{t("waterLabel")}</label>
               <input type="text" value={waterMeter} onChange={(e) => setWaterMeter(e.target.value)}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate mb-1">Compteur électrique (kWh)</label>
+              <label className="block text-xs font-medium text-slate mb-1">{t("elecLabel")}</label>
               <input type="text" value={elecMeter} onChange={(e) => setElecMeter(e.target.value)}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate mb-1">Compteur gaz (m³)</label>
+              <label className="block text-xs font-medium text-slate mb-1">{t("gasLabel")}</label>
               <input type="text" value={gasMeter} onChange={(e) => setGasMeter(e.target.value)}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </div>
           </div>
         </div>
 
-        {/* Progress */}
         <div className="mt-4 rounded-xl border border-card-border bg-card p-4 shadow-sm">
           <div className="flex items-center justify-between text-xs">
-            <span className="text-muted">{progress.done}/{progress.total} items évalués</span>
+            <span className="text-muted">{t("progressDone", { done: progress.done, total: progress.total })}</span>
             <span className="font-medium text-navy">{progress.pct}%</span>
           </div>
           <div className="mt-2 h-2 rounded-full bg-slate-100">
@@ -302,7 +327,6 @@ export default function EtatDesLieuxPage() {
           </div>
         </div>
 
-        {/* Navigation sections (scroll horizontal sur mobile) */}
         <div className="mt-4 flex gap-2 overflow-x-auto pb-2">
           {sections.map((s) => {
             const filled = s.items.filter((it) => it.state).length;
@@ -318,7 +342,6 @@ export default function EtatDesLieuxPage() {
           })}
         </div>
 
-        {/* Active section items */}
         {activeSection && (
           <div className="mt-4 rounded-xl border border-card-border bg-card">
             <div className="border-b border-card-border bg-background px-4 py-2">
@@ -345,7 +368,7 @@ export default function EtatDesLieuxPage() {
                   </div>
                   <input type="text" value={item.notes}
                     onChange={(e) => setItem(activeSection.id, item.id, { notes: e.target.value })}
-                    placeholder="Notes (ex: rayure 20cm plan de travail)"
+                    placeholder={t("notesPlaceholder")}
                     className="mt-2 w-full rounded border border-card-border bg-transparent px-2 py-1 text-xs" />
                 </div>
               ))}
@@ -353,26 +376,23 @@ export default function EtatDesLieuxPage() {
           </div>
         )}
 
-        {/* Notes générales */}
         <div className="mt-4 rounded-xl border border-card-border bg-card p-5 shadow-sm">
-          <label className="block text-sm font-semibold text-navy mb-2">Observations générales</label>
+          <label className="block text-sm font-semibold text-navy mb-2">{t("generalNotesLabel")}</label>
           <textarea value={notesGeneral} onChange={(e) => setNotesGeneral(e.target.value)}
             rows={4}
-            placeholder="Points particuliers, accords sur petites réparations à la charge du bailleur, etc."
+            placeholder={t("generalNotesPlaceholder")}
             className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
         </div>
 
-        {/* Actions */}
         <div className="mt-6 flex flex-wrap gap-2">
           <button onClick={handleExportPDF}
             className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
-            📄 Générer PDF contradictoire
+            {t("exportBtn")}
           </button>
         </div>
 
         <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-900">
-          Conforme à la loi modifiée du 21 septembre 2006 sur le bail à usage d&apos;habitation (art. 9 : état des lieux obligatoire, établi contradictoirement).
-          En l&apos;absence d&apos;état des lieux d&apos;entrée, le locataire est présumé avoir reçu le logement en bon état (art. 1731 Code civil LU).
+          {t("legalBody")}
         </div>
       </div>
     </div>
