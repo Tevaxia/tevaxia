@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { pdf } from "@react-pdf/renderer";
 import { useAuth } from "@/components/AuthProvider";
 import { getCoownership, type Coownership } from "@/lib/coownerships";
@@ -19,8 +19,10 @@ import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/errors";
 
 export default function RelancesPage() {
+  const t = useTranslations("syndicRelances");
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
+  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const { user } = useAuth();
   const params = useParams();
   const id = String(params?.id ?? "");
@@ -44,10 +46,10 @@ export default function RelancesPage() {
       ]);
       setCoown(c); setRules(r); setUnpaid(u); setHistory(h);
     } catch (e) {
-      setError(errMsg(e, "Erreur"));
+      setError(errMsg(e, t("errorGeneric")));
     }
     setLoading(false);
-  }, [id]);
+  }, [id, t]);
 
   useEffect(() => { if (user) void reload(); }, [user, reload]);
 
@@ -77,33 +79,29 @@ export default function RelancesPage() {
     const palier = nextPalier(charge);
     if (!palier) return;
     const rule = rules.find((r) => r.palier === palier);
-    if (!rule) { setError(`Règle palier ${palier} non trouvée`); return; }
+    if (!rule) { setError(t("ruleNotFound", { p: palier })); return; }
     const { late_interest, penalty, total_claimed, letter_body } = prepareReminder(charge, rule);
-    try {
-      await sendReminder({
-        coownership_id: id,
-        charge_id: charge.charge_id,
-        unit_id: charge.unit_id,
-        palier,
-        amount_due: charge.amount_due,
-        amount_paid: charge.amount_paid,
-        amount_outstanding: charge.amount_outstanding,
-        days_late: charge.days_late,
-        late_interest, penalty, total_claimed,
-        owner_name: charge.owner_name,
-        owner_email: charge.owner_email,
-        owner_address: null,
-        letter_body,
-        channel: palier === 3 ? "registered_letter" : "letter",
-      });
-    } catch (e) {
-      throw e;
-    }
+    await sendReminder({
+      coownership_id: id,
+      charge_id: charge.charge_id,
+      unit_id: charge.unit_id,
+      palier,
+      amount_due: charge.amount_due,
+      amount_paid: charge.amount_paid,
+      amount_outstanding: charge.amount_outstanding,
+      days_late: charge.days_late,
+      late_interest, penalty, total_claimed,
+      owner_name: charge.owner_name,
+      owner_email: charge.owner_email,
+      owner_address: null,
+      letter_body,
+      channel: palier === 3 ? "registered_letter" : "letter",
+    });
   };
 
   const sendSelectedBatch = async () => {
     if (selectedCharges.length === 0) return;
-    if (!confirm(`Envoyer ${selectedCharges.length} relance(s) en une fois ?`)) return;
+    if (!confirm(t("confirmBatch", { n: selectedCharges.length }))) return;
     setError(null);
     let ok = 0; let ko = 0;
     for (const charge of selectedCharges) {
@@ -116,13 +114,13 @@ export default function RelancesPage() {
     }
     setSelectedIds(new Set());
     await reload();
-    alert(`${ok} relance(s) envoyée(s), ${ko} échec(s).`);
+    alert(t("batchResult", { ok, ko }));
   };
 
   const downloadPdfForCharge = async (charge: UnpaidCharge) => {
     if (!coown) return;
     const palier = nextPalier(charge);
-    if (!palier) { setError("Aucun palier disponible pour cette charge."); return; }
+    if (!palier) { setError(t("noAvailPalier")); return; }
     const rule = rules.find((r) => r.palier === palier);
     if (!rule) return;
     const { late_interest, penalty, total_claimed, letter_body } = prepareReminder(charge, rule);
@@ -131,7 +129,7 @@ export default function RelancesPage() {
       <ReminderLetterPdf
         coownership={{ name: coown.name, address: coown.address, commune: coown.commune }}
         syndic={{
-          name: profile.nomComplet || profile.societe || "Syndic",
+          name: profile.nomComplet || profile.societe || t("defaultSyndicName"),
           address: profile.adresse, email: profile.email, phone: profile.telephone,
         }}
         owner={{
@@ -170,7 +168,7 @@ export default function RelancesPage() {
   };
 
   if (loading || !coown) {
-    return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">Chargement…</div>;
+    return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
   }
 
   const stats = {
@@ -188,36 +186,35 @@ export default function RelancesPage() {
     <div className="bg-background min-h-screen py-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Link href={`${lp}/syndic/coproprietes/${id}`} className="text-xs text-muted hover:text-navy">
-          ← {coown.name}
+          {t("backCoown", { name: coown.name })}
         </Link>
-        <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">Relances impayés</h1>
+        <h1 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">{t("pageTitle")}</h1>
         <p className="mt-1 text-sm text-muted">
-          Moteur 3 paliers (J+15 amiable → J+30 mise en demeure → J+60 dernière mise en demeure)
-          avec intérêts légaux LU (5,75%) et traçabilité immutable pour usage contentieux.
+          {t("pageSubtitle")}
         </p>
 
         {error && <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-900">{error}</div>}
 
         {/* KPIs */}
         <div className="mt-6 grid gap-3 sm:grid-cols-4">
-          <StatCard label="Total impayés" value={formatEUR(stats.total_outstanding)} tone="rose" />
-          <StatCard label="Relances éligibles" value={String(stats.eligible_count)} tone="amber" />
-          <StatCard label="Montant éligible" value={formatEUR(stats.eligible_amount)} />
-          <StatCard label="Envoyées ce mois" value={String(stats.sent_this_month)} />
+          <StatCard label={t("kpiTotal")} value={formatEUR(stats.total_outstanding)} tone="rose" />
+          <StatCard label={t("kpiEligibleCount")} value={String(stats.eligible_count)} tone="amber" />
+          <StatCard label={t("kpiEligibleAmount")} value={formatEUR(stats.eligible_amount)} />
+          <StatCard label={t("kpiSentMonth")} value={String(stats.sent_this_month)} />
         </div>
 
         {/* Tabs */}
         <div className="mt-6 flex gap-1 border-b border-card-border">
           {([
-            { id: "eligible", label: `Éligibles (${eligibleCharges.length})` },
-            { id: "history", label: `Historique (${history.length})` },
-            { id: "rules", label: "Règles & paliers" },
-          ] as const).map((t) => (
-            <button key={t.id} onClick={() => setTab(t.id)}
+            { id: "eligible", label: t("tabEligible", { n: eligibleCharges.length }) },
+            { id: "history", label: t("tabHistory", { n: history.length }) },
+            { id: "rules", label: t("tabRules") },
+          ] as const).map((tabItem) => (
+            <button key={tabItem.id} onClick={() => setTab(tabItem.id)}
               className={`px-4 py-2 text-sm font-semibold border-b-2 -mb-px transition-colors ${
-                tab === t.id ? "border-navy text-navy" : "border-transparent text-muted hover:text-navy"
+                tab === tabItem.id ? "border-navy text-navy" : "border-transparent text-muted hover:text-navy"
               }`}>
-              {t.label}
+              {tabItem.label}
             </button>
           ))}
         </div>
@@ -227,21 +224,21 @@ export default function RelancesPage() {
             <>
               {eligibleCharges.length === 0 ? (
                 <div className="rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-                  ✓ Aucune relance à envoyer. Tous les impayés éligibles ont déjà reçu leur palier.
+                  {t("emptyEligible")}
                 </div>
               ) : (
                 <>
                   <div className="mb-3 flex items-center justify-between">
                     <div className="text-xs text-muted">
-                      <button onClick={selectAll} className="text-navy underline mr-2">Tout cocher</button>
+                      <button onClick={selectAll} className="text-navy underline mr-2">{t("btnSelectAll")}</button>
                       {selectedIds.size > 0 && (
-                        <span>{selectedIds.size} charge(s) sélectionnée(s)</span>
+                        <span>{t("selectedCount", { n: selectedIds.size })}</span>
                       )}
                     </div>
                     {selectedIds.size > 0 && (
                       <button onClick={sendSelectedBatch}
                         className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
-                        Envoyer {selectedIds.size} relance(s)
+                        {t("btnSendBatch", { n: selectedIds.size })}
                       </button>
                     )}
                   </div>
@@ -250,12 +247,12 @@ export default function RelancesPage() {
                       <thead>
                         <tr className="border-b border-card-border bg-background/60">
                           <th className="px-3 py-2"></th>
-                          <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Lot</th>
-                          <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Propriétaire</th>
-                          <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Appel</th>
-                          <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Dû</th>
-                          <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Jours</th>
-                          <th className="px-3 py-2 text-center text-[10px] uppercase tracking-wider text-muted">Palier</th>
+                          <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colLot")}</th>
+                          <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colOwner")}</th>
+                          <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colCall")}</th>
+                          <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colDue")}</th>
+                          <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colDays")}</th>
+                          <th className="px-3 py-2 text-center text-[10px] uppercase tracking-wider text-muted">{t("colPalier")}</th>
                           <th className="px-3 py-2 text-right"></th>
                         </tr>
                       </thead>
@@ -271,7 +268,7 @@ export default function RelancesPage() {
                               </td>
                               <td className="px-3 py-2 font-mono font-semibold text-navy">{c.lot_number}</td>
                               <td className="px-3 py-2">
-                                {c.owner_name ?? "—"}
+                                {c.owner_name ?? t("dash")}
                                 {c.owner_email && <div className="text-[10px] text-muted">{c.owner_email}</div>}
                               </td>
                               <td className="px-3 py-2 text-xs">{c.call_label}</td>
@@ -285,11 +282,11 @@ export default function RelancesPage() {
                               </td>
                               <td className="px-3 py-2 text-center">
                                 <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${PALIER_COLORS[palier]}`}>
-                                  P{palier} — {PALIER_LABELS[palier]}
+                                  {t("palierDisplay", { p: palier, label: PALIER_LABELS[palier] })}
                                 </span>
                                 {c.last_palier_sent > 0 && (
                                   <div className="text-[9px] text-muted mt-0.5">
-                                    précédent P{c.last_palier_sent}
+                                    {t("previousPalier", { p: c.last_palier_sent })}
                                   </div>
                                 )}
                               </td>
@@ -297,11 +294,11 @@ export default function RelancesPage() {
                                 <div className="flex gap-1 justify-end">
                                   <button onClick={() => downloadPdfForCharge(c)}
                                     className="rounded border border-card-border bg-white px-2 py-1 text-[10px] text-slate hover:bg-background">
-                                    Aperçu PDF
+                                    {t("btnPreviewPdf")}
                                   </button>
                                   <button onClick={async () => { try { await sendReminderForCharge(c); await reload(); } catch (e) { setError(errMsg(e)); } }}
                                     className="rounded bg-emerald-600 px-2 py-1 text-[10px] font-semibold text-white hover:bg-emerald-700">
-                                    Envoyer
+                                    {t("btnSend")}
                                   </button>
                                 </div>
                               </td>
@@ -320,41 +317,41 @@ export default function RelancesPage() {
             <>
               {history.length === 0 ? (
                 <div className="rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-                  Aucune relance envoyée pour cette copropriété.
+                  {t("emptyHistory")}
                 </div>
               ) : (
                 <div className="rounded-xl border border-card-border bg-card overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="border-b border-card-border bg-background/60">
-                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Date</th>
-                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Palier</th>
-                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Destinataire</th>
-                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Dû</th>
-                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Intérêts</th>
-                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Pénalité</th>
-                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">Total</th>
-                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">Canal</th>
+                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colDate")}</th>
+                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colPalierH")}</th>
+                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colRecipient")}</th>
+                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colDue")}</th>
+                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colInterest")}</th>
+                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colPenalty")}</th>
+                        <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider text-muted">{t("colTotal")}</th>
+                        <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider text-muted">{t("colChannel")}</th>
                       </tr>
                     </thead>
                     <tbody>
                       {history.map((r) => (
                         <tr key={r.id} className="border-b border-card-border/40">
                           <td className="px-3 py-2 text-xs">
-                            {new Date(r.sent_at).toLocaleDateString("fr-LU", { day: "2-digit", month: "short", year: "numeric" })}
+                            {new Date(r.sent_at).toLocaleDateString(dateLocale, { day: "2-digit", month: "short", year: "numeric" })}
                           </td>
                           <td className="px-3 py-2">
                             <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${PALIER_COLORS[r.palier as ReminderPalier]}`}>
-                              P{r.palier}
+                              {t("palierPrefix", { p: r.palier })}
                             </span>
                           </td>
-                          <td className="px-3 py-2 text-xs">{r.owner_name ?? "—"}</td>
+                          <td className="px-3 py-2 text-xs">{r.owner_name ?? t("dash")}</td>
                           <td className="px-3 py-2 text-right font-mono text-xs">{formatEUR(r.amount_outstanding)}</td>
                           <td className="px-3 py-2 text-right font-mono text-xs text-amber-700">
-                            {r.late_interest > 0 ? formatEUR(r.late_interest) : "—"}
+                            {r.late_interest > 0 ? formatEUR(r.late_interest) : t("dash")}
                           </td>
                           <td className="px-3 py-2 text-right font-mono text-xs text-amber-700">
-                            {r.penalty > 0 ? formatEUR(r.penalty) : "—"}
+                            {r.penalty > 0 ? formatEUR(r.penalty) : t("dash")}
                           </td>
                           <td className="px-3 py-2 text-right font-mono text-xs font-semibold text-navy">
                             {formatEUR(r.total_claimed)}
@@ -376,39 +373,39 @@ export default function RelancesPage() {
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <span className={`rounded-full px-3 py-1 text-[10px] font-semibold ${PALIER_COLORS[rule.palier]}`}>
-                        Palier {rule.palier}
+                        {t("rulePalierBadge", { p: rule.palier })}
                       </span>
                       <h3 className="text-sm font-bold text-navy">{rule.label}</h3>
                     </div>
                     <label className="flex items-center gap-2 text-xs">
                       <input type="checkbox" checked={rule.active}
                         onChange={(e) => saveRule(rule.id, { active: e.target.checked })} />
-                      Actif
+                      {t("ruleActive")}
                     </label>
                   </div>
 
                   <div className="grid gap-3 sm:grid-cols-4 text-xs">
                     <label>
-                      <div className="text-muted mb-1">Délai (jours après échéance)</div>
+                      <div className="text-muted mb-1">{t("ruleDays")}</div>
                       <input type="number" value={rule.days_after_due}
                         onChange={(e) => saveRule(rule.id, { days_after_due: Number(e.target.value) })}
                         className="w-full rounded border border-input-border bg-input-bg px-2 py-1" />
                     </label>
                     <label>
-                      <div className="text-muted mb-1">Seuil minimum (€)</div>
+                      <div className="text-muted mb-1">{t("ruleMinAmount")}</div>
                       <input type="number" step={5} value={rule.min_amount_eur}
                         onChange={(e) => saveRule(rule.id, { min_amount_eur: Number(e.target.value) })}
                         className="w-full rounded border border-input-border bg-input-bg px-2 py-1" />
                     </label>
                     <label>
-                      <div className="text-muted mb-1">Taux intérêt %</div>
+                      <div className="text-muted mb-1">{t("ruleRate")}</div>
                       <input type="number" step={0.01} value={rule.interest_rate_pct}
                         disabled={!rule.apply_late_interest}
                         onChange={(e) => saveRule(rule.id, { interest_rate_pct: Number(e.target.value) })}
                         className="w-full rounded border border-input-border bg-input-bg px-2 py-1 disabled:opacity-50" />
                     </label>
                     <label>
-                      <div className="text-muted mb-1">Pénalité (€)</div>
+                      <div className="text-muted mb-1">{t("rulePenalty")}</div>
                       <input type="number" step={5} value={rule.penalty_fixed_eur}
                         onChange={(e) => saveRule(rule.id, { penalty_fixed_eur: Number(e.target.value) })}
                         className="w-full rounded border border-input-border bg-input-bg px-2 py-1" />
@@ -417,11 +414,11 @@ export default function RelancesPage() {
                       <div className="text-muted mb-1 flex items-center gap-2">
                         <input type="checkbox" checked={rule.apply_late_interest}
                           onChange={(e) => saveRule(rule.id, { apply_late_interest: e.target.checked })} />
-                        Appliquer les intérêts de retard
+                        {t("ruleApplyInterest")}
                       </div>
                     </label>
                     <label className="sm:col-span-4">
-                      <div className="text-muted mb-1">Modèle de lettre (variables : {"{outstanding} {total} {interest} {penalty} {rate} {days} {ref}"})</div>
+                      <div className="text-muted mb-1">{t("ruleTemplate", { vars: "{outstanding} {total} {interest} {penalty} {rate} {days} {ref}" })}</div>
                       <textarea value={rule.template_body} rows={8}
                         onChange={(e) => saveRule(rule.id, { template_body: e.target.value })}
                         className="w-full rounded border border-input-border bg-input-bg px-2 py-1 font-mono text-[10px]" />
@@ -430,9 +427,7 @@ export default function RelancesPage() {
                 </div>
               ))}
               <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-                <strong>Taux légal LU 2026 :</strong> 5,75 % (loi 18.04.2004). La pénalité forfaitaire couvre
-                les frais de gestion recouvrement et doit rester proportionnée (jurisprudence Juge de Paix LU).
-                Palier 3 = dernière mise en demeure obligatoire avant action judiciaire.
+                <strong>{t("rulesInfoTitle")}</strong> {t("rulesInfoBody")}
               </div>
             </div>
           )}
