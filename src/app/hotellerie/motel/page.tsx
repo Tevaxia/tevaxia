@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
@@ -10,11 +11,11 @@ import { formatEUR, formatPct } from "@/lib/calculations";
 interface MotelInputs {
   category: "aparthotel" | "motel" | "residence_hoteliere";
   nbUnits: number;
-  avgUnitSize: number; // m² par unité
+  avgUnitSize: number;
   adr: number;
-  avgStayNights: number; // durée moyenne séjour (plus long que hôtel classique)
+  avgStayNights: number;
   occupancy: number;
-  staffRatio: number; // 0-1 — plus faible qu'hôtel classique (self-service)
+  staffRatio: number;
   opexRatio: number;
   capRate: number;
   hasKitchenette: boolean;
@@ -31,12 +32,12 @@ function computeMotel(i: MotelInputs) {
   const nights = Math.round(365 * i.occupancy);
   const revenueRooms = i.nbUnits * nights * i.adr;
   const revenueBreakfast = i.hasBreakfast ? Math.round(revenueRooms * 0.08) : 0;
-  const revenueOther = Math.round(revenueRooms * 0.04); // parking, vending, laundry
+  const revenueOther = Math.round(revenueRooms * 0.04);
   const revenueTotal = revenueRooms + revenueBreakfast + revenueOther;
 
   const staff = Math.round(revenueTotal * i.staffRatio);
   const opex = Math.round(revenueTotal * i.opexRatio);
-  const ffe = Math.round(revenueTotal * 0.03); // FF&E reserve plus faible (durée vie mobilier supérieure en aparthotel)
+  const ffe = Math.round(revenueTotal * 0.03);
   const gop = revenueTotal - staff - opex;
   const gopMargin = revenueTotal > 0 ? gop / revenueTotal : 0;
   const ebitda = gop - ffe;
@@ -54,13 +55,8 @@ function computeMotel(i: MotelInputs) {
   };
 }
 
-const CATEGORY_LABELS: { value: MotelInputs["category"]; label: string; desc: string }[] = [
-  { value: "aparthotel", label: "Aparthotel / appart-hôtel", desc: "Séjour 3-14 jours, kitchenette, business traveler" },
-  { value: "motel", label: "Motel / budget stay", desc: "Séjour 1-3 jours, autoroute, voyageurs transit" },
-  { value: "residence_hoteliere", label: "Résidence hôtelière / extended stay", desc: "Séjour 1-12 semaines, expats, corporate" },
-];
-
 export default function MotelAparthotelPage() {
+  const t = useTranslations("hotelMotel");
   const [category, setCategory] = useState<MotelInputs["category"]>("aparthotel");
   const [nbUnits, setNbUnits] = useState(40);
   const [avgUnitSize, setAvgUnitSize] = useState(35);
@@ -72,6 +68,12 @@ export default function MotelAparthotelPage() {
   const [capRate, setCapRate] = useState(0.065);
   const [hasKitchenette, setHasKitchenette] = useState(true);
   const [hasBreakfast, setHasBreakfast] = useState(false);
+
+  const CATEGORY_LABELS: { value: MotelInputs["category"]; label: string; desc: string }[] = [
+    { value: "aparthotel", label: t("catAparthotelLabel"), desc: t("catAparthotelDesc") },
+    { value: "motel", label: t("catMotelLabel"), desc: t("catMotelDesc") },
+    { value: "residence_hoteliere", label: t("catResidenceLabel"), desc: t("catResidenceDesc") },
+  ];
 
   const applyCategoryDefaults = (cat: MotelInputs["category"]) => {
     setCategory(cat);
@@ -93,13 +95,10 @@ export default function MotelAparthotelPage() {
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Link href="/hotellerie" className="text-xs text-muted hover:text-navy">&larr; Hôtellerie</Link>
+        <Link href="/hotellerie" className="text-xs text-muted hover:text-navy">{t("backHub")}</Link>
         <div className="mt-2 mb-8">
-          <h1 className="text-2xl font-bold text-navy sm:text-3xl">Aparthotel / Motel / Résidence hôtelière</h1>
-          <p className="mt-2 text-muted">
-            Valorisation dédiée aux séjours prolongés et hôtellerie budget. Ratios USALI adaptés (staff réduit pour self-service,
-            mobilier durable, petit-déj optionnel, kitchenette), capitalisation EBITDA avec cap rate selon catégorie.
-          </p>
+          <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("pageTitle")}</h1>
+          <p className="mt-2 text-muted">{t("pageSubtitle")}</p>
         </div>
 
         <div className="flex flex-wrap gap-2 mb-6">
@@ -115,56 +114,56 @@ export default function MotelAparthotelPage() {
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="space-y-6">
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-              <h2 className="mb-4 text-base font-semibold text-navy">Configuration</h2>
+              <h2 className="mb-4 text-base font-semibold text-navy">{t("configTitle")}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
-                <InputField label="Nombre d'unités" value={nbUnits} onChange={(v) => setNbUnits(Number(v))} />
-                <InputField label="Surface moyenne par unité" value={avgUnitSize} onChange={(v) => setAvgUnitSize(Number(v))} suffix="m²" />
-                <InputField label="ADR (€/nuit)" value={adr} onChange={(v) => setAdr(Number(v))} suffix="€" />
-                <InputField label="Durée moyenne séjour" value={avgStayNights} onChange={(v) => setAvgStayNights(Number(v))} suffix="nuits" hint="Aparthotel ~7, Motel ~1.5, Résidence ~14" />
-                <InputField label="Occupation annuelle" value={Math.round(occupancy * 100)} onChange={(v) => setOccupancy(Number(v) / 100)} suffix="%" />
-                <InputField label="Staff ratio" value={(staffRatio * 100).toFixed(1)} onChange={(v) => setStaffRatio(Number(v) / 100)} suffix="% revenu" hint="Self-service = moins que hôtel (35-40%)" />
-                <InputField label="Opex ratio" value={(opexRatio * 100).toFixed(1)} onChange={(v) => setOpexRatio(Number(v) / 100)} suffix="% revenu" />
-                <InputField label="Cap rate sortie" value={(capRate * 100).toFixed(2)} onChange={(v) => setCapRate(Number(v) / 100)} suffix="%" hint="Motel ~7.5%, Aparthotel ~6.5%, Résidence ~6%" />
+                <InputField label={t("inputNbUnits")} value={nbUnits} onChange={(v) => setNbUnits(Number(v))} />
+                <InputField label={t("inputSize")} value={avgUnitSize} onChange={(v) => setAvgUnitSize(Number(v))} suffix="m²" />
+                <InputField label={t("inputAdr")} value={adr} onChange={(v) => setAdr(Number(v))} suffix="€" />
+                <InputField label={t("inputStay")} value={avgStayNights} onChange={(v) => setAvgStayNights(Number(v))} suffix={t("suffixNuits")} hint={t("inputStayHint")} />
+                <InputField label={t("inputOccupancy")} value={Math.round(occupancy * 100)} onChange={(v) => setOccupancy(Number(v) / 100)} suffix="%" />
+                <InputField label={t("inputStaffRatio")} value={(staffRatio * 100).toFixed(1)} onChange={(v) => setStaffRatio(Number(v) / 100)} suffix={t("suffixRevenue")} hint={t("inputStaffRatioHint")} />
+                <InputField label={t("inputOpexRatio")} value={(opexRatio * 100).toFixed(1)} onChange={(v) => setOpexRatio(Number(v) / 100)} suffix={t("suffixRevenue")} />
+                <InputField label={t("inputCapRate")} value={(capRate * 100).toFixed(2)} onChange={(v) => setCapRate(Number(v) / 100)} suffix="%" hint={t("inputCapRateHint")} />
               </div>
               <div className="mt-3 space-y-1">
-                <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={hasKitchenette} onChange={(e) => setHasKitchenette(e.target.checked)} /> Kitchenette en unité</label>
-                <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={hasBreakfast} onChange={(e) => setHasBreakfast(e.target.checked)} /> Petit-déjeuner inclus (+8% revenu)</label>
+                <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={hasKitchenette} onChange={(e) => setHasKitchenette(e.target.checked)} /> {t("checkboxKitchenette")}</label>
+                <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={hasBreakfast} onChange={(e) => setHasBreakfast(e.target.checked)} /> {t("checkboxBreakfast")}</label>
               </div>
             </div>
           </div>
 
           <div className="space-y-6">
             <div className="rounded-2xl bg-gradient-to-br from-amber-700 to-orange-600 p-8 text-white shadow-lg">
-              <div className="text-xs uppercase tracking-wider text-white/60">Valorisation DCF</div>
+              <div className="text-xs uppercase tracking-wider text-white/60">{t("dcfBadge")}</div>
               <div className="mt-2 text-4xl font-bold">{formatEUR(result.valeurDCF)}</div>
               <div className="mt-1 text-sm text-white/70">
-                Soit {formatEUR(result.valeurParUnit)} par unité · EBITDA {formatEUR(result.ebitda)} ({formatPct(result.ebitdaMargin)})
+                {t("dcfDetail", { value: formatEUR(result.valeurParUnit), ebitda: formatEUR(result.ebitda), margin: formatPct(result.ebitdaMargin) })}
               </div>
             </div>
 
             <ResultPanel
-              title="P&L exploitation annuel"
+              title={t("panelPlTitle")}
               lines={[
-                { label: "Revenu chambres", value: formatEUR(result.revenueRooms) },
-                { label: "Revenu petit-déjeuner", value: formatEUR(result.revenueBreakfast), sub: true },
-                { label: "Autres revenus (parking/vending)", value: formatEUR(result.revenueOther), sub: true },
-                { label: "Revenu total", value: formatEUR(result.revenueTotal), highlight: true },
-                { label: `Staff (${(staffRatio * 100).toFixed(1)}%)`, value: `- ${formatEUR(result.staff)}`, sub: true },
-                { label: `Opex (${(opexRatio * 100).toFixed(1)}%)`, value: `- ${formatEUR(result.opex)}`, sub: true },
-                { label: "GOP", value: `${formatEUR(result.gop)} (${formatPct(result.gopMargin)})`, highlight: true },
-                { label: "FF&E reserve 3%", value: `- ${formatEUR(result.ffe)}`, sub: true },
-                { label: "EBITDA", value: `${formatEUR(result.ebitda)} (${formatPct(result.ebitdaMargin)})`, highlight: true, large: true },
+                { label: t("panelRevRooms"), value: formatEUR(result.revenueRooms) },
+                { label: t("panelRevBreakfast"), value: formatEUR(result.revenueBreakfast), sub: true },
+                { label: t("panelRevOther"), value: formatEUR(result.revenueOther), sub: true },
+                { label: t("panelRevTotal"), value: formatEUR(result.revenueTotal), highlight: true },
+                { label: t("panelStaff", { pct: (staffRatio * 100).toFixed(1) }), value: `- ${formatEUR(result.staff)}`, sub: true },
+                { label: t("panelOpex", { pct: (opexRatio * 100).toFixed(1) }), value: `- ${formatEUR(result.opex)}`, sub: true },
+                { label: t("panelGop"), value: `${formatEUR(result.gop)} (${formatPct(result.gopMargin)})`, highlight: true },
+                { label: t("panelFfe"), value: `- ${formatEUR(result.ffe)}`, sub: true },
+                { label: t("panelEbitda"), value: `${formatEUR(result.ebitda)} (${formatPct(result.ebitdaMargin)})`, highlight: true, large: true },
               ]}
             />
 
             <ResultPanel
-              title="Métriques exploitation"
+              title={t("panelMetricsTitle")}
               lines={[
-                { label: "Nuits louées/unité/an", value: `${result.nightsPerUnit} sur 365` },
-                { label: "RevPAR par unité", value: `${result.revPARnoCapacity.toFixed(0)} €` },
-                { label: "ADR effectif", value: `${adr} €` },
-                { label: "Séjours moyens/unité/an", value: `${Math.round(result.nightsPerUnit / avgStayNights)}` },
-                { label: "Surface totale", value: `${nbUnits * avgUnitSize} m²` },
+                { label: t("metricNights"), value: t("metricNightsValue", { n: result.nightsPerUnit }) },
+                { label: t("metricRevpar"), value: `${result.revPARnoCapacity.toFixed(0)} €` },
+                { label: t("metricAdrEff"), value: `${adr} €` },
+                { label: t("metricSejours"), value: `${Math.round(result.nightsPerUnit / avgStayNights)}` },
+                { label: t("metricSurface"), value: `${nbUnits * avgUnitSize} m²` },
               ]}
             />
 
