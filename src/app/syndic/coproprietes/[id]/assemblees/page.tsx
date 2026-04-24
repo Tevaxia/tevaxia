@@ -34,6 +34,7 @@ const STATUS_COLOR: Record<AssemblyStatus, string> = {
 export default function AssembliesPage() {
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
+  const numberLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const t = useTranslations("syndicAssemblees");
   const { user } = useAuth();
   const params = useParams();
@@ -74,7 +75,7 @@ export default function AssembliesPage() {
         `Copropriété: ${coown?.name ?? "—"}`,
         `Adresse: ${coown?.address ?? "—"}${coown?.commune ? `, ${coown.commune}` : ""}`,
         `Type AG: ${activeAssembly?.assembly_type === "extraordinary" ? "extraordinaire" : "ordinaire"}`,
-        `Date AG: ${activeAssembly ? new Date(activeAssembly.scheduled_at).toLocaleDateString("fr-LU") : "—"}`,
+        `Date AG: ${activeAssembly ? new Date(activeAssembly.scheduled_at).toLocaleDateString(numberLocale) : "—"}`,
         `Titre de la résolution: ${resDraft.title}`,
         `Type de majorité visée: ${MAJORITY_LABEL[resDraft.majority_type]}`,
       ].join("\n");
@@ -99,7 +100,7 @@ export default function AssembliesPage() {
         `PV d'assemblée générale de copropriété — Luxembourg`,
         `Copropriété: ${coown?.name ?? "—"} (${coown?.total_tantiemes ?? 0} tantièmes totaux)`,
         `Type AG: ${activeAssembly.assembly_type === "extraordinary" ? "extraordinaire" : "ordinaire"}`,
-        `Date: ${new Date(activeAssembly.scheduled_at).toLocaleString("fr-LU")}`,
+        `Date: ${new Date(activeAssembly.scheduled_at).toLocaleString(numberLocale)}`,
         `Lieu: ${activeAssembly.location ?? "—"}`,
         `Quorum requis: ${activeAssembly.quorum_pct}% — Présents: ${attendancePct2.toFixed(1)}% (${expressedTantiemes2}/${coown?.total_tantiemes ?? 0} tantièmes)`,
         "",
@@ -413,7 +414,7 @@ export default function AssembliesPage() {
                 <div>
                   <h2 className="text-lg font-semibold text-navy">{activeAssembly.title}</h2>
                   <p className="mt-1 text-xs text-muted">
-                    {new Date(activeAssembly.scheduled_at).toLocaleString("fr-LU", {
+                    {new Date(activeAssembly.scheduled_at).toLocaleString(numberLocale, {
                       weekday: "long", year: "numeric", month: "long", day: "numeric",
                       hour: "2-digit", minute: "2-digit",
                     })}

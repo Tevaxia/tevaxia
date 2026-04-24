@@ -16,6 +16,7 @@ import {
 export default function CoownershipDetailPage() {
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
+  const numberLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const t = useTranslations("syndicDetail");
   const { user } = useAuth();
   const params = useParams();
@@ -208,12 +209,12 @@ export default function CoownershipDetailPage() {
           </div>
           <div className="rounded-xl border border-card-border bg-card p-4">
             <div className="text-xs uppercase tracking-wider text-muted font-semibold">{t("kpiTotalTantiemes")}</div>
-            <div className="mt-1 text-2xl font-bold text-navy">{coown.total_tantiemes.toLocaleString("fr-LU")}</div>
+            <div className="mt-1 text-2xl font-bold text-navy">{coown.total_tantiemes.toLocaleString(numberLocale)}</div>
           </div>
           <div className="rounded-xl border border-card-border bg-card p-4">
             <div className="text-xs uppercase tracking-wider text-muted font-semibold">{t("kpiAssigned")}</div>
             <div className={`mt-1 text-2xl font-bold ${tv.valid ? "text-emerald-700" : tv.diff > 0 ? "text-amber-700" : "text-rose-700"}`}>
-              {usedTant.toLocaleString("fr-LU")}
+              {usedTant.toLocaleString(numberLocale)}
             </div>
             <div className="mt-0.5 text-xs text-muted">{tv.usagePct.toFixed(1)} % · {t("kpiUsagePct")} {tv.diff > 0 ? "+" : ""}{tv.diff}</div>
           </div>
@@ -359,7 +360,7 @@ export default function CoownershipDetailPage() {
                 <tr key={u.id} className="hover:bg-slate-50/50">
                   <td className="px-4 py-2 font-medium text-navy">{u.lot_number}</td>
                   <td className="px-4 py-2 text-muted">{UNIT_TYPE_LABEL[u.unit_type]}</td>
-                  <td className="px-4 py-2 text-right font-mono">{u.tantiemes.toLocaleString("fr-LU")}</td>
+                  <td className="px-4 py-2 text-right font-mono">{u.tantiemes.toLocaleString(numberLocale)}</td>
                   <td className="px-4 py-2 text-right">{u.surface_m2 ? `${u.surface_m2} m\u00B2` : "\u2014"}</td>
                   <td className="px-4 py-2">{u.owner_name ?? "\u2014"}</td>
                   <td className="px-4 py-2">

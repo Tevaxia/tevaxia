@@ -23,6 +23,7 @@ type DraftLine = { account_id: string; debit: number; credit: number; line_label
 export default function AccountingPage() {
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
+  const numberLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const t = useTranslations("syndicComptabilite");
   const { user } = useAuth();
   const params = useParams();
@@ -400,7 +401,7 @@ export default function AccountingPage() {
                           const ec = lines.reduce((s, l) => s + Number(l.credit), 0);
                           return (
                             <tr key={e.id} className={e.is_locked ? "bg-slate-50/40" : ""}>
-                              <td className="px-3 py-1.5">{new Date(e.entry_date).toLocaleDateString("fr-LU")}</td>
+                              <td className="px-3 py-1.5">{new Date(e.entry_date).toLocaleDateString(numberLocale)}</td>
                               <td className="px-3 py-1.5"><span className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium text-slate-700">{e.journal_code}</span></td>
                               <td className="px-3 py-1.5 text-muted">{e.reference ?? "\u2014"}</td>
                               <td className="px-3 py-1.5 font-medium text-navy">{e.label}</td>

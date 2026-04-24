@@ -128,6 +128,7 @@ function cellClass(pct: number | null, invert = false): string {
 export default function SyndicBenchmarkPage() {
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
+  const numberLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const t = useTranslations("syndicBenchmark");
   const { user } = useAuth();
 
@@ -200,7 +201,7 @@ export default function SyndicBenchmarkPage() {
     );
   }
 
-  const fmtEUR = (n: number) => `${n.toLocaleString("fr-LU", { maximumFractionDigits: 0 })} €`;
+  const fmtEUR = (n: number) => `${n.toLocaleString(numberLocale, { maximumFractionDigits: 0 })} €`;
   const fmtPct = (n: number | null) => (n === null ? "—" : `${n.toFixed(0)} %`);
   const fmtDec = (n: number | null, d = 1) => (n === null ? "—" : n.toFixed(d));
 

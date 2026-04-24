@@ -12,6 +12,7 @@ import { errMsg } from "@/lib/errors";
 export default function SyndicCopropsPage() {
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
+  const numberLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const t = useTranslations("syndicCoproprietes");
   const { user } = useAuth();
 
@@ -137,7 +138,7 @@ export default function SyndicCopropsPage() {
               </div>
               <div className="rounded-xl border border-card-border bg-card p-4">
                 <div className="text-xs uppercase tracking-wider text-muted font-semibold">{t("kpiLotsTotaux")}</div>
-                <div className="mt-1 text-2xl font-bold text-navy">{totalLots.toLocaleString("fr-LU")}</div>
+                <div className="mt-1 text-2xl font-bold text-navy">{totalLots.toLocaleString(numberLocale)}</div>
               </div>
               <div className="rounded-xl border border-card-border bg-card p-4">
                 <div className="text-xs uppercase tracking-wider text-muted font-semibold">{t("kpiCabinet")}</div>
@@ -211,7 +212,7 @@ export default function SyndicCopropsPage() {
                       <div className="mt-1 text-xs text-muted">
                         {c.commune ? `${c.commune} · ` : ""}
                         {c.nb_lots} {c.nb_lots !== 1 ? t("lotPlural") : t("lotSingular")}
-                        {c.total_tantiemes !== 1000 ? ` · ${c.total_tantiemes.toLocaleString("fr-LU")} ${t("tantièmes")}` : ""}
+                        {c.total_tantiemes !== 1000 ? ` · ${c.total_tantiemes.toLocaleString(numberLocale)} ${t("tantièmes")}` : ""}
                       </div>
                       {c.address && <div className="text-xs text-muted truncate">{c.address}</div>}
                     </div>
@@ -234,13 +235,13 @@ export default function SyndicCopropsPage() {
                       {c.last_ag_date && (
                         <div className="flex justify-between border-t border-card-border/50 pt-1.5">
                           <span className="text-muted">{t("derniereAg")}</span>
-                          <span className="font-medium text-navy">{new Date(c.last_ag_date).toLocaleDateString("fr-LU")}</span>
+                          <span className="font-medium text-navy">{new Date(c.last_ag_date).toLocaleDateString(numberLocale)}</span>
                         </div>
                       )}
                       {c.next_ag_date && (
                         <div className="flex justify-between col-span-2 border-t border-card-border/50 pt-1.5">
                           <span className="text-muted">{t("prochaineAg")}</span>
-                          <span className="font-medium text-navy">{new Date(c.next_ag_date).toLocaleDateString("fr-LU")}</span>
+                          <span className="font-medium text-navy">{new Date(c.next_ag_date).toLocaleDateString(numberLocale)}</span>
                         </div>
                       )}
                     </div>
