@@ -12091,5 +12091,31 @@
         "dcf": "DCF"
       }
     }
+  },
+  "verify": {
+    "loading": "Lueden…",
+    "verifying": "Iwwerpréiwen…",
+    "backHome": "← tevaxia.lu",
+    "pageTitle": "Verifikatioun vun engem ënnerschriwwene Bericht",
+    "pageDesc": "Iwwerpréift d'Authentizitéit vun engem Valorisatiouns-Bericht, deen iwwer tevaxia.lu ënnerschriwwe gouf. Gitt de SHA-256-Hash un, deen op dem Bericht gedréckt ass, fir ze confirméieren, datt e säit der Ënnerschrëft vum Bewerter net veränneret gouf.",
+    "noService": "Verifikatiouns-Déngscht net konfiguréiert op dësem Ëmfeld.",
+    "hashLabel": "SHA-256-Hash vum Bericht",
+    "hashPlaceholder": "z. B. 3a2b…ff (64 hexadezimal Zeechen)",
+    "verifyBtn": "Iwwerpréiwen",
+    "errHashInvalid": "Ongëltege Hash: muss en hexadezimale SHA-256-Wäert sinn (64 Zeechen).",
+    "errVerification": "Verifikatiouns-Feeler",
+    "unknownTitle": "Onbekannten Hash",
+    "unknownDesc": "Dësen Hash entsprécht kengem Bericht, deen iwwer tevaxia.lu ënnerschriwwe gouf. D'Dokument kéint säit der Ënnerschrëft geännert ginn sinn, oder et gouf ni ënnerschriwwen.",
+    "revokedTitle": "Zréckgezunn Ënnerschrëft",
+    "revokedDesc": "Dës Ënnerschrëft gouf de {date} zréckgezunn. De Bericht gëllt net méi als valabel.",
+    "revokedReason": "Grond: {reason}",
+    "authenticTitle": "Authentesche Bericht",
+    "authenticDesc": "Dësen Hash entsprécht engem Bericht, deen iwwer tevaxia.lu ënnerschriwwe gouf. D'Donnéeë sinn zanter der Ënnerschrëft net geännert ginn.",
+    "dtSignedAt": "Ënnerschriwwen de",
+    "dtTitle": "Titel",
+    "dtType": "Typ",
+    "dtEvaluator": "Bewerter",
+    "limitsStrong": "Limitten vum Déngscht:",
+    "limitsBody": "dëse Mechanismus bitt e zäitgestempelt Audit-Spuer, huet awer net de Wäert vun enger qualifizéierter elektronescher eIDAS-Ënnerschrëft (LuxTrust, QTSP). Fir eng méi staark rechtlech Opposabilitéit, benotzt en akkreditéierten QTSP. Den Hash beweist nëmmen, datt d'Donnéeën zanter dem hei registréierten Moment vun der Ënnerschrëft net geännert goufen."
   }
 }

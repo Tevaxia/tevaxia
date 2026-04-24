@@ -12091,5 +12091,31 @@
         "dcf": "DCF"
       }
     }
+  },
+  "verify": {
+    "loading": "A carregar…",
+    "verifying": "A verificar…",
+    "backHome": "← tevaxia.lu",
+    "pageTitle": "Verificação de um relatório assinado",
+    "pageDesc": "Verifique a autenticidade de um relatório de avaliação assinado via tevaxia.lu. Introduza o hash SHA-256 impresso no relatório para confirmar que não foi alterado desde a assinatura pelo avaliador.",
+    "noService": "Serviço de verificação não configurado neste ambiente.",
+    "hashLabel": "Hash SHA-256 do relatório",
+    "hashPlaceholder": "ex. 3a2b…ff (64 caracteres hexadecimais)",
+    "verifyBtn": "Verificar",
+    "errHashInvalid": "Hash inválido: deve ser um SHA-256 hexadecimal (64 caracteres).",
+    "errVerification": "Erro de verificação",
+    "unknownTitle": "Hash desconhecido",
+    "unknownDesc": "Este hash não corresponde a nenhum relatório assinado via tevaxia.lu. O documento pode ter sido modificado desde a assinatura ou nunca foi assinado.",
+    "revokedTitle": "Assinatura revogada",
+    "revokedDesc": "Esta assinatura foi revogada a {date}. O relatório já não é considerado válido.",
+    "revokedReason": "Razão: {reason}",
+    "authenticTitle": "Relatório autêntico",
+    "authenticDesc": "Este hash corresponde a um relatório assinado via tevaxia.lu. Os dados não foram modificados desde a assinatura.",
+    "dtSignedAt": "Assinado a",
+    "dtTitle": "Título",
+    "dtType": "Tipo",
+    "dtEvaluator": "Avaliador",
+    "limitsStrong": "Limites do serviço:",
+    "limitsBody": "este mecanismo oferece um registo de auditoria com carimbo temporal, mas não tem o valor de uma assinatura eletrónica qualificada eIDAS (LuxTrust, QTSP). Para uma oposição jurídica reforçada, utilize um QTSP acreditado. O hash prova apenas que os dados não foram modificados desde o momento da assinatura registada aqui."
   }
 }

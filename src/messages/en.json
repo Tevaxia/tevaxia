@@ -12091,5 +12091,31 @@
         "dcf": "DCF"
       }
     }
+  },
+  "verify": {
+    "loading": "Loading…",
+    "verifying": "Verifying…",
+    "backHome": "← tevaxia.lu",
+    "pageTitle": "Signed report verification",
+    "pageDesc": "Verify the authenticity of a valuation report signed via tevaxia.lu. Enter the SHA-256 hash printed on the report to confirm it has not been altered since the valuer's signature.",
+    "noService": "Verification service not configured on this environment.",
+    "hashLabel": "SHA-256 hash of the report",
+    "hashPlaceholder": "e.g. 3a2b...ff (64 hexadecimal characters)",
+    "verifyBtn": "Verify",
+    "errHashInvalid": "Invalid hash: must be a SHA-256 hexadecimal value (64 characters).",
+    "errVerification": "Verification error",
+    "unknownTitle": "Unknown hash",
+    "unknownDesc": "This hash does not match any report signed via tevaxia.lu. The document may have been modified since signing, or it was never signed.",
+    "revokedTitle": "Revoked signature",
+    "revokedDesc": "This signature was revoked on {date}. The report is no longer considered valid.",
+    "revokedReason": "Reason: {reason}",
+    "authenticTitle": "Authentic report",
+    "authenticDesc": "This hash matches a report signed via tevaxia.lu. The data has not been modified since signing.",
+    "dtSignedAt": "Signed on",
+    "dtTitle": "Title",
+    "dtType": "Type",
+    "dtEvaluator": "Valuer",
+    "limitsStrong": "Service limits:",
+    "limitsBody": "this mechanism offers a time-stamped audit trail but does not have the value of a qualified eIDAS electronic signature (LuxTrust, QTSP). For stronger legal enforceability, use an accredited QTSP. The hash only proves that the data has not been modified since the moment of the signature recorded here."
   }
 }

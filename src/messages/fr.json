@@ -12091,5 +12091,31 @@
         "dcf": "DCF"
       }
     }
+  },
+  "verify": {
+    "loading": "Chargement…",
+    "verifying": "Vérification…",
+    "backHome": "← tevaxia.lu",
+    "pageTitle": "Vérification d'un rapport signé",
+    "pageDesc": "Vérifiez l'authenticité d'un rapport de valorisation signé via tevaxia.lu. Saisissez le hash SHA-256 imprimé sur le rapport pour confirmer qu'il n'a pas été altéré depuis la signature par l'évaluateur.",
+    "noService": "Service de vérification non configuré sur cet environnement.",
+    "hashLabel": "Hash SHA-256 du rapport",
+    "hashPlaceholder": "ex. 3a2b...ff (64 caractères hexadécimaux)",
+    "verifyBtn": "Vérifier",
+    "errHashInvalid": "Hash invalide : doit être un SHA-256 hexadécimal (64 caractères).",
+    "errVerification": "Erreur de vérification",
+    "unknownTitle": "Hash inconnu",
+    "unknownDesc": "Ce hash ne correspond à aucun rapport signé via tevaxia.lu. Le document a peut-être été modifié depuis la signature, ou il n'a jamais été signé.",
+    "revokedTitle": "Signature révoquée",
+    "revokedDesc": "Cette signature a été révoquée le {date}. Le rapport n'est plus considéré comme valide.",
+    "revokedReason": "Raison : {reason}",
+    "authenticTitle": "Rapport authentique",
+    "authenticDesc": "Ce hash correspond à un rapport signé via tevaxia.lu. Les données n'ont pas été modifiées depuis la signature.",
+    "dtSignedAt": "Signé le",
+    "dtTitle": "Titre",
+    "dtType": "Type",
+    "dtEvaluator": "Évaluateur",
+    "limitsStrong": "Limites du service :",
+    "limitsBody": "ce mécanisme offre une piste d'audit horodatée mais n'a pas la valeur d'une signature électronique qualifiée eIDAS (LuxTrust, QTSP). Pour une opposabilité juridique renforcée, utilisez un QTSP agréé. Le hash prouve uniquement que les données n'ont pas été modifiées depuis le moment de la signature enregistrée ici."
   }
 }

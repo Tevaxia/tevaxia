@@ -12091,5 +12091,31 @@
         "dcf": "DCF"
       }
     }
+  },
+  "verify": {
+    "loading": "Lädt…",
+    "verifying": "Überprüfe…",
+    "backHome": "← tevaxia.lu",
+    "pageTitle": "Verifikation eines signierten Berichts",
+    "pageDesc": "Prüfen Sie die Authentizität eines über tevaxia.lu signierten Bewertungsberichts. Geben Sie den auf dem Bericht abgedruckten SHA-256-Hash ein, um zu bestätigen, dass er seit der Unterzeichnung durch den Sachverständigen nicht verändert wurde.",
+    "noService": "Verifikationsdienst in dieser Umgebung nicht konfiguriert.",
+    "hashLabel": "SHA-256-Hash des Berichts",
+    "hashPlaceholder": "z. B. 3a2b…ff (64 hexadezimale Zeichen)",
+    "verifyBtn": "Prüfen",
+    "errHashInvalid": "Ungültiger Hash: muss ein hexadezimaler SHA-256-Wert sein (64 Zeichen).",
+    "errVerification": "Verifikationsfehler",
+    "unknownTitle": "Unbekannter Hash",
+    "unknownDesc": "Dieser Hash entspricht keinem über tevaxia.lu signierten Bericht. Das Dokument wurde möglicherweise seit der Signatur geändert oder nie signiert.",
+    "revokedTitle": "Widerrufene Signatur",
+    "revokedDesc": "Diese Signatur wurde am {date} widerrufen. Der Bericht gilt nicht mehr als gültig.",
+    "revokedReason": "Grund: {reason}",
+    "authenticTitle": "Authentischer Bericht",
+    "authenticDesc": "Dieser Hash entspricht einem über tevaxia.lu signierten Bericht. Die Daten wurden seit der Signatur nicht geändert.",
+    "dtSignedAt": "Signiert am",
+    "dtTitle": "Titel",
+    "dtType": "Typ",
+    "dtEvaluator": "Sachverständiger",
+    "limitsStrong": "Dienstgrenzen:",
+    "limitsBody": "dieser Mechanismus bietet eine zeitgestempelte Prüfpfad, aber nicht den Wert einer qualifizierten elektronischen eIDAS-Signatur (LuxTrust, QTSP). Für eine stärkere rechtliche Durchsetzbarkeit nutzen Sie einen akkreditierten QTSP. Der Hash beweist nur, dass die Daten seit dem hier aufgezeichneten Signaturzeitpunkt nicht geändert wurden."
   }
 }
