@@ -1,50 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "ESG immobilier — CRREM, Taxonomie UE, SFDR | tevaxia.lu",
-  description:
-    "Suite ESG pour l'immobilier luxembourgeois : CRREM Pathways stranding analyzer, EU Taxonomy screening (DNSH + Substantial Contribution), préparation SFDR Art. 8/9 et CRR Pillar 3 ESG. Calibration LU.",
-};
-
-const MODULES = [
-  {
-    href: "/esg/crrem-pathways",
-    title: "CRREM Pathways",
-    subtitle: "Stranding risk analyzer",
-    desc: "Trajectoire 1,5 °C Paris-aligned par classe d'actif (résidentiel, bureau, retail, hôtel, entrepôt, santé). Calcul stranding year, gap 2030/2040/2050, scénarios rénovation. Calibration LU (grid 79 gCO₂/kWh, gaz 201).",
-    tags: ["CRREM v3.0", "SFDR Art. 8/9", "PAI 2 & 5", "EPBD"],
-    tone: "emerald",
-    status: "live",
-  },
-  {
-    href: "/esg/taxonomy",
-    title: "Taxonomie UE — Screening",
-    subtitle: "DNSH + Substantial Contribution",
-    desc: "Qualification 'vert' d'un bien immobilier selon Activity 7.7 (Acquisition & ownership of buildings). Substantial Contribution Climate Mitigation (PED top 15 %, EPC A/B, nZEB−10 %), DNSH 5 axes, Minimum Safeguards. Rapport PDF.",
-    tags: ["Art. 7.7", "Climate Mitigation", "DNSH", "CRR Pillar 3"],
-    tone: "blue",
-    status: "live",
-  },
-  {
-    href: "#vsme",
-    title: "VSME Reporting",
-    subtitle: "PME / SCI / foncières LU",
-    desc: "Kit de reporting volontaire ESG pour PME, SCI et foncières luxembourgeoises. Module basic (B1-B11) + comprehensive (C1-C9). Beaucoup plus léger que CSRD. Prévu 2026.",
-    tags: ["VSME EFRAG", "PME", "volontaire"],
-    tone: "slate",
-    status: "soon",
-  },
-  {
-    href: "#csrd",
-    title: "CSRD / ESRS E1",
-    subtitle: "Reporting climatique obligatoire",
-    desc: "ESRS E1 (Climate change) appliqué aux portefeuilles immobiliers. Gross Scopes 1/2/3, plan de transition, métriques financières climat-vulnérables. Attente de la version finale Omnibus (mi-2025) avant développement.",
-    tags: ["ESRS E1", "Omnibus 2025", "Scope 1/2/3"],
-    tone: "slate",
-    status: "soon",
-  },
-];
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("esgHub");
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+  };
+}
 
 const TONE_CLS: Record<string, string> = {
   emerald: "bg-emerald-50 text-emerald-700 ring-emerald-100",
@@ -52,7 +16,48 @@ const TONE_CLS: Record<string, string> = {
   slate: "bg-slate-50 text-slate-500 ring-slate-200",
 };
 
-export default function EsgHubPage() {
+export default async function EsgHubPage() {
+  const t = await getTranslations("esgHub");
+
+  const MODULES = [
+    {
+      href: "/esg/crrem-pathways",
+      title: t("modCrremTitle"),
+      subtitle: t("modCrremSubtitle"),
+      desc: t("modCrremDesc"),
+      tags: ["CRREM v3.0", "SFDR Art. 8/9", "PAI 2 & 5", "EPBD"],
+      tone: "emerald",
+      status: "live",
+    },
+    {
+      href: "/esg/taxonomy",
+      title: t("modTaxoTitle"),
+      subtitle: t("modTaxoSubtitle"),
+      desc: t("modTaxoDesc"),
+      tags: ["Art. 7.7", "Climate Mitigation", "DNSH", "CRR Pillar 3"],
+      tone: "blue",
+      status: "live",
+    },
+    {
+      href: "#vsme",
+      title: t("modVsmeTitle"),
+      subtitle: t("modVsmeSubtitle"),
+      desc: t("modVsmeDesc"),
+      tags: ["VSME EFRAG", "PME", "volontaire"],
+      tone: "slate",
+      status: "soon",
+    },
+    {
+      href: "#csrd",
+      title: t("modCsrdTitle"),
+      subtitle: t("modCsrdSubtitle"),
+      desc: t("modCsrdDesc"),
+      tags: ["ESRS E1", "Omnibus 2025", "Scope 1/2/3"],
+      tone: "slate",
+      status: "soon",
+    },
+  ];
+
   return (
     <div className="bg-background">
       {/* Hero */}
@@ -66,11 +71,9 @@ export default function EsgHubPage() {
           }}
         />
         <div className="relative mx-auto max-w-5xl px-4 text-center text-white">
-          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">ESG immobilier Luxembourg</h1>
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">{t("heroTitle")}</h1>
           <p className="mt-4 text-sm sm:text-base text-white/75 max-w-3xl mx-auto">
-            Stranding analysis CRREM, qualification Taxonomie UE, préparation SFDR Art. 8/9 et CRR Pillar 3 ESG —
-            calibration Luxembourg, trajectoires Paris-aligned 1,5 °C, critères Climate Delegated Act. Pensé pour
-            fonds immobiliers LU, banques, évaluateurs et asset managers.
+            {t("heroSubtitle")}
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-[11px] text-white/70">
             <span className="rounded-full border border-white/20 px-3 py-1">CRREM v3.0 (2024)</span>
@@ -102,7 +105,7 @@ export default function EsgHubPage() {
                   </div>
                   {isSoon && (
                     <span className="rounded-full bg-amber-50 text-amber-900 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider ring-1 ring-amber-100">
-                      Bientôt
+                      {t("badgeSoon")}
                     </span>
                   )}
                 </div>
@@ -116,7 +119,7 @@ export default function EsgHubPage() {
                 </div>
                 {!isSoon && (
                   <div className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-navy group-hover:text-navy-light">
-                    Ouvrir
+                    {t("ctaOpen")}
                     <svg className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>
@@ -134,40 +137,31 @@ export default function EsgHubPage() {
 
         {/* Positioning */}
         <section className="mt-12 rounded-2xl border border-card-border bg-card p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-navy">Pour qui ?</h2>
+          <h2 className="text-lg font-bold text-navy">{t("forWhoTitle")}</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-3 text-sm">
             <div>
-              <div className="font-semibold text-navy mb-1">Fonds immobiliers LU</div>
-              <p className="text-xs text-muted leading-relaxed">
-                RAIF, SIF, SICAV immobiliers domiciliés au Luxembourg : reporting SFDR Art. 8/9, PAI
-                2/5/17, trajectoire 1,5 °C au niveau fonds par agrégation property-level.
-              </p>
+              <div className="font-semibold text-navy mb-1">{t("forWho1Title")}</div>
+              <p className="text-xs text-muted leading-relaxed">{t("forWho1Desc")}</p>
             </div>
             <div>
-              <div className="font-semibold text-navy mb-1">Banques &amp; prêteurs</div>
-              <p className="text-xs text-muted leading-relaxed">
-                Due diligence CRR/EBA Pillar 3 ESG, stress test climate risk, qualification Taxonomie
-                pour green loans / green bonds. Fiche Taxonomie attachable au dossier crédit.
-              </p>
+              <div className="font-semibold text-navy mb-1">{t("forWho2Title")}</div>
+              <p className="text-xs text-muted leading-relaxed">{t("forWho2Desc")}</p>
             </div>
             <div>
-              <div className="font-semibold text-navy mb-1">Évaluateurs &amp; asset managers</div>
-              <p className="text-xs text-muted leading-relaxed">
-                Intégration stranding risk dans le reporting TEGOVA EVS 2025 (section 6.3 Risks), chiffrage
-                du brown discount / green premium selon alignement pathway.
-              </p>
+              <div className="font-semibold text-navy mb-1">{t("forWho3Title")}</div>
+              <p className="text-xs text-muted leading-relaxed">{t("forWho3Desc")}</p>
             </div>
           </div>
         </section>
 
         <section className="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-5 text-xs text-amber-900">
-          <h3 className="font-semibold mb-1">Méthodologie &amp; sources</h3>
+          <h3 className="font-semibold mb-1">{t("methoTitle")}</h3>
           <ul className="space-y-1 list-disc list-inside">
-            <li>CRREM v3.0 (2024) Global Pathways Report — <a href="https://www.crrem.eu/pathways/" target="_blank" rel="noopener noreferrer" className="underline">crrem.eu/pathways</a></li>
-            <li>Règlement (UE) 2020/852 (Taxonomie) + Climate Delegated Act 2021/2139</li>
-            <li>Règlement (UE) 2019/2088 SFDR + RTS 2022/1288 PAI indicators</li>
-            <li>Directive EPBD IV 2024/1275 + transposition LU prévue 2026</li>
-            <li>Facteurs d&apos;émission LU : ILR 2023 (grid), guichet.lu (énergies fossiles)</li>
+            <li>{t("methoItem1")} (<a href="https://www.crrem.eu/pathways/" target="_blank" rel="noopener noreferrer" className="underline">crrem.eu/pathways</a>)</li>
+            <li>{t("methoItem2")}</li>
+            <li>{t("methoItem3")}</li>
+            <li>{t("methoItem4")}</li>
+            <li>{t("methoItem5")}</li>
           </ul>
         </section>
       </section>
