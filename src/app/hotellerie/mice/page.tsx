@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
@@ -20,21 +21,21 @@ import { formatEUR, formatPct } from "@/lib/calculations";
 interface MiceInputs {
   nbRooms: number;
   nbMeetingRooms: number;
-  avgRfqPerMonth: number; // nb de demandes entrantes
-  conversionRate: number; // 0-1
-  avgGroupSize: number; // pax / group
+  avgRfqPerMonth: number;
+  conversionRate: number;
+  avgGroupSize: number;
   avgGroupNights: number;
-  adrGroup: number; // ADR spécifique groupe (négocié)
-  fbCaptureRate: number; // 0-1 — % groupes qui prennent F&B
-  avgFbPerPax: number; // €/pax/jour
-  meetingRoomHireFee: number; // €/jour
+  adrGroup: number;
+  fbCaptureRate: number;
+  avgFbPerPax: number;
+  meetingRoomHireFee: number;
   meetingRoomDaysPerGroup: number;
-  seasonalityFactor: number; // 0.7-1.3 selon saison
+  seasonalityFactor: number;
 }
 
 function computeMice(i: MiceInputs) {
   const groupsPerYear = Math.round(i.avgRfqPerMonth * 12 * i.conversionRate);
-  const roomNightsPerYear = groupsPerYear * i.avgGroupSize * i.avgGroupNights / 2; // 2 pax per room average
+  const roomNightsPerYear = groupsPerYear * i.avgGroupSize * i.avgGroupNights / 2;
   const roomRevenuePerYear = Math.round(roomNightsPerYear * i.adrGroup * i.seasonalityFactor);
 
   const totalPax = groupsPerYear * i.avgGroupSize;
@@ -48,7 +49,6 @@ function computeMice(i: MiceInputs) {
 
   const totalRevenue = roomRevenuePerYear + fbRevenuePerYear + meetingRoomRevenue;
 
-  // Marge brute (GOP) estimée : 45% rooms, 25% F&B, 75% meeting rooms
   const gopRooms = Math.round(roomRevenuePerYear * 0.45);
   const gopFb = Math.round(fbRevenuePerYear * 0.25);
   const gopMeeting = Math.round(meetingRoomRevenue * 0.75);
@@ -57,7 +57,6 @@ function computeMice(i: MiceInputs) {
   const revPerGroup = groupsPerYear > 0 ? totalRevenue / groupsPerYear : 0;
   const avgGroupSpend = groupsPerYear > 0 ? totalRevenue / groupsPerYear : 0;
 
-  // Capacité théorique (room nights MICE / room nights total dispo)
   const roomNightsCapacity = i.nbRooms * 365;
   const miceShareOfRoomNights = roomNightsCapacity > 0 ? roomNightsPerYear / roomNightsCapacity : 0;
 
@@ -70,6 +69,9 @@ function computeMice(i: MiceInputs) {
 }
 
 export default function MicePage() {
+  const t = useTranslations("hotelMice");
+  const locale = useLocale();
+  const numLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const [nbRooms, setNbRooms] = useState(80);
   const [nbMeetingRooms, setNbMeetingRooms] = useState(3);
   const [avgRfqPerMonth, setAvgRfqPerMonth] = useState(25);
@@ -92,111 +94,103 @@ export default function MicePage() {
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Link href="/hotellerie" className="text-xs text-muted hover:text-navy">&larr; Hôtellerie</Link>
+        <Link href="/hotellerie" className="text-xs text-muted hover:text-navy">{t("backHub")}</Link>
         <div className="mt-2 mb-6">
-          <h1 className="text-2xl font-bold text-navy sm:text-3xl">Segmentation MICE (groupes corporate)</h1>
-          <p className="mt-2 text-muted">
-            Modèle de revenu groupes/séminaires pour hôtel avec salles de réunion. Intègre chambres + F&B + location salle.
-            Taux de conversion RFP (Request For Proposal), panier moyen, saisonnalité.
-          </p>
+          <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("pageTitle")}</h1>
+          <p className="mt-2 text-muted">{t("pageSubtitle")}</p>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="space-y-6">
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-              <h2 className="mb-4 text-base font-semibold text-navy">Hôtel & infra</h2>
+              <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionHotel")}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
-                <InputField label="Nombre de chambres" value={nbRooms} onChange={(v) => setNbRooms(Number(v))} />
-                <InputField label="Salles de réunion" value={nbMeetingRooms} onChange={(v) => setNbMeetingRooms(Number(v))} />
+                <InputField label={t("inputRooms")} value={nbRooms} onChange={(v) => setNbRooms(Number(v))} />
+                <InputField label={t("inputMeetingRooms")} value={nbMeetingRooms} onChange={(v) => setNbMeetingRooms(Number(v))} />
               </div>
             </div>
 
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-              <h2 className="mb-4 text-base font-semibold text-navy">Pipeline commercial</h2>
+              <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionPipeline")}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
-                <InputField label="RFP reçues / mois" value={avgRfqPerMonth} onChange={(v) => setAvgRfqPerMonth(Number(v))} hint="Demandes entrantes groupes" />
-                <InputField label="Taux de conversion" value={Math.round(conversionRate * 100)} onChange={(v) => setConversionRate(Number(v) / 100)} suffix="%" hint="LU typique 20-30%" />
-                <InputField label="Taille moyenne groupe" value={avgGroupSize} onChange={(v) => setAvgGroupSize(Number(v))} suffix="pax" />
-                <InputField label="Nuits moyennes / groupe" value={avgGroupNights} onChange={(v) => setAvgGroupNights(Number(v))} />
-                <InputField label="Saisonnalité" value={seasonalityFactor} onChange={(v) => setSeasonalityFactor(Number(v))} hint="1.0 = normale, 1.2 = sept-juin, 0.7 = juillet-août" />
+                <InputField label={t("inputRfq")} value={avgRfqPerMonth} onChange={(v) => setAvgRfqPerMonth(Number(v))} hint={t("inputRfqHint")} />
+                <InputField label={t("inputConv")} value={Math.round(conversionRate * 100)} onChange={(v) => setConversionRate(Number(v) / 100)} suffix="%" hint={t("inputConvHint")} />
+                <InputField label={t("inputGroupSize")} value={avgGroupSize} onChange={(v) => setAvgGroupSize(Number(v))} suffix={t("suffixPax")} />
+                <InputField label={t("inputGroupNights")} value={avgGroupNights} onChange={(v) => setAvgGroupNights(Number(v))} />
+                <InputField label={t("inputSeason")} value={seasonalityFactor} onChange={(v) => setSeasonalityFactor(Number(v))} hint={t("inputSeasonHint")} />
               </div>
             </div>
 
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-              <h2 className="mb-4 text-base font-semibold text-navy">Tarification groupe</h2>
+              <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionPricing")}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
-                <InputField label="ADR groupe (négocié)" value={adrGroup} onChange={(v) => setAdrGroup(Number(v))} suffix="€/nuit" hint="-15 à -25% vs transient" />
-                <InputField label="F&B capture rate" value={Math.round(fbCaptureRate * 100)} onChange={(v) => setFbCaptureRate(Number(v) / 100)} suffix="%" hint="% groupes consommant F&B sur place" />
-                <InputField label="F&B moyen / pax / jour" value={avgFbPerPax} onChange={(v) => setAvgFbPerPax(Number(v))} suffix="€" hint="Déjeuner + coffee breaks ~55€" />
-                <InputField label="Hire salle / jour" value={meetingRoomHireFee} onChange={(v) => setMeetingRoomHireFee(Number(v))} suffix="€" />
-                <InputField label="Jours salle / groupe" value={meetingRoomDaysPerGroup} onChange={(v) => setMeetingRoomDaysPerGroup(Number(v))} />
+                <InputField label={t("inputAdrGroup")} value={adrGroup} onChange={(v) => setAdrGroup(Number(v))} suffix={t("suffixPerNight")} hint={t("inputAdrGroupHint")} />
+                <InputField label={t("inputFbCapture")} value={Math.round(fbCaptureRate * 100)} onChange={(v) => setFbCaptureRate(Number(v) / 100)} suffix="%" hint={t("inputFbCaptureHint")} />
+                <InputField label={t("inputFbAvg")} value={avgFbPerPax} onChange={(v) => setAvgFbPerPax(Number(v))} suffix="€" hint={t("inputFbAvgHint")} />
+                <InputField label={t("inputMeetFee")} value={meetingRoomHireFee} onChange={(v) => setMeetingRoomHireFee(Number(v))} suffix="€" />
+                <InputField label={t("inputMeetDays")} value={meetingRoomDaysPerGroup} onChange={(v) => setMeetingRoomDaysPerGroup(Number(v))} />
               </div>
             </div>
           </div>
 
           <div className="space-y-6">
             <div className="rounded-2xl bg-gradient-to-br from-purple-700 to-indigo-700 p-8 text-white shadow-lg">
-              <div className="text-xs uppercase tracking-wider text-white/70">Revenu MICE annuel total</div>
+              <div className="text-xs uppercase tracking-wider text-white/70">{t("revenueBadge")}</div>
               <div className="mt-2 text-4xl font-bold">{formatEUR(result.totalRevenue)}</div>
               <div className="mt-1 text-sm text-white/70">
-                {result.groupsPerYear} groupes · {result.totalPax} pax · GOP {formatEUR(result.totalGop)} ({formatPct(result.gopMargin)})
+                {t("revenueDetail", { groups: result.groupsPerYear, pax: result.totalPax, gop: formatEUR(result.totalGop), margin: formatPct(result.gopMargin) })}
               </div>
             </div>
 
             <ResultPanel
-              title="Décomposition revenu"
+              title={t("panelBreakdown")}
               lines={[
-                { label: "Chambres (groupe ADR négocié)", value: formatEUR(result.roomRevenuePerYear), highlight: true },
-                { label: "F&B (petits-déj + déj + dîners + coffee breaks)", value: formatEUR(result.fbRevenuePerYear), highlight: true },
-                { label: "Location salle(s) de réunion", value: formatEUR(result.meetingRoomRevenue), highlight: true },
-                { label: "Total", value: formatEUR(result.totalRevenue), highlight: true, large: true },
+                { label: t("lineRooms"), value: formatEUR(result.roomRevenuePerYear), highlight: true },
+                { label: t("lineFb"), value: formatEUR(result.fbRevenuePerYear), highlight: true },
+                { label: t("lineMeeting"), value: formatEUR(result.meetingRoomRevenue), highlight: true },
+                { label: t("lineTotal"), value: formatEUR(result.totalRevenue), highlight: true, large: true },
               ]}
             />
 
             <ResultPanel
-              title="GOP par centre de profit"
+              title={t("panelGop")}
               lines={[
-                { label: "GOP Rooms (45%)", value: formatEUR(result.gopRooms) },
-                { label: "GOP F&B (25%)", value: formatEUR(result.gopFb) },
-                { label: "GOP Meeting Rooms (75%)", value: formatEUR(result.gopMeeting) },
-                { label: "GOP total", value: `${formatEUR(result.totalGop)} (${formatPct(result.gopMargin)})`, highlight: true },
+                { label: t("lineGopRooms"), value: formatEUR(result.gopRooms) },
+                { label: t("lineGopFb"), value: formatEUR(result.gopFb) },
+                { label: t("lineGopMeeting"), value: formatEUR(result.gopMeeting) },
+                { label: t("lineGopTotal"), value: `${formatEUR(result.totalGop)} (${formatPct(result.gopMargin)})`, highlight: true },
               ]}
             />
 
             <ResultPanel
-              title="Métriques opérationnelles"
+              title={t("panelMetrics")}
               lines={[
-                { label: "Groupes/an", value: String(result.groupsPerYear) },
-                { label: "Room nights groupes/an", value: result.roomNightsPerYear.toLocaleString("fr-LU") },
-                { label: "% room nights MICE / capacité", value: formatPct(result.miceShareOfRoomNights) },
-                { label: "Pax total/an", value: result.totalPax.toLocaleString("fr-LU") },
-                { label: "Revenu moyen/groupe", value: formatEUR(Math.round(result.revPerGroup)) },
+                { label: t("metricGroups"), value: String(result.groupsPerYear) },
+                { label: t("metricRoomNights"), value: result.roomNightsPerYear.toLocaleString(numLocale) },
+                { label: t("metricShareNights"), value: formatPct(result.miceShareOfRoomNights) },
+                { label: t("metricPaxTotal"), value: result.totalPax.toLocaleString(numLocale) },
+                { label: t("metricRevPerGroup"), value: formatEUR(Math.round(result.revPerGroup)) },
               ]}
             />
 
-            {/* Saisonnalité MICE sur 12 mois */}
             <div className="rounded-xl border border-card-border bg-card p-5 shadow-sm">
-              <h3 className="text-base font-semibold text-navy">Saisonnalité MICE LU</h3>
-              <p className="mt-0.5 text-xs text-muted mb-3">
-                Répartition typique des groupes corporate au Luxembourg : pics sept-nov + mars-mai, creux été + fêtes.
-              </p>
+              <h3 className="text-base font-semibold text-navy">{t("seasonTitle")}</h3>
+              <p className="mt-0.5 text-xs text-muted mb-3">{t("seasonSubtitle")}</p>
               {(() => {
-                // Courbe saisonnalité MICE typique LU : indice 100 = moyenne annuelle
                 const MICE_SEASONALITY = [
-                  { month: "Jan", idx: 80, label: "Bas — rentrée + budgets non validés" },
-                  { month: "Fév", idx: 95, label: "Reprise" },
-                  { month: "Mar", idx: 115, label: "Pic Q1 — kick-offs annuels" },
-                  { month: "Avr", idx: 120, label: "Pic — salons, conférences" },
-                  { month: "Mai", idx: 125, label: "Pic max — offsites printemps" },
-                  { month: "Juin", idx: 110, label: "Fin printemps" },
-                  { month: "Juil", idx: 55, label: "Creux été — vacances" },
-                  { month: "Aoû", idx: 40, label: "Creux max — fermetures corporate" },
-                  { month: "Sep", idx: 115, label: "Rentrée pro — pic" },
-                  { month: "Oct", idx: 130, label: "Pic max — conférences annuelles" },
-                  { month: "Nov", idx: 115, label: "Fin d'année fiscale" },
-                  { month: "Déc", idx: 65, label: "Creux fêtes — seulement dîners fin d'année" },
+                  { month: t("monthJan"), idx: 80, label: t("seasonJan") },
+                  { month: t("monthFeb"), idx: 95, label: t("seasonFeb") },
+                  { month: t("monthMar"), idx: 115, label: t("seasonMar") },
+                  { month: t("monthApr"), idx: 120, label: t("seasonApr") },
+                  { month: t("monthMay"), idx: 125, label: t("seasonMay") },
+                  { month: t("monthJun"), idx: 110, label: t("seasonJun") },
+                  { month: t("monthJul"), idx: 55, label: t("seasonJul") },
+                  { month: t("monthAug"), idx: 40, label: t("seasonAug") },
+                  { month: t("monthSep"), idx: 115, label: t("seasonSep") },
+                  { month: t("monthOct"), idx: 130, label: t("seasonOct") },
+                  { month: t("monthNov"), idx: 115, label: t("seasonNov") },
+                  { month: t("monthDec"), idx: 65, label: t("seasonDec") },
                 ];
-                // Appliquer au revenu annuel
                 const revenueByMonth = MICE_SEASONALITY.map((m) => ({
                   ...m,
                   revenue: Math.round(result.totalRevenue / 12 * (m.idx / 100)),
@@ -216,15 +210,13 @@ export default function MicePage() {
                         }}
                       />
                       <ReferenceLine y={result.totalRevenue / 12} stroke="#b8860b" strokeDasharray="4 4" strokeWidth={1.5} />
-                      <Bar dataKey="revenue" fill="#7c3aed" name="Revenu" />
+                      <Bar dataKey="revenue" fill="#7c3aed" name={t("chartLegendRev")} />
                     </BarChart>
                   </ResponsiveContainer>
                 );
               })()}
               <p className="mt-2 text-[10px] text-muted">
-                Source : patterns observés Luxembourg City (HOTREC Luxembourg, Hotrec EU MICE trends 2024-2025).
-                Ligne dorée = moyenne annuelle. Le creux de juillet-août peut être comblé par leisure group
-                (mariages, famille) ou MICE international (incentive travel).
+                {t("seasonSource")}
               </p>
             </div>
 
