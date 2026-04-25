@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { isSupabaseConfigured } from "@/lib/supabase";
 import {
@@ -12,12 +13,12 @@ import {
 } from "@/lib/agency-mandates";
 import {
   listDiffusion, upsertDiffusion, updateDiffusionStatus, deleteDiffusion,
-  PORTAL_LABELS, DIFFUSION_STATUS_LABELS, DIFFUSION_STATUS_COLORS, DEFAULT_LU_PORTALS,
+  DIFFUSION_STATUS_COLORS, DEFAULT_LU_PORTALS,
   type AgencyMandateDiffusion, type MandatePortal, type DiffusionStatus,
 } from "@/lib/agency-diffusion";
 import {
   listOffers, createOffer, updateOffer, deleteOffer, offerVsAsking,
-  OFFER_STATUS_LABELS, OFFER_STATUS_COLORS,
+  OFFER_STATUS_COLORS,
   type AgencyMandateOffer, type OfferStatus,
 } from "@/lib/agency-offers";
 import { listInteractions, logInteraction } from "@/lib/crm/interactions";
@@ -25,18 +26,6 @@ import type { CrmInteraction, CrmInteractionType } from "@/lib/crm/types";
 import { buildOpenImmoXml, buildPortalCsv, downloadBlob } from "@/lib/agency-xml";
 import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/errors";
-
-const STATUS_LABELS: Record<MandateStatus, string> = {
-  prospect: "Prospect",
-  mandat_signe: "Mandat signé",
-  diffuse: "Diffusé",
-  en_visite: "En visite",
-  offre_recue: "Offre reçue",
-  sous_compromis: "Sous compromis",
-  vendu: "Vendu",
-  abandonne: "Abandonné",
-  expire: "Expiré",
-};
 
 const STATUS_COLORS: Record<MandateStatus, string> = {
   prospect: "bg-slate-100 text-slate-800",
@@ -50,39 +39,86 @@ const STATUS_COLORS: Record<MandateStatus, string> = {
   expire: "bg-rose-100 text-rose-900",
 };
 
-const TYPE_LABELS: Record<MandateType, string> = {
-  exclusif: "Exclusif",
-  simple: "Simple",
-  semi_exclusif: "Semi-exclusif",
-  recherche: "Recherche (acquéreur)",
+const STATUS_KEY: Record<MandateStatus, string> = {
+  prospect: "statusProspect",
+  mandat_signe: "statusMandatSigne",
+  diffuse: "statusDiffuse",
+  en_visite: "statusEnVisite",
+  offre_recue: "statusOffreRecue",
+  sous_compromis: "statusSousCompromis",
+  vendu: "statusVendu",
+  abandonne: "statusAbandonne",
+  expire: "statusExpire",
 };
 
-const INTERACTION_LABELS: Record<CrmInteractionType, string> = {
-  call: "Appel",
-  email: "Email",
-  sms: "SMS",
-  meeting: "RDV",
-  visit: "Visite",
-  offer: "Offre",
-  document: "Document",
-  note: "Note",
-  task_done: "Tâche ✓",
-  status_change: "Statut",
+const TYPE_KEY: Record<MandateType, string> = {
+  exclusif: "typeExclusif",
+  simple: "typeSimple",
+  semi_exclusif: "typeSemiExclusif",
+  recherche: "typeRecherche",
+};
+
+const PORTAL_KEY: Record<MandatePortal, string> = {
+  athome: "portalAthome",
+  immotop: "portalImmotop",
+  immoweb: "portalImmoweb",
+  athome_finance: "portalAthomeFinance",
+  linkedin: "portalLinkedin",
+  facebook: "portalFacebook",
+  website: "portalWebsite",
+  seloger: "portalSeloger",
+  leboncoin: "portalLeboncoin",
+  other: "portalOther",
+};
+
+const DIFF_STATUS_KEY: Record<DiffusionStatus, string> = {
+  draft: "diffStatusDraft",
+  pending: "diffStatusPending",
+  published: "diffStatusPublished",
+  paused: "diffStatusPaused",
+  expired: "diffStatusExpired",
+  withdrawn: "diffStatusWithdrawn",
+  rejected: "diffStatusRejected",
+};
+
+const OFFER_STATUS_KEY: Record<OfferStatus, string> = {
+  received: "offerStatusReceived",
+  counter_sent: "offerStatusCounterSent",
+  counter_received: "offerStatusCounterReceived",
+  accepted: "offerStatusAccepted",
+  refused: "offerStatusRefused",
+  withdrawn: "offerStatusWithdrawn",
+  expired: "offerStatusExpired",
+};
+
+const INTERACTION_KEY: Record<CrmInteractionType, string> = {
+  call: "interactionCall",
+  email: "interactionEmail",
+  sms: "interactionSms",
+  meeting: "interactionMeeting",
+  visit: "interactionVisit",
+  offer: "interactionOffer",
+  document: "interactionDocument",
+  note: "interactionNote",
+  task_done: "interactionTaskDone",
+  status_change: "interactionStatusChange",
 };
 
 type Tab = "apercu" | "diffusion" | "offres" | "timeline";
 
-function fmtDate(s: string | null | undefined): string {
-  if (!s) return "—";
-  return new Date(s).toLocaleDateString("fr-LU", { year: "numeric", month: "short", day: "numeric" });
-}
-
-function fmtDateTime(s: string | null | undefined): string {
-  if (!s) return "—";
-  return new Date(s).toLocaleString("fr-LU", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" });
-}
-
 export default function MandateDetailPage() {
+  const t = useTranslations("proaMandateDetail");
+  const locale = useLocale();
+  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const fmtDate = (s: string | null | undefined): string => {
+    if (!s) return t("dash");
+    return new Date(s).toLocaleDateString(dateLocale, { year: "numeric", month: "short", day: "numeric" });
+  };
+  const fmtDateTime = (s: string | null | undefined): string => {
+    if (!s) return t("dash");
+    return new Date(s).toLocaleString(dateLocale, { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" });
+  };
+
   const params = useParams<{ id: string }>();
   const mandateId = params?.id;
   const { user, loading: authLoading } = useAuth();
@@ -113,10 +149,10 @@ export default function MandateDetailPage() {
       setInteractions(ints);
       if (m) setForm(m);
     } catch (e) {
-      setError(errMsg(e, "Impossible de charger le mandat"));
+      setError(errMsg(e, t("errLoad")));
     }
     setLoading(false);
-  }, [mandateId, user]);
+  }, [mandateId, user, t]);
 
   useEffect(() => { void reload(); }, [reload]);
 
@@ -134,7 +170,7 @@ export default function MandateDetailPage() {
       setEditMode(false);
       setError(null);
     } catch (e) {
-      setError(errMsg(e, "Erreur sauvegarde"));
+      setError(errMsg(e, t("errSave")));
     }
     setSaving(false);
   };
@@ -149,7 +185,7 @@ export default function MandateDetailPage() {
       mandateId: mandate.id,
       type: "status_change",
       direction: "internal",
-      subject: `Statut → ${STATUS_LABELS[s]}`,
+      subject: t("statusInternal", { label: t(STATUS_KEY[s]) }),
     });
     await reload();
   };
@@ -157,18 +193,18 @@ export default function MandateDetailPage() {
   const exportOpenImmo = () => {
     if (!mandate) return;
     const xml = buildOpenImmoXml([mandate], {
-      firmenname: "Agence",
+      firmenname: t("firmenname"),
       openimmo_anid: user?.id ?? "tevaxia",
-      lang: "fr",
+      lang: locale as "fr" | "de" | "en" | "lb" | "pt",
       email_zentrale: user?.email ?? "",
     });
-    downloadBlob(xml, `openimmo-${mandate.reference ?? mandate.id.slice(0, 8)}.xml`, "application/xml;charset=utf-8");
+    downloadBlob(xml, t("fileOpenImmo", { ref: mandate.reference ?? mandate.id.slice(0, 8) }), "application/xml;charset=utf-8");
   };
 
   const exportCsv = () => {
     if (!mandate) return;
     const csv = buildPortalCsv([mandate]);
-    downloadBlob(csv, `mandat-${mandate.reference ?? mandate.id.slice(0, 8)}.csv`, "text/csv;charset=utf-8");
+    downloadBlob(csv, t("fileMandateCsv", { ref: mandate.reference ?? mandate.id.slice(0, 8) }), "text/csv;charset=utf-8");
   };
 
   const stats = useMemo(() => {
@@ -190,26 +226,26 @@ export default function MandateDetailPage() {
     return (
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-6 text-amber-900">
-          Supabase requis.
+          {t("supabaseRequired")}
         </div>
       </div>
     );
   }
   if (authLoading || loading) {
-    return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">Chargement…</div>;
+    return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
   }
   if (!user) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-12 text-center">
-        <Link href="/connexion" className="text-navy underline">Se connecter</Link>
+        <Link href="/connexion" className="text-navy underline">{t("loginPrompt")}</Link>
       </div>
     );
   }
   if (!mandate) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-12 text-center">
-        <p className="text-muted">Mandat introuvable.</p>
-        <Link href="/pro-agences/mandats" className="mt-4 inline-block text-navy underline">← Retour aux mandats</Link>
+        <p className="text-muted">{t("notFound")}</p>
+        <Link href="/pro-agences/mandats" className="mt-4 inline-block text-navy underline">{t("backToList")}</Link>
       </div>
     );
   }
@@ -220,9 +256,9 @@ export default function MandateDetailPage() {
     <div className="mx-auto max-w-7xl px-4 py-8">
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs text-muted">
-        <Link href="/pro-agences" className="hover:text-navy">Pro agences</Link>
+        <Link href="/pro-agences" className="hover:text-navy">{t("crumbProa")}</Link>
         <span>/</span>
-        <Link href="/pro-agences/mandats" className="hover:text-navy">Mandats</Link>
+        <Link href="/pro-agences/mandats" className="hover:text-navy">{t("crumbMandates")}</Link>
         <span>/</span>
         <span className="text-navy">{mandate.reference ?? mandate.id.slice(0, 8)}</span>
       </div>
@@ -233,50 +269,50 @@ export default function MandateDetailPage() {
           <div className="flex items-center gap-3">
             <h1 className="text-2xl font-bold text-navy truncate">{mandate.property_address}</h1>
             <span className={`rounded-full px-3 py-1 text-xs font-semibold ${STATUS_COLORS[mandate.status]}`}>
-              {STATUS_LABELS[mandate.status]}
+              {t(STATUS_KEY[mandate.status])}
             </span>
           </div>
           <div className="mt-1 text-xs text-muted">
-            {mandate.property_commune ?? "—"} · {mandate.property_type ?? "—"} · {TYPE_LABELS[mandate.mandate_type]}
-            {mandate.reference && ` · Réf ${mandate.reference}`}
+            {mandate.property_commune ?? t("dash")} · {mandate.property_type ?? t("dash")} · {t(TYPE_KEY[mandate.mandate_type])}
+            {mandate.reference && t("refPrefix", { ref: mandate.reference })}
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
           <Link href={`/pro-agences/mandats/${mandate.id}/matching`}
             className="rounded-lg border border-emerald-300 bg-emerald-50 px-3 py-2 text-xs font-semibold text-emerald-900 hover:bg-emerald-100">
-            🎯 Matching acquéreurs
+            {t("btnMatching")}
           </Link>
           <Link href={`/pro-agences/mandats/${mandate.id}/signatures`}
             className="rounded-lg border border-indigo-300 bg-indigo-50 px-3 py-2 text-xs font-semibold text-indigo-900 hover:bg-indigo-100">
-            ✍️ Signatures
+            {t("btnSignatures")}
           </Link>
           <Link href={`/pro-agences/mandats/${mandate.id}/bon-de-visite`}
             className="rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-xs font-semibold text-amber-900 hover:bg-amber-100">
-            📝 Bon de visite
+            {t("btnVisitSlip")}
           </Link>
           <button onClick={exportCsv}
             className="rounded-lg border border-card-border bg-white px-3 py-2 text-xs font-semibold text-slate hover:bg-background">
-            ↓ CSV
+            {t("btnExportCsv")}
           </button>
           <button onClick={exportOpenImmo}
             className="rounded-lg border border-card-border bg-white px-3 py-2 text-xs font-semibold text-slate hover:bg-background"
-            title="Export OpenImmo v1.2.7 — standard européen accepté par athome / Immotop">
-            ↓ OpenImmo
+            title={t("btnExportOpenImmoTitle")}>
+            {t("btnExportOpenImmo")}
           </button>
           {!editMode ? (
             <button onClick={() => setEditMode(true)}
               className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
-              Modifier
+              {t("btnEdit")}
             </button>
           ) : (
             <>
               <button onClick={() => { setForm(mandate); setEditMode(false); }}
                 className="rounded-lg border border-card-border bg-white px-3 py-2 text-xs font-semibold text-slate">
-                Annuler
+                {t("btnCancel")}
               </button>
               <button onClick={save} disabled={saving}
                 className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700 disabled:opacity-50">
-                {saving ? "Enregistrement…" : "Enregistrer"}
+                {saving ? t("btnSaving") : t("btnSave")}
               </button>
             </>
           )}
@@ -288,8 +324,8 @@ export default function MandateDetailPage() {
       {/* Progress pipeline */}
       <div className="mt-6 rounded-xl border border-card-border bg-card p-4">
         <div className="mb-3 flex items-center justify-between">
-          <div className="text-xs font-semibold uppercase tracking-wider text-muted">Pipeline</div>
-          <div className="text-xs text-muted">{progress}% avancé</div>
+          <div className="text-xs font-semibold uppercase tracking-wider text-muted">{t("pipelineLabel")}</div>
+          <div className="text-xs text-muted">{t("progressSuffix", { n: progress })}</div>
         </div>
         <div className="flex items-center gap-1 overflow-x-auto">
           {MANDATE_PIPELINE_ORDER.map((s) => {
@@ -302,8 +338,8 @@ export default function MandateDetailPage() {
                 className={`flex-1 min-w-[90px] rounded-md px-2 py-2 text-[10px] font-semibold transition-colors ${
                   isActive ? "bg-navy text-white" : isPast ? "bg-emerald-100 text-emerald-900" : "bg-background text-muted hover:bg-card-border/40"
                 }`}
-                title={STATUS_LABELS[s]}>
-                {STATUS_LABELS[s]}
+                title={t(STATUS_KEY[s])}>
+                {t(STATUS_KEY[s])}
               </button>
             );
           })}
@@ -314,7 +350,7 @@ export default function MandateDetailPage() {
               className={`rounded-md px-3 py-1 text-[10px] font-semibold ${
                 mandate.status === s ? STATUS_COLORS[s] : "bg-background text-muted hover:bg-card-border/40"
               }`}>
-              {STATUS_LABELS[s]}
+              {t(STATUS_KEY[s])}
             </button>
           ))}
         </div>
@@ -323,51 +359,51 @@ export default function MandateDetailPage() {
       {/* Stats ligne */}
       {stats && (
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-6">
-          <StatCard label="Prix demandé" value={mandate.prix_demande ? formatEUR(mandate.prix_demande) : "—"} />
-          <StatCard label="Commission est." value={formatEUR(stats.split.total)}
-            sub={mandate.is_co_mandate ? `dont agence : ${formatEUR(stats.split.primary)}` : undefined} />
-          <StatCard label="Fin mandat" value={fmtDate(mandate.end_date)}
-            sub={stats.daysLeft !== null ? `${stats.daysLeft}j restants` : undefined}
+          <StatCard label={t("statPrice")} value={mandate.prix_demande ? formatEUR(mandate.prix_demande) : t("dash")} />
+          <StatCard label={t("statCommission")} value={formatEUR(stats.split.total)}
+            sub={mandate.is_co_mandate ? t("statCommissionAgency", { amount: formatEUR(stats.split.primary) }) : undefined} />
+          <StatCard label={t("statEndMandate")} value={fmtDate(mandate.end_date)}
+            sub={stats.daysLeft !== null ? t("statDaysLeft", { n: stats.daysLeft }) : undefined}
             tone={stats.daysLeft !== null && stats.daysLeft <= 30 && stats.daysLeft >= 0 ? "warn" : "neutral"} />
-          <StatCard label="Diffusion" value={`${stats.publishedCount} portail(s)`}
-            sub={stats.totalViews ? `${stats.totalViews} vues · ${stats.totalLeads ?? 0} leads` : undefined} />
-          <StatCard label="Offres actives" value={String(stats.activeOffers)}
-            sub={stats.bestOffer > 0 ? `meilleure : ${formatEUR(stats.bestOffer)}` : undefined} />
-          <StatCard label="Délais"
-            value={mandate.days_to_close != null ? `${mandate.days_to_close}j vente` :
-                   mandate.days_to_sign != null ? `${mandate.days_to_sign}j compromis` : "—"} />
+          <StatCard label={t("statDiffusion")} value={t("statPortalsCount", { n: stats.publishedCount })}
+            sub={stats.totalViews ? t("statViewsLeads", { views: stats.totalViews, leads: stats.totalLeads ?? 0 }) : undefined} />
+          <StatCard label={t("statActiveOffers")} value={String(stats.activeOffers)}
+            sub={stats.bestOffer > 0 ? t("statBestOffer", { amount: formatEUR(stats.bestOffer) }) : undefined} />
+          <StatCard label={t("statDelays")}
+            value={mandate.days_to_close != null ? t("statDaysToClose", { n: mandate.days_to_close }) :
+                   mandate.days_to_sign != null ? t("statDaysToSign", { n: mandate.days_to_sign }) : t("dash")} />
         </div>
       )}
 
       {/* Tabs */}
       <div className="mt-6 flex gap-1 border-b border-card-border">
         {([
-          { id: "apercu", label: "Aperçu & fiche bien" },
-          { id: "diffusion", label: `Diffusion (${diffusions.length})` },
-          { id: "offres", label: `Offres (${offers.length})` },
-          { id: "timeline", label: `Timeline (${interactions.length})` },
-        ] as { id: Tab; label: string }[]).map((t) => (
-          <button key={t.id} onClick={() => setTab(t.id)}
+          { id: "apercu", label: t("tabApercu") },
+          { id: "diffusion", label: t("tabDiffusion", { n: diffusions.length }) },
+          { id: "offres", label: t("tabOffers", { n: offers.length }) },
+          { id: "timeline", label: t("tabTimeline", { n: interactions.length }) },
+        ] as { id: Tab; label: string }[]).map((tabItem) => (
+          <button key={tabItem.id} onClick={() => setTab(tabItem.id)}
             className={`px-4 py-2 text-sm font-semibold border-b-2 -mb-px transition-colors ${
-              tab === t.id ? "border-navy text-navy" : "border-transparent text-muted hover:text-navy"
+              tab === tabItem.id ? "border-navy text-navy" : "border-transparent text-muted hover:text-navy"
             }`}>
-            {t.label}
+            {tabItem.label}
           </button>
         ))}
       </div>
 
       <div className="mt-6">
         {tab === "apercu" && (
-          <ApercuTab mandate={mandate} form={form} setForm={setForm} editMode={editMode} />
+          <ApercuTab mandate={mandate} form={form} setForm={setForm} editMode={editMode} fmtDate={fmtDate} />
         )}
         {tab === "diffusion" && (
           <DiffusionTab mandate={mandate} diffusions={diffusions} onChange={reload} />
         )}
         {tab === "offres" && (
-          <OffresTab mandate={mandate} offers={offers} onChange={reload} />
+          <OffresTab mandate={mandate} offers={offers} onChange={reload} fmtDate={fmtDate} dateLocale={dateLocale} />
         )}
         {tab === "timeline" && (
-          <TimelineTab mandate={mandate} interactions={interactions} onChange={reload} />
+          <TimelineTab mandate={mandate} interactions={interactions} onChange={reload} fmtDateTime={fmtDateTime} />
         )}
       </div>
     </div>
@@ -392,19 +428,20 @@ function StatCard({ label, value, sub, tone = "neutral" }: {
   );
 }
 
-function Field({ label, value, onChange, type = "text", readOnly = false, step, options }: {
+function Field({ label, value, onChange, type = "text", readOnly = false, step, options, dash = "—" }: {
   label: string; value: string | number | null | undefined;
   onChange?: (v: string) => void;
   type?: "text" | "number" | "date" | "textarea" | "select";
   readOnly?: boolean; step?: number;
   options?: { value: string; label: string }[];
+  dash?: string;
 }) {
   const v = value ?? "";
   if (readOnly) {
     return (
       <div>
         <div className="text-[10px] font-semibold uppercase tracking-wider text-muted">{label}</div>
-        <div className="mt-0.5 text-sm text-navy">{v || "—"}</div>
+        <div className="mt-0.5 text-sm text-navy">{v || dash}</div>
       </div>
     );
   }
@@ -427,12 +464,14 @@ function Field({ label, value, onChange, type = "text", readOnly = false, step, 
   );
 }
 
-function ApercuTab({ mandate, form, setForm, editMode }: {
+function ApercuTab({ mandate, form, setForm, editMode, fmtDate }: {
   mandate: AgencyMandate;
   form: Partial<AgencyMandate>;
   setForm: (p: Partial<AgencyMandate>) => void;
   editMode: boolean;
+  fmtDate: (s: string | null | undefined) => string;
 }) {
+  const t = useTranslations("proaMandateDetail");
   const set = <K extends keyof AgencyMandate>(k: K, v: AgencyMandate[K]) => setForm({ ...form, [k]: v });
   const str = (k: keyof AgencyMandate) => (editMode ? (form[k] as string | null | undefined) : (mandate[k] as string | null | undefined));
   const num = (k: keyof AgencyMandate) => {
@@ -444,40 +483,40 @@ function ApercuTab({ mandate, form, setForm, editMode }: {
     <div className="grid gap-6 lg:grid-cols-2">
       {/* Fiche bien */}
       <div className="rounded-xl border border-card-border bg-card p-5">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-navy">Fiche bien</h2>
+        <h2 className="text-sm font-bold uppercase tracking-wider text-navy">{t("sectionPropertyInfo")}</h2>
         <div className="mt-4 grid grid-cols-2 gap-3">
           <div className="col-span-2">
-            <Field label="Adresse" value={str("property_address")}
+            <Field label={t("fieldAddress")} value={str("property_address")} dash={t("dash")}
               onChange={(v) => set("property_address", v)} readOnly={!editMode} />
           </div>
-          <Field label="Commune" value={str("property_commune")}
+          <Field label={t("fieldCommune")} value={str("property_commune")} dash={t("dash")}
             onChange={(v) => set("property_commune", v || null)} readOnly={!editMode} />
-          <Field label="Type" value={str("property_type")} readOnly={!editMode}
+          <Field label={t("fieldType")} value={str("property_type")} readOnly={!editMode} dash={t("dash")}
             type="select" onChange={(v) => set("property_type", v)}
             options={[
-              { value: "appartement", label: "Appartement" },
-              { value: "maison", label: "Maison" },
-              { value: "terrain", label: "Terrain" },
-              { value: "commercial", label: "Commercial" },
+              { value: "appartement", label: t("propTypeApartment") },
+              { value: "maison", label: t("propTypeHouse") },
+              { value: "terrain", label: t("propTypeLand") },
+              { value: "commercial", label: t("propTypeCommercial") },
             ]} />
-          <Field label="Surface (m²)" value={num("property_surface")} type="number"
+          <Field label={t("fieldSurface")} value={num("property_surface")} type="number" dash={t("dash")}
             onChange={(v) => set("property_surface", v ? Number(v) : null)} readOnly={!editMode} />
-          <Field label="Chambres" value={num("property_bedrooms")} type="number"
+          <Field label={t("fieldBedrooms")} value={num("property_bedrooms")} type="number" dash={t("dash")}
             onChange={(v) => set("property_bedrooms", v ? Number(v) : null)} readOnly={!editMode} />
-          <Field label="Salles de bain" value={num("property_bathrooms")} type="number"
+          <Field label={t("fieldBathrooms")} value={num("property_bathrooms")} type="number" dash={t("dash")}
             onChange={(v) => set("property_bathrooms", v ? Number(v) : null)} readOnly={!editMode} />
-          <Field label="Étage" value={num("property_floor")} type="number"
+          <Field label={t("fieldFloor")} value={num("property_floor")} type="number" dash={t("dash")}
             onChange={(v) => set("property_floor", v ? Number(v) : null)} readOnly={!editMode} />
-          <Field label="Année construction" value={num("property_year_built")} type="number"
+          <Field label={t("fieldYearBuilt")} value={num("property_year_built")} type="number" dash={t("dash")}
             onChange={(v) => set("property_year_built", v ? Number(v) : null)} readOnly={!editMode} />
-          <Field label="Classe énergie (CPE)" value={str("property_epc_class")}
+          <Field label={t("fieldEpc")} value={str("property_epc_class")} dash={t("dash")}
             onChange={(v) => set("property_epc_class", v || null)} readOnly={!editMode}
             type="select" options={[
-              { value: "", label: "—" },
+              { value: "", label: t("dash") },
               ...["A+", "A", "B", "C", "D", "E", "F", "G", "H", "I"].map((c) => ({ value: c, label: c })),
             ]} />
           <div className="col-span-2">
-            <Field label="Description publiable" value={str("property_description")} type="textarea"
+            <Field label={t("fieldDescription")} value={str("property_description")} type="textarea" dash={t("dash")}
               onChange={(v) => set("property_description", v || null)} readOnly={!editMode} />
           </div>
         </div>
@@ -485,23 +524,23 @@ function ApercuTab({ mandate, form, setForm, editMode }: {
 
       {/* Conditions commerciales */}
       <div className="rounded-xl border border-card-border bg-card p-5">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-navy">Conditions commerciales</h2>
+        <h2 className="text-sm font-bold uppercase tracking-wider text-navy">{t("sectionCommercial")}</h2>
         <div className="mt-4 grid grid-cols-2 gap-3">
-          <Field label="Prix demandé (€)" value={num("prix_demande")} type="number"
+          <Field label={t("fieldPrice")} value={num("prix_demande")} type="number" dash={t("dash")}
             onChange={(v) => set("prix_demande", v ? Number(v) : null)} readOnly={!editMode} />
-          <Field label="Commission %" value={num("commission_pct")} type="number" step={0.5}
+          <Field label={t("fieldCommissionPct")} value={num("commission_pct")} type="number" step={0.5} dash={t("dash")}
             onChange={(v) => set("commission_pct", v ? Number(v) : null)} readOnly={!editMode} />
-          <Field label="Type mandat" value={str("mandate_type")} readOnly={!editMode}
+          <Field label={t("fieldMandateType")} value={str("mandate_type")} readOnly={!editMode} dash={t("dash")}
             type="select" onChange={(v) => set("mandate_type", v as MandateType)}
-            options={(Object.entries(TYPE_LABELS) as [string, string][]).map(([v, l]) => ({ value: v, label: l }))} />
-          <Field label="Référence interne" value={str("reference")}
+            options={(Object.keys(TYPE_KEY) as MandateType[]).map((k) => ({ value: k, label: t(TYPE_KEY[k]) }))} />
+          <Field label={t("fieldRef")} value={str("reference")} dash={t("dash")}
             onChange={(v) => set("reference", v || null)} readOnly={!editMode} />
-          <Field label="Début mandat" value={str("start_date")} type="date"
+          <Field label={t("fieldStartDate")} value={str("start_date")} type="date" dash={t("dash")}
             onChange={(v) => set("start_date", v || null)} readOnly={!editMode} />
-          <Field label="Fin mandat" value={str("end_date")} type="date"
+          <Field label={t("fieldEndDate")} value={str("end_date")} type="date" dash={t("dash")}
             onChange={(v) => set("end_date", v || null)} readOnly={!editMode} />
-          <Field label="Signé le" value={fmtDate(str("signed_at") as string)} readOnly />
-          <Field label="Vendu le" value={fmtDate(str("sold_at") as string)} readOnly />
+          <Field label={t("fieldSignedAt")} value={fmtDate(str("signed_at") as string)} readOnly dash={t("dash")} />
+          <Field label={t("fieldSoldAt")} value={fmtDate(str("sold_at") as string)} readOnly dash={t("dash")} />
         </div>
 
         {/* Co-mandat */}
@@ -509,15 +548,15 @@ function ApercuTab({ mandate, form, setForm, editMode }: {
           <label className="flex items-center gap-2 text-sm font-semibold text-navy">
             <input type="checkbox" checked={editMode ? !!form.is_co_mandate : mandate.is_co_mandate}
               disabled={!editMode} onChange={(e) => set("is_co_mandate", e.target.checked)} />
-            Co-mandat (partage commission avec autre agence)
+            {t("coMandateLabel")}
           </label>
           {(editMode ? form.is_co_mandate : mandate.is_co_mandate) && (
             <div className="mt-3 grid grid-cols-2 gap-3">
-              <Field label="Nom agence partenaire" value={str("co_agency_name")}
+              <Field label={t("coAgencyName")} value={str("co_agency_name")} dash={t("dash")}
                 onChange={(v) => set("co_agency_name", v || null)} readOnly={!editMode} />
-              <Field label="Contact partenaire" value={str("co_agency_contact")}
+              <Field label={t("coAgencyContact")} value={str("co_agency_contact")} dash={t("dash")}
                 onChange={(v) => set("co_agency_contact", v || null)} readOnly={!editMode} />
-              <Field label="Commission partenaire (% sur prix vente)" value={num("co_agency_commission_pct")}
+              <Field label={t("coAgencyPct")} value={num("co_agency_commission_pct")} dash={t("dash")}
                 type="number" step={0.1}
                 onChange={(v) => set("co_agency_commission_pct", v ? Number(v) : null)} readOnly={!editMode} />
             </div>
@@ -527,28 +566,28 @@ function ApercuTab({ mandate, form, setForm, editMode }: {
 
       {/* Client */}
       <div className="rounded-xl border border-card-border bg-card p-5">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-navy">Client (mandant)</h2>
+        <h2 className="text-sm font-bold uppercase tracking-wider text-navy">{t("sectionClient")}</h2>
         <div className="mt-4 grid grid-cols-2 gap-3">
-          <Field label="Nom" value={str("client_name")}
+          <Field label={t("fieldClientName")} value={str("client_name")} dash={t("dash")}
             onChange={(v) => set("client_name", v || null)} readOnly={!editMode} />
-          <Field label="Email" value={str("client_email")}
+          <Field label={t("fieldClientEmail")} value={str("client_email")} dash={t("dash")}
             onChange={(v) => set("client_email", v || null)} readOnly={!editMode} />
-          <Field label="Téléphone" value={str("client_phone")}
+          <Field label={t("fieldClientPhone")} value={str("client_phone")} dash={t("dash")}
             onChange={(v) => set("client_phone", v || null)} readOnly={!editMode} />
         </div>
         <div className="mt-4">
           <Link href={`/pro-agences/crm/contacts?mandate=${mandate.id}`}
             className="text-xs text-navy underline">
-            Voir tous les contacts liés à ce mandat →
+            {t("linkContacts")}
           </Link>
         </div>
       </div>
 
       {/* Notes */}
       <div className="rounded-xl border border-card-border bg-card p-5">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-navy">Notes internes</h2>
+        <h2 className="text-sm font-bold uppercase tracking-wider text-navy">{t("sectionNotes")}</h2>
         <div className="mt-4">
-          <Field label="Notes (non diffusées)" value={str("notes")} type="textarea"
+          <Field label={t("fieldNotes")} value={str("notes")} type="textarea" dash={t("dash")}
             onChange={(v) => set("notes", v || null)} readOnly={!editMode} />
         </div>
       </div>
@@ -561,6 +600,7 @@ function DiffusionTab({ mandate, diffusions, onChange }: {
   diffusions: AgencyMandateDiffusion[];
   onChange: () => Promise<void>;
 }) {
+  const t = useTranslations("proaMandateDetail");
   const [addPortal, setAddPortal] = useState<MandatePortal | "">("");
   const missingPortals: MandatePortal[] = ([
     "athome", "immotop", "immoweb", "athome_finance",
@@ -575,20 +615,18 @@ function DiffusionTab({ mandate, diffusions, onChange }: {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-        <strong>Conseil :</strong> diffuser sur les 3 portails LU majeurs (athome.lu, Immotop.lu, Immoweb)
-        maximise la visibilité. L&apos;export OpenImmo (bouton ↓ en haut) est accepté par tous les agrégateurs
-        européens pour un push batch — prochainement : sync API temps réel avec athome (business dev en cours).
-      </div>
+      <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900"
+        dangerouslySetInnerHTML={{ __html: t("diffusionAdvice") }}
+      />
 
       {/* Ajout portail rapide */}
       {missingPortals.length > 0 && (
         <div className="flex flex-wrap gap-2">
-          <span className="text-xs text-muted self-center">Ajouter :</span>
+          <span className="text-xs text-muted self-center">{t("addPortalLabel")}</span>
           {missingPortals.slice(0, 6).map((p) => (
             <button key={p} onClick={() => addDiffusion(p)}
               className="rounded-lg border border-dashed border-navy/30 bg-white px-3 py-1 text-xs font-semibold text-navy hover:bg-navy/5">
-              + {PORTAL_LABELS[p]}
+              + {t(PORTAL_KEY[p])}
             </button>
           ))}
           {missingPortals.length > 6 && (
@@ -596,9 +634,9 @@ function DiffusionTab({ mandate, diffusions, onChange }: {
               const v = e.target.value as MandatePortal | "";
               if (v) void addDiffusion(v);
             }} className="rounded-lg border border-card-border bg-white px-3 py-1 text-xs">
-              <option value="">Autres portails…</option>
+              <option value="">{t("otherPortals")}</option>
               {missingPortals.slice(6).map((p) => (
-                <option key={p} value={p}>{PORTAL_LABELS[p]}</option>
+                <option key={p} value={p}>{t(PORTAL_KEY[p])}</option>
               ))}
             </select>
           )}
@@ -608,12 +646,12 @@ function DiffusionTab({ mandate, diffusions, onChange }: {
       {/* Tableau diffusions */}
       {diffusions.length === 0 ? (
         <div className="rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-          Aucun portail configuré. Ajoutez au moins athome.lu pour une visibilité LU.
+          {t("emptyPortals")}
           <div className="mt-4 flex justify-center gap-2">
             {DEFAULT_LU_PORTALS.map((p) => (
               <button key={p} onClick={() => addDiffusion(p)}
                 className="rounded-lg bg-navy px-3 py-1 text-xs font-semibold text-white">
-                + {PORTAL_LABELS[p]}
+                + {t(PORTAL_KEY[p])}
               </button>
             ))}
           </div>
@@ -623,13 +661,13 @@ function DiffusionTab({ mandate, diffusions, onChange }: {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-card-border bg-background/60">
-                <th className="px-3 py-3 text-left font-semibold text-navy">Portail</th>
-                <th className="px-3 py-3 text-left font-semibold text-navy">Statut</th>
-                <th className="px-3 py-3 text-left font-semibold text-navy">Réf externe</th>
-                <th className="px-3 py-3 text-left font-semibold text-navy">URL</th>
-                <th className="px-3 py-3 text-right font-semibold text-navy">Vues</th>
-                <th className="px-3 py-3 text-right font-semibold text-navy">Leads</th>
-                <th className="px-3 py-3 text-right font-semibold text-navy">Coût</th>
+                <th className="px-3 py-3 text-left font-semibold text-navy">{t("colPortal")}</th>
+                <th className="px-3 py-3 text-left font-semibold text-navy">{t("colStatus")}</th>
+                <th className="px-3 py-3 text-left font-semibold text-navy">{t("colExternalRef")}</th>
+                <th className="px-3 py-3 text-left font-semibold text-navy">{t("colUrl")}</th>
+                <th className="px-3 py-3 text-right font-semibold text-navy">{t("colViews")}</th>
+                <th className="px-3 py-3 text-right font-semibold text-navy">{t("colLeads")}</th>
+                <th className="px-3 py-3 text-right font-semibold text-navy">{t("colCost")}</th>
                 <th className="px-3 py-3 text-right font-semibold text-navy"></th>
               </tr>
             </thead>
@@ -644,6 +682,7 @@ function DiffusionTab({ mandate, diffusions, onChange }: {
 }
 
 function DiffusionRow({ d, onChange }: { d: AgencyMandateDiffusion; onChange: () => Promise<void> }) {
+  const t = useTranslations("proaMandateDetail");
   const [externalRef, setExternalRef] = useState(d.external_ref ?? "");
   const [publicUrl, setPublicUrl] = useState(d.public_url ?? "");
 
@@ -659,13 +698,13 @@ function DiffusionRow({ d, onChange }: { d: AgencyMandateDiffusion; onChange: ()
 
   return (
     <tr className="border-b border-card-border/40 hover:bg-background/40">
-      <td className="px-3 py-3 font-medium text-navy">{PORTAL_LABELS[d.portal]}</td>
+      <td className="px-3 py-3 font-medium text-navy">{t(PORTAL_KEY[d.portal])}</td>
       <td className="px-3 py-3">
         <select value={d.status}
           onChange={async (e) => { await updateDiffusionStatus(d.id, e.target.value as DiffusionStatus); await onChange(); }}
           className={`rounded-full px-2 py-1 text-[10px] font-semibold ${DIFFUSION_STATUS_COLORS[d.status]}`}>
-          {(Object.entries(DIFFUSION_STATUS_LABELS) as [DiffusionStatus, string][]).map(([v, l]) => (
-            <option key={v} value={v}>{l}</option>
+          {(Object.keys(DIFF_STATUS_KEY) as DiffusionStatus[]).map((v) => (
+            <option key={v} value={v}>{t(DIFF_STATUS_KEY[v])}</option>
           ))}
         </select>
       </td>
@@ -679,23 +718,26 @@ function DiffusionRow({ d, onChange }: { d: AgencyMandateDiffusion; onChange: ()
           onChange={(e) => setPublicUrl(e.target.value)}
           className="w-full rounded border border-input-border bg-input-bg px-2 py-1 text-xs" />
       </td>
-      <td className="px-3 py-3 text-right font-mono text-xs">{d.views_count ?? "—"}</td>
-      <td className="px-3 py-3 text-right font-mono text-xs">{d.leads_count ?? "—"}</td>
-      <td className="px-3 py-3 text-right font-mono text-xs">{d.cost_eur ? formatEUR(d.cost_eur) : "—"}</td>
+      <td className="px-3 py-3 text-right font-mono text-xs">{d.views_count ?? t("dash")}</td>
+      <td className="px-3 py-3 text-right font-mono text-xs">{d.leads_count ?? t("dash")}</td>
+      <td className="px-3 py-3 text-right font-mono text-xs">{d.cost_eur ? formatEUR(d.cost_eur) : t("dash")}</td>
       <td className="px-3 py-3 text-right">
         <button onClick={async () => {
-          if (confirm(`Retirer ${PORTAL_LABELS[d.portal]} ?`)) { await deleteDiffusion(d.id); await onChange(); }
+          if (confirm(t("confirmRemovePortal", { portal: t(PORTAL_KEY[d.portal]) }))) { await deleteDiffusion(d.id); await onChange(); }
         }} className="text-xs text-rose-700 hover:underline">×</button>
       </td>
     </tr>
   );
 }
 
-function OffresTab({ mandate, offers, onChange }: {
+function OffresTab({ mandate, offers, onChange, fmtDate, dateLocale }: {
   mandate: AgencyMandate;
   offers: AgencyMandateOffer[];
   onChange: () => Promise<void>;
+  fmtDate: (s: string | null | undefined) => string;
+  dateLocale: string;
 }) {
+  const t = useTranslations("proaMandateDetail");
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState<{
     buyer_name: string; buyer_email: string; amount_eur: string;
@@ -712,7 +754,7 @@ function OffresTab({ mandate, offers, onChange }: {
   const [err, setErr] = useState<string | null>(null);
 
   const submit = async () => {
-    if (!form.buyer_name.trim() || !form.amount_eur) { setErr("Nom et montant requis."); return; }
+    if (!form.buyer_name.trim() || !form.amount_eur) { setErr(t("errBuyerNameAmount")); return; }
     setSaving(true); setErr(null);
     try {
       await createOffer({
@@ -731,7 +773,7 @@ function OffresTab({ mandate, offers, onChange }: {
         mandateId: mandate.id,
         type: "offer",
         direction: "inbound",
-        subject: `Offre reçue ${Number(form.amount_eur).toLocaleString("fr-LU")} €`,
+        subject: t("offerLogSubject", { amount: Number(form.amount_eur).toLocaleString(dateLocale) }),
         body: `${form.buyer_name}${form.buyer_email ? ` · ${form.buyer_email}` : ""}`,
       });
       setForm({
@@ -742,13 +784,13 @@ function OffresTab({ mandate, offers, onChange }: {
       setShowForm(false);
       await onChange();
     } catch (e) {
-      setErr(errMsg(e, "Erreur création"));
+      setErr(errMsg(e, t("errCreateOffer")));
     }
     setSaving(false);
   };
 
   const accept = async (o: AgencyMandateOffer) => {
-    if (!confirm(`Accepter l'offre de ${o.buyer_name} à ${formatEUR(o.amount_eur)} ?`)) return;
+    if (!confirm(t("confirmAcceptOffer", { name: o.buyer_name, amount: formatEUR(o.amount_eur) }))) return;
     await updateOffer(o.id, { status: "accepted" });
     await onChange();
   };
@@ -762,12 +804,15 @@ function OffresTab({ mandate, offers, onChange }: {
       <div className="flex items-center justify-between">
         <div className="text-xs text-muted">
           {offers.length === 0
-            ? "Aucune offre reçue pour ce bien."
-            : `${offers.length} offre(s) · meilleure active : ${formatEUR(Math.max(0, ...offers.filter((o) => !["refused","withdrawn","expired"].includes(o.status)).map((o) => o.amount_eur)))}`}
+            ? t("offersEmpty")
+            : t("offersCount", {
+                n: offers.length,
+                amount: formatEUR(Math.max(0, ...offers.filter((o) => !["refused","withdrawn","expired"].includes(o.status)).map((o) => o.amount_eur))),
+              })}
         </div>
         <button onClick={() => setShowForm(!showForm)}
           className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
-          {showForm ? "Annuler" : "+ Nouvelle offre"}
+          {showForm ? t("btnCancel") : t("btnNewOffer")}
         </button>
       </div>
 
@@ -776,31 +821,31 @@ function OffresTab({ mandate, offers, onChange }: {
       {showForm && (
         <div className="rounded-xl border border-navy/20 bg-navy/5 p-5 space-y-3">
           <div className="grid gap-3 sm:grid-cols-2">
-            <Field label="Nom acquéreur *" value={form.buyer_name}
+            <Field label={t("fieldBuyerName")} value={form.buyer_name}
               onChange={(v) => setForm((f) => ({ ...f, buyer_name: v }))} />
-            <Field label="Email acquéreur" value={form.buyer_email}
+            <Field label={t("fieldBuyerEmail")} value={form.buyer_email}
               onChange={(v) => setForm((f) => ({ ...f, buyer_email: v }))} />
-            <Field label="Montant offre (€) *" value={form.amount_eur} type="number"
+            <Field label={t("fieldOfferAmount")} value={form.amount_eur} type="number"
               onChange={(v) => setForm((f) => ({ ...f, amount_eur: v }))} />
-            <Field label="Valide jusqu'au" value={form.valid_until} type="date"
+            <Field label={t("fieldValidUntil")} value={form.valid_until} type="date"
               onChange={(v) => setForm((f) => ({ ...f, valid_until: v }))} />
             <label className="flex items-center gap-2 text-xs">
               <input type="checkbox" checked={form.requires_financing}
                 onChange={(e) => setForm((f) => ({ ...f, requires_financing: e.target.checked }))} />
-              Conditionnelle à obtention crédit
+              {t("fieldRequiresFinancing")}
             </label>
-            <Field label="Montant crédit demandé (€)" value={form.financing_amount_eur} type="number"
+            <Field label={t("fieldFinancingAmount")} value={form.financing_amount_eur} type="number"
               onChange={(v) => setForm((f) => ({ ...f, financing_amount_eur: v }))} />
-            <Field label="Deadline accord crédit" value={form.financing_deadline} type="date"
+            <Field label={t("fieldFinancingDeadline")} value={form.financing_deadline} type="date"
               onChange={(v) => setForm((f) => ({ ...f, financing_deadline: v }))} />
             <div className="sm:col-span-2">
-              <Field label="Autres conditions suspensives" value={form.other_conditions} type="textarea"
+              <Field label={t("fieldOtherConditions")} value={form.other_conditions} type="textarea"
                 onChange={(v) => setForm((f) => ({ ...f, other_conditions: v }))} />
             </div>
           </div>
           <button onClick={submit} disabled={saving}
             className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-50">
-            {saving ? "Création…" : "Enregistrer offre"}
+            {saving ? t("btnSavingOffer") : t("btnSaveOffer")}
           </button>
         </div>
       )}
@@ -825,7 +870,7 @@ function OffresTab({ mandate, offers, onChange }: {
                     <div className="flex items-center gap-2">
                       <span className="font-semibold text-navy">{o.buyer_name}</span>
                       <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${OFFER_STATUS_COLORS[o.status]}`}>
-                        {OFFER_STATUS_LABELS[o.status]}
+                        {t(OFFER_STATUS_KEY[o.status])}
                       </span>
                     </div>
                     {o.buyer_email && <div className="text-[10px] text-muted">{o.buyer_email}</div>}
@@ -833,20 +878,20 @@ function OffresTab({ mandate, offers, onChange }: {
                       <span className="text-2xl font-bold text-navy">{formatEUR(o.amount_eur)}</span>
                       {cmp.pct !== null && (
                         <span className={`text-xs font-semibold ${verdictColor}`}>
-                          ({cmp.pct >= 0 ? "+" : ""}{cmp.pct.toFixed(1)}% vs demandé)
+                          {t("offerVsPct", { sign: cmp.pct >= 0 ? "+" : "", pct: cmp.pct.toFixed(1) })}
                         </span>
                       )}
                     </div>
                     <div className="mt-2 flex flex-wrap gap-3 text-[11px] text-muted">
-                      <span>Reçue : {fmtDate(o.offered_at)}</span>
-                      {o.valid_until && <span>Valide → {fmtDate(o.valid_until)}</span>}
+                      <span>{t("offerReceivedOn", { date: fmtDate(o.offered_at) })}</span>
+                      {o.valid_until && <span>{t("offerValidUntil", { date: fmtDate(o.valid_until) })}</span>}
                       {o.requires_financing && (
                         <span className="text-amber-800">
-                          Conditionnelle crédit{o.financing_amount_eur ? ` ${formatEUR(o.financing_amount_eur)}` : ""}
-                          {o.financing_deadline ? ` (accord avant ${fmtDate(o.financing_deadline)})` : ""}
+                          {t("offerFinancingCond", { amount: o.financing_amount_eur ? ` ${formatEUR(o.financing_amount_eur)}` : "" })}
+                          {o.financing_deadline ? t("offerFinancingDeadline", { date: fmtDate(o.financing_deadline) }) : ""}
                         </span>
                       )}
-                      {o.requires_sale_of_current_property && <span>Sous condition vente actuelle</span>}
+                      {o.requires_sale_of_current_property && <span>{t("offerSaleCond")}</span>}
                     </div>
                     {o.other_conditions && (
                       <div className="mt-2 text-xs text-slate italic">{o.other_conditions}</div>
@@ -857,24 +902,24 @@ function OffresTab({ mandate, offers, onChange }: {
                       <>
                         <button onClick={() => accept(o)}
                           className="rounded-lg bg-emerald-600 px-3 py-1 text-xs font-semibold text-white hover:bg-emerald-700">
-                          Accepter
+                          {t("btnAccept")}
                         </button>
                         <button onClick={() => refuse(o)}
                           className="rounded-lg border border-rose-200 bg-white px-3 py-1 text-xs font-semibold text-rose-700 hover:bg-rose-50">
-                          Refuser
+                          {t("btnRefuse")}
                         </button>
                         <button onClick={async () => {
                           await updateOffer(o.id, { status: o.status === "counter_sent" ? "received" : "counter_sent" });
                           await onChange();
                         }} className="rounded-lg border border-amber-200 bg-white px-3 py-1 text-xs font-semibold text-amber-800 hover:bg-amber-50">
-                          Contre-propo.
+                          {t("btnCounter")}
                         </button>
                       </>
                     )}
                     <button onClick={async () => {
-                      if (confirm("Supprimer cette offre ?")) { await deleteOffer(o.id); await onChange(); }
+                      if (confirm(t("confirmDeleteOffer"))) { await deleteOffer(o.id); await onChange(); }
                     }} className="mt-1 text-[10px] text-rose-700 hover:underline">
-                      Supprimer
+                      {t("btnDelete")}
                     </button>
                   </div>
                 </div>
@@ -887,11 +932,13 @@ function OffresTab({ mandate, offers, onChange }: {
   );
 }
 
-function TimelineTab({ mandate, interactions, onChange }: {
+function TimelineTab({ mandate, interactions, onChange, fmtDateTime }: {
   mandate: AgencyMandate;
   interactions: CrmInteraction[];
   onChange: () => Promise<void>;
+  fmtDateTime: (s: string | null | undefined) => string;
 }) {
+  const t = useTranslations("proaMandateDetail");
   const [note, setNote] = useState("");
   const [type, setType] = useState<CrmInteractionType>("note");
 
@@ -901,7 +948,9 @@ function TimelineTab({ mandate, interactions, onChange }: {
       mandateId: mandate.id,
       type,
       direction: type === "email" || type === "call" ? "outbound" : "internal",
-      subject: type === "note" ? note.slice(0, 80) : `${INTERACTION_LABELS[type]}: ${note.slice(0, 60)}`,
+      subject: type === "note"
+        ? note.slice(0, 80)
+        : t("interactionSubjectFmt", { type: t(INTERACTION_KEY[type]), body: note.slice(0, 60) }),
       body: note,
     });
     setNote("");
@@ -912,21 +961,21 @@ function TimelineTab({ mandate, interactions, onChange }: {
     <div className="space-y-4">
       {/* Quick log */}
       <div className="rounded-xl border border-card-border bg-card p-4">
-        <div className="text-xs font-semibold uppercase tracking-wider text-muted mb-2">Ajouter au fil</div>
+        <div className="text-xs font-semibold uppercase tracking-wider text-muted mb-2">{t("timelineAddTitle")}</div>
         <div className="flex flex-wrap gap-2">
           <select value={type} onChange={(e) => setType(e.target.value as CrmInteractionType)}
             className="rounded-lg border border-input-border bg-input-bg px-2 py-2 text-sm">
-            {(["note", "call", "email", "sms", "meeting", "visit", "document"] as CrmInteractionType[]).map((t) => (
-              <option key={t} value={t}>{INTERACTION_LABELS[t]}</option>
+            {(["note", "call", "email", "sms", "meeting", "visit", "document"] as CrmInteractionType[]).map((tt) => (
+              <option key={tt} value={tt}>{t(INTERACTION_KEY[tt])}</option>
             ))}
           </select>
           <input type="text" value={note} onChange={(e) => setNote(e.target.value)}
             onKeyDown={(e) => { if (e.key === "Enter") void log(); }}
-            placeholder="Quoi ? (ex. appel client, visite programmée, DPE envoyé…)"
+            placeholder={t("timelinePlaceholder")}
             className="flex-1 min-w-[250px] rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
           <button onClick={log} disabled={!note.trim()}
             className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-50">
-            Loguer
+            {t("btnLog")}
           </button>
         </div>
       </div>
@@ -934,7 +983,7 @@ function TimelineTab({ mandate, interactions, onChange }: {
       {/* Timeline */}
       {interactions.length === 0 ? (
         <div className="rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-          Aucune interaction enregistrée. Tracez les appels, visites et échanges pour garder un historique complet.
+          {t("timelineEmpty")}
         </div>
       ) : (
         <ol className="relative border-l border-card-border pl-6">
@@ -943,12 +992,12 @@ function TimelineTab({ mandate, interactions, onChange }: {
               <div className="absolute -left-[7px] h-3 w-3 rounded-full border-2 border-navy bg-background" />
               <div className="flex items-baseline gap-2">
                 <span className="text-[10px] font-semibold uppercase tracking-wider text-navy">
-                  {INTERACTION_LABELS[i.interaction_type]}
+                  {t(INTERACTION_KEY[i.interaction_type])}
                 </span>
                 <span className="text-[10px] text-muted">· {fmtDateTime(i.occurred_at)}</span>
                 {i.direction && i.direction !== "internal" && (
                   <span className="rounded bg-background px-1.5 py-0.5 text-[9px] text-muted">
-                    {i.direction === "inbound" ? "entrant" : "sortant"}
+                    {i.direction === "inbound" ? t("directionInbound") : t("directionOutbound")}
                   </span>
                 )}
               </div>
