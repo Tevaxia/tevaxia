@@ -2,6 +2,37 @@
 
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 
+export interface VisitReceiptLabels {
+  docTitle: string; // "Bon de visite — {address} — {name}"
+  title: string; // "BON DE VISITE"
+  subtitle: string;
+  refPrefix: string; // "Réf. {ref}"
+  sectionVisitor: string;
+  labelName: string;
+  labelEmail: string;
+  labelPhone: string;
+  labelId: string;
+  sectionProperty: string;
+  labelAddress: string;
+  labelCommune: string;
+  labelType: string;
+  labelSurface: string;
+  labelPrice: string;
+  sectionVisit: string;
+  labelDate: string;
+  labelTime: string;
+  timeFormat: string; // "{time} ({duration} minutes)"
+  labelAgent: string;
+  labelObservations: string;
+  legal: string;
+  sigVisitor: string;
+  sigVisitorRead: string;
+  sigAgent: string;
+  sigLabel: string;
+  footer: string; // "{agency} · ... le {date} · ..."
+  dateLocale: string; // "fr-LU" / "en-GB" etc.
+}
+
 interface Props {
   agency: {
     name: string;
@@ -26,11 +57,12 @@ interface Props {
     price?: number | null;
   };
   visit: {
-    date: string; // YYYY-MM-DD
-    time: string; // HH:MM
+    date: string;
+    time: string;
     duration_minutes: number;
     notes?: string;
   };
+  labels: VisitReceiptLabels;
 }
 
 const s = StyleSheet.create({
@@ -75,19 +107,23 @@ const s = StyleSheet.create({
   },
 });
 
-const fmtDate = (iso: string): string => {
-  const d = new Date(iso);
-  return isNaN(d.getTime()) ? iso : d.toLocaleDateString("fr-LU", {
-    weekday: "long", year: "numeric", month: "long", day: "numeric",
-  });
-};
-
 const fmtEUR = (n: number): string =>
   Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " EUR";
 
-export default function VisitReceiptPdf({ agency, buyer, property, visit }: Props) {
+function fillTemplate(template: string, vars: Record<string, string | number>): string {
+  return template.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? ""));
+}
+
+export default function VisitReceiptPdf({ agency, buyer, property, visit, labels }: Props) {
+  const fmtDate = (iso: string): string => {
+    const d = new Date(iso);
+    return isNaN(d.getTime()) ? iso : d.toLocaleDateString(labels.dateLocale, {
+      weekday: "long", year: "numeric", month: "long", day: "numeric",
+    });
+  };
+
   return (
-    <Document title={`Bon de visite — ${property.address} — ${buyer.last_name}`}>
+    <Document title={fillTemplate(labels.docTitle, { address: property.address, name: buyer.last_name })}>
       <Page size="A4" style={s.page}>
         {/* Header */}
         <View style={s.header}>
@@ -106,41 +142,39 @@ export default function VisitReceiptPdf({ agency, buyer, property, visit }: Prop
             </Text>
             {property.reference && (
               <Text style={{ fontSize: 9, color: "#64748B", textAlign: "right", marginTop: 2 }}>
-                Réf. {property.reference}
+                {fillTemplate(labels.refPrefix, { ref: property.reference })}
               </Text>
             )}
           </View>
         </View>
 
         {/* Title */}
-        <Text style={s.title}>BON DE VISITE</Text>
-        <Text style={s.subtitle}>
-          Loi du 28 décembre 1988 réglementant l&apos;accès aux professions immobilières
-        </Text>
+        <Text style={s.title}>{labels.title}</Text>
+        <Text style={s.subtitle}>{labels.subtitle}</Text>
 
         {/* Acquéreur */}
         <View style={s.section}>
-          <Text style={s.sectionTitle}>Visiteur (acquéreur potentiel)</Text>
+          <Text style={s.sectionTitle}>{labels.sectionVisitor}</Text>
           <View style={s.box}>
             <View style={s.row}>
-              <Text style={s.label}>Nom, prénom</Text>
+              <Text style={s.label}>{labels.labelName}</Text>
               <Text style={s.value}>{buyer.last_name.toUpperCase()}, {buyer.first_name}</Text>
             </View>
             {buyer.email && (
               <View style={s.row}>
-                <Text style={s.label}>Email</Text>
+                <Text style={s.label}>{labels.labelEmail}</Text>
                 <Text style={s.value}>{buyer.email}</Text>
               </View>
             )}
             {buyer.phone && (
               <View style={s.row}>
-                <Text style={s.label}>Téléphone</Text>
+                <Text style={s.label}>{labels.labelPhone}</Text>
                 <Text style={s.value}>{buyer.phone}</Text>
               </View>
             )}
             {buyer.id_number && (
               <View style={s.row}>
-                <Text style={s.label}>Pièce d&apos;identité</Text>
+                <Text style={s.label}>{labels.labelId}</Text>
                 <Text style={s.value}>{buyer.id_number}</Text>
               </View>
             )}
@@ -149,33 +183,33 @@ export default function VisitReceiptPdf({ agency, buyer, property, visit }: Prop
 
         {/* Bien visité */}
         <View style={s.section}>
-          <Text style={s.sectionTitle}>Bien visité</Text>
+          <Text style={s.sectionTitle}>{labels.sectionProperty}</Text>
           <View style={s.box}>
             <View style={s.row}>
-              <Text style={s.label}>Adresse</Text>
+              <Text style={s.label}>{labels.labelAddress}</Text>
               <Text style={s.value}>{property.address}</Text>
             </View>
             {property.commune && (
               <View style={s.row}>
-                <Text style={s.label}>Commune</Text>
+                <Text style={s.label}>{labels.labelCommune}</Text>
                 <Text style={s.value}>{property.commune}</Text>
               </View>
             )}
             {property.type && (
               <View style={s.row}>
-                <Text style={s.label}>Type de bien</Text>
+                <Text style={s.label}>{labels.labelType}</Text>
                 <Text style={s.value}>{property.type}</Text>
               </View>
             )}
             {property.surface_m2 != null && (
               <View style={s.row}>
-                <Text style={s.label}>Surface habitable</Text>
+                <Text style={s.label}>{labels.labelSurface}</Text>
                 <Text style={s.value}>{property.surface_m2} m²</Text>
               </View>
             )}
             {property.price != null && (
               <View style={s.row}>
-                <Text style={s.label}>Prix de présentation</Text>
+                <Text style={s.label}>{labels.labelPrice}</Text>
                 <Text style={s.value}>{fmtEUR(property.price)}</Text>
               </View>
             )}
@@ -184,23 +218,23 @@ export default function VisitReceiptPdf({ agency, buyer, property, visit }: Prop
 
         {/* Visite */}
         <View style={s.section}>
-          <Text style={s.sectionTitle}>Visite effectuée</Text>
+          <Text style={s.sectionTitle}>{labels.sectionVisit}</Text>
           <View style={s.box}>
             <View style={s.row}>
-              <Text style={s.label}>Date</Text>
+              <Text style={s.label}>{labels.labelDate}</Text>
               <Text style={s.value}>{fmtDate(visit.date)}</Text>
             </View>
             <View style={s.row}>
-              <Text style={s.label}>Heure</Text>
-              <Text style={s.value}>{visit.time} ({visit.duration_minutes} minutes)</Text>
+              <Text style={s.label}>{labels.labelTime}</Text>
+              <Text style={s.value}>{fillTemplate(labels.timeFormat, { time: visit.time, duration: visit.duration_minutes })}</Text>
             </View>
             <View style={s.row}>
-              <Text style={s.label}>Agent accompagnateur</Text>
+              <Text style={s.label}>{labels.labelAgent}</Text>
               <Text style={s.value}>{agency.agent_name ?? agency.name}</Text>
             </View>
             {visit.notes && (
               <View style={[s.row, { marginTop: 4 }]}>
-                <Text style={s.label}>Observations</Text>
+                <Text style={s.label}>{labels.labelObservations}</Text>
                 <Text style={s.value}>{visit.notes}</Text>
               </View>
             )}
@@ -209,36 +243,32 @@ export default function VisitReceiptPdf({ agency, buyer, property, visit }: Prop
 
         {/* Mention légale */}
         <View style={s.legal}>
-          <Text>
-            Le visiteur reconnaît avoir été mis en présence du bien par l&apos;intermédiaire
-            de l&apos;agence susnommée. En cas d&apos;acquisition de ce bien — directement
-            auprès du propriétaire ou par l&apos;intermédiaire d&apos;un tiers — dans les
-            12 mois suivant la présente visite, la commission d&apos;agence reste due
-            conformément au règlement grand-ducal du 4 juillet 2000.
-          </Text>
+          <Text>{labels.legal}</Text>
         </View>
 
         {/* Signatures */}
         <View style={s.signatures}>
           <View style={s.signatureBlock}>
-            <Text style={s.signatureBold}>Le visiteur</Text>
-            <Text>Lu et approuvé</Text>
+            <Text style={s.signatureBold}>{labels.sigVisitor}</Text>
+            <Text>{labels.sigVisitorRead}</Text>
             <Text style={{ marginTop: 30, fontStyle: "italic" }}>
-              Signature :
+              {labels.sigLabel}
             </Text>
           </View>
           <View style={s.signatureBlock}>
-            <Text style={s.signatureBold}>L&apos;agent</Text>
+            <Text style={s.signatureBold}>{labels.sigAgent}</Text>
             <Text>{agency.agent_name ?? agency.name}</Text>
             <Text style={{ marginTop: 30, fontStyle: "italic" }}>
-              Signature :
+              {labels.sigLabel}
             </Text>
           </View>
         </View>
 
         <Text style={s.footer}>
-          {agency.name} · Bon de visite généré le {new Date().toLocaleString("fr-LU")}
-          · Durée validité commerciale 12 mois
+          {fillTemplate(labels.footer, {
+            agency: agency.name,
+            date: new Date().toLocaleString(labels.dateLocale),
+          })}
         </Text>
       </Page>
     </Document>
