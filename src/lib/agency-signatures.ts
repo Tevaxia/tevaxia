@@ -236,18 +236,35 @@ export function signingUrl(token: string, origin?: string): string {
   return `${base}/signer/${token}`;
 }
 
-export function mailtoLink(req: SignatureRequest, origin?: string): string {
+export interface MailtoLabels {
+  subject: string;     // "Signature demandée : {title}"
+  body: string;        // multiline template with {name}, {title}, {expires}, {url} placeholders
+  dateLocale: string;  // e.g. "fr-LU"
+}
+
+export function mailtoLink(req: SignatureRequest, origin?: string, labels?: MailtoLabels): string {
   const url = signingUrl(req.token, origin);
-  const subject = encodeURIComponent(`Signature demandée : ${req.document_title}`);
-  const body = encodeURIComponent(
-    `Bonjour ${req.signer_name},\n\n` +
+  const fmt = (s: string, vars: Record<string, string>) =>
+    s.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? "");
+  const dateLocale = labels?.dateLocale ?? "fr-LU";
+  const expires = new Date(req.expires_at).toLocaleDateString(dateLocale);
+  const subjTpl = labels?.subject ?? "Signature demandée : {title}";
+  const bodyTpl = labels?.body ?? (
+    `Bonjour {name},\n\n` +
     `Vous êtes invité(e) à signer électroniquement le document suivant :\n\n` +
-    `${req.document_title}\n\n` +
-    `Lien de signature sécurisé (valable jusqu'au ${new Date(req.expires_at).toLocaleDateString("fr-LU")}) :\n` +
-    `${url}\n\n` +
+    `{title}\n\n` +
+    `Lien de signature sécurisé (valable jusqu'au {expires}) :\n` +
+    `{url}\n\n` +
     `La signature électronique simple est juridiquement valable selon le règlement UE 910/2014 (eIDAS).\n\n` +
-    `Cordialement`,
+    `Cordialement`
   );
+  const subject = encodeURIComponent(fmt(subjTpl, { title: req.document_title }));
+  const body = encodeURIComponent(fmt(bodyTpl, {
+    name: req.signer_name,
+    title: req.document_title,
+    expires,
+    url,
+  }));
   return `mailto:${req.signer_email}?subject=${subject}&body=${body}`;
 }
 
