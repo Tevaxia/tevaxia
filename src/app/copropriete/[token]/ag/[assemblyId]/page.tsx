@@ -2,11 +2,25 @@
 
 import { useEffect, useState, use, useCallback } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import {
   portalListAssemblyResolutions, portalCastVote,
-  VOTE_LABEL, MAJORITY_LABEL,
-  type PortalAssemblyData, type VoteValue,
+  type PortalAssemblyData, type VoteValue, type MajorityType,
 } from "@/lib/coownership-assemblies";
+
+const VOTE_KEY: Record<VoteValue, string> = {
+  yes: "voteYes",
+  no: "voteNo",
+  abstain: "voteAbstain",
+  absent: "voteAbsent",
+};
+
+const MAJORITY_KEY: Record<MajorityType, string> = {
+  simple: "majSimple",
+  absolute: "majAbsolute",
+  double: "majDouble",
+  unanimity: "majUnanimity",
+};
 
 const VOTE_COLORS: Record<VoteValue, string> = {
   yes: "bg-emerald-600 text-white hover:bg-emerald-700",
@@ -23,6 +37,7 @@ const VOTE_SELECTED: Record<VoteValue, string> = {
 };
 
 export default function PortalVotePage(props: { params: Promise<{ token: string; assemblyId: string }> }) {
+  const t = useTranslations("coproAg");
   const { token, assemblyId } = use(props.params);
   const [data, setData] = useState<PortalAssemblyData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -37,10 +52,10 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
       const d = await portalListAssemblyResolutions(token, assemblyId);
       setData(d);
     } catch (e) {
-      setError((e as Error).message ?? "Erreur");
+      setError((e as Error).message ?? t("errGeneric"));
     }
     setLoading(false);
-  }, [token, assemblyId]);
+  }, [token, assemblyId, t]);
 
   useEffect(() => { void reload(); }, [reload]);
 
@@ -50,22 +65,26 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
       const r = await portalCastVote(token, resolutionId, vote);
       if (r.error) setError(r.error);
       else {
-        setFlash(`Vote "${VOTE_LABEL[vote]}" enregistré ✓`);
+        setFlash(t("flashVoteSaved", { label: t(VOTE_KEY[vote]) }));
         setTimeout(() => setFlash(null), 3000);
       }
       await reload();
     } catch (e) {
-      setError((e as Error).message ?? "Erreur");
+      setError((e as Error).message ?? t("errGeneric"));
     }
     setSaving(null);
   };
 
-  if (loading) return <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">Chargement…</div>;
+  if (loading) return <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
   if (!data || data.error || !data.assembly) {
     return (
       <div className="mx-auto max-w-2xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-navy mb-2">Vote indisponible</h1>
-        <p className="text-muted">{data?.error === "invalid_token" ? "Ce lien a expiré." : data?.error === "token_not_unit_specific" ? "Votre lien d'accès n'est pas associé à un lot spécifique. Contactez le syndic." : "AG introuvable."}</p>
+        <h1 className="text-2xl font-bold text-navy mb-2">{t("voteUnavailable")}</h1>
+        <p className="text-muted">
+          {data?.error === "invalid_token" ? t("errInvalidToken")
+            : data?.error === "token_not_unit_specific" ? t("errTokenNotUnit")
+            : t("errAssemblyNotFound")}
+        </p>
       </div>
     );
   }
@@ -76,11 +95,11 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
   return (
     <div className="bg-background min-h-screen py-8">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <Link href={`/copropriete/${token}`} className="text-xs text-muted hover:text-navy">← Mon espace</Link>
+        <Link href={`/copropriete/${token}`} className="text-xs text-muted hover:text-navy">{t("backLink")}</Link>
 
         <div className="mt-3 rounded-2xl bg-gradient-to-br from-navy to-navy-light p-6 text-white">
           <div className="text-xs uppercase tracking-wider text-white/60">
-            Vote en ligne — {a.assembly_type === "ordinary" ? "AG ordinaire" : "AG extraordinaire"}
+            {t("voteOnlineLabel", { type: a.assembly_type === "ordinary" ? t("typeOrdinary") : t("typeExtraordinary") })}
           </div>
           <h1 className="mt-1 text-2xl sm:text-3xl font-bold">{a.title}</h1>
           <p className="mt-1 text-sm text-white/80">
@@ -90,18 +109,16 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
           {a.virtual_url && (
             <a href={a.virtual_url} target="_blank" rel="noopener noreferrer"
               className="mt-3 inline-block rounded-lg bg-white/20 px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/30">
-              🎥 Rejoindre la visioconférence
+              {t("btnJoinVideo")}
             </a>
           )}
         </div>
 
         {!canVote && (
           <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
-            {a.status === "draft"
-              ? "L'assemblée n'est pas encore convoquée — aucune résolution à voter pour l'instant."
-              : a.status === "closed"
-              ? "L'assemblée est clôturée — les résultats sont définitifs."
-              : "L'assemblée a été annulée."}
+            {a.status === "draft" ? t("statusDraftMsg")
+              : a.status === "closed" ? t("statusClosedMsg")
+              : t("statusCancelledMsg")}
           </div>
         )}
 
@@ -111,7 +128,7 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
         {/* Résolutions */}
         {(data.resolutions?.length ?? 0) === 0 ? (
           <div className="mt-8 rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-            Aucune résolution à l&apos;ordre du jour pour le moment.
+            {t("emptyResolutions")}
           </div>
         ) : (
           <div className="mt-6 space-y-4">
@@ -120,29 +137,29 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1 min-w-0">
                     <div className="text-[10px] uppercase tracking-wider text-muted font-semibold">
-                      Résolution #{r.number}
+                      {t("resolutionNumber", { n: r.number })}
                     </div>
                     <h3 className="mt-1 text-lg font-bold text-navy">{r.title}</h3>
                     {r.description && (
                       <p className="mt-2 text-sm text-slate whitespace-pre-wrap">{r.description}</p>
                     )}
                     <div className="mt-3 inline-block rounded-full bg-background px-3 py-1 text-[11px] text-muted">
-                      {MAJORITY_LABEL[r.majority_type]}
+                      {t(MAJORITY_KEY[r.majority_type])}
                     </div>
                   </div>
                   {r.result !== "pending" && (
                     <span className={`rounded-full px-3 py-1 text-xs font-semibold ${
                       r.result === "approved" ? "bg-emerald-100 text-emerald-900" : "bg-rose-100 text-rose-900"
                     }`}>
-                      {r.result === "approved" ? "✓ Approuvée" : "✗ Rejetée"}
+                      {r.result === "approved" ? t("resultApproved") : t("resultRejected")}
                     </span>
                   )}
                 </div>
 
                 {r.my_vote && r.my_vote !== "absent" && (
                   <div className="mt-4 rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-xs text-emerald-900">
-                    ✓ Vote enregistré : <strong>{VOTE_LABEL[r.my_vote]}</strong>
-                    {r.my_voted_at && ` le ${new Date(r.my_voted_at).toLocaleString("fr-LU")}`}
+                    <span dangerouslySetInnerHTML={{ __html: t("voteSaved", { vote: t(VOTE_KEY[r.my_vote]) }) }} />
+                    {r.my_voted_at && t("voteSavedAt", { date: new Date(r.my_voted_at).toLocaleString("fr-LU") })}
                   </div>
                 )}
 
@@ -155,7 +172,7 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
                           r.my_vote === v ? VOTE_SELECTED[v] : VOTE_COLORS[v]
                         }`}>
                         {v === "yes" ? "✓ " : v === "no" ? "✗ " : v === "abstain" ? "~ " : "— "}
-                        {VOTE_LABEL[v]}
+                        {t(VOTE_KEY[v])}
                       </button>
                     ))}
                   </div>
@@ -164,9 +181,9 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
                 {/* Résultats intermédiaires (si AG en cours ou close) */}
                 {(a.status === "in_progress" || a.status === "closed") && (
                   <div className="mt-4 space-y-1">
-                    <ResultBar label="Pour" count={r.votes_yes_tantiemes} color="bg-emerald-500" />
-                    <ResultBar label="Contre" count={r.votes_no_tantiemes} color="bg-rose-500" />
-                    <ResultBar label="Abstention" count={r.votes_abstain_tantiemes} color="bg-amber-500" />
+                    <ResultBar label={t("barFor")} count={r.votes_yes_tantiemes} color="bg-emerald-500" suffix={t("barTantiemes", { count: r.votes_yes_tantiemes })} />
+                    <ResultBar label={t("barAgainst")} count={r.votes_no_tantiemes} color="bg-rose-500" suffix={t("barTantiemes", { count: r.votes_no_tantiemes })} />
+                    <ResultBar label={t("barAbstain")} count={r.votes_abstain_tantiemes} color="bg-amber-500" suffix={t("barTantiemes", { count: r.votes_abstain_tantiemes })} />
                   </div>
                 )}
               </div>
@@ -174,23 +191,21 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
           </div>
         )}
 
-        <div className="mt-8 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-          <strong>Vote électronique :</strong> votre vote est enregistré avec horodatage et
-          pondéré par vos tantièmes au moment de l&apos;AG. Vous pouvez le modifier tant que
-          l&apos;assemblée n&apos;est pas clôturée. Conforme loi 16.05.1975 copropriété LU.
-        </div>
+        <div className="mt-8 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900"
+          dangerouslySetInnerHTML={{ __html: t("eVoteNotice") }}
+        />
       </div>
     </div>
   );
 }
 
-function ResultBar({ label, count, color }: { label: string; count: number; color: string }) {
+function ResultBar({ label, count, color, suffix }: { label: string; count: number; color: string; suffix: string }) {
   const maxCount = Math.max(1, count);
   return (
     <div>
       <div className="flex items-center justify-between text-[11px]">
         <span className="font-semibold text-slate">{label}</span>
-        <span className="text-muted font-mono">{count} tantièmes</span>
+        <span className="text-muted font-mono">{suffix}</span>
       </div>
       <div className="mt-0.5 h-1.5 w-full rounded-full bg-background overflow-hidden">
         <div className={`h-full ${color}`} style={{ width: `${Math.min(100, (count / maxCount) * 100)}%` }} />
