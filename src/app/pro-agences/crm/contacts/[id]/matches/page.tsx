@@ -7,9 +7,15 @@ import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import {
-  findMandatesForContact, VERDICT_LABELS, VERDICT_COLORS,
-  type MatchResult,
+  findMandatesForContact, VERDICT_COLORS,
+  type MatchResult, type MatchVerdict,
 } from "@/lib/agency-matching";
+
+const VERDICT_KEY: Record<MatchVerdict, string> = {
+  strong: "verdictStrong",
+  possible: "verdictPossible",
+  weak: "verdictWeak",
+};
 import { contactDisplayName, type CrmContact } from "@/lib/crm/types";
 import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/errors";
@@ -144,7 +150,7 @@ export default function ContactMatchesPage() {
                   <div className="flex items-center gap-2">
                     <div className="font-semibold text-navy truncate">{m.mandate.property_address}</div>
                     <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${VERDICT_COLORS[m.verdict]}`}>
-                      {VERDICT_LABELS[m.verdict]}
+                      {t(VERDICT_KEY[m.verdict])}
                     </span>
                   </div>
                   <div className="mt-1 flex flex-wrap gap-2 text-[11px] text-muted">

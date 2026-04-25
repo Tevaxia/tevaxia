@@ -21,13 +21,19 @@ import { supabase, isSupabaseConfigured } from "./supabase";
 import type { AgencyMandate, MandateStatus } from "./agency-mandates";
 import type { CrmContact, CrmContactKind } from "./crm/types";
 
+export interface ScoreNoteKey {
+  key: string;
+  params?: Record<string, string | number>;
+}
+
 export interface MatchScoreBreakdown {
   budget: number;        // /40
   surface: number;       // /30
   zone: number;          // /20
   type: number;          // /10
   total: number;         // /100
-  notes: string[];       // explications humaines
+  notes: string[];       // explications humaines (FR fallback)
+  noteKeys: ScoreNoteKey[]; // i18n keys aligned 1:1 with notes
 }
 
 export type MatchVerdict = "strong" | "possible" | "weak";
@@ -53,72 +59,75 @@ function scoreBudget(
   prix: number | null,
   budgetMin: number | null,
   budgetMax: number | null,
-): { score: number; note: string } {
-  if (prix == null || prix === 0) return { score: 20, note: "Prix mandat non renseigné" };
+): { score: number; note: string; noteKey: ScoreNoteKey } {
+  if (prix == null || prix === 0) return { score: 20, note: "Prix mandat non renseigné", noteKey: { key: "noteBudgetPrixMissing" } };
   if (budgetMin == null && budgetMax == null) {
-    return { score: 10, note: "Budget acquéreur non renseigné" };
+    return { score: 10, note: "Budget acquéreur non renseigné", noteKey: { key: "noteBudgetMissing" } };
   }
   const min = budgetMin ?? 0;
   const max = budgetMax ?? Number.POSITIVE_INFINITY;
   if (prix >= min && prix <= max) {
-    return { score: 40, note: `Prix ${prix.toLocaleString("fr-LU")} € dans le budget` };
+    return {
+      score: 40,
+      note: `Prix ${prix.toLocaleString("fr-LU")} € dans le budget`,
+      noteKey: { key: "noteBudgetInRange", params: { price: prix } },
+    };
   }
-  // Hors fourchette : pénaliser par écart relatif
   const target = prix < min ? min : max;
   const gapPct = Math.abs(prix - target) / target * 100;
-  if (gapPct <= 5) return { score: 30, note: `Prix proche (${gapPct.toFixed(1)}% hors budget)` };
-  if (gapPct <= 10) return { score: 20, note: `Prix à ${gapPct.toFixed(1)}% hors budget` };
-  if (gapPct <= 20) return { score: 10, note: `Prix à ${gapPct.toFixed(1)}% hors budget` };
-  return { score: 0, note: `Prix très éloigné (${gapPct.toFixed(0)}% hors budget)` };
+  if (gapPct <= 5) return { score: 30, note: `Prix proche (${gapPct.toFixed(1)}% hors budget)`, noteKey: { key: "noteBudgetClose", params: { pct: gapPct.toFixed(1) } } };
+  if (gapPct <= 10) return { score: 20, note: `Prix à ${gapPct.toFixed(1)}% hors budget`, noteKey: { key: "noteBudgetGap", params: { pct: gapPct.toFixed(1) } } };
+  if (gapPct <= 20) return { score: 10, note: `Prix à ${gapPct.toFixed(1)}% hors budget`, noteKey: { key: "noteBudgetGap", params: { pct: gapPct.toFixed(1) } } };
+  return { score: 0, note: `Prix très éloigné (${gapPct.toFixed(0)}% hors budget)`, noteKey: { key: "noteBudgetFar", params: { pct: gapPct.toFixed(0) } } };
 }
 
 function scoreSurface(
   surface: number | null,
   targetMin: number | null,
   targetMax: number | null,
-): { score: number; note: string } {
-  if (surface == null || surface === 0) return { score: 15, note: "Surface mandat non renseignée" };
+): { score: number; note: string; noteKey: ScoreNoteKey } {
+  if (surface == null || surface === 0) return { score: 15, note: "Surface mandat non renseignée", noteKey: { key: "noteSurfaceMissing" } };
   if (targetMin == null && targetMax == null) {
-    return { score: 7, note: "Surface cible acquéreur non renseignée" };
+    return { score: 7, note: "Surface cible acquéreur non renseignée", noteKey: { key: "noteSurfaceTargetMissing" } };
   }
   const min = targetMin ?? 0;
   const max = targetMax ?? Number.POSITIVE_INFINITY;
   if (surface >= min && surface <= max) {
-    return { score: 30, note: `Surface ${surface} m² dans la fourchette cible` };
+    return { score: 30, note: `Surface ${surface} m² dans la fourchette cible`, noteKey: { key: "noteSurfaceInRange", params: { surface } } };
   }
   const target = surface < min ? min : max;
   const gapPct = Math.abs(surface - target) / target * 100;
-  if (gapPct <= 10) return { score: 20, note: `Surface proche (${gapPct.toFixed(0)}% hors cible)` };
-  if (gapPct <= 20) return { score: 10, note: `Surface à ${gapPct.toFixed(0)}% hors cible` };
-  return { score: 0, note: `Surface très éloignée (${gapPct.toFixed(0)}% hors cible)` };
+  if (gapPct <= 10) return { score: 20, note: `Surface proche (${gapPct.toFixed(0)}% hors cible)`, noteKey: { key: "noteSurfaceClose", params: { pct: gapPct.toFixed(0) } } };
+  if (gapPct <= 20) return { score: 10, note: `Surface à ${gapPct.toFixed(0)}% hors cible`, noteKey: { key: "noteSurfaceGap", params: { pct: gapPct.toFixed(0) } } };
+  return { score: 0, note: `Surface très éloignée (${gapPct.toFixed(0)}% hors cible)`, noteKey: { key: "noteSurfaceFar", params: { pct: gapPct.toFixed(0) } } };
 }
 
 function scoreZone(
   commune: string | null,
   targetZones: string[] | null,
-): { score: number; note: string } {
-  if (!commune) return { score: 10, note: "Commune mandat non renseignée" };
+): { score: number; note: string; noteKey: ScoreNoteKey } {
+  if (!commune) return { score: 10, note: "Commune mandat non renseignée", noteKey: { key: "noteZoneMissing" } };
   if (!targetZones || targetZones.length === 0) {
-    return { score: 5, note: "Zones cibles acquéreur non renseignées" };
+    return { score: 5, note: "Zones cibles acquéreur non renseignées", noteKey: { key: "noteZoneTargetMissing" } };
   }
   const cNorm = commune.toLowerCase().trim();
   const match = targetZones.some((z) => z.toLowerCase().trim() === cNorm);
-  if (match) return { score: 20, note: `${commune} dans les zones cibles` };
-  return { score: 0, note: `${commune} hors zones cibles (${targetZones.join(", ")})` };
+  if (match) return { score: 20, note: `${commune} dans les zones cibles`, noteKey: { key: "noteZoneMatch", params: { commune } } };
+  return { score: 0, note: `${commune} hors zones cibles (${targetZones.join(", ")})`, noteKey: { key: "noteZoneNoMatch", params: { commune, zones: targetZones.join(", ") } } };
 }
 
 function scoreType(
   propertyType: string | null,
   tags: string[],
-): { score: number; note: string } {
-  if (!propertyType) return { score: 5, note: "Type de bien mandat non renseigné" };
-  if (tags.length === 0) return { score: 3, note: "Pas de préférences type" };
+): { score: number; note: string; noteKey: ScoreNoteKey } {
+  if (!propertyType) return { score: 5, note: "Type de bien mandat non renseigné", noteKey: { key: "noteTypeMissing" } };
+  if (tags.length === 0) return { score: 3, note: "Pas de préférences type", noteKey: { key: "noteTypeNoPrefs" } };
   const tagsNorm = tags.map((t) => t.toLowerCase());
   const typeNorm = propertyType.toLowerCase();
   if (tagsNorm.includes(typeNorm)) {
-    return { score: 10, note: `Type "${propertyType}" préféré` };
+    return { score: 10, note: `Type "${propertyType}" préféré`, noteKey: { key: "noteTypeMatch", params: { type: propertyType } } };
   }
-  return { score: 0, note: `Type "${propertyType}" non dans préférences (${tags.join(", ")})` };
+  return { score: 0, note: `Type "${propertyType}" non dans préférences (${tags.join(", ")})`, noteKey: { key: "noteTypeNoMatch", params: { type: propertyType, prefs: tags.join(", ") } } };
 }
 
 export function scoreMatch(contact: CrmContact, mandate: AgencyMandate): MatchScoreBreakdown {
@@ -134,6 +143,7 @@ export function scoreMatch(contact: CrmContact, mandate: AgencyMandate): MatchSc
     type: t.score,
     total,
     notes: [b.note, s.note, z.note, t.note],
+    noteKeys: [b.noteKey, s.noteKey, z.noteKey, t.noteKey],
   };
 }
 
