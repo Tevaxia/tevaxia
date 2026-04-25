@@ -3,20 +3,17 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { supabase } from "@/lib/supabase";
 
 interface ChatMessage { role: "user" | "assistant"; content: string; }
 
-const WELCOME: ChatMessage = {
-  role: "assistant",
-  content:
-    "Bonjour ! Je suis l'assistant de votre copropriété. Je peux vous aider avec : comprendre votre règlement, vos charges, voir les travaux votés en AG, comprendre la loi 16 mai 1975 ou préparer vos questions pour la prochaine assemblée. Comment puis-je vous aider ?",
-};
-
 export default function CoproChatbot() {
+  const t = useTranslations("coproAssistant");
   const params = useParams();
   const token = String(params?.token ?? "");
-  const [messages, setMessages] = useState<ChatMessage[]>([WELCOME]);
+  const welcome: ChatMessage = { role: "assistant", content: t("welcome") };
+  const [messages, setMessages] = useState<ChatMessage[]>([welcome]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -41,24 +38,24 @@ export default function CoproChatbot() {
         authToken = session?.access_token ?? null;
       }
       if (!authToken) {
-        setError("Assistant conversationnel : nécessite une authentification. Demandez à votre syndic un lien avec accès chat activé.");
+        setError(t("authRequired"));
         setLoading(false);
         return;
       }
-      const system = `Tu es l'assistant d'une copropriété au Luxembourg (session copropriétaire token=${token.slice(0, 12)}...). Le copropriétaire te pose des questions sur le règlement de copropriété, les charges, l'AG, les travaux, ses droits et obligations. Référence loi modifiée du 16 mai 1975 et projet loi 7763 sur fonds de travaux. Sois pédagogique et concis.`;
+      const system = t("systemPrompt", { token: token.slice(0, 12) });
       const res = await fetch("/api/v1/ai/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${authToken}` },
         body: JSON.stringify({
-          messages: next.filter((m) => m !== WELCOME).map((m) => ({ role: m.role, content: m.content })),
+          messages: next.slice(1).map((m) => ({ role: m.role, content: m.content })),
           systemPrompt: system,
         }),
       });
       const data = await res.json();
-      if (!res.ok) { setError(data.error ?? `Erreur ${res.status}`); return; }
+      if (!res.ok) { setError(data.error ?? t("errStatus", { status: res.status })); return; }
       setMessages((prev) => [...prev, { role: "assistant", content: data.text }]);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Erreur");
+      setError(err instanceof Error ? err.message : t("errGeneric"));
     } finally {
       setLoading(false);
     }
@@ -71,10 +68,10 @@ export default function CoproChatbot() {
   return (
     <div className="bg-background min-h-screen py-8 sm:py-12">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <Link href={`/copropriete/${token}`} className="text-xs text-muted hover:text-navy">&larr; Mon espace</Link>
+        <Link href={`/copropriete/${token}`} className="text-xs text-muted hover:text-navy">{t("backLink")}</Link>
         <div className="mt-2 mb-4">
-          <h1 className="text-2xl font-bold text-navy">Assistant copropriétaire</h1>
-          <p className="text-sm text-muted">Questions sur votre copropriété, règlement, charges, AG, travaux.</p>
+          <h1 className="text-2xl font-bold text-navy">{t("title")}</h1>
+          <p className="text-sm text-muted">{t("subtitle")}</p>
         </div>
 
         <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden flex flex-col" style={{ height: "calc(100vh - 250px)", minHeight: 420 }}>
@@ -93,7 +90,7 @@ export default function CoproChatbot() {
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
                 </svg>
-                Réflexion en cours...
+                {t("thinking")}
               </div>
             )}
             {error && <div className="rounded-lg border border-rose-200 bg-rose-50 px-3 py-2 text-xs text-rose-800">{error}</div>}
@@ -101,12 +98,12 @@ export default function CoproChatbot() {
           <div className="border-t border-card-border bg-background p-3">
             <div className="flex items-end gap-2">
               <textarea value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={onKeyDown}
-                placeholder="Ex: Quelle majorité pour voter un ravalement de façade ?"
+                placeholder={t("inputPlaceholder")}
                 rows={2} disabled={loading}
                 className="flex-1 resize-none rounded-lg border border-input-border bg-card px-3 py-2 text-sm" />
               <button onClick={() => void send()} disabled={loading || !input.trim()}
                 className="rounded-lg bg-purple-600 px-4 py-2 text-sm font-semibold text-white hover:bg-purple-700 disabled:opacity-40">
-                Envoyer
+                {t("btnSend")}
               </button>
             </div>
           </div>

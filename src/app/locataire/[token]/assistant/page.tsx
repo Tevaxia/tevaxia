@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { supabase } from "@/lib/supabase";
 
 interface ChatMessage {
@@ -10,16 +11,12 @@ interface ChatMessage {
   content: string;
 }
 
-const WELCOME: ChatMessage = {
-  role: "assistant",
-  content:
-    "Bonjour ! Je suis l'assistant de votre logement. Je peux vous aider avec : questions sur votre bail, compréhension d'une quittance ou d'une facture, signaler un incident (fuite, panne, bruit), démarches administratives (adresse de résidence, allocation logement). Comment puis-je vous aider ?",
-};
-
 export default function TenantChatbot() {
+  const t = useTranslations("tenantAssistant");
   const params = useParams();
   const token = String(params?.token ?? "");
-  const [messages, setMessages] = useState<ChatMessage[]>([WELCOME]);
+  const welcome: ChatMessage = { role: "assistant", content: t("welcome") };
+  const [messages, setMessages] = useState<ChatMessage[]>([welcome]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -38,37 +35,34 @@ export default function TenantChatbot() {
     setLoading(true);
     setError(null);
     try {
-      // Cette page est publique via token mais l'API chat demande un JWT.
-      // Option MVP : on utilise le token comme identifiant de session.
-      // Production : créer un endpoint /api/v1/ai/tenant-chat qui valide le token.
       let authToken: string | null = null;
       if (supabase) {
         const { data: { session } } = await supabase.auth.getSession();
         authToken = session?.access_token ?? null;
       }
       if (!authToken) {
-        setError("Assistant conversationnel : nécessite une authentification. Demandez à votre bailleur un lien avec accès chat activé.");
+        setError(t("authRequired"));
         setLoading(false);
         return;
       }
-      const tenantSystem = `Tu es l'assistant d'un logement au Luxembourg (session locataire token=${token.slice(0, 12)}...). Le locataire te pose des questions sur son bail, ses quittances, les démarches LU, ou signale un incident. Sois pédagogique, concis, référence loi 21.09.2006 et guichet.lu quand pertinent. Si l'utilisateur signale un incident urgent (fuite eau, gaz, feu), rappelle-lui d'appeler le bailleur ET les services d'urgence (112).`;
+      const tenantSystem = t("systemPrompt", { token: token.slice(0, 12) });
 
       const res = await fetch("/api/v1/ai/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${authToken}` },
         body: JSON.stringify({
-          messages: next.filter((m) => m !== WELCOME).map((m) => ({ role: m.role, content: m.content })),
+          messages: next.slice(1).map((m) => ({ role: m.role, content: m.content })),
           systemPrompt: tenantSystem,
         }),
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error ?? `Erreur ${res.status}`);
+        setError(data.error ?? t("errStatus", { status: res.status }));
         return;
       }
       setMessages((prev) => [...prev, { role: "assistant", content: data.text }]);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Erreur");
+      setError(err instanceof Error ? err.message : t("errGeneric"));
     } finally {
       setLoading(false);
     }
@@ -84,10 +78,10 @@ export default function TenantChatbot() {
   return (
     <div className="bg-background min-h-screen py-8 sm:py-12">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <Link href={`/locataire/${token}`} className="text-xs text-muted hover:text-navy">&larr; Mon espace</Link>
+        <Link href={`/locataire/${token}`} className="text-xs text-muted hover:text-navy">{t("backLink")}</Link>
         <div className="mt-2 mb-4">
-          <h1 className="text-2xl font-bold text-navy">Assistant locataire</h1>
-          <p className="text-sm text-muted">Posez vos questions sur le bail, les quittances, les démarches, ou signalez un incident.</p>
+          <h1 className="text-2xl font-bold text-navy">{t("title")}</h1>
+          <p className="text-sm text-muted">{t("subtitle")}</p>
         </div>
 
         <div className="rounded-2xl border border-card-border bg-card shadow-sm overflow-hidden flex flex-col" style={{ height: "calc(100vh - 250px)", minHeight: 420 }}>
@@ -107,7 +101,7 @@ export default function TenantChatbot() {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
                   </svg>
-                  Réflexion en cours...
+                  {t("thinking")}
                 </span>
               </div>
             )}
@@ -118,20 +112,19 @@ export default function TenantChatbot() {
           <div className="border-t border-card-border bg-background p-3">
             <div className="flex items-end gap-2">
               <textarea value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={onKeyDown}
-                placeholder="Ex: Quel est mon préavis si je veux partir ?"
+                placeholder={t("inputPlaceholder")}
                 rows={2} disabled={loading}
                 className="flex-1 resize-none rounded-lg border border-input-border bg-card px-3 py-2 text-sm" />
               <button onClick={() => void send()} disabled={loading || !input.trim()}
                 className="rounded-lg bg-teal-600 px-4 py-2 text-sm font-semibold text-white hover:bg-teal-700 disabled:opacity-40">
-                Envoyer
+                {t("btnSend")}
               </button>
             </div>
           </div>
         </div>
 
         <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-900">
-          <strong>Urgence (fuite d&apos;eau, gaz, incendie)</strong> : appelez directement votre bailleur et les services d&apos;urgence (112).
-          L&apos;assistant est là pour les questions générales, pas pour les urgences vitales.
+          <strong>{t("emergencyTitle")}</strong>{t("emergencyText")}
         </div>
       </div>
     </div>
