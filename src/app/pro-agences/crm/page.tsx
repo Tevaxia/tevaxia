@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import {
@@ -16,19 +17,11 @@ const STATUS_ORDER: MandateStatus[] = [
   "prospect", "mandat_signe", "diffuse", "en_visite", "offre_recue",
   "sous_compromis", "vendu", "abandonne", "expire",
 ];
-const STATUS_LABEL: Record<MandateStatus, string> = {
-  prospect: "Prospect",
-  mandat_signe: "Mandat signé",
-  diffuse: "Diffusé",
-  en_visite: "En visite",
-  offre_recue: "Offre reçue",
-  sous_compromis: "Sous compromis",
-  vendu: "Vendu",
-  abandonne: "Abandonné",
-  expire: "Expiré",
-};
 
 export default function CrmDashboardPage() {
+  const t = useTranslations("proaCrm");
+  const locale = useLocale();
+  const lp = locale === "fr" ? "" : `/${locale}`;
   const { user, loading: authLoading } = useAuth();
   const [mandates, setMandates] = useState<AgencyMandate[]>([]);
   const [contacts, setContacts] = useState<CrmContact[]>([]);
@@ -36,17 +29,29 @@ export default function CrmDashboardPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const STATUS_LABEL: Record<MandateStatus, string> = {
+    prospect: t("statusProspect"),
+    mandat_signe: t("statusMandatSigne"),
+    diffuse: t("statusDiffuse"),
+    en_visite: t("statusEnVisite"),
+    offre_recue: t("statusOffreRecue"),
+    sous_compromis: t("statusSousCompromis"),
+    vendu: t("statusVendu"),
+    abandonne: t("statusAbandonne"),
+    expire: t("statusExpire"),
+  };
+
   const reload = useCallback(async () => {
     if (!isSupabaseConfigured || !supabase || !user) { setLoading(false); return; }
     try {
-      const [m, c, t] = await Promise.all([
+      const [m, c, ts] = await Promise.all([
         listMyMandates(),
         listContacts(),
         listTasks({ dueWithinDays: 7 }),
       ]);
       setMandates(m);
       setContacts(c);
-      setTasks(t);
+      setTasks(ts);
     } catch (e) {
       setError(errMsg(e));
     }
@@ -58,17 +63,16 @@ export default function CrmDashboardPage() {
     void reload();
   }, [authLoading, reload]);
 
-  if (authLoading || loading) return <div className="mx-auto max-w-7xl px-4 py-16 text-center text-muted">Chargement…</div>;
-  if (!user) return <div className="mx-auto max-w-3xl px-4 py-12 text-center text-sm text-muted"><Link href="/connexion" className="text-navy underline">Connectez-vous</Link></div>;
+  if (authLoading || loading) return <div className="mx-auto max-w-7xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
+  if (!user) return <div className="mx-auto max-w-3xl px-4 py-12 text-center text-sm text-muted"><Link href={`${lp}/connexion`} className="text-navy underline">{t("loginPrompt")}</Link></div>;
 
-  // Regroupe mandats par statut pour Kanban
   const byStatus = STATUS_ORDER.reduce<Record<MandateStatus, AgencyMandate[]>>((acc, s) => {
     acc[s] = mandates.filter((m) => m.status === s);
     return acc;
   }, {} as Record<MandateStatus, AgencyMandate[]>);
 
   const overdueTasks = tasks.filter(isOverdue);
-  const upcomingTasks = tasks.filter((t) => !isOverdue(t));
+  const upcomingTasks = tasks.filter((tk) => !isOverdue(tk));
 
   const activePipelineStatuses: MandateStatus[] = [
     "mandat_signe", "diffuse", "en_visite", "offre_recue", "sous_compromis",
@@ -79,59 +83,60 @@ export default function CrmDashboardPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:py-10">
-      {/* Header */}
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <div>
-          <Link href="/pro-agences" className="text-xs text-muted hover:text-navy">← Pro-agences</Link>
-          <h1 className="mt-1 text-2xl font-bold text-navy sm:text-3xl">CRM agences</h1>
-          <p className="mt-1 text-sm text-muted">Pipeline mandats, contacts, tâches et interactions en un seul endroit.</p>
+          <Link href={`${lp}/pro-agences`} className="text-xs text-muted hover:text-navy">{t("backHub")}</Link>
+          <h1 className="mt-1 text-2xl font-bold text-navy sm:text-3xl">{t("pageTitle")}</h1>
+          <p className="mt-1 text-sm text-muted">{t("pageSubtitle")}</p>
         </div>
         <div className="flex items-center gap-2">
-          <Link href="/pro-agences/crm/contacts" className="rounded-md border border-card-border bg-background px-3 py-1.5 text-xs font-semibold text-slate hover:border-navy">
-            Contacts
+          <Link href={`${lp}/pro-agences/crm/contacts`} className="rounded-md border border-card-border bg-background px-3 py-1.5 text-xs font-semibold text-slate hover:border-navy">
+            {t("btnContacts")}
           </Link>
-          <Link href="/pro-agences/crm/tasks" className="rounded-md border border-card-border bg-background px-3 py-1.5 text-xs font-semibold text-slate hover:border-navy">
-            Tâches
+          <Link href={`${lp}/pro-agences/crm/tasks`} className="rounded-md border border-card-border bg-background px-3 py-1.5 text-xs font-semibold text-slate hover:border-navy">
+            {t("btnTasks")}
           </Link>
-          <Link href="/pro-agences/mandats" className="rounded-md bg-navy px-3 py-1.5 text-xs font-semibold text-white hover:bg-navy-light">
-            + Nouveau mandat
+          <Link href={`${lp}/pro-agences/mandats`} className="rounded-md bg-navy px-3 py-1.5 text-xs font-semibold text-white hover:bg-navy-light">
+            {t("btnNewMandate")}
           </Link>
         </div>
       </div>
 
       {error && <div className="mt-3 rounded-md bg-rose-50 border border-rose-200 p-3 text-xs text-rose-900">{error}</div>}
 
-      {/* KPIs */}
       <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Kpi label="Mandats en cours" value={activePipelineStatuses.reduce((s, k) => s + byStatus[k].length, 0).toString()} />
-        <Kpi label="Prospects" value={byStatus.prospect.length.toString()} />
-        <Kpi label="Contacts CRM" value={contacts.length.toString()} />
-        <Kpi label="Pipeline commissions" value={formatEUR(totalPipeline)} highlight />
+        <Kpi label={t("kpiActive")} value={activePipelineStatuses.reduce((s, k) => s + byStatus[k].length, 0).toString()} />
+        <Kpi label={t("kpiProspects")} value={byStatus.prospect.length.toString()} />
+        <Kpi label={t("kpiContacts")} value={contacts.length.toString()} />
+        <Kpi label={t("kpiPipeline")} value={formatEUR(totalPipeline)} highlight />
       </div>
 
-      {/* Alerte tâches en retard */}
       {overdueTasks.length > 0 && (
         <div className="mt-4 flex items-center gap-2 rounded-lg border border-rose-200 bg-rose-50 px-4 py-2.5 text-xs text-rose-900">
           <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
           </svg>
-          <span><strong>{overdueTasks.length}</strong> tâche(s) en retard</span>
-          <Link href="/pro-agences/crm/tasks" className="ml-auto underline font-semibold">Voir →</Link>
+          <span><strong>{overdueTasks.length}</strong> {t("overdueAlert")}</span>
+          <Link href={`${lp}/pro-agences/crm/tasks`} className="ml-auto underline font-semibold">{t("btnSeeMore")}</Link>
         </div>
       )}
 
-      {/* Kanban avec drag-drop natif */}
       <section className="mt-6">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="text-sm font-semibold text-navy">Pipeline mandats</h2>
+          <h2 className="text-sm font-semibold text-navy">{t("pipelineTitle")}</h2>
           <span className="text-[10px] text-muted">
-            Glisser-déposer une carte pour changer son statut
+            {t("pipelineHint")}
           </span>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {STATUS_ORDER.map((s) => (
             <KanbanColumn key={s} status={s} label={STATUS_LABEL[s]}
               mandates={byStatus[s]}
+              dropHere={t("dropHere")}
+              dashLabel={t("dash")}
+              dragHint={t("dragHint")}
+              moreCount={t("moreCount", { n: byStatus[s].length - 5 })}
+              lp={lp}
               onDrop={async (mandateId, newStatus) => {
                 try {
                   const patch: Partial<AgencyMandate> = { status: newStatus };
@@ -147,15 +152,14 @@ export default function CrmDashboardPage() {
         </div>
       </section>
 
-      {/* 3 colonnes : tâches à venir / contacts récents / résumé */}
       <section className="mt-6 grid gap-4 lg:grid-cols-2">
         <div className="rounded-xl border border-card-border bg-card p-5">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-semibold text-navy">Prochaines tâches (7 j)</h2>
-            <Link href="/pro-agences/crm/tasks" className="text-[11px] text-navy hover:underline">Toutes →</Link>
+            <h2 className="text-sm font-semibold text-navy">{t("upcomingTasksTitle")}</h2>
+            <Link href={`${lp}/pro-agences/crm/tasks`} className="text-[11px] text-navy hover:underline">{t("btnAll")}</Link>
           </div>
           {upcomingTasks.length === 0 ? (
-            <div className="py-6 text-center text-xs text-muted italic">Aucune tâche à venir.</div>
+            <div className="py-6 text-center text-xs text-muted italic">{t("emptyTasks")}</div>
           ) : (
             <ul className="space-y-2">
               {upcomingTasks.slice(0, 6).map((task) => {
@@ -166,14 +170,14 @@ export default function CrmDashboardPage() {
                       type="button"
                       onClick={async () => { await completeTask(task.id); await reload(); }}
                       className="mt-0.5 h-4 w-4 rounded border border-card-border hover:border-emerald-500 hover:bg-emerald-50 transition-colors shrink-0"
-                      title="Marquer comme fait"
-                      aria-label="Marquer comme fait"
+                      title={t("markDone")}
+                      aria-label={t("markDone")}
                     />
                     <div className="flex-1 min-w-0">
                       <div className="font-medium text-navy truncate">{task.title}</div>
                       {task.due_at && (
                         <div className="text-[10px] text-muted">
-                          {daysLeft != null && daysLeft <= 0 ? "Aujourd'hui" : daysLeft === 1 ? "Demain" : `dans ${daysLeft} j`}
+                          {daysLeft != null && daysLeft <= 0 ? t("today") : daysLeft === 1 ? t("tomorrow") : t("inDays", { n: daysLeft ?? 0 })}
                         </div>
                       )}
                     </div>
@@ -188,19 +192,19 @@ export default function CrmDashboardPage() {
 
         <div className="rounded-xl border border-card-border bg-card p-5">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-semibold text-navy">Contacts récents</h2>
-            <Link href="/pro-agences/crm/contacts" className="text-[11px] text-navy hover:underline">Tous →</Link>
+            <h2 className="text-sm font-semibold text-navy">{t("contactsTitle")}</h2>
+            <Link href={`${lp}/pro-agences/crm/contacts`} className="text-[11px] text-navy hover:underline">{t("btnAllContacts")}</Link>
           </div>
           {contacts.length === 0 ? (
             <div className="py-6 text-center text-xs text-muted italic">
-              Aucun contact. <Link href="/pro-agences/crm/contacts?new=1" className="text-navy underline">+ Ajouter</Link>
+              {t("emptyContacts")} <Link href={`${lp}/pro-agences/crm/contacts?new=1`} className="text-navy underline">{t("btnAdd")}</Link>
             </div>
           ) : (
             <ul className="space-y-2">
               {contacts.slice(0, 6).map((c) => (
                 <li key={c.id}>
                   <Link
-                    href={`/pro-agences/crm/contacts/${c.id}`}
+                    href={`${lp}/pro-agences/crm/contacts/${c.id}`}
                     className="flex items-center gap-3 rounded border border-card-border/50 bg-background p-2 text-xs hover:border-navy transition-colors"
                   >
                     <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-navy/10 text-[11px] font-bold text-navy">
@@ -224,11 +228,16 @@ export default function CrmDashboardPage() {
   );
 }
 
-function KanbanColumn({ status, label, mandates, onDrop }: {
+function KanbanColumn({ status, label, mandates, onDrop, dropHere, dashLabel, dragHint, moreCount, lp }: {
   status: MandateStatus;
   label: string;
   mandates: AgencyMandate[];
   onDrop: (mandateId: string, newStatus: MandateStatus) => Promise<void>;
+  dropHere: string;
+  dashLabel: string;
+  dragHint: string;
+  moreCount: string;
+  lp: string;
 }) {
   const [over, setOver] = useState(false);
 
@@ -255,7 +264,7 @@ function KanbanColumn({ status, label, mandates, onDrop }: {
       <div className="space-y-2">
         {mandates.length === 0 && (
           <div className="text-[11px] text-muted italic text-center py-3">
-            {over ? "Déposer ici" : "—"}
+            {over ? dropHere : dashLabel}
           </div>
         )}
         {mandates.slice(0, 5).map((m) => (
@@ -270,26 +279,26 @@ function KanbanColumn({ status, label, mandates, onDrop }: {
             className="group cursor-move rounded-md border border-card-border bg-card p-2 text-xs hover:border-navy transition-colors"
           >
             <Link
-              href={`/pro-agences/mandats/${m.id}`}
+              href={`${lp}/pro-agences/mandats/${m.id}`}
               className="block"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="font-semibold text-navy truncate">{m.property_address}</div>
               <div className="mt-0.5 text-[10px] text-muted truncate">
-                {m.client_name ?? "—"}
+                {m.client_name ?? dashLabel}
               </div>
               {m.prix_demande != null && (
                 <div className="mt-1 text-[10px] font-mono text-navy">{formatEUR(Number(m.prix_demande))}</div>
               )}
             </Link>
             <div className="mt-1 text-[9px] text-muted opacity-0 group-hover:opacity-100 transition-opacity">
-              ⋮⋮ glisser pour changer statut
+              {dragHint}
             </div>
           </div>
         ))}
         {mandates.length > 5 && (
-          <Link href="/pro-agences/mandats" className="block text-center text-[10px] text-navy hover:underline">
-            +{mandates.length - 5} autres →
+          <Link href={`${lp}/pro-agences/mandats`} className="block text-center text-[10px] text-navy hover:underline">
+            {moreCount}
           </Link>
         )}
       </div>
