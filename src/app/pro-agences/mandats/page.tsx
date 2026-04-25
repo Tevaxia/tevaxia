@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback, useMemo } from "react";
 import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { isSupabaseConfigured } from "@/lib/supabase";
 import {
@@ -13,18 +14,6 @@ import {
 import { buildOpenImmoXml, buildPortalCsv, downloadBlob } from "@/lib/agency-xml";
 import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/errors";
-
-const STATUS_LABELS: Record<MandateStatus, string> = {
-  prospect: "Prospect",
-  mandat_signe: "Mandat signé",
-  diffuse: "Diffusé",
-  en_visite: "En visite",
-  offre_recue: "Offre reçue",
-  sous_compromis: "Sous compromis",
-  vendu: "Vendu",
-  abandonne: "Abandonné",
-  expire: "Expiré",
-};
 
 const STATUS_COLORS: Record<MandateStatus, string> = {
   prospect: "bg-slate-100 text-slate-800 border-slate-200",
@@ -38,11 +27,23 @@ const STATUS_COLORS: Record<MandateStatus, string> = {
   expire: "bg-rose-100 text-rose-900 border-rose-200",
 };
 
-const TYPE_LABELS: Record<MandateType, string> = {
-  exclusif: "Exclusif",
-  simple: "Simple",
-  semi_exclusif: "Semi-exclusif",
-  recherche: "Recherche (acquéreur)",
+const STATUS_KEY: Record<MandateStatus, string> = {
+  prospect: "statusProspect",
+  mandat_signe: "statusMandatSigne",
+  diffuse: "statusDiffuse",
+  en_visite: "statusEnVisite",
+  offre_recue: "statusOffreRecue",
+  sous_compromis: "statusSousCompromis",
+  vendu: "statusVendu",
+  abandonne: "statusAbandonne",
+  expire: "statusExpire",
+};
+
+const TYPE_KEY: Record<MandateType, string> = {
+  exclusif: "typeExclusif",
+  simple: "typeSimple",
+  semi_exclusif: "typeSemiExclusif",
+  recherche: "typeRecherche",
 };
 
 const STATUS_ORDER: MandateStatus[] = [
@@ -51,12 +52,15 @@ const STATUS_ORDER: MandateStatus[] = [
   "expire",
 ];
 
-function fmtDate(s: string | null): string {
-  if (!s) return "—";
-  return new Date(s).toLocaleDateString("fr-LU", { year: "numeric", month: "short", day: "numeric" });
-}
-
 export default function MandatesPage() {
+  const t = useTranslations("proaMandates");
+  const locale = useLocale();
+  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const fmtDate = (s: string | null): string => {
+    if (!s) return t("dash");
+    return new Date(s).toLocaleDateString(dateLocale, { year: "numeric", month: "short", day: "numeric" });
+  };
+
   const { user, loading: authLoading } = useAuth();
   const [mandates, setMandates] = useState<AgencyMandate[]>([]);
   const [loading, setLoading] = useState(true);
@@ -85,7 +89,7 @@ export default function MandatesPage() {
 
   const handleCreate = async () => {
     if (!form.property_address?.trim()) {
-      setError("Adresse requise.");
+      setError(t("errorAddressRequired"));
       return;
     }
     try {
@@ -102,7 +106,7 @@ export default function MandatesPage() {
       setError(null);
       await reload();
     } catch (e) {
-      setError(errMsg(e, "Erreur"));
+      setError(errMsg(e, t("errorDefault")));
     }
   };
 
@@ -119,7 +123,7 @@ export default function MandatesPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Supprimer ce mandat ?")) return;
+    if (!confirm(t("confirmDelete"))) return;
     await deleteMandate(id);
     await reload();
   };
@@ -145,46 +149,44 @@ export default function MandatesPage() {
     return (
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-6 text-amber-900">
-          Supabase requis (migration 039).
+          {t("supabaseRequired")}
         </div>
       </div>
     );
   }
-  if (authLoading || loading) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">Chargement…</div>;
+  if (authLoading || loading) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
   if (!user) return (
     <div className="mx-auto max-w-4xl px-4 py-12 text-center">
-      <Link href="/connexion" className="text-navy underline">Se connecter</Link>
+      <Link href="/connexion" className="text-navy underline">{t("loginPrompt")}</Link>
     </div>
   );
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
-      <Link href="/pro-agences" className="text-xs text-muted hover:text-navy">← Pro agences</Link>
-      <h1 className="mt-2 text-2xl font-bold text-navy">Suivi mandats immobiliers</h1>
-      <p className="mt-1 text-sm text-muted">
-        Pipeline complet : prospection → mandat → compromis → vente. Alertes échéances mandat 30j avant.
-      </p>
+      <Link href="/pro-agences" className="text-xs text-muted hover:text-navy">{t("backLink")}</Link>
+      <h1 className="mt-2 text-2xl font-bold text-navy">{t("pageTitle")}</h1>
+      <p className="mt-1 text-sm text-muted">{t("pageDesc")}</p>
 
       {error && <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-800">{error}</div>}
 
       {/* Stats */}
       <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
         <div className="rounded-xl border border-card-border bg-card p-4 text-center">
-          <div className="text-xs text-muted">Mandats actifs</div>
+          <div className="text-xs text-muted">{t("statActive")}</div>
           <div className="mt-1 text-2xl font-bold text-navy">{stats.active}</div>
         </div>
         <div className="rounded-xl border border-card-border bg-card p-4 text-center">
-          <div className="text-xs text-muted">Ventes closes</div>
+          <div className="text-xs text-muted">{t("statSold")}</div>
           <div className="mt-1 text-2xl font-bold text-emerald-700">{stats.sold}</div>
         </div>
         <div className={`rounded-xl border p-4 text-center ${stats.nbExpireSoon > 0 ? "border-amber-200 bg-amber-50" : "border-card-border bg-card"}`}>
-          <div className="text-xs text-muted">Expirent &lt; 30j</div>
+          <div className="text-xs text-muted">{t("statExpireSoon")}</div>
           <div className={`mt-1 text-2xl font-bold ${stats.nbExpireSoon > 0 ? "text-amber-900" : "text-navy"}`}>{stats.nbExpireSoon}</div>
         </div>
         <div className="rounded-xl border border-card-border bg-card p-4 text-center">
-          <div className="text-xs text-muted">Commission estimée</div>
+          <div className="text-xs text-muted">{t("statCommissionEstimated")}</div>
           <div className="mt-1 text-xl font-bold text-navy">{formatEUR(stats.commissionEstimee)}</div>
-          <div className="text-[10px] text-muted">perçue : {formatEUR(stats.commissionPercue)}</div>
+          <div className="text-[10px] text-muted">{t("statCommissionReceived", { amount: formatEUR(stats.commissionPercue) })}</div>
         </div>
       </div>
 
@@ -193,14 +195,14 @@ export default function MandatesPage() {
         <div className="flex flex-wrap gap-1">
           <button onClick={() => setFilter("all")}
             className={`rounded-full px-3 py-1 text-xs font-semibold ${filter === "all" ? "bg-navy text-white" : "bg-card border border-card-border text-slate"}`}>
-            Tous ({mandates.length})
+            {t("filterAll", { n: mandates.length })}
           </button>
           {STATUS_ORDER.map((s) => {
             const count = mandates.filter((m) => m.status === s).length;
             return (
               <button key={s} onClick={() => setFilter(s)}
                 className={`rounded-full px-3 py-1 text-xs font-semibold ${filter === s ? "bg-navy text-white" : "bg-card border border-card-border text-slate"}`}>
-                {STATUS_LABELS[s]} ({count})
+                {t("filterStatus", { label: t(STATUS_KEY[s]), n: count })}
               </button>
             );
           })}
@@ -211,37 +213,37 @@ export default function MandatesPage() {
               const active = mandates.filter((m) =>
                 ["mandat_signe","diffuse","en_visite","offre_recue","sous_compromis"].includes(m.status));
               const csv = buildPortalCsv(active);
-              const stamp = new Date().toLocaleDateString("fr-LU").replace(/\//g, "-");
-              downloadBlob(csv, `mandats-export-portails-${stamp}.csv`, "text/csv;charset=utf-8;");
+              const stamp = new Date().toLocaleDateString(dateLocale).replace(/[/.]/g, "-");
+              downloadBlob(csv, t("fileExportCsv", { date: stamp }), "text/csv;charset=utf-8;");
             }}
             disabled={mandates.length === 0}
             className="rounded-lg border border-navy bg-white px-3 py-2 text-sm font-semibold text-navy hover:bg-navy/5 disabled:opacity-50"
-            title="Export CSV compatible athome.lu / Immotop / Immoweb"
+            title={t("btnExportCsvTitle")}
           >
-            ↓ CSV portails
+            {t("btnExportCsv")}
           </button>
           <button
             onClick={() => {
               const active = mandates.filter((m) =>
                 ["mandat_signe","diffuse","en_visite","offre_recue","sous_compromis"].includes(m.status));
               const xml = buildOpenImmoXml(active, {
-                firmenname: "Agence",
+                firmenname: t("firmenname"),
                 openimmo_anid: user?.id ?? "tevaxia",
-                lang: "fr",
+                lang: locale as "fr" | "de" | "en" | "lb" | "pt",
                 email_zentrale: user?.email ?? "",
               });
-              const stamp = new Date().toLocaleDateString("fr-LU").replace(/\//g, "-");
-              downloadBlob(xml, `mandats-openimmo-${stamp}.xml`, "application/xml;charset=utf-8");
+              const stamp = new Date().toLocaleDateString(dateLocale).replace(/[/.]/g, "-");
+              downloadBlob(xml, t("fileExportXml", { date: stamp }), "application/xml;charset=utf-8");
             }}
             disabled={mandates.length === 0}
             className="rounded-lg border border-navy bg-white px-3 py-2 text-sm font-semibold text-navy hover:bg-navy/5 disabled:opacity-50"
-            title="Export OpenImmo v1.2.7 — standard européen accepté par athome / Immotop / Immoweb"
+            title={t("btnExportOpenImmoTitle")}
           >
-            ↓ OpenImmo
+            {t("btnExportOpenImmo")}
           </button>
           <button onClick={() => setShowForm(!showForm)}
             className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
-            {showForm ? "Annuler" : "+ Nouveau mandat"}
+            {showForm ? t("btnCancel") : t("btnNewMandate")}
           </button>
         </div>
       </div>
@@ -250,70 +252,70 @@ export default function MandatesPage() {
         <div className="mt-4 rounded-xl border border-navy/20 bg-navy/5 p-5 space-y-3">
           <div className="grid gap-3 sm:grid-cols-2">
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Adresse du bien *</div>
+              <div className="mb-1 font-semibold text-slate">{t("fieldAddress")}</div>
               <input type="text" value={form.property_address ?? ""}
                 onChange={(e) => setForm((f) => ({ ...f, property_address: e.target.value }))}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Commune</div>
+              <div className="mb-1 font-semibold text-slate">{t("fieldCommune")}</div>
               <input type="text" value={form.property_commune ?? ""}
                 onChange={(e) => setForm((f) => ({ ...f, property_commune: e.target.value }))}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Type</div>
+              <div className="mb-1 font-semibold text-slate">{t("fieldType")}</div>
               <select value={form.property_type ?? "appartement"}
                 onChange={(e) => setForm((f) => ({ ...f, property_type: e.target.value }))}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm">
-                <option value="appartement">Appartement</option>
-                <option value="maison">Maison</option>
-                <option value="terrain">Terrain</option>
-                <option value="commercial">Commercial</option>
+                <option value="appartement">{t("propTypeApartment")}</option>
+                <option value="maison">{t("propTypeHouse")}</option>
+                <option value="terrain">{t("propTypeLand")}</option>
+                <option value="commercial">{t("propTypeCommercial")}</option>
               </select>
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Prix demandé (€)</div>
+              <div className="mb-1 font-semibold text-slate">{t("fieldPrice")}</div>
               <input type="number" value={form.prix_demande ?? ""}
                 onChange={(e) => setForm((f) => ({ ...f, prix_demande: Number(e.target.value) || null }))}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm font-mono" />
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Commission %</div>
+              <div className="mb-1 font-semibold text-slate">{t("fieldCommissionPct")}</div>
               <input type="number" value={form.commission_pct ?? ""} step={0.5}
                 onChange={(e) => setForm((f) => ({ ...f, commission_pct: Number(e.target.value) || null }))}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm font-mono" />
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Type de mandat</div>
+              <div className="mb-1 font-semibold text-slate">{t("fieldMandateType")}</div>
               <select value={form.mandate_type ?? "simple"}
                 onChange={(e) => setForm((f) => ({ ...f, mandate_type: e.target.value as MandateType }))}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm">
-                {(Object.entries(TYPE_LABELS) as [MandateType, string][]).map(([k, v]) => (
-                  <option key={k} value={k}>{v}</option>
+                {(Object.keys(TYPE_KEY) as MandateType[]).map((k) => (
+                  <option key={k} value={k}>{t(TYPE_KEY[k])}</option>
                 ))}
               </select>
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Client</div>
+              <div className="mb-1 font-semibold text-slate">{t("fieldClient")}</div>
               <input type="text" value={form.client_name ?? ""}
                 onChange={(e) => setForm((f) => ({ ...f, client_name: e.target.value }))}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Email client</div>
+              <div className="mb-1 font-semibold text-slate">{t("fieldClientEmail")}</div>
               <input type="email" value={form.client_email ?? ""}
                 onChange={(e) => setForm((f) => ({ ...f, client_email: e.target.value }))}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Début mandat</div>
+              <div className="mb-1 font-semibold text-slate">{t("fieldStartDate")}</div>
               <input type="date" value={form.start_date ?? ""}
                 onChange={(e) => setForm((f) => ({ ...f, start_date: e.target.value }))}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
             </label>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Fin mandat</div>
+              <div className="mb-1 font-semibold text-slate">{t("fieldEndDate")}</div>
               <input type="date" value={form.end_date ?? ""}
                 onChange={(e) => setForm((f) => ({ ...f, end_date: e.target.value }))}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
@@ -321,7 +323,7 @@ export default function MandatesPage() {
           </div>
           <button onClick={handleCreate}
             className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
-            Créer
+            {t("btnCreate")}
           </button>
         </div>
       )}
@@ -329,20 +331,20 @@ export default function MandatesPage() {
       {/* Table des mandats */}
       {filtered.length === 0 ? (
         <div className="mt-8 rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-          Aucun mandat {filter !== "all" ? `avec statut ${STATUS_LABELS[filter]}` : ""}.
+          {filter === "all" ? t("emptyAll") : t("emptyFiltered", { label: t(STATUS_KEY[filter]) })}
         </div>
       ) : (
         <div className="mt-6 rounded-xl border border-card-border bg-card overflow-hidden">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-card-border bg-background/60">
-                <th className="px-3 py-3 text-left font-semibold text-navy">Bien</th>
-                <th className="px-3 py-3 text-left font-semibold text-navy">Client</th>
-                <th className="px-3 py-3 text-right font-semibold text-navy">Prix</th>
-                <th className="px-3 py-3 text-right font-semibold text-navy">Comm.</th>
-                <th className="px-3 py-3 text-left font-semibold text-navy">Mandat</th>
-                <th className="px-3 py-3 text-center font-semibold text-navy">Statut</th>
-                <th className="px-3 py-3 text-left font-semibold text-navy">Fin</th>
+                <th className="px-3 py-3 text-left font-semibold text-navy">{t("colProperty")}</th>
+                <th className="px-3 py-3 text-left font-semibold text-navy">{t("colClient")}</th>
+                <th className="px-3 py-3 text-right font-semibold text-navy">{t("colPrice")}</th>
+                <th className="px-3 py-3 text-right font-semibold text-navy">{t("colCommission")}</th>
+                <th className="px-3 py-3 text-left font-semibold text-navy">{t("colMandate")}</th>
+                <th className="px-3 py-3 text-center font-semibold text-navy">{t("colStatus")}</th>
+                <th className="px-3 py-3 text-left font-semibold text-navy">{t("colEnd")}</th>
                 <th className="px-3 py-3 text-right font-semibold text-navy"></th>
               </tr>
             </thead>
@@ -359,32 +361,32 @@ export default function MandatesPage() {
                         {m.property_address}
                       </Link>
                       <div className="text-[10px] text-muted">
-                        {m.property_commune ?? "—"} · {m.property_type ?? "—"}
-                        {m.is_published && <span className="ml-1 text-emerald-700">· publié</span>}
+                        {m.property_commune ?? t("dash")} · {m.property_type ?? t("dash")}
+                        {m.is_published && <span className="ml-1 text-emerald-700">{t("badgePublished")}</span>}
                       </div>
                     </td>
                     <td className="px-3 py-3 text-xs">
-                      {m.client_name ?? "—"}
+                      {m.client_name ?? t("dash")}
                       {m.client_email && <div className="text-[10px] text-muted">{m.client_email}</div>}
                     </td>
                     <td className="px-3 py-3 text-right font-mono text-xs">
-                      {m.prix_demande ? formatEUR(m.prix_demande) : "—"}
-                      {m.sold_price && <div className="text-[10px] text-emerald-700">Vendu : {formatEUR(m.sold_price)}</div>}
+                      {m.prix_demande ? formatEUR(m.prix_demande) : t("dash")}
+                      {m.sold_price && <div className="text-[10px] text-emerald-700">{t("soldFor", { amount: formatEUR(m.sold_price) })}</div>}
                     </td>
                     <td className="px-3 py-3 text-right font-mono text-xs">
-                      {m.commission_amount_estimee ? formatEUR(m.commission_amount_estimee) : "—"}
+                      {m.commission_amount_estimee ? formatEUR(m.commission_amount_estimee) : t("dash")}
                       {m.commission_pct && <div className="text-[9px] text-muted">{m.commission_pct}%</div>}
                     </td>
-                    <td className="px-3 py-3 text-xs">{TYPE_LABELS[m.mandate_type]}</td>
+                    <td className="px-3 py-3 text-xs">{t(TYPE_KEY[m.mandate_type])}</td>
                     <td className="px-3 py-3 text-center">
                       <select value={m.status} onChange={(e) => handleStatusChange(m, e.target.value as MandateStatus)}
                         className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold cursor-pointer ${STATUS_COLORS[m.status]}`}>
-                        {STATUS_ORDER.map((s) => (<option key={s} value={s}>{STATUS_LABELS[s]}</option>))}
+                        {STATUS_ORDER.map((s) => (<option key={s} value={s}>{t(STATUS_KEY[s])}</option>))}
                       </select>
                     </td>
                     <td className={`px-3 py-3 text-xs font-mono ${expireSoon ? "text-amber-700 font-semibold" : "text-muted"}`}>
                       {fmtDate(m.end_date)}
-                      {expireSoon && <div className="text-[9px]">dans {daysRemaining}j</div>}
+                      {expireSoon && <div className="text-[9px]">{t("expireInDays", { n: daysRemaining ?? 0 })}</div>}
                     </td>
                     <td className="px-3 py-3 text-right">
                       <button onClick={() => handleDelete(m.id)} className="text-xs text-rose-700 hover:underline">
@@ -399,12 +401,9 @@ export default function MandatesPage() {
         </div>
       )}
 
-      <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-        <strong>Cadre légal :</strong> loi du 28 décembre 1988 réglementant l&apos;accès aux professions immobilières
-        et règlement grand-ducal du 4 juillet 2000. Mandat exclusif : 3 mois minimum, renouvelable tacitement
-        avec préavis. Mandat simple : plusieurs agences possibles. Mention obligatoire du taux de commission
-        et du prix demandé.
-      </div>
+      <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900"
+        dangerouslySetInnerHTML={{ __html: t("legalNotice") }}
+      />
     </div>
   );
 }
