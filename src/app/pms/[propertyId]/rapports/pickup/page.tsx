@@ -2,6 +2,7 @@
 
 import { useEffect, useState, use, useCallback } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { getProperty } from "@/lib/pms/properties";
 import { buildPickupReport, type PickupReport } from "@/lib/pms/pickup";
@@ -15,6 +16,7 @@ import {
 
 export default function PickupReportPage(props: { params: Promise<{ propertyId: string }> }) {
   const { propertyId } = use(props.params);
+  const t = useTranslations("pmsPickup");
   const { user, loading: authLoading } = useAuth();
   const [property, setProperty] = useState<PmsProperty | null>(null);
   const [report, setReport] = useState<PickupReport | null>(null);
@@ -48,12 +50,12 @@ export default function PickupReportPage(props: { params: Promise<{ propertyId: 
   useEffect(() => { if (user && property) void build(); }, [user, property, build]);
 
   if (authLoading || loading) {
-    return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">Chargement…</div>;
+    return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
   }
   if (!user || !property) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-12 text-center text-sm text-muted">
-        <Link href="/connexion" className="text-navy underline">Se connecter</Link>
+        <Link href="/connexion" className="text-navy underline">{t("loginPrompt")}</Link>
       </div>
     );
   }
@@ -63,18 +65,14 @@ export default function PickupReportPage(props: { params: Promise<{ propertyId: 
       <div className="flex items-center gap-2 text-xs text-muted">
         <Link href={`/pms/${propertyId}`} className="hover:text-navy">{property.name}</Link>
         <span>/</span>
-        <Link href={`/pms/${propertyId}/rapports`} className="hover:text-navy">Rapports</Link>
+        <Link href={`/pms/${propertyId}/rapports`} className="hover:text-navy">{t("crumbReports")}</Link>
         <span>/</span>
-        <span className="text-navy">Pickup report</span>
+        <span className="text-navy">{t("crumbCurrent")}</span>
       </div>
 
       <div className="mt-3">
-        <h1 className="text-2xl font-bold text-navy">Pickup Report</h1>
-        <p className="mt-1 text-sm text-muted">
-          Réservations encaissées dans la fenêtre récente, ventilées par mois de séjour futur
-          et source. KPI critique de revenue management pour ajuster tarifs, restrictions
-          (MinLOS, CTA) et canaux de distribution.
-        </p>
+        <h1 className="text-2xl font-bold text-navy">{t("pageTitle")}</h1>
+        <p className="mt-1 text-sm text-muted">{t("pageDesc")}</p>
       </div>
 
       {error && <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-900">{error}</div>}
@@ -82,58 +80,57 @@ export default function PickupReportPage(props: { params: Promise<{ propertyId: 
       {/* Window picker */}
       <div className="mt-5 rounded-xl border border-card-border bg-card p-4">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs text-muted">Fenêtre de réservation :</span>
+          <span className="text-xs text-muted">{t("windowLabel")}</span>
           {([7, 14, 30, 60, 90] as const).map((d) => (
             <button key={d} onClick={() => setWindowDays(d)}
               className={`rounded-lg px-3 py-1 text-xs font-semibold ${
                 windowDays === d ? "bg-navy text-white" : "bg-background border border-card-border text-slate hover:bg-card-border/40"
               }`}>
-              {d} derniers jours
+              {t("windowBtn", { d })}
             </button>
           ))}
           {report && (
             <span className="ml-auto text-xs text-muted">
-              {report.window_start} → {report.window_end}
+              {t("windowRange", { start: report.window_start, end: report.window_end })}
             </span>
           )}
         </div>
       </div>
 
-      {building && <div className="mt-6 text-center text-sm text-muted">Construction…</div>}
+      {building && <div className="mt-6 text-center text-sm text-muted">{t("building")}</div>}
 
       {report && !building && (
         <>
           {/* KPIs */}
           <div className="mt-5 grid gap-3 sm:grid-cols-4">
-            <Kpi label="Réservations pickup" value={String(report.total_reservations)}
-              sub={`${windowDays} derniers jours`} />
-            <Kpi label="Room nights OTB" value={report.total_room_nights.toLocaleString("fr-LU")}
-              sub="sold during window" />
-            <Kpi label="Revenue total" value={formatEUR(report.total_revenue)} tone="emerald" />
-            <Kpi label="ADR moyen" value={formatEUR(report.avg_adr)} sub="revenue / room nights" />
+            <Kpi label={t("kpiPickupRes")} value={String(report.total_reservations)}
+              sub={t("kpiPickupResSub", { n: windowDays })} />
+            <Kpi label={t("kpiRoomNights")} value={report.total_room_nights.toLocaleString()}
+              sub={t("kpiRoomNightsSub")} />
+            <Kpi label={t("kpiTotalRevenue")} value={formatEUR(report.total_revenue)} tone="emerald" />
+            <Kpi label={t("kpiAvgAdr")} value={formatEUR(report.avg_adr)} sub={t("kpiAvgAdrSub")} />
           </div>
 
           {report.total_reservations === 0 ? (
             <div className="mt-6 rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-              Aucune réservation créée dans cette fenêtre. Ajustez l&apos;horizon ou vérifiez
-              vos canaux de distribution.
+              {t("emptyWindow")}
             </div>
           ) : (
             <>
               {/* Ventilation par mois de séjour */}
               <section className="mt-6 rounded-xl border border-card-border bg-card p-5">
                 <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">
-                  Ventilation par mois de séjour
+                  {t("sectionByStayMonth")}
                 </h2>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="border-b border-card-border text-[10px] uppercase tracking-wider text-muted">
-                        <th className="px-3 py-2 text-left">Mois séjour</th>
-                        <th className="px-3 py-2 text-right">Réservations</th>
-                        <th className="px-3 py-2 text-right">Room nights</th>
-                        <th className="px-3 py-2 text-right">Revenue</th>
-                        <th className="px-3 py-2 text-right">ADR</th>
+                        <th className="px-3 py-2 text-left">{t("colStayMonth")}</th>
+                        <th className="px-3 py-2 text-right">{t("colReservations")}</th>
+                        <th className="px-3 py-2 text-right">{t("colRoomNights")}</th>
+                        <th className="px-3 py-2 text-right">{t("colRevenue")}</th>
+                        <th className="px-3 py-2 text-right">{t("colAdr")}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -155,10 +152,10 @@ export default function PickupReportPage(props: { params: Promise<{ propertyId: 
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="stay_month" tick={{ fontSize: 10 }} />
                       <YAxis tick={{ fontSize: 10 }} />
-                      <Tooltip formatter={(v) => Number(v).toLocaleString("fr-LU")} />
+                      <Tooltip formatter={(v) => Number(v).toLocaleString()} />
                       <Legend wrapperStyle={{ fontSize: 10 }} />
-                      <Bar dataKey="room_nights" fill="#0B2447" name="Room nights" />
-                      <Bar dataKey="reservations" fill="#6366F1" name="Réservations" />
+                      <Bar dataKey="room_nights" fill="#0B2447" name={t("chartLegendRoomNights")} />
+                      <Bar dataKey="reservations" fill="#6366F1" name={t("chartLegendReservations")} />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
@@ -167,7 +164,7 @@ export default function PickupReportPage(props: { params: Promise<{ propertyId: 
               {/* Pickup daily (graphique) */}
               <section className="mt-6 rounded-xl border border-card-border bg-card p-5">
                 <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">
-                  Pickup quotidien (jour de réservation)
+                  {t("sectionByDay")}
                 </h2>
                 <ResponsiveContainer width="100%" height={240}>
                   <LineChart data={report.by_day_booked}>
@@ -176,12 +173,12 @@ export default function PickupReportPage(props: { params: Promise<{ propertyId: 
                     <YAxis yAxisId="left" tick={{ fontSize: 10 }} />
                     <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 10 }}
                       tickFormatter={(v) => `${Number(v) / 1000}k`} />
-                    <Tooltip formatter={(v) => Number(v).toLocaleString("fr-LU")} />
+                    <Tooltip formatter={(v) => Number(v).toLocaleString()} />
                     <Legend wrapperStyle={{ fontSize: 10 }} />
                     <Line yAxisId="left" type="monotone" dataKey="count" stroke="#0B2447"
-                      strokeWidth={2} dot={false} name="Nb rés." />
+                      strokeWidth={2} dot={false} name={t("chartLegendCount")} />
                     <Line yAxisId="right" type="monotone" dataKey="revenue" stroke="#10B981"
-                      strokeWidth={2} dot={false} name="Revenue €" />
+                      strokeWidth={2} dot={false} name={t("chartLegendRevenue")} />
                   </LineChart>
                 </ResponsiveContainer>
               </section>
@@ -189,16 +186,16 @@ export default function PickupReportPage(props: { params: Promise<{ propertyId: 
               {/* Ventilation par source */}
               <section className="mt-6 rounded-xl border border-card-border bg-card p-5">
                 <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">
-                  Ventilation par source
+                  {t("sectionBySource")}
                 </h2>
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-card-border text-[10px] uppercase tracking-wider text-muted">
-                      <th className="px-3 py-2 text-left">Canal</th>
-                      <th className="px-3 py-2 text-right">Réservations</th>
-                      <th className="px-3 py-2 text-right">% du total</th>
-                      <th className="px-3 py-2 text-right">Revenue</th>
-                      <th className="px-3 py-2 text-right">Part revenue</th>
+                      <th className="px-3 py-2 text-left">{t("colChannel")}</th>
+                      <th className="px-3 py-2 text-right">{t("colReservations")}</th>
+                      <th className="px-3 py-2 text-right">{t("colPctCount")}</th>
+                      <th className="px-3 py-2 text-right">{t("colRevenue")}</th>
+                      <th className="px-3 py-2 text-right">{t("colPctRevenue")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -221,12 +218,8 @@ export default function PickupReportPage(props: { params: Promise<{ propertyId: 
             </>
           )}
 
-          <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-            <strong>Revenue Management :</strong> utilisez ce rapport pour détecter pickup anormal
-            (positif ou négatif) et ajuster tarifs / restrictions en conséquence. Un pickup faible
-            sur un mois proche justifie baisse de prix ou ouverture de rate plans discount.
-            Un pickup excessif permet raise rates et fermeture MinLOS 1 nuit.
-          </div>
+          <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900"
+            dangerouslySetInnerHTML={{ __html: t("methodology") }} />
         </>
       )}
     </div>

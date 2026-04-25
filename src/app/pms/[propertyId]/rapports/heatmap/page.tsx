@@ -2,6 +2,7 @@
 
 import { useEffect, useState, use, useCallback } from "react";
 import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import { getProperty } from "@/lib/pms/properties";
@@ -18,6 +19,9 @@ interface DayCell {
 
 export default function HeatmapPage(props: { params: Promise<{ propertyId: string }> }) {
   const { propertyId } = use(props.params);
+  const t = useTranslations("pmsHeatmap");
+  const locale = useLocale();
+  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const { user, loading: authLoading } = useAuth();
   const [property, setProperty] = useState<PmsProperty | null>(null);
   const [year, setYear] = useState<number>(new Date().getFullYear());
@@ -56,13 +60,11 @@ export default function HeatmapPage(props: { params: Promise<{ propertyId: strin
 
   useEffect(() => { if (!authLoading && user) void reload(); }, [user, authLoading, reload]);
 
-  if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">Chargement…</div>;
-  if (!user || !property) return <div className="mx-auto max-w-4xl px-4 py-12 text-center text-sm text-muted"><Link href="/connexion" className="text-navy underline">Se connecter</Link></div>;
+  if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
+  if (!user || !property) return <div className="mx-auto max-w-4xl px-4 py-12 text-center text-sm text-muted"><Link href="/connexion" className="text-navy underline">{t("loginPrompt")}</Link></div>;
 
-  const MONTHS = [
-    "Jan", "Fév", "Mar", "Avr", "Mai", "Juin",
-    "Juil", "Août", "Sept", "Oct", "Nov", "Déc",
-  ];
+  const MONTHS = t("monthsShort").split(",");
+  const WEEKDAYS = t("weekdaysShort").split(",");
 
   const daysInMonth = (m: number) => new Date(year, m + 1, 0).getDate();
 
@@ -88,18 +90,15 @@ export default function HeatmapPage(props: { params: Promise<{ propertyId: strin
       <div className="flex items-center gap-2 text-xs text-muted">
         <Link href={`/pms/${propertyId}`} className="hover:text-navy">{property.name}</Link>
         <span>/</span>
-        <Link href={`/pms/${propertyId}/rapports`} className="hover:text-navy">Rapports</Link>
+        <Link href={`/pms/${propertyId}/rapports`} className="hover:text-navy">{t("crumbReports")}</Link>
         <span>/</span>
-        <span className="text-navy">Heatmap occupancy</span>
+        <span className="text-navy">{t("crumbCurrent")}</span>
       </div>
 
       <div className="mt-3 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-navy">Heatmap occupancy annuelle</h1>
-          <p className="mt-1 text-sm text-muted">
-            Vue calendrier 365 jours colorée par taux d&apos;occupation.
-            Détecte immédiatement basse saison, patterns week-ends, événements impactants.
-          </p>
+          <h1 className="text-2xl font-bold text-navy">{t("pageTitle")}</h1>
+          <p className="mt-1 text-sm text-muted">{t("pageDesc")}</p>
         </div>
         <select value={year} onChange={(e) => setYear(Number(e.target.value))}
           className="rounded-lg border border-card-border bg-white px-3 py-2 text-sm">
@@ -113,12 +112,12 @@ export default function HeatmapPage(props: { params: Promise<{ propertyId: strin
 
       {/* Stats annuelles */}
       <div className="mt-5 grid gap-3 sm:grid-cols-4">
-        <Stat label="Occupancy moyen" value={`${avgOcc.toFixed(1)}%`} />
-        <Stat label="Jours enregistrés" value={`${allCells.length}/365`} />
-        <Stat label="Revenue annuel" value={formatEUR(totalRev)} tone="emerald" />
-        <Stat label="Meilleur jour"
-          value={bestDay ? `${bestDay.occupancy.toFixed(0)}%` : "—"}
-          sub={bestDay ? new Date(bestDay.date).toLocaleDateString("fr-LU") : ""} />
+        <Stat label={t("statAvgOcc")} value={`${avgOcc.toFixed(1)}%`} />
+        <Stat label={t("statRecordedDays")} value={t("statRecordedDaysValue", { n: allCells.length })} />
+        <Stat label={t("statRevenue")} value={formatEUR(totalRev)} tone="emerald" />
+        <Stat label={t("statBestDay")}
+          value={bestDay ? `${bestDay.occupancy.toFixed(0)}%` : t("dash")}
+          sub={bestDay ? new Date(bestDay.date).toLocaleDateString(dateLocale) : ""} />
       </div>
 
       {/* Heatmap grid */}
@@ -129,10 +128,10 @@ export default function HeatmapPage(props: { params: Promise<{ propertyId: strin
             const firstDay = new Date(year, mIdx, 1).getDay() || 7; // 1 = Monday
             const offset = firstDay - 1; // décalage pour lundi = col 0
             return (
-              <div key={month} className="rounded-lg border border-card-border/40 bg-background/40 p-2">
+              <div key={`${month}-${mIdx}`} className="rounded-lg border border-card-border/40 bg-background/40 p-2">
                 <div className="mb-1 text-center text-xs font-semibold text-navy">{month} {year}</div>
                 <div className="grid grid-cols-7 gap-0.5 text-[10px] text-muted text-center mb-0.5">
-                  {["L", "M", "M", "J", "V", "S", "D"].map((d, i) => (
+                  {WEEKDAYS.map((d, i) => (
                     <div key={i}>{d}</div>
                   ))}
                 </div>
@@ -148,8 +147,8 @@ export default function HeatmapPage(props: { params: Promise<{ propertyId: strin
                     return (
                       <div key={dateStr}
                         title={cell
-                          ? `${dateStr}: ${occ.toFixed(0)}% · ${formatEUR(cell.revenue)}`
-                          : `${dateStr}: pas d'audit`
+                          ? t("cellTitleFilled", { date: dateStr, pct: occ.toFixed(0), revenue: formatEUR(cell.revenue) })
+                          : t("cellTitleEmpty", { date: dateStr })
                         }
                         className={`aspect-square rounded-sm flex items-center justify-center text-[9px] font-semibold ${
                           cell ? occupancyColor(occ) : "bg-slate-50 text-slate-300"
@@ -166,50 +165,58 @@ export default function HeatmapPage(props: { params: Promise<{ propertyId: strin
 
         {/* Legend */}
         <div className="mt-6 flex items-center justify-center gap-3 text-[10px] text-muted">
-          <span>Occupancy :</span>
+          <span>{t("legendOccupancy")}</span>
           <div className="flex items-center gap-1">
             <div className="h-3 w-3 rounded-sm bg-slate-100" />
-            <span>0%</span>
+            <span>{t("legendZero")}</span>
           </div>
           <div className="flex items-center gap-1">
             <div className="h-3 w-3 rounded-sm bg-rose-200" />
-            <span>&lt;30%</span>
+            <span>{t("legendLow")}</span>
           </div>
           <div className="flex items-center gap-1">
             <div className="h-3 w-3 rounded-sm bg-amber-200" />
-            <span>30-50%</span>
+            <span>{t("legendMid")}</span>
           </div>
           <div className="flex items-center gap-1">
             <div className="h-3 w-3 rounded-sm bg-lime-200" />
-            <span>50-70%</span>
+            <span>{t("legendOk")}</span>
           </div>
           <div className="flex items-center gap-1">
             <div className="h-3 w-3 rounded-sm bg-emerald-300" />
-            <span>70-85%</span>
+            <span>{t("legendGood")}</span>
           </div>
           <div className="flex items-center gap-1">
             <div className="h-3 w-3 rounded-sm bg-emerald-500" />
-            <span>&gt;85%</span>
+            <span>{t("legendHigh")}</span>
           </div>
         </div>
       </div>
 
       {allCells.length === 0 && (
         <div className="mt-6 rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-          Aucun night audit n&apos;a été enregistré pour {year}. Les audits sont générés
-          automatiquement chaque nuit (roadmap auto-close) ou manuellement depuis la
-          page <Link href={`/pms/${propertyId}/reservations`} className="text-navy underline">réservations</Link>.
+          {(() => {
+            const raw = t("emptyYear", { year });
+            const parts = raw.split(/<link>|<\/link>/);
+            return (
+              <>
+                {parts[0]}
+                <Link href={`/pms/${propertyId}/reservations`} className="text-navy underline">{parts[1]}</Link>
+                {parts[2]}
+              </>
+            );
+          })()}
         </div>
       )}
 
       <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-        <strong>Lecture :</strong> survoler un jour pour voir le détail occupancy + revenue.
-        Couleur plus foncée = plus de chambres vendues. Utile pour identifier les "trous"
-        en basse saison et ajuster tarifs / campagnes marketing en avance.
+        <span dangerouslySetInnerHTML={{ __html: t("methodology") }} />
         {worstDay && (
           <div className="mt-2">
-            Jour le plus creux : {new Date(worstDay.date).toLocaleDateString("fr-LU", { weekday: "long", day: "numeric", month: "long" })}
-            {" "}à {worstDay.occupancy.toFixed(0)}%.
+            {t("worstDayInfo", {
+              date: new Date(worstDay.date).toLocaleDateString(dateLocale, { weekday: "long", day: "numeric", month: "long" }),
+              pct: worstDay.occupancy.toFixed(0),
+            })}
           </div>
         )}
       </div>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { isSupabaseConfigured } from "@/lib/supabase";
 import OrgAgencyStats from "@/components/OrgAgencyStats";
@@ -25,33 +25,35 @@ import {
 import { errMsg } from "@/lib/errors";
 import { lookupVies, VIES_COUNTRIES } from "@/lib/vies";
 
-const ROLE_LABEL: Record<OrgRole, string> = {
-  admin: "Admin",
-  member: "Négociateur",
-  viewer: "Lecture seule",
-  syndic: "Syndic",
-  conseil_syndical: "Conseil syndical",
-  coproprietaire: "Copropriétaire",
-  locataire: "Locataire",
-  prestataire: "Prestataire",
-  hotel_owner: "Propriétaire hôtel",
-  hotel_director: "Directeur d'exploitation",
-  revenue_manager: "Revenue manager",
-  fb_manager: "Responsable F&B",
-  reception: "Réception",
+const ROLE_KEY: Record<OrgRole, string> = {
+  admin: "roleAdmin",
+  member: "roleMember",
+  viewer: "roleViewer",
+  syndic: "roleSyndic",
+  conseil_syndical: "roleConseilSyndical",
+  coproprietaire: "roleCoproprietaire",
+  locataire: "roleLocataire",
+  prestataire: "rolePrestataire",
+  hotel_owner: "roleHotelOwner",
+  hotel_director: "roleHotelDirector",
+  revenue_manager: "roleRevenueManager",
+  fb_manager: "roleFbManager",
+  reception: "roleReception",
 };
 
-const ORG_TYPE_LABEL: Record<OrgType, { label: string; desc: string; accent: string }> = {
-  agency: { label: "Agence immobilière", desc: "Vente/location, mandats, rapports co-brandés.", accent: "from-rose-500 to-rose-700" },
-  syndic: { label: "Syndic / copropriété", desc: "Gestion copropriétés, règle des 5 %, appels de fonds.", accent: "from-teal-600 to-emerald-700" },
-  hotel_group: { label: "Groupe hôtelier", desc: "Multi-hôtels, RevPAR, EBITDA, owner reports.", accent: "from-purple-600 to-purple-800" },
-  bank: { label: "Banque / institution", desc: "Valorisation MLV, LTV, API d'estimation.", accent: "from-slate-700 to-slate-900" },
-  other: { label: "Autre", desc: "Usage générique, à préciser.", accent: "from-amber-500 to-amber-700" },
+const ORG_TYPE_META: Record<OrgType, { labelKey: string; descKey: string; accent: string }> = {
+  agency: { labelKey: "orgTypeAgencyLabel", descKey: "orgTypeAgencyDesc", accent: "from-rose-500 to-rose-700" },
+  syndic: { labelKey: "orgTypeSyndicLabel", descKey: "orgTypeSyndicDesc", accent: "from-teal-600 to-emerald-700" },
+  hotel_group: { labelKey: "orgTypeHotelLabel", descKey: "orgTypeHotelDesc", accent: "from-purple-600 to-purple-800" },
+  bank: { labelKey: "orgTypeBankLabel", descKey: "orgTypeBankDesc", accent: "from-slate-700 to-slate-900" },
+  other: { labelKey: "orgTypeOtherLabel", descKey: "orgTypeOtherDesc", accent: "from-amber-500 to-amber-700" },
 };
 
 export default function OrgPage() {
+  const t = useTranslations("profilOrganisation");
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
+  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const { user, loading: authLoading } = useAuth();
 
   const [orgs, setOrgs] = useState<Organization[]>([]);
@@ -90,11 +92,11 @@ export default function OrgPage() {
         setActiveOrgId(list[0]?.id ?? null);
       }
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Erreur de chargement.");
+      setError(e instanceof Error ? e.message : t("errLoad"));
     } finally {
       setLoading(false);
     }
-  }, [activeOrgId]);
+  }, [activeOrgId, t]);
 
   const reloadMembersAndInvites = useCallback(async (orgId: string) => {
     try {
@@ -102,9 +104,9 @@ export default function OrgPage() {
       setMembers(m);
       setInvitations(inv);
     } catch (e) {
-      setError(errMsg(e, "Erreur de chargement."));
+      setError(errMsg(e, t("errLoad")));
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     if (user) reloadOrgs();
@@ -115,15 +117,21 @@ export default function OrgPage() {
   }, [activeOrgId, reloadMembersAndInvites]);
 
   if (authLoading) {
-    return <div className="mx-auto max-w-4xl px-4 py-12 text-center text-muted">Chargement…</div>;
+    return <div className="mx-auto max-w-4xl px-4 py-12 text-center text-muted">{t("loading")}</div>;
   }
 
   if (!isSupabaseConfigured) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-6 text-amber-900">
-          <h2 className="text-lg font-semibold">Supabase non configuré</h2>
-          <p className="mt-2 text-sm">La gestion d&apos;agences nécessite Supabase. Configurez les variables d&apos;environnement <code>NEXT_PUBLIC_SUPABASE_URL</code> et <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code> et appliquez la migration SQL <code>003_create_organizations.sql</code>.</p>
+          <h2 className="text-lg font-semibold">{t("supabaseNotConfiguredTitle")}</h2>
+          <p className="mt-2 text-sm">
+            {t.rich("supabaseNotConfiguredBody", {
+              url: () => <code>NEXT_PUBLIC_SUPABASE_URL</code>,
+              anon: () => <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code>,
+              sql: () => <code>003_create_organizations.sql</code>,
+            })}
+          </p>
         </div>
       </div>
     );
@@ -133,10 +141,10 @@ export default function OrgPage() {
     return (
       <div className="mx-auto max-w-4xl px-4 py-12 text-center">
         <div className="rounded-xl border border-card-border bg-card p-8">
-          <h2 className="text-lg font-semibold text-navy">Connexion requise</h2>
-          <p className="mt-2 text-sm text-muted">Connectez-vous pour gérer votre agence.</p>
+          <h2 className="text-lg font-semibold text-navy">{t("loginRequired")}</h2>
+          <p className="mt-2 text-sm text-muted">{t("loginHint")}</p>
           <Link href={`${lp}/connexion`} className="mt-4 inline-flex items-center gap-2 rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
-            Se connecter
+            {t("login")}
           </Link>
         </div>
       </div>
@@ -155,17 +163,17 @@ export default function OrgPage() {
       const result = await lookupVies(viesCountry, raw);
       if ("error" in result) {
         const msg = result.error === "vies_user_error"
-          ? `Numéro invalide (VIES : ${result.code ?? "—"})`
+          ? t("viesInvalid", { code: result.code ?? "-" })
           : result.error === "vies_network_error"
-          ? "Service VIES injoignable, saisie manuelle possible."
+          ? t("viesUnreachable")
           : result.error === "vies_upstream_error"
-          ? "VIES répond 5xx, réessayez dans quelques secondes."
-          : "Requête VIES échouée.";
+          ? t("viesUpstream")
+          : t("viesFailed");
         setViesError(msg);
         return;
       }
       if (!result.valid) {
-        setViesError("Numéro non valide selon VIES.");
+        setViesError(t("viesNotValid"));
         return;
       }
       // Préremplit le formulaire
@@ -174,7 +182,7 @@ export default function OrgPage() {
       setNewOrgVat(result.countryCode + result.vatNumber);
       setViesValidated(true);
     } catch (e) {
-      setViesError(errMsg(e, "Erreur de requête."));
+      setViesError(errMsg(e, t("viesQueryError")));
     } finally {
       setViesLoading(false);
     }
@@ -204,7 +212,7 @@ export default function OrgPage() {
       setActiveOrgId(created.id);
       await reloadOrgs();
     } catch (e) {
-      setError(errMsg(e, "Erreur de création."));
+      setError(errMsg(e, t("errCreate")));
     } finally {
       setLoading(false);
     }
@@ -221,7 +229,7 @@ export default function OrgPage() {
       setInviteEmail("");
       await reloadMembersAndInvites(activeOrgId);
     } catch (e) {
-      setError(errMsg(e, "Erreur d'invitation."));
+      setError(errMsg(e, t("errInvite")));
     } finally {
       setLoading(false);
     }
@@ -233,21 +241,30 @@ export default function OrgPage() {
       await deleteInvitation(id);
       await reloadMembersAndInvites(activeOrgId);
     } catch (e) {
-      setError(errMsg(e, "Erreur suppression."));
+      setError(errMsg(e, t("errDelete")));
     }
   };
 
   const myRole = activeOrgId ? members.find((m) => m.user_id === user.id)?.role : undefined;
   const isAdmin = myRole === "admin";
 
+  const placeholderName = newOrgType === "syndic" ? t("placeholderNameSyndic")
+    : newOrgType === "hotel_group" ? t("placeholderNameHotel")
+    : newOrgType === "bank" ? t("placeholderNameBank")
+    : t("placeholderNameDefault");
+
+  const viesPlaceholder = viesCountry === "LU" ? t("viesPlaceholderLU")
+    : viesCountry === "FR" ? t("viesPlaceholderFR")
+    : t("viesPlaceholderOther");
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
       <div className="mb-6 flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-navy">Mon agence</h1>
-          <p className="mt-1 text-sm text-muted">Gérez vos agences immobilières et invitez vos négociateurs.</p>
+          <h1 className="text-2xl font-bold text-navy">{t("pageTitle")}</h1>
+          <p className="mt-1 text-sm text-muted">{t("pageDesc")}</p>
         </div>
-        <Link href={`${lp}/profil`} className="text-sm text-muted hover:text-navy">← Profil</Link>
+        <Link href={`${lp}/profil`} className="text-sm text-muted hover:text-navy">{t("backToProfile")}</Link>
       </div>
 
       {error && (
@@ -257,9 +274,9 @@ export default function OrgPage() {
       {/* Org switcher + create */}
       <div className="mb-8 rounded-xl border border-card-border bg-card p-5">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="text-sm font-medium text-navy">Agence active :</span>
+          <span className="text-sm font-medium text-navy">{t("activeAgency")}</span>
           {orgs.length === 0 ? (
-            <span className="text-sm text-muted italic">aucune agence</span>
+            <span className="text-sm text-muted italic">{t("noAgency")}</span>
           ) : (
             <select
               value={activeOrgId ?? ""}
@@ -275,7 +292,7 @@ export default function OrgPage() {
             onClick={() => setShowCreate(!showCreate)}
             className="ml-auto rounded-lg bg-navy px-3 py-2 text-sm font-semibold text-white hover:bg-navy-light"
           >
-            + Créer une organisation
+            {t("createOrg")}
           </button>
         </div>
 
@@ -285,12 +302,12 @@ export default function OrgPage() {
             <div className="rounded-lg border border-navy/20 bg-navy/5 p-4">
               <div className="flex items-center justify-between gap-2 flex-wrap">
                 <div>
-                  <h3 className="text-sm font-semibold text-navy">Préremplir depuis un n° TVA UE</h3>
+                  <h3 className="text-sm font-semibold text-navy">{t("viesTitle")}</h3>
                   <p className="text-[11px] text-muted mt-0.5">
-                    Via VIES (Commission européenne) — recommandé. Sinon, remplissez manuellement ci-dessous.
+                    {t("viesSubtitle")}
                   </p>
                 </div>
-                <span className="text-[10px] text-muted font-mono">optionnel</span>
+                <span className="text-[10px] text-muted font-mono">{t("viesOptional")}</span>
               </div>
               <div className="mt-3 grid gap-2 sm:grid-cols-[120px_1fr_auto]">
                 <select
@@ -299,14 +316,14 @@ export default function OrgPage() {
                   className="rounded-lg border border-input-border bg-white px-2 py-2 text-sm"
                 >
                   {VIES_COUNTRIES.map((c) => (
-                    <option key={c.code} value={c.code}>{c.code} — {c.label}</option>
+                    <option key={c.code} value={c.code}>{c.code} - {c.label}</option>
                   ))}
                 </select>
                 <input
                   type="text"
                   value={viesInput}
                   onChange={(e) => { setViesInput(e.target.value); setViesValidated(false); setViesError(null); }}
-                  placeholder={viesCountry === "LU" ? "12345678" : viesCountry === "FR" ? "12345678901" : "Numéro TVA sans préfixe"}
+                  placeholder={viesPlaceholder}
                   className="rounded-lg border border-input-border bg-white px-3 py-2 text-sm font-mono"
                   onKeyDown={(e) => { if (e.key === "Enter") handleViesLookup(); }}
                 />
@@ -319,10 +336,10 @@ export default function OrgPage() {
                   {viesLoading ? (
                     <span className="inline-flex items-center gap-2">
                       <span className="h-3 w-3 animate-spin rounded-full border-2 border-white/40 border-t-white" />
-                      Recherche…
+                      {t("viesSearching")}
                     </span>
                   ) : (
-                    "Rechercher"
+                    t("viesSearch")
                   )}
                 </button>
               </div>
@@ -336,15 +353,15 @@ export default function OrgPage() {
                   <svg className="h-4 w-4 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" />
                   </svg>
-                  <span>Numéro validé par VIES, champs préremplis. Vérifiez et ajustez si besoin.</span>
+                  <span>{t("viesValidated")}</span>
                 </div>
               )}
             </div>
 
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted">Type d&apos;organisation</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted">{t("orgTypeTitle")}</p>
             <div className="mt-2 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
-              {(Object.keys(ORG_TYPE_LABEL) as OrgType[]).map((key) => {
-                const info = ORG_TYPE_LABEL[key];
+              {(Object.keys(ORG_TYPE_META) as OrgType[]).map((key) => {
+                const info = ORG_TYPE_META[key];
                 const selected = newOrgType === key;
                 return (
                   <button
@@ -355,27 +372,22 @@ export default function OrgPage() {
                     }`}
                   >
                     <div className={`inline-flex h-6 rounded-full bg-gradient-to-br ${info.accent} px-2 py-0.5 text-[10px] font-semibold text-white items-center`}>
-                      {info.label}
+                      {t(info.labelKey)}
                     </div>
-                    <p className="mt-1.5 text-xs text-muted leading-snug">{info.desc}</p>
+                    <p className="mt-1.5 text-xs text-muted leading-snug">{t(info.descKey)}</p>
                   </button>
                 );
               })}
             </div>
 
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted">Détails de l&apos;organisation</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted">{t("detailsTitle")}</p>
               <div className="mt-2 grid gap-3 sm:grid-cols-2">
                 <label className="text-xs sm:col-span-2">
-                  <span className="text-muted">Nom *</span>
+                  <span className="text-muted">{t("nameLabel")}</span>
                   <input
                     type="text"
-                    placeholder={
-                      newOrgType === "syndic" ? "Nom du cabinet syndic"
-                        : newOrgType === "hotel_group" ? "Nom du groupe hôtelier"
-                        : newOrgType === "bank" ? "Nom de la banque ou institution"
-                        : "Nom de l'organisation"
-                    }
+                    placeholder={placeholderName}
                     value={newOrgName}
                     onChange={(e) => setNewOrgName(e.target.value)}
                     className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm ${
@@ -384,10 +396,10 @@ export default function OrgPage() {
                   />
                 </label>
                 <label className="text-xs sm:col-span-2">
-                  <span className="text-muted">Adresse (optionnel)</span>
+                  <span className="text-muted">{t("addressLabel")}</span>
                   <textarea
                     rows={2}
-                    placeholder="Rue, code postal, ville, pays"
+                    placeholder={t("addressPlaceholder")}
                     value={newOrgAddress}
                     onChange={(e) => setNewOrgAddress(e.target.value)}
                     className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm ${
@@ -396,10 +408,10 @@ export default function OrgPage() {
                   />
                 </label>
                 <label className="text-xs">
-                  <span className="text-muted">N° TVA (optionnel)</span>
+                  <span className="text-muted">{t("vatLabel")}</span>
                   <input
                     type="text"
-                    placeholder="LU12345678"
+                    placeholder={t("vatPlaceholder")}
                     value={newOrgVat}
                     onChange={(e) => setNewOrgVat(e.target.value.toUpperCase())}
                     className={`mt-1 w-full rounded-lg border px-3 py-2 text-sm font-mono ${
@@ -408,10 +420,10 @@ export default function OrgPage() {
                   />
                 </label>
                 <label className="text-xs">
-                  <span className="text-muted">Téléphone (optionnel)</span>
+                  <span className="text-muted">{t("phoneLabel")}</span>
                   <input
                     type="text"
-                    placeholder="+352 …"
+                    placeholder={t("phonePlaceholder")}
                     value={newOrgPhone}
                     onChange={(e) => setNewOrgPhone(e.target.value)}
                     className="mt-1 w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
@@ -423,14 +435,14 @@ export default function OrgPage() {
                   onClick={() => { setShowCreate(false); setViesError(null); setViesValidated(false); }}
                   className="rounded-lg border border-card-border bg-background px-4 py-2 text-sm text-slate hover:border-navy"
                 >
-                  Annuler
+                  {t("cancel")}
                 </button>
                 <button
                   onClick={handleCreate}
                   disabled={loading || !newOrgName.trim()}
                   className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-50"
                 >
-                  {loading ? "Création…" : "Créer l'organisation"}
+                  {loading ? t("creating") : t("createSubmit")}
                 </button>
               </div>
             </div>
@@ -443,10 +455,10 @@ export default function OrgPage() {
           <div className="rounded-xl border border-card-border bg-card p-5">
             <h2 className="text-base font-semibold text-navy">{activeOrg.name}</h2>
             <div className="mt-1 text-xs text-muted">
-              Slug : <code>{activeOrg.slug}</code> · Mon rôle : <strong>{ROLE_LABEL[myRole ?? "viewer"]}</strong>
+              {t("slug")} <code>{activeOrg.slug}</code> · {t("myRole")} <strong>{t(ROLE_KEY[myRole ?? "viewer"])}</strong>
             </div>
             {activeOrg.contact_email && (
-              <div className="mt-1 text-xs text-muted">Contact : {activeOrg.contact_email}</div>
+              <div className="mt-1 text-xs text-muted">{t("contact")} {activeOrg.contact_email}</div>
             )}
           </div>
 
@@ -456,15 +468,15 @@ export default function OrgPage() {
 
           {/* Members */}
           <div className="rounded-xl border border-card-border bg-card p-5">
-            <h2 className="text-base font-semibold text-navy">Membres ({members.length})</h2>
+            <h2 className="text-base font-semibold text-navy">{t("members", { n: members.length })}</h2>
             <ul className="mt-3 divide-y divide-card-border/50">
               {members.map((m) => (
                 <li key={m.user_id} className="flex items-center justify-between py-2 text-sm">
                   <div>
-                    <span className="font-medium text-navy">{m.user_id === user.id ? "Vous" : m.user_id.slice(0, 8) + "…"}</span>
-                    <span className="ml-2 rounded-full bg-background px-2 py-0.5 text-xs font-medium text-navy">{ROLE_LABEL[m.role]}</span>
+                    <span className="font-medium text-navy">{m.user_id === user.id ? t("you") : m.user_id.slice(0, 8) + "…"}</span>
+                    <span className="ml-2 rounded-full bg-background px-2 py-0.5 text-xs font-medium text-navy">{t(ROLE_KEY[m.role])}</span>
                   </div>
-                  <span className="text-xs text-muted">depuis {new Date(m.joined_at).toLocaleDateString("fr-FR")}</span>
+                  <span className="text-xs text-muted">{t("since", { date: new Date(m.joined_at).toLocaleDateString(dateLocale) })}</span>
                 </li>
               ))}
             </ul>
@@ -473,11 +485,11 @@ export default function OrgPage() {
           {/* Invite form */}
           {isAdmin && (
             <div className="rounded-xl border border-card-border bg-card p-5">
-              <h2 className="text-base font-semibold text-navy">Inviter un négociateur</h2>
+              <h2 className="text-base font-semibold text-navy">{t("inviteTitle")}</h2>
               <div className="mt-3 flex flex-wrap items-end gap-3">
                 <input
                   type="email"
-                  placeholder="email@exemple.lu"
+                  placeholder={t("invitePlaceholderEmail")}
                   value={inviteEmail}
                   onChange={(e) => setInviteEmail(e.target.value)}
                   className="flex-1 min-w-[200px] rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
@@ -488,7 +500,7 @@ export default function OrgPage() {
                   className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
                 >
                   {rolesForOrgType(activeOrg?.org_type ?? "agency").map((r) => (
-                    <option key={r} value={r}>{ROLE_LABEL[r]}</option>
+                    <option key={r} value={r}>{t(ROLE_KEY[r])}</option>
                   ))}
                 </select>
                 <button
@@ -496,41 +508,41 @@ export default function OrgPage() {
                   disabled={loading || !inviteEmail.trim()}
                   className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:bg-muted"
                 >
-                  Inviter
+                  {t("invite")}
                 </button>
               </div>
 
               {lastInviteLink && (
                 <div className="mt-3 rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-xs">
-                  <div className="font-medium text-emerald-900">Lien d&apos;invitation à transmettre :</div>
+                  <div className="font-medium text-emerald-900">{t("inviteLinkTitle")}</div>
                   <code className="mt-1 block break-all text-emerald-800">{lastInviteLink}</code>
-                  <div className="mt-1 text-emerald-700">Envoyez ce lien par email ou messagerie. Valable 14 jours.</div>
+                  <div className="mt-1 text-emerald-700">{t("inviteLinkHint")}</div>
                 </div>
               )}
 
               {invitations.length > 0 && (
                 <div className="mt-5">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">Invitations en attente</h3>
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">{t("pendingInvitations")}</h3>
                   <ul className="mt-2 divide-y divide-card-border/50">
                     {invitations.map((inv) => (
                       <li key={inv.id} className="flex items-center justify-between py-2 text-sm">
                         <div>
                           <span className="font-medium text-navy">{inv.email}</span>
-                          <span className="ml-2 text-xs text-muted">{ROLE_LABEL[inv.role]}</span>
-                          <span className="ml-2 text-xs text-muted">expire le {new Date(inv.expires_at).toLocaleDateString("fr-FR")}</span>
+                          <span className="ml-2 text-xs text-muted">{t(ROLE_KEY[inv.role])}</span>
+                          <span className="ml-2 text-xs text-muted">{t("expiresOn", { date: new Date(inv.expires_at).toLocaleDateString(dateLocale) })}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => navigator.clipboard.writeText(buildInvitationLink(inv.token))}
                             className="text-xs text-navy hover:underline"
                           >
-                            Copier lien
+                            {t("copyLink")}
                           </button>
                           <button
                             onClick={() => handleDeleteInvite(inv.id)}
                             className="text-xs text-rose-700 hover:underline"
                           >
-                            Annuler
+                            {t("cancelInvite")}
                           </button>
                         </div>
                       </li>

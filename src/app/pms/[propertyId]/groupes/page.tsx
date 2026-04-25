@@ -2,20 +2,49 @@
 
 import { useEffect, useState, use, useCallback, useMemo } from "react";
 import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { getProperty } from "@/lib/pms/properties";
 import {
   listGroups, createGroup, updateGroup, deleteGroup,
-  computeGroupRevenue, groupFillRate, cutoffAlert,
-  GROUP_STATUS_LABELS, GROUP_STATUS_COLORS, BILLING_MODE_LABELS, MEETING_SETUP_LABELS,
+  groupFillRate, cutoffAlert,
+  GROUP_STATUS_COLORS,
   type PmsGroup, type PmsGroupStatus, type PmsGroupBillingMode,
 } from "@/lib/pms/groups";
 import type { PmsProperty } from "@/lib/pms/types";
 import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/pms/errors";
 
+const GROUP_STATUS_KEY: Record<PmsGroupStatus, string> = {
+  prospect: "statusProspect",
+  tentative: "statusTentative",
+  confirmed: "statusConfirmed",
+  partially_booked: "statusPartiallyBooked",
+  complete: "statusComplete",
+  cancelled: "statusCancelled",
+  completed: "statusCompleted",
+};
+
+const BILLING_MODE_KEY: Record<PmsGroupBillingMode, string> = {
+  master_account: "billingMaster",
+  individual: "billingIndividual",
+  split: "billingSplit",
+};
+
+const MEETING_SETUP_KEYS: Record<string, string> = {
+  theatre: "setupTheatre",
+  classroom: "setupClassroom",
+  u_shape: "setupUShape",
+  banquet: "setupBanquet",
+  cocktail: "setupCocktail",
+  boardroom: "setupBoardroom",
+};
+
 export default function GroupsPage(props: { params: Promise<{ propertyId: string }> }) {
   const { propertyId } = use(props.params);
+  const t = useTranslations("pmsGroupes");
+  const locale = useLocale();
+  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const { user, loading: authLoading } = useAuth();
   const [property, setProperty] = useState<PmsProperty | null>(null);
   const [groups, setGroups] = useState<PmsGroup[]>([]);
@@ -63,9 +92,9 @@ export default function GroupsPage(props: { params: Promise<{ propertyId: string
 
   const handleCreate = async () => {
     if (!form.name.trim() || !form.organizer_name.trim()) {
-      setError("Nom du groupe et de l'organisateur requis."); return;
+      setError(t("errNameRequired")); return;
     }
-    if (form.rooms_blocked < 1) { setError("Au moins 1 chambre."); return; }
+    if (form.rooms_blocked < 1) { setError(t("errMinRoom")); return; }
     try {
       await createGroup({
         property_id: propertyId,
@@ -103,7 +132,7 @@ export default function GroupsPage(props: { params: Promise<{ propertyId: string
   };
 
   const handleDelete = async (g: PmsGroup) => {
-    if (!confirm(`Supprimer le groupe "${g.name}" ? Les réservations liées seront désassociées.`)) return;
+    if (!confirm(t("confirmDelete", { name: g.name }))) return;
     await deleteGroup(g.id);
     await reload();
   };
@@ -128,28 +157,25 @@ export default function GroupsPage(props: { params: Promise<{ propertyId: string
     return { active: active.length, roomsBlockedTotal, roomsBookedTotal, revenueExpected, cutoffAlerts };
   }, [groups]);
 
-  if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">Chargement…</div>;
-  if (!user || !property) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href="/connexion" className="text-navy underline">Se connecter</Link></div>;
+  if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
+  if (!user || !property) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href="/connexion" className="text-navy underline">{t("signIn")}</Link></div>;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-6">
       <div className="flex items-center gap-2 text-xs text-muted">
         <Link href={`/pms/${propertyId}`} className="hover:text-navy">{property.name}</Link>
         <span>/</span>
-        <span className="text-navy">Groupes & allotements</span>
+        <span className="text-navy">{t("breadcrumb")}</span>
       </div>
 
       <div className="mt-3 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-navy">Groupes & allotements</h1>
-          <p className="mt-1 text-sm text-muted">
-            Réservations en bloc pour mariages, séminaires, conférences. Gestion
-            cutoff + tarif négocié + MICE (salle + F&B) + rooming list à la demande.
-          </p>
+          <h1 className="text-2xl font-bold text-navy">{t("title")}</h1>
+          <p className="mt-1 text-sm text-muted">{t("subtitle")}</p>
         </div>
         <button onClick={() => setShowForm(!showForm)}
           className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light">
-          {showForm ? "Annuler" : "+ Nouveau groupe"}
+          {showForm ? t("btnCancel") : t("btnNew")}
         </button>
       </div>
 
@@ -157,56 +183,56 @@ export default function GroupsPage(props: { params: Promise<{ propertyId: string
 
       {/* KPIs */}
       <div className="mt-5 grid gap-3 sm:grid-cols-5">
-        <Stat label="Groupes actifs" value={String(stats.active)} />
-        <Stat label="Chambres bloquées" value={stats.roomsBlockedTotal.toLocaleString("fr-LU")} />
-        <Stat label="Chambres réservées" value={stats.roomsBookedTotal.toLocaleString("fr-LU")}
-          sub={stats.roomsBlockedTotal > 0 ? `${Math.round(stats.roomsBookedTotal / stats.roomsBlockedTotal * 100)}% remplissage` : ""} />
-        <Stat label="Revenue attendu" value={formatEUR(stats.revenueExpected)} tone="emerald" />
-        <Stat label="Alertes cutoff" value={String(stats.cutoffAlerts)}
+        <Stat label={t("statActive")} value={String(stats.active)} />
+        <Stat label={t("statRoomsBlocked")} value={stats.roomsBlockedTotal.toLocaleString(dateLocale)} />
+        <Stat label={t("statRoomsBooked")} value={stats.roomsBookedTotal.toLocaleString(dateLocale)}
+          sub={stats.roomsBlockedTotal > 0 ? t("statRoomsBookedSub", { rate: Math.round(stats.roomsBookedTotal / stats.roomsBlockedTotal * 100) }) : ""} />
+        <Stat label={t("statRevenue")} value={formatEUR(stats.revenueExpected)} tone="emerald" />
+        <Stat label={t("statCutoffAlerts")} value={String(stats.cutoffAlerts)}
           tone={stats.cutoffAlerts > 0 ? "amber" : undefined} />
       </div>
 
       {/* Formulaire */}
       {showForm && (
         <div className="mt-5 rounded-xl border border-navy/20 bg-navy/5 p-5 space-y-4">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-navy">Nouveau groupe</h2>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-navy">{t("formTitle")}</h2>
           <div className="grid gap-3 sm:grid-cols-2">
-            <Field label="Nom du groupe *" value={form.name}
+            <Field label={t("fName")} value={form.name}
               onChange={(v) => setForm({ ...form, name: v })}
-              placeholder="Ex: Mariage Dupont-Schmit" />
-            <Field label="Organisateur (nom) *" value={form.organizer_name}
+              placeholder={t("fNamePh")} />
+            <Field label={t("fOrganizer")} value={form.organizer_name}
               onChange={(v) => setForm({ ...form, organizer_name: v })} />
-            <Field label="Email organisateur" type="email" value={form.organizer_email}
+            <Field label={t("fOrgEmail")} type="email" value={form.organizer_email}
               onChange={(v) => setForm({ ...form, organizer_email: v })} />
-            <Field label="Téléphone" type="tel" value={form.organizer_phone}
+            <Field label={t("fOrgPhone")} type="tel" value={form.organizer_phone}
               onChange={(v) => setForm({ ...form, organizer_phone: v })} />
-            <Field label="Société / entité" value={form.organizer_company}
+            <Field label={t("fOrgCompany")} value={form.organizer_company}
               onChange={(v) => setForm({ ...form, organizer_company: v })} />
             <div className="grid grid-cols-2 gap-2">
-              <Field label="Arrivée" type="date" value={form.check_in}
+              <Field label={t("fCheckIn")} type="date" value={form.check_in}
                 onChange={(v) => setForm({ ...form, check_in: v })} />
-              <Field label="Départ" type="date" value={form.check_out}
+              <Field label={t("fCheckOut")} type="date" value={form.check_out}
                 onChange={(v) => setForm({ ...form, check_out: v })} />
             </div>
             <div className="grid grid-cols-2 gap-2">
-              <Field label="Chambres bloquées" type="number" value={String(form.rooms_blocked)}
+              <Field label={t("fRoomsBlocked")} type="number" value={String(form.rooms_blocked)}
                 onChange={(v) => setForm({ ...form, rooms_blocked: Number(v) })} />
-              <Field label="Tarif négocié (€/nuit)" type="number" value={String(form.negotiated_rate)}
+              <Field label={t("fNegRate")} type="number" value={String(form.negotiated_rate)}
                 onChange={(v) => setForm({ ...form, negotiated_rate: Number(v) })} />
             </div>
             <label className="text-xs">
-              <div className="mb-1 font-semibold text-slate">Facturation</div>
+              <div className="mb-1 font-semibold text-slate">{t("fBilling")}</div>
               <select value={form.billing_mode}
                 onChange={(e) => setForm({ ...form, billing_mode: e.target.value as PmsGroupBillingMode })}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm">
-                {(Object.entries(BILLING_MODE_LABELS) as [PmsGroupBillingMode, string][]).map(([k, l]) => (
-                  <option key={k} value={k}>{l}</option>
+                {(Object.keys(BILLING_MODE_KEY) as PmsGroupBillingMode[]).map((k) => (
+                  <option key={k} value={k}>{t(BILLING_MODE_KEY[k])}</option>
                 ))}
               </select>
             </label>
-            <Field label="Date limite cutoff" type="date" value={form.cutoff_date}
+            <Field label={t("fCutoff")} type="date" value={form.cutoff_date}
               onChange={(v) => setForm({ ...form, cutoff_date: v })} />
-            <Field label="Acompte demandé (€)" type="number" value={String(form.deposit_required)}
+            <Field label={t("fDeposit")} type="number" value={String(form.deposit_required)}
               onChange={(v) => setForm({ ...form, deposit_required: Number(v) })} />
           </div>
 
@@ -214,33 +240,33 @@ export default function GroupsPage(props: { params: Promise<{ propertyId: string
             <label className="flex items-center gap-2 text-sm font-semibold text-navy">
               <input type="checkbox" checked={form.has_meeting_room}
                 onChange={(e) => setForm({ ...form, has_meeting_room: e.target.checked })} />
-              Inclut salle de réunion / événement (MICE)
+              {t("fHasMice")}
             </label>
             {form.has_meeting_room && (
               <div className="mt-3 grid gap-3 sm:grid-cols-3">
                 <label className="text-xs">
-                  <div className="mb-1 font-semibold text-slate">Configuration salle</div>
+                  <div className="mb-1 font-semibold text-slate">{t("fSetup")}</div>
                   <select value={form.meeting_room_setup}
                     onChange={(e) => setForm({ ...form, meeting_room_setup: e.target.value })}
                     className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm">
-                    <option value="">—</option>
-                    {(Object.entries(MEETING_SETUP_LABELS) as [string, string][]).map(([k, l]) => (
-                      <option key={k} value={k}>{l}</option>
+                    <option value="">{t("setupDash")}</option>
+                    {Object.keys(MEETING_SETUP_KEYS).map((k) => (
+                      <option key={k} value={k}>{t(MEETING_SETUP_KEYS[k])}</option>
                     ))}
                   </select>
                 </label>
-                <Field label="Capacité (pax)" type="number" value={String(form.meeting_room_capacity)}
+                <Field label={t("fCapacity")} type="number" value={String(form.meeting_room_capacity)}
                   onChange={(v) => setForm({ ...form, meeting_room_capacity: Number(v) })} />
-                <Field label="F&B package" value={form.fb_package}
+                <Field label={t("fFbPackage")} value={form.fb_package}
                   onChange={(v) => setForm({ ...form, fb_package: v })}
-                  placeholder="ex. Déjeuner 3 services 45€/pax" />
+                  placeholder={t("fFbPackagePh")} />
               </div>
             )}
           </div>
 
           <div>
             <label className="block text-xs">
-              <div className="mb-1 font-semibold text-slate">Notes internes</div>
+              <div className="mb-1 font-semibold text-slate">{t("fNotes")}</div>
               <textarea value={form.notes} rows={2}
                 onChange={(e) => setForm({ ...form, notes: e.target.value })}
                 className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
@@ -250,7 +276,7 @@ export default function GroupsPage(props: { params: Promise<{ propertyId: string
           <div className="flex justify-end">
             <button onClick={handleCreate}
               className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700">
-              Créer le groupe
+              {t("btnCreate")}
             </button>
           </div>
         </div>
@@ -263,7 +289,7 @@ export default function GroupsPage(props: { params: Promise<{ propertyId: string
             className={`rounded-full px-3 py-1 text-xs font-semibold ${
               filter === f ? "bg-navy text-white" : "bg-card border border-card-border text-slate"
             }`}>
-            {f === "active" ? "Actifs" : "Tous"} ({f === "active" ? stats.active : groups.length})
+            {f === "active" ? t("filterActive") : t("filterAll")} ({f === "active" ? stats.active : groups.length})
           </button>
         ))}
         {(["prospect", "tentative", "confirmed", "partially_booked", "complete"] as PmsGroupStatus[]).map((s) => (
@@ -271,7 +297,7 @@ export default function GroupsPage(props: { params: Promise<{ propertyId: string
             className={`rounded-full px-3 py-1 text-xs font-semibold ${
               filter === s ? "bg-navy text-white" : GROUP_STATUS_COLORS[s]
             }`}>
-            {GROUP_STATUS_LABELS[s]}
+            {t(GROUP_STATUS_KEY[s])}
           </button>
         ))}
       </div>
@@ -279,7 +305,9 @@ export default function GroupsPage(props: { params: Promise<{ propertyId: string
       {/* Liste */}
       {filtered.length === 0 ? (
         <div className="mt-6 rounded-xl border-2 border-dashed border-card-border py-12 text-center text-sm text-muted">
-          Aucun groupe {filter !== "all" && filter !== "active" ? `avec statut "${GROUP_STATUS_LABELS[filter as PmsGroupStatus]}"` : ""}.
+          {filter !== "all" && filter !== "active"
+            ? t("emptyStatus", { status: t(GROUP_STATUS_KEY[filter as PmsGroupStatus]) })
+            : t("emptyAll")}
         </div>
       ) : (
         <div className="mt-5 space-y-3">
@@ -298,11 +326,11 @@ export default function GroupsPage(props: { params: Promise<{ propertyId: string
                       <span className="font-mono text-[11px] text-muted">{g.code}</span>
                       <h3 className="text-base font-bold text-navy">{g.name}</h3>
                       <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${GROUP_STATUS_COLORS[g.status]}`}>
-                        {GROUP_STATUS_LABELS[g.status]}
+                        {t(GROUP_STATUS_KEY[g.status])}
                       </span>
                       {g.has_meeting_room && (
                         <span className="rounded-full bg-indigo-100 text-indigo-900 px-2 py-0.5 text-[10px]">
-                          🎤 MICE
+                          🎤 {t("miceBadge")}
                         </span>
                       )}
                     </div>
@@ -312,9 +340,9 @@ export default function GroupsPage(props: { params: Promise<{ propertyId: string
                       {g.organizer_email && ` · ${g.organizer_email}`}
                     </div>
                     <div className="mt-2 flex flex-wrap gap-3 text-xs">
-                      <span>📅 {new Date(g.check_in).toLocaleDateString("fr-LU")} → {new Date(g.check_out).toLocaleDateString("fr-LU")} ({g.nb_nights}n)</span>
-                      <span>🛏️ <strong>{g.rooms_booked} / {g.rooms_blocked}</strong> chambres ({fillRate}%)</span>
-                      {g.negotiated_rate && <span>💰 {formatEUR(Number(g.negotiated_rate))}/nuit négocié</span>}
+                      <span>📅 {new Date(g.check_in).toLocaleDateString(dateLocale)} → {new Date(g.check_out).toLocaleDateString(dateLocale)} ({t("nights", { n: g.nb_nights })})</span>
+                      <span>🛏️ <strong>{t("rooms", { booked: g.rooms_booked, blocked: g.rooms_blocked, rate: fillRate })}</strong></span>
+                      {g.negotiated_rate && <span>💰 {t("negRate", { amount: formatEUR(Number(g.negotiated_rate)) })}</span>}
                       {g.total_expected_revenue && <span className="text-emerald-700 font-semibold">= {formatEUR(Number(g.total_expected_revenue))}</span>}
                     </div>
 
@@ -339,17 +367,17 @@ export default function GroupsPage(props: { params: Promise<{ propertyId: string
                     <select value={g.status}
                       onChange={(e) => handleStatusChange(g, e.target.value as PmsGroupStatus)}
                       className="rounded border border-input-border bg-input-bg px-2 py-1 text-xs">
-                      {(Object.entries(GROUP_STATUS_LABELS) as [PmsGroupStatus, string][]).map(([k, l]) => (
-                        <option key={k} value={k}>{l}</option>
+                      {(Object.keys(GROUP_STATUS_KEY) as PmsGroupStatus[]).map((k) => (
+                        <option key={k} value={k}>{t(GROUP_STATUS_KEY[k])}</option>
                       ))}
                     </select>
                     <Link href={`/pms/${propertyId}/reservations/nouveau?group=${g.id}`}
                       className="rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white">
-                      + Rés. individuelle
+                      {t("btnNewIndividual")}
                     </Link>
                     <button onClick={() => handleDelete(g)}
                       className="text-xs text-rose-700 hover:underline">
-                      Supprimer
+                      {t("btnDelete")}
                     </button>
                   </div>
                 </div>
@@ -366,10 +394,7 @@ export default function GroupsPage(props: { params: Promise<{ propertyId: string
       )}
 
       <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-        <strong>Workflow groupe :</strong> Prospect → Tentative (option posée, pas encore payée)
-        → Confirmed (acompte encaissé, chambres bloquées) → Partiellement/Complet (résas
-        individuelles créées par rooming list) → Completed (événement passé). Le cutoff
-        date est la date limite pour convertir les chambres bloquées en résas nominatives.
+        <strong>{t("workflowTitle")}</strong> {t("workflowText")}
       </div>
     </div>
   );

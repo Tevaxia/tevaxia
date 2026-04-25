@@ -2,6 +2,7 @@
 
 import { useEffect, useState, use, useCallback } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import { getProperty } from "@/lib/pms/properties";
@@ -13,6 +14,7 @@ import { errMsg } from "@/lib/pms/errors";
 
 export default function BulkRateEditorPage(props: { params: Promise<{ propertyId: string }> }) {
   const { propertyId } = use(props.params);
+  const t = useTranslations("pmsTarifs");
   const { user, loading: authLoading } = useAuth();
   const [property, setProperty] = useState<PmsProperty | null>(null);
   const [roomTypes, setRoomTypes] = useState<PmsRoomType[]>([]);
@@ -65,9 +67,9 @@ export default function BulkRateEditorPage(props: { params: Promise<{ propertyId
     if (!isSupabaseConfigured || !supabase || filtered.length === 0) return;
     const val = Number(action.value);
     if (action.type !== "close_range" && action.type !== "reopen_range" && !Number.isFinite(val)) {
-      setError("Valeur invalide"); return;
+      setError(t("errInvalidValue")); return;
     }
-    if (!confirm(`Appliquer cette modification à ${filtered.length} tarif(s) ?`)) return;
+    if (!confirm(t("confirmApply", { n: filtered.length }))) return;
     setApplying(true); setError(null);
 
     for (const r of filtered) {
@@ -86,94 +88,91 @@ export default function BulkRateEditorPage(props: { params: Promise<{ propertyId
       await supabase.from("pms_seasonal_rates").update(patch).eq("id", r.id);
     }
 
-    setFlash(`✓ ${filtered.length} tarif(s) mis à jour`);
+    setFlash(t("flashUpdated", { n: filtered.length }));
     setTimeout(() => setFlash(null), 4000);
     await reload();
     setApplying(false);
   };
 
-  if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">Chargement…</div>;
-  if (!user || !property) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href="/connexion" className="text-navy underline">Se connecter</Link></div>;
+  if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
+  if (!user || !property) return <div className="mx-auto max-w-4xl px-4 py-12 text-center"><Link href="/connexion" className="text-navy underline">{t("signIn")}</Link></div>;
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
       <div className="flex items-center gap-2 text-xs text-muted">
         <Link href={`/pms/${propertyId}`} className="hover:text-navy">{property.name}</Link>
         <span>/</span>
-        <Link href={`/pms/${propertyId}/tarifs`} className="hover:text-navy">Tarifs</Link>
+        <Link href={`/pms/${propertyId}/tarifs`} className="hover:text-navy">{t("breadcrumbTarifs")}</Link>
         <span>/</span>
-        <span className="text-navy">Édition bulk</span>
+        <span className="text-navy">{t("breadcrumbBulk")}</span>
       </div>
 
-      <h1 className="mt-3 text-2xl font-bold text-navy">Édition tarifs en masse</h1>
-      <p className="mt-1 text-sm text-muted">
-        Modifier plusieurs tarifs saisonniers simultanément : ajustement %, fixe,
-        ou écrase valeur. Filtre préalable par rate plan, type de chambre et période.
-      </p>
+      <h1 className="mt-3 text-2xl font-bold text-navy">{t("pageTitle")}</h1>
+      <p className="mt-1 text-sm text-muted">{t("pageDesc")}</p>
 
       {error && <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-900">{error}</div>}
       {flash && <div className="mt-4 rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-xs text-emerald-900">{flash}</div>}
 
-      {/* Étape 1 : filtre */}
+      {/* Step 1: filter */}
       <section className="mt-6 rounded-xl border border-card-border bg-card p-5">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">1. Sélection</h2>
+        <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">{t("sectionFilter")}</h2>
         <div className="grid gap-3 sm:grid-cols-4">
           <label className="text-xs">
-            <div className="text-muted mb-1">Rate plan</div>
+            <div className="text-muted mb-1">{t("fieldRatePlan")}</div>
             <select value={filter.rate_plan_id}
               onChange={(e) => setFilter({ ...filter, rate_plan_id: e.target.value })}
               className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm">
-              <option value="">Tous</option>
+              <option value="">{t("optAll")}</option>
               {ratePlans.map((rp) => <option key={rp.id} value={rp.id}>{rp.code}</option>)}
             </select>
           </label>
           <label className="text-xs">
-            <div className="text-muted mb-1">Room type</div>
+            <div className="text-muted mb-1">{t("fieldRoomType")}</div>
             <select value={filter.room_type_id}
               onChange={(e) => setFilter({ ...filter, room_type_id: e.target.value })}
               className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm">
-              <option value="">Tous</option>
+              <option value="">{t("optAll")}</option>
               {roomTypes.map((rt) => <option key={rt.id} value={rt.id}>{rt.code}</option>)}
             </select>
           </label>
           <label className="text-xs">
-            <div className="text-muted mb-1">Début</div>
+            <div className="text-muted mb-1">{t("fieldStart")}</div>
             <input type="date" value={filter.start_date}
               onChange={(e) => setFilter({ ...filter, start_date: e.target.value })}
               className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
           </label>
           <label className="text-xs">
-            <div className="text-muted mb-1">Fin</div>
+            <div className="text-muted mb-1">{t("fieldEnd")}</div>
             <input type="date" value={filter.end_date}
               onChange={(e) => setFilter({ ...filter, end_date: e.target.value })}
               className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
           </label>
         </div>
         <div className="mt-3 text-xs text-muted">
-          {filtered.length} tarif(s) correspondent au filtre · Total stockés : {rates.length}
+          {t("filterCount", { filtered: filtered.length, total: rates.length })}
         </div>
       </section>
 
-      {/* Étape 2 : action */}
+      {/* Step 2: action */}
       <section className="mt-4 rounded-xl border border-card-border bg-card p-5">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">2. Action</h2>
+        <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">{t("sectionAction")}</h2>
         <div className="flex flex-wrap gap-3 items-end">
           <label className="text-xs">
-            <div className="text-muted mb-1">Opération</div>
+            <div className="text-muted mb-1">{t("fieldOperation")}</div>
             <select value={action.type}
               onChange={(e) => setAction({ ...action, type: e.target.value as typeof action.type })}
               className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm">
-              <option value="add_pct">Ajuster %</option>
-              <option value="add_fixed">Ajuster montant fixe</option>
-              <option value="set_value">Définir valeur</option>
-              <option value="close_range">Fermer à la vente (stop sell)</option>
-              <option value="reopen_range">Ré-ouvrir à la vente</option>
+              <option value="add_pct">{t("opAddPct")}</option>
+              <option value="add_fixed">{t("opAddFixed")}</option>
+              <option value="set_value">{t("opSetValue")}</option>
+              <option value="close_range">{t("opCloseRange")}</option>
+              <option value="reopen_range">{t("opReopenRange")}</option>
             </select>
           </label>
           {(action.type === "add_pct" || action.type === "add_fixed" || action.type === "set_value") && (
             <label className="text-xs">
               <div className="text-muted mb-1">
-                Valeur {action.type === "add_pct" ? "(%)" : "(€)"}
+                {action.type === "add_pct" ? t("fieldValuePct") : t("fieldValueEur")}
               </div>
               <input type="number" value={action.value}
                 onChange={(e) => setAction({ ...action, value: e.target.value })}
@@ -183,7 +182,7 @@ export default function BulkRateEditorPage(props: { params: Promise<{ propertyId
           )}
           <button onClick={applyBulk} disabled={applying || filtered.length === 0}
             className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-50">
-            {applying ? "Application…" : `Appliquer à ${filtered.length} tarif(s)`}
+            {applying ? t("btnApplying") : t("btnApply", { n: filtered.length })}
           </button>
         </div>
       </section>
@@ -192,23 +191,23 @@ export default function BulkRateEditorPage(props: { params: Promise<{ propertyId
       {filtered.length > 0 && (
         <section className="mt-4 rounded-xl border border-card-border bg-card p-5">
           <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">
-            Aperçu ({filtered.length} tarifs impactés)
+            {t("previewTitle", { n: filtered.length })}
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full text-xs">
               <thead>
                 <tr className="border-b border-card-border text-[10px] uppercase tracking-wider text-muted">
-                  <th className="px-2 py-2 text-left">Rate plan</th>
-                  <th className="px-2 py-2 text-left">Room type</th>
-                  <th className="px-2 py-2 text-left">Période</th>
-                  <th className="px-2 py-2 text-right">Prix actuel</th>
-                  <th className="px-2 py-2 text-right">Après action</th>
-                  <th className="px-2 py-2 text-left">Status</th>
+                  <th className="px-2 py-2 text-left">{t("colRatePlan")}</th>
+                  <th className="px-2 py-2 text-left">{t("colRoomType")}</th>
+                  <th className="px-2 py-2 text-left">{t("colPeriod")}</th>
+                  <th className="px-2 py-2 text-right">{t("colCurrentPrice")}</th>
+                  <th className="px-2 py-2 text-right">{t("colNewPrice")}</th>
+                  <th className="px-2 py-2 text-left">{t("colStatus")}</th>
                 </tr>
               </thead>
               <tbody>
                 {filtered.slice(0, 20).map((r) => {
-                  let newPrice: number | null = Number(r.price);
+                  let newPrice: number = Number(r.price);
                   let newStopSell = r.stop_sell;
                   const val = Number(action.value);
                   if (action.type === "add_pct") newPrice = Math.round(newPrice * (1 + val / 100) * 100) / 100;
@@ -238,9 +237,9 @@ export default function BulkRateEditorPage(props: { params: Promise<{ propertyId
                       </td>
                       <td className="px-2 py-1.5">
                         {newStopSell ? (
-                          <span className="rounded-full bg-rose-100 px-2 py-0.5 text-[10px] text-rose-900">Stop sell</span>
+                          <span className="rounded-full bg-rose-100 px-2 py-0.5 text-[10px] text-rose-900">{t("statusStopSell")}</span>
                         ) : (
-                          <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] text-emerald-900">Open</span>
+                          <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] text-emerald-900">{t("statusOpen")}</span>
                         )}
                       </td>
                     </tr>
@@ -248,7 +247,7 @@ export default function BulkRateEditorPage(props: { params: Promise<{ propertyId
                 })}
                 {filtered.length > 20 && (
                   <tr><td colSpan={6} className="px-2 py-2 text-center text-[10px] text-muted">
-                    …{filtered.length - 20} tarifs supplémentaires (impactés aussi à l'application)
+                    {t("moreRows", { n: filtered.length - 20 })}
                   </td></tr>
                 )}
               </tbody>
@@ -257,12 +256,8 @@ export default function BulkRateEditorPage(props: { params: Promise<{ propertyId
         </section>
       )}
 
-      <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900">
-        <strong>Revenue management :</strong> utilisez cet outil pour ajuster rapidement les
-        tarifs sur des périodes précises (haute saison +15%, basse saison -10%, fermer
-        Noël à la vente, etc.). Pour des ajustements fins jour par jour, utilisez la
-        page <Link href={`/pms/${propertyId}/tarifs`} className="underline">tarifs standards</Link>.
-      </div>
+      <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4 text-xs text-blue-900"
+        dangerouslySetInnerHTML={{ __html: t.raw("rmNote").toString().replace("{href}", `/pms/${propertyId}/tarifs`) }} />
     </div>
   );
 }
