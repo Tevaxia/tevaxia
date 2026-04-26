@@ -9185,21 +9185,73 @@
       ]
     },
     "plusValue": {
-      "title": "Wéi ginn Immobilien-Kapitalgewënner zu Lëtzebuerg besteierd?",
-      "metaDescription": "Lëtzebuerger Immobilie-Kapitalgewënnsteier: Spekulatioun < 2 Joer, Gesamtsaz, Fräibedrag 50.000 €/100.000 €, Haaptwunnsëtz-Befreiung. Art. 99ter an 102bis LIR.",
-      "intro": "Zu Lëtzebuerg ginn Kapitalgewënner aus dem Verkaf vun Immobilie no zwee ënnerschiddleche Regimer besteierd: Spekulatiounsgewënn bei Widdervekaf bannent 2 Joer no dem Erwierfung (Art. 99bis LIR), oder Veräusserungsgewënn no 2 Joer (Art. 99ter LIR). Steiersaz, Fräibedrag an Befreiungsméiglechkeeten hänken vun der Haltedauer an der Notzung vun der Immobilie of. Eng komplett Befreiung ass fir den selwer bewunnten Haaptwunnsëtz méiglech.",
-      "section1Title": "Spekulatiounsgewënn (< 2 Joer)",
-      "section1Content": "Wann de Widdervekaf bannent 2 Joer nom Erwierfung geschitt, gëllt de Kapitalgewënn als Spekulatiounsgewënn (Art. 99bis LIR). Hie gëtt komplett zum steierflichtegen Akommes derbäigesat an zum progressiven Akommenssteierentaux besteierd (Grenzsaz bis 42 % + Beschäftegungsfondsbäitrag vu 7 bis 9 %, also en maximalen Effektivsaz vun ongeféier 45,78 %). Keen spezifesche Fräibedrag gëtt applizéiert. De Kapitalgewënn berechent sech als Differenz tëschent Verkafspräis an Akafspräis zuzüglech Erwerbsnieftekäschten an Verbesserungsaarbechten.",
-      "section2Title": "Veräusserungsgewënn (≥ 2 Joer)",
-      "section2Content": "Wann d'Veräusserung méi wéi 2 Joer nom Erwierfung geschitt, ass de Kapitalgewënn e Veräusserungsgewënn (Art. 99ter LIR). Et gëllt en méi favorabelt Steierregime: Nëmmen e Véierel vum Gesamtsteiersaz gëtt applizéiert (Art. 102bis Abs. 1 LIR). Den Akafspräis gëtt mat dem vum STATEC publizéierten Baukostenindex-Opwäertungskoeffizient opgewäert. E Zéng-Joers-Fräibedrag vu 50.000 € pro Persoun (100.000 € fir zesumme besteierd Koppelen) gëtt vum steierflichtegen Kapitalgewënn ofgezunn (Art. 130 Abs. 4 LIR). Beispill: Eng 2010 fir 400.000 € kaaft an 2025 fir 700.000 € verkaaft Immobilie mat Koeffizient 1,25 ergëtt en opgewäerte Präis vu 500.000 € an e Bruttogewënn vu 200.000 €.",
-      "section3Title": "Befreiungen",
-      "section3Content": "Déi heefegst Befreiung betrefft den Haaptwunnsëtz: De Kapitalgewënn ass komplett befreit, wann d'Immobilie zum Zäitpunkt vun der Veräusserung den Haaptwunnsëtz vum Verkefer ass an hien se während den 5 Joer virum Verkaf tatsächlech an onofrocheg bewunnt huet (Art. 102bis Abs. 3 LIR). En Steieropschub (Reinvestitioun) ass méiglech, wann d'Verkafsproduit bannent 2 Joer an en anere selwer bewunnte Haaptwunnsëtz reinvestéiert gëtt (Art. 102bis Abs. 2 LIR). Fir Terrainen ass och en Opschubregime ënnert Konditiounen méiglech. Onentgeltlech Iwwerdroungen (Schenkung, Ierfschaft) léisen keng Kapitalgewënnbesteierung beim Schenker/Verstuerewene aus, awer de Begënschtegten iwwerhëlt den historeschen Akafspräis.",
-      "relatedToolLabel": "Berechent Ären steierflichtegen Kapitalgewënn",
-      "relatedToolLink": "/plus-values",
-      "faq1Q": "Wéi héich ass de Steiersaz op Immobilienkapitalgewënner zu Lëtzebuerg?",
-      "faq1A": "Bei Widdervekaf bannent 2 Joer: progressiven Akommenssteierentaux (bis ongeféier 45,78 %). No 2 Joer: e Véierel vum Gesamtsaz, also ongeféier 10 bis 11 % je no Akommes, no Ofzuch vum Fräibedrag vu 50.000 €.",
-      "faq2Q": "Ass de Verkaf vu mengem Haaptwunnsëtz steierflichteg?",
-      "faq2A": "Nee, wann Dir d'Immobilie während den 5 Joer virum Verkaf onofrocheg als Haaptwunnsëtz bewunnt hutt, ass de Kapitalgewënn komplett befreit (Art. 102bis Abs. 3 LIR)."
+      "title": "Immobilie-Kapitalgewënner zu Lëtzebuerg: Besteierung 2026 (Art. 99bis/99ter/102bis LIR)",
+      "metaDescription": "Immobilie-Kapitalgewënner LU 2026: Spekulatioun < 2 Joer no Tarif, Veräusserung ≥ 2 Joer zum Véierel vum Gesamtsaz, Fräibedrag 50.000 €/100.000 €, Haaptwunnsëtz-Befreiung, STATEC-Koeffizient.",
+      "subtitle": "Verstitt d'Besteierung vun engem Immobilie-Kapitalgewënn no Haltedauer, Notzung an applikabelem Steierregime.",
+      "category": "Besteierung vun der Veräusserung",
+      "essentiel": [
+        "Haltedauer < 2 Joer = Spekulatiounsgewënn: Besteierung no progressivem Akommenssteierentaux, bis ronn 45,78 % mat Beschäftegungsfondsbäitrag.",
+        "Haltedauer ≥ 2 Joer = Veräusserungsgewënn: e Véierel vum Gesamtsteiersaz (typesch effektiv 10 bis 11 %).",
+        "Akafspräis gëtt iwwer den STATEC-Koeffizient opgewäert (1,52 bei Kaaf 2025, 1,48 bei 2026).",
+        "Zéng-Joers-Fräibedrag: 50.000 € pro Persoun, 100.000 € fir zesumme besteierd Koppel.",
+        "Perséinlech an onofrocheg bewunnten Haaptwunnsëtz: komplett Befreiung méiglech."
+      ],
+      "section1Title": "Spekulatiouns- vs Veräusserungsregime",
+      "section1P1": "D'Lëtzebuerger Steierrecht ënnerscheet zwee Regimer no Haltedauer. Wann de Widdervekaf bannent zwee Joer nom Erwerb geschitt, gëllt de Gewënn als Spekulatiounsgewënn (Art. 99bis LIR): hien gëtt komplett zum steierflichtegen Akommes vum Joer derbäigesat an no progressivem Akommenssteierentaux besteierd (Grenzsaz bis 42 % + 7 oder 9 % Beschäftegungsfondsbäitrag, max effektiv ronn 45,78 %).",
+      "section1P2": "No iwwer zwee Joer Haltedauer gëtt de Gewënn zum Veräusserungsgewënn (Art. 99ter LIR) mat däitlech méi favorabelem Regime: nëmmen e Véierel vum Gesamtsteiersaz no Artikel 102bis Absatz 1 LIR. Bei engem Steierflichtegen am 42 %-Spëtzentaux fällt den effektiven Saz op de Gewënn op ongeféier 10,5 %, no Fräibedrag.",
+      "callout1Title": "Wéi déi 2-Joer-Frist gezielt gëtt",
+      "callout1Body": "D'Halddauer leeft vum Datum vum notarielle Kafsakt bis zum Datum vum Verkafsakt. De Kompromiss stoppt d'Auer net. Bei enger duerch Schenkung oder Ierfschaft kritter Immobilie fänkt d'Frist mam ursprénglechen Erwerbsdatum vum Schenker oder Verstuerwenen un (Art. 99bis Abs. 3 LIR).",
+      "section2Title": "Berechnung vum steierflichtegen Gewënn",
+      "section2P1": "De Bruttogewënn ass d'Differenz tëschent Verkafspräis (ofzüglech Verkafskäschten wéi Maklercommissioun) an Akafspräis zuzüglech Erwerbsnieftekäschten (Gebühren, Notairsgebühren, Hypothéik) an dauerhafter Verbesserungsausgaben (Erweiderungen, Réibau, grouss Energiesanéierung). Lafenden Ënnerhalt ass net ofzéibar.",
+      "section2P2": "Fir d'Veräusserungsregime (≥ 2 Joer) gi Akafspräis a Käschten mam jährlech vum STATEC publizéierten Opwäertungskoeffizient (Art. 102 LIR) opgewäert. Fir 2026 d'Schlësselkoeffizienten: 2,33 (Kaaf 2010), 2,07 (2015), 1,77 (2022), 1,52 (2025). Eng 2015 fir 400.000 € kaaft Immobilie huet en opgewäerte Präis vu ronn 828.000 €. De Bruttogewënn gëtt dann ëm den Zéng-Joers-Fräibedrag reduzéiert an zum Véierel vum Gesamtsaz besteierd.",
+      "section3Title": "Fräibedrag a Befreiungen",
+      "section3P1": "Den Zéng-Joers-Fräibedrag no Artikel 130 Absatz 4 LIR zitt 50.000 € vum steierflichtegen Gewënn pro Persoun of (100.000 € fir zesumme besteierd Koppel). Hie gëtt all zéng Joer erëm uflueden, wat eng Veräusserungsplanung no Wiederherstellung erlaabt. Den tatsächlech an onofrocheg während den fënnef Joer virum Verkaf bewunnten Haaptwunnsëtz ass komplett befreit (Art. 102bis Abs. 3 LIR), ouni Präisgrenz.",
+      "section3P2": "En Steieropschub (Reinvestitioun) ass méiglech, wann den Verkafserläus bannent zwee Joer an en neien selwer bewunnten Haaptwunnsëtz reinvestéiert gëtt (Art. 102bis Abs. 2 LIR). Fir Terrainen existéieren spezifesch Regimer (Opschub bei Schenkung un en Nokomme). Onentgeltlech Iwwerdroungen (Schenkung, Ierfschaft) léisen keng Besteierung beim Schenker aus, mä de Begënschtegten iwwerhëlt den historeschen Akafspräis bei der Berechnung vu sengem eegenen zukünftege Gewënn.",
+      "callout2Title": "Optimisatioun: Veräusserungen staffelen",
+      "callout2Body": "Den Zéng-Joers-Fräibedrag gëtt a Tranchen vun zéng Joer ab leschter Notzung wiederhirgestallt. En Investisseur mat méi geplanten Veräusserunge kann se sou staffelen, datt all Tranche vun engem neie Fräibedrag profitéiert — besonnesch attraktiv fir Koppelen (100.000 € pro Tranche).",
+      "section4Title": "Rechenbeispiller",
+      "section4Intro": "Kombinéierten Effekt vum Opwäertungskoeffizient, Zéng-Joers-Fräibedrag a Véierel-Gesamtsaz fir eng 2015 erworben an 2026 verkaaft Immobilie (Kafpräis 400.000 €, Erwerbskäschten 30.000 €, Verkafspräis 700.000 €, Steierflichtegen am 42 %-Spëtzentaux).",
+      "table": {
+        "caption": "Steierflichtegen Gewënn a Steier — Beispiller 2026",
+        "headers": ["Keefer-Profil", "Bruttogewënn", "No Fräibedrag", "Steier fälleg"],
+        "rows": [
+          ["Eenzelpersoun, 1 Veräusserung an 10 Joer", "≈ −230.000 €", "0 €", "0 €"],
+          ["Koppel, 1 Veräusserung an 10 Joer", "≈ −230.000 €", "0 €", "0 €"],
+          ["Eenzelpersoun, méi Veräusserungen", "150.000 €", "100.000 €", "≈ 10.500 €"],
+          ["Koppel, méi Veräusserungen", "150.000 €", "50.000 €", "≈ 5.250 €"],
+          ["Spekulatioun < 2 Joer (Koppel)", "150.000 €", "150.000 €", "≈ 68.700 €"]
+        ],
+        "footnote": "Indikativ Berechnungen 2026: opgewäerte Präis 2015→2026 = 400.000 × 2,07 = 828.000 € (mat Käschten 891.100 €), e Verkaf zu 700.000 € erzeugt also normalerweis e Verloscht. D'Zeile 'méi Veräusserungen' ginn aus engem hypotheteschen Bruttogewënn vu 150.000 € aus."
+      },
+      "callout3Title": "Konkreete Fall: Widdervekaf vun engem Appartement 2026",
+      "callout3Body": "E Koppel huet 2015 en Appartement fir 400.000 € kaaft (30.000 € Käschten). Hie verkeeft 700.000 € am Joer 2026. Opgewäerte Präis: 430.000 × 2,07 ≈ 890.100 €. D'Veräusserung weist e Verloscht (−190.100 €): keng Steier fälleg. Wier d'Immobilie 2015 fir 250.000 € kaaft an 2026 fir 700.000 € verkaaft ginn, wier den opgewäerte Bruttogewënn ronn 122.750 €, no Koppel-Fräibedrag 22.750 €, also ronn 2.400 € Steier zum Véierel-Gesamtsaz.",
+      "inlineCalc": {
+        "title": "Berechent Ären steierflichtegen Kapitalgewënn Fall fir Fall",
+        "description": "Eise Rechner appliquéiert dat richtegt Regime no Haltedauer, den STATEC-Koeffizient vun Ärem Akafsjoer, den Zéng-Joers-Fräibedrag no Ärer Situatioun an de Véierel vum Gesamtsaz.",
+        "cta": "Simulatioun starten"
+      },
+      "tools": [
+        { "href": "/plus-values", "title": "Kapitalgewënn-Rechner", "description": "Spekulatiouns- oder Veräusserungsgewënn no Haltedauer, Fräibedrag, STATEC-Koeffizient." },
+        { "href": "/dcf-multi", "title": "DCF iwwer méi Perioden", "description": "Cash-Flow-Projektioun a Widdervekafswäert fir d'Steier ze antizipéieren." },
+        { "href": "/portfolio", "title": "Immobilieportfolio", "description": "Verfollegt Är Immobilien a plangt Veräusserungen iwwer 10 Joer." },
+        { "href": "/frais-acquisition", "title": "Erwerbskäschten", "description": "Berechent den erhéiten Akafspräis als Basis fir de Gewënn." }
+      ],
+      "faq": [
+        { "q": "Wéi héich ass de Steiersaz op Immobilien-Kapitalgewënner zu Lëtzebuerg?", "a": "Bei Widdervekaf bannent 2 Joer (Spekulatioun): progressiven Akommenssteierentaux bis ronn 45,78 % effektiv. No 2 Joer (Veräusserung): e Véierel vum Gesamtsaz, typesch 10 bis 11 % je no Tranche, nom Zéng-Joers-Fräibedrag." },
+        { "q": "Ass de Verkaf vu mengem Haaptwunnsëtz steierflichteg?", "a": "Nee, wann Dir e tatsächlech an onofrocheg während den 5 Joer virum Verkaf als Haaptwunnsëtz bewunnt hutt. De Gewënn ass komplett befreit (Art. 102bis Abs. 3 LIR), ouni Verkafspräisgrenz." },
+        { "q": "Wéi funktionéiert den Zéng-Joers-Fräibedrag?", "a": "All Steierflichtegen kritt 50.000 € (100.000 € fir zesumme besteierd Koppel) op de steierflichtegen Gewënn, all zéng Joer erëm uflueden. Bei zwou Veräusserungen am selwechten Joerzéngt gëllt de Fräibedrag nëmmen eemol." },
+        { "q": "Wéi gëtt den Opwäertungskoeffizient berechent?", "a": "Hie gëtt jährlech vum STATEC no Artikel 102 LIR publizéiert a spigelt d'Entwécklung vum Baukostenindex zënter dem Akafsjoer. Fir 2026: 2,33 (Kaaf 2010), 2,07 (2015), 1,77 (2022), 1,52 (2025), 1,48 (2026)." },
+        { "q": "Ginn d'Erwerbsnieftekäschten an d'Berechnung integréiert?", "a": "Jo. Aschreiwungsgebühren, Notairsgebühren, Hypothéikekosten vum Akafsakt an dauerhaft Verbesserungsausgaben (Erweiderungen, grouss Sanéierung, gréisser Energieoptimisatioun) ginn virum Aufwerten zum Akafspräis derbäigesat. Lafenden Ënnerhalt an Dekoratioun sinn net ofzéibar." },
+        { "q": "Wat geschitt bei Schenkung oder Ierfschaft?", "a": "Schenkung oder Ierfschaft léist keng Kapitalgewënnbesteierung beim Schenker oder Verstuerwenen aus (Art. 99bis Abs. 4 LIR). De Begënschtegten iwwerhëlt den historeschen Akafspräis an dat ursprénglecht Erwerbsdatum bei der Berechnung vu sengem eegenen zukünftege Gewënn, wat zu wesentleche latenten Gewënner kann féieren." }
+      ],
+      "sources": [
+        { "title": "Geännert Gesetz vum 4. Dezember 1967 iwwer d'Akommessteier (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo", "year": 1967 },
+        { "title": "Opwäertungskoeffizienten — STATEC-Tabell", "org": "Steierverwaltung fir direkt Steieren (ACD)", "url": "https://impotsdirects.public.lu/fr/legislation/LIR.html" },
+        { "title": "Immobilie-Kapitalgewënner — Erklärungsguide", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/activite-patrimoine/plus-values/plus-value-cession-immeuble.html" },
+        { "title": "Baukostenindex", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Artikel 99bis LIR — Spekulatiounsgewënn", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
+        { "title": "Artikel 102bis LIR — Véierel vum Gesamtsaz", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+      ]
     },
     "bailHabitation": {
       "title": "Wéi eng Reegele gëllen fir Wunnengsmietverträg zu Lëtzebuerg?",

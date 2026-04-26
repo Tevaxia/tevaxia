@@ -9307,21 +9307,73 @@
       ]
     },
     "plusValue": {
-      "title": "Comment est imposée la plus-value immobilière au Luxembourg ?",
-      "metaDescription": "Fiscalité de la plus-value immobilière au Luxembourg : spéculation < 2 ans, taux global, abattements 50 000 €/100 000 €, exonération résidence principale. Art. 99ter et 102bis LIR.",
-      "intro": "Au Luxembourg, la plus-value réalisée lors de la vente d'un bien immobilier est imposable selon deux régimes distincts : le bénéfice de spéculation si la revente intervient moins de 2 ans après l'acquisition (art. 99bis LIR), ou le bénéfice de cession si elle intervient après 2 ans (art. 99ter LIR). Le taux d'imposition, les abattements et les possibilités d'exonération dépendent de la durée de détention et de l'usage du bien. L'exonération totale est possible pour la résidence principale occupée personnellement.",
-      "section1Title": "Bénéfice de spéculation (< 2 ans)",
-      "section1Content": "Lorsque la revente intervient dans les 2 ans suivant l'acquisition, la plus-value est qualifiée de bénéfice de spéculation (art. 99bis LIR). Elle est intégralement ajoutée aux revenus imposables et taxée au barème progressif de l'impôt sur le revenu (taux marginal jusqu'à 42 % + contribution au fonds pour l'emploi de 7 à 9 %, soit un taux effectif maximal d'environ 45,78 %). Aucun abattement spécifique ne s'applique. La plus-value est calculée comme la différence entre le prix de vente et le prix d'acquisition majoré des frais d'acte et des travaux d'amélioration.",
-      "section2Title": "Bénéfice de cession (≥ 2 ans)",
-      "section2Content": "Lorsque la cession intervient plus de 2 ans après l'acquisition, la plus-value est un bénéfice de cession (art. 99ter LIR). Elle bénéficie d'un régime fiscal plus favorable : seul le quart du taux global d'imposition s'applique (art. 102bis al. 1 LIR). Le prix d'acquisition est réévalué au moyen du coefficient de réévaluation de l'indice des prix de la construction publié par le STATEC. Un abattement décennal de 50 000 € par personne (100 000 € pour un couple imposé collectivement) est déduit de la plus-value imposable (art. 130 al. 4 LIR). Exemple : un bien acheté 400 000 € en 2010 et vendu 700 000 € en 2025, avec un coefficient de 1,25, donne un prix réévalué de 500 000 € et une plus-value brute de 200 000 €.",
-      "section3Title": "Exonérations",
-      "section3Content": "L'exonération la plus courante concerne la résidence principale : la plus-value est totalement exonérée si le bien constitue la résidence principale du vendeur au moment de la cession et s'il l'a occupée effectivement et de manière continue pendant les 5 années précédant la vente (art. 102bis al. 3 LIR). Un sursis d'imposition (remploi) est possible si le produit de la vente est réinvesti dans un autre logement occupé comme résidence principale dans les 2 ans (art. 102bis al. 2 LIR). Pour les terrains, un régime de sursis est également possible sous conditions. Enfin, les mutations à titre gratuit (donation, succession) ne déclenchent pas d'imposition de la plus-value chez le donateur/défunt, mais le bénéficiaire reprend le prix d'acquisition historique.",
-      "relatedToolLabel": "Calculer votre plus-value imposable",
-      "relatedToolLink": "/plus-values",
-      "faq1Q": "Quel est le taux d'imposition sur les plus-values immobilières au Luxembourg ?",
-      "faq1A": "Pour une revente dans les 2 ans : barème progressif de l'IR (jusqu'à ~45,78 %). Après 2 ans : un quart du taux global, soit environ 10 à 11 % selon les revenus, après application de l'abattement de 50 000 €.",
-      "faq2Q": "La vente de ma résidence principale est-elle imposable ?",
-      "faq2A": "Non, si vous avez occupé le bien comme résidence principale de manière continue pendant les 5 années précédant la vente, la plus-value est intégralement exonérée (art. 102bis al. 3 LIR)."
+      "title": "Plus-value immobilière au Luxembourg : fiscalité 2026 (Art. 99bis/99ter/102bis LIR)",
+      "metaDescription": "Plus-value immobilière LU 2026 : spéculation < 2 ans au barème, cession ≥ 2 ans au quart du taux global, abattement 50 000 €/100 000 €, exonération résidence principale, coefficient STATEC.",
+      "subtitle": "Comprendre l'imposition d'une plus-value immobilière selon la durée de détention, l'usage du bien et le régime fiscal applicable.",
+      "category": "Fiscalité de la cession",
+      "essentiel": [
+        "Détention < 2 ans = bénéfice de spéculation : taxation au barème progressif IR, jusqu'à environ 45,78 % avec contribution au fonds pour l'emploi.",
+        "Détention ≥ 2 ans = bénéfice de cession : quart du taux global d'imposition (effectif typique 10 à 11 %).",
+        "Le prix d'acquisition est réévalué via le coefficient STATEC (1,52 pour un achat en 2025, 1,48 pour 2026).",
+        "Abattement décennal : 50 000 € par personne, 100 000 € pour un couple imposé collectivement.",
+        "Résidence principale occupée personnellement et de manière continue : exonération totale possible."
+      ],
+      "section1Title": "Régime de spéculation vs cession",
+      "section1P1": "Le droit fiscal luxembourgeois distingue deux régimes selon la durée de détention. Si la revente intervient dans les deux ans suivant l'acquisition, la plus-value est qualifiée de bénéfice de spéculation (art. 99bis LIR) : elle s'ajoute intégralement aux revenus imposables de l'année et est taxée au barème progressif de l'impôt sur le revenu (taux marginal jusqu'à 42 % + contribution au fonds pour l'emploi de 7 % ou 9 %, soit un effectif maximal d'environ 45,78 %).",
+      "section1P2": "Au-delà de deux ans de détention, la plus-value devient un bénéfice de cession (art. 99ter LIR) bénéficiant d'un régime nettement plus favorable : seul le quart du taux global d'imposition s'applique en vertu de l'article 102bis alinéa 1 LIR. Pour un contribuable au taux marginal de 42 %, le taux effectif sur la plus-value tombe ainsi autour de 10,5 %, abattement déduit.",
+      "callout1Title": "Comment se compte le délai de 2 ans",
+      "callout1Body": "Le délai de détention court de la date de l'acte authentique d'acquisition à la date de l'acte de cession. Le compromis de vente n'arrête pas le compteur. Pour un bien reçu par donation ou succession, le délai démarre à la date d'acquisition originale par le donateur ou le défunt (art. 99bis al. 3 LIR).",
+      "section2Title": "Calcul de la plus-value imposable",
+      "section2P1": "La plus-value brute est la différence entre le prix de cession (déduction faite des frais de vente comme la commission d'agence) et le prix d'acquisition majoré des frais d'acte (droits, émoluments, hypothèque) et des dépenses d'amélioration durables (extensions, gros œuvre, rénovation énergétique majeure). Les dépenses d'entretien courant ne sont pas déductibles.",
+      "section2P2": "Pour le régime de cession (≥ 2 ans), le prix d'acquisition et les frais sont réévalués au moyen du coefficient de réévaluation publié annuellement par le STATEC (art. 102 LIR). Pour 2026, les coefficients clés sont : 2,33 (achat en 2010), 2,07 (2015), 1,77 (2022), 1,52 (2025). Un bien acheté 400 000 € en 2015 a un prix réévalué d'environ 828 000 €. La plus-value brute est ensuite réduite de l'abattement décennal puis taxée au quart du taux global.",
+      "section3Title": "Abattements et exonérations",
+      "section3P1": "L'abattement décennal de l'article 130 alinéa 4 LIR retire 50 000 € de la plus-value imposable par personne (100 000 € pour un couple imposé collectivement). Il est rechargeable tous les dix ans, ce qui permet de planifier une cession après reconstitution. La résidence principale occupée effectivement et de manière continue pendant les cinq années précédant la cession est intégralement exonérée (art. 102bis al. 3 LIR), sans limite de prix.",
+      "section3P2": "Un sursis d'imposition (remploi) est possible si le produit de la vente est réinvesti dans un nouveau logement occupé comme résidence principale dans les deux ans (art. 102bis al. 2 LIR). Pour les terrains, des régimes spécifiques existent (sursis si donation à un descendant). Les mutations à titre gratuit (donation, succession) ne déclenchent pas d'imposition chez le donateur, mais le bénéficiaire reprend le prix d'acquisition historique au moment du calcul de sa propre plus-value future.",
+      "callout2Title": "Optimisation : étaler les cessions",
+      "callout2Body": "L'abattement décennal se reconstitue par tranche de dix ans depuis le dernier exercice. Un investisseur qui prévoit de céder plusieurs biens peut espacer les ventes pour bénéficier d'un nouvel abattement à chaque exercice — particulièrement intéressant pour les couples (100 000 € par tranche).",
+      "section4Title": "Exemples chiffrés",
+      "section4Intro": "Effets combinés du coefficient de réévaluation, de l'abattement décennal et du quart du taux global pour un bien acquis en 2015 et cédé en 2026 (prix d'achat 400 000 €, frais d'acte 30 000 €, prix de vente 700 000 €, contribuable au taux marginal global de 42 %).",
+      "table": {
+        "caption": "Plus-value imposable et impôt — exemples 2026",
+        "headers": ["Profil acquéreur", "Plus-value brute", "Après abattement", "Impôt à payer"],
+        "rows": [
+          ["Personne seule, 1 cession 10 ans", "≈ −230 000 €", "0 €", "0 €"],
+          ["Couple, 1 cession 10 ans", "≈ −230 000 €", "0 €", "0 €"],
+          ["Personne seule, plusieurs cessions", "150 000 €", "100 000 €", "≈ 10 500 €"],
+          ["Couple, plusieurs cessions", "150 000 €", "50 000 €", "≈ 5 250 €"],
+          ["Spéculation < 2 ans (couple)", "150 000 €", "150 000 €", "≈ 68 700 €"]
+        ],
+        "footnote": "Calculs indicatifs 2026 : prix réévalué 2015→2026 = 400 000 × 2,07 = 828 000 € (frais inclus 891 100 €), donc cession à 700 000 € génère normalement une moins-value. Les lignes 'plusieurs cessions' supposent une plus-value brute hypothétique de 150 000 € pour illustrer le mécanisme."
+      },
+      "callout3Title": "Cas concret : revente d'un appartement en 2026",
+      "callout3Body": "Un couple a acheté en 2015 un appartement 400 000 € (frais 30 000 €). Il le revend 700 000 € en 2026. Prix réévalué : 430 000 × 2,07 ≈ 890 100 €. La cession ressort en moins-value (−190 100 €) : pas d'impôt dû. Si le bien avait été acheté 250 000 € en 2015 et revendu 700 000 €, la plus-value brute après réévaluation aurait été d'environ 122 750 €, ramenée à 22 750 € après abattement couple, soit environ 2 400 € d'impôt au quart du taux global.",
+      "inlineCalc": {
+        "title": "Calculez votre plus-value imposable au cas par cas",
+        "description": "Notre calculateur applique le bon régime selon la durée de détention, le coefficient STATEC de l'année d'achat, l'abattement décennal selon votre situation et le quart du taux global.",
+        "cta": "Lancer la simulation"
+      },
+      "tools": [
+        { "href": "/plus-values", "title": "Calculateur plus-value", "description": "Bénéfice de spéculation ou de cession selon la durée, abattement, coefficient STATEC." },
+        { "href": "/dcf-multi", "title": "DCF multi-périodes", "description": "Projection cash-flow et valeur de revente pour anticiper la fiscalité." },
+        { "href": "/portfolio", "title": "Portefeuille immobilier", "description": "Suivi de vos biens et planification des cessions sur 10 ans." },
+        { "href": "/frais-acquisition", "title": "Frais d'acquisition", "description": "Calculez le prix d'acquisition majoré pour servir de base à la plus-value." }
+      ],
+      "faq": [
+        { "q": "Quel est le taux d'imposition sur les plus-values immobilières au Luxembourg ?", "a": "Pour une revente dans les 2 ans (spéculation), barème progressif de l'IR, jusqu'à environ 45,78 % effectif. Après 2 ans (cession), un quart du taux global, soit typiquement 10 à 11 % selon votre tranche, après application de l'abattement décennal." },
+        { "q": "La vente de ma résidence principale est-elle imposable ?", "a": "Non, si vous l'avez occupée effectivement et de manière continue comme résidence principale pendant les 5 années précédant la cession, la plus-value est intégralement exonérée (art. 102bis al. 3 LIR), sans limite de prix de vente." },
+        { "q": "Comment fonctionne l'abattement décennal ?", "a": "Tout contribuable bénéficie d'un abattement de 50 000 € (100 000 € pour un couple imposé collectivement) sur la plus-value imposable, rechargeable tous les dix ans. Si vous cédez deux biens dans la même décennie, l'abattement ne s'applique qu'une fois." },
+        { "q": "Comment est calculé le coefficient de réévaluation ?", "a": "Il est publié chaque année par le STATEC dans le cadre de l'article 102 LIR. Il reflète l'évolution de l'indice des prix de la construction depuis l'année d'acquisition. Pour 2026 : 2,33 (achat 2010), 2,07 (2015), 1,77 (2022), 1,52 (2025), 1,48 (2026)." },
+        { "q": "Les frais d'acquisition entrent-ils dans le calcul ?", "a": "Oui. Les droits d'enregistrement, l'émolument du notaire, les frais hypothécaires de l'acte d'acquisition et les dépenses d'amélioration durables (extensions, rénovation lourde, mise aux normes énergétiques majeures) sont ajoutés au prix d'achat avant réévaluation. L'entretien courant et la décoration ne sont pas déductibles." },
+        { "q": "Que se passe-t-il en cas de donation ou de succession ?", "a": "La donation ou la succession ne déclenche pas d'imposition de la plus-value chez le donateur ou le défunt (art. 99bis al. 4 LIR). Le bénéficiaire reprend le prix d'acquisition historique et la date d'acquisition originale au moment du calcul de sa propre plus-value future, ce qui peut conduire à une plus-value latente significative." }
+      ],
+      "sources": [
+        { "title": "Loi modifiée du 4 décembre 1967 concernant l'impôt sur le revenu (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo", "year": 1967 },
+        { "title": "Coefficients de réévaluation — barème STATEC", "org": "Administration des contributions directes", "url": "https://impotsdirects.public.lu/fr/legislation/LIR.html" },
+        { "title": "Plus-values immobilières — guide explicatif", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/activite-patrimoine/plus-values/plus-value-cession-immeuble.html" },
+        { "title": "Indice des prix de la construction", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Article 99bis LIR — bénéfice de spéculation", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
+        { "title": "Article 102bis LIR — quart du taux global", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+      ]
     },
     "bailHabitation": {
       "title": "Quelles sont les règles du bail d'habitation au Luxembourg ?",

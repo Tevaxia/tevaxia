@@ -9185,21 +9185,73 @@
       ]
     },
     "plusValue": {
-      "title": "Wie werden Immobilien-Kapitalgewinne in Luxemburg besteuert?",
-      "metaDescription": "Luxemburger Immobilienkapitalertragssteuer: Spekulation < 2 Jahre, Gesamtsatz, Freibeträge 50.000 €/100.000 €, Hauptwohnsitz-Befreiung. Art. 99ter und 102bis LIR.",
-      "intro": "In Luxemburg unterliegen Kapitalgewinne aus dem Verkauf von Immobilien zwei verschiedenen Regelungen: Spekulationsgewinn bei Weiterverkauf innerhalb von 2 Jahren nach dem Erwerb (Art. 99bis LIR) oder Veräußerungsgewinn nach 2 Jahren (Art. 99ter LIR). Steuersatz, Freibeträge und Befreiungsmöglichkeiten hängen von der Haltedauer und der Nutzung der Immobilie ab. Eine vollständige Befreiung ist für den selbst bewohnten Hauptwohnsitz möglich.",
-      "section1Title": "Spekulationsgewinn (< 2 Jahre)",
-      "section1Content": "Wenn der Weiterverkauf innerhalb von 2 Jahren nach dem Erwerb erfolgt, gilt der Kapitalgewinn als Spekulationsgewinn (Art. 99bis LIR). Er wird vollständig zum steuerpflichtigen Einkommen addiert und mit dem progressiven Einkommensteuertarif besteuert (Grenzsteuersatz bis 42 % + Beschäftigungsfondsbeitrag von 7 bis 9 %, also ein maximaler Effektivsatz von ca. 45,78 %). Kein spezifischer Freibetrag ist anwendbar. Der Kapitalgewinn berechnet sich als Differenz zwischen Verkaufspreis und Anschaffungspreis zuzüglich Erwerbsnebenkosten und Verbesserungsarbeiten.",
-      "section2Title": "Veräußerungsgewinn (≥ 2 Jahre)",
-      "section2Content": "Wenn die Veräußerung mehr als 2 Jahre nach dem Erwerb erfolgt, handelt es sich um einen Veräußerungsgewinn (Art. 99ter LIR). Es gilt ein günstigeres Steuerregime: Nur ein Viertel des Gesamtsteuersatzes wird angewandt (Art. 102bis Abs. 1 LIR). Der Anschaffungspreis wird anhand des vom STATEC veröffentlichten Baukostenindex-Aufwertungskoeffizienten aufgewertet. Ein Zehn-Jahres-Freibetrag von 50.000 € pro Person (100.000 € für gemeinsam veranlagte Ehepaare) wird vom steuerpflichtigen Kapitalgewinn abgezogen (Art. 130 Abs. 4 LIR). Beispiel: Eine 2010 für 400.000 € gekaufte und 2025 für 700.000 € verkaufte Immobilie mit Koeffizient 1,25 ergibt einen aufgewerteten Preis von 500.000 € und einen Bruttogewinn von 200.000 €.",
-      "section3Title": "Befreiungen",
-      "section3Content": "Die häufigste Befreiung betrifft den Hauptwohnsitz: Der Kapitalgewinn ist vollständig befreit, wenn die Immobilie zum Zeitpunkt der Veräußerung der Hauptwohnsitz des Verkäufers ist und er sie während der 5 Jahre vor dem Verkauf tatsächlich und ununterbrochen bewohnt hat (Art. 102bis Abs. 3 LIR). Ein Steueraufschub (Reinvestition) ist möglich, wenn der Verkaufserlös innerhalb von 2 Jahren in einen anderen selbstbewohnten Hauptwohnsitz reinvestiert wird (Art. 102bis Abs. 2 LIR). Für Grundstücke ist ebenfalls ein Aufschubregime unter Bedingungen möglich. Unentgeltliche Übertragungen (Schenkung, Erbschaft) lösen keine Kapitalertragsbesteuerung beim Schenker/Verstorbenen aus, aber der Begünstigte übernimmt den historischen Anschaffungspreis.",
-      "relatedToolLabel": "Berechnen Sie Ihren steuerpflichtigen Kapitalgewinn",
-      "relatedToolLink": "/plus-values",
-      "faq1Q": "Wie hoch ist der Steuersatz auf Immobilienkapitalgewinne in Luxemburg?",
-      "faq1A": "Bei Weiterverkauf innerhalb von 2 Jahren: progressiver Einkommensteuertarif (bis ca. 45,78 %). Nach 2 Jahren: ein Viertel des Gesamtsatzes, also ca. 10 bis 11 % je nach Einkommen, nach Abzug des Freibetrags von 50.000 €.",
-      "faq2Q": "Ist der Verkauf meines Hauptwohnsitzes steuerpflichtig?",
-      "faq2A": "Nein, wenn Sie die Immobilie während der 5 Jahre vor dem Verkauf ununterbrochen als Hauptwohnsitz bewohnt haben, ist der Kapitalgewinn vollständig befreit (Art. 102bis Abs. 3 LIR)."
+      "title": "Immobilien-Kapitalgewinne in Luxemburg: Besteuerung 2026 (Art. 99bis/99ter/102bis LIR)",
+      "metaDescription": "Immobilienkapitalgewinne LU 2026: Spekulation < 2 Jahre nach Tarif, Veräußerung ≥ 2 Jahre zum Viertel des Gesamtsatzes, Freibetrag 50.000 €/100.000 €, Hauptwohnsitz-Befreiung, STATEC-Koeffizient.",
+      "subtitle": "Verstehen Sie die Besteuerung eines Immobilien-Kapitalgewinns nach Haltedauer, Nutzung und anwendbarem Steuerregime.",
+      "category": "Besteuerung der Veräußerung",
+      "essentiel": [
+        "Haltedauer < 2 Jahre = Spekulationsgewinn: Besteuerung nach progressivem Einkommensteuertarif, bis ca. 45,78 % mit Beschäftigungsfondsbeitrag.",
+        "Haltedauer ≥ 2 Jahre = Veräußerungsgewinn: ein Viertel des Gesamtsteuersatzes (effektiv typisch 10 bis 11 %).",
+        "Anschaffungspreis wird per STATEC-Koeffizient aufgewertet (1,52 bei Kauf 2025, 1,48 bei 2026).",
+        "Zehn-Jahres-Freibetrag: 50.000 € pro Person, 100.000 € für gemeinsam veranlagtes Paar.",
+        "Persönlich und ununterbrochen bewohnter Hauptwohnsitz: vollständige Befreiung möglich."
+      ],
+      "section1Title": "Spekulations- vs Veräußerungsregime",
+      "section1P1": "Das luxemburgische Steuerrecht unterscheidet zwei Regime nach Haltedauer. Erfolgt der Wiederverkauf innerhalb von zwei Jahren nach dem Erwerb, gilt der Gewinn als Spekulationsgewinn (Art. 99bis LIR): Er wird vollständig zum steuerpflichtigen Einkommen des Jahres hinzugerechnet und nach progressivem Einkommensteuertarif besteuert (Grenzsatz bis 42 % + 7 oder 9 % Beschäftigungsfondsbeitrag, max. effektiv ca. 45,78 %).",
+      "section1P2": "Über zwei Jahre Haltedauer hinaus wird der Gewinn zum Veräußerungsgewinn (Art. 99ter LIR) mit deutlich günstigerem Regime: Nur ein Viertel des Gesamtsteuersatzes nach Artikel 102bis Absatz 1 LIR. Bei einem Steuerpflichtigen im 42 %-Spitzensatz fällt der effektive Satz auf den Gewinn somit auf etwa 10,5 %, nach Freibetrag.",
+      "callout1Title": "Wie die 2-Jahres-Frist gezählt wird",
+      "callout1Body": "Die Haltefrist läuft vom Datum des notariellen Kaufakts bis zum Datum der Veräußerungsurkunde. Der Vorvertrag stoppt die Uhr nicht. Bei einer durch Schenkung oder Erbschaft erhaltenen Immobilie startet die Frist mit dem ursprünglichen Erwerbsdatum durch den Schenker oder Verstorbenen (Art. 99bis Abs. 3 LIR).",
+      "section2Title": "Berechnung des steuerpflichtigen Gewinns",
+      "section2P1": "Der Bruttogewinn ist die Differenz zwischen Veräußerungspreis (abzüglich Verkaufskosten wie Maklerprovision) und Anschaffungspreis zuzüglich Erwerbsnebenkosten (Gebühren, Notargebühren, Hypothek) und dauerhafter Verbesserungsausgaben (Erweiterungen, Rohbau, große Energiesanierung). Laufende Instandhaltung ist nicht abzugsfähig.",
+      "section2P2": "Für das Veräußerungsregime (≥ 2 Jahre) werden Anschaffungspreis und Kosten mit dem jährlich vom STATEC veröffentlichten Aufwertungskoeffizienten (Art. 102 LIR) aufgewertet. Für 2026 die Schlüssel-Koeffizienten: 2,33 (Kauf 2010), 2,07 (2015), 1,77 (2022), 1,52 (2025). Eine 2015 für 400.000 € gekaufte Immobilie hat einen aufgewerteten Preis von ca. 828.000 €. Der Bruttogewinn wird dann um den Zehn-Jahres-Freibetrag reduziert und zum Viertel des Gesamtsatzes besteuert.",
+      "section3Title": "Freibeträge und Befreiungen",
+      "section3P1": "Der Zehn-Jahres-Freibetrag nach Artikel 130 Absatz 4 LIR zieht 50.000 € vom steuerpflichtigen Gewinn pro Person ab (100.000 € für ein gemeinsam veranlagtes Paar). Er ist alle zehn Jahre wieder aufladbar, was eine Veräußerungsplanung nach Wiederherstellung erlaubt. Der tatsächlich und ununterbrochen während der fünf Jahre vor der Veräußerung bewohnte Hauptwohnsitz ist vollständig befreit (Art. 102bis Abs. 3 LIR), ohne Preisgrenze.",
+      "section3P2": "Ein Steueraufschub (Reinvestition) ist möglich, wenn der Verkaufserlös innerhalb von zwei Jahren in einen neuen selbstbewohnten Hauptwohnsitz reinvestiert wird (Art. 102bis Abs. 2 LIR). Für Grundstücke gibt es spezifische Regime (Aufschub bei Schenkung an einen Nachkommen). Unentgeltliche Übertragungen (Schenkung, Erbschaft) lösen keine Besteuerung beim Schenker aus, der Begünstigte übernimmt jedoch den historischen Anschaffungspreis bei der Berechnung seines eigenen künftigen Gewinns.",
+      "callout2Title": "Optimierung: Veräußerungen staffeln",
+      "callout2Body": "Der Zehn-Jahres-Freibetrag wird in Tranchen von zehn Jahren ab letzter Nutzung wiederhergestellt. Ein Investor mit mehreren geplanten Veräußerungen kann sie zeitlich so staffeln, dass jede Tranche von einem neuen Freibetrag profitiert — besonders attraktiv für Paare (100.000 € pro Tranche).",
+      "section4Title": "Rechenbeispiele",
+      "section4Intro": "Kombinierte Wirkung von Aufwertungskoeffizient, Zehn-Jahres-Freibetrag und Viertel-Gesamtsatz für eine 2015 erworbene und 2026 veräußerte Immobilie (Kaufpreis 400.000 €, Erwerbskosten 30.000 €, Verkaufspreis 700.000 €, Steuerpflichtiger im 42 %-Spitzensatz).",
+      "table": {
+        "caption": "Steuerpflichtiger Gewinn und Steuer — Beispiele 2026",
+        "headers": ["Käuferprofil", "Bruttogewinn", "Nach Freibetrag", "Steuer fällig"],
+        "rows": [
+          ["Einzelperson, 1 Veräußerung in 10 Jahren", "≈ −230.000 €", "0 €", "0 €"],
+          ["Paar, 1 Veräußerung in 10 Jahren", "≈ −230.000 €", "0 €", "0 €"],
+          ["Einzelperson, mehrere Veräußerungen", "150.000 €", "100.000 €", "≈ 10.500 €"],
+          ["Paar, mehrere Veräußerungen", "150.000 €", "50.000 €", "≈ 5.250 €"],
+          ["Spekulation < 2 Jahre (Paar)", "150.000 €", "150.000 €", "≈ 68.700 €"]
+        ],
+        "footnote": "Indikative Berechnungen 2026: aufgewerteter Preis 2015→2026 = 400.000 × 2,07 = 828.000 € (mit Kosten 891.100 €), ein Verkauf zu 700.000 € erzeugt also normalerweise einen Verlust. Die Zeilen 'mehrere Veräußerungen' nehmen einen hypothetischen Bruttogewinn von 150.000 € zur Veranschaulichung an."
+      },
+      "callout3Title": "Konkreter Fall: Wiederverkauf einer Wohnung 2026",
+      "callout3Body": "Ein Paar kaufte 2015 eine Wohnung für 400.000 € (30.000 € Kosten). Verkauf 700.000 € im Jahr 2026. Aufgewerteter Preis: 430.000 × 2,07 ≈ 890.100 €. Die Veräußerung ergibt einen Verlust (−190.100 €): keine Steuer fällig. Wäre die Immobilie 2015 für 250.000 € gekauft und für 700.000 € verkauft worden, wäre der aufgewertete Bruttogewinn ca. 122.750 €, nach Paar-Freibetrag 22.750 €, also ca. 2.400 € Steuer zum Viertel-Gesamtsatz.",
+      "inlineCalc": {
+        "title": "Berechnen Sie Ihren steuerpflichtigen Kapitalgewinn fallweise",
+        "description": "Unser Rechner wendet das richtige Regime nach Haltedauer, den STATEC-Koeffizienten Ihres Anschaffungsjahres, den Zehn-Jahres-Freibetrag entsprechend Ihrer Situation und das Viertel des Gesamtsatzes an.",
+        "cta": "Simulation starten"
+      },
+      "tools": [
+        { "href": "/plus-values", "title": "Kapitalgewinn-Rechner", "description": "Spekulations- oder Veräußerungsgewinn nach Haltedauer, Freibetrag, STATEC-Koeffizient." },
+        { "href": "/dcf-multi", "title": "Mehrperioden-DCF", "description": "Cash-Flow-Projektion und Wiederverkaufswert zur Steuer-Antizipation." },
+        { "href": "/portfolio", "title": "Immobilienportfolio", "description": "Verfolgen Sie Ihre Immobilien und planen Sie Veräußerungen über 10 Jahre." },
+        { "href": "/frais-acquisition", "title": "Erwerbskosten", "description": "Berechnen Sie den erhöhten Anschaffungspreis als Basis für den Gewinn." }
+      ],
+      "faq": [
+        { "q": "Wie hoch ist der Steuersatz auf Immobilienkapitalgewinne in Luxemburg?", "a": "Bei Wiederverkauf innerhalb von 2 Jahren (Spekulation): progressiver Einkommensteuertarif bis ca. 45,78 % effektiv. Nach 2 Jahren (Veräußerung): ein Viertel des Gesamtsatzes, typisch 10 bis 11 % je nach Tranche, nach Zehn-Jahres-Freibetrag." },
+        { "q": "Ist der Verkauf meines Hauptwohnsitzes steuerpflichtig?", "a": "Nein, sofern Sie ihn tatsächlich und ununterbrochen während der 5 Jahre vor der Veräußerung als Hauptwohnsitz bewohnt haben. Der Gewinn ist vollständig befreit (Art. 102bis Abs. 3 LIR), ohne Verkaufspreisgrenze." },
+        { "q": "Wie funktioniert der Zehn-Jahres-Freibetrag?", "a": "Jeder Steuerpflichtige erhält 50.000 € (100.000 € für gemeinsam veranlagtes Paar) auf den steuerpflichtigen Gewinn, alle zehn Jahre wieder aufladbar. Bei zwei Veräußerungen im selben Jahrzehnt gilt der Freibetrag nur einmal." },
+        { "q": "Wie wird der Aufwertungskoeffizient berechnet?", "a": "Er wird jährlich vom STATEC nach Artikel 102 LIR veröffentlicht und spiegelt die Entwicklung des Baukostenindex seit dem Anschaffungsjahr wider. Für 2026: 2,33 (Kauf 2010), 2,07 (2015), 1,77 (2022), 1,52 (2025), 1,48 (2026)." },
+        { "q": "Werden Erwerbsnebenkosten in die Berechnung einbezogen?", "a": "Ja. Eintragungsgebühren, Notargebühren, Hypothekenkosten der Erwerbsurkunde und dauerhafte Verbesserungsausgaben (Erweiterungen, große Sanierung, größere Energieaufwertung) werden vor der Aufwertung zum Kaufpreis hinzugerechnet. Laufende Instandhaltung und Dekoration sind nicht abzugsfähig." },
+        { "q": "Was passiert bei Schenkung oder Erbschaft?", "a": "Schenkung oder Erbschaft löst keine Kapitalertragsbesteuerung beim Schenker oder Verstorbenen aus (Art. 99bis Abs. 4 LIR). Der Begünstigte übernimmt den historischen Anschaffungspreis und das ursprüngliche Erwerbsdatum bei Berechnung seines eigenen künftigen Gewinns, was zu erheblichen latenten Gewinnen führen kann." }
+      ],
+      "sources": [
+        { "title": "Geändertes Gesetz vom 4. Dezember 1967 über die Einkommensteuer (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo", "year": 1967 },
+        { "title": "Aufwertungskoeffizienten — STATEC-Tabelle", "org": "Steuerverwaltung für direkte Steuern (ACD)", "url": "https://impotsdirects.public.lu/fr/legislation/LIR.html" },
+        { "title": "Immobilien-Kapitalgewinne — Erläuterungsleitfaden", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/activite-patrimoine/plus-values/plus-value-cession-immeuble.html" },
+        { "title": "Baukostenindex", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Artikel 99bis LIR — Spekulationsgewinn", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
+        { "title": "Artikel 102bis LIR — Viertel des Gesamtsatzes", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+      ]
     },
     "bailHabitation": {
       "title": "Welche Regeln gelten für Wohnungsmietverträge in Luxemburg?",

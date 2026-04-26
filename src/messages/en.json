@@ -9307,21 +9307,73 @@
       ]
     },
     "plusValue": {
-      "title": "How Are Real Estate Capital Gains Taxed in Luxembourg?",
-      "metaDescription": "Luxembourg real estate capital gains tax: speculation < 2 years, global rate, €50,000/€100,000 allowances, primary residence exemption. Art. 99ter and 102bis LIR.",
-      "intro": "In Luxembourg, capital gains from selling real estate are taxable under two distinct regimes: speculation profit if the resale occurs less than 2 years after acquisition (Art. 99bis LIR), or transfer profit if it occurs after 2 years (Art. 99ter LIR). The tax rate, allowances and exemption possibilities depend on the holding period and property use. Full exemption is possible for the personally occupied primary residence.",
-      "section1Title": "Speculation Profit (< 2 years)",
-      "section1Content": "When the resale occurs within 2 years of acquisition, the capital gain qualifies as speculation profit (Art. 99bis LIR). It is fully added to taxable income and taxed at the progressive income tax rate (marginal rate up to 42% + employment fund contribution of 7 to 9%, giving a maximum effective rate of approximately 45.78%). No specific allowance applies. The capital gain is calculated as the difference between the sale price and the acquisition price increased by deed costs and improvement works.",
-      "section2Title": "Transfer Profit (≥ 2 years)",
-      "section2Content": "When the disposal occurs more than 2 years after acquisition, the capital gain is a transfer profit (Art. 99ter LIR). It benefits from a more favourable tax regime: only one quarter of the overall tax rate applies (Art. 102bis para. 1 LIR). The acquisition price is revalued using the construction price index revaluation coefficient published by STATEC. A decennial allowance of €50,000 per person (€100,000 for a jointly taxed couple) is deducted from the taxable capital gain (Art. 130 para. 4 LIR). Example: a property purchased for €400,000 in 2010 and sold for €700,000 in 2025, with a coefficient of 1.25, gives a revalued price of €500,000 and a gross capital gain of €200,000.",
-      "section3Title": "Exemptions",
-      "section3Content": "The most common exemption concerns the primary residence: the capital gain is fully exempt if the property is the seller's primary residence at the time of disposal and they have effectively and continuously occupied it for the 5 years preceding the sale (Art. 102bis para. 3 LIR). A tax deferral (reinvestment) is possible if the sale proceeds are reinvested in another owner-occupied primary residence within 2 years (Art. 102bis para. 2 LIR). For land, a deferral regime is also possible under certain conditions. Gratuitous transfers (gift, inheritance) do not trigger capital gains taxation for the donor/deceased, but the beneficiary assumes the historical acquisition price.",
-      "relatedToolLabel": "Calculate your taxable capital gain",
-      "relatedToolLink": "/plus-values",
-      "faq1Q": "What is the capital gains tax rate on real estate in Luxembourg?",
-      "faq1A": "For resale within 2 years: progressive income tax rate (up to ~45.78%). After 2 years: one quarter of the overall rate, approximately 10 to 11% depending on income, after the €50,000 allowance.",
-      "faq2Q": "Is the sale of my primary residence taxable?",
-      "faq2A": "No, if you have continuously occupied the property as your primary residence for the 5 years preceding the sale, the capital gain is fully exempt (Art. 102bis para. 3 LIR)."
+      "title": "Real Estate Capital Gains in Luxembourg: 2026 Taxation (Art. 99bis/99ter/102bis LIR)",
+      "metaDescription": "LU real estate capital gains 2026: speculation < 2 years at progressive rate, transfer ≥ 2 years at one quarter of global rate, €50,000/€100,000 allowance, primary residence exemption, STATEC coefficient.",
+      "subtitle": "Understand the taxation of a real estate capital gain by holding period, property use and applicable tax regime.",
+      "category": "Disposal taxation",
+      "essentiel": [
+        "Holding < 2 years = speculation profit: progressive income tax, up to about 45.78% with employment fund contribution.",
+        "Holding ≥ 2 years = transfer profit: one quarter of the global tax rate (typical effective 10 to 11%).",
+        "Acquisition price is revalued via the STATEC coefficient (1.52 for a 2025 purchase, 1.48 for 2026).",
+        "Decennial allowance: €50,000 per person, €100,000 for a jointly taxed couple.",
+        "Primary residence personally and continuously occupied: full exemption possible."
+      ],
+      "section1Title": "Speculation vs transfer regime",
+      "section1P1": "Luxembourg tax law distinguishes two regimes by holding period. If resale occurs within two years of acquisition, the gain is a speculation profit (Art. 99bis LIR): it is fully added to that year's taxable income and taxed at the progressive income tax rate (marginal up to 42% + 7 or 9% employment fund contribution, max effective around 45.78%).",
+      "section1P2": "Beyond two years' holding, the gain becomes a transfer profit (Art. 99ter LIR) under a much more favourable regime: only one quarter of the overall tax rate applies under article 102bis paragraph 1 LIR. For a taxpayer in the 42% marginal bracket, the effective rate on the gain falls to about 10.5%, after allowance.",
+      "callout1Title": "How the 2-year clock is counted",
+      "callout1Body": "The holding period runs from the date of the authentic acquisition deed to the date of the disposal deed. The sale compromis does not stop the clock. For a property received by gift or inheritance, the period starts from the original acquisition date by the donor or deceased (Art. 99bis para. 3 LIR).",
+      "section2Title": "Computing the taxable gain",
+      "section2P1": "The gross gain is the difference between the disposal price (less selling costs such as agency commission) and the acquisition price increased by deed costs (duties, emoluments, mortgage) and durable improvement expenses (extensions, structural works, major energy renovation). Routine maintenance is not deductible.",
+      "section2P2": "For the transfer regime (≥ 2 years), the acquisition price and costs are revalued using the revaluation coefficient published annually by STATEC (Art. 102 LIR). For 2026, key coefficients are: 2.33 (2010 purchase), 2.07 (2015), 1.77 (2022), 1.52 (2025). A property bought for €400,000 in 2015 has a revalued price of about €828,000. The gross gain is then reduced by the decennial allowance and taxed at one quarter of the global rate.",
+      "section3Title": "Allowances and exemptions",
+      "section3P1": "The decennial allowance under article 130 paragraph 4 LIR removes €50,000 from the taxable gain per person (€100,000 for a jointly taxed couple). It is rechargeable every ten years, allowing planning of disposals after reconstitution. The primary residence effectively and continuously occupied for the five years preceding disposal is fully exempt (Art. 102bis para. 3 LIR), with no price cap.",
+      "section3P2": "A tax deferral (reinvestment) is possible if sale proceeds are reinvested into a new owner-occupied primary residence within two years (Art. 102bis para. 2 LIR). For land, specific regimes exist (deferral on gift to a descendant). Gratuitous transfers (gift, inheritance) do not trigger taxation for the donor, but the beneficiary takes over the historical acquisition price for computing their own future gain.",
+      "callout2Title": "Optimisation: stagger disposals",
+      "callout2Body": "The decennial allowance is reconstituted in ten-year tranches from the last use. An investor planning multiple disposals can space them out to benefit from a fresh allowance each tranche — particularly attractive for couples (€100,000 per tranche).",
+      "section4Title": "Worked examples",
+      "section4Intro": "Combined effects of the revaluation coefficient, the decennial allowance and the quarter of the global rate for a property bought in 2015 and sold in 2026 (purchase €400,000, deed costs €30,000, sale €700,000, taxpayer at 42% marginal global rate).",
+      "table": {
+        "caption": "Taxable capital gain and tax — 2026 examples",
+        "headers": ["Buyer profile", "Gross gain", "After allowance", "Tax due"],
+        "rows": [
+          ["Single, 1 disposal in 10 years", "≈ −€230,000", "€0", "€0"],
+          ["Couple, 1 disposal in 10 years", "≈ −€230,000", "€0", "€0"],
+          ["Single, multiple disposals", "€150,000", "€100,000", "≈ €10,500"],
+          ["Couple, multiple disposals", "€150,000", "€50,000", "≈ €5,250"],
+          ["Speculation < 2 years (couple)", "€150,000", "€150,000", "≈ €68,700"]
+        ],
+        "footnote": "Indicative 2026 calculations: revalued 2015→2026 price = €400,000 × 2.07 = €828,000 (with costs €891,100), so a sale at €700,000 normally produces a loss. 'Multiple disposals' rows assume a hypothetical €150,000 gross gain to illustrate the mechanism."
+      },
+      "callout3Title": "Concrete case: apartment resale in 2026",
+      "callout3Body": "A couple bought an apartment for €400,000 in 2015 (€30,000 in costs). They resell for €700,000 in 2026. Revalued price: €430,000 × 2.07 ≈ €890,100. The disposal shows a loss (−€190,100): no tax due. If the property had been bought for €250,000 in 2015 and resold at €700,000, the revalued gross gain would be about €122,750, reduced to €22,750 after the couple allowance, i.e., about €2,400 in tax at one quarter of the global rate.",
+      "inlineCalc": {
+        "title": "Calculate your taxable capital gain case by case",
+        "description": "Our calculator applies the right regime by holding period, the STATEC coefficient for your acquisition year, the decennial allowance per your situation and one quarter of the global rate.",
+        "cta": "Run the simulation"
+      },
+      "tools": [
+        { "href": "/plus-values", "title": "Capital gain calculator", "description": "Speculation or transfer profit by holding period, allowance, STATEC coefficient." },
+        { "href": "/dcf-multi", "title": "Multi-period DCF", "description": "Cash-flow projection and resale value to anticipate taxation." },
+        { "href": "/portfolio", "title": "Real estate portfolio", "description": "Track your properties and plan disposals over a 10-year horizon." },
+        { "href": "/frais-acquisition", "title": "Acquisition costs", "description": "Compute the increased acquisition price serving as the gain's base." }
+      ],
+      "faq": [
+        { "q": "What is the capital gains tax rate on real estate in Luxembourg?", "a": "Within 2 years (speculation), progressive income tax up to about 45.78% effective. Beyond 2 years (transfer), one quarter of the global rate, typically 10 to 11% depending on bracket, after the decennial allowance." },
+        { "q": "Is the sale of my primary residence taxable?", "a": "No, provided you have effectively and continuously occupied it as your primary residence for the 5 years preceding the disposal. The gain is fully exempt (Art. 102bis para. 3 LIR), with no sale price cap." },
+        { "q": "How does the decennial allowance work?", "a": "Every taxpayer is granted €50,000 (€100,000 for a jointly taxed couple) off the taxable gain, rechargeable every ten years. If you dispose of two properties in the same decade, the allowance applies only once." },
+        { "q": "How is the revaluation coefficient calculated?", "a": "It is published annually by STATEC under article 102 LIR and reflects the construction price index since the acquisition year. For 2026: 2.33 (2010 purchase), 2.07 (2015), 1.77 (2022), 1.52 (2025), 1.48 (2026)." },
+        { "q": "Are acquisition costs included in the calculation?", "a": "Yes. Registration duties, notary emoluments, mortgage costs of the acquisition deed and durable improvement expenses (extensions, major renovation, major energy upgrades) are added to the purchase price before revaluation. Routine maintenance and decoration are not deductible." },
+        { "q": "What about gifts or inheritance?", "a": "A gift or inheritance does not trigger capital gains tax for the donor or deceased (Art. 99bis para. 4 LIR). The beneficiary takes over the historical acquisition price and original acquisition date when computing their own future gain, which can lead to significant latent gains." }
+      ],
+      "sources": [
+        { "title": "Modified law of 4 December 1967 on income tax (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo", "year": 1967 },
+        { "title": "Revaluation coefficients — STATEC scale", "org": "Direct Tax Administration (ACD)", "url": "https://impotsdirects.public.lu/fr/legislation/LIR.html" },
+        { "title": "Real estate capital gains — explanatory guide", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/activite-patrimoine/plus-values/plus-value-cession-immeuble.html" },
+        { "title": "Construction price index", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Article 99bis LIR — speculation profit", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
+        { "title": "Article 102bis LIR — quarter of global rate", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+      ]
     },
     "bailHabitation": {
       "title": "What Are the Rules for Residential Leases in Luxembourg?",

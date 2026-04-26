@@ -9185,21 +9185,73 @@
       ]
     },
     "plusValue": {
-      "title": "Como é tributada a mais-valia imobiliária no Luxemburgo?",
-      "metaDescription": "Tributação da mais-valia imobiliária no Luxemburgo: especulação < 2 anos, taxa global, abatimentos 50.000 €/100.000 €, isenção residência principal. Art. 99ter e 102bis LIR.",
-      "intro": "No Luxemburgo, a mais-valia realizada na venda de um imóvel é tributável segundo dois regimes distintos: benefício de especulação se a revenda ocorre menos de 2 anos após a aquisição (art. 99bis LIR), ou benefício de cessão se ocorre após 2 anos (art. 99ter LIR). A taxa de tributação, os abatimentos e as possibilidades de isenção dependem da duração de detenção e do uso do imóvel. A isenção total é possível para a residência principal ocupada pessoalmente.",
-      "section1Title": "Benefício de especulação (< 2 anos)",
-      "section1Content": "Quando a revenda ocorre nos 2 anos seguintes à aquisição, a mais-valia qualifica-se como benefício de especulação (art. 99bis LIR). É integralmente adicionada aos rendimentos tributáveis e taxada à taxa progressiva do imposto sobre o rendimento (taxa marginal até 42% + contribuição para o fundo de emprego de 7 a 9%, resultando numa taxa efetiva máxima de aproximadamente 45,78%). Nenhum abatimento específico se aplica. A mais-valia é calculada como a diferença entre o preço de venda e o preço de aquisição acrescido dos custos de escritura e das obras de melhoria.",
-      "section2Title": "Benefício de cessão (≥ 2 anos)",
-      "section2Content": "Quando a cessão ocorre mais de 2 anos após a aquisição, a mais-valia é um benefício de cessão (art. 99ter LIR). Beneficia de um regime fiscal mais favorável: apenas um quarto da taxa global de tributação se aplica (art. 102bis al. 1 LIR). O preço de aquisição é reavaliado através do coeficiente de reavaliação do índice de preços de construção publicado pelo STATEC. Um abatimento decenal de 50.000 € por pessoa (100.000 € para casal tributado conjuntamente) é deduzido da mais-valia tributável (art. 130 al. 4 LIR). Exemplo: um imóvel comprado por 400.000 € em 2010 e vendido por 700.000 € em 2025, com coeficiente de 1,25, dá um preço reavaliado de 500.000 € e uma mais-valia bruta de 200.000 €.",
-      "section3Title": "Isenções",
-      "section3Content": "A isenção mais comum diz respeito à residência principal: a mais-valia é totalmente isenta se o imóvel constitui a residência principal do vendedor no momento da cessão e se este a ocupou efetiva e continuamente durante os 5 anos anteriores à venda (art. 102bis al. 3 LIR). Um diferimento de imposto (reinvestimento) é possível se o produto da venda for reinvestido noutra habitação ocupada como residência principal nos 2 anos seguintes (art. 102bis al. 2 LIR). Para terrenos, um regime de diferimento é igualmente possível sob condições. Transmissões gratuitas (doação, herança) não desencadeiam tributação de mais-valia do doador/falecido, mas o beneficiário assume o preço de aquisição histórico.",
-      "relatedToolLabel": "Calcule a sua mais-valia tributável",
-      "relatedToolLink": "/plus-values",
-      "faq1Q": "Qual é a taxa de tributação sobre mais-valias imobiliárias no Luxemburgo?",
-      "faq1A": "Para revenda em 2 anos: taxa progressiva do IRS (até ~45,78%). Após 2 anos: um quarto da taxa global, aproximadamente 10 a 11% conforme os rendimentos, após aplicação do abatimento de 50.000 €.",
-      "faq2Q": "A venda da minha residência principal é tributável?",
-      "faq2A": "Não, se ocupou o imóvel como residência principal de forma contínua durante os 5 anos anteriores à venda, a mais-valia é integralmente isenta (art. 102bis al. 3 LIR)."
+      "title": "Mais-valia imobiliária no Luxemburgo: tributação 2026 (Art. 99bis/99ter/102bis LIR)",
+      "metaDescription": "Mais-valia imobiliária LU 2026: especulação < 2 anos à taxa progressiva, cessão ≥ 2 anos a um quarto da taxa global, abatimento 50 000 €/100 000 €, isenção residência principal, coeficiente STATEC.",
+      "subtitle": "Compreender a tributação de uma mais-valia imobiliária consoante a duração de detenção, a utilização do bem e o regime fiscal aplicável.",
+      "category": "Tributação da cessão",
+      "essentiel": [
+        "Detenção < 2 anos = benefício de especulação: tributação à taxa progressiva do IRS, até cerca de 45,78% com contribuição para o fundo de emprego.",
+        "Detenção ≥ 2 anos = benefício de cessão: um quarto da taxa global (efetiva típica de 10 a 11%).",
+        "O preço de aquisição é reavaliado pelo coeficiente STATEC (1,52 para uma compra de 2025, 1,48 para 2026).",
+        "Abatimento decenal: 50 000 € por pessoa, 100 000 € para casal tributado conjuntamente.",
+        "Residência principal ocupada pessoal e continuamente: isenção total possível."
+      ],
+      "section1Title": "Regime de especulação vs cessão",
+      "section1P1": "O direito fiscal luxemburguês distingue dois regimes consoante a duração de detenção. Se a revenda ocorrer nos dois anos seguintes à aquisição, a mais-valia qualifica-se como benefício de especulação (art. 99bis LIR): adiciona-se integralmente aos rendimentos tributáveis do ano e é tributada à taxa progressiva do IRS (taxa marginal até 42% + contribuição para o fundo de emprego de 7 ou 9%, ou seja, efetiva máxima de cerca de 45,78%).",
+      "section1P2": "Para além de dois anos de detenção, a mais-valia torna-se um benefício de cessão (art. 99ter LIR) com regime claramente mais favorável: apenas um quarto da taxa global de tributação se aplica nos termos do artigo 102bis n.º 1 LIR. Para um contribuinte com taxa marginal de 42%, a taxa efetiva sobre a mais-valia cai assim para cerca de 10,5%, após abatimento.",
+      "callout1Title": "Como se conta o prazo de 2 anos",
+      "callout1Body": "O prazo de detenção corre desde a data da escritura autêntica de aquisição até à data da escritura de cessão. O contrato-promessa não pára o contador. Para um imóvel recebido por doação ou herança, o prazo começa na data de aquisição original pelo doador ou falecido (art. 99bis n.º 3 LIR).",
+      "section2Title": "Cálculo da mais-valia tributável",
+      "section2P1": "A mais-valia bruta é a diferença entre o preço de cessão (deduzidos custos de venda como a comissão de mediação) e o preço de aquisição acrescido dos custos de escritura (direitos, emolumentos, hipoteca) e das despesas de melhoria duráveis (extensões, obras estruturais, grande renovação energética). As despesas de manutenção corrente não são dedutíveis.",
+      "section2P2": "Para o regime de cessão (≥ 2 anos), o preço de aquisição e os custos são reavaliados através do coeficiente de reavaliação publicado anualmente pelo STATEC (art. 102 LIR). Para 2026, os coeficientes-chave são: 2,33 (compra em 2010), 2,07 (2015), 1,77 (2022), 1,52 (2025). Um imóvel comprado por 400 000 € em 2015 tem um preço reavaliado de cerca de 828 000 €. A mais-valia bruta é depois reduzida pelo abatimento decenal e tributada a um quarto da taxa global.",
+      "section3Title": "Abatimentos e isenções",
+      "section3P1": "O abatimento decenal do artigo 130 n.º 4 LIR retira 50 000 € da mais-valia tributável por pessoa (100 000 € para casal tributado conjuntamente). É recarregável a cada dez anos, permitindo planear cessões após reconstituição. A residência principal ocupada efetiva e continuamente durante os cinco anos anteriores à cessão é integralmente isenta (art. 102bis n.º 3 LIR), sem limite de preço.",
+      "section3P2": "Um diferimento de imposto (reinvestimento) é possível se o produto da venda for reinvestido numa nova habitação ocupada como residência principal nos dois anos seguintes (art. 102bis n.º 2 LIR). Para terrenos existem regimes específicos (diferimento em caso de doação a um descendente). As transmissões gratuitas (doação, herança) não desencadeiam tributação no doador, mas o beneficiário assume o preço de aquisição histórico no cálculo da sua própria mais-valia futura.",
+      "callout2Title": "Otimização: escalonar as cessões",
+      "callout2Body": "O abatimento decenal reconstitui-se em tranches de dez anos desde a última utilização. Um investidor que planeie várias cessões pode espaçá-las para beneficiar de um novo abatimento em cada tranche — particularmente atrativo para casais (100 000 € por tranche).",
+      "section4Title": "Exemplos calculados",
+      "section4Intro": "Efeitos combinados do coeficiente de reavaliação, do abatimento decenal e do quarto da taxa global para um imóvel adquirido em 2015 e cedido em 2026 (preço de compra 400 000 €, custos de escritura 30 000 €, preço de venda 700 000 €, contribuinte com taxa marginal global de 42%).",
+      "table": {
+        "caption": "Mais-valia tributável e imposto — exemplos 2026",
+        "headers": ["Perfil do comprador", "Mais-valia bruta", "Após abatimento", "Imposto a pagar"],
+        "rows": [
+          ["Pessoa singular, 1 cessão em 10 anos", "≈ −230 000 €", "0 €", "0 €"],
+          ["Casal, 1 cessão em 10 anos", "≈ −230 000 €", "0 €", "0 €"],
+          ["Pessoa singular, várias cessões", "150 000 €", "100 000 €", "≈ 10 500 €"],
+          ["Casal, várias cessões", "150 000 €", "50 000 €", "≈ 5 250 €"],
+          ["Especulação < 2 anos (casal)", "150 000 €", "150 000 €", "≈ 68 700 €"]
+        ],
+        "footnote": "Cálculos indicativos 2026: preço reavaliado 2015→2026 = 400 000 × 2,07 = 828 000 € (com custos 891 100 €), pelo que uma venda a 700 000 € normalmente gera uma menos-valia. As linhas 'várias cessões' assumem uma mais-valia bruta hipotética de 150 000 € para ilustrar o mecanismo."
+      },
+      "callout3Title": "Caso concreto: revenda de apartamento em 2026",
+      "callout3Body": "Um casal comprou em 2015 um apartamento por 400 000 € (30 000 € de custos). Revende-o por 700 000 € em 2026. Preço reavaliado: 430 000 × 2,07 ≈ 890 100 €. A cessão resulta em menos-valia (−190 100 €): sem imposto devido. Se o imóvel tivesse sido comprado por 250 000 € em 2015 e revendido por 700 000 €, a mais-valia bruta após reavaliação seria de cerca de 122 750 €, reduzida a 22 750 € após abatimento de casal, ou seja, cerca de 2 400 € de imposto a um quarto da taxa global.",
+      "inlineCalc": {
+        "title": "Calcule a sua mais-valia tributável caso a caso",
+        "description": "A nossa calculadora aplica o regime correto consoante a duração de detenção, o coeficiente STATEC do seu ano de compra, o abatimento decenal segundo a sua situação e o quarto da taxa global.",
+        "cta": "Iniciar a simulação"
+      },
+      "tools": [
+        { "href": "/plus-values", "title": "Calculadora de mais-valia", "description": "Benefício de especulação ou de cessão consoante a duração, abatimento, coeficiente STATEC." },
+        { "href": "/dcf-multi", "title": "DCF multiperíodo", "description": "Projeção de cash-flow e valor de revenda para antecipar a tributação." },
+        { "href": "/portfolio", "title": "Portefólio imobiliário", "description": "Acompanhe os seus imóveis e planeie cessões num horizonte de 10 anos." },
+        { "href": "/frais-acquisition", "title": "Custos de aquisição", "description": "Calcule o preço de aquisição majorado para servir de base à mais-valia." }
+      ],
+      "faq": [
+        { "q": "Qual é a taxa de tributação sobre mais-valias imobiliárias no Luxemburgo?", "a": "Para revenda em 2 anos (especulação): taxa progressiva do IRS, até cerca de 45,78% efetiva. Após 2 anos (cessão): um quarto da taxa global, tipicamente 10 a 11% conforme o escalão, após aplicação do abatimento decenal." },
+        { "q": "A venda da minha residência principal é tributável?", "a": "Não, se ocupou efetiva e continuamente o imóvel como residência principal durante os 5 anos anteriores à cessão. A mais-valia é integralmente isenta (art. 102bis n.º 3 LIR), sem limite de preço de venda." },
+        { "q": "Como funciona o abatimento decenal?", "a": "Cada contribuinte beneficia de um abatimento de 50 000 € (100 000 € para casal tributado conjuntamente) sobre a mais-valia tributável, recarregável a cada dez anos. Se ceder dois imóveis na mesma década, o abatimento aplica-se apenas uma vez." },
+        { "q": "Como é calculado o coeficiente de reavaliação?", "a": "É publicado anualmente pelo STATEC nos termos do artigo 102 LIR e reflete a evolução do índice de preços de construção desde o ano de aquisição. Para 2026: 2,33 (compra 2010), 2,07 (2015), 1,77 (2022), 1,52 (2025), 1,48 (2026)." },
+        { "q": "Os custos de aquisição entram no cálculo?", "a": "Sim. Os direitos de registo, os emolumentos notariais, os custos hipotecários da escritura de aquisição e as despesas de melhoria duráveis (extensões, renovação pesada, modernização energética importante) são adicionados ao preço de compra antes da reavaliação. A manutenção corrente e a decoração não são dedutíveis." },
+        { "q": "O que acontece em caso de doação ou herança?", "a": "A doação ou a herança não desencadeia tributação de mais-valia no doador ou falecido (art. 99bis n.º 4 LIR). O beneficiário assume o preço de aquisição histórico e a data de aquisição original no cálculo da sua própria mais-valia futura, o que pode conduzir a mais-valias latentes significativas." }
+      ],
+      "sources": [
+        { "title": "Lei modificada de 4 de dezembro de 1967 sobre o imposto sobre o rendimento (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo", "year": 1967 },
+        { "title": "Coeficientes de reavaliação — tabela STATEC", "org": "Administração das contribuições diretas (ACD)", "url": "https://impotsdirects.public.lu/fr/legislation/LIR.html" },
+        { "title": "Mais-valias imobiliárias — guia explicativo", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/activite-patrimoine/plus-values/plus-value-cession-immeuble.html" },
+        { "title": "Índice de preços de construção", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Artigo 99bis LIR — benefício de especulação", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
+        { "title": "Artigo 102bis LIR — quarto da taxa global", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+      ]
     },
     "bailHabitation": {
       "title": "Quais são as regras do arrendamento habitacional no Luxemburgo?",
