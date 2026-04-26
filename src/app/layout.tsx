@@ -4,7 +4,7 @@ import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { headers } from "next/headers";
-import { CLIENT_NAMESPACES } from "@/i18n/client-namespaces";
+import { pickNamespaces } from "@/i18n/pick-namespaces";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -97,21 +97,18 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [allMessages, locale] = await Promise.all([
+  const [allMessages, locale, h] = await Promise.all([
     getMessages(),
     getLocale(),
+    headers(),
   ]);
 
-  // Pick only namespaces actually used by client components.
-  // Server components read messages via getTranslations() at render time,
-  // so server-only namespaces never need to ship to the browser.
-  // This keeps the inlined hydration JSON well under 1 MB.
-  const messages: Record<string, unknown> = {};
-  for (const ns of CLIENT_NAMESPACES) {
-    if (ns in allMessages) {
-      messages[ns] = (allMessages as Record<string, unknown>)[ns];
-    }
-  }
+  // Pick only namespaces required by THIS route's client components.
+  // The map is generated at build time by scripts/generate_route_namespaces.py
+  // walking each page's import graph. Cuts the inlined hydration JSON from
+  // ~1 MB (full message file) to ~10–80 KB per page.
+  const pathname = h.get("x-url") || "/";
+  const messages = pickNamespaces(allMessages as Record<string, unknown>, pathname);
 
   return (
     <html
