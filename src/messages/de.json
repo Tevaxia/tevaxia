@@ -9486,21 +9486,62 @@
       ]
     },
     "estimation": {
-      "title": "Wie schätzt man den Wert einer Immobilie in Luxemburg?",
-      "metaDescription": "Immobilienbewertung Luxemburg: 3 Ansätze (Vergleich, Kapitalisierung, DCF), Datenquellen, Schlüsselfaktoren, hedonisches Modell, TEGOVA EVS 2025.",
-      "intro": "Die Immobilienbewertung in Luxemburg erfordert eine rigorose Methodik, gestützt auf zuverlässige Daten. Fachleute (TEGOVA REV/TRV-Gutachter, Immobilienmakler) verwenden hauptsächlich drei Ansätze: direkten Vergleich, Ertragswertkapitalisierung und Discounted Cash Flow (DCF). Die Methodenwahl hängt von der Immobilienart (Wohn-, Gewerbe-, Hotelimmobilie) und der Verfügbarkeit von Marktdaten ab. Die europäischen Bewertungsstandards TEGOVA EVS 2025 regeln diese Praktiken in Luxemburg.",
-      "section1Title": "Die 3 Bewertungsansätze",
-      "section1Content": "Der direkte Vergleichsansatz wird am häufigsten für Wohnimmobilien verwendet: Er analysiert aktuelle Verkaufspreise ähnlicher Objekte im selben Gebiet und passt für Unterschiede an (Fläche, Stockwerk, Zustand, Ausrichtung, Stellplatz). Dies ist die bevorzugte Methode, wenn der Markt ausreichend Vergleichsobjekte bietet. Der Ertragswertansatz eignet sich für Mietobjekte: Der Wert wird ermittelt, indem die jährliche Nettomieteinnahme durch einen Kapitalisierungssatz geteilt wird, der Marktrisiko und erwartete Rendite widerspiegelt. In Luxemburg liegen die Kapitalisierungssätze für Wohnimmobilien zwischen 3 % und 5 % je nach Lage. Der Discounted-Cash-Flow-Ansatz (DCF) projiziert künftige Zahlungsströme (Mieten, Kosten, Wiederverkauf) über 10 bis 15 Jahre und diskontiert sie mit dem geforderten Renditesatz. Diese Methode wird für Gewerbe- und Hotelimmobilien bevorzugt, gemäß EVS 2025 (European Valuation Standards).",
-      "section2Title": "Datenquellen in Luxemburg",
-      "section2Content": "Eine zuverlässige Bewertung basiert auf qualitativ hochwertigen Daten. In Luxemburg sind die Hauptquellen: das Wohnungsobservatorium (observatoire.liser.lu) mit durchschnittlichen Transaktionspreisen nach Gemeinde und Immobilientyp; STATEC mit dem Wohnimmobilienpreisindex (IPIR) und Bauindizes; das Grundbuchamt (Administration de l'enregistrement et des domaines) mit notariellen Kaufurkunden und realen Preisen; das Immobilienportal athome.lu mit Marktangeboten. Für Gewerbeimmobilien liefern Beratungsberichte (JLL, CBRE, Cushman & Wakefield) Daten zu Büromieten, Leerstandsquoten und Renditen. Das hedonische Modell, insbesondere vom LISER verwendet, zerlegt den Immobilienpreis nach intrinsischen Merkmalen (Fläche, Zimmerzahl, Energieeffizienz) und extrinsischen Faktoren (Lage, ÖPNV-Nähe, Schulen) und ermöglicht die Schätzung des Grenzwerts jedes Attributs.",
-      "section3Title": "Schlüsselfaktoren der Bewertung und TEGOVA-Standards",
-      "section3Content": "Die Faktoren, die den Immobilienwert in Luxemburg am stärksten beeinflussen, sind: Lage (Gemeinde, Viertel, Straße — mit Preisunterschieden bis zum Vierfachen zwischen ländlichen Gebieten und Luxemburg-Stadt Zentrum); Wohnfläche und Zimmerzahl; allgemeiner Zustand und Qualität der Ausstattung; Energieeffizienz (EPB-Klasse A bis I hat einen wachsenden Einfluss auf den Preis, geschätzt auf 3 bis 8 % pro Klasse laut LISER-Studien); Außenbereiche (Terrasse, Garten, Balkon) und Stellplatz. Die TEGOVA EVS 2025 Standards (European Valuation Standards) definieren anerkannte Wertgrundlagen: Marktwert, Investitionswert, Fair Value gemäß IFRS 13. Jedes professionelle Bewertungsgutachten muss die gewählte Wertgrundlage, die angewandte(n) Methode(n), Schlüsselannahmen und besondere Bedingungen angeben. In Luxemburg garantieren TEGOVA REV (Recognised European Valuer) zertifizierte Experten die Einhaltung dieser Standards.",
-      "relatedToolLabel": "Schätzen Sie Ihre Immobilie",
-      "relatedToolLink": "/estimation",
-      "faq1Q": "Welches ist die zuverlässigste Methode zur Immobilienbewertung in Luxemburg?",
-      "faq1A": "Für Wohnimmobilien ist der direkte Vergleichsansatz am zuverlässigsten, wenn ausreichend Marktdaten vorliegen. Für Mietobjekte wird die Ertragswertkapitalisierung empfohlen. Die TEGOVA EVS 2025 Standards empfehlen mindestens zwei Methoden anzuwenden und die Ergebnisse abzugleichen, um die Zuverlässigkeit der Bewertung zu stärken.",
-      "faq2Q": "Beeinflusst der Energieausweis den Immobilienpreis in Luxemburg?",
-      "faq2A": "Ja, zunehmend. LISER-Studien zeigen, dass eine Verbesserung um eine EPB-Klasse (z.B. D auf C) den Immobilienwert um 3 bis 8 % steigern kann. Eine Wohnung der Klasse A oder B verkauft sich deutlich besser als eine der Klasse F oder G, da Käufer geringere Energiekosten und keine anstehenden Renovierungsarbeiten erwarten."
+      "title": "Immobilienbewertung in Luxemburg: TEGOVA EVS 2025 Methoden und Datenquellen",
+      "metaDescription": "Immobilienbewertung LU: 3 TEGOVA-Ansätze (Vergleich, Kapitalisierung, DCF), Datenquellen Observatorium/STATEC/AED, hedonisches LISER-Modell, EPB-Impact 3 bis 8%/Klasse, REV/TRV.",
+      "subtitle": "Wie man eine Immobilie in Luxemburg richtig bewertet: professionelle Methoden, verfügbare Daten und Bewertungstreiber 2026.",
+      "category": "Bewertung & TEGOVA",
+      "essentiel": [
+        "3 TEGOVA EVS 2025 Ansätze: direkter Vergleich (Wohnen), Ertragswertkapitalisierung (Miete), DCF (Gewerbe / Hotel).",
+        "LU-Daten: LISER-Wohnungsobservatorium, STATEC IPIR, AED-Grundbuch (reale Preise), Immobilienportale, Beratungsberichte (JLL, CBRE, C&W).",
+        "Schlüsseltreiber: Lage (Spread x2-x4 LU-Stadt vs Land), Fläche, Zustand, EPB (3-8 % Wert/Klasse), Außenbereiche und Stellplatz.",
+        "Anerkannte Wertgrundlagen: Marktwert, Investitionswert, Fair Value (IFRS 13). TEGOVA-Bericht legt Annahmen und Bedingungen dar.",
+        "Professionelle Expertise: REV (Recognised European Valuer) oder TRV (TEGOVA Residential Valuer), Garantie für Unabhängigkeit und Methode."
+      ],
+      "section1Title": "Die 3 TEGOVA-Bewertungsansätze",
+      "section1P1": "Der direkte Vergleich (Sales Comparison) wird am häufigsten für Wohnimmobilien verwendet: Analyse aktueller Transaktionen ähnlicher Objekte im selben Gebiet, angepasst für Unterschiede (Fläche, Stockwerk, Zustand, Ausrichtung, Stellplatz, EPB). Zuverlässige Methode bei ausreichenden Vergleichsreferenzen. In Luxemburg speist LISER diesen Ansatz über hedonische Modelle, die den Beitrag jeder Eigenschaft zum Preis isolieren.",
+      "section1P2": "Die Ertragswertkapitalisierung (Income Capitalisation) teilt das stabilisierte jährliche Nettomieteinkommen durch einen Kapitalisierungssatz, der Marktrisiko und Rendite widerspiegelt. LU-Wohn-Cap-Rates: 3 bis 5 % je nach Lage und Anlageklasse. Der DCF-Ansatz (Discounted Cash Flow) projiziert Cashflows über 10-15 Jahre und diskontiert sie zu einem geeigneten WACC (typisch 5-9 %), mit Endwert; obligatorisch für Gewerbe- und Hotelimmobilien laut EVS 2025.",
+      "callout1Title": "Mindestens zwei Methoden abgleichen",
+      "callout1Body": "Die TEGOVA EVS 2025 Standards verlangen vom Gutachter, die Methode zu begründen und nach Möglichkeit mit einem sekundären Ansatz abzugleichen. In der Praxis kombiniert man bei einer Wohn-Mietimmobilie direkten Vergleich (Preisreferenz) und Kapitalisierung (Renditekonsistenz). Konvergieren beide auf ±5 %, ist der Wert robust.",
+      "section2Title": "Verfügbare Datenquellen",
+      "section2P1": "Der LU-Markt verfügt über öffentliche Quellen hoher Qualität: Wohnungsobservatorium (observatoire.liser.lu) — Transaktionspreise je Gemeinde und Typ, Mietindex, monatliche Verfolgung; STATEC — IPIR (Wohnimmobilienpreisindex), Baukostenindex, Demografie; data.public.lu — Geoportaldaten, Kataster, PAG/PAP-Pläne; AED-Grundbuch — notarielle Kaufurkunden (reale Preise vierteljährlich publiziert).",
+      "section2P2": "Für den Tertiärbereich (Büros, Einzelhandel, Hotels): Quartalsberichte internationaler Firmen JLL, CBRE, Cushman & Wakefield, Inowai (Prime-Mieten, Leerstandsquoten, beobachtete Renditen). Für die geregelte Mietbewertung: Der tevaxia Mietrechner automatisiert die 5%-Regel mit STATEC-Koeffizienten. Für Hotels: STATEC-Übernachtungsobservatorium, RevPAR nach Kategorie.",
+      "section3Title": "Schlüsseltreiber der Bewertung",
+      "section3P1": "Der €/m²-Spread zwischen LU-Zonen kann x4 sein: Luxemburg-Stadt Zentrum (15.000-20.000 €/m²) vs ländliche Kantone (4.000-6.000 €/m²). Innerhalb einer Gemeinde unterscheiden sich Sub-Quartiere (Schul-, Verkehrsanbindung, Grünflächen, Einzelhandel). Wohnfläche und Aufteilung sind wichtig (T2-T3 wertvoller pro m² als T6+ für den Mietmarkt).",
+      "section3P2": "Allgemeiner Zustand und Qualität der Ausstattung: Eine renovierte Immobilie wird 10-20 % über einer äquivalenten Renovierungsbedürftigen bewertet. Die Energieeffizienz hat wachsenden Einfluss: LISER-Studien beziffern den Wertspread pro EPB-Klasse auf 3-8 % (ein F→C-Sprung kann 10-25 % Mehrwert bringen). Außenbereiche (Garten, Terrasse, Balkon) und Stellplatz fügen typisch 10-15 % Wert hinzu. Ausrichtung, Ruhe und Stockwerk (mit Aufzug) spielen ebenfalls eine Rolle.",
+      "callout2Title": "Der EPB-Impact wird sich verstärken",
+      "callout2Body": "Mit der überarbeiteten EU EPBD-Richtlinie und kommenden Renovierungspflichten (Klassen G/F in einigen Ländern ab 2030 von Vermietung ausgeschlossen) wird der EPB-Impact auf den Wert verstärkt. Antizipieren Sie durch Integration der energetischen Sanierung in den Investitions-Businessplan, besonders für E-G-Klasse-Immobilien.",
+      "section4Title": "TEGOVA EVS 2025 Normenrahmen",
+      "section4P1": "Die European Valuation Standards 2025 (TEGOVA) definieren international anerkannte Wertgrundlagen: Market Value (hypothetische Bartransaktion zum Bewertungsdatum), Investment Value (Wert für einen spezifischen Investor nach seinen Kriterien), Fair Value (IFRS 13 Fair Value für geprüfte Konten), Mortgage Lending Value (vorsichtiger Hypothekarwert für Banken).",
+      "section4P2": "Jeder professionelle TEGOVA-Bewertungsbericht legt fest: die Wertgrundlage, die angewandte(n) Methode(n), die Datenquellen, die Schlüsselannahmen und besonderen Bedingungen (unter aufschiebender Bedingung, abzuschließende Renovierung, etc.). In Luxemburg garantieren von INREV zertifizierte REV- oder TRV-Experten die Einhaltung dieser Standards und haften beruflich.",
+      "callout3Title": "Wann eine REV-Expertise beauftragen?",
+      "callout3Body": "Eine REV/TRV-Expertise ist erforderlich für: ein komplexes Bankfinanzierungsdossier, einen Nachlass oder eine Schenkung mit Teilung, eine Enteignung, eine Scheidung mit Vermögensteilung, einen Gerichtsstreit. Für einen einfachen Verkauf zwischen Privaten reicht in der Regel eine Schätzung von 2-3 Maklern oder ein hedonisches Tool (wie tevaxia).",
+      "inlineCalc": {
+        "title": "Schätzen Sie Ihre Immobilie sofort",
+        "description": "Unser tevaxia-Schätzer wendet ein hedonisches Modell auf Basis der Daten von Wohnungsobservatorium und STATEC an. Geben Sie Gemeinde, Fläche, Zustand, EPB und Eigenschaften ein, um eine Preisspanne mit Konfidenzniveau zu erhalten.",
+        "cta": "Schätzung starten"
+      },
+      "tools": [
+        { "href": "/estimation", "title": "Sofortschätzer", "description": "LU-hedonisches Modell mit Spanne und Konfidenzniveau." },
+        { "href": "/hedonique", "title": "Erweitertes Hedonisches", "description": "Aufschlüsselung nach Eigenschaft zum Wertverständnis." },
+        { "href": "/dcf-multi", "title": "Mehrperioden-DCF", "description": "Für Miet- und Gewerbeimmobilien, 10-15 Jahre Projektion." },
+        { "href": "/carte", "title": "Preiskarte", "description": "Beobachtete Preise je Gemeinde und Quartier (Wohnungsobservatorium)." }
+      ],
+      "faq": [
+        { "q": "Welche Methode ist die zuverlässigste zur Immobilienbewertung in Luxemburg?", "a": "Für das Wohnen ist der direkte Vergleich kombiniert mit einem hedonischen Modell am zuverlässigsten. Für die Miete wird die Ertragswertkapitalisierung bevorzugt. Für Gewerbe/Hotel ist DCF Standard. TEGOVA EVS 2025 empfehlen, mindestens zwei Methoden zur Stärkung der Zuverlässigkeit abzugleichen." },
+        { "q": "Beeinflusst der Energieausweis den Immobilienpreis in Luxemburg?", "a": "Ja. LISER-Studien beziffern den Wertspread pro EPB-Klasse auf 3-8 % (ein F-zu-C-Sprung kann 10-25 % Mehrwert bringen). Der Impact wird mit den europäischen Sanierungspflichten (EPBD revidiert 2024) zunehmen." },
+        { "q": "Was kostet eine REV/TRV-Expertise in Luxemburg?", "a": "Für eine Wohnimmobilie 800 bis 2.500 € je nach Komplexität. Für ein Gewerbe- oder Hotelobjekt 3.000 bis 15.000 € je nach Wert und Komplexität. Honorar frei, basierend auf Aufwand und Verantwortung. Der TEGOVA-Bericht ist bei Banken und Gerichten anerkannt." },
+        { "q": "Wo findet man reale Verkaufspreise in Luxemburg?", "a": "Das Grundbuchamt (AED) publiziert vierteljährlich reale Preise notarieller Urkunden. Das LISER-Wohnungsobservatorium aggregiert und veröffentlicht diese Daten je Gemeinde und Immobilientyp (observatoire.liser.lu)." },
+        { "q": "Welcher Kapitalisierungssatz ist typisch in Luxemburg?", "a": "Für Wohnen: 3 bis 5 % brutto je nach Lage (3-3,5 % in Premium-Zonen LU-Stadt, 4-5 % in Kantonen). Für Prime-Büros LU-Stadt: 4 bis 5 %. Für Hotellerie: 6 bis 8 % je nach Kategorie und Performance. Diese Sätze entwickeln sich mit Leitzinsen und Anleiherenditen." },
+        { "q": "Muss die MwSt. in der Schätzung berücksichtigt werden?", "a": "Bei VEFA-Neubau wird der Wert üblicherweise netto präsentiert und dann zum anwendbaren Satz auf TTC umgerechnet (3 % Wohn-MwSt. mit 50.000 € Obergrenze). Bei Bestand (zwischen Privaten) keine MwSt., aber vom Käufer zu zahlende Eintragungsgebühren. TEGOVA-Berichte unterscheiden immer netto/brutto." }
+      ],
+      "sources": [
+        { "title": "TEGOVA — European Valuation Standards 2025", "org": "The European Group of Valuers' Associations", "url": "https://www.tegova.org/", "year": 2025 },
+        { "title": "Wohnungsobservatorium — Preise je Gemeinde", "org": "LISER", "url": "https://observatoire.liser.lu/" },
+        { "title": "Wohnimmobilienpreisindex (IPIR)", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Grundbuch — Kaufurkunden", "org": "Verwaltung für Eintragung, Domänen und MwSt.", "url": "https://pfi.public.lu/fr.html" },
+        { "title": "Gesetz vom 4. Dezember 1967 (LIR) — Basis STATEC-Koeffizient", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
+        { "title": "Hedonische Studien zum LU-Immobilienmarkt", "org": "LISER", "url": "https://www.liser.lu/" }
+      ]
     },
     "achatNonResident": {
       "title": "Kann ein Nicht-Resident eine Immobilie in Luxemburg kaufen?",

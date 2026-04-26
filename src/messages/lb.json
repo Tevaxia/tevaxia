@@ -9486,21 +9486,63 @@
       ]
     },
     "estimation": {
-      "title": "Wéi schätzt een de Wäert vun enger Immobilie zu Lëtzebuerg?",
-      "metaDescription": "Immobiliebewäertung Lëtzebuerg: 3 Approchen (Vergläich, Kapitaliséierung, DCF), Datenquellen, Schlësselfaktoren, hedonesch Modell, TEGOVA EVS 2025.",
-      "intro": "D'Immobiliebewäertung zu Lëtzebuerg erfuerdert eng rigoréis Methodik, gestëtzt op zouverlässeg Donnéeën. Fachleit (TEGOVA REV/TRV-Experten, Immobiliemakler) benotzen haaptsächlech dräi Approchen: direkten Vergläich, Ertragswäertkapitaliséierung an Discounted Cash Flow (DCF). D'Methodewiel hänkt vum Immobilietyp (Wunn-, Gewerbe-, Hotelimmobilie) an der Verfügbarkeet vu Marktdonnéeën of. Déi europäesch Bewäertungsstandarden TEGOVA EVS 2025 reegelen dës Praktiken zu Lëtzebuerg.",
-      "section1Title": "Déi 3 Bewäertungsapprochen",
-      "section1Content": "Den direkten Vergläichsansaz gëtt am heefegsten fir Wunnimmobilie benotzt: Hien analyséiert aktuell Verkafspräisser vun ähnlechen Objeten am selwechte Gebitt an passt fir Ënnerscheeder un (Fläch, Stack, Zoustand, Ausriichtung, Parking). Dëst ass déi bevorzugt Method, wann de Marché genuch Vergläichsobjeten bitt. Den Ertragswäertansaz eegent sech fir Mietobjeten: De Wäert gëtt ermëttelt, andeems d'jährlech Nettomietanahm duerch en Kapitaliséierungssaz gedeelt gëtt, deen de Marktrisiko an d'erwaart Rendit widerspigelt. Zu Lëtzebuerg leien d'Kapitaliséierungssätz fir Wunnimmobilie tëschent 3 % an 5 % je no Lag. Den Discounted-Cash-Flow-Ansaz (DCF) projizéiert zukünfteg Zahlungsströme (Loyeren, Käschten, Widdervekaf) iwwer 10 bis 15 Joer an diskontéiert se mam gefierderten Renditesaz. Dës Method gëtt fir Gewerbe- an Hotelimmobilie bevorzugt, geméiss EVS 2025 (European Valuation Standards).",
-      "section2Title": "Datenquellen zu Lëtzebuerg",
-      "section2Content": "Eng zouverlässeg Bewäertung baséiert op qualitativ héichwäertegen Donnéeën. Zu Lëtzebuerg sinn d'Haaptquellen: den Observatoire de l'Habitat (observatoire.liser.lu) mat duerchschnëttlechen Transaktiounspräisser no Gemeng an Immobilientyp; de STATEC mam Wunnimmobiliepräisindex (IPIR) an Bauindizen; d'Publicité Foncière (Administration de l'enregistrement et des domaines) mat notarielle Kafakten a reellen Präisser; den Immobilieportal athome.lu mat Marchéangeboder. Fir Gewerbeimmobilien liwweren d'Berichter vu Berodungsfirmen (JLL, CBRE, Cushman & Wakefield) Donnéeën zu Büroloyeren, Leerstands-Taux a Renditen. Den hedonesche Modell, besonnesch vum LISER benotzt, zerléit den Immobiliepräis no intrinseschen Eegeschaften (Fläch, Zimmerzuel, Energieeffizienz) an extrinseschen Faktoren (Lag, ëffentlechen Transport, Schoulen) an erméiglecht d'Schätzung vum Grenzwäert vun all Attribut.",
-      "section3Title": "Schlësselfaktoren vun der Bewäertung an TEGOVA-Standarden",
-      "section3Content": "D'Faktoren, déi de Wäert vun enger Immobilie zu Lëtzebuerg am stäerksten beaflossen, sinn: d'Lag (Gemeng, Quartier, Strooss — mat Präisënnerscheeder bis zum Véierfachen tëschent ländlechen Zonen a Lëtzebuerg-Stad Zentrum); d'Wunnfläch an d'Zuel vu Schlofkummeren; den allgemenge Zoustand an d'Qualitéit vun der Ausstattung; d'Energieeffizienz (CPE-Klass A bis I huet en ëmmer méi groussen Afloss op de Präis, geschat op 3 bis 8 % pro Klass laut LISER-Etüden); Bausseberäicher (Terrasse, Gaart, Balcon) a Parking. D'TEGOVA EVS 2025 Standarden (European Valuation Standards) definéieren unerkannt Wäertgrondlagen: Marchéwäert, Investitiounswäert, Fair Value geméiss IFRS 13. All professionelle Bewäertungsbericht muss d'gewielt Wäertgrondlag, déi applizéiert Method(en), Schlësselunahmen a besonnesch Bedingungen uginn. Zu Lëtzebuerg garantéieren TEGOVA REV (Recognised European Valuer) zertifizéiert Experten d'Anhale vun dësen Standarden.",
-      "relatedToolLabel": "Schätzt Är Immobilie",
-      "relatedToolLink": "/estimation",
-      "faq1Q": "Wéi eng ass déi zouverlässegst Method fir eng Immobiliebewäertung zu Lëtzebuerg?",
-      "faq1A": "Fir Wunnimmobilie ass den direkten Vergläichsansaz am zouverlässegsten, wann genuch Marktdonnéeën virleien. Fir Mietobjeten gëtt d'Ertragswäertkapitaliséierung recommandéiert. D'TEGOVA EVS 2025 Standarden empfeelen mindestens zwou Methoden unzewenden an d'Resultater ofzegläichen, fir d'Zouverlässegkeet vun der Bewäertung ze stäerken.",
-      "faq2Q": "Beaflosst den Energieausweis den Immobiliepräis zu Lëtzebuerg?",
-      "faq2A": "Jo, ëmmer méi. LISER-Etüde weisen, dass eng Verbesserung vun enger CPE-Klass (z.B. D op C) den Immobilienwäert ëm 3 bis 8 % steigere kann. Eng Wunneng vun der Klass A oder B verkeeft sech däitlech besser wéi eng vun der Klass F oder G, well Keefer manner Energiekäschten an keng ugesoten Renovatiounsaarbechten erwaarden."
+      "title": "Immobiliebewäertung zu Lëtzebuerg: TEGOVA EVS 2025 Methoden an Datenquellen",
+      "metaDescription": "Immobiliebewäertung LU: 3 TEGOVA-Approchen (Vergläich, Kapitaliséierung, DCF), Datenquellen Observatoire/STATEC/AED, hedonescht LISER-Modell, CPE-Impact 3 bis 8%/Klass, REV/TRV.",
+      "subtitle": "Wéi een eng Immobilie zu Lëtzebuerg richteg bewäert: professionnell Methoden, verfügbar Donnéeën an Bewäertungsdriver 2026.",
+      "category": "Bewäertung & TEGOVA",
+      "essentiel": [
+        "3 TEGOVA EVS 2025 Approchen: direkten Vergläich (Wunnen), Ertragswäertkapitaliséierung (Locatioun), DCF (Gewerbe / Hotel).",
+        "LU-Donnéeën: LISER-Wunnungsobservatoire, STATEC IPIR, AED-Grondbuch (real Präisser), Immobilieportaler, Berodungsfirmberichter (JLL, CBRE, C&W).",
+        "Schlësseldriver: Lag (Spread x2-x4 LU-Stad vs Land), Fläch, Zoustand, CPE (3-8% Wäert/Klass), Bausseberäicher a Parking.",
+        "Unerkannt Wäertgrondlagen: Marchéwäert, Investitiounswäert, Fair Value (IFRS 13). TEGOVA-Bericht setzt Annahmen a Bedingungen un.",
+        "Professionnell Expertise: REV (Recognised European Valuer) oder TRV (TEGOVA Residential Valuer), Garantie fir Onofhängegkeet a Method."
+      ],
+      "section1Title": "Déi 3 TEGOVA-Bewäertungsapprochen",
+      "section1P1": "Den direkten Vergläich (Sales Comparison) gëtt am heefegsten fir Wunnimmobilie benotzt: Analys vun rezenten Transaktiounen op ähnleche Biller am selwechte Gebitt, ugepasst fir Ënnerscheeder (Fläch, Stack, Zoustand, Ausriichtung, Parking, CPE). Zouverlässeg Method wann de Marché Vergläichsreferenze bitt. Zu Lëtzebuerg späist LISER dësen Ansaz iwwer hedonesch Modeller déi den Bäitrag vu jidder Eegenschaft zum Präis isoléieren.",
+      "section1P2": "D'Ertragswäertkapitaliséierung (Income Capitalisation) deelt déi stabiliséiert jährlech Nettomietakommes duerch e Kapitaliséierungssaz dee Marktrisiko a Rendit reflektéiert. LU-Wunnen-Cap-Rates: 3 bis 5% no Lag a Klass. Den DCF-Ansaz (Discounted Cash Flow) projizéiert Cashflows iwwer 10-15 Joer an diskontéiert se zu engem ugepassten WACC (typesch 5-9%), mat engem Endwäert; obligatoresch fir Gewerbe- an Hotelimmobilien laut EVS 2025.",
+      "callout1Title": "Op mannst zwou Methoden ofgläichen",
+      "callout1Body": "D'TEGOVA EVS 2025 Standarden verlaangen, datt den Gutachter d'Method begrënnt an, no Méiglechkeet, mat enger sekundärer Approche ofgläicht. An der Praxis kombinéiert een bei enger Wunnen-Mietimmobilie direkten Vergläich (Präisreferenz) a Kapitaliséierung (Renditkonsistenz). Konvergéieren béid op ±5%, ass de Wäert robust.",
+      "section2Title": "Verfügbar Datenquellen",
+      "section2P1": "De LU-Marché huet ëffentlech Quelle vu héijer Qualitéit: Wunnungsobservatoire (observatoire.liser.lu) — Transaktiounspräisser je Gemeng an Typ, Loyer-Index, monatlech Verfollegung; STATEC — IPIR (Wunnimmobiliepräisindex), Baukosteindex, Demographie; data.public.lu — Geoportaldonnéeën, Kataster, PAG/PAP-Pläng; AED-Grondbuch — notariell Kafakten (real Präisser véierjählech publizéiert).",
+      "section2P2": "Fir den Tertiärsecteur (Bürorraim, Geschäfter, Hoteler): Quartalsberichter vun internationale Firmen JLL, CBRE, Cushman & Wakefield, Inowai (Prime-Loyeren, Leerstands-Taux, beobachtete Renditen). Fir d'gereegelt Mietbewäertung: Den tevaxia gesetzleche Loyer-Rechner automatiséiert d'5%-Regel mat STATEC-Koeffizienten. Fir Hoteler: STATEC-Iwwernuechtungsobservatoire, RevPAR no Kategorie.",
+      "section3Title": "Schlësseldriver vun der Bewäertung",
+      "section3P1": "De €/m²-Spread tëschent LU-Zonen kann x4 sinn: Lëtzebuerg-Stad Zentrum (15.000-20.000 €/m²) vs ländlech Kantonen (4.000-6.000 €/m²). Bannent enger Gemeng ënnerscheede sech Sub-Quartiere (Schoul-, Verkéiersuubindung, Grénganlagen, Geschäfter). Wunnfläch a Verdeelung sinn wichteg (T2-T3 méi wäertvoll pro m² wéi T6+ fir de Mietmarché).",
+      "section3P2": "Allgemenge Zoustand an Ausstattungsqualitéit: Eng renovéiert Immobilie gëtt 10-20% iwwer enger äquivalent renovéierungsbedürfteger bewäert. D'Energieeffizienz huet wuessenden Impakt: LISER-Etüde béiffren de Wäertspread pro CPE-Klass op 3-8% (en F→C-Sprong kann 10-25% Méierwäert bréngen). Bausseberäicher (Gaart, Terrasse, Balcon) a Parking ginn typesch 10-15% Wäert dobäi. Ausriichtung, Rou a Stack (mat Lift) spille och eng Roll.",
+      "callout2Title": "Den CPE-Impakt wäert sech verstäerken",
+      "callout2Body": "Mat der iwwerschaffter EU EPBD-Direktiv an de kommenden Renovéierungsflichten (Klassen G/F a verschiddene Länner ab 2030 vun der Vermietung ausgeschloss) wäert den CPE-Impakt op de Wäert verstäerkt ginn. Antizipéiert duerch Integratioun vun der energeetescher Sanéierung an de Investitions-Businessplang, besonnesch fir E-G-Klass-Immobilien.",
+      "section4Title": "TEGOVA EVS 2025 Normenrahmen",
+      "section4P1": "D'European Valuation Standards 2025 (TEGOVA) definéieren international unerkannt Wäertgrondlagen: Market Value (hypothetesch Bartransaktioun zum Bewäertungsdatum), Investment Value (Wäert fir e spezifeschen Investisseur no senge Kritären), Fair Value (IFRS 13 Fair Value fir geprüft Konten), Mortgage Lending Value (virsiichtege Hypothéikewäert fir Banken).",
+      "section4P2": "All professionnellen TEGOVA-Bewäertungsbericht setzt fest: d'Wäertgrondlag, déi applizéiert Method(en), d'Datenquellen, d'Schlësselunahmen a speziell Bedingungen (ënner opschiebender Bedingung, ofzeschléissend Renovéierung, etc.). Zu Lëtzebuerg garantéieren vum INREV zertifizéiert REV- oder TRV-Experten d'Anhale vun dësen Standarden a haften beruflech.",
+      "callout3Title": "Wéini eng REV-Expertise beoptraen?",
+      "callout3Body": "Eng REV/TRV-Expertise ass néideg fir: e komplext Bankfinanzéierungsdossier, en Nachloss oder eng Schenkung mat Deelung, eng Enteignung, eng Scheedung mat Vermögensdeelung, e Geriichtsstreit. Fir e einfache Verkaf tëschent Privaten geet meeschtens eng Schätzung vun 2-3 Maklere oder en hedonescht Tool (wéi tevaxia)."
+,
+      "inlineCalc": {
+        "title": "Schätzt Är Immobilie direkt",
+        "description": "Eise tevaxia-Schätzer appliquéiert en hedonescht Modell op Basis vun den Donnéeën vum Wunnungsobservatoire a STATEC. Gitt Gemeng, Fläch, Zoustand, CPE an Eegenschaften an, fir eng Präisspann mat Konfidenzniveau ze kréien.",
+        "cta": "Schätzung starten"
+      },
+      "tools": [
+        { "href": "/estimation", "title": "Direkt-Schätzer", "description": "LU hedonescht Modell mat Spann a Konfidenzniveau." },
+        { "href": "/hedonique", "title": "Erweidert Hedonescht", "description": "Opschlësselung no Eegeschaft fir d'Wäertverständnis." },
+        { "href": "/dcf-multi", "title": "Méi-Period DCF", "description": "Fir Miet- a Gewerbeimmobilien, 10-15 Joer Projektioun." },
+        { "href": "/carte", "title": "Präiskaart", "description": "Beobachtet Präisser je Gemeng a Quartier (Wunnungsobservatoire)." }
+      ],
+      "faq": [
+        { "q": "Wéi eng Method ass déi zouverlässegst fir eng Immobiliebewäertung zu Lëtzebuerg?", "a": "Fir d'Wunnen ass den direkten Vergläich kombinéiert mat engem hedoneschen Modell am zouverlässegsten. Fir d'Locatioun gëtt d'Ertragswäertkapitaliséierung bevorzugt. Fir Gewerbe/Hotel ass DCF Standard. TEGOVA EVS 2025 empfeelen op mannst zwou Methoden ofzegläichen fir d'Zouverlässegkeet ze stäerken." },
+        { "q": "Beaflosst den Energieausweis den Immobiliepräis zu Lëtzebuerg?", "a": "Jo. LISER-Etüde béiffren de Wäertspread pro CPE-Klass op 3-8% (e F-zu-C-Sprong kann 10-25% Méierwäert bréngen). Den Impakt wäert mat den europäeschen Sanéierungsflichten (EPBD revidéiert 2024) wuessen." },
+        { "q": "Wat kascht eng REV/TRV-Expertise zu Lëtzebuerg?", "a": "Fir eng Wunnimmobilie 800 bis 2.500 € no Komplexitéit. Fir e Gewerbe- oder Hotelobjet 3.000 bis 15.000 € no Wäert a Komplexitéit. Honoréier ass fräi, baséiert op Aufwand a Verantwortung. Den TEGOVA-Bericht ass bei Banken a Geriichter unerkannt." },
+        { "q": "Wou fënnt een real Verkafspräisser zu Lëtzebuerg?", "a": "D'Grondbuchsamt (AED) publizéiert véierjählech real Präisser vun notarielle Akten. Den LISER-Wunnungsobservatoire aggregéiert a publizéiert dës Donnéeën je Gemeng an Immobilientyp (observatoire.liser.lu)." },
+        { "q": "Wéi en Kapitaliséierungssaz ass typesch zu Lëtzebuerg?", "a": "Fir d'Wunnen: 3 bis 5% brutto no Lag (3-3,5% an Premium-Zonen LU-Stad, 4-5% a Kantonen). Fir Prime-Bürorraim LU-Stad: 4 bis 5%. Fir d'Hotellerie: 6 bis 8% no Kategorie a Performance. Dës Sätz entwéckele sech mat de Leitzënsen an Anleihrenditen." },
+        { "q": "Muss d'TVA an der Schätzung berücksichtegt ginn?", "a": "Bei VEFA-Neibau gëtt de Wäert üblech netto presentéiert an dann zum applikabele Saz op TTC ëmgerechent (3% Wunn-TVA mat 50.000 € Plafong). Bei Bestand (tëschent Privaten) keng TVA, mä vum Keefer ze bezuelend Aschreiwungsgebühren. TEGOVA-Berichter ënnerscheeden ëmmer netto/brutto." }
+      ],
+      "sources": [
+        { "title": "TEGOVA — European Valuation Standards 2025", "org": "The European Group of Valuers' Associations", "url": "https://www.tegova.org/", "year": 2025 },
+        { "title": "Wunnungsobservatoire — Präisser je Gemeng", "org": "LISER", "url": "https://observatoire.liser.lu/" },
+        { "title": "Wunnimmobiliepräisindex (IPIR)", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Grondbuch — Kafakten", "org": "Verwaltung fir Aschreiwung, Domänen an TVA", "url": "https://pfi.public.lu/fr.html" },
+        { "title": "Gesetz vum 4. Dezember 1967 (LIR) — Basis STATEC-Koeffizient", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
+        { "title": "Hedonesch Etüde zum LU-Immobiliemarché", "org": "LISER", "url": "https://www.liser.lu/" }
+      ]
     },
     "achatNonResident": {
       "title": "Kann en Net-Resident eng Immobilie zu Lëtzebuerg kafen?",

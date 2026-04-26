@@ -9608,21 +9608,62 @@
       ]
     },
     "estimation": {
-      "title": "How to Estimate the Value of a Property in Luxembourg?",
-      "metaDescription": "Property valuation Luxembourg: 3 approaches (comparison, capitalisation, DCF), data sources, key factors, hedonic model, TEGOVA EVS 2025.",
-      "intro": "Estimating property value in Luxembourg requires a rigorous methodology supported by reliable data. Professionals (TEGOVA REV/TRV valuers, real estate agents) primarily use three approaches: direct comparison, income capitalisation and Discounted Cash Flow (DCF). The choice of method depends on the property type (residential, commercial, hospitality) and market data availability. The European TEGOVA EVS 2025 valuation standards govern these practices in Luxembourg.",
-      "section1Title": "The 3 Valuation Approaches",
-      "section1Content": "The direct comparison approach is most commonly used for residential properties: it involves analysing recent sale prices of similar properties in the same area, then adjusting for differences (area, floor, condition, orientation, parking). This is the preferred method when the market provides sufficient comparable references. The income capitalisation approach suits rental properties: value is obtained by dividing net annual rental income by a capitalisation rate reflecting market risk and expected return. In Luxembourg, residential capitalisation rates range between 3% and 5% depending on location. The Discounted Cash Flow (DCF) approach projects future cash flows (rents, charges, resale) over 10 to 15 years and discounts them at the required rate of return. This method is preferred for commercial and hospitality assets, in line with EVS 2025 (European Valuation Standards).",
-      "section2Title": "Data Sources in Luxembourg",
-      "section2Content": "Reliable estimation relies on quality data. In Luxembourg, the main sources are: the Housing Observatory (observatoire.liser.lu) which publishes average transaction prices by municipality and property type; STATEC which provides the residential property price index (IPIR) and construction indices; Land Registry (Registration and Domains Administration) which records notarial sale deeds with actual prices; the athome.lu property portal which aggregates market listings. For commercial properties, consulting firm reports (JLL, CBRE, Cushman & Wakefield) provide data on office rents, vacancy rates and yields. The hedonic model, used notably by LISER, decomposes a property's price based on its intrinsic characteristics (area, number of rooms, energy performance) and extrinsic factors (location, transport proximity, schools), enabling estimation of each attribute's marginal value.",
-      "section3Title": "Key Valuation Factors and TEGOVA Standards",
-      "section3Content": "The factors most influencing property value in Luxembourg are: location (municipality, neighbourhood, street — with price differences up to fourfold between rural areas and Luxembourg City Centre); living area and number of bedrooms; general condition and finish quality; energy performance (EPC class A to I has a growing price impact, estimated at 3 to 8% per class according to LISER studies); outdoor spaces (terrace, garden, balcony) and parking. The TEGOVA EVS 2025 standards (European Valuation Standards) define recognised bases of value: Market Value, Investment Value, Fair Value in accordance with IFRS 13. Any professional valuation report must specify the basis of value adopted, the method(s) applied, key assumptions and special conditions. In Luxembourg, TEGOVA REV (Recognised European Valuer) certified experts guarantee compliance with these standards.",
-      "relatedToolLabel": "Estimate your property value",
-      "relatedToolLink": "/estimation",
-      "faq1Q": "What is the most reliable method for valuing a property in Luxembourg?",
-      "faq1A": "For residential properties, the direct comparison approach is most reliable when sufficient market data exists. For rental properties, income capitalisation is recommended. TEGOVA EVS 2025 standards recommend using at least two methods and cross-checking results to strengthen estimation reliability.",
-      "faq2Q": "Does the EPC affect property prices in Luxembourg?",
-      "faq2A": "Yes, increasingly so. LISER studies show that improving by one EPC class (e.g. D to C) can increase property value by 3 to 8%. A dwelling in class A or B sells significantly better than one in class F or G, as buyers anticipate reduced energy costs and no upcoming renovation works."
+      "title": "Property Valuation in Luxembourg: TEGOVA EVS 2025 Methods and Data Sources",
+      "metaDescription": "Property valuation LU: 3 TEGOVA approaches (comparison, capitalisation, DCF), Observatory/STATEC/AED data sources, LISER hedonic model, EPC impact 3 to 8%/class, REV/TRV.",
+      "subtitle": "How to properly value a property in Luxembourg: professional methods, available data and 2026 valuation drivers.",
+      "category": "Valuation & TEGOVA",
+      "essentiel": [
+        "3 TEGOVA EVS 2025 approaches: direct comparison (residential), income capitalisation (rental), DCF (commercial / hospitality).",
+        "LU data: LISER Housing Observatory, STATEC IPIR, AED land registry (actual prices), real estate portals, consulting firm reports (JLL, CBRE, C&W).",
+        "Key drivers: location (x2-x4 spread LU City vs rural), area, condition, EPC (3-8% value/class), outdoor spaces and parking.",
+        "Recognised bases of value: Market Value, Investment Value, Fair Value (IFRS 13). TEGOVA report sets out assumptions and conditions.",
+        "Professional expertise: REV (Recognised European Valuer) or TRV (TEGOVA Residential Valuer), guaranteeing independence and method."
+      ],
+      "section1Title": "The 3 TEGOVA valuation approaches",
+      "section1P1": "Direct comparison (Sales Comparison) is most used for residential: analysis of recent transactions on similar properties in the same area, adjusted for differences (area, floor, condition, orientation, parking, EPC). Reliable method when the market offers comparable references. In Luxembourg, LISER feeds this approach via hedonic models that isolate each characteristic's contribution to price.",
+      "section1P2": "Income Capitalisation divides stabilised net annual rental income by a capitalisation rate reflecting market risk and return. LU residential cap rates: 3 to 5% by location and asset class. The Discounted Cash Flow (DCF) approach projects cash flows over 10-15 years and discounts them at a suitable WACC (typically 5-9%), with a terminal value; mandatory for commercial and hospitality assets per EVS 2025.",
+      "callout1Title": "Cross-check at least two methods",
+      "callout1Body": "TEGOVA EVS 2025 standards require the valuer to justify the method and, where possible, cross-check with a secondary approach. In practice, on a residential rental property, you combine direct comparison (price reference) and capitalisation (yield consistency). If both converge within ±5%, the value is robust.",
+      "section2Title": "Available data sources",
+      "section2P1": "The LU market has high-quality public sources: Housing Observatory (observatoire.liser.lu) — transaction prices by municipality and type, rent index, monthly tracking; STATEC — IPIR (Residential Property Price Index), construction price index, demographics; data.public.lu — geoportal data, cadastre, PAG/PAP plans; AED land registry — notarial sale deeds (actual prices published quarterly).",
+      "section2P2": "For tertiary (offices, retail, hotels): quarterly reports from international firms JLL, CBRE, Cushman & Wakefield, Inowai (prime rents, vacancy rates, observed yields). For regulated rental valuation: the tevaxia legal rent calculator automates the 5% rule with STATEC coefficients. For hotels: STATEC overnight stays observatory, RevPAR by category.",
+      "section3Title": "Key valuation drivers",
+      "section3P1": "The price/sqm spread between LU areas can be x4: Luxembourg City Centre (€15,000-20,000/sqm) vs rural cantons (€4,000-6,000/sqm). Within a municipality, sub-neighbourhoods differ (school proximity, transport, green areas, retail). Living area and layout matter (T2-T3 value better per sqm than T6+ for the rental market).",
+      "section3P2": "General condition and finish quality: a renovated property is valued 10-20% above an equivalent property to renovate. Energy performance has a growing impact: LISER studies put the value spread per EPC class at 3-8% (an F→C jump can boost value by 10-25%). Outdoor spaces (garden, terrace, balcony) and parking typically add 10-15% of value. Orientation, quietness and floor (with elevator) also play a role.",
+      "callout2Title": "EPC impact will intensify",
+      "callout2Body": "With the revised EU EPBD directive and upcoming renovation obligations (G/F classes banned for rental from 2030 in some countries), EPC impact on value will amplify. Anticipate by integrating energy renovation into the investment business plan, especially for E-G class properties.",
+      "section4Title": "TEGOVA EVS 2025 normative framework",
+      "section4P1": "European Valuation Standards 2025 (TEGOVA) define internationally recognised bases of value: Market Value (hypothetical arms-length cash transaction at the valuation date), Investment Value (value to a specific investor under their criteria), Fair Value (IFRS 13 fair value for audited accounts), Mortgage Lending Value (prudent mortgage value for banks).",
+      "section4P2": "Any professional TEGOVA valuation report sets out: the basis of value, the method(s) applied, data sources, key assumptions and special conditions (subject to resolutory condition, renovation to be completed, etc.). In Luxembourg, REV or TRV certified experts (by the national INREV institute) guarantee compliance with these standards and put their professional liability on the line.",
+      "callout3Title": "When to commission a REV expertise?",
+      "callout3Body": "A REV/TRV expertise is required for: a complex bank financing dossier, an estate or gift with division, expropriation, divorce with patrimony division, a court dispute. For a simple sale between private parties, an estimate by 2-3 real estate agents or a hedonic tool (like tevaxia) is generally sufficient.",
+      "inlineCalc": {
+        "title": "Estimate your property instantly",
+        "description": "Our tevaxia estimator applies a hedonic model calibrated on Housing Observatory and STATEC data. Enter municipality, area, condition, EPC and characteristics to get a price range with confidence level.",
+        "cta": "Run the estimate"
+      },
+      "tools": [
+        { "href": "/estimation", "title": "Instant estimator", "description": "LU hedonic model with range and confidence level." },
+        { "href": "/hedonique", "title": "Advanced hedonic", "description": "Decomposition by characteristic to understand value." },
+        { "href": "/dcf-multi", "title": "Multi-period DCF", "description": "For rental and commercial assets, 10-15 year projection." },
+        { "href": "/carte", "title": "Price map", "description": "Observed prices by municipality and neighbourhood (Housing Observatory)." }
+      ],
+      "faq": [
+        { "q": "What is the most reliable method for valuing a property in Luxembourg?", "a": "For residential, direct comparison combined with a hedonic model is the most reliable. For rental, income capitalisation is preferred. For commercial/hospitality, DCF is the standard. TEGOVA EVS 2025 recommend cross-checking at least two methods to strengthen reliability." },
+        { "q": "Does the EPC affect property prices in Luxembourg?", "a": "Yes. LISER studies put the value spread per EPC class at 3-8% (a class F to C jump can value 10-25% more). Impact will grow with European energy renovation obligations (EPBD revised 2024)." },
+        { "q": "How much does a REV/TRV expertise cost in Luxembourg?", "a": "For a residential property, expect €800 to €2,500 depending on complexity. For a commercial or hospitality asset, €3,000 to €15,000 by value and complexity. Fees are unregulated, based on time spent and liability assumed. The TEGOVA report is recognised by banks and courts." },
+        { "q": "Where to find actual sale prices in Luxembourg?", "a": "The Land Registry (AED) publishes actual prices of notarial deeds quarterly. The LISER Housing Observatory aggregates and publishes these data by municipality and property type (observatoire.liser.lu)." },
+        { "q": "What is the typical capitalisation rate in Luxembourg?", "a": "For residential: 3 to 5% gross by location (3-3.5% in prime LU City zones, 4-5% in cantons). For prime LU City offices: 4 to 5%. For hospitality: 6 to 8% by category and performance. These rates evolve with policy rates and bond yields." },
+        { "q": "Should VAT be considered in the estimate?", "a": "For new VEFA, value is typically presented excluding VAT then converted to TTC at the applicable rate (3% housing VAT with €50,000 cap). For existing (between private parties), no VAT but registration duties owed by the buyer. TEGOVA reports always distinguish excl./incl. VAT." }
+      ],
+      "sources": [
+        { "title": "TEGOVA — European Valuation Standards 2025", "org": "The European Group of Valuers' Associations", "url": "https://www.tegova.org/", "year": 2025 },
+        { "title": "Housing Observatory — prices by municipality", "org": "LISER", "url": "https://observatoire.liser.lu/" },
+        { "title": "Residential Property Price Index (IPIR)", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Land registry — sale deeds", "org": "Registration, Estates and VAT Administration", "url": "https://pfi.public.lu/fr.html" },
+        { "title": "Law of 4 December 1967 (LIR) — STATEC coefficient base", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
+        { "title": "Hedonic studies on the LU property market", "org": "LISER", "url": "https://www.liser.lu/" }
+      ]
     },
     "achatNonResident": {
       "title": "Can a Non-Resident Buy Property in Luxembourg?",
