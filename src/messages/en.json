@@ -9801,21 +9801,61 @@
       ]
     },
     "bailCommercial": {
-      "title": "What Are the Rules for Commercial Leases in Luxembourg?",
-      "metaDescription": "Commercial lease in Luxembourg: law of 03.02.2018, minimum 9-year term, triennial termination, CPI STATEC indexation, key money, renewal rights. Complete guide.",
-      "intro": "Commercial leases in Luxembourg are governed by the law of 3 February 2018 on commercial leases, which came into force on 1 April 2018. This law profoundly modernized the legal framework for commercial leases, which previously fell solely under the Civil Code. It establishes a minimum 9-year term, a renewal right for the tenant, regulated rent indexation, and specific termination rules. This guide presents the essential rules for landlords and tenants of commercial premises in Luxembourg.",
-      "section1Title": "Duration, Triennial Termination and Notice",
-      "section1Content": "The law of 3 February 2018 imposes a minimum 9-year term for all commercial leases (Art. 2). Parties may agree on a longer term, but never shorter. The tenant benefits from a triennial termination right: they may end the lease at the expiry of each 3-year period (3, 6, 9 years) with 6 months' notice, served by extrajudicial act or registered letter (Art. 4). The landlord may only terminate during the lease term in exhaustively listed cases: serious tenant breach, landlord's personal need for business operation (under strict conditions), or total demolition/reconstruction works. Non-renewal at lease expiry must also be notified 6 months in advance. The lease renews by tacit renewal for 9 years if neither party gives notice of non-renewal.",
-      "section2Title": "Rent, Indexation and Key Money",
-      "section2Content": "Unlike residential leases, commercial rent is not capped by the 5% rule of invested capital (Art. 3, law of 21.09.2006 on residential leases). Rent is freely set between parties according to market conditions. Commercial rent indexation is linked to the Consumer Price Index (CPI) published by STATEC, not to a commercial rent index (ILC) as in France. The indexation clause must be expressly provided in the lease; otherwise, rent remains fixed. Rent review may be requested by either party at the end of each 3-year period if the rent no longer corresponds to actual rental value (Art. 7). Key money (pas-de-porte) is lawful in Luxembourg: the landlord may require an initial payment in exchange for the commercial advantages of the location. This amount is unregulated and freely negotiated.",
-      "section3Title": "Renewal Right and Eviction Compensation",
-      "section3Content": "The commercial tenant benefits from a lease renewal right (Art. 5, law of 03.02.2018). This right is exercised at lease expiry by notifying the landlord of a renewal request at least 6 months before the term. A landlord who refuses renewal without legitimate grounds must pay the tenant eviction compensation. This compensation covers the tenant's loss: loss of clientele, moving and reinstallation costs, compensation for loss of business goodwill. The amount is set either amicably or by a judge. The landlord may refuse renewal without compensation only for serious grounds: tenant's breach of obligations, building condition requiring demolition/reconstruction, or personal business need (the landlord must then operate the premises for at least 2 years). Assignment of the commercial lease is possible unless otherwise stipulated, but the landlord must be informed of the assignment.",
-      "relatedToolLabel": "Simulate commercial lease profitability",
-      "relatedToolLink": "/bail-commercial",
-      "faq1Q": "What is the minimum term of a commercial lease in Luxembourg?",
-      "faq1A": "The minimum term is 9 years (Art. 2, law of 3 February 2018). The tenant may terminate at each triennial period (3, 6, 9 years) with 6 months' notice. The landlord may only terminate for reasons exhaustively listed by law.",
-      "faq2Q": "Is commercial rent capped in Luxembourg?",
-      "faq2A": "No, unlike residential leases (capped at 5% of invested capital), commercial rent is freely set between parties according to market conditions. There is no legal cap. Indexation is based on the STATEC CPI if a clause provides for it in the lease."
+      "title": "Commercial Lease in Luxembourg: Law 03.02.2018, 9-Year Term and Renewal Right",
+      "metaDescription": "LU commercial lease: law 03.02.2018, 9-year minimum term, triennial termination 6-month notice, STATEC CPI indexation, free key money, renewal right, eviction compensation.",
+      "subtitle": "The complete legal framework for commercial leases in Luxembourg: term, termination, rent, indexation and renewal right.",
+      "category": "Renting & lease",
+      "essentiel": [
+        "Legal framework: law of 3 February 2018 on commercial leases (in force since 1 April 2018), modernising the prior Civil-Code-only regime.",
+        "Minimum 9-year term (Art. 2). Triennial termination by tenant (3, 6, 9 years) with 6 months' notice.",
+        "Free rent (no 5% rule), STATEC CPI indexation if explicit clause, triennial review possible if rent diverges from rental value.",
+        "Key money (pas-de-porte) lawful and unregulated: freely negotiated between landlord and tenant.",
+        "Renewal right at term; refusal without legitimate grounds = eviction compensation (loss of clientele, moving costs, business goodwill)."
+      ],
+      "section1Title": "Legal framework and contract type",
+      "section1P1": "Commercial leases in Luxembourg have been governed since 1 April 2018 by the law of 3 February 2018 on commercial leases. This law replaced the application of the Civil Code alone and modernised the framework: minimum legal term, renewal right, eviction compensation, regulated indexation. It applies to leases of premises used for a commercial, craft or industrial activity carried out professionally.",
+      "section1P2": "Excluded: residential leases (law of 21.09.2006), agricultural leases (specific regime), leases of intangible assets (business goodwill without premises), and short-term leases (< 6 months for seasonal activities). The lease must be in writing (preferable but not mandatory); without writing, evidence of occupation and payment proves the lease's existence but with a heavier burden of proof in case of dispute.",
+      "callout1Title": "Activity covered = effective operation",
+      "callout1Body": "The 2018 law only protects leases where the tenant effectively operates a commercial activity at the leased address (trade register, signage, clientele). A simple domiciliation or office use without clientele does not suffice to invoke the commercial lease protection.",
+      "section2Title": "Term and triennial termination",
+      "section2P1": "The legal minimum term is 9 years (Art. 2). Parties may agree a longer term (e.g., 12, 15 or 25 years for major fit-out investments), but never shorter. If the lease provides less than 9 years, the term is automatically extended to 9 years by law.",
+      "section2P2": "The tenant has a triennial termination right: they may end the lease at the expiry of each 3-year period (3, 6, 9 years) with 6 months' notice served by extrajudicial act or registered letter (Art. 4). The landlord, however, may only terminate during the lease for limitatively listed reasons: serious tenant breach, personal business need, or full demolition/reconstruction works.",
+      "section3Title": "Rent, indexation and key money",
+      "section3P1": "Commercial rent is NOT capped by the 5% rule (which applies only to residential leases). It is freely set between parties according to market conditions and the premises' rental value. For LU commercial premises, prime LU City rents typically range from €80 to €250/sqm/month depending on location and use.",
+      "section3P2": "Indexation is linked to the Consumer Price Index (CPI) published by STATEC. The indexation clause must be expressly provided in the lease; otherwise, rent remains fixed throughout. Rent review may be requested by either party at the end of each 3-year period if the rent no longer corresponds to actual rental value (Art. 7). Key money (pas-de-porte) is lawful in Luxembourg, in exchange for the location's commercial advantages, and is freely negotiated.",
+      "callout2Title": "Luxembourg specificity: no ILC",
+      "callout2Body": "Unlike France, which has a specific Commercial Rent Index (ILC), Luxembourg uses the general CPI. This may decorrelate commercial rent from actual market conditions. Anticipate by possibly requesting an annual indexation cap in the lease drafting.",
+      "section4Title": "Renewal right and eviction compensation",
+      "section4P1": "The commercial tenant has a lease renewal right at term (Art. 5). It is exercised by notifying the landlord of a renewal request at least 6 months before the term. A landlord refusing renewal without legitimate grounds must pay the tenant eviction compensation covering the loss: clientele loss, moving and reinstallation costs, business goodwill loss compensation.",
+      "section4P2": "The landlord may refuse renewal without compensation only for serious grounds: tenant's contractual or legal breach, building condition requiring full demolition and reconstruction, or personal business need (the landlord must then operate the premises in the same or related activity for at least 2 years). Assignment of the commercial lease is possible unless otherwise stipulated, generally tied to the goodwill assignment; the landlord must be informed.",
+      "callout3Title": "Assignment and sublet",
+      "callout3Body": "Assigning the commercial lease to a third party (notably on goodwill sale) is free unless expressly forbidden by the lease. Partial subletting is more constrained and generally requires the landlord's written consent. Any assignment must be notified to them. If the lease bans assignment, foresee an exit clause for goodwill resale.",
+      "inlineCalc": {
+        "title": "Assess a commercial premises' profitability",
+        "description": "Our commercial lease tool integrates free rent setting, amortisable key money, CPI indexation, fit-out amortisation and net yield computation for landlord and tenant.",
+        "cta": "Run the analysis"
+      },
+      "tools": [
+        { "href": "/bail-commercial", "title": "Commercial lease tool", "description": "Rent, key money, CPI indexation, landlord/tenant yield." },
+        { "href": "/dcf-multi", "title": "Multi-period DCF", "description": "Valuation of an asset leased commercially over 9 years." },
+        { "href": "/portfolio", "title": "Property portfolio", "description": "Track several commercial leased premises." },
+        { "href": "/aml-kyc", "title": "Tenant verification", "description": "Solvency of the tenant company before signing the lease." }
+      ],
+      "faq": [
+        { "q": "What is the minimum term of a commercial lease in Luxembourg?", "a": "9 years (Art. 2 of the law of 3 February 2018). The tenant may terminate at each triennial period (3, 6, 9 years) with 6 months' notice. The landlord may only terminate for serious breach, personal business need or demolition/reconstruction." },
+        { "q": "Is commercial rent capped in Luxembourg?", "a": "No, unlike residential leases (5% cap on invested capital), commercial rent is freely set between parties. Indexation uses STATEC CPI if an express clause provides for it." },
+        { "q": "What is key money and how to negotiate it?", "a": "Key money (pas-de-porte) is an initial payment by the tenant to the landlord in exchange for the location's commercial advantages. Lawful in LU, unregulated, freely negotiated (typically 1 to 6 months' rent for an average location, up to several years for prime). Can be amortised by the tenant over the lease term." },
+        { "q": "How does the renewal right work?", "a": "The tenant notifies a renewal request at least 6 months before the lease term. A landlord refusing without legitimate grounds (breach, demolition, personal business need) must pay eviction compensation covering clientele loss, moving and goodwill loss. The amount is set amicably or by a judge." },
+        { "q": "Can the landlord block the lease assignment to a buyer?", "a": "No, unless an opposite clause in the lease. Commercial lease assignment is free, generally tied to the goodwill assignment. The landlord must be informed but cannot oppose if the lease conditions (rent, use) are respected by the buyer. Provide an approval clause if the landlord wants oversight." },
+        { "q": "What to do in case of serious tenant breach?", "a": "The landlord sends a formal notice by registered letter specifying the breach (unpaid rent > 2 months, prohibited subletting, change of use, major damage). Without remedy within 30 days, the landlord can refer the matter to court for judicial termination with eviction and arrears/damages claim." }
+      ],
+      "sources": [
+        { "title": "Law of 3 February 2018 on commercial leases", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo", "year": 2018 },
+        { "title": "Commercial lease — practical guide", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html" },
+        { "title": "Consumer Price Index (CPI)", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Civil Code — articles 1709 et seq.", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" },
+        { "title": "Chamber of Commerce — entrepreneurs support", "org": "Luxembourg Chamber of Commerce", "url": "https://www.cc.lu/" }
+      ]
     },
     "investirHotel": {
       "title": "How to Invest in a Hotel in Luxembourg?",

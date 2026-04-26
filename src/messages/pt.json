@@ -9679,21 +9679,61 @@
       ]
     },
     "bailCommercial": {
-      "title": "Quais são as regras do arrendamento comercial no Luxemburgo?",
-      "metaDescription": "Arrendamento comercial no Luxemburgo: lei de 03.02.2018, duração mínima 9 anos, rescisão trienal, indexação IPC STATEC, trespasse, direito à renovação. Guia completo.",
-      "intro": "O arrendamento comercial no Luxemburgo é regido pela lei de 3 de fevereiro de 2018 sobre o arrendamento comercial, que entrou em vigor a 1 de abril de 2018. Esta lei modernizou profundamente o enquadramento jurídico dos arrendamentos comerciais, que anteriormente dependia apenas do Código Civil. Estabelece uma duração mínima de 9 anos, um direito à renovação para o inquilino, uma indexação enquadrada das rendas e regras de rescisão específicas. Este guia apresenta as regras essenciais para senhorios e inquilinos de locais comerciais no Luxemburgo.",
-      "section1Title": "Duração, rescisão trienal e pré-aviso",
-      "section1Content": "A lei de 3 de fevereiro de 2018 impõe uma duração mínima de 9 anos para todo arrendamento comercial (art. 2). As partes podem acordar uma duração mais longa, mas nunca inferior. O inquilino beneficia de um direito de rescisão trienal: pode pôr fim ao arrendamento no termo de cada período trienal (3, 6, 9 anos) mediante pré-aviso de 6 meses, notificado por ato extrajudicial ou carta registada (art. 4). O senhorio só pode rescindir durante a vigência do arrendamento em casos taxativamente enumerados: incumprimento grave do inquilino, necessidade pessoal de exploração do senhorio (sob condições estritas), ou obras de demolição/reconstrução integral. A não renovação no termo do arrendamento deve igualmente ser notificada com 6 meses de antecedência. O arrendamento renova-se por tácita recondução por 9 anos se nenhuma das partes notificar a sua recusa de renovação.",
-      "section2Title": "Renda, indexação e trespasse",
-      "section2Content": "Ao contrário do arrendamento habitacional, a renda comercial não é limitada pela regra dos 5% do capital investido (art. 3, lei de 21.09.2006 sobre o arrendamento habitacional). A renda é fixada livremente entre as partes segundo as condições do mercado. A indexação da renda comercial está ligada ao Índice de Preços no Consumidor (IPC) publicado pelo STATEC, e não a um índice de rendas comerciais (ILC) como em França. A cláusula de indexação deve estar expressamente prevista no contrato; caso contrário, a renda permanece fixa. A revisão da renda pode ser pedida por cada parte no termo de cada período trienal se a renda já não corresponder ao valor locativo real (art. 7). O trespasse (ou direito de entrada) é lícito no Luxemburgo: o senhorio pode exigir um pagamento inicial em contrapartida das vantagens comerciais ligadas à localização. Este montante não é regulamentado e negocia-se livremente.",
-      "section3Title": "Direito à renovação e indemnização de despejo",
-      "section3Content": "O inquilino comercial beneficia de um direito à renovação do seu arrendamento (art. 5, lei de 03.02.2018). Este direito exerce-se no termo do arrendamento notificando ao senhorio um pedido de renovação pelo menos 6 meses antes do prazo. O senhorio que recuse a renovação sem motivo legítimo deve pagar ao inquilino uma indemnização de despejo. Esta indemnização cobre o prejuízo sofrido: perda de clientela, custos de mudança e reinstalação, indemnização por perda de fundo de comércio. O montante é fixado amigavelmente ou pelo juiz. O senhorio pode recusar a renovação sem indemnização apenas por motivos graves: incumprimento das obrigações pelo inquilino, estado do imóvel que necessita demolição/reconstrução, ou necessidade de exploração pessoal (o senhorio deve então explorar os locais durante pelo menos 2 anos). A cessão do arrendamento comercial é possível salvo cláusula em contrário, mas o senhorio deve ser informado da cessão.",
-      "relatedToolLabel": "Simular a rentabilidade de um arrendamento comercial",
-      "relatedToolLink": "/bail-commercial",
-      "faq1Q": "Qual é a duração mínima de um arrendamento comercial no Luxemburgo?",
-      "faq1A": "A duração mínima é de 9 anos (art. 2, lei de 3 de fevereiro de 2018). O inquilino pode rescindir em cada período trienal (3, 6, 9 anos) com pré-aviso de 6 meses. O senhorio só pode rescindir por motivos taxativamente enumerados pela lei.",
-      "faq2Q": "A renda comercial é limitada no Luxemburgo?",
-      "faq2A": "Não, ao contrário do arrendamento habitacional (limitado a 5% do capital investido), a renda comercial é fixada livremente entre as partes segundo as condições do mercado. Não existe teto legal. A indexação é feita sobre o IPC do STATEC se uma cláusula o previr no contrato."
+      "title": "Arrendamento comercial no Luxemburgo: lei 03.02.2018, prazo 9 anos e direito à renovação",
+      "metaDescription": "Arrendamento comercial LU: lei 03.02.2018, prazo mínimo 9 anos, rescisão trienal com 6 meses de pré-aviso, indexação IPC STATEC, trespasse livre, direito à renovação, indemnização de despejo.",
+      "subtitle": "O quadro legal completo para arrendamento comercial no Luxemburgo: prazo, rescisão, renda, indexação e direito à renovação.",
+      "category": "Arrendamento e contrato",
+      "essentiel": [
+        "Quadro legal: lei de 3 de fevereiro de 2018 sobre arrendamento comercial (em vigor desde 1 de abril de 2018), modernização do anterior regime apenas no Código Civil.",
+        "Prazo mínimo 9 anos (art. 2). Rescisão trienal pelo inquilino (3, 6, 9 anos) com pré-aviso de 6 meses.",
+        "Renda livre (sem regra dos 5%), indexação IPC STATEC se cláusula explícita, revisão trienal possível em caso de desvio do valor locativo.",
+        "Trespasse (pas-de-porte) lícito e não regulamentado: livremente negociado entre senhorio e inquilino.",
+        "Direito à renovação no termo; recusa sem motivo legítimo = indemnização de despejo (perda de clientela, mudança, fundo de comércio)."
+      ],
+      "section1Title": "Quadro legal e tipo de contrato",
+      "section1P1": "O arrendamento comercial no Luxemburgo é regido desde 1 de abril de 2018 pela lei de 3 de fevereiro de 2018. Esta lei substituiu a aplicação isolada do Código Civil e modernizou em profundidade o quadro: prazo mínimo legal, direito à renovação, indemnização de despejo, indexação enquadrada. Aplica-se aos arrendamentos de imóveis destinados a uma atividade comercial, artesanal ou industrial exercida profissionalmente.",
+      "section1P2": "Excluídos do âmbito: arrendamentos habitacionais (lei 21.09.2006), arrendamentos rurais (regime específico), arrendamentos sobre bens incorpóreos (fundo de comércio sem local) e arrendamentos de curta duração (< 6 meses para atividades sazonais). O contrato deve ser escrito (preferível mas não obrigatório); na ausência de escrito, as provas de ocupação e pagamento valem como existência do contrato mas com encargo de prova mais pesado em caso de litígio.",
+      "callout1Title": "Atividade coberta = exploração efetiva",
+      "callout1Body": "A lei de 2018 protege apenas os arrendamentos onde o inquilino explora efetivamente uma atividade comercial no endereço arrendado (registo comercial, sinalética, clientela). Uma simples domiciliação ou utilização como escritório sem clientela não basta para invocar a proteção do arrendamento comercial.",
+      "section2Title": "Prazo e rescisão trienal",
+      "section2P1": "O prazo mínimo legal é de 9 anos (art. 2). As partes podem acordar um prazo mais longo (por ex. 12, 15 ou 25 anos para grandes investimentos em equipamentos), mas nunca inferior. Se o contrato prevê menos de 9 anos, o prazo é automaticamente prolongado para 9 anos por lei.",
+      "section2P2": "O inquilino tem um direito de rescisão trienal: pode pôr fim ao contrato no termo de cada período trienal (3, 6, 9 anos) mediante pré-aviso de 6 meses notificado por ato extrajudicial ou carta registada (art. 4). O senhorio, por seu lado, só pode rescindir durante a vigência por motivos taxativamente enumerados: incumprimento grave do inquilino, necessidade pessoal de exploração, ou obras de demolição/reconstrução integral.",
+      "section3Title": "Renda, indexação e trespasse",
+      "section3P1": "A renda comercial NÃO é limitada pela regra dos 5% do capital investido (que se aplica apenas ao arrendamento habitacional). É fixada livremente entre as partes consoante as condições de mercado e o valor locativo do imóvel. Para imóveis comerciais LU, as rendas prime LU-Cidade variam tipicamente de 80 a 250 €/m²/mês conforme localização e destino.",
+      "section3P2": "A indexação está ligada ao Índice de Preços no Consumidor (IPC) publicado pelo STATEC. A cláusula de indexação deve estar expressamente prevista no contrato; caso contrário, a renda permanece fixa durante toda a vigência. A revisão da renda pode ser pedida por cada parte no termo de cada período trienal se a renda já não corresponder ao valor locativo real (art. 7). O trespasse (pas-de-porte) é lícito no Luxemburgo, em contrapartida das vantagens comerciais ligadas à localização, e é livremente negociado.",
+      "callout2Title": "Especificidade luxemburguesa: sem ILC",
+      "callout2Body": "Ao contrário da França, que dispõe de um Índice de Rendas Comerciais (ILC) específico, o Luxemburgo utiliza o IPC geral. Isto pode descorrelacionar a renda comercial das condições reais do mercado comercial. Antecipe pedindo eventualmente um teto (cap) sobre a indexação anual na redação do contrato.",
+      "section4Title": "Direito à renovação e indemnização de despejo",
+      "section4P1": "O inquilino comercial tem direito à renovação do seu contrato no termo (art. 5). Este direito exerce-se notificando o senhorio de um pedido de renovação pelo menos 6 meses antes do prazo. O senhorio que recuse a renovação sem motivo legítimo deve pagar ao inquilino uma indemnização de despejo cobrindo o prejuízo: perda de clientela, custos de mudança e reinstalação, indemnização por perda de fundo de comércio.",
+      "section4P2": "O senhorio pode recusar a renovação sem indemnização apenas por motivos graves: incumprimento contratual ou legal pelo inquilino, estado do imóvel que necessita demolição e reconstrução integral, ou necessidade de exploração pessoal (o senhorio deve então explorar os locais na mesma atividade ou afim durante pelo menos 2 anos). A cessão do arrendamento comercial é possível salvo cláusula em contrário, geralmente ligada à cessão do fundo de comércio; o senhorio deve ser informado.",
+      "callout3Title": "Cessão e subarrendamento",
+      "callout3Body": "A cessão do arrendamento comercial a um terceiro (nomeadamente aquando da venda do fundo de comércio) é livre salvo proibição expressa no contrato. O subarrendamento parcial é mais enquadrado e exige geralmente o acordo escrito do senhorio. Qualquer cessão deve ser-lhe notificada. Se o contrato proíbe a cessão, preveja uma cláusula de saída em caso de revenda do fundo.",
+      "inlineCalc": {
+        "title": "Avalie a rentabilidade de um espaço comercial",
+        "description": "A nossa ferramenta de arrendamento comercial integra a fixação livre da renda, o trespasse amortizável, a indexação IPC, a amortização das obras e o cálculo da rentabilidade líquida para senhorio e inquilino.",
+        "cta": "Iniciar a análise"
+      },
+      "tools": [
+        { "href": "/bail-commercial", "title": "Ferramenta arrendamento comercial", "description": "Renda, trespasse, indexação IPC, rentabilidade senhorio/inquilino." },
+        { "href": "/dcf-multi", "title": "DCF multi-período", "description": "Avaliação de um ativo arrendado em arrendamento comercial em 9 anos." },
+        { "href": "/portfolio", "title": "Portefólio imobiliário", "description": "Acompanhamento de vários espaços comerciais arrendados." },
+        { "href": "/aml-kyc", "title": "Verificação do inquilino", "description": "Solvência da empresa inquilina antes da assinatura do contrato." }
+      ],
+      "faq": [
+        { "q": "Qual é a duração mínima de um arrendamento comercial no Luxemburgo?", "a": "9 anos (art. 2 lei de 3 de fevereiro de 2018). O inquilino pode rescindir em cada período trienal (3, 6, 9 anos) com pré-aviso de 6 meses. O senhorio só pode rescindir por incumprimento grave, necessidade pessoal de exploração ou demolição/reconstrução." },
+        { "q": "A renda comercial é limitada no Luxemburgo?", "a": "Não, ao contrário do arrendamento habitacional (limite de 5% do capital investido), a renda comercial é fixada livremente entre as partes. A indexação é feita sobre o IPC STATEC se uma cláusula expressa o previr no contrato." },
+        { "q": "O que é o trespasse e como negociá-lo?", "a": "O trespasse (ou direito de entrada) é um pagamento inicial do inquilino ao senhorio em contrapartida das vantagens comerciais da localização. É lícito no LU, não regulamentado e livremente negociado (tipicamente 1 a 6 meses de renda para uma localização corrente, até vários anos para uma localização prime). Pode ser amortizado contabilisticamente pelo inquilino durante a vigência do contrato." },
+        { "q": "Como funciona o direito à renovação?", "a": "O inquilino notifica um pedido de renovação pelo menos 6 meses antes do termo do contrato. O senhorio que recuse sem motivo legítimo (incumprimento, demolição, exploração pessoal) deve pagar uma indemnização de despejo cobrindo a perda de clientela, mudança e perda de fundo de comércio. O montante é fixado amigavelmente ou pelo juiz." },
+        { "q": "O senhorio pode bloquear a cessão do contrato a um sucessor?", "a": "Não, salvo cláusula em contrário no contrato. A cessão do arrendamento comercial é livre, geralmente ligada à cessão do fundo de comércio. O senhorio deve ser informado mas não pode opor-se se as condições do contrato (renda, uso) forem respeitadas pelo sucessor. Prever uma cláusula de aprovação se o senhorio quiser direito de fiscalização." },
+        { "q": "O que fazer em caso de incumprimento grave do inquilino?", "a": "O senhorio dirige uma interpelação por carta registada precisando o incumprimento (renda em dívida > 2 meses, subarrendamento proibido, alteração de destino, danos importantes). Sem regularização em 30 dias, o senhorio pode submeter o caso ao juiz para rescisão judicial com pedido de despejo e pagamento dos atrasados e indemnização." }
+      ],
+      "sources": [
+        { "title": "Lei de 3 de fevereiro de 2018 sobre o arrendamento comercial", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo", "year": 2018 },
+        { "title": "Arrendamento comercial — guia prático", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html" },
+        { "title": "Índice de Preços no Consumidor (IPC)", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Código Civil — artigos 1709 e seguintes", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" },
+        { "title": "Câmara de Comércio — apoio aos empresários", "org": "Câmara de Comércio do Luxemburgo", "url": "https://www.cc.lu/" }
+      ]
     },
     "investirHotel": {
       "title": "Como investir num hotel no Luxemburgo?",

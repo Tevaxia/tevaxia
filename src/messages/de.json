@@ -9679,21 +9679,61 @@
       ]
     },
     "bailCommercial": {
-      "title": "Welche Regeln gelten für Geschäftsmietverträge in Luxemburg?",
-      "metaDescription": "Geschäftsmietvertrag in Luxemburg: Gesetz vom 03.02.2018, Mindestlaufzeit 9 Jahre, dreijährliche Kündigung, VPI-STATEC-Indexierung, Schlüsselgeld, Erneuerungsrecht. Kompletter Ratgeber.",
-      "intro": "Der Geschäftsmietvertrag in Luxemburg wird durch das Gesetz vom 3. Februar 2018 über den Geschäftsmietvertrag geregelt, das am 1. April 2018 in Kraft trat. Dieses Gesetz hat den Rechtsrahmen für Geschäftsmietverträge, der zuvor nur dem Zivilgesetzbuch unterlag, grundlegend modernisiert. Es führt eine Mindestlaufzeit von 9 Jahren, ein Erneuerungsrecht für den Mieter, eine geregelte Mietindexierung und spezifische Kündigungsregeln ein. Dieser Ratgeber stellt die wesentlichen Regeln für Vermieter und Mieter von Geschäftsräumen in Luxemburg vor.",
-      "section1Title": "Dauer, dreijährliche Kündigung und Kündigungsfrist",
-      "section1Content": "Das Gesetz vom 3. Februar 2018 schreibt eine Mindestlaufzeit von 9 Jahren für alle Geschäftsmietverträge vor (Art. 2). Die Parteien können eine längere, aber niemals kürzere Laufzeit vereinbaren. Der Mieter hat ein dreijährliches Kündigungsrecht: Er kann den Mietvertrag am Ende jeder Dreijahresperiode (3, 6, 9 Jahre) mit 6 Monaten Kündigungsfrist per Gerichtsvollzieherakt oder Einschreiben kündigen (Art. 4). Der Vermieter kann während der Laufzeit nur in abschließend aufgezählten Fällen kündigen: schwerer Vertragsverstoß des Mieters, persönlicher Geschäftsbedarf des Vermieters (unter strengen Bedingungen) oder totale Abriss-/Wiederaufbauarbeiten. Die Nichterneuerung bei Ablauf muss ebenfalls 6 Monate im Voraus mitgeteilt werden. Der Vertrag verlängert sich durch stillschweigende Erneuerung um 9 Jahre, wenn keine Partei die Nichterneuerung erklärt.",
-      "section2Title": "Miete, Indexierung und Schlüsselgeld",
-      "section2Content": "Anders als bei Wohnmietverträgen ist die Geschäftsmiete nicht durch die 5 %-Regel des investierten Kapitals gedeckelt (Art. 3, Gesetz vom 21.09.2006 über Wohnraummiete). Die Miete wird frei zwischen den Parteien nach Marktbedingungen vereinbart. Die Indexierung der Geschäftsmiete ist an den Verbraucherpreisindex (VPI) des STATEC gekoppelt, nicht an einen Geschäftsmietindex (ILC) wie in Frankreich. Die Indexierungsklausel muss ausdrücklich im Mietvertrag vorgesehen sein; andernfalls bleibt die Miete fest. Eine Mietüberprüfung kann von jeder Partei am Ende jeder Dreijahresperiode verlangt werden, wenn die Miete nicht mehr dem tatsächlichen Mietwert entspricht (Art. 7). Schlüsselgeld (pas-de-porte) ist in Luxemburg zulässig: Der Vermieter kann eine Anfangszahlung als Gegenleistung für die Geschäftsvorteile der Lage verlangen. Dieser Betrag ist nicht reguliert und frei verhandelbar.",
-      "section3Title": "Erneuerungsrecht und Räumungsentschädigung",
-      "section3Content": "Der Geschäftsmieter hat ein Recht auf Erneuerung seines Mietvertrags (Art. 5, Gesetz vom 03.02.2018). Dieses Recht wird bei Vertragsablauf durch Benachrichtigung des Vermieters mindestens 6 Monate vor dem Termin ausgeübt. Ein Vermieter, der die Erneuerung ohne berechtigten Grund ablehnt, muss dem Mieter eine Räumungsentschädigung zahlen. Diese deckt den erlittenen Schaden: Verlust der Kundschaft, Umzugs- und Neueinrichtungskosten, Entschädigung für Geschäftsverlust. Der Betrag wird einvernehmlich oder durch einen Richter festgesetzt. Der Vermieter kann die Erneuerung nur aus schwerwiegenden Gründen ohne Entschädigung ablehnen: Pflichtverletzung des Mieters, baulicher Zustand, der Abriss/Wiederaufbau erfordert, oder persönlicher Geschäftsbedarf (der Vermieter muss die Räume dann mindestens 2 Jahre selbst nutzen). Die Abtretung des Geschäftsmietvertrags ist möglich, sofern nicht anders vereinbart, aber der Vermieter muss über die Abtretung informiert werden.",
-      "relatedToolLabel": "Rentabilität eines Geschäftsmietvertrags simulieren",
-      "relatedToolLink": "/bail-commercial",
-      "faq1Q": "Welche Mindestlaufzeit hat ein Geschäftsmietvertrag in Luxemburg?",
-      "faq1A": "Die Mindestlaufzeit beträgt 9 Jahre (Art. 2, Gesetz vom 3. Februar 2018). Der Mieter kann zu jeder Dreijahresperiode (3, 6, 9 Jahre) mit 6 Monaten Frist kündigen. Der Vermieter kann nur aus gesetzlich abschließend aufgezählten Gründen kündigen.",
-      "faq2Q": "Ist die Geschäftsmiete in Luxemburg gedeckelt?",
-      "faq2A": "Nein, anders als bei Wohnmietverträgen (gedeckelt auf 5 % des investierten Kapitals) wird die Geschäftsmiete frei zwischen den Parteien nach Marktbedingungen vereinbart. Es gibt keine gesetzliche Obergrenze. Die Indexierung erfolgt über den VPI des STATEC, wenn eine entsprechende Klausel im Vertrag vorgesehen ist."
+      "title": "Geschäftsmietvertrag in Luxemburg: Gesetz 03.02.2018, 9-Jahres-Laufzeit und Erneuerungsrecht",
+      "metaDescription": "LU-Geschäftsmietvertrag: Gesetz 03.02.2018, 9 Jahre Mindestlaufzeit, dreijährliche Kündigung mit 6 Monaten Frist, STATEC-VPI-Indexierung, freies Schlüsselgeld, Erneuerungsrecht.",
+      "subtitle": "Der vollständige Rechtsrahmen für Geschäftsmietverträge in Luxemburg: Laufzeit, Kündigung, Miete, Indexierung und Erneuerungsrecht.",
+      "category": "Mieten & Mietvertrag",
+      "essentiel": [
+        "Rechtsrahmen: Gesetz vom 3. Februar 2018 über Geschäftsmietverträge (in Kraft seit 1. April 2018), Modernisierung des bisherigen Zivilgesetzbuch-Regimes.",
+        "Mindestlaufzeit 9 Jahre (Art. 2). Dreijährliche Kündigung durch Mieter (3, 6, 9 Jahre) mit 6 Monaten Frist.",
+        "Freie Miete (keine 5%-Regel), STATEC-VPI-Indexierung bei expliziter Klausel, dreijährliche Überprüfung möglich.",
+        "Schlüsselgeld (pas-de-porte) zulässig und unreguliert: frei verhandelbar zwischen Vermieter und Mieter.",
+        "Erneuerungsrecht bei Ablauf; Verweigerung ohne berechtigten Grund = Räumungsentschädigung (Kundschafts-, Umzugs-, Geschäftsverlust)."
+      ],
+      "section1Title": "Rechtsrahmen und Vertragstyp",
+      "section1P1": "Der Geschäftsmietvertrag in Luxemburg wird seit dem 1. April 2018 vom Gesetz vom 3. Februar 2018 erfasst. Dieses Gesetz hat die alleinige Anwendung des Zivilgesetzbuchs ersetzt und den Rahmen tiefgreifend modernisiert: gesetzliche Mindestlaufzeit, Erneuerungsrecht, Räumungsentschädigung, geregelte Indexierung. Es gilt für Mietverträge über Räumlichkeiten, die für eine professionell ausgeübte gewerbliche, handwerkliche oder industrielle Tätigkeit genutzt werden.",
+      "section1P2": "Vom Anwendungsbereich ausgeschlossen: Wohnmietverträge (Gesetz 21.09.2006), Pachtverträge (spezielles Regime), Mietverträge über immaterielle Güter (Geschäftswert ohne Räume) und Kurzzeitvermietungen (< 6 Monate für saisonale Tätigkeiten). Der Mietvertrag muss schriftlich sein (vorzugsweise, aber nicht zwingend); andernfalls beweisen Belegung und Zahlung den Mietvertrag, jedoch mit erhöhter Beweislast bei Streit.",
+      "callout1Title": "Abgedeckte Tätigkeit = effektive Ausübung",
+      "callout1Body": "Das Gesetz von 2018 schützt nur Mietverträge, in denen der Mieter tatsächlich eine gewerbliche Tätigkeit unter der gemieteten Adresse ausübt (Handelsregister, Beschilderung, Kundschaft). Eine bloße Domizilierung oder Büronutzung ohne Kundschaft reicht nicht aus, um den Geschäftsmietschutz in Anspruch zu nehmen.",
+      "section2Title": "Laufzeit und dreijährliche Kündigung",
+      "section2P1": "Die gesetzliche Mindestlaufzeit beträgt 9 Jahre (Art. 2). Die Parteien können eine längere Laufzeit vereinbaren (z.B. 12, 15 oder 25 Jahre für große Ausbau-Investitionen), aber niemals kürzer. Sieht der Vertrag weniger als 9 Jahre vor, wird die Laufzeit gesetzlich automatisch auf 9 Jahre erhöht.",
+      "section2P2": "Der Mieter hat ein dreijährliches Kündigungsrecht: Er kann den Mietvertrag am Ende jeder Dreijahresperiode (3, 6, 9 Jahre) mit 6 Monaten Frist per Gerichtsvollzieherakt oder Einschreiben kündigen (Art. 4). Der Vermieter darf während des Mietvertrags nur aus limitativ aufgezählten Gründen kündigen: schwerer Mietersverstoß, persönlicher Geschäftsbedarf oder totale Abriss-/Wiederaufbauarbeiten.",
+      "section3Title": "Miete, Indexierung und Schlüsselgeld",
+      "section3P1": "Die Geschäftsmiete ist NICHT durch die 5%-Regel des investierten Kapitals gedeckelt (die nur für Wohnmieten gilt). Sie wird frei zwischen den Parteien nach Marktbedingungen und dem Mietwert der Räume festgelegt. Für LU-Geschäftsräume liegen Prime-Mieten LU-Stadt typisch zwischen 80 und 250 €/m²/Monat je nach Lage und Nutzung.",
+      "section3P2": "Die Indexierung ist an den Verbraucherpreisindex (VPI) des STATEC gekoppelt. Die Indexierungsklausel muss ausdrücklich im Mietvertrag vorgesehen sein; andernfalls bleibt die Miete während der gesamten Laufzeit fest. Eine Mietüberprüfung kann von jeder Partei am Ende jeder Dreijahresperiode verlangt werden, wenn die Miete nicht mehr dem tatsächlichen Mietwert entspricht (Art. 7). Schlüsselgeld (pas-de-porte) ist zulässig, als Gegenleistung für die Geschäftsvorteile der Lage, und frei verhandelbar.",
+      "callout2Title": "Luxemburger Besonderheit: kein ILC",
+      "callout2Body": "Anders als Frankreich, das einen spezifischen Geschäftsmietindex (ILC) hat, verwendet Luxemburg den allgemeinen VPI. Das kann die Geschäftsmiete von den tatsächlichen Marktbedingungen entkoppeln. Antizipieren Sie, indem Sie eventuell einen jährlichen Indexierungs-Cap im Mietvertrag aushandeln.",
+      "section4Title": "Erneuerungsrecht und Räumungsentschädigung",
+      "section4P1": "Der Geschäftsmieter hat bei Vertragsablauf ein Erneuerungsrecht (Art. 5). Es wird durch Benachrichtigung des Vermieters mindestens 6 Monate vor dem Termin ausgeübt. Ein Vermieter, der die Erneuerung ohne berechtigten Grund ablehnt, muss dem Mieter eine Räumungsentschädigung zahlen, die den Verlust deckt: Kundschaftsverlust, Umzugs- und Neueinrichtungskosten, Entschädigung für Geschäftsverlust.",
+      "section4P2": "Der Vermieter kann die Erneuerung nur aus schwerwiegenden Gründen ohne Entschädigung ablehnen: vertraglicher oder gesetzlicher Verstoß des Mieters, baulicher Zustand, der vollständigen Abriss und Wiederaufbau erfordert, oder persönlicher Geschäftsbedarf (der Vermieter muss die Räume dann in derselben oder verwandter Tätigkeit mindestens 2 Jahre nutzen). Die Abtretung des Geschäftsmietvertrags ist möglich, sofern nicht anders vereinbart, in der Regel an die Geschäftswertsabtretung gekoppelt; der Vermieter muss informiert werden.",
+      "callout3Title": "Abtretung und Untervermietung",
+      "callout3Body": "Die Abtretung des Geschäftsmietvertrags an einen Dritten (insbesondere bei Geschäftswertsverkauf) ist frei, sofern nicht ausdrücklich im Vertrag verboten. Die Teiluntervermietung ist stärker reglementiert und erfordert in der Regel die schriftliche Zustimmung des Vermieters. Jede Abtretung muss ihm mitgeteilt werden. Wenn der Vertrag die Abtretung verbietet, sehen Sie eine Ausstiegsklausel beim Geschäftswertsverkauf vor.",
+      "inlineCalc": {
+        "title": "Bewerten Sie die Rentabilität eines Geschäftsraums",
+        "description": "Unser Geschäftsmiet-Tool integriert die freie Mietfestsetzung, das amortisierbare Schlüsselgeld, die VPI-Indexierung, die Ausbauamortisation und die Berechnung der Nettorendite für Vermieter und Mieter.",
+        "cta": "Analyse starten"
+      },
+      "tools": [
+        { "href": "/bail-commercial", "title": "Geschäftsmiet-Tool", "description": "Miete, Schlüsselgeld, VPI-Indexierung, Vermieter-/Mieter-Rendite." },
+        { "href": "/dcf-multi", "title": "Mehrperioden-DCF", "description": "Bewertung eines kommerziell vermieteten Objekts über 9 Jahre." },
+        { "href": "/portfolio", "title": "Immobilienportfolio", "description": "Verfolgung mehrerer kommerziell vermieteter Räume." },
+        { "href": "/aml-kyc", "title": "Mieter-Verifizierung", "description": "Solvenz des Mieter-Unternehmens vor Vertragsunterzeichnung." }
+      ],
+      "faq": [
+        { "q": "Welche Mindestlaufzeit hat ein Geschäftsmietvertrag in Luxemburg?", "a": "9 Jahre (Art. 2 Gesetz vom 3. Februar 2018). Der Mieter kann zu jeder Dreijahresperiode (3, 6, 9 Jahre) mit 6 Monaten Frist kündigen. Der Vermieter darf nur bei schwerem Verstoß, persönlichem Geschäftsbedarf oder Abriss/Wiederaufbau kündigen." },
+        { "q": "Ist die Geschäftsmiete in Luxemburg gedeckelt?", "a": "Nein, anders als bei Wohnmietverträgen (5%-Obergrenze auf investiertes Kapital) wird die Geschäftsmiete frei zwischen den Parteien festgelegt. Indexierung über den STATEC-VPI bei ausdrücklicher Klausel." },
+        { "q": "Was ist Schlüsselgeld und wie verhandelt man es?", "a": "Schlüsselgeld (pas-de-porte) ist eine Anfangszahlung des Mieters an den Vermieter als Gegenleistung für die Geschäftsvorteile der Lage. In LU zulässig, unreguliert, frei verhandelbar (typisch 1 bis 6 Monatsmieten für eine Standardlage, bis zu mehreren Jahren für Prime). Vom Mieter über die Vertragslaufzeit amortisierbar." },
+        { "q": "Wie funktioniert das Erneuerungsrecht?", "a": "Der Mieter notifiziert eine Erneuerungsanfrage mindestens 6 Monate vor dem Vertragsablauf. Ein Vermieter, der ohne berechtigten Grund (Verstoß, Abriss, Eigenbedarf) ablehnt, muss eine Räumungsentschädigung für Kundschafts-, Umzugs- und Geschäftswertsverlust zahlen. Der Betrag wird einvernehmlich oder gerichtlich festgesetzt." },
+        { "q": "Kann der Vermieter die Vertragsabtretung an einen Übernehmer blockieren?", "a": "Nein, sofern keine Gegenklausel im Vertrag. Die Geschäftsmietabtretung ist frei, in der Regel an die Geschäftswertsabtretung gekoppelt. Der Vermieter muss informiert werden, kann aber nicht widersprechen, sofern die Vertragsbedingungen (Miete, Nutzung) vom Übernehmer eingehalten werden. Eine Genehmigungsklausel vorsehen, falls der Vermieter Aufsicht wünscht." },
+        { "q": "Was tun bei schwerem Mietersverstoß?", "a": "Der Vermieter sendet eine Mahnung per Einschreiben unter Angabe des Verstoßes (unbezahlte Miete > 2 Monate, verbotene Untervermietung, Nutzungsänderung, größere Schäden). Ohne Heilung innerhalb von 30 Tagen kann der Vermieter den Fall vor Gericht zur gerichtlichen Auflösung mit Räumungsantrag und Forderungen für Rückstände/Schadensersatz bringen." }
+      ],
+      "sources": [
+        { "title": "Gesetz vom 3. Februar 2018 über Geschäftsmietverträge", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo", "year": 2018 },
+        { "title": "Geschäftsmietvertrag — praktischer Leitfaden", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html" },
+        { "title": "Verbraucherpreisindex (VPI)", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Zivilgesetzbuch — Artikel 1709 ff.", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" },
+        { "title": "Handelskammer — Unternehmerunterstützung", "org": "Luxemburger Handelskammer", "url": "https://www.cc.lu/" }
+      ]
     },
     "investirHotel": {
       "title": "Wie investiert man in ein Hotel in Luxemburg?",
