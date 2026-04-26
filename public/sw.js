@@ -1,11 +1,14 @@
-// Tevaxia Service Worker — v1
-const CACHE_VERSION = "tevaxia-v1";
-const APP_SHELL = ["/", "/manifest.json", "/logo-tevaxia-512.svg"];
+// Tevaxia Service Worker — v2 (PWA + offline fallback)
+const CACHE_VERSION = "tevaxia-v2";
+const APP_SHELL = ["/", "/offline", "/manifest.json", "/logo-tevaxia-512.svg"];
 
 // Install: pre-cache app shell
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_VERSION).then((cache) => cache.addAll(APP_SHELL))
+    caches.open(CACHE_VERSION).then((cache) =>
+      // ignore failures on individual entries
+      Promise.all(APP_SHELL.map((url) => cache.add(url).catch(() => null)))
+    )
   );
   self.skipWaiting();
 });
@@ -36,12 +39,22 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(request.url);
 
+  // Never cache API responses, calendar feeds, sentry, analytics
+  if (
+    url.pathname.startsWith("/api/") ||
+    url.pathname.startsWith("/_next/data/") ||
+    url.pathname.includes("/sentry") ||
+    url.searchParams.has("_rsc")
+  ) {
+    return;
+  }
+
   // Static assets: cache-first
   if (
     url.pathname.match(
-      /\.(js|css|svg|png|jpg|jpeg|webp|avif|woff2?|ico|json)$/
-    ) &&
-    url.pathname !== "/manifest.json"
+      /\.(js|css|svg|png|jpg|jpeg|webp|avif|woff2?|ico)$/
+    ) ||
+    url.pathname.startsWith("/_next/static/")
   ) {
     event.respondWith(
       caches.match(request).then(
@@ -59,16 +72,20 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Pages / navigations: network-first
-  event.respondWith(
-    fetch(request)
-      .then((response) => {
-        if (response.ok) {
-          const clone = response.clone();
-          caches.open(CACHE_VERSION).then((cache) => cache.put(request, clone));
-        }
-        return response;
-      })
-      .catch(() => caches.match(request))
-  );
+  // Pages / navigations: network-first with offline fallback
+  if (request.mode === "navigate") {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(CACHE_VERSION).then((cache) => cache.put(request, clone));
+          }
+          return response;
+        })
+        .catch(() =>
+          caches.match(request).then((cached) => cached || caches.match("/offline"))
+        )
+    );
+  }
 });

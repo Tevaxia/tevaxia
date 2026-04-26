@@ -133,6 +133,31 @@ export function mandateToOpenImmoFragment(
     <verwaltung_objekt>
       <verfuegbar_ab>${m.start_date ?? ""}</verfuegbar_ab>
     </verwaltung_objekt>
+${
+  m.virtual_tour_url || m.video_url
+    ? `    <anhaenge>
+${
+  m.virtual_tour_url
+    ? `      <anhang location="REMOTE" gruppe="LINK">
+        <anhangtitel>Visite virtuelle 360</anhangtitel>
+        <format>html</format>
+        <daten><pfad>${xmlEscape(m.virtual_tour_url)}</pfad></daten>
+        <check_url><pfad>${xmlEscape(m.virtual_tour_url)}</pfad></check_url>
+      </anhang>`
+    : ""
+}
+${
+  m.video_url
+    ? `      <anhang location="REMOTE" gruppe="VIDEO">
+        <anhangtitel>Vidéo de présentation</anhangtitel>
+        <format>video</format>
+        <daten><pfad>${xmlEscape(m.video_url)}</pfad></daten>
+      </anhang>`
+    : ""
+}
+    </anhaenge>`
+    : ""
+}
   </immobilie>`;
 }
 

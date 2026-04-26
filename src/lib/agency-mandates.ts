@@ -62,10 +62,71 @@ export interface AgencyMandate {
   is_published: boolean;
   published_at: string | null;
   media_count: number;
+  virtual_tour_url?: string | null;
+  video_url?: string | null;
+  virtual_tour_provider?: string | null;
   days_to_sign: number | null;
   days_to_close: number | null;
   created_at: string;
   updated_at: string;
+}
+
+export type VirtualTourProvider =
+  | "matterport"
+  | "klapty"
+  | "eyespy360"
+  | "kuula"
+  | "youtube"
+  | "vimeo"
+  | "autre";
+
+const TOUR_PROVIDERS: { id: VirtualTourProvider; label: string; hosts: string[] }[] = [
+  { id: "matterport", label: "Matterport", hosts: ["my.matterport.com", "matterport.com"] },
+  { id: "klapty", label: "Klapty", hosts: ["klapty.com"] },
+  { id: "eyespy360", label: "EyeSpy360", hosts: ["eyespy360.com"] },
+  { id: "kuula", label: "Kuula", hosts: ["kuula.co"] },
+  { id: "youtube", label: "YouTube", hosts: ["youtube.com", "youtu.be"] },
+  { id: "vimeo", label: "Vimeo", hosts: ["vimeo.com", "player.vimeo.com"] },
+];
+
+export function detectTourProvider(url: string | null): VirtualTourProvider | null {
+  if (!url) return null;
+  try {
+    const host = new URL(url).hostname.toLowerCase().replace(/^www\./, "");
+    for (const p of TOUR_PROVIDERS) {
+      if (p.hosts.some((h) => host === h || host.endsWith("." + h))) return p.id;
+    }
+    return "autre";
+  } catch {
+    return null;
+  }
+}
+
+export function tourEmbedUrl(url: string): string {
+  // Convert "watch" URLs to embeddable URLs for known providers
+  try {
+    const u = new URL(url);
+    const host = u.hostname.toLowerCase().replace(/^www\./, "");
+    // YouTube
+    if (host === "youtube.com") {
+      const v = u.searchParams.get("v");
+      if (v) return `https://www.youtube.com/embed/${v}`;
+    }
+    if (host === "youtu.be") {
+      const id = u.pathname.slice(1).split("/")[0];
+      if (id) return `https://www.youtube.com/embed/${id}`;
+    }
+    // Vimeo
+    if (host === "vimeo.com") {
+      const id = u.pathname.split("/").filter(Boolean)[0];
+      if (id && /^\d+$/.test(id)) return `https://player.vimeo.com/video/${id}`;
+    }
+    // Matterport: my.matterport.com/show/?m=ID → embed via /show/?m=ID&play=1
+    // No transformation needed for Matterport, Klapty, EyeSpy360, Kuula — they support direct iframe embed
+    return url;
+  } catch {
+    return url;
+  }
 }
 
 function ensureClient() {

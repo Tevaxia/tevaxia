@@ -1,30 +1,65 @@
 {
   "name": "Tevaxia — Immobilier Luxembourg",
   "short_name": "Tevaxia",
-  "description": "Valorisation, simulation énergétique, données de marché et outils de calcul pour l'immobilier au Luxembourg.",
+  "description": "CRM agences, PMS hôtels, syndic copropriétés et outils de calcul immobilier pour le Luxembourg.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
+  "lang": "fr",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/logo-tevaxia-512.svg",
       "type": "image/svg+xml",
-      "sizes": "any"
+      "sizes": "any",
+      "purpose": "any"
     },
     {
       "src": "/logo-tevaxia-512.svg",
       "type": "image/svg+xml",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     },
     {
       "src": "/logo-tevaxia-512.svg",
       "type": "image/svg+xml",
       "sizes": "512x512",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     }
   ],
-  "categories": ["finance", "business", "utilities"],
-  "lang": "fr"
+  "categories": ["finance", "business", "productivity", "utilities"],
+  "shortcuts": [
+    {
+      "name": "CRM agences",
+      "short_name": "CRM",
+      "description": "Pipeline mandats, contacts, tâches",
+      "url": "/pro-agences/crm",
+      "icons": [{ "src": "/logo-tevaxia-512.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Mandats",
+      "short_name": "Mandats",
+      "description": "Liste et création de mandats",
+      "url": "/pro-agences/mandats",
+      "icons": [{ "src": "/logo-tevaxia-512.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Estimation",
+      "short_name": "Estimer",
+      "description": "Estimation rapide d'un bien",
+      "url": "/estimation",
+      "icons": [{ "src": "/logo-tevaxia-512.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Syndic",
+      "short_name": "Syndic",
+      "description": "Gestion de copropriétés",
+      "url": "/syndic",
+      "icons": [{ "src": "/logo-tevaxia-512.svg", "sizes": "any" }]
+    }
+  ],
+  "prefer_related_applications": false
 }

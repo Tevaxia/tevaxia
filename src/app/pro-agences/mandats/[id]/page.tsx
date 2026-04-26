@@ -26,6 +26,7 @@ import type { CrmInteraction, CrmInteractionType } from "@/lib/crm/types";
 import { buildOpenImmoXml, buildPortalCsv, downloadBlob } from "@/lib/agency-xml";
 import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/errors";
+import VirtualTourCard from "@/components/agency/VirtualTourCard";
 
 const STATUS_COLORS: Record<MandateStatus, string> = {
   prospect: "bg-slate-100 text-slate-800",
@@ -394,7 +395,14 @@ export default function MandateDetailPage() {
 
       <div className="mt-6">
         {tab === "apercu" && (
-          <ApercuTab mandate={mandate} form={form} setForm={setForm} editMode={editMode} fmtDate={fmtDate} />
+          <div className="space-y-6">
+            <VirtualTourCard
+              mandateId={mandate.id}
+              initialTourUrl={mandate.virtual_tour_url}
+              initialVideoUrl={mandate.video_url}
+            />
+            <ApercuTab mandate={mandate} form={form} setForm={setForm} editMode={editMode} fmtDate={fmtDate} />
+          </div>
         )}
         {tab === "diffusion" && (
           <DiffusionTab mandate={mandate} diffusions={diffusions} onChange={reload} />
