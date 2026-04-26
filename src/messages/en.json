@@ -9858,21 +9858,62 @@
       ]
     },
     "investirHotel": {
-      "title": "How to Invest in a Hotel in Luxembourg?",
-      "metaDescription": "Investing in a hotel in Luxembourg: ~130 hotels market, RevPAR, ADR, EBITDA, capitalization, price/room, bank DSCR, due diligence, Klimabonus. Complete guide.",
-      "intro": "Luxembourg has approximately 130 classified hotels (1 to 5 stars), representing some 8,000 rooms, with an average occupancy rate of around 60-65%. The market is driven by business tourism (European institutions, financial sector), leisure tourism (Ardennes, Moselle, Luxembourg City UNESCO heritage) and the Greater Region cross-border area (250,000 cross-border workers). This guide presents key metrics, valuation approaches and due diligence steps for investing in a hotel in Luxembourg.",
-      "section1Title": "Key Hotel Performance Metrics",
-      "section1Content": "Hotel investment analysis relies on several standardized performance indicators. RevPAR (Revenue Per Available Room) measures accommodation revenue per available room: it is calculated by multiplying occupancy rate by ADR (Average Daily Rate). In Luxembourg, average RevPAR ranges from EUR 60 (budget/economy) to EUR 150 (upscale/luxury) depending on category and location. Average ADR varies from EUR 80-100 (budget) to EUR 200-300 (luxury). GOP (Gross Operating Profit) represents gross operating income before management fees, rent, financial charges and taxes — typically 30-45% of total revenue for a well-managed hotel. EBITDA (earnings before interest, taxes, depreciation and amortization) is the basis for capitalization valuation. The IRR (internal rate of return) expected by hotel investors generally ranges from 8% to 15% depending on risk profile.",
-      "section2Title": "Hotel Valuation Approaches",
-      "section2Content": "Three main methods allow hotel valuation in Luxembourg. EBITDA capitalization: a multiple is applied to the hotel's stabilized EBITDA. Observed multiples in Luxembourg range from 8x to 14x depending on category (budget to luxury), location (Luxembourg City vs regions) and property condition. A well-maintained 3-star hotel in Luxembourg City may be valued at 10-12x EBITDA. The price per key approach: this method compares total transaction price to number of rooms. In Luxembourg, observed prices range from EUR 80,000-120,000/room (budget, regions) to EUR 250,000-400,000/room (upscale, Luxembourg City). The DCF (Discounted Cash Flow) method: it discounts future cash flows over 10 years with a terminal value, using a discount rate (WACC) of 7-10% reflecting hotel risk. The DSCR (Debt Service Coverage Ratio) required by Luxembourg banks ranges from 1.25x to 1.40x, which determines the maximum debt amount available.",
-      "section3Title": "Due Diligence and Available Incentives",
-      "section3Content": "Hotel due diligence in Luxembourg must cover several essential areas. The operational aspect: analysis of the last 3-5 fiscal years (detailed P&L by department: accommodation, catering, events, spa), RevPAR, occupancy rate and ADR trends, STR (Smith Travel Research) benchmarking against the local competitive set. The real estate aspect: building structural condition, fire safety compliance (ITM — Labour and Mines Inspectorate), disability accessibility, energy assessment (Energiepass), and estimated renovation CAPEX needed. The legal aspect: verification of lease or title deed, operating permits (trade authorization, restaurant license), star classification by the Ministry of Economy, and current management/franchise contracts. On the incentives side, the Klimabonus tertiary program offers subsidies for energy renovation of commercial buildings (insulation, heat pumps, photovoltaics), and SME grants from the Ministry of Economy are available for hotel modernization investments. The Greater Region (Saarland, Rhineland-Palatinate, Lorraine, Wallonia) constitutes a natural catchment area of over 11 million inhabitants for Luxembourg hotels.",
-      "relatedToolLabel": "Analyze a hotel investment",
-      "relatedToolLink": "/hotellerie",
-      "faq1Q": "What is the average RevPAR of hotels in Luxembourg?",
-      "faq1A": "Average RevPAR in Luxembourg ranges from EUR 60 for budget/economy hotels to EUR 150 for upscale/luxury hotels. Luxembourg City shows the highest RevPAR, driven by business tourism and European institutions. Tourist regions (Ardennes, Moselle) have more seasonal RevPAR patterns.",
-      "faq2Q": "What DSCR do banks require for a hotel loan in Luxembourg?",
-      "faq2A": "Luxembourg banks generally require a DSCR (Debt Service Coverage Ratio) between 1.25x and 1.40x for hotel financing. This means available cash flow after operating expenses must cover at least 1.25 to 1.40 times the annual debt service (principal + interest). A DSCR below 1.25x will make financing difficult to obtain."
+      "title": "Investing in a Hotel in Luxembourg: Complete 2026 Guide (RevPAR, Valuation, DSCR)",
+      "metaDescription": "Hotel investment LU 2026: 130 hotels / 8,000 rooms market, RevPAR €60-150, EBITDA x8-14 valuation and price/room €80k-400k, DSCR 1.25-1.40x, due diligence STR + ITM + Energiepass.",
+      "subtitle": "The Luxembourg hotel market in 2026, key performance indicators, valuation approaches and due diligence steps to invest.",
+      "category": "Hospitality & investment",
+      "essentiel": [
+        "LU market: ~130 classified hotels / ~8,000 rooms, average 60-65% occupancy, mix of business (EU institutions, finance) + leisure (UNESCO, Ardennes, Moselle).",
+        "Key metrics: RevPAR (€60 budget → €150 luxury), ADR (€80 → €300), GOP 30-45% of revenue, target investor IRR 8-15%.",
+        "Valuation: EBITDA multiples 8x-14x, price/room €80k-400k by category/location, 10-year DCF at 7-10% WACC.",
+        "LU bank financing: required DSCR 1.25-1.40x, typical 50-65% LTV, 10-15-year term, first-rank mortgage.",
+        "Aids: tertiary Klimabonus for energy renovation, Ministry of Economy SME aids, STATEC + Compset LU observatories."
+      ],
+      "section1Title": "Luxembourg hotel market",
+      "section1P1": "Luxembourg has approximately 130 classified hotels (1 to 5 stars) totalling ~8,000 rooms, with a national average occupancy rate of 60-65%. Demand is driven by three segments: business tourism (European institutions, financial sector, MICE), leisure tourism (UNESCO historical centre, Ardennes, Moselle wine route), and cross-border flows (Greater Region, 11 M inhabitants).",
+      "section1P2": "Seasonality is marked downwards in July-August (cross-border workers and civil servants leave) and peaks in September-June (institutional return). The urban Luxembourg City segment drives performance with a predictable corporate mix. Regions show more volatile margins but more accessible acquisition prices.",
+      "callout1Title": "Reference source: STATEC observatory",
+      "callout1Body": "STATEC publishes monthly hospitality statistics (overnight stays, arrivals, occupancy rates by category and region). Cross-reference with private reports from Lighthouse, STR (Smith Travel Research) and Horwath HTL to benchmark the local competitive set.",
+      "section2Title": "Performance indicators",
+      "section2P1": "RevPAR (Revenue Per Available Room) = occupancy rate × ADR. Measures accommodation revenue per available room. In LU: €60 (budget) to €150 (luxury). ADR (Average Daily Rate): €80-100 (economy) to €200-300 (luxury). TRevPAR (Total RevPAR) includes F&B, MICE and other revenues.",
+      "section2P2": "GOP (Gross Operating Profit) = gross operating income before management fees, rent, financial charges and taxes. Typically 30-45% of revenue for a well-managed hotel. EBITDA (often equal to GOP - management fees) serves as valuation base. Target IRR for LU hotel investors: 8% (luxury prime LU City) to 15% (regional turnaround).",
+      "section3Title": "Valuation and financing",
+      "section3P1": "Three approaches: EBITDA multiple (8x-14x in LU by category and asset quality, typical 10-12x for a healthy 3* in Luxembourg City), price per room (€80,000-120,000/key in budget/regions, €250,000-400,000/key in upscale LU City), 10-year DCF + terminal value at 7-10% WACC (mandatory method for core assets).",
+      "section3P2": "On LU bank financing, the required DSCR (Debt Service Coverage Ratio) is 1.25 to 1.40x: cash flow available after operating expenses must cover at least 1.25-1.40x the annual debt service. Typical LTV 50-65%, term 10-15 years, first-rank mortgage + possible SPV share pledge.",
+      "callout2Title": "Specific E-2 visa investor",
+      "callout2Body": "Luxembourg has no dedicated investor visa like the US E-2, but offers a residence permit for investors via the Ministry of Foreign Affairs (min €500,000 for existing business takeover, €3M for creation/takeover with employment). For US profiles, LU hospitality is attractive as an alternative to traditional E-2 visa.",
+      "section4Title": "Three-pillar due diligence",
+      "section4P1": "Operational pillar: analysis of last 3-5 fiscal years (detailed P&L by department - rooms, F&B, MICE, spa), RevPAR/ADR/occupancy trends, STR benchmarking against local competitive set, current management/franchise contracts, in-place team. Real estate pillar: structural condition, ITM (Labour and Mines Inspectorate) fire safety compliance, accessibility, Energiepass (tertiary EPC), renovation and EPBD compliance CAPEX estimate.",
+      "section4P2": "Legal pillar: commercial lease or title deed verification, operating permits (establishment authorisation, HoReCa restaurant license, cabaretage licence if bar), star classification by the Ministry of Economy. Available aids: tertiary Klimabonus for commercial energy renovation (insulation, HP, photovoltaic), Ministry of Economy SME aids for hotel modernisation, access to STATEC Compset + LU observatory to benchmark.",
+      "callout3Title": "Concrete case: 3* in Luxembourg City, 50 rooms",
+      "callout3Body": "3* hotel in Luxembourg City Centre, 50 rooms, ADR €145, occupancy 70%, RevPAR €102. Annual room revenue ≈ €1,850,000. + F&B and other = total revenue ~ €2,600,000. GOP 38% = €988,000. EBITDA after management fees ≈ €850,000. Valuation at 11x EBITDA = €9,350,000, i.e., €187,000/room. Consistent with LU City upscale range.",
+      "inlineCalc": {
+        "title": "Assess a Luxembourg hotel project",
+        "description": "Our tevaxia hospitality suite covers TEGOVA valuation (DCF + multiples + price/room), bank DSCR, LU STATEC observatory and pre-acquisition (E-2 friendly).",
+        "cta": "Open the hotel analysis"
+      },
+      "tools": [
+        { "href": "/hotellerie/valorisation", "title": "TEGOVA hotel valuation", "description": "DCF + EBITDA multiples + price per key under EVS 2025." },
+        { "href": "/hotellerie/dscr", "title": "Bank DSCR", "description": "Financing capacity and rate stress test." },
+        { "href": "/hotellerie/observatoire-lu", "title": "LU observatory", "description": "STATEC overnight stays + RevPAR indices by region." },
+        { "href": "/hotellerie/pre-acquisition", "title": "Pre-acquisition", "description": "E-2 / hotel dealer tool." }
+      ],
+      "faq": [
+        { "q": "What is the average RevPAR of hotels in Luxembourg?", "a": "Average RevPAR in LU ranges from €60 (budget/economy) to €150 (upscale/luxury). Luxembourg City shows the highest RevPAR, driven by business tourism and EU institutions. Tourist regions (Ardennes, Moselle) have more seasonal RevPAR patterns." },
+        { "q": "What DSCR do banks require for a hotel loan in Luxembourg?", "a": "LU banks generally require a DSCR of 1.25 to 1.40x: cash flow after operating expenses must cover at least 1.25-1.40 times the annual debt service. A DSCR below 1.25x makes financing difficult to obtain." },
+        { "q": "What EBITDA multiples to value a LU hotel?", "a": "LU EBITDA multiples range from 8x (budget regional, dated) to 14x (luxury prime LU City). A healthy 3* in Luxembourg City typically trades at 10-12x stabilised EBITDA. Cross-check with price/room and 10-year DCF to validate." },
+        { "q": "What price per room to buy a hotel in Luxembourg?", "a": "Observed prices: €80,000-120,000/room (budget/regions), €150,000-200,000/room (mid 3*), €250,000-400,000/room (upscale/luxury LU City). Above, luxury prime on exceptional locations. Always cross-check with potential RevPAR for consistency." },
+        { "q": "Is hotel investment in LU eligible for the US E-2 visa?", "a": "LU is not a US E-2 treaty country. For US investors, the alternative is the LU residence permit for investors (€500,000 for takeover, €3M for creation/takeover with jobs) via the Ministry of Foreign Affairs. Hospitality is eligible." },
+        { "q": "What aids to renovate a hotel energetically in LU?", "a": "Tertiary Klimabonus offers subsidies for energy renovation of commercial buildings: insulation, heat pumps, photovoltaic, ventilation. Stackable with SME aids for modernisation. EPBD directive imposes renovation trajectories for the most energy-intensive tertiary assets by 2030-2033." }
+      ],
+      "sources": [
+        { "title": "STATEC tourism observatory", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/secteurs/tourisme.html" },
+        { "title": "Tertiary Klimabonus — commercial energy renovation", "org": "myenergy / Ministry of Environment", "url": "https://www.myenergy.lu/fr/professionnels" },
+        { "title": "SME aids — investment and innovation", "org": "Ministry of Economy", "url": "https://meco.gouvernement.lu/fr/le-ministere/aides.html" },
+        { "title": "Labour and Mines Inspectorate (ITM) — fire safety", "org": "ITM", "url": "https://itm.public.lu/" },
+        { "title": "Investor residence permit", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/immigration/plus-3-mois/ressortissant-tiers/investisseur.html" },
+        { "title": "TEGOVA EVS 2025 — Valuation of Hotels", "org": "TEGOVA", "url": "https://www.tegova.org/", "year": 2025 }
+      ]
     },
     "iaTevaxia": {
       "title": "How to use AI on tevaxia.lu",

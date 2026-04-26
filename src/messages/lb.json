@@ -9737,21 +9737,62 @@
       ]
     },
     "investirHotel": {
-      "title": "Wéi investéiert een an en Hotel zu Lëtzebuerg?",
-      "metaDescription": "An en Hotel zu Lëtzebuerg investéieren: ~130 Hoteler Marché, RevPAR, ADR, EBITDA, Kapitaliséierung, Präis/Zëmmer, Bank-DSCR, Due Diligence, Klimabonus. Komplette Guide.",
-      "intro": "Lëtzebuerg zielt ongeféier 130 klassiféiert Hoteler (1 bis 5 Stären) mat ronn 8.000 Zëmmeren bei enger duerchschnëttlecher Auslaschtung vun ongeféier 60-65 %. De Marché gëtt gedriwwen vum Geschäftstourismus (EU-Institutiounen, Finanzsecteur), Fräizäittourismus (Ardennen, Musel, Stad Lëtzebuerg UNESCO-Welterbe) an der grenziwwerschreidender Groussregioun (250.000 Grenzgänger). Dëse Guide stellt déi wichtegst Kennzuelen, Bewäertungsapprochen an Due-Diligence-Schrëtt fir eng Hotelinvestitioun zu Lëtzebuerg vir.",
-      "section1Title": "Wichteg Hotelkennzuelen",
-      "section1Content": "D'Analyse vun enger Hotelinvestitioun stëtzt sech op verschidde standardiséiert Leeschtungskennzuelen. De RevPAR (Revenue Per Available Room) moosst den Héibergementsumsaz pro disponibelem Zëmmer: Hie berechent sech aus der Multiplikatioun vun der Auslaschtung mam ADR (Average Daily Rate, duerchschnëttlechen Dagespräis). Zu Lëtzebuerg läit den duerchschnëttleche RevPAR tëschent 60 € (Budget/Economy) an 150 € (Upscale/Luxury) jee no Kategorie a Standuert. Den duerchschnëttlechen ADR variéiert vu 80-100 € (Budget) bis 200-300 € (Luxury). De GOP (Gross Operating Profit) stellt d'Bruttobetriibsergebnis viru Management-Gebühren, Loyer, Finanzéierungskäschten an Steiere duer — typescherweis 30-45 % vum Gesamtumsaz bei engem gutt geféierten Hotel. D'EBITDA ass d'Basis vun der Bewäertung duerch Kapitaliséierung. D'vun Hotelinvestisseuren erwaart IRR (intern Rendite) läit an der Reegel tëschent 8 % an 15 % jee no Risikoprofil.",
-      "section2Title": "Hotelbewäertungsapprochen",
-      "section2Content": "Dräi Hauptmethoden erlaben d'Hotelbewäertung zu Lëtzebuerg. EBITDA-Kapitaliséierung: E Multiplikator gëtt op d'stabiliséiert EBITDA vum Hotel ugewandt. Déi beobachte Multiplikatoren zu Lëtzebuerg leien tëschent 8x an 14x jee no Kategorie (Budget bis Luxury), Standort (Stad Lëtzebuerg vs. Regiounen) an Immobilienzoustand. E gutt gepfleegte 3-Stären-Hotel an der Stad Lëtzebuerg kann mat 10-12x EBITDA bewäert ginn. De Präis-pro-Zëmmer-Approche (Price per Key): Dës Method vergläicht den Gesamttransaktiounspräis mat der Zëmmeranzuel. Zu Lëtzebuerg leien déi beobachte Präisser tëschent 80.000-120.000 €/Zëmmer (Budget, Regiounen) an 250.000-400.000 €/Zëmmer (Upscale, Stad Lëtzebuerg). D'DCF-Method (Discounted Cash Flow): Si diskontéiert zukünfteg Cashflows iwwer 10 Joer mat engem Restwäert bei engem Abzinsungssaz (WACC) vu 7-10 %, deen d'Hotelrisiko widerspigelt. Den vun de Lëtzebuerger Banken gefuerderten DSCR (Debt Service Coverage Ratio) läit tëschent 1,25x an 1,40x a bestëmmt de maximal verfügbaren Scholdebetrag.",
-      "section3Title": "Due Diligence a verfügbar Fërderungen",
-      "section3Content": "D'Due Diligence vun engem Hotel zu Lëtzebuerg muss verschidde wesentlech Beräicher ofdecken. Den operative Aspekt: Analyse vun de leschten 3-5 Geschäftsjoeren (detailléiert GuV no Departement: Héibergement, Gastronomie, Events, Spa), RevPAR-, Auslaschtungs- an ADR-Entwécklung, STR-Benchmarking (Smith Travel Research) géintiwwer dem lokale Konkurrenzëmfeld. Den Immobilienaspekt: baulechem Zoustand vum Gebai, Brandschutznormenkonformitéit (ITM — Gewerbe- an Gruewenopsiicht), Barrierefreiheet, Energiediagnos (Energiepass) a geschate Renovéierungs-CAPEX. De rechtlechen Aspekt: Iwwerpréifung vum Mietvertrag oder Eegentumstitel, Betriibsgenehmegungen (Gewerbeerlabnis, Gaststättenlizenz), Stärenklassifizéierung duerch d'Wirtschaftsministère a lafend Management-/Franchiseverträg. Bei de Fërderungen bitt d'Klimabonus-Tertiärprogramm Zouschëss fir d'energeetesch Sanéierung vu Geschäftsgebainer (Isolatioun, Wärmepompen, Photovoltaik), a KMU-Beihëllefen vum Wirtschaftsministère stinn fir Hotelmoderniséierungsinvestitioune zur Verfügung. D'Groussregioun (Saarland, Rheinland-Pfalz, Lothréngen, Wallonien) bildt en natierlechen Azugsgebitt vun iwwer 11 Milliounen Awunner fir Lëtzebuerger Hoteler.",
-      "relatedToolLabel": "Eng Hotelinvestitioun analyséieren",
-      "relatedToolLink": "/hotellerie",
-      "faq1Q": "Wéi héich ass den duerchschnëttleche RevPAR vun Hoteler zu Lëtzebuerg?",
-      "faq1A": "Den duerchschnëttleche RevPAR zu Lëtzebuerg geet vu 60 € fir Budget-/Economy-Hoteler bis 150 € fir Upscale-/Luxury-Hoteler. D'Stad Lëtzebuerg weist den héchste RevPAR, gedriwwen vum Geschäftstourismus an den EU-Institutiounen. Touristesch Regiounen (Ardennen, Musel) hunn méi saisonal RevPAR-Muster.",
-      "faq2Q": "Wéi eng DSCR verlaangen d'Banken fir en Hotelkredit zu Lëtzebuerg?",
-      "faq2A": "Lëtzebuerger Banken verlaangen an der Reegel en DSCR (Debt Service Coverage Ratio) tëschent 1,25x an 1,40x fir Hotelfinanzéierungen. Dat bedeit, den disponibele Cashflow no Betriibskäschte muss op mannst d'1,25- bis 1,40-facht vum jährleche Scholdendéngscht (Tilgung + Zinsen) ofdecken. En DSCR ënner 1,25x mécht d'Finanzéierung schwéier erhältlech."
+      "title": "An en Hotel zu Lëtzebuerg investéieren: Komplette Guide 2026 (RevPAR, Bewäertung, DSCR)",
+      "metaDescription": "Hotelinvestitioun LU 2026: 130 Hoteler / 8.000 Zëmmeren Marché, RevPAR 60-150 €, EBITDA-Bewäertung x8-14 a Präis/Zëmmer 80k-400k €, DSCR 1,25-1,40x, Due Diligence STR + ITM + Energiepass.",
+      "subtitle": "De Lëtzebuerger Hotelmarché 2026, wichteg Leeschtungskennzuelen, Bewäertungsapprochen an Due-Diligence-Schrëtt fir d'Investitioun.",
+      "category": "Hotellerie & Investitioun",
+      "essentiel": [
+        "LU-Marché: ~130 klassiféiert Hoteler / ~8.000 Zëmmeren, Duerchschnëttsauslaschtung 60-65 %, Mix Geschäft (EU-Institutiounen, Finanz) + Fräizäit (UNESCO, Ardennen, Musel).",
+        "Schlësselkennzuelen: RevPAR (60 € Budget → 150 € Luxury), ADR (80 → 300 €), GOP 30-45 % vum Umsaz, Investisseur-Ziel-IRR 8-15 %.",
+        "Bewäertung: EBITDA-Multiplikatoren 8x-14x, Präis/Zëmmer 80k-400k € je Kategorie/Standort, 10-Joer-DCF zu 7-10 % WACC.",
+        "LU-Bankfinanzéierung: erfuerderlechen DSCR 1,25-1,40x, typesch LTV 50-65 %, Lafzäit 10-15 Joer, éischtrangeg Hypothéik.",
+        "Fërderungen: tertiär Klimabonus fir energeetesch Sanéierung, KMU-Beihëllefen Wirtschaftsministère, STATEC + Compset LU Observatorien."
+      ],
+      "section1Title": "Lëtzebuerger Hotelmarché",
+      "section1P1": "Lëtzebuerg zielt ongeféier 130 klassiféiert Hoteler (1 bis 5 Stären) mat insgesamt ~8.000 Zëmmeren bei enger national Duerchschnëttsauslaschtung vu 60-65 %. D'Demande gëtt vun dräi Segmenter gedriwwen: Geschäftstourismus (EU-Institutiounen, Finanzsecteur, MICE), Fräizäittourismus (UNESCO-Altstad, Ardennen, Musel-Wäiroute) a grenziwwerschreidende Flux (Groussregioun, 11 Mio. Awunner).",
+      "section1P2": "D'Saisonalitéit ass am Juli-August (Ofreesvun Grenzgänger an Beamten) erof markéiert an am September-Juni (institutionnellen Réckkéier) am héchsten. Dat urban Segment Stad Lëtzebuerg dreift d'Performance dank engem berechenbare Corporate-Mix. D'Regioune weisen méi volatil Margen, mä méi zougänglech Erwerbspräisser op.",
+      "callout1Title": "Referenzquell: STATEC-Observatoire",
+      "callout1Body": "STATEC publizéiert monatlech Héibergementsstatistiken (Iwwernuechtungen, Akommen, Auslaschtungstaux no Kategorie a Regioun). Mat private Berichter vu Lighthouse, STR (Smith Travel Research) an Horwath HTL ofgläichen, fir de lokale Konkurrenzsatz ze benchmarken.",
+      "section2Title": "Leeschtungskennzuelen",
+      "section2P1": "RevPAR (Revenue Per Available Room) = Auslaschtungstaux × ADR. Moosst den Héibergementsumsaz pro disponibel Zëmmer. Zu LU: 60 € (Budget) bis 150 € (Luxury). ADR (Average Daily Rate): 80-100 € (Economy) bis 200-300 € (Luxus). TRevPAR (Total RevPAR) ëmfaasst F&B, MICE an aner Erläuse.",
+      "section2P2": "GOP (Gross Operating Profit) = Bruttobetriibsergebnis viru Management-Gebühren, Loyer, Finanzéierungskäschten a Steieren. Typesch 30-45 % vum Umsaz bei engem gutt geféierten Hotel. EBITDA (dacks gleich GOP - Management-Gebühren) déngt als Bewäertungsbasis. Ziel-IRR fir LU-Hotelinvestisseuren: 8 % (Luxury Prime LU-Stad) bis 15 % (regionalen Turnaround).",
+      "section3Title": "Bewäertung a Finanzéierung",
+      "section3P1": "Dräi Approchen: EBITDA-Multiplikator (8x-14x zu LU je Kategorie an Asset-Qualitéit, typesch 10-12x fir e gesonden 3* an der Stad Lëtzebuerg), Präis pro Zëmmer (80.000-120.000 €/Schlëssel an Budget/Regiounen, 250.000-400.000 €/Schlëssel an Upscale LU-Stad), 10-Joer-DCF + Restwäert zu 7-10 % WACC (verpflichten Method fir Core-Assets).",
+      "section3P2": "Bei LU-Bankfinanzéierung läit den erfuerderleche DSCR (Debt Service Coverage Ratio) bei 1,25 bis 1,40x: den nom Betriibskäschte verfügbare Cashflow muss op mannst d'1,25-1,40-facht vum jährleche Scholdendéngscht ofdecken. Typesch LTV 50-65 %, Lafzäit 10-15 Joer, éischtrangeg Hypothéik + méiglech SPV-Aktien-Verpflichtung.",
+      "callout2Title": "Spezifescht E-2-Visa-Investisseur",
+      "callout2Body": "Lëtzebuerg huet kee dediéierten Investisseurvisum wéi den US-amerikaneschen E-2, mä bitt eng Openthaltsgenehmegung fir Investisseuren iwwer den Ausseministère (min. 500.000 € fir bestoend Entrepriseiwwerhuelung, 3 Mio. € fir Schaffen/Iwwerhuelung mat Beschäftegung). Fir US-Profiler ass d'LU-Hotellerie als Alternativ zum traditionellen E-2-Visum attraktiv.",
+      "section4Title": "Dräi-Säulen-Due-Diligence",
+      "section4P1": "Operativ Säulen: Analyse vun den leschten 3-5 Geschäftsjoeren (detailléiert GuV no Departement - Zëmmeren, F&B, MICE, Spa), RevPAR/ADR/Auslaschtungstrends, STR-Benchmarking géint lokale Konkurrenzsatz, lafend Management-/Franchiseverträg, virhandent Team. Immobiliesäulen: baulechem Zoustand, ITM (Gewerbe- an Gruewenopsiicht) Brandschutzkonformitéit, Barrierefreiheet, Energiepass (Tertiär-CPE), Renovéierungs- an EPBD-Konformitéits-CAPEX-Schätzung.",
+      "section4P2": "Rechtlech Säulen: Iwwerpréifung vum Geschäftsmietvertrag oder Eegentumstitel, Betriibsgenehmegungen (Niederlassungserlabnis, HoReCa-Restaurantlizenz, Cabaretage-Lizenz bei Bar), Stärenklassifizéierung duerch d'Wirtschaftsministère. Verfügbar Fërderungen: tertiär Klimabonus fir gewerblech energeetesch Sanéierung (Isolatioun, WP, Photovoltaik), Wirtschaftsministère-KMU-Beihëllefe fir Hotelmoderniséierung, Zougang zu STATEC Compset + LU-Observatoire fir Benchmarking.",
+      "callout3Title": "Konkreete Fall: 3* an der Stad Lëtzebuerg, 50 Zëmmeren",
+      "callout3Body": "3*-Hotel an der Stad Lëtzebuerg Zentrum, 50 Zëmmeren, ADR 145 €, Auslaschtung 70 %, RevPAR 102 €. Joresumsaz Héibergement ≈ 1.850.000 €. + F&B an Sonstegt = Gesamtumsaz ~ 2.600.000 €. GOP 38 % = 988.000 €. EBITDA no Management-Gebühren ≈ 850.000 €. Bewäertung zu 11x EBITDA = 9.350.000 €, also 187.000 €/Zëmmer. Konsistent mat Upscale-Bandbreet LU-Stad.",
+      "inlineCalc": {
+        "title": "Bewäert e Lëtzebuerger Hotelprojet",
+        "description": "Eis tevaxia-Hotellerie-Suite ëmfaasst TEGOVA-Bewäertung (DCF + Multiplikatoren + Präis/Zëmmer), Bank-DSCR, LU STATEC-Observatoire a Pre-Akquisitioun (E-2-frëndlech).",
+        "cta": "Hotelanalyse opmaachen"
+      },
+      "tools": [
+        { "href": "/hotellerie/valorisation", "title": "TEGOVA-Hotelbewäertung", "description": "DCF + EBITDA-Multiplikatoren + Präis pro Schlëssel no EVS 2025." },
+        { "href": "/hotellerie/dscr", "title": "Bank-DSCR", "description": "Finanzéierungskapazitéit an Zinns-Stresstest." },
+        { "href": "/hotellerie/observatoire-lu", "title": "LU-Observatoire", "description": "STATEC Iwwernuechtungen + RevPAR-Indizen no Regioun." },
+        { "href": "/hotellerie/pre-acquisition", "title": "Pre-Akquisitioun", "description": "E-2 / Hotel-Hänneler-Tool." }
+      ],
+      "faq": [
+        { "q": "Wéi héich ass den duerchschnëttleche RevPAR vun Hoteler zu Lëtzebuerg?", "a": "Den duerchschnëttleche RevPAR LU geet vu 60 € (Budget/Economy) bis 150 € (Upscale/Luxury). D'Stad Lëtzebuerg weist den héchsten RevPAR, gedriwwen vum Geschäftstourismus an den EU-Institutiounen. Touristesch Regiounen (Ardennen, Musel) hunn méi saisonal RevPAR-Muster." },
+        { "q": "Wéi eng DSCR verlaangen d'Banken fir en Hotelkredit zu Lëtzebuerg?", "a": "LU-Banken verlaangen an der Reegel en DSCR vu 1,25 bis 1,40x: den disponibele Cashflow no Betriibskäschte muss op mannst d'1,25- bis 1,40-facht vum jährleche Scholdendéngscht ofdecken. En DSCR ënner 1,25x mécht d'Finanzéierung schwéier erhältlech." },
+        { "q": "Wéi eng EBITDA-Multiplikatoren fir e LU-Hotel ze bewäerten?", "a": "LU-EBITDA-Multiplikatoren ginn vu 8x (Budget regional, ververalt) bis 14x (Luxury Prime LU-Stad). E gesonden 3* an der Stad Lëtzebuerg handelt typesch zu 10-12x stabiliséiertem EBITDA. Mat Präis/Zëmmer an 10-Joer-DCF ofgläichen, fir ze valéieren." },
+        { "q": "Wéi en Präis pro Zëmmer fir den Akaf vun engem Hotel zu Lëtzebuerg?", "a": "Beobachte Präisser: 80.000-120.000 €/Zëmmer (Budget/Regiounen), 150.000-200.000 €/Zëmmer (Mid-3*), 250.000-400.000 €/Zëmmer (Upscale/Luxury LU-Stad). Doriwwer Luxury Prime op aussergewéinleche Lagen. Ëmmer mat potenziellem RevPAR op Konsistenz préifen." },
+        { "q": "Ass d'Hotelinvestitioun zu LU fir den US-E-2-Visum berechtegt?", "a": "LU ass kee US-E-2-Vertragsland. Fir US-Investisseuren ass d'Alternativ d'LU-Openthaltsgenehmegung fir Investisseuren (500.000 € fir Iwwerhuelung, 3 Mio. € fir Schaffen/Iwwerhuelung mat Aarbechtsplazen) iwwer den Ausseministère. Hotellerie ass berechtegt." },
+        { "q": "Wéi eng Fërderunge fir energeetesch Hotelrenovéierung zu LU?", "a": "Tertiär Klimabonus bitt Zouschëss fir energeetesch Sanéierung vu Gewerbegebainer: Isolatioun, Wärmepompen, Photovoltaik, Lëftung. Mat KMU-Beihëllefe fir Moderniséierung kombinéierbar. D'EPBD-Direktiv schreift Renovéierungspfaden fir déi energieintensivst Tertiärassets bis 2030-2033 vir." }
+      ],
+      "sources": [
+        { "title": "STATEC-Tourismusobservatoire", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/secteurs/tourisme.html" },
+        { "title": "Tertiär Klimabonus — gewerblech energeetesch Sanéierung", "org": "myenergy / Ëmweltministère", "url": "https://www.myenergy.lu/fr/professionnels" },
+        { "title": "KMU-Beihëllefen — Investitioun an Innovatioun", "org": "Wirtschaftsministère", "url": "https://meco.gouvernement.lu/fr/le-ministere/aides.html" },
+        { "title": "Gewerbe- a Gruewenopsiicht (ITM) — Brandschutz", "org": "ITM", "url": "https://itm.public.lu/" },
+        { "title": "Investisseur-Openthaltsgenehmegung", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/immigration/plus-3-mois/ressortissant-tiers/investisseur.html" },
+        { "title": "TEGOVA EVS 2025 — Valuation of Hotels", "org": "TEGOVA", "url": "https://www.tegova.org/", "year": 2025 }
+      ]
     },
     "iaTevaxia": {
       "title": "Wéi d'KI op tevaxia.lu notzen",
