@@ -9312,21 +9312,61 @@
       ]
     },
     "copropriete": {
-      "title": "Wie funktioniert Miteigentum in Luxemburg?",
-      "metaDescription": "Miteigentum in Luxemburg: Gesetz vom 16.05.1975, Pflicht-Syndikus, HV, Miteigentumsanteile, Rücklagenfonds, Abstimmungsmehrheiten. Kompletter Ratgeber.",
-      "intro": "Das Miteigentum in Luxemburg wird durch das geänderte Gesetz vom 16. Mai 1975 zur Regelung des Miteigentums an bebauten Immobilien geregelt. Jeder Miteigentümer besitzt einen Anteil bestehend aus einem privaten Teil (Wohnung, Keller, Stellplatz) und einem Anteil an den Gemeinschaftsteilen, ausgedrückt in Tausendstel. Die Hausverwaltung stützt sich auf drei Organe: den Syndikus, die Eigentümerversammlung und den Verwaltungsrat. So funktioniert das Zusammenspiel.",
-      "section1Title": "Der Syndikus und die Eigentümerversammlung",
-      "section1Content": "Die Bestellung eines professionellen Syndikus ist für Miteigentumsgemeinschaften mit mehr als 5 Einheiten Pflicht (Art. 16, geändertes Gesetz vom 16.05.1975). Der Syndikus ist der gesetzliche Vertreter der Eigentümergemeinschaft: Er führt die Beschlüsse der Versammlung aus, verwaltet das Budget, erhebt die Umlagen, pflegt die Gemeinschaftsteile und vertritt die Gemeinschaft vor Gericht. Sein Mandat ist auf 3 Jahre begrenzt und verlängerbar. Die Eigentümerversammlung (EV) tagt mindestens einmal jährlich (Art. 14). Sie stimmt über den Wirtschaftsplan ab, genehmigt die Abrechnung, beschließt Arbeiten und bestellt oder widerruft den Syndikus. Jeder Miteigentümer hat Stimmrechte proportional zu seinen Anteilen. Die Beschlussfähigkeit ist erreicht, wenn anwesende oder vertretene Eigentümer mindestens 50 % der Anteile halten.",
-      "section2Title": "Miteigentumsordnung und Miteigentumsanteile",
-      "section2Content": "Die Miteigentumsordnung ist eine notarielle Pflichtsurkunde, die im Kataster veröffentlicht wird und festlegt: die Zweckbestimmung des Gebäudes, die Aufteilung der privaten und gemeinschaftlichen Teile, die Miteigentumsanteile jeder Einheit, die Nutzungsregeln für private und gemeinschaftliche Teile und die Kostenverteilung. Die Anteile bestimmen sowohl die Stimmrechte in der EV als auch die Kostenverteilung. Sie werden nach Fläche, Lage und Beschaffenheit jeder Einheit berechnet (Art. 5, Gesetz vom 16.05.1975). Eine Änderung der Miteigentumsordnung erfordert eine 3/4-Mehrheit der Anteile (Art. 14). Gemeinschaftsteile umfassen: Rohbau, Dächer, Treppenhäuser, Eingangshallen, Grünflächen, Hauptleitungen und Gemeinschaftsausstattung.",
-      "section3Title": "Rücklagenfonds und Abstimmungsmehrheiten",
-      "section3Content": "Seit der Reform von 2018 ist die Bildung eines Rücklagenfonds für Miteigentumsgemeinschaften mit mehr als 5 Einheiten Pflicht. Der jährliche Mindestbeitrag wird von der EV festgelegt und muss künftige größere Instandhaltungsarbeiten finanzieren (Fassadensanierung, Dach, Aufzug). Die Abstimmungsmehrheiten in der EV sind nach Bedeutung der Entscheidung gestaffelt: einfache Mehrheit (50 % + 1 der anwesenden/vertretenen Anteile) für laufende Entscheidungen (Budget, Wartung); absolute Mehrheit (50 % + 1 aller Anteile) für Verbesserungsarbeiten; 3/4-Mehrheit aller Anteile für Änderungen der Miteigentumsordnung, Umbauarbeiten und Zweckänderung des Gebäudes; Einstimmigkeit für Entscheidungen, die private Rechte betreffen (Änderung der Anteilsverteilung, Entfernung privater Ausstattung). Der Verwaltungsrat, ein fakultatives Gremium gewählter Miteigentümer, kontrolliert die Verwaltung des Syndikus und bereitet die EV vor.",
-      "relatedToolLabel": "Zum Syndikus-Tool",
-      "relatedToolLink": "/syndic",
-      "faq1Q": "Ist ein Syndikus in Luxemburger Miteigentumsgemeinschaften Pflicht?",
-      "faq1A": "Ja, die Bestellung eines professionellen Syndikus ist für Miteigentumsgemeinschaften mit mehr als 5 Einheiten Pflicht (Art. 16, geändertes Gesetz vom 16.05.1975). Bei kleinen Gemeinschaften (≤ 5 Einheiten) kann die Verwaltung direkt durch die Miteigentümer erfolgen.",
-      "faq2Q": "Welche Mehrheit braucht man für Beschlüsse über Arbeiten in einer Miteigentumsgemeinschaft?",
-      "faq2A": "Laufende Instandhaltungsarbeiten erfordern eine einfache Mehrheit. Verbesserungsarbeiten erfordern die absolute Mehrheit. Umbauarbeiten oder Ordnungsänderungen erfordern eine 3/4-Mehrheit aller Anteile. Nur Entscheidungen, die private Rechte betreffen, erfordern Einstimmigkeit."
+      "title": "Miteigentum in Luxemburg: Gesetz 16.05.1975, Syndikus, EV und Rücklagenfonds 2026",
+      "metaDescription": "Miteigentum LU 2026: Pflicht-Syndikus über 5 Einheiten, Eigentümerversammlung, notarielle Ordnung, Anteile (Tausendstel), Pflicht-Rücklagenfonds, gestaffelte Abstimmungsmehrheiten, Verwaltungsrat.",
+      "subtitle": "Wie eine Miteigentumsgemeinschaft in Luxemburg funktioniert: Organe, Abstimmungsregeln, Kosten und Pflichten.",
+      "category": "Miteigentum & Syndikus",
+      "essentiel": [
+        "Rechtsrahmen: geändertes Gesetz vom 16. Mai 1975 über das Miteigentum (Reform 2018, Pflicht-Rücklagenfonds).",
+        "Professioneller Syndikus Pflicht über 5 Einheiten, 3-jähriges verlängerbares Mandat, führt EV-Beschlüsse aus.",
+        "Anteile (Tausendstel) durch notarielle Miteigentumsordnung definiert: regeln SOWOHL Stimmrechte ALS AUCH Kostenverteilung.",
+        "Gestaffelte Mehrheiten: einfach (Wartung), absolut (Verbesserung), 3/4 (Umbau/Ordnung), Einstimmigkeit (Eingriff in private Rechte).",
+        "Pflicht-Rücklagenfonds (Reform 2018) für Fassade, Dach und Aufzug."
+      ],
+      "section1Title": "Definition und Organe",
+      "section1P1": "Miteigentum entsteht, sobald eine bebaute Immobilie unter mehreren Eigentümern in Einheiten geteilt wird, jeweils bestehend aus einem privaten Teil (Wohnung, Keller, Stellplatz) und einem Anteil an Gemeinschaftsteilen (Rohbau, Dach, Treppen, Gemeinschaftsausstattung). Jeder Miteigentümer ist von Rechts wegen Mitglied der Eigentümergemeinschaft, juristische Person, die die Gemeinschaftsteile besitzt und verwaltet (Art. 9 geändertes Gesetz 1975).",
+      "section1P2": "Drei Organe strukturieren die Governance: der Syndikus (ausführender Beauftragter, professionell pflichtweise über 5 Einheiten), die Eigentümerversammlung (souveränes Organ, das über Budget, Arbeiten und Status des Syndikus abstimmt) und der Verwaltungsrat (fakultatives Organ gewählter Miteigentümer zur Kontrolle der Verwaltung). Die Gemeinschaft wird gerichtlich durch den Syndikus vertreten, die Ordnung kann jedoch Delegationen vorsehen.",
+      "callout1Title": "Kleine Miteigentumsgemeinschaften (≤ 5 Einheiten)",
+      "callout1Body": "Für Miteigentumsgemeinschaften mit 5 oder weniger Einheiten ist die Bestellung eines professionellen Syndikus nicht Pflicht (Art. 16). Die Miteigentümer können einen von ihnen als ehrenamtlichen Syndikus bestellen oder ohne Syndikus auskommen und direkt verwalten (jährliche EV trotzdem). Auch kein Pflicht-Rücklagenfonds, aber empfohlen.",
+      "section2Title": "Der Syndikus und seine Rolle",
+      "section2P1": "Der Syndikus ist der gesetzliche Beauftragte der Gemeinschaft. Hauptaufgaben: jährliche EV einberufen (mindestens einmal pro Jahr, Art. 14), Beschlüsse umsetzen, Buchhaltung führen, Umlagen und Sonderbeiträge eintreiben, notwendige Verträge abschließen (Versicherung, Wartung, Aufzugswartung), Archive und Eigentümerregister führen, Gemeinschaft vor Gericht vertreten.",
+      "section2P2": "Das Mandat des professionellen Syndikus ist auf 3 Jahre verlängerbar begrenzt (Art. 17). Er muss eine Niederlassungsgenehmigung und eine Berufshaftpflichtversicherung haben. Die Vergütung umfasst Pauschalhonorare (laufende Verwaltung) und gesondert berechnete Sonderleistungen. Jeder Miteigentümer kann die Buchhaltung und technischen Unterlagen auf einfache Anfrage einsehen.",
+      "section3Title": "Eigentümerversammlung und Abstimmungsregeln",
+      "section3P1": "Die jährliche ordentliche EV stimmt über die Abrechnung des vergangenen Geschäftsjahres, das Budget, die Entlastung des Syndikus und das Arbeitsprogramm ab. Eine außerordentliche EV kann jederzeit vom Syndikus oder auf Antrag von Miteigentümern mit mindestens 25 % der Anteile einberufen werden. Die Einladung muss per Einschreiben 21 Tage vor der Sitzung mit Tagesordnung, Budgetentwurf und notwendigen Unterlagen versendet werden (Art. 14).",
+      "section3P2": "Die erforderlichen Mehrheiten sind nach Schwere der Entscheidung gestaffelt: einfache Mehrheit (50 % + 1 der anwesenden oder vertretenen Anteile) für laufende Entscheidungen (Budget, Wartung, ordentliche Ausgaben); absolute Mehrheit (50 % + 1 aller Anteile) für Verbesserungsarbeiten und Bestellung/Widerruf des Syndikus; 3/4-Mehrheit aller Anteile für Ordnungsänderungen, Umbauarbeiten, Zweckänderung; Einstimmigkeit für jeden Eingriff in private Rechte (Einheitsentfernung, Anteilsänderung).",
+      "callout2Title": "Vollmachten in der EV",
+      "callout2Body": "Ein abwesender Miteigentümer kann einem anderen Miteigentümer oder einem Dritten Vollmacht erteilen. Ein Vollmachtnehmer darf nicht mehr als ein Fünftel der Anteile halten (Art. 14 Abs. 4), um Machtkonzentration zu verhindern. Der Syndikus darf keine Vollmacht halten. Prüfen Sie die Ordnung, die strengere Regeln vorsehen kann.",
+      "section4Title": "Rücklagenfonds und Kosten",
+      "section4P1": "Seit der Reform 2018 ist ein Rücklagenfonds für Miteigentumsgemeinschaften mit mehr als 5 Einheiten Pflicht. Der jährliche Mindestbeitrag wird von der EV festgelegt (oft 5 bis 10 % des Jahresbudgets) und muss künftige Großarbeiten finanzieren (Fassadensanierung alle 15-20 Jahre, Dach, Aufzug, EPBD-Konformität). Der Fonds ist unveräußerlich: Er kann nur für in der EV beschlossene Arbeiten verwendet werden.",
+      "section4P2": "Laufende Kosten (Wartung, Gemeinschaftsmedien, Versicherung, Syndikus) werden nach Anteilen verteilt. Bestimmte Sonderkosten können nach in der Ordnung vorgesehenen anderen Schlüsseln verteilt werden: z. B. Aufzug nur auf bediente Etagen, Zentralheizung anteilig zur beheizten Fläche, Wasser anteilig zum individuellen Verbrauch. Der Syndikus erstellt vierteljährliche Sonderbeiträge und eine Jahresabrechnung.",
+      "callout3Title": "Säumnis und Eintreibung",
+      "callout3Body": "Bei anhaltender Säumnis kann der Syndikus nach Mahnung ein Beitreibungsverfahren einleiten. Die Gemeinschaft hat ein erstrangiges Immobilienprivileg auf die Einheit des säumigen Miteigentümers für die Kosten der laufenden zwei Jahre (Art. 24). Der widerspenstige Miteigentümer kann vor den Friedensrichter geladen werden, und im äußersten Fall kann die Einheit zwangsversteigert werden.",
+      "inlineCalc": {
+        "title": "tevaxia-Tools für Miteigentümer",
+        "description": "Sonderbeitragsverfolgung, Anteilsberechnung, EV-Einladungsvorlagen, Eigentümerregister: unsere Tools decken die gesamte Verwaltung einer Miteigentumsgemeinschaft in Luxemburg ab.",
+        "cta": "Miteigentumsbereich öffnen"
+      },
+      "tools": [
+        { "href": "/copropriete", "title": "Miteigentumsbereich", "description": "Kostenverfolgung, EV, Verwaltungsrat, Archive." },
+        { "href": "/syndic", "title": "Syndikus-Tools", "description": "Verwaltung eines Portfolios von Miteigentumsgemeinschaften für professionelle Syndici." },
+        { "href": "/conseil-syndical", "title": "Verwaltungsrat", "description": "Tools zur Kontrolle der Syndikus-Verwaltung." },
+        { "href": "/calculateur-vrd", "title": "VRD-Arbeiten", "description": "Kostenschätzung für in der EV beschlossene Arbeiten." }
+      ],
+      "faq": [
+        { "q": "Ist ein Syndikus in Luxemburger Miteigentumsgemeinschaften Pflicht?", "a": "Ja, die Bestellung eines professionellen Syndikus ist für Miteigentumsgemeinschaften mit mehr als 5 Einheiten Pflicht (Art. 16 geändertes Gesetz 1975). Bei kleinen Gemeinschaften (≤ 5 Einheiten) kann die Verwaltung direkt durch die Miteigentümer oder einen ehrenamtlichen Syndikus erfolgen." },
+        { "q": "Welche Mehrheit braucht man für Beschlüsse über Arbeiten in einer Miteigentumsgemeinschaft?", "a": "Laufende Wartung: einfache Mehrheit. Verbesserungsarbeiten: absolute Mehrheit. Ordnungsänderung oder Umbauarbeiten: 3/4-Mehrheit aller Anteile. Eingriff in private Rechte: Einstimmigkeit." },
+        { "q": "Wie viel sollte für den Rücklagenfonds angesetzt werden?", "a": "Das Gesetz schreibt keinen Prozentsatz vor, aber die EV muss einen realistischen Jahresbeitrag für künftige Großarbeiten beschließen. In der Praxis 5 bis 10 % des laufenden Jahresbudgets vorsehen. Bei einem alten Gebäude können bis zu 15 % nötig sein, um Fassade und Dach zu antizipieren." },
+        { "q": "Was passiert bei Zahlungssäumnis eines Miteigentümers?", "a": "Der Syndikus mahnt und kann den Friedensrichter anrufen. Die Gemeinschaft genießt ein erstrangiges Immobilienprivileg auf die Einheit für die Kosten der laufenden zwei Jahre (Art. 24). Im äußersten Fall kann die Einheit zwangsversteigert werden, um die Schuld zu tilgen." },
+        { "q": "Wie wechselt man den Syndikus in Luxemburg?", "a": "Am Ende der 3-Jahres-Frist beschließt die EV die Bestellung eines neuen Syndikus mit absoluter Mehrheit. Während der Amtszeit ist eine Abberufung mit absoluter Mehrheit für schwere Verfehlung möglich (Misswirtschaft, Nichteinhaltung von EV-Beschlüssen, Interessenkonflikt). Der abberufene Syndikus muss Archive und Kasse innerhalb von 15 Tagen übergeben." },
+        { "q": "Ist der Verwaltungsrat Pflicht?", "a": "Nein, es ist ein fakultatives Organ. Aus in der EV gewählten Miteigentümern bestehend, unterstützt und kontrolliert er den Syndikus, berät zu wichtigen Verträgen und bereitet EVs vor. Stark empfohlen, sobald eine Miteigentumsgemeinschaft mehr als 10 Einheiten hat, um totale Abhängigkeit vom Syndikus zu vermeiden." }
+      ],
+      "sources": [
+        { "title": "Geändertes Gesetz vom 16. Mai 1975 zur Regelung des Miteigentums", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1975/05/16/n1/jo", "year": 1975 },
+        { "title": "Gesetz vom 6. August 2018 zur Änderung des Gesetzes vom 16. Mai 1975 (Miteigentumsreform)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo", "year": 2018 },
+        { "title": "Miteigentum — Informationsblatt", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/charges-immeuble/copropriete.html" },
+        { "title": "Gesetz vom 1. August 2018 — Pflicht-Rücklagenfonds", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo" },
+        { "title": "Zivilgesetzbuch — dingliche Rechte (Buch II)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+      ]
     },
     "klimabonus": {
       "title": "Welche Klimabonus-Beihilfen gibt es für die energetische Sanierung?",

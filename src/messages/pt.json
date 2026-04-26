@@ -9312,21 +9312,61 @@
       ]
     },
     "copropriete": {
-      "title": "Como funciona o condomínio no Luxemburgo?",
-      "metaDescription": "Condomínio no Luxemburgo: lei de 16.05.1975, síndico obrigatório, AG, permilagem, fundo de reserva, maiorias de voto. Guia completo.",
-      "intro": "O condomínio no Luxemburgo é regido pela lei modificada de 16 de maio de 1975 que regulamenta a copropriedade de imóveis edificados. Cada condómino detém um lote composto por uma parte privativa (apartamento, cave, estacionamento) e uma quota-parte das partes comuns expressa em milésimos. A gestão do edifício assenta em três órgãos: o síndico, a assembleia geral de condóminos e o conselho sindical. Eis como tudo se articula.",
-      "section1Title": "O síndico e a assembleia geral",
-      "section1Content": "A nomeação de um síndico profissional é obrigatória para condomínios com mais de 5 lotes (art. 16, lei modificada de 16.05.1975). O síndico é o mandatário legal do sindicato de condóminos: executa as decisões da assembleia geral, gere o orçamento, cobra os encargos, mantém as partes comuns e representa o sindicato em tribunal. O seu mandato é limitado a 3 anos, renovável. A assembleia geral (AG) reúne-se pelo menos uma vez por ano (art. 14). Vota o orçamento previsional, aprova as contas, decide sobre obras e nomeia ou destitui o síndico. Cada condómino dispõe de votos proporcionais aos seus milésimos. O quórum é atingido quando os condóminos presentes ou representados detêm pelo menos 50% dos milésimos.",
-      "section2Title": "Regulamento de condomínio e milésimos",
-      "section2Content": "O regulamento de condomínio é uma escritura notarial obrigatória publicada no cadastro que define: a finalidade do edifício, a repartição das partes privativas e comuns, os milésimos de cada lote, as regras de uso das partes privativas e comuns, e as modalidades de repartição de encargos. Os milésimos determinam simultaneamente os direitos de voto na AG e a repartição de encargos comuns. São calculados em função da superfície, da localização e da consistência de cada lote (art. 5, lei de 16.05.1975). A modificação do regulamento de condomínio exige uma maioria de 3/4 dos milésimos (art. 14). As partes comuns compreendem: a estrutura, as coberturas, as escadas, os halls de entrada, os espaços verdes, as canalizações principais e os equipamentos coletivos.",
-      "section3Title": "Fundo de reserva e maiorias de voto",
-      "section3Content": "Desde a reforma de 2018, a constituição de um fundo de reserva é obrigatória para condomínios com mais de 5 lotes. A contribuição anual mínima é fixada pela AG e deve permitir financiar futuras grandes obras de manutenção (renovação de fachada, cobertura, elevador). As maiorias de voto na AG são graduadas conforme a importância da decisão: maioria simples (50% + 1 dos milésimos presentes/representados) para decisões correntes (orçamento, manutenção); maioria absoluta (50% + 1 de todos os milésimos) para obras de melhoria; maioria de 3/4 de todos os milésimos para modificações do regulamento de condomínio, obras de transformação e alteração de destino do edifício; unanimidade para decisões que afetem direitos privativos (modificação da repartição de milésimos, supressão de equipamento privativo). O conselho sindical, órgão facultativo composto por condóminos eleitos, fiscaliza a gestão do síndico e prepara as AG.",
-      "relatedToolLabel": "Aceder à ferramenta síndico",
-      "relatedToolLink": "/syndic",
-      "faq1Q": "O síndico é obrigatório nos condomínios no Luxemburgo?",
-      "faq1A": "Sim, a nomeação de um síndico profissional é obrigatória para condomínios com mais de 5 lotes (art. 16, lei modificada de 16.05.1975). Para pequenos condomínios (5 lotes ou menos), a gestão pode ser assegurada diretamente pelos condóminos.",
-      "faq2Q": "Que maioria é necessária para votar obras num condomínio?",
-      "faq2A": "As obras de manutenção corrente votam-se por maioria simples. As obras de melhoria requerem maioria absoluta. As obras de transformação ou modificação do regulamento necessitam de maioria de 3/4 de todos os milésimos. Apenas as decisões que afetem direitos privativos exigem unanimidade."
+      "title": "Condomínio no Luxemburgo: lei 16.05.1975, síndico, AG e fundo de reserva 2026",
+      "metaDescription": "Condomínio LU 2026: síndico obrigatório acima de 5 lotes, assembleia geral, regulamento notarial, milésimos, fundo de reserva obrigatório, maiorias de voto graduadas, conselho sindical.",
+      "subtitle": "Como funciona um condomínio no Luxemburgo: órgãos, regras de voto, encargos e obrigações legais.",
+      "category": "Condomínio e síndico",
+      "essentiel": [
+        "Quadro legal: lei modificada de 16 de maio de 1975 sobre condomínio de imóveis (reforma 2018, fundo de reserva obrigatório).",
+        "Síndico profissional obrigatório acima de 5 lotes, mandato de 3 anos renovável, executa as decisões da AG.",
+        "Milésimos definidos no regulamento de condomínio notarial: regem TANTO os direitos de voto COMO a repartição de encargos.",
+        "Maiorias graduadas: simples (manutenção), absoluta (melhoria), 3/4 (transformação/regulamento), unanimidade (afeta direitos privativos).",
+        "Fundo de reserva obrigatório (reforma 2018) para antecipar fachada, cobertura e elevador."
+      ],
+      "section1Title": "Definição e órgãos",
+      "section1P1": "O condomínio aplica-se assim que um imóvel edificado é dividido entre vários proprietários em lotes, cada um com uma parte privativa (apartamento, cave, estacionamento) e uma quota-parte de partes comuns (estrutura, cobertura, escadas, equipamentos coletivos). Cada condómino é, por direito próprio, membro do sindicato de condóminos, pessoa jurídica que detém e gere as partes comuns (art. 9 lei 1975 modificada).",
+      "section1P2": "Três órgãos estruturam a governança: o síndico (mandatário executivo, profissional obrigatório acima de 5 lotes), a assembleia geral (órgão soberano que vota orçamento, obras e estatuto do síndico) e o conselho sindical (órgão facultativo de condóminos eleitos que fiscaliza a gestão). O sindicato é representado em tribunal pelo síndico, mas o regulamento pode prever delegações.",
+      "callout1Title": "Pequenos condomínios (≤ 5 lotes)",
+      "callout1Body": "Para condomínios de 5 lotes ou menos, a nomeação de um síndico profissional não é obrigatória (art. 16). Os condóminos podem nomear um deles como síndico voluntário ou prescindir de síndico e gerir diretamente (com AG anual mesmo assim). Também não há fundo de reserva obrigatório, mas é aconselhável.",
+      "section2Title": "O síndico e o seu papel",
+      "section2P1": "O síndico é o mandatário legal do sindicato. Principais missões: convocar a AG anual (pelo menos uma vez por ano, art. 14), executar as decisões votadas, manter a contabilidade do sindicato, cobrar encargos e chamadas de capital, contratar serviços necessários (seguro, manutenção, contrato de elevador), conservar arquivos e o registo de condóminos, representar o sindicato em tribunal.",
+      "section2P2": "O mandato do síndico profissional é limitado a 3 anos renováveis (art. 17). Deve possuir autorização de estabelecimento e seguro de responsabilidade civil profissional. A remuneração inclui honorários fixos (gestão corrente) e prestações específicas faturadas separadamente. Qualquer condómino pode consultar os documentos contabilísticos e técnicos a simples pedido.",
+      "section3Title": "Assembleia geral e regras de voto",
+      "section3P1": "A AG ordinária anual vota as contas do exercício passado, o orçamento previsional, a quitação ao síndico e o programa de obras. Uma AG extraordinária pode ser convocada a qualquer momento pelo síndico ou a pedido de condóminos com pelo menos 25% dos milésimos. A convocação deve ser enviada por carta registada 21 dias antes da reunião com a ordem de trabalhos, projeto de orçamento e documentos necessários (art. 14).",
+      "section3P2": "As maiorias necessárias são graduadas conforme a gravidade da decisão: maioria simples (50% + 1 dos milésimos presentes ou representados) para decisões correntes (orçamento, manutenção, despesas ordinárias); maioria absoluta (50% + 1 de todos os milésimos) para obras de melhoria e nomeação/destituição do síndico; maioria de 3/4 de todos os milésimos para modificações do regulamento, obras de transformação, alteração de destino; unanimidade para qualquer afetação de direitos privativos (supressão de lote, modificação de milésimos).",
+      "callout2Title": "Procurações em AG",
+      "callout2Body": "Um condómino ausente pode dar procuração a outro condómino ou a um terceiro. Um mesmo procurador não pode deter mais de um quinto dos milésimos (art. 14 n.º 4) para evitar concentrações de poder. O síndico não pode deter qualquer procuração. Verifique o regulamento, que pode prever regras mais estritas.",
+      "section4Title": "Fundo de reserva e encargos",
+      "section4P1": "Desde a reforma da lei em 2018, um fundo de reserva é obrigatório para condomínios com mais de 5 lotes. A contribuição anual mínima é fixada pela AG (frequentemente 5 a 10% do orçamento anual) e deve financiar grandes obras futuras (renovação de fachada a cada 15-20 anos, cobertura, elevador, conformidade energética EPBD). O fundo é inalienável: só pode servir para obras votadas em AG.",
+      "section4P2": "Os encargos correntes (manutenção, fluidos comuns, seguro, síndico) são repartidos por milésimos. Alguns encargos específicos podem seguir chaves diferentes previstas no regulamento: por exemplo, elevador apenas aos andares servidos, aquecimento coletivo proporcional à área aquecida, água proporcional aos consumos individuais. O síndico emite chamadas de capital trimestrais e um mapa anual.",
+      "callout3Title": "Inadimplemento e cobrança",
+      "callout3Body": "Em caso de inadimplemento persistente, o síndico pode iniciar processo de cobrança após interpelação. O sindicato dispõe de privilégio imobiliário de primeiro grau sobre o lote do condómino faltoso pelos encargos dos dois anos em curso (art. 24). O condómino renitente pode ser citado perante o juiz de paz e, em última instância, o lote pode ser vendido em adjudicação forçada.",
+      "inlineCalc": {
+        "title": "Ferramentas tevaxia para condóminos",
+        "description": "Acompanhamento de chamadas de capital, cálculo de milésimos, modelos de convocatória de AG, registo de condóminos: as nossas ferramentas cobrem toda a gestão de um condomínio no Luxemburgo.",
+        "cta": "Aceder à área de condomínio"
+      },
+      "tools": [
+        { "href": "/copropriete", "title": "Área de condomínio", "description": "Acompanhamento de encargos, AG, conselho sindical, arquivos." },
+        { "href": "/syndic", "title": "Ferramentas síndico", "description": "Gestão de uma carteira de condomínios para síndicos profissionais." },
+        { "href": "/conseil-syndical", "title": "Conselho sindical", "description": "Ferramentas dedicadas ao controlo da gestão do síndico." },
+        { "href": "/calculateur-vrd", "title": "Obras VRD", "description": "Estimativa orçamental para obras votadas em AG." }
+      ],
+      "faq": [
+        { "q": "O síndico é obrigatório nos condomínios no Luxemburgo?", "a": "Sim, a nomeação de um síndico profissional é obrigatória para condomínios com mais de 5 lotes (art. 16 lei 1975 modificada). Para pequenos condomínios (≤ 5 lotes), a gestão pode ser assegurada diretamente pelos condóminos ou por um síndico voluntário." },
+        { "q": "Que maioria é necessária para votar obras num condomínio?", "a": "Manutenção corrente: maioria simples. Obras de melhoria: maioria absoluta. Modificação do regulamento ou obras de transformação: maioria de 3/4 de todos os milésimos. Afetação de direitos privativos: unanimidade." },
+        { "q": "Quanto provisionar no fundo de reserva?", "a": "A lei não fixa percentagem, mas a AG deve votar uma contribuição anual realista para financiar grandes obras futuras. Na prática, conte com 5 a 10% do orçamento anual corrente. Para um edifício antigo, até 15% pode ser necessário para antecipar fachada e cobertura." },
+        { "q": "O que acontece em caso de incumprimento de um condómino?", "a": "O síndico interpela e pode submeter o caso ao juiz de paz. O sindicato beneficia de privilégio imobiliário de primeiro grau sobre o lote pelos encargos dos dois anos em curso (art. 24). Em última instância, o lote pode ser vendido em adjudicação forçada para liquidar a dívida." },
+        { "q": "Como mudar de síndico no Luxemburgo?", "a": "No termo do mandato (3 anos), a AG vota a nomeação de um novo síndico por maioria absoluta. Durante o mandato, a destituição é possível por maioria absoluta por falta grave (má gestão, incumprimento de decisões da AG, conflito de interesses). O síndico destituído deve transmitir arquivos e tesouraria em 15 dias." },
+        { "q": "O conselho sindical é obrigatório?", "a": "Não, é um órgão facultativo. Composto por condóminos eleitos em AG, assiste e fiscaliza o síndico, dá parecer sobre contratos importantes e prepara as AGs. Vivamente recomendado a partir do momento em que um condomínio tenha mais de 10 lotes para evitar dependência total do síndico." }
+      ],
+      "sources": [
+        { "title": "Lei modificada de 16 de maio de 1975 que regulamenta o condomínio", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1975/05/16/n1/jo", "year": 1975 },
+        { "title": "Lei de 6 de agosto de 2018 que modifica a lei de 16 de maio de 1975 (reforma do condomínio)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo", "year": 2018 },
+        { "title": "Condomínio — ficha de informação", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/charges-immeuble/copropriete.html" },
+        { "title": "Lei de 1 de agosto de 2018 — fundo de reserva obrigatório", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo" },
+        { "title": "Código Civil — direitos reais (livro II)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+      ]
     },
     "klimabonus": {
       "title": "Quais são as ajudas Klimabonus para a renovação energética?",

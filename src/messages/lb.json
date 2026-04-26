@@ -9312,21 +9312,61 @@
       ]
     },
     "copropriete": {
-      "title": "Wéi funktionéiert Copropriétéit zu Lëtzebuerg?",
-      "metaDescription": "Copropriétéit zu Lëtzebuerg: Gesetz vum 16.05.1975, Pflicht-Syndikus, GV, Copropriétéitsundeeler, Reservefong, Ofstëmmungsmajoritéiten. Komplette Guide.",
-      "intro": "D'Copropriétéit zu Lëtzebuerg gëtt duerch d'geännert Gesetz vum 16. Mee 1975 iwwer d'Reegelung vun der Copropriétéit vu bebauten Immobilie gereegelt. All Copropriétaire besëtzt e Lot besteeend aus engem private Deel (Appartement, Keller, Parking) an engem Undeel un de gemeinsame Deeler, ausgedréckt an Tausendstel. D'Gebaigeverwaltung stëtzt sech op dräi Organer: de Syndikus, d'Generalversammlung vun de Copropriétairen an de Verwaltungsrot. Hei wéi alles zesummeshänkt.",
-      "section1Title": "De Syndikus an d'Generalversammlung",
-      "section1Content": "D'Ernennung vun engem professionelle Syndikus ass Pflicht fir Copropriétéite mat méi wéi 5 Loten (Art. 16, geännert Gesetz vum 16.05.1975). De Syndikus ass de gesetzleche Vertrieder vun der Eigentümergemeinschaft: Hien féiert d'Decisiounen vun der Generalversammlung aus, verwaltet de Budget, erhieft d'Ëmlagen, flegt d'Gemeinschaftsdeeler a vertrëtt d'Gemeinschaft virum Gericht. Säi Mandat ass op 3 Joer limitéiert a verlängerbar. D'Generalversammlung (GV) trëtt mindestens eemol am Joer zesummen (Art. 14). Si stëmmt iwwert de Wirtschaftsplang of, genehmegt d'Ofrechnung, beschléisst Aarbechten a bestellt oder widerréift de Syndikus. All Copropriétaire huet Stëmmrechter proportional zu senge Undeeler. D'Beschlossféiegkeet ass erreecht, wann uwiersend oder vertruede Copropriétairen op mannst 50 % vun den Undeeler halen.",
-      "section2Title": "Copropriétéitsreglement an Undeeler",
-      "section2Content": "D'Copropriétéitsreglement ass eng notariell Pflichtsurkond, déi am Kataster publizéiert gëtt a definéiert: den Zweck vum Gebai, d'Opdeelung vun de privaten a gemeinsame Deeler, d'Undeeler vu all Lot, d'Notzungsreegelen fir privat a gemeinsam Deeler an d'Käschtenverteilung. D'Undeeler bestëmmen souwuel d'Stëmmrechter an der GV wéi och d'Käschtenverteilung. Si gi no Fläch, Lag a Beschafenheet vun all Lot berechent (Art. 5, Gesetz vum 16.05.1975). Eng Ännerung vum Copropriétéitsreglement erfuerdert eng 3/4-Majoritéit vun den Undeeler (Art. 14). Gemeinschaftsdeeler ëmfaassen: Rohbau, Diecher, Trapen, Agankshal, Grénganlagen, Haaptleitungen a Gemeinschaftsausstattung.",
-      "section3Title": "Reservefong an Ofstëmmungsmajoritéiten",
-      "section3Content": "Zënter der Reform vu 2018 ass d'Bilddung vun engem Reservefong Pflicht fir Copropriétéite mat méi wéi 5 Loten. De jährlech Mindestbäitrag gëtt vun der GV festgeluecht a muss zukünfteg gréisser Ënnerhaltaarbechten finanzéieren (Fassadesanéierung, Daach, Lift). D'Ofstëmmungsmajoritéiten an der GV sinn no der Bedeitung vun der Decisioun gestaffelt: einfach Majoritéit (50 % + 1 vun den uwiersenden/vertruedenen Undeeler) fir laufend Decisiounen (Budget, Ënnerhalt); absolut Majoritéit (50 % + 1 vun allen Undeeler) fir Verbesserungsaarbechten; 3/4-Majoritéit vun allen Undeeler fir Ännerunge vum Copropriétéitsreglement, Ëmbauaarbechten an Zweckännerung vum Gebai; Eestëmmegkeet fir Decisiounen, déi privat Rechter betreffen (Ännerung vun der Undeelerverteilung, Ewechhuele vu privater Ausstattung). De Verwaltungsrot, e fakultatiivt Gremium vu gewielten Copropriétairen, kontrolléiert d'Verwaltung vum Syndikus a bereet d'GV vir.",
-      "relatedToolLabel": "Zum Syndikus-Tool",
-      "relatedToolLink": "/syndic",
-      "faq1Q": "Ass e Syndikus an Lëtzebuerger Copropriétéiten Pflicht?",
-      "faq1A": "Jo, d'Ernennung vun engem professionelle Syndikus ass Pflicht fir Copropriétéite mat méi wéi 5 Loten (Art. 16, geännert Gesetz vum 16.05.1975). Fir kleng Copropriétéiten (≤ 5 Loten) kann d'Verwaltung direkt vun de Copropriétairen iwwerholl ginn.",
-      "faq2Q": "Wéi eng Majoritéit brauch ee fir Beschlëss iwwer Aarbechten an enger Copropriétéit?",
-      "faq2A": "Laufend Ënnerhaltaarbechten erfuerderen eng einfach Majoritéit. Verbesserungsaarbechten erfuerderen eng absolut Majoritéit. Ëmbauaarbechten oder Reeglementsännerungen erfuerderen eng 3/4-Majoritéit vun allen Undeeler. Nëmmen Decisiounen, déi privat Rechter betreffen, erfuerderen Eestëmmegkeet."
+      "title": "Copropriétéit zu Lëtzebuerg: Gesetz 16.05.1975, Syndikus, GV a Reservefong 2026",
+      "metaDescription": "Copropriétéit LU 2026: Pflicht-Syndikus iwwer 5 Loten, Generalversammlung, notariell Reglement, Undeeler (Tausendstel), Pflicht-Reservefong, gestaffelt Ofstëmmungsmajoritéiten, Verwaltungsrot.",
+      "subtitle": "Wéi eng Copropriétéit zu Lëtzebuerg funktionéiert: Organer, Ofstëmmungsreegelen, Käschten a Pflichten.",
+      "category": "Copropriétéit a Syndikus",
+      "essentiel": [
+        "Rechtsrahmen: geännert Gesetz vum 16. Mee 1975 iwwer d'Copropriétéit (Reform 2018, Pflicht-Reservefong).",
+        "Professionnellen Syndikus Pflicht iwwer 5 Loten, 3-jähreg verlängerbart Mandat, féiert d'GV-Beschlëss aus.",
+        "Undeeler (Tausendstel) duerch notariell Copropriétéitsreglement definéiert: regelen SOWUEL Stëmmrechter WIE Käschtenverteilung.",
+        "Gestaffelt Majoritéiten: einfach (Ënnerhalt), absolut (Verbesserung), 3/4 (Ëmbau/Reglement), Eestëmmegkeet (Erëtt op privat Rechter).",
+        "Pflicht-Reservefong (Reform 2018) fir Fassad, Daach a Lift z'antizipéieren."
+      ],
+      "section1Title": "Definitioun an Organer",
+      "section1P1": "Copropriétéit entsteet, soubal eng bebaute Immobilie ënnert méi Eegentümer an Loten opgedeelt gëtt, jee mat engem private Deel (Appartement, Keller, Parking) an engem Undeel un Gemeinschaftsdeeler (Rohbau, Daach, Trapen, Gemeinschaftsausstattung). All Copropriétaire ass vun Riichts wéint Member vun der Eegentümergemeinschaft, juristesch Persoun déi d'Gemeinschaftsdeeler besëtzt a verwalt (Art. 9 geännert Gesetz 1975).",
+      "section1P2": "Dräi Organer strukturéieren d'Governance: de Syndikus (ausféierende Beauftragten, professionnell pflichtméisseg iwwer 5 Loten), d'Generalversammlung (souverän Organ dat iwwer Budget, Aarbechten a Status vum Syndikus ofstëmmt) an de Verwaltungsrot (fakultatiivt Organ vu gewielten Copropriétairen fir Verwaltung ze kontrolléieren). D'Gemeinschaft gëtt geriichtlech vum Syndikus vertrieden, d'Reglement kann awer Delegatioune virgesinn.",
+      "callout1Title": "Kleng Copropriétéiten (≤ 5 Loten)",
+      "callout1Body": "Fir Copropriétéite mat 5 oder manner Loten ass d'Ernennung vun engem professionelle Syndikus net Pflicht (Art. 16). D'Copropriétairë kënnen ee vun hinnen als ehrenamtleche Syndikus bestëmmen oder ouni Syndikus auskommen a direkt verwalten (jährlech GV trotzdem). Och kee Pflicht-Reservefong, awer empfuelen.",
+      "section2Title": "De Syndikus a seng Roll",
+      "section2P1": "De Syndikus ass de gesetzleche Beauftragten vun der Gemeinschaft. Haaptaufgaben: jährlech GV areinberuffen (mindestens eemol pro Joer, Art. 14), Beschlëss ëmsetzen, Buchhaltung féieren, Ëmlagen a Sonderbäiträg eintreiben, néideg Verträg ofschléissen (Versécherung, Ënnerhalt, Liftwartung), Archiver a Copropriétairë-Register féieren, Gemeinschaft virum Gericht vertrieden.",
+      "section2P2": "D'Mandat vum professionelle Syndikus ass op 3 Joer verlängerbar limitéiert (Art. 17). Hien muss eng Niederlassungserlaubnis an eng Berufshaftpflichtversécherung hunn. D'Vergüdung ëmfaasst Pauschalhonorairer (laufend Verwaltung) a separat berechent Sonderleeschtungen. All Copropriétaire kann d'Buchhaltung an technesch Ënnerlagen op einfach Ufro asinn.",
+      "section3Title": "Generalversammlung an Ofstëmmungsreegelen",
+      "section3P1": "D'jährlech ordentlech GV stëmmt iwwer d'Ofrechnung vum vergangene Geschäftsjoer, de Budget, d'Entlaaschtung vum Syndikus an d'Aarbechtsprogramm of. Eng aussergewéinlech GV kann zu all Moment vum Syndikus oder op Antrag vu Copropriétairen mat op mannst 25 % vun den Undeeler areinberuff ginn. D'Aladung muss per Recommandé 21 Deeg virun der Sëtzung mat Tagesuerdnung, Budgetentwurf an néidegen Ënnerlagen verschéckt ginn (Art. 14).",
+      "section3P2": "Déi erfuerderlech Majoritéiten sinn no der Schwéiergrad vun der Decisioun gestaffelt: einfach Majoritéit (50 % + 1 vun den uwierende oder vertruedenen Undeeler) fir laufend Decisiounen (Budget, Ënnerhalt, ordentlech Ausgaben); absolut Majoritéit (50 % + 1 vun allen Undeeler) fir Verbesserungsaarbechten an Bestellung/Widderruf vum Syndikus; 3/4-Majoritéit vun allen Undeeler fir Reglementsännerungen, Ëmbauaarbechten, Zweckännerung; Eestëmmegkeet fir all Erëtt op privat Rechter (Lot-Ewechhuelung, Undeelerännerung).",
+      "callout2Title": "Vollmaachten an der GV",
+      "callout2Body": "En offwiesenden Copropriétaire kann engem anere Copropriétaire oder engem Drëtten Vollmaacht ginn. E Vollmaachthalter däerf net méi wéi e Fënneftel vun den Undeeler halen (Art. 14 Abs. 4) fir Muecht-Konzentratiounen ze verhënneren. De Syndikus däerf keng Vollmaacht halen. Préift d'Reglement, dat strenger Reegele virgesi kann.",
+      "section4Title": "Reservefong a Käschten",
+      "section4P1": "Zënter der Reform 2018 ass e Reservefong fir Copropriétéite mat méi wéi 5 Loten Pflicht. De jährlech Mindestbäitrag gëtt vun der GV festgeluecht (dacks 5 bis 10 % vum Joresbudget) a muss zukünfteg Groussaarbechten finanzéieren (Fassadesanéierung all 15-20 Joer, Daach, Lift, EPBD-Konformitéit). De Fong ass onveraussbar: Hie kann nëmme fir an der GV beschloss Aarbechte verwendt ginn.",
+      "section4P2": "Laufend Käschten (Ënnerhalt, Gemeinschaftsmedien, Versécherung, Syndikus) ginn no Undeeler verdeelt. Bestëmmt Sonderkäschte kënnen no aneren am Reglement virgesinnen Schlësselen verdeelt ginn: z.B. Lift nëmmen op bediente Stocker, Zentralheizung anteileg zu beheizter Fläch, Waasser anteileg zum individuelle Verbrauch. De Syndikus stellt véierjählech Sonderbäiträg an eng Joresofrechnung op.",
+      "callout3Title": "Säumeg Bezuelung an Eintreibung",
+      "callout3Body": "Bei anhalend Säumegkeet kann de Syndikus no Mahnung e Bäitreibungsverfahren aleeden. D'Gemeinschaft huet en éischtrangegen Immobilieprivileg op de Lot vum säumege Copropriétaire fir d'Käschten vun den lafenden zwee Joer (Art. 24). De widerspenstege Copropriétaire kann virum Friddensriichter geluede ginn, an am äusserste Fall kann de Lot zwangsversteet ginn.",
+      "inlineCalc": {
+        "title": "tevaxia-Tools fir Copropriétairen",
+        "description": "Sonderbäitragverfollegung, Undeelerberechnung, GV-Aladungsvirlagen, Copropriétairë-Register: eis Tools decken déi ganz Verwaltung vun enger Copropriétéit zu Lëtzebuerg of.",
+        "cta": "Copropriétéitsberäich opmaachen"
+      },
+      "tools": [
+        { "href": "/copropriete", "title": "Copropriétéitsberäich", "description": "Käschtenverfollegung, GV, Verwaltungsrot, Archiver." },
+        { "href": "/syndic", "title": "Syndikus-Tools", "description": "Verwaltung vun engem Portfolio vu Copropriétéiten fir professionnell Syndici." },
+        { "href": "/conseil-syndical", "title": "Verwaltungsrot", "description": "Tools fir d'Kontroll vun der Syndikus-Verwaltung." },
+        { "href": "/calculateur-vrd", "title": "VRD-Aarbechten", "description": "Käschtenschätzung fir an der GV beschloss Aarbechten." }
+      ],
+      "faq": [
+        { "q": "Ass e Syndikus an Lëtzebuerger Copropriétéiten Pflicht?", "a": "Jo, d'Ernennung vun engem professionelle Syndikus ass Pflicht fir Copropriétéite mat méi wéi 5 Loten (Art. 16 geännert Gesetz 1975). Bei klenge Gemeinschaften (≤ 5 Loten) kann d'Verwaltung direkt vun de Copropriétairen oder engem ehrenamtleche Syndikus geréiert ginn." },
+        { "q": "Wéi eng Majoritéit brauch ee fir Beschlëss iwwer Aarbechten an enger Copropriétéit?", "a": "Laufenden Ënnerhalt: einfach Majoritéit. Verbesserungsaarbechten: absolut Majoritéit. Reglementsännerung oder Ëmbauaarbechten: 3/4-Majoritéit vun allen Undeeler. Erëtt op privat Rechter: Eestëmmegkeet." },
+        { "q": "Wéi vill soll fir den Reservefong virgesinn ginn?", "a": "D'Gesetz schreift kee Prozentsaz vir, mä d'GV muss e realistesche Joresbäitrag fir zukünfteg Groussaarbechte beschléissen. An der Praxis 5 bis 10 % vum laafende Joresbudget virgesinn. Bei engem alen Gebai kënne bis 15 % néideg sinn fir Fassad an Daach z'antizipéieren." },
+        { "q": "Wat geschitt bei Bezuelungssäumegkeet vun engem Copropriétaire?", "a": "De Syndikus mahnt a kann de Friddensriichter uruffen. D'Gemeinschaft genéisst en éischtrangege Immobilieprivileg op de Lot fir d'Käschten vun den lafenden zwee Joer (Art. 24). Am äusserste Fall kann de Lot zwangsversteet ginn fir d'Schold ofzeschléissen." },
+        { "q": "Wéi wiesselt een de Syndikus zu Lëtzebuerg?", "a": "Um Enn vum 3-Joeres-Mandat beschléisst d'GV d'Bestellung vun engem neie Syndikus mat absoluter Majoritéit. Wärend dem Mandat ass eng Ofberufung mat absoluter Majoritéit fir schwéiere Verstouss méiglech (Mëssverwaltung, Net-Anhalung vu GV-Beschlëss, Interessekonflikt). Den ofberufene Syndikus muss Archiver a Keess bannent 15 Deeg iwwerginn." },
+        { "q": "Ass de Verwaltungsrot Pflicht?", "a": "Nee, et ass e fakultatiivt Organ. Aus an der GV gewielten Copropriétairë besteet, ënnerstëtzt a kontrolléiert hien de Syndikus, beréit zu wichtege Verträg a bereet GVs vir. Staark empfuelen souguer eng Copropriétéit méi wéi 10 Loten huet, fir total Ofhängegkeet vum Syndikus ze vermeiden." }
+      ],
+      "sources": [
+        { "title": "Geännert Gesetz vum 16. Mee 1975 iwwer d'Reegelung vun der Copropriétéit", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1975/05/16/n1/jo", "year": 1975 },
+        { "title": "Gesetz vum 6. August 2018 zur Ännerung vum Gesetz vum 16. Mee 1975 (Copropriétéitsreform)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo", "year": 2018 },
+        { "title": "Copropriétéit — Informatiounsblat", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/charges-immeuble/copropriete.html" },
+        { "title": "Gesetz vum 1. August 2018 — Pflicht-Reservefong", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo" },
+        { "title": "Code civil — dingleche Rechter (Buch II)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+      ]
     },
     "klimabonus": {
       "title": "Wéi eng Klimabonus-Hëllefen gëtt et fir déi energeetesch Sanéierung?",

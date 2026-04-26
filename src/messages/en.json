@@ -9434,21 +9434,61 @@
       ]
     },
     "copropriete": {
-      "title": "How Does Co-ownership Work in Luxembourg?",
-      "metaDescription": "Co-ownership in Luxembourg: law of 16.05.1975, mandatory syndic, general meetings, shares, reserve fund, voting majorities. Complete guide.",
-      "intro": "Co-ownership in Luxembourg is governed by the modified law of 16 May 1975 regulating co-ownership of built properties. Each co-owner holds a lot composed of a private part (apartment, cellar, parking) and a share of the common parts expressed in tantièmes or thousandths. Building management relies on three bodies: the syndic, the general meeting of co-owners, and the syndical council. Here is how it all works together.",
-      "section1Title": "The Syndic and General Meeting",
-      "section1Content": "Appointing a professional syndic is mandatory for co-ownerships with more than 5 lots (Art. 16, modified law of 16.05.1975). The syndic is the legal representative of the co-owners' association: they execute general meeting decisions, manage the budget, collect charges, maintain common areas and represent the association in court. Their mandate is limited to 3 years, renewable. The general meeting (GM) convenes at least once a year (Art. 14). It votes on the forecast budget, approves accounts, decides on works and appoints or removes the syndic. Each co-owner has voting rights proportional to their shares. Quorum is reached when present or represented co-owners hold at least 50% of shares.",
-      "section2Title": "Co-ownership Regulations and Shares",
-      "section2Content": "The co-ownership regulations are a mandatory notarial deed registered at the cadastre that defines: the building's purpose, the distribution of private and common parts, the shares for each lot, rules for use of private and common parts, and charge allocation methods. Shares determine both voting rights at GMs and common charge allocation. They are calculated based on the area, location and consistency of each lot (Art. 5, law of 16.05.1975). Amending the co-ownership regulations requires a 3/4 majority of shares (Art. 14). Common parts include: structural work, roofs, staircases, entrance halls, green spaces, main pipes and collective equipment.",
-      "section3Title": "Reserve Fund and Voting Majorities",
-      "section3Content": "Since the 2018 reform, establishing a reserve fund is mandatory for co-ownerships with more than 5 lots. The minimum annual contribution is set by the GM and must fund future major maintenance works (facade renovation, roof, elevator). Voting majorities at GMs are graduated according to the decision's importance: simple majority (50% + 1 of present/represented shares) for routine decisions (budget, maintenance); absolute majority (50% + 1 of all shares) for improvement works; 3/4 majority of all shares for amendments to co-ownership regulations, transformation works and change of building purpose; unanimity for decisions affecting private rights (modifying share allocation, removing private equipment). The syndical council, an optional body of elected co-owners, oversees the syndic's management and prepares GMs.",
-      "relatedToolLabel": "Access the syndic tool",
-      "relatedToolLink": "/syndic",
-      "faq1Q": "Is a syndic mandatory in Luxembourg co-ownerships?",
-      "faq1A": "Yes, appointing a professional syndic is mandatory for co-ownerships with more than 5 lots (Art. 16, modified law of 16.05.1975). For small co-ownerships (5 lots or fewer), management can be handled directly by the co-owners.",
-      "faq2Q": "What majority is needed to vote on works in a co-ownership?",
-      "faq2A": "Routine maintenance works require a simple majority. Improvement works require an absolute majority. Transformation works or regulation amendments require a 3/4 majority of all shares. Only decisions affecting private rights require unanimity."
+      "title": "Co-ownership in Luxembourg: Law 16.05.1975, Syndic, General Meeting and Reserve Fund 2026",
+      "metaDescription": "LU co-ownership 2026: mandatory syndic above 5 lots, general meeting, notarial regulations, shares (tantièmes), mandatory reserve fund, graduated voting majorities, syndical council.",
+      "subtitle": "How a co-ownership works in Luxembourg: bodies, voting rules, charges and legal obligations.",
+      "category": "Co-ownership & syndic",
+      "essentiel": [
+        "Legal framework: modified law of 16 May 1975 on co-ownership of built properties (2018 reform, mandatory reserve fund).",
+        "Professional syndic mandatory above 5 lots, 3-year renewable term, executes the GM's decisions.",
+        "Shares (tantièmes) defined in the notarial co-ownership regulations: govern BOTH voting rights AND charge allocation.",
+        "Graduated majorities: simple (maintenance), absolute (improvement), 3/4 (transformation/regulation), unanimity (impact on private rights).",
+        "Mandatory reserve fund (2018 reform) to anticipate facade, roof and elevator works."
+      ],
+      "section1Title": "Definition and bodies",
+      "section1P1": "Co-ownership applies once a built property is divided among several owners into lots, each comprising a private part (apartment, cellar, parking) and a share of common parts (structure, roof, stairs, collective equipment). Each co-owner is by right a member of the co-owners' association, a legal person owning and managing the common parts (Art. 9, 1975 modified law).",
+      "section1P2": "Three bodies structure governance: the syndic (executive agent, professional mandatory above 5 lots), the general meeting (sovereign body voting budget, works and the syndic's status) and the syndical council (optional body of elected co-owners overseeing management). The association is represented in court by the syndic, but the regulations may provide delegations.",
+      "callout1Title": "Small co-ownerships (≤ 5 lots)",
+      "callout1Body": "For co-ownerships of 5 lots or fewer, appointing a professional syndic is not mandatory (Art. 16). Co-owners may appoint one of themselves as a volunteer syndic, or do without a syndic and manage directly (with a yearly GM nonetheless). No mandatory reserve fund either, but advisable.",
+      "section2Title": "The syndic and their role",
+      "section2P1": "The syndic is the association's legal agent. Main missions: convene the annual GM (at least once a year, Art. 14), execute voted decisions, keep the association's accounts, collect charges and capital calls, contract necessary services (insurance, maintenance, elevator service), keep archives and the co-owners' register, represent the association in court.",
+      "section2P2": "The professional syndic's mandate is limited to 3 years renewable (Art. 17). They must hold an establishment authorisation and professional liability insurance. Remuneration includes flat-rate fees (current management) and separately invoiced specific services. Any co-owner may inspect the accounting and technical files on simple request.",
+      "section3Title": "General meeting and voting rules",
+      "section3P1": "The annual ordinary GM votes on the past year's accounts, the forecast budget, the syndic's discharge and the works programme. An extraordinary GM may be convened anytime by the syndic or upon request of co-owners holding at least 25% of shares. The notice must be sent by registered letter 21 days before the meeting with the agenda, draft budget and necessary documents (Art. 14).",
+      "section3P2": "Required majorities are graduated by the gravity of the decision: simple majority (50% + 1 of present or represented shares) for routine decisions (budget, maintenance, ordinary expenses); absolute majority (50% + 1 of all shares) for improvement works and the syndic's appointment/removal; 3/4 majority of all shares for amendments to the regulations, transformation works, change of purpose; unanimity for any impact on private rights (lot removal, share modification).",
+      "callout2Title": "Proxies at the GM",
+      "callout2Body": "An absent co-owner may give proxy to another co-owner or a third party. A single proxy holder cannot hold more than one fifth of the shares (Art. 14 para. 4) to avoid concentrations of power. The syndic cannot hold any proxy. Check the regulations, which may impose stricter rules.",
+      "section4Title": "Reserve fund and charges",
+      "section4P1": "Since the 2018 law reform, a reserve fund is mandatory for co-ownerships with more than 5 lots. The minimum annual contribution is set by the GM (often 5 to 10% of the annual budget) and must fund upcoming major works (facade renovation every 15-20 years, roof, elevator, EPBD energy compliance). The fund is inalienable: it cannot serve any purpose other than works voted at the GM.",
+      "section4P2": "Current charges (maintenance, common utilities, insurance, syndic) are allocated by shares. Some specific charges may follow different keys provided in the regulations: e.g., elevator only to floors served, collective heating prorated to heated area, water prorated to individual consumption. The syndic issues quarterly capital calls and an annual statement.",
+      "callout3Title": "Unpaid charges and recovery",
+      "callout3Body": "In case of persistent default, the syndic can initiate recovery proceedings after formal notice. The association has a first-rank real estate privilege on the defaulting co-owner's lot for the current two years' charges (Art. 24). The recalcitrant co-owner can be sued before the justice of the peace, and as a last resort the lot can be sold at forced auction.",
+      "inlineCalc": {
+        "title": "tevaxia tools for co-owners",
+        "description": "Capital call tracking, share calculation, GM notice templates, co-owners' register: our tools cover the full management of a co-ownership in Luxembourg.",
+        "cta": "Open the co-ownership area"
+      },
+      "tools": [
+        { "href": "/copropriete", "title": "Co-ownership area", "description": "Charge tracking, GM, syndical council, archives." },
+        { "href": "/syndic", "title": "Syndic tools", "description": "Manage a portfolio of co-ownerships for professional syndics." },
+        { "href": "/conseil-syndical", "title": "Syndical council", "description": "Tools dedicated to overseeing the syndic's management." },
+        { "href": "/calculateur-vrd", "title": "Works VRD", "description": "Cost estimation for works voted at the GM." }
+      ],
+      "faq": [
+        { "q": "Is a syndic mandatory in Luxembourg co-ownerships?", "a": "Yes, appointing a professional syndic is mandatory for co-ownerships with more than 5 lots (Art. 16 of the modified 1975 law). For small co-ownerships (≤ 5 lots), management can be ensured directly by co-owners or by a volunteer syndic." },
+        { "q": "What majority is needed to vote on works in a co-ownership?", "a": "Routine maintenance: simple majority. Improvement works: absolute majority. Amendment of regulations or transformation works: 3/4 majority of all shares. Impact on private rights: unanimity." },
+        { "q": "How much should be put aside in the reserve fund?", "a": "The law sets no percentage, but the GM must vote a realistic annual contribution to fund upcoming major works. In practice, allow 5 to 10% of the annual current budget. For an old building, up to 15% may be needed to anticipate facade and roof works." },
+        { "q": "What happens if a co-owner does not pay?", "a": "The syndic sends a formal notice and can refer the matter to the justice of the peace. The association has a first-rank real estate privilege on the lot for the current two years' charges (Art. 24). As a last resort, the lot can be sold at forced auction to clear the debt." },
+        { "q": "How to change the syndic in Luxembourg?", "a": "At the end of the 3-year term, the GM votes the appointment of a new syndic by absolute majority. During the term, dismissal is possible by absolute majority for serious fault (mismanagement, non-compliance with GM decisions, conflict of interest). The dismissed syndic must transfer archives and treasury within 15 days." },
+        { "q": "Is the syndical council mandatory?", "a": "No, it is an optional body. Composed of co-owners elected at the GM, it assists and oversees the syndic, advises on important contracts and prepares GMs. Strongly recommended once a co-ownership has more than 10 lots to avoid total dependence on the syndic." }
+      ],
+      "sources": [
+        { "title": "Modified law of 16 May 1975 regulating co-ownership", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1975/05/16/n1/jo", "year": 1975 },
+        { "title": "Law of 6 August 2018 amending the 16 May 1975 law (co-ownership reform)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo", "year": 2018 },
+        { "title": "Co-ownership — information sheet", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/charges-immeuble/copropriete.html" },
+        { "title": "Law of 1 August 2018 — mandatory reserve fund", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo" },
+        { "title": "Civil Code — real rights (book II)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+      ]
     },
     "klimabonus": {
       "title": "What Are the Klimabonus Subsidies for Energy Renovation?",

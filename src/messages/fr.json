@@ -9434,21 +9434,61 @@
       ]
     },
     "copropriete": {
-      "title": "Comment fonctionne la copropriété au Luxembourg ?",
-      "metaDescription": "Copropriété au Luxembourg : loi 16.05.1975, syndic obligatoire, AG, tantièmes, fonds de réserve, majorités de vote. Guide complet.",
-      "intro": "La copropriété au Luxembourg est régie par la loi modifiée du 16 mai 1975 portant réglementation de la copropriété des immeubles bâtis. Chaque copropriétaire détient un lot composé d'une partie privative (appartement, cave, parking) et d'une quote-part des parties communes exprimée en tantièmes ou millièmes. La gestion de l'immeuble repose sur trois organes : le syndic, l'assemblée générale des copropriétaires et le conseil syndical. Voici comment tout cela s'articule.",
-      "section1Title": "Le syndic et l'assemblée générale",
-      "section1Content": "La désignation d'un syndic professionnel est obligatoire pour les copropriétés de plus de 5 lots (art. 16 loi 16.05.1975 modifiée). Le syndic est le mandataire légal du syndicat des copropriétaires : il exécute les décisions de l'assemblée générale, gère le budget, recouvre les charges, entretient les parties communes et représente le syndicat en justice. Son mandat est limité à 3 ans, renouvelable. L'assemblée générale (AG) se réunit au moins une fois par an (art. 14). Elle vote le budget prévisionnel, approuve les comptes, décide des travaux et désigne ou révoque le syndic. Chaque copropriétaire dispose d'un nombre de voix proportionnel à ses tantièmes. Le quorum est atteint lorsque les copropriétaires présents ou représentés détiennent au moins 50 % des tantièmes.",
-      "section2Title": "Règlement de copropriété et tantièmes",
-      "section2Content": "Le règlement de copropriété est un acte notarié obligatoire publié au cadastre qui définit : la destination de l'immeuble, la répartition des parties privatives et communes, les tantièmes/millièmes de chaque lot, les règles de jouissance des parties privatives et communes, et les modalités de répartition des charges. Les tantièmes déterminent à la fois les droits de vote en AG et la répartition des charges communes. Ils sont calculés en fonction de la superficie, de la situation et de la consistance de chaque lot (art. 5 loi 16.05.1975). La modification du règlement de copropriété nécessite un vote à la majorité des 3/4 des tantièmes (art. 14). Les parties communes comprennent : le gros œuvre, les toitures, les escaliers, les halls d'entrée, les espaces verts, les canalisations principales et les équipements collectifs.",
-      "section3Title": "Fonds de réserve et majorités de vote",
-      "section3Content": "Depuis la réforme de 2018, la constitution d'un fonds de réserve est obligatoire pour les copropriétés de plus de 5 lots. La cotisation annuelle minimale est fixée par l'AG et doit permettre de financer les gros travaux de maintenance à venir (ravalement, toiture, ascenseur). Les majorités de vote en AG sont graduées selon l'importance de la décision : majorité simple (50 % + 1 des tantièmes présents/représentés) pour les décisions courantes (budget, entretien) ; majorité absolue (50 % + 1 de tous les tantièmes) pour les travaux d'amélioration ; majorité des 3/4 de tous les tantièmes pour les modifications du règlement de copropriété, les travaux de transformation et le changement de destination de l'immeuble ; unanimité pour les décisions portant atteinte aux droits privatifs (modification de la répartition des tantièmes, suppression d'un équipement privatif). Le conseil syndical, organe facultatif composé de copropriétaires élus, contrôle la gestion du syndic et prépare les AG.",
-      "relatedToolLabel": "Accéder à l'outil syndic",
-      "relatedToolLink": "/syndic",
-      "faq1Q": "Le syndic est-il obligatoire en copropriété au Luxembourg ?",
-      "faq1A": "Oui, la désignation d'un syndic professionnel est obligatoire pour les copropriétés de plus de 5 lots (art. 16, loi modifiée du 16.05.1975). Pour les petites copropriétés (≤ 5 lots), la gestion peut être assurée directement par les copropriétaires.",
-      "faq2Q": "Quelle majorité faut-il pour voter des travaux en copropriété ?",
-      "faq2A": "Les travaux d'entretien courant se votent à la majorité simple. Les travaux d'amélioration requièrent la majorité absolue. Les travaux de transformation ou de modification du règlement nécessitent la majorité des 3/4 de tous les tantièmes. Seules les décisions portant atteinte aux droits privatifs exigent l'unanimité."
+      "title": "Copropriété au Luxembourg : loi 16.05.1975, syndic, AG et fonds de réserve 2026",
+      "metaDescription": "Copropriété LU 2026 : syndic obligatoire au-delà de 5 lots, assemblée générale, règlement notarié, tantièmes, fonds de réserve obligatoire, majorités de vote graduées, conseil syndical.",
+      "subtitle": "Le fonctionnement complet d'une copropriété au Luxembourg : organes, votes, charges et obligations légales.",
+      "category": "Copropriété & syndic",
+      "essentiel": [
+        "Cadre légal : loi modifiée du 16 mai 1975 sur la copropriété des immeubles bâtis (réformée en 2018, fonds de réserve obligatoire).",
+        "Syndic professionnel obligatoire au-delà de 5 lots, mandat 3 ans renouvelable, exécute les décisions de l'AG.",
+        "Tantièmes/millièmes définis par le règlement de copropriété notarié : droits de vote ET répartition des charges.",
+        "Majorités graduées : simple (entretien), absolue (amélioration), 3/4 (transformation/règlement), unanimité (atteinte aux droits privatifs).",
+        "Fonds de réserve obligatoire (réforme 2018) pour anticiper le ravalement, la toiture, l'ascenseur."
+      ],
+      "section1Title": "Définition et organes",
+      "section1P1": "La copropriété s'applique dès qu'un immeuble bâti est divisé entre plusieurs propriétaires en lots comprenant chacun une partie privative (appartement, cave, parking) et une quote-part de parties communes (gros œuvre, toiture, escaliers, équipements collectifs). Chaque copropriétaire est de plein droit membre du syndicat des copropriétaires, personne morale qui détient et gère les parties communes (art. 9 loi 1975 modifiée).",
+      "section1P2": "Trois organes structurent la gouvernance : le syndic (mandataire exécutif, professionnel obligatoire au-delà de 5 lots), l'assemblée générale (organe souverain qui vote budget, travaux et statut du syndic) et le conseil syndical (organe facultatif de copropriétaires élus qui contrôle la gestion). Le syndicat est représenté en justice par le syndic, mais le règlement peut prévoir des délégations.",
+      "callout1Title": "Petites copropriétés (≤ 5 lots)",
+      "callout1Body": "Pour les copropriétés de 5 lots ou moins, la désignation d'un syndic professionnel n'est pas obligatoire (art. 16). Les copropriétaires peuvent désigner l'un d'entre eux comme syndic bénévole, ou se passer de syndic et gérer directement (avec une AG annuelle quand même). Pas de fonds de réserve obligatoire non plus, mais conseillé.",
+      "section2Title": "Le syndic et son rôle",
+      "section2P1": "Le syndic est le mandataire légal du syndicat. Ses missions principales : convoquer l'AG annuelle (au moins une fois par an, art. 14), exécuter les décisions votées, tenir la comptabilité du syndicat, recouvrer les charges et appels de fonds, souscrire les contrats nécessaires (assurance, entretien, contrat ascenseur), conserver les archives et le registre des copropriétaires, représenter le syndicat en justice.",
+      "section2P2": "Le mandat du syndic professionnel est limité à 3 ans renouvelables (art. 17). Il doit être titulaire d'une autorisation d'établissement et d'une assurance responsabilité civile professionnelle. Sa rémunération comprend des honoraires forfaitaires (gestion courante) et des prestations particulières facturées séparément. Tout copropriétaire peut consulter les pièces comptables et techniques sur simple demande.",
+      "section3Title": "Assemblée générale et règles de vote",
+      "section3P1": "L'AG ordinaire annuelle vote le compte de l'exercice écoulé, le budget prévisionnel, le quitus du syndic et le programme de travaux. Une AG extraordinaire peut être convoquée à tout moment par le syndic ou à la demande de copropriétaires détenant au moins 25 % des tantièmes. La convocation doit être adressée par lettre recommandée 21 jours avant la séance avec l'ordre du jour, le projet de budget et les pièces nécessaires (art. 14).",
+      "section3P2": "Les majorités requises sont graduées selon la gravité de la décision : majorité simple (50 % + 1 des tantièmes présents ou représentés) pour les décisions courantes (budget, entretien, dépenses ordinaires) ; majorité absolue (50 % + 1 de tous les tantièmes) pour les travaux d'amélioration et la désignation/révocation du syndic ; majorité des 3/4 de tous les tantièmes pour les modifications du règlement, travaux de transformation, changement de destination ; unanimité pour toute atteinte aux droits privatifs (suppression de lot, modification de tantièmes).",
+      "callout2Title": "Procurations en AG",
+      "callout2Body": "Un copropriétaire absent peut donner procuration à un autre copropriétaire ou à un tiers. Un même mandataire ne peut détenir plus d'un cinquième des tantièmes (art. 14 al. 4) pour éviter les concentrations de pouvoir. Le syndic ne peut détenir aucune procuration. Vérifiez le règlement de copropriété, qui peut prévoir des règles plus strictes.",
+      "section4Title": "Fonds de réserve et charges",
+      "section4P1": "Depuis la réforme de la loi en 2018, un fonds de réserve est obligatoire pour les copropriétés de plus de 5 lots. La cotisation annuelle minimale est fixée par l'AG (souvent 5 à 10 % du budget annuel) et doit permettre de financer les gros travaux à venir (ravalement de façade tous les 15-20 ans, toiture, ascenseur, mise aux normes énergétiques EPBD). Le fonds est inaliénable : il ne peut servir à autre chose que des travaux votés en AG.",
+      "section4P2": "Les charges courantes (entretien, fluides communs, assurance, syndic) sont réparties selon les tantièmes. Certaines charges spécifiques peuvent l'être selon des clés différentes prévues au règlement : par exemple, l'ascenseur uniquement aux étages desservis, le chauffage collectif au prorata de la surface chauffée, l'eau au prorata des consommations individuelles. Le syndic édite des appels de fonds trimestriels et un décompte annuel.",
+      "callout3Title": "Impayés et recouvrement",
+      "callout3Body": "En cas d'impayé persistant, le syndic peut engager une procédure de recouvrement après mise en demeure. Le syndicat dispose d'un privilège immobilier sur le lot du copropriétaire défaillant pour les charges des deux années en cours (art. 24). Le copropriétaire récalcitrant peut être assigné devant le juge de paix, et son lot peut, en dernier recours, être vendu par adjudication forcée.",
+      "inlineCalc": {
+        "title": "Outils tevaxia pour copropriétaires",
+        "description": "Suivi des appels de fonds, calcul des tantièmes, modèles de convocation AG, registre des copropriétaires : nos outils couvrent l'ensemble de la gestion d'une copropriété au Luxembourg.",
+        "cta": "Accéder à l'espace copropriété"
+      },
+      "tools": [
+        { "href": "/copropriete", "title": "Espace copropriété", "description": "Suivi des charges, AG, conseil syndical, archives." },
+        { "href": "/syndic", "title": "Outils syndic", "description": "Gestion d'un portefeuille de copropriétés pour syndics professionnels." },
+        { "href": "/conseil-syndical", "title": "Conseil syndical", "description": "Outils dédiés au contrôle de la gestion du syndic." },
+        { "href": "/calculateur-vrd", "title": "Travaux VRD", "description": "Estimation chiffrée pour les travaux votés en AG." }
+      ],
+      "faq": [
+        { "q": "Le syndic est-il obligatoire en copropriété au Luxembourg ?", "a": "Oui, la désignation d'un syndic professionnel est obligatoire pour les copropriétés de plus de 5 lots (art. 16 loi 16.05.1975 modifiée). Pour les petites copropriétés (≤ 5 lots), la gestion peut être assurée directement par les copropriétaires ou un syndic bénévole." },
+        { "q": "Quelle majorité faut-il pour voter des travaux en copropriété ?", "a": "Entretien courant : majorité simple. Travaux d'amélioration : majorité absolue. Modification du règlement de copropriété ou travaux de transformation : majorité des 3/4 de tous les tantièmes. Atteinte aux droits privatifs : unanimité." },
+        { "q": "Combien faut-il provisionner sur le fonds de réserve ?", "a": "La loi ne fixe pas de pourcentage, mais l'AG doit voter une cotisation annuelle réaliste pour financer les gros travaux à venir. En pratique, comptez 5 à 10 % du budget annuel courant. Pour un immeuble vétuste, jusqu'à 15 % peut être nécessaire pour anticiper ravalement et toiture." },
+        { "q": "Que se passe-t-il en cas d'impayé d'un copropriétaire ?", "a": "Le syndic met en demeure puis peut saisir le juge de paix. Le syndicat bénéficie d'un privilège immobilier de premier rang sur le lot pour les charges des deux années en cours (art. 24). En dernier recours, le lot peut être vendu par adjudication forcée pour apurer la dette." },
+        { "q": "Comment changer de syndic au Luxembourg ?", "a": "À l'arrivée à terme du mandat (3 ans), l'AG vote la désignation d'un nouveau syndic à la majorité absolue. En cours de mandat, la révocation est possible à la majorité absolue pour faute grave (mauvaise gestion, non-respect des décisions de l'AG, conflit d'intérêts). Le syndic révoqué doit transmettre les archives et la trésorerie sous 15 jours." },
+        { "q": "Le conseil syndical est-il obligatoire ?", "a": "Non, c'est un organe facultatif. Composé de copropriétaires élus en AG, il assiste et contrôle le syndic, donne son avis sur les contrats importants et prépare les AG. Vivement recommandé dès qu'une copropriété compte plus de 10 lots pour éviter une dépendance totale au syndic." }
+      ],
+      "sources": [
+        { "title": "Loi modifiée du 16 mai 1975 portant réglementation de la copropriété", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1975/05/16/n1/jo", "year": 1975 },
+        { "title": "Loi du 6 août 2018 portant modification de la loi du 16 mai 1975 (réforme copropriété)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo", "year": 2018 },
+        { "title": "Copropriété — fiche d'information", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/charges-immeuble/copropriete.html" },
+        { "title": "Loi du 1er août 2018 — fonds de réserve obligatoire", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo" },
+        { "title": "Code civil — droits réels (livre II)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+      ]
     },
     "klimabonus": {
       "title": "Quelles sont les aides Klimabonus pour la rénovation énergétique ?",
