@@ -9666,21 +9666,71 @@
       ]
     },
     "achatNonResident": {
-      "title": "Can a Non-Resident Buy Property in Luxembourg?",
-      "metaDescription": "Buying property as a non-resident in Luxembourg: no restrictions, tax differences, Bëllegen Akt, LTV financing 70-75%, double tax treaty, rental income.",
-      "intro": "Yes, a non-resident can freely buy property in Luxembourg. There are no nationality or residency restrictions for acquiring real estate in the Grand Duchy. However, non-resident status brings notable differences in taxation, bank financing and rental income reporting. This guide details the essential points to know before investing from abroad.",
-      "section1Title": "Taxation and Bëllegen Akt for Non-Residents",
-      "section1Content": "Registration duties (6% of the purchase price + 1% mortgage transcription fee) apply identically to residents and non-residents. However, the Bëllegen Akt tax credit (EUR 20,000 per person, i.e. EUR 40,000 per couple) is only granted for the acquisition of a primary residence personally occupied in Luxembourg. A non-resident buying for rental investment therefore cannot benefit. Moreover, non-residents are subject to Luxembourg income tax only on Luxembourg-source income (rental income, real estate capital gains). Bilateral tax treaties (France-Luxembourg, Belgium-Luxembourg, Germany-Luxembourg, etc.) prevent double taxation: rental income is generally taxed in the country where the property is located (Luxembourg), then exempted or credited in the country of residence.",
-      "section2Title": "Bank Financing for Non-Residents",
-      "section2Content": "Luxembourg banks (Spuerkeess, BIL, BGL BNP Paribas, Raiffeisen, ING Luxembourg) accept to finance non-residents, but with stricter conditions. The loan-to-value (LTV) ratio is generally reduced to 70-75% for a non-resident, compared to 80-100% for a resident acquiring their primary residence. Banks will often require a 25-30% personal contribution, a first-rank mortgage on the Luxembourg property, and sometimes additional guarantees (pledged savings, personal surety). Interest rates are comparable to those offered to residents, but the maximum loan term may be reduced (20-25 years instead of 30 years). It is advisable to approach several institutions and prepare a solid file including the last 3 tax assessments, pay slips, and a detailed financing plan.",
-      "section3Title": "Declaring Rental Income in Luxembourg",
-      "section3Content": "A non-resident who rents out their Luxembourg property must file a Luxembourg income tax return (model 100F for non-residents). Net rental income (rents received minus deductible expenses: loan interest, insurance, maintenance works, building depreciation at 2% per year) is taxed at Luxembourg's progressive rate. The maximum marginal rate is 42% (taxable income > EUR 200,004), plus the employment fund contribution (7-9%). Non-residents benefit from the same deductions as residents on their Luxembourg rental income: debit interest, acquisition costs (Werbungskosten), building depreciation. In case of resale, the real estate capital gain is taxed in Luxembourg according to Article 99bis L.I.R. (quarter-rate of the global rate after 2 years of ownership). The tax treaty with the country of residence prevents double taxation.",
-      "relatedToolLabel": "Simulate complete acquisition costs",
-      "relatedToolLink": "/frais-acquisition",
-      "faq1Q": "Can a non-resident benefit from Bëllegen Akt?",
-      "faq1A": "No, Bëllegen Akt (EUR 20,000 tax credit per buyer on registration duties) is reserved for acquiring a primary residence personally occupied in Luxembourg. A non-resident buying for rental investment cannot benefit and pays full registration duties (6% + 1% transcription).",
-      "faq2Q": "What is the minimum deposit for a non-resident in Luxembourg?",
-      "faq2A": "Luxembourg banks generally require a personal contribution of 25-30% of the purchase price for a non-resident (LTV of 70-75%), compared to sometimes 0-20% for a resident acquiring their primary residence. This ratio varies by bank, borrower profile and property location."
+      "title": "Buying Property in Luxembourg as a Non-Resident: Complete 2026 Guide",
+      "metaDescription": "Non-resident property purchase LU 2026: no restrictions, 7% duties + Bëllegen Akt if primary residence, 70-75% bank LTV, tax treaties, 100F return for rental income.",
+      "subtitle": "Everything to buy property in Luxembourg as a non-resident: taxation, financing, declarations and worked examples.",
+      "category": "Buying & financing",
+      "essentiel": [
+        "No nationality or residency restrictions: any foreigner can buy in Luxembourg, in full ownership.",
+        "Bëllegen Akt accessible if the property serves as the non-resident's actual primary residence (€40,000 per buyer, €80,000 per couple).",
+        "LU bank financing for non-residents: typical 70-75% LTV (vs 80-100% resident), 25-30% deposit required.",
+        "LU taxation on LU-source rental income and capital gains. Tax treaty with country of residence prevents double taxation.",
+        "Mandatory model 100F return in Luxembourg for net rental income."
+      ],
+      "section1Title": "Legal framework and restrictions",
+      "section1P1": "Luxembourg imposes no nationality or residency restriction for the acquisition of property on its territory. A French, Belgian, German, British, American or other national can buy in full ownership an apartment, house, land or commercial premises in the Grand Duchy, under the same legal conditions as a Luxembourg resident.",
+      "section1P2": "The acquisition deed is signed before a Luxembourg notary, who ensures all formalities are met (mortgage clearances, possible municipal pre-emption, town planning compliance). The property is registered with the national land registry. Subsequent management (rental, resale) follows Luxembourg law, regardless of the owner's place of residence.",
+      "callout1Title": "Remote purchase: representation by power of attorney",
+      "callout1Body": "The non-resident can sign the sale agreement and the authentic deed remotely via a notarial power of attorney granted to a relative, a lawyer or the notary's clerk. The power of attorney must be apostilled if signed outside the EU. Several LU notarial offices offer end-to-end packages for foreign buyers.",
+      "section2Title": "Taxation and Bëllegen Akt",
+      "section2P1": "Registration duties (6% + 1% transcription = 7%) apply identically to residents and non-residents. The Bëllegen Akt (€40,000 per buyer, €80,000 per couple) remains accessible to non-residents PROVIDED the acquired property effectively serves as the new buyer's primary residence, with a commitment to move in within two years. This is consistent with the scheme's objective: making access to a primary residence easier, including for new residents.",
+      "section2P2": "For a buy-to-let investment (the property is rented to a third party, not occupied by the buyer), Bëllegen Akt is not accessible: the full 7% duties are due. The non-resident is taxed in Luxembourg only on Luxembourg-source income (rental income from the LU property, LU capital gains) at the IR progressive rate.",
+      "callout2Title": "Bilateral tax treaties",
+      "callout2Body": "Luxembourg has signed bilateral tax treaties with France, Belgium, Germany, the UK, the US and most OECD countries. For real estate, the principle is taxation in the country of location (so Luxembourg). The taxpayer's country of residence then grants a tax credit or exempts the already-taxed LU income to avoid double taxation.",
+      "section3Title": "Bank financing",
+      "section3P1": "Luxembourg banks (Spuerkeess, BIL, BGL BNP Paribas, Raiffeisen, ING Luxembourg) accept financing non-residents, with conditions slightly stricter than for first-time resident buyers. The typical LTV ratio for a non-resident is 70-75% (25-30% deposit required), versus 80-100% for a resident in primary residence.",
+      "section3P2": "Maximum loan term may be shortened (20-25 years instead of 30) depending on the borrower's age. Interest rates are comparable to those for residents (typically +0.2 to 0.5% margin possible). Documents required: 3 last tax assessments, 6 last payslips, employment contract, 3 months of bank statements, detailed financing plan. For a buy-to-let, the bank assesses the DSTI (Debt Service to Income) ratio including 70-80% of expected rent.",
+      "section4Title": "Resident vs non-resident comparison",
+      "section4Intro": "For the same property bought as primary residence or buy-to-let (price €600,000), here is the comparison of acquisition costs by profile.",
+      "table": {
+        "caption": "Acquisition cost of a €600,000 property by profile",
+        "headers": ["Buyer profile", "7% duties", "Bëllegen Akt", "Emoluments + mortgage"],
+        "rows": [
+          ["Resident couple, primary residence", "€42,000", "−€42,000", "≈ €11,700"],
+          ["Non-resident couple moving to LU", "€42,000", "−€42,000", "≈ €12,500"],
+          ["Non-resident couple, pure buy-to-let", "€42,000", "€0", "≈ €12,500"],
+          ["Non-resident single, pure buy-to-let", "€42,000", "€0", "≈ €12,500"]
+        ],
+        "footnote": "Emoluments slightly higher for non-residents due to possible additional powers of attorney. For pure buy-to-let, also budget property tax and annual management cost (10-12% of rents)."
+      },
+      "callout3Title": "Concrete case: French couple buying at €600,000",
+      "callout3Body": "Couple residing in France, buying a new VEFA apartment in Luxembourg City for €600,000 to move in (job transfer). Couple Bëllegen Akt applied (occupancy commitment). 3% housing VAT on construction share (~€50,000 saving). Duties remaining after Bëllegen Akt ≈ €0. Notary emoluments ≈ €5,200. Mortgage deed for €450,000 ≈ €5,800. Disbursements ≈ €1,500. Total to pay: ≈ €12,500.",
+      "inlineCalc": {
+        "title": "Simulate your non-resident acquisition",
+        "description": "Our acquisition costs calculator handles the resident/non-resident status, Bëllegen Akt eligibility based on your occupancy plan, housing VAT and mortgage cost adjusted to your LTV.",
+        "cta": "Run the simulation"
+      },
+      "tools": [
+        { "href": "/frais-acquisition", "title": "Acquisition costs calculator", "description": "Resident vs non-resident, Bëllegen Akt by project, housing VAT, mortgage." },
+        { "href": "/outils-bancaires", "title": "Banking tools", "description": "Borrowing capacity, monthly payment, DSTI/LTV ratios adapted to status." },
+        { "href": "/portfolio", "title": "Real estate portfolio", "description": "Track yield of multiple properties over the long run." },
+        { "href": "/aml-kyc", "title": "AML/KYC verification", "description": "Foreign buyer compliance for the LU notary and bank." }
+      ],
+      "faq": [
+        { "q": "Can a non-resident benefit from Bëllegen Akt?", "a": "Yes, provided the acquired property effectively serves as the new buyer's primary residence, with a commitment to move in personally within 2 years of the deed. For a pure buy-to-let, Bëllegen Akt is not accessible and the full 7% duties are due." },
+        { "q": "What is the minimum deposit for a non-resident in Luxembourg?", "a": "LU banks generally require a 25-30% deposit for non-residents (LTV 70-75%), versus sometimes 0-20% for residents in primary residence. The ratio varies by bank, borrower profile and property location." },
+        { "q": "What documents to provide to the LU bank as a non-resident?", "a": "ID, last 3 tax assessments from the country of residence, last 6 payslips, employment contract, 3 months of bank statements, proof of deposit, detailed financing plan. For a buy-to-let, add the sale agreement and rental estimate." },
+        { "q": "How does the France-Luxembourg tax treaty work for real estate?", "a": "The 2018 France-Luxembourg treaty provides that property income and capital gains from a property in LU are taxable in LU. France exempts them but retains them to compute the global effective tax rate. You pay LU income tax on these, with no double taxation." },
+        { "q": "Do I need a LU bank account to buy?", "a": "Not mandatory for the deed (the notary accepts a transfer from abroad), but strongly recommended for subsequent management: rent collection, charges and tax payment, mortgage drawdowns. Several LU banks open a non-resident account within a few days." },
+        { "q": "What annual taxes does a non-resident owner pay?", "a": "Municipal property tax (modest, 0.1 to 1% of cadastral value), income tax on net rental income if rented (LU IR scale with deductions), possibly capital gains tax on resale before the exemption period. No wealth tax in Luxembourg." }
+      ],
+      "sources": [
+        { "title": "Property acquisition by a non-resident — procedure", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/achat-vente/achat/achat-immobilier.html" },
+        { "title": "Luxembourg bilateral tax treaties", "org": "Direct Tax Administration", "url": "https://impotsdirects.public.lu/fr/conventions.html" },
+        { "title": "Model 100F return — non-resident", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/declaration-impots/declaration-non-resident.html" },
+        { "title": "Bëllegen Akt — official factsheet", "org": "Logement.lu", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
+        { "title": "Law of 4 December 1967 (LIR) — articles 99 et seq.", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+      ]
     },
     "tva3Pourcent": {
       "title": "3% Housing VAT in Luxembourg: Conditions, AED Procedure and Cap 2026",

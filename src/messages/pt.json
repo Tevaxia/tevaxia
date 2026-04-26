@@ -9544,21 +9544,71 @@
       ]
     },
     "achatNonResident": {
-      "title": "Um não residente pode comprar um imóvel no Luxemburgo?",
-      "metaDescription": "Compra de imóvel por não residente no Luxemburgo: sem restrições, diferenças fiscais, Bëllegen Akt, financiamento LTV 70-75 %, convenção dupla tributação, rendimentos prediais.",
-      "intro": "Sim, um não residente pode comprar livremente um imóvel no Luxemburgo. Não existem restrições de nacionalidade nem de residência para a aquisição de bens imobiliários no Grão-Ducado. Contudo, o estatuto de não residente implica diferenças notáveis em matéria fiscal, de financiamento bancário e de declaração de rendimentos prediais. Este guia detalha os pontos essenciais a conhecer antes de investir a partir do estrangeiro.",
-      "section1Title": "Fiscalidade e Bëllegen Akt para não residentes",
-      "section1Content": "Os direitos de registo (6% do preço de aquisição + 1% de transcrição hipotecária) aplicam-se de forma idêntica a residentes e não residentes. Contudo, o crédito fiscal Bëllegen Akt (20.000 EUR por pessoa, ou 40.000 EUR por casal) só é concedido para a aquisição de uma residência principal ocupada pessoalmente no Luxemburgo. Um não residente que compre para investimento locativo não pode, portanto, beneficiar dele. Além disso, os não residentes estão sujeitos ao imposto sobre o rendimento luxemburguês apenas sobre os seus rendimentos de fonte luxemburguesa (rendimentos prediais, mais-valias imobiliárias). As convenções fiscais bilaterais (França-Luxemburgo, Bélgica-Luxemburgo, Alemanha-Luxemburgo, etc.) permitem evitar a dupla tributação: os rendimentos prediais são geralmente tributados no país de situação do bem (Luxemburgo) e depois isentos ou creditados no país de residência.",
-      "section2Title": "Financiamento bancário para não residentes",
-      "section2Content": "Os bancos luxemburgueses (Spuerkeess, BIL, BGL BNP Paribas, Raiffeisen, ING Luxembourg) aceitam financiar não residentes, mas com condições mais restritivas. O rácio empréstimo/valor (LTV) é geralmente reduzido para 70-75% para um não residente, contra 80-100% para um residente que adquire a sua residência principal. O banco exigirá frequentemente um contributo pessoal de 25-30%, uma hipoteca de primeiro grau sobre o imóvel luxemburguês e por vezes garantias complementares (penhor de poupanças, caução pessoal). As taxas de juro são comparáveis às propostas aos residentes, mas a duração máxima do empréstimo pode ser reduzida (20-25 anos em vez de 30 anos). É aconselhável solicitar vários estabelecimentos e preparar um dossiê sólido incluindo as últimas 3 declarações fiscais, recibos de vencimento e um plano de financiamento detalhado.",
-      "section3Title": "Declaração de rendimentos prediais no Luxemburgo",
-      "section3Content": "Um não residente que arrende o seu imóvel luxemburguês deve apresentar uma declaração de imposto sobre o rendimento no Luxemburgo (modelo 100F para não residentes). Os rendimentos prediais líquidos (rendas recebidas menos encargos dedutíveis: juros de empréstimo, seguro, obras de manutenção, amortização do edifício a 2% por ano) são tributados à taxa progressiva luxemburguesa. A taxa marginal máxima é de 42% (rendimento tributável > 200.004 EUR), mais a contribuição para o fundo de emprego (7-9%). Os não residentes beneficiam das mesmas deduções que os residentes sobre os seus rendimentos prediais luxemburgueses: juros devedores, custos de obtenção (Werbungskosten), amortização do edifício. Em caso de revenda, a mais-valia imobiliária é tributada no Luxemburgo segundo o artigo 99bis L.I.R. (taxa de um quarto da taxa global após 2 anos de detenção). A convenção fiscal com o país de residência evita a dupla tributação.",
-      "relatedToolLabel": "Simular custos de aquisição completos",
-      "relatedToolLink": "/frais-acquisition",
-      "faq1Q": "Um não residente pode beneficiar do Bëllegen Akt?",
-      "faq1A": "Não, o Bëllegen Akt (crédito fiscal de 20.000 EUR por adquirente sobre os direitos de registo) é reservado à aquisição de uma residência principal ocupada pessoalmente no Luxemburgo. Um não residente que compre para investimento locativo não pode beneficiar e paga os direitos de registo a taxa plena (6% + 1% de transcrição).",
-      "faq2Q": "Qual é o contributo mínimo para um não residente no Luxemburgo?",
-      "faq2A": "Os bancos luxemburgueses exigem geralmente um contributo pessoal de 25-30% do preço de aquisição para um não residente (LTV de 70-75%), contra por vezes 0-20% para um residente que adquire a sua residência principal. Este rácio varia consoante o banco, o perfil do mutuário e a localização do imóvel."
+      "title": "Compra imobiliária no Luxemburgo por não residente: guia completo 2026",
+      "metaDescription": "Compra imobiliária não residente LU 2026: sem restrições, direitos 7% + Bëllegen Akt se residência principal, LTV bancário 70-75%, convenções fiscais, declaração 100F rendimentos prediais.",
+      "subtitle": "Tudo para comprar um imóvel no Luxemburgo como não residente: fiscalidade, financiamento, declarações e exemplos calculados.",
+      "category": "Compra & financiamento",
+      "essentiel": [
+        "Sem restrições de nacionalidade nem de residência: qualquer estrangeiro pode comprar no Luxemburgo, em plena propriedade.",
+        "Bëllegen Akt acessível se o imóvel servir efetivamente de residência principal do não residente (40 000 € por comprador, 80 000 € por casal).",
+        "Financiamento bancário LU para não residente: LTV 70-75% típico (vs 80-100% residente), contributo 25-30% exigido.",
+        "Tributação LU sobre rendimentos prediais e mais-valias do imóvel LU. Convenção fiscal com o país de residência evita dupla tributação.",
+        "Declaração modelo 100F obrigatória no Luxemburgo para os rendimentos prediais líquidos."
+      ],
+      "section1Title": "Quadro legal e restrições",
+      "section1P1": "O Luxemburgo não impõe qualquer restrição de nacionalidade ou de residência para a aquisição de um imóvel no seu território. Um francês, belga, alemão, britânico, americano ou nacional de outro país pode comprar em plena propriedade um apartamento, casa, terreno ou local comercial no Grão-Ducado, nas mesmas condições jurídicas que um residente luxemburguês.",
+      "section1P2": "A escritura autêntica de aquisição é obrigatoriamente celebrada perante um notário luxemburguês, que vela pelo cumprimento das formalidades (cancelamentos hipotecários, eventual direito de preferência municipal, conformidade urbanística). O imóvel é inscrito no registo predial nacional. A gestão posterior (arrendamento, revenda) segue o direito luxemburguês, independentemente do local de residência do proprietário.",
+      "callout1Title": "Compra à distância: representação por procuração",
+      "callout1Body": "O não residente pode assinar o compromisso de venda e a escritura autêntica à distância via procuração notarial outorgada a um familiar, advogado ou ajudante de notário. A procuração deve ser apostilada se assinada fora da UE. Vários cartórios LU oferecem acompanhamento integral para compradores estrangeiros.",
+      "section2Title": "Fiscalidade e Bëllegen Akt",
+      "section2P1": "Os direitos de registo (6% + 1% transcrição = 7%) aplicam-se identicamente a residentes e não residentes. O Bëllegen Akt (40 000 € por comprador, 80 000 € por casal) permanece acessível aos não residentes DESDE QUE o imóvel adquirido sirva efetivamente de residência principal do novo comprador, com compromisso de se mudar nos dois anos. É coerente com o objetivo da medida: facilitar o acesso à habitação principal, incluindo para os novos residentes.",
+      "section2P2": "Para um investimento de arrendamento (o imóvel é arrendado a terceiros, não ocupado pelo comprador), o Bëllegen Akt não é acessível: os 7% de direitos integrais são devidos. O não residente é tributado no Luxemburgo apenas sobre os seus rendimentos de fonte luxemburguesa (rendimentos prediais do imóvel LU, mais-valias LU) à taxa progressiva IR.",
+      "callout2Title": "Convenções fiscais bilaterais",
+      "callout2Body": "O Luxemburgo assinou convenções fiscais bilaterais com a França, Bélgica, Alemanha, Reino Unido, EUA e a maioria dos países da OCDE. Para os bens imóveis, o princípio é a tributação no país de localização (logo, no Luxemburgo). O país de residência do contribuinte concede então um crédito de imposto ou isenta os rendimentos já tributados em LU para evitar a dupla tributação.",
+      "section3Title": "Financiamento bancário",
+      "section3P1": "Os bancos luxemburgueses (Spuerkeess, BIL, BGL BNP Paribas, Raiffeisen, ING Luxembourg) aceitam financiar não residentes, com condições ligeiramente mais restritivas que para residentes primo-compradores. O rácio LTV típico para um não residente é de 70-75% (contributo exigido 25-30%), contra 80-100% para um residente em residência principal.",
+      "section3P2": "A duração máxima do empréstimo pode ser reduzida (20-25 anos em vez de 30) consoante a idade do mutuário. As taxas de juro são comparáveis às dos residentes (tipicamente +0,2 a 0,5% de margem possível). Documentos exigidos: 3 últimas declarações fiscais, 6 últimos recibos de vencimento, contrato de trabalho, extratos bancários de 3 meses, plano de financiamento detalhado. Para um arrendamento, o banco avalia o rácio DSTI (Debt Service to Income) integrando 70-80% da renda esperada.",
+      "section4Title": "Comparativo residente vs não residente",
+      "section4Intro": "Para o mesmo imóvel adquirido como residência principal ou como investimento locativo (preço 600 000 €), eis o comparativo dos custos de aquisição por perfil.",
+      "table": {
+        "caption": "Custo de aquisição de um imóvel a 600 000 € por perfil",
+        "headers": ["Perfil de comprador", "Direitos 7%", "Bëllegen Akt", "Emolumentos + hipoteca"],
+        "rows": [
+          ["Casal residente, residência principal", "42 000 €", "−42 000 €", "≈ 11 700 €"],
+          ["Casal não residente a mudar para LU", "42 000 €", "−42 000 €", "≈ 12 500 €"],
+          ["Casal não residente, arrendamento puro", "42 000 €", "0 €", "≈ 12 500 €"],
+          ["Não residente único, arrendamento puro", "42 000 €", "0 €", "≈ 12 500 €"]
+        ],
+        "footnote": "Emolumentos ligeiramente superiores para não residentes devido a possíveis procurações suplementares. Para arrendamento puro, prever também imposto predial e custo anual de gestão (10-12% das rendas)."
+      },
+      "callout3Title": "Caso concreto: casal francês a comprar a 600 000 €",
+      "callout3Body": "Casal residente em França, compra apartamento novo VEFA em Luxemburgo-Cidade por 600 000 € para se instalar (transferência profissional). Bëllegen Akt casal aplicado (compromisso de ocupação). IVA habitação a 3% sobre a parte construção (~50 000 € de poupança). Direitos restantes após Bëllegen Akt ≈ 0 €. Emolumentos notariais ≈ 5 200 €. Escritura hipotecária para 450 000 € ≈ 5 800 €. Despesas ≈ 1 500 €. Total a desembolsar: ≈ 12 500 €.",
+      "inlineCalc": {
+        "title": "Simule a sua aquisição como não residente",
+        "description": "A nossa calculadora de custos de aquisição gere o estatuto residente/não residente, a elegibilidade ao Bëllegen Akt segundo o seu projeto de ocupação, o IVA habitação e o custo hipotecário ajustado ao seu LTV.",
+        "cta": "Iniciar a simulação"
+      },
+      "tools": [
+        { "href": "/frais-acquisition", "title": "Calculadora de custos de aquisição", "description": "Residente vs não residente, Bëllegen Akt segundo projeto, IVA habitação, hipoteca." },
+        { "href": "/outils-bancaires", "title": "Ferramentas bancárias", "description": "Capacidade de empréstimo, prestação, rácios DSTI/LTV adaptados ao estatuto." },
+        { "href": "/portfolio", "title": "Portefólio imobiliário", "description": "Para acompanhar a rentabilidade de vários imóveis a longo prazo." },
+        { "href": "/aml-kyc", "title": "Verificação AML/KYC", "description": "Conformidade do comprador estrangeiro para o notário e o banco LU." }
+      ],
+      "faq": [
+        { "q": "Um não residente pode beneficiar do Bëllegen Akt?", "a": "Sim, desde que o imóvel adquirido sirva efetivamente de residência principal do novo comprador, com compromisso de se mudar pessoalmente nos 2 anos seguintes à escritura. Para um arrendamento puro, o Bëllegen Akt não é acessível e os 7% de direitos integrais são devidos." },
+        { "q": "Qual é o contributo mínimo para um não residente no Luxemburgo?", "a": "Os bancos LU exigem geralmente um contributo de 25-30% do preço de aquisição para um não residente (LTV 70-75%), contra por vezes 0-20% para um residente em residência principal. O rácio varia consoante o banco, o perfil do mutuário e a localização do imóvel." },
+        { "q": "Que documentos fornecer ao banco LU como não residente?", "a": "Documento de identificação, 3 últimas declarações fiscais do país de residência, 6 últimos recibos de vencimento, contrato de trabalho, extratos bancários de 3 meses, comprovativo de capital próprio, plano de financiamento detalhado. Para um projeto locativo, juntar o compromisso de venda e a estimativa de renda." },
+        { "q": "Como funciona a convenção fiscal França-Luxemburgo para o imobiliário?", "a": "A convenção França-Luxemburgo de 2018 prevê que os rendimentos imobiliários e mais-valias de um imóvel situado no LU são tributáveis no LU. A França isenta-os mas retém-nos para calcular a taxa efetiva global de tributação. Paga, portanto, o IR no LU sobre estes rendimentos, sem dupla tributação." },
+        { "q": "É preciso uma conta bancária LU para comprar?", "a": "Não obrigatório para a escritura (o notário aceita transferência do estrangeiro), mas fortemente recomendado para a gestão posterior: cobrança de rendas, pagamento de encargos e impostos, levantamentos hipotecários. Vários bancos LU abrem uma conta de não residente em alguns dias." },
+        { "q": "Que impostos anuais paga um proprietário não residente?", "a": "Imposto predial municipal (modesto, 0,1 a 1% do valor cadastral), imposto sobre os rendimentos prediais líquidos se arrendado (escala IR LU com deduções), eventualmente mais-valia se revenda antes do prazo de isenção. Sem ISF nem imposto sobre fortuna no Luxemburgo." }
+      ],
+      "sources": [
+        { "title": "Aquisição imobiliária por não residente — procedimento", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/achat-vente/achat/achat-immobilier.html" },
+        { "title": "Convenções fiscais bilaterais do Luxemburgo", "org": "Administração das Contribuições Diretas", "url": "https://impotsdirects.public.lu/fr/conventions.html" },
+        { "title": "Declaração modelo 100F — não residente", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/declaration-impots/declaration-non-resident.html" },
+        { "title": "Bëllegen Akt — ficha oficial", "org": "Logement.lu", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
+        { "title": "Lei de 4 de dezembro de 1967 (LIR) — artigos 99 e seguintes", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+      ]
     },
     "tva3Pourcent": {
       "title": "TVA habitação a 3 % no Luxemburgo: condições, procedimento AED e teto 2026",

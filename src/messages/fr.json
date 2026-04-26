@@ -9666,21 +9666,71 @@
       ]
     },
     "achatNonResident": {
-      "title": "Un non-résident peut-il acheter un bien au Luxembourg ?",
-      "metaDescription": "Achat immobilier par un non-résident au Luxembourg : aucune restriction, différences fiscales, Bëllegen Akt, financement LTV 70-75 %, convention double imposition, revenus fonciers.",
-      "intro": "Oui, un non-résident peut acheter librement un bien immobilier au Luxembourg. Il n'existe aucune restriction de nationalité ni de résidence pour l'acquisition de biens immobiliers dans le Grand-Duché. Toutefois, le statut de non-résident entraîne des différences notables en matière fiscale, de financement bancaire et de déclaration des revenus fonciers. Ce guide détaille les points essentiels à connaître avant d'investir depuis l'étranger.",
-      "section1Title": "Fiscalité et Bëllegen Akt pour les non-résidents",
-      "section1Content": "Les droits d'enregistrement (6 % du prix d'acquisition + 1 % de transcription hypothécaire) s'appliquent de manière identique aux résidents et aux non-résidents. En revanche, le crédit d'impôt Bëllegen Akt (20.000 € par personne, soit 40.000 € pour un couple) n'est accordé que pour l'acquisition d'une résidence principale occupée personnellement au Luxembourg. Un non-résident achetant pour investissement locatif ne peut donc pas en bénéficier. Par ailleurs, les non-résidents sont soumis à l'impôt sur le revenu luxembourgeois uniquement sur leurs revenus de source luxembourgeoise (revenus fonciers, plus-values immobilières). Les conventions fiscales bilatérales (France-Luxembourg, Belgique-Luxembourg, Allemagne-Luxembourg, etc.) permettent d'éviter la double imposition : les revenus fonciers sont généralement imposés dans le pays de situation du bien (Luxembourg), puis exonérés ou crédités dans le pays de résidence.",
-      "section2Title": "Financement bancaire pour les non-résidents",
-      "section2Content": "Les banques luxembourgeoises (Spuerkeess, BIL, BGL BNP Paribas, Raiffeisen, ING Luxembourg) acceptent de financer des non-résidents, mais avec des conditions plus restrictives. Le ratio prêt/valeur (LTV) est généralement réduit à 70-75 % pour un non-résident, contre 80-100 % pour un résident acquérant sa résidence principale. La banque exigera souvent un apport personnel de 25-30 %, une garantie hypothécaire de premier rang sur le bien luxembourgeois, et parfois des garanties complémentaires (nantissement d'épargne, caution personnelle). Les taux d'intérêt sont comparables à ceux proposés aux résidents, mais la durée maximale du prêt peut être réduite (20-25 ans au lieu de 30 ans). Il est recommandé de solliciter plusieurs établissements et de préparer un dossier solide incluant les 3 derniers avis d'imposition, les fiches de salaire, et un plan de financement détaillé.",
-      "section3Title": "Déclaration des revenus fonciers au Luxembourg",
-      "section3Content": "Un non-résident qui met son bien luxembourgeois en location doit déposer une déclaration d'impôt sur le revenu au Luxembourg (déclaration modèle 100F pour les non-résidents). Les revenus fonciers nets (loyers perçus moins les charges déductibles : intérêts d'emprunt, assurance, travaux d'entretien, amortissement du bâtiment à 2 % par an) sont imposés au barème progressif luxembourgeois. Le taux marginal maximal est de 42 % (revenu imposable > 200.004 €), plus la contribution au fonds pour l'emploi (7-9 %). Les non-résidents bénéficient des mêmes déductions que les résidents sur leurs revenus fonciers luxembourgeois : intérêts débiteurs, frais d'obtention (Werbungskosten), amortissement du bâtiment. En cas de revente, la plus-value immobilière est taxée au Luxembourg selon les règles de l'article 99bis L.I.R. (taux quart du taux global après 2 ans de détention). La convention fiscale avec le pays de résidence évite la double imposition.",
-      "relatedToolLabel": "Simuler les frais d'acquisition complets",
-      "relatedToolLink": "/frais-acquisition",
-      "faq1Q": "Un non-résident peut-il bénéficier du Bëllegen Akt ?",
-      "faq1A": "Non, le Bëllegen Akt (crédit d'impôt de 20.000 € par acquéreur sur les droits d'enregistrement) est réservé à l'acquisition d'une résidence principale occupée personnellement au Luxembourg. Un non-résident qui achète pour investissement locatif ne peut pas en bénéficier et paie les droits d'enregistrement plein taux (6 % + 1 % de transcription).",
-      "faq2Q": "Quel apport minimum pour un non-résident au Luxembourg ?",
-      "faq2A": "Les banques luxembourgeoises exigent généralement un apport personnel de 25 à 30 % du prix d'acquisition pour un non-résident (LTV de 70-75 %), contre parfois 0-20 % pour un résident acquérant sa résidence principale. Ce ratio varie selon la banque, le profil de l'emprunteur et la localisation du bien."
+      "title": "Achat immobilier au Luxembourg par un non-résident : guide complet 2026",
+      "metaDescription": "Achat immobilier non-résident LU 2026 : aucune restriction, droits 7 % + Bëllegen Akt si résidence principale, LTV 70-75 % bancaire, conventions fiscales, déclaration 100F revenus fonciers.",
+      "subtitle": "Tout pour acheter un bien au Luxembourg en tant que non-résident : fiscalité, financement, déclarations et exemples chiffrés.",
+      "category": "Achat & financement",
+      "essentiel": [
+        "Aucune restriction de nationalité ni de résidence : tout étranger peut acheter au Luxembourg, en pleine propriété.",
+        "Bëllegen Akt accessible si le bien sert effectivement de résidence principale du non-résident (40 000 € par acquéreur, 80 000 € par couple).",
+        "Financement bancaire LU pour non-résident : LTV 70-75 % typique (vs 80-100 % résident), apport 25-30 % requis.",
+        "Imposition LU sur les revenus fonciers et plus-values du bien LU. Convention fiscale avec le pays de résidence évite la double imposition.",
+        "Déclaration modèle 100F obligatoire au Luxembourg pour les revenus fonciers nets."
+      ],
+      "section1Title": "Cadre juridique et restrictions",
+      "section1P1": "Le Luxembourg n'impose aucune restriction de nationalité ni de résidence pour l'acquisition d'un bien immobilier sur son territoire. Un Français, Belge, Allemand, Britannique, Américain ou ressortissant d'un autre pays peut acheter en pleine propriété un appartement, une maison, un terrain ou un local commercial au Grand-Duché, dans les mêmes conditions juridiques qu'un résident luxembourgeois.",
+      "section1P2": "L'acte authentique d'acquisition se fait obligatoirement devant un notaire luxembourgeois, qui veille au respect des formalités (purges hypothécaires, droit de préemption éventuel des communes, conformité urbanistique). Le bien est inscrit au cadastre national. La gestion ultérieure (location, revente) suit le droit luxembourgeois, indépendamment du lieu de résidence du propriétaire.",
+      "callout1Title": "Achat à distance : représentation par procuration",
+      "callout1Body": "Le non-résident peut signer le compromis de vente et l'acte authentique à distance via une procuration notariée donnée à un proche, à un avocat ou au clerc de notaire. La procuration doit être légalisée si elle est signée hors UE (apostille). Plusieurs études notariales LU proposent des accompagnements complets pour acquéreurs étrangers.",
+      "section2Title": "Fiscalité et Bëllegen Akt",
+      "section2P1": "Les droits d'enregistrement (6 % + 1 % de transcription = 7 %) s'appliquent identiquement aux résidents et non-résidents. Le Bëllegen Akt (40 000 € par acquéreur, 80 000 € par couple) reste accessible aux non-résidents À CONDITION que le bien acquis serve effectivement de résidence principale du nouvel acquéreur, qui s'engage à venir s'y installer dans les deux ans. C'est cohérent avec l'objectif de la mesure : faciliter l'accès au logement principal, y compris pour les nouveaux résidents.",
+      "section2P2": "Pour un investissement locatif (le bien est loué à un tiers, pas occupé par l'acquéreur), le Bëllegen Akt n'est pas accessible : les 7 % de droits sont dus en totalité. Le non-résident est imposé au Luxembourg uniquement sur ses revenus de source luxembourgeoise (revenus fonciers du bien LU, plus-values immobilières LU) selon le barème progressif IR.",
+      "callout2Title": "Conventions fiscales bilatérales",
+      "callout2Body": "Le Luxembourg a signé des conventions fiscales bilatérales avec la France, la Belgique, l'Allemagne, le Royaume-Uni, les USA, et la plupart des pays de l'OCDE. Pour les biens immobiliers, le principe est l'imposition dans le pays de situation (donc au Luxembourg). Le pays de résidence du contribuable accorde alors un crédit d'impôt ou exonère les revenus déjà imposés au LU pour éviter la double imposition.",
+      "section3Title": "Financement bancaire",
+      "section3P1": "Les banques luxembourgeoises (Spuerkeess, BIL, BGL BNP Paribas, Raiffeisen, ING Luxembourg) acceptent de financer des non-résidents, avec des conditions un peu plus restrictives que pour les résidents primo-accédants. Le ratio LTV typique pour un non-résident est de 70-75 % (apport requis 25-30 %), contre 80-100 % pour un résident en résidence principale.",
+      "section3P2": "La durée max du prêt peut être réduite (20-25 ans au lieu de 30) selon l'âge de l'emprunteur. Les taux d'intérêt sont comparables à ceux des résidents (généralement +0,2 à 0,5 % de marge possible). Documents demandés : 3 derniers avis d'imposition, 6 dernières fiches de paie, contrat de travail, relevés bancaires des 3 derniers mois, plan de financement détaillé. Pour un investissement locatif, la banque évaluera le ratio DSTI (Debt Service to Income) en intégrant 70-80 % du loyer prévisionnel.",
+      "section4Title": "Comparatif chiffré résident vs non-résident",
+      "section4Intro": "Pour un même bien acquis en résidence principale ou en investissement locatif (prix 600 000 €), voici le comparatif des coûts à l'acquisition selon le profil.",
+      "table": {
+        "caption": "Coût d'acquisition d'un bien à 600 000 € selon le profil",
+        "headers": ["Profil acquéreur", "Droits 7 %", "Bëllegen Akt", "Émoluments + hypothèque"],
+        "rows": [
+          ["Résident couple, résidence principale", "42 000 €", "−42 000 €", "≈ 11 700 €"],
+          ["Non-résident couple s'installant au LU", "42 000 €", "−42 000 €", "≈ 12 500 €"],
+          ["Non-résident couple, locatif pur", "42 000 €", "0 €", "≈ 12 500 €"],
+          ["Non-résident seul, locatif pur", "42 000 €", "0 €", "≈ 12 500 €"]
+        ],
+        "footnote": "Émoluments légèrement supérieurs pour non-résident en raison de procurations supplémentaires éventuelles. Pour le locatif pur, prévoir aussi taxe foncière et coût annuel de gestion (10-12 % des loyers)."
+      },
+      "callout3Title": "Cas concret : couple français achetant à 600 000 €",
+      "callout3Body": "Couple résidant en France, achète un appartement neuf VEFA à Luxembourg-Ville à 600 000 € pour s'y installer (mutation professionnelle). Bëllegen Akt couple appliqué (engagement d'occupation). TVA logement à 3 % sur la part construction (économie ~50 000 €). Droits restants après Bëllegen Akt ≈ 0 €. Émoluments notaire ≈ 5 200 €. Acte hypothécaire pour 450 000 € ≈ 5 800 €. Débours ≈ 1 500 €. Total à débourser : ≈ 12 500 €.",
+      "inlineCalc": {
+        "title": "Simulez votre acquisition non-résident",
+        "description": "Notre calculateur de frais d'acquisition gère le statut résident/non-résident, l'éligibilité au Bëllegen Akt selon votre projet d'occupation, la TVA logement et le coût hypothécaire ajusté à votre LTV.",
+        "cta": "Lancer la simulation"
+      },
+      "tools": [
+        { "href": "/frais-acquisition", "title": "Calculateur frais d'acquisition", "description": "Résident vs non-résident, Bëllegen Akt selon projet, TVA logement, hypothèque." },
+        { "href": "/outils-bancaires", "title": "Outils bancaires", "description": "Capacité d'emprunt, mensualité, ratios DSTI/LTV adaptés au statut." },
+        { "href": "/portfolio", "title": "Portefeuille immo", "description": "Pour suivre la rentabilité de plusieurs biens sur le long terme." },
+        { "href": "/aml-kyc", "title": "Vérification AML/KYC", "description": "Conformité acquéreur étranger pour le notaire et la banque LU." }
+      ],
+      "faq": [
+        { "q": "Un non-résident peut-il bénéficier du Bëllegen Akt ?", "a": "Oui, à condition que le bien acquis serve effectivement de résidence principale du nouvel acquéreur, qui s'engage à s'y installer personnellement dans les 2 ans suivant l'acte. Pour un investissement locatif pur, le Bëllegen Akt n'est pas accessible et les 7 % de droits sont dus en totalité." },
+        { "q": "Quel apport minimum pour un non-résident au Luxembourg ?", "a": "Les banques LU exigent généralement un apport de 25 à 30 % du prix d'acquisition pour un non-résident (LTV 70-75 %), contre parfois 0-20 % pour un résident en résidence principale. Le ratio varie selon la banque, le profil de l'emprunteur et la localisation du bien." },
+        { "q": "Quels documents fournir à la banque LU en tant que non-résident ?", "a": "Pièce d'identité, 3 derniers avis d'imposition du pays de résidence, 6 dernières fiches de paie, contrat de travail, relevés bancaires sur 3 mois, justificatif d'apport, plan de financement détaillé. Pour un projet locatif, ajouter le compromis de vente et l'estimation locative." },
+        { "q": "Comment fonctionne la convention fiscale franco-luxembourgeoise pour l'immobilier ?", "a": "La convention France-Luxembourg de 2018 prévoit que les revenus immobiliers et plus-values d'un bien situé au LU sont imposables au LU. La France les exonère mais les retient pour calculer le taux effectif global d'imposition (taux effectif). Vous payez donc l'IR au LU sur ces revenus, sans double imposition." },
+        { "q": "Faut-il un compte bancaire LU pour acheter ?", "a": "Pas obligatoire pour l'acte d'acquisition (le notaire accepte un virement depuis l'étranger), mais fortement recommandé pour la gestion ultérieure : encaissement des loyers, paiement des charges et taxes, retraits hypothécaires. Plusieurs banques LU ouvrent un compte non-résident en quelques jours." },
+        { "q": "Quelles taxes annuelles paie un non-résident propriétaire ?", "a": "Taxe foncière communale (modeste, 0,1 à 1 % de la valeur cadastrale), impôt sur les revenus fonciers nets si location (barème IR LU avec déductions), éventuellement plus-value si revente avant le délai d'exonération. Pas d'ISF ni d'impôt sur la fortune au Luxembourg." }
+      ],
+      "sources": [
+        { "title": "Acquisition immobilière par un non-résident — démarche", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/achat-vente/achat/achat-immobilier.html" },
+        { "title": "Conventions fiscales bilatérales du Luxembourg", "org": "Administration des contributions directes", "url": "https://impotsdirects.public.lu/fr/conventions.html" },
+        { "title": "Déclaration modèle 100F — non-résident", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/declaration-impots/declaration-non-resident.html" },
+        { "title": "Bëllegen Akt — fiche officielle", "org": "Logement.lu", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
+        { "title": "Loi du 4 décembre 1967 (LIR) — articles 99 et suivants", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+      ]
     },
     "tva3Pourcent": {
       "title": "TVA logement à 3 % au Luxembourg : conditions, démarche AED et plafond 2026",

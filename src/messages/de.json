@@ -9544,21 +9544,71 @@
       ]
     },
     "achatNonResident": {
-      "title": "Kann ein Nicht-Resident eine Immobilie in Luxemburg kaufen?",
-      "metaDescription": "Immobilienkauf als Nicht-Resident in Luxemburg: keine Beschränkungen, steuerliche Unterschiede, Bëllegen Akt, LTV-Finanzierung 70-75 %, Doppelbesteuerungsabkommen, Mieteinnahmen.",
-      "intro": "Ja, ein Nicht-Resident kann frei Immobilien in Luxemburg erwerben. Es gibt keine Nationalitäts- oder Wohnsitzbeschränkungen für den Immobilienerwerb im Großherzogtum. Allerdings bringt der Nicht-Resident-Status bemerkenswerte Unterschiede bei der Besteuerung, Bankfinanzierung und Mieteinnahmendeklaration mit sich. Dieser Ratgeber erläutert die wesentlichen Punkte vor einer Investition aus dem Ausland.",
-      "section1Title": "Besteuerung und Bëllegen Akt für Nicht-Residenten",
-      "section1Content": "Die Registrierungsgebühren (6 % des Kaufpreises + 1 % Hypothekeneintragungsgebühr) gelten für Residenten und Nicht-Residenten gleichermaßen. Der Bëllegen Akt-Steuervorteil (20.000 € pro Person, also 40.000 € pro Paar) wird jedoch nur für den Erwerb eines selbst bewohnten Hauptwohnsitzes in Luxemburg gewährt. Ein Nicht-Resident, der zur Vermietung kauft, kann davon also nicht profitieren. Zudem unterliegen Nicht-Residenten der luxemburgischen Einkommensteuer nur auf ihre luxemburgischen Einkünfte (Mieteinnahmen, Immobilienveräußerungsgewinne). Bilaterale Doppelbesteuerungsabkommen (Frankreich-Luxemburg, Belgien-Luxemburg, Deutschland-Luxemburg usw.) vermeiden die Doppelbesteuerung: Mieteinnahmen werden in der Regel im Belegenheitsstaat (Luxemburg) besteuert und im Wohnsitzstaat freigestellt oder angerechnet.",
-      "section2Title": "Bankfinanzierung für Nicht-Residenten",
-      "section2Content": "Luxemburgische Banken (Spuerkeess, BIL, BGL BNP Paribas, Raiffeisen, ING Luxembourg) finanzieren auch Nicht-Residenten, allerdings mit strengeren Bedingungen. Die Beleihungsquote (LTV) wird für Nicht-Residenten in der Regel auf 70-75 % reduziert, gegenüber 80-100 % für Residenten beim Erwerb ihres Hauptwohnsitzes. Die Bank verlangt oft einen Eigenkapitalanteil von 25-30 %, eine erstrangige Hypothek auf die luxemburgische Immobilie und teilweise zusätzliche Sicherheiten (Sparverpfändung, persönliche Bürgschaft). Die Zinssätze sind vergleichbar mit denen für Residenten, aber die maximale Kreditlaufzeit kann verkürzt sein (20-25 Jahre statt 30 Jahre). Es empfiehlt sich, mehrere Institute anzufragen und eine solide Akte mit den letzten 3 Steuerbescheiden, Gehaltsabrechnungen und einem detaillierten Finanzierungsplan vorzubereiten.",
-      "section3Title": "Deklaration der Mieteinnahmen in Luxemburg",
-      "section3Content": "Ein Nicht-Resident, der seine luxemburgische Immobilie vermietet, muss eine luxemburgische Einkommensteuererklärung abgeben (Modell 100F für Nicht-Residenten). Die Nettomieteinnahmen (erhaltene Mieten abzüglich abzugsfähiger Ausgaben: Darlehenszinsen, Versicherung, Instandhaltungsarbeiten, Gebäudeabschreibung 2 % pro Jahr) werden nach dem luxemburgischen Progressionstarif besteuert. Der maximale Grenzsteuersatz beträgt 42 % (zu versteuerndes Einkommen > 200.004 €), zuzüglich Beschäftigungsfondsbeitrag (7-9 %). Nicht-Residenten profitieren von den gleichen Abzügen wie Residenten bei ihren luxemburgischen Mieteinnahmen: Schuldzinsen, Werbungskosten, Gebäudeabschreibung. Bei Weiterverkauf wird der Immobilienveräußerungsgewinn in Luxemburg nach Art. 99bis L.I.R. besteuert (Viertelsteuersatz nach 2 Jahren Besitz). Das Doppelbesteuerungsabkommen mit dem Wohnsitzstaat vermeidet die Doppelbesteuerung.",
-      "relatedToolLabel": "Komplette Erwerbskosten simulieren",
-      "relatedToolLink": "/frais-acquisition",
-      "faq1Q": "Kann ein Nicht-Resident vom Bëllegen Akt profitieren?",
-      "faq1A": "Nein, der Bëllegen Akt (Steuervorteil von 20.000 € pro Käufer auf die Registrierungsgebühren) ist dem Erwerb eines selbst bewohnten Hauptwohnsitzes in Luxemburg vorbehalten. Ein Nicht-Resident, der zur Vermietung kauft, kann nicht profitieren und zahlt die vollen Registrierungsgebühren (6 % + 1 % Eintragung).",
-      "faq2Q": "Welchen Mindest-Eigenkapitalanteil braucht ein Nicht-Resident in Luxemburg?",
-      "faq2A": "Luxemburgische Banken verlangen in der Regel einen Eigenkapitalanteil von 25-30 % des Kaufpreises für Nicht-Residenten (LTV 70-75 %), gegenüber teilweise 0-20 % für Residenten beim Erwerb ihres Hauptwohnsitzes. Dieses Verhältnis variiert je nach Bank, Kreditnehmerprofil und Lage der Immobilie."
+      "title": "Immobilienkauf in Luxemburg als Nicht-Resident: Kompletter Leitfaden 2026",
+      "metaDescription": "Nicht-Resident-Immobilienkauf LU 2026: keine Beschränkungen, 7 % Gebühren + Bëllegen Akt bei Hauptwohnsitz, Bank-LTV 70-75 %, Doppelbesteuerungsabkommen, Erklärung 100F für Mieteinnahmen.",
+      "subtitle": "Alles, um in Luxemburg als Nicht-Resident zu kaufen: Besteuerung, Finanzierung, Erklärungen und Beispielrechnungen.",
+      "category": "Kauf & Finanzierung",
+      "essentiel": [
+        "Keine Nationalitäts- oder Wohnsitzbeschränkungen: jeder Ausländer kann in Luxemburg in vollem Eigentum kaufen.",
+        "Bëllegen Akt zugänglich, wenn die Immobilie tatsächlich Hauptwohnsitz des Nicht-Residenten wird (40.000 € pro Käufer, 80.000 € pro Paar).",
+        "LU-Bankfinanzierung für Nicht-Residenten: typisch LTV 70-75 % (vs 80-100 % Resident), Eigenkapital 25-30 % erforderlich.",
+        "LU-Besteuerung der Mieteinnahmen und Veräußerungsgewinne der LU-Immobilie. Doppelbesteuerungsabkommen mit Wohnsitzstaat vermeidet Doppelbesteuerung.",
+        "Pflicht-Modell 100F-Erklärung in Luxemburg für Nettomieteinnahmen."
+      ],
+      "section1Title": "Rechtsrahmen und Beschränkungen",
+      "section1P1": "Luxemburg erlegt keine Nationalitäts- oder Wohnsitzbeschränkungen für den Immobilienerwerb auf seinem Hoheitsgebiet auf. Ein Franzose, Belgier, Deutscher, Brite, Amerikaner oder Bürger eines anderen Landes kann in vollem Eigentum eine Wohnung, ein Haus, ein Grundstück oder Gewerberäume im Großherzogtum kaufen, unter denselben rechtlichen Bedingungen wie ein Luxemburger Resident.",
+      "section1P2": "Die notarielle Erwerbsurkunde wird zwingend vor einem luxemburgischen Notar geschlossen, der die Formalitäten überwacht (Hypothekenlöschungen, eventuelles kommunales Vorkaufsrecht, städtebauliche Konformität). Die Immobilie wird im nationalen Kataster eingetragen. Die spätere Verwaltung (Vermietung, Wiederverkauf) folgt dem luxemburgischen Recht, unabhängig vom Wohnsitz des Eigentümers.",
+      "callout1Title": "Fernkauf: Vertretung durch Vollmacht",
+      "callout1Body": "Der Nicht-Resident kann den Vorvertrag und die notarielle Urkunde aus der Ferne über eine notarielle Vollmacht an einen Verwandten, Anwalt oder Notarsangestellten unterzeichnen. Die Vollmacht muss apostilliert werden, wenn sie außerhalb der EU unterzeichnet wird. Mehrere LU-Notariate bieten Rundum-Begleitung für ausländische Käufer an.",
+      "section2Title": "Besteuerung und Bëllegen Akt",
+      "section2P1": "Die Registrierungsgebühren (6 % + 1 % Eintragung = 7 %) gelten für Residenten und Nicht-Residenten gleichermaßen. Der Bëllegen Akt (40.000 € pro Käufer, 80.000 € pro Paar) bleibt für Nicht-Residenten zugänglich, SOFERN die erworbene Immobilie tatsächlich Hauptwohnsitz des neuen Käufers wird, der sich verpflichtet, innerhalb von zwei Jahren einzuziehen. Das ist konsistent mit dem Ziel der Maßnahme: den Zugang zum Hauptwohnsitz erleichtern, auch für Neuresidenten.",
+      "section2P2": "Für eine Mietinvestition (die Immobilie wird an Dritte vermietet, nicht vom Käufer bewohnt) ist der Bëllegen Akt nicht zugänglich: die vollen 7 % Gebühren sind fällig. Der Nicht-Resident wird in Luxemburg nur auf seine luxemburgischen Einkünfte (Mieteinnahmen aus der LU-Immobilie, LU-Veräußerungsgewinne) nach dem progressiven IR-Tarif besteuert.",
+      "callout2Title": "Bilaterale Doppelbesteuerungsabkommen",
+      "callout2Body": "Luxemburg hat bilaterale Doppelbesteuerungsabkommen mit Frankreich, Belgien, Deutschland, dem UK, den USA und den meisten OECD-Ländern. Für Immobilien gilt das Belegenheitsprinzip (also Luxemburg). Der Wohnsitzstaat des Steuerpflichtigen gewährt dann eine Steuergutschrift oder befreit die bereits in LU besteuerten Einkünfte zur Vermeidung der Doppelbesteuerung.",
+      "section3Title": "Bankfinanzierung",
+      "section3P1": "Die luxemburgischen Banken (Spuerkeess, BIL, BGL BNP Paribas, Raiffeisen, ING Luxembourg) akzeptieren die Finanzierung von Nicht-Residenten, mit etwas strengeren Bedingungen als für Erstkäufer-Residenten. Die typische LTV-Quote für einen Nicht-Residenten beträgt 70-75 % (Eigenkapital 25-30 % erforderlich), im Vergleich zu 80-100 % für Residenten in Hauptwohnsitz.",
+      "section3P2": "Die maximale Kreditlaufzeit kann verkürzt sein (20-25 Jahre statt 30) je nach Alter des Kreditnehmers. Die Zinssätze sind vergleichbar mit denen für Residenten (typisch +0,2 bis 0,5 % Marge möglich). Erforderliche Dokumente: 3 letzte Steuerbescheide, 6 letzte Gehaltsabrechnungen, Arbeitsvertrag, 3 Monate Kontoauszüge, detaillierter Finanzierungsplan. Bei einer Mietinvestition bewertet die Bank die DSTI-Quote (Debt Service to Income) unter Einbeziehung von 70-80 % der erwarteten Miete.",
+      "section4Title": "Vergleich Resident vs Nicht-Resident",
+      "section4Intro": "Für dieselbe Immobilie als Hauptwohnsitz oder Mietobjekt erworben (Preis 600.000 €), hier der Kostenvergleich nach Profil.",
+      "table": {
+        "caption": "Erwerbskosten einer Immobilie zu 600.000 € nach Profil",
+        "headers": ["Käuferprofil", "7 % Gebühren", "Bëllegen Akt", "Notargebühren + Hypothek"],
+        "rows": [
+          ["Resident-Paar, Hauptwohnsitz", "42.000 €", "−42.000 €", "≈ 11.700 €"],
+          ["Nicht-Resident-Paar Umzug nach LU", "42.000 €", "−42.000 €", "≈ 12.500 €"],
+          ["Nicht-Resident-Paar, reine Vermietung", "42.000 €", "0 €", "≈ 12.500 €"],
+          ["Nicht-Resident allein, reine Vermietung", "42.000 €", "0 €", "≈ 12.500 €"]
+        ],
+        "footnote": "Notargebühren leicht höher für Nicht-Residenten wegen möglicher zusätzlicher Vollmachten. Bei reiner Vermietung auch Grundsteuer und jährliche Verwaltungskosten (10-12 % der Mieten) einplanen."
+      },
+      "callout3Title": "Konkreter Fall: Französisches Paar kauft zu 600.000 €",
+      "callout3Body": "Paar mit Wohnsitz in Frankreich, kauft VEFA-Neubauwohnung in Luxemburg-Stadt für 600.000 €, um dort einzuziehen (berufliche Versetzung). Bëllegen Akt Paar angewandt (Bezugsverpflichtung). Wohn-MwSt. 3 % auf Bauanteil (~50.000 € Ersparnis). Verbleibende Gebühren nach Bëllegen Akt ≈ 0 €. Notargebühren ≈ 5.200 €. Hypothekenakt für 450.000 € ≈ 5.800 €. Auslagen ≈ 1.500 €. Zu zahlen: ≈ 12.500 €.",
+      "inlineCalc": {
+        "title": "Simulieren Sie Ihren Nicht-Resident-Erwerb",
+        "description": "Unser Erwerbskosten-Rechner verwaltet den Resident-/Nicht-Resident-Status, die Bëllegen-Akt-Eligibilität nach Ihrem Bezugsplan, die Wohn-MwSt. und die LTV-angepassten Hypothekenkosten.",
+        "cta": "Simulation starten"
+      },
+      "tools": [
+        { "href": "/frais-acquisition", "title": "Erwerbskosten-Rechner", "description": "Resident vs Nicht-Resident, Bëllegen Akt nach Projekt, Wohn-MwSt., Hypothek." },
+        { "href": "/outils-bancaires", "title": "Bank-Tools", "description": "Kreditkapazität, Monatsrate, statusangepasste DSTI/LTV-Quoten." },
+        { "href": "/portfolio", "title": "Immobilienportfolio", "description": "Verfolgung der Rendite mehrerer Immobilien langfristig." },
+        { "href": "/aml-kyc", "title": "AML/KYC-Verifizierung", "description": "Compliance ausländischer Käufer für LU-Notar und -Bank." }
+      ],
+      "faq": [
+        { "q": "Kann ein Nicht-Resident vom Bëllegen Akt profitieren?", "a": "Ja, sofern die erworbene Immobilie tatsächlich als Hauptwohnsitz des neuen Käufers dient, der sich verpflichtet, innerhalb von 2 Jahren nach dem Akt persönlich einzuziehen. Bei reiner Mietinvestition ist der Bëllegen Akt nicht zugänglich und die vollen 7 % Gebühren sind fällig." },
+        { "q": "Welchen Mindest-Eigenkapitalanteil braucht ein Nicht-Resident in Luxemburg?", "a": "LU-Banken verlangen in der Regel 25-30 % Eigenkapital für Nicht-Residenten (LTV 70-75 %), im Vergleich zu teilweise 0-20 % für Residenten in Hauptwohnsitz. Die Quote variiert je nach Bank, Kreditnehmerprofil und Lage." },
+        { "q": "Welche Dokumente muss man der LU-Bank als Nicht-Resident vorlegen?", "a": "Ausweis, 3 letzte Steuerbescheide aus dem Wohnsitzland, 6 letzte Gehaltsabrechnungen, Arbeitsvertrag, 3 Monate Kontoauszüge, Eigenkapitalnachweis, detaillierter Finanzierungsplan. Bei einem Mietprojekt zusätzlich Vorvertrag und Mietschätzung." },
+        { "q": "Wie funktioniert das Doppelbesteuerungsabkommen Frankreich-Luxemburg für Immobilien?", "a": "Das Abkommen Frankreich-Luxemburg von 2018 sieht vor, dass Immobilieneinkünfte und Veräußerungsgewinne aus einer in LU belegenen Immobilie in LU steuerpflichtig sind. Frankreich befreit sie, behält sie aber zur Berechnung des effektiven Steuersatzes. Sie zahlen also LU-IR auf diese Einkünfte, ohne Doppelbesteuerung." },
+        { "q": "Braucht man ein LU-Bankkonto zum Kauf?", "a": "Für die Beurkundung nicht zwingend (der Notar akzeptiert Auslandsüberweisung), aber stark empfohlen für die spätere Verwaltung: Mieteingang, Bezahlung von Nebenkosten und Steuern, Hypothekenabhebungen. Mehrere LU-Banken eröffnen ein Nicht-Resident-Konto in wenigen Tagen." },
+        { "q": "Welche jährlichen Steuern zahlt ein Nicht-Resident-Eigentümer?", "a": "Kommunale Grundsteuer (gering, 0,1 bis 1 % des Katasterwerts), Einkommensteuer auf Nettomieteinnahmen bei Vermietung (LU-IR-Tarif mit Abzügen), eventuell Veräußerungsgewinnsteuer beim Wiederverkauf vor der Befreiungsfrist. Keine Vermögenssteuer in Luxemburg." }
+      ],
+      "sources": [
+        { "title": "Immobilienerwerb durch Nicht-Resident — Verfahren", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/achat-vente/achat/achat-immobilier.html" },
+        { "title": "Bilaterale Doppelbesteuerungsabkommen Luxemburgs", "org": "Steuerverwaltung für direkte Steuern", "url": "https://impotsdirects.public.lu/fr/conventions.html" },
+        { "title": "Erklärung Modell 100F — Nicht-Resident", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/declaration-impots/declaration-non-resident.html" },
+        { "title": "Bëllegen Akt — offizielles Datenblatt", "org": "Logement.lu", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
+        { "title": "Gesetz vom 4. Dezember 1967 (LIR) — Artikel 99 ff.", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+      ]
     },
     "tva3Pourcent": {
       "title": "3 % Wohn-MwSt. in Luxemburg: Bedingungen, AED-Verfahren und Obergrenze 2026",
