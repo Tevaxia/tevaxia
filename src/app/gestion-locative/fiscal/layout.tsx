@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import { NOINDEX_METADATA } from "@/lib/seo";
 
-// Pages auth-gated sans valeur SEO publique (les hubs marketing sont sur /hotellerie).
 export const metadata: Metadata = {
-  title: "PMS hôtelier tevaxia",
+  title: "Bilan fiscal locatif",
   ...NOINDEX_METADATA,
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <h1 className="sr-only">PMS hôtelier tevaxia</h1>
+      <h1 className="sr-only">Bilan fiscal locatif</h1>
       {children}
     </>
   );
