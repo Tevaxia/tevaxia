@@ -9222,21 +9222,72 @@
       ]
     },
     "regle5Pourcent": {
-      "title": "Comment fonctionne la règle des 5 % pour les loyers au Luxembourg ?",
-      "metaDescription": "La règle des 5 % au Luxembourg limite le loyer annuel à 5 % du capital investi réévalué. Explications, calcul et coefficients STATEC.",
-      "intro": "Au Luxembourg, le loyer annuel maximal d'un logement ne peut pas dépasser 5 % du capital investi réévalué par le bailleur. Cette règle, fixée par l'article 3 de la loi modifiée du 21 septembre 2006 sur le bail à usage d'habitation, protège le locataire contre les loyers excessifs tout en garantissant au propriétaire un rendement raisonnable sur son investissement.",
-      "section1Title": "Le capital investi et sa réévaluation",
-      "section1Content": "Le capital investi comprend le prix d'acquisition du terrain et de la construction, les frais d'acte, les dépenses de transformation et d'amélioration (à l'exclusion de l'entretien courant). Ce montant est réévalué à la date de fixation du loyer au moyen des coefficients de réévaluation publiés par le STATEC, qui reflètent l'évolution du coût de la construction. Par exemple, un bien acheté 300 000 € en 2005 avec un coefficient de réévaluation de 1,45 donne un capital réévalué de 435 000 €.",
-      "section2Title": "Calcul du loyer maximum",
-      "section2Content": "Le loyer annuel maximum est strictement plafonné à 5 % du capital investi réévalué (art. 3 loi 21.09.2006). Formule : loyer annuel max = capital investi réévalué × 5 %. Pour notre exemple (capital réévalué de 435 000 €), le loyer annuel maximum est de 21 750 €, soit 1 812,50 € par mois. Les charges locatives (eau, chauffage, entretien des communs) ne sont pas incluses dans ce plafond et doivent être facturées séparément sur base de frais réels. Si le locataire estime que son loyer dépasse ce seuil, il peut saisir la Commission des loyers de sa commune.",
-      "section3Title": "Cas particuliers et recours",
-      "section3Content": "Certains logements échappent à la règle des 5 % : les logements meublés (un supplément peut être appliqué), les logements de fonction, et les baux conclus avant l'entrée en vigueur de la loi. Pour les baux en cours, le bailleur ne peut augmenter le loyer que si le capital investi a été augmenté par des travaux d'amélioration. La réforme en discussion (projet de loi 8184) prévoit de ramener le plafond de 5 % à 3,5 % pour les nouveaux baux à partir de 2026, afin de mieux protéger les locataires face à la hausse des prix immobiliers.",
-      "relatedToolLabel": "Calculer le loyer maximum légal",
-      "relatedToolLink": "/calculateur-loyer",
-      "faq1Q": "Comment calculer le loyer maximum au Luxembourg ?",
-      "faq1A": "Multipliez le capital investi réévalué (prix d'achat + travaux, réévalué par les coefficients STATEC) par 5 %. Divisez par 12 pour obtenir le loyer mensuel maximum.",
-      "faq2Q": "La règle des 5 % va-t-elle changer au Luxembourg ?",
-      "faq2A": "Le projet de loi 8184 prévoit de réduire le plafond de 5 % à 3,5 % pour les nouveaux baux. Cette réforme est en discussion parlementaire et pourrait entrer en vigueur en 2026."
+      "title": "Règle des 5 % pour le loyer au Luxembourg : calcul, capital investi et réforme 2026",
+      "metaDescription": "Règle des 5 % au LU : loyer annuel max = 5 % du capital investi réévalué. Coefficients STATEC, vétusté 2 %/an, charges récupérables, projet 8184 réforme à 3,5 %, exemples chiffrés.",
+      "subtitle": "Le mécanisme de plafonnement légal du loyer au Luxembourg, son calcul et l'impact de la réforme à venir.",
+      "category": "Location & bail",
+      "essentiel": [
+        "Loyer annuel ≤ 5 % du capital investi réévalué (art. 3 loi 21.09.2006). Le bailleur ne peut pas exiger plus, même en cas d'accord.",
+        "Capital investi = prix d'achat + frais d'acte + travaux d'amélioration durables (hors entretien courant et décoration).",
+        "Réévaluation via le coefficient STATEC de l'année d'achat (1,52 pour 2025, 1,77 pour 2022, 2,07 pour 2015).",
+        "Décote vétusté de 2 % par an applicable sur la part construction (art. 5 RGD 2015).",
+        "Réforme en cours (projet 8184) : abaissement du plafond à 3,5 % pour les nouveaux baux, entrée en vigueur prévue 2026."
+      ],
+      "section1Title": "Principe de la règle des 5 %",
+      "section1P1": "L'article 3 de la loi modifiée du 21 septembre 2006 sur le bail à usage d'habitation fixe le loyer annuel maximum à 5 % du capital investi réévalué dans le bien loué. C'est un plafond impératif : toute clause prévoyant un loyer supérieur est nulle, et le locataire peut obtenir la réduction rétroactive du loyer devant la Commission des loyers de la commune ou le juge de paix.",
+      "section1P2": "Le mécanisme cherche un équilibre entre rendement raisonnable pour le bailleur (5 % brut/an) et protection du locataire. La règle ne s'applique qu'au loyer hors charges. Les charges locatives (eau, chauffage, entretien des communs, ascenseur) sont facturées séparément au coût réel, dans la limite des charges récupérables fixées par le RGD du 16 juin 2015.",
+      "callout1Title": "Le plafond exclut les charges et les meublés",
+      "callout1Body": "Les charges locatives sont en supplément du plafond légal, sur la base des frais réels. Pour un logement meublé, un supplément peut être appliqué pour le mobilier (typiquement 0,5 à 1 % supplémentaire selon l'inventaire). Les logements de fonction et les baux conclus avant 2007 sont aussi exclus du strict plafond 5 %.",
+      "section2Title": "Capital investi réévalué",
+      "section2P1": "Le capital investi comprend : le prix d'acquisition du bien (terrain + construction), les frais d'acte (droits, émoluments, hypothèque), et les dépenses d'amélioration durables postérieures (extensions, transformation, rénovation énergétique majeure). Sont exclus l'entretien courant, la décoration, le mobilier, et les frais financiers.",
+      "section2P2": "Le capital est réévalué à la date de la fixation du loyer au moyen du coefficient de réévaluation de l'année d'investissement, publié par le STATEC. Coefficients clés 2026 : 1,48 (2026), 1,52 (2025), 1,57 (2024), 1,64 (2023), 1,77 (2022), 2,07 (2015), 2,33 (2010). Une décote vétusté de 2 % par an s'applique sur la part construction (RGD 16.06.2015).",
+      "callout2Title": "Travaux d'amélioration vs entretien",
+      "callout2Body": "Seules les dépenses durables qui augmentent la valeur du bien sont intégrées au capital investi : isolation, remplacement de chaudière, mise aux normes électriques, extension. Les travaux de pure conservation (peinture, ravalement, joints) ne comptent pas. En cas de doute, demandez un avis à la Commission des loyers avant de fixer le nouveau loyer.",
+      "section3Title": "Calcul pratique et formule",
+      "section3P1": "Formule complète : Loyer annuel max = (capital investi réévalué − décote vétusté construction) × 5 %. Le loyer mensuel max = loyer annuel max / 12. Exemple : appartement acheté 400 000 € en 2015 (frais 30 000 €), pas de travaux. Coefficient 2015 = 2,07. Capital réévalué = 430 000 × 2,07 = 890 100 €. Décote vétusté 11 ans × 2 % = 22 % (sur la part construction, ~70 %). Capital après vétusté ≈ 753 700 €. Loyer annuel max = 5 % × 753 700 = 37 685 €/an, soit 3 140 €/mois.",
+      "section3P2": "En cas de litige, le locataire ou bailleur peut saisir la Commission des loyers de la commune (procédure gratuite, art. 7 loi 2006). La Commission rend un avis basé sur les pièces : acte d'acquisition, factures de travaux, devis, indices STATEC. Si l'avis est ignoré, l'affaire peut être portée devant le juge de paix qui peut imposer une réduction rétroactive et le remboursement des trop-perçus.",
+      "section4Title": "Exemples chiffrés par année d'achat",
+      "section4Intro": "Loyer maximum mensuel pour un appartement type acheté 400 000 € + 30 000 € de frais (430 000 € de capital total). La part construction est estimée à 70 % du prix.",
+      "table": {
+        "caption": "Loyer maximum légal mensuel selon l'année d'achat (capital initial 430 000 €)",
+        "headers": ["Année d'achat", "Coefficient STATEC", "Capital réévalué", "Loyer max/mois (5 %)"],
+        "rows": [
+          ["2010", "2,33", "1 001 900 €", "≈ 4 030 €"],
+          ["2015", "2,07", "890 100 €", "≈ 3 140 €"],
+          ["2020", "1,95", "838 500 €", "≈ 3 270 €"],
+          ["2022", "1,77", "761 100 €", "≈ 2 990 €"],
+          ["2025", "1,52", "653 600 €", "≈ 2 690 €"]
+        ],
+        "footnote": "Calcul indicatif après décote vétusté 2 %/an sur la part construction (70 % du prix). Réforme 8184 : avec un plafond à 3,5 %, ces loyers seraient diminués d'environ 30 %."
+      },
+      "callout3Title": "Cas concret : appartement à 500 000 €",
+      "callout3Body": "Bien acheté 500 000 € + 35 000 € frais en 2018, 6 ans de détention. Coefficient 2018 ≈ 1,99. Capital réévalué = 535 000 × 1,99 = 1 064 650 €. Décote vétusté = 12 % sur 70 % = 8,4 %. Capital net ≈ 974 800 €. Loyer max annuel = 5 % × 974 800 = 48 740 €. Loyer max mensuel ≈ 4 060 €. Avec le projet de réforme à 3,5 %, le plafond tomberait à environ 2 845 €/mois.",
+      "inlineCalc": {
+        "title": "Calculez votre loyer maximum légal",
+        "description": "Notre calculateur applique le coefficient STATEC de votre année d'achat, la décote vétusté annuelle, intègre les travaux d'amélioration et restitue le loyer maximum mensuel. Ajustement possible pour la réforme à 3,5 %.",
+        "cta": "Lancer le calcul"
+      },
+      "tools": [
+        { "href": "/calculateur-loyer", "title": "Calculateur de loyer légal", "description": "5 % du capital investi réévalué + décote vétusté + ajustement réforme." },
+        { "href": "/locataire", "title": "Espace locataire", "description": "Modèles de courrier de contestation, suivi des charges, recours commission." },
+        { "href": "/carte", "title": "Carte des prix locatifs", "description": "Loyer médian observé par commune et typologie pour comparer." },
+        { "href": "/portfolio", "title": "Portefeuille investissement", "description": "Suivi de la rentabilité brute/nette de vos biens en location." }
+      ],
+      "faq": [
+        { "q": "Comment calculer le loyer maximum au Luxembourg ?", "a": "Multipliez le capital investi (prix d'achat + frais d'acte + travaux d'amélioration) par le coefficient STATEC de l'année d'investissement. Appliquez la décote vétusté de 2 % par an sur la part construction. Multipliez le résultat par 5 % pour obtenir le loyer annuel max, puis divisez par 12 pour le mensuel." },
+        { "q": "La règle des 5 % va-t-elle changer au Luxembourg ?", "a": "Le projet de loi 8184 prévoit de ramener le plafond de 5 % à 3,5 % pour les nouveaux baux, en visant une meilleure protection des locataires face à la hausse des prix. Le texte est en discussion parlementaire et pourrait entrer en vigueur courant 2026. Les baux en cours ne seraient pas rétroactivement affectés." },
+        { "q": "Que comprend exactement le capital investi ?", "a": "Le prix d'achat du terrain et de la construction, les frais d'acte (droits, émoluments, hypothèque) et les dépenses d'amélioration durables (extensions, transformation, rénovation énergétique majeure). L'entretien courant, la décoration et le mobilier sont exclus." },
+        { "q": "Comment fonctionne la décote vétusté de 2 % ?", "a": "La part construction (terrain exclu, généralement 60-75 % du prix selon la commune) subit une décote de 2 % par année écoulée depuis l'achat ou les derniers travaux structurels. La décote est cumulée jusqu'à un plancher (typiquement 30 % de la valeur initiale)." },
+        { "q": "Les charges locatives sont-elles incluses dans le plafond 5 % ?", "a": "Non. Les charges (eau, chauffage, entretien commun, ascenseur) sont facturées en supplément du loyer plafonné, sur la base des frais réels et limitativement énumérées par le RGD du 16 juin 2015 (taxe ordures, fluides communs, etc.). Le bailleur ne peut pas répercuter de gros travaux ni sa marge." },
+        { "q": "Que faire si mon loyer dépasse le plafond légal ?", "a": "Saisissez gratuitement la Commission des loyers de votre commune avec l'acte d'acquisition du bailleur (à demander), votre bail et les factures de travaux. La Commission rend un avis ; si le bailleur refuse de s'y conformer, vous pouvez aller devant le juge de paix qui peut ordonner la réduction rétroactive et le remboursement des trop-perçus." }
+      ],
+      "sources": [
+        { "title": "Loi modifiée du 21 septembre 2006 — bail à usage d'habitation", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
+        { "title": "Coefficients de réévaluation — STATEC", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Calcul du loyer — démarche pratique", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/calcul-loyer.html" },
+        { "title": "Projet de loi 8184 — réforme du bail", "org": "Chambre des députés", "url": "https://www.chd.lu/" },
+        { "title": "RGD du 16 juin 2015 — charges récupérables", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 }
+      ]
     },
     "bellegenAkt": {
       "title": "Bëllegen Akt 2026 : crédit d'impôt sur les actes notariés au Luxembourg",

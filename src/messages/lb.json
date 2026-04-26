@@ -9100,21 +9100,72 @@
       ]
     },
     "regle5Pourcent": {
-      "title": "Wéi funktionéiert d'5%-Loyerregel zu Lëtzebuerg?",
-      "metaDescription": "D'5%-Regel zu Lëtzebuerg begrenzt de Joresloyer op 5% vum opgewäerte investéierte Kapital. Erkläerungen, Berechnung an STATEC-Koeffizienten.",
-      "intro": "Zu Lëtzebuerg däerf de maximale Joresloyer vun enger Wunneng net méi wéi 5 % vum opgewäerte investéierte Kapital vum Bailleur iwwerschreiden. Dës Regel, festgeluecht duerch den Artikel 3 vum geännerte Gesetz vum 21. September 2006 iwwer de Bail à usage d'habitation, schützt de Locataire géint iwwerhéich Loyeren a garantéiert dem Proprietaire eng raisonabel Rendit.",
-      "section1Title": "Dat investéiert Kapital an seng Opwäertung",
-      "section1Content": "Dat investéiert Kapital ëmfaasst de Kafpräis vum Terrain an der Konstruktioun, Aktekosten, Ëmbau- an Verbesserungsausgaben (ouni üblech Ënnerhalt). Dëse Betrag gëtt zum Zäitpunkt vun der Loyerfestleeung mat de vum STATEC publizéierten Opwäertungskoeffizienten opgewäert, déi d'Entwécklung vun de Baukäschten reflektéieren. Beispill: Eng 2005 fir 300.000 € kaf Immobilie mat engem Koeffizient vu 1,45 ergëtt en opgewäert Kapital vu 435.000 €.",
-      "section2Title": "Berechnung vum Maximallayer",
-      "section2Content": "De maximale Joresloyer ass strikt op 5 % vum opgewäerte investéierte Kapital begrenzt (Art. 3 Gesetz vum 21.09.2006). Formel: max. Joresloyer = opgewäert investéiert Kapital × 5 %. An eisem Beispill (opgewäert Kapital vu 435.000 €) ass de maximale Joresloyer 21.750 €, also 1.812,50 € pro Mount. Nieftekosten (Waasser, Heizung, Gemeinschaftspfleg) sinn net an dëser Obergrenz abegraff a mussen separat no tatsächleche Käschte berechnot ginn. Locatairen kënnen bei Iwwerschreidung d'Gemeng-Loyerkommissioun uruffen.",
-      "section3Title": "Speziell Fäll a Recoursen",
-      "section3Content": "Bestëmmt Wunnengen sinn vun der 5%-Regel ausgenomm: möbléiert Wunnengen (en Zouschlag ka gefrot ginn), Déngschtlogementer a Baux, déi virun dem Akraaftrieden vum Gesetz ofgeschloss goufen. Bei lafende Baux kann de Bailleur de Loyer nëmmen erhéijen, wann dat investéiert Kapital duerch Verbesserungsaarbechten erhéicht gouf. D'Reform an der Diskussioun (Projet de loi 8184) gesäit vir, d'Obergrenz ab 2026 fir nei Baux vun 5 % op 3,5 % ze senken.",
-      "relatedToolLabel": "Gesetzlech Maximallayer berechnen",
-      "relatedToolLink": "/calculateur-loyer",
-      "faq1Q": "Wéi berechent een de Maximallayer zu Lëtzebuerg?",
-      "faq1A": "Multiplikéiert dat opgewäert investéiert Kapital (Kafpräis + Aarbechten, opgewäert mat STATEC-Koeffizienten) mat 5 %. Deelt duerch 12 fir de maximale Mountsloyer.",
-      "faq2Q": "Ännert sech d'5%-Regel zu Lëtzebuerg?",
-      "faq2A": "De Projet de loi 8184 gesäit vir, d'Obergrenz vun 5 % op 3,5 % fir nei Baux ze senken. Dës Reform gëtt am Parlament diskutéiert a kéint 2026 a Kraaft trieden."
+      "title": "5%-Loyerregel zu Lëtzebuerg: Berechnung, investéiert Kapital a Reform 2026",
+      "metaDescription": "5%-Regel LU: max. Joresloyer = 5% vum opgewäerten investéierte Kapital. STATEC-Koeffizienten, 2%/Joer Veraltung, recuperabel Käschten, Projet 8184 Reform op 3,5%, Beispiller.",
+      "subtitle": "Wéi d'gesetzlech Mietoebergrenz zu Lëtzebuerg funktionéiert, d'Berechnung an den Effekt vun der kommender Reform.",
+      "category": "Locatioun a Bail",
+      "essentiel": [
+        "Joresloyer ≤ 5 % vum opgewäerten investéierte Kapital (Art. 3 Gesetz 2006). De Bailleur däerf net méi froen, och net mat Akkord.",
+        "Investéiert Kapital = Kafpräis + Aktenkosten + dauerhaft Verbesserungsaarbechten (ouni laafenden Ënnerhalt an Dekoratioun).",
+        "Opwäertung iwwer den STATEC-Koeffizient vum Kafsjoer (1,52 fir 2025, 1,77 fir 2022, 2,07 fir 2015).",
+        "Veraltungsrabatt vu 2 %/Joer op de Bauundeel (Art. 5 GH-Reglement 2015).",
+        "Reform am Gaang (Projet 8184): Obergrenz op 3,5 % fir nei Bail-Verträg gesenkt, voraussiichtlech Akraaftrieden 2026."
+      ],
+      "section1Title": "Prinzip vun der 5%-Regel",
+      "section1P1": "Den Artikel 3 vum geännerte Gesetz vum 21. September 2006 iwwer de Bail à usage d'habitation setzt de maximale Joresloyer op 5 % vum opgewäerten investéierte Kapital am vermitt Objet fest. Et ass eng zwangsleefeg Obergrenz: All Klausel mat méi héijem Loyer ass nichteg, an de Locataire kann eng réckwierkend Loyer-Reduktioun virun der Gemeng-Loyerkommissioun oder dem Friddensriichter erhalen.",
+      "section1P2": "De Mechanismus sicht en Gleichgewiicht tëschent vernünfteger Bailleur-Rendit (5 % brutto/Joer) a Locataire-Schutz. D'Regel gëllt fir de Loyer ouni Nieftekosten. D'Nieftekosten (Waasser, Heizung, Gemeinschaftspfleg, Lift) ginn separat zum tatsächleche Käschtewäert berechent, am Kader vun den duerch d'GH-Reglement vum 16. Juni 2015 festgesate recuperabel Nieftekosten.",
+      "callout1Title": "D'Obergrenz schléisst Nieftekosten a Möbléiert aus",
+      "callout1Body": "Nieftekosten kommen zur gesetzlecher Obergrenz dobäi, op Basis vun de tatsächleche Käschten. Bei enger möbléierter Wunneng kann en Zouschlag fir d'Möbel gefrot ginn (typesch 0,5 bis 1 % zousätzlech je no Inventar). Déngschtlogementer a virun 2007 ofgeschlossen Bail-Verträg sinn och vun der strenger 5%-Obergrenz ausgeschloss.",
+      "section2Title": "Opgewäert investéiert Kapital",
+      "section2P1": "Dat investéiert Kapital ëmfaasst: de Kafpräis (Terrain + Bau), d'Aktenkosten (Gebühren, Notairsgebühren, Hypothéik) an spéider dauerhaft Verbesserungsausgaben (Erweiderungen, Ëmbau, gréisser Energiesanéierung). Ausgeschloss sinn laafenden Ënnerhalt, Dekoratioun, Möbel a Finanzéierungskäschten.",
+      "section2P2": "D'Kapital gëtt zum Zäitpunkt vun der Loyerfestleeung mam vum STATEC publizéierten Opwäertungskoeffizient vum Investitiounsjoer opgewäert. Schlësselkoeffizienten 2026: 1,48 (2026), 1,52 (2025), 1,57 (2024), 1,64 (2023), 1,77 (2022), 2,07 (2015), 2,33 (2010). E Veraltungsrabatt vu 2 %/Joer gëllt op de Bauundeel (GH-Reglement 16.06.2015).",
+      "callout2Title": "Verbesserungsaarbechten vs Ënnerhalt",
+      "callout2Body": "Nëmmen dauerhaft Ausgaben déi de Wäert vun der Immobilie erhéijen, ginn an dat investéiert Kapital integréiert: Isolatioun, Heizungstausch, elektrescht Upgrade, Erweiderung. Reng Erhalungsaarbechten (Faarw, Fassaden-Auffrëschung, Dichtungen) ziele net. Bei Zweifel virun der Loyerfestleeung eng Stellungnahm vun der Loyerkommissioun ufroen.",
+      "section3Title": "Praktesch Berechnung a Formel",
+      "section3P1": "Voll Formel: Max. Joresloyer = (opgewäert investéiert Kapital − Bau-Veraltungsrabatt) × 5 %. Max. Mountsloyer = max. Joresloyer / 12. Beispill: Appartement 2015 fir 400.000 € kaaft (30.000 € Käschten), keng Aarbechten. Koeffizient 2015 = 2,07. Opgewäert Kapital = 430.000 × 2,07 = 890.100 €. Veraltung 11 Joer × 2 % = 22 % (op de ~70 % Bauundeel). Kapital no Veraltung ≈ 753.700 €. Max. Joresloyer = 5 % × 753.700 = 37.685 €/Joer, also ~3.140 €/Mount.",
+      "section3P2": "Bei Streit kann Locataire oder Bailleur d'Gemeng-Loyerkommissioun uruffen (gratis Verfahren, Art. 7 Gesetz 2006). D'Kommissioun gëtt eng Stellungnahm op Basis vun den Ënnerlagen of: Erwerbsakt, Aarbechtsrechnungen, Kostenvirschléi, STATEC-Indizen. Gëtt d'Stellungnahm ignoréiert, kann de Fall virum Friddensriichter, dee eng réckwierkend Reduktioun an Erstattung vun Iwwerzuelungen uerdne kann.",
+      "section4Title": "Rechenbeispiller no Kafsjoer",
+      "section4Intro": "Maximale Mountsloyer fir en typeschen Appartement kaaft 400.000 € + 30.000 € Käschten (430.000 € Gesamtkapital). Bauundeel geschätzt op 70 % vum Präis.",
+      "table": {
+        "caption": "Maximalen gesetzleche Mountsloyer no Kafsjoer (Ufankskapital 430.000 €)",
+        "headers": ["Kafsjoer", "STATEC-Koeffizient", "Opgewäert Kapital", "Max. Loyer/Mount (5 %)"],
+        "rows": [
+          ["2010", "2,33", "1.001.900 €", "≈ 4.030 €"],
+          ["2015", "2,07", "890.100 €", "≈ 3.140 €"],
+          ["2020", "1,95", "838.500 €", "≈ 3.270 €"],
+          ["2022", "1,77", "761.100 €", "≈ 2.990 €"],
+          ["2025", "1,52", "653.600 €", "≈ 2.690 €"]
+        ],
+        "footnote": "Indikativ Berechnung no 2 %/Joer Veraltung op Bauundeel (70 % vum Präis). Reform 8184: Bei 3,5%-Obergrenz géinge dës Loyere ronn 30 % falen."
+      },
+      "callout3Title": "Konkreete Fall: Appartement zu 500.000 €",
+      "callout3Body": "Immobilie 2018 fir 500.000 € + 35.000 € Käschten kaaft, 6 Joer Halddauer. Koeffizient 2018 ≈ 1,99. Opgewäert Kapital = 535.000 × 1,99 = 1.064.650 €. Veraltung = 12 % op 70 % = 8,4 %. Nettokapital ≈ 974.800 €. Max. Joresloyer = 5 % × 974.800 = 48.740 €. Max. Mountsloyer ≈ 4.060 €. Mat der virgeschloener 3,5%-Reform géif d'Obergrenz op ronn 2.845 €/Mount falen.",
+      "inlineCalc": {
+        "title": "Berechent Ären gesetzlechen Maximallayer",
+        "description": "Eise Rechner appliquéiert den STATEC-Koeffizient vun Ärem Kafsjoer, den jährlechen Veraltungsrabatt, integréiert Verbesserungsaarbechten an gëtt de maximale Mountsloyer aus. Upassung fir d'3,5%-Reform méiglech.",
+        "cta": "Berechnung starten"
+      },
+      "tools": [
+        { "href": "/calculateur-loyer", "title": "Gesetzleche Loyer-Rechner", "description": "5 % vum opgewäerten investéierte Kapital + Veraltung + Reform-Upassung." },
+        { "href": "/locataire", "title": "Locataire-Beräich", "description": "Bréifvirlagen fir Anfechtung, Käschtenverfollegung, Kommissiouns-Demande." },
+        { "href": "/carte", "title": "Mietpräiskaart", "description": "Median-beobachtete Loyer pro Gemeng a Wunnengstyp fir ze vergläichen." },
+        { "href": "/portfolio", "title": "Investmentportfolio", "description": "Brutto-/Nettorenditverfollegung vun Ären verlounten Immobilien." }
+      ],
+      "faq": [
+        { "q": "Wéi berechent een de Maximallayer zu Lëtzebuerg?", "a": "Multiplikéiert dat investéiert Kapital (Kafpräis + Aktenkosten + Verbesserungsaarbechten) mam STATEC-Koeffizient vum Investitiounsjoer. Appliquéiert de Veraltungsrabatt vu 2 %/Joer op de Bauundeel. Multiplikéiert d'Resultat mat 5 % fir de max. Joresloyer, dann deelt duerch 12 fir de Mountsloyer." },
+        { "q": "Ännert sech d'5%-Regel zu Lëtzebuerg?", "a": "De Projet de loi 8184 gesäit vir, d'Obergrenz vun 5 % op 3,5 % fir nei Bail-Verträg ze senken, mam Zil vun engem besseren Locataire-Schutz géint d'Präissteigerung. Den Text gëtt am Parlament diskutéiert a kéint am Laaf vun 2026 a Kraaft trieden. Bestoend Bail-Verträg wieren net réckwierkend betraff." },
+        { "q": "Wat ëmfaasst genau dat investéiert Kapital?", "a": "De Kafpräis vum Terrain an dem Bau, d'Aktenkosten (Gebühren, Notairsgebühren, Hypothéik) an dauerhaft Verbesserungsausgaben (Erweiderungen, Ëmbau, gréisser Energiesanéierung). Laafenden Ënnerhalt, Dekoratioun a Möbel sinn ausgeschloss." },
+        { "q": "Wéi funktionéiert de 2%-Veraltungsrabatt?", "a": "De Bauundeel (ouni Terrain, je no Gemeng meeschtens 60-75 % vum Präis) gëtt ëm 2 % pro Joer zënter Kaaf oder leschten strukturellen Aarbechte ofgeschriwwen. D'Ofschreiwung kumuléiert sech bis zu engem Bodemwäert (typesch 30 % vum Ufankswäert)." },
+        { "q": "Sinn d'Nieftekosten an der 5%-Obergrenz abegraff?", "a": "Nee. Nieftekosten (Waasser, Heizung, gemeinsame Pfleg, Lift) ginn zousätzlech zum gedeckelte Loyer berechent, op Basis vun tatsächleche Käschten an limitativ opgelëscht am GH-Reglement vum 16. Juni 2015 (Dreckstax, Gemeinschaftsmedien etc.). De Bailleur däerf keng gréisser Aarbechten oder Marge ëmleeën." },
+        { "q": "Wat maachen, wann mäi Loyer d'gesetzlech Obergrenz iwwerschreit?", "a": "Wendt Iech gratis un d'Loyerkommissioun vun Ärer Gemeng mam Erwerbsakt vum Bailleur (ufroen), Ärem Bail an Aarbechtsrechnungen. D'Kommissioun gëtt eng Stellungnahm; weigert sech de Bailleur, kënnt Dir bei de Friddensriichter, dee d'réckwierkend Reduktioun an Erstattung vun Iwwerzuelungen uerdne kann." }
+      ],
+      "sources": [
+        { "title": "Geännert Gesetz vum 21. September 2006 — Bail à usage d'habitation", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
+        { "title": "Opwäertungskoeffizienten — STATEC", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Loyerberechnung — praktescht Vorgoen", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/calcul-loyer.html" },
+        { "title": "Projet de loi 8184 — Bail-Reform", "org": "Chambre des députés", "url": "https://www.chd.lu/" },
+        { "title": "GH-Reglement vum 16. Juni 2015 — recuperabel Nieftekosten", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 }
+      ]
     },
     "bellegenAkt": {
       "title": "Bëllegen Akt 2026: Steierkredit op notariell Akten zu Lëtzebuerg",

@@ -9100,21 +9100,72 @@
       ]
     },
     "regle5Pourcent": {
-      "title": "Wie funktioniert die 5%-Mietregel in Luxemburg?",
-      "metaDescription": "Die 5%-Regel in Luxemburg begrenzt die Jahresmiete auf 5% des aufgewerteten investierten Kapitals. Erklärungen, Berechnung und STATEC-Koeffizienten.",
-      "intro": "In Luxemburg darf die maximale Jahresmiete einer Wohnung 5 % des vom Vermieter aufgewerteten investierten Kapitals nicht überschreiten. Diese Regel, festgelegt durch Artikel 3 des geänderten Gesetzes vom 21. September 2006 über Wohnungsmietverträge, schützt den Mieter vor überhöhten Mieten und garantiert dem Eigentümer eine angemessene Rendite.",
-      "section1Title": "Das investierte Kapital und seine Aufwertung",
-      "section1Content": "Das investierte Kapital umfasst den Kaufpreis von Grundstück und Gebäude, Urkundenkosten, Umbau- und Verbesserungsausgaben (ohne laufende Instandhaltung). Dieser Betrag wird zum Zeitpunkt der Mietfestsetzung anhand der vom STATEC veröffentlichten Aufwertungskoeffizienten aufgewertet, die die Entwicklung der Baukosten widerspiegeln. Beispiel: Eine 2005 für 300.000 € gekaufte Immobilie mit einem Koeffizienten von 1,45 ergibt ein aufgewertetes Kapital von 435.000 €.",
-      "section2Title": "Berechnung der Höchstmiete",
-      "section2Content": "Die maximale Jahresmiete ist strikt auf 5 % des aufgewerteten investierten Kapitals begrenzt (Art. 3 Gesetz vom 21.09.2006). Formel: max. Jahresmiete = aufgewertetes investiertes Kapital × 5 %. In unserem Beispiel (aufgewertetes Kapital von 435.000 €) beträgt die maximale Jahresmiete 21.750 €, also 1.812,50 € pro Monat. Nebenkosten (Wasser, Heizung, Gemeinschaftspflege) sind nicht in dieser Obergrenze enthalten und müssen separat nach tatsächlichen Kosten abgerechnet werden. Mieter können bei Überschreitung die kommunale Mietkommission anrufen.",
-      "section3Title": "Sonderfälle und Rechtsmittel",
-      "section3Content": "Bestimmte Wohnungen sind von der 5%-Regel ausgenommen: möblierte Wohnungen (ein Aufschlag kann erhoben werden), Dienstwohnungen und Mietverträge, die vor Inkrafttreten des Gesetzes geschlossen wurden. Bei laufenden Mietverträgen kann der Vermieter die Miete nur erhöhen, wenn das investierte Kapital durch Verbesserungsarbeiten erhöht wurde. Die diskutierte Reform (Gesetzentwurf 8184) sieht vor, die Obergrenze ab 2026 für neue Mietverträge von 5 % auf 3,5 % zu senken.",
-      "relatedToolLabel": "Gesetzliche Höchstmiete berechnen",
-      "relatedToolLink": "/calculateur-loyer",
-      "faq1Q": "Wie berechnet man die Höchstmiete in Luxemburg?",
-      "faq1A": "Multiplizieren Sie das aufgewertete investierte Kapital (Kaufpreis + Arbeiten, aufgewertet mit STATEC-Koeffizienten) mit 5 %. Teilen Sie durch 12 für die maximale Monatsmiete.",
-      "faq2Q": "Wird die 5%-Regel in Luxemburg geändert?",
-      "faq2A": "Der Gesetzentwurf 8184 sieht vor, die Obergrenze von 5 % auf 3,5 % für neue Mietverträge zu senken. Diese Reform wird im Parlament diskutiert und könnte 2026 in Kraft treten."
+      "title": "Luxemburger 5%-Mietregel: Berechnung, investiertes Kapital und Reform 2026",
+      "metaDescription": "5%-Regel LU: max. Jahresmiete = 5% des aufgewerteten investierten Kapitals. STATEC-Koeffizienten, 2%/Jahr Abnutzung, umlegbare Nebenkosten, Gesetzentwurf 8184 (3,5%), Beispiele.",
+      "subtitle": "So funktioniert Luxemburgs gesetzliche Mietobergrenze, ihre Berechnung und der Effekt der bevorstehenden Reform.",
+      "category": "Mieten & Mietvertrag",
+      "essentiel": [
+        "Jahresmiete ≤ 5 % des aufgewerteten investierten Kapitals (Art. 3 Gesetz 2006). Der Vermieter darf nicht mehr verlangen, auch nicht im Einvernehmen.",
+        "Investiertes Kapital = Kaufpreis + Erwerbsnebenkosten + dauerhafte Verbesserungsarbeiten (ohne laufende Instandhaltung und Dekoration).",
+        "Aufwertung über den STATEC-Koeffizienten des Kaufjahres (1,52 für 2025, 1,77 für 2022, 2,07 für 2015).",
+        "Abnutzungsabschlag von 2 %/Jahr auf den Bauanteil (Art. 5 GH-Reglement 2015).",
+        "Reform in Arbeit (Gesetzentwurf 8184): Obergrenze auf 3,5 % für neue Mietverträge gesenkt, Inkrafttreten voraussichtlich 2026."
+      ],
+      "section1Title": "Prinzip der 5%-Regel",
+      "section1P1": "Artikel 3 des geänderten Gesetzes vom 21. September 2006 über Wohnungsmietverträge legt die maximale Jahresmiete auf 5 % des aufgewerteten in das vermietete Objekt investierten Kapitals fest. Es ist eine zwingende Obergrenze: Jede Klausel mit höherer Miete ist nichtig, und der Mieter kann eine rückwirkende Mietreduktion vor der kommunalen Mietkommission oder dem Friedensrichter erwirken.",
+      "section1P2": "Der Mechanismus sucht ein Gleichgewicht zwischen angemessener Vermieter-Rendite (5 % brutto/Jahr) und Mieterschutz. Die Regel gilt für die Miete ohne Nebenkosten. Die Nebenkosten (Wasser, Heizung, Gemeinschaftspflege, Aufzug) werden separat zum tatsächlichen Kostenwert abgerechnet, im Rahmen der durch das GH-Reglement vom 16. Juni 2015 gesetzten umlegbaren Nebenkosten.",
+      "callout1Title": "Die Obergrenze schließt Nebenkosten und Möbliertes aus",
+      "callout1Body": "Nebenkosten kommen zur gesetzlichen Obergrenze hinzu, auf Basis der tatsächlichen Kosten. Bei einer möblierten Wohnung kann ein Aufschlag für Möbel erhoben werden (typisch 0,5 bis 1 % zusätzlich je nach Inventar). Dienstwohnungen und vor 2007 geschlossene Mietverträge sind ebenfalls von der strikten 5%-Obergrenze ausgenommen.",
+      "section2Title": "Aufgewertetes investiertes Kapital",
+      "section2P1": "Das investierte Kapital umfasst: den Kaufpreis (Grundstück + Bau), die Erwerbsnebenkosten (Gebühren, Notargebühren, Hypothek) und nachträgliche dauerhafte Verbesserungsausgaben (Erweiterungen, Umbau, größere Energiesanierung). Ausgeschlossen sind laufende Instandhaltung, Dekoration, Möbel und Finanzierungskosten.",
+      "section2P2": "Das Kapital wird zum Zeitpunkt der Mietfestsetzung mit dem vom STATEC veröffentlichten Aufwertungskoeffizienten des Investitionsjahres aufgewertet. Schlüsselkoeffizienten 2026: 1,48 (2026), 1,52 (2025), 1,57 (2024), 1,64 (2023), 1,77 (2022), 2,07 (2015), 2,33 (2010). Ein Abnutzungsabschlag von 2 %/Jahr gilt auf den Bauanteil (GH-Reglement 16.06.2015).",
+      "callout2Title": "Verbesserungsarbeiten vs Instandhaltung",
+      "callout2Body": "Nur dauerhafte Ausgaben, die den Wert der Immobilie erhöhen, fließen in das investierte Kapital ein: Dämmung, Heizungsaustausch, elektrische Aufrüstung, Erweiterung. Reine Erhaltungsarbeiten (Anstrich, Fassadenauffrischung, Dichtungen) zählen nicht. Bei Zweifeln vor der Mietfestsetzung eine Stellungnahme der Mietkommission einholen.",
+      "section3Title": "Praktische Berechnung und Formel",
+      "section3P1": "Vollständige Formel: Max. Jahresmiete = (aufgewertetes investiertes Kapital − Bau-Abnutzungsabschlag) × 5 %. Max. Monatsmiete = max. Jahresmiete / 12. Beispiel: Wohnung 2015 für 400.000 € gekauft (30.000 € Kosten), keine Arbeiten. Koeffizient 2015 = 2,07. Aufgewertetes Kapital = 430.000 × 2,07 = 890.100 €. Abnutzung 11 Jahre × 2 % = 22 % (auf den ~70 % Bauanteil). Kapital nach Abnutzung ≈ 753.700 €. Max. Jahresmiete = 5 % × 753.700 = 37.685 €/Jahr, also ~3.140 €/Monat.",
+      "section3P2": "Bei Streit kann Mieter oder Vermieter die kommunale Mietkommission anrufen (kostenloses Verfahren, Art. 7 Gesetz 2006). Die Kommission gibt eine Stellungnahme auf Basis der Unterlagen ab: Erwerbsakt, Arbeitsrechnungen, Kostenvoranschläge, STATEC-Indizes. Wird die Stellungnahme ignoriert, kann der Fall vor den Friedensrichter, der eine rückwirkende Reduktion und Erstattung der Überzahlungen anordnen kann.",
+      "section4Title": "Rechenbeispiele nach Kaufjahr",
+      "section4Intro": "Maximale Monatsmiete für eine typische Wohnung gekauft 400.000 € + 30.000 € Kosten (430.000 € Gesamtkapital). Bauanteil geschätzt auf 70 % des Preises.",
+      "table": {
+        "caption": "Maximale gesetzliche Monatsmiete nach Kaufjahr (Anfangskapital 430.000 €)",
+        "headers": ["Kaufjahr", "STATEC-Koeffizient", "Aufgewertetes Kapital", "Max. Miete/Monat (5 %)"],
+        "rows": [
+          ["2010", "2,33", "1.001.900 €", "≈ 4.030 €"],
+          ["2015", "2,07", "890.100 €", "≈ 3.140 €"],
+          ["2020", "1,95", "838.500 €", "≈ 3.270 €"],
+          ["2022", "1,77", "761.100 €", "≈ 2.990 €"],
+          ["2025", "1,52", "653.600 €", "≈ 2.690 €"]
+        ],
+        "footnote": "Indikative Berechnung nach 2 %/Jahr Abnutzung auf Bauanteil (70 % vom Preis). Reform 8184: Bei 3,5%-Obergrenze würden diese Mieten um etwa 30 % sinken."
+      },
+      "callout3Title": "Konkreter Fall: Wohnung zu 500.000 €",
+      "callout3Body": "Immobilie 2018 für 500.000 € + 35.000 € Kosten gekauft, 6 Jahre Haltedauer. Koeffizient 2018 ≈ 1,99. Aufgewertetes Kapital = 535.000 × 1,99 = 1.064.650 €. Abnutzung = 12 % auf 70 % = 8,4 %. Nettokapital ≈ 974.800 €. Max. Jahresmiete = 5 % × 974.800 = 48.740 €. Max. Monatsmiete ≈ 4.060 €. Bei der vorgeschlagenen 3,5%-Reform würde die Obergrenze auf etwa 2.845 €/Monat fallen.",
+      "inlineCalc": {
+        "title": "Berechnen Sie Ihre gesetzliche Höchstmiete",
+        "description": "Unser Rechner wendet den STATEC-Koeffizienten Ihres Kaufjahres, den jährlichen Abnutzungsabschlag, integriert Verbesserungsarbeiten und gibt die maximale Monatsmiete aus. Anpassung für die 3,5%-Reform möglich.",
+        "cta": "Berechnung starten"
+      },
+      "tools": [
+        { "href": "/calculateur-loyer", "title": "Gesetzlicher Mietrechner", "description": "5 % des aufgewerteten investierten Kapitals + Abnutzung + Reform-Anpassung." },
+        { "href": "/locataire", "title": "Mieterbereich", "description": "Briefvorlagen für Anfechtung, Nebenkostenverfolgung, Kommissionsantrag." },
+        { "href": "/carte", "title": "Mietpreiskarte", "description": "Median-Beobachtungsmiete pro Gemeinde und Wohnungstyp zum Vergleich." },
+        { "href": "/portfolio", "title": "Investmentportfolio", "description": "Brutto-/Netto-Renditeverfolgung Ihrer vermieteten Immobilien." }
+      ],
+      "faq": [
+        { "q": "Wie berechnet man die Höchstmiete in Luxemburg?", "a": "Multiplizieren Sie das investierte Kapital (Kaufpreis + Erwerbsnebenkosten + Verbesserungsarbeiten) mit dem STATEC-Koeffizienten des Investitionsjahres. Wenden Sie den Abnutzungsabschlag von 2 %/Jahr auf den Bauanteil an. Multiplizieren Sie das Ergebnis mit 5 % für die max. Jahresmiete, dann teilen Sie durch 12 für die monatliche." },
+        { "q": "Wird die 5%-Regel in Luxemburg geändert?", "a": "Der Gesetzentwurf 8184 sieht vor, die Obergrenze von 5 % auf 3,5 % für neue Mietverträge zu senken, mit dem Ziel besseren Mieterschutzes angesichts steigender Preise. Der Text wird im Parlament diskutiert und könnte im Laufe von 2026 in Kraft treten. Bestehende Mietverträge wären nicht rückwirkend betroffen." },
+        { "q": "Was umfasst genau das investierte Kapital?", "a": "Den Kaufpreis von Grundstück und Bau, Erwerbsnebenkosten (Gebühren, Notargebühren, Hypothek) und dauerhafte Verbesserungsausgaben (Erweiterungen, Umbau, größere Energiesanierung). Laufende Instandhaltung, Dekoration und Möbel sind ausgeschlossen." },
+        { "q": "Wie funktioniert der 2%-Abnutzungsabschlag?", "a": "Der Bauanteil (ohne Grundstück, je nach Gemeinde meist 60-75 % des Preises) wird um 2 % pro Jahr seit Kauf oder letzten strukturellen Arbeiten abgeschrieben. Die Abschreibung kumuliert bis zu einer Untergrenze (typisch 30 % des Anfangswerts)." },
+        { "q": "Sind Nebenkosten in der 5%-Obergrenze enthalten?", "a": "Nein. Nebenkosten (Wasser, Heizung, Gemeinschaftspflege, Aufzug) werden zusätzlich zur gedeckelten Miete abgerechnet, auf Basis tatsächlicher Kosten und limitativ aufgelistet im GH-Reglement vom 16. Juni 2015 (Müllabgabe, Gemeinschaftsmedien etc.). Der Vermieter darf keine größeren Arbeiten oder Marge umlegen." },
+        { "q": "Was tun, wenn meine Miete die gesetzliche Obergrenze überschreitet?", "a": "Wenden Sie sich kostenlos an die Mietkommission Ihrer Gemeinde mit dem Erwerbsakt des Vermieters (anfordern), Ihrem Mietvertrag und Arbeitsrechnungen. Die Kommission gibt eine Stellungnahme; weigert sich der Vermieter, können Sie zum Friedensrichter, der die rückwirkende Reduktion und Erstattung der Überzahlungen anordnen kann." }
+      ],
+      "sources": [
+        { "title": "Geändertes Gesetz vom 21. September 2006 — Wohnraummiete", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
+        { "title": "Aufwertungskoeffizienten — STATEC", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Mietberechnung — praktisches Vorgehen", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/calcul-loyer.html" },
+        { "title": "Gesetzentwurf 8184 — Mietreform", "org": "Abgeordnetenkammer", "url": "https://www.chd.lu/" },
+        { "title": "GH-Reglement vom 16. Juni 2015 — umlegbare Nebenkosten", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 }
+      ]
     },
     "bellegenAkt": {
       "title": "Bëllegen Akt 2026: Steuergutschrift auf notarielle Urkunden in Luxemburg",

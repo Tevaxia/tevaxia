@@ -9100,21 +9100,72 @@
       ]
     },
     "regle5Pourcent": {
-      "title": "Como funciona a regra dos 5% para rendas no Luxemburgo?",
-      "metaDescription": "A regra dos 5% no Luxemburgo limita a renda anual a 5% do capital investido reavaliado. Explicações, cálculo e coeficientes STATEC.",
-      "intro": "No Luxemburgo, a renda anual máxima de uma habitação não pode exceder 5% do capital investido reavaliado pelo senhorio. Esta regra, fixada pelo artigo 3.o da lei modificada de 21 de setembro de 2006 sobre o arrendamento habitacional, protege o inquilino contra rendas excessivas, garantindo ao proprietário um retorno razoável sobre o seu investimento.",
-      "section1Title": "O capital investido e a sua reavaliação",
-      "section1Content": "O capital investido inclui o preço de aquisição do terreno e da construção, custos de escritura, despesas de transformação e melhoria (excluindo manutenção corrente). Este montante é reavaliado na data de fixação da renda através dos coeficientes de reavaliação publicados pelo STATEC, que refletem a evolução do custo de construção. Exemplo: um imóvel comprado por 300.000 € em 2005 com coeficiente de 1,45 dá um capital reavaliado de 435.000 €.",
-      "section2Title": "Cálculo da renda máxima",
-      "section2Content": "A renda anual máxima é estritamente limitada a 5% do capital investido reavaliado (art. 3.o lei de 21.09.2006). Fórmula: renda anual máx. = capital investido reavaliado × 5%. No nosso exemplo (capital reavaliado de 435.000 €), a renda anual máxima é de 21.750 €, ou 1.812,50 € por mês. Os encargos locativos (água, aquecimento, manutenção das partes comuns) não estão incluídos neste limite e devem ser faturados separadamente com base nos custos reais. Se o inquilino considerar que a sua renda excede este limiar, pode recorrer à Comissão de Rendas do seu município.",
-      "section3Title": "Casos particulares e recursos",
-      "section3Content": "Algumas habitações estão isentas da regra dos 5%: habitações mobiladas (pode ser aplicado um suplemento), habitações de função e contratos celebrados antes da entrada em vigor da lei. Para contratos em curso, o senhorio só pode aumentar a renda se o capital investido foi aumentado por obras de melhoria. A reforma em discussão (projeto de lei 8184) prevê reduzir o limite de 5% para 3,5% para novos contratos a partir de 2026, para melhor proteger os inquilinos face à subida dos preços imobiliários.",
-      "relatedToolLabel": "Calcular a renda máxima legal",
-      "relatedToolLink": "/calculateur-loyer",
-      "faq1Q": "Como calcular a renda máxima no Luxemburgo?",
-      "faq1A": "Multiplique o capital investido reavaliado (preço de compra + obras, reavaliado pelos coeficientes STATEC) por 5%. Divida por 12 para obter a renda mensal máxima.",
-      "faq2Q": "A regra dos 5% vai mudar no Luxemburgo?",
-      "faq2A": "O projeto de lei 8184 prevê reduzir o limite de 5% para 3,5% para novos contratos. Esta reforma está em discussão parlamentar e poderá entrar em vigor em 2026."
+      "title": "Regra dos 5% para a renda no Luxemburgo: cálculo, capital investido e reforma 2026",
+      "metaDescription": "Regra dos 5% LU: renda anual máx = 5% do capital investido reavaliado. Coeficientes STATEC, vetustez 2%/ano, encargos recuperáveis, projeto 8184 reforma para 3,5%, exemplos calculados.",
+      "subtitle": "O mecanismo de limitação legal da renda no Luxemburgo, o seu cálculo e o impacto da reforma em curso.",
+      "category": "Arrendamento e contrato",
+      "essentiel": [
+        "Renda anual ≤ 5% do capital investido reavaliado (art. 3 lei 21.09.2006). O senhorio não pode exigir mais, mesmo por acordo.",
+        "Capital investido = preço de compra + custos de escritura + obras de melhoria duráveis (excluindo manutenção corrente e decoração).",
+        "Reavaliação pelo coeficiente STATEC do ano de compra (1,52 para 2025, 1,77 para 2022, 2,07 para 2015).",
+        "Desconto de vetustez de 2%/ano aplicável sobre a parte construção (art. 5 RGD 2015).",
+        "Reforma em curso (projeto 8184): limite reduzido para 3,5% para novos contratos, entrada em vigor prevista 2026."
+      ],
+      "section1Title": "Princípio da regra dos 5%",
+      "section1P1": "O artigo 3 da lei modificada de 21 de setembro de 2006 sobre o arrendamento habitacional fixa a renda anual máxima em 5% do capital investido reavaliado no bem arrendado. É um limite imperativo: qualquer cláusula que preveja renda superior é nula, e o inquilino pode obter a redução retroativa da renda perante a Comissão de Rendas do município ou o juiz de paz.",
+      "section1P2": "O mecanismo procura um equilíbrio entre rentabilidade razoável para o senhorio (5% bruto/ano) e proteção do inquilino. A regra aplica-se à renda sem encargos. Os encargos locativos (água, aquecimento, manutenção das partes comuns, elevador) são faturados separadamente ao custo real, no limite dos encargos recuperáveis fixados pelo RGD de 16 de junho de 2015.",
+      "callout1Title": "O limite exclui encargos e mobilados",
+      "callout1Body": "Os encargos locativos vêm em suplemento ao limite legal, com base nos custos reais. Para uma habitação mobilada, pode ser aplicado um suplemento pelo mobiliário (tipicamente 0,5 a 1% adicional consoante o inventário). As habitações de função e os contratos celebrados antes de 2007 também estão excluídos do limite estrito de 5%.",
+      "section2Title": "Capital investido reavaliado",
+      "section2P1": "O capital investido inclui: o preço de aquisição do bem (terreno + construção), os custos de escritura (direitos, emolumentos, hipoteca) e as despesas de melhoria duráveis posteriores (extensões, transformação, renovação energética importante). Excluem-se a manutenção corrente, a decoração, o mobiliário e os encargos financeiros.",
+      "section2P2": "O capital é reavaliado à data da fixação da renda pelo coeficiente de reavaliação do ano de investimento, publicado pelo STATEC. Coeficientes-chave 2026: 1,48 (2026), 1,52 (2025), 1,57 (2024), 1,64 (2023), 1,77 (2022), 2,07 (2015), 2,33 (2010). Aplica-se um desconto de vetustez de 2%/ano sobre a parte construção (RGD 16.06.2015).",
+      "callout2Title": "Obras de melhoria vs manutenção",
+      "callout2Body": "Apenas as despesas duráveis que aumentam o valor do bem são integradas no capital investido: isolamento, substituição de caldeira, modernização elétrica, extensão. As obras de pura conservação (pintura, beneficiação de fachada, juntas) não contam. Em caso de dúvida, peça parecer à Comissão de Rendas antes de fixar a nova renda.",
+      "section3Title": "Cálculo prático e fórmula",
+      "section3P1": "Fórmula completa: Renda anual máx = (capital investido reavaliado − desconto de vetustez construção) × 5%. Renda mensal máx = renda anual máx / 12. Exemplo: apartamento comprado 400 000 € em 2015 (30 000 € de custos), sem obras. Coeficiente 2015 = 2,07. Capital reavaliado = 430 000 × 2,07 = 890 100 €. Vetustez 11 anos × 2% = 22% (sobre a parte construção, ~70%). Capital após vetustez ≈ 753 700 €. Renda anual máx = 5% × 753 700 = 37 685 €/ano, ou seja ~3 140 €/mês.",
+      "section3P2": "Em caso de litígio, inquilino ou senhorio podem recorrer à Comissão de Rendas do município (procedimento gratuito, art. 7 lei 2006). A Comissão emite parecer com base nos documentos: escritura de aquisição, faturas de obras, orçamentos, índices STATEC. Se o parecer for ignorado, o caso pode ser levado ao juiz de paz, que pode impor uma redução retroativa e o reembolso dos pagamentos em excesso.",
+      "section4Title": "Exemplos calculados por ano de compra",
+      "section4Intro": "Renda mensal máxima para um apartamento típico comprado por 400 000 € + 30 000 € de custos (430 000 € de capital total). A parte construção é estimada em 70% do preço.",
+      "table": {
+        "caption": "Renda mensal máxima legal por ano de compra (capital inicial 430 000 €)",
+        "headers": ["Ano de compra", "Coeficiente STATEC", "Capital reavaliado", "Renda máx/mês (5%)"],
+        "rows": [
+          ["2010", "2,33", "1 001 900 €", "≈ 4 030 €"],
+          ["2015", "2,07", "890 100 €", "≈ 3 140 €"],
+          ["2020", "1,95", "838 500 €", "≈ 3 270 €"],
+          ["2022", "1,77", "761 100 €", "≈ 2 990 €"],
+          ["2025", "1,52", "653 600 €", "≈ 2 690 €"]
+        ],
+        "footnote": "Cálculo indicativo após desconto de vetustez 2%/ano sobre a parte construção (70% do preço). Reforma 8184: com limite de 3,5%, estas rendas seriam reduzidas em cerca de 30%."
+      },
+      "callout3Title": "Caso concreto: apartamento de 500 000 €",
+      "callout3Body": "Bem comprado por 500 000 € + 35 000 € de custos em 2018, 6 anos de detenção. Coeficiente 2018 ≈ 1,99. Capital reavaliado = 535 000 × 1,99 = 1 064 650 €. Vetustez = 12% sobre 70% = 8,4%. Capital líquido ≈ 974 800 €. Renda anual máx = 5% × 974 800 = 48 740 €. Renda mensal máx ≈ 4 060 €. Com o projeto de reforma a 3,5%, o limite cairia para cerca de 2 845 €/mês.",
+      "inlineCalc": {
+        "title": "Calcule a sua renda máxima legal",
+        "description": "A nossa calculadora aplica o coeficiente STATEC do seu ano de compra, o desconto anual de vetustez, integra as obras de melhoria e devolve a renda mensal máxima. Ajuste possível para a reforma de 3,5%.",
+        "cta": "Iniciar o cálculo"
+      },
+      "tools": [
+        { "href": "/calculateur-loyer", "title": "Calculadora de renda legal", "description": "5% do capital investido reavaliado + desconto de vetustez + ajuste de reforma." },
+        { "href": "/locataire", "title": "Espaço inquilino", "description": "Modelos de carta de contestação, acompanhamento de encargos, recurso à comissão." },
+        { "href": "/carte", "title": "Mapa de preços de aluguer", "description": "Renda mediana observada por município e tipologia para comparar." },
+        { "href": "/portfolio", "title": "Portefólio de investimento", "description": "Acompanhamento da rentabilidade bruta/líquida dos seus bens em arrendamento." }
+      ],
+      "faq": [
+        { "q": "Como calcular a renda máxima no Luxemburgo?", "a": "Multiplique o capital investido (preço de compra + custos de escritura + obras de melhoria) pelo coeficiente STATEC do ano de investimento. Aplique o desconto de vetustez de 2%/ano sobre a parte construção. Multiplique o resultado por 5% para obter a renda anual máxima, depois divida por 12 para a mensal." },
+        { "q": "A regra dos 5% vai mudar no Luxemburgo?", "a": "O projeto de lei 8184 prevê reduzir o limite de 5% para 3,5% para novos contratos, visando uma melhor proteção dos inquilinos face à subida dos preços. O texto está em discussão parlamentar e poderá entrar em vigor durante 2026. Os contratos em curso não seriam afetados retroativamente." },
+        { "q": "O que inclui exatamente o capital investido?", "a": "O preço de compra do terreno e da construção, os custos de escritura (direitos, emolumentos, hipoteca) e as despesas de melhoria duráveis (extensões, transformação, renovação energética importante). A manutenção corrente, a decoração e o mobiliário são excluídos." },
+        { "q": "Como funciona o desconto de vetustez de 2%?", "a": "A parte construção (excluindo terreno, geralmente 60-75% do preço consoante o município) sofre um desconto de 2% por ano decorrido desde a compra ou as últimas obras estruturais. O desconto cumula até a um piso (tipicamente 30% do valor inicial)." },
+        { "q": "Os encargos locativos estão incluídos no limite de 5%?", "a": "Não. Os encargos (água, aquecimento, manutenção comum, elevador) são faturados em suplemento à renda limitada, com base nos custos reais e taxativamente enumerados no RGD de 16 de junho de 2015 (taxa de resíduos, fluidos comuns, etc.). O senhorio não pode repercutir grandes obras nem a sua margem." },
+        { "q": "O que fazer se a minha renda exceder o limite legal?", "a": "Recorra gratuitamente à Comissão de Rendas do seu município com a escritura de aquisição do senhorio (a pedir), o seu contrato e as faturas de obras. A Comissão emite parecer; se o senhorio recusar cumprir, pode ir ao juiz de paz, que pode ordenar a redução retroativa e o reembolso dos pagamentos em excesso." }
+      ],
+      "sources": [
+        { "title": "Lei modificada de 21 de setembro de 2006 — arrendamento habitacional", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
+        { "title": "Coeficientes de reavaliação — STATEC", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Cálculo da renda — procedimento prático", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/calcul-loyer.html" },
+        { "title": "Projeto de lei 8184 — reforma do arrendamento", "org": "Câmara dos Deputados", "url": "https://www.chd.lu/" },
+        { "title": "RGD de 16 de junho de 2015 — encargos recuperáveis", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 }
+      ]
     },
     "bellegenAkt": {
       "title": "Bëllegen Akt 2026: crédito fiscal sobre escrituras notariais no Luxemburgo",

@@ -9222,21 +9222,72 @@
       ]
     },
     "regle5Pourcent": {
-      "title": "How Does the 5% Rent Rule Work in Luxembourg?",
-      "metaDescription": "The 5% rule in Luxembourg limits annual rent to 5% of revalued invested capital. Explanations, calculation and STATEC coefficients.",
-      "intro": "In Luxembourg, the maximum annual rent for a dwelling cannot exceed 5% of the revalued capital invested by the landlord. This rule, established by Article 3 of the modified law of 21 September 2006 on residential leases, protects tenants against excessive rents while guaranteeing the owner a reasonable return on investment.",
-      "section1Title": "Invested Capital and Its Revaluation",
-      "section1Content": "Invested capital includes the purchase price of land and construction, deed costs, transformation and improvement expenses (excluding routine maintenance). This amount is revalued at the date of rent determination using revaluation coefficients published by STATEC, which reflect changes in construction costs. For example, a property purchased for €300,000 in 2005 with a revaluation coefficient of 1.45 gives a revalued capital of €435,000.",
-      "section2Title": "Maximum Rent Calculation",
-      "section2Content": "The maximum annual rent is strictly capped at 5% of the revalued invested capital (Art. 3 law of 21.09.2006). Formula: max annual rent = revalued invested capital × 5%. For our example (revalued capital of €435,000), the maximum annual rent is €21,750, or €1,812.50 per month. Service charges (water, heating, common area maintenance) are not included in this cap and must be billed separately based on actual costs. If a tenant believes their rent exceeds this threshold, they can refer the matter to their municipal Rent Commission.",
-      "section3Title": "Special Cases and Remedies",
-      "section3Content": "Some dwellings are exempt from the 5% rule: furnished accommodation (a supplement may apply), company housing, and leases concluded before the law came into force. For ongoing leases, the landlord can only increase rent if invested capital has been increased by improvement works. The reform under discussion (bill 8184) plans to reduce the cap from 5% to 3.5% for new leases from 2026, to better protect tenants against rising property prices.",
-      "relatedToolLabel": "Calculate the legal maximum rent",
-      "relatedToolLink": "/calculateur-loyer",
-      "faq1Q": "How to calculate the maximum rent in Luxembourg?",
-      "faq1A": "Multiply the revalued invested capital (purchase price + works, revalued by STATEC coefficients) by 5%. Divide by 12 to get the maximum monthly rent.",
-      "faq2Q": "Will the 5% rule change in Luxembourg?",
-      "faq2A": "Bill 8184 plans to reduce the cap from 5% to 3.5% for new leases. This reform is under parliamentary discussion and could take effect in 2026."
+      "title": "Luxembourg's 5% Rent Rule: Calculation, Invested Capital and 2026 Reform",
+      "metaDescription": "5% rule in LU: max annual rent = 5% of revalued invested capital. STATEC coefficients, 2%/year wear-and-tear, recoverable charges, bill 8184 reform to 3.5%, worked examples.",
+      "subtitle": "How Luxembourg's statutory rent cap works, how to compute it, and the impact of the upcoming reform.",
+      "category": "Renting & lease",
+      "essentiel": [
+        "Annual rent ≤ 5% of revalued invested capital (Art. 3 of the 2006 law). The landlord cannot demand more, even by agreement.",
+        "Invested capital = purchase price + deed costs + durable improvement works (excluding routine maintenance and decoration).",
+        "Revaluation via the STATEC coefficient for the purchase year (1.52 for 2025, 1.77 for 2022, 2.07 for 2015).",
+        "2%/year wear-and-tear discount on the construction share (Art. 5 RGD 2015).",
+        "Reform under way (bill 8184): cap lowered to 3.5% for new leases, expected entry into force 2026."
+      ],
+      "section1Title": "Principle of the 5% rule",
+      "section1P1": "Article 3 of the modified law of 21 September 2006 on residential leases sets the maximum annual rent at 5% of the revalued capital invested in the rented property. It is an imperative cap: any clause providing a higher rent is void, and the tenant can obtain a retroactive rent reduction before the municipal Rent Commission or the justice of the peace.",
+      "section1P2": "The mechanism seeks a balance between a reasonable return for the landlord (5% gross/year) and tenant protection. The rule applies to rent excluding charges. Service charges (water, heating, common area maintenance, elevator) are billed separately at actual cost, within the recoverable charges set by the Grand Ducal Regulation of 16 June 2015.",
+      "callout1Title": "The cap excludes charges and furnished",
+      "callout1Body": "Service charges sit on top of the legal cap, on actual cost basis. For furnished accommodation, a supplement may apply for the furniture (typically 0.5 to 1% extra depending on inventory). Company housing and leases concluded before 2007 are also excluded from the strict 5% cap.",
+      "section2Title": "Revalued invested capital",
+      "section2P1": "Invested capital comprises: the property's purchase price (land + construction), deed costs (duties, emoluments, mortgage), and subsequent durable improvement expenses (extensions, transformation, major energy renovation). Excluded are routine maintenance, decoration, furniture, and finance costs.",
+      "section2P2": "Capital is revalued at the date of rent setting using the revaluation coefficient of the investment year, published by STATEC. Key 2026 coefficients: 1.48 (2026), 1.52 (2025), 1.57 (2024), 1.64 (2023), 1.77 (2022), 2.07 (2015), 2.33 (2010). A 2%/year wear-and-tear discount applies to the construction share (RGD 16.06.2015).",
+      "callout2Title": "Improvement works vs maintenance",
+      "callout2Body": "Only durable expenses that increase the property's value enter invested capital: insulation, boiler replacement, electrical upgrade, extensions. Pure conservation works (paint, façade refresh, joints) do not count. If unsure, request an opinion from the Rent Commission before setting the new rent.",
+      "section3Title": "Practical calculation and formula",
+      "section3P1": "Full formula: Max annual rent = (revalued invested capital − construction wear-and-tear discount) × 5%. Max monthly rent = max annual rent / 12. Example: apartment bought €400,000 in 2015 (€30,000 in costs), no works. 2015 coefficient = 2.07. Revalued capital = €430,000 × 2.07 = €890,100. Wear-and-tear 11 years × 2% = 22% (on the ~70% construction share). Capital after wear-and-tear ≈ €753,700. Max annual rent = 5% × €753,700 = €37,685/year, i.e., ~€3,140/month.",
+      "section3P2": "In case of dispute, tenant or landlord can refer to the municipal Rent Commission (free procedure, Art. 7 of the 2006 law). The Commission issues an opinion based on the documents: acquisition deed, works invoices, quotes, STATEC indices. If the opinion is ignored, the matter can go before the justice of the peace, who can impose retroactive reduction and refund of overpayments.",
+      "section4Title": "Worked examples by purchase year",
+      "section4Intro": "Maximum monthly rent for a typical apartment bought €400,000 + €30,000 in costs (€430,000 total capital). Construction share is estimated at 70% of the price.",
+      "table": {
+        "caption": "Maximum legal monthly rent by purchase year (initial capital €430,000)",
+        "headers": ["Purchase year", "STATEC coefficient", "Revalued capital", "Max rent/month (5%)"],
+        "rows": [
+          ["2010", "2.33", "€1,001,900", "≈ €4,030"],
+          ["2015", "2.07", "€890,100", "≈ €3,140"],
+          ["2020", "1.95", "€838,500", "≈ €3,270"],
+          ["2022", "1.77", "€761,100", "≈ €2,990"],
+          ["2025", "1.52", "€653,600", "≈ €2,690"]
+        ],
+        "footnote": "Indicative computation after 2%/year wear-and-tear on the construction share (70% of price). Reform 8184: with a 3.5% cap, these rents would drop by about 30%."
+      },
+      "callout3Title": "Concrete case: €500,000 apartment",
+      "callout3Body": "Property bought €500,000 + €35,000 costs in 2018, 6 years of holding. 2018 coefficient ≈ 1.99. Revalued capital = €535,000 × 1.99 = €1,064,650. Wear-and-tear = 12% on 70% = 8.4%. Net capital ≈ €974,800. Max annual rent = 5% × €974,800 = €48,740. Max monthly rent ≈ €4,060. With the proposed 3.5% reform, the cap would drop to about €2,845/month.",
+      "inlineCalc": {
+        "title": "Compute your legal maximum rent",
+        "description": "Our calculator applies the STATEC coefficient of your purchase year, the annual wear-and-tear discount, integrates improvement works, and returns the maximum monthly rent. Adjustment available for the 3.5% reform.",
+        "cta": "Run the calculation"
+      },
+      "tools": [
+        { "href": "/calculateur-loyer", "title": "Legal rent calculator", "description": "5% of revalued invested capital + wear-and-tear + reform adjustment." },
+        { "href": "/locataire", "title": "Tenant area", "description": "Letter templates for challenge, charge tracking, commission appeal." },
+        { "href": "/carte", "title": "Rental price map", "description": "Median observed rent by municipality and dwelling type for comparison." },
+        { "href": "/portfolio", "title": "Investment portfolio", "description": "Track gross/net yield of your rented properties." }
+      ],
+      "faq": [
+        { "q": "How to calculate the maximum rent in Luxembourg?", "a": "Multiply invested capital (purchase price + deed costs + improvement works) by the STATEC coefficient of the investment year. Apply the 2%/year wear-and-tear discount on the construction share. Multiply the result by 5% to get the max annual rent, then divide by 12 for monthly." },
+        { "q": "Will the 5% rule change in Luxembourg?", "a": "Bill 8184 plans to lower the cap from 5% to 3.5% for new leases, aiming to better protect tenants against rising prices. The text is in parliamentary discussion and could enter into force during 2026. Existing leases would not be retroactively affected." },
+        { "q": "What exactly is included in invested capital?", "a": "The purchase price of land and construction, deed costs (duties, emoluments, mortgage), and durable improvement expenses (extensions, transformation, major energy renovation). Routine maintenance, decoration and furniture are excluded." },
+        { "q": "How does the 2% wear-and-tear discount work?", "a": "The construction share (excluding land, typically 60-75% of price depending on the municipality) is discounted by 2% per year elapsed since purchase or last structural works. The discount cumulates up to a floor (typically 30% of the initial value)." },
+        { "q": "Are service charges included in the 5% cap?", "a": "No. Charges (water, heating, common maintenance, elevator) are billed on top of the capped rent, on an actual cost basis and limitatively listed in the Grand Ducal Regulation of 16 June 2015 (waste tax, common utilities, etc.). The landlord cannot pass on major works or a margin." },
+        { "q": "What if my rent exceeds the legal cap?", "a": "Refer free of charge to your municipality's Rent Commission with the landlord's acquisition deed (request it), your lease and works invoices. The Commission issues an opinion; if the landlord refuses to comply, you can go before the justice of the peace, who can order a retroactive reduction and refund of overpayments." }
+      ],
+      "sources": [
+        { "title": "Modified law of 21 September 2006 — residential lease", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
+        { "title": "Revaluation coefficients — STATEC", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
+        { "title": "Rent calculation — practical procedure", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/calcul-loyer.html" },
+        { "title": "Bill 8184 — lease reform", "org": "Chamber of Deputies", "url": "https://www.chd.lu/" },
+        { "title": "RGD of 16 June 2015 — recoverable charges", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 }
+      ]
     },
     "bellegenAkt": {
       "title": "Bëllegen Akt 2026: Tax Credit on Notarial Deeds in Luxembourg",
