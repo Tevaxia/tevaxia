@@ -9795,24 +9795,61 @@
       ]
     },
     "iaTevaxia": {
-      "title": "Wéi d'KI op tevaxia.lu notzen",
-      "metaDescription": "KI-Assistent tevaxia.lu: Resultat-Analys, EVS-Redaktioun, PDF-Extraktioun, Lëtzebuerger Immobilien-Chat. Gratis 5/Dag, onlimitéiert mat Ärem Schlëssel (BYOK).",
-      "intro": "tevaxia.lu integréiert eng KI-Engine spezialiséiert op Lëtzebuerger Immobilien: LIR-Steierrecht, TEGOVA-EVS-Normen 2025, VEFA, Kopropriétéit, Hotellerie USALI, AML/KYC. All ageloggten Notzer kritt 5 gratis Analysen pro Dag iwwer Cerebras (Llama 3.1 8B). Fir eng onlimitéiert Notzung oder Zougang zu GPT-4o / Claude kënnt Dir Ären eegenen API-Schlëssel (BYOK) an Ärem Profil hannerleeën. Esou notze Dir all Funktioun optimal.",
+      "title": "Wéi d'KI op tevaxia.lu notzen: komplette Guide 2026",
+      "metaDescription": "tevaxia.lu KI-Assistent: Resultat-Analys, EVS-2025-Bericht, PDF-Extraktioun, Lëtzebuerger Immobilien-Chat. 5 gratis Analysen/Dag via Cerebras, onlimitéiert mat BYOK-Schlëssel (Anthropic, OpenAI, Groq).",
+      "subtitle": "All KI-Funktiounen vun tevaxia.lu a wéi se ze notzen, fir Zäit op Lëtzebuerger Immobilien ze spueren.",
+      "category": "Produkt & KI",
+      "essentiel": [
+        "5 gratis Analysen pro Dag pro ageloggte Konto, via Cerebras (Llama 3.1 8B), keng Kreditkaart erfuerderlech.",
+        "BYOK-Modus (Bring Your Own Key): Setzt Ären Anthropic-, OpenAI-, Groq- oder Cerebras-Schlëssel an /profil fir onlimitéiert Notzung.",
+        "4 Schlësselusage-Cases: Inline-Resultat-Analys, EVS-2025-Bericht-Redaktioun, PDF-Extraktioun (Visioun), Multi-tour LU-Immobilien-Chat.",
+        "LU spezialiséiert Skills: LIR, TEGOVA EVS 2025, VEFA, Kopropriétéit, USALI Hotellerie, AML/KYC, Bëllegen Akt, 5%-Regel.",
+        "Ëffentlech B2B-API: 3 Endpoints (analyze / chat / extract) mat tevaxia-Schlëssel zougänglech, Dokumentatioun op /api-docs."
+      ],
       "section1Title": "Automatesch Analys vun de Resultater",
-      "section1Content": "Op ongeféier zéng Tools (Schätzung, EVS-Valorisatioun, Promoter-Bilan, DCF multi-Baux, USALI-Hotel, E-2-Visa-Score, VEFA, Plus-value, Bien-Verglach, Kafen-géint-Lounen) erschéngt no all Berechnung e Knäppchen „Mat der KI analyséieren“. D'KI kritt de komplette Kontext (Inputs an Resultater) a schreift e professionelle Kommentar: Präis-Diagnos, Risiko-Erkennung, Kohärenz vun de Ratioen géintiwwer de Lëtzebuerger Maartstandarden, Arbitrage-Empfehlungen. D'Prompts si spezialiséiert pro Beruff: d'Analys vun engem Promoter-Bilan zitéiert déi typesch Baulandkäschten-Quoten (10 bis 20 % vum Ëmsaz), déi vun engem P&L USALI vergläicht mat der erwaarter GOP-Marge pro Kategorie.",
-      "section2Title": "Redaktioun vum EVS-2025-Bericht",
-      "section2Content": "De Modus EVS-Bericht op der Säit /valorisation integréiert 8 Knäppercher „Mat der KI schreiwen“ nieft den narrative Felder (Lag, Ëmfeld, Ubannung, Justifikatioun vun de Methoden, Steierregime, ESG-Impakt, Reserven, Onsécherheet). All Knäppche generéiert e formellen Abschnitt, deen direkt an d'Feld geschriwwe gëtt, konform mat den TEGOVA-Normen an der Chart 5. Editioun, mat legalen Referenzen (Art. 102bis LIR, IVS 103, CRREM-Pfad). De Modus EVS-Challenger, op der Ongletbar Reconciliatioun, handelt als kritesche Verifizéierer: hie markéiert déi feelend Donnéeën, d'Inkohärenzen, déi anormal Ratioen an d'Risike vu Net-Konformitéit virun der Ënnerschrëft, mam Präfix [BLOCKÉIEREND], [GROUSS] oder [KLENG].",
+      "section1P1": "Op ongeféier zéng Tools (Schätzung, EVS-Valorisatioun, Promoter-Bilan, DCF multi-Baux, USALI-Hotel, E-2-Visa-Score, VEFA, Plus-value, Bien-Verglach, Kafen-géint-Lounen) erschéngt no all Berechnung e Knäppchen 'Mat der KI analyséieren'. D'KI kritt de komplette Kontext (Inputs an Resultater) a schreift e professionelle Kommentar: Präis-Diagnos, Risiko-Erkennung, Kohärenz vun de Ratioen géintiwwer de Lëtzebuerger Maartstandarden, Arbitrage-Empfehlungen.",
+      "section1P2": "D'Prompts si spezialiséiert pro Beruff: d'Analys vun engem Promoter-Bilan zitéiert déi typesch Baulandkäschten-Quoten (10-20% vum Ëmsaz), déi vun engem P&L USALI vergläicht mat der erwaarter GOP-Marge pro Hotelkategorie (3* = 35-40%, 4* = 38-42%, 5* = 40-45%). D'KI notzt TEGOVA EVS 2025 Referenzen an aktuell STATEC-Koeffizienten fir d'Annahmen ze validéieren.",
+      "callout1Title": "Standardmodell: Cerebras Llama 3.1 8B",
+      "callout1Body": "De gratis Tier notzt Cerebras Llama 3.1 8B (séier, gratis, ausserhalb der EU gehost fir net-sensibel Analysen). Fir vertraulech Analysen (AML/KYC, nominell Donnéeën) bevorzugt Ären Anthropic- oder OpenAI-Schlëssel mat Entreprisevertrag a No-Training-Optioun.",
+      "section2Title": "EVS-2025-Bericht-Redaktioun",
+      "section2P1": "De Modus EVS-Bericht op der Säit /valorisation integréiert 8 Knäppercher 'Mat der KI schreiwen' nieft den narrative Felder (Lag, Ëmfeld, Ubannung, Justifikatioun vun de Methoden, Steierregime, ESG-Impakt, Reserven, Onsécherheet). All Knäppche generéiert e formellen Abschnitt, deen direkt an d'Feld geschriwwe gëtt, konform mat den TEGOVA-Normen an der Chart 5. Editioun, mat legalen Referenzen (Art. 102bis LIR, IVS 103, CRREM-Pfad).",
+      "section2P2": "De Modus EVS-Challenger, op der Ongletbar Reconciliatioun, handelt als kritesche Verifizéierer: hie markéiert déi feelend Donnéeën, d'Inkohärenzen, déi anormal Ratioen an d'Risike vu Net-Konformitéit virun der Ënnerschrëft, mam Präfix [BLOCKÉIEREND], [GROUSS] oder [KLENG]. De generéierte Bericht bleift ënner der Verantwortung vum TEGOVA REV/TRV-Expert, dee den Bericht nokontrolléiert, korrigéiert an ënnerschreift.",
       "section3Title": "PDF-Extraktioun (BYOK gefrot)",
-      "section3Content": "Fir e Formulaire virauszefëllen op Basis vun engem existéierenden Dokument (Promoter-Budget, notariellen Akt fir Plus-value, CPE-Zertifikat) lancéiert e Knäppchen „Virfëllen aus PDF“ eng Visiouns-Extraktioun iwwer Äre BYOK-Schlëssel Anthropic (fir PDF) oder OpenAI (fir Biller). De Modell gëtt e strukturéierte JSON zréck, deen d'Felder direkt fëllt. Dës Funktioun brauch e BYOK-API-Schlëssel, well déi gratis Modeller Cerebras a Groq keng Visioun traitéieren. Limit vun 8 MB pro Datei. Aktuell verfügbar op /bilan-promoteur an /plus-values; déi aner Schemaen (CPE) gi vun der API ënnerstëtzt.",
-      "section4Title": "Gespréichs-Assistent an ëffentlech API",
-      "section4Content": "E schwiewende Chat-Widget ënnen riets opent e fräie Gespréich mam Lëtzebuerger Immobilien-Assistent. Dir kënnt him transversal Froe stellen déi net an ee spezifescht Tool passen: „wéi eng TVA op d'Renovatioun vun engem gemëschte Gebai uwenden?“, „wéi eng Majoritéit ass néideg fir d'Dachreparatur an der Kopropriétéit ze stëmmen?“, „wéi gëtt de Bëllegen Akt fir e net-residentent Koppel berechent?“. Den Assistent behält de Kontext iwwer méi Ronnen. Fir B2B-Integrateuren sinn déi 3 Endpoints (`/api/v1/ai/analyze`, `/api/v1/ai/chat`, `/api/v1/ai/extract`) zougänglech mat engem tevaxia-API-Schlëssel (Header X-API-Key) am Standard-Rate-Limit. Komplett Dokumentatioun op /api-docs.",
-      "relatedToolLabel": "Ären KI-Schlëssel konfiguréieren (BYOK)",
-      "faq1Q": "Ass d'KI wierklech gratis?",
-      "faq1A": "Jo, 5 Analysen pro Dag pro ageloggte Notzer, ouni Käschten. Doriwwer eraus kënnt Dir Ären eegene Cerebras-, Groq-, OpenAI- oder Anthropic-Schlëssel an Ärem Profil hannerleeën fir eng onlimitéiert Notzung. De Server tevaxia notzt Cerebras (Llama 3.1 8B) fir de gratis Tier, mat engem automatesche Fallback op Groq wann e konfiguréiert ass.",
-      "faq2Q": "Ginn meng Donnéeën un Drëtter geschéckt?",
-      "faq2A": "Jo, d'Ufroe ginn iwwer de konfiguréierte KI-Fournisseur (Cerebras par défaut, oder Äre BYOK-Schlëssel). Déi geschéckte Kontexter enthalen nëmmen d'Inputs an d'Resultater vum aktuelle Kalkul, ni perséinlech Donnéeën dobausse dovun. D'Fournisseure Cerebras a Groq späicheren d'Prompts net fir d'Training. Wann Dir vertraulech gebonne sidd (z. B. sensibel AML/KYC), notzt léiwer en Anthropic- oder OpenAI-Schlëssel mat den Entreprisebedéngungen Ärer Wiel.",
-      "faq3Q": "Ersetzt d'KI en zertifizéierten Expert?",
-      "faq3A": "Nee. D'KI gëtt Hëllef bei der Redaktioun an der Analys, kee verbindlecht Expertegutachten. Fir en EVS-Bericht fir eng Bank oder e Geriicht bleift den TEGOVA-zertifizéierten Expert responsabel fir de gehalene Wäert a muss de Bericht nokontrolléieren, korrigéieren an ënnerschreiwen. D'KI beschleunegt d'Produktioun (Narrativ-Entworf, Erkennung vun Inkohärenzen), ersetzt awer weder déi mënschlech Expertise nach de Besuch um Terrain."
+      "section3P1": "Fir e Formulaire virauszefëllen op Basis vun engem existéierenden Dokument (Promoter-Budget, notariellen Akt fir Plus-value, CPE-Zertifikat) lancéiert e Knäppchen 'Virfëllen aus PDF' eng Visiouns-Extraktioun iwwer Äre BYOK-Schlëssel: Anthropic (fir nativ PDF) oder OpenAI (fir gescannte Biller). De Modell gëtt e strukturéierte JSON zréck, deen d'Felder direkt fëllt.",
+      "section3P2": "Dës Funktioun brauch e BYOK-API-Schlëssel, well déi gratis Modeller Cerebras a Groq keng Visioun traitéieren. Limit vun 8 MB pro Datei. Aktuell verfügbar op /bilan-promoteur an /plus-values; déi aner Schemaen (CPE, Geschäftsmieten) ginn op Demande iwwer d'B2B-API ënnerstëtzt. tevaxia-Säiten déi PDF traitéieren kënnen op Demande erweidert ginn.",
+      "callout2Title": "BYOK-Setup an 2 Minutten",
+      "callout2Body": "Gitt op /profil → Ongletbar KI → fügt Ären API-Schlëssel an (Anthropic, OpenAI, Groq, Cerebras). De Schlëssel gëtt server-säit verschlësselt an nëmme fir Är Ufroe benotzt. Dir kënnt e jee zréckruffen. Detailer iwwer ënnerstëtzt Modeller a Stéckkäschten op /profil/api.",
+      "section4Title": "KI-Chat an ëffentlech B2B-API",
+      "section4P1": "E schwiewende Chat-Widget ënnen riets opent e fräie Gespréich mam Lëtzebuerger Immobilien-Assistent. Dir kënnt him transversal Froe stellen déi net an ee spezifescht Tool passen: 'wéi eng TVA op d'Renovatioun vun engem gemëschte Gebai uwenden?', 'wéi eng Majoritéit ass néideg fir d'Dachreparatur an der Kopropriétéit ze stëmmen?', 'wéi gëtt de Bëllegen Akt fir e net-residentent Koppel berechent?'. Den Assistent behält de Kontext iwwer méi Ronnen.",
+      "section4P2": "Fir B2B-Integrateuren sinn dräi Endpoints zougänglech mat engem tevaxia-API-Schlëssel (Header X-API-Key) am Standard-Rate-Limit-Tarif: `/api/v1/ai/analyze` (Inline-Analys), `/api/v1/ai/chat` (Multi-tour), `/api/v1/ai/extract` (PDF-Extraktioun). Komplett Dokumentatioun, cURL-Beispiller a JS/Python-SDK op /api-docs. Fir héich Volumen oder spezifesch SLA, kontaktéiert eis fir en Enterprise-Tarif.",
+      "callout3Title": "Limiten a Best Practices",
+      "callout3Body": "D'KI beschleunegt d'Schreiwen an d'Analys, ersetzt awer kee zertifizéierten Expert. Fir en EVS-Bericht fir eng Bank oder e Geriicht bleift den TEGOVA REV/TRV-Expert responsabel fir de gehalene Wäert a muss kontrolléieren, korrigéieren an ënnerschreiwen. Fir sensibel AML/KYC-Donnéeën, bevorzugt e BYOK-Schlëssel mat No-Training-Optioun. Schéckt ni Identitéitsdokumenter oder Bankdaten an der fräier Andréchnung.",
+      "inlineCalc": {
+        "title": "Aktivéiert Ären KI-Schlëssel (BYOK) an 2 Minutten",
+        "description": "Konfiguréiert Ären KI-Fournisseur (gratis Cerebras, Anthropic, OpenAI, Groq) an Ärem tevaxia-Profil fir d'onlimitéiert Notzung, d'PDF-Extraktioun an d'API z'aktivéieren.",
+        "cta": "Mäi Profil opmaachen"
+      },
+      "tools": [
+        { "href": "/profil", "title": "Mäi BYOK-Schlëssel konfiguréieren", "description": "Anthropic, OpenAI, Groq, Cerebras — onlimitéiert Notzung." },
+        { "href": "/api-docs", "title": "Ëffentlech B2B-API", "description": "3 Endpoints: analyze, chat, extract — Auth X-API-Key." },
+        { "href": "/valorisation", "title": "EVS-2025-Bericht", "description": "KI-Modus Verfasser + Challenger fir Är TEGOVA-Berichter." },
+        { "href": "/bilan-promoteur", "title": "KI Promoter-Bilan", "description": "PDF-Virfëllen + Liewensfäegkeetsanalys." }
+      ],
+      "faq": [
+        { "q": "Ass d'tevaxia-KI wierklech gratis?", "a": "Jo: 5 Analysen pro Dag pro ageloggte Notzer, keng Kreditkaart oder Abonnement. Doriwwer eraus, fügt Ären eegene Cerebras-, Groq-, OpenAI- oder Anthropic-Schlëssel an Ärem Profil fir onlimitéiert Notzung. De gratis Tier notzt Cerebras (Llama 3.1 8B) mat Groq-Fallback wann konfiguréiert." },
+        { "q": "Ginn meng Donnéeën un Drëtter geschéckt?", "a": "Jo, d'Ufroe ginn iwwer de konfiguréierte KI-Fournisseur (Cerebras par défaut, oder Äre BYOK-Schlëssel). Déi geschéckte Kontexter enthalen nëmmen d'Inputs an d'Resultater vum aktuelle Kalkul, ni perséinlech Donnéeën dobausse dovun. Cerebras a Groq späicheren d'Prompts net fir d'Training. Fir héich Vertraulechkeet, bevorzugt Anthropic oder OpenAI mat Entreprise-No-Training-Vertrag." },
+        { "q": "Kann d'KI en TEGOVA-zertifizéierten Expert ersetzen?", "a": "Nee. D'KI gëtt Hëllef bei der Redaktioun an der Analys, kee verbindlecht Expertegutachten. Fir en EVS-Bericht fir eng Bank oder e Geriicht bleift den TEGOVA REV/TRV-Expert responsabel fir de gehalene Wäert a muss kontrolléieren, korrigéieren an ënnerschreiwen. D'KI beschleunegt d'Produktioun, ersetzt awer weder déi mënschlech Expertise nach de Besuch um Terrain." },
+        { "q": "Wéi eng Modeller ginn am BYOK ënnerstëtzt?", "a": "Anthropic (Claude 4.x — empfuelen fir PDF-Visioun an EVS-Redaktioun), OpenAI (GPT-4o, GPT-4 Turbo — gutt an Visioun), Groq (séier Llama 3.x), Cerebras (Llama 3.1 8B — gratis, Standard). 2-Klick-Setup an /profil. Stéckkäschten an Echtzäit ugewisen." },
+        { "q": "Wéi gräifen ech op déi ëffentlech tevaxia-API zou?", "a": "Op /api-docs fannt Dir déi komplett Dokumentatioun vun de 3 Endpoints (analyze, chat, extract) mat cURL-Beispiller, JS- a Python-SDK. Authentifizéierung iwwer X-API-Key-Header. Standard-Rate-Limit-Tarif gratis; fir héich Volumen oder SLA, kontaktéiert eis iwwer /pricing fir en Enterprise-Tarif." },
+        { "q": "Wat sinn d'Limite vun den KI-Analysen?", "a": "Modeller maachen heiansdo Berechnungsfehler oder zitéieren veroudert Referenzen (Wëssens-Cutoff variéiert no Modell). tevaxia injéiert déi aktuell Schlësselzuele (Sätz 2026, STATEC-Koeffizienten, Bëllegen-Akt-Beträg) am Kontext fir dës Fehler ze reduzéieren. Fir kritesch Zuele préift ëmmer mat eisen deterministesche Tools (Rechner, Simulatoren)." }
+      ],
+      "sources": [
+        { "title": "Dokumentatioun vun der ëffentlecher tevaxia-API", "org": "tevaxia.lu", "url": "https://tevaxia.lu/api-docs" },
+        { "title": "TEGOVA EVS 2025 — European Valuation Standards", "org": "TEGOVA", "url": "https://www.tegova.org/", "year": 2025 },
+        { "title": "Geännert Gesetz vum 4. Dezember 1967 (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
+        { "title": "Cerebras Inference — Open-Weight-Modeller", "org": "Cerebras Systems", "url": "https://cerebras.ai/inference" },
+        { "title": "Anthropic API — Claude fir PDF-Visioun", "org": "Anthropic", "url": "https://docs.anthropic.com/" }
+      ]
     }
   },
   "aiSettings": {

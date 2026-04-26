@@ -9794,24 +9794,61 @@
       ]
     },
     "iaTevaxia": {
-      "title": "Como usar a IA em tevaxia.lu",
-      "metaDescription": "Assistente IA tevaxia.lu: análise de resultados, redação EVS, extração de PDF, chat imobiliário luxemburguês. Gratuito 5/dia, ilimitado com a sua chave (BYOK).",
-      "intro": "A tevaxia.lu integra um motor de IA especializado em imobiliário luxemburguês: fiscalidade LIR, normas TEGOVA EVS 2025, VEFA, copropriedade, hotelaria USALI, AML/KYC. Cada utilizador autenticado beneficia de 5 análises gratuitas por dia através da Cerebras (Llama 3.1 8B). Para uma utilização ilimitada ou acesso a GPT-4o / Claude, pode adicionar a sua própria chave API (BYOK) no seu perfil. Veja como tirar partido de cada funcionalidade.",
+      "title": "Como usar a IA em tevaxia.lu: guia completo 2026",
+      "metaDescription": "Assistente IA tevaxia.lu: análise de resultados, redação EVS 2025, extração de PDF, chat imobiliário luxemburguês. 5 análises gratuitas/dia via Cerebras, ilimitado com chave BYOK (Anthropic, OpenAI, Groq).",
+      "subtitle": "Todas as funcionalidades de IA da tevaxia.lu e como tirar partido delas para ganhar tempo no imobiliário luxemburguês.",
+      "category": "Produto & IA",
+      "essentiel": [
+        "5 análises gratuitas por dia por conta autenticada, via Cerebras (Llama 3.1 8B), sem cartão de crédito.",
+        "Modo BYOK (Bring Your Own Key): adicione a sua chave Anthropic, OpenAI, Groq ou Cerebras em /profil para uso ilimitado.",
+        "4 casos de uso-chave: análise inline de resultados, redação de relatório EVS 2025, extração de PDF (visão), chat imobiliário LU multi-turno.",
+        "Competências especializadas LU: LIR, TEGOVA EVS 2025, VEFA, copropriedade, USALI hotelaria, AML/KYC, Bëllegen Akt, regra dos 5%.",
+        "API pública B2B: 3 endpoints (analyze / chat / extract) acessíveis com chave tevaxia, documentação em /api-docs."
+      ],
       "section1Title": "Análise automática dos resultados",
-      "section1Content": "Em cerca de dez ferramentas (estimativa, valorização EVS, balanço do promotor, DCF multi-arrendamento, hotel USALI, score visto E-2, VEFA, mais-valias, comparação de imóveis, comprar vs. arrendar), aparece um botão «Analisar com a IA» após cada cálculo. A IA recebe o contexto completo (entradas e resultados) e redige um comentário profissional: diagnóstico do nível de preço, identificação de riscos, coerência dos rácios face aos padrões do mercado luxemburguês, recomendações de arbitragem. Os prompts são especializados por domínio: a análise de um balanço de promotor cita os rácios típicos de custo fundiário (10 a 20 % do volume de negócios), a de um P&L USALI compara com a margem GOP esperada por categoria.",
+      "section1P1": "Em cerca de dez ferramentas (estimativa, valorização EVS, balanço do promotor, DCF multi-arrendamento, hotel USALI, score visto E-2, VEFA, mais-valias, comparação de imóveis, comprar vs arrendar), aparece um botão 'Analisar com a IA' após cada cálculo. A IA recebe o contexto completo (entradas e resultados) e redige um comentário profissional: diagnóstico do nível de preço, identificação de riscos, coerência dos rácios face aos padrões do mercado LU, recomendações de arbitragem.",
+      "section1P2": "Os prompts são especializados por domínio: a análise de um balanço de promotor cita os rácios típicos de custo fundiário (10-20% do volume de negócios), a de um P&L USALI compara com a margem GOP esperada por categoria de hotel (3* = 35-40%, 4* = 38-42%, 5* = 40-45%). A IA usa as referências TEGOVA EVS 2025 e os coeficientes STATEC atualizados para validar pressupostos.",
+      "callout1Title": "Modelo predefinido: Cerebras Llama 3.1 8B",
+      "callout1Body": "O tier gratuito usa Cerebras Llama 3.1 8B (rápido, gratuito, alojado fora da UE para análises não sensíveis). Para análises confidenciais (AML/KYC, dados nominativos), prefira a sua chave Anthropic ou OpenAI com contrato empresarial e opção no-training.",
       "section2Title": "Redação do relatório EVS 2025",
-      "section2Content": "O modo Relatório EVS da página /valorisation integra 8 botões «Redigir com a IA» colocados junto aos campos narrativos (localização, envolvente, acessibilidade, justificação dos métodos, regime fiscal, impacto ESG, reservas, incerteza). Cada botão gera um parágrafo formal injetado diretamente no campo, conforme às normas TEGOVA e à Carta 5.ª edição, com referências legais (art. 102bis LIR, IVS 103, pathway CRREM). O modo Challenger EVS, no separador Reconciliação, atua como auditor crítico: assinala os dados em falta, as incoerências, os rácios anormais e os riscos de não conformidade antes da assinatura, com os prefixos [BLOQUEANTE], [GRAVE] ou [MENOR].",
+      "section2P1": "O modo Relatório EVS da página /valorisation integra 8 botões 'Redigir com a IA' colocados junto aos campos narrativos (localização, envolvente, acessibilidade, justificação dos métodos, regime fiscal, impacto ESG, reservas, incerteza). Cada botão gera um parágrafo formal injetado diretamente no campo, conforme às normas TEGOVA e à Carta 5.ª edição, com referências legais (art. 102bis LIR, IVS 103, pathway CRREM).",
+      "section2P2": "O modo Challenger EVS, no separador Reconciliação, atua como auditor crítico: assinala os dados em falta, as incoerências, os rácios anormais e os riscos de não conformidade antes da assinatura, com os prefixos [BLOQUEANTE], [GRAVE] ou [MENOR]. O relatório gerado permanece sob responsabilidade do perito TEGOVA REV/TRV que o relê, corrige e assina.",
       "section3Title": "Extração a partir de PDF (BYOK obrigatório)",
-      "section3Content": "Para pré-preencher um formulário a partir de um documento existente (balanço previsional de promotor, escritura notarial de mais-valia, certificado CPE), um botão «Pré-preencher a partir de PDF» lança uma extração por visão através da sua chave BYOK Anthropic (para PDF) ou OpenAI (para imagens). O modelo devolve um JSON estruturado que alimenta diretamente os campos. Esta funcionalidade exige uma chave API BYOK, pois os modelos gratuitos Cerebras e Groq não tratam visão. Limite de 8 MB por ficheiro. Disponível atualmente em /bilan-promoteur e /plus-values; os outros esquemas (CPE) estão suportados pela API.",
-      "section4Title": "Assistente conversacional e API pública",
-      "section4Content": "Um widget de chat flutuante no canto inferior direito abre uma conversa livre com o assistente imobiliário luxemburguês. Pode colocar-lhe questões transversais que não cabem numa ferramenta específica: «que IVA aplicar à renovação de um imóvel misto?», «que maioria é necessária para votar a reparação do telhado em copropriedade?», «como se calcula o Bëllegen Akt para um casal não residente?». O assistente mantém o contexto ao longo de várias interações. Para integradores B2B, os 3 endpoints (`/api/v1/ai/analyze`, `/api/v1/ai/chat`, `/api/v1/ai/extract`) estão acessíveis com uma chave API tevaxia (cabeçalho X-API-Key) no tier rate-limit padrão. Documentação completa em /api-docs.",
-      "relatedToolLabel": "Configurar a sua chave de IA (BYOK)",
-      "faq1Q": "A IA é mesmo gratuita?",
-      "faq1A": "Sim, 5 análises por dia por utilizador autenticado, sem custos. Para além disso, pode adicionar a sua própria chave Cerebras, Groq, OpenAI ou Anthropic no seu perfil para uma utilização ilimitada. O servidor tevaxia utiliza a Cerebras (Llama 3.1 8B) para o tier gratuito, com fallback automático para a Groq se estiver configurada.",
-      "faq2Q": "Os meus dados são enviados a terceiros?",
-      "faq2A": "Sim, os pedidos passam pelo fornecedor de IA configurado (Cerebras por omissão, ou a sua chave BYOK). Os contextos enviados contêm apenas as entradas e resultados do cálculo em curso, nunca dados pessoais fora desse cálculo. Os fornecedores Cerebras e Groq não armazenam os prompts para treino. Se está sujeito a confidencialidade (por exemplo AML/KYC sensível), prefira uma chave Anthropic ou OpenAI com as condições empresariais da sua escolha.",
-      "faq3Q": "A IA substitui um perito certificado?",
-      "faq3A": "Não. A IA fornece apoio à redação e à análise, não um parecer pericial vinculativo. Para um relatório EVS destinado a um banco ou a um tribunal, o perito certificado TEGOVA mantém-se responsável pelo valor retido e deve reler, corrigir e assinar o relatório. A IA acelera a produção (rascunho narrativo, deteção de incoerências), mas não substitui nem a perícia humana nem a visita ao imóvel."
+      "section3P1": "Para pré-preencher um formulário a partir de um documento existente (balanço previsional de promotor, escritura notarial de mais-valia, certificado CPE), um botão 'Pré-preencher a partir de PDF' lança uma extração por visão através da sua chave BYOK: Anthropic (para PDF nativos) ou OpenAI (para imagens digitalizadas). O modelo devolve um JSON estruturado que alimenta diretamente os campos do formulário.",
+      "section3P2": "Esta funcionalidade exige uma chave API BYOK, pois os modelos gratuitos Cerebras e Groq não tratam visão. Limite de 8 MB por ficheiro. Disponível atualmente em /bilan-promoteur e /plus-values; os outros esquemas (CPE, arrendamentos comerciais) são suportados pela API B2B mediante pedido. Páginas tevaxia que tratem de PDF podem ser estendidas mediante pedido.",
+      "callout2Title": "Configuração BYOK em 2 minutos",
+      "callout2Body": "Vá a /profil → separador IA → cole a sua chave API (Anthropic, OpenAI, Groq, Cerebras). A chave é cifrada do lado servidor e usada apenas para os seus pedidos. Pode revogá-la a qualquer momento. Detalhes sobre modelos suportados e custos unitários em /profil/api.",
+      "section4Title": "Chat IA e API pública B2B",
+      "section4P1": "Um widget de chat flutuante no canto inferior direito abre uma conversa livre com o assistente imobiliário luxemburguês. Pode colocar-lhe questões transversais que não cabem numa ferramenta específica: 'que IVA aplicar à renovação de um imóvel misto?', 'que maioria para votar a reparação do telhado em copropriedade?', 'como se calcula o Bëllegen Akt para um casal não residente?'. O assistente mantém o contexto ao longo de várias interações.",
+      "section4P2": "Para integradores B2B, três endpoints estão acessíveis com chave API tevaxia (cabeçalho X-API-Key) no tier rate-limit padrão: `/api/v1/ai/analyze` (análise inline), `/api/v1/ai/chat` (multi-turno), `/api/v1/ai/extract` (extração de PDF). Documentação completa, exemplos cURL e SDK JS/Python em /api-docs. Para volumes elevados ou SLA específico, contacte-nos para um tier empresarial.",
+      "callout3Title": "Limites e boas práticas",
+      "callout3Body": "A IA acelera a redação e a análise, mas não substitui um perito certificado. Para um relatório EVS destinado a um banco ou tribunal, o perito TEGOVA REV/TRV mantém-se responsável pelo valor retido e deve relê-lo, corrigi-lo e assiná-lo. Para dados AML/KYC sensíveis, prefira uma chave BYOK com opção no-training. Nunca envie documentos de identificação ou IBAN em entrada livre.",
+      "inlineCalc": {
+        "title": "Ative a sua chave de IA (BYOK) em 2 minutos",
+        "description": "Configure o seu fornecedor de IA (Cerebras gratuito, Anthropic, OpenAI, Groq) no seu perfil tevaxia para desbloquear o uso ilimitado, a extração de PDF e a API.",
+        "cta": "Abrir o meu perfil"
+      },
+      "tools": [
+        { "href": "/profil", "title": "Configurar a minha chave BYOK", "description": "Anthropic, OpenAI, Groq, Cerebras — uso ilimitado." },
+        { "href": "/api-docs", "title": "API pública B2B", "description": "3 endpoints: analyze, chat, extract — auth X-API-Key." },
+        { "href": "/valorisation", "title": "Relatório EVS 2025", "description": "Modo IA Redator + Challenger para os seus relatórios TEGOVA." },
+        { "href": "/bilan-promoteur", "title": "Balanço de promotor IA", "description": "Pré-preenchimento a partir de PDF + análise de viabilidade." }
+      ],
+      "faq": [
+        { "q": "A IA tevaxia é mesmo gratuita?", "a": "Sim: 5 análises por dia por utilizador autenticado, sem cartão de crédito nem subscrição. Para além disso, adicione a sua própria chave Cerebras, Groq, OpenAI ou Anthropic no seu perfil para uso ilimitado. O tier gratuito usa Cerebras (Llama 3.1 8B) com fallback Groq se configurado." },
+        { "q": "Os meus dados são enviados a terceiros?", "a": "Sim, os pedidos passam pelo fornecedor de IA configurado (Cerebras por omissão, ou a sua chave BYOK). Os contextos enviados contêm apenas as entradas e resultados do cálculo em curso, nunca dados pessoais fora desse âmbito. Cerebras e Groq não armazenam os prompts para treino. Para confidencialidade forte, prefira Anthropic ou OpenAI com contrato empresarial no-training." },
+        { "q": "A IA pode substituir um perito certificado TEGOVA?", "a": "Não. A IA fornece apoio à redação e à análise, não um parecer pericial vinculativo. Para um relatório EVS destinado a banco ou tribunal, o perito TEGOVA REV/TRV mantém-se responsável pelo valor retido e deve reler, corrigir e assinar. A IA acelera a produção, mas não substitui nem a perícia humana nem a visita ao imóvel." },
+        { "q": "Que modelos são suportados em BYOK?", "a": "Anthropic (Claude 4.x — recomendado para visão PDF e redação EVS), OpenAI (GPT-4o, GPT-4 Turbo — bom em visão), Groq (Llama 3.x rápido), Cerebras (Llama 3.1 8B — gratuito, predefinido). Configuração em 2 cliques em /profil. Custos unitários exibidos em tempo real." },
+        { "q": "Como aceder à API pública tevaxia?", "a": "Em /api-docs encontra a documentação completa dos 3 endpoints (analyze, chat, extract) com exemplos cURL, SDK JS e Python. Autenticação por cabeçalho X-API-Key. Tier rate-limit padrão gratuito; para volumes elevados ou SLA, contacte-nos via /pricing para um tier empresarial." },
+        { "q": "Quais são os limites das análises de IA?", "a": "Os modelos cometem por vezes erros de cálculo ou citam referências obsoletas (cutoff de conhecimento varia conforme o modelo). A tevaxia injeta os números-chave atualizados (taxas 2026, coeficientes STATEC, montantes Bëllegen Akt) no contexto para reduzir esses erros. Para números críticos, verifique sempre com as nossas ferramentas determinísticas (calculadoras, simuladores)." }
+      ],
+      "sources": [
+        { "title": "Documentação API pública tevaxia", "org": "tevaxia.lu", "url": "https://tevaxia.lu/api-docs" },
+        { "title": "TEGOVA EVS 2025 — European Valuation Standards", "org": "TEGOVA", "url": "https://www.tegova.org/", "year": 2025 },
+        { "title": "Lei modificada de 4 de dezembro de 1967 (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
+        { "title": "Cerebras Inference — modelos open-weights", "org": "Cerebras Systems", "url": "https://cerebras.ai/inference" },
+        { "title": "API Anthropic — Claude para visão PDF", "org": "Anthropic", "url": "https://docs.anthropic.com/" }
+      ]
     }
   },
   "aiSettings": {

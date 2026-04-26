@@ -9794,24 +9794,61 @@
       ]
     },
     "iaTevaxia": {
-      "title": "So nutzen Sie die KI auf tevaxia.lu",
-      "metaDescription": "KI-Assistent tevaxia.lu: Ergebnisanalyse, EVS-Berichtserstellung, PDF-Extraktion, Luxemburger Immobilien-Chat. Kostenlos 5/Tag, unbegrenzt mit eigenem Schlüssel (BYOK).",
-      "intro": "tevaxia.lu integriert eine auf Luxemburger Immobilien spezialisierte KI-Engine: LIR-Steuerrecht, TEGOVA EVS 2025, VEFA, Miteigentum, USALI-Hotellerie, AML/KYC. Jeder angemeldete Nutzer erhält täglich 5 kostenlose Analysen über Cerebras (Llama 3.1 8B). Für unbegrenzte Nutzung oder Zugriff auf GPT-4o / Claude können Sie Ihren eigenen API-Schlüssel (BYOK) im Profil hinterlegen. So nutzen Sie jede Funktion optimal.",
+      "title": "Wie Sie die KI auf tevaxia.lu nutzen: Kompletter Leitfaden 2026",
+      "metaDescription": "tevaxia.lu KI-Assistent: Ergebnisanalyse, EVS-2025-Bericht, PDF-Extraktion, Luxemburger Immobilien-Chat. 5 kostenlose Analysen/Tag via Cerebras, unbegrenzt mit BYOK-Schlüssel (Anthropic, OpenAI, Groq).",
+      "subtitle": "Alle KI-Funktionen von tevaxia.lu und wie Sie sie nutzen, um Zeit bei Luxemburger Immobilien zu sparen.",
+      "category": "Produkt & KI",
+      "essentiel": [
+        "5 kostenlose Analysen pro Tag pro angemeldetem Konto, via Cerebras (Llama 3.1 8B), keine Kreditkarte erforderlich.",
+        "BYOK-Modus (Bring Your Own Key): Fügen Sie Ihren Anthropic-, OpenAI-, Groq- oder Cerebras-Schlüssel in /profil für unbegrenzte Nutzung hinzu.",
+        "4 Schlüssel-Use-Cases: Inline-Ergebnisanalyse, EVS-2025-Berichtsentwurf, PDF-Extraktion (Vision), mehrturniger LU-Immobilien-Chat.",
+        "LU-spezialisierte Skills: LIR, TEGOVA EVS 2025, VEFA, Miteigentum, USALI-Hotellerie, AML/KYC, Bëllegen Akt, 5%-Regel.",
+        "Öffentliche B2B-API: 3 Endpoints (analyze / chat / extract) mit tevaxia-Schlüssel zugänglich, Dokumentation auf /api-docs."
+      ],
       "section1Title": "Automatische Ergebnisanalyse",
-      "section1Content": "Rund zehn Tools (Schätzung, EVS-Bewertung, Projektentwickler-P&L, Multi-Lease-DCF, USALI-Hotel, E-2-Visa-Score, VEFA, Wertzuwachs, Vergleich, Kauf-vs-Miete) zeigen nach jeder Berechnung eine Schaltfläche „Mit KI analysieren“. Die KI erhält den vollständigen Kontext (Inputs und Ergebnisse) und verfasst einen professionellen Kommentar: Preisdiagnose, Risikoerkennung, Kennzahlenkonsistenz gegenüber den Luxemburger Marktstandards, Arbitrage-Empfehlungen. Die Prompts sind fachspezifisch: eine Bilanzanalyse nennt typische Baulandkosten-Quoten (10 bis 20 % des Umsatzes), eine USALI-P&L-Analyse vergleicht die GOP-Marge mit dem erwarteten Wert je Kategorie.",
-      "section2Title": "Erstellung des EVS-2025-Berichts",
-      "section2Content": "Der Modus EVS-Bericht auf der Seite /valorisation bietet 8 Schaltflächen „Mit KI formulieren“ neben den narrativen Feldern (Lage, Umfeld, Anbindung, Methodenbegründung, Steuerregime, ESG-Wirkung, Vorbehalte, Unsicherheit). Jede Schaltfläche erzeugt einen formalen Absatz, der direkt in das Feld eingefügt wird, konform mit den TEGOVA-Normen und der Charta 5. Auflage, mit Rechtsverweisen (Art. 102bis LIR, IVS 103, CRREM-Pfad). Der Modus EVS-Challenger auf der Registerkarte Abstimmung fungiert als kritischer Auditor: er kennzeichnet fehlende Daten, Inkonsistenzen, auffällige Kennzahlen und Compliance-Risiken vor der Unterzeichnung, jeweils mit dem Präfix [BLOCKIEREND], [GRAVIEREND] oder [GERING].",
+      "section1P1": "Rund zehn Tools (Schätzung, EVS-Bewertung, Projektentwickler-P&L, Multi-Lease-DCF, USALI-Hotel, E-2-Visa-Score, VEFA, Wertzuwachs, Vergleich, Kauf-vs-Miete) zeigen nach jeder Berechnung eine Schaltfläche 'Mit KI analysieren'. Die KI erhält den vollständigen Kontext (Inputs und Ergebnisse) und verfasst einen professionellen Kommentar: Preisdiagnose, Risikoerkennung, Kennzahlenkonsistenz gegenüber LU-Marktstandards, Arbitrage-Empfehlungen.",
+      "section1P2": "Die Prompts sind fachspezifisch: eine Bilanzanalyse nennt typische Baulandkosten-Quoten (10-20% des Umsatzes), eine USALI-P&L-Analyse vergleicht die GOP-Marge mit dem erwarteten Wert je Hotelkategorie (3* = 35-40%, 4* = 38-42%, 5* = 40-45%). Die KI nutzt TEGOVA-EVS-2025-Referenzen und aktuelle STATEC-Koeffizienten zur Annahmenvalidierung.",
+      "callout1Title": "Standardmodell: Cerebras Llama 3.1 8B",
+      "callout1Body": "Der kostenlose Tarif nutzt Cerebras Llama 3.1 8B (schnell, kostenlos, außerhalb der EU gehostet für nicht-sensible Analysen). Für vertrauliche Analysen (AML/KYC, namentliche Daten) bevorzugen Sie Ihren Anthropic- oder OpenAI-Schlüssel mit Unternehmensvertrag und No-Training-Option.",
+      "section2Title": "EVS-2025-Berichtserstellung",
+      "section2P1": "Der Modus EVS-Bericht auf der Seite /valorisation bietet 8 Schaltflächen 'Mit KI formulieren' neben den narrativen Feldern (Lage, Umfeld, Anbindung, Methodenbegründung, Steuerregime, ESG-Wirkung, Vorbehalte, Unsicherheit). Jede Schaltfläche erzeugt einen formalen Absatz, der direkt in das Feld eingefügt wird, konform mit den TEGOVA-Normen und der Charta 5. Auflage, mit Rechtsverweisen (Art. 102bis LIR, IVS 103, CRREM-Pfad).",
+      "section2P2": "Der Modus EVS-Challenger auf der Registerkarte Abstimmung fungiert als kritischer Auditor: er kennzeichnet fehlende Daten, Inkonsistenzen, auffällige Kennzahlen und Compliance-Risiken vor der Unterzeichnung, jeweils mit dem Präfix [BLOCKIEREND], [GRAVIEREND] oder [GERING]. Der erstellte Bericht bleibt in der Verantwortung des TEGOVA REV/TRV-Sachverständigen, der ihn prüft, korrigiert und unterzeichnet.",
       "section3Title": "PDF-Extraktion (BYOK erforderlich)",
-      "section3Content": "Um ein Formular aus einem bestehenden Dokument vorzubefüllen (Projektentwickler-Budget, notarielle Veräußerungsurkunde, CPE-Zertifikat), startet die Schaltfläche „Aus PDF vorbefüllen“ eine Vision-Extraktion über Ihren BYOK-Schlüssel: Anthropic (für PDFs) oder OpenAI (für Bilder). Das Modell gibt strukturiertes JSON zurück, das die Felder direkt befüllt. Diese Funktion benötigt einen BYOK-API-Schlüssel, da die kostenlosen Cerebras/Groq-Modelle keine Vision-Verarbeitung bieten. Dateigröße: maximal 8 MB. Derzeit verfügbar auf /bilan-promoteur und /plus-values; weitere Schemata (CPE) werden über die API unterstützt.",
-      "section4Title": "Konversationsassistent und öffentliche API",
-      "section4Content": "Ein schwebendes Chat-Widget unten rechts öffnet eine freie Unterhaltung mit dem Luxemburger Immobilienassistenten. Sie können übergreifende Fragen stellen, die in kein spezifisches Tool passen: „Welche MwSt. gilt für die Sanierung eines Mischnutzungsgebäudes?“, „Welche Mehrheit ist für den Beschluss einer Dachsanierung im Miteigentum erforderlich?“, „Wie wird der Bëllegen Akt für ein nicht ansässiges Paar berechnet?“. Der Assistent behält den Kontext über mehrere Runden. Für B2B-Integratoren sind die 3 Endpunkte (`/api/v1/ai/analyze`, `/api/v1/ai/chat`, `/api/v1/ai/extract`) mit einem tevaxia-API-Schlüssel (Header X-API-Key) im Standard-Rate-Limit-Tarif zugänglich. Vollständige Dokumentation auf /api-docs.",
-      "relatedToolLabel": "Ihren KI-Schlüssel konfigurieren (BYOK)",
-      "faq1Q": "Ist die KI wirklich kostenlos?",
-      "faq1A": "Ja, 5 Analysen pro Tag und angemeldetem Nutzer, kostenfrei. Darüber hinaus können Sie Ihren eigenen Cerebras-, Groq-, OpenAI- oder Anthropic-Schlüssel im Profil für eine unbegrenzte Nutzung hinterlegen. Der tevaxia-Server nutzt Cerebras (Llama 3.1 8B) für den kostenlosen Tarif, mit automatischem Fallback auf Groq, sofern konfiguriert.",
-      "faq2Q": "Werden meine Daten an Dritte weitergegeben?",
-      "faq2A": "Ja, die Anfragen laufen über den konfigurierten KI-Anbieter (standardmäßig Cerebras oder Ihren BYOK-Schlüssel). Der übermittelte Kontext enthält ausschließlich die Inputs und Ergebnisse der aktuellen Berechnung, niemals personenbezogene Daten darüber hinaus. Cerebras und Groq speichern keine Prompts für das Training. Wenn Sie vertraulichkeitspflichtig sind (z. B. bei sensiblem AML/KYC), bevorzugen Sie einen Anthropic- oder OpenAI-Schlüssel mit den Unternehmensbedingungen Ihrer Wahl.",
-      "faq3Q": "Ersetzt die KI einen zertifizierten Sachverständigen?",
-      "faq3A": "Nein. Die KI unterstützt bei der Formulierung und Analyse, liefert aber kein bindendes Sachverständigengutachten. Für einen EVS-Bericht zuhanden einer Bank oder eines Gerichts bleibt der TEGOVA-zertifizierte Sachverständige für den angesetzten Wert verantwortlich und muss den Bericht prüfen, korrigieren und unterzeichnen. Die KI beschleunigt die Erstellung (Narrative-Entwurf, Inkonsistenzerkennung), ersetzt aber weder die menschliche Expertise noch die Ortsbesichtigung."
+      "section3P1": "Um ein Formular aus einem bestehenden Dokument vorzubefüllen (Projektentwickler-Budget, notarielle Veräußerungsurkunde, CPE-Zertifikat), startet die Schaltfläche 'Aus PDF vorbefüllen' eine Vision-Extraktion über Ihren BYOK-Schlüssel: Anthropic (für native PDFs) oder OpenAI (für gescannte Bilder). Das Modell gibt strukturiertes JSON zurück, das die Felder direkt befüllt.",
+      "section3P2": "Diese Funktion benötigt einen BYOK-API-Schlüssel, da die kostenlosen Cerebras/Groq-Modelle keine Vision-Verarbeitung bieten. Dateigröße: maximal 8 MB. Derzeit verfügbar auf /bilan-promoteur und /plus-values; weitere Schemata (CPE, Geschäftsmieten) werden auf Anfrage über die B2B-API unterstützt. tevaxia-Seiten, die PDF verarbeiten, können auf Anfrage erweitert werden.",
+      "callout2Title": "BYOK-Setup in 2 Minuten",
+      "callout2Body": "Gehen Sie auf /profil → Tab KI → fügen Sie Ihren API-Schlüssel ein (Anthropic, OpenAI, Groq, Cerebras). Der Schlüssel wird serverseitig verschlüsselt und nur für Ihre Anfragen genutzt. Sie können ihn jederzeit widerrufen. Details zu unterstützten Modellen und Stückkosten auf /profil/api.",
+      "section4Title": "KI-Chat und öffentliche B2B-API",
+      "section4P1": "Ein schwebendes Chat-Widget unten rechts öffnet eine freie Unterhaltung mit dem Luxemburger Immobilienassistenten. Sie können übergreifende Fragen stellen, die in kein spezifisches Tool passen: 'Welche MwSt. gilt für die Sanierung eines Mischnutzungsgebäudes?', 'Welche Mehrheit für den Beschluss einer Dachsanierung im Miteigentum?', 'Wie wird der Bëllegen Akt für ein nicht ansässiges Paar berechnet?'. Der Assistent behält den Kontext über mehrere Runden.",
+      "section4P2": "Für B2B-Integratoren sind drei Endpoints mit einem tevaxia-API-Schlüssel (Header X-API-Key) im Standard-Rate-Limit-Tarif zugänglich: `/api/v1/ai/analyze` (Inline-Analyse), `/api/v1/ai/chat` (mehrturnig), `/api/v1/ai/extract` (PDF-Extraktion). Vollständige Dokumentation, cURL-Beispiele und JS/Python-SDK auf /api-docs. Für hohe Volumen oder spezifische SLAs kontaktieren Sie uns für einen Enterprise-Tarif.",
+      "callout3Title": "Grenzen und Best Practices",
+      "callout3Body": "Die KI beschleunigt Schreiben und Analyse, ersetzt aber keinen zertifizierten Sachverständigen. Für einen EVS-Bericht zuhanden einer Bank oder eines Gerichts bleibt der TEGOVA REV/TRV-Sachverständige für den angesetzten Wert verantwortlich und muss prüfen, korrigieren und unterzeichnen. Bei sensiblen AML/KYC-Daten bevorzugen Sie einen BYOK-Schlüssel mit No-Training-Option. Senden Sie niemals Ausweise oder Bankdaten in der freien Eingabe.",
+      "inlineCalc": {
+        "title": "Aktivieren Sie Ihren KI-Schlüssel (BYOK) in 2 Minuten",
+        "description": "Konfigurieren Sie Ihren KI-Anbieter (kostenlos Cerebras, Anthropic, OpenAI, Groq) in Ihrem tevaxia-Profil, um unbegrenzte Nutzung, PDF-Extraktion und API freizuschalten.",
+        "cta": "Mein Profil öffnen"
+      },
+      "tools": [
+        { "href": "/profil", "title": "Meinen BYOK-Schlüssel konfigurieren", "description": "Anthropic, OpenAI, Groq, Cerebras — unbegrenzte Nutzung." },
+        { "href": "/api-docs", "title": "Öffentliche B2B-API", "description": "3 Endpoints: analyze, chat, extract — Auth X-API-Key." },
+        { "href": "/valorisation", "title": "EVS-2025-Bericht", "description": "KI-Modus Verfasser + Challenger für Ihre TEGOVA-Berichte." },
+        { "href": "/bilan-promoteur", "title": "KI-Projektentwickler-P&L", "description": "PDF-Vorbefüllung + Tragfähigkeitsanalyse." }
+      ],
+      "faq": [
+        { "q": "Ist die tevaxia-KI wirklich kostenlos?", "a": "Ja: 5 Analysen pro Tag pro angemeldetem Nutzer, ohne Kreditkarte oder Abo. Darüber hinaus fügen Sie Ihren eigenen Cerebras-, Groq-, OpenAI- oder Anthropic-Schlüssel im Profil für unbegrenzte Nutzung hinzu. Der kostenlose Tarif nutzt Cerebras (Llama 3.1 8B) mit Groq-Fallback bei Konfiguration." },
+        { "q": "Werden meine Daten an Dritte weitergegeben?", "a": "Ja, die Anfragen laufen über den konfigurierten KI-Anbieter (standardmäßig Cerebras oder Ihren BYOK-Schlüssel). Der übermittelte Kontext enthält ausschließlich die Inputs und Ergebnisse der aktuellen Berechnung, niemals personenbezogene Daten darüber hinaus. Cerebras und Groq speichern keine Prompts für das Training. Für hohe Vertraulichkeit bevorzugen Sie Anthropic oder OpenAI mit Enterprise-No-Training-Vertrag." },
+        { "q": "Kann die KI einen TEGOVA-zertifizierten Sachverständigen ersetzen?", "a": "Nein. Die KI unterstützt bei Formulierung und Analyse, liefert aber kein bindendes Sachverständigengutachten. Für einen EVS-Bericht zuhanden einer Bank oder eines Gerichts bleibt der TEGOVA REV/TRV-Sachverständige verantwortlich und muss prüfen, korrigieren und unterzeichnen. Die KI beschleunigt die Erstellung, ersetzt aber weder die menschliche Expertise noch die Ortsbesichtigung." },
+        { "q": "Welche Modelle werden im BYOK unterstützt?", "a": "Anthropic (Claude 4.x — empfohlen für PDF-Vision und EVS-Erstellung), OpenAI (GPT-4o, GPT-4 Turbo — gut in Vision), Groq (schnelles Llama 3.x), Cerebras (Llama 3.1 8B — kostenlos, Standard). 2-Klick-Setup in /profil. Stückkosten in Echtzeit angezeigt." },
+        { "q": "Wie greife ich auf die öffentliche tevaxia-API zu?", "a": "Auf /api-docs finden Sie die vollständige Dokumentation der 3 Endpoints (analyze, chat, extract) mit cURL-Beispielen, JS- und Python-SDK. Authentifizierung über X-API-Key-Header. Standard-Rate-Limit-Tarif gratis; für hohe Volumen oder SLA kontaktieren Sie uns über /pricing für einen Enterprise-Tarif." },
+        { "q": "Welche Grenzen haben die KI-Analysen?", "a": "Modelle machen gelegentlich Berechnungsfehler oder zitieren veraltete Referenzen (Wissens-Cutoff variiert je Modell). tevaxia injiziert die aktuellen Schlüsselzahlen (Sätze 2026, STATEC-Koeffizienten, Bëllegen-Akt-Beträge) in den Kontext, um diese Fehler zu reduzieren. Für kritische Zahlen prüfen Sie immer mit unseren deterministischen Tools (Rechner, Simulatoren)." }
+      ],
+      "sources": [
+        { "title": "Dokumentation öffentliche tevaxia-API", "org": "tevaxia.lu", "url": "https://tevaxia.lu/api-docs" },
+        { "title": "TEGOVA EVS 2025 — European Valuation Standards", "org": "TEGOVA", "url": "https://www.tegova.org/", "year": 2025 },
+        { "title": "Geändertes Gesetz vom 4. Dezember 1967 (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
+        { "title": "Cerebras Inference — Open-Weight-Modelle", "org": "Cerebras Systems", "url": "https://cerebras.ai/inference" },
+        { "title": "Anthropic API — Claude für PDF-Vision", "org": "Anthropic", "url": "https://docs.anthropic.com/" }
+      ]
     }
   },
   "aiSettings": {
