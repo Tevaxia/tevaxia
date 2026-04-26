@@ -9254,21 +9254,62 @@
       ]
     },
     "bailHabitation": {
-      "title": "Welche Regeln gelten für Wohnungsmietverträge in Luxemburg?",
-      "metaDescription": "Wohnungsmietvertrag in Luxemburg: Gesetz vom 21.09.2006, Dauer, 3/6-monatige Kündigungsfrist, max. 3 Monate Kaution, Übergabeprotokoll, umlegbare Nebenkosten.",
-      "intro": "Der Wohnungsmietvertrag in Luxemburg wird durch das geänderte Gesetz vom 21. September 2006 über die Wohnraummiete geregelt. Dieses Gesetz regelt streng die Beziehung zwischen Vermieter und Mieter: Vertragsdauer, Kündigungsbedingungen, Kautionshöhe, Pflicht zur Erstellung eines Übergabeprotokolls und Kostenverteilung. Die Miete ist auf 5 % des aufgewerteten investierten Kapitals begrenzt (Art. 3). Hier die wesentlichen Regeln vor Abschluss eines Mietvertrags in Luxemburg.",
-      "section1Title": "Mietdauer und Kündigungsfristen",
-      "section1Content": "Wohnungsmietverträge werden standardmäßig auf unbestimmte Dauer geschlossen (Art. 1, Gesetz vom 21.09.2006). Befristete Mietverträge sind möglich, wandeln sich aber bei Verbleib des Mieters automatisch in unbefristete um. Der Mieter kann jederzeit mit einer Frist von 3 Monaten per Einschreiben kündigen (Art. 12). Der Vermieter kann nur mit 6 Monaten Frist und ausschließlich aus berechtigten Gründen kündigen: Eigenbedarf (für sich selbst, Ehepartner, Vor- oder Nachfahren), schwerer Vertragsverstoß des Mieters oder Abriss-/Umbauarbeiten, die die Wohnung unbewohnbar machen. Die Kündigung durch den Vermieter muss schriftlich begründet werden, andernfalls ist sie nichtig.",
-      "section2Title": "Mietkaution und Übergabeprotokoll",
-      "section2Content": "Die Mietkaution ist auf maximal 3 Monatsmieten ohne Nebenkosten begrenzt (Art. 5, Gesetz vom 21.09.2006). Sie muss auf einem gesperrten Konto auf den Namen des Mieters bei einer luxemburgischen Bank hinterlegt werden. Die erwirtschafteten Zinsen gehören dem Mieter. Die Rückgabe der Kaution muss innerhalb einer angemessenen Frist nach Mietende erfolgen, abzüglich eventueller festgestellter Schäden. Das Übergabeprotokoll bei Ein- und Auszug ist Pflicht (Art. 9). Es muss im Beisein beider Parteien erstellt werden, vorzugsweise durch einen unabhängigen Sachverständigen. Ohne Einzugsprotokoll wird vermutet, dass der Mieter die Wohnung in gutem Zustand erhalten hat (Art. 1731 Zivilgesetzbuch). Das Protokoll schützt beide Parteien bei Streitigkeiten über den Zustand der Immobilie.",
-      "section3Title": "Umlegbare Nebenkosten und Pflichten der Parteien",
-      "section3Content": "Die auf den Mieter umlegbaren Nebenkosten sind im Großherzoglichen Reglement vom 16. Juni 2015 abschließend aufgelistet. Sie umfassen: Wasser-/Strom-/Gasverbrauch der Gemeinschaftsflächen, Zentralheizung, laufende Wartung der Gemeinschaftsbereiche (Reinigung, Gartenpflege, Aufzug), kommunale Müllgebühr und Gebäudehaftpflichtversicherung. Der Vermieter kann keine größeren Reparaturen (Dach, Fassade, Struktur) oder Verwaltungs-/Syndikusgebühren über den Mieteranteil hinaus umlegen. Der Vermieter muss die Wohnung in gutem Zustand übergeben (Art. 1719 Zivilgesetzbuch) und größere Reparaturen durchführen. Der Mieter muss die Wohnung pfleglich behandeln, die Miete pünktlich zahlen und Kleinreparaturen durchführen. Bei Streitigkeiten kann der Mieter die kommunale Mietkommission anrufen, bevor er den Rechtsweg beschreitet.",
-      "relatedToolLabel": "Berechnen Sie die gesetzliche Höchstmiete",
-      "relatedToolLink": "/calculateur-loyer",
-      "faq1Q": "Wie lang ist die Kündigungsfrist für einen Auszug in Luxemburg?",
-      "faq1A": "Der Mieter muss eine Kündigungsfrist von 3 Monaten per Einschreiben einhalten (Art. 12, Gesetz vom 21.09.2006). Der Vermieter muss 6 Monate Frist einhalten und kann nur aus berechtigten Gründen kündigen (Eigenbedarf, schwerer Verstoß, größere Arbeiten).",
-      "faq2Q": "Wie hoch ist die maximale Mietkaution in Luxemburg?",
-      "faq2A": "Die Mietkaution ist auf 3 Monatsmieten ohne Nebenkosten gedeckelt (Art. 5, Gesetz vom 21.09.2006). Sie muss auf einem Sperrkonto auf den Namen des Mieters hinterlegt werden und die Zinsen gehören dem Mieter."
+      "title": "Wohnungsmietvertrag in Luxemburg: Gesetz 21.09.2006, Rechte und Pflichten 2026",
+      "metaDescription": "Wohnungsmietvertrag LU: unbestimmte Dauer, Kündigungsfrist 3/6 Monate, Kaution max 3 Monate, Mietzinsobergrenze 5 % des aufgewerteten Kapitals, umlegbare Nebenkosten (RGD 16.06.2015), kommunale Mietkommission.",
+      "subtitle": "Alles, was Vermieter und Mieter vor Abschluss eines Wohnungsmietvertrags in Luxemburg wissen müssen.",
+      "category": "Mieten & Mietvertrag",
+      "essentiel": [
+        "Rechtsrahmen: geändertes Gesetz vom 21. September 2006 über die Wohnraummiete, ergänzt durch das Zivilgesetzbuch und das GH-Reglement vom 16. Juni 2015 zu Nebenkosten.",
+        "Standarddauer: unbestimmt. Mieterkündigung 3 Monate, Vermieterkündigung 6 Monate und nur aus berechtigtem Grund (Eigenbedarf, schwerer Verstoß, Bauarbeiten).",
+        "Miete gedeckelt auf 5 % pro Jahr des aufgewerteten investierten Kapitals (Art. 3 Gesetz 2006). Siehe spezieller Leitfaden zur 5 %-Regel.",
+        "Mietkaution: max 3 Monatsmieten ohne Nebenkosten, auf Sperrkonto auf Namen des Mieters. Zinsen gehören dem Mieter.",
+        "Kostenloses vorgerichtliches Rechtsmittel: kommunale Mietkommission vor jeder Klage."
+      ],
+      "section1Title": "Rechtsrahmen und Vertragstyp",
+      "section1P1": "Die Wohnraummiete in Luxemburg wird vom geänderten Gesetz vom 21. September 2006 erfasst, das auf jede Vermietung einer als Hauptwohnung dienenden Wohnung anwendbar ist (Artikel 1). Ausgeschlossen: kurzfristige möblierte touristische Vermietungen, Landpachtverträge und Gewerbemieten (durch andere Gesetze geregelt). Der Vertrag muss schriftlich sein; ohne Schrift erkennt das Gesetz dennoch den Mietvertrag bei Zahlung und Belegung an, jedoch mit höherer Beweislast.",
+      "section1P2": "Standardmäßig wird der Mietvertrag auf unbestimmte Dauer geschlossen. Befristete Mietverträge sind möglich, wandeln sich aber am Ende automatisch in unbefristete um, wenn der Mieter ohne Widerspruch des Vermieters wohnen bleibt (stillschweigende Verlängerung). Der Vertrag muss die Parteien, die Wohnungsbeschreibung, die Miete ohne Nebenkosten, den Nebenkostenbetrag und dessen Berechnung, den Kautionsbetrag und das Einzugsdatum nennen.",
+      "callout1Title": "Form und unzulässige Klauseln",
+      "callout1Body": "Nichtig sind: jede Kaution über 3 Monatsmieten, jede unbegrenzte Solidarhaftung eines Mitmieters nach dessen Auszug, jede Kündigungsstrafe außerhalb der gesetzlichen Frist und jede Klausel, die den Vermieter von seiner Pflicht zur Übergabe einer menschenwürdigen Wohnung befreit (Art. 1719 Zivilgesetzbuch).",
+      "section2Title": "Miete, Indexierung und Kaution",
+      "section2P1": "Die Anfangsmiete ist frei, darf aber 5 % des aufgewerteten investierten Kapitals nicht überschreiten (Art. 3 Gesetz 21.09.2006). Die Miete kann nur einmal alle zwei Jahre und nur nach oben gemäß der Entwicklung des STATEC-Verbraucherpreisindex angepasst werden, oder wenn Verbesserungsarbeiten eine Neubewertung des investierten Kapitals rechtfertigen. Die Anpassung muss per Einschreiben mit einmonatiger Vorankündigung mitgeteilt werden.",
+      "section2P2": "Die Kaution ist auf 3 Monatsmieten ohne Nebenkosten begrenzt (Art. 5 Gesetz 2006). Sie muss auf ein Sperrkonto auf den Namen des Mieters bei einer luxemburgischen Bank eingezahlt werden; die Zinsen gehören dem Mieter. Die Rückgabe muss innerhalb angemessener Frist nach Mietende erfolgen (typisch 1 bis 3 Monate), abzüglich eventueller im Auszugsprotokoll festgestellter Schäden. Eine staatliche Mietkaution ist für berechtigte Mieter über das Wohnungsbauministerium erhältlich.",
+      "section3Title": "Pflichten von Vermieter und Mieter",
+      "section3P1": "Der Vermieter muss die Wohnung in gutem Zustand übergeben (Art. 1719 ZGB), die ungestörte Nutzung gewährleisten, größere Reparaturen durchführen (Dach, Fassade, Struktur, größere elektrische Konformität) und die kontradiktorischen Übergabeprotokolle bei Ein- und Auszug erstellen. Er kann vom Mieter nur die im GH-Reglement vom 16. Juni 2015 abschließend aufgelisteten Nebenkosten verlangen: Wasser/Strom/Gas der Gemeinschaftsflächen, Zentralheizung, Wartung der Gemeinschaftsbereiche, Aufzug, kommunale Müllabgabe, Gebäudehaftpflichtversicherung.",
+      "section3P2": "Der Mieter muss die Miete pünktlich zahlen, die Wohnung pfleglich nutzen, kleine Mieterreparaturen ausführen (Dichtungen, Glühbirnen, kleine Befestigungen), eine etwaige Hausordnung respektieren und dem Vermieter Zugang für Inspektionen oder Arbeiten gewähren. Der Zahlungsausfall von mehr als zwei Mietmonaten setzt den Mieter einer gerichtlichen Vertragsauflösung wegen schwerer Verletzung mit möglicher Räumung aus, nach erfolgloser Mahnung.",
+      "callout2Title": "Unzulässige Nebenkosten",
+      "callout2Body": "Der Vermieter darf dem Mieter Folgendes nicht weitergeben: Verwaltungs- oder Syndikusgebühren über den Mieteranteil hinaus, größere Ersatzarbeiten (Heizkessel, Dach, Fassade), Grundsteuer, Wohngebäudeversicherung außer Gebäudehaftpflicht oder Verbesserungs-/Modernisierungskosten.",
+      "section4Title": "Mietende und Rechtsmittel",
+      "section4P1": "Der Mieter kann jederzeit per Einschreiben mit 3 Monaten Frist kündigen (Art. 12 Gesetz 2006). Der Vermieter kann nur mit 6 Monaten Frist und ausschließlich aus drei berechtigten Gründen kündigen: Eigenbedarf für sich selbst, Ehepartner, Vor- oder Nachfahren; schwerer Vertragsverstoß durch den Mieter; Abriss- oder Umbauarbeiten, die die Belegung unmöglich machen. Die Kündigung muss schriftlich begründet werden, andernfalls ist sie nichtig.",
+      "section4P2": "Bei Streitigkeiten (überhöhte Miete, beanstandete Nebenkosten, nicht zurückgegebene Kaution, beanstandetes Protokoll) kann der Mieter oder Vermieter die kommunale Mietkommission der Wohngemeinde kostenlos anrufen (Art. 7 Gesetz 2006). Die Kommission gibt eine nicht bindende Stellungnahme ab, der Richter aber oft folgen. Wird die Stellungnahme ignoriert, kann der Fall vor den Friedensrichter gebracht werden, oder bei hohen Mieten vor das Bezirksgericht.",
+      "callout3Title": "Solidarität zwischen Mitmietern",
+      "callout3Body": "Wenn mehrere Mieter zusammen unterschreiben (WG, Wohngemeinschaft), kann eine Solidarklausel jeden für die gesamte unbezahlte Miete haftbar machen. Nach Auszug eines Mitmieters kann seine Solidarität nicht über eine angemessene Frist (allgemein 6 Monate) ohne ausdrückliche Zustimmung aufrechterhalten werden — anderslautende Klauseln sind nichtig.",
+      "inlineCalc": {
+        "title": "Prüfen Sie die Rechtmäßigkeit Ihrer Miete",
+        "description": "Hält die geforderte Miete die 5 %-Regel auf das aufgewertete investierte Kapital ein? Unser Rechner wendet den STATEC-Index und den Abnutzungsabschlag an, um Ihnen die genaue gesetzliche Obergrenze zu geben.",
+        "cta": "Höchstmiete berechnen"
+      },
+      "tools": [
+        { "href": "/calculateur-loyer", "title": "Gesetzlicher Mietrechner", "description": "5 %-Obergrenze auf aufgewertetes investiertes Kapital, Abnutzung, WG." },
+        { "href": "/locataire", "title": "Mieterbereich", "description": "Tools: Nebenkostenverfolgung, Briefvorlagen, Übergabeprotokoll-Erinnerungen." },
+        { "href": "/carte", "title": "Mietpreiskarte", "description": "Median-Miete pro Gemeinde und Wohnungstyp zum Vergleich." },
+        { "href": "/aml-kyc", "title": "Vermieter-Verifizierung", "description": "Nützlich bei Zweifeln an Identität oder Solvenz des Vermieters." }
+      ],
+      "faq": [
+        { "q": "Wie lang ist die Kündigungsfrist für einen Auszug in Luxemburg?", "a": "Der Mieter gibt eine Kündigungsfrist von 3 Monaten per Einschreiben (Art. 12 Gesetz 2006). Der Vermieter gibt 6 Monate Frist und kann nur aus berechtigten Gründen kündigen (Eigenbedarf, schwerer Verstoß, größere Arbeiten)." },
+        { "q": "Wie hoch ist die maximale Mietkaution in Luxemburg?", "a": "Die Kaution ist auf 3 Monatsmieten ohne Nebenkosten gedeckelt (Art. 5 Gesetz 2006). Sie muss auf ein Sperrkonto auf Namen des Mieters eingezahlt werden und die Zinsen gehören dem Mieter. Jede Klausel mit höherer Kaution ist nichtig." },
+        { "q": "Kann der Vermieter die Miete während des Mietvertrags erhöhen?", "a": "Eine Anpassung ist nur einmal alle zwei Jahre möglich, gedeckelt auf den STATEC-Verbraucherpreisindex, oder wenn Verbesserungsarbeiten eine Neubewertung des investierten Kapitals rechtfertigen (mit Neubewertung der 5 %-Obergrenze). Erhöhungen sind per Einschreiben mit einmonatiger Vorankündigung mitzuteilen." },
+        { "q": "Welche Nebenkosten dürfen zusätzlich zur Miete berechnet werden?", "a": "Nur die im GH-Reglement vom 16. Juni 2015 aufgelisteten: Wasser, Strom und Gas der Gemeinschaftsflächen, Zentralheizung, laufende Wartung der Gemeinschaftsbereiche (Reinigung, Gartenpflege, Aufzug), kommunale Müllabgabe und Gebäudehaftpflichtversicherung. Alles andere (größere Arbeiten, Syndikus, Grundsteuer) trägt der Vermieter." },
+        { "q": "Wie kann eine überhöhte Miete angefochten werden?", "a": "Wenden Sie sich kostenlos an die Mietkommission Ihrer Gemeinde. Sie prüft die Berechnung des aufgewerteten investierten Kapitals und gibt eine Stellungnahme ab. Wenn der Vermieter nicht nachgibt, können Sie den Fall vor den Friedensrichter bringen, der eine rückwirkende Mietreduktion anordnen kann." },
+        { "q": "Was tun, wenn der Vermieter die Kaution nicht zurückgibt?", "a": "Schicken Sie zuerst eine Mahnung per Einschreiben. Ohne Antwort innerhalb von 30 Tagen wenden Sie sich an die Mietkommission oder direkt an den Friedensrichter. Der Richter kann die Rückgabe zuzüglich Zinsen und Schadensersatz anordnen. Bewahren Sie das Auszugsprotokoll als Beweis auf." }
+      ],
+      "sources": [
+        { "title": "Geändertes Gesetz vom 21. September 2006 über die Wohnraummiete", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
+        { "title": "Großherzogliches Reglement vom 16. Juni 2015 — umlegbare Nebenkosten", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 },
+        { "title": "Wohnungsmietvertrag — vollständiger Leitfaden", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html" },
+        { "title": "Mietkommission — Verfahren", "org": "Logement.lu — Wohnungsbauministerium", "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html" },
+        { "title": "Mietkaution — staatliche Unterstützung", "org": "Logement.lu", "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html" },
+        { "title": "Zivilgesetzbuch — Pflichten des Vermieters (Art. 1719 ff.)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+      ]
     },
     "copropriete": {
       "title": "Wie funktioniert Miteigentum in Luxemburg?",

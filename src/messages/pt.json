@@ -9254,21 +9254,62 @@
       ]
     },
     "bailHabitation": {
-      "title": "Quais são as regras do arrendamento habitacional no Luxemburgo?",
-      "metaDescription": "Arrendamento habitacional no Luxemburgo: lei de 21.09.2006, duração, pré-aviso 3/6 meses, caução máx. 3 meses, inventário, encargos recuperáveis.",
-      "intro": "O arrendamento habitacional no Luxemburgo é regido pela lei modificada de 21 de setembro de 2006 sobre o arrendamento para habitação. Esta lei enquadra estritamente as relações entre senhorio e inquilino: duração do contrato, condições de rescisão, montante da caução, obrigação de inventário e repartição de encargos. A renda é limitada a 5% do capital investido reavaliado (art. 3). Eis as regras essenciais a conhecer antes de assinar um contrato no Luxemburgo.",
-      "section1Title": "Duração do contrato e pré-aviso de rescisão",
-      "section1Content": "Os contratos de arrendamento habitacional são celebrados por duração indeterminada por defeito (art. 1.º, lei de 21.09.2006). Os contratos a prazo são possíveis mas convertem-se automaticamente em contratos de duração indeterminada se o inquilino permanecer no local. O inquilino pode rescindir a qualquer momento com pré-aviso de 3 meses por carta registada (art. 12). O senhorio só pode rescindir com pré-aviso de 6 meses e exclusivamente por motivos legítimos: necessidade pessoal de ocupação (para si, cônjuge, ascendentes ou descendentes), incumprimento grave do inquilino, ou obras de demolição/reconstrução que tornem a habitação inabitável. A rescisão pelo senhorio deve ser fundamentada por escrito sob pena de nulidade.",
-      "section2Title": "Caução e inventário",
-      "section2Content": "A caução está limitada a um máximo de 3 meses de renda sem encargos (art. 5, lei de 21.09.2006). Deve ser depositada numa conta bloqueada em nome do inquilino num banco luxemburguês. Os juros produzidos pertencem ao inquilino. A restituição da caução deve ocorrer num prazo razoável após o fim do contrato, deduzidos eventuais danos comprovados. O inventário de entrada e saída é obrigatório (art. 9). Deve ser elaborado contraditoriamente entre as partes, preferencialmente por um perito independente. Na ausência de inventário de entrada, presume-se que o inquilino recebeu a habitação em bom estado (art. 1731 do Código Civil). O inventário protege ambas as partes em caso de litígio sobre o estado do imóvel.",
-      "section3Title": "Encargos recuperáveis e obrigações das partes",
-      "section3Content": "Os encargos recuperáveis junto do inquilino estão taxativamente enumerados no Regulamento Grão-Ducal de 16 de junho de 2015. Incluem: consumo de água/eletricidade/gás das partes comuns, aquecimento coletivo, manutenção corrente das partes comuns (limpeza, jardinagem, elevador), taxa municipal de resíduos e seguro de responsabilidade civil do edifício. O senhorio não pode repercutir grandes reparações estruturais (telhado, fachada, estrutura) nem taxas de gestão/síndico além da quota-parte do inquilino. O senhorio deve entregar a habitação em bom estado de uso e reparação (art. 1719 Código Civil) e efetuar as grandes reparações. O inquilino deve usar a habitação com cuidado, pagar a renda pontualmente e efetuar as pequenas reparações de manutenção. Em caso de litígio, o inquilino pode recorrer à Comissão de Rendas do município antes de qualquer ação judicial.",
-      "relatedToolLabel": "Calcule a renda máxima legal",
-      "relatedToolLink": "/calculateur-loyer",
-      "faq1Q": "Qual é o pré-aviso para sair de uma habitação no Luxemburgo?",
-      "faq1A": "O inquilino deve respeitar um pré-aviso de 3 meses por carta registada (art. 12, lei de 21.09.2006). O senhorio deve respeitar um pré-aviso de 6 meses e só pode rescindir por motivos legítimos (necessidade pessoal, incumprimento grave, obras importantes).",
-      "faq2Q": "Qual é o montante máximo da caução no Luxemburgo?",
-      "faq2A": "A caução está limitada a 3 meses de renda sem encargos (art. 5, lei de 21.09.2006). Deve ser depositada numa conta bloqueada em nome do inquilino e os juros pertencem-lhe."
+      "title": "Arrendamento habitacional no Luxemburgo: lei 21.09.2006, direitos e obrigações 2026",
+      "metaDescription": "Arrendamento habitacional LU: duração indeterminada, pré-aviso 3/6 meses, caução máx 3 meses, renda limitada a 5% do capital reavaliado, encargos recuperáveis (RGD 16.06.2015), Comissão de Rendas municipal.",
+      "subtitle": "Tudo o que senhorio e inquilino devem saber antes de assinar um contrato de arrendamento habitacional no Luxemburgo.",
+      "category": "Arrendamento e contrato",
+      "essentiel": [
+        "Quadro legal: lei modificada de 21 de setembro de 2006 sobre arrendamento habitacional, complementada pelo Código Civil e pelo RGD de 16 de junho de 2015 sobre encargos.",
+        "Duração por defeito: indeterminada. Pré-aviso do inquilino 3 meses, do senhorio 6 meses e apenas por motivo legítimo (necessidade pessoal, incumprimento grave, obras).",
+        "Renda limitada a 5% por ano do capital investido reavaliado (art. 3 lei 2006). Ver guia dedicado à regra dos 5%.",
+        "Caução: máximo 3 meses de renda sem encargos, em conta bloqueada em nome do inquilino. Juros para o inquilino.",
+        "Recurso pré-judicial gratuito: Comissão de Rendas do município antes de qualquer ação judicial."
+      ],
+      "section1Title": "Quadro legal e tipo de contrato",
+      "section1P1": "O arrendamento habitacional no Luxemburgo é enquadrado pela lei modificada de 21 de setembro de 2006, que se aplica a qualquer arrendamento de uma habitação que sirva de residência principal (artigo 1). Excluídos: arrendamentos turísticos mobilados de curta duração, arrendamentos rurais e arrendamentos comerciais (regidos por outras leis). O contrato deve ser escrito; sem escrito, a lei reconhece o arrendamento desde que haja pagamento e ocupação, mas com encargo da prova mais pesado.",
+      "section1P2": "Por defeito, o contrato é celebrado por duração indeterminada. Contratos a prazo são possíveis mas, no termo, convertem-se automaticamente em contratos de duração indeterminada se o inquilino permanecer no local sem oposição do senhorio (renovação tácita). O contrato deve mencionar as partes, a descrição da habitação, a renda sem encargos, o montante de encargos e o seu cálculo, o montante da caução e a data de entrada.",
+      "callout1Title": "Forma e cláusulas proibidas",
+      "callout1Body": "São nulas: qualquer caução superior a 3 meses de renda, qualquer cláusula de solidariedade ilimitada de um co-inquilino após a sua saída, qualquer penalização de rescisão fora do pré-aviso legal, e qualquer cláusula que exonere o senhorio da obrigação de entregar uma habitação digna (art. 1719 Código Civil).",
+      "section2Title": "Renda, indexação e caução",
+      "section2P1": "A renda inicial é livre mas não pode exceder 5% do capital investido reavaliado (art. 3 lei 21.09.2006). A renda só pode ser revista uma vez de dois em dois anos, e apenas em alta correspondente à evolução do índice STATEC de preços ao consumidor, ou se obras de melhoria justificarem uma reavaliação do capital investido. A revisão deve ser notificada por carta registada com pré-aviso de um mês.",
+      "section2P2": "A caução está limitada a 3 meses de renda sem encargos (art. 5 lei 2006). Deve ser depositada numa conta bloqueada em nome do inquilino num banco luxemburguês; os juros pertencem ao inquilino. A restituição deve ocorrer num prazo razoável após o fim do contrato (tipicamente 1 a 3 meses), deduzidos eventuais danos verificados no inventário de saída. Uma caução do Estado está disponível para inquilinos elegíveis através do Ministério da Habitação.",
+      "section3Title": "Obrigações de senhorio e inquilino",
+      "section3P1": "O senhorio deve entregar a habitação em bom estado de uso (art. 1719 Código Civil), garantir a fruição pacífica, efetuar as grandes reparações (telhado, fachada, estrutura, conformidade elétrica importante) e elaborar os inventários contraditórios de entrada e saída. Só pode recuperar do inquilino os encargos taxativamente enumerados no RGD de 16 de junho de 2015: água/eletricidade/gás das partes comuns, aquecimento coletivo, manutenção das partes comuns, elevador, taxa municipal de resíduos, seguro de responsabilidade civil do edifício.",
+      "section3P2": "O inquilino deve pagar a renda nas datas previstas, usar a habitação com cuidado, efetuar as pequenas reparações locativas (juntas, lâmpadas, pequenas fixações), respeitar o regulamento condominial se existir e permitir o acesso ao senhorio para inspeções ou obras. O incumprimento de pagamento de mais de dois meses de renda expõe a uma rescisão judicial por incumprimento grave com possível despejo, após interpelação que tenha permanecido sem resposta.",
+      "callout2Title": "Encargos proibidos",
+      "callout2Body": "O senhorio não pode repercutir no inquilino: taxas de gestão ou síndico profissional além da quota-parte do inquilino, grandes obras de substituição (caldeira, telhado, fachada), imposto predial, seguro de habitação além da responsabilidade civil do edifício, ou despesas de melhoria/modernização do imóvel.",
+      "section4Title": "Fim do contrato e recursos",
+      "section4P1": "O inquilino pode rescindir a qualquer momento por carta registada com pré-aviso de 3 meses (art. 12 lei 2006). O senhorio só pode rescindir com pré-aviso de 6 meses e apenas por três motivos legítimos: necessidade pessoal de ocupação para si, cônjuge, ascendentes ou descendentes; incumprimento grave do inquilino; obras de demolição ou reconstrução que tornem a ocupação impossível. A rescisão deve ser fundamentada por escrito, sob pena de nulidade.",
+      "section4P2": "Em caso de litígio (renda excessiva, encargos contestados, caução não restituída, inventário contestado), o inquilino ou senhorio pode recorrer gratuitamente à Comissão de Rendas do município onde se situa a habitação (art. 7 lei 2006). A Comissão emite um parecer não vinculativo mas frequentemente seguido pelos juízes. Se o parecer não for cumprido, o caso pode ser levado ao juiz de paz, ou ao tribunal de comarca para rendas elevadas.",
+      "callout3Title": "Solidariedade entre co-inquilinos",
+      "callout3Body": "Se vários inquilinos assinarem juntos (coabitação, partilha de casa), uma cláusula de solidariedade torna cada um responsável pelo total da renda em dívida. Após a saída de um co-inquilino, a sua solidariedade não pode ser mantida além de um prazo razoável (geralmente 6 meses) sem o seu consentimento explícito — qualquer cláusula em contrário é nula.",
+      "inlineCalc": {
+        "title": "Verifique a legalidade da sua renda",
+        "description": "A renda exigida respeita a regra dos 5% sobre o capital investido reavaliado? A nossa calculadora aplica o índice STATEC e o desconto de vetustez para lhe dar o limite legal exato.",
+        "cta": "Calcular a renda máxima"
+      },
+      "tools": [
+        { "href": "/calculateur-loyer", "title": "Calculadora de renda legal", "description": "Limite 5% do capital investido reavaliado, vetustez, partilha de casa." },
+        { "href": "/locataire", "title": "Espaço inquilino", "description": "Ferramentas: acompanhamento de encargos, modelos de cartas, lembretes de inventário." },
+        { "href": "/carte", "title": "Mapa de preços de aluguer", "description": "Renda mediana por município e tipo de habitação para comparar." },
+        { "href": "/aml-kyc", "title": "Verificação do senhorio", "description": "Útil em caso de dúvida sobre identidade ou solvência do senhorio." }
+      ],
+      "faq": [
+        { "q": "Qual é o pré-aviso para sair de uma habitação no Luxemburgo?", "a": "O inquilino dá um pré-aviso de 3 meses por carta registada (art. 12 lei 2006). O senhorio dá um pré-aviso de 6 meses e só pode rescindir por motivos legítimos (necessidade pessoal, incumprimento grave, obras importantes)." },
+        { "q": "Qual é o montante máximo da caução no Luxemburgo?", "a": "A caução está limitada a 3 meses de renda sem encargos (art. 5 lei 2006). Deve ser depositada em conta bloqueada em nome do inquilino e os juros pertencem ao inquilino. Qualquer cláusula que excede este limite é nula." },
+        { "q": "O senhorio pode aumentar a renda durante o contrato?", "a": "A revisão é permitida apenas uma vez de dois em dois anos, limitada à evolução do índice STATEC de preços ao consumidor, ou se obras de melhoria justificarem uma reavaliação do capital investido (com reavaliação do limite de 5%). Os aumentos devem ser notificados por carta registada com pré-aviso de um mês." },
+        { "q": "Que encargos podem ser cobrados além da renda?", "a": "Apenas os listados no RGD de 16 de junho de 2015: água, eletricidade e gás das partes comuns, aquecimento coletivo, manutenção corrente das partes comuns (limpeza, jardinagem, elevador), taxa municipal de resíduos e seguro de responsabilidade civil do edifício. Tudo o resto (grandes obras, síndico, imposto predial) é suportado pelo senhorio." },
+        { "q": "Como contestar uma renda excessiva?", "a": "Recorra gratuitamente à Comissão de Rendas do seu município. Verifica o cálculo do capital investido reavaliado e emite um parecer. Se o senhorio não cumprir, pode levar o caso ao juiz de paz, que pode ordenar uma redução retroativa da renda." },
+        { "q": "O que fazer se o senhorio não restituir a caução?", "a": "Envie primeiro uma interpelação por carta registada. Sem resposta em 30 dias, recorra à Comissão de Rendas ou diretamente ao juiz de paz. O juiz pode ordenar a restituição acrescida de juros e indemnização. Conserve o inventário de saída como prova." }
+      ],
+      "sources": [
+        { "title": "Lei modificada de 21 de setembro de 2006 sobre arrendamento habitacional", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
+        { "title": "Regulamento Grão-Ducal de 16 de junho de 2015 — encargos recuperáveis", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 },
+        { "title": "Arrendamento habitacional — guia completo", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html" },
+        { "title": "Comissão de Rendas — procedimento", "org": "Logement.lu — Ministério da Habitação", "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html" },
+        { "title": "Caução de arrendamento — apoio do Estado", "org": "Logement.lu", "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html" },
+        { "title": "Código Civil — obrigações do senhorio (art. 1719 e seg.)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+      ]
     },
     "copropriete": {
       "title": "Como funciona o condomínio no Luxemburgo?",

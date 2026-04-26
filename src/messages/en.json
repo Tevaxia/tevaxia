@@ -9376,21 +9376,62 @@
       ]
     },
     "bailHabitation": {
-      "title": "What Are the Rules for Residential Leases in Luxembourg?",
-      "metaDescription": "Residential lease in Luxembourg: law of 21.09.2006, duration, 3/6-month notice, max 3-month deposit, inventory, recoverable charges.",
-      "intro": "Residential leases in Luxembourg are governed by the modified law of 21 September 2006 on residential tenancy. This law strictly regulates the relationship between landlord and tenant: contract duration, termination conditions, security deposit amount, mandatory inventory and charge allocation. Rent is capped at 5% of the revalued invested capital (Art. 3). Here are the essential rules to know before signing a lease in Luxembourg.",
-      "section1Title": "Lease Duration and Notice Periods",
-      "section1Content": "Residential leases are concluded for an indefinite duration by default (Art. 1, law of 21.09.2006). Fixed-term leases are possible but automatically convert to indefinite-term leases if the tenant remains in occupation at expiry. The tenant may terminate at any time with 3 months' notice by registered letter (Art. 12). The landlord may only terminate with 6 months' notice and exclusively for legitimate reasons: personal need for occupation (for themselves, their spouse, ascendants or descendants), serious breach by the tenant, or demolition/reconstruction works rendering the dwelling uninhabitable. The landlord's termination must state reasons in writing or be void.",
-      "section2Title": "Security Deposit and Inventory",
-      "section2Content": "The security deposit is limited to a maximum of 3 months' rent excluding charges (Art. 5, law of 21.09.2006). It must be placed in a blocked account in the tenant's name at a Luxembourg bank. Interest earned belongs to the tenant. The deposit must be returned within a reasonable time after the lease ends, minus any established damages. Entry and exit inventories are mandatory (Art. 9). They must be drawn up jointly between the parties, preferably by an independent expert. Without an entry inventory, the tenant is presumed to have received the dwelling in good condition (Art. 1731 Civil Code). The inventory protects both parties in case of disputes about the property's condition.",
-      "section3Title": "Recoverable Charges and Party Obligations",
-      "section3Content": "Recoverable charges from the tenant are exhaustively listed in the Grand Ducal Regulation of 16 June 2015. They include: common area water/electricity/gas consumption, collective heating, routine maintenance of common areas (cleaning, gardening, elevator), municipal household waste tax, and building liability insurance. The landlord cannot pass on major structural repairs (roof, facade, structure) or management/syndic fees beyond the tenant's share. The landlord must deliver the dwelling in good condition (Art. 1719 Civil Code) and carry out major repairs. The tenant must use the dwelling responsibly, pay rent on time and carry out routine tenant repairs. In case of dispute, the tenant may refer to the municipal Rent Commission before any court action.",
-      "relatedToolLabel": "Calculate the maximum legal rent",
-      "relatedToolLink": "/calculateur-loyer",
-      "faq1Q": "What is the notice period to leave a rental in Luxembourg?",
-      "faq1A": "The tenant must give 3 months' notice by registered letter (Art. 12, law of 21.09.2006). The landlord must give 6 months' notice and may only terminate for legitimate reasons (personal need, serious breach, major works).",
-      "faq2Q": "What is the maximum rental deposit in Luxembourg?",
-      "faq2A": "The security deposit is capped at 3 months' rent excluding charges (Art. 5, law of 21.09.2006). It must be held in a blocked account in the tenant's name and interest earned belongs to the tenant."
+      "title": "Residential Lease in Luxembourg: Law 21.09.2006, Rights and Obligations 2026",
+      "metaDescription": "LU residential lease: indefinite duration, 3/6-month notice, max 3-month deposit, rent capped at 5% of revalued capital, recoverable charges (RGD 16.06.2015), municipal Rent Commission.",
+      "subtitle": "Everything landlord and tenant need to know before signing a residential lease in Luxembourg.",
+      "category": "Renting & lease",
+      "essentiel": [
+        "Legal framework: modified law of 21 September 2006 on residential tenancy, complemented by the Civil Code and the Grand Ducal Regulation of 16 June 2015 on charges.",
+        "Default duration: indefinite. Tenant notice 3 months, landlord notice 6 months and only for legitimate reason (personal need, serious breach, works).",
+        "Rent capped at 5% per year of revalued invested capital (Art. 3 of the 2006 law). See the dedicated guide on the 5% rule.",
+        "Rental deposit: maximum 3 months' rent excluding charges, on a blocked account in the tenant's name. Interest belongs to the tenant.",
+        "Free pre-judicial remedy: municipal Rent Commission before any court action."
+      ],
+      "section1Title": "Legal framework and contract type",
+      "section1P1": "Residential leases in Luxembourg are framed by the modified law of 21 September 2006, which applies to any rental of a dwelling used as a primary residence (article 1). Excluded: short-term furnished holiday rentals, agricultural leases and commercial leases (governed by other laws). The contract must be in writing; without writing, the law still recognises the lease as soon as there is payment and occupation, but with a heavier burden of proof.",
+      "section1P2": "The lease is concluded for an indefinite duration by default. Fixed-term leases are possible but, at expiry, automatically convert into indefinite leases if the tenant remains in occupation without the landlord's opposition (tacit renewal). The contract must mention the parties, dwelling description, rent excluding charges, charge amount and calculation basis, deposit amount and entry date.",
+      "callout1Title": "Form and prohibited clauses",
+      "callout1Body": "Void clauses include: any deposit greater than 3 months' rent, any unlimited solidarity of a co-tenant after their departure, any termination penalty outside the legal notice, and any clause exempting the landlord from delivering a decent dwelling (Art. 1719 Civil Code).",
+      "section2Title": "Rent, indexation and deposit",
+      "section2P1": "The initial rent is free but cannot exceed 5% of revalued invested capital (Art. 3 of the 2006 law). Rent can only be revised once every two years, and only upwards in line with the STATEC consumer price index, or if improvement works justify a re-evaluation of the invested capital. Revision must be notified by registered letter with one month's notice.",
+      "section2P2": "The deposit is limited to 3 months' rent excluding charges (Art. 5 of the 2006 law). It must be paid into a blocked account in the tenant's name at a Luxembourg bank; interest earned belongs to the tenant. Restitution must occur within a reasonable time after the lease ends (typically 1 to 3 months), minus any damages noted at the exit inventory. A State rental guarantee is available for eligible tenants via the Ministry of Housing.",
+      "section3Title": "Landlord and tenant obligations",
+      "section3P1": "The landlord must deliver the dwelling in good condition (Art. 1719 Civil Code), guarantee peaceful enjoyment, carry out major repairs (roof, facade, structure, major electrical compliance) and produce joint entry and exit inventories. The landlord may only recover from the tenant the charges exhaustively listed in the Grand Ducal Regulation of 16 June 2015: water/electricity/gas of common areas, collective heating, common area maintenance, elevator, municipal waste tax, building liability insurance.",
+      "section3P2": "The tenant must pay rent on time, use the dwelling responsibly, perform minor tenant repairs (seals, light bulbs, small fixings), comply with the building's regulations if any, and grant the landlord access for inspections or works. Failure to pay more than two months' rent exposes the tenant to judicial termination for serious breach with possible eviction, after a formal notice that remained unheeded.",
+      "callout2Title": "Prohibited charges",
+      "callout2Body": "The landlord cannot pass on to the tenant: management or professional syndic fees beyond the tenant's share, major replacement works (boiler, roof, facade), property tax, home insurance other than building liability, or improvement/modernisation expenses.",
+      "section4Title": "End of lease and remedies",
+      "section4P1": "The tenant may terminate at any time by registered letter with 3 months' notice (Art. 12 of the 2006 law). The landlord may only terminate with 6 months' notice and only for three legitimate reasons: personal occupancy need for themselves, spouse, ascendants or descendants; serious breach of contractual obligations by the tenant; demolition or reconstruction works making occupation impossible. Termination must be motivated in writing, on penalty of nullity.",
+      "section4P2": "In case of dispute (excessive rent, contested charges, unreturned deposit, contested inventory), the tenant or landlord may refer free of charge to the municipal Rent Commission of the dwelling's location (Art. 7 of the 2006 law). The Commission issues a non-binding opinion often followed by judges. If the opinion is ignored, the matter may be brought before the justice of the peace, or the district court for high rents.",
+      "callout3Title": "Solidarity between co-tenants",
+      "callout3Body": "If several tenants sign together (cohabitation, flat-sharing), a solidarity clause makes each one potentially liable for the entire unpaid rent. After a co-tenant's departure, their solidarity cannot be maintained beyond a reasonable period (generally 6 months) without explicit consent — any clause to the contrary is void.",
+      "inlineCalc": {
+        "title": "Check the legality of your rent",
+        "description": "Does the rent comply with the 5% rule on revalued invested capital? Our calculator applies the STATEC index and the wear-and-tear discount to give you the exact legal cap.",
+        "cta": "Compute the maximum rent"
+      },
+      "tools": [
+        { "href": "/calculateur-loyer", "title": "Legal rent calculator", "description": "5% cap on revalued invested capital, wear and tear, flat-sharing." },
+        { "href": "/locataire", "title": "Tenant area", "description": "Tools: charge tracking, letter templates, inventory reminders." },
+        { "href": "/carte", "title": "Rental price map", "description": "Median rent by municipality and dwelling type for comparison." },
+        { "href": "/aml-kyc", "title": "Landlord verification", "description": "Useful when in doubt about the landlord's identity or solvency." }
+      ],
+      "faq": [
+        { "q": "What is the notice period to leave a rental in Luxembourg?", "a": "The tenant gives 3 months' notice by registered letter (Art. 12 of the 2006 law). The landlord gives 6 months' notice and may only terminate for legitimate reasons (personal need, serious breach, major works)." },
+        { "q": "What is the maximum rental deposit in Luxembourg?", "a": "The deposit is capped at 3 months' rent excluding charges (Art. 5 of the 2006 law). It must be placed in a blocked account in the tenant's name and interest belongs to the tenant. Any clause exceeding this is void." },
+        { "q": "Can the landlord raise the rent during the lease?", "a": "Revision is allowed only once every two years, capped by the STATEC consumer price index, or if improvement works justify a re-evaluation of the invested capital (with re-evaluation of the 5% cap). Increases must be notified by registered letter with one month's notice." },
+        { "q": "What charges can be billed in addition to rent?", "a": "Only those listed in the Grand Ducal Regulation of 16 June 2015: water, electricity and gas of common areas, collective heating, routine common area maintenance (cleaning, gardening, elevator), municipal waste tax and building liability insurance. Everything else (major works, syndic, property tax) is borne by the landlord." },
+        { "q": "How to challenge an excessive rent?", "a": "Refer free of charge to your municipality's Rent Commission. It checks the revalued invested capital calculation and issues an opinion. If the landlord refuses to comply, you can bring the case before the justice of the peace, who can order a retroactive rent reduction." },
+        { "q": "What if the landlord does not return the deposit?", "a": "Send a formal notice by registered letter first. Without reply within 30 days, refer to the Rent Commission or directly to the justice of the peace. The judge may order restitution plus interest and damages. Keep the exit inventory as evidence." }
+      ],
+      "sources": [
+        { "title": "Modified law of 21 September 2006 on residential tenancy", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
+        { "title": "Grand Ducal Regulation of 16 June 2015 — recoverable charges", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 },
+        { "title": "Residential lease — full guide", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html" },
+        { "title": "Rent Commission — procedure", "org": "Logement.lu — Ministry of Housing", "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html" },
+        { "title": "Rental guarantee — State support", "org": "Logement.lu", "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html" },
+        { "title": "Civil Code — landlord obligations (Art. 1719 et seq.)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+      ]
     },
     "copropriete": {
       "title": "How Does Co-ownership Work in Luxembourg?",

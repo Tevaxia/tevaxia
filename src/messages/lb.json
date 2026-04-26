@@ -9254,21 +9254,62 @@
       ]
     },
     "bailHabitation": {
-      "title": "Wéi eng Reegele gëllen fir Wunnengsmietverträg zu Lëtzebuerg?",
-      "metaDescription": "Wunnengsmietvertrag zu Lëtzebuerg: Gesetz vum 21.09.2006, Dauer, 3/6 Méint Kënnegungsfrist, max. 3 Méint Kautioun, Ëmstandsprotokoll, recuperabel Käschten.",
-      "intro": "De Wunnengsmietvertrag zu Lëtzebuerg gëtt duerch d'geännert Gesetz vum 21. September 2006 iwwer d'Wunnraumvermietung gereegelt. Dëst Gesetz reegelt streng d'Relatioun tëschent Vermieter a Locataire: Vertragsdauer, Kënnegungsbedingungen, Kautiounshéicht, Pflicht zum Ëmstandsprotokoll an d'Käschtenverteilung. De Loyer ass op 5 % vum opgewäerten investéierte Kapital limitéiert (Art. 3). Hei déi wesentlech Reegelen virum Ofschloss vun engem Mietvertrag zu Lëtzebuerg.",
-      "section1Title": "Mietdauer a Kënnegungsfrist",
-      "section1Content": "Wunnengsmietverträg gi standardméisseg op onbestëmmten Zäit ofgeschloss (Art. 1, Gesetz vum 21.09.2006). Befrist Mietverträg si méiglech, awer wandelen sech automatesch an onbefrist ëm wann de Locataire am Logement bleift. De Locataire kann zu all Moment mat enger Frist vu 3 Méint per Recommandé kënnegen (Art. 12). De Vermieter kann nëmmen mat 6 Méint Frist an exklusiv aus berechtegte Grënn kënnegen: Eegenbedarf (fir sech selwer, Conjoint, Elteren oder Kanner), schwéiere Vertragsverstouss vum Locataire oder Ofrass-/Ëmbauaarbechten, déi d'Wunneng onbewunnbar maachen. D'Kënnegung vum Vermieter muss schrëftlech begrënnt sinn, soss ass se nichteg.",
-      "section2Title": "Mietkautioun an Ëmstandsprotokoll",
-      "section2Content": "D'Mietkautioun ass op maximal 3 Méint Loyer ouni Nieftekosten limitéiert (Art. 5, Gesetz vum 21.09.2006). Si muss op engem gespaarten Konto op den Numm vum Locataire bei enger Lëtzebuerger Bank deposéiert ginn. D'Zinse gehéieren dem Locataire. D'Réckgab vun der Kautioun muss bannent enger raisonnabeler Frist nom Enn vum Bail geschéien, ofgezunn eventuell festgestallt Schied. Den Ëmstandsprotokoll beim An- an Auszuch ass Pflicht (Art. 9). Hie muss am Beisäin vu béide Parteien opgestallt ginn, viraussiichtlech duerch en onofhängegen Expert. Ouni Anzuchsprotokoll gëtt ugeholl, dass de Locataire d'Wunneng a guddem Zoustand kritt huet (Art. 1731 Code civil). De Protokoll schützt béid Parteien bei Streidegkeeten iwwer den Zoustand vun der Immobilie.",
-      "section3Title": "Recuperabel Nieftekosten a Pflichte vun de Parteien",
-      "section3Content": "D'op de Locataire recuperabel Nieftekosten si vum Groussherzoglecht Reglement vum 16. Juni 2015 ofschléissend opgelëscht. Si ëmfaassen: Waasser-/Stroum-/Gasverbrauch vun de Gemeinschaftsflächen, Zentralheizung, laufend Ënnerhalt vun de Gemeinschaftsberäicher (Botzen, Gaardenaarbecht, Lift), kommunal Dreckstax an Gebaiiversécherung. De Vermieter kann keng gréisser Reparaturen (Daach, Fassade, Struktur) oder Verwaltungs-/Syndiksgebühren iwwert den Locataire-Undeel eraus ëmleeën. De Vermieter muss d'Wunneng a guddem Zoustand iwwerginn (Art. 1719 Code civil) a gréisser Reparaturen duerchféieren. De Locataire muss d'Wunneng respektvoll notzen, de Loyer pünktlech bezuelen a Klengreparaturen duerchféieren. Bei Streidegkeeten kann de Locataire d'kommunal Loyerskommissioun uruffen, ier en de Rechtsweg beschreit.",
-      "relatedToolLabel": "Berechent déi gesetzlech Maximallayer",
-      "relatedToolLink": "/calculateur-loyer",
-      "faq1Q": "Wéi laang ass d'Kënnegungsfrist fir en Auszuch zu Lëtzebuerg?",
-      "faq1A": "De Locataire muss eng Kënnegungsfrist vu 3 Méint per Recommandé ahalten (Art. 12, Gesetz vum 21.09.2006). De Vermieter muss 6 Méint Frist ahalten a kann nëmmen aus berechtegte Grënn kënnegen (Eegenbedarf, schwéiere Verstouss, gréisser Aarbechten).",
-      "faq2Q": "Wéi héich ass d'maximal Mietkautioun zu Lëtzebuerg?",
-      "faq2A": "D'Mietkautioun ass op 3 Méint Loyer ouni Nieftekosten gedeckelt (Art. 5, Gesetz vum 21.09.2006). Si muss op engem Sparrkonto op den Numm vum Locataire deposéiert ginn an d'Zinse gehéieren dem Locataire."
+      "title": "Wunnengsmietvertrag zu Lëtzebuerg: Gesetz 21.09.2006, Rechter a Flichten 2026",
+      "metaDescription": "Wunnengsmietvertrag LU: onbestëmmten Dauer, Kënnegungsfrist 3/6 Méint, Kautioun max 3 Méint, Loyer-Plafong 5 % vum opgewäerten Kapital, recuperabel Nieftekosten (RGD 16.06.2015), kommunal Loyerskommissioun.",
+      "subtitle": "Alles wat Vermieter a Locataire wësse mussen virum Ofschloss vun engem Wunnengsmietvertrag zu Lëtzebuerg.",
+      "category": "Locatioun a Bail",
+      "essentiel": [
+        "Rechtsrahmen: geännert Gesetz vum 21. September 2006 iwwer d'Wunnraumvermietung, ergänzt duerch de Code civil an de RGD vum 16. Juni 2015 zu Käschten.",
+        "Standarddauer: onbestëmmt. Locataire-Kënnegung 3 Méint, Vermieter-Kënnegung 6 Méint an nëmmen aus berechtegtem Grond (Eegenbedarf, schwéieren Verstouss, Aarbechten).",
+        "Loyer gedeckelt op 5 % pro Joer vum opgewäerten investéierte Kapital (Art. 3 Gesetz 2006). Kuckt den dedizéierten Guide zur 5 %-Regel.",
+        "Mietkautioun: max 3 Méint Loyer ouni Nieftekosten, op engem gespaarten Konto op Numm vum Locataire. Zinse gehéieren dem Locataire.",
+        "Gratis virgeriichtlecht Rechtsmëttel: kommunal Loyerskommissioun virun all Klage."
+      ],
+      "section1Title": "Rechtsrahmen a Vertragstyp",
+      "section1P1": "D'Wunnraumvermietung zu Lëtzebuerg gëtt vum geänneren Gesetz vum 21. September 2006 erfaasst, dat fir all Locatioun vun enger als Haaptwunnsëtz benotzter Wunneng applikabel ass (Artikel 1). Ausgeschloss: kuerzfristeg méibléiert touristesch Locatiounen, Pachtverträg a Geschäftsmieten (duerch aner Gesetzer gereegelt). De Vertrag muss schrëftlech sinn; ouni Schrëft erkennt d'Gesetz de Mietvertrag awer un, wann et Bezuelung an Belegung gëtt, awer mat schwéierer Bewäisslast.",
+      "section1P2": "Standardméisseg gëtt de Mietvertrag op onbestëmmten Zäit ofgeschloss. Befrist Mietverträg si méiglech, awer wandelen sech am Enn automatesch a onbestëmmten ëm wann de Locataire ouni Widderspréch vum Vermieter wunne bleift (stilléiwer Verlängerung). De Vertrag muss d'Parteien, d'Wunnengsbeschreiwung, de Loyer ouni Nieftekosten, den Nieftekostebetrag a seng Berechnung, den Kautiounsbetrag an d'Anzuchsdatum nennen.",
+      "callout1Title": "Form an net erlaabt Klauselen",
+      "callout1Body": "Nichteg sinn: all Kautioun iwwer 3 Méint Loyer, all onbegrenzt Solidaritéit vun engem Mat-Locataire no sengem Auszuch, all Kënnegungsstrof ausserhalb der gesetzlecher Frist an all Klausel déi de Vermieter vu senger Pflicht zur Iwwergab vun enger mënschewërdeger Wunneng befreit (Art. 1719 Code civil).",
+      "section2Title": "Loyer, Indexéierung a Kautioun",
+      "section2P1": "Den Ufanksloyer ass fräi, däerf awer 5 % vum opgewäerten investéierte Kapital net iwwerschreiden (Art. 3 Gesetz 21.09.2006). De Loyer kann nëmmen eemol all zwee Joer an nëmmen no uewen no der STATEC-Verbraucherpräisindexentwécklung ugepasst ginn, oder wann Verbesserungsaarbechten eng Neibewäertung vum investéierten Kapital rechtfäerdegen. D'Upassung muss per Recommandé mat engem Méint Virkënnegung matgedeelt ginn.",
+      "section2P2": "D'Kautioun ass op 3 Méint Loyer ouni Nieftekosten limitéiert (Art. 5 Gesetz 2006). Si muss op e gespaarten Konto op den Numm vum Locataire bei enger Lëtzebuerger Bank deposéiert ginn; d'Zinse gehéieren dem Locataire. D'Réckgab muss bannent raisonnabeler Frist nom Bail-Enn geschéien (typesch 1 bis 3 Méint), ofgezunn eventuell am Auszugsprotokoll festgestallt Schied. Eng staatlech Mietkautioun ass fir berechtegt Locataire iwwer de Wunnengsbau-Ministère verfügbar.",
+      "section3Title": "Flichten vu Vermieter a Locataire",
+      "section3P1": "De Vermieter muss d'Wunneng a guddem Zoustand iwwerginn (Art. 1719 Code civil), déi onbehënnert Notzung garantéieren, gréisser Reparaturen ausféieren (Daach, Fassade, Struktur, gréisser elektresch Konformitéit) an d'kontradiktoresch Übergabeprotokoller beim An- an Auszuch erstellen. Hie kann vum Locataire nëmmen déi am RGD vum 16. Juni 2015 ofschléissend opgelëscht Nieftekosten verlaangen: Waasser/Stroum/Gas vun de Gemeinschaftsflächen, Zentralheizung, Ënnerhalt vun de Gemeinschaftsberäicher, Lift, kommunal Dreckstax, Gebaiiversécherung.",
+      "section3P2": "De Locataire muss de Loyer pünktlech bezuelen, d'Wunneng respektvoll notzen, kleng Locataire-Reparaturen ausféieren (Dichtungen, Glühbiren, kleng Fixéierungen), eng eventuell Hausuerdnung respektéieren an dem Vermieter Zougang fir Inspektioune oder Aarbechten ginn. De Bezuelungsausfall vu méi wéi zwee Méint Loyer setzt de Locataire enger geriichtlecher Vertragsopléisung wéinst schwéierer Verletzung mat méiglecher Räumung aus, no enger fruchtloser Mahnung.",
+      "callout2Title": "Net erlaabt Käschten",
+      "callout2Body": "De Vermieter däerf dem Locataire net weidergi: Verwaltungs- oder Syndiksgebühren iwwer den Locataire-Undeel eraus, gréisser Ersatzaarbechten (Heizungs, Daach, Fassade), Grondsteier, Wunngebaiiversécherung anescht wéi Gebaiiversécherung, oder Verbesserungs-/Moderniséierungskäschten.",
+      "section4Title": "Mietenn a Rechtsmëttel",
+      "section4P1": "De Locataire kann zu all Moment per Recommandé mat 3 Méint Frist kënnegen (Art. 12 Gesetz 2006). De Vermieter kann nëmme mat 6 Méint Frist an ausschliisslech aus dräi berechtegte Grënn kënnegen: Eegenbedarf fir sech selwer, Conjoint, Elteren oder Kanner; schwéieren Vertragsverstouss vum Locataire; Ofrass- oder Ëmbauaarbechten déi d'Belegung onméiglech maachen. D'Kënnegung muss schrëftlech begrënnt ginn, soss ass se nichteg.",
+      "section4P2": "Bei Streidegkeeten (iwwerhéicht Loyer, contestéiert Käschten, net zréckgegeben Kautioun, contestéiert Protokoll) kann de Locataire oder Vermieter d'kommunal Loyerskommissioun vun der Wunngemeng gratis uruffen (Art. 7 Gesetz 2006). D'Kommissioun gëtt eng net bindend Stellungnahm of, der Riichter awer dacks follegt. Gëtt d'Stellungnahm ignoréiert, kann de Fall virum Friddensriichter bruecht ginn, oder bei héije Loyer virum Bezierksgeriicht.",
+      "callout3Title": "Solidaritéit tëschent Mat-Locataire",
+      "callout3Body": "Wann méi Locataire zesummen ënnerschreiwen (WG, Cohabitatioun), kann eng Solidarklausel jiddereen fir de gesamten net bezuelten Loyer haftbar maachen. Nom Auszuch vun engem Mat-Locataire kann seng Solidaritéit net iwwer eng raisonnabel Frist (allgemeng 6 Méint) ouni ausdrécklech Zoustëmmung opgehale ginn — anerlautend Klauselen sinn nichteg.",
+      "inlineCalc": {
+        "title": "Préift d'Rechtmäissegkeet vun Ärem Loyer",
+        "description": "Hält de gefuerdert Loyer d'5 %-Regel op dat opgewäert investéiert Kapital? Eise Rechner appliquéiert den STATEC-Index an den Veraltungsrabatt fir Iech d'genau gesetzlech Plafong ze ginn.",
+        "cta": "Maximalloyer berechnen"
+      },
+      "tools": [
+        { "href": "/calculateur-loyer", "title": "Gesetzleche Loyer-Rechner", "description": "5 %-Plafong op opgewäerten investéiert Kapital, Veraltung, WG." },
+        { "href": "/locataire", "title": "Locataire-Beräich", "description": "Tools: Käschtenverfollegung, Bréifvirlagen, Übergabeprotokoll-Erënnerungen." },
+        { "href": "/carte", "title": "Mietpräiskaart", "description": "Median-Loyer pro Gemeng a Wunnengstyp fir ze vergläichen." },
+        { "href": "/aml-kyc", "title": "Vermieter-Verifikatioun", "description": "Nëtzlech bei Zweiwelen un Identitéit oder Solvenz vum Vermieter." }
+      ],
+      "faq": [
+        { "q": "Wéi laang ass d'Kënnegungsfrist fir en Auszuch zu Lëtzebuerg?", "a": "De Locataire gëtt eng Kënnegungsfrist vu 3 Méint per Recommandé (Art. 12 Gesetz 2006). De Vermieter gëtt 6 Méint Frist a kann nëmmen aus berechtegte Grënn kënnegen (Eegenbedarf, schwéieren Verstouss, gréisser Aarbechten)." },
+        { "q": "Wéi héich ass déi maximal Mietkautioun zu Lëtzebuerg?", "a": "D'Kautioun ass op 3 Méint Loyer ouni Nieftekosten gedeckelt (Art. 5 Gesetz 2006). Si muss op e Spaarkonto op Numm vum Locataire deposéiert ginn an d'Zinse gehéieren dem Locataire. All Klausel mat héijer Kautioun ass nichteg." },
+        { "q": "Kann de Vermieter de Loyer während dem Mietvertrag erhéijen?", "a": "Eng Upassung ass nëmme méiglech eemol all zwee Joer, gedeckelt op den STATEC-Verbraucherpräisindex, oder wann Verbesserungsaarbechten eng Neibewäertung vum investéierten Kapital rechtfäerdegen (mat Neibewäertung vum 5 %-Plafong). Erhéichunge sinn per Recommandé mat engem Méint Virkënnegung matzedeelen." },
+        { "q": "Wéi eng Käschten dierfen zousätzlech zum Loyer berechent ginn?", "a": "Nëmmen déi am RGD vum 16. Juni 2015 opgelëscht: Waasser, Stroum a Gas vun de Gemeinschaftsflächen, Zentralheizung, laufend Ënnerhalt vun de Gemeinschaftsberäicher (Botzen, Gaardenaarbecht, Lift), kommunal Dreckstax an Gebaiiversécherung. Alles anescht (gréisser Aarbechten, Syndik, Grondsteier) dréit de Vermieter." },
+        { "q": "Wéi kann en iwwerhéicht Loyer ugefocht ginn?", "a": "Wendt Iech gratis un d'Loyerskommissioun vun Ärer Gemeng. Si préift d'Berechnung vum opgewäerten investéierte Kapital a gëtt eng Stellungnahm of. Wann de Vermieter net nogëtt, kënnt Dir de Fall virum Friddensriichter bréngen, deen eng réckwierkend Loyer-Reduktioun ka uerdnen." },
+        { "q": "Wat maachen, wann de Vermieter d'Kautioun net zréckgëtt?", "a": "Schéckt fir d'éischt eng Mahnung per Recommandé. Ouni Äntwert bannent 30 Deeg wendt Iech un d'Loyerskommissioun oder direkt un de Friddensriichter. De Riichter ka d'Réckgab plus Zinsen a Schuedenersaz uerdnen. Bewahrt den Auszuchsprotokoll als Beweis op." }
+      ],
+      "sources": [
+        { "title": "Geännert Gesetz vum 21. September 2006 iwwer d'Wunnraumvermietung", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
+        { "title": "Groussherzoglecht Reglement vum 16. Juni 2015 — recuperabel Nieftekosten", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 },
+        { "title": "Wunnengsmietvertrag — komplett Guide", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html" },
+        { "title": "Loyerskommissioun — Prozedur", "org": "Logement.lu — Wunnengsbau-Ministère", "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html" },
+        { "title": "Mietkautioun — staatlech Ënnerstëtzung", "org": "Logement.lu", "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html" },
+        { "title": "Code civil — Pflichte vum Vermieter (Art. 1719 ff.)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+      ]
     },
     "copropriete": {
       "title": "Wéi funktionéiert Copropriétéit zu Lëtzebuerg?",
