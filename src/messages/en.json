@@ -84,6 +84,18 @@
     "relatedToolsSubtitle": "Complete your analysis with these other tevaxia tools.",
     "relatedGuidesTitle": "Related articles",
     "relatedGuidesSubtitle": "Continue reading with these complementary guides.",
+    "breadcrumbHome": "Home",
+    "breadcrumbGuide": "LU real estate guide",
+    "readingMinutes": "min read",
+    "updatedOn": "Updated",
+    "keyTakeaways": "Key takeaways in 30 seconds",
+    "tableOfContents": "Contents",
+    "tocAria": "Page contents",
+    "calculatorTevaxia": "tevaxia calculator",
+    "officialSources": "Official sources",
+    "officialSourcesSubtitle": "Statutes, circulars and publications consulted for this guide.",
+    "faqTitle": "Frequently asked questions",
+    "faqSubtitle": "Short answers to the most common questions on this topic.",
     "toc": {
       "label": "Contents",
       "hero": "Overview",
@@ -9142,21 +9154,72 @@
   },
   "guide": {
     "fraisNotaire": {
-      "title": "How Much Are Notary Fees in Luxembourg?",
-      "metaDescription": "Breakdown of notary fees in Luxembourg: registration duties (7% or 6%), transcription 1%, notary emoluments, mortgage costs. Full calculation.",
-      "intro": "Notary fees in Luxembourg represent approximately 7 to 10% of the purchase price for an existing property and 3 to 4% for a new-build (VEFA). They consist of registration duties, transcription duties, notary emoluments and mortgage costs. Here is a breakdown of each component to accurately estimate your budget.",
-      "section1Title": "Registration and Transcription Duties",
-      "section1Content": "Registration duties amount to 7% of the sale price for an existing property (modified law of 22 Frimaire Year VII). Since 2023, a reduced rate of 6% applies under certain conditions (property intended as primary residence, price below a threshold). Transcription duties are fixed at 1% of the sale price. For a new-build (VEFA), duties apply only to the land portion, while construction is subject to VAT (3% super-reduced rate for housing, capped at €50,000).",
-      "section2Title": "Notary Emoluments",
-      "section2Content": "Notary emoluments are regulated by the Grand Ducal Regulation of 26 November 2015. They follow a proportional and degressive scale: 1.650% up to €7,500, 1.100% from €7,500 to €15,000, 0.825% from €15,000 to €30,000, then 0.550% above. For a property at €750,000, emoluments amount to approximately €5,700. Additional formalities costs (mortgage searches, cadastral extracts, certificates) typically add €1,000 to €2,000.",
-      "section3Title": "Mortgage Costs",
-      "section3Content": "If you finance the purchase with a mortgage, the mortgage registration generates additional costs: 0.5% mortgage duty on the borrowed amount, notary emoluments for the mortgage deed (same degressive scale), and land registry tax. For a €600,000 loan, expect approximately €5,500 to €6,500 in mortgage costs. In total, a buyer financing 80% of a €750,000 property should budget approximately €65,000 to €75,000 in acquisition costs.",
-      "relatedToolLabel": "Calculate your acquisition costs",
-      "relatedToolLink": "/frais-acquisition",
-      "faq1Q": "How much are notary fees for a €500,000 apartment in Luxembourg?",
-      "faq1A": "For an existing apartment at €500,000, expect approximately €44,000 to €50,000 in total fees (7% registration duties + 1% transcription + notary emoluments + mortgage costs if financing).",
-      "faq2Q": "Are notary fees reduced for new-build properties in Luxembourg?",
-      "faq2A": "Yes, for a new-build (VEFA), registration and transcription duties apply only to the land portion. Construction is subject to 3% VAT (super-reduced rate), which significantly reduces total costs to approximately 3 to 4% of the price."
+      "title": "Notary Fees in Luxembourg: 2026 Rates and Detailed Calculation",
+      "metaDescription": "Notary fees in Luxembourg in 2026: 7% registration duties, 1% transcription, Bëllegen Akt up to €40,000 per buyer, notary emoluments. Detailed calculation with worked examples.",
+      "subtitle": "What the notary deed actually costs, line by line, with the official 2026 rates.",
+      "category": "Buying & financing",
+      "essentiel": [
+        "For an existing property: 7% in duties (6% registration + 1% transcription) plus notary emoluments and mortgage costs if you borrow.",
+        "For a VEFA new-build: duties apply only to the land portion. Construction is taxed at the 3% reduced housing VAT rate (tax credit capped at €50,000).",
+        "The Bëllegen Akt grants a tax credit of €40,000 per buyer (€80,000 for a couple) on registration duties, provided you personally occupy the property.",
+        "Notary emoluments follow a degressive scale set by Grand Ducal Regulation: from 1.650% on the first bracket to 0.550% above €30,000.",
+        "For a €750,000 property financed at 80%, budget around €65,000 to €75,000 in total fees before Bëllegen Akt."
+      ],
+      "section1Title": "Registration and transcription duties",
+      "section1P1": "Every transfer of immovable property in Luxembourg triggers two duties levied by the Registration, Estates and VAT Administration (AED): the registration duty, set at 6% of the price, and the transcription duty, set at 1%. These rates derive from the modified law of 22 Frimaire Year VII and the law of 25 September 1905 on the transcription of real rights, and remain unchanged in 2026.",
+      "section1P2": "For a VEFA new-build, duties only apply to the land share stated in the deed. The construction share is exempt from duties because it falls under VAT, at the super-reduced housing rate of 3% (tax credit capped at €50,000 per dwelling under AED circular no. 800 and article 44ter of the VAT law).",
+      "callout1Title": "Bëllegen Akt at a glance",
+      "callout1Body": "If the acquired property becomes your primary residence and you occupy it personally and effectively, the AED applies a tax credit on registration duties of €40,000 per buyer (€80,000 for a couple buying jointly). The application is made by the notary at the signing of the deed. A minimum of €100 remains payable in all cases.",
+      "section2Title": "Notary emoluments",
+      "section2P1": "Luxembourg notary emoluments are set by the Grand Ducal Regulation of 26 November 2015 on notary fees. The scale is proportional and degressive by bracket: 1.650% up to €7,500, 1.100% from €7,500 to €15,000, 0.825% from €15,000 to €30,000, then 0.550% above. The notary cannot raise or lower these rates.",
+      "section2P2": "Added to these fees are the formalities costs incurred by the office on behalf of the buyer: mortgage searches, cadastral extract, urban planning certificate, mortgage release certificate, copies, transmissions to the AED. These disbursements typically range from €1,000 to €2,000 for a standard residential transaction.",
+      "section3Title": "Mortgage costs",
+      "section3P1": "If the acquisition is financed by a loan, the mortgage registration in favour of the bank generates separate costs: a 0.05% mortgage duty on the borrowed amount levied by the AED, notary emoluments for the registration deed (following the same degressive scale as above), and land register filing fees. For a €600,000 loan, expect €5,500 to €6,500 in total mortgage costs.",
+      "callout2Title": "Conventional mortgage vs mandate",
+      "callout2Body": "Some banks accept a mortgage mandate (power of attorney to register) instead of an immediate mortgage registration. This cuts mortgage costs by two to three times, but exposes you to a later cost if the bank ultimately registers the mortgage. Weigh the risk with your banking advisor.",
+      "section4Title": "Worked examples by purchase price",
+      "section4Intro": "The table below gives an indicative range for an existing property occupied as the primary residence by a buyer couple (full €80,000 Bëllegen Akt applied). Mortgage costs assume 80% loan-to-value financing.",
+      "table": {
+        "caption": "Estimated acquisition costs — existing property, buyer couple, 80% financing",
+        "headers": ["Purchase price", "7% duties", "Bëllegen Akt", "Net to pay"],
+        "rows": [
+          ["€300,000", "€21,000", "−€21,000", "≈ €6,000"],
+          ["€500,000", "€35,000", "−€35,000", "≈ €10,000"],
+          ["€750,000", "€52,500", "−€52,500", "≈ €14,000"],
+          ["€1,000,000", "€70,000", "−€70,000", "≈ €18,000"],
+          ["€1,500,000", "€105,000", "−€80,000", "≈ €50,000"]
+        ],
+        "footnote": "Net to pay = duties remaining after Bëllegen Akt + notary emoluments + mortgage costs + disbursements. 2026 estimate for a first-time buyer couple. Mortgage portion calculated on 80% of price."
+      },
+      "callout3Title": "Example: couple buying a €750,000 apartment",
+      "callout3Body": "Registration and transcription duties: €52,500. Bëllegen Akt couple: −€52,500 (partial use of the €80,000 envelope). Notary emoluments (sale): ≈ €5,700. Mortgage deed for €600,000: ≈ €6,200. Disbursements and formalities: ≈ €1,500. Total payable on signing day: ≈ €13,500.",
+      "inlineCalc": {
+        "title": "Calculate your real acquisition costs",
+        "description": "Our calculator applies the degressive notary scale, the Bëllegen Akt according to your situation, the housing VAT for new-builds, and the mortgage cost based on your financing.",
+        "cta": "Open the calculator"
+      },
+      "tools": [
+        { "href": "/frais-acquisition", "title": "Acquisition costs calculator", "description": "Full estimate: duties, Bëllegen Akt, emoluments, mortgage, housing VAT." },
+        { "href": "/vefa", "title": "VEFA simulator", "description": "Land vs construction breakdown and 3% housing VAT for a new-build." },
+        { "href": "/outils-bancaires", "title": "Banking tools", "description": "Borrowing capacity, monthly payment, DSTI and LTV ratios before signing the compromis." },
+        { "href": "/simulateur-aides", "title": "Acquisition aids", "description": "Housing premium, interest subsidy, State guarantee, savings premium." }
+      ],
+      "faq": [
+        { "q": "How much are notary fees for a €500,000 apartment in Luxembourg?", "a": "For an existing €500,000 apartment bought by a first-time buyer couple (full Bëllegen Akt), expect around €10,000 to €12,000 in total fees: €35,000 in duties fully offset by the tax credit, plus €4,200 in notary emoluments, around €4,500 in mortgage costs on €400,000 borrowed, and €1,500 in disbursements." },
+        { "q": "Are notary fees reduced for new-build properties in Luxembourg?", "a": "Yes. For a VEFA new-build, registration and transcription duties only apply to the land share stated in the deed. The construction is taxed at the super-reduced 3% housing VAT (tax credit capped at €50,000 per dwelling). Total fees usually fall between 3% and 4% of the price." },
+        { "q": "What is the Bëllegen Akt and how do I get it?", "a": "The Bëllegen Akt is a tax credit of €40,000 per buyer (€80,000 for a couple) applied to registration duties, on the condition that the property serves as your primary residence and is personally occupied. The application is made automatically by the notary at signing. The AED levies a minimum of €100 in duties in all cases." },
+        { "q": "Can notary fees be negotiated in Luxembourg?", "a": "No. Luxembourg notary emoluments are strictly regulated by the Grand Ducal Regulation of 26 November 2015 and the notary cannot raise or lower them. Only disbursements (formalities) may vary slightly between offices depending on the searches conducted." },
+        { "q": "Who pays notary fees in Luxembourg, the buyer or the seller?", "a": "The buyer bears all acquisition costs (duties, sale deed emoluments, mortgage costs if borrowing). The seller only pays any formalities related to releasing a pre-existing mortgage on the property and the agency commission if it is contractually theirs." },
+        { "q": "Are notary fees tax-deductible in Luxembourg?", "a": "For a buy-to-let investment, notary fees (duties, emoluments, mortgage costs) are not immediately deductible but are added to the acquisition cost and may be amortised over the holding period. For a primary residence they are not deductible, but the Bëllegen Akt covers most of them." }
+      ],
+      "sources": [
+        { "title": "Tax credit on notarial deeds (Bëllegen Akt) — procedure", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
+        { "title": "Bëllegen Akt — official factsheet", "org": "Logement.lu — Ministry of Housing", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
+        { "title": "Grand Ducal Regulation of 26 November 2015 on notary fees", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/11/26/n6/jo", "year": 2015 },
+        { "title": "Law of 22 Frimaire Year VII on registration duties", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" },
+        { "title": "Law of 25 September 1905 on transcription of real rights", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1905/09/25/n1/jo" },
+        { "title": "3% housing VAT — AED circular", "org": "Registration, Estates and VAT Administration", "url": "https://pfi.public.lu/fr.html" }
+      ]
     },
     "regle5Pourcent": {
       "title": "How Does the 5% Rent Rule Work in Luxembourg?",
@@ -9176,21 +9239,72 @@
       "faq2A": "Bill 8184 plans to reduce the cap from 5% to 3.5% for new leases. This reform is under parliamentary discussion and could take effect in 2026."
     },
     "bellegenAkt": {
-      "title": "What Is the Bëllegen Akt and How to Benefit From It?",
-      "metaDescription": "The Bëllegen Akt is a €20,000 tax credit (€40,000 for couples) on registration duties for purchasing a primary residence in Luxembourg.",
-      "intro": "The Bëllegen Akt (literally 'affordable deed') is a tax credit granted on registration duties when purchasing a property intended as a primary residence in Luxembourg. Each buyer can benefit from a credit of up to €20,000 (i.e., €40,000 for a couple purchasing together), which significantly reduces notary costs. This mechanism is provided by Article 7 of the modified law of 22 Frimaire Year VII and the Grand Ducal Regulation of 18 December 2020.",
-      "section1Title": "Eligibility Conditions",
-      "section1Content": "To benefit from the Bëllegen Akt, four conditions must be met: (1) the buyer must commit to occupying the property as a primary residence within two years of acquisition; (2) they must not own another dwelling at the time of application; (3) the property must be located in Luxembourg; (4) the credit has not already been fully used in a previous purchase. The credit is personal: each individual has a lifetime credit of €20,000. A married or civil-partnered couple purchasing together therefore accumulates €40,000.",
-      "section2Title": "Credit Amount and Application",
-      "section2Content": "The credit is directly offset against registration and transcription duties due at the notarial deed. Concrete example: for a couple buying an apartment at €600,000, registration duties (7%) + transcription (1%) = €48,000. With the €40,000 Bëllegen Akt, they pay only €8,000 in duties. The notary automatically applies the credit when drafting the deed, after verification with the Registration and Domains Administration (AED). If the credit exceeds the duties owed, the balance remains available for a future purchase.",
-      "section3Title": "Important Considerations",
-      "section3Content": "If the buyer fails to meet the two-year occupancy commitment, the AED can claim reimbursement of the credit plus late interest. The credit does not apply to bare land without an immediate construction project. If the property is resold before the occupancy period expires, the credit may also be reclaimed. Note: the Bëllegen Akt does not reduce notary emoluments or mortgage costs, only registration and transcription duties. A partial credit is possible if part was already used in a previous acquisition.",
-      "relatedToolLabel": "Simulate your fees with the Bëllegen Akt",
-      "relatedToolLink": "/frais-acquisition",
-      "faq1Q": "Can the Bëllegen Akt be combined with other subsidies?",
-      "faq1A": "Yes, the Bëllegen Akt can be combined with the 3% VAT (for new-build properties) and PRIMe House / Klimabonus subsidies for energy renovation.",
-      "faq2Q": "Can the Bëllegen Akt be used for a rental investment?",
-      "faq2A": "No, the Bëllegen Akt is strictly reserved for primary residence purchases. A rental investment or secondary residence does not qualify."
+      "title": "Bëllegen Akt 2026: Tax Credit on Notarial Deeds in Luxembourg",
+      "metaDescription": "Bëllegen Akt 2026 in Luxembourg: €40,000 tax credit per buyer (€80,000 for a couple) on registration duties, conditions, procedure, worked examples.",
+      "subtitle": "The tax credit that can save a first-time buyer couple up to €80,000 in acquisition costs.",
+      "category": "Acquisition aids",
+      "essentiel": [
+        "Tax credit on registration and transcription duties: €40,000 per buyer, €80,000 for a couple buying jointly.",
+        "Main condition: effectively and personally occupy the property as your primary residence, from possession or within two years.",
+        "Automatic application: the notary applies it at signing, no extra paperwork for the buyer.",
+        "Floor of €100 in duties remains payable in all cases, levied by the Registration, Estates and VAT Administration (AED).",
+        "Unused credit remains available: a buyer who used €25,000 on a first purchase can still mobilise €15,000 on a future primary purchase."
+      ],
+      "section1Title": "Principle and amount",
+      "section1P1": "The Bëllegen Akt ('affordable deed') is a tax credit on the registration and transcription duties payable when buying a property intended as a primary residence in Luxembourg. Introduced by the law of 30 July 2002 and successively reformed, the current ceiling is €40,000 per buyer, i.e., €80,000 for a couple buying jointly. The credit is directly offset against duties owed: there is no cash refund.",
+      "section1P2": "The mechanism is simple: the notary calculates the duties due (6% registration + 1% transcription = 7% of the price), deducts the available Bëllegen Akt credit for each buyer, and collects the balance on behalf of the AED. If the credit exceeds the duties owed, the balance remains available for a future acquisition as a primary residence (the credit is personal and lifelong).",
+      "callout1Title": "Married or partnered couple",
+      "callout1Body": "To pool both spouses' credits (€80,000 total), the deed must record a joint acquisition in indivision. If only one spouse is named as buyer, only their personal €40,000 credit is mobilisable. The rule applies to marriage, registered partnership and even simple cohabitation if both names appear on the deed.",
+      "section2Title": "Eligibility conditions",
+      "section2P1": "Four cumulative conditions must be met: (1) the property must be located in Luxembourg, (2) it must serve as the buyer's main and habitual residence, (3) effective and personal occupation must start from possession or within two years of the deed, and (4) the buyer must sign a sworn declaration included in the deed. The credit is open to any natural person, resident or non-resident of Luxembourg.",
+      "section2P2": "The Bëllegen Akt applies to apartments, houses, and land intended to receive a primary residence construction within four years. For a VEFA new-build, the credit applies to duties on the land share (the construction share being subject to 3% housing VAT).",
+      "callout2Title": "Penalty for non-compliance",
+      "callout2Body": "If the buyer does not occupy the property within the deadline, or leaves before the end of the commitment period, the AED can claim full reimbursement of the credit plus late interest. Renting out the property in the first year may also trigger restitution. Confirm your occupancy plans before signing the compromis.",
+      "section3Title": "Procedure and application",
+      "section3P1": "No direct procedure is required from the buyer. The notary integrates the declaration into the draft deed, queries the AED for the available credit balance for each buyer (especially if one of them has already used the scheme), and applies the credit when calculating the duties. The duty receipt issued by the AED explicitly mentions the credit applied.",
+      "section3P2": "For buyers who have already used part of their credit, the AED keeps a personal register. The notary queries this register via the registration teleprocedures before finalising the deed. The residual credit is calculated automatically and offset against the duties due for the new acquisition.",
+      "section4Title": "Worked examples",
+      "section4Intro": "Here is the Bëllegen Akt's effect by buyer profile, for an existing property (7% rate).",
+      "table": {
+        "caption": "Bëllegen Akt effect by profile and price",
+        "headers": ["Purchase price", "Single buyer (€40,000)", "Couple (€80,000)", "Savings"],
+        "rows": [
+          ["€300,000", "€0 in duties", "€0 in duties", "€21,000"],
+          ["€500,000", "€0 (credit > duties)", "€0 in duties", "€35,000"],
+          ["€750,000", "€12,500 in duties", "€0 in duties", "€52,500"],
+          ["€1,000,000", "€30,000 in duties", "€0 in duties", "€70,000"],
+          ["€1,500,000", "€65,000 in duties", "€25,000 in duties", "€80,000 (couple)"]
+        ],
+        "footnote": "Savings for a first-time buyer couple who has never used the credit. For a single buyer, savings equal the lower of duties owed and €40,000."
+      },
+      "callout3Title": "Concrete case: couple, €750,000 apartment",
+      "callout3Body": "Duties owed: €52,500 (7% of €750,000). Couple Bëllegen Akt credit: €80,000 available. Offset: −€52,500. Duties payable: €0 (AED €100 floor). Residual credit for a future primary purchase: €27,500. Real savings today: €52,500.",
+      "inlineCalc": {
+        "title": "Simulate your Bëllegen Akt in a few clicks",
+        "description": "Our acquisition costs calculator automatically applies the credit based on your situation (single buyer, couple, credit already used) and gives you the exact amount payable on signing day.",
+        "cta": "Run the calculation"
+      },
+      "tools": [
+        { "href": "/frais-acquisition", "title": "Acquisition costs calculator", "description": "Automatic Bëllegen Akt offset based on your profile." },
+        { "href": "/simulateur-aides", "title": "Acquisition aids simulator", "description": "Combine Bëllegen Akt, housing premium, interest subsidy and State guarantee." },
+        { "href": "/vefa", "title": "VEFA simulator", "description": "Bëllegen Akt on the land share and 3% housing VAT on construction." },
+        { "href": "/outils-bancaires", "title": "Banking tools", "description": "Borrowing capacity and monthly payment to finalise your financing plan." }
+      ],
+      "faq": [
+        { "q": "How much is the Bëllegen Akt in 2026?", "a": "The Bëllegen Akt is €40,000 per buyer, i.e., €80,000 for a couple buying jointly in indivision. This is the maximum tax credit offsetable against registration and transcription duties." },
+        { "q": "Can the Bëllegen Akt be combined with other aids?", "a": "Yes. It combines with the 3% housing VAT on new-builds, the housing access premium, the interest subsidy, the savings premium and the State guarantee. The only forbidden combination is using the same credit twice for two simultaneous acquisitions." },
+        { "q": "Can the Bëllegen Akt be used for a rental investment?", "a": "No. The credit is strictly reserved for the acquisition of a primary residence personally occupied by the buyer. A rental investment, secondary residence or commercial premises do not qualify." },
+        { "q": "Do I need to be a Luxembourg resident to benefit?", "a": "No. The Bëllegen Akt is open to any natural person buying a property in Luxembourg to establish their primary residence there, whether already a tax resident or moving to the country at the time of purchase." },
+        { "q": "What happens if I sell my home quickly?", "a": "If resale occurs before the end of the occupancy commitment period, the AED can claim full reimbursement of the credit plus late interest. A resale after several years of effective occupancy does not trigger restitution, but the credit is not restored for a new primary acquisition." },
+        { "q": "How do I check the available credit balance?", "a": "The notary queries the AED via teleprocedures before the deed. The buyer can also request a balance certificate directly from the AED with an ID. If part of the credit was used in a previous purchase, only the residue is mobilisable." }
+      ],
+      "sources": [
+        { "title": "Tax credit on notarial deeds (Bëllegen Akt) — procedure", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
+        { "title": "Bëllegen Akt — official factsheet", "org": "Logement.lu — Ministry of Housing", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
+        { "title": "Law of 30 July 2002 establishing the tax credit on notarial deeds", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2002/07/30/n3/jo", "year": 2002 },
+        { "title": "Bëllegen Akt reform — raised to €40,000", "org": "Paperjam", "url": "https://paperjam.lu/article/frais-enregistrement-baisses-a" },
+        { "title": "Law of 22 Frimaire Year VII — registration duties", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" }
+      ]
     },
     "plusValue": {
       "title": "How Are Real Estate Capital Gains Taxed in Luxembourg?",

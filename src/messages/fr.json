@@ -84,6 +84,18 @@
     "relatedToolsSubtitle": "Complétez votre analyse avec ces autres outils tevaxia.",
     "relatedGuidesTitle": "Articles liés",
     "relatedGuidesSubtitle": "Continuez votre lecture avec ces guides complémentaires.",
+    "breadcrumbHome": "Accueil",
+    "breadcrumbGuide": "Guide immobilier LU",
+    "readingMinutes": "min de lecture",
+    "updatedOn": "Mis à jour le",
+    "keyTakeaways": "L'essentiel en 30 secondes",
+    "tableOfContents": "Sommaire",
+    "tocAria": "Sommaire de la page",
+    "calculatorTevaxia": "Calculateur tevaxia",
+    "officialSources": "Sources officielles",
+    "officialSourcesSubtitle": "Textes de loi, circulaires et publications consultés pour rédiger ce guide.",
+    "faqTitle": "Questions fréquentes",
+    "faqSubtitle": "Réponses brèves aux questions les plus posées sur ce sujet.",
     "toc": {
       "label": "Sommaire",
       "hero": "Présentation",
@@ -9142,21 +9154,72 @@
   },
   "guide": {
     "fraisNotaire": {
-      "title": "Combien coûtent les frais de notaire au Luxembourg ?",
-      "metaDescription": "Détail des frais de notaire au Luxembourg : droits d'enregistrement (7 % ou 6 %), transcription 1 %, émoluments notaire, frais hypothécaires. Calcul complet.",
-      "intro": "Les frais de notaire au Luxembourg représentent environ 7 à 10 % du prix d'achat d'un bien ancien et 3 à 4 % pour un bien neuf (VEFA). Ils se composent des droits d'enregistrement, des droits de transcription, des émoluments du notaire et des frais hypothécaires. Voici le détail de chaque composante pour estimer précisément votre budget.",
+      "title": "Frais de notaire au Luxembourg : barème 2026 et calcul détaillé",
+      "metaDescription": "Frais de notaire au Luxembourg en 2026 : droits d'enregistrement 7 %, transcription 1 %, Bëllegen Akt jusqu'à 40 000 €/personne, émoluments notariaux. Calcul détaillé avec exemples chiffrés.",
+      "subtitle": "Ce que coûte vraiment l'acte notarié, ligne par ligne, avec les barèmes officiels en vigueur en 2026.",
+      "category": "Achat & financement",
+      "essentiel": [
+        "Pour un bien ancien : 7 % de droits (enregistrement 6 % + transcription 1 %) auxquels s'ajoutent les émoluments du notaire et les frais hypothécaires si vous empruntez.",
+        "Pour un bien neuf en VEFA : les droits ne s'appliquent qu'à la part terrain. La construction est soumise à la TVA logement à 3 % (faveur fiscale plafonnée à 50 000 €).",
+        "Le Bëllegen Akt accorde un crédit d'impôt de 40 000 € par acquéreur (80 000 € pour un couple) sur les droits d'enregistrement, à condition d'occuper personnellement le logement.",
+        "Les émoluments du notaire suivent un barème dégressif fixé par règlement grand-ducal : de 1,650 % sur la première tranche à 0,550 % au-delà de 30 000 €.",
+        "Pour un bien à 750 000 € financé à 80 %, prévoir environ 65 000 à 75 000 € de frais totaux avant Bëllegen Akt."
+      ],
       "section1Title": "Droits d'enregistrement et de transcription",
-      "section1Content": "Les droits d'enregistrement s'élèvent à 7 % du prix de vente pour un bien ancien (loi modifiée du 22 frimaire an VII). Depuis 2023, un taux réduit de 6 % s'applique sous certaines conditions (bien destiné à la résidence principale, prix inférieur à un seuil). Les droits de transcription sont fixés à 1 % du prix de vente. Pour un bien neuf en VEFA, les droits ne s'appliquent que sur la part terrain, la construction étant soumise à la TVA (3 % taux super-réduit pour le logement, plafonné à 50 000 €).",
+      "section1P1": "Tout transfert de propriété immobilière au Luxembourg déclenche deux droits perçus par l'Administration de l'enregistrement, des domaines et de la TVA (AED) : le droit d'enregistrement, fixé à 6 % du prix, et le droit de transcription, fixé à 1 %. Ces taux sont issus de la loi modifiée du 22 frimaire an VII et de la loi du 25 septembre 1905 sur la transcription des droits réels immobiliers, et n'ont pas changé en 2026.",
+      "section1P2": "Pour un bien neuf vendu en VEFA (vente en l'état futur d'achèvement), les droits ne portent que sur la part terrain figurant dans l'acte. La part construction est exonérée des droits car elle relève de la TVA, au taux super-réduit de 3 % pour le logement principal (faveur fiscale plafonnée à 50 000 € par logement, conformément à la circulaire AED n° 800 et à l'article 44ter de la loi TVA).",
+      "callout1Title": "Le Bëllegen Akt en bref",
+      "callout1Body": "Si le logement acquis devient votre résidence principale et que vous l'occupez effectivement et personnellement, l'AED applique un crédit d'impôt sur les droits d'enregistrement de 40 000 € par acquéreur (80 000 € pour un couple acquérant ensemble). La demande est faite par le notaire lors de la passation de l'acte. Au moins 100 € restent dus dans tous les cas.",
       "section2Title": "Émoluments du notaire",
-      "section2Content": "Les émoluments du notaire sont réglementés par le règlement grand-ducal du 26 novembre 2015. Ils suivent un barème proportionnel et dégressif : 1,650 % jusqu'à 7 500 €, 1,100 % de 7 500 à 15 000 €, 0,825 % de 15 000 à 30 000 €, puis 0,550 % au-delà. Pour un bien à 750 000 €, les émoluments s'élèvent à environ 5 700 €. S'y ajoutent des frais de formalités (recherches hypothécaires, extraits cadastraux, certificats) qui représentent généralement 1 000 à 2 000 € supplémentaires.",
+      "section2P1": "Les émoluments du notaire luxembourgeois sont fixés par le règlement grand-ducal du 26 novembre 2015 concernant les honoraires des notaires. Le barème est proportionnel et dégressif par tranche : 1,650 % jusqu'à 7 500 €, 1,100 % de 7 500 € à 15 000 €, 0,825 % de 15 000 € à 30 000 €, puis 0,550 % au-delà. Le notaire ne peut ni majorer ni minorer ces taux.",
+      "section2P2": "À ces honoraires s'ajoutent les frais de formalités exposés par l'étude pour le compte de l'acquéreur : recherches hypothécaires, extrait cadastral, certificat d'urbanisme, certificat de mainlevée, photocopies, transmissions à l'AED. Ces débours représentent généralement entre 1 000 et 2 000 € pour une transaction résidentielle classique.",
       "section3Title": "Frais hypothécaires",
-      "section3Content": "Si vous financez l'achat par un emprunt, l'inscription hypothécaire génère des frais supplémentaires : droit d'hypothèque de 0,5 % du montant emprunté, émoluments du notaire pour l'acte hypothécaire (même barème dégressif), et taxe de publicité foncière. Pour un emprunt de 600 000 €, comptez environ 5 500 à 6 500 € de frais hypothécaires. Au total, un acquéreur finançant 80 % d'un bien à 750 000 € doit prévoir environ 65 000 à 75 000 € de frais d'acquisition.",
-      "relatedToolLabel": "Calculer vos frais d'acquisition",
-      "relatedToolLink": "/frais-acquisition",
-      "faq1Q": "Combien de frais de notaire pour un appartement à 500 000 € au Luxembourg ?",
-      "faq1A": "Pour un appartement ancien à 500 000 €, comptez environ 44 000 à 50 000 € de frais totaux (droits d'enregistrement 7 % + transcription 1 % + émoluments notaire + frais hypothécaires si emprunt).",
-      "faq2Q": "Les frais de notaire sont-ils réduits pour un bien neuf au Luxembourg ?",
-      "faq2A": "Oui, pour un bien neuf (VEFA), les droits d'enregistrement et de transcription ne s'appliquent que sur la part terrain. La construction est soumise à la TVA à 3 % (taux super-réduit), ce qui réduit significativement les frais totaux à environ 3 à 4 % du prix."
+      "section3P1": "Si l'acquisition est financée par un crédit, l'inscription hypothécaire au profit de la banque génère des frais distincts : un droit d'hypothèque de 0,05 % du montant emprunté perçu par l'AED, les émoluments du notaire pour l'acte d'inscription (suivant le même barème dégressif que ci-dessus), et les frais d'inscription au registre foncier. Pour un emprunt de 600 000 €, comptez 5 500 à 6 500 € de frais hypothécaires totaux.",
+      "callout2Title": "Hypothèque conventionnelle vs mandat",
+      "callout2Body": "Certaines banques acceptent un mandat hypothécaire (procuration de prendre inscription) au lieu d'une inscription hypothécaire immédiate. Cela divise les frais hypothécaires par deux à trois, mais expose à un coût ultérieur si la banque doit finalement inscrire l'hypothèque. Pesez le risque avec votre conseiller bancaire.",
+      "section4Title": "Exemples chiffrés par prix d'achat",
+      "section4Intro": "Le tableau ci-dessous donne une fourchette indicative pour un bien ancien occupé à titre de résidence principale par un couple acquéreur (Bëllegen Akt 80 000 € appliqué). Les frais hypothécaires correspondent à un financement à 80 % de la valeur.",
+      "table": {
+        "caption": "Frais d'acquisition estimés — bien ancien, couple acquéreur, financement 80 %",
+        "headers": ["Prix d'achat", "Droits 7 %", "Bëllegen Akt", "Total à payer"],
+        "rows": [
+          ["300 000 €", "21 000 €", "−21 000 €", "≈ 6 000 €"],
+          ["500 000 €", "35 000 €", "−35 000 €", "≈ 10 000 €"],
+          ["750 000 €", "52 500 €", "−52 500 €", "≈ 14 000 €"],
+          ["1 000 000 €", "70 000 €", "−70 000 €", "≈ 18 000 €"],
+          ["1 500 000 €", "105 000 €", "−80 000 €", "≈ 50 000 €"]
+        ],
+        "footnote": "Total à payer = droits restants après Bëllegen Akt + émoluments notaire + frais hypothécaires + débours. Estimation 2026 pour un couple primo-acquéreur. La part hypothèque est calculée sur 80 % du prix."
+      },
+      "callout3Title": "Exemple : couple achetant un appartement à 750 000 €",
+      "callout3Body": "Droits d'enregistrement et transcription : 52 500 €. Bëllegen Akt couple : −52 500 € (consommation partielle de l'enveloppe de 80 000 €). Émoluments notaire (vente) : ≈ 5 700 €. Acte hypothécaire pour 600 000 € : ≈ 6 200 €. Débours et formalités : ≈ 1 500 €. Total à débourser le jour de l'acte : ≈ 13 500 €.",
+      "inlineCalc": {
+        "title": "Calculez vos frais d'acquisition réels",
+        "description": "Notre calculateur applique le barème dégressif des notaires, le Bëllegen Akt selon votre situation, la TVA logement pour les biens neufs et le coût hypothécaire selon le financement.",
+        "cta": "Ouvrir le calculateur"
+      },
+      "tools": [
+        { "href": "/frais-acquisition", "title": "Calculateur de frais d'acquisition", "description": "Estimation complète : droits, Bëllegen Akt, émoluments, hypothèque, TVA logement." },
+        { "href": "/vefa", "title": "Simulateur VEFA", "description": "Décomposition terrain / construction et TVA logement 3 % pour un bien neuf." },
+        { "href": "/outils-bancaires", "title": "Outils bancaires", "description": "Capacité d'emprunt, mensualité, ratios DSTI et LTV avant de signer le compromis." },
+        { "href": "/simulateur-aides", "title": "Aides à l'acquisition", "description": "Prime de logement, subvention d'intérêt, garantie de l'État, prime d'épargne." }
+      ],
+      "faq": [
+        { "q": "Combien de frais de notaire pour un appartement à 500 000 € au Luxembourg ?", "a": "Pour un appartement ancien à 500 000 € acheté par un couple primo-acquéreur (Bëllegen Akt plein), comptez environ 10 000 à 12 000 € de frais totaux : droits 35 000 € entièrement annulés par le crédit d'impôt, plus 4 200 € d'émoluments notaire, environ 4 500 € de frais hypothécaires sur 400 000 € empruntés et 1 500 € de débours." },
+        { "q": "Les frais de notaire sont-ils réduits pour un bien neuf au Luxembourg ?", "a": "Oui. Pour un bien neuf vendu en VEFA, les droits d'enregistrement et de transcription ne portent que sur la part terrain figurant dans l'acte. La construction est soumise à la TVA logement au taux super-réduit de 3 % (faveur fiscale plafonnée à 50 000 € par logement). Les frais totaux tombent généralement entre 3 et 4 % du prix." },
+        { "q": "Qu'est-ce que le Bëllegen Akt et comment l'obtenir ?", "a": "Le Bëllegen Akt est un crédit d'impôt de 40 000 € par acquéreur (80 000 € pour un couple) appliqué sur les droits d'enregistrement, à condition que le bien serve de résidence principale et soit occupé personnellement par l'acquéreur. La demande est faite automatiquement par le notaire lors de l'acte. L'AED perçoit au minimum 100 € de droits dans tous les cas." },
+        { "q": "Les frais de notaire peuvent-ils être négociés au Luxembourg ?", "a": "Non. Les émoluments du notaire luxembourgeois sont strictement réglementés par le règlement grand-ducal du 26 novembre 2015 et le notaire ne peut ni les majorer ni les minorer. Seuls les débours (formalités) peuvent légèrement varier d'une étude à l'autre selon les recherches effectuées." },
+        { "q": "Qui paie les frais de notaire au Luxembourg : l'acheteur ou le vendeur ?", "a": "L'acheteur supporte la totalité des frais d'acquisition (droits, émoluments de l'acte de vente, frais hypothécaires si emprunt). Le vendeur paie uniquement les éventuelles formalités liées à la mainlevée d'une hypothèque préexistante sur le bien et l'éventuelle commission d'agence si elle est à sa charge." },
+        { "q": "Les frais de notaire sont-ils déductibles fiscalement au Luxembourg ?", "a": "Pour un investissement locatif, les frais de notaire (droits, émoluments, frais hypothécaires) ne sont pas déductibles immédiatement mais sont intégrés au coût d'acquisition et peuvent être amortis sur la durée de détention. Pour la résidence principale, ils ne sont pas déductibles mais le Bëllegen Akt en couvre une grande partie." }
+      ],
+      "sources": [
+        { "title": "Crédit d'impôt sur les actes notariés (Bëllegen Akt) — démarche", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
+        { "title": "Bëllegen Akt — fiche officielle", "org": "Logement.lu — Ministère du Logement", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
+        { "title": "Règlement grand-ducal du 26 novembre 2015 fixant les émoluments des notaires", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/11/26/n6/jo", "year": 2015 },
+        { "title": "Loi du 22 frimaire an VII relative aux droits d'enregistrement", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" },
+        { "title": "Loi du 25 septembre 1905 sur la transcription des droits réels immobiliers", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1905/09/25/n1/jo" },
+        { "title": "TVA logement à 3 % — circulaire AED", "org": "Administration de l'enregistrement, des domaines et de la TVA", "url": "https://pfi.public.lu/fr.html" }
+      ]
     },
     "regle5Pourcent": {
       "title": "Comment fonctionne la règle des 5 % pour les loyers au Luxembourg ?",
@@ -9176,21 +9239,72 @@
       "faq2A": "Le projet de loi 8184 prévoit de réduire le plafond de 5 % à 3,5 % pour les nouveaux baux. Cette réforme est en discussion parlementaire et pourrait entrer en vigueur en 2026."
     },
     "bellegenAkt": {
-      "title": "Qu'est-ce que le Bëllegen Akt et comment en bénéficier ?",
-      "metaDescription": "Le Bëllegen Akt est un crédit d'impôt de 20 000 € (40 000 € en couple) sur les droits d'enregistrement pour l'achat d'une résidence principale au Luxembourg.",
-      "intro": "Le Bëllegen Akt (littéralement « acte à bon marché ») est un crédit d'impôt accordé sur les droits d'enregistrement lors de l'acquisition d'un bien immobilier destiné à servir de résidence principale au Luxembourg. Chaque acquéreur peut bénéficier d'un crédit allant jusqu'à 20 000 € (soit 40 000 € pour un couple acquérant ensemble), ce qui réduit significativement le coût des frais de notaire. Ce dispositif est prévu par l'article 7 de la loi modifiée du 22 frimaire an VII et le règlement grand-ducal du 18 décembre 2020.",
-      "section1Title": "Conditions d'éligibilité",
-      "section1Content": "Pour bénéficier du Bëllegen Akt, quatre conditions doivent être remplies : (1) l'acquéreur doit s'engager à occuper le bien comme résidence principale dans les deux ans suivant l'acquisition ; (2) il ne doit pas être propriétaire d'un autre logement au moment de la demande ; (3) le bien doit être situé au Luxembourg ; (4) le crédit n'a pas déjà été intégralement utilisé lors d'une acquisition antérieure. Le crédit est personnel : chaque personne physique dispose d'un crédit de 20 000 € sur l'ensemble de sa vie. Un couple marié ou pacsé achetant ensemble cumule donc 40 000 €.",
-      "section2Title": "Montant et application du crédit",
-      "section2Content": "Le crédit s'impute directement sur les droits d'enregistrement et de transcription dus lors de l'acte notarié. Exemple concret : pour un couple achetant un appartement à 600 000 €, les droits d'enregistrement (7 %) + transcription (1 %) = 48 000 €. Avec le Bëllegen Akt de 40 000 €, ils ne paient que 8 000 € de droits. Le notaire applique automatiquement le crédit lors de la rédaction de l'acte, après vérification auprès de l'Administration de l'enregistrement et des domaines (AED). Si le crédit excède les droits dus, le solde reste disponible pour une future acquisition.",
-      "section3Title": "Points de vigilance",
-      "section3Content": "Si l'acquéreur ne respecte pas l'engagement d'occupation dans les deux ans, l'AED peut réclamer le remboursement du crédit majoré d'intérêts de retard. Le crédit ne s'applique pas aux terrains nus sans projet de construction immédiat. En cas de revente du bien avant l'expiration du délai d'occupation, le crédit peut également être réclamé. Attention : le Bëllegen Akt ne réduit pas les émoluments du notaire ni les frais hypothécaires, seulement les droits d'enregistrement et de transcription. Un crédit partiel est possible si une partie a déjà été utilisée lors d'une première acquisition.",
-      "relatedToolLabel": "Simuler vos frais avec le Bëllegen Akt",
-      "relatedToolLink": "/frais-acquisition",
-      "faq1Q": "Le Bëllegen Akt est-il cumulable avec d'autres aides ?",
-      "faq1A": "Oui, le Bëllegen Akt est cumulable avec la TVA à 3 % (pour les biens neufs) et les aides PRIMe House / Klimabonus pour la rénovation énergétique.",
-      "faq2Q": "Peut-on utiliser le Bëllegen Akt pour un investissement locatif ?",
-      "faq2A": "Non, le Bëllegen Akt est strictement réservé à l'acquisition d'une résidence principale. Un investissement locatif ou une résidence secondaire ne permet pas d'en bénéficier."
+      "title": "Bëllegen Akt 2026 : crédit d'impôt sur les actes notariés au Luxembourg",
+      "metaDescription": "Bëllegen Akt 2026 au Luxembourg : crédit d'impôt de 40 000 € par acquéreur (80 000 € en couple) sur les droits d'enregistrement, conditions, démarche, exemples chiffrés.",
+      "subtitle": "Le crédit d'impôt qui peut faire économiser jusqu'à 80 000 € de frais d'acquisition à un couple primo-accédant.",
+      "category": "Aides à l'acquisition",
+      "essentiel": [
+        "Crédit d'impôt sur les droits d'enregistrement et de transcription : 40 000 € par acquéreur, 80 000 € pour un couple acquérant ensemble.",
+        "Condition principale : occuper effectivement et personnellement le logement comme résidence principale, dès l'entrée en jouissance ou dans les deux ans.",
+        "Demande automatique : le notaire l'applique lors de la passation de l'acte, sans formalité supplémentaire pour l'acquéreur.",
+        "Plancher de 100 € de droits dus dans tous les cas, prélevés par l'Administration de l'enregistrement, des domaines et de la TVA (AED).",
+        "Le crédit non utilisé reste disponible : un acquéreur ayant consommé 25 000 € sur un premier achat peut encore mobiliser 15 000 € sur un futur achat principal."
+      ],
+      "section1Title": "Principe et montant",
+      "section1P1": "Le Bëllegen Akt (« acte à bon marché ») est un crédit d'impôt sur les droits d'enregistrement et de transcription dus lors de l'acquisition d'un logement destiné à servir de résidence principale au Luxembourg. Il a été instauré par la loi du 30 juillet 2002 puis successivement réformé. Le plafond actuel est de 40 000 € par acquéreur, soit 80 000 € pour un couple acquérant ensemble en indivision. Le crédit est imputé directement sur les droits dus : il n'y a pas de remboursement en cash.",
+      "section1P2": "Le mécanisme est simple : le notaire calcule les droits exigibles (6 % d'enregistrement + 1 % de transcription = 7 % du prix), retranche le crédit Bëllegen Akt disponible pour chaque acquéreur, et perçoit le solde pour le compte de l'AED. Si le crédit excède les droits dus, le solde reste disponible pour une acquisition future à titre de résidence principale (le crédit est personnel et viager).",
+      "callout1Title": "Couple marié ou en partenariat",
+      "callout1Body": "Pour cumuler les crédits des deux conjoints (80 000 € au total), l'acte notarié doit constater l'acquisition conjointe en indivision. Si un seul des deux conjoints est nommé acquéreur, seul son crédit personnel de 40 000 € est mobilisable. La règle vaut pour le mariage, le partenariat enregistré et même la cohabitation simple si les deux figurent à l'acte.",
+      "section2Title": "Conditions d'éligibilité",
+      "section2P1": "Quatre conditions cumulatives doivent être respectées : (1) le bien doit être situé au Luxembourg, (2) il doit servir de résidence principale et habituelle de l'acquéreur, (3) l'occupation effective et personnelle doit débuter dès l'entrée en jouissance ou dans les deux ans suivant l'acte, et (4) l'acquéreur doit signer une déclaration sur l'honneur intégrée à l'acte. Le crédit est ouvert à toute personne physique, résidente ou non-résidente du Luxembourg.",
+      "section2P2": "Le Bëllegen Akt s'applique aussi bien à un appartement, une maison, qu'à un terrain destiné à recevoir une construction de résidence principale dans un délai de quatre ans. Pour un bien neuf vendu en VEFA, le crédit s'applique sur les droits relatifs à la part terrain (la part construction étant soumise à la TVA logement à 3 %).",
+      "callout2Title": "Sanction en cas de non-respect",
+      "callout2Body": "Si l'acquéreur n'occupe pas le logement dans le délai imparti, ou s'il quitte le bien avant l'expiration du délai d'engagement, l'AED peut réclamer le remboursement intégral du crédit, majoré des intérêts de retard. Une location du bien dès la première année peut aussi déclencher la restitution. Vérifiez votre projet d'occupation avant de signer le compromis.",
+      "section3Title": "Démarche et application",
+      "section3P1": "Aucune démarche directe n'est nécessaire de la part de l'acquéreur. Le notaire intègre la déclaration au projet d'acte, vérifie auprès de l'AED le solde de crédit disponible pour chaque acquéreur (notamment si l'un d'eux a déjà bénéficié du dispositif), et applique le crédit au moment du calcul des droits. La quittance des droits délivrée par l'AED mentionne explicitement le crédit appliqué.",
+      "section3P2": "Pour les acquéreurs ayant déjà utilisé une partie de leur crédit, l'AED tient un registre nominatif. Le notaire interroge ce registre via les téléprocédures de l'enregistrement avant de finaliser l'acte. Le crédit résiduel est calculé automatiquement et imputé sur les droits dus pour la nouvelle acquisition.",
+      "section4Title": "Exemples chiffrés",
+      "section4Intro": "Voici l'effet du Bëllegen Akt selon le profil d'acquéreur, pour un bien ancien (taux 7 %).",
+      "table": {
+        "caption": "Effet du Bëllegen Akt selon le profil et le prix",
+        "headers": ["Prix d'achat", "Acquéreur seul (40 000 €)", "Couple (80 000 €)", "Économie réalisée"],
+        "rows": [
+          ["300 000 €", "0 € de droits", "0 € de droits", "21 000 €"],
+          ["500 000 €", "0 € (crédit > droits)", "0 € de droits", "35 000 €"],
+          ["750 000 €", "12 500 € de droits", "0 € de droits", "52 500 €"],
+          ["1 000 000 €", "30 000 € de droits", "0 € de droits", "70 000 €"],
+          ["1 500 000 €", "65 000 € de droits", "25 000 € de droits", "80 000 € (couple)"]
+        ],
+        "footnote": "Économie réalisée par un couple primo-accédant n'ayant jamais utilisé le crédit. Pour un acquéreur seul, l'économie correspond au minimum entre les droits dus et 40 000 €."
+      },
+      "callout3Title": "Cas concret : couple, appartement à 750 000 €",
+      "callout3Body": "Droits dus : 52 500 € (7 % de 750 000). Crédit Bëllegen Akt couple : 80 000 € disponibles. Imputation : −52 500 €. Solde des droits à payer : 0 € (plancher AED 100 €). Crédit résiduel pour un futur achat principal : 27 500 €. Économie réelle ce jour : 52 500 €.",
+      "inlineCalc": {
+        "title": "Simulez votre Bëllegen Akt en quelques clics",
+        "description": "Notre calculateur de frais d'acquisition applique automatiquement le crédit selon votre situation (acquéreur seul, couple, crédit déjà utilisé) et vous donne le montant exact à régler le jour de l'acte.",
+        "cta": "Lancer le calcul"
+      },
+      "tools": [
+        { "href": "/frais-acquisition", "title": "Calculateur frais d'acquisition", "description": "Imputation automatique du Bëllegen Akt selon votre profil." },
+        { "href": "/simulateur-aides", "title": "Simulateur d'aides à l'acquisition", "description": "Cumulez Bëllegen Akt, prime de logement, subvention d'intérêt et garantie d'État." },
+        { "href": "/vefa", "title": "Simulateur VEFA", "description": "Bëllegen Akt sur la part terrain et TVA logement 3 % sur la construction." },
+        { "href": "/outils-bancaires", "title": "Outils bancaires", "description": "Capacité d'emprunt et mensualité pour boucler votre plan de financement." }
+      ],
+      "faq": [
+        { "q": "Quel est le montant du Bëllegen Akt en 2026 ?", "a": "Le Bëllegen Akt s'élève à 40 000 € par acquéreur, soit 80 000 € pour un couple acquérant ensemble en indivision. C'est le montant maximal du crédit d'impôt imputable sur les droits d'enregistrement et de transcription." },
+        { "q": "Le Bëllegen Akt est-il cumulable avec d'autres aides ?", "a": "Oui. Il se cumule avec la TVA logement à 3 % sur les biens neufs, la prime d'accession à la propriété, la subvention d'intérêt, la prime d'épargne et la garantie de l'État. Le seul cumul interdit est de bénéficier deux fois du même crédit pour deux acquisitions simultanées." },
+        { "q": "Peut-on utiliser le Bëllegen Akt pour un investissement locatif ?", "a": "Non. Le crédit est strictement réservé à l'acquisition d'une résidence principale occupée personnellement par l'acquéreur. Un investissement locatif, une résidence secondaire ou un local commercial n'y donnent pas droit." },
+        { "q": "Faut-il être résident luxembourgeois pour en bénéficier ?", "a": "Non. Le Bëllegen Akt est ouvert à toute personne physique acquérant un logement au Luxembourg pour y établir sa résidence principale, qu'elle soit déjà résidente fiscale du pays ou qu'elle s'y installe à l'occasion de l'achat." },
+        { "q": "Que se passe-t-il si je revends mon logement rapidement ?", "a": "Si la revente intervient avant la fin du délai d'engagement d'occupation, l'AED peut réclamer le remboursement intégral du crédit, majoré des intérêts de retard. Une revente après plusieurs années d'occupation effective ne déclenche pas de restitution, mais le crédit n'est pas restauré pour une nouvelle acquisition principale." },
+        { "q": "Comment vérifier le solde de crédit disponible ?", "a": "Le notaire interroge l'AED via les téléprocédures avant l'acte. L'acquéreur peut aussi demander une attestation de solde directement à l'AED en présentant une pièce d'identité. Si une partie du crédit a déjà été utilisée lors d'un achat antérieur, seul le résidu est mobilisable." }
+      ],
+      "sources": [
+        { "title": "Crédit d'impôt sur les actes notariés (Bëllegen Akt) — démarche", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
+        { "title": "Bëllegen Akt — fiche officielle", "org": "Logement.lu — Ministère du Logement", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
+        { "title": "Loi du 30 juillet 2002 instituant le crédit d'impôt sur les actes notariés", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2002/07/30/n3/jo", "year": 2002 },
+        { "title": "Réforme du Bëllegen Akt — porté à 40 000 €", "org": "Paperjam", "url": "https://paperjam.lu/article/frais-enregistrement-baisses-a" },
+        { "title": "Loi du 22 frimaire an VII — droits d'enregistrement", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" }
+      ]
     },
     "plusValue": {
       "title": "Comment est imposée la plus-value immobilière au Luxembourg ?",

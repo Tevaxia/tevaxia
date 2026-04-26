@@ -1,10 +1,21 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
 import { localizedAlternates } from "@/lib/seo";
 import { ArticleJsonLd } from "@/components/JsonLd";
 import RelatedGuides from "@/components/RelatedGuides";
 import AutoLink from "@/components/AutoLink";
+import GuideHero from "@/components/guide/GuideHero";
+import KeyTakeaways from "@/components/guide/KeyTakeaways";
+import TableOfContents, { type TocItem } from "@/components/guide/TableOfContents";
+import GuideSection from "@/components/guide/GuideSection";
+import Callout from "@/components/guide/Callout";
+import DataTable from "@/components/guide/DataTable";
+import InlineCalculator from "@/components/guide/InlineCalculator";
+import OfficialSources, { type Source } from "@/components/guide/OfficialSources";
+import FaqSection, { type FaqItem } from "@/components/guide/FaqSection";
+import RelatedTools, { type Tool } from "@/components/guide/RelatedTools";
+
+const PATH = "/guide/frais-notaire-luxembourg";
 
 export async function generateMetadata(): Promise<Metadata> {
   const [t, locale] = await Promise.all([
@@ -14,118 +25,93 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: t("title"),
     description: t("metaDescription"),
-    alternates: localizedAlternates("/guide/frais-notaire-luxembourg", locale),
+    alternates: localizedAlternates(PATH, locale),
   };
 }
 
 export default async function GuideFraisNotaire() {
-  const [t, locale, tc] = await Promise.all([
-    getTranslations("guide.fraisNotaire"),
-    getLocale(),
-    getTranslations("common"),
-  ]);
-  const lp = locale === "fr" ? "" : `/${locale}`;
+  const t = await getTranslations("guide.fraisNotaire");
+
+  const essentiel = t.raw("essentiel") as string[];
+  const sources = t.raw("sources") as Source[];
+  const faq = t.raw("faq") as FaqItem[];
+  const tools = t.raw("tools") as Tool[];
+  const tableHeaders = t.raw("table.headers") as string[];
+  const tableRows = t.raw("table.rows") as (string | number)[][];
+
+  const toc: TocItem[] = [
+    { id: "droits", label: t("section1Title") },
+    { id: "emoluments", label: t("section2Title") },
+    { id: "hypotheque", label: t("section3Title") },
+    { id: "exemples", label: t("section4Title") },
+    { id: "faq", label: t("faqTitle") },
+  ];
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("faq1Q"),
-        acceptedAnswer: { "@type": "Answer", text: t("faq1A") },
-      },
-      {
-        "@type": "Question",
-        name: t("faq2Q"),
-        acceptedAnswer: { "@type": "Answer", text: t("faq2A") },
-      },
-    ],
+    mainEntity: faq.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
   };
 
   return (
-    <div className="bg-background min-h-screen py-8 sm:py-12">
+    <article className="bg-background min-h-screen py-8 sm:py-12">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <Link
-          href={`${lp}/guide`}
-          className="text-xs text-muted hover:text-navy"
-        >
-          &larr; Guide immobilier LU
-        </Link>
+        <GuideHero
+          title={t("title")}
+          subtitle={t("subtitle")}
+          category={t("category")}
+          readingMinutes={8}
+          updatedAt="2026-04-26"
+        />
 
-        <h1 className="mt-4 text-2xl font-bold text-navy sm:text-3xl">
-          {t("title")}
-        </h1>
-        <p className="mt-4 text-base text-slate-700 leading-relaxed">
-          <AutoLink currentPath="/guide/frais-notaire-luxembourg">{t("intro")}</AutoLink>
-        </p>
+        <KeyTakeaways items={essentiel} />
 
-        <h2 className="mt-8 text-xl font-semibold text-navy">
-          {t("section1Title")}
-        </h2>
-        <p className="mt-3 text-base text-slate-700 leading-relaxed">
-          <AutoLink currentPath="/guide/frais-notaire-luxembourg">{t("section1Content")}</AutoLink>
-        </p>
+        <TableOfContents items={toc} />
 
-        <h2 className="mt-8 text-xl font-semibold text-navy">
-          {t("section2Title")}
-        </h2>
-        <p className="mt-3 text-base text-slate-700 leading-relaxed">
-          <AutoLink currentPath="/guide/frais-notaire-luxembourg">{t("section2Content")}</AutoLink>
-        </p>
+        <GuideSection id="droits" number={1} title={t("section1Title")}>
+          <p><AutoLink currentPath={PATH}>{t("section1P1")}</AutoLink></p>
+          <p><AutoLink currentPath={PATH}>{t("section1P2")}</AutoLink></p>
+          <Callout variant="info" title={t("callout1Title")}>{t("callout1Body")}</Callout>
+        </GuideSection>
 
-        <h2 className="mt-8 text-xl font-semibold text-navy">
-          {t("section3Title")}
-        </h2>
-        <p className="mt-3 text-base text-slate-700 leading-relaxed">
-          <AutoLink currentPath="/guide/frais-notaire-luxembourg">{t("section3Content")}</AutoLink>
-        </p>
+        <GuideSection id="emoluments" number={2} title={t("section2Title")}>
+          <p><AutoLink currentPath={PATH}>{t("section2P1")}</AutoLink></p>
+          <p><AutoLink currentPath={PATH}>{t("section2P2")}</AutoLink></p>
+        </GuideSection>
 
-        <p className="mt-8 text-xs text-muted">{tc("authorByline")} · {tc("authorBylineDate")}</p>
+        <GuideSection id="hypotheque" number={3} title={t("section3Title")}>
+          <p><AutoLink currentPath={PATH}>{t("section3P1")}</AutoLink></p>
+          <Callout variant="warning" title={t("callout2Title")}>{t("callout2Body")}</Callout>
+        </GuideSection>
 
-        <div className="mt-4 rounded-lg border border-gold/30 bg-gold/5 p-5">
-          <Link
-            href={`${lp}${t("relatedToolLink")}`}
-            className="inline-flex items-center gap-2 font-semibold text-navy hover:text-gold transition-colors"
-          >
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25v-.008zm2.25-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008v-.008zm2.25-2.25h.008v.008H15v-.008zm0 2.25h.008v.008H15v-.008zM5.25 21h13.5A2.25 2.25 0 0021 18.75V6.75A2.25 2.25 0 0018.75 4.5H5.25A2.25 2.25 0 003 6.75v12A2.25 2.25 0 005.25 21z"
-              />
-            </svg>
-            {t("relatedToolLabel")}
-          </Link>
-        </div>
+        <GuideSection id="exemples" number={4} title={t("section4Title")}>
+          <p>{t("section4Intro")}</p>
+          <DataTable
+            caption={t("table.caption")}
+            headers={tableHeaders}
+            rows={tableRows}
+            highlightCol={3}
+            footnote={t("table.footnote")}
+          />
+          <Callout variant="example" title={t("callout3Title")}>{t("callout3Body")}</Callout>
+        </GuideSection>
 
-        <section className="mt-10">
-          <h2 className="text-xl font-semibold text-navy">FAQ</h2>
-          <div className="mt-4 space-y-4">
-            <details className="group rounded-lg border border-card-border bg-white p-4">
-              <summary className="cursor-pointer font-medium text-navy group-open:text-gold">
-                {t("faq1Q")}
-              </summary>
-              <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                {t("faq1A")}
-              </p>
-            </details>
-            <details className="group rounded-lg border border-card-border bg-white p-4">
-              <summary className="cursor-pointer font-medium text-navy group-open:text-gold">
-                {t("faq2Q")}
-              </summary>
-              <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                {t("faq2A")}
-              </p>
-            </details>
-          </div>
-        </section>
+        <InlineCalculator
+          title={t("inlineCalc.title")}
+          description={t("inlineCalc.description")}
+          href="/frais-acquisition"
+          ctaLabel={t("inlineCalc.cta")}
+        />
+
+        <FaqSection items={faq} idPrefix="faq" />
+
+        <OfficialSources sources={sources} />
+
+        <RelatedTools tools={tools} />
 
         <RelatedGuides currentSlug="frais-notaire-luxembourg" />
 
@@ -135,6 +121,6 @@ export default async function GuideFraisNotaire() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </div>
-    </div>
+    </article>
   );
 }

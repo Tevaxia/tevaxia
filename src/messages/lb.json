@@ -84,6 +84,18 @@
     "relatedToolsSubtitle": "Vervollstänegt Är Analys mat deenen anere tevaxia-Tools.",
     "relatedGuidesTitle": "Verbonne Artikelen",
     "relatedGuidesSubtitle": "Liest weider mat dëse complementäre Guiden.",
+    "breadcrumbHome": "Doheem",
+    "breadcrumbGuide": "Immobilien-Guide LU",
+    "readingMinutes": "Min. Liesen",
+    "updatedOn": "Aktualiséiert de",
+    "keyTakeaways": "D'Wesentlecht an 30 Sekonnen",
+    "tableOfContents": "Inhalt",
+    "tocAria": "Inhaltsverzeechnes",
+    "calculatorTevaxia": "tevaxia Rechner",
+    "officialSources": "Offiziell Quellen",
+    "officialSourcesSubtitle": "Gesetzer, Rondbréiwer a Publikatiounen déi fir dësen Guide konsultéiert goufen.",
+    "faqTitle": "Heefeg Froen",
+    "faqSubtitle": "Kuerz Äntwerten op déi heefegst Froen zu dësem Thema.",
     "toc": {
       "label": "Inhalt",
       "hero": "Iwwersiicht",
@@ -9020,21 +9032,72 @@
   },
   "guide": {
     "fraisNotaire": {
-      "title": "Wéi héich sinn d'Notairsfraise zu Lëtzebuerg?",
-      "metaDescription": "Opschlësselung vun den Notairsfraise zu Lëtzebuerg: Aschreiwungsgebühren (7% oder 6%), Transkriptioun 1%, Notairsgebühren, Hypothéikekosten. Komplett Berechnung.",
-      "intro": "D'Notairsfraise zu Lëtzebuerg maachen ongeféier 7 bis 10 % vum Kafpräis bei enger bestoender Immobilie aus an 3 bis 4 % bei engem Neibau (VEFA). Si bestinn aus Aschreiwungsgebühren, Transkriptiounsgebühren, Notairsgebühren an Hypothéikekosten. Hei d'Opschlësselung vun all Komponent fir Äre Budget genau ze plangen.",
+      "title": "Notairsfraise zu Lëtzebuerg: Tariffer 2026 an detailléiert Berechnung",
+      "metaDescription": "Notairsfraise zu Lëtzebuerg 2026: 7 % Aschreiwungsgebühren, 1 % Transkriptioun, Bëllegen Akt bis 40.000 € pro Keefer, Notairsgebühren. Detailléiert Berechnung mat Beispiller.",
+      "subtitle": "Wat den notarielle Akt wierklech kascht, Postren no Postren, mat den offiziellen Tariffer vun 2026.",
+      "category": "Kaf & Finanzéierung",
+      "essentiel": [
+        "Bei enger bestoender Immobilie: 7 % Gebühren (6 % Aschreiwung + 1 % Transkriptioun) plus Notairsgebühren an Hypothéikekosten bei Finanzéierung.",
+        "Bei engem VEFA-Neibau: Gebühren gëllen nëmmen op den Terrain-Undeel. De Bau ënnerläit der reduzéierter Wunn-TVA vu 3 % (Steiergutschrëft gedeckelt op 50.000 €).",
+        "De Bëllegen Akt gëtt eng Steiergutschrëft vu 40.000 € pro Keefer (80.000 € fir e Koppel) op d'Aschreiwungsgebühren, ënnert der Bedingung datt Dir d'Immobilie perséinlech bewunnt.",
+        "D'Notairsgebühren follegen engem degressiven Tarif laut Groussherzoglechen Reglement: vu 1,650 % op der éischter Tranche bis 0,550 % iwwer 30.000 €.",
+        "Fir eng Immobilie zu 750.000 € mat 80 % Finanzéierung: ronn 65.000 bis 75.000 € Gesamtkosten virum Bëllegen Akt aplanzen."
+      ],
       "section1Title": "Aschreiwungs- an Transkriptiounsgebühren",
-      "section1Content": "D'Aschreiwungsgebühren betroe 7 % vum Verkafspräis bei enger bestoender Immobilie (geännert Gesetz vum 22. Frimaire Joer VII). Zënter 2023 gëllt ënnert bestëmmte Konditiounen en reduzéierten Taux vu 6 % (Immobilie als Haaptwunnsëtz, Präis ënnert engem Schwellenwäert). D'Transkriptiounsgebühren si fixéiert op 1 % vum Verkafspräis. Bei engem Neibau (VEFA) gëllen d'Gebühren nëmmen op den Terrain-Undeel; de Bau ënnerläit der TVA (3 % super-reduzéierten Taux fir Wunnraum, gedeckelt op 50.000 €).",
+      "section1P1": "All Iwwerdroung vun Immobilieneegentum zu Lëtzebuerg léist zwou Gebühren aus, déi vun der Verwaltung fir Aschreiwung, Domänen an TVA (AED) erhuewe ginn: d'Aschreiwungsgebühr vu 6 % vum Präis an d'Transkriptiounsgebühr vu 1 %. Dës Tariffer kommen aus dem geänneren Gesetz vum 22. Frimaire Joer VII an dem Gesetz vum 25. September 1905 iwwer d'Transkriptioun vun dingleche Rechter, an si 2026 onverännert.",
+      "section1P2": "Bei engem VEFA-Neibau gëllen d'Gebühren nëmmen op den Terrain-Undeel deen am Akt steet. Den Bau-Undeel ass vun de Gebühren ausgeholl, well en der TVA ënnerläit, zum super-reduzéierten Wunntaux vu 3 % (Steiergutschrëft gedeckelt op 50.000 € pro Wunneng laut AED-Rondbréif Nr. 800 an Artikel 44ter TVA-Gesetz).",
+      "callout1Title": "Bëllegen Akt am Iwwerbléck",
+      "callout1Body": "Wann d'erkaaft Immobilie Äre Haaptwunnsëtz gëtt an Dir se effektiv a perséinlech bewunnt, gëtt d'AED eng Steiergutschrëft op d'Aschreiwungsgebühren vu 40.000 € pro Keefer (80.000 € fir e Koppel dat zesummen kaaft). D'Demande gëtt vum Notair beim Akt gemaach. Op mannst 100 € bleiwen an all Fall ze bezuelen.",
       "section2Title": "Notairsgebühren",
-      "section2Content": "D'Notairsgebühren sinn duerch de Groussherzoglecht Reglement vum 26. November 2015 gereegelt. Si follegen engem proportionalen an degressiven Tarif: 1,650 % bis 7.500 €, 1,100 % vu 7.500 bis 15.000 €, 0,825 % vu 15.000 bis 30.000 €, dunn 0,550 % doriwwer. Bei enger Immobilie vu 750.000 € betroe d'Gebühren ongeféier 5.700 €. Dozou kommen Formalitéitskosten (Hypothéikerecherchen, Katasterauswéiser, Bescheinegungen) vu typesch 1.000 bis 2.000 €.",
+      "section2P1": "D'Notairsgebühren zu Lëtzebuerg si fixéiert duerch de Groussherzoglecht Reglement vum 26. November 2015 iwwer d'Honorairer vun den Notairen. Den Tarif ass proportional an degressiv no Tranchen: 1,650 % bis 7.500 €, 1,100 % vu 7.500 € bis 15.000 €, 0,825 % vu 15.000 € bis 30.000 €, dunn 0,550 % doriwwer. Den Notair däerf dës Tariffer weeder erhéijen nach senken.",
+      "section2P2": "Dozou kommen d'Formalitéitskosten déi vum Notairsbüro fir de Keefer ausgeluecht ginn: Hypothéikerecherchen, Katasterauszuch, Bauplanungsbescheinegung, Hypothéikelescheungsbescheinegung, Kopien, Iwwerdroungen un d'AED. Dës Auslage leien typesch tëschent 1.000 an 2.000 € fir eng klassesch Wunntransaktioun.",
       "section3Title": "Hypothéikekosten",
-      "section3Content": "Wann Dir den Akaf mat engem Prêt finanzéiert, entstinn zousätzlech Käschte fir d'Hypothéikenaschreiwung: 0,5 % Hypothéikegebühr op de geléinten Betrag, Notairsgebühren fir den Hypothéikeakt (selwechten degressiven Tarif) an Grondbuuchsteier. Bei engem Prêt vu 600.000 € rechent mat ongeféier 5.500 bis 6.500 € un Hypothéikekosten. Am Ganzen sollt en Keefer, deen 80 % vun enger Immobilie vu 750.000 € finanzéiert, ongeféier 65.000 bis 75.000 € u Käschten aplanzen.",
-      "relatedToolLabel": "Berechent Är Erwerbskosten",
-      "relatedToolLink": "/frais-acquisition",
-      "faq1Q": "Wéi héich sinn d'Notairsfraise fir en Appartement vu 500.000 € zu Lëtzebuerg?",
-      "faq1A": "Fir en Bestandappartement vu 500.000 € rechent mat ongeféier 44.000 bis 50.000 € Gesamtkäschten (7 % Aschreiwungsgebühren + 1 % Transkriptioun + Notairsgebühren + Hypothéikekosten bei Finanzéierung).",
-      "faq2Q": "Sinn d'Notairsfraise fir Neibaute zu Lëtzebuerg reduzéiert?",
-      "faq2A": "Jo, bei engem Neibau (VEFA) gëllen d'Aschreiwungsgebühren an d'Transkriptiounsgebühren nëmmen op den Terrain-Undeel. De Bau ënnerläit der TVA vu 3 % (super-reduzéierten Taux), wat d'Gesamtkäschten op ongeféier 3 bis 4 % vum Präis reduzéiert."
+      "section3P1": "Wann den Erwerb mat engem Prêt finanzéiert gëtt, entstinn separat Käschte fir d'Hypothéikenaschreiwung zugonschten der Bank: eng Hypothéikegebühr vu 0,05 % op de geléinten Betrag duerch d'AED, Notairsgebühren fir den Aschreiwungsakt (no demselwechten degressiven Tarif) an Grondbuuchaschreiwungsgebühren. Bei engem Prêt vu 600.000 €: 5.500 bis 6.500 € Hypothéikekosten am Ganzen aplanzen.",
+      "callout2Title": "Konventionell Hypothéik vs Mandat",
+      "callout2Body": "E puer Banken akzeptéieren e Hypothéikemandat (Vollmacht zur Aschreiwung) amplaz vun enger direkter Hypothéikenaschreiwung. Dat halbéiert oder drëttelt d'Hypothéikekosten, mä exposéiert zu spéideren Kosten falls d'Bank schlussendlech d'Hypothéik aschreiwen muss. Wäegt d'Risiko mat Ärem Bankberoder of.",
+      "section4Title": "Rechenbeispiller no Kafpräis",
+      "section4Intro": "Déi folgend Tabell weist eng indikativ Spann fir eng bestoend Immobilie als Haaptwunnsëtz vun engem Keefer-Koppel (vollen Bëllegen Akt 80.000 € applizéiert). D'Hypothéikekosten entspriechen enger 80 %-Finanzéierung.",
+      "table": {
+        "caption": "Geschätzten Erwerbskosten — bestoend Immobilie, Keefer-Koppel, 80 % Finanzéierung",
+        "headers": ["Kafpräis", "7 % Gebühren", "Bëllegen Akt", "Netto ze bezuelen"],
+        "rows": [
+          ["300.000 €", "21.000 €", "−21.000 €", "≈ 6.000 €"],
+          ["500.000 €", "35.000 €", "−35.000 €", "≈ 10.000 €"],
+          ["750.000 €", "52.500 €", "−52.500 €", "≈ 14.000 €"],
+          ["1.000.000 €", "70.000 €", "−70.000 €", "≈ 18.000 €"],
+          ["1.500.000 €", "105.000 €", "−80.000 €", "≈ 50.000 €"]
+        ],
+        "footnote": "Netto ze bezuelen = verbleiwend Gebühren nom Bëllegen Akt + Notairsgebühren + Hypothéikekosten + Auslagen. Schätzung 2026 fir e Éischtkeefer-Koppel. Hypothéik-Undeel berechent op 80 % vum Präis."
+      },
+      "callout3Title": "Beispill: Koppel keeft Appartement zu 750.000 €",
+      "callout3Body": "Aschreiwungs- an Transkriptiounsgebühren: 52.500 €. Bëllegen Akt Koppel: −52.500 € (Deelverbrauch vun der 80.000 €-Hülse). Notairsgebühren (Verkaf): ≈ 5.700 €. Hypothéikeakt fir 600.000 €: ≈ 6.200 €. Auslagen a Formalitéiten: ≈ 1.500 €. Den Dag vum Akt ze bezuelen: ≈ 13.500 €.",
+      "inlineCalc": {
+        "title": "Berechent Är reell Erwerbskosten",
+        "description": "Eise Rechner appliquéiert den degressiven Notairstarif, de Bëllegen Akt no Ärer Situatioun, d'Wunn-TVA fir Neibauten an d'Hypothéikekosten je no Finanzéierung.",
+        "cta": "Rechner opmaachen"
+      },
+      "tools": [
+        { "href": "/frais-acquisition", "title": "Erwerbskosten-Rechner", "description": "Komplett Schätzung: Gebühren, Bëllegen Akt, Notairsgebühren, Hypothéik, Wunn-TVA." },
+        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Opdeelung Terrain / Bau an 3 % Wunn-TVA fir e Neibau." },
+        { "href": "/outils-bancaires", "title": "Bank-Tools", "description": "Krediteer-Kapazitéit, Mounschrate, DSTI- a LTV-Quoten virun der Vertragsënnerschrëft." },
+        { "href": "/simulateur-aides", "title": "Erwerbsbäihëllefen", "description": "Wunnungspremium, Zënszuschoss, Staatsgarantie, Sparpremium." }
+      ],
+      "faq": [
+        { "q": "Wéi héich sinn d'Notairsfraise fir en Appartement vu 500.000 € zu Lëtzebuerg?", "a": "Fir e Bestandappartement vu 500.000 € kaaft vun engem Éischtkeefer-Koppel (vollen Bëllegen Akt): ronn 10.000 bis 12.000 € Gesamtkosten — 35.000 € Gebühren komplett duerch d'Steiergutschrëft kompenséiert, plus 4.200 € Notairsgebühren, ongeféier 4.500 € Hypothéikekosten op 400.000 € geléint an 1.500 € Auslagen." },
+        { "q": "Sinn d'Notairsfraise fir Neibaute zu Lëtzebuerg reduzéiert?", "a": "Jo. Bei engem VEFA-Neibau gëllen d'Aschreiwungs- an Transkriptiounsgebühren nëmmen op den Terrain-Undeel. De Bau ënnerläit der super-reduzéierter Wunn-TVA vu 3 % (Steiergutschrëft gedeckelt op 50.000 € pro Wunneng). D'Gesamtkosten leien meeschtens tëschent 3 a 4 % vum Präis." },
+        { "q": "Wat ass de Bëllegen Akt a wéi kréien ech en?", "a": "De Bëllegen Akt ass eng Steiergutschrëft vu 40.000 € pro Keefer (80.000 € fir e Koppel) op d'Aschreiwungsgebühren, ënnert der Bedingung datt d'Immobilie als Haaptwunnsëtz déngt a perséinlech bewunnt gëtt. D'Demande gëtt automatesch vum Notair beim Akt gemaach. D'AED erhieft an all Fall op mannst 100 € Gebühren." },
+        { "q": "Kënnen d'Notairsfraise zu Lëtzebuerg verhandelt ginn?", "a": "Nee. D'Notairsgebühren zu Lëtzebuerg si streng duerch de Groussherzoglecht Reglement vum 26. November 2015 gereegelt; den Notair däerf se weeder erhéijen nach senken. Nëmme d'Auslagen (Formalitéiten) kënnen je no Notairsbüro liicht variéieren je no duerchgefouerten Recherchen." },
+        { "q": "Wien bezilt d'Notairsfraise zu Lëtzebuerg, de Keefer oder de Verkeefer?", "a": "De Keefer dréit déi ganz Erwerbskosten (Gebühren, Notairsgebühren vum Verkafsakt, Hypothéikekosten bei Finanzéierung). De Verkeefer bezilt nëmmen d'Formalitéite fir d'Lescheung vun enger bestoender Hypothéik op der Immobilie an déi etwaeg Maklercommissioun, falls vertraglech vu him ze droen." },
+        { "q": "Sinn d'Notairsfraise zu Lëtzebuerg steierlech ofzéibar?", "a": "Bei enger Locatiouns-Investitioun sinn d'Notairsfraise (Gebühren, Notairsgebühren, Hypothéikekosten) net direkt ofzéibar, mä gi den Erwerbskosten zougerechent a kënnen iwwer d'Halddauer ofgeschriwwe ginn. Beim Haaptwunnsëtz si se net ofzéibar, mä de Bëllegen Akt deckt e groussen Deel dervun." }
+      ],
+      "sources": [
+        { "title": "Steiergutschrëft op notariell Akten (Bëllegen Akt) — Prozedur", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
+        { "title": "Bëllegen Akt — offizielle Fiche", "org": "Logement.lu — Wunnengsbau-Ministère", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
+        { "title": "Groussherzoglecht Reglement vum 26. November 2015 iwwer Notairsgebühren", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/11/26/n6/jo", "year": 2015 },
+        { "title": "Gesetz vum 22. Frimaire Joer VII iwwer Aschreiwungsgebühren", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" },
+        { "title": "Gesetz vum 25. September 1905 iwwer d'Transkriptioun vun dingleche Rechter", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1905/09/25/n1/jo" },
+        { "title": "3 % Wunn-TVA — AED-Rondbréif", "org": "Verwaltung fir Aschreiwung, Domänen an TVA", "url": "https://pfi.public.lu/fr.html" }
+      ]
     },
     "regle5Pourcent": {
       "title": "Wéi funktionéiert d'5%-Loyerregel zu Lëtzebuerg?",
@@ -9054,21 +9117,72 @@
       "faq2A": "De Projet de loi 8184 gesäit vir, d'Obergrenz vun 5 % op 3,5 % fir nei Baux ze senken. Dës Reform gëtt am Parlament diskutéiert a kéint 2026 a Kraaft trieden."
     },
     "bellegenAkt": {
-      "title": "Wat ass de Bëllegen Akt a wéi profitéiert een dovun?",
-      "metaDescription": "De Bëllegen Akt ass e Steierkredit vu 20.000 € (40.000 € fir Koppelen) op d'Aschreiwungsgebühren beim Kaf vum Haaptwunnsëtz zu Lëtzebuerg.",
-      "intro": "De Bëllegen Akt (wuertwiertlech 'bëllegen Akt') ass e Steierkredit op d'Aschreiwungsgebühren beim Kaf vun enger Immobilie, déi als Haaptwunnsëtz zu Lëtzebuerg soll déngen. All Keefer kann e Kredit vu bis zu 20.000 € kréien (also 40.000 € fir e Koppel dat zesumme kaaft), wat d'Notairskoste bedeitend reduzéiert. Dëst Dispositif baséiert op dem Artikel 7 vum geännerte Gesetz vum 22. Frimaire Joer VII an dem Groussherzoglecht Reglement vum 18. Dezember 2020.",
-      "section1Title": "Viraussetzungen",
-      "section1Content": "Fir vum Bëllegen Akt ze profitéieren, musse véier Konditioune erfëllt sinn: (1) De Keefer muss sech engagéieren, d'Immobilie bannent zwee Joer als Haaptwunnsëtz ze benotzen; (2) hien däerf zum Zäitpunkt vun der Demande keng aner Wunneng besëtzen; (3) d'Immobilie muss zu Lëtzebuerg leien; (4) de Kredit gouf net schonns komplett bei engem fréieren Akaf benotzt. De Kredit ass perséinlech: All natierlech Persoun verfügt iwwer e Liewekredit vu 20.000 €. E bestuet oder gepacsct Koppel kumuléiert also 40.000 €.",
-      "section2Title": "Héicht an Uwendung vum Kredit",
-      "section2Content": "De Kredit gëtt direkt op d'Aschreiwungs- an Transkriptiounsgebühren ugerechent, déi beim notarielle Akt fälleg sinn. Konkreet Beispill: E Koppel kaaft en Appartement fir 600.000 €, Aschreiwungsgebühren (7 %) + Transkriptioun (1 %) = 48.000 €. Mam Bëllegen Akt vu 40.000 € bezuelen si nëmmen 8.000 € u Gebühren. Den Notaire applizéiert de Kredit automatesch bei der Redaktioun vum Akt, no Verifizéierung bei der Administration de l'enregistrement et des domaines (AED). Wann de Kredit d'fälleg Gebühre iwwerschreit, bleift de Rescht fir en zukünftegen Akaf verfügbar.",
-      "section3Title": "Wichteg Hiweiser",
-      "section3Content": "Wann de Keefer d'Zwee-Joer-Bewunnungspflicht net anhält, kann d'AED d'Réckzuelung vum Kredit zuzüglech Verzugszënsen fuerdere. De Kredit gëllt net fir onbebaut Terrainen ouni direkt Bauprojet. Bei Widdervekaf vun der Immobilie virun dem Oflaf vun der Bewunnungsfrist kann de Kredit och zréckgefuerdert ginn. Opgepasst: De Bëllegen Akt reduzéiert net d'Notairsgebühren oder Hypothéikekosten, mee nëmmen d'Aschreiwungs- an Transkriptiounsgebühren. En Deelkredit ass méiglech, wann en Deel schonns bei engem fréieren Akaf benotzt gouf.",
-      "relatedToolLabel": "Simuléiert Är Käschte mam Bëllegen Akt",
-      "relatedToolLink": "/frais-acquisition",
-      "faq1Q": "Ass de Bëllegen Akt mat aneren Hëllefen kombinéierbar?",
-      "faq1A": "Jo, de Bëllegen Akt ass mat der 3%-TVA (fir Neibauten) an de PRIMe House / Klimabonus-Hëllefen fir energeetesch Sanéierung kombinéierbar.",
-      "faq2Q": "Kann de Bëllegen Akt fir eng Mietinvestitioun benotzt ginn?",
-      "faq2A": "Nee, de Bëllegen Akt ass strikt fir den Akaf vun engem Haaptwunnsëtz reservéiert. Eng Mietinvestitioun oder en Zweetwunnsëtz berechtegt net dozou."
+      "title": "Bëllegen Akt 2026: Steierkredit op notariell Akten zu Lëtzebuerg",
+      "metaDescription": "Bëllegen Akt 2026 zu Lëtzebuerg: 40.000 € Steierkredit pro Keefer (80.000 € fir e Koppel) op d'Aschreiwungsgebühren, Konditiounen, Prozedur, Beispiller.",
+      "subtitle": "De Steierkredit deen engem Éischtkeefer-Koppel bis zu 80.000 € un Erwerbskosten kann spueren.",
+      "category": "Erwerbsbäihëllefen",
+      "essentiel": [
+        "Steierkredit op d'Aschreiwungs- an Transkriptiounsgebühren: 40.000 € pro Keefer, 80.000 € fir e Koppel dat zesumme kaaft.",
+        "Haaptbedingung: d'Wunneng effektiv a perséinlech als Haaptwunnsëtz bewunnen, vum Aklaang oder bannent zwee Joer.",
+        "Automatesch Uwendung: den Notair applizéiert e beim Akt, keng zousätzlech Demarche fir de Keefer.",
+        "Mannerbetrag vu 100 € Gebühren bleift an all Fall ze bezuelen, erhuewe vun der AED.",
+        "Net benotzte Kredit bleift verfügbar: wien 25.000 € beim éischte Kaaf verbraucht huet, kann nach 15.000 € fir e zukünftegen Haaptwunnsëtz mobiliséieren."
+      ],
+      "section1Title": "Prinzip a Betrag",
+      "section1P1": "De Bëllegen Akt (laanscht gesot bëllegen Akt) ass e Steierkredit op d'Aschreiwungs- an Transkriptiounsgebühren déi beim Erwerb vun enger als Haaptwunnsëtz virgesener Wunneng zu Lëtzebuerg fälleg sinn. Aféiert duerch d'Gesetz vum 30. Juli 2002 a méi mol reforméiert, läit den aktuelle Plafong bei 40.000 € pro Keefer, also 80.000 € fir e Koppel dat zesumme kaaft. De Kredit gëtt direkt op déi fälleg Gebühren ugerechent: keng Bargeld-Erstattung.",
+      "section1P2": "De Mechanismus ass einfach: den Notair berechent déi fälleg Gebühren (6 % Aschreiwung + 1 % Transkriptioun = 7 % vum Präis), zitt de verfügbare Bëllegen-Akt-Kredit jidder Keefers of, an erhieft den Rest fir d'AED. Iwwerschreit de Kredit déi fälleg Gebühren, bleift den Rest fir en zukünftegen Haaptwunnsëtz-Erwerb verfügbar (de Kredit ass perséinlech a liewenslaang).",
+      "callout1Title": "Bestuetent oder gepartnertt Koppel",
+      "callout1Body": "Fir d'Kreditter vun béide Conjoints ze kumuléieren (insgesamt 80.000 €), muss den Akt e gemeinsamen Erwerb a Bruchteler feststellen. Wann nëmmen ee Conjoint als Keefer genannt gëtt, ass nëmme säi perséinleche Kredit vu 40.000 € mobiliséierbar. D'Regel gëllt fir Bestietnis, agedroene Partnerschaft an souguer einfach Zesummeliewen wann béid am Akt erschéngen.",
+      "section2Title": "Viraussetzungen",
+      "section2P1": "Véier kumulativ Konditioune musse erfëllt sinn: (1) d'Immobilie muss zu Lëtzebuerg leien, (2) si muss als Haapt- a gewéinleche Wunnsëtz vum Keefer déngen, (3) effektiv a perséinlech Bewunnung muss vum Aklaang oder bannent zwee Joer um Akt ufänken, (4) de Keefer muss eng eedstattlech Erklärung am Akt ënnerschreiwen. De Kredit ass fir all natierlech Persoun op, ob zu Lëtzebuerg residéierend oder net.",
+      "section2P2": "De Bëllegen Akt gëllt fir Wunnengen, Haiser an och fir Terrainen, op deenen bannent véier Joer en Haaptwunnsëtz soll gebaut ginn. Bei engem VEFA-Neibau gëllt de Kredit fir d'Gebühren um Terrain-Undeel (de Bau-Undeel ënnerläit der 3 % Wunn-TVA).",
+      "callout2Title": "Sanktioun bei Net-Anhalung",
+      "callout2Body": "Wann de Keefer d'Wunneng net pünktlech bewunnt oder se virum Enn vun der Verflichtungsfrist verléisst, kann d'AED déi voll Réckzuelung vum Kredit plus Verzugszënsen fuerdere. Och eng Locatioun am éischte Joer kann eng Restitutioun ausléisen. Préift Ären Bewunnungsplang virum Ënnerschreiwen vum Kompromiss.",
+      "section3Title": "Prozedur an Uwendung",
+      "section3P1": "Vum Keefer ass keng direkt Demarche néideg. Den Notair integréiert d'Erklärung an den Aktentwurf, freet bei der AED de verfügbare Restkredit jidder Keefers of (besonnesch wann ee schonns dovu profitéiert huet) an applizéiert de Kredit bei der Gebührenberechnung. D'AED-Quittung weist den applizéierte Kredit explizit aus.",
+      "section3P2": "Fir Keefer déi schonns en Deel vun hirem Kredit benotzt hunn, féiert d'AED en perséinlecht Register. Den Notair freet dëst Register iwwer d'Aschreiwungs-Telefachverfahren of virum Aktofschloss. De Restkredit gëtt automatesch berechent an op d'Gebühre vum Neierwerb ugerechent.",
+      "section4Title": "Rechenbeispiller",
+      "section4Intro": "Effekt vum Bëllegen Akt no Keefer-Profil bei enger bestoender Immobilie (Taux 7 %).",
+      "table": {
+        "caption": "Effekt vum Bëllegen Akt no Profil a Präis",
+        "headers": ["Kafpräis", "Eenzelkeefer (40.000 €)", "Koppel (80.000 €)", "Erspuernis"],
+        "rows": [
+          ["300.000 €", "0 € Gebühren", "0 € Gebühren", "21.000 €"],
+          ["500.000 €", "0 € (Kredit > Gebühren)", "0 € Gebühren", "35.000 €"],
+          ["750.000 €", "12.500 € Gebühren", "0 € Gebühren", "52.500 €"],
+          ["1.000.000 €", "30.000 € Gebühren", "0 € Gebühren", "70.000 €"],
+          ["1.500.000 €", "65.000 € Gebühren", "25.000 € Gebühren", "80.000 € (Koppel)"]
+        ],
+        "footnote": "Erspuernis fir e Éischtkeefer-Koppel dat de Kredit ni benotzt huet. Bei engem Eenzelkeefer entsprécht d'Erspuernis dem Mannerwäert tëschent fällege Gebühren a 40.000 €."
+      },
+      "callout3Title": "Konkreete Fall: Koppel, Appartement 750.000 €",
+      "callout3Body": "Fälleg Gebühren: 52.500 € (7 % vu 750.000). Bëllegen-Akt-Kredit Koppel: 80.000 € verfügbar. Anrechnung: −52.500 €. Ze bezuelend Gebühren: 0 € (AED-Mannerbetrag 100 €). Restkredit fir zukünftegen Haaptwunnsëtz: 27.500 €. Tatsächlech Erspuernis haut: 52.500 €.",
+      "inlineCalc": {
+        "title": "Simuléiert Äre Bëllegen Akt a wéinegen Klicks",
+        "description": "Eise Erwerbskosten-Rechner applizéiert de Kredit automatesch no Ärer Situatioun (Eenzelkeefer, Koppel, scho benotzte Kredit) a gëtt Iech den exakten ze bezuelende Betrag um Aktentag.",
+        "cta": "Berechnung starten"
+      },
+      "tools": [
+        { "href": "/frais-acquisition", "title": "Erwerbskosten-Rechner", "description": "Automatesch Bëllegen-Akt-Anrechnung no Ärem Profil." },
+        { "href": "/simulateur-aides", "title": "Erwerbsbäihëllefen-Simulator", "description": "Bëllegen Akt, Wunnungspremium, Zënszuschoss a Staatsgarantie kombinéieren." },
+        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Bëllegen Akt um Terrain-Undeel an 3 % Wunn-TVA um Bau." },
+        { "href": "/outils-bancaires", "title": "Bank-Tools", "description": "Krediteer-Kapazitéit a Mounschrate fir den Finanzéierungsplang ofzeschléissen." }
+      ],
+      "faq": [
+        { "q": "Wéi héich ass de Bëllegen Akt 2026?", "a": "De Bëllegen Akt läit bei 40.000 € pro Keefer, also 80.000 € fir e Koppel dat zesummen a Bruchteler kaaft. Dat ass déi maximal Steiergutschrëft déi op d'Aschreiwungs- an Transkriptiounsgebühren ugerechent ka ginn." },
+        { "q": "Ass de Bëllegen Akt mat aneren Hëllefe kombinéierbar?", "a": "Jo. Hien ass mat der 3 % Wunn-TVA op Neibauten, der Wunnungszougangspremium, dem Zënszuschoss, der Sparpremium an der Staatsgarantie kombinéierbar. Verbueden ass nëmmen déi duebel Notzung vum selwechte Kredit fir zwee gläichzäiteg Erwerber." },
+        { "q": "Kann de Bëllegen Akt fir eng Locatiouns-Investitioun benotzt ginn?", "a": "Nee. De Kredit ass strikt fir den Erwerb vun engem perséinlech bewunnten Haaptwunnsëtz reservéiert. Locatiouns-Investitiounen, Zweetwunnsëtzer oder Geschäftsraim sinn ausgeschloss." },
+        { "q": "Muss een Lëtzebuerger Resident sinn fir ze profitéieren?", "a": "Nee. De Bëllegen Akt ass fir all natierlech Persoun op, déi eng Immobilie zu Lëtzebuerg kaaft, fir do hiren Haaptwunnsëtz ze gewannen, ob schonns Steierresident oder beim Kaaf umellend." },
+        { "q": "Wat geschitt bei schnellen Widdervekaf?", "a": "Geschitt de Widdervekaf virum Enn vun der Verflichtungsfrist, kann d'AED déi voll Réckzuelung vum Kredit plus Verzugszënsen fuerdere. E Widdervekaf no e puer Joer effektiver Bewunnung léist keng Restitutioun aus, awer de Kredit gëtt fir en Neierwerb net wiederhirgestallt." },
+        { "q": "Wéi préifen ech de verfügbare Kreditstand?", "a": "Den Notair freet d'AED iwwer Telefachverfahren ofvirum Akt. De Keefer kann och direkt eng Standsbescheinegung bei der AED géint Virlag vun engem Ausweis ufroen. Wann en Deel schonns bei engem fréieren Kaaf benotzt gouf, ass nëmmen de Restbetrag mobiliséierbar." }
+      ],
+      "sources": [
+        { "title": "Steiergutschrëft op notariell Akten (Bëllegen Akt) — Prozedur", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
+        { "title": "Bëllegen Akt — offizielle Fiche", "org": "Logement.lu — Wunnengsbau-Ministère", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
+        { "title": "Gesetz vum 30. Juli 2002 fir d'Aféierung vum Steierkredit op notariell Akten", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2002/07/30/n3/jo", "year": 2002 },
+        { "title": "Bëllegen-Akt-Reform — op 40.000 € erhéicht", "org": "Paperjam", "url": "https://paperjam.lu/article/frais-enregistrement-baisses-a" },
+        { "title": "Gesetz vum 22. Frimaire Joer VII — Aschreiwungsgebühren", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" }
+      ]
     },
     "plusValue": {
       "title": "Wéi ginn Immobilien-Kapitalgewënner zu Lëtzebuerg besteierd?",

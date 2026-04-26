@@ -84,6 +84,18 @@
     "relatedToolsSubtitle": "Ergänzen Sie Ihre Analyse mit diesen anderen tevaxia-Tools.",
     "relatedGuidesTitle": "Verwandte Artikel",
     "relatedGuidesSubtitle": "Lesen Sie weiter mit diesen ergänzenden Leitfäden.",
+    "breadcrumbHome": "Startseite",
+    "breadcrumbGuide": "Immobilien-Leitfaden LU",
+    "readingMinutes": "Min. Lesezeit",
+    "updatedOn": "Aktualisiert am",
+    "keyTakeaways": "Das Wichtigste in 30 Sekunden",
+    "tableOfContents": "Inhalt",
+    "tocAria": "Inhaltsverzeichnis",
+    "calculatorTevaxia": "tevaxia-Rechner",
+    "officialSources": "Offizielle Quellen",
+    "officialSourcesSubtitle": "Gesetze, Rundschreiben und Veröffentlichungen, die für diesen Leitfaden konsultiert wurden.",
+    "faqTitle": "Häufig gestellte Fragen",
+    "faqSubtitle": "Kurze Antworten auf die häufigsten Fragen zu diesem Thema.",
     "toc": {
       "label": "Inhalt",
       "hero": "Überblick",
@@ -9020,21 +9032,72 @@
   },
   "guide": {
     "fraisNotaire": {
-      "title": "Wie hoch sind die Notargebühren in Luxemburg?",
-      "metaDescription": "Aufschlüsselung der Notargebühren in Luxemburg: Eintragungsgebühren (7% oder 6%), Transkription 1%, Notargebühren, Hypothekenkosten. Vollständige Berechnung.",
-      "intro": "Die Notargebühren in Luxemburg betragen ca. 7 bis 10 % des Kaufpreises bei einer Bestandsimmobilie und 3 bis 4 % bei einem Neubau (VEFA). Sie setzen sich zusammen aus Eintragungsgebühren, Transkriptionsgebühren, Notargebühren und Hypothekenkosten. Hier die Aufschlüsselung jeder Komponente zur genauen Budgetplanung.",
-      "section1Title": "Eintragungsgebühren und Transkriptionsgebühren",
-      "section1Content": "Die Eintragungsgebühren betragen 7 % des Verkaufspreises bei einer Bestandsimmobilie (geändertes Gesetz vom 22. Frimaire Jahr VII). Seit 2023 gilt unter bestimmten Bedingungen ein ermäßigter Satz von 6 % (Immobilie als Hauptwohnsitz, Preis unter einem Schwellenwert). Die Transkriptionsgebühren sind auf 1 % des Verkaufspreises festgelegt. Bei einem Neubau (VEFA) gelten die Gebühren nur für den Grundstücksanteil; der Bau unterliegt der MwSt. (3 % super-ermäßigter Satz für Wohnraum, gedeckelt auf 50.000 €).",
+      "title": "Notargebühren in Luxemburg: Tarife 2026 und detaillierte Berechnung",
+      "metaDescription": "Notargebühren in Luxemburg 2026: 7 % Eintragungsgebühren, 1 % Transkription, Bëllegen Akt bis zu 40.000 € pro Käufer, Notargebühren. Detaillierte Berechnung mit Beispielen.",
+      "subtitle": "Was die notarielle Urkunde tatsächlich kostet, Posten für Posten, mit den 2026 geltenden offiziellen Tarifen.",
+      "category": "Kauf & Finanzierung",
+      "essentiel": [
+        "Bei einer Bestandsimmobilie: 7 % Gebühren (6 % Eintragung + 1 % Transkription) plus Notargebühren und Hypothekenkosten bei Finanzierung.",
+        "Bei einem VEFA-Neubau: Gebühren gelten nur für den Grundstücksanteil. Der Bau unterliegt der ermäßigten Wohn-MwSt. von 3 % (Steuergutschrift gedeckelt auf 50.000 €).",
+        "Der Bëllegen Akt gewährt eine Steuergutschrift von 40.000 € pro Käufer (80.000 € für ein Paar) auf die Eintragungsgebühren, sofern Sie die Immobilie persönlich bewohnen.",
+        "Die Notargebühren folgen einem degressiven Tarif laut Großherzoglicher Verordnung: von 1,650 % auf der ersten Stufe bis 0,550 % über 30.000 €.",
+        "Für eine Immobilie zu 750.000 € mit 80 % Finanzierung: ca. 65.000 bis 75.000 € Gesamtkosten vor Bëllegen Akt einplanen."
+      ],
+      "section1Title": "Eintragungs- und Transkriptionsgebühren",
+      "section1P1": "Jede Übertragung von Immobilieneigentum in Luxemburg löst zwei Gebühren aus, die von der Verwaltung für Eintragung, Domänen und MwSt. (AED) erhoben werden: die Eintragungsgebühr von 6 % des Preises und die Transkriptionsgebühr von 1 %. Diese Sätze stammen aus dem geänderten Gesetz vom 22. Frimaire Jahr VII und dem Gesetz vom 25. September 1905 über die Transkription dinglicher Rechte und sind 2026 unverändert.",
+      "section1P2": "Bei einem VEFA-Neubau gelten die Gebühren nur für den im Vertrag ausgewiesenen Grundstücksanteil. Der Bauanteil ist von den Gebühren befreit, da er der MwSt. unterliegt, zum super-ermäßigten Wohnsatz von 3 % (Steuergutschrift gedeckelt auf 50.000 € pro Wohnung gemäß AED-Rundschreiben Nr. 800 und Artikel 44ter MwSt.-Gesetz).",
+      "callout1Title": "Bëllegen Akt im Überblick",
+      "callout1Body": "Wenn die erworbene Immobilie Ihr Hauptwohnsitz wird und Sie sie tatsächlich und persönlich bewohnen, gewährt die AED eine Steuergutschrift auf die Eintragungsgebühren von 40.000 € pro Käufer (80.000 € für ein gemeinsam erwerbendes Paar). Der Antrag erfolgt durch den Notar bei der Beurkundung. Mindestens 100 € bleiben in jedem Fall fällig.",
       "section2Title": "Notargebühren",
-      "section2Content": "Die Notargebühren sind durch die Großherzogliche Verordnung vom 26. November 2015 geregelt. Sie folgen einem proportionalen und degressiven Tarif: 1,650 % bis 7.500 €, 1,100 % von 7.500 bis 15.000 €, 0,825 % von 15.000 bis 30.000 €, dann 0,550 % darüber. Bei einer Immobilie von 750.000 € betragen die Gebühren ca. 5.700 €. Hinzu kommen Formalitätskosten (Hypothekenrecherchen, Katasterauszüge, Bescheinigungen) von typischerweise 1.000 bis 2.000 €.",
+      "section2P1": "Die Notargebühren in Luxemburg sind durch die Großherzogliche Verordnung vom 26. November 2015 über die Honorare der Notare festgelegt. Der Tarif ist proportional und degressiv nach Stufen: 1,650 % bis 7.500 €, 1,100 % von 7.500 € bis 15.000 €, 0,825 % von 15.000 € bis 30.000 €, dann 0,550 % darüber. Der Notar darf diese Sätze weder erhöhen noch senken.",
+      "section2P2": "Hinzu kommen die vom Notariat für den Käufer ausgelegten Formalitätskosten: Hypothekenrecherchen, Katasterauszug, Bauplanungsbescheinigung, Hypothekenlöschungsbescheinigung, Kopien, Übermittlungen an die AED. Diese Auslagen liegen typischerweise zwischen 1.000 und 2.000 € für eine klassische Wohntransaktion.",
       "section3Title": "Hypothekenkosten",
-      "section3Content": "Wenn Sie den Kauf per Kredit finanzieren, fallen zusätzliche Kosten für die Hypothekeneintragung an: 0,5 % Hypothekengebühr auf den geliehenen Betrag, Notargebühren für die Hypothekenurkunde (gleicher degressiver Tarif) und Grundbuchsteuer. Bei einem Darlehen von 600.000 € rechnen Sie mit ca. 5.500 bis 6.500 € Hypothekenkosten. Insgesamt sollte ein Käufer, der 80 % einer Immobilie von 750.000 € finanziert, ca. 65.000 bis 75.000 € an Erwerbskosten einplanen.",
-      "relatedToolLabel": "Berechnen Sie Ihre Erwerbskosten",
-      "relatedToolLink": "/frais-acquisition",
-      "faq1Q": "Wie hoch sind die Notargebühren für eine Wohnung zu 500.000 € in Luxemburg?",
-      "faq1A": "Für eine Bestandswohnung zu 500.000 € rechnen Sie mit ca. 44.000 bis 50.000 € Gesamtkosten (7 % Eintragungsgebühren + 1 % Transkription + Notargebühren + Hypothekenkosten bei Finanzierung).",
-      "faq2Q": "Sind die Notargebühren bei Neubauten in Luxemburg reduziert?",
-      "faq2A": "Ja, bei einem Neubau (VEFA) gelten die Eintragungsgebühren und Transkriptionsgebühren nur für den Grundstücksanteil. Der Bau unterliegt der MwSt. von 3 % (super-ermäßigter Satz), was die Gesamtkosten auf ca. 3 bis 4 % des Preises reduziert."
+      "section3P1": "Bei Finanzierung des Erwerbs durch ein Darlehen entstehen separate Kosten für die Hypothekeneintragung zugunsten der Bank: eine Hypothekengebühr von 0,05 % auf den geliehenen Betrag durch die AED, Notargebühren für die Eintragungsurkunde (nach demselben degressiven Tarif) und Grundbucheintragungsgebühren. Bei einem Darlehen von 600.000 €: 5.500 bis 6.500 € Hypothekenkosten insgesamt einplanen.",
+      "callout2Title": "Konventionelle Hypothek vs. Mandat",
+      "callout2Body": "Manche Banken akzeptieren ein Hypothekenmandat (Vollmacht zur Eintragung) statt sofortiger Hypothekeneintragung. Das halbiert oder drittelt die Hypothekenkosten, birgt aber spätere Kosten, falls die Bank letztlich doch eintragen muss. Wägen Sie das Risiko mit Ihrem Bankberater ab.",
+      "section4Title": "Rechenbeispiele nach Kaufpreis",
+      "section4Intro": "Die folgende Tabelle zeigt eine indikative Spanne für eine Bestandsimmobilie als Hauptwohnsitz eines Käuferpaares (voller Bëllegen Akt 80.000 € angewendet). Die Hypothekenkosten entsprechen einer 80 %-Finanzierung.",
+      "table": {
+        "caption": "Geschätzte Erwerbskosten — Bestandsimmobilie, Käuferpaar, 80 % Finanzierung",
+        "headers": ["Kaufpreis", "7 % Gebühren", "Bëllegen Akt", "Netto zu zahlen"],
+        "rows": [
+          ["300.000 €", "21.000 €", "−21.000 €", "≈ 6.000 €"],
+          ["500.000 €", "35.000 €", "−35.000 €", "≈ 10.000 €"],
+          ["750.000 €", "52.500 €", "−52.500 €", "≈ 14.000 €"],
+          ["1.000.000 €", "70.000 €", "−70.000 €", "≈ 18.000 €"],
+          ["1.500.000 €", "105.000 €", "−80.000 €", "≈ 50.000 €"]
+        ],
+        "footnote": "Netto zu zahlen = verbleibende Gebühren nach Bëllegen Akt + Notargebühren + Hypothekenkosten + Auslagen. Schätzung 2026 für ein Erstkäufer-Paar. Hypothekenanteil berechnet auf 80 % des Preises."
+      },
+      "callout3Title": "Beispiel: Paar kauft Wohnung zu 750.000 €",
+      "callout3Body": "Eintragungs- und Transkriptionsgebühren: 52.500 €. Bëllegen Akt Paar: −52.500 € (Teilverbrauch der 80.000 €-Hülle). Notargebühren (Verkauf): ≈ 5.700 €. Hypothekenurkunde für 600.000 €: ≈ 6.200 €. Auslagen und Formalitäten: ≈ 1.500 €. Am Tag der Beurkundung zu zahlen: ≈ 13.500 €.",
+      "inlineCalc": {
+        "title": "Berechnen Sie Ihre tatsächlichen Erwerbskosten",
+        "description": "Unser Rechner wendet den degressiven Notartarif, den Bëllegen Akt entsprechend Ihrer Situation, die Wohn-MwSt. für Neubauten und die Hypothekenkosten je nach Finanzierung an.",
+        "cta": "Rechner öffnen"
+      },
+      "tools": [
+        { "href": "/frais-acquisition", "title": "Erwerbskosten-Rechner", "description": "Vollständige Schätzung: Gebühren, Bëllegen Akt, Notargebühren, Hypothek, Wohn-MwSt." },
+        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Aufteilung Grundstück / Bau und 3 % Wohn-MwSt. für einen Neubau." },
+        { "href": "/outils-bancaires", "title": "Bank-Tools", "description": "Kreditkapazität, Monatsrate, DSTI- und LTV-Quoten vor Vertragsunterzeichnung." },
+        { "href": "/simulateur-aides", "title": "Erwerbsbeihilfen", "description": "Wohnungsprämie, Zinszuschuss, Staatsgarantie, Sparprämie." }
+      ],
+      "faq": [
+        { "q": "Wie hoch sind die Notargebühren für eine Wohnung zu 500.000 € in Luxemburg?", "a": "Für eine Bestandswohnung zu 500.000 € gekauft von einem Erstkäufer-Paar (voller Bëllegen Akt): rund 10.000 bis 12.000 € Gesamtkosten — 35.000 € Gebühren vollständig durch die Steuergutschrift kompensiert, plus 4.200 € Notargebühren, ca. 4.500 € Hypothekenkosten auf 400.000 € geliehen und 1.500 € Auslagen." },
+        { "q": "Sind die Notargebühren bei Neubauten in Luxemburg reduziert?", "a": "Ja. Bei einem VEFA-Neubau gelten die Eintragungs- und Transkriptionsgebühren nur für den Grundstücksanteil. Der Bau unterliegt der super-ermäßigten Wohn-MwSt. von 3 % (Steuergutschrift gedeckelt auf 50.000 € pro Wohnung). Die Gesamtkosten liegen meist zwischen 3 und 4 % des Preises." },
+        { "q": "Was ist der Bëllegen Akt und wie erhalte ich ihn?", "a": "Der Bëllegen Akt ist eine Steuergutschrift von 40.000 € pro Käufer (80.000 € für ein Paar) auf die Eintragungsgebühren, sofern die Immobilie als Hauptwohnsitz dient und persönlich bewohnt wird. Der Antrag erfolgt automatisch durch den Notar bei der Beurkundung. Die AED erhebt in jedem Fall mindestens 100 € Gebühren." },
+        { "q": "Können die Notargebühren in Luxemburg verhandelt werden?", "a": "Nein. Die Notargebühren in Luxemburg sind streng durch die Großherzogliche Verordnung vom 26. November 2015 geregelt; der Notar darf sie weder erhöhen noch senken. Nur die Auslagen (Formalitäten) können je nach Notariat leicht variieren je nach durchgeführten Recherchen." },
+        { "q": "Wer zahlt die Notargebühren in Luxemburg, der Käufer oder der Verkäufer?", "a": "Der Käufer trägt die gesamten Erwerbskosten (Gebühren, Notargebühren der Verkaufsurkunde, Hypothekenkosten bei Finanzierung). Der Verkäufer zahlt nur die Formalitäten zur Löschung einer bestehenden Hypothek auf der Immobilie und die etwaige Maklerprovision, falls vertraglich von ihm zu tragen." },
+        { "q": "Sind die Notargebühren in Luxemburg steuerlich absetzbar?", "a": "Bei einer Mietinvestition sind die Notargebühren (Gebühren, Notargebühren, Hypothekenkosten) nicht sofort absetzbar, sondern werden den Erwerbskosten zugerechnet und können über die Haltedauer abgeschrieben werden. Beim Hauptwohnsitz sind sie nicht absetzbar, aber der Bëllegen Akt deckt einen Großteil davon." }
+      ],
+      "sources": [
+        { "title": "Steuergutschrift auf notarielle Urkunden (Bëllegen Akt) — Verfahren", "org": "Guichet.lu", "url": "https://guichet.public.lu/de/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
+        { "title": "Bëllegen Akt — offizielles Datenblatt", "org": "Logement.lu — Wohnungsbauministerium", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
+        { "title": "Großherzogliche Verordnung vom 26. November 2015 über Notargebühren", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/11/26/n6/jo", "year": 2015 },
+        { "title": "Gesetz vom 22. Frimaire Jahr VII über Eintragungsgebühren", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" },
+        { "title": "Gesetz vom 25. September 1905 über die Transkription dinglicher Rechte", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1905/09/25/n1/jo" },
+        { "title": "3 % Wohn-MwSt. — AED-Rundschreiben", "org": "Verwaltung für Eintragung, Domänen und MwSt.", "url": "https://pfi.public.lu/fr.html" }
+      ]
     },
     "regle5Pourcent": {
       "title": "Wie funktioniert die 5%-Mietregel in Luxemburg?",
@@ -9054,21 +9117,72 @@
       "faq2A": "Der Gesetzentwurf 8184 sieht vor, die Obergrenze von 5 % auf 3,5 % für neue Mietverträge zu senken. Diese Reform wird im Parlament diskutiert und könnte 2026 in Kraft treten."
     },
     "bellegenAkt": {
-      "title": "Was ist der Bëllegen Akt und wie profitiert man davon?",
-      "metaDescription": "Der Bëllegen Akt ist eine Steuergutschrift von 20.000 € (40.000 € für Paare) auf die Eintragungsgebühren beim Kauf eines Hauptwohnsitzes in Luxemburg.",
-      "intro": "Der Bëllegen Akt (wörtlich 'günstiger Akt') ist eine Steuergutschrift auf die Eintragungsgebühren beim Erwerb einer Immobilie, die als Hauptwohnsitz in Luxemburg dienen soll. Jeder Käufer kann eine Gutschrift von bis zu 20.000 € erhalten (also 40.000 € für ein gemeinsam kaufendes Paar), was die Notarkosten erheblich reduziert. Diese Regelung basiert auf Artikel 7 des geänderten Gesetzes vom 22. Frimaire Jahr VII und der Großherzoglichen Verordnung vom 18. Dezember 2020.",
-      "section1Title": "Voraussetzungen",
-      "section1Content": "Um den Bëllegen Akt zu nutzen, müssen vier Bedingungen erfüllt sein: (1) Der Käufer muss sich verpflichten, die Immobilie innerhalb von zwei Jahren als Hauptwohnsitz zu nutzen; (2) er darf zum Zeitpunkt des Antrags keine andere Wohnung besitzen; (3) die Immobilie muss in Luxemburg liegen; (4) die Gutschrift wurde nicht bereits bei einem früheren Kauf vollständig genutzt. Die Gutschrift ist persönlich: Jede natürliche Person verfügt über einen lebenslangen Kredit von 20.000 €. Ein verheiratetes oder verpartnertes Paar kumuliert somit 40.000 €.",
-      "section2Title": "Höhe und Anwendung der Gutschrift",
-      "section2Content": "Die Gutschrift wird direkt auf die bei der notariellen Urkunde fälligen Eintragungsgebühren und Transkriptionsgebühren angerechnet. Konkretes Beispiel: Ein Paar kauft eine Wohnung für 600.000 €, Eintragungsgebühren (7 %) + Transkription (1 %) = 48.000 €. Mit dem Bëllegen Akt von 40.000 € zahlen sie nur 8.000 € an Gebühren. Der Notar wendet die Gutschrift automatisch bei der Urkundenabfassung an, nach Prüfung bei der Einregistrierungsverwaltung (AED). Übersteigt die Gutschrift die fälligen Gebühren, bleibt der Rest für einen zukünftigen Kauf verfügbar.",
-      "section3Title": "Wichtige Hinweise",
-      "section3Content": "Wenn der Käufer die Zweijahres-Belegungspflicht nicht einhält, kann die AED die Rückzahlung der Gutschrift zuzüglich Verzugszinsen fordern. Die Gutschrift gilt nicht für unbebaute Grundstücke ohne sofortiges Bauprojekt. Bei Wiederverkauf der Immobilie vor Ablauf der Belegungsfrist kann die Gutschrift ebenfalls zurückgefordert werden. Achtung: Der Bëllegen Akt reduziert nicht die Notargebühren oder Hypothekenkosten, sondern nur die Eintragungsgebühren und Transkriptionsgebühren. Eine Teilgutschrift ist möglich, wenn ein Teil bereits bei einem früheren Kauf verwendet wurde.",
-      "relatedToolLabel": "Simulieren Sie Ihre Kosten mit dem Bëllegen Akt",
-      "relatedToolLink": "/frais-acquisition",
-      "faq1Q": "Ist der Bëllegen Akt mit anderen Beihilfen kombinierbar?",
-      "faq1A": "Ja, der Bëllegen Akt ist mit der 3%-MwSt. (für Neubauten) und den PRIMe House / Klimabonus-Beihilfen für energetische Sanierung kombinierbar.",
-      "faq2Q": "Kann der Bëllegen Akt für eine Mietinvestition genutzt werden?",
-      "faq2A": "Nein, der Bëllegen Akt ist ausschließlich für den Kauf eines Hauptwohnsitzes vorgesehen. Eine Mietinvestition oder ein Zweitwohnsitz berechtigt nicht dazu."
+      "title": "Bëllegen Akt 2026: Steuergutschrift auf notarielle Urkunden in Luxemburg",
+      "metaDescription": "Bëllegen Akt 2026 in Luxemburg: 40.000 € Steuergutschrift pro Käufer (80.000 € für ein Paar) auf Eintragungsgebühren, Bedingungen, Verfahren, Beispiele.",
+      "subtitle": "Die Steuergutschrift, die einem Erstkäufer-Paar bis zu 80.000 € an Erwerbskosten sparen kann.",
+      "category": "Erwerbsbeihilfen",
+      "essentiel": [
+        "Steuergutschrift auf Eintragungs- und Transkriptionsgebühren: 40.000 € pro Käufer, 80.000 € für ein gemeinsam kaufendes Paar.",
+        "Hauptbedingung: die Immobilie tatsächlich und persönlich als Hauptwohnsitz bewohnen, ab Besitzeinweisung oder innerhalb von zwei Jahren.",
+        "Automatische Anwendung: der Notar wendet sie bei der Beurkundung an, kein zusätzlicher Aufwand für den Käufer.",
+        "Mindestbetrag von 100 € Gebühren bleibt in jedem Fall fällig, erhoben von der AED.",
+        "Nicht genutzte Gutschrift bleibt verfügbar: Wer 25.000 € beim ersten Kauf verbraucht hat, kann später noch 15.000 € für einen weiteren Hauptwohnsitz mobilisieren."
+      ],
+      "section1Title": "Prinzip und Höhe",
+      "section1P1": "Der Bëllegen Akt (sogenannter günstiger Akt) ist eine Steuergutschrift auf die beim Erwerb eines als Hauptwohnsitz vorgesehenen Wohnraums in Luxemburg fälligen Eintragungs- und Transkriptionsgebühren. Eingeführt durch das Gesetz vom 30. Juli 2002 und mehrfach reformiert, beträgt die aktuelle Obergrenze 40.000 € pro Käufer, also 80.000 € für ein gemeinsam kaufendes Paar. Die Gutschrift wird direkt auf die fälligen Gebühren angerechnet: keine Barerstattung.",
+      "section1P2": "Der Mechanismus ist einfach: Der Notar berechnet die fälligen Gebühren (6 % Eintragung + 1 % Transkription = 7 % vom Preis), zieht die verfügbare Bëllegen-Akt-Gutschrift jedes Käufers ab und vereinnahmt den Restbetrag für die AED. Übersteigt die Gutschrift die Gebühren, bleibt der Rest für einen zukünftigen Hauptwohnsitzerwerb verfügbar (die Gutschrift ist persönlich und lebenslang).",
+      "callout1Title": "Verheiratetes oder verpartnertes Paar",
+      "callout1Body": "Um beide Gutschriften zu kumulieren (insgesamt 80.000 €), muss der Akt einen gemeinsamen Erwerb in Bruchteilen feststellen. Wird nur ein Ehepartner als Käufer genannt, ist nur dessen persönliche Gutschrift von 40.000 € mobilisierbar. Die Regel gilt für Ehe, eingetragene Partnerschaft und sogar einfaches Zusammenleben, sofern beide im Akt erscheinen.",
+      "section2Title": "Voraussetzungen",
+      "section2P1": "Vier kumulative Bedingungen müssen erfüllt sein: (1) die Immobilie muss in Luxemburg liegen, (2) sie muss als Haupt- und gewöhnlicher Wohnsitz des Käufers dienen, (3) tatsächliche und persönliche Bewohnung muss ab Besitzeinweisung oder innerhalb von zwei Jahren ab Akt beginnen, (4) der Käufer muss eine eidesstattliche Erklärung im Akt unterzeichnen. Die Gutschrift steht jeder natürlichen Person offen, ob in Luxemburg ansässig oder nicht.",
+      "section2P2": "Der Bëllegen Akt gilt für Wohnungen, Häuser sowie für Grundstücke, auf denen innerhalb von vier Jahren ein Hauptwohnsitz errichtet werden soll. Bei einem VEFA-Neubau gilt die Gutschrift für die Gebühren auf den Grundstücksanteil (der Bauanteil unterliegt der 3 % Wohn-MwSt.).",
+      "callout2Title": "Sanktion bei Nichteinhaltung",
+      "callout2Body": "Bewohnt der Käufer die Immobilie nicht fristgerecht oder verlässt er sie vor Ablauf der Verpflichtungsfrist, kann die AED die vollständige Rückzahlung der Gutschrift zuzüglich Verzugszinsen verlangen. Auch eine Vermietung im ersten Jahr kann eine Rückforderung auslösen. Prüfen Sie Ihren Bewohnungsplan vor der Unterzeichnung des Vorvertrags.",
+      "section3Title": "Verfahren und Anwendung",
+      "section3P1": "Vom Käufer ist kein direktes Verfahren erforderlich. Der Notar integriert die Erklärung in den Aktentwurf, fragt bei der AED den verfügbaren Restkredit jedes Käufers ab (insbesondere wenn einer bereits davon profitiert hat) und wendet die Gutschrift bei der Gebührenberechnung an. Die von der AED ausgestellte Quittung weist die angewandte Gutschrift ausdrücklich aus.",
+      "section3P2": "Für Käufer, die bereits einen Teil ihres Kredits genutzt haben, führt die AED ein personengebundenes Register. Der Notar fragt dieses Register über die Eintragungs-Telefachverfahren vor Aktabschluss ab. Der Restkredit wird automatisch berechnet und auf die Gebühren des Neuerwerbs angerechnet.",
+      "section4Title": "Rechenbeispiele",
+      "section4Intro": "Wirkung des Bëllegen Akt nach Käuferprofil bei einer Bestandsimmobilie (Satz 7 %).",
+      "table": {
+        "caption": "Wirkung des Bëllegen Akt nach Profil und Preis",
+        "headers": ["Kaufpreis", "Einzelkäufer (40.000 €)", "Paar (80.000 €)", "Ersparnis"],
+        "rows": [
+          ["300.000 €", "0 € Gebühren", "0 € Gebühren", "21.000 €"],
+          ["500.000 €", "0 € (Kredit > Gebühren)", "0 € Gebühren", "35.000 €"],
+          ["750.000 €", "12.500 € Gebühren", "0 € Gebühren", "52.500 €"],
+          ["1.000.000 €", "30.000 € Gebühren", "0 € Gebühren", "70.000 €"],
+          ["1.500.000 €", "65.000 € Gebühren", "25.000 € Gebühren", "80.000 € (Paar)"]
+        ],
+        "footnote": "Ersparnis für ein Erstkäufer-Paar, das den Kredit nie genutzt hat. Bei einem Einzelkäufer entspricht die Ersparnis dem Mindestwert zwischen fälligen Gebühren und 40.000 €."
+      },
+      "callout3Title": "Konkreter Fall: Paar, Wohnung 750.000 €",
+      "callout3Body": "Fällige Gebühren: 52.500 € (7 % von 750.000). Bëllegen-Akt-Kredit Paar: 80.000 € verfügbar. Anrechnung: −52.500 €. Zu zahlende Gebühren: 0 € (AED-Mindestbetrag 100 €). Restkredit für künftigen Hauptwohnsitz: 27.500 €. Tatsächliche Ersparnis heute: 52.500 €.",
+      "inlineCalc": {
+        "title": "Simulieren Sie Ihren Bëllegen Akt in wenigen Klicks",
+        "description": "Unser Erwerbskosten-Rechner wendet den Kredit automatisch entsprechend Ihrer Situation an (Einzelkäufer, Paar, bereits genutzter Kredit) und gibt Ihnen den exakten zu zahlenden Betrag am Aktentag.",
+        "cta": "Berechnung starten"
+      },
+      "tools": [
+        { "href": "/frais-acquisition", "title": "Erwerbskosten-Rechner", "description": "Automatische Bëllegen-Akt-Anrechnung nach Ihrem Profil." },
+        { "href": "/simulateur-aides", "title": "Erwerbsbeihilfen-Simulator", "description": "Bëllegen Akt, Wohnungsprämie, Zinszuschuss und Staatsgarantie kombinieren." },
+        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Bëllegen Akt auf den Grundstücksanteil und 3 % Wohn-MwSt. auf den Bau." },
+        { "href": "/outils-bancaires", "title": "Bank-Tools", "description": "Kreditkapazität und Monatsrate zur Finalisierung Ihres Finanzierungsplans." }
+      ],
+      "faq": [
+        { "q": "Wie hoch ist der Bëllegen Akt 2026?", "a": "Der Bëllegen Akt beträgt 40.000 € pro Käufer, also 80.000 € für ein gemeinsam in Bruchteilen kaufendes Paar. Das ist die maximale Steuergutschrift, die auf Eintragungs- und Transkriptionsgebühren angerechnet werden kann." },
+        { "q": "Ist der Bëllegen Akt mit anderen Beihilfen kombinierbar?", "a": "Ja. Er ist mit der 3 % Wohn-MwSt. auf Neubauten, der Wohnungszugangsprämie, dem Zinszuschuss, der Sparprämie und der Staatsgarantie kombinierbar. Verboten ist nur die doppelte Nutzung desselben Kredits für zwei gleichzeitige Erwerbe." },
+        { "q": "Kann der Bëllegen Akt für eine Mietinvestition genutzt werden?", "a": "Nein. Der Kredit ist strikt dem Erwerb eines vom Käufer persönlich bewohnten Hauptwohnsitzes vorbehalten. Mietinvestitionen, Zweitwohnsitze oder Gewerberäume sind ausgeschlossen." },
+        { "q": "Muss man Luxemburg-Resident sein, um zu profitieren?", "a": "Nein. Der Bëllegen Akt steht jeder natürlichen Person offen, die eine Immobilie in Luxemburg erwirbt, um dort ihren Hauptwohnsitz zu begründen, ob bereits Steuerresident oder beim Kauf zuziehend." },
+        { "q": "Was passiert bei schnellem Wiederverkauf?", "a": "Erfolgt der Wiederverkauf vor Ablauf der Verpflichtungsfrist, kann die AED die volle Rückzahlung der Gutschrift zuzüglich Verzugszinsen fordern. Ein Wiederverkauf nach mehreren Jahren tatsächlicher Bewohnung löst keine Rückforderung aus, der Kredit wird aber für einen Neuerwerb nicht wiederhergestellt." },
+        { "q": "Wie prüfe ich den verfügbaren Kreditstand?", "a": "Der Notar fragt die AED über Telefachverfahren vor dem Akt ab. Der Käufer kann auch direkt eine Standsbescheinigung bei der AED gegen Vorlage eines Ausweises anfordern. Wurde ein Teil bereits bei einem früheren Kauf verwendet, ist nur der Restbetrag mobilisierbar." }
+      ],
+      "sources": [
+        { "title": "Steuergutschrift auf notarielle Urkunden (Bëllegen Akt) — Verfahren", "org": "Guichet.lu", "url": "https://guichet.public.lu/de/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
+        { "title": "Bëllegen Akt — offizielles Datenblatt", "org": "Logement.lu — Wohnungsbauministerium", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
+        { "title": "Gesetz vom 30. Juli 2002 zur Einführung der Steuergutschrift auf notarielle Urkunden", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2002/07/30/n3/jo", "year": 2002 },
+        { "title": "Bëllegen-Akt-Reform — Anhebung auf 40.000 €", "org": "Paperjam", "url": "https://paperjam.lu/article/frais-enregistrement-baisses-a" },
+        { "title": "Gesetz vom 22. Frimaire Jahr VII — Eintragungsgebühren", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" }
+      ]
     },
     "plusValue": {
       "title": "Wie werden Immobilien-Kapitalgewinne in Luxemburg besteuert?",

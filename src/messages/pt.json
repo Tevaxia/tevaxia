@@ -84,6 +84,18 @@
     "relatedToolsSubtitle": "Complete a sua análise com estas outras ferramentas tevaxia.",
     "relatedGuidesTitle": "Artigos relacionados",
     "relatedGuidesSubtitle": "Continue a leitura com estes guias complementares.",
+    "breadcrumbHome": "Início",
+    "breadcrumbGuide": "Guia imobiliário LU",
+    "readingMinutes": "min de leitura",
+    "updatedOn": "Atualizado em",
+    "keyTakeaways": "O essencial em 30 segundos",
+    "tableOfContents": "Sumário",
+    "tocAria": "Sumário da página",
+    "calculatorTevaxia": "Calculadora tevaxia",
+    "officialSources": "Fontes oficiais",
+    "officialSourcesSubtitle": "Leis, circulares e publicações consultadas para este guia.",
+    "faqTitle": "Perguntas frequentes",
+    "faqSubtitle": "Respostas curtas às perguntas mais comuns sobre este tema.",
     "toc": {
       "label": "Conteúdo",
       "hero": "Apresentação",
@@ -9020,21 +9032,72 @@
   },
   "guide": {
     "fraisNotaire": {
-      "title": "Quanto custam os custos notariais no Luxemburgo?",
-      "metaDescription": "Detalhe dos custos notariais no Luxemburgo: direitos de registo (7% ou 6%), transcrição 1%, emolumentos notariais, custos hipotecários. Cálculo completo.",
-      "intro": "Os custos notariais no Luxemburgo representam cerca de 7 a 10% do preço de compra de um imóvel antigo e 3 a 4% para um imóvel novo (VEFA). Compõem-se dos direitos de registo, direitos de transcrição, emolumentos notariais e custos hipotecários. Eis o detalhe de cada componente para estimar com precisão o seu orçamento.",
+      "title": "Custos notariais no Luxemburgo: tabelas 2026 e cálculo detalhado",
+      "metaDescription": "Custos notariais no Luxemburgo em 2026: 7% direitos de registo, 1% transcrição, Bëllegen Akt até 40 000 € por comprador, emolumentos notariais. Cálculo detalhado com exemplos.",
+      "subtitle": "O que a escritura notarial custa realmente, linha a linha, com as tabelas oficiais em vigor em 2026.",
+      "category": "Compra & financiamento",
+      "essentiel": [
+        "Para um imóvel antigo: 7% de direitos (6% registo + 1% transcrição) acrescidos dos emolumentos do notário e dos custos hipotecários se houver empréstimo.",
+        "Para um imóvel novo VEFA: os direitos aplicam-se apenas à parte do terreno. A construção está sujeita ao IVA habitação a 3% (crédito de imposto limitado a 50 000 €).",
+        "O Bëllegen Akt concede um crédito de imposto de 40 000 € por comprador (80 000 € para um casal) sobre os direitos de registo, desde que ocupe pessoalmente o imóvel.",
+        "Os emolumentos notariais seguem uma tabela degressiva fixada por regulamento grão-ducal: de 1,650% no primeiro escalão a 0,550% acima de 30 000 €.",
+        "Para um imóvel de 750 000 € financiado a 80%, prever cerca de 65 000 a 75 000 € de custos totais antes do Bëllegen Akt."
+      ],
       "section1Title": "Direitos de registo e transcrição",
-      "section1Content": "Os direitos de registo ascendem a 7% do preço de venda para um imóvel antigo (lei modificada de 22 Frimário Ano VII). Desde 2023, aplica-se uma taxa reduzida de 6% sob certas condições (imóvel destinado a residência principal, preço abaixo de um limiar). Os direitos de transcrição são fixados em 1% do preço de venda. Para um imóvel novo (VEFA), os direitos aplicam-se apenas à parte do terreno, estando a construção sujeita a IVA (3% taxa super-reduzida para habitação, limitada a 50.000 €).",
+      "section1P1": "Qualquer transferência de propriedade imobiliária no Luxemburgo desencadeia dois direitos cobrados pela Administração do Registo, Domínios e IVA (AED): o direito de registo, fixado em 6% do preço, e o direito de transcrição, fixado em 1%. Estas taxas resultam da lei modificada de 22 Frimário Ano VII e da lei de 25 de setembro de 1905 sobre a transcrição de direitos reais imobiliários, e mantêm-se inalteradas em 2026.",
+      "section1P2": "Para um imóvel novo vendido em VEFA, os direitos aplicam-se apenas à parte de terreno indicada na escritura. A parte de construção está isenta dos direitos por estar sujeita ao IVA, à taxa super-reduzida de habitação de 3% (crédito de imposto limitado a 50 000 € por habitação, conforme circular AED n.º 800 e artigo 44ter da lei do IVA).",
+      "callout1Title": "O Bëllegen Akt em síntese",
+      "callout1Body": "Se o imóvel adquirido se tornar a sua residência principal e o ocupar de forma efetiva e pessoal, a AED aplica um crédito de imposto sobre os direitos de registo de 40 000 € por comprador (80 000 € para um casal que adquire em conjunto). O pedido é feito pelo notário no momento da escritura. Pelo menos 100 € permanecem devidos em qualquer caso.",
       "section2Title": "Emolumentos notariais",
-      "section2Content": "Os emolumentos notariais são regulados pelo Regulamento Grão-Ducal de 26 de novembro de 2015. Seguem uma tabela proporcional e degressiva: 1,650% até 7.500 €, 1,100% de 7.500 a 15.000 €, 0,825% de 15.000 a 30.000 €, depois 0,550% acima. Para um imóvel de 750.000 €, os emolumentos ascendem a cerca de 5.700 €. Acrescem custos de formalidades (pesquisas hipotecárias, extratos cadastrais, certidões) que representam geralmente 1.000 a 2.000 € adicionais.",
+      "section2P1": "Os emolumentos do notário luxemburguês são fixados pelo Regulamento Grão-Ducal de 26 de novembro de 2015 sobre os honorários dos notários. A tabela é proporcional e degressiva por escalões: 1,650% até 7 500 €, 1,100% de 7 500 € a 15 000 €, 0,825% de 15 000 € a 30 000 €, depois 0,550% acima. O notário não pode aumentar nem reduzir estas taxas.",
+      "section2P2": "A estes honorários acrescem os custos de formalidades suportados pelo cartório por conta do comprador: pesquisas hipotecárias, extrato cadastral, certificado urbanístico, certificado de cancelamento, fotocópias, transmissões à AED. Estas despesas representam geralmente entre 1 000 e 2 000 € para uma transação residencial clássica.",
       "section3Title": "Custos hipotecários",
-      "section3Content": "Se financia a compra com um empréstimo, a inscrição hipotecária gera custos adicionais: 0,5% de direito de hipoteca sobre o montante emprestado, emolumentos notariais para a escritura hipotecária (mesma tabela degressiva) e imposto de publicidade fundiária. Para um empréstimo de 600.000 €, preveja aproximadamente 5.500 a 6.500 € de custos hipotecários. No total, um comprador que financie 80% de um imóvel de 750.000 € deve prever cerca de 65.000 a 75.000 € de custos de aquisição.",
-      "relatedToolLabel": "Calcule os seus custos de aquisição",
-      "relatedToolLink": "/frais-acquisition",
-      "faq1Q": "Quanto custam os custos notariais para um apartamento de 500.000 € no Luxemburgo?",
-      "faq1A": "Para um apartamento antigo de 500.000 €, preveja aproximadamente 44.000 a 50.000 € de custos totais (7% direitos de registo + 1% transcrição + emolumentos notariais + custos hipotecários se financiado).",
-      "faq2Q": "Os custos notariais são reduzidos para imóveis novos no Luxemburgo?",
-      "faq2A": "Sim, para um imóvel novo (VEFA), os direitos de registo e transcrição aplicam-se apenas à parte do terreno. A construção está sujeita a IVA de 3% (taxa super-reduzida), o que reduz significativamente os custos totais para cerca de 3 a 4% do preço."
+      "section3P1": "Se a aquisição for financiada por crédito, a inscrição hipotecária a favor do banco gera custos distintos: um direito de hipoteca de 0,05% sobre o montante emprestado cobrado pela AED, os emolumentos do notário pela escritura de inscrição (seguindo a mesma tabela degressiva acima) e as taxas de inscrição no registo predial. Para um empréstimo de 600 000 €, contar com 5 500 a 6 500 € de custos hipotecários totais.",
+      "callout2Title": "Hipoteca convencional vs mandato",
+      "callout2Body": "Alguns bancos aceitam um mandato hipotecário (procuração para inscrever) em vez de uma inscrição hipotecária imediata. Isto divide os custos hipotecários por duas a três vezes, mas expõe a um custo posterior se o banco acabar por inscrever a hipoteca. Avalie o risco com o seu consultor bancário.",
+      "section4Title": "Exemplos calculados por preço de compra",
+      "section4Intro": "A tabela abaixo dá uma faixa indicativa para um imóvel antigo ocupado como residência principal por um casal comprador (Bëllegen Akt 80 000 € integralmente aplicado). Os custos hipotecários correspondem a um financiamento a 80% do valor.",
+      "table": {
+        "caption": "Custos de aquisição estimados — imóvel antigo, casal comprador, financiamento 80%",
+        "headers": ["Preço de compra", "Direitos 7%", "Bëllegen Akt", "Líquido a pagar"],
+        "rows": [
+          ["300 000 €", "21 000 €", "−21 000 €", "≈ 6 000 €"],
+          ["500 000 €", "35 000 €", "−35 000 €", "≈ 10 000 €"],
+          ["750 000 €", "52 500 €", "−52 500 €", "≈ 14 000 €"],
+          ["1 000 000 €", "70 000 €", "−70 000 €", "≈ 18 000 €"],
+          ["1 500 000 €", "105 000 €", "−80 000 €", "≈ 50 000 €"]
+        ],
+        "footnote": "Líquido a pagar = direitos restantes após Bëllegen Akt + emolumentos notariais + custos hipotecários + despesas. Estimativa 2026 para um casal primo-comprador. Parte hipotecária calculada sobre 80% do preço."
+      },
+      "callout3Title": "Exemplo: casal a comprar apartamento de 750 000 €",
+      "callout3Body": "Direitos de registo e transcrição: 52 500 €. Bëllegen Akt casal: −52 500 € (utilização parcial do envelope de 80 000 €). Emolumentos notariais (venda): ≈ 5 700 €. Escritura hipotecária para 600 000 €: ≈ 6 200 €. Despesas e formalidades: ≈ 1 500 €. Total a desembolsar no dia da escritura: ≈ 13 500 €.",
+      "inlineCalc": {
+        "title": "Calcule os seus custos de aquisição reais",
+        "description": "A nossa calculadora aplica a tabela degressiva dos notários, o Bëllegen Akt segundo a sua situação, o IVA habitação para imóveis novos e o custo hipotecário consoante o financiamento.",
+        "cta": "Abrir a calculadora"
+      },
+      "tools": [
+        { "href": "/frais-acquisition", "title": "Calculadora de custos de aquisição", "description": "Estimativa completa: direitos, Bëllegen Akt, emolumentos, hipoteca, IVA habitação." },
+        { "href": "/vefa", "title": "Simulador VEFA", "description": "Decomposição terreno / construção e IVA habitação 3% para um imóvel novo." },
+        { "href": "/outils-bancaires", "title": "Ferramentas bancárias", "description": "Capacidade de empréstimo, prestação mensal, rácios DSTI e LTV antes de assinar o compromisso." },
+        { "href": "/simulateur-aides", "title": "Apoios à aquisição", "description": "Prémio de habitação, subvenção de juros, garantia do Estado, prémio de poupança." }
+      ],
+      "faq": [
+        { "q": "Quanto custam os custos notariais para um apartamento de 500 000 € no Luxemburgo?", "a": "Para um apartamento antigo de 500 000 € comprado por um casal primo-comprador (Bëllegen Akt integral), conte com cerca de 10 000 a 12 000 € de custos totais: 35 000 € de direitos integralmente compensados pelo crédito de imposto, mais 4 200 € de emolumentos notariais, cerca de 4 500 € de custos hipotecários sobre 400 000 € emprestados e 1 500 € de despesas." },
+        { "q": "Os custos notariais são reduzidos para imóveis novos no Luxemburgo?", "a": "Sim. Para um imóvel novo VEFA, os direitos de registo e transcrição aplicam-se apenas à parte de terreno indicada na escritura. A construção está sujeita ao IVA habitação super-reduzido de 3% (crédito de imposto limitado a 50 000 € por habitação). Os custos totais ficam geralmente entre 3 e 4% do preço." },
+        { "q": "O que é o Bëllegen Akt e como o obtenho?", "a": "O Bëllegen Akt é um crédito de imposto de 40 000 € por comprador (80 000 € para um casal) aplicado aos direitos de registo, desde que o imóvel sirva de residência principal e seja ocupado pessoalmente. O pedido é feito automaticamente pelo notário no momento da escritura. A AED cobra um mínimo de 100 € de direitos em qualquer caso." },
+        { "q": "Os custos notariais podem ser negociados no Luxemburgo?", "a": "Não. Os emolumentos do notário luxemburguês são estritamente regulados pelo Regulamento Grão-Ducal de 26 de novembro de 2015 e o notário não pode aumentá-los nem reduzi-los. Apenas as despesas (formalidades) podem variar ligeiramente entre cartórios consoante as pesquisas efetuadas." },
+        { "q": "Quem paga os custos notariais no Luxemburgo, o comprador ou o vendedor?", "a": "O comprador suporta a totalidade dos custos de aquisição (direitos, emolumentos da escritura de venda, custos hipotecários se houver empréstimo). O vendedor paga apenas as eventuais formalidades ligadas ao cancelamento de uma hipoteca pré-existente sobre o imóvel e a eventual comissão de agência se for contratualmente sua." },
+        { "q": "Os custos notariais são dedutíveis fiscalmente no Luxemburgo?", "a": "Para um investimento de arrendamento, os custos notariais (direitos, emolumentos, custos hipotecários) não são imediatamente dedutíveis mas são integrados no custo de aquisição e podem ser amortizados ao longo do período de detenção. Para a residência principal não são dedutíveis, mas o Bëllegen Akt cobre uma grande parte deles." }
+      ],
+      "sources": [
+        { "title": "Crédito de imposto sobre escrituras notariais (Bëllegen Akt) — procedimento", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
+        { "title": "Bëllegen Akt — ficha oficial", "org": "Logement.lu — Ministério da Habitação", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
+        { "title": "Regulamento Grão-Ducal de 26 de novembro de 2015 sobre emolumentos notariais", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/11/26/n6/jo", "year": 2015 },
+        { "title": "Lei de 22 Frimário Ano VII sobre direitos de registo", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" },
+        { "title": "Lei de 25 de setembro de 1905 sobre transcrição de direitos reais imobiliários", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1905/09/25/n1/jo" },
+        { "title": "IVA habitação a 3% — circular AED", "org": "Administração do Registo, Domínios e IVA", "url": "https://pfi.public.lu/fr.html" }
+      ]
     },
     "regle5Pourcent": {
       "title": "Como funciona a regra dos 5% para rendas no Luxemburgo?",
@@ -9054,21 +9117,72 @@
       "faq2A": "O projeto de lei 8184 prevê reduzir o limite de 5% para 3,5% para novos contratos. Esta reforma está em discussão parlamentar e poderá entrar em vigor em 2026."
     },
     "bellegenAkt": {
-      "title": "O que é o Bëllegen Akt e como beneficiar?",
-      "metaDescription": "O Bëllegen Akt é um crédito fiscal de 20.000 € (40.000 € para casais) sobre os direitos de registo na compra de residência principal no Luxemburgo.",
-      "intro": "O Bëllegen Akt (literalmente 'ato acessível') é um crédito fiscal concedido sobre os direitos de registo na aquisição de um imóvel destinado a servir de residência principal no Luxemburgo. Cada adquirente pode beneficiar de um crédito até 20.000 € (ou seja, 40.000 € para um casal que adquire em conjunto), o que reduz significativamente os custos notariais. Este mecanismo está previsto no artigo 7.o da lei modificada de 22 Frimário Ano VII e no regulamento grão-ducal de 18 de dezembro de 2020.",
-      "section1Title": "Condições de elegibilidade",
-      "section1Content": "Para beneficiar do Bëllegen Akt, quatro condições devem ser cumpridas: (1) o adquirente deve comprometer-se a ocupar o imóvel como residência principal nos dois anos seguintes à aquisição; (2) não deve ser proprietário de outra habitação no momento do pedido; (3) o imóvel deve estar situado no Luxemburgo; (4) o crédito não deve ter sido integralmente utilizado numa aquisição anterior. O crédito é pessoal: cada pessoa singular dispõe de um crédito vitalício de 20.000 €. Um casal casado ou em união de facto que compre em conjunto acumula portanto 40.000 €.",
-      "section2Title": "Montante e aplicação do crédito",
-      "section2Content": "O crédito é imputado diretamente nos direitos de registo e transcrição devidos na escritura notarial. Exemplo concreto: para um casal que compra um apartamento por 600.000 €, direitos de registo (7%) + transcrição (1%) = 48.000 €. Com o Bëllegen Akt de 40.000 €, pagam apenas 8.000 € de direitos. O notário aplica automaticamente o crédito na redação da escritura, após verificação junto da Administração do Registo e Domínios (AED). Se o crédito exceder os direitos devidos, o saldo fica disponível para uma futura aquisição.",
-      "section3Title": "Pontos de atenção",
-      "section3Content": "Se o adquirente não cumprir o compromisso de ocupação nos dois anos, a AED pode reclamar o reembolso do crédito acrescido de juros de mora. O crédito não se aplica a terrenos sem projeto de construção imediato. Em caso de revenda do imóvel antes do término do prazo de ocupação, o crédito pode igualmente ser reclamado. Atenção: o Bëllegen Akt não reduz os emolumentos notariais nem os custos hipotecários, apenas os direitos de registo e transcrição. Um crédito parcial é possível se parte já foi utilizada numa aquisição anterior.",
-      "relatedToolLabel": "Simule os seus custos com o Bëllegen Akt",
-      "relatedToolLink": "/frais-acquisition",
-      "faq1Q": "O Bëllegen Akt é cumulável com outras ajudas?",
-      "faq1A": "Sim, o Bëllegen Akt é cumulável com o IVA a 3% (para imóveis novos) e as ajudas PRIMe House / Klimabonus para renovação energética.",
-      "faq2Q": "Pode-se usar o Bëllegen Akt para um investimento locativo?",
-      "faq2A": "Não, o Bëllegen Akt é estritamente reservado à aquisição de residência principal. Um investimento locativo ou residência secundária não permite beneficiar."
+      "title": "Bëllegen Akt 2026: crédito fiscal sobre escrituras notariais no Luxemburgo",
+      "metaDescription": "Bëllegen Akt 2026 no Luxemburgo: crédito fiscal de 40 000 € por comprador (80 000 € para um casal) sobre os direitos de registo, condições, procedimento, exemplos.",
+      "subtitle": "O crédito fiscal que pode poupar até 80 000 € de custos de aquisição a um casal primo-comprador.",
+      "category": "Apoios à aquisição",
+      "essentiel": [
+        "Crédito fiscal sobre os direitos de registo e transcrição: 40 000 € por comprador, 80 000 € para um casal que compra em conjunto.",
+        "Condição principal: ocupar efetiva e pessoalmente o imóvel como residência principal, desde a tomada de posse ou nos dois anos seguintes.",
+        "Aplicação automática: o notário aplica-o no momento da escritura, sem formalidade adicional para o comprador.",
+        "Mínimo de 100 € de direitos devidos em qualquer caso, cobrados pela Administração do Registo, Domínios e IVA (AED).",
+        "Crédito não utilizado permanece disponível: um comprador que utilizou 25 000 € numa primeira compra ainda pode mobilizar 15 000 € numa futura compra principal."
+      ],
+      "section1Title": "Princípio e montante",
+      "section1P1": "O Bëllegen Akt («ato acessível») é um crédito fiscal sobre os direitos de registo e transcrição devidos na aquisição de uma habitação destinada a servir de residência principal no Luxemburgo. Instituído pela lei de 30 de julho de 2002 e sucessivamente reformado, o limite atual é de 40 000 € por comprador, ou seja, 80 000 € para um casal que compra em conjunto. O crédito é imputado diretamente nos direitos devidos: não há reembolso em dinheiro.",
+      "section1P2": "O mecanismo é simples: o notário calcula os direitos devidos (6% registo + 1% transcrição = 7% do preço), deduz o crédito Bëllegen Akt disponível para cada comprador e cobra o saldo por conta da AED. Se o crédito exceder os direitos devidos, o saldo permanece disponível para uma aquisição futura como residência principal (o crédito é pessoal e vitalício).",
+      "callout1Title": "Casal casado ou em parceria",
+      "callout1Body": "Para acumular os créditos dos dois cônjuges (80 000 € no total), a escritura deve constatar a aquisição conjunta em compropriedade. Se apenas um dos cônjuges for nomeado comprador, apenas o seu crédito pessoal de 40 000 € é mobilizável. A regra aplica-se ao casamento, à parceria registada e até à coabitação simples se ambos figurarem na escritura.",
+      "section2Title": "Condições de elegibilidade",
+      "section2P1": "Quatro condições cumulativas devem ser respeitadas: (1) o imóvel deve estar situado no Luxemburgo, (2) deve servir de residência principal e habitual do comprador, (3) a ocupação efetiva e pessoal deve começar desde a tomada de posse ou nos dois anos seguintes à escritura, e (4) o comprador deve assinar uma declaração sob compromisso de honra integrada na escritura. O crédito está aberto a qualquer pessoa singular, residente ou não residente no Luxemburgo.",
+      "section2P2": "O Bëllegen Akt aplica-se a apartamentos, casas e a terrenos destinados a receber a construção de uma residência principal no prazo de quatro anos. Para um imóvel novo VEFA, o crédito aplica-se aos direitos sobre a parte de terreno (a parte de construção está sujeita ao IVA habitação a 3%).",
+      "callout2Title": "Sanção em caso de incumprimento",
+      "callout2Body": "Se o comprador não ocupar o imóvel no prazo previsto, ou se o abandonar antes do termo do prazo de compromisso, a AED pode reclamar o reembolso integral do crédito, acrescido de juros de mora. O arrendamento do imóvel no primeiro ano também pode desencadear a restituição. Confirme o seu plano de ocupação antes de assinar o compromisso.",
+      "section3Title": "Procedimento e aplicação",
+      "section3P1": "Nenhum procedimento direto é necessário por parte do comprador. O notário integra a declaração no projeto de escritura, consulta a AED sobre o saldo de crédito disponível para cada comprador (em particular se um deles já beneficiou do regime) e aplica o crédito no cálculo dos direitos. O recibo dos direitos emitido pela AED menciona explicitamente o crédito aplicado.",
+      "section3P2": "Para os compradores que já utilizaram parte do seu crédito, a AED mantém um registo nominal. O notário consulta esse registo via teleprocedimentos do registo antes de finalizar a escritura. O crédito residual é calculado automaticamente e imputado nos direitos devidos pela nova aquisição.",
+      "section4Title": "Exemplos calculados",
+      "section4Intro": "Eis o efeito do Bëllegen Akt segundo o perfil do comprador, para um imóvel antigo (taxa 7%).",
+      "table": {
+        "caption": "Efeito do Bëllegen Akt segundo perfil e preço",
+        "headers": ["Preço de compra", "Comprador único (40 000 €)", "Casal (80 000 €)", "Poupança"],
+        "rows": [
+          ["300 000 €", "0 € de direitos", "0 € de direitos", "21 000 €"],
+          ["500 000 €", "0 € (crédito > direitos)", "0 € de direitos", "35 000 €"],
+          ["750 000 €", "12 500 € de direitos", "0 € de direitos", "52 500 €"],
+          ["1 000 000 €", "30 000 € de direitos", "0 € de direitos", "70 000 €"],
+          ["1 500 000 €", "65 000 € de direitos", "25 000 € de direitos", "80 000 € (casal)"]
+        ],
+        "footnote": "Poupança para um casal primo-comprador que nunca utilizou o crédito. Para um comprador único, a poupança equivale ao mínimo entre os direitos devidos e 40 000 €."
+      },
+      "callout3Title": "Caso concreto: casal, apartamento de 750 000 €",
+      "callout3Body": "Direitos devidos: 52 500 € (7% de 750 000). Crédito Bëllegen Akt casal: 80 000 € disponíveis. Imputação: −52 500 €. Direitos a pagar: 0 € (mínimo AED 100 €). Crédito residual para uma futura compra principal: 27 500 €. Poupança real hoje: 52 500 €.",
+      "inlineCalc": {
+        "title": "Simule o seu Bëllegen Akt em alguns cliques",
+        "description": "A nossa calculadora de custos de aquisição aplica automaticamente o crédito segundo a sua situação (comprador único, casal, crédito já utilizado) e dá-lhe o montante exato a pagar no dia da escritura.",
+        "cta": "Iniciar o cálculo"
+      },
+      "tools": [
+        { "href": "/frais-acquisition", "title": "Calculadora de custos de aquisição", "description": "Imputação automática do Bëllegen Akt segundo o seu perfil." },
+        { "href": "/simulateur-aides", "title": "Simulador de apoios à aquisição", "description": "Combine Bëllegen Akt, prémio de habitação, subvenção de juros e garantia do Estado." },
+        { "href": "/vefa", "title": "Simulador VEFA", "description": "Bëllegen Akt sobre a parte de terreno e IVA habitação 3% sobre a construção." },
+        { "href": "/outils-bancaires", "title": "Ferramentas bancárias", "description": "Capacidade de empréstimo e prestação para finalizar o seu plano de financiamento." }
+      ],
+      "faq": [
+        { "q": "Qual é o montante do Bëllegen Akt em 2026?", "a": "O Bëllegen Akt ascende a 40 000 € por comprador, ou seja, 80 000 € para um casal que compra em conjunto em compropriedade. É o montante máximo do crédito fiscal imputável aos direitos de registo e transcrição." },
+        { "q": "O Bëllegen Akt é cumulável com outras ajudas?", "a": "Sim. Cumula-se com o IVA habitação a 3% sobre os imóveis novos, o prémio de acesso à propriedade, a subvenção de juros, o prémio de poupança e a garantia do Estado. A única cumulação proibida é beneficiar duas vezes do mesmo crédito para duas aquisições simultâneas." },
+        { "q": "Pode-se usar o Bëllegen Akt para um investimento locativo?", "a": "Não. O crédito é estritamente reservado à aquisição de residência principal ocupada pessoalmente pelo comprador. Um investimento locativo, residência secundária ou local comercial não dão direito ao crédito." },
+        { "q": "É preciso ser residente luxemburguês para beneficiar?", "a": "Não. O Bëllegen Akt está aberto a qualquer pessoa singular que adquira um imóvel no Luxemburgo para nele estabelecer a sua residência principal, seja já residente fiscal ou se mude por ocasião da compra." },
+        { "q": "O que acontece se eu vender rapidamente?", "a": "Se a revenda ocorrer antes do termo do prazo de compromisso de ocupação, a AED pode reclamar o reembolso integral do crédito acrescido de juros de mora. Uma revenda após vários anos de ocupação efetiva não desencadeia restituição, mas o crédito não é restaurado para uma nova aquisição principal." },
+        { "q": "Como verificar o saldo de crédito disponível?", "a": "O notário consulta a AED via teleprocedimentos antes da escritura. O comprador também pode pedir uma certidão de saldo diretamente à AED apresentando um documento de identificação. Se uma parte do crédito já foi utilizada numa compra anterior, apenas o resíduo é mobilizável." }
+      ],
+      "sources": [
+        { "title": "Crédito de imposto sobre escrituras notariais (Bëllegen Akt) — procedimento", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
+        { "title": "Bëllegen Akt — ficha oficial", "org": "Logement.lu — Ministério da Habitação", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
+        { "title": "Lei de 30 de julho de 2002 que institui o crédito fiscal sobre escrituras notariais", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2002/07/30/n3/jo", "year": 2002 },
+        { "title": "Reforma do Bëllegen Akt — elevado a 40 000 €", "org": "Paperjam", "url": "https://paperjam.lu/article/frais-enregistrement-baisses-a" },
+        { "title": "Lei de 22 Frimário Ano VII — direitos de registo", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" }
+      ]
     },
     "plusValue": {
       "title": "Como é tributada a mais-valia imobiliária no Luxemburgo?",
