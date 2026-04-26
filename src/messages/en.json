@@ -9542,21 +9542,72 @@
       "faq2A": "Luxembourg banks generally require a personal contribution of 25-30% of the purchase price for a non-resident (LTV of 70-75%), compared to sometimes 0-20% for a resident acquiring their primary residence. This ratio varies by bank, borrower profile and property location."
     },
     "tva3Pourcent": {
-      "title": "How to Benefit from the 3% VAT on Housing in Luxembourg?",
-      "metaDescription": "3% VAT in Luxembourg: super-reduced rate for housing, conditions, max 400 m², AED application, VEFA, EUR 50,000 benefit cap. Complete guide.",
-      "intro": "Luxembourg applies a super-reduced VAT rate of 3% (instead of the standard 17%) on the construction, renovation and acquisition of residential housing. This preferential rate, provided by the modified VAT law and the Grand Ducal Regulation of 30 July 2002, constitutes a significant tax advantage of up to EUR 50,000 per dwelling. Here are the conditions and procedure to benefit from it.",
-      "section1Title": "Conditions for the 3% Rate",
-      "section1Content": "The super-reduced 3% rate applies under several cumulative conditions. The dwelling must be used for residential purposes (primary or secondary residence, residential rental). The habitable surface must not exceed 400 m²; beyond this, the 17% rate applies to the excess area. The beneficiary must obtain prior authorization from the Registration, Domains and VAT Administration (AED) before work begins or the acquisition deed is signed. Works must concern the creation of housing (new construction, conversion) or the renovation/repair of an existing dwelling over 20 years old (certain services). Commercial premises, offices and garages not attached to the dwelling remain at the standard 17% rate.",
-      "section2Title": "Application Procedure with the AED",
-      "section2Content": "The application for the 3% rate must be submitted to the AED (Registration, Domains and VAT Administration) before work begins. The application form (available on guichet.lu) must include housing plans, the building permit, and a cost estimate. The AED issues an approval decision specifying the maximum VAT amount eligible for the reduced rate. For a VEFA buyer (off-plan purchase), the developer invoices 3% VAT directly on the housing portion (up to 400 m²). For individual builders, tradespeople invoice at 17% and the owner claims the difference (14 points) from the AED. The VAT benefit cap is set at EUR 50,000 per dwelling, corresponding to approximately EUR 357,000 of works excluding VAT benefiting from the reduced rate.",
-      "section3Title": "Special Cases: Renovation and Rental Housing",
-      "section3Content": "The 3% VAT also applies to renovation of existing dwellings, with no minimum building age requirement for housing creation works (converting commercial premises to residential, for example). For repair and maintenance works, the dwelling must be over 20 years old and works must be carried out by a professional. Landlords also benefit from the 3% rate on properties they rent as residential housing, provided the tenant establishes their residence there. The benefit is capped at EUR 50,000 per dwelling, all works combined over the property's lifetime. Total demolition-reconstruction works are treated as new construction and benefit from the reduced rate. However, landscaping, swimming pools and other luxury exterior amenities remain at 17%.",
-      "relatedToolLabel": "Simulate a VEFA purchase",
-      "relatedToolLink": "/vefa",
-      "faq1Q": "What is the 3% VAT benefit cap in Luxembourg?",
-      "faq1A": "The VAT benefit cap is EUR 50,000 per dwelling. This means the difference between 17% VAT and 3% VAT cannot exceed EUR 50,000, corresponding to approximately EUR 357,000 of works excluding VAT at the reduced rate. Beyond this, the standard 17% rate applies.",
-      "faq2Q": "Is prior authorization required for the 3% VAT?",
-      "faq2A": "Yes, a prior application must be submitted to the AED (Registration, Domains and VAT Administration) before work begins. Without this authorization, tradespeople must invoice at the standard 17% rate. The form is available on guichet.lu and must include plans, building permit and cost estimate."
+      "title": "3% Housing VAT in Luxembourg: Conditions, AED Procedure and Cap 2026",
+      "metaDescription": "LU housing VAT 2026: super-reduced 3% rate, €50,000 tax credit cap per dwelling, max 400 m² area, mandatory prior AED authorisation, VEFA, renovation > 20 years, worked examples.",
+      "subtitle": "Everything to activate the 3% housing VAT benefit and save up to €50,000 on the construction, purchase or renovation of a Luxembourg dwelling.",
+      "category": "Construction & VEFA",
+      "essentiel": [
+        "Super-reduced housing VAT rate: 3% instead of 17% (LU standard rate), 14-point difference captured as a tax credit.",
+        "Benefit cap: €50,000 of VAT per dwelling over its lifetime, i.e., about €357,000 of works excluding VAT at the reduced rate.",
+        "Prior AED authorisation mandatory before any work begins or VEFA deed is signed.",
+        "Maximum habitable area 400 m²; beyond, 17% rate on the excess.",
+        "Eligible: new build, conversion, renovation/repair of a dwelling over 20 years old, by a VAT-registered professional."
+      ],
+      "section1Title": "Principle and applicable rate",
+      "section1P1": "Luxembourg applies the super-reduced VAT rate of 3% to construction, conversion and renovation of dwellings used as housing, under article 44ter of the modified VAT law and AED circular no. 800. This rate is one of the lowest in Europe and a major tax advantage compared with the 17% standard rate in force since 2024 (formerly 16% in 2023, 17% standard outside temporary measures).",
+      "section1P2": "The mechanism is a tax credit: VAT is invoiced at 3% instead of 17%, saving 14 VAT points. This benefit is capped at €50,000 of VAT per dwelling, corresponding to about €357,000 of works excluding VAT at the reduced rate. Beyond, the 17% standard rate applies to the surplus.",
+      "callout1Title": "Habitable area capped at 400 m²",
+      "callout1Body": "The benefiting dwelling's habitable area cannot exceed 400 m². Beyond, the 3% rate applies pro rata only within the cap (over 400 m²). Cellars, unconverted attics, non-attached garages and commercial parts are excluded from the habitable area calculation.",
+      "section2Title": "Eligibility conditions",
+      "section2P1": "The property must be used for housing: primary residence, secondary residence occupied by the buyer, or dwelling rented to a tenant who establishes their residence there. The dwelling must remain used for housing for at least two years after delivery or completion, on penalty of benefit clawback. For renovation, the dwelling must be over 20 years old (except creation of housing by conversion, with no age condition).",
+      "section2P2": "Eligible: new build, conversion of premises into housing (housing creation), renovation and repair of a dwelling over 20 years old (including structural work, finishing, insulation, heating, windows, bathroom). Excluded: commercial or office premises, non-attached garages, swimming pools, tennis courts, garden sheds, luxury outbuildings, and landscaped gardens.",
+      "callout2Title": "Combination with Bëllegen Akt and Klimabonus",
+      "callout2Body": "The 3% housing VAT fully combines with the Bëllegen Akt (€40,000 per buyer on registration duties) and with Klimabonus aids for energy renovation. For a first-time buyer in VEFA, combined savings can exceed €130,000.",
+      "section3Title": "Procedure with the AED",
+      "section3P1": "Authorisation must be requested from the Registration, Estates and VAT Administration (AED) BEFORE works start or before signing a VEFA acquisition deed. The form (available on guichet.lu) is accompanied by housing plans, the building or planning permit, and a costed estimate of the works. The AED issues an approval decision specifying the maximum VAT amount eligible for the reduced rate (€50,000 cap).",
+      "section3P2": "For a VEFA, the developer invoices 3% VAT directly on the housing share, after obtaining the approval. For an individual builder or owner, two methods exist: direct 3% invoicing by tradespeople (if they hold the approval) or 17% invoicing followed by AED reimbursement of the difference upon presentation of invoices. The reimbursement request goes via the eAED teleprocedures.",
+      "section4Title": "Worked examples",
+      "section4Intro": "Effect of the 3% VAT benefit on typical projects. The calculation compares TTC cost at 17% (standard) vs 3% (benefit).",
+      "table": {
+        "caption": "Savings achieved with the 3% housing VAT",
+        "headers": ["Project", "Excl. VAT", "VAT 17%", "VAT 3%", "Savings"],
+        "rows": [
+          ["Bathroom renovation", "€30,000", "€5,100", "€900", "€4,200"],
+          ["Heavy apartment renovation", "€100,000", "€17,000", "€3,000", "€14,000"],
+          ["New construction", "€300,000", "€51,000", "€9,000", "€42,000"],
+          ["High-end construction", "€400,000", "€68,000", "€12,000", "€50,000"],
+          ["Construction beyond cap", "€500,000", "€85,000", "€27,000", "€50,000"]
+        ],
+        "footnote": "Savings = difference between VAT 17% and VAT 3%, capped at €50,000 per dwelling."
+      },
+      "callout3Title": "Concrete case: VEFA at €600,000",
+      "callout3Body": "A couple buys a new VEFA apartment for €600,000 excl. VAT (land share €150,000, construction share €450,000). On the construction share, 3% VAT instead of 17% = €50,000 savings (cap reached). On the land share, 7% registration duties fully offset by the couple Bëllegen Akt. Total tax benefit: about €81,000 (VAT + Bëllegen Akt).",
+      "inlineCalc": {
+        "title": "Simulate your VEFA with the 3% housing VAT",
+        "description": "Our VEFA simulator splits land/construction, computes 3% housing VAT with €50,000 cap, adds the Bëllegen Akt on the land share and gives the real total cost.",
+        "cta": "Run the VEFA simulation"
+      },
+      "tools": [
+        { "href": "/vefa", "title": "VEFA simulator", "description": "Land vs construction split and 3% housing VAT automated." },
+        { "href": "/frais-acquisition", "title": "Acquisition costs", "description": "Comprehensive computation with VAT, duties, Bëllegen Akt and mortgage." },
+        { "href": "/estimateur-construction", "title": "Construction estimator", "description": "Detailed new-build cost by item." },
+        { "href": "/simulateur-aides", "title": "Acquisition aids", "description": "Combine 3% VAT, Bëllegen Akt, Klimabonus and premiums." }
+      ],
+      "faq": [
+        { "q": "What is the 3% VAT benefit cap in Luxembourg?", "a": "The benefit cap is €50,000 of VAT per dwelling over its lifetime. This corresponds to about €357,000 of works excluding VAT at the reduced rate. Beyond, the 17% standard rate applies to the surplus." },
+        { "q": "Is prior authorisation required for the 3% VAT?", "a": "Yes. A prior request must be submitted to the AED before any works start or VEFA acquisition deed is signed. The form is available on guichet.lu and must include plans, permit and a costed estimate." },
+        { "q": "Does the 3% VAT apply to a buy-to-let investment?", "a": "Yes, provided the tenant uses the dwelling as their residence (effective occupation). The property must remain rented as housing for at least two years after delivery, on penalty of benefit clawback." },
+        { "q": "Does the 3% VAT apply to renovation?", "a": "Yes, on renovation and repair of a dwelling over 20 years old, and with no age condition for creation of housing by conversion (e.g., turning a commercial premises into housing). Insulation, heating, windows, bathroom works are eligible. Decoration and luxury outdoor amenities are not." },
+        { "q": "Can the 3% VAT be combined with the Bëllegen Akt and Klimabonus?", "a": "Yes, the three schemes fully combine. For a first-time buyer in VEFA carrying out eligible energy renovation works, total savings can exceed €130,000." },
+        { "q": "What is the maximum habitable area entitled to the 3% VAT?", "a": "400 m² of habitable area. Beyond, the standard rate applies to the excess. Cellars, unconverted attics, non-attached garages and commercial parts are not counted in the habitable area." }
+      ],
+      "sources": [
+        { "title": "Application of the super-reduced VAT rate — procedure", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/construction/aides-construction/taux-tva-super-reduit-logement.html" },
+        { "title": "Article 44ter modified VAT law — super-reduced housing rate", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1979/02/12/n1/jo" },
+        { "title": "Grand Ducal Regulation of 30 July 2002 — application terms", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2002/07/30/n4/jo", "year": 2002 },
+        { "title": "AED circular no. 800 — housing VAT", "org": "AED", "url": "https://pfi.public.lu/fr.html" },
+        { "title": "eAED teleprocedures — housing VAT requests", "org": "AED", "url": "https://eaed.b2g.etat.lu/" }
+      ]
     },
     "bailCommercial": {
       "title": "What Are the Rules for Commercial Leases in Luxembourg?",

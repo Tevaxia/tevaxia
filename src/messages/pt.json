@@ -9420,21 +9420,72 @@
       "faq2A": "Os bancos luxemburgueses exigem geralmente um contributo pessoal de 25-30% do preço de aquisição para um não residente (LTV de 70-75%), contra por vezes 0-20% para um residente que adquire a sua residência principal. Este rácio varia consoante o banco, o perfil do mutuário e a localização do imóvel."
     },
     "tva3Pourcent": {
-      "title": "Como beneficiar da TVA a 3 % sobre uma habitação no Luxemburgo?",
-      "metaDescription": "TVA a 3 % no Luxemburgo: taxa super-reduzida habitação, condições, superfície máx. 400 m², pedido AED, VEFA, teto de 50.000 € de vantagem. Guia completo.",
-      "intro": "O Luxemburgo aplica uma taxa de TVA super-reduzida de 3% (em vez da taxa normal de 17%) sobre a construção, renovação e aquisição de habitações afetas a uso residencial. Esta taxa preferencial, prevista pela lei TVA modificada e pelo regulamento grão-ducal de 30 de julho de 2002, constitui uma vantagem fiscal significativa que pode atingir 50.000 EUR por habitação. Eis as condições a cumprir e o procedimento a seguir para dela beneficiar.",
-      "section1Title": "Condições de aplicação da taxa de 3 %",
-      "section1Content": "A taxa super-reduzida de 3% aplica-se sob várias condições cumulativas. A habitação deve ser afeta a fins residenciais (residência principal ou secundária, arrendamento residencial). A superfície habitável não deve ultrapassar 400 m²; além disso, a taxa de 17% aplica-se à superfície excedente. O beneficiário deve obter uma autorização prévia da Administração do Registo, Domínios e TVA (AED) antes do início das obras ou da assinatura da escritura de aquisição. As obras devem respeitar à criação de habitação (construção nova, transformação) ou à renovação/reparação de uma habitação existente com mais de 20 anos (certas prestações). Os locais comerciais, escritórios e garagens não anexas à habitação permanecem na taxa normal de 17%.",
-      "section2Title": "Procedimento de pedido junto da AED",
-      "section2Content": "O pedido de aplicação da taxa de 3% deve ser dirigido à AED (Administração do Registo, Domínios e TVA) antes do início das obras. O formulário de pedido (disponível em guichet.lu) deve ser acompanhado das plantas da habitação, da licença de construção e de uma estimativa do custo das obras. A AED emite uma decisão de aprovação que precisa o montante máximo de TVA que pode beneficiar da taxa reduzida. Para um adquirente em VEFA (venda no estado futuro de acabamento), o promotor fatura diretamente a TVA a 3% sobre a parte habitacional (no limite de 400 m²). Para um construtor individual, os artesãos faturam a 17% e o dono de obra pede o reembolso da diferença (14 pontos) à AED. O teto da vantagem TVA está fixado em 50.000 EUR por habitação, o que corresponde a um montante de obras sem TVA de aproximadamente 357.000 EUR beneficiando da taxa reduzida.",
-      "section3Title": "Casos particulares: renovação e habitações para arrendamento",
-      "section3Content": "A TVA a 3% aplica-se igualmente à renovação de habitações existentes, sem condição de antiguidade mínima do edifício para obras de criação de habitação (transformação de um local comercial em habitação, por exemplo). Para obras de reparação e manutenção, a habitação deve ter mais de 20 anos e as obras devem ser realizadas por um profissional. Os proprietários senhorios beneficiam também da taxa de 3% sobre as habitações que colocam em arrendamento residencial, desde que o inquilino aí estabeleça a sua residência. A vantagem é limitada a 50.000 EUR por habitação, todas as obras incluídas ao longo da vida útil do bem. As obras de demolição-reconstrução total são equiparadas a construção nova e beneficiam da taxa reduzida. Em contrapartida, o arranjo de jardins, piscinas e outros equipamentos de luxo exteriores permanece na taxa de 17%.",
-      "relatedToolLabel": "Simular uma compra em VEFA",
-      "relatedToolLink": "/vefa",
-      "faq1Q": "Qual é o teto da vantagem TVA a 3 % no Luxemburgo?",
-      "faq1A": "O teto da vantagem TVA é de 50.000 EUR por habitação. Isto significa que a diferença entre a TVA a 17% e a TVA a 3% não pode exceder 50.000 EUR, o que corresponde a aproximadamente 357.000 EUR de obras sem TVA beneficiando da taxa reduzida. Além disso, aplica-se a taxa normal de 17%.",
-      "faq2Q": "É necessária uma autorização prévia para a TVA a 3 %?",
-      "faq2A": "Sim, um pedido prévio deve ser dirigido à AED (Administração do Registo, Domínios e TVA) antes do início das obras. Sem esta autorização, os artesãos devem faturar à taxa normal de 17%. O formulário está disponível em guichet.lu e deve incluir plantas, licença de construção e estimativa de custos."
+      "title": "TVA habitação a 3 % no Luxemburgo: condições, procedimento AED e teto 2026",
+      "metaDescription": "TVA habitação LU 2026: taxa super-reduzida 3 %, teto da vantagem fiscal 50 000 € por habitação, superfície máx 400 m², autorização AED prévia obrigatória, VEFA, renovação > 20 anos, exemplos.",
+      "subtitle": "Tudo para ativar a vantagem fiscal TVA 3 % e poupar até 50 000 € na construção, compra ou renovação de uma habitação no Luxemburgo.",
+      "category": "Construção & VEFA",
+      "essentiel": [
+        "Taxa TVA habitação super-reduzida: 3 % em vez de 17 % (taxa normal LU), diferença de 14 pontos captada como vantagem fiscal.",
+        "Teto da vantagem: 50 000 € de TVA por habitação ao longo da sua vida útil, ou seja cerca de 357 000 € de obras sem TVA beneficiando da taxa reduzida.",
+        "Autorização AED prévia obrigatória antes do início das obras ou assinatura de escritura VEFA.",
+        "Superfície habitável máxima 400 m²; além, taxa de 17 % sobre o excesso.",
+        "Elegível: construção nova, transformação, renovação/reparação de habitação com mais de 20 anos, por sujeito passivo de TVA."
+      ],
+      "section1Title": "Princípio e taxa aplicável",
+      "section1P1": "O Luxemburgo aplica a taxa super-reduzida de TVA de 3 % à construção, transformação e renovação de habitações destinadas à habitação, ao abrigo do artigo 44ter da lei TVA modificada e da circular AED n.º 800. Esta taxa é uma das mais baixas da Europa e uma vantagem fiscal importante face à taxa normal de 17 % em vigor desde 2024 (anteriormente 16 % em 2023, 17 % normal fora de medidas temporárias).",
+      "section1P2": "O mecanismo é uma vantagem fiscal: a TVA é faturada a 3 % em vez de 17 %, ou seja uma poupança de 14 pontos de TVA. Esta vantagem está limitada a 50 000 € de TVA por habitação, o que corresponde a cerca de 357 000 € de obras sem TVA beneficiando da taxa reduzida. Além, aplica-se a taxa normal de 17 % sobre o excesso.",
+      "callout1Title": "Superfície habitável limitada a 400 m²",
+      "callout1Body": "A superfície habitável da habitação beneficiária não pode exceder 400 m². Além, a taxa de 3 % aplica-se proporcionalmente apenas dentro do limite (em 400 m²). Caves, sótãos não convertidos, garagens não anexas e partes comerciais são excluídas do cálculo da superfície habitável.",
+      "section2Title": "Condições de elegibilidade",
+      "section2P1": "O bem deve ser afeto à habitação: residência principal, residência secundária ocupada pelo adquirente, ou habitação alugada a um inquilino que aí estabelece a sua residência. A habitação deve permanecer afeta à habitação durante pelo menos dois anos após a entrega ou conclusão, sob pena de revogação da vantagem. Para a renovação, a habitação deve ter mais de 20 anos (exceto criação de habitação por transformação, sem condição de idade).",
+      "section2P2": "Elegíveis: construção nova, transformação de um local em habitação (criação de habitação), renovação e reparação de uma habitação com mais de 20 anos (incluindo estrutura, acabamentos, isolamento, aquecimento, janelas, casa de banho). Excluídos: locais comerciais ou de escritórios, garagens não anexas, piscinas, courts de ténis, abrigos de jardim, dependências de luxo e arranjos de jardim paisagístico.",
+      "callout2Title": "Cumulação com Bëllegen Akt e Klimabonus",
+      "callout2Body": "A TVA habitação a 3 % cumula-se totalmente com o Bëllegen Akt (40 000 € por comprador sobre os direitos de registo) e com os apoios Klimabonus para renovação energética. Para um primo-comprador em VEFA, a poupança cumulada pode exceder 130 000 €.",
+      "section3Title": "Procedimento junto da AED",
+      "section3P1": "A autorização deve ser pedida à Administração do Registo, Domínios e TVA (AED) ANTES do início das obras ou da assinatura da escritura VEFA. O formulário (disponível em guichet.lu) é acompanhado das plantas da habitação, da licença de construção ou de urbanismo e de uma estimativa orçamental das obras. A AED emite uma decisão de aprovação especificando o montante máximo de TVA elegível para a taxa reduzida (teto 50 000 €).",
+      "section3P2": "Para uma VEFA, o promotor fatura diretamente a TVA a 3 % sobre a parte habitacional, após obtenção da aprovação. Para um construtor individual ou dono de obra, existem duas modalidades: faturação direta a 3 % pelos artesãos (se detiverem a aprovação) ou faturação a 17 % depois reembolso da diferença pela AED contra apresentação das faturas. O pedido de reembolso é feito via teleprocedimentos eAED.",
+      "section4Title": "Exemplos calculados",
+      "section4Intro": "Efeito da vantagem TVA 3 % em projetos típicos. O cálculo compara o custo TTC a 17 % (normal) e a 3 % (vantagem).",
+      "table": {
+        "caption": "Poupança realizada com a TVA habitação 3 %",
+        "headers": ["Projeto", "Sem IVA", "TVA 17 %", "TVA 3 %", "Poupança"],
+        "rows": [
+          ["Renovação casa de banho", "30 000 €", "5 100 €", "900 €", "4 200 €"],
+          ["Renovação pesada apartamento", "100 000 €", "17 000 €", "3 000 €", "14 000 €"],
+          ["Construção nova", "300 000 €", "51 000 €", "9 000 €", "42 000 €"],
+          ["Construção topo de gama", "400 000 €", "68 000 €", "12 000 €", "50 000 €"],
+          ["Construção além do teto", "500 000 €", "85 000 €", "27 000 €", "50 000 €"]
+        ],
+        "footnote": "A poupança corresponde à diferença entre TVA 17 % e TVA 3 %, limitada a 50 000 € por habitação."
+      },
+      "callout3Title": "Caso concreto: VEFA a 600 000 €",
+      "callout3Body": "Um casal compra um apartamento novo VEFA por 600 000 € sem IVA (terreno 150 000 €, construção 450 000 €). Sobre a parte construção, TVA 3 % em vez de 17 % = poupança de 50 000 € (teto atingido). Sobre a parte terreno, direitos de registo 7 % integralmente compensados pelo Bëllegen Akt casal. Vantagem fiscal total: cerca de 81 000 € (TVA + Bëllegen Akt).",
+      "inlineCalc": {
+        "title": "Simule a sua VEFA com a TVA habitação 3 %",
+        "description": "O nosso simulador VEFA decompõe terreno/construção, calcula a TVA habitação a 3 % com teto de 50 000 €, adiciona o Bëllegen Akt sobre a parte terreno e dá o custo total real.",
+        "cta": "Iniciar a simulação VEFA"
+      },
+      "tools": [
+        { "href": "/vefa", "title": "Simulador VEFA", "description": "Decomposição terreno / construção e TVA habitação 3 % automatizada." },
+        { "href": "/frais-acquisition", "title": "Custos de aquisição", "description": "Cálculo global com TVA, direitos, Bëllegen Akt e hipoteca." },
+        { "href": "/estimateur-construction", "title": "Estimador de construção", "description": "Custo detalhado de construção nova por item." },
+        { "href": "/simulateur-aides", "title": "Apoios à aquisição", "description": "Cumulação TVA 3 %, Bëllegen Akt, Klimabonus e prémios." }
+      ],
+      "faq": [
+        { "q": "Qual é o teto da vantagem TVA a 3 % no Luxemburgo?", "a": "O teto da vantagem é de 50 000 € de TVA por habitação ao longo da sua vida útil. Corresponde a cerca de 357 000 € de obras sem TVA beneficiando da taxa reduzida. Além, aplica-se a taxa normal de 17 % sobre o excesso." },
+        { "q": "É necessária autorização prévia para a TVA a 3 %?", "a": "Sim. Um pedido prévio deve ser dirigido à AED antes de qualquer início de obras ou assinatura de escritura VEFA. O formulário está disponível em guichet.lu e deve incluir plantas, licença e estimativa orçamental." },
+        { "q": "A TVA a 3 % aplica-se a um investimento de arrendamento?", "a": "Sim, desde que o inquilino afete a habitação à sua residência (ocupação efetiva). O bem deve permanecer arrendado para habitação durante pelo menos dois anos após a entrega, sob pena de revogação da vantagem." },
+        { "q": "A TVA a 3 % aplica-se à renovação?", "a": "Sim, na renovação e reparação de uma habitação com mais de 20 anos, e sem condição de idade para a criação de habitação por transformação (ex.: transformação de um local comercial em habitação). Obras de isolamento, aquecimento, janelas, casa de banho são elegíveis. Decoração e equipamentos de luxo exteriores não." },
+        { "q": "Pode-se cumular a TVA a 3 % com o Bëllegen Akt e o Klimabonus?", "a": "Sim, os três regimes cumulam-se totalmente. Para um primo-comprador em VEFA realizando obras de renovação energética elegíveis, a poupança total pode exceder 130 000 €." },
+        { "q": "Qual é a superfície habitável máxima que dá direito à TVA 3 %?", "a": "400 m² de superfície habitável. Além, a taxa normal aplica-se ao excesso. Caves, sótãos não convertidos, garagens não anexas e partes comerciais não contam na superfície habitável." }
+      ],
+      "sources": [
+        { "title": "Aplicação da taxa super-reduzida de TVA — procedimento", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/construction/aides-construction/taux-tva-super-reduit-logement.html" },
+        { "title": "Artigo 44ter lei TVA modificada — taxa super-reduzida habitação", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1979/02/12/n1/jo" },
+        { "title": "Regulamento Grão-Ducal de 30 de julho de 2002 — modalidades de aplicação", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2002/07/30/n4/jo", "year": 2002 },
+        { "title": "Circular AED n.º 800 — TVA habitação", "org": "AED", "url": "https://pfi.public.lu/fr.html" },
+        { "title": "Teleprocedimentos eAED — pedidos TVA habitação", "org": "AED", "url": "https://eaed.b2g.etat.lu/" }
+      ]
     },
     "bailCommercial": {
       "title": "Quais são as regras do arrendamento comercial no Luxemburgo?",

@@ -9420,21 +9420,72 @@
       "faq2A": "Lëtzebuerger Banken verlaangen normalerweis en Eegekapitalundeel vu 25-30 % vum Kafpräis fir Net-Residenten (LTV 70-75 %), am Géigesaz zu heiansdo 0-20 % fir Residenten beim Kaf vun hirem Haaptwunnsëtz. Dëst Verhältnis variéiert jee no Bank, Kreditnehmerprofil an der Lag vun der Immobilie."
     },
     "tva3Pourcent": {
-      "title": "Wéi profitéiert een vun der 3 % TVA op Wunnraum zu Lëtzebuerg?",
-      "metaDescription": "3 % TVA zu Lëtzebuerg: super-reduzéierte Saz fir Wunnraum, Bedingungen, max. 400 m², AED-Demande, VEFA, 50.000 € Virdeelsgrenz. Komplette Guide.",
-      "intro": "Lëtzebuerg applizéiert en super-reduzéierte TVA-Saz vu 3 % (amplaz dem Normalsaz vun 17 %) op de Bau, d'Renovéierung an den Erwierw vu Wunnimmobilien. Dësen Virzouchssaz, virgesinn duerch d'geännert TVA-Gesetz an d'Groussherzoglecht Reglement vum 30. Juli 2002, stellt en erhiebleche Steiervirdeel vun bis zu 50.000 € pro Wunneng duer. Hei d'Bedingungen an d'Prozedur fir dovunner ze profitéieren.",
-      "section1Title": "Bedingunge fir den 3 %-Saz",
-      "section1Content": "De super-reduzéierte Saz vu 3 % gëllt ënner verschiddene kumulativen Bedingungen. D'Wunneng muss Wunnzwecker déngen (Haaptwunnsëtz oder Zweetwunnsëtz, Wunnvermietung). D'Wunnfläch däerf 400 m² net iwwerschreiden; doriwwer eraus gëllt den 17 %-Saz op déi iwwerschësseg Fläch. De Begënschtegten muss virum Baubeginn oder der Ënnerschrëft vum Erwierbsakt eng Virausgenehmegung vun der Registréierungs-, Domänen- an TVA-Verwaltung (AED) ahuelen. D'Aarbechten mussen d'Schaafung vu Wunnraum (Neibau, Ëmbau) oder d'Renovéierung/Reparatur vun enger besteeënder Wunneng iwwer 20 Joer (bestëmmte Leeschtungen) betreffen. Geschäftsraim, Büroen a Garagen déi net zur Wunneng gehéieren bleiwen um Normalsaz vu 17 %.",
-      "section2Title": "Demandeprozedur bei der AED",
-      "section2Content": "D'Demande fir d'Uwendung vum 3 %-Saz muss virum Baubeginn bei der AED (Registréierungs-, Domänen- an TVA-Verwaltung) agereecht ginn. Dem Demandeformulaire (verfügbar op guichet.lu) mussen d'Wunnengspläng, d'Baugenehmegung an eng Käschteschätzung bäigeleet ginn. D'AED stellt eng Genehmegungsdecisioun aus, déi de maximale TVA-Betrag zum reduzéierte Saz festleet. Bei engem VEFA-Keefer (Kaf vum Plang) berechent de Promoteur d'TVA direkt zu 3 % op de Wunnundeel (bis 400 m²). Bei Eenzelbauherrë berechne Handwierker 17 % an de Bauherr freet d'Erstattung vun der Differenz (14 Punkten) bei der AED un. D'TVA-Virdeelsgrenz läit bei 50.000 € pro Wunneng, wat engem Bauleeschtungsbetrag ouni TVA vu ronn 357.000 € zum reduzéierte Saz entsprécht.",
-      "section3Title": "Spezielfäll: Renovéierung a Mietwunnengen",
-      "section3Content": "D'3 % TVA gëllt och fir d'Renovéierung vu besteeënde Wunnengen, ouni Mindestalter vum Gebai fir Wunnraumschafung (z.B. Ëmbau vu Geschäftsraim an Wunnraum). Fir Reparatur- an Ënnerhaltaarbechten muss d'Wunneng iwwer 20 Joer al sinn an d'Aarbechte vun engem Fachmann ausgefouert ginn. Vermieter profitéieren och vum 3 %-Saz bei Wunnengen, déi si als Wunnraum verméiden, wann de Locataire do säi Wunnsëtz begrënnt. De Virdeel ass op 50.000 € pro Wunneng gedeckelt, all Aarbechte zesummen iwwer d'Liewensdauer vun der Immobilie. Totalen Ofrass an Neiopbau gëtt als Neibau behandelt a profitéiert vum reduzéierte Saz. Gardegestaltung, Schwämmbidden an aner Luxus-Baussenaustattunge bleiwen op 17 %.",
-      "relatedToolLabel": "E VEFA-Kaf simuléieren",
-      "relatedToolLink": "/vefa",
-      "faq1Q": "Wéi héich ass d'TVA-Virdeelsgrenz vun 3 % zu Lëtzebuerg?",
-      "faq1A": "D'TVA-Virdeelsgrenz ass 50.000 € pro Wunneng. Dat bedeit, d'Differenz tëschent 17 % an 3 % TVA däerf 50.000 € net iwwerschreiden, wat ongeféier 357.000 € Bauleeschtungen ouni TVA zum reduzéierte Saz entsprécht. Doriwwer eraus gëllt den Normalsaz vun 17 %.",
-      "faq2Q": "Brauch een eng Virausgenehmegung fir d'3 % TVA?",
-      "faq2A": "Jo, eng Viraudemande muss virum Baubeginn bei der AED (Registréierungs-, Domänen- an TVA-Verwaltung) agereecht ginn. Ouni dës Genehmegung musse Handwierker zum Normalsaz vu 17 % ofrechnen. De Formulaire ass op guichet.lu verfügbar a muss Pläng, Baugenehmegung an eng Käschteschätzung enthalen."
+      "title": "3 % Wunn-TVA zu Lëtzebuerg: Bedingungen, AED-Prozedur an Plafong 2026",
+      "metaDescription": "Wunn-TVA LU 2026: super-reduzéierte Saz 3 %, Plafong vum Steiervirdeel 50.000 € pro Wunneng, max 400 m² Fläch, AED-Virausgenehmegung Pflicht, VEFA, Renovéierung > 20 Joer, Beispiller.",
+      "subtitle": "Alles fir de Virdeel vun der 3 % Wunn-TVA z'aktivéieren a bis zu 50.000 € beim Bau, Kaaf oder bei der Renovéierung vun enger Lëtzebuerger Wunneng ze spueren.",
+      "category": "Bau & VEFA",
+      "essentiel": [
+        "Super-reduzéierte Wunn-TVA-Saz: 3 % amplaz 17 % (LU-Normalsaz), 14 Punkten Differenz als Steiergutschrëft erfaasst.",
+        "Virdeels-Plafong: 50.000 € TVA pro Wunneng iwwer hir Liewensdauer, also ronn 357.000 € Aarbechten netto zum reduzéierte Saz.",
+        "AED-Virausgenehmegung Pflicht virum Baubeginn oder VEFA-Akt-Ënnerschrëft.",
+        "Maximal Wunnfläch 400 m²; doriwwer eraus 17 %-Saz op den Iwwerschoss.",
+        "Berechtegt: Neibau, Ëmbau, Renovéierung/Reparatur vun enger iwwer 20 Joer aler Wunneng, duerch TVA-pflichtege Profi."
+      ],
+      "section1Title": "Prinzip an applikabele Saz",
+      "section1P1": "Lëtzebuerg appliquéiert de super-reduzéierte TVA-Saz vu 3 % op Bau, Ëmbau a Renovéierung vu Wunnengen fir Wunnzwecker, kraaft Artikel 44ter vum geännerten TVA-Gesetz an dem AED-Rondbréif Nr. 800. Dëse Saz ass ee vun den niddregsten an Europa an e wesentleche Steiervirdeel am Verglach mam Normalsaz vun 17 % zënter 2024 (virdrun 16 % am 2023, 17 % normal ausserhalb temporärer Mossnamen).",
+      "section1P2": "De Mechanismus ass eng Steiergutschrëft: D'TVA gëtt zu 3 % amplaz 17 % berechent, also 14 TVA-Punkten gespuert. Dësen Virdeel ass op 50.000 € TVA pro Wunneng gedeckelt, wat ronn 357.000 € Aarbechten netto zum reduzéierte Saz entsprécht. Doriwwer eraus gëllt den Normalsaz vun 17 % op den Iwwerschoss.",
+      "callout1Title": "Wunnfläch op 400 m² gedeckelt",
+      "callout1Body": "D'Wunnfläch vun der begünstegter Wunneng däerf 400 m² net iwwerschreiden. Doriwwer eraus gëllt den 3 %-Saz nëmmen anteileg am Kader vum Plafong (op 400 m²). Keller, net ausgebaut Daachbüden, net agehaange Garagen a Geschäftsdeeler sinn aus der Wunnflächberechnung ausgeschloss.",
+      "section2Title": "Berechtegungsbedingungen",
+      "section2P1": "D'Objekt muss Wunnzwecker déngen: Haaptwunnsëtz, vum Keefer bewunnten Zweetwunnsëtz, oder Wunneng déi engem Locataire vermitt gëtt deen do säi Wunnsëtz begrënnt. D'Wunneng muss op mannst zwee Joer no der Liwwerung oder Fäerdegstellung dem Wunne déngen, soss gëtt de Virdeel zréckgefuerdert. Bei Renovéierung muss d'Wunneng iwwer 20 Joer al sinn (ausser Wunnraumschafung duerch Ëmbau, ouni Altersbedingung).",
+      "section2P2": "Berechtegt: Neibau, Ëmbau vu Raim a Wunnraum (Wunnraumschafung), Renovéierung a Reparatur vun enger iwwer 20 Joer aler Wunneng (inklusiv Réibau, Ausbau, Dämmung, Heizung, Fënster, Bad). Ausgeschloss: Geschäfts- oder Bürorraim, net agehaange Garagen, Pools, Tennisplazen, Gardenhäisercher, Luxus-Niewegebaier, an Gardegestaltungen.",
+      "callout2Title": "Kombinatioun mam Bëllegen Akt a Klimabonus",
+      "callout2Body": "D'3 % Wunn-TVA ass voll mam Bëllegen Akt (40.000 € pro Keefer op Aschreiwungsgebühren) a mat Klimabonus-Hëllefe fir energeetesch Sanéierung kombinéierbar. Fir e Éischtkeefer am VEFA kënnen déi kumuléiert Erspuernise méi wéi 130.000 € sinn.",
+      "section3Title": "Prozedur bei der AED",
+      "section3P1": "D'Genehmegung muss VIRUM Baubeginn oder Ënnerschrëft vun engem VEFA-Erwerbsakt bei der Verwaltung fir Aschreiwung, Domänen an TVA (AED) ufroe ginn. De Formulaire (op guichet.lu) gëtt mat Wunnengspléng, Bau- oder Stadtplanungsgenehmegung an enger kostebezuelter Schätzung vun den Aarbechten agereecht. D'AED stellt eng Genehmegungsdecisioun aus, déi de maximale TVA-Betrag deen dem reduzéierte Saz ënnerläit (Plafong 50.000 €) festleet.",
+      "section3P2": "Bei enger VEFA berechent de Promoteur d'TVA direkt zu 3 % op de Wunnundeel, no Erhalt vun der Genehmegung. Bei engem Eenzelbauherr oder Bauherr ginn et zwou Modalitéiten: direkt 3 %-Rechnungstellung duerch Handwierker (wann si d'Genehmegung halen) oder 17 %-Rechnungstellung mat duerno Erstattung vun der Differenz duerch d'AED géint Virlag vun de Rechnungen. D'Erstattungsdemande gëtt iwwer d'eAED-Telefachverfahren gemaach.",
+      "section4Title": "Rechenbeispiller",
+      "section4Intro": "Wirkung vum 3 %-TVA-Virdeel op typesch Projeten. D'Berechnung vergläicht d'Bruttokosten zu 17 % (normal) mat 3 % (Virdeel).",
+      "table": {
+        "caption": "Erspuernise duerch 3 % Wunn-TVA",
+        "headers": ["Projet", "Netto", "TVA 17 %", "TVA 3 %", "Erspuernis"],
+        "rows": [
+          ["Bad-Renovéierung", "30.000 €", "5.100 €", "900 €", "4.200 €"],
+          ["Schwéier Wunnengs-Renovéierung", "100.000 €", "17.000 €", "3.000 €", "14.000 €"],
+          ["Neibau", "300.000 €", "51.000 €", "9.000 €", "42.000 €"],
+          ["Héichwäerten Neibau", "400.000 €", "68.000 €", "12.000 €", "50.000 €"],
+          ["Bau iwwer Plafong", "500.000 €", "85.000 €", "27.000 €", "50.000 €"]
+        ],
+        "footnote": "D'Erspuernis entsprécht der Differenz tëschent TVA 17 % an TVA 3 %, gedeckelt op 50.000 € pro Wunneng."
+      },
+      "callout3Title": "Konkreete Fall: VEFA zu 600.000 €",
+      "callout3Body": "E Koppel keeft eng nei VEFA-Wunneng fir 600.000 € netto (Terrain 150.000 €, Bau 450.000 €). Op de Bau-Undeel 3 % TVA amplaz 17 % = 50.000 € Erspuernis (Plafong erreecht). Op den Terrain-Undeel 7 % Aschreiwungsgebühren komplett duerch Bëllegen Akt Koppel kompenséiert. Gesamt-Steiervirdeel: ronn 81.000 € (TVA + Bëllegen Akt).",
+      "inlineCalc": {
+        "title": "Simuléiert Är VEFA mat der 3 % Wunn-TVA",
+        "description": "Eise VEFA-Simulator deelt Terrain/Bau op, berechent d'3 % Wunn-TVA mam 50.000 €-Plafong, addéiert de Bëllegen Akt um Terrain-Undeel a gëtt déi tatsächlech Gesamtkäschten un.",
+        "cta": "VEFA-Simulatioun starten"
+      },
+      "tools": [
+        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Opdeelung Terrain / Bau an 3 % Wunn-TVA automatiséiert." },
+        { "href": "/frais-acquisition", "title": "Erwerbskäschten", "description": "Global Berechnung mat TVA, Gebühren, Bëllegen Akt an Hypothéik." },
+        { "href": "/estimateur-construction", "title": "Bau-Schätzer", "description": "Detailléiert Neibaukäschte je Posten." },
+        { "href": "/simulateur-aides", "title": "Erwerbsbäihëllefen", "description": "Kombinatioun aus 3 %-TVA, Bëllegen Akt, Klimabonus a Premien." }
+      ],
+      "faq": [
+        { "q": "Wéi héich ass den TVA-Virdeels-Plafong vun 3 % zu Lëtzebuerg?", "a": "De Virdeels-Plafong ass 50.000 € TVA pro Wunneng iwwer hir Liewensdauer. Dat entsprécht ronn 357.000 € Aarbechten netto zum reduzéierte Saz. Doriwwer eraus gëllt den Normalsaz vun 17 % op den Iwwerschoss." },
+        { "q": "Brauch een eng Virausgenehmegung fir d'3 % TVA?", "a": "Jo. Eng Virausdemande muss virum Baubeginn oder VEFA-Akt-Ënnerschrëft bei der AED agereecht ginn. De Formulaire ass op guichet.lu verfügbar a muss Pläng, Genehmegung an eng kostebezuelt Schätzung enthalen." },
+        { "q": "Gëllt d'3 % TVA fir eng Locatiouns-Investitioun?", "a": "Jo, virausgesat datt de Locataire d'Wunneng als säi Wunnsëtz benotzt (effektiv Belegung). D'Immobilie muss op mannst zwee Joer no der Liwwerung als Wunnraum verméit bleiwen, soss gëtt de Virdeel zréckgefuerdert." },
+        { "q": "Gëllt d'3 % TVA fir Renovéierungen?", "a": "Jo, bei Renovéierung a Reparatur vun enger iwwer 20 Joer aler Wunneng, an ouni Altersbedingung bei Wunnraumschafung duerch Ëmbau (z.B. Ëmbau vun engem Geschäftsraum a Wunnraum). Dämm-, Heizungs-, Fënster-, Badaarbechten sinn berechtegt. Dekoratioun a Luxus-Baussenaustattung net." },
+        { "q": "Kann d'3 % TVA mam Bëllegen Akt a Klimabonus kombinéiert ginn?", "a": "Jo, déi dräi Reegelunge sinn voll kombinéierbar. Fir e Éischtkeefer am VEFA mat berechtegten energeetesche Sanéierungsaarbechte kënnen d'Gesamterspuernisse 130.000 € iwwerschreiden." },
+        { "q": "Wéi eng maximal Wunnfläch berechtegt zur 3 % TVA?", "a": "400 m² Wunnfläch. Doriwwer eraus gëllt den Normalsaz op den Iwwerschoss. Keller, net ausgebaut Daachbüden, net agehaange Garagen a Geschäftsdeeler ziele net zur Wunnfläch." }
+      ],
+      "sources": [
+        { "title": "Uwendung vum super-reduzéierten TVA-Saz — Prozedur", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/construction/aides-construction/taux-tva-super-reduit-logement.html" },
+        { "title": "Artikel 44ter geännert TVA-Gesetz — super-reduzéierten Wunnsaz", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1979/02/12/n1/jo" },
+        { "title": "Groussherzoglecht Reglement vum 30. Juli 2002 — Uwendungsmodalitéiten", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2002/07/30/n4/jo", "year": 2002 },
+        { "title": "AED-Rondbréif Nr. 800 — Wunn-TVA", "org": "AED", "url": "https://pfi.public.lu/fr.html" },
+        { "title": "eAED-Telefachverfahren — Wunn-TVA-Demanden", "org": "AED", "url": "https://eaed.b2g.etat.lu/" }
+      ]
     },
     "bailCommercial": {
       "title": "Wéi eng Reegele gëllen fir Geschäftsmietverträg zu Lëtzebuerg?",
