@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { TransparenceClient } from "./client";
 
 export const metadata: Metadata = {
-  title: "Transparence du modèle d'estimation | tevaxia.lu",
+  title: "Transparence du modèle d'estimation tevaxia",
   description:
     "Méthodologie, coefficients, sources et performance (MAPE, R²) du modèle hédonique d'estimation immobilière tevaxia. Résultats de back-test publics.",
 };

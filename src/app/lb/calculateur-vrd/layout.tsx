@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 export const metadata: Metadata = {
-  title: "VRD-Schätzer Lëtzebuerg — Ingenieurbüro, Mengenermëttlung & Leeschtungsverzechnes",
+  title: "VRD-Schätzer Lëtzebuerg — Mengen a Leeschtungsverzeechnes",
   description: "Professionell VRD-Budgetschätzung: Äerdaarbechten, Stroossebauen, EU/EP-Netzer, Tréchenleitungen, Beliichtung, Landschaftsbauen. 9 Loser, beleete Präisser Batiprix/CTG/CSDC-CT.",
   alternates: localizedAlternates("/calculateur-vrd", "lb"),
 };

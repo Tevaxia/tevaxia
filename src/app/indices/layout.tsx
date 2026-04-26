@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Indice prix immobilier Luxembourg 2026 — Prix au m² par commune, tendances",
+  title: "Indice prix immobilier Luxembourg 2026 — Prix au m² commune",
   description:
     "Indice mensuel des prix immobiliers au Luxembourg en 2026. Prix moyen au m² par commune, tendances, top hausses et baisses, evolution du marche. Donnees Observatoire de l'Habitat.",
   keywords: [

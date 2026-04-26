@@ -4,7 +4,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import SEOContent from "@/components/SEOContent";
 
 export const metadata: Metadata = {
-  title: "Outils pré-acquisition hôtelière | tevaxia.lu",
+  title: "Outils pré-acquisition hôtelière Luxembourg",
   description:
     "6 outils pour acheteurs et investisseurs hôteliers : valorisation RevPAR/EBITDA, DSCR, bilan d'exploitation, rénovation énergétique, score E-2.",
 };

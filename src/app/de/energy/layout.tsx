@@ -6,7 +6,7 @@ import { localizedAlternates } from "@/lib/seo";
 export const metadata: Metadata = {
   title: {
     default: "Tevaxia Energy — Energy Simulators Luxembourg Real Estate",
-    template: "%s | Tevaxia Energy",
+    template: "%s",
   },
   description:
     "Energy performance simulators for Luxembourg real estate. Energy class impact on value, renovation ROI, energy communities.",

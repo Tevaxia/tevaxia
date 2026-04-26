@@ -5,7 +5,7 @@ const ENERGY_BASE = "https://tevaxia.lu/energy";
 export const metadata: Metadata = {
   title: {
     default: "Tevaxia Energy — Simulateurs Énergie Immobilier Luxembourg",
-    template: "%s | Tevaxia Energy",
+    template: "%s",
   },
   description:
     "Simulateurs de performance énergétique pour l'immobilier au Luxembourg. Impact CPE sur la valeur, ROI rénovation, communautés d'énergie, EPBD, LENOZ.",

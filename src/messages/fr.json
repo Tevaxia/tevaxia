@@ -6004,7 +6004,7 @@
   "solutions": {
     "agence": {
       "meta": {
-        "title": "CRM agence immobilière Luxembourg — pipeline mandats, matching, OpenImmo",
+        "title": "CRM agence immobilière Luxembourg — pipeline et OpenImmo",
         "description": "Centralisez mandats, contacts, tâches dans un seul CRM pensé pour les agences LU. Matching acquéreur automatique, fiches bien PDF co-brandées, signature eIDAS."
       },
       "hero": {
@@ -6189,7 +6189,7 @@
     },
     "hotel": {
       "meta": {
-        "title": "PMS hôtel Luxembourg — folios USALI, TVA 3%, forecast, channel manager",
+        "title": "PMS hôtel Luxembourg — USALI, TVA 3 %, forecast, channels",
         "description": "Property Management System pensé pour l'hôtellerie luxembourgeoise : folios auto-posting USALI 19 catégories, facturation TVA 3% LU, forecast 90j, iCal OTA."
       },
       "hero": {
@@ -6557,7 +6557,7 @@
     },
     "investisseur": {
       "meta": {
-        "title": "Simulateur investissement immobilier Luxembourg — rentabilité, DCF, fiscalité",
+        "title": "Simulateur investissement immobilier Luxembourg — DCF, fiscalité",
         "description": "Rentabilité, frais d'acquisition avec Bëllegen Akt, DCF multi-locataires, plus-values, VEFA avec intérêts intercalaires. Fiscalité LU intégrée."
       },
       "hero": {
@@ -6741,7 +6741,7 @@
     },
     "particulier": {
       "meta": {
-        "title": "Outils immobiliers pour particuliers au Luxembourg — estimation, aides, loyer",
+        "title": "Outils immobiliers particuliers Luxembourg — estimation, aides",
         "description": "Estimation, frais d'acquisition avec Bëllegen Akt, simulateur aides étatiques et communales, plafond 5% loyer, achat vs location. Gratuit, 5 langues."
       },
       "hero": {
@@ -6925,7 +6925,7 @@
     },
     "promoteur": {
       "meta": {
-        "title": "Logiciel promoteur immobilier Luxembourg — bilan, VEFA, coûts construction",
+        "title": "Logiciel promoteur immobilier Luxembourg — bilan, VEFA, coûts",
         "description": "Bilan promoteur avec plan de trésorerie, simulateur VEFA avec intérêts intercalaires, estimateur coûts construction STATEC, VRD et surfaces OAI/ILNAS."
       },
       "hero": {
@@ -7110,7 +7110,7 @@
     },
     "banque": {
       "meta": {
-        "title": "Logiciel valorisation immobilière pour banques Luxembourg — CRR, LTV, DSCR",
+        "title": "Valorisation immobilière banques Luxembourg — CRR, LTV, DSCR",
         "description": "Valorisation EVS 2025 conforme CRR, stress test +2%, outils LTV/DSCR, AML/KYC, portfolio énergétique CRREM. Pour analystes crédit et risk LU."
       },
       "hero": {
@@ -9355,7 +9355,7 @@
       ]
     },
     "regle5Pourcent": {
-      "title": "Règle des 5 % pour le loyer au Luxembourg : calcul, capital investi et réforme 2026",
+      "title": "Règle des 5 % du loyer Luxembourg : calcul et réforme 2026",
       "metaDescription": "Règle des 5 % au LU : loyer annuel max = 5 % du capital investi réévalué. Coefficients STATEC, vétusté 2 %/an, charges récupérables, projet 8184 réforme à 3,5 %, exemples chiffrés.",
       "subtitle": "Le mécanisme de plafonnement légal du loyer au Luxembourg, son calcul et l'impact de la réforme à venir.",
       "category": "Location & bail",
@@ -9509,7 +9509,7 @@
       ]
     },
     "bellegenAkt": {
-      "title": "Bëllegen Akt 2026 : crédit d'impôt sur les actes notariés au Luxembourg",
+      "title": "Bëllegen Akt 2026 : crédit d'impôt acte notarié Luxembourg",
       "metaDescription": "Bëllegen Akt 2026 au Luxembourg : crédit d'impôt de 40 000 € par acquéreur (80 000 € en couple) sur les droits d'enregistrement, conditions, démarche, exemples chiffrés.",
       "subtitle": "Le crédit d'impôt qui peut faire économiser jusqu'à 80 000 € de frais d'acquisition à un couple primo-accédant.",
       "category": "Aides à l'acquisition",
@@ -9662,7 +9662,7 @@
       ]
     },
     "plusValue": {
-      "title": "Plus-value immobilière au Luxembourg : fiscalité 2026 (Art. 99bis/99ter/102bis LIR)",
+      "title": "Plus-value immobilière Luxembourg : fiscalité 2026 (LIR)",
       "metaDescription": "Plus-value immobilière LU 2026 : spéculation < 2 ans au barème, cession ≥ 2 ans au quart du taux global, abattement 50 000 €/100 000 €, exonération résidence principale, coefficient STATEC.",
       "subtitle": "Comprendre l'imposition d'une plus-value immobilière selon la durée de détention, l'usage du bien et le régime fiscal applicable.",
       "category": "Fiscalité de la cession",
@@ -9820,7 +9820,7 @@
       ]
     },
     "bailHabitation": {
-      "title": "Bail d'habitation au Luxembourg : loi 21.09.2006, droits et obligations 2026",
+      "title": "Bail d'habitation Luxembourg : loi 21.09.2006, droits 2026",
       "metaDescription": "Bail habitation LU : durée indéterminée, préavis 3/6 mois, garantie max 3 mois, plafond loyer 5 % capital investi, charges récupérables RGD 16.06.2015, Commission des loyers communale.",
       "subtitle": "Tout ce que bailleur et locataire doivent savoir avant de signer un bail au Luxembourg.",
       "category": "Location & bail",
@@ -9938,7 +9938,7 @@
       ]
     },
     "copropriete": {
-      "title": "Copropriété au Luxembourg : loi 16.05.1975, syndic, AG et fonds de réserve 2026",
+      "title": "Copropriété Luxembourg : loi 16.05.1975, syndic, AG, fonds 2026",
       "metaDescription": "Copropriété LU 2026 : syndic obligatoire au-delà de 5 lots, assemblée générale, règlement notarié, tantièmes, fonds de réserve obligatoire, majorités de vote graduées, conseil syndical.",
       "subtitle": "Le fonctionnement complet d'une copropriété au Luxembourg : organes, votes, charges et obligations légales.",
       "category": "Copropriété & syndic",
@@ -10202,7 +10202,7 @@
       ]
     },
     "estimation": {
-      "title": "Estimation immobilière au Luxembourg : méthodes TEGOVA EVS 2025 et sources de données",
+      "title": "Estimation immobilière Luxembourg : méthodes TEGOVA EVS 2025",
       "metaDescription": "Estimation immobilière LU : 3 approches TEGOVA (comparaison, capitalisation, DCF), sources Observatoire/STATEC/AED, modèle hédonique LISER, impact CPE 3 à 8 %/classe, REV/TRV.",
       "subtitle": "Comment estimer correctement un bien immobilier au Luxembourg : méthodes professionnelles, données disponibles et facteurs de valorisation 2026.",
       "category": "Évaluation & TEGOVA",
@@ -10319,7 +10319,7 @@
       ]
     },
     "achatNonResident": {
-      "title": "Achat immobilier au Luxembourg par un non-résident : guide complet 2026",
+      "title": "Achat immobilier Luxembourg pour non-résidents : guide 2026",
       "metaDescription": "Achat immobilier non-résident LU 2026 : aucune restriction, droits 7 % + Bëllegen Akt si résidence principale, LTV 70-75 % bancaire, conventions fiscales, déclaration 100F revenus fonciers.",
       "subtitle": "Tout pour acheter un bien au Luxembourg en tant que non-résident : fiscalité, financement, déclarations et exemples chiffrés.",
       "category": "Achat & financement",
@@ -10465,7 +10465,7 @@
       ]
     },
     "tva3Pourcent": {
-      "title": "TVA logement à 3 % au Luxembourg : conditions, démarche AED et plafond 2026",
+      "title": "TVA logement 3 % Luxembourg : conditions et démarche AED 2026",
       "metaDescription": "TVA logement LU 2026 : taux super-réduit 3 %, plafond avantage fiscal 50 000 € par logement, surface max 400 m², autorisation AED préalable, VEFA, rénovation > 20 ans, exemples chiffrés.",
       "subtitle": "Tout pour activer la faveur fiscale TVA 3 % et économiser jusqu'à 50 000 € sur la construction, l'achat ou la rénovation d'un logement au Luxembourg.",
       "category": "Construction & VEFA",
@@ -10624,7 +10624,7 @@
       ]
     },
     "bailCommercial": {
-      "title": "Bail commercial au Luxembourg : loi 03.02.2018, durée 9 ans et droit au renouvellement",
+      "title": "Bail commercial Luxembourg : loi 03.02.2018, durée 9 ans",
       "metaDescription": "Bail commercial LU : loi 03.02.2018, durée min 9 ans, résiliation triennale 6 mois préavis, indexation IPC STATEC, pas-de-porte libre, droit au renouvellement, indemnité d'éviction.",
       "subtitle": "Le cadre juridique complet du bail commercial au Luxembourg : durée, résiliation, loyer, indexation et droit au renouvellement.",
       "category": "Location & bail",
@@ -10736,7 +10736,7 @@
       ]
     },
     "investirHotel": {
-      "title": "Investir dans un hôtel au Luxembourg : guide complet 2026 (RevPAR, valorisation, DSCR)",
+      "title": "Investir dans un hôtel au Luxembourg : guide 2026 (RevPAR, DSCR)",
       "metaDescription": "Investir hôtel LU 2026 : marché 130 hôtels / 8 000 chambres, RevPAR 60-150 €, valorisation EBITDA x8-14 et prix/chambre 80k-400k €, DSCR 1,25-1,40x, due diligence STR + ITM + Energiepass.",
       "subtitle": "Le marché hôtelier luxembourgeois en 2026, les indicateurs de performance clés, les approches de valorisation et les étapes de due diligence pour investir.",
       "category": "Hôtellerie & investissement",

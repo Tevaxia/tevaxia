@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Luxembourg Property Price Index 2026 — Price per m² by Municipality, Trends",
+  title: "Luxembourg Property Price Index 2026 — Price per m² by Commune",
   description:
     "Monthly Luxembourg property price index for 2026. Average price per m² by municipality, trends, top gainers and decliners, market evolution. Observatoire de l'Habitat data.",
   keywords: [

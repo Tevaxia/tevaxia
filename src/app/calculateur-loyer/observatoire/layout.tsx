@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Observatoire des loyers Luxembourg — 19 zones × 5 typologies | tevaxia.lu",
+  title: "Observatoire des loyers Luxembourg — 19 zones × 5 typologies",
   description:
     "Loyers médians observés par commune, zone et typologie (studio, 1/2/3 chambres, maison). Mietspiegel-like LU Q4 2025 basé sur Athome Pro + Observatoire Habitat + panel tevaxia.",
   openGraph: {

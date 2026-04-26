@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Luxembourg Property Acquisition Fees — Registration Duties, Bellegen Akt, VAT",
+  title: "Custos de aquisição Luxemburgo — Direitos, Bëllegen Akt, IVA",
   description:
     "Calculate property acquisition fees in Luxembourg: 7% registration duties, Bellegen Akt tax credit of 40,000 EUR, 3% VAT for off-plan (VEFA), notary fees, mortgage costs.",
   alternates: localizedAlternates("/frais-acquisition", "pt"),

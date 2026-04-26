@@ -6067,7 +6067,7 @@
     },
     "agence": {
       "meta": {
-        "title": "Immobilienagence CRM Lëtzebuerg : Mandatspipeline, Matching, OpenImmo",
+        "title": "Immobilienagence-CRM Lëtzebuerg — Pipeline an OpenImmo",
         "description": "Zentraliséiert Mandater, Kontakter an Tâchen an engem CRM gebaut fir LU Agencen. Automatescht Keefer-Matching, Co-Branding Immobilie-PDFs, eIDAS-Ënnerschrëft."
       },
       "hero": {
@@ -6252,7 +6252,7 @@
     },
     "hotel": {
       "meta": {
-        "title": "Hotel-PMS Lëtzebuerg : USALI-Folios, 3 % TVA, Forecast, Channel Manager",
+        "title": "Hotel-PMS Lëtzebuerg — USALI, 3 % MwSt, Forecast, Channels",
         "description": "Property Management System gebaut fir d'Lëtzebuerger Hotellerie: Auto-Posting USALI 19 Kategorien, LU TVA 3 % Rechnung, 90-Deeg-Forecast, iCal OTA."
       },
       "hero": {
@@ -6620,7 +6620,7 @@
     },
     "investisseur": {
       "meta": {
-        "title": "Lëtzebuerger Immobilien-Investment-Simulator : Rendement, DCF, Besteierung",
+        "title": "Immobilien-Investissementsrechner Lëtzebuerg — DCF, Steieren",
         "description": "Rendement, Acquisitiounskäschten mat Bëllegen Akt, Multi-Locataire-DCF, Plus-valuen, VEFA mat Zwëschenzënsen. LU Besteierung integréiert."
       },
       "hero": {
@@ -6804,7 +6804,7 @@
     },
     "particulier": {
       "meta": {
-        "title": "Immobilie-Outillen fir Privatpersounen zu Lëtzebuerg : Schätzung, Aiden, Loyer",
+        "title": "Immobilien-Tools fir Privatpersounen Lëtzebuerg — Evaluatioun",
         "description": "Schätzung, Acquisitiounskäschten mat Bëllegen Akt, Aiden-Simulator Staat + Gemeng, 5 %-Loyer-Plafong, Kaaf vs Locatioun. Gratis, 5 Sproochen."
       },
       "hero": {
@@ -6988,7 +6988,7 @@
     },
     "promoteur": {
       "meta": {
-        "title": "Promoteur-Software Lëtzebuerg : Bilanz, VEFA, Baukäschten",
+        "title": "Bauträger-Software Lëtzebuerg — Wirtschaftlechkeet, VEFA, Käschten",
         "description": "Promoteur-Bilanz mat Cashflow-Plang, VEFA-Simulator mat Zwëschenzënsen, STATEC-Baukäschten-Schätzer, Stroossebau- an OAI/ILNAS-Fläch-Ëmwandlung."
       },
       "hero": {
@@ -7173,7 +7173,7 @@
     },
     "banque": {
       "meta": {
-        "title": "Immobilien-Bewäertungssoftware fir Banken Lëtzebuerg : CRR, LTV, DSCR",
+        "title": "Immobilienevaluatioun fir Banken Lëtzebuerg — CRR, LTV, DSCR",
         "description": "CRR-konform EVS-2025-Bewäertung, +2 %-Stresstest, LTV/DSCR-Outillen, AML/KYC, CRREM-Energie-Portfolio. Fir LU Kredit-Analysten a Risk Managers."
       },
       "hero": {
@@ -9233,7 +9233,7 @@
       ]
     },
     "regle5Pourcent": {
-      "title": "5%-Loyerregel zu Lëtzebuerg: Berechnung, investéiert Kapital a Reform 2026",
+      "title": "5 %-Locatiounsregel Lëtzebuerg: Berechnung a Reform 2026",
       "metaDescription": "5%-Regel LU: max. Joresloyer = 5% vum opgewäerten investéierte Kapital. STATEC-Koeffizienten, 2%/Joer Veraltung, recuperabel Käschten, Projet 8184 Reform op 3,5%, Beispiller.",
       "subtitle": "Wéi d'gesetzlech Mietoebergrenz zu Lëtzebuerg funktionéiert, d'Berechnung an den Effekt vun der kommender Reform.",
       "category": "Locatioun a Bail",
@@ -9387,7 +9387,7 @@
       ]
     },
     "bellegenAkt": {
-      "title": "Bëllegen Akt 2026: Steierkredit op notariell Akten zu Lëtzebuerg",
+      "title": "Bëllegen Akt 2026: Steiergutschrëft notariell Akt Lëtzebuerg",
       "metaDescription": "Bëllegen Akt 2026 zu Lëtzebuerg: 40.000 € Steierkredit pro Keefer (80.000 € fir e Koppel) op d'Aschreiwungsgebühren, Konditiounen, Prozedur, Beispiller.",
       "subtitle": "De Steierkredit deen engem Éischtkeefer-Koppel bis zu 80.000 € un Erwerbskosten kann spueren.",
       "category": "Erwerbsbäihëllefen",
@@ -9540,7 +9540,7 @@
       ]
     },
     "plusValue": {
-      "title": "Immobilie-Kapitalgewënner zu Lëtzebuerg: Besteierung 2026 (Art. 99bis/99ter/102bis LIR)",
+      "title": "Immobilien-Plus-value Lëtzebuerg: Steieren 2026 (LIR)",
       "metaDescription": "Immobilie-Kapitalgewënner LU 2026: Spekulatioun < 2 Joer no Tarif, Veräusserung ≥ 2 Joer zum Véierel vum Gesamtsaz, Fräibedrag 50.000 €/100.000 €, Haaptwunnsëtz-Befreiung, STATEC-Koeffizient.",
       "subtitle": "Verstitt d'Besteierung vun engem Immobilie-Kapitalgewënn no Haltedauer, Notzung an applikabelem Steierregime.",
       "category": "Besteierung vun der Veräusserung",
@@ -9698,7 +9698,7 @@
       ]
     },
     "bailHabitation": {
-      "title": "Wunnengsmietvertrag zu Lëtzebuerg: Gesetz 21.09.2006, Rechter a Flichten 2026",
+      "title": "Wunnengsmietkontrakt Lëtzebuerg: Gesetz 21.09.2006, Rechter 2026",
       "metaDescription": "Wunnengsmietvertrag LU: onbestëmmten Dauer, Kënnegungsfrist 3/6 Méint, Kautioun max 3 Méint, Loyer-Plafong 5 % vum opgewäerten Kapital, recuperabel Nieftekosten (RGD 16.06.2015), kommunal Loyerskommissioun.",
       "subtitle": "Alles wat Vermieter a Locataire wësse mussen virum Ofschloss vun engem Wunnengsmietvertrag zu Lëtzebuerg.",
       "category": "Locatioun a Bail",
@@ -9816,7 +9816,7 @@
       ]
     },
     "copropriete": {
-      "title": "Copropriétéit zu Lëtzebuerg: Gesetz 16.05.1975, Syndikus, GV a Reservefong 2026",
+      "title": "Copropriétéit Lëtzebuerg: Gesetz 16.05.1975, Syndikus, GV 2026",
       "metaDescription": "Copropriétéit LU 2026: Pflicht-Syndikus iwwer 5 Loten, Generalversammlung, notariell Reglement, Undeeler (Tausendstel), Pflicht-Reservefong, gestaffelt Ofstëmmungsmajoritéiten, Verwaltungsrot.",
       "subtitle": "Wéi eng Copropriétéit zu Lëtzebuerg funktionéiert: Organer, Ofstëmmungsreegelen, Käschten a Pflichten.",
       "category": "Copropriétéit a Syndikus",
@@ -10080,7 +10080,7 @@
       ]
     },
     "estimation": {
-      "title": "Immobiliebewäertung zu Lëtzebuerg: TEGOVA EVS 2025 Methoden an Datenquellen",
+      "title": "Immobilienevaluatioun Lëtzebuerg: TEGOVA EVS 2025 Methoden",
       "metaDescription": "Immobiliebewäertung LU: 3 TEGOVA-Approchen (Vergläich, Kapitaliséierung, DCF), Datenquellen Observatoire/STATEC/AED, hedonescht LISER-Modell, CPE-Impact 3 bis 8%/Klass, REV/TRV.",
       "subtitle": "Wéi een eng Immobilie zu Lëtzebuerg richteg bewäert: professionnell Methoden, verfügbar Donnéeën an Bewäertungsdriver 2026.",
       "category": "Bewäertung & TEGOVA",
@@ -10197,7 +10197,7 @@
       ]
     },
     "achatNonResident": {
-      "title": "Immobilienkaf zu Lëtzebuerg als Net-Resident: Komplette Guide 2026",
+      "title": "Immobilienkaaf Lëtzebuerg fir Net-Resident: Guide 2026",
       "metaDescription": "Net-Resident-Immobilienkaf LU 2026: keng Beschränkungen, 7 % Gebühren + Bëllegen Akt bei Haaptwunnsëtz, Bank-LTV 70-75 %, Doppelbesteierungsofkommen, Erklärung 100F fir Mietakommes.",
       "subtitle": "Alles fir zu Lëtzebuerg als Net-Resident ze kafen: Besteierung, Finanzéierung, Erklärungen a Beispillberechnungen.",
       "category": "Kaf & Finanzéierung",
@@ -10343,7 +10343,7 @@
       ]
     },
     "tva3Pourcent": {
-      "title": "3 % Wunn-TVA zu Lëtzebuerg: Bedingungen, AED-Prozedur an Plafong 2026",
+      "title": "3 %-Wunnengs-MwSt Lëtzebuerg: Konditiounen an AED-Verfahren 2026",
       "metaDescription": "Wunn-TVA LU 2026: super-reduzéierte Saz 3 %, Plafong vum Steiervirdeel 50.000 € pro Wunneng, max 400 m² Fläch, AED-Virausgenehmegung Pflicht, VEFA, Renovéierung > 20 Joer, Beispiller.",
       "subtitle": "Alles fir de Virdeel vun der 3 % Wunn-TVA z'aktivéieren a bis zu 50.000 € beim Bau, Kaaf oder bei der Renovéierung vun enger Lëtzebuerger Wunneng ze spueren.",
       "category": "Bau & VEFA",
@@ -10502,7 +10502,7 @@
       ]
     },
     "bailCommercial": {
-      "title": "Geschäftsmietvertrag zu Lëtzebuerg: Gesetz 03.02.2018, 9-Joer-Lafzäit an Erneierungsrecht",
+      "title": "Geschäftsmietkontrakt Lëtzebuerg: Gesetz 03.02.2018, 9 Joer",
       "metaDescription": "LU-Geschäftsmietvertrag: Gesetz 03.02.2018, 9 Joer Mindestlafzäit, dräijährlech Kënnegung mat 6 Méint Frist, STATEC-VPI-Indexéierung, fräi Schlësselgeld, Erneierungsrecht.",
       "subtitle": "De komplette Rechtsrahme fir Geschäftsmietverträg zu Lëtzebuerg: Lafzäit, Kënnegung, Loyer, Indexéierung an Erneierungsrecht.",
       "category": "Locatioun a Bail",
@@ -10614,7 +10614,7 @@
       ]
     },
     "investirHotel": {
-      "title": "An en Hotel zu Lëtzebuerg investéieren: Komplette Guide 2026 (RevPAR, Bewäertung, DSCR)",
+      "title": "An en Hotel zu Lëtzebuerg investéieren: Guide 2026 (RevPAR, DSCR)",
       "metaDescription": "Hotelinvestitioun LU 2026: 130 Hoteler / 8.000 Zëmmeren Marché, RevPAR 60-150 €, EBITDA-Bewäertung x8-14 a Präis/Zëmmer 80k-400k €, DSCR 1,25-1,40x, Due Diligence STR + ITM + Energiepass.",
       "subtitle": "De Lëtzebuerger Hotelmarché 2026, wichteg Leeschtungskennzuelen, Bewäertungsapprochen an Due-Diligence-Schrëtt fir d'Investitioun.",
       "category": "Hotellerie & Investitioun",

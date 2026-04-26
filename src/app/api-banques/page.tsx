@@ -4,7 +4,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import SEOContent from "@/components/SEOContent";
 
 export const metadata: Metadata = {
-  title: "API d'estimation immobilière LU pour banques | tevaxia.lu",
+  title: "API d'estimation immobilière LU pour banques",
   description:
     "API d'estimation TEGOVA-conforme couvrant 100 communes luxembourgeoises. Intégration CRM bancaire, scoring crédit, MLV/CRR. Documentation REST, authentification clé API.",
 };

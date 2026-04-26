@@ -31,7 +31,7 @@ export async function generateMetadata({
 
   if (!commune) {
     return {
-      title: "Commune non trouvée | Tevaxia",
+      title: "Commune non trouvée",
       description: "Cette commune n'a pas été trouvée dans notre base de données immobilières au Luxembourg.",
     };
   }
@@ -42,7 +42,7 @@ export async function generateMetadata({
     ? `${commune.prixM2Existant.toLocaleString("fr-LU")} EUR/m2`
     : "";
 
-  const title = `Immobilier ${commune.commune} — Prix m2, tendances, estimation | Tevaxia`;
+  const title = `Immobilier ${commune.commune} — Prix m², tendances, estimation`;
 
   const description = prixStr
     ? `Prix immobilier à ${commune.commune} (canton ${commune.canton}) : ${prixStr} en moyenne (${commune.periode}). Tendances, loyers, rendement et outils d'estimation sur tevaxia.lu.`
@@ -80,7 +80,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `Immobilier ${commune.commune} | Tevaxia`,
+      title: `Immobilier ${commune.commune}`,
       description,
       images: ["https://tevaxia.lu/og-image.png"],
     },

@@ -6067,7 +6067,7 @@
     },
     "agence": {
       "meta": {
-        "title": "CRM imobiliário Luxemburgo, pipeline de mandatos, matching, OpenImmo",
+        "title": "CRM agência imobiliária Luxemburgo — pipeline e OpenImmo",
         "description": "Centralize mandatos, contactos e tarefas num CRM concebido para agências LU. Matching automático de compradores, PDFs de imóvel em co-branding, assinatura eIDAS."
       },
       "hero": {
@@ -6252,7 +6252,7 @@
     },
     "hotel": {
       "meta": {
-        "title": "PMS hoteleiro Luxemburgo, folios USALI, IVA 3 %, forecast, channel manager",
+        "title": "PMS hoteleiro Luxemburgo — USALI, IVA 3 %, forecast, channels",
         "description": "Property Management System concebido para a hotelaria luxemburguesa: auto-posting USALI 19 categorias, faturação IVA LU 3 %, forecast a 90 dias, iCal OTA."
       },
       "hero": {
@@ -6620,7 +6620,7 @@
     },
     "investisseur": {
       "meta": {
-        "title": "Simulador de investimento imobiliário Luxemburgo, rentabilidade, DCF, fiscalidade",
+        "title": "Simulador investimento imobiliário Luxemburgo — DCF, fiscal",
         "description": "Rentabilidade, custos de aquisição com Bëllegen Akt, DCF multi-inquilino, mais-valias, VEFA com juros intercalares. Fiscalidade LU integrada."
       },
       "hero": {
@@ -6804,7 +6804,7 @@
     },
     "particulier": {
       "meta": {
-        "title": "Ferramentas imobiliárias para particulares no Luxemburgo, avaliação, apoios, arrendamento",
+        "title": "Ferramentas imobiliárias particulares Luxemburgo — avaliação",
         "description": "Avaliação, custos de aquisição com Bëllegen Akt, simulador de apoios Estado + Comuna, teto de arrendamento 5 %, comprar vs arrendar. Gratuito, 5 línguas."
       },
       "hero": {
@@ -6988,7 +6988,7 @@
     },
     "promoteur": {
       "meta": {
-        "title": "Software de promotor imobiliário Luxemburgo, conta de exploração, VEFA, custos de construção",
+        "title": "Software promotor imobiliário Luxemburgo — pro forma, VEFA, custos",
         "description": "Conta de exploração do promotor com plano de tesouraria, simulador VEFA com juros intercalares, estimador de custos de construção STATEC, obras de urbanização e conversão de áreas OAI/ILNAS."
       },
       "hero": {
@@ -7173,7 +7173,7 @@
     },
     "banque": {
       "meta": {
-        "title": "Software de avaliação imobiliária para bancos Luxemburgo, CRR, LTV, DSCR",
+        "title": "Avaliação imobiliária para bancos Luxemburgo — CRR, LTV, DSCR",
         "description": "Avaliação EVS 2025 conforme CRR, stress test +2 %, ferramentas LTV/DSCR, AML/KYC, portefólio energético CRREM. Para analistas de crédito e risk managers LU."
       },
       "hero": {
@@ -9233,7 +9233,7 @@
       ]
     },
     "regle5Pourcent": {
-      "title": "Regra dos 5% para a renda no Luxemburgo: cálculo, capital investido e reforma 2026",
+      "title": "Regra dos 5 % do arrendamento Luxemburgo: cálculo e reforma 2026",
       "metaDescription": "Regra dos 5% LU: renda anual máx = 5% do capital investido reavaliado. Coeficientes STATEC, vetustez 2%/ano, encargos recuperáveis, projeto 8184 reforma para 3,5%, exemplos calculados.",
       "subtitle": "O mecanismo de limitação legal da renda no Luxemburgo, o seu cálculo e o impacto da reforma em curso.",
       "category": "Arrendamento e contrato",
@@ -9387,7 +9387,7 @@
       ]
     },
     "bellegenAkt": {
-      "title": "Bëllegen Akt 2026: crédito fiscal sobre escrituras notariais no Luxemburgo",
+      "title": "Bëllegen Akt 2026: crédito fiscal de escritura notarial Luxemburgo",
       "metaDescription": "Bëllegen Akt 2026 no Luxemburgo: crédito fiscal de 40 000 € por comprador (80 000 € para um casal) sobre os direitos de registo, condições, procedimento, exemplos.",
       "subtitle": "O crédito fiscal que pode poupar até 80 000 € de custos de aquisição a um casal primo-comprador.",
       "category": "Apoios à aquisição",
@@ -9540,7 +9540,7 @@
       ]
     },
     "plusValue": {
-      "title": "Mais-valia imobiliária no Luxemburgo: tributação 2026 (Art. 99bis/99ter/102bis LIR)",
+      "title": "Mais-valia imobiliária Luxemburgo: fiscalidade 2026 (LIR)",
       "metaDescription": "Mais-valia imobiliária LU 2026: especulação < 2 anos à taxa progressiva, cessão ≥ 2 anos a um quarto da taxa global, abatimento 50 000 €/100 000 €, isenção residência principal, coeficiente STATEC.",
       "subtitle": "Compreender a tributação de uma mais-valia imobiliária consoante a duração de detenção, a utilização do bem e o regime fiscal aplicável.",
       "category": "Tributação da cessão",
@@ -9698,7 +9698,7 @@
       ]
     },
     "bailHabitation": {
-      "title": "Arrendamento habitacional no Luxemburgo: lei 21.09.2006, direitos e obrigações 2026",
+      "title": "Arrendamento habitacional Luxemburgo: lei 21.09.2006, direitos 2026",
       "metaDescription": "Arrendamento habitacional LU: duração indeterminada, pré-aviso 3/6 meses, caução máx 3 meses, renda limitada a 5% do capital reavaliado, encargos recuperáveis (RGD 16.06.2015), Comissão de Rendas municipal.",
       "subtitle": "Tudo o que senhorio e inquilino devem saber antes de assinar um contrato de arrendamento habitacional no Luxemburgo.",
       "category": "Arrendamento e contrato",
@@ -9816,7 +9816,7 @@
       ]
     },
     "copropriete": {
-      "title": "Condomínio no Luxemburgo: lei 16.05.1975, síndico, AG e fundo de reserva 2026",
+      "title": "Condomínio Luxemburgo: lei 16.05.1975, síndico, AG, fundo 2026",
       "metaDescription": "Condomínio LU 2026: síndico obrigatório acima de 5 lotes, assembleia geral, regulamento notarial, milésimos, fundo de reserva obrigatório, maiorias de voto graduadas, conselho sindical.",
       "subtitle": "Como funciona um condomínio no Luxemburgo: órgãos, regras de voto, encargos e obrigações legais.",
       "category": "Condomínio e síndico",
@@ -10080,7 +10080,7 @@
       ]
     },
     "estimation": {
-      "title": "Avaliação imobiliária no Luxemburgo: métodos TEGOVA EVS 2025 e fontes de dados",
+      "title": "Avaliação imobiliária Luxemburgo: métodos TEGOVA EVS 2025",
       "metaDescription": "Avaliação imobiliária LU: 3 abordagens TEGOVA (comparação, capitalização, DCF), fontes Observatório/STATEC/AED, modelo hedónico LISER, impacto CPE 3 a 8%/classe, REV/TRV.",
       "subtitle": "Como avaliar corretamente um imóvel no Luxemburgo: métodos profissionais, dados disponíveis e fatores de valorização 2026.",
       "category": "Avaliação & TEGOVA",
@@ -10197,7 +10197,7 @@
       ]
     },
     "achatNonResident": {
-      "title": "Compra imobiliária no Luxemburgo por não residente: guia completo 2026",
+      "title": "Comprar imóvel no Luxemburgo como não residente: guia 2026",
       "metaDescription": "Compra imobiliária não residente LU 2026: sem restrições, direitos 7% + Bëllegen Akt se residência principal, LTV bancário 70-75%, convenções fiscais, declaração 100F rendimentos prediais.",
       "subtitle": "Tudo para comprar um imóvel no Luxemburgo como não residente: fiscalidade, financiamento, declarações e exemplos calculados.",
       "category": "Compra & financiamento",
@@ -10343,7 +10343,7 @@
       ]
     },
     "tva3Pourcent": {
-      "title": "TVA habitação a 3 % no Luxemburgo: condições, procedimento AED e teto 2026",
+      "title": "IVA habitação 3 % Luxemburgo: condições e procedimento AED 2026",
       "metaDescription": "TVA habitação LU 2026: taxa super-reduzida 3 %, teto da vantagem fiscal 50 000 € por habitação, superfície máx 400 m², autorização AED prévia obrigatória, VEFA, renovação > 20 anos, exemplos.",
       "subtitle": "Tudo para ativar a vantagem fiscal TVA 3 % e poupar até 50 000 € na construção, compra ou renovação de uma habitação no Luxemburgo.",
       "category": "Construção & VEFA",
@@ -10502,7 +10502,7 @@
       ]
     },
     "bailCommercial": {
-      "title": "Arrendamento comercial no Luxemburgo: lei 03.02.2018, prazo 9 anos e direito à renovação",
+      "title": "Arrendamento comercial Luxemburgo: lei 03.02.2018, 9 anos",
       "metaDescription": "Arrendamento comercial LU: lei 03.02.2018, prazo mínimo 9 anos, rescisão trienal com 6 meses de pré-aviso, indexação IPC STATEC, trespasse livre, direito à renovação, indemnização de despejo.",
       "subtitle": "O quadro legal completo para arrendamento comercial no Luxemburgo: prazo, rescisão, renda, indexação e direito à renovação.",
       "category": "Arrendamento e contrato",
@@ -10614,7 +10614,7 @@
       ]
     },
     "investirHotel": {
-      "title": "Investir num hotel no Luxemburgo: guia completo 2026 (RevPAR, valorização, DSCR)",
+      "title": "Investir num hotel no Luxemburgo: guia 2026 (RevPAR, DSCR)",
       "metaDescription": "Investir hotel LU 2026: mercado 130 hotéis / 8 000 quartos, RevPAR 60-150 €, valorização EBITDA x8-14 e preço/quarto 80k-400k €, DSCR 1,25-1,40x, due diligence STR + ITM + Energiepass.",
       "subtitle": "O mercado hoteleiro luxemburguês em 2026, indicadores-chave de desempenho, abordagens de valorização e etapas de due diligence para investir.",
       "category": "Hotelaria & investimento",

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Observatoire hôtelier Luxembourg — Occupation, RevPAR, ADR public | tevaxia.lu",
+  title: "Observatoire hôtelier Luxembourg — Occupation, RevPAR, ADR",
   description:
     "Données publiques STATEC + Eurostat + STR EMEA : nuitées, occupation, RevPAR national par catégorie d'hôtel (1-2★ à 5★), saisonnalité, provenance des clients. Alternative gratuite aux panels payants STR Global / Horwath.",
   openGraph: {

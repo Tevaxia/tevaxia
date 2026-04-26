@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 export const metadata: Metadata = {
-  title: "Flächenumrechner Luxemburg — BGF, GF, Wohnfläche ILNAS 101",
+  title: "Flächenrechner — BGF, NRF, ILNAS 101 Luxemburg",
   description: "Umrechnung zwischen BGF, Geschossfläche, Nutzfläche und Wohnfläche (ILNAS 101:2016). ACT-Gewichtung für Balkone, Keller, Terrassen. OAI FC.04 Normen.",
   alternates: localizedAlternates("/convertisseur-surfaces", "de"),
 };

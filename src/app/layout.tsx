@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: {
       default: "tevaxia.lu — Outils Immobiliers Luxembourg",
-      template: "%s | tevaxia.lu",
+      template: "%s",
     },
     description:
       "Plateforme de référence pour l'immobilier au Luxembourg. Calculateurs de loyer, frais d'acquisition, plus-values, aides étatiques, outils bancaires.",

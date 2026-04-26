@@ -6067,7 +6067,7 @@
     },
     "agence": {
       "meta": {
-        "title": "Makler-CRM Luxemburg — Mandatspipeline, Matching, OpenImmo",
+        "title": "Immobilienmakler-CRM Luxemburg — Pipeline und OpenImmo",
         "description": "Zentralisieren Sie Mandate, Kontakte und Aufgaben in einem CRM, das für LU-Makler gebaut ist. Automatisches Käufer-Matching, Co-Branding-Objekt-PDFs, eIDAS-Signatur."
       },
       "hero": {
@@ -6252,7 +6252,7 @@
     },
     "hotel": {
       "meta": {
-        "title": "Hotel-PMS Luxemburg — USALI-Folios, 3 % MwSt, Forecast, Channel Manager",
+        "title": "Hotel-PMS Luxemburg — USALI, 3 % MwSt, Forecast, Channels",
         "description": "Property Management System gebaut für die luxemburgische Hotellerie: Auto-Posting USALI 19 Kategorien, LU-MwSt-3 %-Rechnung, 90-Tage-Forecast, iCal OTA."
       },
       "hero": {
@@ -6620,7 +6620,7 @@
     },
     "investisseur": {
       "meta": {
-        "title": "Luxemburger Immobilien-Investment-Simulator — Rendite, DCF, Besteuerung",
+        "title": "Immobilien-Investitionsrechner Luxemburg — DCF, Steuern",
         "description": "Rendite, Erwerbskosten mit Bëllegen Akt, Multi-Mieter-DCF, Veräusserungsgewinne, VEFA mit Zwischenzins. LU-Besteuerung integriert."
       },
       "hero": {
@@ -6804,7 +6804,7 @@
     },
     "particulier": {
       "meta": {
-        "title": "Immobilien-Werkzeuge für Privatpersonen in Luxemburg — Schätzung, Förderungen, Miete",
+        "title": "Immobilien-Tools für Privatpersonen Luxemburg — Bewertung",
         "description": "Schätzung, Erwerbskosten mit Bëllegen Akt, Förderungen-Simulator Staat + Gemeinde, 5 %-Mietdeckel, Kauf vs Miete. Kostenlos, 5 Sprachen."
       },
       "hero": {
@@ -6988,7 +6988,7 @@
     },
     "promoteur": {
       "meta": {
-        "title": "Bauträger-Software Luxemburg — GuV, VEFA, Baukosten",
+        "title": "Bauträger-Software Luxemburg — Wirtschaftlichkeit, VEFA, Kosten",
         "description": "Bauträger-GuV mit Cashflow-Plan, VEFA-Simulator mit Zwischenzinsen, STATEC-Baukosten-Schätzer, Strassenbau- und OAI/ILNAS-Flächenumrechnung."
       },
       "hero": {
@@ -7173,7 +7173,7 @@
     },
     "banque": {
       "meta": {
-        "title": "Immobilien-Bewertungssoftware für Banken Luxemburg — CRR, LTV, DSCR",
+        "title": "Immobilienbewertung für Banken Luxemburg — CRR, LTV, DSCR",
         "description": "CRR-konforme EVS-2025-Bewertung, +2 %-Stresstest, LTV/DSCR-Werkzeuge, AML/KYC, CRREM-Energie-Portfolio. Für LU-Kreditanalysten und Risikomanager."
       },
       "hero": {
@@ -9233,7 +9233,7 @@
       ]
     },
     "regle5Pourcent": {
-      "title": "Luxemburger 5%-Mietregel: Berechnung, investiertes Kapital und Reform 2026",
+      "title": "5 %-Mietregel Luxemburg: Berechnung und Reform 2026",
       "metaDescription": "5%-Regel LU: max. Jahresmiete = 5% des aufgewerteten investierten Kapitals. STATEC-Koeffizienten, 2%/Jahr Abnutzung, umlegbare Nebenkosten, Gesetzentwurf 8184 (3,5%), Beispiele.",
       "subtitle": "So funktioniert Luxemburgs gesetzliche Mietobergrenze, ihre Berechnung und der Effekt der bevorstehenden Reform.",
       "category": "Mieten & Mietvertrag",
@@ -9387,7 +9387,7 @@
       ]
     },
     "bellegenAkt": {
-      "title": "Bëllegen Akt 2026: Steuergutschrift auf notarielle Urkunden in Luxemburg",
+      "title": "Bëllegen Akt 2026: Steuergutschrift notarielle Urkunde Luxemburg",
       "metaDescription": "Bëllegen Akt 2026 in Luxemburg: 40.000 € Steuergutschrift pro Käufer (80.000 € für ein Paar) auf Eintragungsgebühren, Bedingungen, Verfahren, Beispiele.",
       "subtitle": "Die Steuergutschrift, die einem Erstkäufer-Paar bis zu 80.000 € an Erwerbskosten sparen kann.",
       "category": "Erwerbsbeihilfen",
@@ -9540,7 +9540,7 @@
       ]
     },
     "plusValue": {
-      "title": "Immobilien-Kapitalgewinne in Luxemburg: Besteuerung 2026 (Art. 99bis/99ter/102bis LIR)",
+      "title": "Immobilien-Veräußerungsgewinn Luxemburg: Steuern 2026 (LIR)",
       "metaDescription": "Immobilienkapitalgewinne LU 2026: Spekulation < 2 Jahre nach Tarif, Veräußerung ≥ 2 Jahre zum Viertel des Gesamtsatzes, Freibetrag 50.000 €/100.000 €, Hauptwohnsitz-Befreiung, STATEC-Koeffizient.",
       "subtitle": "Verstehen Sie die Besteuerung eines Immobilien-Kapitalgewinns nach Haltedauer, Nutzung und anwendbarem Steuerregime.",
       "category": "Besteuerung der Veräußerung",
@@ -9698,7 +9698,7 @@
       ]
     },
     "bailHabitation": {
-      "title": "Wohnungsmietvertrag in Luxemburg: Gesetz 21.09.2006, Rechte und Pflichten 2026",
+      "title": "Wohnungsmietvertrag Luxemburg: Gesetz 21.09.2006, Rechte 2026",
       "metaDescription": "Wohnungsmietvertrag LU: unbestimmte Dauer, Kündigungsfrist 3/6 Monate, Kaution max 3 Monate, Mietzinsobergrenze 5 % des aufgewerteten Kapitals, umlegbare Nebenkosten (RGD 16.06.2015), kommunale Mietkommission.",
       "subtitle": "Alles, was Vermieter und Mieter vor Abschluss eines Wohnungsmietvertrags in Luxemburg wissen müssen.",
       "category": "Mieten & Mietvertrag",
@@ -9816,7 +9816,7 @@
       ]
     },
     "copropriete": {
-      "title": "Miteigentum in Luxemburg: Gesetz 16.05.1975, Syndikus, EV und Rücklagenfonds 2026",
+      "title": "Wohneigentum Luxemburg: Gesetz 16.05.1975, Verwalter, EV 2026",
       "metaDescription": "Miteigentum LU 2026: Pflicht-Syndikus über 5 Einheiten, Eigentümerversammlung, notarielle Ordnung, Anteile (Tausendstel), Pflicht-Rücklagenfonds, gestaffelte Abstimmungsmehrheiten, Verwaltungsrat.",
       "subtitle": "Wie eine Miteigentumsgemeinschaft in Luxemburg funktioniert: Organe, Abstimmungsregeln, Kosten und Pflichten.",
       "category": "Miteigentum & Syndikus",
@@ -10080,7 +10080,7 @@
       ]
     },
     "estimation": {
-      "title": "Immobilienbewertung in Luxemburg: TEGOVA EVS 2025 Methoden und Datenquellen",
+      "title": "Immobilienbewertung Luxemburg: TEGOVA EVS 2025 Methoden",
       "metaDescription": "Immobilienbewertung LU: 3 TEGOVA-Ansätze (Vergleich, Kapitalisierung, DCF), Datenquellen Observatorium/STATEC/AED, hedonisches LISER-Modell, EPB-Impact 3 bis 8%/Klasse, REV/TRV.",
       "subtitle": "Wie man eine Immobilie in Luxemburg richtig bewertet: professionelle Methoden, verfügbare Daten und Bewertungstreiber 2026.",
       "category": "Bewertung & TEGOVA",
@@ -10197,7 +10197,7 @@
       ]
     },
     "achatNonResident": {
-      "title": "Immobilienkauf in Luxemburg als Nicht-Resident: Kompletter Leitfaden 2026",
+      "title": "Immobilienkauf Luxemburg für Nichtansässige: Leitfaden 2026",
       "metaDescription": "Nicht-Resident-Immobilienkauf LU 2026: keine Beschränkungen, 7 % Gebühren + Bëllegen Akt bei Hauptwohnsitz, Bank-LTV 70-75 %, Doppelbesteuerungsabkommen, Erklärung 100F für Mieteinnahmen.",
       "subtitle": "Alles, um in Luxemburg als Nicht-Resident zu kaufen: Besteuerung, Finanzierung, Erklärungen und Beispielrechnungen.",
       "category": "Kauf & Finanzierung",
@@ -10343,7 +10343,7 @@
       ]
     },
     "tva3Pourcent": {
-      "title": "3 % Wohn-MwSt. in Luxemburg: Bedingungen, AED-Verfahren und Obergrenze 2026",
+      "title": "3 % Wohnungs-MwSt Luxemburg: Bedingungen und AED-Verfahren 2026",
       "metaDescription": "Wohn-MwSt. LU 2026: super-ermäßigter Satz 3 %, 50.000 € Steuergutschrift-Obergrenze pro Wohnung, max 400 m² Fläche, AED-Vorabgenehmigung Pflicht, VEFA, Renovierung > 20 Jahre, Beispiele.",
       "subtitle": "Alles, um den Vorteil der 3 % Wohn-MwSt. zu aktivieren und bis zu 50.000 € beim Bau, Kauf oder bei der Renovierung einer Luxemburger Wohnung zu sparen.",
       "category": "Bau & VEFA",
@@ -10502,7 +10502,7 @@
       ]
     },
     "bailCommercial": {
-      "title": "Geschäftsmietvertrag in Luxemburg: Gesetz 03.02.2018, 9-Jahres-Laufzeit und Erneuerungsrecht",
+      "title": "Gewerbemietvertrag Luxemburg: Gesetz 03.02.2018, 9 Jahre",
       "metaDescription": "LU-Geschäftsmietvertrag: Gesetz 03.02.2018, 9 Jahre Mindestlaufzeit, dreijährliche Kündigung mit 6 Monaten Frist, STATEC-VPI-Indexierung, freies Schlüsselgeld, Erneuerungsrecht.",
       "subtitle": "Der vollständige Rechtsrahmen für Geschäftsmietverträge in Luxemburg: Laufzeit, Kündigung, Miete, Indexierung und Erneuerungsrecht.",
       "category": "Mieten & Mietvertrag",
@@ -10614,7 +10614,7 @@
       ]
     },
     "investirHotel": {
-      "title": "In ein Hotel in Luxemburg investieren: Kompletter Leitfaden 2026 (RevPAR, Bewertung, DSCR)",
+      "title": "In ein Hotel in Luxemburg investieren: Leitfaden 2026 (RevPAR, DSCR)",
       "metaDescription": "Hotelinvestition LU 2026: 130 Hotels / 8.000 Zimmer Markt, RevPAR 60-150 €, EBITDA-Bewertung x8-14 und Preis/Zimmer 80k-400k €, DSCR 1,25-1,40x, Due Diligence STR + ITM + Energiepass.",
       "subtitle": "Der luxemburgische Hotelmarkt 2026, wichtige Leistungskennzahlen, Bewertungsansätze und Due-Diligence-Schritte für die Investition.",
       "category": "Hotellerie & Investition",

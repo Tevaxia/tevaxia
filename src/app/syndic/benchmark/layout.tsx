@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Benchmark inter-copropriétés — Comparer KPIs syndic Luxembourg | tevaxia.lu",
+  title: "Benchmark inter-copropriétés — KPIs syndic Luxembourg",
   description:
     "Comparez en temps réel les KPIs opérationnels et financiers de toutes les copropriétés sous mandat de votre cabinet : charges €/m², fonds travaux, taux de recouvrement, retard moyen, relances. Score composite par copropriété.",
   openGraph: {

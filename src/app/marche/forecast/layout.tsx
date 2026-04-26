@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Prévisions prix immobilier Luxembourg 12-48 mois — 3 scénarios | tevaxia.lu",
+  title: "Prévisions prix immobilier Luxembourg — 3 scénarios",
   description:
     "Projection des prix m² par commune luxembourgeoise à 12, 24 ou 48 mois. 3 scénarios configurables (pessimiste, central, optimiste) basés sur données STATEC + Observatoire Habitat. CAGR historique 5 ans affiché en référence.",
   openGraph: {

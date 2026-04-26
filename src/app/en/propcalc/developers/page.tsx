@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "PropCalc Developers — Widget, REST API, npm, Chrome Extension, Google Sheets",
+  title: "PropCalc Developers — Widget, REST API, npm, Chrome, Google Sheets",
   description:
     "Integrate multi-country real estate calculations into your projects. Embeddable widget, REST API, npm package, Chrome extension, Google Sheets add-on. 10 countries, 16 functions.",
   openGraph: {

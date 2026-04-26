@@ -6004,7 +6004,7 @@
   "solutions": {
     "agence": {
       "meta": {
-        "title": "Real estate agency CRM Luxembourg — mandate pipeline, matching, OpenImmo",
+        "title": "Luxembourg real estate agency CRM — pipeline and OpenImmo",
         "description": "Centralise mandates, contacts and tasks in one CRM built for LU agencies. Automatic buyer matching, co-branded property PDFs, eIDAS signature."
       },
       "hero": {
@@ -6189,7 +6189,7 @@
     },
     "hotel": {
       "meta": {
-        "title": "Hotel PMS Luxembourg — USALI folios, 3% VAT, forecast, channel manager",
+        "title": "Luxembourg hotel PMS — USALI, 3 % VAT, forecast, channels",
         "description": "Property Management System built for Luxembourg hospitality: auto-posting USALI 19 categories, LU 3% VAT invoicing, 90-day forecast, iCal OTA."
       },
       "hero": {
@@ -6557,7 +6557,7 @@
     },
     "investisseur": {
       "meta": {
-        "title": "Luxembourg real estate investment simulator — yield, DCF, taxation",
+        "title": "Luxembourg property investment simulator — DCF, tax",
         "description": "Yield, acquisition fees with Bëllegen Akt, multi-tenant DCF, capital gains, VEFA with interim interest. LU taxation built in."
       },
       "hero": {
@@ -6741,7 +6741,7 @@
     },
     "particulier": {
       "meta": {
-        "title": "Real estate tools for individuals in Luxembourg — estimation, aids, rent",
+        "title": "Personal real estate tools Luxembourg — valuation, subsidies",
         "description": "Estimation, acquisition fees with Bëllegen Akt, state + commune aid simulator, 5% rent cap, buy vs rent. Free, 5 languages."
       },
       "hero": {
@@ -6925,7 +6925,7 @@
     },
     "promoteur": {
       "meta": {
-        "title": "Real estate developer software Luxembourg — P&L, VEFA, construction costs",
+        "title": "Luxembourg property developer software — pro forma, VEFA, costs",
         "description": "Developer P&L with cash-flow plan, VEFA simulator with interim interest, STATEC construction cost estimator, road works and OAI/ILNAS surface conversion."
       },
       "hero": {
@@ -7110,7 +7110,7 @@
     },
     "banque": {
       "meta": {
-        "title": "Real estate valuation software for banks Luxembourg — CRR, LTV, DSCR",
+        "title": "Real estate valuation for banks Luxembourg — CRR, LTV, DSCR",
         "description": "CRR-compliant EVS 2025 valuation, +2% stress test, LTV/DSCR tools, AML/KYC, CRREM energy portfolio. For LU credit analysts and risk managers."
       },
       "hero": {
@@ -9355,7 +9355,7 @@
       ]
     },
     "regle5Pourcent": {
-      "title": "Luxembourg's 5% Rent Rule: Calculation, Invested Capital and 2026 Reform",
+      "title": "Luxembourg 5 % rent rule: calculation and 2026 reform",
       "metaDescription": "5% rule in LU: max annual rent = 5% of revalued invested capital. STATEC coefficients, 2%/year wear-and-tear, recoverable charges, bill 8184 reform to 3.5%, worked examples.",
       "subtitle": "How Luxembourg's statutory rent cap works, how to compute it, and the impact of the upcoming reform.",
       "category": "Renting & lease",
@@ -9509,7 +9509,7 @@
       ]
     },
     "bellegenAkt": {
-      "title": "Bëllegen Akt 2026: Tax Credit on Notarial Deeds in Luxembourg",
+      "title": "Bëllegen Akt 2026: notary deed tax credit Luxembourg",
       "metaDescription": "Bëllegen Akt 2026 in Luxembourg: €40,000 tax credit per buyer (€80,000 for a couple) on registration duties, conditions, procedure, worked examples.",
       "subtitle": "The tax credit that can save a first-time buyer couple up to €80,000 in acquisition costs.",
       "category": "Acquisition aids",
@@ -9662,7 +9662,7 @@
       ]
     },
     "plusValue": {
-      "title": "Real Estate Capital Gains in Luxembourg: 2026 Taxation (Art. 99bis/99ter/102bis LIR)",
+      "title": "Luxembourg real estate capital gains: 2026 tax rules (LIR)",
       "metaDescription": "LU real estate capital gains 2026: speculation < 2 years at progressive rate, transfer ≥ 2 years at one quarter of global rate, €50,000/€100,000 allowance, primary residence exemption, STATEC coefficient.",
       "subtitle": "Understand the taxation of a real estate capital gain by holding period, property use and applicable tax regime.",
       "category": "Disposal taxation",
@@ -9820,7 +9820,7 @@
       ]
     },
     "bailHabitation": {
-      "title": "Residential Lease in Luxembourg: Law 21.09.2006, Rights and Obligations 2026",
+      "title": "Luxembourg housing lease: law 21.09.2006, 2026 rights",
       "metaDescription": "LU residential lease: indefinite duration, 3/6-month notice, max 3-month deposit, rent capped at 5% of revalued capital, recoverable charges (RGD 16.06.2015), municipal Rent Commission.",
       "subtitle": "Everything landlord and tenant need to know before signing a residential lease in Luxembourg.",
       "category": "Renting & lease",
@@ -9938,7 +9938,7 @@
       ]
     },
     "copropriete": {
-      "title": "Co-ownership in Luxembourg: Law 16.05.1975, Syndic, General Meeting and Reserve Fund 2026",
+      "title": "Luxembourg co-ownership: law 16.05.1975, syndic, AGM, fund 2026",
       "metaDescription": "LU co-ownership 2026: mandatory syndic above 5 lots, general meeting, notarial regulations, shares (tantièmes), mandatory reserve fund, graduated voting majorities, syndical council.",
       "subtitle": "How a co-ownership works in Luxembourg: bodies, voting rules, charges and legal obligations.",
       "category": "Co-ownership & syndic",
@@ -10202,7 +10202,7 @@
       ]
     },
     "estimation": {
-      "title": "Property Valuation in Luxembourg: TEGOVA EVS 2025 Methods and Data Sources",
+      "title": "Luxembourg real estate valuation: TEGOVA EVS 2025 methods",
       "metaDescription": "Property valuation LU: 3 TEGOVA approaches (comparison, capitalisation, DCF), Observatory/STATEC/AED data sources, LISER hedonic model, EPC impact 3 to 8%/class, REV/TRV.",
       "subtitle": "How to properly value a property in Luxembourg: professional methods, available data and 2026 valuation drivers.",
       "category": "Valuation & TEGOVA",
@@ -10319,7 +10319,7 @@
       ]
     },
     "achatNonResident": {
-      "title": "Buying Property in Luxembourg as a Non-Resident: Complete 2026 Guide",
+      "title": "Buying property in Luxembourg as non-resident: 2026 guide",
       "metaDescription": "Non-resident property purchase LU 2026: no restrictions, 7% duties + Bëllegen Akt if primary residence, 70-75% bank LTV, tax treaties, 100F return for rental income.",
       "subtitle": "Everything to buy property in Luxembourg as a non-resident: taxation, financing, declarations and worked examples.",
       "category": "Buying & financing",
@@ -10465,7 +10465,7 @@
       ]
     },
     "tva3Pourcent": {
-      "title": "3% Housing VAT in Luxembourg: Conditions, AED Procedure and Cap 2026",
+      "title": "Luxembourg 3 % housing VAT: conditions and AED procedure 2026",
       "metaDescription": "LU housing VAT 2026: super-reduced 3% rate, €50,000 tax credit cap per dwelling, max 400 m² area, mandatory prior AED authorisation, VEFA, renovation > 20 years, worked examples.",
       "subtitle": "Everything to activate the 3% housing VAT benefit and save up to €50,000 on the construction, purchase or renovation of a Luxembourg dwelling.",
       "category": "Construction & VEFA",
@@ -10624,7 +10624,7 @@
       ]
     },
     "bailCommercial": {
-      "title": "Commercial Lease in Luxembourg: Law 03.02.2018, 9-Year Term and Renewal Right",
+      "title": "Luxembourg commercial lease: law 03.02.2018, 9-year term",
       "metaDescription": "LU commercial lease: law 03.02.2018, 9-year minimum term, triennial termination 6-month notice, STATEC CPI indexation, free key money, renewal right, eviction compensation.",
       "subtitle": "The complete legal framework for commercial leases in Luxembourg: term, termination, rent, indexation and renewal right.",
       "category": "Renting & lease",
@@ -10736,7 +10736,7 @@
       ]
     },
     "investirHotel": {
-      "title": "Investing in a Hotel in Luxembourg: Complete 2026 Guide (RevPAR, Valuation, DSCR)",
+      "title": "Investing in a Luxembourg hotel: 2026 guide (RevPAR, DSCR)",
       "metaDescription": "Hotel investment LU 2026: 130 hotels / 8,000 rooms market, RevPAR €60-150, EBITDA x8-14 valuation and price/room €80k-400k, DSCR 1.25-1.40x, due diligence STR + ITM + Energiepass.",
       "subtitle": "The Luxembourg hotel market in 2026, key performance indicators, valuation approaches and due diligence steps to invest.",
       "category": "Hospitality & investment",
