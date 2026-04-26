@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "python scripts/generate_client_namespaces.py",
+    "predev": "python scripts/generate_client_namespaces.py",
     "dev": "next dev",
     "build": "next build",
     "build:analyze": "ANALYZE=true next build",
+    "i18n:scan": "python scripts/generate_client_namespaces.py",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
