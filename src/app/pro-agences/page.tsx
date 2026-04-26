@@ -26,9 +26,9 @@ export default async function ProAgences() {
           </div>
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">{t("title")}</h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg leading-8 text-white/80">{t("description")}</p>
-          <a href={`mailto:contact@tevaxia.lu?subject=${t("ctaSubject")}`} className="mt-8 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-rose-900 shadow-sm transition-colors hover:bg-white/90">
+          <Link href={`${lp}/pro-agences/crm`} className="mt-8 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-rose-900 shadow-sm transition-colors hover:bg-white/90">
             {t("ctaDemo")}
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -105,13 +105,13 @@ export default async function ProAgences() {
             <h2 className="text-2xl font-bold text-navy">{t("pricingTitle")}</h2>
             <p className="mt-3 text-muted">{t("pricingSubtitle")}</p>
             <div className="mt-6 flex items-center justify-center gap-3 flex-wrap">
-              <span className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-800">{t("badgeDemo")}</span>
-              <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800">{t("badgeTrial")}</span>
+              <span className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-800">{t("badgeLaunch")}</span>
+              <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800">{t("badgeFreeAccess")}</span>
               <span className="inline-flex items-center rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">{t("badgeNoCommit")}</span>
             </div>
-            <a href={`mailto:contact@tevaxia.lu?subject=${t("ctaSubject")}`} className="mt-8 inline-flex items-center gap-2 rounded-lg bg-rose-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-rose-700">
+            <Link href={`${lp}/pro-agences/crm`} className="mt-8 inline-flex items-center gap-2 rounded-lg bg-rose-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-rose-700">
               {t("ctaReserve")}
-            </a>
+            </Link>
             <div className="mt-4 text-xs text-muted">
               {t("altPrefix")}{" "}
               <Link href={`${lp}/estimation`} className="text-navy underline hover:no-underline">{t("altLink")}</Link>{" "}

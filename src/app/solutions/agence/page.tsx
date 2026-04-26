@@ -66,7 +66,7 @@ export default async function AgenceSolutionPage() {
         features: t.raw("pricing.features") as string[],
         ctaPlatform: t("pricing.ctaPlatform"),
         ctaEmit: t("pricing.ctaEmit"),
-        ctaEmitHref: `${lp}/pro-agences`,
+        ctaEmitHref: `${lp}/pro-agences/crm`,
       }}
       faq={{
         title: t("faq.title"),
@@ -78,7 +78,7 @@ export default async function AgenceSolutionPage() {
         cta: t("finalCta.cta"),
         ctaHref: `${lp}/connexion`,
         ctaSecondary: t("finalCta.ctaSecondary"),
-        ctaSecondaryHref: `${lp}/pro-agences`,
+        ctaSecondaryHref: `${lp}/pro-agences/crm`,
       }}
       toc={{
         label: ttoc("label"),
