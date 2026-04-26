@@ -255,13 +255,13 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
               <a
-                href="/api/oauth/google/calendar?action=connect"
+                href="/api/oauth/google/calendar/connect"
                 className="inline-flex items-center gap-1 rounded-md border border-card-border bg-white px-3 py-1.5 text-xs font-medium text-navy hover:bg-card transition-colors"
               >
                 Connecter Google Calendar
               </a>
               <a
-                href="/api/oauth/microsoft/calendar?action=connect"
+                href="/api/oauth/microsoft/calendar/connect"
                 className="inline-flex items-center gap-1 rounded-md border border-card-border bg-white px-3 py-1.5 text-xs font-medium text-navy hover:bg-card transition-colors"
               >
                 Connecter Outlook

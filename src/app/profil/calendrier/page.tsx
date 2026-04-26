@@ -1,8 +1,34 @@
 "use client";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { useAuth } from "@/components/AuthProvider";
 import CalendarSyncSection from "@/components/CalendarSyncSection";
+
+function OAuthBanner() {
+  const sp = useSearchParams();
+  const status = sp.get("status");
+  const provider = sp.get("provider");
+  const message = sp.get("message");
+  if (!status || !provider) return null;
+
+  const providerLabel = provider === "google" ? "Google Calendar" : provider === "microsoft" ? "Outlook" : provider;
+
+  if (status === "success") {
+    return (
+      <div className="mt-6 rounded-lg border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-900">
+        ✓ <strong>{providerLabel}</strong> connecté avec succès. La synchronisation bi-directionnelle sera active dès que les workers de sync seront déployés.
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-6 rounded-lg border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900">
+      ✗ Erreur de connexion à <strong>{providerLabel}</strong>{message ? ` : ${message}` : ""}.
+    </div>
+  );
+}
 
 export default function CalendrierPage() {
   const { user } = useAuth();
@@ -23,6 +49,10 @@ export default function CalendrierPage() {
           Récupérez vos tâches CRM et visites planifiées dans votre calendrier favori (Google Calendar, Outlook, Apple Calendar).
           Aucune installation, juste une URL d'abonnement à coller.
         </p>
+
+        <Suspense fallback={null}>
+          <OAuthBanner />
+        </Suspense>
 
         <div className="mt-8">
           <CalendarSyncSection userId={user?.id || null} />
