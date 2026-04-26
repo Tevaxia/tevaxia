@@ -9,6 +9,7 @@
     "build": "next build",
     "build:analyze": "ANALYZE=true next build",
     "i18n:scan": "python scripts/generate_client_namespaces.py && python scripts/generate_route_namespaces.py",
+    "indexnow": "python scripts/indexnow_submit.py",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
