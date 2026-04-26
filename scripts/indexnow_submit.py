@@ -19,7 +19,7 @@ import urllib.error
 import xml.etree.ElementTree as ET
 
 HOST = "tevaxia.lu"
-KEY = "d92b4b8d50abf45f9ead4953c57a409a"
+KEY = "e48e48f4c85942aa82c90ed29218b316"
 KEY_LOCATION = f"https://{HOST}/{KEY}.txt"
 SITEMAP_URL = f"https://{HOST}/sitemap.xml"
 ENDPOINT = "https://api.indexnow.org/IndexNow"
