@@ -9103,13 +9103,43 @@
       "section4Intro": "Déi folgend Tabell weist eng indikativ Spann fir eng bestoend Immobilie als Haaptwunnsëtz vun engem Keefer-Koppel (vollen Bëllegen Akt 80.000 € applizéiert). D'Hypothéikekosten entspriechen enger 80 %-Finanzéierung.",
       "table": {
         "caption": "Geschätzten Erwerbskosten — bestoend Immobilie, Keefer-Koppel, 80 % Finanzéierung",
-        "headers": ["Kafpräis", "7 % Gebühren", "Bëllegen Akt", "Netto ze bezuelen"],
+        "headers": [
+          "Kafpräis",
+          "7 % Gebühren",
+          "Bëllegen Akt",
+          "Netto ze bezuelen"
+        ],
         "rows": [
-          ["300.000 €", "21.000 €", "−21.000 €", "≈ 6.000 €"],
-          ["500.000 €", "35.000 €", "−35.000 €", "≈ 10.000 €"],
-          ["750.000 €", "52.500 €", "−52.500 €", "≈ 14.000 €"],
-          ["1.000.000 €", "70.000 €", "−70.000 €", "≈ 18.000 €"],
-          ["1.500.000 €", "105.000 €", "−80.000 €", "≈ 50.000 €"]
+          [
+            "300.000 €",
+            "21.000 €",
+            "−21.000 €",
+            "≈ 6.000 €"
+          ],
+          [
+            "500.000 €",
+            "35.000 €",
+            "−35.000 €",
+            "≈ 10.000 €"
+          ],
+          [
+            "750.000 €",
+            "52.500 €",
+            "−52.500 €",
+            "≈ 14.000 €"
+          ],
+          [
+            "1.000.000 €",
+            "70.000 €",
+            "−70.000 €",
+            "≈ 18.000 €"
+          ],
+          [
+            "1.500.000 €",
+            "105.000 €",
+            "−80.000 €",
+            "≈ 50.000 €"
+          ]
         ],
         "footnote": "Netto ze bezuelen = verbleiwend Gebühren nom Bëllegen Akt + Notairsgebühren + Hypothéikekosten + Auslagen. Schätzung 2026 fir e Éischtkeefer-Koppel. Hypothéik-Undeel berechent op 80 % vum Präis."
       },
@@ -9121,26 +9151,85 @@
         "cta": "Rechner opmaachen"
       },
       "tools": [
-        { "href": "/frais-acquisition", "title": "Erwerbskosten-Rechner", "description": "Komplett Schätzung: Gebühren, Bëllegen Akt, Notairsgebühren, Hypothéik, Wunn-TVA." },
-        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Opdeelung Terrain / Bau an 3 % Wunn-TVA fir e Neibau." },
-        { "href": "/outils-bancaires", "title": "Bank-Tools", "description": "Krediteer-Kapazitéit, Mounschrate, DSTI- a LTV-Quoten virun der Vertragsënnerschrëft." },
-        { "href": "/simulateur-aides", "title": "Erwerbsbäihëllefen", "description": "Wunnungspremium, Zënszuschoss, Staatsgarantie, Sparpremium." }
+        {
+          "href": "/frais-acquisition",
+          "title": "Erwerbskosten-Rechner",
+          "description": "Komplett Schätzung: Gebühren, Bëllegen Akt, Notairsgebühren, Hypothéik, Wunn-TVA."
+        },
+        {
+          "href": "/vefa",
+          "title": "VEFA-Simulator",
+          "description": "Opdeelung Terrain / Bau an 3 % Wunn-TVA fir e Neibau."
+        },
+        {
+          "href": "/outils-bancaires",
+          "title": "Bank-Tools",
+          "description": "Krediteer-Kapazitéit, Mounschrate, DSTI- a LTV-Quoten virun der Vertragsënnerschrëft."
+        },
+        {
+          "href": "/simulateur-aides",
+          "title": "Erwerbsbäihëllefen",
+          "description": "Wunnungspremium, Zënszuschoss, Staatsgarantie, Sparpremium."
+        }
       ],
       "faq": [
-        { "q": "Wéi héich sinn d'Notairsfraise fir en Appartement vu 500.000 € zu Lëtzebuerg?", "a": "Fir e Bestandappartement vu 500.000 € kaaft vun engem Éischtkeefer-Koppel (vollen Bëllegen Akt): ronn 10.000 bis 12.000 € Gesamtkosten — 35.000 € Gebühren komplett duerch d'Steiergutschrëft kompenséiert, plus 4.200 € Notairsgebühren, ongeféier 4.500 € Hypothéikekosten op 400.000 € geléint an 1.500 € Auslagen." },
-        { "q": "Sinn d'Notairsfraise fir Neibaute zu Lëtzebuerg reduzéiert?", "a": "Jo. Bei engem VEFA-Neibau gëllen d'Aschreiwungs- an Transkriptiounsgebühren nëmmen op den Terrain-Undeel. De Bau ënnerläit der super-reduzéierter Wunn-TVA vu 3 % (Steiergutschrëft gedeckelt op 50.000 € pro Wunneng). D'Gesamtkosten leien meeschtens tëschent 3 a 4 % vum Präis." },
-        { "q": "Wat ass de Bëllegen Akt a wéi kréien ech en?", "a": "De Bëllegen Akt ass eng Steiergutschrëft vu 40.000 € pro Keefer (80.000 € fir e Koppel) op d'Aschreiwungsgebühren, ënnert der Bedingung datt d'Immobilie als Haaptwunnsëtz déngt a perséinlech bewunnt gëtt. D'Demande gëtt automatesch vum Notair beim Akt gemaach. D'AED erhieft an all Fall op mannst 100 € Gebühren." },
-        { "q": "Kënnen d'Notairsfraise zu Lëtzebuerg verhandelt ginn?", "a": "Nee. D'Notairsgebühren zu Lëtzebuerg si streng duerch de Groussherzoglecht Reglement vum 26. November 2015 gereegelt; den Notair däerf se weeder erhéijen nach senken. Nëmme d'Auslagen (Formalitéiten) kënnen je no Notairsbüro liicht variéieren je no duerchgefouerten Recherchen." },
-        { "q": "Wien bezilt d'Notairsfraise zu Lëtzebuerg, de Keefer oder de Verkeefer?", "a": "De Keefer dréit déi ganz Erwerbskosten (Gebühren, Notairsgebühren vum Verkafsakt, Hypothéikekosten bei Finanzéierung). De Verkeefer bezilt nëmmen d'Formalitéite fir d'Lescheung vun enger bestoender Hypothéik op der Immobilie an déi etwaeg Maklercommissioun, falls vertraglech vu him ze droen." },
-        { "q": "Sinn d'Notairsfraise zu Lëtzebuerg steierlech ofzéibar?", "a": "Bei enger Locatiouns-Investitioun sinn d'Notairsfraise (Gebühren, Notairsgebühren, Hypothéikekosten) net direkt ofzéibar, mä gi den Erwerbskosten zougerechent a kënnen iwwer d'Halddauer ofgeschriwwe ginn. Beim Haaptwunnsëtz si se net ofzéibar, mä de Bëllegen Akt deckt e groussen Deel dervun." }
+        {
+          "q": "Wéi héich sinn d'Notairsfraise fir en Appartement vu 500.000 € zu Lëtzebuerg?",
+          "a": "Fir e Bestandappartement vu 500.000 € kaaft vun engem Éischtkeefer-Koppel (vollen Bëllegen Akt): ronn 10.000 bis 12.000 € Gesamtkosten — 35.000 € Gebühren komplett duerch d'Steiergutschrëft kompenséiert, plus 4.200 € Notairsgebühren, ongeféier 4.500 € Hypothéikekosten op 400.000 € geléint an 1.500 € Auslagen."
+        },
+        {
+          "q": "Sinn d'Notairsfraise fir Neibaute zu Lëtzebuerg reduzéiert?",
+          "a": "Jo. Bei engem VEFA-Neibau gëllen d'Aschreiwungs- an Transkriptiounsgebühren nëmmen op den Terrain-Undeel. De Bau ënnerläit der super-reduzéierter Wunn-TVA vu 3 % (Steiergutschrëft gedeckelt op 50.000 € pro Wunneng). D'Gesamtkosten leien meeschtens tëschent 3 a 4 % vum Präis."
+        },
+        {
+          "q": "Wat ass de Bëllegen Akt a wéi kréien ech en?",
+          "a": "De Bëllegen Akt ass eng Steiergutschrëft vu 40.000 € pro Keefer (80.000 € fir e Koppel) op d'Aschreiwungsgebühren, ënnert der Bedingung datt d'Immobilie als Haaptwunnsëtz déngt a perséinlech bewunnt gëtt. D'Demande gëtt automatesch vum Notair beim Akt gemaach. D'AED erhieft an all Fall op mannst 100 € Gebühren."
+        },
+        {
+          "q": "Kënnen d'Notairsfraise zu Lëtzebuerg verhandelt ginn?",
+          "a": "Nee. D'Notairsgebühren zu Lëtzebuerg si streng duerch de Groussherzoglecht Reglement vum 26. November 2015 gereegelt; den Notair däerf se weeder erhéijen nach senken. Nëmme d'Auslagen (Formalitéiten) kënnen je no Notairsbüro liicht variéieren je no duerchgefouerten Recherchen."
+        },
+        {
+          "q": "Wien bezilt d'Notairsfraise zu Lëtzebuerg, de Keefer oder de Verkeefer?",
+          "a": "De Keefer dréit déi ganz Erwerbskosten (Gebühren, Notairsgebühren vum Verkafsakt, Hypothéikekosten bei Finanzéierung). De Verkeefer bezilt nëmmen d'Formalitéite fir d'Lescheung vun enger bestoender Hypothéik op der Immobilie an déi etwaeg Maklercommissioun, falls vertraglech vu him ze droen."
+        },
+        {
+          "q": "Sinn d'Notairsfraise zu Lëtzebuerg steierlech ofzéibar?",
+          "a": "Bei enger Locatiouns-Investitioun sinn d'Notairsfraise (Gebühren, Notairsgebühren, Hypothéikekosten) net direkt ofzéibar, mä gi den Erwerbskosten zougerechent a kënnen iwwer d'Halddauer ofgeschriwwe ginn. Beim Haaptwunnsëtz si se net ofzéibar, mä de Bëllegen Akt deckt e groussen Deel dervun."
+        }
       ],
       "sources": [
-        { "title": "Steiergutschrëft op notariell Akten (Bëllegen Akt) — Prozedur", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
-        { "title": "Bëllegen Akt — offizielle Fiche", "org": "Logement.lu — Wunnengsbau-Ministère", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
-        { "title": "Groussherzoglecht Reglement vum 26. November 2015 iwwer Notairsgebühren", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/11/26/n6/jo", "year": 2015 },
-        { "title": "Gesetz vum 22. Frimaire Joer VII iwwer Aschreiwungsgebühren", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" },
-        { "title": "Gesetz vum 25. September 1905 iwwer d'Transkriptioun vun dingleche Rechter", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1905/09/25/n1/jo" },
-        { "title": "3 % Wunn-TVA — AED-Rondbréif", "org": "Verwaltung fir Aschreiwung, Domänen an TVA", "url": "https://pfi.public.lu/fr.html" }
+        {
+          "title": "Steiergutschrëft op notariell Akten (Bëllegen Akt) — Prozedur",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html"
+        },
+        {
+          "title": "Bëllegen Akt — offizielle Fiche",
+          "org": "Logement.lu — Wunnengsbau-Ministère",
+          "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html"
+        },
+        {
+          "title": "Groussherzoglecht Reglement vum 26. November 2015 iwwer Notairsgebühren",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/11/26/n6/jo",
+          "year": 2015
+        },
+        {
+          "title": "Gesetz vum 22. Frimaire Joer VII iwwer Aschreiwungsgebühren",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo"
+        },
+        {
+          "title": "Gesetz vum 25. September 1905 iwwer d'Transkriptioun vun dingleche Rechter",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1905/09/25/n1/jo"
+        },
+        {
+          "title": "3 % Wunn-TVA — AED-Rondbréif",
+          "org": "Verwaltung fir Aschreiwung, Domänen an TVA",
+          "url": "https://pfi.public.lu/fr.html"
+        }
       ]
     },
     "regle5Pourcent": {
@@ -9172,13 +9261,43 @@
       "section4Intro": "Maximale Mountsloyer fir en typeschen Appartement kaaft 400.000 € + 30.000 € Käschten (430.000 € Gesamtkapital). Bauundeel geschätzt op 70 % vum Präis.",
       "table": {
         "caption": "Maximalen gesetzleche Mountsloyer no Kafsjoer (Ufankskapital 430.000 €)",
-        "headers": ["Kafsjoer", "STATEC-Koeffizient", "Opgewäert Kapital", "Max. Loyer/Mount (5 %)"],
+        "headers": [
+          "Kafsjoer",
+          "STATEC-Koeffizient",
+          "Opgewäert Kapital",
+          "Max. Loyer/Mount (5 %)"
+        ],
         "rows": [
-          ["2010", "2,33", "1.001.900 €", "≈ 4.030 €"],
-          ["2015", "2,07", "890.100 €", "≈ 3.140 €"],
-          ["2020", "1,95", "838.500 €", "≈ 3.270 €"],
-          ["2022", "1,77", "761.100 €", "≈ 2.990 €"],
-          ["2025", "1,52", "653.600 €", "≈ 2.690 €"]
+          [
+            "2010",
+            "2,33",
+            "1.001.900 €",
+            "≈ 4.030 €"
+          ],
+          [
+            "2015",
+            "2,07",
+            "890.100 €",
+            "≈ 3.140 €"
+          ],
+          [
+            "2020",
+            "1,95",
+            "838.500 €",
+            "≈ 3.270 €"
+          ],
+          [
+            "2022",
+            "1,77",
+            "761.100 €",
+            "≈ 2.990 €"
+          ],
+          [
+            "2025",
+            "1,52",
+            "653.600 €",
+            "≈ 2.690 €"
+          ]
         ],
         "footnote": "Indikativ Berechnung no 2 %/Joer Veraltung op Bauundeel (70 % vum Präis). Reform 8184: Bei 3,5%-Obergrenz géinge dës Loyere ronn 30 % falen."
       },
@@ -9190,25 +9309,81 @@
         "cta": "Berechnung starten"
       },
       "tools": [
-        { "href": "/calculateur-loyer", "title": "Gesetzleche Loyer-Rechner", "description": "5 % vum opgewäerten investéierte Kapital + Veraltung + Reform-Upassung." },
-        { "href": "/locataire", "title": "Locataire-Beräich", "description": "Bréifvirlagen fir Anfechtung, Käschtenverfollegung, Kommissiouns-Demande." },
-        { "href": "/carte", "title": "Mietpräiskaart", "description": "Median-beobachtete Loyer pro Gemeng a Wunnengstyp fir ze vergläichen." },
-        { "href": "/portfolio", "title": "Investmentportfolio", "description": "Brutto-/Nettorenditverfollegung vun Ären verlounten Immobilien." }
+        {
+          "href": "/calculateur-loyer",
+          "title": "Gesetzleche Loyer-Rechner",
+          "description": "5 % vum opgewäerten investéierte Kapital + Veraltung + Reform-Upassung."
+        },
+        {
+          "href": "/locataire",
+          "title": "Locataire-Beräich",
+          "description": "Bréifvirlagen fir Anfechtung, Käschtenverfollegung, Kommissiouns-Demande."
+        },
+        {
+          "href": "/carte",
+          "title": "Mietpräiskaart",
+          "description": "Median-beobachtete Loyer pro Gemeng a Wunnengstyp fir ze vergläichen."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Investmentportfolio",
+          "description": "Brutto-/Nettorenditverfollegung vun Ären verlounten Immobilien."
+        }
       ],
       "faq": [
-        { "q": "Wéi berechent een de Maximallayer zu Lëtzebuerg?", "a": "Multiplikéiert dat investéiert Kapital (Kafpräis + Aktenkosten + Verbesserungsaarbechten) mam STATEC-Koeffizient vum Investitiounsjoer. Appliquéiert de Veraltungsrabatt vu 2 %/Joer op de Bauundeel. Multiplikéiert d'Resultat mat 5 % fir de max. Joresloyer, dann deelt duerch 12 fir de Mountsloyer." },
-        { "q": "Ännert sech d'5%-Regel zu Lëtzebuerg?", "a": "De Projet de loi 8184 gesäit vir, d'Obergrenz vun 5 % op 3,5 % fir nei Bail-Verträg ze senken, mam Zil vun engem besseren Locataire-Schutz géint d'Präissteigerung. Den Text gëtt am Parlament diskutéiert a kéint am Laaf vun 2026 a Kraaft trieden. Bestoend Bail-Verträg wieren net réckwierkend betraff." },
-        { "q": "Wat ëmfaasst genau dat investéiert Kapital?", "a": "De Kafpräis vum Terrain an dem Bau, d'Aktenkosten (Gebühren, Notairsgebühren, Hypothéik) an dauerhaft Verbesserungsausgaben (Erweiderungen, Ëmbau, gréisser Energiesanéierung). Laafenden Ënnerhalt, Dekoratioun a Möbel sinn ausgeschloss." },
-        { "q": "Wéi funktionéiert de 2%-Veraltungsrabatt?", "a": "De Bauundeel (ouni Terrain, je no Gemeng meeschtens 60-75 % vum Präis) gëtt ëm 2 % pro Joer zënter Kaaf oder leschten strukturellen Aarbechte ofgeschriwwen. D'Ofschreiwung kumuléiert sech bis zu engem Bodemwäert (typesch 30 % vum Ufankswäert)." },
-        { "q": "Sinn d'Nieftekosten an der 5%-Obergrenz abegraff?", "a": "Nee. Nieftekosten (Waasser, Heizung, gemeinsame Pfleg, Lift) ginn zousätzlech zum gedeckelte Loyer berechent, op Basis vun tatsächleche Käschten an limitativ opgelëscht am GH-Reglement vum 16. Juni 2015 (Dreckstax, Gemeinschaftsmedien etc.). De Bailleur däerf keng gréisser Aarbechten oder Marge ëmleeën." },
-        { "q": "Wat maachen, wann mäi Loyer d'gesetzlech Obergrenz iwwerschreit?", "a": "Wendt Iech gratis un d'Loyerkommissioun vun Ärer Gemeng mam Erwerbsakt vum Bailleur (ufroen), Ärem Bail an Aarbechtsrechnungen. D'Kommissioun gëtt eng Stellungnahm; weigert sech de Bailleur, kënnt Dir bei de Friddensriichter, dee d'réckwierkend Reduktioun an Erstattung vun Iwwerzuelungen uerdne kann." }
+        {
+          "q": "Wéi berechent een de Maximallayer zu Lëtzebuerg?",
+          "a": "Multiplikéiert dat investéiert Kapital (Kafpräis + Aktenkosten + Verbesserungsaarbechten) mam STATEC-Koeffizient vum Investitiounsjoer. Appliquéiert de Veraltungsrabatt vu 2 %/Joer op de Bauundeel. Multiplikéiert d'Resultat mat 5 % fir de max. Joresloyer, dann deelt duerch 12 fir de Mountsloyer."
+        },
+        {
+          "q": "Ännert sech d'5%-Regel zu Lëtzebuerg?",
+          "a": "De Projet de loi 8184 gesäit vir, d'Obergrenz vun 5 % op 3,5 % fir nei Bail-Verträg ze senken, mam Zil vun engem besseren Locataire-Schutz géint d'Präissteigerung. Den Text gëtt am Parlament diskutéiert a kéint am Laaf vun 2026 a Kraaft trieden. Bestoend Bail-Verträg wieren net réckwierkend betraff."
+        },
+        {
+          "q": "Wat ëmfaasst genau dat investéiert Kapital?",
+          "a": "De Kafpräis vum Terrain an dem Bau, d'Aktenkosten (Gebühren, Notairsgebühren, Hypothéik) an dauerhaft Verbesserungsausgaben (Erweiderungen, Ëmbau, gréisser Energiesanéierung). Laafenden Ënnerhalt, Dekoratioun a Möbel sinn ausgeschloss."
+        },
+        {
+          "q": "Wéi funktionéiert de 2%-Veraltungsrabatt?",
+          "a": "De Bauundeel (ouni Terrain, je no Gemeng meeschtens 60-75 % vum Präis) gëtt ëm 2 % pro Joer zënter Kaaf oder leschten strukturellen Aarbechte ofgeschriwwen. D'Ofschreiwung kumuléiert sech bis zu engem Bodemwäert (typesch 30 % vum Ufankswäert)."
+        },
+        {
+          "q": "Sinn d'Nieftekosten an der 5%-Obergrenz abegraff?",
+          "a": "Nee. Nieftekosten (Waasser, Heizung, gemeinsame Pfleg, Lift) ginn zousätzlech zum gedeckelte Loyer berechent, op Basis vun tatsächleche Käschten an limitativ opgelëscht am GH-Reglement vum 16. Juni 2015 (Dreckstax, Gemeinschaftsmedien etc.). De Bailleur däerf keng gréisser Aarbechten oder Marge ëmleeën."
+        },
+        {
+          "q": "Wat maachen, wann mäi Loyer d'gesetzlech Obergrenz iwwerschreit?",
+          "a": "Wendt Iech gratis un d'Loyerkommissioun vun Ärer Gemeng mam Erwerbsakt vum Bailleur (ufroen), Ärem Bail an Aarbechtsrechnungen. D'Kommissioun gëtt eng Stellungnahm; weigert sech de Bailleur, kënnt Dir bei de Friddensriichter, dee d'réckwierkend Reduktioun an Erstattung vun Iwwerzuelungen uerdne kann."
+        }
       ],
       "sources": [
-        { "title": "Geännert Gesetz vum 21. September 2006 — Bail à usage d'habitation", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
-        { "title": "Opwäertungskoeffizienten — STATEC", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Loyerberechnung — praktescht Vorgoen", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/calcul-loyer.html" },
-        { "title": "Projet de loi 8184 — Bail-Reform", "org": "Chambre des députés", "url": "https://www.chd.lu/" },
-        { "title": "GH-Reglement vum 16. Juni 2015 — recuperabel Nieftekosten", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 }
+        {
+          "title": "Geännert Gesetz vum 21. September 2006 — Bail à usage d'habitation",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo",
+          "year": 2006
+        },
+        {
+          "title": "Opwäertungskoeffizienten — STATEC",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Loyerberechnung — praktescht Vorgoen",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/calcul-loyer.html"
+        },
+        {
+          "title": "Projet de loi 8184 — Bail-Reform",
+          "org": "Chambre des députés",
+          "url": "https://www.chd.lu/"
+        },
+        {
+          "title": "GH-Reglement vum 16. Juni 2015 — recuperabel Nieftekosten",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo",
+          "year": 2015
+        }
       ]
     },
     "bellegenAkt": {
@@ -9240,13 +9415,43 @@
       "section4Intro": "Effekt vum Bëllegen Akt no Keefer-Profil bei enger bestoender Immobilie (Taux 7 %).",
       "table": {
         "caption": "Effekt vum Bëllegen Akt no Profil a Präis",
-        "headers": ["Kafpräis", "Eenzelkeefer (40.000 €)", "Koppel (80.000 €)", "Erspuernis"],
+        "headers": [
+          "Kafpräis",
+          "Eenzelkeefer (40.000 €)",
+          "Koppel (80.000 €)",
+          "Erspuernis"
+        ],
         "rows": [
-          ["300.000 €", "0 € Gebühren", "0 € Gebühren", "21.000 €"],
-          ["500.000 €", "0 € (Kredit > Gebühren)", "0 € Gebühren", "35.000 €"],
-          ["750.000 €", "12.500 € Gebühren", "0 € Gebühren", "52.500 €"],
-          ["1.000.000 €", "30.000 € Gebühren", "0 € Gebühren", "70.000 €"],
-          ["1.500.000 €", "65.000 € Gebühren", "25.000 € Gebühren", "80.000 € (Koppel)"]
+          [
+            "300.000 €",
+            "0 € Gebühren",
+            "0 € Gebühren",
+            "21.000 €"
+          ],
+          [
+            "500.000 €",
+            "0 € (Kredit > Gebühren)",
+            "0 € Gebühren",
+            "35.000 €"
+          ],
+          [
+            "750.000 €",
+            "12.500 € Gebühren",
+            "0 € Gebühren",
+            "52.500 €"
+          ],
+          [
+            "1.000.000 €",
+            "30.000 € Gebühren",
+            "0 € Gebühren",
+            "70.000 €"
+          ],
+          [
+            "1.500.000 €",
+            "65.000 € Gebühren",
+            "25.000 € Gebühren",
+            "80.000 € (Koppel)"
+          ]
         ],
         "footnote": "Erspuernis fir e Éischtkeefer-Koppel dat de Kredit ni benotzt huet. Bei engem Eenzelkeefer entsprécht d'Erspuernis dem Mannerwäert tëschent fällege Gebühren a 40.000 €."
       },
@@ -9258,25 +9463,80 @@
         "cta": "Berechnung starten"
       },
       "tools": [
-        { "href": "/frais-acquisition", "title": "Erwerbskosten-Rechner", "description": "Automatesch Bëllegen-Akt-Anrechnung no Ärem Profil." },
-        { "href": "/simulateur-aides", "title": "Erwerbsbäihëllefen-Simulator", "description": "Bëllegen Akt, Wunnungspremium, Zënszuschoss a Staatsgarantie kombinéieren." },
-        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Bëllegen Akt um Terrain-Undeel an 3 % Wunn-TVA um Bau." },
-        { "href": "/outils-bancaires", "title": "Bank-Tools", "description": "Krediteer-Kapazitéit a Mounschrate fir den Finanzéierungsplang ofzeschléissen." }
+        {
+          "href": "/frais-acquisition",
+          "title": "Erwerbskosten-Rechner",
+          "description": "Automatesch Bëllegen-Akt-Anrechnung no Ärem Profil."
+        },
+        {
+          "href": "/simulateur-aides",
+          "title": "Erwerbsbäihëllefen-Simulator",
+          "description": "Bëllegen Akt, Wunnungspremium, Zënszuschoss a Staatsgarantie kombinéieren."
+        },
+        {
+          "href": "/vefa",
+          "title": "VEFA-Simulator",
+          "description": "Bëllegen Akt um Terrain-Undeel an 3 % Wunn-TVA um Bau."
+        },
+        {
+          "href": "/outils-bancaires",
+          "title": "Bank-Tools",
+          "description": "Krediteer-Kapazitéit a Mounschrate fir den Finanzéierungsplang ofzeschléissen."
+        }
       ],
       "faq": [
-        { "q": "Wéi héich ass de Bëllegen Akt 2026?", "a": "De Bëllegen Akt läit bei 40.000 € pro Keefer, also 80.000 € fir e Koppel dat zesummen a Bruchteler kaaft. Dat ass déi maximal Steiergutschrëft déi op d'Aschreiwungs- an Transkriptiounsgebühren ugerechent ka ginn." },
-        { "q": "Ass de Bëllegen Akt mat aneren Hëllefe kombinéierbar?", "a": "Jo. Hien ass mat der 3 % Wunn-TVA op Neibauten, der Wunnungszougangspremium, dem Zënszuschoss, der Sparpremium an der Staatsgarantie kombinéierbar. Verbueden ass nëmmen déi duebel Notzung vum selwechte Kredit fir zwee gläichzäiteg Erwerber." },
-        { "q": "Kann de Bëllegen Akt fir eng Locatiouns-Investitioun benotzt ginn?", "a": "Nee. De Kredit ass strikt fir den Erwerb vun engem perséinlech bewunnten Haaptwunnsëtz reservéiert. Locatiouns-Investitiounen, Zweetwunnsëtzer oder Geschäftsraim sinn ausgeschloss." },
-        { "q": "Muss een Lëtzebuerger Resident sinn fir ze profitéieren?", "a": "Nee. De Bëllegen Akt ass fir all natierlech Persoun op, déi eng Immobilie zu Lëtzebuerg kaaft, fir do hiren Haaptwunnsëtz ze gewannen, ob schonns Steierresident oder beim Kaaf umellend." },
-        { "q": "Wat geschitt bei schnellen Widdervekaf?", "a": "Geschitt de Widdervekaf virum Enn vun der Verflichtungsfrist, kann d'AED déi voll Réckzuelung vum Kredit plus Verzugszënsen fuerdere. E Widdervekaf no e puer Joer effektiver Bewunnung léist keng Restitutioun aus, awer de Kredit gëtt fir en Neierwerb net wiederhirgestallt." },
-        { "q": "Wéi préifen ech de verfügbare Kreditstand?", "a": "Den Notair freet d'AED iwwer Telefachverfahren ofvirum Akt. De Keefer kann och direkt eng Standsbescheinegung bei der AED géint Virlag vun engem Ausweis ufroen. Wann en Deel schonns bei engem fréieren Kaaf benotzt gouf, ass nëmmen de Restbetrag mobiliséierbar." }
+        {
+          "q": "Wéi héich ass de Bëllegen Akt 2026?",
+          "a": "De Bëllegen Akt läit bei 40.000 € pro Keefer, also 80.000 € fir e Koppel dat zesummen a Bruchteler kaaft. Dat ass déi maximal Steiergutschrëft déi op d'Aschreiwungs- an Transkriptiounsgebühren ugerechent ka ginn."
+        },
+        {
+          "q": "Ass de Bëllegen Akt mat aneren Hëllefe kombinéierbar?",
+          "a": "Jo. Hien ass mat der 3 % Wunn-TVA op Neibauten, der Wunnungszougangspremium, dem Zënszuschoss, der Sparpremium an der Staatsgarantie kombinéierbar. Verbueden ass nëmmen déi duebel Notzung vum selwechte Kredit fir zwee gläichzäiteg Erwerber."
+        },
+        {
+          "q": "Kann de Bëllegen Akt fir eng Locatiouns-Investitioun benotzt ginn?",
+          "a": "Nee. De Kredit ass strikt fir den Erwerb vun engem perséinlech bewunnten Haaptwunnsëtz reservéiert. Locatiouns-Investitiounen, Zweetwunnsëtzer oder Geschäftsraim sinn ausgeschloss."
+        },
+        {
+          "q": "Muss een Lëtzebuerger Resident sinn fir ze profitéieren?",
+          "a": "Nee. De Bëllegen Akt ass fir all natierlech Persoun op, déi eng Immobilie zu Lëtzebuerg kaaft, fir do hiren Haaptwunnsëtz ze gewannen, ob schonns Steierresident oder beim Kaaf umellend."
+        },
+        {
+          "q": "Wat geschitt bei schnellen Widdervekaf?",
+          "a": "Geschitt de Widdervekaf virum Enn vun der Verflichtungsfrist, kann d'AED déi voll Réckzuelung vum Kredit plus Verzugszënsen fuerdere. E Widdervekaf no e puer Joer effektiver Bewunnung léist keng Restitutioun aus, awer de Kredit gëtt fir en Neierwerb net wiederhirgestallt."
+        },
+        {
+          "q": "Wéi préifen ech de verfügbare Kreditstand?",
+          "a": "Den Notair freet d'AED iwwer Telefachverfahren ofvirum Akt. De Keefer kann och direkt eng Standsbescheinegung bei der AED géint Virlag vun engem Ausweis ufroen. Wann en Deel schonns bei engem fréieren Kaaf benotzt gouf, ass nëmmen de Restbetrag mobiliséierbar."
+        }
       ],
       "sources": [
-        { "title": "Steiergutschrëft op notariell Akten (Bëllegen Akt) — Prozedur", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
-        { "title": "Bëllegen Akt — offizielle Fiche", "org": "Logement.lu — Wunnengsbau-Ministère", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
-        { "title": "Gesetz vum 30. Juli 2002 fir d'Aféierung vum Steierkredit op notariell Akten", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2002/07/30/n3/jo", "year": 2002 },
-        { "title": "Bëllegen-Akt-Reform — op 40.000 € erhéicht", "org": "Paperjam", "url": "https://paperjam.lu/article/frais-enregistrement-baisses-a" },
-        { "title": "Gesetz vum 22. Frimaire Joer VII — Aschreiwungsgebühren", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" }
+        {
+          "title": "Steiergutschrëft op notariell Akten (Bëllegen Akt) — Prozedur",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html"
+        },
+        {
+          "title": "Bëllegen Akt — offizielle Fiche",
+          "org": "Logement.lu — Wunnengsbau-Ministère",
+          "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html"
+        },
+        {
+          "title": "Gesetz vum 30. Juli 2002 fir d'Aféierung vum Steierkredit op notariell Akten",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2002/07/30/n3/jo",
+          "year": 2002
+        },
+        {
+          "title": "Bëllegen-Akt-Reform — op 40.000 € erhéicht",
+          "org": "Paperjam",
+          "url": "https://paperjam.lu/article/frais-enregistrement-baisses-a"
+        },
+        {
+          "title": "Gesetz vum 22. Frimaire Joer VII — Aschreiwungsgebühren",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo"
+        }
       ]
     },
     "plusValue": {
@@ -9308,13 +9568,43 @@
       "section4Intro": "Kombinéierten Effekt vum Opwäertungskoeffizient, Zéng-Joers-Fräibedrag a Véierel-Gesamtsaz fir eng 2015 erworben an 2026 verkaaft Immobilie (Kafpräis 400.000 €, Erwerbskäschten 30.000 €, Verkafspräis 700.000 €, Steierflichtegen am 42 %-Spëtzentaux).",
       "table": {
         "caption": "Steierflichtegen Gewënn a Steier — Beispiller 2026",
-        "headers": ["Keefer-Profil", "Bruttogewënn", "No Fräibedrag", "Steier fälleg"],
+        "headers": [
+          "Keefer-Profil",
+          "Bruttogewënn",
+          "No Fräibedrag",
+          "Steier fälleg"
+        ],
         "rows": [
-          ["Eenzelpersoun, 1 Veräusserung an 10 Joer", "≈ −230.000 €", "0 €", "0 €"],
-          ["Koppel, 1 Veräusserung an 10 Joer", "≈ −230.000 €", "0 €", "0 €"],
-          ["Eenzelpersoun, méi Veräusserungen", "150.000 €", "100.000 €", "≈ 10.500 €"],
-          ["Koppel, méi Veräusserungen", "150.000 €", "50.000 €", "≈ 5.250 €"],
-          ["Spekulatioun < 2 Joer (Koppel)", "150.000 €", "150.000 €", "≈ 68.700 €"]
+          [
+            "Eenzelpersoun, 1 Veräusserung an 10 Joer",
+            "≈ −230.000 €",
+            "0 €",
+            "0 €"
+          ],
+          [
+            "Koppel, 1 Veräusserung an 10 Joer",
+            "≈ −230.000 €",
+            "0 €",
+            "0 €"
+          ],
+          [
+            "Eenzelpersoun, méi Veräusserungen",
+            "150.000 €",
+            "100.000 €",
+            "≈ 10.500 €"
+          ],
+          [
+            "Koppel, méi Veräusserungen",
+            "150.000 €",
+            "50.000 €",
+            "≈ 5.250 €"
+          ],
+          [
+            "Spekulatioun < 2 Joer (Koppel)",
+            "150.000 €",
+            "150.000 €",
+            "≈ 68.700 €"
+          ]
         ],
         "footnote": "Indikativ Berechnungen 2026: opgewäerte Präis 2015→2026 = 400.000 × 2,07 = 828.000 € (mat Käschten 891.100 €), e Verkaf zu 700.000 € erzeugt also normalerweis e Verloscht. D'Zeile 'méi Veräusserungen' ginn aus engem hypotheteschen Bruttogewënn vu 150.000 € aus."
       },
@@ -9326,26 +9616,85 @@
         "cta": "Simulatioun starten"
       },
       "tools": [
-        { "href": "/plus-values", "title": "Kapitalgewënn-Rechner", "description": "Spekulatiouns- oder Veräusserungsgewënn no Haltedauer, Fräibedrag, STATEC-Koeffizient." },
-        { "href": "/dcf-multi", "title": "DCF iwwer méi Perioden", "description": "Cash-Flow-Projektioun a Widdervekafswäert fir d'Steier ze antizipéieren." },
-        { "href": "/portfolio", "title": "Immobilieportfolio", "description": "Verfollegt Är Immobilien a plangt Veräusserungen iwwer 10 Joer." },
-        { "href": "/frais-acquisition", "title": "Erwerbskäschten", "description": "Berechent den erhéiten Akafspräis als Basis fir de Gewënn." }
+        {
+          "href": "/plus-values",
+          "title": "Kapitalgewënn-Rechner",
+          "description": "Spekulatiouns- oder Veräusserungsgewënn no Haltedauer, Fräibedrag, STATEC-Koeffizient."
+        },
+        {
+          "href": "/dcf-multi",
+          "title": "DCF iwwer méi Perioden",
+          "description": "Cash-Flow-Projektioun a Widdervekafswäert fir d'Steier ze antizipéieren."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Immobilieportfolio",
+          "description": "Verfollegt Är Immobilien a plangt Veräusserungen iwwer 10 Joer."
+        },
+        {
+          "href": "/frais-acquisition",
+          "title": "Erwerbskäschten",
+          "description": "Berechent den erhéiten Akafspräis als Basis fir de Gewënn."
+        }
       ],
       "faq": [
-        { "q": "Wéi héich ass de Steiersaz op Immobilien-Kapitalgewënner zu Lëtzebuerg?", "a": "Bei Widdervekaf bannent 2 Joer (Spekulatioun): progressiven Akommenssteierentaux bis ronn 45,78 % effektiv. No 2 Joer (Veräusserung): e Véierel vum Gesamtsaz, typesch 10 bis 11 % je no Tranche, nom Zéng-Joers-Fräibedrag." },
-        { "q": "Ass de Verkaf vu mengem Haaptwunnsëtz steierflichteg?", "a": "Nee, wann Dir e tatsächlech an onofrocheg während den 5 Joer virum Verkaf als Haaptwunnsëtz bewunnt hutt. De Gewënn ass komplett befreit (Art. 102bis Abs. 3 LIR), ouni Verkafspräisgrenz." },
-        { "q": "Wéi funktionéiert den Zéng-Joers-Fräibedrag?", "a": "All Steierflichtegen kritt 50.000 € (100.000 € fir zesumme besteierd Koppel) op de steierflichtegen Gewënn, all zéng Joer erëm uflueden. Bei zwou Veräusserungen am selwechten Joerzéngt gëllt de Fräibedrag nëmmen eemol." },
-        { "q": "Wéi gëtt den Opwäertungskoeffizient berechent?", "a": "Hie gëtt jährlech vum STATEC no Artikel 102 LIR publizéiert a spigelt d'Entwécklung vum Baukostenindex zënter dem Akafsjoer. Fir 2026: 2,33 (Kaaf 2010), 2,07 (2015), 1,77 (2022), 1,52 (2025), 1,48 (2026)." },
-        { "q": "Ginn d'Erwerbsnieftekäschten an d'Berechnung integréiert?", "a": "Jo. Aschreiwungsgebühren, Notairsgebühren, Hypothéikekosten vum Akafsakt an dauerhaft Verbesserungsausgaben (Erweiderungen, grouss Sanéierung, gréisser Energieoptimisatioun) ginn virum Aufwerten zum Akafspräis derbäigesat. Lafenden Ënnerhalt an Dekoratioun sinn net ofzéibar." },
-        { "q": "Wat geschitt bei Schenkung oder Ierfschaft?", "a": "Schenkung oder Ierfschaft léist keng Kapitalgewënnbesteierung beim Schenker oder Verstuerwenen aus (Art. 99bis Abs. 4 LIR). De Begënschtegten iwwerhëlt den historeschen Akafspräis an dat ursprénglecht Erwerbsdatum bei der Berechnung vu sengem eegenen zukünftege Gewënn, wat zu wesentleche latenten Gewënner kann féieren." }
+        {
+          "q": "Wéi héich ass de Steiersaz op Immobilien-Kapitalgewënner zu Lëtzebuerg?",
+          "a": "Bei Widdervekaf bannent 2 Joer (Spekulatioun): progressiven Akommenssteierentaux bis ronn 45,78 % effektiv. No 2 Joer (Veräusserung): e Véierel vum Gesamtsaz, typesch 10 bis 11 % je no Tranche, nom Zéng-Joers-Fräibedrag."
+        },
+        {
+          "q": "Ass de Verkaf vu mengem Haaptwunnsëtz steierflichteg?",
+          "a": "Nee, wann Dir e tatsächlech an onofrocheg während den 5 Joer virum Verkaf als Haaptwunnsëtz bewunnt hutt. De Gewënn ass komplett befreit (Art. 102bis Abs. 3 LIR), ouni Verkafspräisgrenz."
+        },
+        {
+          "q": "Wéi funktionéiert den Zéng-Joers-Fräibedrag?",
+          "a": "All Steierflichtegen kritt 50.000 € (100.000 € fir zesumme besteierd Koppel) op de steierflichtegen Gewënn, all zéng Joer erëm uflueden. Bei zwou Veräusserungen am selwechten Joerzéngt gëllt de Fräibedrag nëmmen eemol."
+        },
+        {
+          "q": "Wéi gëtt den Opwäertungskoeffizient berechent?",
+          "a": "Hie gëtt jährlech vum STATEC no Artikel 102 LIR publizéiert a spigelt d'Entwécklung vum Baukostenindex zënter dem Akafsjoer. Fir 2026: 2,33 (Kaaf 2010), 2,07 (2015), 1,77 (2022), 1,52 (2025), 1,48 (2026)."
+        },
+        {
+          "q": "Ginn d'Erwerbsnieftekäschten an d'Berechnung integréiert?",
+          "a": "Jo. Aschreiwungsgebühren, Notairsgebühren, Hypothéikekosten vum Akafsakt an dauerhaft Verbesserungsausgaben (Erweiderungen, grouss Sanéierung, gréisser Energieoptimisatioun) ginn virum Aufwerten zum Akafspräis derbäigesat. Lafenden Ënnerhalt an Dekoratioun sinn net ofzéibar."
+        },
+        {
+          "q": "Wat geschitt bei Schenkung oder Ierfschaft?",
+          "a": "Schenkung oder Ierfschaft léist keng Kapitalgewënnbesteierung beim Schenker oder Verstuerwenen aus (Art. 99bis Abs. 4 LIR). De Begënschtegten iwwerhëlt den historeschen Akafspräis an dat ursprénglecht Erwerbsdatum bei der Berechnung vu sengem eegenen zukünftege Gewënn, wat zu wesentleche latenten Gewënner kann féieren."
+        }
       ],
       "sources": [
-        { "title": "Geännert Gesetz vum 4. Dezember 1967 iwwer d'Akommessteier (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo", "year": 1967 },
-        { "title": "Opwäertungskoeffizienten — STATEC-Tabell", "org": "Steierverwaltung fir direkt Steieren (ACD)", "url": "https://impotsdirects.public.lu/fr/legislation/LIR.html" },
-        { "title": "Immobilie-Kapitalgewënner — Erklärungsguide", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/activite-patrimoine/plus-values/plus-value-cession-immeuble.html" },
-        { "title": "Baukostenindex", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Artikel 99bis LIR — Spekulatiounsgewënn", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
-        { "title": "Artikel 102bis LIR — Véierel vum Gesamtsaz", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+        {
+          "title": "Geännert Gesetz vum 4. Dezember 1967 iwwer d'Akommessteier (LIR)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo",
+          "year": 1967
+        },
+        {
+          "title": "Opwäertungskoeffizienten — STATEC-Tabell",
+          "org": "Steierverwaltung fir direkt Steieren (ACD)",
+          "url": "https://impotsdirects.public.lu/fr/legislation/LIR.html"
+        },
+        {
+          "title": "Immobilie-Kapitalgewënner — Erklärungsguide",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/activite-patrimoine/plus-values/plus-value-cession-immeuble.html"
+        },
+        {
+          "title": "Baukostenindex",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Artikel 99bis LIR — Spekulatiounsgewënn",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        },
+        {
+          "title": "Artikel 102bis LIR — Véierel vum Gesamtsaz",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        }
       ]
     },
     "bailHabitation": {
@@ -9384,26 +9733,86 @@
         "cta": "Maximalloyer berechnen"
       },
       "tools": [
-        { "href": "/calculateur-loyer", "title": "Gesetzleche Loyer-Rechner", "description": "5 %-Plafong op opgewäerten investéiert Kapital, Veraltung, WG." },
-        { "href": "/locataire", "title": "Locataire-Beräich", "description": "Tools: Käschtenverfollegung, Bréifvirlagen, Übergabeprotokoll-Erënnerungen." },
-        { "href": "/carte", "title": "Mietpräiskaart", "description": "Median-Loyer pro Gemeng a Wunnengstyp fir ze vergläichen." },
-        { "href": "/aml-kyc", "title": "Vermieter-Verifikatioun", "description": "Nëtzlech bei Zweiwelen un Identitéit oder Solvenz vum Vermieter." }
+        {
+          "href": "/calculateur-loyer",
+          "title": "Gesetzleche Loyer-Rechner",
+          "description": "5 %-Plafong op opgewäerten investéiert Kapital, Veraltung, WG."
+        },
+        {
+          "href": "/locataire",
+          "title": "Locataire-Beräich",
+          "description": "Tools: Käschtenverfollegung, Bréifvirlagen, Übergabeprotokoll-Erënnerungen."
+        },
+        {
+          "href": "/carte",
+          "title": "Mietpräiskaart",
+          "description": "Median-Loyer pro Gemeng a Wunnengstyp fir ze vergläichen."
+        },
+        {
+          "href": "/aml-kyc",
+          "title": "Vermieter-Verifikatioun",
+          "description": "Nëtzlech bei Zweiwelen un Identitéit oder Solvenz vum Vermieter."
+        }
       ],
       "faq": [
-        { "q": "Wéi laang ass d'Kënnegungsfrist fir en Auszuch zu Lëtzebuerg?", "a": "De Locataire gëtt eng Kënnegungsfrist vu 3 Méint per Recommandé (Art. 12 Gesetz 2006). De Vermieter gëtt 6 Méint Frist a kann nëmmen aus berechtegte Grënn kënnegen (Eegenbedarf, schwéieren Verstouss, gréisser Aarbechten)." },
-        { "q": "Wéi héich ass déi maximal Mietkautioun zu Lëtzebuerg?", "a": "D'Kautioun ass op 3 Méint Loyer ouni Nieftekosten gedeckelt (Art. 5 Gesetz 2006). Si muss op e Spaarkonto op Numm vum Locataire deposéiert ginn an d'Zinse gehéieren dem Locataire. All Klausel mat héijer Kautioun ass nichteg." },
-        { "q": "Kann de Vermieter de Loyer während dem Mietvertrag erhéijen?", "a": "Eng Upassung ass nëmme méiglech eemol all zwee Joer, gedeckelt op den STATEC-Verbraucherpräisindex, oder wann Verbesserungsaarbechten eng Neibewäertung vum investéierten Kapital rechtfäerdegen (mat Neibewäertung vum 5 %-Plafong). Erhéichunge sinn per Recommandé mat engem Méint Virkënnegung matzedeelen." },
-        { "q": "Wéi eng Käschten dierfen zousätzlech zum Loyer berechent ginn?", "a": "Nëmmen déi am RGD vum 16. Juni 2015 opgelëscht: Waasser, Stroum a Gas vun de Gemeinschaftsflächen, Zentralheizung, laufend Ënnerhalt vun de Gemeinschaftsberäicher (Botzen, Gaardenaarbecht, Lift), kommunal Dreckstax an Gebaiiversécherung. Alles anescht (gréisser Aarbechten, Syndik, Grondsteier) dréit de Vermieter." },
-        { "q": "Wéi kann en iwwerhéicht Loyer ugefocht ginn?", "a": "Wendt Iech gratis un d'Loyerskommissioun vun Ärer Gemeng. Si préift d'Berechnung vum opgewäerten investéierte Kapital a gëtt eng Stellungnahm of. Wann de Vermieter net nogëtt, kënnt Dir de Fall virum Friddensriichter bréngen, deen eng réckwierkend Loyer-Reduktioun ka uerdnen." },
-        { "q": "Wat maachen, wann de Vermieter d'Kautioun net zréckgëtt?", "a": "Schéckt fir d'éischt eng Mahnung per Recommandé. Ouni Äntwert bannent 30 Deeg wendt Iech un d'Loyerskommissioun oder direkt un de Friddensriichter. De Riichter ka d'Réckgab plus Zinsen a Schuedenersaz uerdnen. Bewahrt den Auszuchsprotokoll als Beweis op." }
+        {
+          "q": "Wéi laang ass d'Kënnegungsfrist fir en Auszuch zu Lëtzebuerg?",
+          "a": "De Locataire gëtt eng Kënnegungsfrist vu 3 Méint per Recommandé (Art. 12 Gesetz 2006). De Vermieter gëtt 6 Méint Frist a kann nëmmen aus berechtegte Grënn kënnegen (Eegenbedarf, schwéieren Verstouss, gréisser Aarbechten)."
+        },
+        {
+          "q": "Wéi héich ass déi maximal Mietkautioun zu Lëtzebuerg?",
+          "a": "D'Kautioun ass op 3 Méint Loyer ouni Nieftekosten gedeckelt (Art. 5 Gesetz 2006). Si muss op e Spaarkonto op Numm vum Locataire deposéiert ginn an d'Zinse gehéieren dem Locataire. All Klausel mat héijer Kautioun ass nichteg."
+        },
+        {
+          "q": "Kann de Vermieter de Loyer während dem Mietvertrag erhéijen?",
+          "a": "Eng Upassung ass nëmme méiglech eemol all zwee Joer, gedeckelt op den STATEC-Verbraucherpräisindex, oder wann Verbesserungsaarbechten eng Neibewäertung vum investéierten Kapital rechtfäerdegen (mat Neibewäertung vum 5 %-Plafong). Erhéichunge sinn per Recommandé mat engem Méint Virkënnegung matzedeelen."
+        },
+        {
+          "q": "Wéi eng Käschten dierfen zousätzlech zum Loyer berechent ginn?",
+          "a": "Nëmmen déi am RGD vum 16. Juni 2015 opgelëscht: Waasser, Stroum a Gas vun de Gemeinschaftsflächen, Zentralheizung, laufend Ënnerhalt vun de Gemeinschaftsberäicher (Botzen, Gaardenaarbecht, Lift), kommunal Dreckstax an Gebaiiversécherung. Alles anescht (gréisser Aarbechten, Syndik, Grondsteier) dréit de Vermieter."
+        },
+        {
+          "q": "Wéi kann en iwwerhéicht Loyer ugefocht ginn?",
+          "a": "Wendt Iech gratis un d'Loyerskommissioun vun Ärer Gemeng. Si préift d'Berechnung vum opgewäerten investéierte Kapital a gëtt eng Stellungnahm of. Wann de Vermieter net nogëtt, kënnt Dir de Fall virum Friddensriichter bréngen, deen eng réckwierkend Loyer-Reduktioun ka uerdnen."
+        },
+        {
+          "q": "Wat maachen, wann de Vermieter d'Kautioun net zréckgëtt?",
+          "a": "Schéckt fir d'éischt eng Mahnung per Recommandé. Ouni Äntwert bannent 30 Deeg wendt Iech un d'Loyerskommissioun oder direkt un de Friddensriichter. De Riichter ka d'Réckgab plus Zinsen a Schuedenersaz uerdnen. Bewahrt den Auszuchsprotokoll als Beweis op."
+        }
       ],
       "sources": [
-        { "title": "Geännert Gesetz vum 21. September 2006 iwwer d'Wunnraumvermietung", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
-        { "title": "Groussherzoglecht Reglement vum 16. Juni 2015 — recuperabel Nieftekosten", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 },
-        { "title": "Wunnengsmietvertrag — komplett Guide", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html" },
-        { "title": "Loyerskommissioun — Prozedur", "org": "Logement.lu — Wunnengsbau-Ministère", "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html" },
-        { "title": "Mietkautioun — staatlech Ënnerstëtzung", "org": "Logement.lu", "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html" },
-        { "title": "Code civil — Pflichte vum Vermieter (Art. 1719 ff.)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+        {
+          "title": "Geännert Gesetz vum 21. September 2006 iwwer d'Wunnraumvermietung",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo",
+          "year": 2006
+        },
+        {
+          "title": "Groussherzoglecht Reglement vum 16. Juni 2015 — recuperabel Nieftekosten",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo",
+          "year": 2015
+        },
+        {
+          "title": "Wunnengsmietvertrag — komplett Guide",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html"
+        },
+        {
+          "title": "Loyerskommissioun — Prozedur",
+          "org": "Logement.lu — Wunnengsbau-Ministère",
+          "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html"
+        },
+        {
+          "title": "Mietkautioun — staatlech Ënnerstëtzung",
+          "org": "Logement.lu",
+          "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html"
+        },
+        {
+          "title": "Code civil — Pflichte vum Vermieter (Art. 1719 ff.)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+        }
       ]
     },
     "copropriete": {
@@ -9442,25 +9851,81 @@
         "cta": "Copropriétéitsberäich opmaachen"
       },
       "tools": [
-        { "href": "/copropriete", "title": "Copropriétéitsberäich", "description": "Käschtenverfollegung, GV, Verwaltungsrot, Archiver." },
-        { "href": "/syndic", "title": "Syndikus-Tools", "description": "Verwaltung vun engem Portfolio vu Copropriétéiten fir professionnell Syndici." },
-        { "href": "/conseil-syndical", "title": "Verwaltungsrot", "description": "Tools fir d'Kontroll vun der Syndikus-Verwaltung." },
-        { "href": "/calculateur-vrd", "title": "VRD-Aarbechten", "description": "Käschtenschätzung fir an der GV beschloss Aarbechten." }
+        {
+          "href": "/copropriete",
+          "title": "Copropriétéitsberäich",
+          "description": "Käschtenverfollegung, GV, Verwaltungsrot, Archiver."
+        },
+        {
+          "href": "/syndic",
+          "title": "Syndikus-Tools",
+          "description": "Verwaltung vun engem Portfolio vu Copropriétéiten fir professionnell Syndici."
+        },
+        {
+          "href": "/conseil-syndical",
+          "title": "Verwaltungsrot",
+          "description": "Tools fir d'Kontroll vun der Syndikus-Verwaltung."
+        },
+        {
+          "href": "/calculateur-vrd",
+          "title": "VRD-Aarbechten",
+          "description": "Käschtenschätzung fir an der GV beschloss Aarbechten."
+        }
       ],
       "faq": [
-        { "q": "Ass e Syndikus an Lëtzebuerger Copropriétéiten Pflicht?", "a": "Jo, d'Ernennung vun engem professionelle Syndikus ass Pflicht fir Copropriétéite mat méi wéi 5 Loten (Art. 16 geännert Gesetz 1975). Bei klenge Gemeinschaften (≤ 5 Loten) kann d'Verwaltung direkt vun de Copropriétairen oder engem ehrenamtleche Syndikus geréiert ginn." },
-        { "q": "Wéi eng Majoritéit brauch ee fir Beschlëss iwwer Aarbechten an enger Copropriétéit?", "a": "Laufenden Ënnerhalt: einfach Majoritéit. Verbesserungsaarbechten: absolut Majoritéit. Reglementsännerung oder Ëmbauaarbechten: 3/4-Majoritéit vun allen Undeeler. Erëtt op privat Rechter: Eestëmmegkeet." },
-        { "q": "Wéi vill soll fir den Reservefong virgesinn ginn?", "a": "D'Gesetz schreift kee Prozentsaz vir, mä d'GV muss e realistesche Joresbäitrag fir zukünfteg Groussaarbechte beschléissen. An der Praxis 5 bis 10 % vum laafende Joresbudget virgesinn. Bei engem alen Gebai kënne bis 15 % néideg sinn fir Fassad an Daach z'antizipéieren." },
-        { "q": "Wat geschitt bei Bezuelungssäumegkeet vun engem Copropriétaire?", "a": "De Syndikus mahnt a kann de Friddensriichter uruffen. D'Gemeinschaft genéisst en éischtrangege Immobilieprivileg op de Lot fir d'Käschten vun den lafenden zwee Joer (Art. 24). Am äusserste Fall kann de Lot zwangsversteet ginn fir d'Schold ofzeschléissen." },
-        { "q": "Wéi wiesselt een de Syndikus zu Lëtzebuerg?", "a": "Um Enn vum 3-Joeres-Mandat beschléisst d'GV d'Bestellung vun engem neie Syndikus mat absoluter Majoritéit. Wärend dem Mandat ass eng Ofberufung mat absoluter Majoritéit fir schwéiere Verstouss méiglech (Mëssverwaltung, Net-Anhalung vu GV-Beschlëss, Interessekonflikt). Den ofberufene Syndikus muss Archiver a Keess bannent 15 Deeg iwwerginn." },
-        { "q": "Ass de Verwaltungsrot Pflicht?", "a": "Nee, et ass e fakultatiivt Organ. Aus an der GV gewielten Copropriétairë besteet, ënnerstëtzt a kontrolléiert hien de Syndikus, beréit zu wichtege Verträg a bereet GVs vir. Staark empfuelen souguer eng Copropriétéit méi wéi 10 Loten huet, fir total Ofhängegkeet vum Syndikus ze vermeiden." }
+        {
+          "q": "Ass e Syndikus an Lëtzebuerger Copropriétéiten Pflicht?",
+          "a": "Jo, d'Ernennung vun engem professionelle Syndikus ass Pflicht fir Copropriétéite mat méi wéi 5 Loten (Art. 16 geännert Gesetz 1975). Bei klenge Gemeinschaften (≤ 5 Loten) kann d'Verwaltung direkt vun de Copropriétairen oder engem ehrenamtleche Syndikus geréiert ginn."
+        },
+        {
+          "q": "Wéi eng Majoritéit brauch ee fir Beschlëss iwwer Aarbechten an enger Copropriétéit?",
+          "a": "Laufenden Ënnerhalt: einfach Majoritéit. Verbesserungsaarbechten: absolut Majoritéit. Reglementsännerung oder Ëmbauaarbechten: 3/4-Majoritéit vun allen Undeeler. Erëtt op privat Rechter: Eestëmmegkeet."
+        },
+        {
+          "q": "Wéi vill soll fir den Reservefong virgesinn ginn?",
+          "a": "D'Gesetz schreift kee Prozentsaz vir, mä d'GV muss e realistesche Joresbäitrag fir zukünfteg Groussaarbechte beschléissen. An der Praxis 5 bis 10 % vum laafende Joresbudget virgesinn. Bei engem alen Gebai kënne bis 15 % néideg sinn fir Fassad an Daach z'antizipéieren."
+        },
+        {
+          "q": "Wat geschitt bei Bezuelungssäumegkeet vun engem Copropriétaire?",
+          "a": "De Syndikus mahnt a kann de Friddensriichter uruffen. D'Gemeinschaft genéisst en éischtrangege Immobilieprivileg op de Lot fir d'Käschten vun den lafenden zwee Joer (Art. 24). Am äusserste Fall kann de Lot zwangsversteet ginn fir d'Schold ofzeschléissen."
+        },
+        {
+          "q": "Wéi wiesselt een de Syndikus zu Lëtzebuerg?",
+          "a": "Um Enn vum 3-Joeres-Mandat beschléisst d'GV d'Bestellung vun engem neie Syndikus mat absoluter Majoritéit. Wärend dem Mandat ass eng Ofberufung mat absoluter Majoritéit fir schwéiere Verstouss méiglech (Mëssverwaltung, Net-Anhalung vu GV-Beschlëss, Interessekonflikt). Den ofberufene Syndikus muss Archiver a Keess bannent 15 Deeg iwwerginn."
+        },
+        {
+          "q": "Ass de Verwaltungsrot Pflicht?",
+          "a": "Nee, et ass e fakultatiivt Organ. Aus an der GV gewielten Copropriétairë besteet, ënnerstëtzt a kontrolléiert hien de Syndikus, beréit zu wichtege Verträg a bereet GVs vir. Staark empfuelen souguer eng Copropriétéit méi wéi 10 Loten huet, fir total Ofhängegkeet vum Syndikus ze vermeiden."
+        }
       ],
       "sources": [
-        { "title": "Geännert Gesetz vum 16. Mee 1975 iwwer d'Reegelung vun der Copropriétéit", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1975/05/16/n1/jo", "year": 1975 },
-        { "title": "Gesetz vum 6. August 2018 zur Ännerung vum Gesetz vum 16. Mee 1975 (Copropriétéitsreform)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo", "year": 2018 },
-        { "title": "Copropriétéit — Informatiounsblat", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/charges-immeuble/copropriete.html" },
-        { "title": "Gesetz vum 1. August 2018 — Pflicht-Reservefong", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo" },
-        { "title": "Code civil — dingleche Rechter (Buch II)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+        {
+          "title": "Geännert Gesetz vum 16. Mee 1975 iwwer d'Reegelung vun der Copropriétéit",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1975/05/16/n1/jo",
+          "year": 1975
+        },
+        {
+          "title": "Gesetz vum 6. August 2018 zur Ännerung vum Gesetz vum 16. Mee 1975 (Copropriétéitsreform)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo",
+          "year": 2018
+        },
+        {
+          "title": "Copropriétéit — Informatiounsblat",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/charges-immeuble/copropriete.html"
+        },
+        {
+          "title": "Gesetz vum 1. August 2018 — Pflicht-Reservefong",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo"
+        },
+        {
+          "title": "Code civil — dingleche Rechter (Buch II)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+        }
       ]
     },
     "klimabonus": {
@@ -9490,13 +9955,43 @@
       "section4Intro": "Fir eng Déifsanéierung vun engem ältere Eenfamilljenhaus (Klass G → Klass A) hei d'Gréissteuerunge vun de kumuléierbaren Hëllefen 2026.",
       "table": {
         "caption": "Klimabonus-Hëllefekumulatioun 2026 — Rechenbeispiller",
-        "headers": ["Posten", "Netto-Käschten", "PRIMe House Basis", "Sozial-Topup (≤ 60k €)"],
+        "headers": [
+          "Posten",
+          "Netto-Käschten",
+          "PRIMe House Basis",
+          "Sozial-Topup (≤ 60k €)"
+        ],
         "rows": [
-          ["Daachdämmung (200 m²)", "20.000 €", "11.000 €", "16.500 €"],
-          ["Mauerdämmung (150 m²)", "30.000 €", "16.500 €", "24.750 €"],
-          ["Dräifachverglaste Fënsteren (30 m²)", "18.000 €", "4.500 €", "6.750 €"],
-          ["Geothermie-Wärmepompel", "30.000 €", "12.000 €", "18.000 €"],
-          ["Photovoltaik 10 kWp", "20.000 €", "5.000 €", "5.000 €"]
+          [
+            "Daachdämmung (200 m²)",
+            "20.000 €",
+            "11.000 €",
+            "16.500 €"
+          ],
+          [
+            "Mauerdämmung (150 m²)",
+            "30.000 €",
+            "16.500 €",
+            "24.750 €"
+          ],
+          [
+            "Dräifachverglaste Fënsteren (30 m²)",
+            "18.000 €",
+            "4.500 €",
+            "6.750 €"
+          ],
+          [
+            "Geothermie-Wärmepompel",
+            "30.000 €",
+            "12.000 €",
+            "18.000 €"
+          ],
+          [
+            "Photovoltaik 10 kWp",
+            "20.000 €",
+            "5.000 €",
+            "5.000 €"
+          ]
         ],
         "footnote": "Gesamtprojet Déifsanéierung: ~118.000 € netto, dovun 49.000 bis 71.000 € PRIMe-House-Subventiounen. Dozou: TVA-3 %-Erspuernis (~16.500 €) an effektiv 0 %-Klimaprêt bis 50.000 €."
       },
@@ -9508,25 +10003,80 @@
         "cta": "Simulatioun starten"
       },
       "tools": [
-        { "href": "/simulateur-aides", "title": "Sanéierungs-Hëllefen-Simulator", "description": "PRIMe House, Sozial-Topup, 3 % TVA, Klimaprêt — automatiséierten Stack." },
-        { "href": "/energy", "title": "tevaxia Energie-Modul", "description": "Wäerimpakt, Sanéierungs-ROI, Energiegemeinschaft, EPBD/CPE." },
-        { "href": "/energy/cpe", "title": "CPE-Diagnos", "description": "Virschätzung vun der Energieklass virum offiziellen Audit." },
-        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Fir Keefer vu Neibaute schonn an Klass A/B." }
+        {
+          "href": "/simulateur-aides",
+          "title": "Sanéierungs-Hëllefen-Simulator",
+          "description": "PRIMe House, Sozial-Topup, 3 % TVA, Klimaprêt — automatiséierten Stack."
+        },
+        {
+          "href": "/energy",
+          "title": "tevaxia Energie-Modul",
+          "description": "Wäerimpakt, Sanéierungs-ROI, Energiegemeinschaft, EPBD/CPE."
+        },
+        {
+          "href": "/energy/cpe",
+          "title": "CPE-Diagnos",
+          "description": "Virschätzung vun der Energieklass virum offiziellen Audit."
+        },
+        {
+          "href": "/vefa",
+          "title": "VEFA-Simulator",
+          "description": "Fir Keefer vu Neibaute schonn an Klass A/B."
+        }
       ],
       "faq": [
-        { "q": "Sinn d'Klimabonus-Hëllefen mat der 3 % TVA kombinéierbar?", "a": "Jo. PRIMe-House-/Klimabonus-Subventiounen si voll mat der 3 % Wunn-TVA an dem effektive 0 %-Klimaprêt kombinéierbar. Et ass eent vun de virdeelechste Programmer Europas fir energeetesch Sanéierung." },
-        { "q": "Wéi vill Subventioun kritt een fir eng Wärmepompel zu Lëtzebuerg?", "a": "PRIMe-House-Hëllef fir eng Loft-Waasser- oder Äerdwärmepompel variéiert vu 6.000 bis 12.000 € je no Typ a Leeschtung. Mam Sozial-Topup 2026 (Akommes ≤ 60.000 €) kann se 18.000 € erreechen. Dozou 3 % Wunn-TVA an 0 %-Klimaprêt." },
-        { "q": "Wat ass de Sozial-Topup 2026?", "a": "Eng Erhéijung bis 150 % vum PRIMe-House-Grondbetrag fir Haushaller mat jährlechem zu versteierendem Akommes ≤ 60.000 €. Si soll energeetesch Sanéierung fir akommesschwaach Haushaller zougänglech maachen. Mat anere Bonifikatioune kumuléierbar (Sozialloyer, Déifsanéierung)." },
-        { "q": "Brauch et en Energieaudit fir vum Klimabonus ze profitéieren?", "a": "De gratis Audit duerch e myenergy-Beroder ass net zwingend, awer staark empfuelen. De CPE duerch en zougeloossenen Beroder (virun an no Aarbechten) ass fir Subventiounen Pflicht, an d'Energieverbesserung muss op mannst 2 Klassen oder Klass A/B erreechen." },
-        { "q": "Ersetzt Klimaprêt PRIMe House?", "a": "Nee, et sinn zwee komplementär Programmer. PRIMe House = Kapitalsubventiounen no Aarbechten. Klimaprêt = Bankprêt zu 1,5 % mat Staatsbonifikatioun fir effektiv 0 % Haushaltskäschten. Dir kënnt a sollt béid kumuléieren." },
-        { "q": "Kënne Copropriétéite vum Klimabonus profitéieren?", "a": "Jo. Eng Copropriétéit kann eng Klimabonus-Demande fir an der GV beschlossen Aarbechten op Gemeinschaftsdeeler maachen (Daach, Fassad, Heizungszentral). All Copropriétaire profitéiert vun der quote-part anteileg zu sengen Undeeler. De Syndikus kann och e Klimaprêt am Numm vun der Gemeinschaft ufroen." }
+        {
+          "q": "Sinn d'Klimabonus-Hëllefen mat der 3 % TVA kombinéierbar?",
+          "a": "Jo. PRIMe-House-/Klimabonus-Subventiounen si voll mat der 3 % Wunn-TVA an dem effektive 0 %-Klimaprêt kombinéierbar. Et ass eent vun de virdeelechste Programmer Europas fir energeetesch Sanéierung."
+        },
+        {
+          "q": "Wéi vill Subventioun kritt een fir eng Wärmepompel zu Lëtzebuerg?",
+          "a": "PRIMe-House-Hëllef fir eng Loft-Waasser- oder Äerdwärmepompel variéiert vu 6.000 bis 12.000 € je no Typ a Leeschtung. Mam Sozial-Topup 2026 (Akommes ≤ 60.000 €) kann se 18.000 € erreechen. Dozou 3 % Wunn-TVA an 0 %-Klimaprêt."
+        },
+        {
+          "q": "Wat ass de Sozial-Topup 2026?",
+          "a": "Eng Erhéijung bis 150 % vum PRIMe-House-Grondbetrag fir Haushaller mat jährlechem zu versteierendem Akommes ≤ 60.000 €. Si soll energeetesch Sanéierung fir akommesschwaach Haushaller zougänglech maachen. Mat anere Bonifikatioune kumuléierbar (Sozialloyer, Déifsanéierung)."
+        },
+        {
+          "q": "Brauch et en Energieaudit fir vum Klimabonus ze profitéieren?",
+          "a": "De gratis Audit duerch e myenergy-Beroder ass net zwingend, awer staark empfuelen. De CPE duerch en zougeloossenen Beroder (virun an no Aarbechten) ass fir Subventiounen Pflicht, an d'Energieverbesserung muss op mannst 2 Klassen oder Klass A/B erreechen."
+        },
+        {
+          "q": "Ersetzt Klimaprêt PRIMe House?",
+          "a": "Nee, et sinn zwee komplementär Programmer. PRIMe House = Kapitalsubventiounen no Aarbechten. Klimaprêt = Bankprêt zu 1,5 % mat Staatsbonifikatioun fir effektiv 0 % Haushaltskäschten. Dir kënnt a sollt béid kumuléieren."
+        },
+        {
+          "q": "Kënne Copropriétéite vum Klimabonus profitéieren?",
+          "a": "Jo. Eng Copropriétéit kann eng Klimabonus-Demande fir an der GV beschlossen Aarbechten op Gemeinschaftsdeeler maachen (Daach, Fassad, Heizungszentral). All Copropriétaire profitéiert vun der quote-part anteileg zu sengen Undeeler. De Syndikus kann och e Klimaprêt am Numm vun der Gemeinschaft ufroen."
+        }
       ],
       "sources": [
-        { "title": "Klimabonus — offiziellt myenergy-Portal", "org": "myenergy / Ëmweltministère", "url": "https://www.myenergy.lu/" },
-        { "title": "PRIMe House — Prozedur", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-construction-renovation/aides-amelioration.html" },
-        { "title": "Klimaprêt — Prozedur", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-financieres/klimapret.html" },
-        { "title": "Geännert Gesetz vum 23. Dezember 2016 — Hëllefe fir nohaltegt Wunnen", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2016/12/23/n3/jo", "year": 2016 },
-        { "title": "Energieausweis (CPE)", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/economie-energie/certificat-performance-energetique.html" }
+        {
+          "title": "Klimabonus — offiziellt myenergy-Portal",
+          "org": "myenergy / Ëmweltministère",
+          "url": "https://www.myenergy.lu/"
+        },
+        {
+          "title": "PRIMe House — Prozedur",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-construction-renovation/aides-amelioration.html"
+        },
+        {
+          "title": "Klimaprêt — Prozedur",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-financieres/klimapret.html"
+        },
+        {
+          "title": "Geännert Gesetz vum 23. Dezember 2016 — Hëllefe fir nohaltegt Wunnen",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2016/12/23/n3/jo",
+          "year": 2016
+        },
+        {
+          "title": "Energieausweis (CPE)",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/economie-energie/certificat-performance-energetique.html"
+        }
       ]
     },
     "estimation": {
@@ -9558,34 +10108,92 @@
       "section4P1": "D'European Valuation Standards 2025 (TEGOVA) definéieren international unerkannt Wäertgrondlagen: Market Value (hypothetesch Bartransaktioun zum Bewäertungsdatum), Investment Value (Wäert fir e spezifeschen Investisseur no senge Kritären), Fair Value (IFRS 13 Fair Value fir geprüft Konten), Mortgage Lending Value (virsiichtege Hypothéikewäert fir Banken).",
       "section4P2": "All professionnellen TEGOVA-Bewäertungsbericht setzt fest: d'Wäertgrondlag, déi applizéiert Method(en), d'Datenquellen, d'Schlësselunahmen a speziell Bedingungen (ënner opschiebender Bedingung, ofzeschléissend Renovéierung, etc.). Zu Lëtzebuerg garantéieren vum INREV zertifizéiert REV- oder TRV-Experten d'Anhale vun dësen Standarden a haften beruflech.",
       "callout3Title": "Wéini eng REV-Expertise beoptraen?",
-      "callout3Body": "Eng REV/TRV-Expertise ass néideg fir: e komplext Bankfinanzéierungsdossier, en Nachloss oder eng Schenkung mat Deelung, eng Enteignung, eng Scheedung mat Vermögensdeelung, e Geriichtsstreit. Fir e einfache Verkaf tëschent Privaten geet meeschtens eng Schätzung vun 2-3 Maklere oder en hedonescht Tool (wéi tevaxia)."
-,
+      "callout3Body": "Eng REV/TRV-Expertise ass néideg fir: e komplext Bankfinanzéierungsdossier, en Nachloss oder eng Schenkung mat Deelung, eng Enteignung, eng Scheedung mat Vermögensdeelung, e Geriichtsstreit. Fir e einfache Verkaf tëschent Privaten geet meeschtens eng Schätzung vun 2-3 Maklere oder en hedonescht Tool (wéi tevaxia).",
       "inlineCalc": {
         "title": "Schätzt Är Immobilie direkt",
         "description": "Eise tevaxia-Schätzer appliquéiert en hedonescht Modell op Basis vun den Donnéeën vum Wunnungsobservatoire a STATEC. Gitt Gemeng, Fläch, Zoustand, CPE an Eegenschaften an, fir eng Präisspann mat Konfidenzniveau ze kréien.",
         "cta": "Schätzung starten"
       },
       "tools": [
-        { "href": "/estimation", "title": "Direkt-Schätzer", "description": "LU hedonescht Modell mat Spann a Konfidenzniveau." },
-        { "href": "/hedonique", "title": "Erweidert Hedonescht", "description": "Opschlësselung no Eegeschaft fir d'Wäertverständnis." },
-        { "href": "/dcf-multi", "title": "Méi-Period DCF", "description": "Fir Miet- a Gewerbeimmobilien, 10-15 Joer Projektioun." },
-        { "href": "/carte", "title": "Präiskaart", "description": "Beobachtet Präisser je Gemeng a Quartier (Wunnungsobservatoire)." }
+        {
+          "href": "/estimation",
+          "title": "Direkt-Schätzer",
+          "description": "LU hedonescht Modell mat Spann a Konfidenzniveau."
+        },
+        {
+          "href": "/hedonique",
+          "title": "Erweidert Hedonescht",
+          "description": "Opschlësselung no Eegeschaft fir d'Wäertverständnis."
+        },
+        {
+          "href": "/dcf-multi",
+          "title": "Méi-Period DCF",
+          "description": "Fir Miet- a Gewerbeimmobilien, 10-15 Joer Projektioun."
+        },
+        {
+          "href": "/carte",
+          "title": "Präiskaart",
+          "description": "Beobachtet Präisser je Gemeng a Quartier (Wunnungsobservatoire)."
+        }
       ],
       "faq": [
-        { "q": "Wéi eng Method ass déi zouverlässegst fir eng Immobiliebewäertung zu Lëtzebuerg?", "a": "Fir d'Wunnen ass den direkten Vergläich kombinéiert mat engem hedoneschen Modell am zouverlässegsten. Fir d'Locatioun gëtt d'Ertragswäertkapitaliséierung bevorzugt. Fir Gewerbe/Hotel ass DCF Standard. TEGOVA EVS 2025 empfeelen op mannst zwou Methoden ofzegläichen fir d'Zouverlässegkeet ze stäerken." },
-        { "q": "Beaflosst den Energieausweis den Immobiliepräis zu Lëtzebuerg?", "a": "Jo. LISER-Etüde béiffren de Wäertspread pro CPE-Klass op 3-8% (e F-zu-C-Sprong kann 10-25% Méierwäert bréngen). Den Impakt wäert mat den europäeschen Sanéierungsflichten (EPBD revidéiert 2024) wuessen." },
-        { "q": "Wat kascht eng REV/TRV-Expertise zu Lëtzebuerg?", "a": "Fir eng Wunnimmobilie 800 bis 2.500 € no Komplexitéit. Fir e Gewerbe- oder Hotelobjet 3.000 bis 15.000 € no Wäert a Komplexitéit. Honoréier ass fräi, baséiert op Aufwand a Verantwortung. Den TEGOVA-Bericht ass bei Banken a Geriichter unerkannt." },
-        { "q": "Wou fënnt een real Verkafspräisser zu Lëtzebuerg?", "a": "D'Grondbuchsamt (AED) publizéiert véierjählech real Präisser vun notarielle Akten. Den LISER-Wunnungsobservatoire aggregéiert a publizéiert dës Donnéeën je Gemeng an Immobilientyp (observatoire.liser.lu)." },
-        { "q": "Wéi en Kapitaliséierungssaz ass typesch zu Lëtzebuerg?", "a": "Fir d'Wunnen: 3 bis 5% brutto no Lag (3-3,5% an Premium-Zonen LU-Stad, 4-5% a Kantonen). Fir Prime-Bürorraim LU-Stad: 4 bis 5%. Fir d'Hotellerie: 6 bis 8% no Kategorie a Performance. Dës Sätz entwéckele sech mat de Leitzënsen an Anleihrenditen." },
-        { "q": "Muss d'TVA an der Schätzung berücksichtegt ginn?", "a": "Bei VEFA-Neibau gëtt de Wäert üblech netto presentéiert an dann zum applikabele Saz op TTC ëmgerechent (3% Wunn-TVA mat 50.000 € Plafong). Bei Bestand (tëschent Privaten) keng TVA, mä vum Keefer ze bezuelend Aschreiwungsgebühren. TEGOVA-Berichter ënnerscheeden ëmmer netto/brutto." }
+        {
+          "q": "Wéi eng Method ass déi zouverlässegst fir eng Immobiliebewäertung zu Lëtzebuerg?",
+          "a": "Fir d'Wunnen ass den direkten Vergläich kombinéiert mat engem hedoneschen Modell am zouverlässegsten. Fir d'Locatioun gëtt d'Ertragswäertkapitaliséierung bevorzugt. Fir Gewerbe/Hotel ass DCF Standard. TEGOVA EVS 2025 empfeelen op mannst zwou Methoden ofzegläichen fir d'Zouverlässegkeet ze stäerken."
+        },
+        {
+          "q": "Beaflosst den Energieausweis den Immobiliepräis zu Lëtzebuerg?",
+          "a": "Jo. LISER-Etüde béiffren de Wäertspread pro CPE-Klass op 3-8% (e F-zu-C-Sprong kann 10-25% Méierwäert bréngen). Den Impakt wäert mat den europäeschen Sanéierungsflichten (EPBD revidéiert 2024) wuessen."
+        },
+        {
+          "q": "Wat kascht eng REV/TRV-Expertise zu Lëtzebuerg?",
+          "a": "Fir eng Wunnimmobilie 800 bis 2.500 € no Komplexitéit. Fir e Gewerbe- oder Hotelobjet 3.000 bis 15.000 € no Wäert a Komplexitéit. Honoréier ass fräi, baséiert op Aufwand a Verantwortung. Den TEGOVA-Bericht ass bei Banken a Geriichter unerkannt."
+        },
+        {
+          "q": "Wou fënnt een real Verkafspräisser zu Lëtzebuerg?",
+          "a": "D'Grondbuchsamt (AED) publizéiert véierjählech real Präisser vun notarielle Akten. Den LISER-Wunnungsobservatoire aggregéiert a publizéiert dës Donnéeën je Gemeng an Immobilientyp (observatoire.liser.lu)."
+        },
+        {
+          "q": "Wéi en Kapitaliséierungssaz ass typesch zu Lëtzebuerg?",
+          "a": "Fir d'Wunnen: 3 bis 5% brutto no Lag (3-3,5% an Premium-Zonen LU-Stad, 4-5% a Kantonen). Fir Prime-Bürorraim LU-Stad: 4 bis 5%. Fir d'Hotellerie: 6 bis 8% no Kategorie a Performance. Dës Sätz entwéckele sech mat de Leitzënsen an Anleihrenditen."
+        },
+        {
+          "q": "Muss d'TVA an der Schätzung berücksichtegt ginn?",
+          "a": "Bei VEFA-Neibau gëtt de Wäert üblech netto presentéiert an dann zum applikabele Saz op TTC ëmgerechent (3% Wunn-TVA mat 50.000 € Plafong). Bei Bestand (tëschent Privaten) keng TVA, mä vum Keefer ze bezuelend Aschreiwungsgebühren. TEGOVA-Berichter ënnerscheeden ëmmer netto/brutto."
+        }
       ],
       "sources": [
-        { "title": "TEGOVA — European Valuation Standards 2025", "org": "The European Group of Valuers' Associations", "url": "https://www.tegova.org/", "year": 2025 },
-        { "title": "Wunnungsobservatoire — Präisser je Gemeng", "org": "LISER", "url": "https://observatoire.liser.lu/" },
-        { "title": "Wunnimmobiliepräisindex (IPIR)", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Grondbuch — Kafakten", "org": "Verwaltung fir Aschreiwung, Domänen an TVA", "url": "https://pfi.public.lu/fr.html" },
-        { "title": "Gesetz vum 4. Dezember 1967 (LIR) — Basis STATEC-Koeffizient", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
-        { "title": "Hedonesch Etüde zum LU-Immobiliemarché", "org": "LISER", "url": "https://www.liser.lu/" }
+        {
+          "title": "TEGOVA — European Valuation Standards 2025",
+          "org": "The European Group of Valuers' Associations",
+          "url": "https://www.tegova.org/",
+          "year": 2025
+        },
+        {
+          "title": "Wunnungsobservatoire — Präisser je Gemeng",
+          "org": "LISER",
+          "url": "https://observatoire.liser.lu/"
+        },
+        {
+          "title": "Wunnimmobiliepräisindex (IPIR)",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Grondbuch — Kafakten",
+          "org": "Verwaltung fir Aschreiwung, Domänen an TVA",
+          "url": "https://pfi.public.lu/fr.html"
+        },
+        {
+          "title": "Gesetz vum 4. Dezember 1967 (LIR) — Basis STATEC-Koeffizient",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        },
+        {
+          "title": "Hedonesch Etüde zum LU-Immobiliemarché",
+          "org": "LISER",
+          "url": "https://www.liser.lu/"
+        }
       ]
     },
     "achatNonResident": {
@@ -9617,12 +10225,37 @@
       "section4Intro": "Fir déiselwecht Immobilie als Haaptwunnsëtz oder Locatioun erkaaft (Präis 600.000 €), hei de Käschtevergläich no Profil.",
       "table": {
         "caption": "Erwierbskäschten enger Immobilie zu 600.000 € no Profil",
-        "headers": ["Keefer-Profil", "7 % Gebühren", "Bëllegen Akt", "Notairsgebühren + Hypothéik"],
+        "headers": [
+          "Keefer-Profil",
+          "7 % Gebühren",
+          "Bëllegen Akt",
+          "Notairsgebühren + Hypothéik"
+        ],
         "rows": [
-          ["Resident-Koppel, Haaptwunnsëtz", "42.000 €", "−42.000 €", "≈ 11.700 €"],
-          ["Net-Resident-Koppel zitt op LU", "42.000 €", "−42.000 €", "≈ 12.500 €"],
-          ["Net-Resident-Koppel, reng Locatioun", "42.000 €", "0 €", "≈ 12.500 €"],
-          ["Net-Resident eleng, reng Locatioun", "42.000 €", "0 €", "≈ 12.500 €"]
+          [
+            "Resident-Koppel, Haaptwunnsëtz",
+            "42.000 €",
+            "−42.000 €",
+            "≈ 11.700 €"
+          ],
+          [
+            "Net-Resident-Koppel zitt op LU",
+            "42.000 €",
+            "−42.000 €",
+            "≈ 12.500 €"
+          ],
+          [
+            "Net-Resident-Koppel, reng Locatioun",
+            "42.000 €",
+            "0 €",
+            "≈ 12.500 €"
+          ],
+          [
+            "Net-Resident eleng, reng Locatioun",
+            "42.000 €",
+            "0 €",
+            "≈ 12.500 €"
+          ]
         ],
         "footnote": "Notairsgebühren liicht méi héich fir Net-Residenten wéinst méiglechen zousätzlechen Vollmaachten. Bei renger Locatioun och Grondsteier a jährlech Verwaltungskäschten (10-12 % vun de Loyere) aplanzen."
       },
@@ -9634,25 +10267,79 @@
         "cta": "Simulatioun starten"
       },
       "tools": [
-        { "href": "/frais-acquisition", "title": "Erwierbskäschte-Rechner", "description": "Resident vs Net-Resident, Bëllegen Akt no Projet, Wunn-TVA, Hypothéik." },
-        { "href": "/outils-bancaires", "title": "Bank-Tools", "description": "Krediteer-Kapazitéit, Mountsrate, status-ugepasst DSTI/LTV-Quoten." },
-        { "href": "/portfolio", "title": "Immobilieportfolio", "description": "Verfollegung vun der Rendit méi Immobilien op laang Sicht." },
-        { "href": "/aml-kyc", "title": "AML/KYC-Verifizéierung", "description": "Conformitéit auslännesche Keefer fir LU-Notair an -Bank." }
+        {
+          "href": "/frais-acquisition",
+          "title": "Erwierbskäschte-Rechner",
+          "description": "Resident vs Net-Resident, Bëllegen Akt no Projet, Wunn-TVA, Hypothéik."
+        },
+        {
+          "href": "/outils-bancaires",
+          "title": "Bank-Tools",
+          "description": "Krediteer-Kapazitéit, Mountsrate, status-ugepasst DSTI/LTV-Quoten."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Immobilieportfolio",
+          "description": "Verfollegung vun der Rendit méi Immobilien op laang Sicht."
+        },
+        {
+          "href": "/aml-kyc",
+          "title": "AML/KYC-Verifizéierung",
+          "description": "Conformitéit auslännesche Keefer fir LU-Notair an -Bank."
+        }
       ],
       "faq": [
-        { "q": "Kann en Net-Resident vum Bëllegen Akt profitéieren?", "a": "Jo, virausgesat datt d'erkaaft Immobilie tatsächlech als Haaptwunnsëtz vum neie Keefer déngt, mat Engagement perséinlech bannent 2 Joer no dem Akt eranzezéien. Bei renger Locatiounsinvestitioun ass de Bëllegen Akt net zougänglech an déi voll 7 % Gebühre sinn fälleg." },
-        { "q": "Wéi vill Eegkapital brauch en Net-Resident zu Lëtzebuerg?", "a": "LU-Banken verlaangen normalerweis 25-30 % Eegkapital fir Net-Residenten (LTV 70-75 %), am Géigesaz zu heiansdo 0-20 % fir Residenten am Haaptwunnsëtz. D'Quote variéiert no Bank, Krediteer-Profil an Lag vun der Immobilie." },
-        { "q": "Wéi eng Dokumenter muss en Net-Resident der LU-Bank ginn?", "a": "Ausweis, 3 lescht Steierbescheeder vum Wunnsëtzland, 6 lescht Gehaltsofrechungen, Aarbechtsvertrag, 3 Méint Kontoauszich, Eegkapitalbeleeg, detailléierte Finanzéierungsplang. Bei engem Locatiounsprojet zousätzlech Kompromiss a Mietsschätzung." },
-        { "q": "Wéi funktionéiert d'Doppelbesteierungsofkommen Frankräich-Lëtzebuerg fir Immobilien?", "a": "D'Ofkommen Frankräich-Lëtzebuerg vun 2018 gesäit vir, dass Immobilienakommessen a Veräusserungsgewënner vun enger zu LU bel Immobilie zu LU steierflichteg sinn. Frankräich exonéréiert se mä behält se fir den effektiven Steiersaz ze berechnen. Dir bezuelt also LU-IR op dës Akommessen, ouni Doppelbesteierung." },
-        { "q": "Brauch een e LU-Bankkonto fir ze kafen?", "a": "Net obligatoresch fir den Akt (den Notair akzeptéiert eng Iwwerweisung aus dem Ausland), mä staark empfuelen fir déi spéider Verwaltung: Loyer-Empfang, Bezuelung vu Käschten a Steieren, Hypothéikenofbiergungen. Méi LU-Banken maachen e Net-Resident-Konto a wéinegen Deeg op." },
-        { "q": "Wéi eng jährlech Steiere bezuelt e Net-Resident-Eegentümer?", "a": "Kommunal Grondsteier (gering, 0,1 bis 1 % vum Katasterwäert), Akommessteier op Nettomietakommes bei Locatioun (LU-IR-Tarif mat Ofzich), eventuell Veräusserungsgewënnsteier bei Widderverkaf virum Befreiungsdelai. Keng Vermögensteier zu Lëtzebuerg." }
+        {
+          "q": "Kann en Net-Resident vum Bëllegen Akt profitéieren?",
+          "a": "Jo, virausgesat datt d'erkaaft Immobilie tatsächlech als Haaptwunnsëtz vum neie Keefer déngt, mat Engagement perséinlech bannent 2 Joer no dem Akt eranzezéien. Bei renger Locatiounsinvestitioun ass de Bëllegen Akt net zougänglech an déi voll 7 % Gebühre sinn fälleg."
+        },
+        {
+          "q": "Wéi vill Eegkapital brauch en Net-Resident zu Lëtzebuerg?",
+          "a": "LU-Banken verlaangen normalerweis 25-30 % Eegkapital fir Net-Residenten (LTV 70-75 %), am Géigesaz zu heiansdo 0-20 % fir Residenten am Haaptwunnsëtz. D'Quote variéiert no Bank, Krediteer-Profil an Lag vun der Immobilie."
+        },
+        {
+          "q": "Wéi eng Dokumenter muss en Net-Resident der LU-Bank ginn?",
+          "a": "Ausweis, 3 lescht Steierbescheeder vum Wunnsëtzland, 6 lescht Gehaltsofrechungen, Aarbechtsvertrag, 3 Méint Kontoauszich, Eegkapitalbeleeg, detailléierte Finanzéierungsplang. Bei engem Locatiounsprojet zousätzlech Kompromiss a Mietsschätzung."
+        },
+        {
+          "q": "Wéi funktionéiert d'Doppelbesteierungsofkommen Frankräich-Lëtzebuerg fir Immobilien?",
+          "a": "D'Ofkommen Frankräich-Lëtzebuerg vun 2018 gesäit vir, dass Immobilienakommessen a Veräusserungsgewënner vun enger zu LU bel Immobilie zu LU steierflichteg sinn. Frankräich exonéréiert se mä behält se fir den effektiven Steiersaz ze berechnen. Dir bezuelt also LU-IR op dës Akommessen, ouni Doppelbesteierung."
+        },
+        {
+          "q": "Brauch een e LU-Bankkonto fir ze kafen?",
+          "a": "Net obligatoresch fir den Akt (den Notair akzeptéiert eng Iwwerweisung aus dem Ausland), mä staark empfuelen fir déi spéider Verwaltung: Loyer-Empfang, Bezuelung vu Käschten a Steieren, Hypothéikenofbiergungen. Méi LU-Banken maachen e Net-Resident-Konto a wéinegen Deeg op."
+        },
+        {
+          "q": "Wéi eng jährlech Steiere bezuelt e Net-Resident-Eegentümer?",
+          "a": "Kommunal Grondsteier (gering, 0,1 bis 1 % vum Katasterwäert), Akommessteier op Nettomietakommes bei Locatioun (LU-IR-Tarif mat Ofzich), eventuell Veräusserungsgewënnsteier bei Widderverkaf virum Befreiungsdelai. Keng Vermögensteier zu Lëtzebuerg."
+        }
       ],
       "sources": [
-        { "title": "Immobilienerwierw duerch Net-Resident — Verfahren", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/achat-vente/achat/achat-immobilier.html" },
-        { "title": "Bilateral Doppelbesteierungsofkommen vu Lëtzebuerg", "org": "Steierverwaltung fir direkt Steieren", "url": "https://impotsdirects.public.lu/fr/conventions.html" },
-        { "title": "Erklärung Modell 100F — Net-Resident", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/declaration-impots/declaration-non-resident.html" },
-        { "title": "Bëllegen Akt — offizielle Fiche", "org": "Logement.lu", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
-        { "title": "Gesetz vum 4. Dezember 1967 (LIR) — Artikelen 99 ff.", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+        {
+          "title": "Immobilienerwierw duerch Net-Resident — Verfahren",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/achat-vente/achat/achat-immobilier.html"
+        },
+        {
+          "title": "Bilateral Doppelbesteierungsofkommen vu Lëtzebuerg",
+          "org": "Steierverwaltung fir direkt Steieren",
+          "url": "https://impotsdirects.public.lu/fr/conventions.html"
+        },
+        {
+          "title": "Erklärung Modell 100F — Net-Resident",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/declaration-impots/declaration-non-resident.html"
+        },
+        {
+          "title": "Bëllegen Akt — offizielle Fiche",
+          "org": "Logement.lu",
+          "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html"
+        },
+        {
+          "title": "Gesetz vum 4. Dezember 1967 (LIR) — Artikelen 99 ff.",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        }
       ]
     },
     "tva3Pourcent": {
@@ -9684,13 +10371,49 @@
       "section4Intro": "Wirkung vum 3 %-TVA-Virdeel op typesch Projeten. D'Berechnung vergläicht d'Bruttokosten zu 17 % (normal) mat 3 % (Virdeel).",
       "table": {
         "caption": "Erspuernise duerch 3 % Wunn-TVA",
-        "headers": ["Projet", "Netto", "TVA 17 %", "TVA 3 %", "Erspuernis"],
+        "headers": [
+          "Projet",
+          "Netto",
+          "TVA 17 %",
+          "TVA 3 %",
+          "Erspuernis"
+        ],
         "rows": [
-          ["Bad-Renovéierung", "30.000 €", "5.100 €", "900 €", "4.200 €"],
-          ["Schwéier Wunnengs-Renovéierung", "100.000 €", "17.000 €", "3.000 €", "14.000 €"],
-          ["Neibau", "300.000 €", "51.000 €", "9.000 €", "42.000 €"],
-          ["Héichwäerten Neibau", "400.000 €", "68.000 €", "12.000 €", "50.000 €"],
-          ["Bau iwwer Plafong", "500.000 €", "85.000 €", "27.000 €", "50.000 €"]
+          [
+            "Bad-Renovéierung",
+            "30.000 €",
+            "5.100 €",
+            "900 €",
+            "4.200 €"
+          ],
+          [
+            "Schwéier Wunnengs-Renovéierung",
+            "100.000 €",
+            "17.000 €",
+            "3.000 €",
+            "14.000 €"
+          ],
+          [
+            "Neibau",
+            "300.000 €",
+            "51.000 €",
+            "9.000 €",
+            "42.000 €"
+          ],
+          [
+            "Héichwäerten Neibau",
+            "400.000 €",
+            "68.000 €",
+            "12.000 €",
+            "50.000 €"
+          ],
+          [
+            "Bau iwwer Plafong",
+            "500.000 €",
+            "85.000 €",
+            "27.000 €",
+            "50.000 €"
+          ]
         ],
         "footnote": "D'Erspuernis entsprécht der Differenz tëschent TVA 17 % an TVA 3 %, gedeckelt op 50.000 € pro Wunneng."
       },
@@ -9702,25 +10425,80 @@
         "cta": "VEFA-Simulatioun starten"
       },
       "tools": [
-        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Opdeelung Terrain / Bau an 3 % Wunn-TVA automatiséiert." },
-        { "href": "/frais-acquisition", "title": "Erwerbskäschten", "description": "Global Berechnung mat TVA, Gebühren, Bëllegen Akt an Hypothéik." },
-        { "href": "/estimateur-construction", "title": "Bau-Schätzer", "description": "Detailléiert Neibaukäschte je Posten." },
-        { "href": "/simulateur-aides", "title": "Erwerbsbäihëllefen", "description": "Kombinatioun aus 3 %-TVA, Bëllegen Akt, Klimabonus a Premien." }
+        {
+          "href": "/vefa",
+          "title": "VEFA-Simulator",
+          "description": "Opdeelung Terrain / Bau an 3 % Wunn-TVA automatiséiert."
+        },
+        {
+          "href": "/frais-acquisition",
+          "title": "Erwerbskäschten",
+          "description": "Global Berechnung mat TVA, Gebühren, Bëllegen Akt an Hypothéik."
+        },
+        {
+          "href": "/estimateur-construction",
+          "title": "Bau-Schätzer",
+          "description": "Detailléiert Neibaukäschte je Posten."
+        },
+        {
+          "href": "/simulateur-aides",
+          "title": "Erwerbsbäihëllefen",
+          "description": "Kombinatioun aus 3 %-TVA, Bëllegen Akt, Klimabonus a Premien."
+        }
       ],
       "faq": [
-        { "q": "Wéi héich ass den TVA-Virdeels-Plafong vun 3 % zu Lëtzebuerg?", "a": "De Virdeels-Plafong ass 50.000 € TVA pro Wunneng iwwer hir Liewensdauer. Dat entsprécht ronn 357.000 € Aarbechten netto zum reduzéierte Saz. Doriwwer eraus gëllt den Normalsaz vun 17 % op den Iwwerschoss." },
-        { "q": "Brauch een eng Virausgenehmegung fir d'3 % TVA?", "a": "Jo. Eng Virausdemande muss virum Baubeginn oder VEFA-Akt-Ënnerschrëft bei der AED agereecht ginn. De Formulaire ass op guichet.lu verfügbar a muss Pläng, Genehmegung an eng kostebezuelt Schätzung enthalen." },
-        { "q": "Gëllt d'3 % TVA fir eng Locatiouns-Investitioun?", "a": "Jo, virausgesat datt de Locataire d'Wunneng als säi Wunnsëtz benotzt (effektiv Belegung). D'Immobilie muss op mannst zwee Joer no der Liwwerung als Wunnraum verméit bleiwen, soss gëtt de Virdeel zréckgefuerdert." },
-        { "q": "Gëllt d'3 % TVA fir Renovéierungen?", "a": "Jo, bei Renovéierung a Reparatur vun enger iwwer 20 Joer aler Wunneng, an ouni Altersbedingung bei Wunnraumschafung duerch Ëmbau (z.B. Ëmbau vun engem Geschäftsraum a Wunnraum). Dämm-, Heizungs-, Fënster-, Badaarbechten sinn berechtegt. Dekoratioun a Luxus-Baussenaustattung net." },
-        { "q": "Kann d'3 % TVA mam Bëllegen Akt a Klimabonus kombinéiert ginn?", "a": "Jo, déi dräi Reegelunge sinn voll kombinéierbar. Fir e Éischtkeefer am VEFA mat berechtegten energeetesche Sanéierungsaarbechte kënnen d'Gesamterspuernisse 130.000 € iwwerschreiden." },
-        { "q": "Wéi eng maximal Wunnfläch berechtegt zur 3 % TVA?", "a": "400 m² Wunnfläch. Doriwwer eraus gëllt den Normalsaz op den Iwwerschoss. Keller, net ausgebaut Daachbüden, net agehaange Garagen a Geschäftsdeeler ziele net zur Wunnfläch." }
+        {
+          "q": "Wéi héich ass den TVA-Virdeels-Plafong vun 3 % zu Lëtzebuerg?",
+          "a": "De Virdeels-Plafong ass 50.000 € TVA pro Wunneng iwwer hir Liewensdauer. Dat entsprécht ronn 357.000 € Aarbechten netto zum reduzéierte Saz. Doriwwer eraus gëllt den Normalsaz vun 17 % op den Iwwerschoss."
+        },
+        {
+          "q": "Brauch een eng Virausgenehmegung fir d'3 % TVA?",
+          "a": "Jo. Eng Virausdemande muss virum Baubeginn oder VEFA-Akt-Ënnerschrëft bei der AED agereecht ginn. De Formulaire ass op guichet.lu verfügbar a muss Pläng, Genehmegung an eng kostebezuelt Schätzung enthalen."
+        },
+        {
+          "q": "Gëllt d'3 % TVA fir eng Locatiouns-Investitioun?",
+          "a": "Jo, virausgesat datt de Locataire d'Wunneng als säi Wunnsëtz benotzt (effektiv Belegung). D'Immobilie muss op mannst zwee Joer no der Liwwerung als Wunnraum verméit bleiwen, soss gëtt de Virdeel zréckgefuerdert."
+        },
+        {
+          "q": "Gëllt d'3 % TVA fir Renovéierungen?",
+          "a": "Jo, bei Renovéierung a Reparatur vun enger iwwer 20 Joer aler Wunneng, an ouni Altersbedingung bei Wunnraumschafung duerch Ëmbau (z.B. Ëmbau vun engem Geschäftsraum a Wunnraum). Dämm-, Heizungs-, Fënster-, Badaarbechten sinn berechtegt. Dekoratioun a Luxus-Baussenaustattung net."
+        },
+        {
+          "q": "Kann d'3 % TVA mam Bëllegen Akt a Klimabonus kombinéiert ginn?",
+          "a": "Jo, déi dräi Reegelunge sinn voll kombinéierbar. Fir e Éischtkeefer am VEFA mat berechtegten energeetesche Sanéierungsaarbechte kënnen d'Gesamterspuernisse 130.000 € iwwerschreiden."
+        },
+        {
+          "q": "Wéi eng maximal Wunnfläch berechtegt zur 3 % TVA?",
+          "a": "400 m² Wunnfläch. Doriwwer eraus gëllt den Normalsaz op den Iwwerschoss. Keller, net ausgebaut Daachbüden, net agehaange Garagen a Geschäftsdeeler ziele net zur Wunnfläch."
+        }
       ],
       "sources": [
-        { "title": "Uwendung vum super-reduzéierten TVA-Saz — Prozedur", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/construction/aides-construction/taux-tva-super-reduit-logement.html" },
-        { "title": "Artikel 44ter geännert TVA-Gesetz — super-reduzéierten Wunnsaz", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1979/02/12/n1/jo" },
-        { "title": "Groussherzoglecht Reglement vum 30. Juli 2002 — Uwendungsmodalitéiten", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2002/07/30/n4/jo", "year": 2002 },
-        { "title": "AED-Rondbréif Nr. 800 — Wunn-TVA", "org": "AED", "url": "https://pfi.public.lu/fr.html" },
-        { "title": "eAED-Telefachverfahren — Wunn-TVA-Demanden", "org": "AED", "url": "https://eaed.b2g.etat.lu/" }
+        {
+          "title": "Uwendung vum super-reduzéierten TVA-Saz — Prozedur",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/construction/aides-construction/taux-tva-super-reduit-logement.html"
+        },
+        {
+          "title": "Artikel 44ter geännert TVA-Gesetz — super-reduzéierten Wunnsaz",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1979/02/12/n1/jo"
+        },
+        {
+          "title": "Groussherzoglecht Reglement vum 30. Juli 2002 — Uwendungsmodalitéiten",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2002/07/30/n4/jo",
+          "year": 2002
+        },
+        {
+          "title": "AED-Rondbréif Nr. 800 — Wunn-TVA",
+          "org": "AED",
+          "url": "https://pfi.public.lu/fr.html"
+        },
+        {
+          "title": "eAED-Telefachverfahren — Wunn-TVA-Demanden",
+          "org": "AED",
+          "url": "https://eaed.b2g.etat.lu/"
+        }
       ]
     },
     "bailCommercial": {
@@ -9759,25 +10537,80 @@
         "cta": "Analyse starten"
       },
       "tools": [
-        { "href": "/bail-commercial", "title": "Geschäftsmiet-Tool", "description": "Loyer, Schlësselgeld, VPI-Indexéierung, Vermieter-/Locataire-Renditéit." },
-        { "href": "/dcf-multi", "title": "Méi-Period DCF", "description": "Bewäertung vun engem kommerziell verlounten Aktivum iwwer 9 Joer." },
-        { "href": "/portfolio", "title": "Immobilieportfolio", "description": "Verfollegung vu méi kommerziell verlounten Räim." },
-        { "href": "/aml-kyc", "title": "Locataire-Verifizéierung", "description": "Solvenz vum Locataire-Entreprise virum Vertragsënnerschrëft." }
+        {
+          "href": "/bail-commercial",
+          "title": "Geschäftsmiet-Tool",
+          "description": "Loyer, Schlësselgeld, VPI-Indexéierung, Vermieter-/Locataire-Renditéit."
+        },
+        {
+          "href": "/dcf-multi",
+          "title": "Méi-Period DCF",
+          "description": "Bewäertung vun engem kommerziell verlounten Aktivum iwwer 9 Joer."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Immobilieportfolio",
+          "description": "Verfollegung vu méi kommerziell verlounten Räim."
+        },
+        {
+          "href": "/aml-kyc",
+          "title": "Locataire-Verifizéierung",
+          "description": "Solvenz vum Locataire-Entreprise virum Vertragsënnerschrëft."
+        }
       ],
       "faq": [
-        { "q": "Wéi laang ass d'Mindestlafzäit vun engem Geschäftsmietvertrag zu Lëtzebuerg?", "a": "9 Joer (Art. 2 Gesetz vum 3. Februar 2018). De Locataire kann zu all Dräijoresperiod (3, 6, 9 Joer) mat 6 Méint Frist kënnegen. De Vermieter däerf nëmme bei schwéiere Verstouss, perséinlechem Geschäftsbedarf oder Ofrass/Neiaufbau kënnegen." },
-        { "q": "Ass de Geschäftsloyer zu Lëtzebuerg gedeckelt?", "a": "Nee, am Géigesaz zu Wunnmietverträg (5%-Plafong op investéiert Kapital) gëtt de Geschäftsloyer fräi tëschent de Parteien festgesat. Indexéierung iwwer den STATEC-VPI bei ausdrécklecher Klausel." },
-        { "q": "Wat ass Schlësselgeld a wéi verhandelt een et?", "a": "Schlësselgeld (pas-de-porte) ass eng Ufankszuelung vum Locataire un de Vermieter als Géigeleeschtung fir d'Geschäftsvirdeeler vun der Lag. An LU erlaabt, net reguléiert, fräi verhandelbar (typesch 1 bis 6 Mountsmieten fir eng Standardlag, bis zu méi Joren fir Prime). Vum Locataire iwwer d'Vertragslafzäit amortiséierbar." },
-        { "q": "Wéi funktionéiert d'Erneierungsrecht?", "a": "De Locataire notifizéiert eng Erneierungsdemande op mannst 6 Méint virum Vertragsoflaaf. E Vermieter deen ouni berechtegte Grond (Verstouss, Ofrass, Eegebedarf) oflehnt, muss eng Räumungsentschädegung fir Clientèle-, Ëmzugs- a Geschäftswäerts-Verloscht bezuelen. De Betrag gëtt eenverneemlesch oder geriichtlech festgesat." },
-        { "q": "Kann de Vermieter d'Vertragszessioun un en Iwwerhuelmer blockéieren?", "a": "Nee, sou wäit keng Géigenklausel am Vertrag. D'Geschäftsmietzessioun ass fräi, allgemeng un d'Geschäftswäerts-Zessioun gekoppelt. De Vermieter muss informéiert ginn, kann awer net widerspriechen sou wäit d'Vertragsbedingungen (Loyer, Notzung) vum Iwwerhuelmer respektéiert ginn. Eng Genehmegungsklausel virsinn, falls de Vermieter Opsiicht wëll." },
-        { "q": "Wat maachen bei schwéierem Locataire-Verstouss?", "a": "De Vermieter schéckt eng Mahnung per Recommandé mat Beschreiwung vum Verstouss (net bezuelten Loyer > 2 Méint, verbueden Sublocatioun, Notzungsännerung, gréisser Schied). Ouni Heelung bannent 30 Deeg kann de Vermieter de Fall virum Geriicht zu geriichtlecher Opléisung mat Räumungsdemande a Forderunge fir Réckstänn/Schuedenersaz bréngen." }
+        {
+          "q": "Wéi laang ass d'Mindestlafzäit vun engem Geschäftsmietvertrag zu Lëtzebuerg?",
+          "a": "9 Joer (Art. 2 Gesetz vum 3. Februar 2018). De Locataire kann zu all Dräijoresperiod (3, 6, 9 Joer) mat 6 Méint Frist kënnegen. De Vermieter däerf nëmme bei schwéiere Verstouss, perséinlechem Geschäftsbedarf oder Ofrass/Neiaufbau kënnegen."
+        },
+        {
+          "q": "Ass de Geschäftsloyer zu Lëtzebuerg gedeckelt?",
+          "a": "Nee, am Géigesaz zu Wunnmietverträg (5%-Plafong op investéiert Kapital) gëtt de Geschäftsloyer fräi tëschent de Parteien festgesat. Indexéierung iwwer den STATEC-VPI bei ausdrécklecher Klausel."
+        },
+        {
+          "q": "Wat ass Schlësselgeld a wéi verhandelt een et?",
+          "a": "Schlësselgeld (pas-de-porte) ass eng Ufankszuelung vum Locataire un de Vermieter als Géigeleeschtung fir d'Geschäftsvirdeeler vun der Lag. An LU erlaabt, net reguléiert, fräi verhandelbar (typesch 1 bis 6 Mountsmieten fir eng Standardlag, bis zu méi Joren fir Prime). Vum Locataire iwwer d'Vertragslafzäit amortiséierbar."
+        },
+        {
+          "q": "Wéi funktionéiert d'Erneierungsrecht?",
+          "a": "De Locataire notifizéiert eng Erneierungsdemande op mannst 6 Méint virum Vertragsoflaaf. E Vermieter deen ouni berechtegte Grond (Verstouss, Ofrass, Eegebedarf) oflehnt, muss eng Räumungsentschädegung fir Clientèle-, Ëmzugs- a Geschäftswäerts-Verloscht bezuelen. De Betrag gëtt eenverneemlesch oder geriichtlech festgesat."
+        },
+        {
+          "q": "Kann de Vermieter d'Vertragszessioun un en Iwwerhuelmer blockéieren?",
+          "a": "Nee, sou wäit keng Géigenklausel am Vertrag. D'Geschäftsmietzessioun ass fräi, allgemeng un d'Geschäftswäerts-Zessioun gekoppelt. De Vermieter muss informéiert ginn, kann awer net widerspriechen sou wäit d'Vertragsbedingungen (Loyer, Notzung) vum Iwwerhuelmer respektéiert ginn. Eng Genehmegungsklausel virsinn, falls de Vermieter Opsiicht wëll."
+        },
+        {
+          "q": "Wat maachen bei schwéierem Locataire-Verstouss?",
+          "a": "De Vermieter schéckt eng Mahnung per Recommandé mat Beschreiwung vum Verstouss (net bezuelten Loyer > 2 Méint, verbueden Sublocatioun, Notzungsännerung, gréisser Schied). Ouni Heelung bannent 30 Deeg kann de Vermieter de Fall virum Geriicht zu geriichtlecher Opléisung mat Räumungsdemande a Forderunge fir Réckstänn/Schuedenersaz bréngen."
+        }
       ],
       "sources": [
-        { "title": "Gesetz vum 3. Februar 2018 iwwer Geschäftsmietverträg", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo", "year": 2018 },
-        { "title": "Geschäftsmietvertrag — praktesche Guide", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html" },
-        { "title": "Verbraucherpräisindex (VPI)", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Code civil — Artikelen 1709 ff.", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" },
-        { "title": "Handelskammer — Entrepreneur-Begleedung", "org": "Lëtzebuerger Handelskammer", "url": "https://www.cc.lu/" }
+        {
+          "title": "Gesetz vum 3. Februar 2018 iwwer Geschäftsmietverträg",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo",
+          "year": 2018
+        },
+        {
+          "title": "Geschäftsmietvertrag — praktesche Guide",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html"
+        },
+        {
+          "title": "Verbraucherpräisindex (VPI)",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Code civil — Artikelen 1709 ff.",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+        },
+        {
+          "title": "Handelskammer — Entrepreneur-Begleedung",
+          "org": "Lëtzebuerger Handelskammer",
+          "url": "https://www.cc.lu/"
+        }
       ]
     },
     "investirHotel": {
@@ -9816,26 +10649,85 @@
         "cta": "Hotelanalyse opmaachen"
       },
       "tools": [
-        { "href": "/hotellerie/valorisation", "title": "TEGOVA-Hotelbewäertung", "description": "DCF + EBITDA-Multiplikatoren + Präis pro Schlëssel no EVS 2025." },
-        { "href": "/hotellerie/dscr", "title": "Bank-DSCR", "description": "Finanzéierungskapazitéit an Zinns-Stresstest." },
-        { "href": "/hotellerie/observatoire-lu", "title": "LU-Observatoire", "description": "STATEC Iwwernuechtungen + RevPAR-Indizen no Regioun." },
-        { "href": "/hotellerie/pre-acquisition", "title": "Pre-Akquisitioun", "description": "E-2 / Hotel-Hänneler-Tool." }
+        {
+          "href": "/hotellerie/valorisation",
+          "title": "TEGOVA-Hotelbewäertung",
+          "description": "DCF + EBITDA-Multiplikatoren + Präis pro Schlëssel no EVS 2025."
+        },
+        {
+          "href": "/hotellerie/dscr",
+          "title": "Bank-DSCR",
+          "description": "Finanzéierungskapazitéit an Zinns-Stresstest."
+        },
+        {
+          "href": "/hotellerie/observatoire-lu",
+          "title": "LU-Observatoire",
+          "description": "STATEC Iwwernuechtungen + RevPAR-Indizen no Regioun."
+        },
+        {
+          "href": "/hotellerie/pre-acquisition",
+          "title": "Pre-Akquisitioun",
+          "description": "E-2 / Hotel-Hänneler-Tool."
+        }
       ],
       "faq": [
-        { "q": "Wéi héich ass den duerchschnëttleche RevPAR vun Hoteler zu Lëtzebuerg?", "a": "Den duerchschnëttleche RevPAR LU geet vu 60 € (Budget/Economy) bis 150 € (Upscale/Luxury). D'Stad Lëtzebuerg weist den héchsten RevPAR, gedriwwen vum Geschäftstourismus an den EU-Institutiounen. Touristesch Regiounen (Ardennen, Musel) hunn méi saisonal RevPAR-Muster." },
-        { "q": "Wéi eng DSCR verlaangen d'Banken fir en Hotelkredit zu Lëtzebuerg?", "a": "LU-Banken verlaangen an der Reegel en DSCR vu 1,25 bis 1,40x: den disponibele Cashflow no Betriibskäschte muss op mannst d'1,25- bis 1,40-facht vum jährleche Scholdendéngscht ofdecken. En DSCR ënner 1,25x mécht d'Finanzéierung schwéier erhältlech." },
-        { "q": "Wéi eng EBITDA-Multiplikatoren fir e LU-Hotel ze bewäerten?", "a": "LU-EBITDA-Multiplikatoren ginn vu 8x (Budget regional, ververalt) bis 14x (Luxury Prime LU-Stad). E gesonden 3* an der Stad Lëtzebuerg handelt typesch zu 10-12x stabiliséiertem EBITDA. Mat Präis/Zëmmer an 10-Joer-DCF ofgläichen, fir ze valéieren." },
-        { "q": "Wéi en Präis pro Zëmmer fir den Akaf vun engem Hotel zu Lëtzebuerg?", "a": "Beobachte Präisser: 80.000-120.000 €/Zëmmer (Budget/Regiounen), 150.000-200.000 €/Zëmmer (Mid-3*), 250.000-400.000 €/Zëmmer (Upscale/Luxury LU-Stad). Doriwwer Luxury Prime op aussergewéinleche Lagen. Ëmmer mat potenziellem RevPAR op Konsistenz préifen." },
-        { "q": "Ass d'Hotelinvestitioun zu LU fir den US-E-2-Visum berechtegt?", "a": "LU ass kee US-E-2-Vertragsland. Fir US-Investisseuren ass d'Alternativ d'LU-Openthaltsgenehmegung fir Investisseuren (500.000 € fir Iwwerhuelung, 3 Mio. € fir Schaffen/Iwwerhuelung mat Aarbechtsplazen) iwwer den Ausseministère. Hotellerie ass berechtegt." },
-        { "q": "Wéi eng Fërderunge fir energeetesch Hotelrenovéierung zu LU?", "a": "Tertiär Klimabonus bitt Zouschëss fir energeetesch Sanéierung vu Gewerbegebainer: Isolatioun, Wärmepompen, Photovoltaik, Lëftung. Mat KMU-Beihëllefe fir Moderniséierung kombinéierbar. D'EPBD-Direktiv schreift Renovéierungspfaden fir déi energieintensivst Tertiärassets bis 2030-2033 vir." }
+        {
+          "q": "Wéi héich ass den duerchschnëttleche RevPAR vun Hoteler zu Lëtzebuerg?",
+          "a": "Den duerchschnëttleche RevPAR LU geet vu 60 € (Budget/Economy) bis 150 € (Upscale/Luxury). D'Stad Lëtzebuerg weist den héchsten RevPAR, gedriwwen vum Geschäftstourismus an den EU-Institutiounen. Touristesch Regiounen (Ardennen, Musel) hunn méi saisonal RevPAR-Muster."
+        },
+        {
+          "q": "Wéi eng DSCR verlaangen d'Banken fir en Hotelkredit zu Lëtzebuerg?",
+          "a": "LU-Banken verlaangen an der Reegel en DSCR vu 1,25 bis 1,40x: den disponibele Cashflow no Betriibskäschte muss op mannst d'1,25- bis 1,40-facht vum jährleche Scholdendéngscht ofdecken. En DSCR ënner 1,25x mécht d'Finanzéierung schwéier erhältlech."
+        },
+        {
+          "q": "Wéi eng EBITDA-Multiplikatoren fir e LU-Hotel ze bewäerten?",
+          "a": "LU-EBITDA-Multiplikatoren ginn vu 8x (Budget regional, ververalt) bis 14x (Luxury Prime LU-Stad). E gesonden 3* an der Stad Lëtzebuerg handelt typesch zu 10-12x stabiliséiertem EBITDA. Mat Präis/Zëmmer an 10-Joer-DCF ofgläichen, fir ze valéieren."
+        },
+        {
+          "q": "Wéi en Präis pro Zëmmer fir den Akaf vun engem Hotel zu Lëtzebuerg?",
+          "a": "Beobachte Präisser: 80.000-120.000 €/Zëmmer (Budget/Regiounen), 150.000-200.000 €/Zëmmer (Mid-3*), 250.000-400.000 €/Zëmmer (Upscale/Luxury LU-Stad). Doriwwer Luxury Prime op aussergewéinleche Lagen. Ëmmer mat potenziellem RevPAR op Konsistenz préifen."
+        },
+        {
+          "q": "Ass d'Hotelinvestitioun zu LU fir den US-E-2-Visum berechtegt?",
+          "a": "LU ass kee US-E-2-Vertragsland. Fir US-Investisseuren ass d'Alternativ d'LU-Openthaltsgenehmegung fir Investisseuren (500.000 € fir Iwwerhuelung, 3 Mio. € fir Schaffen/Iwwerhuelung mat Aarbechtsplazen) iwwer den Ausseministère. Hotellerie ass berechtegt."
+        },
+        {
+          "q": "Wéi eng Fërderunge fir energeetesch Hotelrenovéierung zu LU?",
+          "a": "Tertiär Klimabonus bitt Zouschëss fir energeetesch Sanéierung vu Gewerbegebainer: Isolatioun, Wärmepompen, Photovoltaik, Lëftung. Mat KMU-Beihëllefe fir Moderniséierung kombinéierbar. D'EPBD-Direktiv schreift Renovéierungspfaden fir déi energieintensivst Tertiärassets bis 2030-2033 vir."
+        }
       ],
       "sources": [
-        { "title": "STATEC-Tourismusobservatoire", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/secteurs/tourisme.html" },
-        { "title": "Tertiär Klimabonus — gewerblech energeetesch Sanéierung", "org": "myenergy / Ëmweltministère", "url": "https://www.myenergy.lu/fr/professionnels" },
-        { "title": "KMU-Beihëllefen — Investitioun an Innovatioun", "org": "Wirtschaftsministère", "url": "https://meco.gouvernement.lu/fr/le-ministere/aides.html" },
-        { "title": "Gewerbe- a Gruewenopsiicht (ITM) — Brandschutz", "org": "ITM", "url": "https://itm.public.lu/" },
-        { "title": "Investisseur-Openthaltsgenehmegung", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/immigration/plus-3-mois/ressortissant-tiers/investisseur.html" },
-        { "title": "TEGOVA EVS 2025 — Valuation of Hotels", "org": "TEGOVA", "url": "https://www.tegova.org/", "year": 2025 }
+        {
+          "title": "STATEC-Tourismusobservatoire",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/secteurs/tourisme.html"
+        },
+        {
+          "title": "Tertiär Klimabonus — gewerblech energeetesch Sanéierung",
+          "org": "myenergy / Ëmweltministère",
+          "url": "https://www.myenergy.lu/fr/professionnels"
+        },
+        {
+          "title": "KMU-Beihëllefen — Investitioun an Innovatioun",
+          "org": "Wirtschaftsministère",
+          "url": "https://meco.gouvernement.lu/fr/le-ministere/aides.html"
+        },
+        {
+          "title": "Gewerbe- a Gruewenopsiicht (ITM) — Brandschutz",
+          "org": "ITM",
+          "url": "https://itm.public.lu/"
+        },
+        {
+          "title": "Investisseur-Openthaltsgenehmegung",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/immigration/plus-3-mois/ressortissant-tiers/investisseur.html"
+        },
+        {
+          "title": "TEGOVA EVS 2025 — Valuation of Hotels",
+          "org": "TEGOVA",
+          "url": "https://www.tegova.org/",
+          "year": 2025
+        }
       ]
     },
     "iaTevaxia": {
@@ -9874,25 +10766,80 @@
         "cta": "Mäi Profil opmaachen"
       },
       "tools": [
-        { "href": "/profil", "title": "Mäi BYOK-Schlëssel konfiguréieren", "description": "Anthropic, OpenAI, Groq, Cerebras — onlimitéiert Notzung." },
-        { "href": "/api-docs", "title": "Ëffentlech B2B-API", "description": "3 Endpoints: analyze, chat, extract — Auth X-API-Key." },
-        { "href": "/valorisation", "title": "EVS-2025-Bericht", "description": "KI-Modus Verfasser + Challenger fir Är TEGOVA-Berichter." },
-        { "href": "/bilan-promoteur", "title": "KI Promoter-Bilan", "description": "PDF-Virfëllen + Liewensfäegkeetsanalys." }
+        {
+          "href": "/profil",
+          "title": "Mäi BYOK-Schlëssel konfiguréieren",
+          "description": "Anthropic, OpenAI, Groq, Cerebras — onlimitéiert Notzung."
+        },
+        {
+          "href": "/api-docs",
+          "title": "Ëffentlech B2B-API",
+          "description": "3 Endpoints: analyze, chat, extract — Auth X-API-Key."
+        },
+        {
+          "href": "/valorisation",
+          "title": "EVS-2025-Bericht",
+          "description": "KI-Modus Verfasser + Challenger fir Är TEGOVA-Berichter."
+        },
+        {
+          "href": "/bilan-promoteur",
+          "title": "KI Promoter-Bilan",
+          "description": "PDF-Virfëllen + Liewensfäegkeetsanalys."
+        }
       ],
       "faq": [
-        { "q": "Ass d'tevaxia-KI wierklech gratis?", "a": "Jo: 5 Analysen pro Dag pro ageloggte Notzer, keng Kreditkaart oder Abonnement. Doriwwer eraus, fügt Ären eegene Cerebras-, Groq-, OpenAI- oder Anthropic-Schlëssel an Ärem Profil fir onlimitéiert Notzung. De gratis Tier notzt Cerebras (Llama 3.1 8B) mat Groq-Fallback wann konfiguréiert." },
-        { "q": "Ginn meng Donnéeën un Drëtter geschéckt?", "a": "Jo, d'Ufroe ginn iwwer de konfiguréierte KI-Fournisseur (Cerebras par défaut, oder Äre BYOK-Schlëssel). Déi geschéckte Kontexter enthalen nëmmen d'Inputs an d'Resultater vum aktuelle Kalkul, ni perséinlech Donnéeën dobausse dovun. Cerebras a Groq späicheren d'Prompts net fir d'Training. Fir héich Vertraulechkeet, bevorzugt Anthropic oder OpenAI mat Entreprise-No-Training-Vertrag." },
-        { "q": "Kann d'KI en TEGOVA-zertifizéierten Expert ersetzen?", "a": "Nee. D'KI gëtt Hëllef bei der Redaktioun an der Analys, kee verbindlecht Expertegutachten. Fir en EVS-Bericht fir eng Bank oder e Geriicht bleift den TEGOVA REV/TRV-Expert responsabel fir de gehalene Wäert a muss kontrolléieren, korrigéieren an ënnerschreiwen. D'KI beschleunegt d'Produktioun, ersetzt awer weder déi mënschlech Expertise nach de Besuch um Terrain." },
-        { "q": "Wéi eng Modeller ginn am BYOK ënnerstëtzt?", "a": "Anthropic (Claude 4.x — empfuelen fir PDF-Visioun an EVS-Redaktioun), OpenAI (GPT-4o, GPT-4 Turbo — gutt an Visioun), Groq (séier Llama 3.x), Cerebras (Llama 3.1 8B — gratis, Standard). 2-Klick-Setup an /profil. Stéckkäschten an Echtzäit ugewisen." },
-        { "q": "Wéi gräifen ech op déi ëffentlech tevaxia-API zou?", "a": "Op /api-docs fannt Dir déi komplett Dokumentatioun vun de 3 Endpoints (analyze, chat, extract) mat cURL-Beispiller, JS- a Python-SDK. Authentifizéierung iwwer X-API-Key-Header. Standard-Rate-Limit-Tarif gratis; fir héich Volumen oder SLA, kontaktéiert eis iwwer /pricing fir en Enterprise-Tarif." },
-        { "q": "Wat sinn d'Limite vun den KI-Analysen?", "a": "Modeller maachen heiansdo Berechnungsfehler oder zitéieren veroudert Referenzen (Wëssens-Cutoff variéiert no Modell). tevaxia injéiert déi aktuell Schlësselzuele (Sätz 2026, STATEC-Koeffizienten, Bëllegen-Akt-Beträg) am Kontext fir dës Fehler ze reduzéieren. Fir kritesch Zuele préift ëmmer mat eisen deterministesche Tools (Rechner, Simulatoren)." }
+        {
+          "q": "Ass d'tevaxia-KI wierklech gratis?",
+          "a": "Jo: 5 Analysen pro Dag pro ageloggte Notzer, keng Kreditkaart oder Abonnement. Doriwwer eraus, fügt Ären eegene Cerebras-, Groq-, OpenAI- oder Anthropic-Schlëssel an Ärem Profil fir onlimitéiert Notzung. De gratis Tier notzt Cerebras (Llama 3.1 8B) mat Groq-Fallback wann konfiguréiert."
+        },
+        {
+          "q": "Ginn meng Donnéeën un Drëtter geschéckt?",
+          "a": "Jo, d'Ufroe ginn iwwer de konfiguréierte KI-Fournisseur (Cerebras par défaut, oder Äre BYOK-Schlëssel). Déi geschéckte Kontexter enthalen nëmmen d'Inputs an d'Resultater vum aktuelle Kalkul, ni perséinlech Donnéeën dobausse dovun. Cerebras a Groq späicheren d'Prompts net fir d'Training. Fir héich Vertraulechkeet, bevorzugt Anthropic oder OpenAI mat Entreprise-No-Training-Vertrag."
+        },
+        {
+          "q": "Kann d'KI en TEGOVA-zertifizéierten Expert ersetzen?",
+          "a": "Nee. D'KI gëtt Hëllef bei der Redaktioun an der Analys, kee verbindlecht Expertegutachten. Fir en EVS-Bericht fir eng Bank oder e Geriicht bleift den TEGOVA REV/TRV-Expert responsabel fir de gehalene Wäert a muss kontrolléieren, korrigéieren an ënnerschreiwen. D'KI beschleunegt d'Produktioun, ersetzt awer weder déi mënschlech Expertise nach de Besuch um Terrain."
+        },
+        {
+          "q": "Wéi eng Modeller ginn am BYOK ënnerstëtzt?",
+          "a": "Anthropic (Claude 4.x — empfuelen fir PDF-Visioun an EVS-Redaktioun), OpenAI (GPT-4o, GPT-4 Turbo — gutt an Visioun), Groq (séier Llama 3.x), Cerebras (Llama 3.1 8B — gratis, Standard). 2-Klick-Setup an /profil. Stéckkäschten an Echtzäit ugewisen."
+        },
+        {
+          "q": "Wéi gräifen ech op déi ëffentlech tevaxia-API zou?",
+          "a": "Op /api-docs fannt Dir déi komplett Dokumentatioun vun de 3 Endpoints (analyze, chat, extract) mat cURL-Beispiller, JS- a Python-SDK. Authentifizéierung iwwer X-API-Key-Header. Standard-Rate-Limit-Tarif gratis; fir héich Volumen oder SLA, kontaktéiert eis iwwer /pricing fir en Enterprise-Tarif."
+        },
+        {
+          "q": "Wat sinn d'Limite vun den KI-Analysen?",
+          "a": "Modeller maachen heiansdo Berechnungsfehler oder zitéieren veroudert Referenzen (Wëssens-Cutoff variéiert no Modell). tevaxia injéiert déi aktuell Schlësselzuele (Sätz 2026, STATEC-Koeffizienten, Bëllegen-Akt-Beträg) am Kontext fir dës Fehler ze reduzéieren. Fir kritesch Zuele préift ëmmer mat eisen deterministesche Tools (Rechner, Simulatoren)."
+        }
       ],
       "sources": [
-        { "title": "Dokumentatioun vun der ëffentlecher tevaxia-API", "org": "tevaxia.lu", "url": "https://tevaxia.lu/api-docs" },
-        { "title": "TEGOVA EVS 2025 — European Valuation Standards", "org": "TEGOVA", "url": "https://www.tegova.org/", "year": 2025 },
-        { "title": "Geännert Gesetz vum 4. Dezember 1967 (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
-        { "title": "Cerebras Inference — Open-Weight-Modeller", "org": "Cerebras Systems", "url": "https://cerebras.ai/inference" },
-        { "title": "Anthropic API — Claude fir PDF-Visioun", "org": "Anthropic", "url": "https://docs.anthropic.com/" }
+        {
+          "title": "Dokumentatioun vun der ëffentlecher tevaxia-API",
+          "org": "tevaxia.lu",
+          "url": "https://tevaxia.lu/api-docs"
+        },
+        {
+          "title": "TEGOVA EVS 2025 — European Valuation Standards",
+          "org": "TEGOVA",
+          "url": "https://www.tegova.org/",
+          "year": 2025
+        },
+        {
+          "title": "Geännert Gesetz vum 4. Dezember 1967 (LIR)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        },
+        {
+          "title": "Cerebras Inference — Open-Weight-Modeller",
+          "org": "Cerebras Systems",
+          "url": "https://cerebras.ai/inference"
+        },
+        {
+          "title": "Anthropic API — Claude fir PDF-Visioun",
+          "org": "Anthropic",
+          "url": "https://docs.anthropic.com/"
+        }
       ]
     }
   },
@@ -16604,5 +17551,324 @@
     "checkApiDesc": "Endpoint /api/v1/estimation",
     "checkObservName": "data.public.lu",
     "checkObservDesc": "Wunnengsobservatoire"
+  },
+  "portalLandings": {
+    "copropriete": {
+      "meta": {
+        "title": "Matbesëtzerportal Lëtzebuerg — tevaxia Zougang",
+        "description": "Zougang zu Ärem Matbesëtzerportal: AV-Aluedungen, Online-Ofstëmmungen, individuell Konten, Fongsuriffer. Séchere Magic-Link vum Verwalter."
+      },
+      "hero": {
+        "badge": "Matbesëtzerportal",
+        "title": "Är Matbesëtzergemeinschaft",
+        "titleAccent": "an voller Transparenz",
+        "subtitle": "Aluedungen, Protokoller, Online-Ofstëmmungen, Suivi vun de Fongsuriffer an individuellt Kont: Är ganz Akt op enger Plaz. Séchere Zougang iwwer Magic-Link vum Verwalter.",
+        "primaryCta": "Mäi Zougangslink ufroen",
+        "secondaryCta": "Matbesëtz zu Lëtzebuerg verstoen"
+      },
+      "features": {
+        "title": "Wat Dir am Portal fannt",
+        "intro": "All gesetzlech Informatiounen iwwer Är Gemeinschaft, 24/7 op all Apparat verfügbar.",
+        "items": [
+          {
+            "icon": "📋",
+            "title": "Aluedungen & Protokoller",
+            "desc": "Aluedungen, Dagesuerdnungen an ënnerschriwwen Protokoller eroflueden. Komplett Historik."
+          },
+          {
+            "icon": "🗳️",
+            "title": "Online-Ofstëmmung",
+            "desc": "Elektronesch op der Generalversammlung ofstëmmen (Gesetz vum 16. Mee 1975 a senger geännerter Versioun)."
+          },
+          {
+            "icon": "💶",
+            "title": "Mäin individuellt Kont",
+            "desc": "Fongsuriffer, Lasten, Bezuelungen an aktuelle Saldo. Auszug als PDF eroflueden."
+          },
+          {
+            "icon": "🤖",
+            "title": "KI-Assistent Matbesëtz",
+            "desc": "Froen iwwer d'Reglement, d'Lasten oder lëtzebuergescht Recht — mat Quellen."
+          }
+        ]
+      },
+      "access": {
+        "title": "Wéi op Äert Portal zougräifen",
+        "intro": "Keng Kontoerstellung. Äre Verwalter schéckt Iech e séchere perséinleche Magic-Link.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Ufro beim Verwalter",
+            "desc": "Kontaktéiert Äre professionnelle oder éierenamtleche Verwalter an froet Ären tevaxia-Zougangslink un."
+          },
+          {
+            "number": "2",
+            "title": "Receptioun per Mail",
+            "desc": "Dir kritt eng E-Mail mat Ärem perséinleche Link. Gëlteg, soulang en net widerrufen ass."
+          },
+          {
+            "number": "3",
+            "title": "Direkten Zougang",
+            "desc": "Klickt op de Link: Dir kommt ouni Passwuert op Är Akt. Keng App ze installéieren."
+          }
+        ],
+        "note": "Keen Link kritt? Äre Verwalter benotzt eventuell nach net tevaxia. Invitéiert hien, eis Verwalterléisung z'entdecken."
+      },
+      "faq": {
+        "title": "Heefeg gestallt Froen",
+        "items": [
+          {
+            "q": "Ass de Link sécher?",
+            "a": "Den Token ass zoufälleg (256 Bit), eenzegaarteg an opak. En identifizéiert strikt Äert Lot an Är Donnéeën. Dir kënnt Äre Verwalter zu all Moment froen, en ze widerrufen."
+          },
+          {
+            "q": "Kann ech aus dem Portal ofstëmmen?",
+            "a": "Jo, op Beschlëss, déi fir elektronesch Ofstëmmung opgemaach sinn. D'Lëtzebuerger Gesetz vum 16. Mee 1975 (geännert 6. Juni 2023) erlaabt Fernofstëmmungen, wann d'Reglement et net verbitt."
+          },
+          {
+            "q": "Wat wann ech och Locataire sinn?",
+            "a": "Dir kënnt méi getrennte Zougäng hunn (een pro Matbesëtzerlot + een pro Locatiounskontrakt). All Token ass onofhängeg."
+          },
+          {
+            "q": "Sinn meng Donnéeën an Europa?",
+            "a": "Jo. tevaxia hostet all Donnéeën an der EU (Supabase EU + Vercel EU). DSGVO-konform."
+          },
+          {
+            "q": "Wat kascht mech dëse Zougang?",
+            "a": "De Matbesëtzerzougang ass gratis. Äre Verwalter abonnéiert tevaxia fir d'Verwaltung."
+          }
+        ]
+      },
+      "related": {
+        "title": "Méi liesen",
+        "items": [
+          {
+            "label": "Guide Matbesëtz Lëtzebuerg",
+            "href": "/guide/copropriete-luxembourg",
+            "desc": "Gesetz vum 16. Mee 1975, AV, Lasten, Verwaltungsrot."
+          },
+          {
+            "label": "Verwalterléisung",
+            "href": "/solutions/syndic",
+            "desc": "Fir professionnel an éierenamtlech Verwalter."
+          },
+          {
+            "label": "Verwaltungsrot",
+            "href": "/conseil-syndical",
+            "desc": "Rotsmemberen: Steiert d'Gemeinschaft."
+          }
+        ]
+      }
+    },
+    "conseilSyndical": {
+      "meta": {
+        "title": "Verwaltungsrot Lëtzebuerg — tevaxia Portal",
+        "description": "Steiert Är Matbesëtzergemeinschaft als Rotsmember: konsolidéiert Vue, Suivi vun den Aarbechten, AV-Virbereedung, Kommunikatioun mat den Eegentümer."
+      },
+      "hero": {
+        "badge": "Verwaltungsrot",
+        "title": "Steiert Är Gemeinschaft",
+        "titleAccent": "mat Vertrauen",
+        "subtitle": "Konsolidéiert Kontosvue, Suivi vun de Stëmmaarbechten, AV-Virbereedung a konsolidéiert Kommunikatioun. Den dediéierten Outil fir gewielten Rotsmemberen.",
+        "primaryCta": "Mäi Zougangslink ufroen",
+        "secondaryCta": "Roll vum Rot"
+      },
+      "features": {
+        "title": "Är Steierungsouti",
+        "intro": "Als gewielte Member representéiert Dir d'Eegentümer a kontrolléiert de Verwalter. tevaxia gëtt Iech déi richteg Indicateuren.",
+        "items": [
+          {
+            "icon": "📊",
+            "title": "Konsolidéiert Kontosvue",
+            "desc": "Salden, lafend Lasten, Bedriffsfong, Aarbechtsfong, aggregéiert Réckstänn."
+          },
+          {
+            "icon": "🛠️",
+            "title": "Suivi vun den Aarbechten",
+            "desc": "Status vun de gestëmmten Aarbechtsresolutiounen, vergläichend Devisen, Rechnungen."
+          },
+          {
+            "icon": "📝",
+            "title": "AV-Virbereedung",
+            "desc": "Kollaborativ Dagesuerdnung, Resolutiounsentwerfer, Dokumenter ze annexéieren."
+          },
+          {
+            "icon": "✉️",
+            "title": "Eegentümerkommunikatioun",
+            "desc": "Grupp-Versand un d'Eegentümer, archivéierten Austausch."
+          }
+        ]
+      },
+      "access": {
+        "title": "Wéi op Äert Portal zougräifen",
+        "intro": "De Verwalter gëtt Iech den Zougang Verwaltungsrot bei Ärer Wahl an der AV.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Wahl an der AV",
+            "desc": "Dir gitt vun der Generalversammlung an de Rot gewielt (Artikel 15-1 Gesetz 1975)."
+          },
+          {
+            "number": "2",
+            "title": "Link vum Verwalter",
+            "desc": "De Verwalter schéckt Ären perséinleche Rotszougang per Mail."
+          },
+          {
+            "number": "3",
+            "title": "Permanent Zougang",
+            "desc": "Verbënnt Iech zu all Moment vu jiddwerengem Apparat. Kee Passwuert."
+          }
+        ],
+        "note": "De Rotsmandat ass zäitlech limitéiert (normalerweis 1 bis 3 Joer). Äre Zougang gëtt um Enn vum Mandat widerrufen."
+      },
+      "faq": {
+        "title": "Heefeg gestallt Froen",
+        "items": [
+          {
+            "q": "Wéi sinn meng gesetzlech Flichten?",
+            "a": "De Rot ënnerstëtzt a kontrolléiert de Verwalter. Hie muss bei all Kontrakt iwwer enger vun der AV festgeluechter Schwell konsultéiert ginn (Artikel 15-1 Gesetz vum 16. Mee 1975)."
+          },
+          {
+            "q": "Kann ech d'Buchhaltungsbeleeg gesinn?",
+            "a": "Jo, de Rot huet zu all Moment Zougang zu de Beleeg. tevaxia gëtt Zougang zu de vum Verwalter gescannte Rechnungen."
+          },
+          {
+            "q": "Wat bei Onregelmäßegkeeten?",
+            "a": "Mellt se dem Verwalter iwwer d'tevaxia-Messagerie (Nochweesbarkeet erhale). Bei Sträit kann de Rot eng aussergewéinlech AV beruffen."
+          },
+          {
+            "q": "Wéi vill Rotsmemberen?",
+            "a": "D'Lëtzebuerger Gesetz schreift keng feste Zuel vir. Praxis ass 3 bis 5 Memberen bei mëttelgroussen Gemeinschaften."
+          }
+        ]
+      },
+      "related": {
+        "title": "Méi liesen",
+        "items": [
+          {
+            "label": "Guide Matbesëtz",
+            "href": "/guide/copropriete-luxembourg",
+            "desc": "Gesetz 1975, Rot, AV."
+          },
+          {
+            "label": "Verwalterléisung",
+            "href": "/solutions/syndic",
+            "desc": "Fir Verwalter — komplett Verwaltungsoutil."
+          },
+          {
+            "label": "Matbesëtzerportal",
+            "href": "/copropriete",
+            "desc": "Individuellt Portal fir Matbesëtzer."
+          }
+        ]
+      }
+    },
+    "locataire": {
+      "meta": {
+        "title": "Locatairesportal Lëtzebuerg — tevaxia",
+        "description": "Zougang zu Ärem Locatairesportal: Locatiounsquittungen, digital Wunnengsiwwerreechung, Lastenofrechnungen, KI-Locatiounsassistent. Séchere Magic-Link vum Bailleur."
+      },
+      "hero": {
+        "badge": "Locatairesportal",
+        "title": "Äre Bail zu Lëtzebuerg",
+        "titleAccent": "alles op enger Plaz",
+        "subtitle": "Locatiounsquittungen, digital Wunnengsiwwerreechung, Lastenofrechnungen, Austausch mat Bailleur oder Agence. Séchere Magic-Link ouni Kontoerstellung.",
+        "primaryCta": "Mäi Zougangslink ufroen",
+        "secondaryCta": "Äre Bail verstoen"
+      },
+      "features": {
+        "title": "Wat Dir am Portal fannt",
+        "intro": "All Är Bail-Dokumenter 24/7 verfügbar, konform mat Lëtzebuerger Locatiounsrecht.",
+        "items": [
+          {
+            "icon": "🧾",
+            "title": "Locatiounsquittungen",
+            "desc": "Är ënnerschriwwen monatlech Quittungen eroflueden. Onverzichtbar fir administrativ Schrëtt."
+          },
+          {
+            "icon": "📋",
+            "title": "Digital Wunnengsiwwerreechung",
+            "desc": "Zäitgestempelt Ein- an Ausgangsprotokoller mat Fotoen. Vergläich niewenanner."
+          },
+          {
+            "icon": "💶",
+            "title": "Lastenofrechnung",
+            "desc": "Detailléiert jährlech Ofrechnung Pos fir Pos, mat Beleeg."
+          },
+          {
+            "icon": "🤖",
+            "title": "KI-Locatiounsassistent",
+            "desc": "Froen iwwer d'Gesetz vum 21. September 2006 — Rechter, Flichten, Garantie."
+          }
+        ]
+      },
+      "access": {
+        "title": "Wéi op Äert Portal zougräifen",
+        "intro": "Keng Kontoerstellung. Äre Bailleur oder d'Agence schéckt Iech e séchere perséinleche Magic-Link.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Ufro beim Bailleur",
+            "desc": "Kontaktéiert Äre Bailleur oder d'Agence a froet Ären tevaxia-Locatairezougang un."
+          },
+          {
+            "number": "2",
+            "title": "Receptioun per Mail",
+            "desc": "Dir kritt eng E-Mail mat Ärem perséinleche Link. Gëlteg fir d'ganz Locatiounsdauer."
+          },
+          {
+            "number": "3",
+            "title": "Direkten Zougang",
+            "desc": "Klickt op de Link: Dir kommt ouni Passwuert op Är Akt. Keng App ze installéieren."
+          }
+        ],
+        "note": "Keen Link kritt? Äre Bailleur benotzt eventuell nach net tevaxia. Invitéiert hien, eis Locatiounsverwaltungsléisung z'entdecken."
+      },
+      "faq": {
+        "title": "Heefeg gestallt Froen",
+        "items": [
+          {
+            "q": "Ass de Link sécher?",
+            "a": "Den Token ass zoufälleg (256 Bit), eenzegaarteg an opak. Dir kënnt Äre Bailleur zu all Moment froen, en ze widerrufen."
+          },
+          {
+            "q": "Wat bei Sträit iwwer d'Lasten?",
+            "a": "Dir hutt d'Recht, d'Beleeg ze konsultéieren. D'Gesetz vum 21. September 2006 regelt d'Ofrechnung. Bei dauerhaftem Sträit kann d'Locatiounskommissioun ugeruff ginn."
+          },
+          {
+            "q": "Gëtt d'Garantie hei verwalt?",
+            "a": "Jo — d'Garantie (op gespaartem Kont laut Artikel 5 vum Gesetz) ass am Portal sichtbar, mat Hannerleeungs- a viraussichtlechen Restitutiounsdaten."
+          },
+          {
+            "q": "Wat beim Ëmplënneren?",
+            "a": "Äre neie Bailleur schéckt e neie Link. Den ale bleift 12 Méint nëmmen ze liesen."
+          },
+          {
+            "q": "Wat kascht mech dëse Zougang?",
+            "a": "De Locatairezougang ass gratis. Äre Bailleur abonnéiert tevaxia."
+          }
+        ]
+      },
+      "related": {
+        "title": "Méi liesen",
+        "items": [
+          {
+            "label": "Guide Wunnengsbail",
+            "href": "/guide/bail-habitation-luxembourg",
+            "desc": "Gesetz 21. September 2006, Rechter, Flichten, Lasten."
+          },
+          {
+            "label": "5%-Regel",
+            "href": "/guide/regle-5-pourcent-loyer",
+            "desc": "Gesetzlech Locatiounsobergrenz zu Lëtzebuerg."
+          },
+          {
+            "label": "Locatiounsrechner",
+            "href": "/calculateur-loyer",
+            "desc": "Prüft, ob Är Locatioun der 5%-Regel entsprécht."
+          }
+        ]
+      }
+    }
   }
 }

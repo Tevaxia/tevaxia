@@ -13,7 +13,20 @@ const nextConfig: NextConfig = {
     optimizeCss: true,
   },
   async redirects() {
-    return [];
+    const LOCALES = ["en", "de", "lb", "pt"];
+    const renames: Array<{ from: string; to: string }> = [
+      { from: "/energy/cpe", to: "/energy/audit" },
+      { from: "/energy/epbd-2050", to: "/energy/epbd" },
+      { from: "/esg/crrem", to: "/esg/crrem-pathways" },
+    ];
+    const redirects: Array<{ source: string; destination: string; permanent: boolean }> = [];
+    for (const r of renames) {
+      redirects.push({ source: r.from, destination: r.to, permanent: true });
+      for (const loc of LOCALES) {
+        redirects.push({ source: `/${loc}${r.from}`, destination: `/${loc}${r.to}`, permanent: true });
+      }
+    }
+    return redirects;
   },
   async headers() {
     return [

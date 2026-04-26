@@ -45,6 +45,14 @@ const SOLUTIONS_PAGES = [
   "/solutions/particulier",
 ];
 
+// Portails publics end-user (copropriétaire, conseil syndical, locataire).
+// Pages d'entrée pour utilisateurs invités par lien magique + SEO mots-clés LU.
+const PORTAL_LANDINGS = [
+  "/copropriete",
+  "/conseil-syndical",
+  "/locataire",
+];
+
 function localeUrl(page: string, locale: string) {
   if (locale === "fr") return `${BASE}${page}`;
   return `${BASE}/${locale}${page}`;
@@ -89,6 +97,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Landings persona-spécifiques — priorité élevée (conversion pages)
   addPages(entries, SOLUTIONS_PAGES, now, 0.9, "weekly");
+
+  // Portails publics end-user — priorité moyenne-haute (mots-clés SEO LU)
+  addPages(entries, PORTAL_LANDINGS, now, 0.8, "monthly");
 
   // Pages utilitaires — priorité basse
   addPages(entries, LOW_PRIORITY, now, 0.6, "monthly");

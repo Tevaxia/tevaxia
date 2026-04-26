@@ -9225,13 +9225,43 @@
       "section4Intro": "Le tableau ci-dessous donne une fourchette indicative pour un bien ancien occupé à titre de résidence principale par un couple acquéreur (Bëllegen Akt 80 000 € appliqué). Les frais hypothécaires correspondent à un financement à 80 % de la valeur.",
       "table": {
         "caption": "Frais d'acquisition estimés — bien ancien, couple acquéreur, financement 80 %",
-        "headers": ["Prix d'achat", "Droits 7 %", "Bëllegen Akt", "Total à payer"],
+        "headers": [
+          "Prix d'achat",
+          "Droits 7 %",
+          "Bëllegen Akt",
+          "Total à payer"
+        ],
         "rows": [
-          ["300 000 €", "21 000 €", "−21 000 €", "≈ 6 000 €"],
-          ["500 000 €", "35 000 €", "−35 000 €", "≈ 10 000 €"],
-          ["750 000 €", "52 500 €", "−52 500 €", "≈ 14 000 €"],
-          ["1 000 000 €", "70 000 €", "−70 000 €", "≈ 18 000 €"],
-          ["1 500 000 €", "105 000 €", "−80 000 €", "≈ 50 000 €"]
+          [
+            "300 000 €",
+            "21 000 €",
+            "−21 000 €",
+            "≈ 6 000 €"
+          ],
+          [
+            "500 000 €",
+            "35 000 €",
+            "−35 000 €",
+            "≈ 10 000 €"
+          ],
+          [
+            "750 000 €",
+            "52 500 €",
+            "−52 500 €",
+            "≈ 14 000 €"
+          ],
+          [
+            "1 000 000 €",
+            "70 000 €",
+            "−70 000 €",
+            "≈ 18 000 €"
+          ],
+          [
+            "1 500 000 €",
+            "105 000 €",
+            "−80 000 €",
+            "≈ 50 000 €"
+          ]
         ],
         "footnote": "Total à payer = droits restants après Bëllegen Akt + émoluments notaire + frais hypothécaires + débours. Estimation 2026 pour un couple primo-acquéreur. La part hypothèque est calculée sur 80 % du prix."
       },
@@ -9243,26 +9273,85 @@
         "cta": "Ouvrir le calculateur"
       },
       "tools": [
-        { "href": "/frais-acquisition", "title": "Calculateur de frais d'acquisition", "description": "Estimation complète : droits, Bëllegen Akt, émoluments, hypothèque, TVA logement." },
-        { "href": "/vefa", "title": "Simulateur VEFA", "description": "Décomposition terrain / construction et TVA logement 3 % pour un bien neuf." },
-        { "href": "/outils-bancaires", "title": "Outils bancaires", "description": "Capacité d'emprunt, mensualité, ratios DSTI et LTV avant de signer le compromis." },
-        { "href": "/simulateur-aides", "title": "Aides à l'acquisition", "description": "Prime de logement, subvention d'intérêt, garantie de l'État, prime d'épargne." }
+        {
+          "href": "/frais-acquisition",
+          "title": "Calculateur de frais d'acquisition",
+          "description": "Estimation complète : droits, Bëllegen Akt, émoluments, hypothèque, TVA logement."
+        },
+        {
+          "href": "/vefa",
+          "title": "Simulateur VEFA",
+          "description": "Décomposition terrain / construction et TVA logement 3 % pour un bien neuf."
+        },
+        {
+          "href": "/outils-bancaires",
+          "title": "Outils bancaires",
+          "description": "Capacité d'emprunt, mensualité, ratios DSTI et LTV avant de signer le compromis."
+        },
+        {
+          "href": "/simulateur-aides",
+          "title": "Aides à l'acquisition",
+          "description": "Prime de logement, subvention d'intérêt, garantie de l'État, prime d'épargne."
+        }
       ],
       "faq": [
-        { "q": "Combien de frais de notaire pour un appartement à 500 000 € au Luxembourg ?", "a": "Pour un appartement ancien à 500 000 € acheté par un couple primo-acquéreur (Bëllegen Akt plein), comptez environ 10 000 à 12 000 € de frais totaux : droits 35 000 € entièrement annulés par le crédit d'impôt, plus 4 200 € d'émoluments notaire, environ 4 500 € de frais hypothécaires sur 400 000 € empruntés et 1 500 € de débours." },
-        { "q": "Les frais de notaire sont-ils réduits pour un bien neuf au Luxembourg ?", "a": "Oui. Pour un bien neuf vendu en VEFA, les droits d'enregistrement et de transcription ne portent que sur la part terrain figurant dans l'acte. La construction est soumise à la TVA logement au taux super-réduit de 3 % (faveur fiscale plafonnée à 50 000 € par logement). Les frais totaux tombent généralement entre 3 et 4 % du prix." },
-        { "q": "Qu'est-ce que le Bëllegen Akt et comment l'obtenir ?", "a": "Le Bëllegen Akt est un crédit d'impôt de 40 000 € par acquéreur (80 000 € pour un couple) appliqué sur les droits d'enregistrement, à condition que le bien serve de résidence principale et soit occupé personnellement par l'acquéreur. La demande est faite automatiquement par le notaire lors de l'acte. L'AED perçoit au minimum 100 € de droits dans tous les cas." },
-        { "q": "Les frais de notaire peuvent-ils être négociés au Luxembourg ?", "a": "Non. Les émoluments du notaire luxembourgeois sont strictement réglementés par le règlement grand-ducal du 26 novembre 2015 et le notaire ne peut ni les majorer ni les minorer. Seuls les débours (formalités) peuvent légèrement varier d'une étude à l'autre selon les recherches effectuées." },
-        { "q": "Qui paie les frais de notaire au Luxembourg : l'acheteur ou le vendeur ?", "a": "L'acheteur supporte la totalité des frais d'acquisition (droits, émoluments de l'acte de vente, frais hypothécaires si emprunt). Le vendeur paie uniquement les éventuelles formalités liées à la mainlevée d'une hypothèque préexistante sur le bien et l'éventuelle commission d'agence si elle est à sa charge." },
-        { "q": "Les frais de notaire sont-ils déductibles fiscalement au Luxembourg ?", "a": "Pour un investissement locatif, les frais de notaire (droits, émoluments, frais hypothécaires) ne sont pas déductibles immédiatement mais sont intégrés au coût d'acquisition et peuvent être amortis sur la durée de détention. Pour la résidence principale, ils ne sont pas déductibles mais le Bëllegen Akt en couvre une grande partie." }
+        {
+          "q": "Combien de frais de notaire pour un appartement à 500 000 € au Luxembourg ?",
+          "a": "Pour un appartement ancien à 500 000 € acheté par un couple primo-acquéreur (Bëllegen Akt plein), comptez environ 10 000 à 12 000 € de frais totaux : droits 35 000 € entièrement annulés par le crédit d'impôt, plus 4 200 € d'émoluments notaire, environ 4 500 € de frais hypothécaires sur 400 000 € empruntés et 1 500 € de débours."
+        },
+        {
+          "q": "Les frais de notaire sont-ils réduits pour un bien neuf au Luxembourg ?",
+          "a": "Oui. Pour un bien neuf vendu en VEFA, les droits d'enregistrement et de transcription ne portent que sur la part terrain figurant dans l'acte. La construction est soumise à la TVA logement au taux super-réduit de 3 % (faveur fiscale plafonnée à 50 000 € par logement). Les frais totaux tombent généralement entre 3 et 4 % du prix."
+        },
+        {
+          "q": "Qu'est-ce que le Bëllegen Akt et comment l'obtenir ?",
+          "a": "Le Bëllegen Akt est un crédit d'impôt de 40 000 € par acquéreur (80 000 € pour un couple) appliqué sur les droits d'enregistrement, à condition que le bien serve de résidence principale et soit occupé personnellement par l'acquéreur. La demande est faite automatiquement par le notaire lors de l'acte. L'AED perçoit au minimum 100 € de droits dans tous les cas."
+        },
+        {
+          "q": "Les frais de notaire peuvent-ils être négociés au Luxembourg ?",
+          "a": "Non. Les émoluments du notaire luxembourgeois sont strictement réglementés par le règlement grand-ducal du 26 novembre 2015 et le notaire ne peut ni les majorer ni les minorer. Seuls les débours (formalités) peuvent légèrement varier d'une étude à l'autre selon les recherches effectuées."
+        },
+        {
+          "q": "Qui paie les frais de notaire au Luxembourg : l'acheteur ou le vendeur ?",
+          "a": "L'acheteur supporte la totalité des frais d'acquisition (droits, émoluments de l'acte de vente, frais hypothécaires si emprunt). Le vendeur paie uniquement les éventuelles formalités liées à la mainlevée d'une hypothèque préexistante sur le bien et l'éventuelle commission d'agence si elle est à sa charge."
+        },
+        {
+          "q": "Les frais de notaire sont-ils déductibles fiscalement au Luxembourg ?",
+          "a": "Pour un investissement locatif, les frais de notaire (droits, émoluments, frais hypothécaires) ne sont pas déductibles immédiatement mais sont intégrés au coût d'acquisition et peuvent être amortis sur la durée de détention. Pour la résidence principale, ils ne sont pas déductibles mais le Bëllegen Akt en couvre une grande partie."
+        }
       ],
       "sources": [
-        { "title": "Crédit d'impôt sur les actes notariés (Bëllegen Akt) — démarche", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
-        { "title": "Bëllegen Akt — fiche officielle", "org": "Logement.lu — Ministère du Logement", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
-        { "title": "Règlement grand-ducal du 26 novembre 2015 fixant les émoluments des notaires", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/11/26/n6/jo", "year": 2015 },
-        { "title": "Loi du 22 frimaire an VII relative aux droits d'enregistrement", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" },
-        { "title": "Loi du 25 septembre 1905 sur la transcription des droits réels immobiliers", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1905/09/25/n1/jo" },
-        { "title": "TVA logement à 3 % — circulaire AED", "org": "Administration de l'enregistrement, des domaines et de la TVA", "url": "https://pfi.public.lu/fr.html" }
+        {
+          "title": "Crédit d'impôt sur les actes notariés (Bëllegen Akt) — démarche",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html"
+        },
+        {
+          "title": "Bëllegen Akt — fiche officielle",
+          "org": "Logement.lu — Ministère du Logement",
+          "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html"
+        },
+        {
+          "title": "Règlement grand-ducal du 26 novembre 2015 fixant les émoluments des notaires",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/11/26/n6/jo",
+          "year": 2015
+        },
+        {
+          "title": "Loi du 22 frimaire an VII relative aux droits d'enregistrement",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo"
+        },
+        {
+          "title": "Loi du 25 septembre 1905 sur la transcription des droits réels immobiliers",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1905/09/25/n1/jo"
+        },
+        {
+          "title": "TVA logement à 3 % — circulaire AED",
+          "org": "Administration de l'enregistrement, des domaines et de la TVA",
+          "url": "https://pfi.public.lu/fr.html"
+        }
       ]
     },
     "regle5Pourcent": {
@@ -9294,13 +9383,43 @@
       "section4Intro": "Loyer maximum mensuel pour un appartement type acheté 400 000 € + 30 000 € de frais (430 000 € de capital total). La part construction est estimée à 70 % du prix.",
       "table": {
         "caption": "Loyer maximum légal mensuel selon l'année d'achat (capital initial 430 000 €)",
-        "headers": ["Année d'achat", "Coefficient STATEC", "Capital réévalué", "Loyer max/mois (5 %)"],
+        "headers": [
+          "Année d'achat",
+          "Coefficient STATEC",
+          "Capital réévalué",
+          "Loyer max/mois (5 %)"
+        ],
         "rows": [
-          ["2010", "2,33", "1 001 900 €", "≈ 4 030 €"],
-          ["2015", "2,07", "890 100 €", "≈ 3 140 €"],
-          ["2020", "1,95", "838 500 €", "≈ 3 270 €"],
-          ["2022", "1,77", "761 100 €", "≈ 2 990 €"],
-          ["2025", "1,52", "653 600 €", "≈ 2 690 €"]
+          [
+            "2010",
+            "2,33",
+            "1 001 900 €",
+            "≈ 4 030 €"
+          ],
+          [
+            "2015",
+            "2,07",
+            "890 100 €",
+            "≈ 3 140 €"
+          ],
+          [
+            "2020",
+            "1,95",
+            "838 500 €",
+            "≈ 3 270 €"
+          ],
+          [
+            "2022",
+            "1,77",
+            "761 100 €",
+            "≈ 2 990 €"
+          ],
+          [
+            "2025",
+            "1,52",
+            "653 600 €",
+            "≈ 2 690 €"
+          ]
         ],
         "footnote": "Calcul indicatif après décote vétusté 2 %/an sur la part construction (70 % du prix). Réforme 8184 : avec un plafond à 3,5 %, ces loyers seraient diminués d'environ 30 %."
       },
@@ -9312,25 +9431,81 @@
         "cta": "Lancer le calcul"
       },
       "tools": [
-        { "href": "/calculateur-loyer", "title": "Calculateur de loyer légal", "description": "5 % du capital investi réévalué + décote vétusté + ajustement réforme." },
-        { "href": "/locataire", "title": "Espace locataire", "description": "Modèles de courrier de contestation, suivi des charges, recours commission." },
-        { "href": "/carte", "title": "Carte des prix locatifs", "description": "Loyer médian observé par commune et typologie pour comparer." },
-        { "href": "/portfolio", "title": "Portefeuille investissement", "description": "Suivi de la rentabilité brute/nette de vos biens en location." }
+        {
+          "href": "/calculateur-loyer",
+          "title": "Calculateur de loyer légal",
+          "description": "5 % du capital investi réévalué + décote vétusté + ajustement réforme."
+        },
+        {
+          "href": "/locataire",
+          "title": "Espace locataire",
+          "description": "Modèles de courrier de contestation, suivi des charges, recours commission."
+        },
+        {
+          "href": "/carte",
+          "title": "Carte des prix locatifs",
+          "description": "Loyer médian observé par commune et typologie pour comparer."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Portefeuille investissement",
+          "description": "Suivi de la rentabilité brute/nette de vos biens en location."
+        }
       ],
       "faq": [
-        { "q": "Comment calculer le loyer maximum au Luxembourg ?", "a": "Multipliez le capital investi (prix d'achat + frais d'acte + travaux d'amélioration) par le coefficient STATEC de l'année d'investissement. Appliquez la décote vétusté de 2 % par an sur la part construction. Multipliez le résultat par 5 % pour obtenir le loyer annuel max, puis divisez par 12 pour le mensuel." },
-        { "q": "La règle des 5 % va-t-elle changer au Luxembourg ?", "a": "Le projet de loi 8184 prévoit de ramener le plafond de 5 % à 3,5 % pour les nouveaux baux, en visant une meilleure protection des locataires face à la hausse des prix. Le texte est en discussion parlementaire et pourrait entrer en vigueur courant 2026. Les baux en cours ne seraient pas rétroactivement affectés." },
-        { "q": "Que comprend exactement le capital investi ?", "a": "Le prix d'achat du terrain et de la construction, les frais d'acte (droits, émoluments, hypothèque) et les dépenses d'amélioration durables (extensions, transformation, rénovation énergétique majeure). L'entretien courant, la décoration et le mobilier sont exclus." },
-        { "q": "Comment fonctionne la décote vétusté de 2 % ?", "a": "La part construction (terrain exclu, généralement 60-75 % du prix selon la commune) subit une décote de 2 % par année écoulée depuis l'achat ou les derniers travaux structurels. La décote est cumulée jusqu'à un plancher (typiquement 30 % de la valeur initiale)." },
-        { "q": "Les charges locatives sont-elles incluses dans le plafond 5 % ?", "a": "Non. Les charges (eau, chauffage, entretien commun, ascenseur) sont facturées en supplément du loyer plafonné, sur la base des frais réels et limitativement énumérées par le RGD du 16 juin 2015 (taxe ordures, fluides communs, etc.). Le bailleur ne peut pas répercuter de gros travaux ni sa marge." },
-        { "q": "Que faire si mon loyer dépasse le plafond légal ?", "a": "Saisissez gratuitement la Commission des loyers de votre commune avec l'acte d'acquisition du bailleur (à demander), votre bail et les factures de travaux. La Commission rend un avis ; si le bailleur refuse de s'y conformer, vous pouvez aller devant le juge de paix qui peut ordonner la réduction rétroactive et le remboursement des trop-perçus." }
+        {
+          "q": "Comment calculer le loyer maximum au Luxembourg ?",
+          "a": "Multipliez le capital investi (prix d'achat + frais d'acte + travaux d'amélioration) par le coefficient STATEC de l'année d'investissement. Appliquez la décote vétusté de 2 % par an sur la part construction. Multipliez le résultat par 5 % pour obtenir le loyer annuel max, puis divisez par 12 pour le mensuel."
+        },
+        {
+          "q": "La règle des 5 % va-t-elle changer au Luxembourg ?",
+          "a": "Le projet de loi 8184 prévoit de ramener le plafond de 5 % à 3,5 % pour les nouveaux baux, en visant une meilleure protection des locataires face à la hausse des prix. Le texte est en discussion parlementaire et pourrait entrer en vigueur courant 2026. Les baux en cours ne seraient pas rétroactivement affectés."
+        },
+        {
+          "q": "Que comprend exactement le capital investi ?",
+          "a": "Le prix d'achat du terrain et de la construction, les frais d'acte (droits, émoluments, hypothèque) et les dépenses d'amélioration durables (extensions, transformation, rénovation énergétique majeure). L'entretien courant, la décoration et le mobilier sont exclus."
+        },
+        {
+          "q": "Comment fonctionne la décote vétusté de 2 % ?",
+          "a": "La part construction (terrain exclu, généralement 60-75 % du prix selon la commune) subit une décote de 2 % par année écoulée depuis l'achat ou les derniers travaux structurels. La décote est cumulée jusqu'à un plancher (typiquement 30 % de la valeur initiale)."
+        },
+        {
+          "q": "Les charges locatives sont-elles incluses dans le plafond 5 % ?",
+          "a": "Non. Les charges (eau, chauffage, entretien commun, ascenseur) sont facturées en supplément du loyer plafonné, sur la base des frais réels et limitativement énumérées par le RGD du 16 juin 2015 (taxe ordures, fluides communs, etc.). Le bailleur ne peut pas répercuter de gros travaux ni sa marge."
+        },
+        {
+          "q": "Que faire si mon loyer dépasse le plafond légal ?",
+          "a": "Saisissez gratuitement la Commission des loyers de votre commune avec l'acte d'acquisition du bailleur (à demander), votre bail et les factures de travaux. La Commission rend un avis ; si le bailleur refuse de s'y conformer, vous pouvez aller devant le juge de paix qui peut ordonner la réduction rétroactive et le remboursement des trop-perçus."
+        }
       ],
       "sources": [
-        { "title": "Loi modifiée du 21 septembre 2006 — bail à usage d'habitation", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
-        { "title": "Coefficients de réévaluation — STATEC", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Calcul du loyer — démarche pratique", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/calcul-loyer.html" },
-        { "title": "Projet de loi 8184 — réforme du bail", "org": "Chambre des députés", "url": "https://www.chd.lu/" },
-        { "title": "RGD du 16 juin 2015 — charges récupérables", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 }
+        {
+          "title": "Loi modifiée du 21 septembre 2006 — bail à usage d'habitation",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo",
+          "year": 2006
+        },
+        {
+          "title": "Coefficients de réévaluation — STATEC",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Calcul du loyer — démarche pratique",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/calcul-loyer.html"
+        },
+        {
+          "title": "Projet de loi 8184 — réforme du bail",
+          "org": "Chambre des députés",
+          "url": "https://www.chd.lu/"
+        },
+        {
+          "title": "RGD du 16 juin 2015 — charges récupérables",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo",
+          "year": 2015
+        }
       ]
     },
     "bellegenAkt": {
@@ -9362,13 +9537,43 @@
       "section4Intro": "Voici l'effet du Bëllegen Akt selon le profil d'acquéreur, pour un bien ancien (taux 7 %).",
       "table": {
         "caption": "Effet du Bëllegen Akt selon le profil et le prix",
-        "headers": ["Prix d'achat", "Acquéreur seul (40 000 €)", "Couple (80 000 €)", "Économie réalisée"],
+        "headers": [
+          "Prix d'achat",
+          "Acquéreur seul (40 000 €)",
+          "Couple (80 000 €)",
+          "Économie réalisée"
+        ],
         "rows": [
-          ["300 000 €", "0 € de droits", "0 € de droits", "21 000 €"],
-          ["500 000 €", "0 € (crédit > droits)", "0 € de droits", "35 000 €"],
-          ["750 000 €", "12 500 € de droits", "0 € de droits", "52 500 €"],
-          ["1 000 000 €", "30 000 € de droits", "0 € de droits", "70 000 €"],
-          ["1 500 000 €", "65 000 € de droits", "25 000 € de droits", "80 000 € (couple)"]
+          [
+            "300 000 €",
+            "0 € de droits",
+            "0 € de droits",
+            "21 000 €"
+          ],
+          [
+            "500 000 €",
+            "0 € (crédit > droits)",
+            "0 € de droits",
+            "35 000 €"
+          ],
+          [
+            "750 000 €",
+            "12 500 € de droits",
+            "0 € de droits",
+            "52 500 €"
+          ],
+          [
+            "1 000 000 €",
+            "30 000 € de droits",
+            "0 € de droits",
+            "70 000 €"
+          ],
+          [
+            "1 500 000 €",
+            "65 000 € de droits",
+            "25 000 € de droits",
+            "80 000 € (couple)"
+          ]
         ],
         "footnote": "Économie réalisée par un couple primo-accédant n'ayant jamais utilisé le crédit. Pour un acquéreur seul, l'économie correspond au minimum entre les droits dus et 40 000 €."
       },
@@ -9380,25 +9585,80 @@
         "cta": "Lancer le calcul"
       },
       "tools": [
-        { "href": "/frais-acquisition", "title": "Calculateur frais d'acquisition", "description": "Imputation automatique du Bëllegen Akt selon votre profil." },
-        { "href": "/simulateur-aides", "title": "Simulateur d'aides à l'acquisition", "description": "Cumulez Bëllegen Akt, prime de logement, subvention d'intérêt et garantie d'État." },
-        { "href": "/vefa", "title": "Simulateur VEFA", "description": "Bëllegen Akt sur la part terrain et TVA logement 3 % sur la construction." },
-        { "href": "/outils-bancaires", "title": "Outils bancaires", "description": "Capacité d'emprunt et mensualité pour boucler votre plan de financement." }
+        {
+          "href": "/frais-acquisition",
+          "title": "Calculateur frais d'acquisition",
+          "description": "Imputation automatique du Bëllegen Akt selon votre profil."
+        },
+        {
+          "href": "/simulateur-aides",
+          "title": "Simulateur d'aides à l'acquisition",
+          "description": "Cumulez Bëllegen Akt, prime de logement, subvention d'intérêt et garantie d'État."
+        },
+        {
+          "href": "/vefa",
+          "title": "Simulateur VEFA",
+          "description": "Bëllegen Akt sur la part terrain et TVA logement 3 % sur la construction."
+        },
+        {
+          "href": "/outils-bancaires",
+          "title": "Outils bancaires",
+          "description": "Capacité d'emprunt et mensualité pour boucler votre plan de financement."
+        }
       ],
       "faq": [
-        { "q": "Quel est le montant du Bëllegen Akt en 2026 ?", "a": "Le Bëllegen Akt s'élève à 40 000 € par acquéreur, soit 80 000 € pour un couple acquérant ensemble en indivision. C'est le montant maximal du crédit d'impôt imputable sur les droits d'enregistrement et de transcription." },
-        { "q": "Le Bëllegen Akt est-il cumulable avec d'autres aides ?", "a": "Oui. Il se cumule avec la TVA logement à 3 % sur les biens neufs, la prime d'accession à la propriété, la subvention d'intérêt, la prime d'épargne et la garantie de l'État. Le seul cumul interdit est de bénéficier deux fois du même crédit pour deux acquisitions simultanées." },
-        { "q": "Peut-on utiliser le Bëllegen Akt pour un investissement locatif ?", "a": "Non. Le crédit est strictement réservé à l'acquisition d'une résidence principale occupée personnellement par l'acquéreur. Un investissement locatif, une résidence secondaire ou un local commercial n'y donnent pas droit." },
-        { "q": "Faut-il être résident luxembourgeois pour en bénéficier ?", "a": "Non. Le Bëllegen Akt est ouvert à toute personne physique acquérant un logement au Luxembourg pour y établir sa résidence principale, qu'elle soit déjà résidente fiscale du pays ou qu'elle s'y installe à l'occasion de l'achat." },
-        { "q": "Que se passe-t-il si je revends mon logement rapidement ?", "a": "Si la revente intervient avant la fin du délai d'engagement d'occupation, l'AED peut réclamer le remboursement intégral du crédit, majoré des intérêts de retard. Une revente après plusieurs années d'occupation effective ne déclenche pas de restitution, mais le crédit n'est pas restauré pour une nouvelle acquisition principale." },
-        { "q": "Comment vérifier le solde de crédit disponible ?", "a": "Le notaire interroge l'AED via les téléprocédures avant l'acte. L'acquéreur peut aussi demander une attestation de solde directement à l'AED en présentant une pièce d'identité. Si une partie du crédit a déjà été utilisée lors d'un achat antérieur, seul le résidu est mobilisable." }
+        {
+          "q": "Quel est le montant du Bëllegen Akt en 2026 ?",
+          "a": "Le Bëllegen Akt s'élève à 40 000 € par acquéreur, soit 80 000 € pour un couple acquérant ensemble en indivision. C'est le montant maximal du crédit d'impôt imputable sur les droits d'enregistrement et de transcription."
+        },
+        {
+          "q": "Le Bëllegen Akt est-il cumulable avec d'autres aides ?",
+          "a": "Oui. Il se cumule avec la TVA logement à 3 % sur les biens neufs, la prime d'accession à la propriété, la subvention d'intérêt, la prime d'épargne et la garantie de l'État. Le seul cumul interdit est de bénéficier deux fois du même crédit pour deux acquisitions simultanées."
+        },
+        {
+          "q": "Peut-on utiliser le Bëllegen Akt pour un investissement locatif ?",
+          "a": "Non. Le crédit est strictement réservé à l'acquisition d'une résidence principale occupée personnellement par l'acquéreur. Un investissement locatif, une résidence secondaire ou un local commercial n'y donnent pas droit."
+        },
+        {
+          "q": "Faut-il être résident luxembourgeois pour en bénéficier ?",
+          "a": "Non. Le Bëllegen Akt est ouvert à toute personne physique acquérant un logement au Luxembourg pour y établir sa résidence principale, qu'elle soit déjà résidente fiscale du pays ou qu'elle s'y installe à l'occasion de l'achat."
+        },
+        {
+          "q": "Que se passe-t-il si je revends mon logement rapidement ?",
+          "a": "Si la revente intervient avant la fin du délai d'engagement d'occupation, l'AED peut réclamer le remboursement intégral du crédit, majoré des intérêts de retard. Une revente après plusieurs années d'occupation effective ne déclenche pas de restitution, mais le crédit n'est pas restauré pour une nouvelle acquisition principale."
+        },
+        {
+          "q": "Comment vérifier le solde de crédit disponible ?",
+          "a": "Le notaire interroge l'AED via les téléprocédures avant l'acte. L'acquéreur peut aussi demander une attestation de solde directement à l'AED en présentant une pièce d'identité. Si une partie du crédit a déjà été utilisée lors d'un achat antérieur, seul le résidu est mobilisable."
+        }
       ],
       "sources": [
-        { "title": "Crédit d'impôt sur les actes notariés (Bëllegen Akt) — démarche", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
-        { "title": "Bëllegen Akt — fiche officielle", "org": "Logement.lu — Ministère du Logement", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
-        { "title": "Loi du 30 juillet 2002 instituant le crédit d'impôt sur les actes notariés", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2002/07/30/n3/jo", "year": 2002 },
-        { "title": "Réforme du Bëllegen Akt — porté à 40 000 €", "org": "Paperjam", "url": "https://paperjam.lu/article/frais-enregistrement-baisses-a" },
-        { "title": "Loi du 22 frimaire an VII — droits d'enregistrement", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" }
+        {
+          "title": "Crédit d'impôt sur les actes notariés (Bëllegen Akt) — démarche",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html"
+        },
+        {
+          "title": "Bëllegen Akt — fiche officielle",
+          "org": "Logement.lu — Ministère du Logement",
+          "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html"
+        },
+        {
+          "title": "Loi du 30 juillet 2002 instituant le crédit d'impôt sur les actes notariés",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2002/07/30/n3/jo",
+          "year": 2002
+        },
+        {
+          "title": "Réforme du Bëllegen Akt — porté à 40 000 €",
+          "org": "Paperjam",
+          "url": "https://paperjam.lu/article/frais-enregistrement-baisses-a"
+        },
+        {
+          "title": "Loi du 22 frimaire an VII — droits d'enregistrement",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo"
+        }
       ]
     },
     "plusValue": {
@@ -9430,13 +9690,43 @@
       "section4Intro": "Effets combinés du coefficient de réévaluation, de l'abattement décennal et du quart du taux global pour un bien acquis en 2015 et cédé en 2026 (prix d'achat 400 000 €, frais d'acte 30 000 €, prix de vente 700 000 €, contribuable au taux marginal global de 42 %).",
       "table": {
         "caption": "Plus-value imposable et impôt — exemples 2026",
-        "headers": ["Profil acquéreur", "Plus-value brute", "Après abattement", "Impôt à payer"],
+        "headers": [
+          "Profil acquéreur",
+          "Plus-value brute",
+          "Après abattement",
+          "Impôt à payer"
+        ],
         "rows": [
-          ["Personne seule, 1 cession 10 ans", "≈ −230 000 €", "0 €", "0 €"],
-          ["Couple, 1 cession 10 ans", "≈ −230 000 €", "0 €", "0 €"],
-          ["Personne seule, plusieurs cessions", "150 000 €", "100 000 €", "≈ 10 500 €"],
-          ["Couple, plusieurs cessions", "150 000 €", "50 000 €", "≈ 5 250 €"],
-          ["Spéculation < 2 ans (couple)", "150 000 €", "150 000 €", "≈ 68 700 €"]
+          [
+            "Personne seule, 1 cession 10 ans",
+            "≈ −230 000 €",
+            "0 €",
+            "0 €"
+          ],
+          [
+            "Couple, 1 cession 10 ans",
+            "≈ −230 000 €",
+            "0 €",
+            "0 €"
+          ],
+          [
+            "Personne seule, plusieurs cessions",
+            "150 000 €",
+            "100 000 €",
+            "≈ 10 500 €"
+          ],
+          [
+            "Couple, plusieurs cessions",
+            "150 000 €",
+            "50 000 €",
+            "≈ 5 250 €"
+          ],
+          [
+            "Spéculation < 2 ans (couple)",
+            "150 000 €",
+            "150 000 €",
+            "≈ 68 700 €"
+          ]
         ],
         "footnote": "Calculs indicatifs 2026 : prix réévalué 2015→2026 = 400 000 × 2,07 = 828 000 € (frais inclus 891 100 €), donc cession à 700 000 € génère normalement une moins-value. Les lignes 'plusieurs cessions' supposent une plus-value brute hypothétique de 150 000 € pour illustrer le mécanisme."
       },
@@ -9448,26 +9738,85 @@
         "cta": "Lancer la simulation"
       },
       "tools": [
-        { "href": "/plus-values", "title": "Calculateur plus-value", "description": "Bénéfice de spéculation ou de cession selon la durée, abattement, coefficient STATEC." },
-        { "href": "/dcf-multi", "title": "DCF multi-périodes", "description": "Projection cash-flow et valeur de revente pour anticiper la fiscalité." },
-        { "href": "/portfolio", "title": "Portefeuille immobilier", "description": "Suivi de vos biens et planification des cessions sur 10 ans." },
-        { "href": "/frais-acquisition", "title": "Frais d'acquisition", "description": "Calculez le prix d'acquisition majoré pour servir de base à la plus-value." }
+        {
+          "href": "/plus-values",
+          "title": "Calculateur plus-value",
+          "description": "Bénéfice de spéculation ou de cession selon la durée, abattement, coefficient STATEC."
+        },
+        {
+          "href": "/dcf-multi",
+          "title": "DCF multi-périodes",
+          "description": "Projection cash-flow et valeur de revente pour anticiper la fiscalité."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Portefeuille immobilier",
+          "description": "Suivi de vos biens et planification des cessions sur 10 ans."
+        },
+        {
+          "href": "/frais-acquisition",
+          "title": "Frais d'acquisition",
+          "description": "Calculez le prix d'acquisition majoré pour servir de base à la plus-value."
+        }
       ],
       "faq": [
-        { "q": "Quel est le taux d'imposition sur les plus-values immobilières au Luxembourg ?", "a": "Pour une revente dans les 2 ans (spéculation), barème progressif de l'IR, jusqu'à environ 45,78 % effectif. Après 2 ans (cession), un quart du taux global, soit typiquement 10 à 11 % selon votre tranche, après application de l'abattement décennal." },
-        { "q": "La vente de ma résidence principale est-elle imposable ?", "a": "Non, si vous l'avez occupée effectivement et de manière continue comme résidence principale pendant les 5 années précédant la cession, la plus-value est intégralement exonérée (art. 102bis al. 3 LIR), sans limite de prix de vente." },
-        { "q": "Comment fonctionne l'abattement décennal ?", "a": "Tout contribuable bénéficie d'un abattement de 50 000 € (100 000 € pour un couple imposé collectivement) sur la plus-value imposable, rechargeable tous les dix ans. Si vous cédez deux biens dans la même décennie, l'abattement ne s'applique qu'une fois." },
-        { "q": "Comment est calculé le coefficient de réévaluation ?", "a": "Il est publié chaque année par le STATEC dans le cadre de l'article 102 LIR. Il reflète l'évolution de l'indice des prix de la construction depuis l'année d'acquisition. Pour 2026 : 2,33 (achat 2010), 2,07 (2015), 1,77 (2022), 1,52 (2025), 1,48 (2026)." },
-        { "q": "Les frais d'acquisition entrent-ils dans le calcul ?", "a": "Oui. Les droits d'enregistrement, l'émolument du notaire, les frais hypothécaires de l'acte d'acquisition et les dépenses d'amélioration durables (extensions, rénovation lourde, mise aux normes énergétiques majeures) sont ajoutés au prix d'achat avant réévaluation. L'entretien courant et la décoration ne sont pas déductibles." },
-        { "q": "Que se passe-t-il en cas de donation ou de succession ?", "a": "La donation ou la succession ne déclenche pas d'imposition de la plus-value chez le donateur ou le défunt (art. 99bis al. 4 LIR). Le bénéficiaire reprend le prix d'acquisition historique et la date d'acquisition originale au moment du calcul de sa propre plus-value future, ce qui peut conduire à une plus-value latente significative." }
+        {
+          "q": "Quel est le taux d'imposition sur les plus-values immobilières au Luxembourg ?",
+          "a": "Pour une revente dans les 2 ans (spéculation), barème progressif de l'IR, jusqu'à environ 45,78 % effectif. Après 2 ans (cession), un quart du taux global, soit typiquement 10 à 11 % selon votre tranche, après application de l'abattement décennal."
+        },
+        {
+          "q": "La vente de ma résidence principale est-elle imposable ?",
+          "a": "Non, si vous l'avez occupée effectivement et de manière continue comme résidence principale pendant les 5 années précédant la cession, la plus-value est intégralement exonérée (art. 102bis al. 3 LIR), sans limite de prix de vente."
+        },
+        {
+          "q": "Comment fonctionne l'abattement décennal ?",
+          "a": "Tout contribuable bénéficie d'un abattement de 50 000 € (100 000 € pour un couple imposé collectivement) sur la plus-value imposable, rechargeable tous les dix ans. Si vous cédez deux biens dans la même décennie, l'abattement ne s'applique qu'une fois."
+        },
+        {
+          "q": "Comment est calculé le coefficient de réévaluation ?",
+          "a": "Il est publié chaque année par le STATEC dans le cadre de l'article 102 LIR. Il reflète l'évolution de l'indice des prix de la construction depuis l'année d'acquisition. Pour 2026 : 2,33 (achat 2010), 2,07 (2015), 1,77 (2022), 1,52 (2025), 1,48 (2026)."
+        },
+        {
+          "q": "Les frais d'acquisition entrent-ils dans le calcul ?",
+          "a": "Oui. Les droits d'enregistrement, l'émolument du notaire, les frais hypothécaires de l'acte d'acquisition et les dépenses d'amélioration durables (extensions, rénovation lourde, mise aux normes énergétiques majeures) sont ajoutés au prix d'achat avant réévaluation. L'entretien courant et la décoration ne sont pas déductibles."
+        },
+        {
+          "q": "Que se passe-t-il en cas de donation ou de succession ?",
+          "a": "La donation ou la succession ne déclenche pas d'imposition de la plus-value chez le donateur ou le défunt (art. 99bis al. 4 LIR). Le bénéficiaire reprend le prix d'acquisition historique et la date d'acquisition originale au moment du calcul de sa propre plus-value future, ce qui peut conduire à une plus-value latente significative."
+        }
       ],
       "sources": [
-        { "title": "Loi modifiée du 4 décembre 1967 concernant l'impôt sur le revenu (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo", "year": 1967 },
-        { "title": "Coefficients de réévaluation — barème STATEC", "org": "Administration des contributions directes", "url": "https://impotsdirects.public.lu/fr/legislation/LIR.html" },
-        { "title": "Plus-values immobilières — guide explicatif", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/activite-patrimoine/plus-values/plus-value-cession-immeuble.html" },
-        { "title": "Indice des prix de la construction", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Article 99bis LIR — bénéfice de spéculation", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
-        { "title": "Article 102bis LIR — quart du taux global", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+        {
+          "title": "Loi modifiée du 4 décembre 1967 concernant l'impôt sur le revenu (LIR)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo",
+          "year": 1967
+        },
+        {
+          "title": "Coefficients de réévaluation — barème STATEC",
+          "org": "Administration des contributions directes",
+          "url": "https://impotsdirects.public.lu/fr/legislation/LIR.html"
+        },
+        {
+          "title": "Plus-values immobilières — guide explicatif",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/activite-patrimoine/plus-values/plus-value-cession-immeuble.html"
+        },
+        {
+          "title": "Indice des prix de la construction",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Article 99bis LIR — bénéfice de spéculation",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        },
+        {
+          "title": "Article 102bis LIR — quart du taux global",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        }
       ]
     },
     "bailHabitation": {
@@ -9506,26 +9855,86 @@
         "cta": "Calculer le loyer maximum"
       },
       "tools": [
-        { "href": "/calculateur-loyer", "title": "Calculateur de loyer légal", "description": "Plafond 5 % du capital investi réévalué, vétusté, colocation." },
-        { "href": "/locataire", "title": "Espace locataire", "description": "Outils dédiés : suivi des charges, modèles de courriers, rappel d'état des lieux." },
-        { "href": "/carte", "title": "Carte des prix locatifs", "description": "Loyer médian par commune et par typologie pour comparer." },
-        { "href": "/aml-kyc", "title": "Vérification du bailleur", "description": "Outil utile en cas de doute sur l'identité ou la solvabilité du bailleur." }
+        {
+          "href": "/calculateur-loyer",
+          "title": "Calculateur de loyer légal",
+          "description": "Plafond 5 % du capital investi réévalué, vétusté, colocation."
+        },
+        {
+          "href": "/locataire",
+          "title": "Espace locataire",
+          "description": "Outils dédiés : suivi des charges, modèles de courriers, rappel d'état des lieux."
+        },
+        {
+          "href": "/carte",
+          "title": "Carte des prix locatifs",
+          "description": "Loyer médian par commune et par typologie pour comparer."
+        },
+        {
+          "href": "/aml-kyc",
+          "title": "Vérification du bailleur",
+          "description": "Outil utile en cas de doute sur l'identité ou la solvabilité du bailleur."
+        }
       ],
       "faq": [
-        { "q": "Quel est le préavis pour quitter un logement au Luxembourg ?", "a": "Le locataire respecte un préavis de 3 mois, notifié par lettre recommandée (art. 12 loi 21.09.2006). Le bailleur respecte un préavis de 6 mois et ne peut résilier que pour motifs légitimes (besoin personnel, manquement grave, travaux majeurs)." },
-        { "q": "Quel est le montant maximum de la garantie locative au Luxembourg ?", "a": "Le dépôt est plafonné à 3 mois de loyer hors charges (art. 5 loi 21.09.2006). Il doit être déposé sur un compte bloqué au nom du locataire et les intérêts lui reviennent. Toute clause prévoyant une garantie supérieure est nulle." },
-        { "q": "Le bailleur peut-il augmenter le loyer en cours de bail ?", "a": "Une révision est possible une seule fois tous les deux ans, dans la limite de l'évolution de l'indice STATEC des prix à la consommation, ou si des travaux d'amélioration justifient une réévaluation du capital investi (avec rééavaluation du plafond 5 %). La hausse doit être notifiée par lettre recommandée avec un préavis d'un mois." },
-        { "q": "Quelles charges peuvent m'être facturées en plus du loyer ?", "a": "Uniquement celles listées par le RGD du 16 juin 2015 : eau, électricité et gaz des parties communes, chauffage collectif, entretien courant des communs (nettoyage, jardinage, ascenseur), taxe communale ordures et assurance responsabilité civile de l'immeuble. Tout le reste (gros travaux, syndic, taxe foncière) est à la charge du bailleur." },
-        { "q": "Comment contester un loyer trop élevé ?", "a": "Saisissez gratuitement la Commission des loyers de votre commune. Elle vérifie le calcul du capital investi réévalué et émet un avis. Si le bailleur refuse de s'y conformer, vous pouvez porter l'affaire devant le juge de paix, qui peut imposer une réduction rétroactive du loyer." },
-        { "q": "Que faire si le bailleur ne restitue pas la garantie ?", "a": "Adressez d'abord une mise en demeure par lettre recommandée. Sans réponse sous 30 jours, saisissez la Commission des loyers ou directement le juge de paix. Le juge peut ordonner la restitution majorée d'intérêts et de dommages-intérêts. Conservez l'état des lieux de sortie comme preuve." }
+        {
+          "q": "Quel est le préavis pour quitter un logement au Luxembourg ?",
+          "a": "Le locataire respecte un préavis de 3 mois, notifié par lettre recommandée (art. 12 loi 21.09.2006). Le bailleur respecte un préavis de 6 mois et ne peut résilier que pour motifs légitimes (besoin personnel, manquement grave, travaux majeurs)."
+        },
+        {
+          "q": "Quel est le montant maximum de la garantie locative au Luxembourg ?",
+          "a": "Le dépôt est plafonné à 3 mois de loyer hors charges (art. 5 loi 21.09.2006). Il doit être déposé sur un compte bloqué au nom du locataire et les intérêts lui reviennent. Toute clause prévoyant une garantie supérieure est nulle."
+        },
+        {
+          "q": "Le bailleur peut-il augmenter le loyer en cours de bail ?",
+          "a": "Une révision est possible une seule fois tous les deux ans, dans la limite de l'évolution de l'indice STATEC des prix à la consommation, ou si des travaux d'amélioration justifient une réévaluation du capital investi (avec rééavaluation du plafond 5 %). La hausse doit être notifiée par lettre recommandée avec un préavis d'un mois."
+        },
+        {
+          "q": "Quelles charges peuvent m'être facturées en plus du loyer ?",
+          "a": "Uniquement celles listées par le RGD du 16 juin 2015 : eau, électricité et gaz des parties communes, chauffage collectif, entretien courant des communs (nettoyage, jardinage, ascenseur), taxe communale ordures et assurance responsabilité civile de l'immeuble. Tout le reste (gros travaux, syndic, taxe foncière) est à la charge du bailleur."
+        },
+        {
+          "q": "Comment contester un loyer trop élevé ?",
+          "a": "Saisissez gratuitement la Commission des loyers de votre commune. Elle vérifie le calcul du capital investi réévalué et émet un avis. Si le bailleur refuse de s'y conformer, vous pouvez porter l'affaire devant le juge de paix, qui peut imposer une réduction rétroactive du loyer."
+        },
+        {
+          "q": "Que faire si le bailleur ne restitue pas la garantie ?",
+          "a": "Adressez d'abord une mise en demeure par lettre recommandée. Sans réponse sous 30 jours, saisissez la Commission des loyers ou directement le juge de paix. Le juge peut ordonner la restitution majorée d'intérêts et de dommages-intérêts. Conservez l'état des lieux de sortie comme preuve."
+        }
       ],
       "sources": [
-        { "title": "Loi modifiée du 21 septembre 2006 sur le bail à usage d'habitation", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
-        { "title": "Règlement grand-ducal du 16 juin 2015 — charges récupérables", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 },
-        { "title": "Bail à usage d'habitation — guide complet", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html" },
-        { "title": "Commission des loyers — démarche", "org": "Logement.lu — Ministère du Logement", "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html" },
-        { "title": "Garantie locative — soutien de l'État", "org": "Logement.lu", "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html" },
-        { "title": "Code civil — obligations du bailleur (art. 1719 et suiv.)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+        {
+          "title": "Loi modifiée du 21 septembre 2006 sur le bail à usage d'habitation",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo",
+          "year": 2006
+        },
+        {
+          "title": "Règlement grand-ducal du 16 juin 2015 — charges récupérables",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo",
+          "year": 2015
+        },
+        {
+          "title": "Bail à usage d'habitation — guide complet",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html"
+        },
+        {
+          "title": "Commission des loyers — démarche",
+          "org": "Logement.lu — Ministère du Logement",
+          "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html"
+        },
+        {
+          "title": "Garantie locative — soutien de l'État",
+          "org": "Logement.lu",
+          "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html"
+        },
+        {
+          "title": "Code civil — obligations du bailleur (art. 1719 et suiv.)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+        }
       ]
     },
     "copropriete": {
@@ -9564,25 +9973,81 @@
         "cta": "Accéder à l'espace copropriété"
       },
       "tools": [
-        { "href": "/copropriete", "title": "Espace copropriété", "description": "Suivi des charges, AG, conseil syndical, archives." },
-        { "href": "/syndic", "title": "Outils syndic", "description": "Gestion d'un portefeuille de copropriétés pour syndics professionnels." },
-        { "href": "/conseil-syndical", "title": "Conseil syndical", "description": "Outils dédiés au contrôle de la gestion du syndic." },
-        { "href": "/calculateur-vrd", "title": "Travaux VRD", "description": "Estimation chiffrée pour les travaux votés en AG." }
+        {
+          "href": "/copropriete",
+          "title": "Espace copropriété",
+          "description": "Suivi des charges, AG, conseil syndical, archives."
+        },
+        {
+          "href": "/syndic",
+          "title": "Outils syndic",
+          "description": "Gestion d'un portefeuille de copropriétés pour syndics professionnels."
+        },
+        {
+          "href": "/conseil-syndical",
+          "title": "Conseil syndical",
+          "description": "Outils dédiés au contrôle de la gestion du syndic."
+        },
+        {
+          "href": "/calculateur-vrd",
+          "title": "Travaux VRD",
+          "description": "Estimation chiffrée pour les travaux votés en AG."
+        }
       ],
       "faq": [
-        { "q": "Le syndic est-il obligatoire en copropriété au Luxembourg ?", "a": "Oui, la désignation d'un syndic professionnel est obligatoire pour les copropriétés de plus de 5 lots (art. 16 loi 16.05.1975 modifiée). Pour les petites copropriétés (≤ 5 lots), la gestion peut être assurée directement par les copropriétaires ou un syndic bénévole." },
-        { "q": "Quelle majorité faut-il pour voter des travaux en copropriété ?", "a": "Entretien courant : majorité simple. Travaux d'amélioration : majorité absolue. Modification du règlement de copropriété ou travaux de transformation : majorité des 3/4 de tous les tantièmes. Atteinte aux droits privatifs : unanimité." },
-        { "q": "Combien faut-il provisionner sur le fonds de réserve ?", "a": "La loi ne fixe pas de pourcentage, mais l'AG doit voter une cotisation annuelle réaliste pour financer les gros travaux à venir. En pratique, comptez 5 à 10 % du budget annuel courant. Pour un immeuble vétuste, jusqu'à 15 % peut être nécessaire pour anticiper ravalement et toiture." },
-        { "q": "Que se passe-t-il en cas d'impayé d'un copropriétaire ?", "a": "Le syndic met en demeure puis peut saisir le juge de paix. Le syndicat bénéficie d'un privilège immobilier de premier rang sur le lot pour les charges des deux années en cours (art. 24). En dernier recours, le lot peut être vendu par adjudication forcée pour apurer la dette." },
-        { "q": "Comment changer de syndic au Luxembourg ?", "a": "À l'arrivée à terme du mandat (3 ans), l'AG vote la désignation d'un nouveau syndic à la majorité absolue. En cours de mandat, la révocation est possible à la majorité absolue pour faute grave (mauvaise gestion, non-respect des décisions de l'AG, conflit d'intérêts). Le syndic révoqué doit transmettre les archives et la trésorerie sous 15 jours." },
-        { "q": "Le conseil syndical est-il obligatoire ?", "a": "Non, c'est un organe facultatif. Composé de copropriétaires élus en AG, il assiste et contrôle le syndic, donne son avis sur les contrats importants et prépare les AG. Vivement recommandé dès qu'une copropriété compte plus de 10 lots pour éviter une dépendance totale au syndic." }
+        {
+          "q": "Le syndic est-il obligatoire en copropriété au Luxembourg ?",
+          "a": "Oui, la désignation d'un syndic professionnel est obligatoire pour les copropriétés de plus de 5 lots (art. 16 loi 16.05.1975 modifiée). Pour les petites copropriétés (≤ 5 lots), la gestion peut être assurée directement par les copropriétaires ou un syndic bénévole."
+        },
+        {
+          "q": "Quelle majorité faut-il pour voter des travaux en copropriété ?",
+          "a": "Entretien courant : majorité simple. Travaux d'amélioration : majorité absolue. Modification du règlement de copropriété ou travaux de transformation : majorité des 3/4 de tous les tantièmes. Atteinte aux droits privatifs : unanimité."
+        },
+        {
+          "q": "Combien faut-il provisionner sur le fonds de réserve ?",
+          "a": "La loi ne fixe pas de pourcentage, mais l'AG doit voter une cotisation annuelle réaliste pour financer les gros travaux à venir. En pratique, comptez 5 à 10 % du budget annuel courant. Pour un immeuble vétuste, jusqu'à 15 % peut être nécessaire pour anticiper ravalement et toiture."
+        },
+        {
+          "q": "Que se passe-t-il en cas d'impayé d'un copropriétaire ?",
+          "a": "Le syndic met en demeure puis peut saisir le juge de paix. Le syndicat bénéficie d'un privilège immobilier de premier rang sur le lot pour les charges des deux années en cours (art. 24). En dernier recours, le lot peut être vendu par adjudication forcée pour apurer la dette."
+        },
+        {
+          "q": "Comment changer de syndic au Luxembourg ?",
+          "a": "À l'arrivée à terme du mandat (3 ans), l'AG vote la désignation d'un nouveau syndic à la majorité absolue. En cours de mandat, la révocation est possible à la majorité absolue pour faute grave (mauvaise gestion, non-respect des décisions de l'AG, conflit d'intérêts). Le syndic révoqué doit transmettre les archives et la trésorerie sous 15 jours."
+        },
+        {
+          "q": "Le conseil syndical est-il obligatoire ?",
+          "a": "Non, c'est un organe facultatif. Composé de copropriétaires élus en AG, il assiste et contrôle le syndic, donne son avis sur les contrats importants et prépare les AG. Vivement recommandé dès qu'une copropriété compte plus de 10 lots pour éviter une dépendance totale au syndic."
+        }
       ],
       "sources": [
-        { "title": "Loi modifiée du 16 mai 1975 portant réglementation de la copropriété", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1975/05/16/n1/jo", "year": 1975 },
-        { "title": "Loi du 6 août 2018 portant modification de la loi du 16 mai 1975 (réforme copropriété)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo", "year": 2018 },
-        { "title": "Copropriété — fiche d'information", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/charges-immeuble/copropriete.html" },
-        { "title": "Loi du 1er août 2018 — fonds de réserve obligatoire", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo" },
-        { "title": "Code civil — droits réels (livre II)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+        {
+          "title": "Loi modifiée du 16 mai 1975 portant réglementation de la copropriété",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1975/05/16/n1/jo",
+          "year": 1975
+        },
+        {
+          "title": "Loi du 6 août 2018 portant modification de la loi du 16 mai 1975 (réforme copropriété)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo",
+          "year": 2018
+        },
+        {
+          "title": "Copropriété — fiche d'information",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/charges-immeuble/copropriete.html"
+        },
+        {
+          "title": "Loi du 1er août 2018 — fonds de réserve obligatoire",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo"
+        },
+        {
+          "title": "Code civil — droits réels (livre II)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+        }
       ]
     },
     "klimabonus": {
@@ -9612,13 +10077,43 @@
       "section4Intro": "Pour une rénovation profonde d'une maison individuelle ancienne (classe G → classe A), voici les ordres de grandeur des aides cumulables en 2026.",
       "table": {
         "caption": "Cumul d'aides Klimabonus 2026 — exemples chiffrés",
-        "headers": ["Poste", "Coût HT", "PRIMe House base", "Topup social (≤ 60k €)"],
+        "headers": [
+          "Poste",
+          "Coût HT",
+          "PRIMe House base",
+          "Topup social (≤ 60k €)"
+        ],
         "rows": [
-          ["Isolation toiture (200 m²)", "20 000 €", "11 000 €", "16 500 €"],
-          ["Isolation murs (150 m²)", "30 000 €", "16 500 €", "24 750 €"],
-          ["Fenêtres triple vitrage (30 m²)", "18 000 €", "4 500 €", "6 750 €"],
-          ["PAC géothermique", "30 000 €", "12 000 €", "18 000 €"],
-          ["Photovoltaïque 10 kWc", "20 000 €", "5 000 €", "5 000 €"]
+          [
+            "Isolation toiture (200 m²)",
+            "20 000 €",
+            "11 000 €",
+            "16 500 €"
+          ],
+          [
+            "Isolation murs (150 m²)",
+            "30 000 €",
+            "16 500 €",
+            "24 750 €"
+          ],
+          [
+            "Fenêtres triple vitrage (30 m²)",
+            "18 000 €",
+            "4 500 €",
+            "6 750 €"
+          ],
+          [
+            "PAC géothermique",
+            "30 000 €",
+            "12 000 €",
+            "18 000 €"
+          ],
+          [
+            "Photovoltaïque 10 kWc",
+            "20 000 €",
+            "5 000 €",
+            "5 000 €"
+          ]
         ],
         "footnote": "Total projet rénovation profonde : ~118 000 € HT, dont 49 000 € à 71 000 € de subventions PRIMe House. À ajouter : économie TVA 3 % (~16 500 €) et Klimaprêt à 0 % effectif jusqu'à 50 000 €."
       },
@@ -9630,25 +10125,80 @@
         "cta": "Lancer la simulation"
       },
       "tools": [
-        { "href": "/simulateur-aides", "title": "Simulateur d'aides rénovation", "description": "PRIMe House, Topup social, TVA 3 %, Klimaprêt — cumul automatisé." },
-        { "href": "/energy", "title": "Module Énergie tevaxia", "description": "Impact valorisation, ROI rénovation, communauté énergétique, EPBD/CPE." },
-        { "href": "/energy/cpe", "title": "Diagnostic CPE", "description": "Estimation préalable de la classe énergétique avant audit officiel." },
-        { "href": "/vefa", "title": "Simulateur VEFA", "description": "Pour les acquéreurs de bien neuf déjà classe A/B." }
+        {
+          "href": "/simulateur-aides",
+          "title": "Simulateur d'aides rénovation",
+          "description": "PRIMe House, Topup social, TVA 3 %, Klimaprêt — cumul automatisé."
+        },
+        {
+          "href": "/energy",
+          "title": "Module Énergie tevaxia",
+          "description": "Impact valorisation, ROI rénovation, communauté énergétique, EPBD/CPE."
+        },
+        {
+          "href": "/energy/cpe",
+          "title": "Diagnostic CPE",
+          "description": "Estimation préalable de la classe énergétique avant audit officiel."
+        },
+        {
+          "href": "/vefa",
+          "title": "Simulateur VEFA",
+          "description": "Pour les acquéreurs de bien neuf déjà classe A/B."
+        }
       ],
       "faq": [
-        { "q": "Les aides Klimabonus sont-elles cumulables avec la TVA à 3 % ?", "a": "Oui. Les subventions PRIMe House / Klimabonus sont intégralement cumulables avec la TVA logement à 3 % et avec le Klimaprêt à 0 % effectif. C'est l'un des dispositifs les plus avantageux d'Europe pour la rénovation énergétique." },
-        { "q": "Combien peut-on obtenir pour l'installation d'une pompe à chaleur au Luxembourg ?", "a": "L'aide PRIMe House pour une PAC air-eau ou géothermique varie de 6 000 à 12 000 € selon le type et la puissance. Avec le Topup social 2026 (revenu ≤ 60 000 €), elle peut atteindre 18 000 €. S'y ajoute la TVA logement 3 % et le Klimaprêt à 0 %." },
-        { "q": "Qu'est-ce que le Topup social 2026 ?", "a": "Une majoration jusqu'à 150 % du montant de base PRIMe House pour les ménages dont le revenu imposable annuel ne dépasse pas 60 000 €. Il vise à rendre la rénovation énergétique accessible aux foyers modestes. Cumulable avec les autres bonifications (loyer social, rénovation profonde)." },
-        { "q": "Faut-il un audit énergétique pour bénéficier du Klimabonus ?", "a": "L'audit gratuit par un conseiller myenergy n'est pas strictement obligatoire mais fortement recommandé. Le CPE par un conseiller agréé (avant et après travaux) est obligatoire pour les subventions, et l'amélioration énergétique doit atteindre au moins 2 classes ou classe A/B." },
-        { "q": "Le Klimaprêt remplace-t-il le PRIMe House ?", "a": "Non, ce sont deux dispositifs complémentaires. PRIMe House = subventions en capital versées après travaux. Klimaprêt = prêt bancaire à 1,5 % avec bonification d'État portant le coût effectif à 0 % pour le ménage. Vous pouvez et devez les cumuler." },
-        { "q": "Les copropriétés peuvent-elles bénéficier du Klimabonus ?", "a": "Oui. Une copropriété peut faire une demande Klimabonus pour les travaux votés en AG sur les parties communes (toiture, façade, chaufferie collective). Chaque copropriétaire bénéficie de la quote-part proportionnelle aux tantièmes. Le syndic peut aussi solliciter le Klimaprêt pour le compte du syndicat." }
+        {
+          "q": "Les aides Klimabonus sont-elles cumulables avec la TVA à 3 % ?",
+          "a": "Oui. Les subventions PRIMe House / Klimabonus sont intégralement cumulables avec la TVA logement à 3 % et avec le Klimaprêt à 0 % effectif. C'est l'un des dispositifs les plus avantageux d'Europe pour la rénovation énergétique."
+        },
+        {
+          "q": "Combien peut-on obtenir pour l'installation d'une pompe à chaleur au Luxembourg ?",
+          "a": "L'aide PRIMe House pour une PAC air-eau ou géothermique varie de 6 000 à 12 000 € selon le type et la puissance. Avec le Topup social 2026 (revenu ≤ 60 000 €), elle peut atteindre 18 000 €. S'y ajoute la TVA logement 3 % et le Klimaprêt à 0 %."
+        },
+        {
+          "q": "Qu'est-ce que le Topup social 2026 ?",
+          "a": "Une majoration jusqu'à 150 % du montant de base PRIMe House pour les ménages dont le revenu imposable annuel ne dépasse pas 60 000 €. Il vise à rendre la rénovation énergétique accessible aux foyers modestes. Cumulable avec les autres bonifications (loyer social, rénovation profonde)."
+        },
+        {
+          "q": "Faut-il un audit énergétique pour bénéficier du Klimabonus ?",
+          "a": "L'audit gratuit par un conseiller myenergy n'est pas strictement obligatoire mais fortement recommandé. Le CPE par un conseiller agréé (avant et après travaux) est obligatoire pour les subventions, et l'amélioration énergétique doit atteindre au moins 2 classes ou classe A/B."
+        },
+        {
+          "q": "Le Klimaprêt remplace-t-il le PRIMe House ?",
+          "a": "Non, ce sont deux dispositifs complémentaires. PRIMe House = subventions en capital versées après travaux. Klimaprêt = prêt bancaire à 1,5 % avec bonification d'État portant le coût effectif à 0 % pour le ménage. Vous pouvez et devez les cumuler."
+        },
+        {
+          "q": "Les copropriétés peuvent-elles bénéficier du Klimabonus ?",
+          "a": "Oui. Une copropriété peut faire une demande Klimabonus pour les travaux votés en AG sur les parties communes (toiture, façade, chaufferie collective). Chaque copropriétaire bénéficie de la quote-part proportionnelle aux tantièmes. Le syndic peut aussi solliciter le Klimaprêt pour le compte du syndicat."
+        }
       ],
       "sources": [
-        { "title": "Klimabonus — portail officiel myenergy", "org": "myenergy / Ministère de l'Environnement", "url": "https://www.myenergy.lu/" },
-        { "title": "PRIMe House — démarche", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-construction-renovation/aides-amelioration.html" },
-        { "title": "Klimaprêt — démarche", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-financieres/klimapret.html" },
-        { "title": "Loi modifiée du 23 décembre 2016 — aides logement durable", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2016/12/23/n3/jo", "year": 2016 },
-        { "title": "Certificat de performance énergétique (CPE)", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/economie-energie/certificat-performance-energetique.html" }
+        {
+          "title": "Klimabonus — portail officiel myenergy",
+          "org": "myenergy / Ministère de l'Environnement",
+          "url": "https://www.myenergy.lu/"
+        },
+        {
+          "title": "PRIMe House — démarche",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-construction-renovation/aides-amelioration.html"
+        },
+        {
+          "title": "Klimaprêt — démarche",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-financieres/klimapret.html"
+        },
+        {
+          "title": "Loi modifiée du 23 décembre 2016 — aides logement durable",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2016/12/23/n3/jo",
+          "year": 2016
+        },
+        {
+          "title": "Certificat de performance énergétique (CPE)",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/economie-energie/certificat-performance-energetique.html"
+        }
       ]
     },
     "estimation": {
@@ -9687,26 +10237,85 @@
         "cta": "Lancer l'estimation"
       },
       "tools": [
-        { "href": "/estimation", "title": "Estimateur instantané", "description": "Modèle hédonique LU avec fourchette et niveau de confiance." },
-        { "href": "/hedonique", "title": "Hédonique avancé", "description": "Décomposition par caractéristique pour comprendre la valeur." },
-        { "href": "/dcf-multi", "title": "DCF multi-périodes", "description": "Pour biens locatifs et commerciaux, projection 10-15 ans." },
-        { "href": "/carte", "title": "Carte des prix", "description": "Prix observés par commune et quartier (Observatoire de l'Habitat)." }
+        {
+          "href": "/estimation",
+          "title": "Estimateur instantané",
+          "description": "Modèle hédonique LU avec fourchette et niveau de confiance."
+        },
+        {
+          "href": "/hedonique",
+          "title": "Hédonique avancé",
+          "description": "Décomposition par caractéristique pour comprendre la valeur."
+        },
+        {
+          "href": "/dcf-multi",
+          "title": "DCF multi-périodes",
+          "description": "Pour biens locatifs et commerciaux, projection 10-15 ans."
+        },
+        {
+          "href": "/carte",
+          "title": "Carte des prix",
+          "description": "Prix observés par commune et quartier (Observatoire de l'Habitat)."
+        }
       ],
       "faq": [
-        { "q": "Quelle est la méthode la plus fiable pour estimer un bien au Luxembourg ?", "a": "Pour le résidentiel, la comparaison directe combinée à un modèle hédonique est la plus fiable. Pour le locatif, la capitalisation des revenus est privilégiée. Pour le commercial/hôtelier, le DCF s'impose. Les normes TEGOVA EVS 2025 préconisent de recouper au moins deux méthodes pour renforcer la fiabilité." },
-        { "q": "Le CPE influence-t-il le prix d'un bien immobilier au Luxembourg ?", "a": "Oui. Les études LISER chiffrent à 3-8 % par classe l'écart de valeur (un saut de classe F à C peut valoriser de 10 à 25 %). L'impact va croître avec les obligations de rénovation énergétique européennes (EPBD révisée 2024)." },
-        { "q": "Combien coûte une expertise REV/TRV au Luxembourg ?", "a": "Pour un bien résidentiel, comptez 800 à 2 500 € selon la complexité. Pour un actif commercial ou hôtelier, 3 000 à 15 000 € selon la valeur et la complexité. L'honoraire est libre, basé sur le temps passé et la responsabilité engagée. Le rapport TEGOVA fait foi auprès des banques et tribunaux." },
-        { "q": "Où trouver les prix réels de vente au Luxembourg ?", "a": "La Publicité foncière de l'Administration de l'enregistrement et des domaines (AED) publie trimestriellement les prix réels des actes notariés. L'Observatoire de l'Habitat du LISER agrège et publie ces données par commune et type de bien (observatoire.liser.lu)." },
-        { "q": "Quel est le taux de capitalisation typique au Luxembourg ?", "a": "Pour le résidentiel : 3 à 5 % brut selon la localisation (3-3,5 % en zones premium LU-Ville, 4-5 % en cantons). Pour les bureaux prime LU-Ville : 4 à 5 %. Pour l'hôtellerie : 6 à 8 % selon catégorie et performance. Ces taux évoluent avec les taux d'intérêt directeurs et les rendements obligataires." },
-        { "q": "Faut-il prendre en compte la TVA dans l'estimation ?", "a": "Pour le neuf en VEFA, la valeur est généralement présentée HT puis convertie TTC selon le taux applicable (TVA logement 3 % avec plafond 50 000 €). Pour l'ancien (entre particuliers), pas de TVA mais des droits d'enregistrement à payer par l'acheteur. Les rapports TEGOVA distinguent toujours valeur HT/TTC." }
+        {
+          "q": "Quelle est la méthode la plus fiable pour estimer un bien au Luxembourg ?",
+          "a": "Pour le résidentiel, la comparaison directe combinée à un modèle hédonique est la plus fiable. Pour le locatif, la capitalisation des revenus est privilégiée. Pour le commercial/hôtelier, le DCF s'impose. Les normes TEGOVA EVS 2025 préconisent de recouper au moins deux méthodes pour renforcer la fiabilité."
+        },
+        {
+          "q": "Le CPE influence-t-il le prix d'un bien immobilier au Luxembourg ?",
+          "a": "Oui. Les études LISER chiffrent à 3-8 % par classe l'écart de valeur (un saut de classe F à C peut valoriser de 10 à 25 %). L'impact va croître avec les obligations de rénovation énergétique européennes (EPBD révisée 2024)."
+        },
+        {
+          "q": "Combien coûte une expertise REV/TRV au Luxembourg ?",
+          "a": "Pour un bien résidentiel, comptez 800 à 2 500 € selon la complexité. Pour un actif commercial ou hôtelier, 3 000 à 15 000 € selon la valeur et la complexité. L'honoraire est libre, basé sur le temps passé et la responsabilité engagée. Le rapport TEGOVA fait foi auprès des banques et tribunaux."
+        },
+        {
+          "q": "Où trouver les prix réels de vente au Luxembourg ?",
+          "a": "La Publicité foncière de l'Administration de l'enregistrement et des domaines (AED) publie trimestriellement les prix réels des actes notariés. L'Observatoire de l'Habitat du LISER agrège et publie ces données par commune et type de bien (observatoire.liser.lu)."
+        },
+        {
+          "q": "Quel est le taux de capitalisation typique au Luxembourg ?",
+          "a": "Pour le résidentiel : 3 à 5 % brut selon la localisation (3-3,5 % en zones premium LU-Ville, 4-5 % en cantons). Pour les bureaux prime LU-Ville : 4 à 5 %. Pour l'hôtellerie : 6 à 8 % selon catégorie et performance. Ces taux évoluent avec les taux d'intérêt directeurs et les rendements obligataires."
+        },
+        {
+          "q": "Faut-il prendre en compte la TVA dans l'estimation ?",
+          "a": "Pour le neuf en VEFA, la valeur est généralement présentée HT puis convertie TTC selon le taux applicable (TVA logement 3 % avec plafond 50 000 €). Pour l'ancien (entre particuliers), pas de TVA mais des droits d'enregistrement à payer par l'acheteur. Les rapports TEGOVA distinguent toujours valeur HT/TTC."
+        }
       ],
       "sources": [
-        { "title": "TEGOVA — European Valuation Standards 2025", "org": "The European Group of Valuers' Associations", "url": "https://www.tegova.org/", "year": 2025 },
-        { "title": "Observatoire de l'Habitat — prix par commune", "org": "LISER", "url": "https://observatoire.liser.lu/" },
-        { "title": "Indice des Prix de l'Immobilier Résidentiel (IPIR)", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Publicité foncière — actes de vente", "org": "Administration de l'enregistrement, des domaines et de la TVA", "url": "https://pfi.public.lu/fr.html" },
-        { "title": "Loi du 4 décembre 1967 (LIR) — base coefficient STATEC", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
-        { "title": "Études hédoniques sur le marché immobilier LU", "org": "LISER", "url": "https://www.liser.lu/" }
+        {
+          "title": "TEGOVA — European Valuation Standards 2025",
+          "org": "The European Group of Valuers' Associations",
+          "url": "https://www.tegova.org/",
+          "year": 2025
+        },
+        {
+          "title": "Observatoire de l'Habitat — prix par commune",
+          "org": "LISER",
+          "url": "https://observatoire.liser.lu/"
+        },
+        {
+          "title": "Indice des Prix de l'Immobilier Résidentiel (IPIR)",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Publicité foncière — actes de vente",
+          "org": "Administration de l'enregistrement, des domaines et de la TVA",
+          "url": "https://pfi.public.lu/fr.html"
+        },
+        {
+          "title": "Loi du 4 décembre 1967 (LIR) — base coefficient STATEC",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        },
+        {
+          "title": "Études hédoniques sur le marché immobilier LU",
+          "org": "LISER",
+          "url": "https://www.liser.lu/"
+        }
       ]
     },
     "achatNonResident": {
@@ -9738,12 +10347,37 @@
       "section4Intro": "Pour un même bien acquis en résidence principale ou en investissement locatif (prix 600 000 €), voici le comparatif des coûts à l'acquisition selon le profil.",
       "table": {
         "caption": "Coût d'acquisition d'un bien à 600 000 € selon le profil",
-        "headers": ["Profil acquéreur", "Droits 7 %", "Bëllegen Akt", "Émoluments + hypothèque"],
+        "headers": [
+          "Profil acquéreur",
+          "Droits 7 %",
+          "Bëllegen Akt",
+          "Émoluments + hypothèque"
+        ],
         "rows": [
-          ["Résident couple, résidence principale", "42 000 €", "−42 000 €", "≈ 11 700 €"],
-          ["Non-résident couple s'installant au LU", "42 000 €", "−42 000 €", "≈ 12 500 €"],
-          ["Non-résident couple, locatif pur", "42 000 €", "0 €", "≈ 12 500 €"],
-          ["Non-résident seul, locatif pur", "42 000 €", "0 €", "≈ 12 500 €"]
+          [
+            "Résident couple, résidence principale",
+            "42 000 €",
+            "−42 000 €",
+            "≈ 11 700 €"
+          ],
+          [
+            "Non-résident couple s'installant au LU",
+            "42 000 €",
+            "−42 000 €",
+            "≈ 12 500 €"
+          ],
+          [
+            "Non-résident couple, locatif pur",
+            "42 000 €",
+            "0 €",
+            "≈ 12 500 €"
+          ],
+          [
+            "Non-résident seul, locatif pur",
+            "42 000 €",
+            "0 €",
+            "≈ 12 500 €"
+          ]
         ],
         "footnote": "Émoluments légèrement supérieurs pour non-résident en raison de procurations supplémentaires éventuelles. Pour le locatif pur, prévoir aussi taxe foncière et coût annuel de gestion (10-12 % des loyers)."
       },
@@ -9755,25 +10389,79 @@
         "cta": "Lancer la simulation"
       },
       "tools": [
-        { "href": "/frais-acquisition", "title": "Calculateur frais d'acquisition", "description": "Résident vs non-résident, Bëllegen Akt selon projet, TVA logement, hypothèque." },
-        { "href": "/outils-bancaires", "title": "Outils bancaires", "description": "Capacité d'emprunt, mensualité, ratios DSTI/LTV adaptés au statut." },
-        { "href": "/portfolio", "title": "Portefeuille immo", "description": "Pour suivre la rentabilité de plusieurs biens sur le long terme." },
-        { "href": "/aml-kyc", "title": "Vérification AML/KYC", "description": "Conformité acquéreur étranger pour le notaire et la banque LU." }
+        {
+          "href": "/frais-acquisition",
+          "title": "Calculateur frais d'acquisition",
+          "description": "Résident vs non-résident, Bëllegen Akt selon projet, TVA logement, hypothèque."
+        },
+        {
+          "href": "/outils-bancaires",
+          "title": "Outils bancaires",
+          "description": "Capacité d'emprunt, mensualité, ratios DSTI/LTV adaptés au statut."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Portefeuille immo",
+          "description": "Pour suivre la rentabilité de plusieurs biens sur le long terme."
+        },
+        {
+          "href": "/aml-kyc",
+          "title": "Vérification AML/KYC",
+          "description": "Conformité acquéreur étranger pour le notaire et la banque LU."
+        }
       ],
       "faq": [
-        { "q": "Un non-résident peut-il bénéficier du Bëllegen Akt ?", "a": "Oui, à condition que le bien acquis serve effectivement de résidence principale du nouvel acquéreur, qui s'engage à s'y installer personnellement dans les 2 ans suivant l'acte. Pour un investissement locatif pur, le Bëllegen Akt n'est pas accessible et les 7 % de droits sont dus en totalité." },
-        { "q": "Quel apport minimum pour un non-résident au Luxembourg ?", "a": "Les banques LU exigent généralement un apport de 25 à 30 % du prix d'acquisition pour un non-résident (LTV 70-75 %), contre parfois 0-20 % pour un résident en résidence principale. Le ratio varie selon la banque, le profil de l'emprunteur et la localisation du bien." },
-        { "q": "Quels documents fournir à la banque LU en tant que non-résident ?", "a": "Pièce d'identité, 3 derniers avis d'imposition du pays de résidence, 6 dernières fiches de paie, contrat de travail, relevés bancaires sur 3 mois, justificatif d'apport, plan de financement détaillé. Pour un projet locatif, ajouter le compromis de vente et l'estimation locative." },
-        { "q": "Comment fonctionne la convention fiscale franco-luxembourgeoise pour l'immobilier ?", "a": "La convention France-Luxembourg de 2018 prévoit que les revenus immobiliers et plus-values d'un bien situé au LU sont imposables au LU. La France les exonère mais les retient pour calculer le taux effectif global d'imposition (taux effectif). Vous payez donc l'IR au LU sur ces revenus, sans double imposition." },
-        { "q": "Faut-il un compte bancaire LU pour acheter ?", "a": "Pas obligatoire pour l'acte d'acquisition (le notaire accepte un virement depuis l'étranger), mais fortement recommandé pour la gestion ultérieure : encaissement des loyers, paiement des charges et taxes, retraits hypothécaires. Plusieurs banques LU ouvrent un compte non-résident en quelques jours." },
-        { "q": "Quelles taxes annuelles paie un non-résident propriétaire ?", "a": "Taxe foncière communale (modeste, 0,1 à 1 % de la valeur cadastrale), impôt sur les revenus fonciers nets si location (barème IR LU avec déductions), éventuellement plus-value si revente avant le délai d'exonération. Pas d'ISF ni d'impôt sur la fortune au Luxembourg." }
+        {
+          "q": "Un non-résident peut-il bénéficier du Bëllegen Akt ?",
+          "a": "Oui, à condition que le bien acquis serve effectivement de résidence principale du nouvel acquéreur, qui s'engage à s'y installer personnellement dans les 2 ans suivant l'acte. Pour un investissement locatif pur, le Bëllegen Akt n'est pas accessible et les 7 % de droits sont dus en totalité."
+        },
+        {
+          "q": "Quel apport minimum pour un non-résident au Luxembourg ?",
+          "a": "Les banques LU exigent généralement un apport de 25 à 30 % du prix d'acquisition pour un non-résident (LTV 70-75 %), contre parfois 0-20 % pour un résident en résidence principale. Le ratio varie selon la banque, le profil de l'emprunteur et la localisation du bien."
+        },
+        {
+          "q": "Quels documents fournir à la banque LU en tant que non-résident ?",
+          "a": "Pièce d'identité, 3 derniers avis d'imposition du pays de résidence, 6 dernières fiches de paie, contrat de travail, relevés bancaires sur 3 mois, justificatif d'apport, plan de financement détaillé. Pour un projet locatif, ajouter le compromis de vente et l'estimation locative."
+        },
+        {
+          "q": "Comment fonctionne la convention fiscale franco-luxembourgeoise pour l'immobilier ?",
+          "a": "La convention France-Luxembourg de 2018 prévoit que les revenus immobiliers et plus-values d'un bien situé au LU sont imposables au LU. La France les exonère mais les retient pour calculer le taux effectif global d'imposition (taux effectif). Vous payez donc l'IR au LU sur ces revenus, sans double imposition."
+        },
+        {
+          "q": "Faut-il un compte bancaire LU pour acheter ?",
+          "a": "Pas obligatoire pour l'acte d'acquisition (le notaire accepte un virement depuis l'étranger), mais fortement recommandé pour la gestion ultérieure : encaissement des loyers, paiement des charges et taxes, retraits hypothécaires. Plusieurs banques LU ouvrent un compte non-résident en quelques jours."
+        },
+        {
+          "q": "Quelles taxes annuelles paie un non-résident propriétaire ?",
+          "a": "Taxe foncière communale (modeste, 0,1 à 1 % de la valeur cadastrale), impôt sur les revenus fonciers nets si location (barème IR LU avec déductions), éventuellement plus-value si revente avant le délai d'exonération. Pas d'ISF ni d'impôt sur la fortune au Luxembourg."
+        }
       ],
       "sources": [
-        { "title": "Acquisition immobilière par un non-résident — démarche", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/achat-vente/achat/achat-immobilier.html" },
-        { "title": "Conventions fiscales bilatérales du Luxembourg", "org": "Administration des contributions directes", "url": "https://impotsdirects.public.lu/fr/conventions.html" },
-        { "title": "Déclaration modèle 100F — non-résident", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/declaration-impots/declaration-non-resident.html" },
-        { "title": "Bëllegen Akt — fiche officielle", "org": "Logement.lu", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
-        { "title": "Loi du 4 décembre 1967 (LIR) — articles 99 et suivants", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+        {
+          "title": "Acquisition immobilière par un non-résident — démarche",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/achat-vente/achat/achat-immobilier.html"
+        },
+        {
+          "title": "Conventions fiscales bilatérales du Luxembourg",
+          "org": "Administration des contributions directes",
+          "url": "https://impotsdirects.public.lu/fr/conventions.html"
+        },
+        {
+          "title": "Déclaration modèle 100F — non-résident",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/declaration-impots/declaration-non-resident.html"
+        },
+        {
+          "title": "Bëllegen Akt — fiche officielle",
+          "org": "Logement.lu",
+          "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html"
+        },
+        {
+          "title": "Loi du 4 décembre 1967 (LIR) — articles 99 et suivants",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        }
       ]
     },
     "tva3Pourcent": {
@@ -9805,13 +10493,49 @@
       "section4Intro": "Effet de la faveur TVA 3 % sur des projets typiques. Le calcul compare le coût TTC à 17 % (taux normal) et à 3 % (faveur).",
       "table": {
         "caption": "Économie réalisée grâce à la TVA logement 3 %",
-        "headers": ["Projet", "HT", "TVA 17 %", "TVA 3 %", "Économie"],
+        "headers": [
+          "Projet",
+          "HT",
+          "TVA 17 %",
+          "TVA 3 %",
+          "Économie"
+        ],
         "rows": [
-          ["Rénovation salle de bain", "30 000 €", "5 100 €", "900 €", "4 200 €"],
-          ["Rénovation lourde appartement", "100 000 €", "17 000 €", "3 000 €", "14 000 €"],
-          ["Construction neuve", "300 000 €", "51 000 €", "9 000 €", "42 000 €"],
-          ["Construction haut de gamme", "400 000 €", "68 000 €", "12 000 €", "50 000 €"],
-          ["Construction au-delà du plafond", "500 000 €", "85 000 €", "27 000 €", "50 000 €"]
+          [
+            "Rénovation salle de bain",
+            "30 000 €",
+            "5 100 €",
+            "900 €",
+            "4 200 €"
+          ],
+          [
+            "Rénovation lourde appartement",
+            "100 000 €",
+            "17 000 €",
+            "3 000 €",
+            "14 000 €"
+          ],
+          [
+            "Construction neuve",
+            "300 000 €",
+            "51 000 €",
+            "9 000 €",
+            "42 000 €"
+          ],
+          [
+            "Construction haut de gamme",
+            "400 000 €",
+            "68 000 €",
+            "12 000 €",
+            "50 000 €"
+          ],
+          [
+            "Construction au-delà du plafond",
+            "500 000 €",
+            "85 000 €",
+            "27 000 €",
+            "50 000 €"
+          ]
         ],
         "footnote": "L'économie correspond à la différence entre TVA 17 % et TVA 3 %, plafonnée à 50 000 € par logement."
       },
@@ -9823,25 +10547,80 @@
         "cta": "Lancer la simulation VEFA"
       },
       "tools": [
-        { "href": "/vefa", "title": "Simulateur VEFA", "description": "Décomposition terrain / construction et TVA logement 3 % automatisée." },
-        { "href": "/frais-acquisition", "title": "Frais d'acquisition", "description": "Calcul global avec TVA, droits, Bëllegen Akt et hypothèque." },
-        { "href": "/estimateur-construction", "title": "Estimateur construction", "description": "Coût détaillé d'une construction neuve par poste." },
-        { "href": "/simulateur-aides", "title": "Aides à l'acquisition", "description": "Cumul TVA 3 %, Bëllegen Akt, Klimabonus et primes." }
+        {
+          "href": "/vefa",
+          "title": "Simulateur VEFA",
+          "description": "Décomposition terrain / construction et TVA logement 3 % automatisée."
+        },
+        {
+          "href": "/frais-acquisition",
+          "title": "Frais d'acquisition",
+          "description": "Calcul global avec TVA, droits, Bëllegen Akt et hypothèque."
+        },
+        {
+          "href": "/estimateur-construction",
+          "title": "Estimateur construction",
+          "description": "Coût détaillé d'une construction neuve par poste."
+        },
+        {
+          "href": "/simulateur-aides",
+          "title": "Aides à l'acquisition",
+          "description": "Cumul TVA 3 %, Bëllegen Akt, Klimabonus et primes."
+        }
       ],
       "faq": [
-        { "q": "Quel est le plafond de l'avantage TVA à 3 % au Luxembourg ?", "a": "Le plafond de la faveur est de 50 000 € de TVA par logement sur sa durée de vie. Cela correspond à environ 357 000 € de travaux HT bénéficiant du taux réduit. Au-delà, le taux normal de 17 % s'applique sur le surplus." },
-        { "q": "Faut-il une autorisation préalable pour la TVA à 3 % ?", "a": "Oui. Une demande préalable doit être adressée à l'AED avant tout début de travaux ou signature d'acte d'acquisition VEFA. Le formulaire est disponible sur guichet.lu et doit être accompagné des plans, du permis et d'une estimation chiffrée." },
-        { "q": "La TVA à 3 % s'applique-t-elle à un investissement locatif ?", "a": "Oui, à condition que le locataire affecte le logement à sa résidence (occupation effective). Le bien doit rester loué en habitation pendant au moins deux ans après la livraison, sous peine de remise en cause de la faveur." },
-        { "q": "La TVA à 3 % s'applique-t-elle à la rénovation ?", "a": "Oui, sur la rénovation et la réparation d'un logement de plus de 20 ans, et sans condition d'âge pour la création de logement par transformation (ex. : transformation d'un local commercial en habitation). Travaux d'isolation, chauffage, fenêtres, salle de bain sont éligibles. Pas la décoration ni les équipements de luxe extérieurs." },
-        { "q": "Peut-on cumuler la TVA à 3 % avec le Bëllegen Akt et le Klimabonus ?", "a": "Oui, les trois dispositifs sont pleinement cumulables. Pour un primo-accédant en VEFA réalisant des travaux de rénovation énergétique éligibles, l'économie totale peut dépasser 130 000 €." },
-        { "q": "Quelle surface habitable maximale ouvre droit à la TVA 3 % ?", "a": "400 m² de surface habitable. Au-delà, le taux normal s'applique sur l'excédent. Caves, greniers non aménagés, garages non attenants et parties commerciales ne sont pas comptés dans la surface habitable." }
+        {
+          "q": "Quel est le plafond de l'avantage TVA à 3 % au Luxembourg ?",
+          "a": "Le plafond de la faveur est de 50 000 € de TVA par logement sur sa durée de vie. Cela correspond à environ 357 000 € de travaux HT bénéficiant du taux réduit. Au-delà, le taux normal de 17 % s'applique sur le surplus."
+        },
+        {
+          "q": "Faut-il une autorisation préalable pour la TVA à 3 % ?",
+          "a": "Oui. Une demande préalable doit être adressée à l'AED avant tout début de travaux ou signature d'acte d'acquisition VEFA. Le formulaire est disponible sur guichet.lu et doit être accompagné des plans, du permis et d'une estimation chiffrée."
+        },
+        {
+          "q": "La TVA à 3 % s'applique-t-elle à un investissement locatif ?",
+          "a": "Oui, à condition que le locataire affecte le logement à sa résidence (occupation effective). Le bien doit rester loué en habitation pendant au moins deux ans après la livraison, sous peine de remise en cause de la faveur."
+        },
+        {
+          "q": "La TVA à 3 % s'applique-t-elle à la rénovation ?",
+          "a": "Oui, sur la rénovation et la réparation d'un logement de plus de 20 ans, et sans condition d'âge pour la création de logement par transformation (ex. : transformation d'un local commercial en habitation). Travaux d'isolation, chauffage, fenêtres, salle de bain sont éligibles. Pas la décoration ni les équipements de luxe extérieurs."
+        },
+        {
+          "q": "Peut-on cumuler la TVA à 3 % avec le Bëllegen Akt et le Klimabonus ?",
+          "a": "Oui, les trois dispositifs sont pleinement cumulables. Pour un primo-accédant en VEFA réalisant des travaux de rénovation énergétique éligibles, l'économie totale peut dépasser 130 000 €."
+        },
+        {
+          "q": "Quelle surface habitable maximale ouvre droit à la TVA 3 % ?",
+          "a": "400 m² de surface habitable. Au-delà, le taux normal s'applique sur l'excédent. Caves, greniers non aménagés, garages non attenants et parties commerciales ne sont pas comptés dans la surface habitable."
+        }
       ],
       "sources": [
-        { "title": "Application du taux super-réduit de TVA — démarche", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/construction/aides-construction/taux-tva-super-reduit-logement.html" },
-        { "title": "Article 44ter loi TVA modifiée — taux super-réduit logement", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1979/02/12/n1/jo" },
-        { "title": "Règlement grand-ducal du 30 juillet 2002 — modalités d'application", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2002/07/30/n4/jo", "year": 2002 },
-        { "title": "Circulaire AED n° 800 — TVA logement", "org": "AED", "url": "https://pfi.public.lu/fr.html" },
-        { "title": "Téléprocédures eAED — demandes TVA logement", "org": "AED", "url": "https://eaed.b2g.etat.lu/" }
+        {
+          "title": "Application du taux super-réduit de TVA — démarche",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/construction/aides-construction/taux-tva-super-reduit-logement.html"
+        },
+        {
+          "title": "Article 44ter loi TVA modifiée — taux super-réduit logement",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1979/02/12/n1/jo"
+        },
+        {
+          "title": "Règlement grand-ducal du 30 juillet 2002 — modalités d'application",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2002/07/30/n4/jo",
+          "year": 2002
+        },
+        {
+          "title": "Circulaire AED n° 800 — TVA logement",
+          "org": "AED",
+          "url": "https://pfi.public.lu/fr.html"
+        },
+        {
+          "title": "Téléprocédures eAED — demandes TVA logement",
+          "org": "AED",
+          "url": "https://eaed.b2g.etat.lu/"
+        }
       ]
     },
     "bailCommercial": {
@@ -9880,25 +10659,80 @@
         "cta": "Lancer l'analyse"
       },
       "tools": [
-        { "href": "/bail-commercial", "title": "Outil bail commercial", "description": "Loyer, pas-de-porte, indexation IPC, rentabilité bailleur/locataire." },
-        { "href": "/dcf-multi", "title": "DCF multi-périodes", "description": "Valorisation d'un actif loué en bail commercial sur 9 ans." },
-        { "href": "/portfolio", "title": "Portefeuille immo", "description": "Suivi de plusieurs locaux commerciaux loués." },
-        { "href": "/aml-kyc", "title": "Vérification du locataire", "description": "Solvabilité de l'entreprise locataire avant signature du bail." }
+        {
+          "href": "/bail-commercial",
+          "title": "Outil bail commercial",
+          "description": "Loyer, pas-de-porte, indexation IPC, rentabilité bailleur/locataire."
+        },
+        {
+          "href": "/dcf-multi",
+          "title": "DCF multi-périodes",
+          "description": "Valorisation d'un actif loué en bail commercial sur 9 ans."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Portefeuille immo",
+          "description": "Suivi de plusieurs locaux commerciaux loués."
+        },
+        {
+          "href": "/aml-kyc",
+          "title": "Vérification du locataire",
+          "description": "Solvabilité de l'entreprise locataire avant signature du bail."
+        }
       ],
       "faq": [
-        { "q": "Quelle est la durée minimale d'un bail commercial au Luxembourg ?", "a": "9 ans (art. 2 loi du 3 février 2018). Le locataire peut résilier à chaque période triennale (3, 6, 9 ans) avec un préavis de 6 mois. Le bailleur ne peut résilier qu'en cas de manquement grave, besoin personnel d'exploitation ou démolition/reconstruction." },
-        { "q": "Le loyer commercial est-il plafonné au Luxembourg ?", "a": "Non, contrairement au bail d'habitation (plafond 5 % du capital investi), le loyer commercial est fixé librement entre les parties. L'indexation se fait sur l'IPC STATEC si une clause expresse le prévoit dans le bail." },
-        { "q": "Qu'est-ce que le pas-de-porte et comment le négocier ?", "a": "Le pas-de-porte (ou droit d'entrée) est un versement initial du locataire au bailleur en contrepartie des avantages commerciaux de l'emplacement. Il est licite au LU, non réglementé, et se négocie librement (typiquement 1 à 6 mois de loyer pour un emplacement courant, jusqu'à plusieurs années pour un emplacement prime). Il peut être amorti comptablement par le locataire sur la durée du bail." },
-        { "q": "Comment fonctionne le droit au renouvellement ?", "a": "Le locataire notifie une demande de renouvellement au moins 6 mois avant le terme du bail. Le bailleur qui refuse sans motif légitime (manquement, démolition, exploitation personnelle) doit verser une indemnité d'éviction couvrant la perte de clientèle, le déménagement et la perte de fonds de commerce. Le montant se fixe à l'amiable ou par le juge." },
-        { "q": "Le bailleur peut-il révoquer la cession du bail à un repreneur ?", "a": "Non, sauf clause contraire dans le bail. La cession du bail commercial est libre, généralement liée à la cession du fonds de commerce. Le bailleur doit être informé mais ne peut s'y opposer si les conditions du bail (loyer, usage) sont respectées par le repreneur. Prévoir une clause d'agrément si le bailleur veut un droit de regard." },
-        { "q": "Que faire en cas de manquement grave du locataire ?", "a": "Le bailleur adresse une mise en demeure par lettre recommandée précisant le manquement (loyer impayé > 2 mois, sous-location interdite, changement de destination, dégradations majeures). Sans régularisation sous 30 jours, le bailleur peut saisir le juge en résiliation judiciaire avec demande d'expulsion et de paiement des arriérés et dommages." }
+        {
+          "q": "Quelle est la durée minimale d'un bail commercial au Luxembourg ?",
+          "a": "9 ans (art. 2 loi du 3 février 2018). Le locataire peut résilier à chaque période triennale (3, 6, 9 ans) avec un préavis de 6 mois. Le bailleur ne peut résilier qu'en cas de manquement grave, besoin personnel d'exploitation ou démolition/reconstruction."
+        },
+        {
+          "q": "Le loyer commercial est-il plafonné au Luxembourg ?",
+          "a": "Non, contrairement au bail d'habitation (plafond 5 % du capital investi), le loyer commercial est fixé librement entre les parties. L'indexation se fait sur l'IPC STATEC si une clause expresse le prévoit dans le bail."
+        },
+        {
+          "q": "Qu'est-ce que le pas-de-porte et comment le négocier ?",
+          "a": "Le pas-de-porte (ou droit d'entrée) est un versement initial du locataire au bailleur en contrepartie des avantages commerciaux de l'emplacement. Il est licite au LU, non réglementé, et se négocie librement (typiquement 1 à 6 mois de loyer pour un emplacement courant, jusqu'à plusieurs années pour un emplacement prime). Il peut être amorti comptablement par le locataire sur la durée du bail."
+        },
+        {
+          "q": "Comment fonctionne le droit au renouvellement ?",
+          "a": "Le locataire notifie une demande de renouvellement au moins 6 mois avant le terme du bail. Le bailleur qui refuse sans motif légitime (manquement, démolition, exploitation personnelle) doit verser une indemnité d'éviction couvrant la perte de clientèle, le déménagement et la perte de fonds de commerce. Le montant se fixe à l'amiable ou par le juge."
+        },
+        {
+          "q": "Le bailleur peut-il révoquer la cession du bail à un repreneur ?",
+          "a": "Non, sauf clause contraire dans le bail. La cession du bail commercial est libre, généralement liée à la cession du fonds de commerce. Le bailleur doit être informé mais ne peut s'y opposer si les conditions du bail (loyer, usage) sont respectées par le repreneur. Prévoir une clause d'agrément si le bailleur veut un droit de regard."
+        },
+        {
+          "q": "Que faire en cas de manquement grave du locataire ?",
+          "a": "Le bailleur adresse une mise en demeure par lettre recommandée précisant le manquement (loyer impayé > 2 mois, sous-location interdite, changement de destination, dégradations majeures). Sans régularisation sous 30 jours, le bailleur peut saisir le juge en résiliation judiciaire avec demande d'expulsion et de paiement des arriérés et dommages."
+        }
       ],
       "sources": [
-        { "title": "Loi du 3 février 2018 portant sur le bail commercial", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo", "year": 2018 },
-        { "title": "Bail commercial — guide pratique", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html" },
-        { "title": "Indice des prix à la consommation (IPC)", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Code civil — articles 1709 et suivants", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" },
-        { "title": "Chambre de Commerce — accompagnement entrepreneurs", "org": "Chambre de Commerce du Luxembourg", "url": "https://www.cc.lu/" }
+        {
+          "title": "Loi du 3 février 2018 portant sur le bail commercial",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo",
+          "year": 2018
+        },
+        {
+          "title": "Bail commercial — guide pratique",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html"
+        },
+        {
+          "title": "Indice des prix à la consommation (IPC)",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Code civil — articles 1709 et suivants",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+        },
+        {
+          "title": "Chambre de Commerce — accompagnement entrepreneurs",
+          "org": "Chambre de Commerce du Luxembourg",
+          "url": "https://www.cc.lu/"
+        }
       ]
     },
     "investirHotel": {
@@ -9937,26 +10771,85 @@
         "cta": "Ouvrir l'analyse hôtelière"
       },
       "tools": [
-        { "href": "/hotellerie/valorisation", "title": "Valorisation hôtelière TEGOVA", "description": "DCF + multiples EBITDA + prix par clé selon EVS 2025." },
-        { "href": "/hotellerie/dscr", "title": "DSCR bancaire", "description": "Capacité de financement et stress test taux." },
-        { "href": "/hotellerie/observatoire-lu", "title": "Observatoire LU", "description": "Données STATEC nuitées + indices RevPAR par région." },
-        { "href": "/hotellerie/pre-acquisition", "title": "Pré-acquisition", "description": "Outil E-2 / marchand de biens hôteliers." }
+        {
+          "href": "/hotellerie/valorisation",
+          "title": "Valorisation hôtelière TEGOVA",
+          "description": "DCF + multiples EBITDA + prix par clé selon EVS 2025."
+        },
+        {
+          "href": "/hotellerie/dscr",
+          "title": "DSCR bancaire",
+          "description": "Capacité de financement et stress test taux."
+        },
+        {
+          "href": "/hotellerie/observatoire-lu",
+          "title": "Observatoire LU",
+          "description": "Données STATEC nuitées + indices RevPAR par région."
+        },
+        {
+          "href": "/hotellerie/pre-acquisition",
+          "title": "Pré-acquisition",
+          "description": "Outil E-2 / marchand de biens hôteliers."
+        }
       ],
       "faq": [
-        { "q": "Quel est le RevPAR moyen des hôtels au Luxembourg ?", "a": "Le RevPAR moyen LU varie de 60 € (budget/économique) à 150 € (upscale/luxury). Luxembourg-Ville affiche les RevPAR les plus élevés, tirés par le tourisme d'affaires et les institutions européennes. Les régions (Ardennes, Moselle) ont des RevPAR plus saisonniers." },
-        { "q": "Quel DSCR exigent les banques pour un prêt hôtelier au Luxembourg ?", "a": "Les banques LU exigent généralement un DSCR de 1,25 à 1,40x : le cash-flow disponible après charges d'exploitation doit couvrir au minimum 1,25 à 1,40 fois le service annuel de la dette (capital + intérêts). Un DSCR inférieur à 1,25x rend le financement difficile à obtenir." },
-        { "q": "Quels multiples EBITDA pour valoriser un hôtel LU ?", "a": "Les multiples EBITDA observés au LU vont de 8x (budget régional, vétuste) à 14x (luxury prime LU-Ville). Un 3* sain à Luxembourg-Ville se valorise typiquement à 10-12x EBITDA stabilisé. Croisez avec l'approche prix/chambre et un DCF 10 ans pour valider." },
-        { "q": "Quel prix par chambre pour acheter un hôtel au Luxembourg ?", "a": "Prix observés : 80 000-120 000 €/chambre (budget/régions), 150 000-200 000 €/chambre (3* moyen), 250 000-400 000 €/chambre (upscale/luxury LU-Ville). Au-delà, prime luxury sur emplacements exceptionnels. Toujours rapporter au RevPAR potentiel pour valider la cohérence." },
-        { "q": "L'investissement hôtelier au LU est-il éligible au visa E-2 américain ?", "a": "Le LU n'est pas pays signataire du traité E-2 américain. Pour les investisseurs US, l'alternative est le permis de séjour LU pour investisseur (apport 500 000 € pour reprise, 3 M € pour création/rachat avec emplois) via le Ministère des Affaires étrangères. L'hôtellerie est éligible." },
-        { "q": "Quelles aides pour rénover un hôtel énergétiquement au LU ?", "a": "Le Klimabonus tertiaire propose des subventions pour la rénovation énergétique des bâtiments commerciaux : isolation, pompes à chaleur, photovoltaïque, ventilation. Cumulables avec aides PME pour modernisation. La directive EPBD impose des trajectoires de rénovation pour les actifs tertiaires les plus énergivores d'ici 2030-2033." }
+        {
+          "q": "Quel est le RevPAR moyen des hôtels au Luxembourg ?",
+          "a": "Le RevPAR moyen LU varie de 60 € (budget/économique) à 150 € (upscale/luxury). Luxembourg-Ville affiche les RevPAR les plus élevés, tirés par le tourisme d'affaires et les institutions européennes. Les régions (Ardennes, Moselle) ont des RevPAR plus saisonniers."
+        },
+        {
+          "q": "Quel DSCR exigent les banques pour un prêt hôtelier au Luxembourg ?",
+          "a": "Les banques LU exigent généralement un DSCR de 1,25 à 1,40x : le cash-flow disponible après charges d'exploitation doit couvrir au minimum 1,25 à 1,40 fois le service annuel de la dette (capital + intérêts). Un DSCR inférieur à 1,25x rend le financement difficile à obtenir."
+        },
+        {
+          "q": "Quels multiples EBITDA pour valoriser un hôtel LU ?",
+          "a": "Les multiples EBITDA observés au LU vont de 8x (budget régional, vétuste) à 14x (luxury prime LU-Ville). Un 3* sain à Luxembourg-Ville se valorise typiquement à 10-12x EBITDA stabilisé. Croisez avec l'approche prix/chambre et un DCF 10 ans pour valider."
+        },
+        {
+          "q": "Quel prix par chambre pour acheter un hôtel au Luxembourg ?",
+          "a": "Prix observés : 80 000-120 000 €/chambre (budget/régions), 150 000-200 000 €/chambre (3* moyen), 250 000-400 000 €/chambre (upscale/luxury LU-Ville). Au-delà, prime luxury sur emplacements exceptionnels. Toujours rapporter au RevPAR potentiel pour valider la cohérence."
+        },
+        {
+          "q": "L'investissement hôtelier au LU est-il éligible au visa E-2 américain ?",
+          "a": "Le LU n'est pas pays signataire du traité E-2 américain. Pour les investisseurs US, l'alternative est le permis de séjour LU pour investisseur (apport 500 000 € pour reprise, 3 M € pour création/rachat avec emplois) via le Ministère des Affaires étrangères. L'hôtellerie est éligible."
+        },
+        {
+          "q": "Quelles aides pour rénover un hôtel énergétiquement au LU ?",
+          "a": "Le Klimabonus tertiaire propose des subventions pour la rénovation énergétique des bâtiments commerciaux : isolation, pompes à chaleur, photovoltaïque, ventilation. Cumulables avec aides PME pour modernisation. La directive EPBD impose des trajectoires de rénovation pour les actifs tertiaires les plus énergivores d'ici 2030-2033."
+        }
       ],
       "sources": [
-        { "title": "Observatoire STATEC — hébergement touristique", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/secteurs/tourisme.html" },
-        { "title": "Klimabonus tertiaire — rénovation énergétique commerciale", "org": "myenergy / Ministère de l'Environnement", "url": "https://www.myenergy.lu/fr/professionnels" },
-        { "title": "Aides PME — investissement et innovation", "org": "Ministère de l'Économie", "url": "https://meco.gouvernement.lu/fr/le-ministere/aides.html" },
-        { "title": "Inspection du travail et des mines (ITM) — sécurité incendie", "org": "ITM", "url": "https://itm.public.lu/" },
-        { "title": "Permis de séjour pour investisseur", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/immigration/plus-3-mois/ressortissant-tiers/investisseur.html" },
-        { "title": "TEGOVA EVS 2025 — Valuation of Hotels", "org": "TEGOVA", "url": "https://www.tegova.org/", "year": 2025 }
+        {
+          "title": "Observatoire STATEC — hébergement touristique",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/secteurs/tourisme.html"
+        },
+        {
+          "title": "Klimabonus tertiaire — rénovation énergétique commerciale",
+          "org": "myenergy / Ministère de l'Environnement",
+          "url": "https://www.myenergy.lu/fr/professionnels"
+        },
+        {
+          "title": "Aides PME — investissement et innovation",
+          "org": "Ministère de l'Économie",
+          "url": "https://meco.gouvernement.lu/fr/le-ministere/aides.html"
+        },
+        {
+          "title": "Inspection du travail et des mines (ITM) — sécurité incendie",
+          "org": "ITM",
+          "url": "https://itm.public.lu/"
+        },
+        {
+          "title": "Permis de séjour pour investisseur",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/immigration/plus-3-mois/ressortissant-tiers/investisseur.html"
+        },
+        {
+          "title": "TEGOVA EVS 2025 — Valuation of Hotels",
+          "org": "TEGOVA",
+          "url": "https://www.tegova.org/",
+          "year": 2025
+        }
       ]
     },
     "iaTevaxia": {
@@ -9995,25 +10888,80 @@
         "cta": "Ouvrir mon profil"
       },
       "tools": [
-        { "href": "/profil", "title": "Configurer ma clé BYOK", "description": "Anthropic, OpenAI, Groq, Cerebras — usage illimité." },
-        { "href": "/api-docs", "title": "API publique B2B", "description": "3 endpoints : analyze, chat, extract — auth X-API-Key." },
-        { "href": "/valorisation", "title": "Rapport EVS 2025", "description": "Mode IA Rédacteur + Challenger pour vos rapports TEGOVA." },
-        { "href": "/bilan-promoteur", "title": "Bilan promoteur IA", "description": "Pré-remplissage depuis PDF + analyse de viabilité." }
+        {
+          "href": "/profil",
+          "title": "Configurer ma clé BYOK",
+          "description": "Anthropic, OpenAI, Groq, Cerebras — usage illimité."
+        },
+        {
+          "href": "/api-docs",
+          "title": "API publique B2B",
+          "description": "3 endpoints : analyze, chat, extract — auth X-API-Key."
+        },
+        {
+          "href": "/valorisation",
+          "title": "Rapport EVS 2025",
+          "description": "Mode IA Rédacteur + Challenger pour vos rapports TEGOVA."
+        },
+        {
+          "href": "/bilan-promoteur",
+          "title": "Bilan promoteur IA",
+          "description": "Pré-remplissage depuis PDF + analyse de viabilité."
+        }
       ],
       "faq": [
-        { "q": "L'IA tevaxia est-elle vraiment gratuite ?", "a": "Oui : 5 analyses par jour par utilisateur connecté, sans carte bancaire ni abonnement. Au-delà, ajoutez votre propre clé Cerebras, Groq, OpenAI ou Anthropic dans votre profil pour un usage illimité. Le tier gratuit utilise Cerebras (Llama 3.1 8B) avec fallback Groq si configuré." },
-        { "q": "Mes données sont-elles envoyées à un tiers ?", "a": "Oui, les requêtes transitent par le fournisseur IA configuré (Cerebras par défaut, ou votre clé BYOK). Les contextes envoyés contiennent uniquement les inputs et résultats du calcul en cours — jamais de données personnelles hors de ce calcul. Cerebras et Groq ne stockent pas les prompts pour l'entraînement. Pour de la confidentialité forte, préférez Anthropic ou OpenAI avec contrat entreprise no-training." },
-        { "q": "L'IA peut-elle remplacer un expert certifié TEGOVA ?", "a": "Non. L'IA fournit une aide à la rédaction et à l'analyse, pas un avis d'expert engageant. Pour un rapport EVS destiné à une banque ou un tribunal, l'expert certifié TEGOVA REV/TRV reste responsable de la valeur retenue et doit relire, corriger et signer. L'IA accélère la production (draft narrative, détection d'incohérences) mais ne se substitue ni à l'expertise humaine ni à la visite du bien." },
-        { "q": "Quels modèles sont supportés en BYOK ?", "a": "Anthropic (Claude 4.x — recommandé pour vision PDF et rédaction EVS), OpenAI (GPT-4o, GPT-4 Turbo — bon en vision), Groq (Llama 3.x rapide), Cerebras (Llama 3.1 8B — gratuit, par défaut). Configuration en 2 clics dans /profil. Les coûts unitaires sont affichés en temps réel." },
-        { "q": "Comment accéder à l'API publique tevaxia ?", "a": "Sur /api-docs vous trouverez la documentation complète des 3 endpoints (analyze, chat, extract) avec exemples cURL, SDK JS et Python. Authentification par header X-API-Key. Tier rate-limit standard gratuit ; pour des volumes élevés ou SLA, contactez-nous via /pricing pour un tier entreprise." },
-        { "q": "Quelles sont les limites des analyses IA ?", "a": "Les modèles font parfois des erreurs de calcul ou citent des références obsolètes (cutoff de connaissance variable selon le modèle). Tevaxia injecte les chiffres clés à jour (taux 2026, coefficients STATEC, montants Bëllegen Akt) dans le contexte pour réduire ces erreurs. Pour les chiffres critiques, vérifiez toujours avec nos outils déterministes (calculateurs, simulateurs)." }
+        {
+          "q": "L'IA tevaxia est-elle vraiment gratuite ?",
+          "a": "Oui : 5 analyses par jour par utilisateur connecté, sans carte bancaire ni abonnement. Au-delà, ajoutez votre propre clé Cerebras, Groq, OpenAI ou Anthropic dans votre profil pour un usage illimité. Le tier gratuit utilise Cerebras (Llama 3.1 8B) avec fallback Groq si configuré."
+        },
+        {
+          "q": "Mes données sont-elles envoyées à un tiers ?",
+          "a": "Oui, les requêtes transitent par le fournisseur IA configuré (Cerebras par défaut, ou votre clé BYOK). Les contextes envoyés contiennent uniquement les inputs et résultats du calcul en cours — jamais de données personnelles hors de ce calcul. Cerebras et Groq ne stockent pas les prompts pour l'entraînement. Pour de la confidentialité forte, préférez Anthropic ou OpenAI avec contrat entreprise no-training."
+        },
+        {
+          "q": "L'IA peut-elle remplacer un expert certifié TEGOVA ?",
+          "a": "Non. L'IA fournit une aide à la rédaction et à l'analyse, pas un avis d'expert engageant. Pour un rapport EVS destiné à une banque ou un tribunal, l'expert certifié TEGOVA REV/TRV reste responsable de la valeur retenue et doit relire, corriger et signer. L'IA accélère la production (draft narrative, détection d'incohérences) mais ne se substitue ni à l'expertise humaine ni à la visite du bien."
+        },
+        {
+          "q": "Quels modèles sont supportés en BYOK ?",
+          "a": "Anthropic (Claude 4.x — recommandé pour vision PDF et rédaction EVS), OpenAI (GPT-4o, GPT-4 Turbo — bon en vision), Groq (Llama 3.x rapide), Cerebras (Llama 3.1 8B — gratuit, par défaut). Configuration en 2 clics dans /profil. Les coûts unitaires sont affichés en temps réel."
+        },
+        {
+          "q": "Comment accéder à l'API publique tevaxia ?",
+          "a": "Sur /api-docs vous trouverez la documentation complète des 3 endpoints (analyze, chat, extract) avec exemples cURL, SDK JS et Python. Authentification par header X-API-Key. Tier rate-limit standard gratuit ; pour des volumes élevés ou SLA, contactez-nous via /pricing pour un tier entreprise."
+        },
+        {
+          "q": "Quelles sont les limites des analyses IA ?",
+          "a": "Les modèles font parfois des erreurs de calcul ou citent des références obsolètes (cutoff de connaissance variable selon le modèle). Tevaxia injecte les chiffres clés à jour (taux 2026, coefficients STATEC, montants Bëllegen Akt) dans le contexte pour réduire ces erreurs. Pour les chiffres critiques, vérifiez toujours avec nos outils déterministes (calculateurs, simulateurs)."
+        }
       ],
       "sources": [
-        { "title": "Documentation API publique tevaxia", "org": "tevaxia.lu", "url": "https://tevaxia.lu/api-docs" },
-        { "title": "TEGOVA EVS 2025 — European Valuation Standards", "org": "TEGOVA", "url": "https://www.tegova.org/", "year": 2025 },
-        { "title": "Loi modifiée du 4 décembre 1967 (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
-        { "title": "Cerebras Inference — modèles open-weights", "org": "Cerebras Systems", "url": "https://cerebras.ai/inference" },
-        { "title": "Anthropic API — Claude pour la vision PDF", "org": "Anthropic", "url": "https://docs.anthropic.com/" }
+        {
+          "title": "Documentation API publique tevaxia",
+          "org": "tevaxia.lu",
+          "url": "https://tevaxia.lu/api-docs"
+        },
+        {
+          "title": "TEGOVA EVS 2025 — European Valuation Standards",
+          "org": "TEGOVA",
+          "url": "https://www.tegova.org/",
+          "year": 2025
+        },
+        {
+          "title": "Loi modifiée du 4 décembre 1967 (LIR)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        },
+        {
+          "title": "Cerebras Inference — modèles open-weights",
+          "org": "Cerebras Systems",
+          "url": "https://cerebras.ai/inference"
+        },
+        {
+          "title": "Anthropic API — Claude pour la vision PDF",
+          "org": "Anthropic",
+          "url": "https://docs.anthropic.com/"
+        }
       ]
     }
   },
@@ -16603,5 +17551,324 @@
     "checkApiDesc": "Endpoint /api/v1/estimation",
     "checkObservName": "data.public.lu",
     "checkObservDesc": "Observatoire de l'Habitat"
+  },
+  "portalLandings": {
+    "copropriete": {
+      "meta": {
+        "title": "Espace copropriétaire Luxembourg — accès portail tevaxia",
+        "description": "Accédez à votre espace copropriétaire : convocations d'AG, votes en ligne, comptes individuels, appels de fonds. Lien magique sécurisé fourni par votre syndic."
+      },
+      "hero": {
+        "badge": "Portail copropriétaire",
+        "title": "Votre copropriété",
+        "titleAccent": "en toute transparence",
+        "subtitle": "Convocations, procès-verbaux, votes aux résolutions, suivi des appels de fonds et de votre compte individuel : tout votre dossier de copropriété au même endroit. Accès sécurisé par lien magique fourni par votre syndic.",
+        "primaryCta": "Demander mon lien d'accès",
+        "secondaryCta": "Comprendre la copropriété au Luxembourg"
+      },
+      "features": {
+        "title": "Ce que vous trouvez dans votre espace",
+        "intro": "Toutes les informations légales de votre copropriété, accessibles 24/7 depuis tout appareil.",
+        "items": [
+          {
+            "icon": "📋",
+            "title": "Convocations & PV d'AG",
+            "desc": "Téléchargez convocations, ordres du jour et procès-verbaux signés. Historique conservé."
+          },
+          {
+            "icon": "🗳️",
+            "title": "Vote en ligne aux résolutions",
+            "desc": "Votez par voie électronique aux assemblées générales (loi du 16 mai 1975 modifiée)."
+          },
+          {
+            "icon": "💶",
+            "title": "Mon compte individuel",
+            "desc": "Suivez vos appels de fonds, charges, paiements et solde à jour. Téléchargez votre relevé en PDF."
+          },
+          {
+            "icon": "🤖",
+            "title": "Assistant IA copropriété",
+            "desc": "Posez vos questions sur le règlement, les charges ou la loi luxembourgeoise — réponses sourcées."
+          }
+        ]
+      },
+      "access": {
+        "title": "Comment accéder à votre espace",
+        "intro": "Aucune création de compte. Votre syndic vous envoie un lien magique sécurisé personnel.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Demande au syndic",
+            "desc": "Contactez votre syndic professionnel ou bénévole et demandez votre lien d'accès copropriétaire tevaxia."
+          },
+          {
+            "number": "2",
+            "title": "Réception par e-mail",
+            "desc": "Vous recevez un e-mail contenant votre lien personnel. Conservez-le, il reste valide tant qu'il n'est pas révoqué."
+          },
+          {
+            "number": "3",
+            "title": "Accès direct",
+            "desc": "Cliquez sur le lien : vous arrivez sur votre dossier sans mot de passe. Pas d'application à installer."
+          }
+        ],
+        "note": "Vous n'avez pas reçu de lien ? Votre syndic n'utilise peut-être pas encore tevaxia. Invitez-le à découvrir notre solution syndic."
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          {
+            "q": "Le lien est-il sécurisé ?",
+            "a": "Le token est aléatoire (256 bits), unique et opaque. Il identifie strictement votre lot et vos données. Vous pouvez demander à votre syndic de le révoquer à tout moment."
+          },
+          {
+            "q": "Puis-je voter à l'AG depuis l'espace ?",
+            "a": "Oui, sur les résolutions ouvertes au vote électronique. La loi du 16 mai 1975 modifiée par celle du 6 juin 2023 permet le vote à distance si le règlement de copropriété ne l'interdit pas."
+          },
+          {
+            "q": "Et si je suis aussi locataire d'un autre bien ?",
+            "a": "Vous pouvez avoir plusieurs accès distincts (un par lot copropriété + un par bail locatif). Chaque token est indépendant."
+          },
+          {
+            "q": "Mes données sont-elles conservées en Europe ?",
+            "a": "Oui. tevaxia héberge toutes les données dans l'Union européenne (Supabase EU + Vercel EU). Conformité RGPD."
+          },
+          {
+            "q": "Combien coûte cet accès pour moi ?",
+            "a": "L'accès copropriétaire est gratuit. C'est votre syndic qui souscrit à tevaxia pour gérer la copropriété."
+          }
+        ]
+      },
+      "related": {
+        "title": "Pour aller plus loin",
+        "items": [
+          {
+            "label": "Guide copropriété Luxembourg",
+            "href": "/guide/copropriete-luxembourg",
+            "desc": "Loi du 16 mai 1975, AG, charges, conseil syndical."
+          },
+          {
+            "label": "Solution syndic",
+            "href": "/solutions/syndic",
+            "desc": "Pour les syndics professionnels et bénévoles."
+          },
+          {
+            "label": "Espace conseil syndical",
+            "href": "/conseil-syndical",
+            "desc": "Membres du conseil : pilotez la copropriété."
+          }
+        ]
+      }
+    },
+    "conseilSyndical": {
+      "meta": {
+        "title": "Espace conseil syndical Luxembourg — portail tevaxia",
+        "description": "Pilotez votre copropriété en tant que membre du conseil syndical : vue consolidée, suivi des travaux, préparation d'AG, communication aux copropriétaires."
+      },
+      "hero": {
+        "badge": "Portail conseil syndical",
+        "title": "Pilotez votre copropriété",
+        "titleAccent": "en confiance",
+        "subtitle": "Vue d'ensemble des comptes, suivi des travaux votés, préparation des AG et communication consolidée aux copropriétaires. L'outil dédié aux membres élus du conseil syndical.",
+        "primaryCta": "Demander mon lien d'accès",
+        "secondaryCta": "Rôle du conseil syndical"
+      },
+      "features": {
+        "title": "Vos outils de pilotage",
+        "intro": "En tant que membre élu, vous représentez les copropriétaires et contrôlez le syndic. tevaxia vous donne les bons indicateurs.",
+        "items": [
+          {
+            "icon": "📊",
+            "title": "Vue consolidée des comptes",
+            "desc": "Soldes, charges courantes, fonds de roulement, fonds travaux, impayés agrégés."
+          },
+          {
+            "icon": "🛠️",
+            "title": "Suivi des travaux",
+            "desc": "État d'avancement des résolutions de travaux votées, devis comparés, factures."
+          },
+          {
+            "icon": "📝",
+            "title": "Préparation d'AG",
+            "desc": "Ordre du jour collaboratif, projets de résolution, documents à annexer."
+          },
+          {
+            "icon": "✉️",
+            "title": "Communication copropriétaires",
+            "desc": "Envoi groupé d'informations aux copropriétaires, archivage des échanges."
+          }
+        ]
+      },
+      "access": {
+        "title": "Comment accéder à votre espace",
+        "intro": "Le syndic vous attribue un accès conseil syndical lors de votre élection en AG.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Élection en AG",
+            "desc": "Vous êtes élu(e) au conseil syndical par l'assemblée générale (article 15-1 loi 1975)."
+          },
+          {
+            "number": "2",
+            "title": "Lien envoyé par le syndic",
+            "desc": "Le syndic vous transmet votre lien personnel d'accès conseil syndical par e-mail."
+          },
+          {
+            "number": "3",
+            "title": "Accès permanent",
+            "desc": "Connectez-vous à tout moment depuis n'importe quel appareil. Pas de mot de passe."
+          }
+        ],
+        "note": "Le mandat du conseil syndical est limité dans la durée (généralement 1 à 3 ans). Votre accès est révoqué à la fin du mandat."
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          {
+            "q": "Quelles sont mes obligations légales ?",
+            "a": "Le conseil syndical assiste et contrôle le syndic. Il est consulté pour tout marché ou contrat dépassant un seuil défini par l'AG (article 15-1 loi du 16 mai 1975 modifiée)."
+          },
+          {
+            "q": "Puis-je voir les pièces comptables ?",
+            "a": "Oui, le conseil syndical a accès aux pièces justificatives à tout moment. tevaxia donne accès aux factures scannées par le syndic."
+          },
+          {
+            "q": "Que faire si je détecte une anomalie ?",
+            "a": "Signalez-la au syndic via la messagerie tevaxia (traçabilité conservée). En cas de litige, le conseil peut convoquer une AG extraordinaire."
+          },
+          {
+            "q": "Combien de membres dans un conseil ?",
+            "a": "La loi luxembourgeoise n'impose pas de nombre fixe. La pratique est 3 à 5 membres pour une copropriété de taille moyenne."
+          }
+        ]
+      },
+      "related": {
+        "title": "Pour aller plus loin",
+        "items": [
+          {
+            "label": "Guide copropriété",
+            "href": "/guide/copropriete-luxembourg",
+            "desc": "Loi 1975, rôle du conseil syndical, AG."
+          },
+          {
+            "label": "Solution syndic",
+            "href": "/solutions/syndic",
+            "desc": "Pour les syndics — outil de gestion complet."
+          },
+          {
+            "label": "Espace copropriétaire",
+            "href": "/copropriete",
+            "desc": "Portail individuel des copropriétaires."
+          }
+        ]
+      }
+    },
+    "locataire": {
+      "meta": {
+        "title": "Espace locataire Luxembourg — portail tevaxia",
+        "description": "Accédez à votre espace locataire : quittances de loyer, état des lieux numérique, avis de charges, assistant IA bail. Lien magique sécurisé fourni par votre bailleur."
+      },
+      "hero": {
+        "badge": "Portail locataire",
+        "title": "Votre bail au Luxembourg",
+        "titleAccent": "tout au même endroit",
+        "subtitle": "Quittances de loyer, état des lieux numérique, avis de charges, échanges avec votre bailleur ou agence. Accès sécurisé par lien magique, sans création de compte.",
+        "primaryCta": "Demander mon lien d'accès",
+        "secondaryCta": "Comprendre votre bail"
+      },
+      "features": {
+        "title": "Ce que vous trouvez dans votre espace",
+        "intro": "Toutes les pièces de votre bail accessibles 24/7, conformes au droit locatif luxembourgeois.",
+        "items": [
+          {
+            "icon": "🧾",
+            "title": "Quittances de loyer",
+            "desc": "Téléchargez vos quittances mensuelles signées. Indispensables pour vos démarches administratives."
+          },
+          {
+            "icon": "📋",
+            "title": "État des lieux numérique",
+            "desc": "État d'entrée et de sortie horodatés avec photos. Comparaison côte à côte pour le contradictoire."
+          },
+          {
+            "icon": "💶",
+            "title": "Avis de charges",
+            "desc": "Régularisation annuelle détaillée poste par poste, avec pièces justificatives."
+          },
+          {
+            "icon": "🤖",
+            "title": "Assistant IA bail",
+            "desc": "Posez vos questions sur la loi du 21 septembre 2006 modifiée — droits, obligations, dépôt de garantie."
+          }
+        ]
+      },
+      "access": {
+        "title": "Comment accéder à votre espace",
+        "intro": "Aucune création de compte. Votre bailleur ou agence vous envoie un lien magique sécurisé personnel.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Demande au bailleur",
+            "desc": "Contactez votre bailleur ou l'agence qui gère votre bail et demandez votre lien d'accès locataire tevaxia."
+          },
+          {
+            "number": "2",
+            "title": "Réception par e-mail",
+            "desc": "Vous recevez un e-mail contenant votre lien personnel. Valide pour toute la durée de votre bail."
+          },
+          {
+            "number": "3",
+            "title": "Accès direct",
+            "desc": "Cliquez sur le lien : vous arrivez sur votre dossier sans mot de passe. Pas d'application à installer."
+          }
+        ],
+        "note": "Vous n'avez pas reçu de lien ? Votre bailleur n'utilise peut-être pas encore tevaxia. Invitez-le à découvrir notre solution gestion locative."
+      },
+      "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+          {
+            "q": "Le lien est-il sécurisé ?",
+            "a": "Le token est aléatoire (256 bits), unique et opaque. Vous pouvez demander à votre bailleur de le révoquer à tout moment."
+          },
+          {
+            "q": "Que faire en cas de litige sur les charges ?",
+            "a": "Vous avez le droit de consulter les pièces justificatives. La loi du 21 septembre 2006 modifiée encadre la régularisation. En cas de désaccord persistant, la commission des loyers peut être saisie."
+          },
+          {
+            "q": "Le dépôt de garantie est-il géré ici ?",
+            "a": "Le suivi du dépôt de garantie (placé sur compte bloqué selon l'article 5 de la loi) est visible dans votre espace, avec date de placement et restitution prévue."
+          },
+          {
+            "q": "Et si je change de logement ?",
+            "a": "Votre nouveau bailleur vous transmettra un nouveau lien. L'ancien reste consultable en mode lecture seule pendant 12 mois."
+          },
+          {
+            "q": "Combien coûte cet accès pour moi ?",
+            "a": "L'accès locataire est gratuit. C'est votre bailleur qui souscrit à tevaxia."
+          }
+        ]
+      },
+      "related": {
+        "title": "Pour aller plus loin",
+        "items": [
+          {
+            "label": "Guide bail habitation",
+            "href": "/guide/bail-habitation-luxembourg",
+            "desc": "Loi 21 septembre 2006, droits, obligations, charges."
+          },
+          {
+            "label": "Règle des 5%",
+            "href": "/guide/regle-5-pourcent-loyer",
+            "desc": "Plafond légal du loyer au Luxembourg."
+          },
+          {
+            "label": "Calculateur loyer",
+            "href": "/calculateur-loyer",
+            "desc": "Vérifiez si votre loyer respecte la règle des 5%."
+          }
+        ]
+      }
+    }
   }
 }

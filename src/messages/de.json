@@ -9103,13 +9103,43 @@
       "section4Intro": "Die folgende Tabelle zeigt eine indikative Spanne für eine Bestandsimmobilie als Hauptwohnsitz eines Käuferpaares (voller Bëllegen Akt 80.000 € angewendet). Die Hypothekenkosten entsprechen einer 80 %-Finanzierung.",
       "table": {
         "caption": "Geschätzte Erwerbskosten — Bestandsimmobilie, Käuferpaar, 80 % Finanzierung",
-        "headers": ["Kaufpreis", "7 % Gebühren", "Bëllegen Akt", "Netto zu zahlen"],
+        "headers": [
+          "Kaufpreis",
+          "7 % Gebühren",
+          "Bëllegen Akt",
+          "Netto zu zahlen"
+        ],
         "rows": [
-          ["300.000 €", "21.000 €", "−21.000 €", "≈ 6.000 €"],
-          ["500.000 €", "35.000 €", "−35.000 €", "≈ 10.000 €"],
-          ["750.000 €", "52.500 €", "−52.500 €", "≈ 14.000 €"],
-          ["1.000.000 €", "70.000 €", "−70.000 €", "≈ 18.000 €"],
-          ["1.500.000 €", "105.000 €", "−80.000 €", "≈ 50.000 €"]
+          [
+            "300.000 €",
+            "21.000 €",
+            "−21.000 €",
+            "≈ 6.000 €"
+          ],
+          [
+            "500.000 €",
+            "35.000 €",
+            "−35.000 €",
+            "≈ 10.000 €"
+          ],
+          [
+            "750.000 €",
+            "52.500 €",
+            "−52.500 €",
+            "≈ 14.000 €"
+          ],
+          [
+            "1.000.000 €",
+            "70.000 €",
+            "−70.000 €",
+            "≈ 18.000 €"
+          ],
+          [
+            "1.500.000 €",
+            "105.000 €",
+            "−80.000 €",
+            "≈ 50.000 €"
+          ]
         ],
         "footnote": "Netto zu zahlen = verbleibende Gebühren nach Bëllegen Akt + Notargebühren + Hypothekenkosten + Auslagen. Schätzung 2026 für ein Erstkäufer-Paar. Hypothekenanteil berechnet auf 80 % des Preises."
       },
@@ -9121,26 +9151,85 @@
         "cta": "Rechner öffnen"
       },
       "tools": [
-        { "href": "/frais-acquisition", "title": "Erwerbskosten-Rechner", "description": "Vollständige Schätzung: Gebühren, Bëllegen Akt, Notargebühren, Hypothek, Wohn-MwSt." },
-        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Aufteilung Grundstück / Bau und 3 % Wohn-MwSt. für einen Neubau." },
-        { "href": "/outils-bancaires", "title": "Bank-Tools", "description": "Kreditkapazität, Monatsrate, DSTI- und LTV-Quoten vor Vertragsunterzeichnung." },
-        { "href": "/simulateur-aides", "title": "Erwerbsbeihilfen", "description": "Wohnungsprämie, Zinszuschuss, Staatsgarantie, Sparprämie." }
+        {
+          "href": "/frais-acquisition",
+          "title": "Erwerbskosten-Rechner",
+          "description": "Vollständige Schätzung: Gebühren, Bëllegen Akt, Notargebühren, Hypothek, Wohn-MwSt."
+        },
+        {
+          "href": "/vefa",
+          "title": "VEFA-Simulator",
+          "description": "Aufteilung Grundstück / Bau und 3 % Wohn-MwSt. für einen Neubau."
+        },
+        {
+          "href": "/outils-bancaires",
+          "title": "Bank-Tools",
+          "description": "Kreditkapazität, Monatsrate, DSTI- und LTV-Quoten vor Vertragsunterzeichnung."
+        },
+        {
+          "href": "/simulateur-aides",
+          "title": "Erwerbsbeihilfen",
+          "description": "Wohnungsprämie, Zinszuschuss, Staatsgarantie, Sparprämie."
+        }
       ],
       "faq": [
-        { "q": "Wie hoch sind die Notargebühren für eine Wohnung zu 500.000 € in Luxemburg?", "a": "Für eine Bestandswohnung zu 500.000 € gekauft von einem Erstkäufer-Paar (voller Bëllegen Akt): rund 10.000 bis 12.000 € Gesamtkosten — 35.000 € Gebühren vollständig durch die Steuergutschrift kompensiert, plus 4.200 € Notargebühren, ca. 4.500 € Hypothekenkosten auf 400.000 € geliehen und 1.500 € Auslagen." },
-        { "q": "Sind die Notargebühren bei Neubauten in Luxemburg reduziert?", "a": "Ja. Bei einem VEFA-Neubau gelten die Eintragungs- und Transkriptionsgebühren nur für den Grundstücksanteil. Der Bau unterliegt der super-ermäßigten Wohn-MwSt. von 3 % (Steuergutschrift gedeckelt auf 50.000 € pro Wohnung). Die Gesamtkosten liegen meist zwischen 3 und 4 % des Preises." },
-        { "q": "Was ist der Bëllegen Akt und wie erhalte ich ihn?", "a": "Der Bëllegen Akt ist eine Steuergutschrift von 40.000 € pro Käufer (80.000 € für ein Paar) auf die Eintragungsgebühren, sofern die Immobilie als Hauptwohnsitz dient und persönlich bewohnt wird. Der Antrag erfolgt automatisch durch den Notar bei der Beurkundung. Die AED erhebt in jedem Fall mindestens 100 € Gebühren." },
-        { "q": "Können die Notargebühren in Luxemburg verhandelt werden?", "a": "Nein. Die Notargebühren in Luxemburg sind streng durch die Großherzogliche Verordnung vom 26. November 2015 geregelt; der Notar darf sie weder erhöhen noch senken. Nur die Auslagen (Formalitäten) können je nach Notariat leicht variieren je nach durchgeführten Recherchen." },
-        { "q": "Wer zahlt die Notargebühren in Luxemburg, der Käufer oder der Verkäufer?", "a": "Der Käufer trägt die gesamten Erwerbskosten (Gebühren, Notargebühren der Verkaufsurkunde, Hypothekenkosten bei Finanzierung). Der Verkäufer zahlt nur die Formalitäten zur Löschung einer bestehenden Hypothek auf der Immobilie und die etwaige Maklerprovision, falls vertraglich von ihm zu tragen." },
-        { "q": "Sind die Notargebühren in Luxemburg steuerlich absetzbar?", "a": "Bei einer Mietinvestition sind die Notargebühren (Gebühren, Notargebühren, Hypothekenkosten) nicht sofort absetzbar, sondern werden den Erwerbskosten zugerechnet und können über die Haltedauer abgeschrieben werden. Beim Hauptwohnsitz sind sie nicht absetzbar, aber der Bëllegen Akt deckt einen Großteil davon." }
+        {
+          "q": "Wie hoch sind die Notargebühren für eine Wohnung zu 500.000 € in Luxemburg?",
+          "a": "Für eine Bestandswohnung zu 500.000 € gekauft von einem Erstkäufer-Paar (voller Bëllegen Akt): rund 10.000 bis 12.000 € Gesamtkosten — 35.000 € Gebühren vollständig durch die Steuergutschrift kompensiert, plus 4.200 € Notargebühren, ca. 4.500 € Hypothekenkosten auf 400.000 € geliehen und 1.500 € Auslagen."
+        },
+        {
+          "q": "Sind die Notargebühren bei Neubauten in Luxemburg reduziert?",
+          "a": "Ja. Bei einem VEFA-Neubau gelten die Eintragungs- und Transkriptionsgebühren nur für den Grundstücksanteil. Der Bau unterliegt der super-ermäßigten Wohn-MwSt. von 3 % (Steuergutschrift gedeckelt auf 50.000 € pro Wohnung). Die Gesamtkosten liegen meist zwischen 3 und 4 % des Preises."
+        },
+        {
+          "q": "Was ist der Bëllegen Akt und wie erhalte ich ihn?",
+          "a": "Der Bëllegen Akt ist eine Steuergutschrift von 40.000 € pro Käufer (80.000 € für ein Paar) auf die Eintragungsgebühren, sofern die Immobilie als Hauptwohnsitz dient und persönlich bewohnt wird. Der Antrag erfolgt automatisch durch den Notar bei der Beurkundung. Die AED erhebt in jedem Fall mindestens 100 € Gebühren."
+        },
+        {
+          "q": "Können die Notargebühren in Luxemburg verhandelt werden?",
+          "a": "Nein. Die Notargebühren in Luxemburg sind streng durch die Großherzogliche Verordnung vom 26. November 2015 geregelt; der Notar darf sie weder erhöhen noch senken. Nur die Auslagen (Formalitäten) können je nach Notariat leicht variieren je nach durchgeführten Recherchen."
+        },
+        {
+          "q": "Wer zahlt die Notargebühren in Luxemburg, der Käufer oder der Verkäufer?",
+          "a": "Der Käufer trägt die gesamten Erwerbskosten (Gebühren, Notargebühren der Verkaufsurkunde, Hypothekenkosten bei Finanzierung). Der Verkäufer zahlt nur die Formalitäten zur Löschung einer bestehenden Hypothek auf der Immobilie und die etwaige Maklerprovision, falls vertraglich von ihm zu tragen."
+        },
+        {
+          "q": "Sind die Notargebühren in Luxemburg steuerlich absetzbar?",
+          "a": "Bei einer Mietinvestition sind die Notargebühren (Gebühren, Notargebühren, Hypothekenkosten) nicht sofort absetzbar, sondern werden den Erwerbskosten zugerechnet und können über die Haltedauer abgeschrieben werden. Beim Hauptwohnsitz sind sie nicht absetzbar, aber der Bëllegen Akt deckt einen Großteil davon."
+        }
       ],
       "sources": [
-        { "title": "Steuergutschrift auf notarielle Urkunden (Bëllegen Akt) — Verfahren", "org": "Guichet.lu", "url": "https://guichet.public.lu/de/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
-        { "title": "Bëllegen Akt — offizielles Datenblatt", "org": "Logement.lu — Wohnungsbauministerium", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
-        { "title": "Großherzogliche Verordnung vom 26. November 2015 über Notargebühren", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/11/26/n6/jo", "year": 2015 },
-        { "title": "Gesetz vom 22. Frimaire Jahr VII über Eintragungsgebühren", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" },
-        { "title": "Gesetz vom 25. September 1905 über die Transkription dinglicher Rechte", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1905/09/25/n1/jo" },
-        { "title": "3 % Wohn-MwSt. — AED-Rundschreiben", "org": "Verwaltung für Eintragung, Domänen und MwSt.", "url": "https://pfi.public.lu/fr.html" }
+        {
+          "title": "Steuergutschrift auf notarielle Urkunden (Bëllegen Akt) — Verfahren",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/de/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html"
+        },
+        {
+          "title": "Bëllegen Akt — offizielles Datenblatt",
+          "org": "Logement.lu — Wohnungsbauministerium",
+          "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html"
+        },
+        {
+          "title": "Großherzogliche Verordnung vom 26. November 2015 über Notargebühren",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/11/26/n6/jo",
+          "year": 2015
+        },
+        {
+          "title": "Gesetz vom 22. Frimaire Jahr VII über Eintragungsgebühren",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo"
+        },
+        {
+          "title": "Gesetz vom 25. September 1905 über die Transkription dinglicher Rechte",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1905/09/25/n1/jo"
+        },
+        {
+          "title": "3 % Wohn-MwSt. — AED-Rundschreiben",
+          "org": "Verwaltung für Eintragung, Domänen und MwSt.",
+          "url": "https://pfi.public.lu/fr.html"
+        }
       ]
     },
     "regle5Pourcent": {
@@ -9172,13 +9261,43 @@
       "section4Intro": "Maximale Monatsmiete für eine typische Wohnung gekauft 400.000 € + 30.000 € Kosten (430.000 € Gesamtkapital). Bauanteil geschätzt auf 70 % des Preises.",
       "table": {
         "caption": "Maximale gesetzliche Monatsmiete nach Kaufjahr (Anfangskapital 430.000 €)",
-        "headers": ["Kaufjahr", "STATEC-Koeffizient", "Aufgewertetes Kapital", "Max. Miete/Monat (5 %)"],
+        "headers": [
+          "Kaufjahr",
+          "STATEC-Koeffizient",
+          "Aufgewertetes Kapital",
+          "Max. Miete/Monat (5 %)"
+        ],
         "rows": [
-          ["2010", "2,33", "1.001.900 €", "≈ 4.030 €"],
-          ["2015", "2,07", "890.100 €", "≈ 3.140 €"],
-          ["2020", "1,95", "838.500 €", "≈ 3.270 €"],
-          ["2022", "1,77", "761.100 €", "≈ 2.990 €"],
-          ["2025", "1,52", "653.600 €", "≈ 2.690 €"]
+          [
+            "2010",
+            "2,33",
+            "1.001.900 €",
+            "≈ 4.030 €"
+          ],
+          [
+            "2015",
+            "2,07",
+            "890.100 €",
+            "≈ 3.140 €"
+          ],
+          [
+            "2020",
+            "1,95",
+            "838.500 €",
+            "≈ 3.270 €"
+          ],
+          [
+            "2022",
+            "1,77",
+            "761.100 €",
+            "≈ 2.990 €"
+          ],
+          [
+            "2025",
+            "1,52",
+            "653.600 €",
+            "≈ 2.690 €"
+          ]
         ],
         "footnote": "Indikative Berechnung nach 2 %/Jahr Abnutzung auf Bauanteil (70 % vom Preis). Reform 8184: Bei 3,5%-Obergrenze würden diese Mieten um etwa 30 % sinken."
       },
@@ -9190,25 +9309,81 @@
         "cta": "Berechnung starten"
       },
       "tools": [
-        { "href": "/calculateur-loyer", "title": "Gesetzlicher Mietrechner", "description": "5 % des aufgewerteten investierten Kapitals + Abnutzung + Reform-Anpassung." },
-        { "href": "/locataire", "title": "Mieterbereich", "description": "Briefvorlagen für Anfechtung, Nebenkostenverfolgung, Kommissionsantrag." },
-        { "href": "/carte", "title": "Mietpreiskarte", "description": "Median-Beobachtungsmiete pro Gemeinde und Wohnungstyp zum Vergleich." },
-        { "href": "/portfolio", "title": "Investmentportfolio", "description": "Brutto-/Netto-Renditeverfolgung Ihrer vermieteten Immobilien." }
+        {
+          "href": "/calculateur-loyer",
+          "title": "Gesetzlicher Mietrechner",
+          "description": "5 % des aufgewerteten investierten Kapitals + Abnutzung + Reform-Anpassung."
+        },
+        {
+          "href": "/locataire",
+          "title": "Mieterbereich",
+          "description": "Briefvorlagen für Anfechtung, Nebenkostenverfolgung, Kommissionsantrag."
+        },
+        {
+          "href": "/carte",
+          "title": "Mietpreiskarte",
+          "description": "Median-Beobachtungsmiete pro Gemeinde und Wohnungstyp zum Vergleich."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Investmentportfolio",
+          "description": "Brutto-/Netto-Renditeverfolgung Ihrer vermieteten Immobilien."
+        }
       ],
       "faq": [
-        { "q": "Wie berechnet man die Höchstmiete in Luxemburg?", "a": "Multiplizieren Sie das investierte Kapital (Kaufpreis + Erwerbsnebenkosten + Verbesserungsarbeiten) mit dem STATEC-Koeffizienten des Investitionsjahres. Wenden Sie den Abnutzungsabschlag von 2 %/Jahr auf den Bauanteil an. Multiplizieren Sie das Ergebnis mit 5 % für die max. Jahresmiete, dann teilen Sie durch 12 für die monatliche." },
-        { "q": "Wird die 5%-Regel in Luxemburg geändert?", "a": "Der Gesetzentwurf 8184 sieht vor, die Obergrenze von 5 % auf 3,5 % für neue Mietverträge zu senken, mit dem Ziel besseren Mieterschutzes angesichts steigender Preise. Der Text wird im Parlament diskutiert und könnte im Laufe von 2026 in Kraft treten. Bestehende Mietverträge wären nicht rückwirkend betroffen." },
-        { "q": "Was umfasst genau das investierte Kapital?", "a": "Den Kaufpreis von Grundstück und Bau, Erwerbsnebenkosten (Gebühren, Notargebühren, Hypothek) und dauerhafte Verbesserungsausgaben (Erweiterungen, Umbau, größere Energiesanierung). Laufende Instandhaltung, Dekoration und Möbel sind ausgeschlossen." },
-        { "q": "Wie funktioniert der 2%-Abnutzungsabschlag?", "a": "Der Bauanteil (ohne Grundstück, je nach Gemeinde meist 60-75 % des Preises) wird um 2 % pro Jahr seit Kauf oder letzten strukturellen Arbeiten abgeschrieben. Die Abschreibung kumuliert bis zu einer Untergrenze (typisch 30 % des Anfangswerts)." },
-        { "q": "Sind Nebenkosten in der 5%-Obergrenze enthalten?", "a": "Nein. Nebenkosten (Wasser, Heizung, Gemeinschaftspflege, Aufzug) werden zusätzlich zur gedeckelten Miete abgerechnet, auf Basis tatsächlicher Kosten und limitativ aufgelistet im GH-Reglement vom 16. Juni 2015 (Müllabgabe, Gemeinschaftsmedien etc.). Der Vermieter darf keine größeren Arbeiten oder Marge umlegen." },
-        { "q": "Was tun, wenn meine Miete die gesetzliche Obergrenze überschreitet?", "a": "Wenden Sie sich kostenlos an die Mietkommission Ihrer Gemeinde mit dem Erwerbsakt des Vermieters (anfordern), Ihrem Mietvertrag und Arbeitsrechnungen. Die Kommission gibt eine Stellungnahme; weigert sich der Vermieter, können Sie zum Friedensrichter, der die rückwirkende Reduktion und Erstattung der Überzahlungen anordnen kann." }
+        {
+          "q": "Wie berechnet man die Höchstmiete in Luxemburg?",
+          "a": "Multiplizieren Sie das investierte Kapital (Kaufpreis + Erwerbsnebenkosten + Verbesserungsarbeiten) mit dem STATEC-Koeffizienten des Investitionsjahres. Wenden Sie den Abnutzungsabschlag von 2 %/Jahr auf den Bauanteil an. Multiplizieren Sie das Ergebnis mit 5 % für die max. Jahresmiete, dann teilen Sie durch 12 für die monatliche."
+        },
+        {
+          "q": "Wird die 5%-Regel in Luxemburg geändert?",
+          "a": "Der Gesetzentwurf 8184 sieht vor, die Obergrenze von 5 % auf 3,5 % für neue Mietverträge zu senken, mit dem Ziel besseren Mieterschutzes angesichts steigender Preise. Der Text wird im Parlament diskutiert und könnte im Laufe von 2026 in Kraft treten. Bestehende Mietverträge wären nicht rückwirkend betroffen."
+        },
+        {
+          "q": "Was umfasst genau das investierte Kapital?",
+          "a": "Den Kaufpreis von Grundstück und Bau, Erwerbsnebenkosten (Gebühren, Notargebühren, Hypothek) und dauerhafte Verbesserungsausgaben (Erweiterungen, Umbau, größere Energiesanierung). Laufende Instandhaltung, Dekoration und Möbel sind ausgeschlossen."
+        },
+        {
+          "q": "Wie funktioniert der 2%-Abnutzungsabschlag?",
+          "a": "Der Bauanteil (ohne Grundstück, je nach Gemeinde meist 60-75 % des Preises) wird um 2 % pro Jahr seit Kauf oder letzten strukturellen Arbeiten abgeschrieben. Die Abschreibung kumuliert bis zu einer Untergrenze (typisch 30 % des Anfangswerts)."
+        },
+        {
+          "q": "Sind Nebenkosten in der 5%-Obergrenze enthalten?",
+          "a": "Nein. Nebenkosten (Wasser, Heizung, Gemeinschaftspflege, Aufzug) werden zusätzlich zur gedeckelten Miete abgerechnet, auf Basis tatsächlicher Kosten und limitativ aufgelistet im GH-Reglement vom 16. Juni 2015 (Müllabgabe, Gemeinschaftsmedien etc.). Der Vermieter darf keine größeren Arbeiten oder Marge umlegen."
+        },
+        {
+          "q": "Was tun, wenn meine Miete die gesetzliche Obergrenze überschreitet?",
+          "a": "Wenden Sie sich kostenlos an die Mietkommission Ihrer Gemeinde mit dem Erwerbsakt des Vermieters (anfordern), Ihrem Mietvertrag und Arbeitsrechnungen. Die Kommission gibt eine Stellungnahme; weigert sich der Vermieter, können Sie zum Friedensrichter, der die rückwirkende Reduktion und Erstattung der Überzahlungen anordnen kann."
+        }
       ],
       "sources": [
-        { "title": "Geändertes Gesetz vom 21. September 2006 — Wohnraummiete", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
-        { "title": "Aufwertungskoeffizienten — STATEC", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Mietberechnung — praktisches Vorgehen", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/calcul-loyer.html" },
-        { "title": "Gesetzentwurf 8184 — Mietreform", "org": "Abgeordnetenkammer", "url": "https://www.chd.lu/" },
-        { "title": "GH-Reglement vom 16. Juni 2015 — umlegbare Nebenkosten", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 }
+        {
+          "title": "Geändertes Gesetz vom 21. September 2006 — Wohnraummiete",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo",
+          "year": 2006
+        },
+        {
+          "title": "Aufwertungskoeffizienten — STATEC",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Mietberechnung — praktisches Vorgehen",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/calcul-loyer.html"
+        },
+        {
+          "title": "Gesetzentwurf 8184 — Mietreform",
+          "org": "Abgeordnetenkammer",
+          "url": "https://www.chd.lu/"
+        },
+        {
+          "title": "GH-Reglement vom 16. Juni 2015 — umlegbare Nebenkosten",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo",
+          "year": 2015
+        }
       ]
     },
     "bellegenAkt": {
@@ -9240,13 +9415,43 @@
       "section4Intro": "Wirkung des Bëllegen Akt nach Käuferprofil bei einer Bestandsimmobilie (Satz 7 %).",
       "table": {
         "caption": "Wirkung des Bëllegen Akt nach Profil und Preis",
-        "headers": ["Kaufpreis", "Einzelkäufer (40.000 €)", "Paar (80.000 €)", "Ersparnis"],
+        "headers": [
+          "Kaufpreis",
+          "Einzelkäufer (40.000 €)",
+          "Paar (80.000 €)",
+          "Ersparnis"
+        ],
         "rows": [
-          ["300.000 €", "0 € Gebühren", "0 € Gebühren", "21.000 €"],
-          ["500.000 €", "0 € (Kredit > Gebühren)", "0 € Gebühren", "35.000 €"],
-          ["750.000 €", "12.500 € Gebühren", "0 € Gebühren", "52.500 €"],
-          ["1.000.000 €", "30.000 € Gebühren", "0 € Gebühren", "70.000 €"],
-          ["1.500.000 €", "65.000 € Gebühren", "25.000 € Gebühren", "80.000 € (Paar)"]
+          [
+            "300.000 €",
+            "0 € Gebühren",
+            "0 € Gebühren",
+            "21.000 €"
+          ],
+          [
+            "500.000 €",
+            "0 € (Kredit > Gebühren)",
+            "0 € Gebühren",
+            "35.000 €"
+          ],
+          [
+            "750.000 €",
+            "12.500 € Gebühren",
+            "0 € Gebühren",
+            "52.500 €"
+          ],
+          [
+            "1.000.000 €",
+            "30.000 € Gebühren",
+            "0 € Gebühren",
+            "70.000 €"
+          ],
+          [
+            "1.500.000 €",
+            "65.000 € Gebühren",
+            "25.000 € Gebühren",
+            "80.000 € (Paar)"
+          ]
         ],
         "footnote": "Ersparnis für ein Erstkäufer-Paar, das den Kredit nie genutzt hat. Bei einem Einzelkäufer entspricht die Ersparnis dem Mindestwert zwischen fälligen Gebühren und 40.000 €."
       },
@@ -9258,25 +9463,80 @@
         "cta": "Berechnung starten"
       },
       "tools": [
-        { "href": "/frais-acquisition", "title": "Erwerbskosten-Rechner", "description": "Automatische Bëllegen-Akt-Anrechnung nach Ihrem Profil." },
-        { "href": "/simulateur-aides", "title": "Erwerbsbeihilfen-Simulator", "description": "Bëllegen Akt, Wohnungsprämie, Zinszuschuss und Staatsgarantie kombinieren." },
-        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Bëllegen Akt auf den Grundstücksanteil und 3 % Wohn-MwSt. auf den Bau." },
-        { "href": "/outils-bancaires", "title": "Bank-Tools", "description": "Kreditkapazität und Monatsrate zur Finalisierung Ihres Finanzierungsplans." }
+        {
+          "href": "/frais-acquisition",
+          "title": "Erwerbskosten-Rechner",
+          "description": "Automatische Bëllegen-Akt-Anrechnung nach Ihrem Profil."
+        },
+        {
+          "href": "/simulateur-aides",
+          "title": "Erwerbsbeihilfen-Simulator",
+          "description": "Bëllegen Akt, Wohnungsprämie, Zinszuschuss und Staatsgarantie kombinieren."
+        },
+        {
+          "href": "/vefa",
+          "title": "VEFA-Simulator",
+          "description": "Bëllegen Akt auf den Grundstücksanteil und 3 % Wohn-MwSt. auf den Bau."
+        },
+        {
+          "href": "/outils-bancaires",
+          "title": "Bank-Tools",
+          "description": "Kreditkapazität und Monatsrate zur Finalisierung Ihres Finanzierungsplans."
+        }
       ],
       "faq": [
-        { "q": "Wie hoch ist der Bëllegen Akt 2026?", "a": "Der Bëllegen Akt beträgt 40.000 € pro Käufer, also 80.000 € für ein gemeinsam in Bruchteilen kaufendes Paar. Das ist die maximale Steuergutschrift, die auf Eintragungs- und Transkriptionsgebühren angerechnet werden kann." },
-        { "q": "Ist der Bëllegen Akt mit anderen Beihilfen kombinierbar?", "a": "Ja. Er ist mit der 3 % Wohn-MwSt. auf Neubauten, der Wohnungszugangsprämie, dem Zinszuschuss, der Sparprämie und der Staatsgarantie kombinierbar. Verboten ist nur die doppelte Nutzung desselben Kredits für zwei gleichzeitige Erwerbe." },
-        { "q": "Kann der Bëllegen Akt für eine Mietinvestition genutzt werden?", "a": "Nein. Der Kredit ist strikt dem Erwerb eines vom Käufer persönlich bewohnten Hauptwohnsitzes vorbehalten. Mietinvestitionen, Zweitwohnsitze oder Gewerberäume sind ausgeschlossen." },
-        { "q": "Muss man Luxemburg-Resident sein, um zu profitieren?", "a": "Nein. Der Bëllegen Akt steht jeder natürlichen Person offen, die eine Immobilie in Luxemburg erwirbt, um dort ihren Hauptwohnsitz zu begründen, ob bereits Steuerresident oder beim Kauf zuziehend." },
-        { "q": "Was passiert bei schnellem Wiederverkauf?", "a": "Erfolgt der Wiederverkauf vor Ablauf der Verpflichtungsfrist, kann die AED die volle Rückzahlung der Gutschrift zuzüglich Verzugszinsen fordern. Ein Wiederverkauf nach mehreren Jahren tatsächlicher Bewohnung löst keine Rückforderung aus, der Kredit wird aber für einen Neuerwerb nicht wiederhergestellt." },
-        { "q": "Wie prüfe ich den verfügbaren Kreditstand?", "a": "Der Notar fragt die AED über Telefachverfahren vor dem Akt ab. Der Käufer kann auch direkt eine Standsbescheinigung bei der AED gegen Vorlage eines Ausweises anfordern. Wurde ein Teil bereits bei einem früheren Kauf verwendet, ist nur der Restbetrag mobilisierbar." }
+        {
+          "q": "Wie hoch ist der Bëllegen Akt 2026?",
+          "a": "Der Bëllegen Akt beträgt 40.000 € pro Käufer, also 80.000 € für ein gemeinsam in Bruchteilen kaufendes Paar. Das ist die maximale Steuergutschrift, die auf Eintragungs- und Transkriptionsgebühren angerechnet werden kann."
+        },
+        {
+          "q": "Ist der Bëllegen Akt mit anderen Beihilfen kombinierbar?",
+          "a": "Ja. Er ist mit der 3 % Wohn-MwSt. auf Neubauten, der Wohnungszugangsprämie, dem Zinszuschuss, der Sparprämie und der Staatsgarantie kombinierbar. Verboten ist nur die doppelte Nutzung desselben Kredits für zwei gleichzeitige Erwerbe."
+        },
+        {
+          "q": "Kann der Bëllegen Akt für eine Mietinvestition genutzt werden?",
+          "a": "Nein. Der Kredit ist strikt dem Erwerb eines vom Käufer persönlich bewohnten Hauptwohnsitzes vorbehalten. Mietinvestitionen, Zweitwohnsitze oder Gewerberäume sind ausgeschlossen."
+        },
+        {
+          "q": "Muss man Luxemburg-Resident sein, um zu profitieren?",
+          "a": "Nein. Der Bëllegen Akt steht jeder natürlichen Person offen, die eine Immobilie in Luxemburg erwirbt, um dort ihren Hauptwohnsitz zu begründen, ob bereits Steuerresident oder beim Kauf zuziehend."
+        },
+        {
+          "q": "Was passiert bei schnellem Wiederverkauf?",
+          "a": "Erfolgt der Wiederverkauf vor Ablauf der Verpflichtungsfrist, kann die AED die volle Rückzahlung der Gutschrift zuzüglich Verzugszinsen fordern. Ein Wiederverkauf nach mehreren Jahren tatsächlicher Bewohnung löst keine Rückforderung aus, der Kredit wird aber für einen Neuerwerb nicht wiederhergestellt."
+        },
+        {
+          "q": "Wie prüfe ich den verfügbaren Kreditstand?",
+          "a": "Der Notar fragt die AED über Telefachverfahren vor dem Akt ab. Der Käufer kann auch direkt eine Standsbescheinigung bei der AED gegen Vorlage eines Ausweises anfordern. Wurde ein Teil bereits bei einem früheren Kauf verwendet, ist nur der Restbetrag mobilisierbar."
+        }
       ],
       "sources": [
-        { "title": "Steuergutschrift auf notarielle Urkunden (Bëllegen Akt) — Verfahren", "org": "Guichet.lu", "url": "https://guichet.public.lu/de/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
-        { "title": "Bëllegen Akt — offizielles Datenblatt", "org": "Logement.lu — Wohnungsbauministerium", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
-        { "title": "Gesetz vom 30. Juli 2002 zur Einführung der Steuergutschrift auf notarielle Urkunden", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2002/07/30/n3/jo", "year": 2002 },
-        { "title": "Bëllegen-Akt-Reform — Anhebung auf 40.000 €", "org": "Paperjam", "url": "https://paperjam.lu/article/frais-enregistrement-baisses-a" },
-        { "title": "Gesetz vom 22. Frimaire Jahr VII — Eintragungsgebühren", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" }
+        {
+          "title": "Steuergutschrift auf notarielle Urkunden (Bëllegen Akt) — Verfahren",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/de/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html"
+        },
+        {
+          "title": "Bëllegen Akt — offizielles Datenblatt",
+          "org": "Logement.lu — Wohnungsbauministerium",
+          "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html"
+        },
+        {
+          "title": "Gesetz vom 30. Juli 2002 zur Einführung der Steuergutschrift auf notarielle Urkunden",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2002/07/30/n3/jo",
+          "year": 2002
+        },
+        {
+          "title": "Bëllegen-Akt-Reform — Anhebung auf 40.000 €",
+          "org": "Paperjam",
+          "url": "https://paperjam.lu/article/frais-enregistrement-baisses-a"
+        },
+        {
+          "title": "Gesetz vom 22. Frimaire Jahr VII — Eintragungsgebühren",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo"
+        }
       ]
     },
     "plusValue": {
@@ -9308,13 +9568,43 @@
       "section4Intro": "Kombinierte Wirkung von Aufwertungskoeffizient, Zehn-Jahres-Freibetrag und Viertel-Gesamtsatz für eine 2015 erworbene und 2026 veräußerte Immobilie (Kaufpreis 400.000 €, Erwerbskosten 30.000 €, Verkaufspreis 700.000 €, Steuerpflichtiger im 42 %-Spitzensatz).",
       "table": {
         "caption": "Steuerpflichtiger Gewinn und Steuer — Beispiele 2026",
-        "headers": ["Käuferprofil", "Bruttogewinn", "Nach Freibetrag", "Steuer fällig"],
+        "headers": [
+          "Käuferprofil",
+          "Bruttogewinn",
+          "Nach Freibetrag",
+          "Steuer fällig"
+        ],
         "rows": [
-          ["Einzelperson, 1 Veräußerung in 10 Jahren", "≈ −230.000 €", "0 €", "0 €"],
-          ["Paar, 1 Veräußerung in 10 Jahren", "≈ −230.000 €", "0 €", "0 €"],
-          ["Einzelperson, mehrere Veräußerungen", "150.000 €", "100.000 €", "≈ 10.500 €"],
-          ["Paar, mehrere Veräußerungen", "150.000 €", "50.000 €", "≈ 5.250 €"],
-          ["Spekulation < 2 Jahre (Paar)", "150.000 €", "150.000 €", "≈ 68.700 €"]
+          [
+            "Einzelperson, 1 Veräußerung in 10 Jahren",
+            "≈ −230.000 €",
+            "0 €",
+            "0 €"
+          ],
+          [
+            "Paar, 1 Veräußerung in 10 Jahren",
+            "≈ −230.000 €",
+            "0 €",
+            "0 €"
+          ],
+          [
+            "Einzelperson, mehrere Veräußerungen",
+            "150.000 €",
+            "100.000 €",
+            "≈ 10.500 €"
+          ],
+          [
+            "Paar, mehrere Veräußerungen",
+            "150.000 €",
+            "50.000 €",
+            "≈ 5.250 €"
+          ],
+          [
+            "Spekulation < 2 Jahre (Paar)",
+            "150.000 €",
+            "150.000 €",
+            "≈ 68.700 €"
+          ]
         ],
         "footnote": "Indikative Berechnungen 2026: aufgewerteter Preis 2015→2026 = 400.000 × 2,07 = 828.000 € (mit Kosten 891.100 €), ein Verkauf zu 700.000 € erzeugt also normalerweise einen Verlust. Die Zeilen 'mehrere Veräußerungen' nehmen einen hypothetischen Bruttogewinn von 150.000 € zur Veranschaulichung an."
       },
@@ -9326,26 +9616,85 @@
         "cta": "Simulation starten"
       },
       "tools": [
-        { "href": "/plus-values", "title": "Kapitalgewinn-Rechner", "description": "Spekulations- oder Veräußerungsgewinn nach Haltedauer, Freibetrag, STATEC-Koeffizient." },
-        { "href": "/dcf-multi", "title": "Mehrperioden-DCF", "description": "Cash-Flow-Projektion und Wiederverkaufswert zur Steuer-Antizipation." },
-        { "href": "/portfolio", "title": "Immobilienportfolio", "description": "Verfolgen Sie Ihre Immobilien und planen Sie Veräußerungen über 10 Jahre." },
-        { "href": "/frais-acquisition", "title": "Erwerbskosten", "description": "Berechnen Sie den erhöhten Anschaffungspreis als Basis für den Gewinn." }
+        {
+          "href": "/plus-values",
+          "title": "Kapitalgewinn-Rechner",
+          "description": "Spekulations- oder Veräußerungsgewinn nach Haltedauer, Freibetrag, STATEC-Koeffizient."
+        },
+        {
+          "href": "/dcf-multi",
+          "title": "Mehrperioden-DCF",
+          "description": "Cash-Flow-Projektion und Wiederverkaufswert zur Steuer-Antizipation."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Immobilienportfolio",
+          "description": "Verfolgen Sie Ihre Immobilien und planen Sie Veräußerungen über 10 Jahre."
+        },
+        {
+          "href": "/frais-acquisition",
+          "title": "Erwerbskosten",
+          "description": "Berechnen Sie den erhöhten Anschaffungspreis als Basis für den Gewinn."
+        }
       ],
       "faq": [
-        { "q": "Wie hoch ist der Steuersatz auf Immobilienkapitalgewinne in Luxemburg?", "a": "Bei Wiederverkauf innerhalb von 2 Jahren (Spekulation): progressiver Einkommensteuertarif bis ca. 45,78 % effektiv. Nach 2 Jahren (Veräußerung): ein Viertel des Gesamtsatzes, typisch 10 bis 11 % je nach Tranche, nach Zehn-Jahres-Freibetrag." },
-        { "q": "Ist der Verkauf meines Hauptwohnsitzes steuerpflichtig?", "a": "Nein, sofern Sie ihn tatsächlich und ununterbrochen während der 5 Jahre vor der Veräußerung als Hauptwohnsitz bewohnt haben. Der Gewinn ist vollständig befreit (Art. 102bis Abs. 3 LIR), ohne Verkaufspreisgrenze." },
-        { "q": "Wie funktioniert der Zehn-Jahres-Freibetrag?", "a": "Jeder Steuerpflichtige erhält 50.000 € (100.000 € für gemeinsam veranlagtes Paar) auf den steuerpflichtigen Gewinn, alle zehn Jahre wieder aufladbar. Bei zwei Veräußerungen im selben Jahrzehnt gilt der Freibetrag nur einmal." },
-        { "q": "Wie wird der Aufwertungskoeffizient berechnet?", "a": "Er wird jährlich vom STATEC nach Artikel 102 LIR veröffentlicht und spiegelt die Entwicklung des Baukostenindex seit dem Anschaffungsjahr wider. Für 2026: 2,33 (Kauf 2010), 2,07 (2015), 1,77 (2022), 1,52 (2025), 1,48 (2026)." },
-        { "q": "Werden Erwerbsnebenkosten in die Berechnung einbezogen?", "a": "Ja. Eintragungsgebühren, Notargebühren, Hypothekenkosten der Erwerbsurkunde und dauerhafte Verbesserungsausgaben (Erweiterungen, große Sanierung, größere Energieaufwertung) werden vor der Aufwertung zum Kaufpreis hinzugerechnet. Laufende Instandhaltung und Dekoration sind nicht abzugsfähig." },
-        { "q": "Was passiert bei Schenkung oder Erbschaft?", "a": "Schenkung oder Erbschaft löst keine Kapitalertragsbesteuerung beim Schenker oder Verstorbenen aus (Art. 99bis Abs. 4 LIR). Der Begünstigte übernimmt den historischen Anschaffungspreis und das ursprüngliche Erwerbsdatum bei Berechnung seines eigenen künftigen Gewinns, was zu erheblichen latenten Gewinnen führen kann." }
+        {
+          "q": "Wie hoch ist der Steuersatz auf Immobilienkapitalgewinne in Luxemburg?",
+          "a": "Bei Wiederverkauf innerhalb von 2 Jahren (Spekulation): progressiver Einkommensteuertarif bis ca. 45,78 % effektiv. Nach 2 Jahren (Veräußerung): ein Viertel des Gesamtsatzes, typisch 10 bis 11 % je nach Tranche, nach Zehn-Jahres-Freibetrag."
+        },
+        {
+          "q": "Ist der Verkauf meines Hauptwohnsitzes steuerpflichtig?",
+          "a": "Nein, sofern Sie ihn tatsächlich und ununterbrochen während der 5 Jahre vor der Veräußerung als Hauptwohnsitz bewohnt haben. Der Gewinn ist vollständig befreit (Art. 102bis Abs. 3 LIR), ohne Verkaufspreisgrenze."
+        },
+        {
+          "q": "Wie funktioniert der Zehn-Jahres-Freibetrag?",
+          "a": "Jeder Steuerpflichtige erhält 50.000 € (100.000 € für gemeinsam veranlagtes Paar) auf den steuerpflichtigen Gewinn, alle zehn Jahre wieder aufladbar. Bei zwei Veräußerungen im selben Jahrzehnt gilt der Freibetrag nur einmal."
+        },
+        {
+          "q": "Wie wird der Aufwertungskoeffizient berechnet?",
+          "a": "Er wird jährlich vom STATEC nach Artikel 102 LIR veröffentlicht und spiegelt die Entwicklung des Baukostenindex seit dem Anschaffungsjahr wider. Für 2026: 2,33 (Kauf 2010), 2,07 (2015), 1,77 (2022), 1,52 (2025), 1,48 (2026)."
+        },
+        {
+          "q": "Werden Erwerbsnebenkosten in die Berechnung einbezogen?",
+          "a": "Ja. Eintragungsgebühren, Notargebühren, Hypothekenkosten der Erwerbsurkunde und dauerhafte Verbesserungsausgaben (Erweiterungen, große Sanierung, größere Energieaufwertung) werden vor der Aufwertung zum Kaufpreis hinzugerechnet. Laufende Instandhaltung und Dekoration sind nicht abzugsfähig."
+        },
+        {
+          "q": "Was passiert bei Schenkung oder Erbschaft?",
+          "a": "Schenkung oder Erbschaft löst keine Kapitalertragsbesteuerung beim Schenker oder Verstorbenen aus (Art. 99bis Abs. 4 LIR). Der Begünstigte übernimmt den historischen Anschaffungspreis und das ursprüngliche Erwerbsdatum bei Berechnung seines eigenen künftigen Gewinns, was zu erheblichen latenten Gewinnen führen kann."
+        }
       ],
       "sources": [
-        { "title": "Geändertes Gesetz vom 4. Dezember 1967 über die Einkommensteuer (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo", "year": 1967 },
-        { "title": "Aufwertungskoeffizienten — STATEC-Tabelle", "org": "Steuerverwaltung für direkte Steuern (ACD)", "url": "https://impotsdirects.public.lu/fr/legislation/LIR.html" },
-        { "title": "Immobilien-Kapitalgewinne — Erläuterungsleitfaden", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/activite-patrimoine/plus-values/plus-value-cession-immeuble.html" },
-        { "title": "Baukostenindex", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Artikel 99bis LIR — Spekulationsgewinn", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
-        { "title": "Artikel 102bis LIR — Viertel des Gesamtsatzes", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+        {
+          "title": "Geändertes Gesetz vom 4. Dezember 1967 über die Einkommensteuer (LIR)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo",
+          "year": 1967
+        },
+        {
+          "title": "Aufwertungskoeffizienten — STATEC-Tabelle",
+          "org": "Steuerverwaltung für direkte Steuern (ACD)",
+          "url": "https://impotsdirects.public.lu/fr/legislation/LIR.html"
+        },
+        {
+          "title": "Immobilien-Kapitalgewinne — Erläuterungsleitfaden",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/activite-patrimoine/plus-values/plus-value-cession-immeuble.html"
+        },
+        {
+          "title": "Baukostenindex",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Artikel 99bis LIR — Spekulationsgewinn",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        },
+        {
+          "title": "Artikel 102bis LIR — Viertel des Gesamtsatzes",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        }
       ]
     },
     "bailHabitation": {
@@ -9384,26 +9733,86 @@
         "cta": "Höchstmiete berechnen"
       },
       "tools": [
-        { "href": "/calculateur-loyer", "title": "Gesetzlicher Mietrechner", "description": "5 %-Obergrenze auf aufgewertetes investiertes Kapital, Abnutzung, WG." },
-        { "href": "/locataire", "title": "Mieterbereich", "description": "Tools: Nebenkostenverfolgung, Briefvorlagen, Übergabeprotokoll-Erinnerungen." },
-        { "href": "/carte", "title": "Mietpreiskarte", "description": "Median-Miete pro Gemeinde und Wohnungstyp zum Vergleich." },
-        { "href": "/aml-kyc", "title": "Vermieter-Verifizierung", "description": "Nützlich bei Zweifeln an Identität oder Solvenz des Vermieters." }
+        {
+          "href": "/calculateur-loyer",
+          "title": "Gesetzlicher Mietrechner",
+          "description": "5 %-Obergrenze auf aufgewertetes investiertes Kapital, Abnutzung, WG."
+        },
+        {
+          "href": "/locataire",
+          "title": "Mieterbereich",
+          "description": "Tools: Nebenkostenverfolgung, Briefvorlagen, Übergabeprotokoll-Erinnerungen."
+        },
+        {
+          "href": "/carte",
+          "title": "Mietpreiskarte",
+          "description": "Median-Miete pro Gemeinde und Wohnungstyp zum Vergleich."
+        },
+        {
+          "href": "/aml-kyc",
+          "title": "Vermieter-Verifizierung",
+          "description": "Nützlich bei Zweifeln an Identität oder Solvenz des Vermieters."
+        }
       ],
       "faq": [
-        { "q": "Wie lang ist die Kündigungsfrist für einen Auszug in Luxemburg?", "a": "Der Mieter gibt eine Kündigungsfrist von 3 Monaten per Einschreiben (Art. 12 Gesetz 2006). Der Vermieter gibt 6 Monate Frist und kann nur aus berechtigten Gründen kündigen (Eigenbedarf, schwerer Verstoß, größere Arbeiten)." },
-        { "q": "Wie hoch ist die maximale Mietkaution in Luxemburg?", "a": "Die Kaution ist auf 3 Monatsmieten ohne Nebenkosten gedeckelt (Art. 5 Gesetz 2006). Sie muss auf ein Sperrkonto auf Namen des Mieters eingezahlt werden und die Zinsen gehören dem Mieter. Jede Klausel mit höherer Kaution ist nichtig." },
-        { "q": "Kann der Vermieter die Miete während des Mietvertrags erhöhen?", "a": "Eine Anpassung ist nur einmal alle zwei Jahre möglich, gedeckelt auf den STATEC-Verbraucherpreisindex, oder wenn Verbesserungsarbeiten eine Neubewertung des investierten Kapitals rechtfertigen (mit Neubewertung der 5 %-Obergrenze). Erhöhungen sind per Einschreiben mit einmonatiger Vorankündigung mitzuteilen." },
-        { "q": "Welche Nebenkosten dürfen zusätzlich zur Miete berechnet werden?", "a": "Nur die im GH-Reglement vom 16. Juni 2015 aufgelisteten: Wasser, Strom und Gas der Gemeinschaftsflächen, Zentralheizung, laufende Wartung der Gemeinschaftsbereiche (Reinigung, Gartenpflege, Aufzug), kommunale Müllabgabe und Gebäudehaftpflichtversicherung. Alles andere (größere Arbeiten, Syndikus, Grundsteuer) trägt der Vermieter." },
-        { "q": "Wie kann eine überhöhte Miete angefochten werden?", "a": "Wenden Sie sich kostenlos an die Mietkommission Ihrer Gemeinde. Sie prüft die Berechnung des aufgewerteten investierten Kapitals und gibt eine Stellungnahme ab. Wenn der Vermieter nicht nachgibt, können Sie den Fall vor den Friedensrichter bringen, der eine rückwirkende Mietreduktion anordnen kann." },
-        { "q": "Was tun, wenn der Vermieter die Kaution nicht zurückgibt?", "a": "Schicken Sie zuerst eine Mahnung per Einschreiben. Ohne Antwort innerhalb von 30 Tagen wenden Sie sich an die Mietkommission oder direkt an den Friedensrichter. Der Richter kann die Rückgabe zuzüglich Zinsen und Schadensersatz anordnen. Bewahren Sie das Auszugsprotokoll als Beweis auf." }
+        {
+          "q": "Wie lang ist die Kündigungsfrist für einen Auszug in Luxemburg?",
+          "a": "Der Mieter gibt eine Kündigungsfrist von 3 Monaten per Einschreiben (Art. 12 Gesetz 2006). Der Vermieter gibt 6 Monate Frist und kann nur aus berechtigten Gründen kündigen (Eigenbedarf, schwerer Verstoß, größere Arbeiten)."
+        },
+        {
+          "q": "Wie hoch ist die maximale Mietkaution in Luxemburg?",
+          "a": "Die Kaution ist auf 3 Monatsmieten ohne Nebenkosten gedeckelt (Art. 5 Gesetz 2006). Sie muss auf ein Sperrkonto auf Namen des Mieters eingezahlt werden und die Zinsen gehören dem Mieter. Jede Klausel mit höherer Kaution ist nichtig."
+        },
+        {
+          "q": "Kann der Vermieter die Miete während des Mietvertrags erhöhen?",
+          "a": "Eine Anpassung ist nur einmal alle zwei Jahre möglich, gedeckelt auf den STATEC-Verbraucherpreisindex, oder wenn Verbesserungsarbeiten eine Neubewertung des investierten Kapitals rechtfertigen (mit Neubewertung der 5 %-Obergrenze). Erhöhungen sind per Einschreiben mit einmonatiger Vorankündigung mitzuteilen."
+        },
+        {
+          "q": "Welche Nebenkosten dürfen zusätzlich zur Miete berechnet werden?",
+          "a": "Nur die im GH-Reglement vom 16. Juni 2015 aufgelisteten: Wasser, Strom und Gas der Gemeinschaftsflächen, Zentralheizung, laufende Wartung der Gemeinschaftsbereiche (Reinigung, Gartenpflege, Aufzug), kommunale Müllabgabe und Gebäudehaftpflichtversicherung. Alles andere (größere Arbeiten, Syndikus, Grundsteuer) trägt der Vermieter."
+        },
+        {
+          "q": "Wie kann eine überhöhte Miete angefochten werden?",
+          "a": "Wenden Sie sich kostenlos an die Mietkommission Ihrer Gemeinde. Sie prüft die Berechnung des aufgewerteten investierten Kapitals und gibt eine Stellungnahme ab. Wenn der Vermieter nicht nachgibt, können Sie den Fall vor den Friedensrichter bringen, der eine rückwirkende Mietreduktion anordnen kann."
+        },
+        {
+          "q": "Was tun, wenn der Vermieter die Kaution nicht zurückgibt?",
+          "a": "Schicken Sie zuerst eine Mahnung per Einschreiben. Ohne Antwort innerhalb von 30 Tagen wenden Sie sich an die Mietkommission oder direkt an den Friedensrichter. Der Richter kann die Rückgabe zuzüglich Zinsen und Schadensersatz anordnen. Bewahren Sie das Auszugsprotokoll als Beweis auf."
+        }
       ],
       "sources": [
-        { "title": "Geändertes Gesetz vom 21. September 2006 über die Wohnraummiete", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
-        { "title": "Großherzogliches Reglement vom 16. Juni 2015 — umlegbare Nebenkosten", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 },
-        { "title": "Wohnungsmietvertrag — vollständiger Leitfaden", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html" },
-        { "title": "Mietkommission — Verfahren", "org": "Logement.lu — Wohnungsbauministerium", "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html" },
-        { "title": "Mietkaution — staatliche Unterstützung", "org": "Logement.lu", "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html" },
-        { "title": "Zivilgesetzbuch — Pflichten des Vermieters (Art. 1719 ff.)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+        {
+          "title": "Geändertes Gesetz vom 21. September 2006 über die Wohnraummiete",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo",
+          "year": 2006
+        },
+        {
+          "title": "Großherzogliches Reglement vom 16. Juni 2015 — umlegbare Nebenkosten",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo",
+          "year": 2015
+        },
+        {
+          "title": "Wohnungsmietvertrag — vollständiger Leitfaden",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html"
+        },
+        {
+          "title": "Mietkommission — Verfahren",
+          "org": "Logement.lu — Wohnungsbauministerium",
+          "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html"
+        },
+        {
+          "title": "Mietkaution — staatliche Unterstützung",
+          "org": "Logement.lu",
+          "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html"
+        },
+        {
+          "title": "Zivilgesetzbuch — Pflichten des Vermieters (Art. 1719 ff.)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+        }
       ]
     },
     "copropriete": {
@@ -9442,25 +9851,81 @@
         "cta": "Miteigentumsbereich öffnen"
       },
       "tools": [
-        { "href": "/copropriete", "title": "Miteigentumsbereich", "description": "Kostenverfolgung, EV, Verwaltungsrat, Archive." },
-        { "href": "/syndic", "title": "Syndikus-Tools", "description": "Verwaltung eines Portfolios von Miteigentumsgemeinschaften für professionelle Syndici." },
-        { "href": "/conseil-syndical", "title": "Verwaltungsrat", "description": "Tools zur Kontrolle der Syndikus-Verwaltung." },
-        { "href": "/calculateur-vrd", "title": "VRD-Arbeiten", "description": "Kostenschätzung für in der EV beschlossene Arbeiten." }
+        {
+          "href": "/copropriete",
+          "title": "Miteigentumsbereich",
+          "description": "Kostenverfolgung, EV, Verwaltungsrat, Archive."
+        },
+        {
+          "href": "/syndic",
+          "title": "Syndikus-Tools",
+          "description": "Verwaltung eines Portfolios von Miteigentumsgemeinschaften für professionelle Syndici."
+        },
+        {
+          "href": "/conseil-syndical",
+          "title": "Verwaltungsrat",
+          "description": "Tools zur Kontrolle der Syndikus-Verwaltung."
+        },
+        {
+          "href": "/calculateur-vrd",
+          "title": "VRD-Arbeiten",
+          "description": "Kostenschätzung für in der EV beschlossene Arbeiten."
+        }
       ],
       "faq": [
-        { "q": "Ist ein Syndikus in Luxemburger Miteigentumsgemeinschaften Pflicht?", "a": "Ja, die Bestellung eines professionellen Syndikus ist für Miteigentumsgemeinschaften mit mehr als 5 Einheiten Pflicht (Art. 16 geändertes Gesetz 1975). Bei kleinen Gemeinschaften (≤ 5 Einheiten) kann die Verwaltung direkt durch die Miteigentümer oder einen ehrenamtlichen Syndikus erfolgen." },
-        { "q": "Welche Mehrheit braucht man für Beschlüsse über Arbeiten in einer Miteigentumsgemeinschaft?", "a": "Laufende Wartung: einfache Mehrheit. Verbesserungsarbeiten: absolute Mehrheit. Ordnungsänderung oder Umbauarbeiten: 3/4-Mehrheit aller Anteile. Eingriff in private Rechte: Einstimmigkeit." },
-        { "q": "Wie viel sollte für den Rücklagenfonds angesetzt werden?", "a": "Das Gesetz schreibt keinen Prozentsatz vor, aber die EV muss einen realistischen Jahresbeitrag für künftige Großarbeiten beschließen. In der Praxis 5 bis 10 % des laufenden Jahresbudgets vorsehen. Bei einem alten Gebäude können bis zu 15 % nötig sein, um Fassade und Dach zu antizipieren." },
-        { "q": "Was passiert bei Zahlungssäumnis eines Miteigentümers?", "a": "Der Syndikus mahnt und kann den Friedensrichter anrufen. Die Gemeinschaft genießt ein erstrangiges Immobilienprivileg auf die Einheit für die Kosten der laufenden zwei Jahre (Art. 24). Im äußersten Fall kann die Einheit zwangsversteigert werden, um die Schuld zu tilgen." },
-        { "q": "Wie wechselt man den Syndikus in Luxemburg?", "a": "Am Ende der 3-Jahres-Frist beschließt die EV die Bestellung eines neuen Syndikus mit absoluter Mehrheit. Während der Amtszeit ist eine Abberufung mit absoluter Mehrheit für schwere Verfehlung möglich (Misswirtschaft, Nichteinhaltung von EV-Beschlüssen, Interessenkonflikt). Der abberufene Syndikus muss Archive und Kasse innerhalb von 15 Tagen übergeben." },
-        { "q": "Ist der Verwaltungsrat Pflicht?", "a": "Nein, es ist ein fakultatives Organ. Aus in der EV gewählten Miteigentümern bestehend, unterstützt und kontrolliert er den Syndikus, berät zu wichtigen Verträgen und bereitet EVs vor. Stark empfohlen, sobald eine Miteigentumsgemeinschaft mehr als 10 Einheiten hat, um totale Abhängigkeit vom Syndikus zu vermeiden." }
+        {
+          "q": "Ist ein Syndikus in Luxemburger Miteigentumsgemeinschaften Pflicht?",
+          "a": "Ja, die Bestellung eines professionellen Syndikus ist für Miteigentumsgemeinschaften mit mehr als 5 Einheiten Pflicht (Art. 16 geändertes Gesetz 1975). Bei kleinen Gemeinschaften (≤ 5 Einheiten) kann die Verwaltung direkt durch die Miteigentümer oder einen ehrenamtlichen Syndikus erfolgen."
+        },
+        {
+          "q": "Welche Mehrheit braucht man für Beschlüsse über Arbeiten in einer Miteigentumsgemeinschaft?",
+          "a": "Laufende Wartung: einfache Mehrheit. Verbesserungsarbeiten: absolute Mehrheit. Ordnungsänderung oder Umbauarbeiten: 3/4-Mehrheit aller Anteile. Eingriff in private Rechte: Einstimmigkeit."
+        },
+        {
+          "q": "Wie viel sollte für den Rücklagenfonds angesetzt werden?",
+          "a": "Das Gesetz schreibt keinen Prozentsatz vor, aber die EV muss einen realistischen Jahresbeitrag für künftige Großarbeiten beschließen. In der Praxis 5 bis 10 % des laufenden Jahresbudgets vorsehen. Bei einem alten Gebäude können bis zu 15 % nötig sein, um Fassade und Dach zu antizipieren."
+        },
+        {
+          "q": "Was passiert bei Zahlungssäumnis eines Miteigentümers?",
+          "a": "Der Syndikus mahnt und kann den Friedensrichter anrufen. Die Gemeinschaft genießt ein erstrangiges Immobilienprivileg auf die Einheit für die Kosten der laufenden zwei Jahre (Art. 24). Im äußersten Fall kann die Einheit zwangsversteigert werden, um die Schuld zu tilgen."
+        },
+        {
+          "q": "Wie wechselt man den Syndikus in Luxemburg?",
+          "a": "Am Ende der 3-Jahres-Frist beschließt die EV die Bestellung eines neuen Syndikus mit absoluter Mehrheit. Während der Amtszeit ist eine Abberufung mit absoluter Mehrheit für schwere Verfehlung möglich (Misswirtschaft, Nichteinhaltung von EV-Beschlüssen, Interessenkonflikt). Der abberufene Syndikus muss Archive und Kasse innerhalb von 15 Tagen übergeben."
+        },
+        {
+          "q": "Ist der Verwaltungsrat Pflicht?",
+          "a": "Nein, es ist ein fakultatives Organ. Aus in der EV gewählten Miteigentümern bestehend, unterstützt und kontrolliert er den Syndikus, berät zu wichtigen Verträgen und bereitet EVs vor. Stark empfohlen, sobald eine Miteigentumsgemeinschaft mehr als 10 Einheiten hat, um totale Abhängigkeit vom Syndikus zu vermeiden."
+        }
       ],
       "sources": [
-        { "title": "Geändertes Gesetz vom 16. Mai 1975 zur Regelung des Miteigentums", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1975/05/16/n1/jo", "year": 1975 },
-        { "title": "Gesetz vom 6. August 2018 zur Änderung des Gesetzes vom 16. Mai 1975 (Miteigentumsreform)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo", "year": 2018 },
-        { "title": "Miteigentum — Informationsblatt", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/charges-immeuble/copropriete.html" },
-        { "title": "Gesetz vom 1. August 2018 — Pflicht-Rücklagenfonds", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo" },
-        { "title": "Zivilgesetzbuch — dingliche Rechte (Buch II)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+        {
+          "title": "Geändertes Gesetz vom 16. Mai 1975 zur Regelung des Miteigentums",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1975/05/16/n1/jo",
+          "year": 1975
+        },
+        {
+          "title": "Gesetz vom 6. August 2018 zur Änderung des Gesetzes vom 16. Mai 1975 (Miteigentumsreform)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo",
+          "year": 2018
+        },
+        {
+          "title": "Miteigentum — Informationsblatt",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/charges-immeuble/copropriete.html"
+        },
+        {
+          "title": "Gesetz vom 1. August 2018 — Pflicht-Rücklagenfonds",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo"
+        },
+        {
+          "title": "Zivilgesetzbuch — dingliche Rechte (Buch II)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+        }
       ]
     },
     "klimabonus": {
@@ -9490,13 +9955,43 @@
       "section4Intro": "Für eine Tiefensanierung eines älteren Einfamilienhauses (Klasse G → Klasse A) hier die Größenordnungen der kumulierbaren Beihilfen 2026.",
       "table": {
         "caption": "Klimabonus-Beihilfenkumulation 2026 — Rechenbeispiele",
-        "headers": ["Posten", "Netto-Kosten", "PRIMe House Basis", "Sozial-Topup (≤ 60k €)"],
+        "headers": [
+          "Posten",
+          "Netto-Kosten",
+          "PRIMe House Basis",
+          "Sozial-Topup (≤ 60k €)"
+        ],
         "rows": [
-          ["Dachdämmung (200 m²)", "20.000 €", "11.000 €", "16.500 €"],
-          ["Wanddämmung (150 m²)", "30.000 €", "16.500 €", "24.750 €"],
-          ["Dreifachverglaste Fenster (30 m²)", "18.000 €", "4.500 €", "6.750 €"],
-          ["Geothermie-Wärmepumpe", "30.000 €", "12.000 €", "18.000 €"],
-          ["Photovoltaik 10 kWp", "20.000 €", "5.000 €", "5.000 €"]
+          [
+            "Dachdämmung (200 m²)",
+            "20.000 €",
+            "11.000 €",
+            "16.500 €"
+          ],
+          [
+            "Wanddämmung (150 m²)",
+            "30.000 €",
+            "16.500 €",
+            "24.750 €"
+          ],
+          [
+            "Dreifachverglaste Fenster (30 m²)",
+            "18.000 €",
+            "4.500 €",
+            "6.750 €"
+          ],
+          [
+            "Geothermie-Wärmepumpe",
+            "30.000 €",
+            "12.000 €",
+            "18.000 €"
+          ],
+          [
+            "Photovoltaik 10 kWp",
+            "20.000 €",
+            "5.000 €",
+            "5.000 €"
+          ]
         ],
         "footnote": "Gesamtprojekt Tiefensanierung: ~118.000 € netto, davon 49.000 bis 71.000 € PRIMe-House-Zuschüsse. Hinzu: MwSt.-3 %-Ersparnis (~16.500 €) und effektiv 0 %-Klimaprêt bis 50.000 €."
       },
@@ -9508,25 +10003,80 @@
         "cta": "Simulation starten"
       },
       "tools": [
-        { "href": "/simulateur-aides", "title": "Sanierungs-Beihilfen-Simulator", "description": "PRIMe House, Sozial-Topup, 3 % MwSt., Klimaprêt — automatisierter Stack." },
-        { "href": "/energy", "title": "tevaxia Energie-Modul", "description": "Wertimpakt, Sanierungs-ROI, Energiegemeinschaft, EPBD/CPE." },
-        { "href": "/energy/cpe", "title": "EPB-Diagnose", "description": "Vorabschätzung der Energieklasse vor offiziellem Audit." },
-        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Für Käufer von Neubauten bereits in Klasse A/B." }
+        {
+          "href": "/simulateur-aides",
+          "title": "Sanierungs-Beihilfen-Simulator",
+          "description": "PRIMe House, Sozial-Topup, 3 % MwSt., Klimaprêt — automatisierter Stack."
+        },
+        {
+          "href": "/energy",
+          "title": "tevaxia Energie-Modul",
+          "description": "Wertimpakt, Sanierungs-ROI, Energiegemeinschaft, EPBD/CPE."
+        },
+        {
+          "href": "/energy/cpe",
+          "title": "EPB-Diagnose",
+          "description": "Vorabschätzung der Energieklasse vor offiziellem Audit."
+        },
+        {
+          "href": "/vefa",
+          "title": "VEFA-Simulator",
+          "description": "Für Käufer von Neubauten bereits in Klasse A/B."
+        }
       ],
       "faq": [
-        { "q": "Sind Klimabonus-Beihilfen mit der 3 % MwSt. kombinierbar?", "a": "Ja. PRIMe-House-/Klimabonus-Zuschüsse sind voll mit der 3 % Wohn-MwSt. und dem effektiven 0 %-Klimaprêt kombinierbar. Es ist eines der vorteilhaftesten Programme Europas für energetische Sanierung." },
-        { "q": "Wie viel Zuschuss gibt es für eine Wärmepumpe in Luxemburg?", "a": "PRIMe-House-Hilfe für eine Luft-Wasser- oder Erdwärmepumpe variiert von 6.000 bis 12.000 € je nach Typ und Leistung. Mit dem Sozial-Topup 2026 (Einkommen ≤ 60.000 €) kann sie 18.000 € erreichen. Hinzu 3 % Wohn-MwSt. und 0 %-Klimaprêt." },
-        { "q": "Was ist der Sozial-Topup 2026?", "a": "Eine Erhöhung bis 150 % des PRIMe-House-Grundbetrags für Haushalte mit jährlichem zu versteuerndem Einkommen ≤ 60.000 €. Sie soll energetische Sanierung für einkommensschwache Haushalte zugänglich machen. Mit anderen Bonifikationen kumulierbar (Sozialmiete, Tiefensanierung)." },
-        { "q": "Ist ein Energieaudit für den Klimabonus erforderlich?", "a": "Das kostenlose Audit durch einen myenergy-Berater ist nicht zwingend, aber stark empfohlen. Der EPB durch einen zugelassenen Berater (vor und nach Arbeiten) ist für Zuschüsse Pflicht, und die Energieverbesserung muss mindestens 2 Klassen oder Klasse A/B erreichen." },
-        { "q": "Ersetzt Klimaprêt PRIMe House?", "a": "Nein, sie sind zwei komplementäre Programme. PRIMe House = Kapitalzuschüsse nach Arbeiten. Klimaprêt = Bankdarlehen zu 1,5 % mit Staatsbonifikation für effektive 0 % Haushaltskosten. Sie können und sollten beide kumulieren." },
-        { "q": "Können Eigentümergemeinschaften vom Klimabonus profitieren?", "a": "Ja. Eine Eigentümergemeinschaft kann eine Klimabonus-Anfrage für in der EV beschlossene Arbeiten an Gemeinschaftsteilen stellen (Dach, Fassade, Heizzentrale). Jeder Miteigentümer profitiert von der quote-part anteilig zu seinen Anteilen. Der Syndikus kann auch einen Klimaprêt im Namen der Gemeinschaft beantragen." }
+        {
+          "q": "Sind Klimabonus-Beihilfen mit der 3 % MwSt. kombinierbar?",
+          "a": "Ja. PRIMe-House-/Klimabonus-Zuschüsse sind voll mit der 3 % Wohn-MwSt. und dem effektiven 0 %-Klimaprêt kombinierbar. Es ist eines der vorteilhaftesten Programme Europas für energetische Sanierung."
+        },
+        {
+          "q": "Wie viel Zuschuss gibt es für eine Wärmepumpe in Luxemburg?",
+          "a": "PRIMe-House-Hilfe für eine Luft-Wasser- oder Erdwärmepumpe variiert von 6.000 bis 12.000 € je nach Typ und Leistung. Mit dem Sozial-Topup 2026 (Einkommen ≤ 60.000 €) kann sie 18.000 € erreichen. Hinzu 3 % Wohn-MwSt. und 0 %-Klimaprêt."
+        },
+        {
+          "q": "Was ist der Sozial-Topup 2026?",
+          "a": "Eine Erhöhung bis 150 % des PRIMe-House-Grundbetrags für Haushalte mit jährlichem zu versteuerndem Einkommen ≤ 60.000 €. Sie soll energetische Sanierung für einkommensschwache Haushalte zugänglich machen. Mit anderen Bonifikationen kumulierbar (Sozialmiete, Tiefensanierung)."
+        },
+        {
+          "q": "Ist ein Energieaudit für den Klimabonus erforderlich?",
+          "a": "Das kostenlose Audit durch einen myenergy-Berater ist nicht zwingend, aber stark empfohlen. Der EPB durch einen zugelassenen Berater (vor und nach Arbeiten) ist für Zuschüsse Pflicht, und die Energieverbesserung muss mindestens 2 Klassen oder Klasse A/B erreichen."
+        },
+        {
+          "q": "Ersetzt Klimaprêt PRIMe House?",
+          "a": "Nein, sie sind zwei komplementäre Programme. PRIMe House = Kapitalzuschüsse nach Arbeiten. Klimaprêt = Bankdarlehen zu 1,5 % mit Staatsbonifikation für effektive 0 % Haushaltskosten. Sie können und sollten beide kumulieren."
+        },
+        {
+          "q": "Können Eigentümergemeinschaften vom Klimabonus profitieren?",
+          "a": "Ja. Eine Eigentümergemeinschaft kann eine Klimabonus-Anfrage für in der EV beschlossene Arbeiten an Gemeinschaftsteilen stellen (Dach, Fassade, Heizzentrale). Jeder Miteigentümer profitiert von der quote-part anteilig zu seinen Anteilen. Der Syndikus kann auch einen Klimaprêt im Namen der Gemeinschaft beantragen."
+        }
       ],
       "sources": [
-        { "title": "Klimabonus — offizielles myenergy-Portal", "org": "myenergy / Umweltministerium", "url": "https://www.myenergy.lu/" },
-        { "title": "PRIMe House — Verfahren", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-construction-renovation/aides-amelioration.html" },
-        { "title": "Klimaprêt — Verfahren", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-financieres/klimapret.html" },
-        { "title": "Geändertes Gesetz vom 23. Dezember 2016 — Beihilfen für nachhaltiges Wohnen", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2016/12/23/n3/jo", "year": 2016 },
-        { "title": "Energieausweis (EPB)", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/economie-energie/certificat-performance-energetique.html" }
+        {
+          "title": "Klimabonus — offizielles myenergy-Portal",
+          "org": "myenergy / Umweltministerium",
+          "url": "https://www.myenergy.lu/"
+        },
+        {
+          "title": "PRIMe House — Verfahren",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-construction-renovation/aides-amelioration.html"
+        },
+        {
+          "title": "Klimaprêt — Verfahren",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-financieres/klimapret.html"
+        },
+        {
+          "title": "Geändertes Gesetz vom 23. Dezember 2016 — Beihilfen für nachhaltiges Wohnen",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2016/12/23/n3/jo",
+          "year": 2016
+        },
+        {
+          "title": "Energieausweis (EPB)",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/economie-energie/certificat-performance-energetique.html"
+        }
       ]
     },
     "estimation": {
@@ -9565,26 +10115,85 @@
         "cta": "Schätzung starten"
       },
       "tools": [
-        { "href": "/estimation", "title": "Sofortschätzer", "description": "LU-hedonisches Modell mit Spanne und Konfidenzniveau." },
-        { "href": "/hedonique", "title": "Erweitertes Hedonisches", "description": "Aufschlüsselung nach Eigenschaft zum Wertverständnis." },
-        { "href": "/dcf-multi", "title": "Mehrperioden-DCF", "description": "Für Miet- und Gewerbeimmobilien, 10-15 Jahre Projektion." },
-        { "href": "/carte", "title": "Preiskarte", "description": "Beobachtete Preise je Gemeinde und Quartier (Wohnungsobservatorium)." }
+        {
+          "href": "/estimation",
+          "title": "Sofortschätzer",
+          "description": "LU-hedonisches Modell mit Spanne und Konfidenzniveau."
+        },
+        {
+          "href": "/hedonique",
+          "title": "Erweitertes Hedonisches",
+          "description": "Aufschlüsselung nach Eigenschaft zum Wertverständnis."
+        },
+        {
+          "href": "/dcf-multi",
+          "title": "Mehrperioden-DCF",
+          "description": "Für Miet- und Gewerbeimmobilien, 10-15 Jahre Projektion."
+        },
+        {
+          "href": "/carte",
+          "title": "Preiskarte",
+          "description": "Beobachtete Preise je Gemeinde und Quartier (Wohnungsobservatorium)."
+        }
       ],
       "faq": [
-        { "q": "Welche Methode ist die zuverlässigste zur Immobilienbewertung in Luxemburg?", "a": "Für das Wohnen ist der direkte Vergleich kombiniert mit einem hedonischen Modell am zuverlässigsten. Für die Miete wird die Ertragswertkapitalisierung bevorzugt. Für Gewerbe/Hotel ist DCF Standard. TEGOVA EVS 2025 empfehlen, mindestens zwei Methoden zur Stärkung der Zuverlässigkeit abzugleichen." },
-        { "q": "Beeinflusst der Energieausweis den Immobilienpreis in Luxemburg?", "a": "Ja. LISER-Studien beziffern den Wertspread pro EPB-Klasse auf 3-8 % (ein F-zu-C-Sprung kann 10-25 % Mehrwert bringen). Der Impact wird mit den europäischen Sanierungspflichten (EPBD revidiert 2024) zunehmen." },
-        { "q": "Was kostet eine REV/TRV-Expertise in Luxemburg?", "a": "Für eine Wohnimmobilie 800 bis 2.500 € je nach Komplexität. Für ein Gewerbe- oder Hotelobjekt 3.000 bis 15.000 € je nach Wert und Komplexität. Honorar frei, basierend auf Aufwand und Verantwortung. Der TEGOVA-Bericht ist bei Banken und Gerichten anerkannt." },
-        { "q": "Wo findet man reale Verkaufspreise in Luxemburg?", "a": "Das Grundbuchamt (AED) publiziert vierteljährlich reale Preise notarieller Urkunden. Das LISER-Wohnungsobservatorium aggregiert und veröffentlicht diese Daten je Gemeinde und Immobilientyp (observatoire.liser.lu)." },
-        { "q": "Welcher Kapitalisierungssatz ist typisch in Luxemburg?", "a": "Für Wohnen: 3 bis 5 % brutto je nach Lage (3-3,5 % in Premium-Zonen LU-Stadt, 4-5 % in Kantonen). Für Prime-Büros LU-Stadt: 4 bis 5 %. Für Hotellerie: 6 bis 8 % je nach Kategorie und Performance. Diese Sätze entwickeln sich mit Leitzinsen und Anleiherenditen." },
-        { "q": "Muss die MwSt. in der Schätzung berücksichtigt werden?", "a": "Bei VEFA-Neubau wird der Wert üblicherweise netto präsentiert und dann zum anwendbaren Satz auf TTC umgerechnet (3 % Wohn-MwSt. mit 50.000 € Obergrenze). Bei Bestand (zwischen Privaten) keine MwSt., aber vom Käufer zu zahlende Eintragungsgebühren. TEGOVA-Berichte unterscheiden immer netto/brutto." }
+        {
+          "q": "Welche Methode ist die zuverlässigste zur Immobilienbewertung in Luxemburg?",
+          "a": "Für das Wohnen ist der direkte Vergleich kombiniert mit einem hedonischen Modell am zuverlässigsten. Für die Miete wird die Ertragswertkapitalisierung bevorzugt. Für Gewerbe/Hotel ist DCF Standard. TEGOVA EVS 2025 empfehlen, mindestens zwei Methoden zur Stärkung der Zuverlässigkeit abzugleichen."
+        },
+        {
+          "q": "Beeinflusst der Energieausweis den Immobilienpreis in Luxemburg?",
+          "a": "Ja. LISER-Studien beziffern den Wertspread pro EPB-Klasse auf 3-8 % (ein F-zu-C-Sprung kann 10-25 % Mehrwert bringen). Der Impact wird mit den europäischen Sanierungspflichten (EPBD revidiert 2024) zunehmen."
+        },
+        {
+          "q": "Was kostet eine REV/TRV-Expertise in Luxemburg?",
+          "a": "Für eine Wohnimmobilie 800 bis 2.500 € je nach Komplexität. Für ein Gewerbe- oder Hotelobjekt 3.000 bis 15.000 € je nach Wert und Komplexität. Honorar frei, basierend auf Aufwand und Verantwortung. Der TEGOVA-Bericht ist bei Banken und Gerichten anerkannt."
+        },
+        {
+          "q": "Wo findet man reale Verkaufspreise in Luxemburg?",
+          "a": "Das Grundbuchamt (AED) publiziert vierteljährlich reale Preise notarieller Urkunden. Das LISER-Wohnungsobservatorium aggregiert und veröffentlicht diese Daten je Gemeinde und Immobilientyp (observatoire.liser.lu)."
+        },
+        {
+          "q": "Welcher Kapitalisierungssatz ist typisch in Luxemburg?",
+          "a": "Für Wohnen: 3 bis 5 % brutto je nach Lage (3-3,5 % in Premium-Zonen LU-Stadt, 4-5 % in Kantonen). Für Prime-Büros LU-Stadt: 4 bis 5 %. Für Hotellerie: 6 bis 8 % je nach Kategorie und Performance. Diese Sätze entwickeln sich mit Leitzinsen und Anleiherenditen."
+        },
+        {
+          "q": "Muss die MwSt. in der Schätzung berücksichtigt werden?",
+          "a": "Bei VEFA-Neubau wird der Wert üblicherweise netto präsentiert und dann zum anwendbaren Satz auf TTC umgerechnet (3 % Wohn-MwSt. mit 50.000 € Obergrenze). Bei Bestand (zwischen Privaten) keine MwSt., aber vom Käufer zu zahlende Eintragungsgebühren. TEGOVA-Berichte unterscheiden immer netto/brutto."
+        }
       ],
       "sources": [
-        { "title": "TEGOVA — European Valuation Standards 2025", "org": "The European Group of Valuers' Associations", "url": "https://www.tegova.org/", "year": 2025 },
-        { "title": "Wohnungsobservatorium — Preise je Gemeinde", "org": "LISER", "url": "https://observatoire.liser.lu/" },
-        { "title": "Wohnimmobilienpreisindex (IPIR)", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Grundbuch — Kaufurkunden", "org": "Verwaltung für Eintragung, Domänen und MwSt.", "url": "https://pfi.public.lu/fr.html" },
-        { "title": "Gesetz vom 4. Dezember 1967 (LIR) — Basis STATEC-Koeffizient", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
-        { "title": "Hedonische Studien zum LU-Immobilienmarkt", "org": "LISER", "url": "https://www.liser.lu/" }
+        {
+          "title": "TEGOVA — European Valuation Standards 2025",
+          "org": "The European Group of Valuers' Associations",
+          "url": "https://www.tegova.org/",
+          "year": 2025
+        },
+        {
+          "title": "Wohnungsobservatorium — Preise je Gemeinde",
+          "org": "LISER",
+          "url": "https://observatoire.liser.lu/"
+        },
+        {
+          "title": "Wohnimmobilienpreisindex (IPIR)",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Grundbuch — Kaufurkunden",
+          "org": "Verwaltung für Eintragung, Domänen und MwSt.",
+          "url": "https://pfi.public.lu/fr.html"
+        },
+        {
+          "title": "Gesetz vom 4. Dezember 1967 (LIR) — Basis STATEC-Koeffizient",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        },
+        {
+          "title": "Hedonische Studien zum LU-Immobilienmarkt",
+          "org": "LISER",
+          "url": "https://www.liser.lu/"
+        }
       ]
     },
     "achatNonResident": {
@@ -9616,12 +10225,37 @@
       "section4Intro": "Für dieselbe Immobilie als Hauptwohnsitz oder Mietobjekt erworben (Preis 600.000 €), hier der Kostenvergleich nach Profil.",
       "table": {
         "caption": "Erwerbskosten einer Immobilie zu 600.000 € nach Profil",
-        "headers": ["Käuferprofil", "7 % Gebühren", "Bëllegen Akt", "Notargebühren + Hypothek"],
+        "headers": [
+          "Käuferprofil",
+          "7 % Gebühren",
+          "Bëllegen Akt",
+          "Notargebühren + Hypothek"
+        ],
         "rows": [
-          ["Resident-Paar, Hauptwohnsitz", "42.000 €", "−42.000 €", "≈ 11.700 €"],
-          ["Nicht-Resident-Paar Umzug nach LU", "42.000 €", "−42.000 €", "≈ 12.500 €"],
-          ["Nicht-Resident-Paar, reine Vermietung", "42.000 €", "0 €", "≈ 12.500 €"],
-          ["Nicht-Resident allein, reine Vermietung", "42.000 €", "0 €", "≈ 12.500 €"]
+          [
+            "Resident-Paar, Hauptwohnsitz",
+            "42.000 €",
+            "−42.000 €",
+            "≈ 11.700 €"
+          ],
+          [
+            "Nicht-Resident-Paar Umzug nach LU",
+            "42.000 €",
+            "−42.000 €",
+            "≈ 12.500 €"
+          ],
+          [
+            "Nicht-Resident-Paar, reine Vermietung",
+            "42.000 €",
+            "0 €",
+            "≈ 12.500 €"
+          ],
+          [
+            "Nicht-Resident allein, reine Vermietung",
+            "42.000 €",
+            "0 €",
+            "≈ 12.500 €"
+          ]
         ],
         "footnote": "Notargebühren leicht höher für Nicht-Residenten wegen möglicher zusätzlicher Vollmachten. Bei reiner Vermietung auch Grundsteuer und jährliche Verwaltungskosten (10-12 % der Mieten) einplanen."
       },
@@ -9633,25 +10267,79 @@
         "cta": "Simulation starten"
       },
       "tools": [
-        { "href": "/frais-acquisition", "title": "Erwerbskosten-Rechner", "description": "Resident vs Nicht-Resident, Bëllegen Akt nach Projekt, Wohn-MwSt., Hypothek." },
-        { "href": "/outils-bancaires", "title": "Bank-Tools", "description": "Kreditkapazität, Monatsrate, statusangepasste DSTI/LTV-Quoten." },
-        { "href": "/portfolio", "title": "Immobilienportfolio", "description": "Verfolgung der Rendite mehrerer Immobilien langfristig." },
-        { "href": "/aml-kyc", "title": "AML/KYC-Verifizierung", "description": "Compliance ausländischer Käufer für LU-Notar und -Bank." }
+        {
+          "href": "/frais-acquisition",
+          "title": "Erwerbskosten-Rechner",
+          "description": "Resident vs Nicht-Resident, Bëllegen Akt nach Projekt, Wohn-MwSt., Hypothek."
+        },
+        {
+          "href": "/outils-bancaires",
+          "title": "Bank-Tools",
+          "description": "Kreditkapazität, Monatsrate, statusangepasste DSTI/LTV-Quoten."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Immobilienportfolio",
+          "description": "Verfolgung der Rendite mehrerer Immobilien langfristig."
+        },
+        {
+          "href": "/aml-kyc",
+          "title": "AML/KYC-Verifizierung",
+          "description": "Compliance ausländischer Käufer für LU-Notar und -Bank."
+        }
       ],
       "faq": [
-        { "q": "Kann ein Nicht-Resident vom Bëllegen Akt profitieren?", "a": "Ja, sofern die erworbene Immobilie tatsächlich als Hauptwohnsitz des neuen Käufers dient, der sich verpflichtet, innerhalb von 2 Jahren nach dem Akt persönlich einzuziehen. Bei reiner Mietinvestition ist der Bëllegen Akt nicht zugänglich und die vollen 7 % Gebühren sind fällig." },
-        { "q": "Welchen Mindest-Eigenkapitalanteil braucht ein Nicht-Resident in Luxemburg?", "a": "LU-Banken verlangen in der Regel 25-30 % Eigenkapital für Nicht-Residenten (LTV 70-75 %), im Vergleich zu teilweise 0-20 % für Residenten in Hauptwohnsitz. Die Quote variiert je nach Bank, Kreditnehmerprofil und Lage." },
-        { "q": "Welche Dokumente muss man der LU-Bank als Nicht-Resident vorlegen?", "a": "Ausweis, 3 letzte Steuerbescheide aus dem Wohnsitzland, 6 letzte Gehaltsabrechnungen, Arbeitsvertrag, 3 Monate Kontoauszüge, Eigenkapitalnachweis, detaillierter Finanzierungsplan. Bei einem Mietprojekt zusätzlich Vorvertrag und Mietschätzung." },
-        { "q": "Wie funktioniert das Doppelbesteuerungsabkommen Frankreich-Luxemburg für Immobilien?", "a": "Das Abkommen Frankreich-Luxemburg von 2018 sieht vor, dass Immobilieneinkünfte und Veräußerungsgewinne aus einer in LU belegenen Immobilie in LU steuerpflichtig sind. Frankreich befreit sie, behält sie aber zur Berechnung des effektiven Steuersatzes. Sie zahlen also LU-IR auf diese Einkünfte, ohne Doppelbesteuerung." },
-        { "q": "Braucht man ein LU-Bankkonto zum Kauf?", "a": "Für die Beurkundung nicht zwingend (der Notar akzeptiert Auslandsüberweisung), aber stark empfohlen für die spätere Verwaltung: Mieteingang, Bezahlung von Nebenkosten und Steuern, Hypothekenabhebungen. Mehrere LU-Banken eröffnen ein Nicht-Resident-Konto in wenigen Tagen." },
-        { "q": "Welche jährlichen Steuern zahlt ein Nicht-Resident-Eigentümer?", "a": "Kommunale Grundsteuer (gering, 0,1 bis 1 % des Katasterwerts), Einkommensteuer auf Nettomieteinnahmen bei Vermietung (LU-IR-Tarif mit Abzügen), eventuell Veräußerungsgewinnsteuer beim Wiederverkauf vor der Befreiungsfrist. Keine Vermögenssteuer in Luxemburg." }
+        {
+          "q": "Kann ein Nicht-Resident vom Bëllegen Akt profitieren?",
+          "a": "Ja, sofern die erworbene Immobilie tatsächlich als Hauptwohnsitz des neuen Käufers dient, der sich verpflichtet, innerhalb von 2 Jahren nach dem Akt persönlich einzuziehen. Bei reiner Mietinvestition ist der Bëllegen Akt nicht zugänglich und die vollen 7 % Gebühren sind fällig."
+        },
+        {
+          "q": "Welchen Mindest-Eigenkapitalanteil braucht ein Nicht-Resident in Luxemburg?",
+          "a": "LU-Banken verlangen in der Regel 25-30 % Eigenkapital für Nicht-Residenten (LTV 70-75 %), im Vergleich zu teilweise 0-20 % für Residenten in Hauptwohnsitz. Die Quote variiert je nach Bank, Kreditnehmerprofil und Lage."
+        },
+        {
+          "q": "Welche Dokumente muss man der LU-Bank als Nicht-Resident vorlegen?",
+          "a": "Ausweis, 3 letzte Steuerbescheide aus dem Wohnsitzland, 6 letzte Gehaltsabrechnungen, Arbeitsvertrag, 3 Monate Kontoauszüge, Eigenkapitalnachweis, detaillierter Finanzierungsplan. Bei einem Mietprojekt zusätzlich Vorvertrag und Mietschätzung."
+        },
+        {
+          "q": "Wie funktioniert das Doppelbesteuerungsabkommen Frankreich-Luxemburg für Immobilien?",
+          "a": "Das Abkommen Frankreich-Luxemburg von 2018 sieht vor, dass Immobilieneinkünfte und Veräußerungsgewinne aus einer in LU belegenen Immobilie in LU steuerpflichtig sind. Frankreich befreit sie, behält sie aber zur Berechnung des effektiven Steuersatzes. Sie zahlen also LU-IR auf diese Einkünfte, ohne Doppelbesteuerung."
+        },
+        {
+          "q": "Braucht man ein LU-Bankkonto zum Kauf?",
+          "a": "Für die Beurkundung nicht zwingend (der Notar akzeptiert Auslandsüberweisung), aber stark empfohlen für die spätere Verwaltung: Mieteingang, Bezahlung von Nebenkosten und Steuern, Hypothekenabhebungen. Mehrere LU-Banken eröffnen ein Nicht-Resident-Konto in wenigen Tagen."
+        },
+        {
+          "q": "Welche jährlichen Steuern zahlt ein Nicht-Resident-Eigentümer?",
+          "a": "Kommunale Grundsteuer (gering, 0,1 bis 1 % des Katasterwerts), Einkommensteuer auf Nettomieteinnahmen bei Vermietung (LU-IR-Tarif mit Abzügen), eventuell Veräußerungsgewinnsteuer beim Wiederverkauf vor der Befreiungsfrist. Keine Vermögenssteuer in Luxemburg."
+        }
       ],
       "sources": [
-        { "title": "Immobilienerwerb durch Nicht-Resident — Verfahren", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/achat-vente/achat/achat-immobilier.html" },
-        { "title": "Bilaterale Doppelbesteuerungsabkommen Luxemburgs", "org": "Steuerverwaltung für direkte Steuern", "url": "https://impotsdirects.public.lu/fr/conventions.html" },
-        { "title": "Erklärung Modell 100F — Nicht-Resident", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/declaration-impots/declaration-non-resident.html" },
-        { "title": "Bëllegen Akt — offizielles Datenblatt", "org": "Logement.lu", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
-        { "title": "Gesetz vom 4. Dezember 1967 (LIR) — Artikel 99 ff.", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+        {
+          "title": "Immobilienerwerb durch Nicht-Resident — Verfahren",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/achat-vente/achat/achat-immobilier.html"
+        },
+        {
+          "title": "Bilaterale Doppelbesteuerungsabkommen Luxemburgs",
+          "org": "Steuerverwaltung für direkte Steuern",
+          "url": "https://impotsdirects.public.lu/fr/conventions.html"
+        },
+        {
+          "title": "Erklärung Modell 100F — Nicht-Resident",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/declaration-impots/declaration-non-resident.html"
+        },
+        {
+          "title": "Bëllegen Akt — offizielles Datenblatt",
+          "org": "Logement.lu",
+          "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html"
+        },
+        {
+          "title": "Gesetz vom 4. Dezember 1967 (LIR) — Artikel 99 ff.",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        }
       ]
     },
     "tva3Pourcent": {
@@ -9683,13 +10371,49 @@
       "section4Intro": "Wirkung des 3 %-MwSt.-Vorteils auf typische Projekte. Die Berechnung vergleicht die Bruttokosten zu 17 % (normal) mit 3 % (Vorteil).",
       "table": {
         "caption": "Erzielte Einsparungen durch 3 % Wohn-MwSt.",
-        "headers": ["Projekt", "Netto", "MwSt. 17 %", "MwSt. 3 %", "Einsparung"],
+        "headers": [
+          "Projekt",
+          "Netto",
+          "MwSt. 17 %",
+          "MwSt. 3 %",
+          "Einsparung"
+        ],
         "rows": [
-          ["Badrenovierung", "30.000 €", "5.100 €", "900 €", "4.200 €"],
-          ["Schwere Wohnungsrenovierung", "100.000 €", "17.000 €", "3.000 €", "14.000 €"],
-          ["Neubau", "300.000 €", "51.000 €", "9.000 €", "42.000 €"],
-          ["Hochwertiger Neubau", "400.000 €", "68.000 €", "12.000 €", "50.000 €"],
-          ["Bau über Obergrenze", "500.000 €", "85.000 €", "27.000 €", "50.000 €"]
+          [
+            "Badrenovierung",
+            "30.000 €",
+            "5.100 €",
+            "900 €",
+            "4.200 €"
+          ],
+          [
+            "Schwere Wohnungsrenovierung",
+            "100.000 €",
+            "17.000 €",
+            "3.000 €",
+            "14.000 €"
+          ],
+          [
+            "Neubau",
+            "300.000 €",
+            "51.000 €",
+            "9.000 €",
+            "42.000 €"
+          ],
+          [
+            "Hochwertiger Neubau",
+            "400.000 €",
+            "68.000 €",
+            "12.000 €",
+            "50.000 €"
+          ],
+          [
+            "Bau über Obergrenze",
+            "500.000 €",
+            "85.000 €",
+            "27.000 €",
+            "50.000 €"
+          ]
         ],
         "footnote": "Die Einsparung entspricht der Differenz zwischen MwSt. 17 % und MwSt. 3 %, gedeckelt auf 50.000 € pro Wohnung."
       },
@@ -9701,25 +10425,80 @@
         "cta": "VEFA-Simulation starten"
       },
       "tools": [
-        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Aufteilung Grundstück / Bau und 3 % Wohn-MwSt. automatisiert." },
-        { "href": "/frais-acquisition", "title": "Erwerbskosten", "description": "Globale Berechnung mit MwSt., Gebühren, Bëllegen Akt und Hypothek." },
-        { "href": "/estimateur-construction", "title": "Bauschätzer", "description": "Detaillierte Neubaukosten je Position." },
-        { "href": "/simulateur-aides", "title": "Erwerbsbeihilfen", "description": "Kombination aus 3 %-MwSt., Bëllegen Akt, Klimabonus und Prämien." }
+        {
+          "href": "/vefa",
+          "title": "VEFA-Simulator",
+          "description": "Aufteilung Grundstück / Bau und 3 % Wohn-MwSt. automatisiert."
+        },
+        {
+          "href": "/frais-acquisition",
+          "title": "Erwerbskosten",
+          "description": "Globale Berechnung mit MwSt., Gebühren, Bëllegen Akt und Hypothek."
+        },
+        {
+          "href": "/estimateur-construction",
+          "title": "Bauschätzer",
+          "description": "Detaillierte Neubaukosten je Position."
+        },
+        {
+          "href": "/simulateur-aides",
+          "title": "Erwerbsbeihilfen",
+          "description": "Kombination aus 3 %-MwSt., Bëllegen Akt, Klimabonus und Prämien."
+        }
       ],
       "faq": [
-        { "q": "Wie hoch ist die MwSt.-Vorteilsobergrenze von 3 % in Luxemburg?", "a": "Die Vorteilsobergrenze beträgt 50.000 € MwSt. pro Wohnung über deren Lebensdauer. Das entspricht etwa 357.000 € Arbeiten netto zum ermäßigten Satz. Darüber hinaus gilt der Normalsatz von 17 % auf den Überschuss." },
-        { "q": "Ist eine Vorabgenehmigung für die 3 % MwSt. erforderlich?", "a": "Ja. Ein Vorabantrag muss vor Baubeginn oder VEFA-Aktunterzeichnung bei der AED eingereicht werden. Das Formular ist auf guichet.lu verfügbar und muss Pläne, Genehmigung und kostenmäßige Schätzung enthalten." },
-        { "q": "Gilt die 3 % MwSt. für eine Mietinvestition?", "a": "Ja, sofern der Mieter die Wohnung als seinen Wohnsitz nutzt (effektive Belegung). Die Immobilie muss mindestens zwei Jahre nach Lieferung als Wohnraum vermietet bleiben, andernfalls wird der Vorteil zurückgefordert." },
-        { "q": "Gilt die 3 % MwSt. für Renovierungen?", "a": "Ja, bei Renovierung und Reparatur einer über 20 Jahre alten Wohnung und ohne Altersbedingung bei Wohnraumschaffung durch Umbau (z.B. Umbau eines Geschäftsraums in Wohnraum). Dämm-, Heizungs-, Fenster-, Badarbeiten sind berechtigt. Dekoration und Luxus-Außenausstattung nicht." },
-        { "q": "Kann die 3 % MwSt. mit Bëllegen Akt und Klimabonus kombiniert werden?", "a": "Ja, die drei Regelungen sind voll kombinierbar. Für einen Erstkäufer in VEFA mit berechtigten energetischen Sanierungsarbeiten können die Gesamteinsparungen 130.000 € überschreiten." },
-        { "q": "Welche maximale Wohnfläche berechtigt zur 3 % MwSt.?", "a": "400 m² Wohnfläche. Darüber hinaus gilt der Normalsatz auf den Überschuss. Keller, nicht ausgebaute Dachböden, nicht angeschlossene Garagen und gewerbliche Teile zählen nicht zur Wohnfläche." }
+        {
+          "q": "Wie hoch ist die MwSt.-Vorteilsobergrenze von 3 % in Luxemburg?",
+          "a": "Die Vorteilsobergrenze beträgt 50.000 € MwSt. pro Wohnung über deren Lebensdauer. Das entspricht etwa 357.000 € Arbeiten netto zum ermäßigten Satz. Darüber hinaus gilt der Normalsatz von 17 % auf den Überschuss."
+        },
+        {
+          "q": "Ist eine Vorabgenehmigung für die 3 % MwSt. erforderlich?",
+          "a": "Ja. Ein Vorabantrag muss vor Baubeginn oder VEFA-Aktunterzeichnung bei der AED eingereicht werden. Das Formular ist auf guichet.lu verfügbar und muss Pläne, Genehmigung und kostenmäßige Schätzung enthalten."
+        },
+        {
+          "q": "Gilt die 3 % MwSt. für eine Mietinvestition?",
+          "a": "Ja, sofern der Mieter die Wohnung als seinen Wohnsitz nutzt (effektive Belegung). Die Immobilie muss mindestens zwei Jahre nach Lieferung als Wohnraum vermietet bleiben, andernfalls wird der Vorteil zurückgefordert."
+        },
+        {
+          "q": "Gilt die 3 % MwSt. für Renovierungen?",
+          "a": "Ja, bei Renovierung und Reparatur einer über 20 Jahre alten Wohnung und ohne Altersbedingung bei Wohnraumschaffung durch Umbau (z.B. Umbau eines Geschäftsraums in Wohnraum). Dämm-, Heizungs-, Fenster-, Badarbeiten sind berechtigt. Dekoration und Luxus-Außenausstattung nicht."
+        },
+        {
+          "q": "Kann die 3 % MwSt. mit Bëllegen Akt und Klimabonus kombiniert werden?",
+          "a": "Ja, die drei Regelungen sind voll kombinierbar. Für einen Erstkäufer in VEFA mit berechtigten energetischen Sanierungsarbeiten können die Gesamteinsparungen 130.000 € überschreiten."
+        },
+        {
+          "q": "Welche maximale Wohnfläche berechtigt zur 3 % MwSt.?",
+          "a": "400 m² Wohnfläche. Darüber hinaus gilt der Normalsatz auf den Überschuss. Keller, nicht ausgebaute Dachböden, nicht angeschlossene Garagen und gewerbliche Teile zählen nicht zur Wohnfläche."
+        }
       ],
       "sources": [
-        { "title": "Anwendung des super-ermäßigten MwSt.-Satzes — Verfahren", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/construction/aides-construction/taux-tva-super-reduit-logement.html" },
-        { "title": "Artikel 44ter geändertes MwSt.-Gesetz — super-ermäßigter Wohnsatz", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1979/02/12/n1/jo" },
-        { "title": "Großherzogliches Reglement vom 30. Juli 2002 — Anwendungsmodalitäten", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2002/07/30/n4/jo", "year": 2002 },
-        { "title": "AED-Rundschreiben Nr. 800 — Wohn-MwSt.", "org": "AED", "url": "https://pfi.public.lu/fr.html" },
-        { "title": "eAED-Telefachverfahren — Wohn-MwSt.-Anträge", "org": "AED", "url": "https://eaed.b2g.etat.lu/" }
+        {
+          "title": "Anwendung des super-ermäßigten MwSt.-Satzes — Verfahren",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/construction/aides-construction/taux-tva-super-reduit-logement.html"
+        },
+        {
+          "title": "Artikel 44ter geändertes MwSt.-Gesetz — super-ermäßigter Wohnsatz",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1979/02/12/n1/jo"
+        },
+        {
+          "title": "Großherzogliches Reglement vom 30. Juli 2002 — Anwendungsmodalitäten",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2002/07/30/n4/jo",
+          "year": 2002
+        },
+        {
+          "title": "AED-Rundschreiben Nr. 800 — Wohn-MwSt.",
+          "org": "AED",
+          "url": "https://pfi.public.lu/fr.html"
+        },
+        {
+          "title": "eAED-Telefachverfahren — Wohn-MwSt.-Anträge",
+          "org": "AED",
+          "url": "https://eaed.b2g.etat.lu/"
+        }
       ]
     },
     "bailCommercial": {
@@ -9758,25 +10537,80 @@
         "cta": "Analyse starten"
       },
       "tools": [
-        { "href": "/bail-commercial", "title": "Geschäftsmiet-Tool", "description": "Miete, Schlüsselgeld, VPI-Indexierung, Vermieter-/Mieter-Rendite." },
-        { "href": "/dcf-multi", "title": "Mehrperioden-DCF", "description": "Bewertung eines kommerziell vermieteten Objekts über 9 Jahre." },
-        { "href": "/portfolio", "title": "Immobilienportfolio", "description": "Verfolgung mehrerer kommerziell vermieteter Räume." },
-        { "href": "/aml-kyc", "title": "Mieter-Verifizierung", "description": "Solvenz des Mieter-Unternehmens vor Vertragsunterzeichnung." }
+        {
+          "href": "/bail-commercial",
+          "title": "Geschäftsmiet-Tool",
+          "description": "Miete, Schlüsselgeld, VPI-Indexierung, Vermieter-/Mieter-Rendite."
+        },
+        {
+          "href": "/dcf-multi",
+          "title": "Mehrperioden-DCF",
+          "description": "Bewertung eines kommerziell vermieteten Objekts über 9 Jahre."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Immobilienportfolio",
+          "description": "Verfolgung mehrerer kommerziell vermieteter Räume."
+        },
+        {
+          "href": "/aml-kyc",
+          "title": "Mieter-Verifizierung",
+          "description": "Solvenz des Mieter-Unternehmens vor Vertragsunterzeichnung."
+        }
       ],
       "faq": [
-        { "q": "Welche Mindestlaufzeit hat ein Geschäftsmietvertrag in Luxemburg?", "a": "9 Jahre (Art. 2 Gesetz vom 3. Februar 2018). Der Mieter kann zu jeder Dreijahresperiode (3, 6, 9 Jahre) mit 6 Monaten Frist kündigen. Der Vermieter darf nur bei schwerem Verstoß, persönlichem Geschäftsbedarf oder Abriss/Wiederaufbau kündigen." },
-        { "q": "Ist die Geschäftsmiete in Luxemburg gedeckelt?", "a": "Nein, anders als bei Wohnmietverträgen (5%-Obergrenze auf investiertes Kapital) wird die Geschäftsmiete frei zwischen den Parteien festgelegt. Indexierung über den STATEC-VPI bei ausdrücklicher Klausel." },
-        { "q": "Was ist Schlüsselgeld und wie verhandelt man es?", "a": "Schlüsselgeld (pas-de-porte) ist eine Anfangszahlung des Mieters an den Vermieter als Gegenleistung für die Geschäftsvorteile der Lage. In LU zulässig, unreguliert, frei verhandelbar (typisch 1 bis 6 Monatsmieten für eine Standardlage, bis zu mehreren Jahren für Prime). Vom Mieter über die Vertragslaufzeit amortisierbar." },
-        { "q": "Wie funktioniert das Erneuerungsrecht?", "a": "Der Mieter notifiziert eine Erneuerungsanfrage mindestens 6 Monate vor dem Vertragsablauf. Ein Vermieter, der ohne berechtigten Grund (Verstoß, Abriss, Eigenbedarf) ablehnt, muss eine Räumungsentschädigung für Kundschafts-, Umzugs- und Geschäftswertsverlust zahlen. Der Betrag wird einvernehmlich oder gerichtlich festgesetzt." },
-        { "q": "Kann der Vermieter die Vertragsabtretung an einen Übernehmer blockieren?", "a": "Nein, sofern keine Gegenklausel im Vertrag. Die Geschäftsmietabtretung ist frei, in der Regel an die Geschäftswertsabtretung gekoppelt. Der Vermieter muss informiert werden, kann aber nicht widersprechen, sofern die Vertragsbedingungen (Miete, Nutzung) vom Übernehmer eingehalten werden. Eine Genehmigungsklausel vorsehen, falls der Vermieter Aufsicht wünscht." },
-        { "q": "Was tun bei schwerem Mietersverstoß?", "a": "Der Vermieter sendet eine Mahnung per Einschreiben unter Angabe des Verstoßes (unbezahlte Miete > 2 Monate, verbotene Untervermietung, Nutzungsänderung, größere Schäden). Ohne Heilung innerhalb von 30 Tagen kann der Vermieter den Fall vor Gericht zur gerichtlichen Auflösung mit Räumungsantrag und Forderungen für Rückstände/Schadensersatz bringen." }
+        {
+          "q": "Welche Mindestlaufzeit hat ein Geschäftsmietvertrag in Luxemburg?",
+          "a": "9 Jahre (Art. 2 Gesetz vom 3. Februar 2018). Der Mieter kann zu jeder Dreijahresperiode (3, 6, 9 Jahre) mit 6 Monaten Frist kündigen. Der Vermieter darf nur bei schwerem Verstoß, persönlichem Geschäftsbedarf oder Abriss/Wiederaufbau kündigen."
+        },
+        {
+          "q": "Ist die Geschäftsmiete in Luxemburg gedeckelt?",
+          "a": "Nein, anders als bei Wohnmietverträgen (5%-Obergrenze auf investiertes Kapital) wird die Geschäftsmiete frei zwischen den Parteien festgelegt. Indexierung über den STATEC-VPI bei ausdrücklicher Klausel."
+        },
+        {
+          "q": "Was ist Schlüsselgeld und wie verhandelt man es?",
+          "a": "Schlüsselgeld (pas-de-porte) ist eine Anfangszahlung des Mieters an den Vermieter als Gegenleistung für die Geschäftsvorteile der Lage. In LU zulässig, unreguliert, frei verhandelbar (typisch 1 bis 6 Monatsmieten für eine Standardlage, bis zu mehreren Jahren für Prime). Vom Mieter über die Vertragslaufzeit amortisierbar."
+        },
+        {
+          "q": "Wie funktioniert das Erneuerungsrecht?",
+          "a": "Der Mieter notifiziert eine Erneuerungsanfrage mindestens 6 Monate vor dem Vertragsablauf. Ein Vermieter, der ohne berechtigten Grund (Verstoß, Abriss, Eigenbedarf) ablehnt, muss eine Räumungsentschädigung für Kundschafts-, Umzugs- und Geschäftswertsverlust zahlen. Der Betrag wird einvernehmlich oder gerichtlich festgesetzt."
+        },
+        {
+          "q": "Kann der Vermieter die Vertragsabtretung an einen Übernehmer blockieren?",
+          "a": "Nein, sofern keine Gegenklausel im Vertrag. Die Geschäftsmietabtretung ist frei, in der Regel an die Geschäftswertsabtretung gekoppelt. Der Vermieter muss informiert werden, kann aber nicht widersprechen, sofern die Vertragsbedingungen (Miete, Nutzung) vom Übernehmer eingehalten werden. Eine Genehmigungsklausel vorsehen, falls der Vermieter Aufsicht wünscht."
+        },
+        {
+          "q": "Was tun bei schwerem Mietersverstoß?",
+          "a": "Der Vermieter sendet eine Mahnung per Einschreiben unter Angabe des Verstoßes (unbezahlte Miete > 2 Monate, verbotene Untervermietung, Nutzungsänderung, größere Schäden). Ohne Heilung innerhalb von 30 Tagen kann der Vermieter den Fall vor Gericht zur gerichtlichen Auflösung mit Räumungsantrag und Forderungen für Rückstände/Schadensersatz bringen."
+        }
       ],
       "sources": [
-        { "title": "Gesetz vom 3. Februar 2018 über Geschäftsmietverträge", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo", "year": 2018 },
-        { "title": "Geschäftsmietvertrag — praktischer Leitfaden", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html" },
-        { "title": "Verbraucherpreisindex (VPI)", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Zivilgesetzbuch — Artikel 1709 ff.", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" },
-        { "title": "Handelskammer — Unternehmerunterstützung", "org": "Luxemburger Handelskammer", "url": "https://www.cc.lu/" }
+        {
+          "title": "Gesetz vom 3. Februar 2018 über Geschäftsmietverträge",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo",
+          "year": 2018
+        },
+        {
+          "title": "Geschäftsmietvertrag — praktischer Leitfaden",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html"
+        },
+        {
+          "title": "Verbraucherpreisindex (VPI)",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Zivilgesetzbuch — Artikel 1709 ff.",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+        },
+        {
+          "title": "Handelskammer — Unternehmerunterstützung",
+          "org": "Luxemburger Handelskammer",
+          "url": "https://www.cc.lu/"
+        }
       ]
     },
     "investirHotel": {
@@ -9815,26 +10649,85 @@
         "cta": "Hotelanalyse öffnen"
       },
       "tools": [
-        { "href": "/hotellerie/valorisation", "title": "TEGOVA-Hotelbewertung", "description": "DCF + EBITDA-Multiplikatoren + Preis pro Schlüssel nach EVS 2025." },
-        { "href": "/hotellerie/dscr", "title": "Bank-DSCR", "description": "Finanzierungskapazität und Zins-Stresstest." },
-        { "href": "/hotellerie/observatoire-lu", "title": "LU-Observatorium", "description": "STATEC Übernachtungen + RevPAR-Indizes nach Region." },
-        { "href": "/hotellerie/pre-acquisition", "title": "Pre-Akquisition", "description": "E-2 / Hotel-Händler-Tool." }
+        {
+          "href": "/hotellerie/valorisation",
+          "title": "TEGOVA-Hotelbewertung",
+          "description": "DCF + EBITDA-Multiplikatoren + Preis pro Schlüssel nach EVS 2025."
+        },
+        {
+          "href": "/hotellerie/dscr",
+          "title": "Bank-DSCR",
+          "description": "Finanzierungskapazität und Zins-Stresstest."
+        },
+        {
+          "href": "/hotellerie/observatoire-lu",
+          "title": "LU-Observatorium",
+          "description": "STATEC Übernachtungen + RevPAR-Indizes nach Region."
+        },
+        {
+          "href": "/hotellerie/pre-acquisition",
+          "title": "Pre-Akquisition",
+          "description": "E-2 / Hotel-Händler-Tool."
+        }
       ],
       "faq": [
-        { "q": "Wie hoch ist der durchschnittliche RevPAR von Hotels in Luxemburg?", "a": "Der durchschnittliche RevPAR LU reicht von 60 € (Budget/Economy) bis 150 € (Upscale/Luxury). Luxemburg-Stadt zeigt den höchsten RevPAR, angetrieben durch Geschäftstourismus und EU-Institutionen. Tourismusregionen (Ardennen, Mosel) haben saisonalere RevPAR-Muster." },
-        { "q": "Welchen DSCR verlangen Banken für einen Hotelkredit in Luxemburg?", "a": "LU-Banken verlangen in der Regel einen DSCR von 1,25 bis 1,40x: der nach Betriebskosten verfügbare Cashflow muss mindestens das 1,25-1,40-fache des jährlichen Schuldendienstes abdecken. Ein DSCR unter 1,25x macht die Finanzierung schwer erhältlich." },
-        { "q": "Welche EBITDA-Multiplikatoren zur Bewertung eines LU-Hotels?", "a": "LU-EBITDA-Multiplikatoren reichen von 8x (Budget regional, veraltet) bis 14x (Luxury Prime LU-Stadt). Ein gesundes 3* in Luxemburg-Stadt handelt typisch zu 10-12x stabilisiertem EBITDA. Mit Preis/Zimmer und 10-Jahres-DCF abgleichen, um zu validieren." },
-        { "q": "Welcher Preis pro Zimmer für den Kauf eines Hotels in Luxemburg?", "a": "Beobachtete Preise: 80.000-120.000 €/Zimmer (Budget/Regionen), 150.000-200.000 €/Zimmer (Mid-3*), 250.000-400.000 €/Zimmer (Upscale/Luxury LU-Stadt). Darüber Luxury Prime auf außergewöhnlichen Lagen. Immer mit potenziellem RevPAR auf Konsistenz prüfen." },
-        { "q": "Ist Hotelinvestition in LU für US-E-2-Visum berechtigt?", "a": "LU ist kein US-E-2-Vertragsland. Für US-Investoren ist die Alternative die LU-Aufenthaltsgenehmigung für Investoren (500.000 € für Übernahme, 3 Mio. € für Gründung/Übernahme mit Arbeitsplätzen) über das Außenministerium. Hotellerie ist berechtigt." },
-        { "q": "Welche Förderungen zur energetischen Hotelrenovierung in LU?", "a": "Tertiäre Klimabonus bietet Zuschüsse für energetische Sanierung von Gewerbegebäuden: Dämmung, Wärmepumpen, Photovoltaik, Lüftung. Mit KMU-Beihilfen für Modernisierung kombinierbar. Die EPBD-Richtlinie schreibt Renovierungspfade für die energieintensivsten Tertiärassets bis 2030-2033 vor." }
+        {
+          "q": "Wie hoch ist der durchschnittliche RevPAR von Hotels in Luxemburg?",
+          "a": "Der durchschnittliche RevPAR LU reicht von 60 € (Budget/Economy) bis 150 € (Upscale/Luxury). Luxemburg-Stadt zeigt den höchsten RevPAR, angetrieben durch Geschäftstourismus und EU-Institutionen. Tourismusregionen (Ardennen, Mosel) haben saisonalere RevPAR-Muster."
+        },
+        {
+          "q": "Welchen DSCR verlangen Banken für einen Hotelkredit in Luxemburg?",
+          "a": "LU-Banken verlangen in der Regel einen DSCR von 1,25 bis 1,40x: der nach Betriebskosten verfügbare Cashflow muss mindestens das 1,25-1,40-fache des jährlichen Schuldendienstes abdecken. Ein DSCR unter 1,25x macht die Finanzierung schwer erhältlich."
+        },
+        {
+          "q": "Welche EBITDA-Multiplikatoren zur Bewertung eines LU-Hotels?",
+          "a": "LU-EBITDA-Multiplikatoren reichen von 8x (Budget regional, veraltet) bis 14x (Luxury Prime LU-Stadt). Ein gesundes 3* in Luxemburg-Stadt handelt typisch zu 10-12x stabilisiertem EBITDA. Mit Preis/Zimmer und 10-Jahres-DCF abgleichen, um zu validieren."
+        },
+        {
+          "q": "Welcher Preis pro Zimmer für den Kauf eines Hotels in Luxemburg?",
+          "a": "Beobachtete Preise: 80.000-120.000 €/Zimmer (Budget/Regionen), 150.000-200.000 €/Zimmer (Mid-3*), 250.000-400.000 €/Zimmer (Upscale/Luxury LU-Stadt). Darüber Luxury Prime auf außergewöhnlichen Lagen. Immer mit potenziellem RevPAR auf Konsistenz prüfen."
+        },
+        {
+          "q": "Ist Hotelinvestition in LU für US-E-2-Visum berechtigt?",
+          "a": "LU ist kein US-E-2-Vertragsland. Für US-Investoren ist die Alternative die LU-Aufenthaltsgenehmigung für Investoren (500.000 € für Übernahme, 3 Mio. € für Gründung/Übernahme mit Arbeitsplätzen) über das Außenministerium. Hotellerie ist berechtigt."
+        },
+        {
+          "q": "Welche Förderungen zur energetischen Hotelrenovierung in LU?",
+          "a": "Tertiäre Klimabonus bietet Zuschüsse für energetische Sanierung von Gewerbegebäuden: Dämmung, Wärmepumpen, Photovoltaik, Lüftung. Mit KMU-Beihilfen für Modernisierung kombinierbar. Die EPBD-Richtlinie schreibt Renovierungspfade für die energieintensivsten Tertiärassets bis 2030-2033 vor."
+        }
       ],
       "sources": [
-        { "title": "STATEC-Tourismusobservatorium", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/secteurs/tourisme.html" },
-        { "title": "Tertiäre Klimabonus — gewerbliche energetische Sanierung", "org": "myenergy / Umweltministerium", "url": "https://www.myenergy.lu/fr/professionnels" },
-        { "title": "KMU-Beihilfen — Investition und Innovation", "org": "Wirtschaftsministerium", "url": "https://meco.gouvernement.lu/fr/le-ministere/aides.html" },
-        { "title": "Gewerbe- und Grubenaufsicht (ITM) — Brandschutz", "org": "ITM", "url": "https://itm.public.lu/" },
-        { "title": "Investoren-Aufenthaltsgenehmigung", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/immigration/plus-3-mois/ressortissant-tiers/investisseur.html" },
-        { "title": "TEGOVA EVS 2025 — Valuation of Hotels", "org": "TEGOVA", "url": "https://www.tegova.org/", "year": 2025 }
+        {
+          "title": "STATEC-Tourismusobservatorium",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/secteurs/tourisme.html"
+        },
+        {
+          "title": "Tertiäre Klimabonus — gewerbliche energetische Sanierung",
+          "org": "myenergy / Umweltministerium",
+          "url": "https://www.myenergy.lu/fr/professionnels"
+        },
+        {
+          "title": "KMU-Beihilfen — Investition und Innovation",
+          "org": "Wirtschaftsministerium",
+          "url": "https://meco.gouvernement.lu/fr/le-ministere/aides.html"
+        },
+        {
+          "title": "Gewerbe- und Grubenaufsicht (ITM) — Brandschutz",
+          "org": "ITM",
+          "url": "https://itm.public.lu/"
+        },
+        {
+          "title": "Investoren-Aufenthaltsgenehmigung",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/immigration/plus-3-mois/ressortissant-tiers/investisseur.html"
+        },
+        {
+          "title": "TEGOVA EVS 2025 — Valuation of Hotels",
+          "org": "TEGOVA",
+          "url": "https://www.tegova.org/",
+          "year": 2025
+        }
       ]
     },
     "iaTevaxia": {
@@ -9873,25 +10766,80 @@
         "cta": "Mein Profil öffnen"
       },
       "tools": [
-        { "href": "/profil", "title": "Meinen BYOK-Schlüssel konfigurieren", "description": "Anthropic, OpenAI, Groq, Cerebras — unbegrenzte Nutzung." },
-        { "href": "/api-docs", "title": "Öffentliche B2B-API", "description": "3 Endpoints: analyze, chat, extract — Auth X-API-Key." },
-        { "href": "/valorisation", "title": "EVS-2025-Bericht", "description": "KI-Modus Verfasser + Challenger für Ihre TEGOVA-Berichte." },
-        { "href": "/bilan-promoteur", "title": "KI-Projektentwickler-P&L", "description": "PDF-Vorbefüllung + Tragfähigkeitsanalyse." }
+        {
+          "href": "/profil",
+          "title": "Meinen BYOK-Schlüssel konfigurieren",
+          "description": "Anthropic, OpenAI, Groq, Cerebras — unbegrenzte Nutzung."
+        },
+        {
+          "href": "/api-docs",
+          "title": "Öffentliche B2B-API",
+          "description": "3 Endpoints: analyze, chat, extract — Auth X-API-Key."
+        },
+        {
+          "href": "/valorisation",
+          "title": "EVS-2025-Bericht",
+          "description": "KI-Modus Verfasser + Challenger für Ihre TEGOVA-Berichte."
+        },
+        {
+          "href": "/bilan-promoteur",
+          "title": "KI-Projektentwickler-P&L",
+          "description": "PDF-Vorbefüllung + Tragfähigkeitsanalyse."
+        }
       ],
       "faq": [
-        { "q": "Ist die tevaxia-KI wirklich kostenlos?", "a": "Ja: 5 Analysen pro Tag pro angemeldetem Nutzer, ohne Kreditkarte oder Abo. Darüber hinaus fügen Sie Ihren eigenen Cerebras-, Groq-, OpenAI- oder Anthropic-Schlüssel im Profil für unbegrenzte Nutzung hinzu. Der kostenlose Tarif nutzt Cerebras (Llama 3.1 8B) mit Groq-Fallback bei Konfiguration." },
-        { "q": "Werden meine Daten an Dritte weitergegeben?", "a": "Ja, die Anfragen laufen über den konfigurierten KI-Anbieter (standardmäßig Cerebras oder Ihren BYOK-Schlüssel). Der übermittelte Kontext enthält ausschließlich die Inputs und Ergebnisse der aktuellen Berechnung, niemals personenbezogene Daten darüber hinaus. Cerebras und Groq speichern keine Prompts für das Training. Für hohe Vertraulichkeit bevorzugen Sie Anthropic oder OpenAI mit Enterprise-No-Training-Vertrag." },
-        { "q": "Kann die KI einen TEGOVA-zertifizierten Sachverständigen ersetzen?", "a": "Nein. Die KI unterstützt bei Formulierung und Analyse, liefert aber kein bindendes Sachverständigengutachten. Für einen EVS-Bericht zuhanden einer Bank oder eines Gerichts bleibt der TEGOVA REV/TRV-Sachverständige verantwortlich und muss prüfen, korrigieren und unterzeichnen. Die KI beschleunigt die Erstellung, ersetzt aber weder die menschliche Expertise noch die Ortsbesichtigung." },
-        { "q": "Welche Modelle werden im BYOK unterstützt?", "a": "Anthropic (Claude 4.x — empfohlen für PDF-Vision und EVS-Erstellung), OpenAI (GPT-4o, GPT-4 Turbo — gut in Vision), Groq (schnelles Llama 3.x), Cerebras (Llama 3.1 8B — kostenlos, Standard). 2-Klick-Setup in /profil. Stückkosten in Echtzeit angezeigt." },
-        { "q": "Wie greife ich auf die öffentliche tevaxia-API zu?", "a": "Auf /api-docs finden Sie die vollständige Dokumentation der 3 Endpoints (analyze, chat, extract) mit cURL-Beispielen, JS- und Python-SDK. Authentifizierung über X-API-Key-Header. Standard-Rate-Limit-Tarif gratis; für hohe Volumen oder SLA kontaktieren Sie uns über /pricing für einen Enterprise-Tarif." },
-        { "q": "Welche Grenzen haben die KI-Analysen?", "a": "Modelle machen gelegentlich Berechnungsfehler oder zitieren veraltete Referenzen (Wissens-Cutoff variiert je Modell). tevaxia injiziert die aktuellen Schlüsselzahlen (Sätze 2026, STATEC-Koeffizienten, Bëllegen-Akt-Beträge) in den Kontext, um diese Fehler zu reduzieren. Für kritische Zahlen prüfen Sie immer mit unseren deterministischen Tools (Rechner, Simulatoren)." }
+        {
+          "q": "Ist die tevaxia-KI wirklich kostenlos?",
+          "a": "Ja: 5 Analysen pro Tag pro angemeldetem Nutzer, ohne Kreditkarte oder Abo. Darüber hinaus fügen Sie Ihren eigenen Cerebras-, Groq-, OpenAI- oder Anthropic-Schlüssel im Profil für unbegrenzte Nutzung hinzu. Der kostenlose Tarif nutzt Cerebras (Llama 3.1 8B) mit Groq-Fallback bei Konfiguration."
+        },
+        {
+          "q": "Werden meine Daten an Dritte weitergegeben?",
+          "a": "Ja, die Anfragen laufen über den konfigurierten KI-Anbieter (standardmäßig Cerebras oder Ihren BYOK-Schlüssel). Der übermittelte Kontext enthält ausschließlich die Inputs und Ergebnisse der aktuellen Berechnung, niemals personenbezogene Daten darüber hinaus. Cerebras und Groq speichern keine Prompts für das Training. Für hohe Vertraulichkeit bevorzugen Sie Anthropic oder OpenAI mit Enterprise-No-Training-Vertrag."
+        },
+        {
+          "q": "Kann die KI einen TEGOVA-zertifizierten Sachverständigen ersetzen?",
+          "a": "Nein. Die KI unterstützt bei Formulierung und Analyse, liefert aber kein bindendes Sachverständigengutachten. Für einen EVS-Bericht zuhanden einer Bank oder eines Gerichts bleibt der TEGOVA REV/TRV-Sachverständige verantwortlich und muss prüfen, korrigieren und unterzeichnen. Die KI beschleunigt die Erstellung, ersetzt aber weder die menschliche Expertise noch die Ortsbesichtigung."
+        },
+        {
+          "q": "Welche Modelle werden im BYOK unterstützt?",
+          "a": "Anthropic (Claude 4.x — empfohlen für PDF-Vision und EVS-Erstellung), OpenAI (GPT-4o, GPT-4 Turbo — gut in Vision), Groq (schnelles Llama 3.x), Cerebras (Llama 3.1 8B — kostenlos, Standard). 2-Klick-Setup in /profil. Stückkosten in Echtzeit angezeigt."
+        },
+        {
+          "q": "Wie greife ich auf die öffentliche tevaxia-API zu?",
+          "a": "Auf /api-docs finden Sie die vollständige Dokumentation der 3 Endpoints (analyze, chat, extract) mit cURL-Beispielen, JS- und Python-SDK. Authentifizierung über X-API-Key-Header. Standard-Rate-Limit-Tarif gratis; für hohe Volumen oder SLA kontaktieren Sie uns über /pricing für einen Enterprise-Tarif."
+        },
+        {
+          "q": "Welche Grenzen haben die KI-Analysen?",
+          "a": "Modelle machen gelegentlich Berechnungsfehler oder zitieren veraltete Referenzen (Wissens-Cutoff variiert je Modell). tevaxia injiziert die aktuellen Schlüsselzahlen (Sätze 2026, STATEC-Koeffizienten, Bëllegen-Akt-Beträge) in den Kontext, um diese Fehler zu reduzieren. Für kritische Zahlen prüfen Sie immer mit unseren deterministischen Tools (Rechner, Simulatoren)."
+        }
       ],
       "sources": [
-        { "title": "Dokumentation öffentliche tevaxia-API", "org": "tevaxia.lu", "url": "https://tevaxia.lu/api-docs" },
-        { "title": "TEGOVA EVS 2025 — European Valuation Standards", "org": "TEGOVA", "url": "https://www.tegova.org/", "year": 2025 },
-        { "title": "Geändertes Gesetz vom 4. Dezember 1967 (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
-        { "title": "Cerebras Inference — Open-Weight-Modelle", "org": "Cerebras Systems", "url": "https://cerebras.ai/inference" },
-        { "title": "Anthropic API — Claude für PDF-Vision", "org": "Anthropic", "url": "https://docs.anthropic.com/" }
+        {
+          "title": "Dokumentation öffentliche tevaxia-API",
+          "org": "tevaxia.lu",
+          "url": "https://tevaxia.lu/api-docs"
+        },
+        {
+          "title": "TEGOVA EVS 2025 — European Valuation Standards",
+          "org": "TEGOVA",
+          "url": "https://www.tegova.org/",
+          "year": 2025
+        },
+        {
+          "title": "Geändertes Gesetz vom 4. Dezember 1967 (LIR)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        },
+        {
+          "title": "Cerebras Inference — Open-Weight-Modelle",
+          "org": "Cerebras Systems",
+          "url": "https://cerebras.ai/inference"
+        },
+        {
+          "title": "Anthropic API — Claude für PDF-Vision",
+          "org": "Anthropic",
+          "url": "https://docs.anthropic.com/"
+        }
       ]
     }
   },
@@ -16603,5 +17551,324 @@
     "checkApiDesc": "Endpoint /api/v1/estimation",
     "checkObservName": "data.public.lu",
     "checkObservDesc": "Wohnungsobservatorium"
+  },
+  "portalLandings": {
+    "copropriete": {
+      "meta": {
+        "title": "Miteigentümerportal Luxemburg — tevaxia Zugang",
+        "description": "Zugang zu Ihrem Miteigentümerportal: Einberufungen zur ETV, Online-Abstimmungen, individuelle Konten, Mittelabrufe. Sicherer Magic-Link von Ihrem Verwalter."
+      },
+      "hero": {
+        "badge": "Miteigentümerportal",
+        "title": "Ihre Wohneigentumsgemeinschaft",
+        "titleAccent": "in voller Transparenz",
+        "subtitle": "Einberufungen, Protokolle, Online-Abstimmungen, Verfolgung der Mittelabrufe und individuelles Konto: Ihre gesamte Akte an einem Ort. Sicherer Zugang per Magic-Link Ihres Verwalters.",
+        "primaryCta": "Meinen Zugangslink anfordern",
+        "secondaryCta": "Wohneigentum in Luxemburg verstehen"
+      },
+      "features": {
+        "title": "Was Sie in Ihrem Portal finden",
+        "intro": "Alle rechtlichen Informationen zu Ihrer Gemeinschaft, rund um die Uhr von jedem Gerät verfügbar.",
+        "items": [
+          {
+            "icon": "📋",
+            "title": "Einberufungen & Protokolle",
+            "desc": "Einberufungen, Tagesordnungen und unterzeichnete Protokolle herunterladen. Vollständige Historie."
+          },
+          {
+            "icon": "🗳️",
+            "title": "Online-Abstimmung",
+            "desc": "Elektronisch in der Eigentümerversammlung abstimmen (Gesetz vom 16. Mai 1975 in der geänderten Fassung)."
+          },
+          {
+            "icon": "💶",
+            "title": "Mein individuelles Konto",
+            "desc": "Mittelabrufe, Lasten, Zahlungen und aktueller Saldo. Auszug als PDF herunterladbar."
+          },
+          {
+            "icon": "🤖",
+            "title": "KI-Assistent Wohneigentum",
+            "desc": "Fragen zum Reglement, zu Lasten oder luxemburgischem Recht — mit Quellen."
+          }
+        ]
+      },
+      "access": {
+        "title": "So greifen Sie auf Ihr Portal zu",
+        "intro": "Keine Kontoerstellung. Ihr Verwalter sendet Ihnen einen sicheren persönlichen Magic-Link.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Anfrage beim Verwalter",
+            "desc": "Kontaktieren Sie Ihren professionellen oder ehrenamtlichen Verwalter und fordern Sie Ihren tevaxia-Zugangslink an."
+          },
+          {
+            "number": "2",
+            "title": "E-Mail-Zustellung",
+            "desc": "Sie erhalten eine E-Mail mit Ihrem persönlichen Link. Bewahren Sie ihn auf — gültig, solange er nicht widerrufen wird."
+          },
+          {
+            "number": "3",
+            "title": "Direktzugriff",
+            "desc": "Klicken Sie auf den Link: Sie gelangen ohne Passwort zu Ihrer Akte. Keine App zu installieren."
+          }
+        ],
+        "note": "Keinen Link erhalten? Ihr Verwalter nutzt tevaxia eventuell noch nicht. Laden Sie ihn ein, unsere Verwalterlösung zu entdecken."
+      },
+      "faq": {
+        "title": "Häufig gestellte Fragen",
+        "items": [
+          {
+            "q": "Ist der Link sicher?",
+            "a": "Der Token ist zufällig (256 Bit), eindeutig und opak. Er identifiziert ausschließlich Ihren Anteil und Ihre Daten. Sie können Ihren Verwalter jederzeit bitten, ihn zu widerrufen."
+          },
+          {
+            "q": "Kann ich aus dem Portal abstimmen?",
+            "a": "Ja, bei Beschlüssen, die für elektronische Abstimmung freigegeben sind. Das luxemburgische Gesetz vom 16. Mai 1975 (geändert am 6. Juni 2023) erlaubt Fernabstimmungen, sofern das Reglement es nicht ausschließt."
+          },
+          {
+            "q": "Was, wenn ich auch Mieter bin?",
+            "a": "Sie können mehrere getrennte Zugänge haben (einer pro Wohneigentum + einer pro Mietvertrag). Jeder Token ist unabhängig."
+          },
+          {
+            "q": "Werden meine Daten in Europa gespeichert?",
+            "a": "Ja. tevaxia hostet alle Daten in der EU (Supabase EU + Vercel EU). DSGVO-konform."
+          },
+          {
+            "q": "Was kostet mich dieser Zugang?",
+            "a": "Der Miteigentümerzugang ist kostenlos. Ihr Verwalter abonniert tevaxia für die Verwaltung."
+          }
+        ]
+      },
+      "related": {
+        "title": "Weiterlesen",
+        "items": [
+          {
+            "label": "Leitfaden Wohneigentum Luxemburg",
+            "href": "/guide/copropriete-luxembourg",
+            "desc": "Gesetz vom 16. Mai 1975, ETV, Lasten, Verwaltungsbeirat."
+          },
+          {
+            "label": "Verwalterlösung",
+            "href": "/solutions/syndic",
+            "desc": "Für professionelle und ehrenamtliche Verwalter."
+          },
+          {
+            "label": "Verwaltungsbeirat",
+            "href": "/conseil-syndical",
+            "desc": "Beiratsmitglieder: Steuern Sie die Gemeinschaft."
+          }
+        ]
+      }
+    },
+    "conseilSyndical": {
+      "meta": {
+        "title": "Verwaltungsbeirat Luxemburg — tevaxia Portal",
+        "description": "Steuern Sie Ihre Wohneigentumsgemeinschaft als Beiratsmitglied: konsolidierte Sicht, Bauverfolgung, ETV-Vorbereitung, Eigentümerkommunikation."
+      },
+      "hero": {
+        "badge": "Verwaltungsbeirat",
+        "title": "Steuern Sie Ihre Gemeinschaft",
+        "titleAccent": "mit Vertrauen",
+        "subtitle": "Konsolidierte Kontensicht, Verfolgung der beschlossenen Arbeiten, ETV-Vorbereitung und konsolidierte Kommunikation. Das spezielle Werkzeug für gewählte Beiratsmitglieder.",
+        "primaryCta": "Meinen Zugangslink anfordern",
+        "secondaryCta": "Rolle des Beirats"
+      },
+      "features": {
+        "title": "Ihre Steuerungswerkzeuge",
+        "intro": "Als gewähltes Mitglied vertreten Sie die Eigentümer und überwachen den Verwalter. tevaxia liefert Ihnen die richtigen Indikatoren.",
+        "items": [
+          {
+            "icon": "📊",
+            "title": "Konsolidierte Kontensicht",
+            "desc": "Salden, laufende Lasten, Betriebsfonds, Bauarbeitsfonds, aggregierte Rückstände."
+          },
+          {
+            "icon": "🛠️",
+            "title": "Bauverfolgung",
+            "desc": "Status der beschlossenen Bauresolutionen, verglichene Angebote, Rechnungen."
+          },
+          {
+            "icon": "📝",
+            "title": "ETV-Vorbereitung",
+            "desc": "Kollaborative Tagesordnung, Beschlussentwürfe, beizufügende Dokumente."
+          },
+          {
+            "icon": "✉️",
+            "title": "Eigentümerkommunikation",
+            "desc": "Sammelversand an Eigentümer, archivierter Austausch."
+          }
+        ]
+      },
+      "access": {
+        "title": "So greifen Sie auf Ihr Portal zu",
+        "intro": "Der Verwalter gewährt Ihnen den Beiratszugang nach Ihrer Wahl in der ETV.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Wahl in der ETV",
+            "desc": "Sie werden von der Eigentümerversammlung in den Beirat gewählt (Artikel 15-1 Gesetz 1975)."
+          },
+          {
+            "number": "2",
+            "title": "Link vom Verwalter",
+            "desc": "Der Verwalter sendet Ihren persönlichen Beiratszugang per E-Mail."
+          },
+          {
+            "number": "3",
+            "title": "Dauerhafter Zugang",
+            "desc": "Verbinden Sie sich jederzeit von jedem Gerät. Kein Passwort erforderlich."
+          }
+        ],
+        "note": "Das Beiratsmandat ist zeitlich begrenzt (üblicherweise 1 bis 3 Jahre). Ihr Zugang wird am Mandatsende widerrufen."
+      },
+      "faq": {
+        "title": "Häufig gestellte Fragen",
+        "items": [
+          {
+            "q": "Welche rechtlichen Pflichten habe ich?",
+            "a": "Der Beirat unterstützt und überwacht den Verwalter. Er ist bei jedem Vertrag zu konsultieren, der eine von der ETV festgelegte Schwelle überschreitet (Artikel 15-1 Gesetz vom 16. Mai 1975)."
+          },
+          {
+            "q": "Kann ich Buchhaltungsbelege einsehen?",
+            "a": "Ja, der Beirat hat jederzeit Zugang zu Belegen. tevaxia gibt Zugriff auf vom Verwalter eingescannte Rechnungen."
+          },
+          {
+            "q": "Was bei Unregelmäßigkeiten?",
+            "a": "Melden Sie diese dem Verwalter über die tevaxia-Nachrichten (Nachvollziehbarkeit gewährleistet). Bei Streit kann der Beirat eine außerordentliche ETV einberufen."
+          },
+          {
+            "q": "Wie viele Beiratsmitglieder?",
+            "a": "Das luxemburgische Gesetz schreibt keine feste Zahl vor. In der Praxis 3 bis 5 Mitglieder bei mittelgroßen Gemeinschaften."
+          }
+        ]
+      },
+      "related": {
+        "title": "Weiterlesen",
+        "items": [
+          {
+            "label": "Leitfaden Wohneigentum",
+            "href": "/guide/copropriete-luxembourg",
+            "desc": "Gesetz 1975, Beirat, ETV."
+          },
+          {
+            "label": "Verwalterlösung",
+            "href": "/solutions/syndic",
+            "desc": "Für Verwalter — vollständiges Verwaltungswerkzeug."
+          },
+          {
+            "label": "Miteigentümerportal",
+            "href": "/copropriete",
+            "desc": "Individuelles Portal für Miteigentümer."
+          }
+        ]
+      }
+    },
+    "locataire": {
+      "meta": {
+        "title": "Mieterportal Luxemburg — tevaxia",
+        "description": "Zugang zu Ihrem Mieterportal: Mietquittungen, digitale Wohnungsübergabe, Nebenkostenabrechnungen, KI-Mietassistent. Sicherer Magic-Link Ihres Vermieters."
+      },
+      "hero": {
+        "badge": "Mieterportal",
+        "title": "Ihr Mietvertrag in Luxemburg",
+        "titleAccent": "alles an einem Ort",
+        "subtitle": "Mietquittungen, digitale Wohnungsübergabe, Nebenkostenabrechnungen, Austausch mit Vermieter oder Agentur. Sicherer Magic-Link ohne Kontoerstellung.",
+        "primaryCta": "Meinen Zugangslink anfordern",
+        "secondaryCta": "Ihren Mietvertrag verstehen"
+      },
+      "features": {
+        "title": "Was Sie in Ihrem Portal finden",
+        "intro": "Alle Vertragsunterlagen rund um die Uhr verfügbar, konform mit luxemburgischem Mietrecht.",
+        "items": [
+          {
+            "icon": "🧾",
+            "title": "Mietquittungen",
+            "desc": "Unterzeichnete monatliche Quittungen herunterladen. Unverzichtbar für Behördengänge."
+          },
+          {
+            "icon": "📋",
+            "title": "Digitale Wohnungsübergabe",
+            "desc": "Zeitgestempelte Ein- und Ausgangsprotokolle mit Fotos. Vergleich nebeneinander."
+          },
+          {
+            "icon": "💶",
+            "title": "Nebenkostenabrechnung",
+            "desc": "Detaillierte jährliche Abrechnung Posten für Posten, mit Belegen."
+          },
+          {
+            "icon": "🤖",
+            "title": "KI-Mietassistent",
+            "desc": "Fragen zum Gesetz vom 21. September 2006 — Rechte, Pflichten, Kaution."
+          }
+        ]
+      },
+      "access": {
+        "title": "So greifen Sie auf Ihr Portal zu",
+        "intro": "Keine Kontoerstellung. Ihr Vermieter oder die Agentur sendet Ihnen einen sicheren persönlichen Magic-Link.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Anfrage beim Vermieter",
+            "desc": "Kontaktieren Sie Ihren Vermieter oder die Agentur und fordern Sie Ihren tevaxia-Mieterzugang an."
+          },
+          {
+            "number": "2",
+            "title": "E-Mail-Zustellung",
+            "desc": "Sie erhalten eine E-Mail mit Ihrem persönlichen Link. Gültig für die gesamte Mietdauer."
+          },
+          {
+            "number": "3",
+            "title": "Direktzugriff",
+            "desc": "Klicken Sie auf den Link: Sie gelangen ohne Passwort zu Ihrer Akte. Keine App zu installieren."
+          }
+        ],
+        "note": "Keinen Link erhalten? Ihr Vermieter nutzt tevaxia eventuell noch nicht. Laden Sie ihn ein, unsere Mietverwaltungslösung zu entdecken."
+      },
+      "faq": {
+        "title": "Häufig gestellte Fragen",
+        "items": [
+          {
+            "q": "Ist der Link sicher?",
+            "a": "Der Token ist zufällig (256 Bit), eindeutig und opak. Sie können Ihren Vermieter jederzeit bitten, ihn zu widerrufen."
+          },
+          {
+            "q": "Was bei Streit über Nebenkosten?",
+            "a": "Sie haben das Recht, Belege einzusehen. Das Gesetz vom 21. September 2006 regelt die Abrechnung. Bei dauerhaftem Streit kann die Mietkommission angerufen werden."
+          },
+          {
+            "q": "Wird die Kaution hier verwaltet?",
+            "a": "Ja — die Kaution (auf Sperrkonto gemäß Artikel 5 des Gesetzes) ist im Portal sichtbar, mit Hinterlegungs- und voraussichtlichem Rückgabedatum."
+          },
+          {
+            "q": "Was beim Umzug?",
+            "a": "Ihr neuer Vermieter sendet einen neuen Link. Der alte bleibt 12 Monate nur zur Ansicht verfügbar."
+          },
+          {
+            "q": "Was kostet mich dieser Zugang?",
+            "a": "Der Mieterzugang ist kostenlos. Ihr Vermieter abonniert tevaxia."
+          }
+        ]
+      },
+      "related": {
+        "title": "Weiterlesen",
+        "items": [
+          {
+            "label": "Leitfaden Wohnungsmietvertrag",
+            "href": "/guide/bail-habitation-luxembourg",
+            "desc": "Gesetz 21. September 2006, Rechte, Pflichten, Lasten."
+          },
+          {
+            "label": "5%-Regel",
+            "href": "/guide/regle-5-pourcent-loyer",
+            "desc": "Gesetzliche Mietobergrenze in Luxemburg."
+          },
+          {
+            "label": "Mietrechner",
+            "href": "/calculateur-loyer",
+            "desc": "Prüfen Sie, ob Ihre Miete der 5%-Regel entspricht."
+          }
+        ]
+      }
+    }
   }
 }

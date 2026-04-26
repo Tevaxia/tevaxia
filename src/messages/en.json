@@ -9225,13 +9225,43 @@
       "section4Intro": "The table below gives an indicative range for an existing property occupied as the primary residence by a buyer couple (full €80,000 Bëllegen Akt applied). Mortgage costs assume 80% loan-to-value financing.",
       "table": {
         "caption": "Estimated acquisition costs — existing property, buyer couple, 80% financing",
-        "headers": ["Purchase price", "7% duties", "Bëllegen Akt", "Net to pay"],
+        "headers": [
+          "Purchase price",
+          "7% duties",
+          "Bëllegen Akt",
+          "Net to pay"
+        ],
         "rows": [
-          ["€300,000", "€21,000", "−€21,000", "≈ €6,000"],
-          ["€500,000", "€35,000", "−€35,000", "≈ €10,000"],
-          ["€750,000", "€52,500", "−€52,500", "≈ €14,000"],
-          ["€1,000,000", "€70,000", "−€70,000", "≈ €18,000"],
-          ["€1,500,000", "€105,000", "−€80,000", "≈ €50,000"]
+          [
+            "€300,000",
+            "€21,000",
+            "−€21,000",
+            "≈ €6,000"
+          ],
+          [
+            "€500,000",
+            "€35,000",
+            "−€35,000",
+            "≈ €10,000"
+          ],
+          [
+            "€750,000",
+            "€52,500",
+            "−€52,500",
+            "≈ €14,000"
+          ],
+          [
+            "€1,000,000",
+            "€70,000",
+            "−€70,000",
+            "≈ €18,000"
+          ],
+          [
+            "€1,500,000",
+            "€105,000",
+            "−€80,000",
+            "≈ €50,000"
+          ]
         ],
         "footnote": "Net to pay = duties remaining after Bëllegen Akt + notary emoluments + mortgage costs + disbursements. 2026 estimate for a first-time buyer couple. Mortgage portion calculated on 80% of price."
       },
@@ -9243,26 +9273,85 @@
         "cta": "Open the calculator"
       },
       "tools": [
-        { "href": "/frais-acquisition", "title": "Acquisition costs calculator", "description": "Full estimate: duties, Bëllegen Akt, emoluments, mortgage, housing VAT." },
-        { "href": "/vefa", "title": "VEFA simulator", "description": "Land vs construction breakdown and 3% housing VAT for a new-build." },
-        { "href": "/outils-bancaires", "title": "Banking tools", "description": "Borrowing capacity, monthly payment, DSTI and LTV ratios before signing the compromis." },
-        { "href": "/simulateur-aides", "title": "Acquisition aids", "description": "Housing premium, interest subsidy, State guarantee, savings premium." }
+        {
+          "href": "/frais-acquisition",
+          "title": "Acquisition costs calculator",
+          "description": "Full estimate: duties, Bëllegen Akt, emoluments, mortgage, housing VAT."
+        },
+        {
+          "href": "/vefa",
+          "title": "VEFA simulator",
+          "description": "Land vs construction breakdown and 3% housing VAT for a new-build."
+        },
+        {
+          "href": "/outils-bancaires",
+          "title": "Banking tools",
+          "description": "Borrowing capacity, monthly payment, DSTI and LTV ratios before signing the compromis."
+        },
+        {
+          "href": "/simulateur-aides",
+          "title": "Acquisition aids",
+          "description": "Housing premium, interest subsidy, State guarantee, savings premium."
+        }
       ],
       "faq": [
-        { "q": "How much are notary fees for a €500,000 apartment in Luxembourg?", "a": "For an existing €500,000 apartment bought by a first-time buyer couple (full Bëllegen Akt), expect around €10,000 to €12,000 in total fees: €35,000 in duties fully offset by the tax credit, plus €4,200 in notary emoluments, around €4,500 in mortgage costs on €400,000 borrowed, and €1,500 in disbursements." },
-        { "q": "Are notary fees reduced for new-build properties in Luxembourg?", "a": "Yes. For a VEFA new-build, registration and transcription duties only apply to the land share stated in the deed. The construction is taxed at the super-reduced 3% housing VAT (tax credit capped at €50,000 per dwelling). Total fees usually fall between 3% and 4% of the price." },
-        { "q": "What is the Bëllegen Akt and how do I get it?", "a": "The Bëllegen Akt is a tax credit of €40,000 per buyer (€80,000 for a couple) applied to registration duties, on the condition that the property serves as your primary residence and is personally occupied. The application is made automatically by the notary at signing. The AED levies a minimum of €100 in duties in all cases." },
-        { "q": "Can notary fees be negotiated in Luxembourg?", "a": "No. Luxembourg notary emoluments are strictly regulated by the Grand Ducal Regulation of 26 November 2015 and the notary cannot raise or lower them. Only disbursements (formalities) may vary slightly between offices depending on the searches conducted." },
-        { "q": "Who pays notary fees in Luxembourg, the buyer or the seller?", "a": "The buyer bears all acquisition costs (duties, sale deed emoluments, mortgage costs if borrowing). The seller only pays any formalities related to releasing a pre-existing mortgage on the property and the agency commission if it is contractually theirs." },
-        { "q": "Are notary fees tax-deductible in Luxembourg?", "a": "For a buy-to-let investment, notary fees (duties, emoluments, mortgage costs) are not immediately deductible but are added to the acquisition cost and may be amortised over the holding period. For a primary residence they are not deductible, but the Bëllegen Akt covers most of them." }
+        {
+          "q": "How much are notary fees for a €500,000 apartment in Luxembourg?",
+          "a": "For an existing €500,000 apartment bought by a first-time buyer couple (full Bëllegen Akt), expect around €10,000 to €12,000 in total fees: €35,000 in duties fully offset by the tax credit, plus €4,200 in notary emoluments, around €4,500 in mortgage costs on €400,000 borrowed, and €1,500 in disbursements."
+        },
+        {
+          "q": "Are notary fees reduced for new-build properties in Luxembourg?",
+          "a": "Yes. For a VEFA new-build, registration and transcription duties only apply to the land share stated in the deed. The construction is taxed at the super-reduced 3% housing VAT (tax credit capped at €50,000 per dwelling). Total fees usually fall between 3% and 4% of the price."
+        },
+        {
+          "q": "What is the Bëllegen Akt and how do I get it?",
+          "a": "The Bëllegen Akt is a tax credit of €40,000 per buyer (€80,000 for a couple) applied to registration duties, on the condition that the property serves as your primary residence and is personally occupied. The application is made automatically by the notary at signing. The AED levies a minimum of €100 in duties in all cases."
+        },
+        {
+          "q": "Can notary fees be negotiated in Luxembourg?",
+          "a": "No. Luxembourg notary emoluments are strictly regulated by the Grand Ducal Regulation of 26 November 2015 and the notary cannot raise or lower them. Only disbursements (formalities) may vary slightly between offices depending on the searches conducted."
+        },
+        {
+          "q": "Who pays notary fees in Luxembourg, the buyer or the seller?",
+          "a": "The buyer bears all acquisition costs (duties, sale deed emoluments, mortgage costs if borrowing). The seller only pays any formalities related to releasing a pre-existing mortgage on the property and the agency commission if it is contractually theirs."
+        },
+        {
+          "q": "Are notary fees tax-deductible in Luxembourg?",
+          "a": "For a buy-to-let investment, notary fees (duties, emoluments, mortgage costs) are not immediately deductible but are added to the acquisition cost and may be amortised over the holding period. For a primary residence they are not deductible, but the Bëllegen Akt covers most of them."
+        }
       ],
       "sources": [
-        { "title": "Tax credit on notarial deeds (Bëllegen Akt) — procedure", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
-        { "title": "Bëllegen Akt — official factsheet", "org": "Logement.lu — Ministry of Housing", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
-        { "title": "Grand Ducal Regulation of 26 November 2015 on notary fees", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/11/26/n6/jo", "year": 2015 },
-        { "title": "Law of 22 Frimaire Year VII on registration duties", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" },
-        { "title": "Law of 25 September 1905 on transcription of real rights", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1905/09/25/n1/jo" },
-        { "title": "3% housing VAT — AED circular", "org": "Registration, Estates and VAT Administration", "url": "https://pfi.public.lu/fr.html" }
+        {
+          "title": "Tax credit on notarial deeds (Bëllegen Akt) — procedure",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html"
+        },
+        {
+          "title": "Bëllegen Akt — official factsheet",
+          "org": "Logement.lu — Ministry of Housing",
+          "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html"
+        },
+        {
+          "title": "Grand Ducal Regulation of 26 November 2015 on notary fees",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/11/26/n6/jo",
+          "year": 2015
+        },
+        {
+          "title": "Law of 22 Frimaire Year VII on registration duties",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo"
+        },
+        {
+          "title": "Law of 25 September 1905 on transcription of real rights",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1905/09/25/n1/jo"
+        },
+        {
+          "title": "3% housing VAT — AED circular",
+          "org": "Registration, Estates and VAT Administration",
+          "url": "https://pfi.public.lu/fr.html"
+        }
       ]
     },
     "regle5Pourcent": {
@@ -9294,13 +9383,43 @@
       "section4Intro": "Maximum monthly rent for a typical apartment bought €400,000 + €30,000 in costs (€430,000 total capital). Construction share is estimated at 70% of the price.",
       "table": {
         "caption": "Maximum legal monthly rent by purchase year (initial capital €430,000)",
-        "headers": ["Purchase year", "STATEC coefficient", "Revalued capital", "Max rent/month (5%)"],
+        "headers": [
+          "Purchase year",
+          "STATEC coefficient",
+          "Revalued capital",
+          "Max rent/month (5%)"
+        ],
         "rows": [
-          ["2010", "2.33", "€1,001,900", "≈ €4,030"],
-          ["2015", "2.07", "€890,100", "≈ €3,140"],
-          ["2020", "1.95", "€838,500", "≈ €3,270"],
-          ["2022", "1.77", "€761,100", "≈ €2,990"],
-          ["2025", "1.52", "€653,600", "≈ €2,690"]
+          [
+            "2010",
+            "2.33",
+            "€1,001,900",
+            "≈ €4,030"
+          ],
+          [
+            "2015",
+            "2.07",
+            "€890,100",
+            "≈ €3,140"
+          ],
+          [
+            "2020",
+            "1.95",
+            "€838,500",
+            "≈ €3,270"
+          ],
+          [
+            "2022",
+            "1.77",
+            "€761,100",
+            "≈ €2,990"
+          ],
+          [
+            "2025",
+            "1.52",
+            "€653,600",
+            "≈ €2,690"
+          ]
         ],
         "footnote": "Indicative computation after 2%/year wear-and-tear on the construction share (70% of price). Reform 8184: with a 3.5% cap, these rents would drop by about 30%."
       },
@@ -9312,25 +9431,81 @@
         "cta": "Run the calculation"
       },
       "tools": [
-        { "href": "/calculateur-loyer", "title": "Legal rent calculator", "description": "5% of revalued invested capital + wear-and-tear + reform adjustment." },
-        { "href": "/locataire", "title": "Tenant area", "description": "Letter templates for challenge, charge tracking, commission appeal." },
-        { "href": "/carte", "title": "Rental price map", "description": "Median observed rent by municipality and dwelling type for comparison." },
-        { "href": "/portfolio", "title": "Investment portfolio", "description": "Track gross/net yield of your rented properties." }
+        {
+          "href": "/calculateur-loyer",
+          "title": "Legal rent calculator",
+          "description": "5% of revalued invested capital + wear-and-tear + reform adjustment."
+        },
+        {
+          "href": "/locataire",
+          "title": "Tenant area",
+          "description": "Letter templates for challenge, charge tracking, commission appeal."
+        },
+        {
+          "href": "/carte",
+          "title": "Rental price map",
+          "description": "Median observed rent by municipality and dwelling type for comparison."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Investment portfolio",
+          "description": "Track gross/net yield of your rented properties."
+        }
       ],
       "faq": [
-        { "q": "How to calculate the maximum rent in Luxembourg?", "a": "Multiply invested capital (purchase price + deed costs + improvement works) by the STATEC coefficient of the investment year. Apply the 2%/year wear-and-tear discount on the construction share. Multiply the result by 5% to get the max annual rent, then divide by 12 for monthly." },
-        { "q": "Will the 5% rule change in Luxembourg?", "a": "Bill 8184 plans to lower the cap from 5% to 3.5% for new leases, aiming to better protect tenants against rising prices. The text is in parliamentary discussion and could enter into force during 2026. Existing leases would not be retroactively affected." },
-        { "q": "What exactly is included in invested capital?", "a": "The purchase price of land and construction, deed costs (duties, emoluments, mortgage), and durable improvement expenses (extensions, transformation, major energy renovation). Routine maintenance, decoration and furniture are excluded." },
-        { "q": "How does the 2% wear-and-tear discount work?", "a": "The construction share (excluding land, typically 60-75% of price depending on the municipality) is discounted by 2% per year elapsed since purchase or last structural works. The discount cumulates up to a floor (typically 30% of the initial value)." },
-        { "q": "Are service charges included in the 5% cap?", "a": "No. Charges (water, heating, common maintenance, elevator) are billed on top of the capped rent, on an actual cost basis and limitatively listed in the Grand Ducal Regulation of 16 June 2015 (waste tax, common utilities, etc.). The landlord cannot pass on major works or a margin." },
-        { "q": "What if my rent exceeds the legal cap?", "a": "Refer free of charge to your municipality's Rent Commission with the landlord's acquisition deed (request it), your lease and works invoices. The Commission issues an opinion; if the landlord refuses to comply, you can go before the justice of the peace, who can order a retroactive reduction and refund of overpayments." }
+        {
+          "q": "How to calculate the maximum rent in Luxembourg?",
+          "a": "Multiply invested capital (purchase price + deed costs + improvement works) by the STATEC coefficient of the investment year. Apply the 2%/year wear-and-tear discount on the construction share. Multiply the result by 5% to get the max annual rent, then divide by 12 for monthly."
+        },
+        {
+          "q": "Will the 5% rule change in Luxembourg?",
+          "a": "Bill 8184 plans to lower the cap from 5% to 3.5% for new leases, aiming to better protect tenants against rising prices. The text is in parliamentary discussion and could enter into force during 2026. Existing leases would not be retroactively affected."
+        },
+        {
+          "q": "What exactly is included in invested capital?",
+          "a": "The purchase price of land and construction, deed costs (duties, emoluments, mortgage), and durable improvement expenses (extensions, transformation, major energy renovation). Routine maintenance, decoration and furniture are excluded."
+        },
+        {
+          "q": "How does the 2% wear-and-tear discount work?",
+          "a": "The construction share (excluding land, typically 60-75% of price depending on the municipality) is discounted by 2% per year elapsed since purchase or last structural works. The discount cumulates up to a floor (typically 30% of the initial value)."
+        },
+        {
+          "q": "Are service charges included in the 5% cap?",
+          "a": "No. Charges (water, heating, common maintenance, elevator) are billed on top of the capped rent, on an actual cost basis and limitatively listed in the Grand Ducal Regulation of 16 June 2015 (waste tax, common utilities, etc.). The landlord cannot pass on major works or a margin."
+        },
+        {
+          "q": "What if my rent exceeds the legal cap?",
+          "a": "Refer free of charge to your municipality's Rent Commission with the landlord's acquisition deed (request it), your lease and works invoices. The Commission issues an opinion; if the landlord refuses to comply, you can go before the justice of the peace, who can order a retroactive reduction and refund of overpayments."
+        }
       ],
       "sources": [
-        { "title": "Modified law of 21 September 2006 — residential lease", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
-        { "title": "Revaluation coefficients — STATEC", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Rent calculation — practical procedure", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/calcul-loyer.html" },
-        { "title": "Bill 8184 — lease reform", "org": "Chamber of Deputies", "url": "https://www.chd.lu/" },
-        { "title": "RGD of 16 June 2015 — recoverable charges", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 }
+        {
+          "title": "Modified law of 21 September 2006 — residential lease",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo",
+          "year": 2006
+        },
+        {
+          "title": "Revaluation coefficients — STATEC",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Rent calculation — practical procedure",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/calcul-loyer.html"
+        },
+        {
+          "title": "Bill 8184 — lease reform",
+          "org": "Chamber of Deputies",
+          "url": "https://www.chd.lu/"
+        },
+        {
+          "title": "RGD of 16 June 2015 — recoverable charges",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo",
+          "year": 2015
+        }
       ]
     },
     "bellegenAkt": {
@@ -9362,13 +9537,43 @@
       "section4Intro": "Here is the Bëllegen Akt's effect by buyer profile, for an existing property (7% rate).",
       "table": {
         "caption": "Bëllegen Akt effect by profile and price",
-        "headers": ["Purchase price", "Single buyer (€40,000)", "Couple (€80,000)", "Savings"],
+        "headers": [
+          "Purchase price",
+          "Single buyer (€40,000)",
+          "Couple (€80,000)",
+          "Savings"
+        ],
         "rows": [
-          ["€300,000", "€0 in duties", "€0 in duties", "€21,000"],
-          ["€500,000", "€0 (credit > duties)", "€0 in duties", "€35,000"],
-          ["€750,000", "€12,500 in duties", "€0 in duties", "€52,500"],
-          ["€1,000,000", "€30,000 in duties", "€0 in duties", "€70,000"],
-          ["€1,500,000", "€65,000 in duties", "€25,000 in duties", "€80,000 (couple)"]
+          [
+            "€300,000",
+            "€0 in duties",
+            "€0 in duties",
+            "€21,000"
+          ],
+          [
+            "€500,000",
+            "€0 (credit > duties)",
+            "€0 in duties",
+            "€35,000"
+          ],
+          [
+            "€750,000",
+            "€12,500 in duties",
+            "€0 in duties",
+            "€52,500"
+          ],
+          [
+            "€1,000,000",
+            "€30,000 in duties",
+            "€0 in duties",
+            "€70,000"
+          ],
+          [
+            "€1,500,000",
+            "€65,000 in duties",
+            "€25,000 in duties",
+            "€80,000 (couple)"
+          ]
         ],
         "footnote": "Savings for a first-time buyer couple who has never used the credit. For a single buyer, savings equal the lower of duties owed and €40,000."
       },
@@ -9380,25 +9585,80 @@
         "cta": "Run the calculation"
       },
       "tools": [
-        { "href": "/frais-acquisition", "title": "Acquisition costs calculator", "description": "Automatic Bëllegen Akt offset based on your profile." },
-        { "href": "/simulateur-aides", "title": "Acquisition aids simulator", "description": "Combine Bëllegen Akt, housing premium, interest subsidy and State guarantee." },
-        { "href": "/vefa", "title": "VEFA simulator", "description": "Bëllegen Akt on the land share and 3% housing VAT on construction." },
-        { "href": "/outils-bancaires", "title": "Banking tools", "description": "Borrowing capacity and monthly payment to finalise your financing plan." }
+        {
+          "href": "/frais-acquisition",
+          "title": "Acquisition costs calculator",
+          "description": "Automatic Bëllegen Akt offset based on your profile."
+        },
+        {
+          "href": "/simulateur-aides",
+          "title": "Acquisition aids simulator",
+          "description": "Combine Bëllegen Akt, housing premium, interest subsidy and State guarantee."
+        },
+        {
+          "href": "/vefa",
+          "title": "VEFA simulator",
+          "description": "Bëllegen Akt on the land share and 3% housing VAT on construction."
+        },
+        {
+          "href": "/outils-bancaires",
+          "title": "Banking tools",
+          "description": "Borrowing capacity and monthly payment to finalise your financing plan."
+        }
       ],
       "faq": [
-        { "q": "How much is the Bëllegen Akt in 2026?", "a": "The Bëllegen Akt is €40,000 per buyer, i.e., €80,000 for a couple buying jointly in indivision. This is the maximum tax credit offsetable against registration and transcription duties." },
-        { "q": "Can the Bëllegen Akt be combined with other aids?", "a": "Yes. It combines with the 3% housing VAT on new-builds, the housing access premium, the interest subsidy, the savings premium and the State guarantee. The only forbidden combination is using the same credit twice for two simultaneous acquisitions." },
-        { "q": "Can the Bëllegen Akt be used for a rental investment?", "a": "No. The credit is strictly reserved for the acquisition of a primary residence personally occupied by the buyer. A rental investment, secondary residence or commercial premises do not qualify." },
-        { "q": "Do I need to be a Luxembourg resident to benefit?", "a": "No. The Bëllegen Akt is open to any natural person buying a property in Luxembourg to establish their primary residence there, whether already a tax resident or moving to the country at the time of purchase." },
-        { "q": "What happens if I sell my home quickly?", "a": "If resale occurs before the end of the occupancy commitment period, the AED can claim full reimbursement of the credit plus late interest. A resale after several years of effective occupancy does not trigger restitution, but the credit is not restored for a new primary acquisition." },
-        { "q": "How do I check the available credit balance?", "a": "The notary queries the AED via teleprocedures before the deed. The buyer can also request a balance certificate directly from the AED with an ID. If part of the credit was used in a previous purchase, only the residue is mobilisable." }
+        {
+          "q": "How much is the Bëllegen Akt in 2026?",
+          "a": "The Bëllegen Akt is €40,000 per buyer, i.e., €80,000 for a couple buying jointly in indivision. This is the maximum tax credit offsetable against registration and transcription duties."
+        },
+        {
+          "q": "Can the Bëllegen Akt be combined with other aids?",
+          "a": "Yes. It combines with the 3% housing VAT on new-builds, the housing access premium, the interest subsidy, the savings premium and the State guarantee. The only forbidden combination is using the same credit twice for two simultaneous acquisitions."
+        },
+        {
+          "q": "Can the Bëllegen Akt be used for a rental investment?",
+          "a": "No. The credit is strictly reserved for the acquisition of a primary residence personally occupied by the buyer. A rental investment, secondary residence or commercial premises do not qualify."
+        },
+        {
+          "q": "Do I need to be a Luxembourg resident to benefit?",
+          "a": "No. The Bëllegen Akt is open to any natural person buying a property in Luxembourg to establish their primary residence there, whether already a tax resident or moving to the country at the time of purchase."
+        },
+        {
+          "q": "What happens if I sell my home quickly?",
+          "a": "If resale occurs before the end of the occupancy commitment period, the AED can claim full reimbursement of the credit plus late interest. A resale after several years of effective occupancy does not trigger restitution, but the credit is not restored for a new primary acquisition."
+        },
+        {
+          "q": "How do I check the available credit balance?",
+          "a": "The notary queries the AED via teleprocedures before the deed. The buyer can also request a balance certificate directly from the AED with an ID. If part of the credit was used in a previous purchase, only the residue is mobilisable."
+        }
       ],
       "sources": [
-        { "title": "Tax credit on notarial deeds (Bëllegen Akt) — procedure", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html" },
-        { "title": "Bëllegen Akt — official factsheet", "org": "Logement.lu — Ministry of Housing", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
-        { "title": "Law of 30 July 2002 establishing the tax credit on notarial deeds", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2002/07/30/n3/jo", "year": 2002 },
-        { "title": "Bëllegen Akt reform — raised to €40,000", "org": "Paperjam", "url": "https://paperjam.lu/article/frais-enregistrement-baisses-a" },
-        { "title": "Law of 22 Frimaire Year VII — registration duties", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo" }
+        {
+          "title": "Tax credit on notarial deeds (Bëllegen Akt) — procedure",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/aides/logement-construction/aides-indirectes/credit-impot-actes-notaries.html"
+        },
+        {
+          "title": "Bëllegen Akt — official factsheet",
+          "org": "Logement.lu — Ministry of Housing",
+          "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html"
+        },
+        {
+          "title": "Law of 30 July 2002 establishing the tax credit on notarial deeds",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2002/07/30/n3/jo",
+          "year": 2002
+        },
+        {
+          "title": "Bëllegen Akt reform — raised to €40,000",
+          "org": "Paperjam",
+          "url": "https://paperjam.lu/article/frais-enregistrement-baisses-a"
+        },
+        {
+          "title": "Law of 22 Frimaire Year VII — registration duties",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1798/12/22/n1/jo"
+        }
       ]
     },
     "plusValue": {
@@ -9430,13 +9690,43 @@
       "section4Intro": "Combined effects of the revaluation coefficient, the decennial allowance and the quarter of the global rate for a property bought in 2015 and sold in 2026 (purchase €400,000, deed costs €30,000, sale €700,000, taxpayer at 42% marginal global rate).",
       "table": {
         "caption": "Taxable capital gain and tax — 2026 examples",
-        "headers": ["Buyer profile", "Gross gain", "After allowance", "Tax due"],
+        "headers": [
+          "Buyer profile",
+          "Gross gain",
+          "After allowance",
+          "Tax due"
+        ],
         "rows": [
-          ["Single, 1 disposal in 10 years", "≈ −€230,000", "€0", "€0"],
-          ["Couple, 1 disposal in 10 years", "≈ −€230,000", "€0", "€0"],
-          ["Single, multiple disposals", "€150,000", "€100,000", "≈ €10,500"],
-          ["Couple, multiple disposals", "€150,000", "€50,000", "≈ €5,250"],
-          ["Speculation < 2 years (couple)", "€150,000", "€150,000", "≈ €68,700"]
+          [
+            "Single, 1 disposal in 10 years",
+            "≈ −€230,000",
+            "€0",
+            "€0"
+          ],
+          [
+            "Couple, 1 disposal in 10 years",
+            "≈ −€230,000",
+            "€0",
+            "€0"
+          ],
+          [
+            "Single, multiple disposals",
+            "€150,000",
+            "€100,000",
+            "≈ €10,500"
+          ],
+          [
+            "Couple, multiple disposals",
+            "€150,000",
+            "€50,000",
+            "≈ €5,250"
+          ],
+          [
+            "Speculation < 2 years (couple)",
+            "€150,000",
+            "€150,000",
+            "≈ €68,700"
+          ]
         ],
         "footnote": "Indicative 2026 calculations: revalued 2015→2026 price = €400,000 × 2.07 = €828,000 (with costs €891,100), so a sale at €700,000 normally produces a loss. 'Multiple disposals' rows assume a hypothetical €150,000 gross gain to illustrate the mechanism."
       },
@@ -9448,26 +9738,85 @@
         "cta": "Run the simulation"
       },
       "tools": [
-        { "href": "/plus-values", "title": "Capital gain calculator", "description": "Speculation or transfer profit by holding period, allowance, STATEC coefficient." },
-        { "href": "/dcf-multi", "title": "Multi-period DCF", "description": "Cash-flow projection and resale value to anticipate taxation." },
-        { "href": "/portfolio", "title": "Real estate portfolio", "description": "Track your properties and plan disposals over a 10-year horizon." },
-        { "href": "/frais-acquisition", "title": "Acquisition costs", "description": "Compute the increased acquisition price serving as the gain's base." }
+        {
+          "href": "/plus-values",
+          "title": "Capital gain calculator",
+          "description": "Speculation or transfer profit by holding period, allowance, STATEC coefficient."
+        },
+        {
+          "href": "/dcf-multi",
+          "title": "Multi-period DCF",
+          "description": "Cash-flow projection and resale value to anticipate taxation."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Real estate portfolio",
+          "description": "Track your properties and plan disposals over a 10-year horizon."
+        },
+        {
+          "href": "/frais-acquisition",
+          "title": "Acquisition costs",
+          "description": "Compute the increased acquisition price serving as the gain's base."
+        }
       ],
       "faq": [
-        { "q": "What is the capital gains tax rate on real estate in Luxembourg?", "a": "Within 2 years (speculation), progressive income tax up to about 45.78% effective. Beyond 2 years (transfer), one quarter of the global rate, typically 10 to 11% depending on bracket, after the decennial allowance." },
-        { "q": "Is the sale of my primary residence taxable?", "a": "No, provided you have effectively and continuously occupied it as your primary residence for the 5 years preceding the disposal. The gain is fully exempt (Art. 102bis para. 3 LIR), with no sale price cap." },
-        { "q": "How does the decennial allowance work?", "a": "Every taxpayer is granted €50,000 (€100,000 for a jointly taxed couple) off the taxable gain, rechargeable every ten years. If you dispose of two properties in the same decade, the allowance applies only once." },
-        { "q": "How is the revaluation coefficient calculated?", "a": "It is published annually by STATEC under article 102 LIR and reflects the construction price index since the acquisition year. For 2026: 2.33 (2010 purchase), 2.07 (2015), 1.77 (2022), 1.52 (2025), 1.48 (2026)." },
-        { "q": "Are acquisition costs included in the calculation?", "a": "Yes. Registration duties, notary emoluments, mortgage costs of the acquisition deed and durable improvement expenses (extensions, major renovation, major energy upgrades) are added to the purchase price before revaluation. Routine maintenance and decoration are not deductible." },
-        { "q": "What about gifts or inheritance?", "a": "A gift or inheritance does not trigger capital gains tax for the donor or deceased (Art. 99bis para. 4 LIR). The beneficiary takes over the historical acquisition price and original acquisition date when computing their own future gain, which can lead to significant latent gains." }
+        {
+          "q": "What is the capital gains tax rate on real estate in Luxembourg?",
+          "a": "Within 2 years (speculation), progressive income tax up to about 45.78% effective. Beyond 2 years (transfer), one quarter of the global rate, typically 10 to 11% depending on bracket, after the decennial allowance."
+        },
+        {
+          "q": "Is the sale of my primary residence taxable?",
+          "a": "No, provided you have effectively and continuously occupied it as your primary residence for the 5 years preceding the disposal. The gain is fully exempt (Art. 102bis para. 3 LIR), with no sale price cap."
+        },
+        {
+          "q": "How does the decennial allowance work?",
+          "a": "Every taxpayer is granted €50,000 (€100,000 for a jointly taxed couple) off the taxable gain, rechargeable every ten years. If you dispose of two properties in the same decade, the allowance applies only once."
+        },
+        {
+          "q": "How is the revaluation coefficient calculated?",
+          "a": "It is published annually by STATEC under article 102 LIR and reflects the construction price index since the acquisition year. For 2026: 2.33 (2010 purchase), 2.07 (2015), 1.77 (2022), 1.52 (2025), 1.48 (2026)."
+        },
+        {
+          "q": "Are acquisition costs included in the calculation?",
+          "a": "Yes. Registration duties, notary emoluments, mortgage costs of the acquisition deed and durable improvement expenses (extensions, major renovation, major energy upgrades) are added to the purchase price before revaluation. Routine maintenance and decoration are not deductible."
+        },
+        {
+          "q": "What about gifts or inheritance?",
+          "a": "A gift or inheritance does not trigger capital gains tax for the donor or deceased (Art. 99bis para. 4 LIR). The beneficiary takes over the historical acquisition price and original acquisition date when computing their own future gain, which can lead to significant latent gains."
+        }
       ],
       "sources": [
-        { "title": "Modified law of 4 December 1967 on income tax (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo", "year": 1967 },
-        { "title": "Revaluation coefficients — STATEC scale", "org": "Direct Tax Administration (ACD)", "url": "https://impotsdirects.public.lu/fr/legislation/LIR.html" },
-        { "title": "Real estate capital gains — explanatory guide", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/activite-patrimoine/plus-values/plus-value-cession-immeuble.html" },
-        { "title": "Construction price index", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Article 99bis LIR — speculation profit", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
-        { "title": "Article 102bis LIR — quarter of global rate", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+        {
+          "title": "Modified law of 4 December 1967 on income tax (LIR)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo",
+          "year": 1967
+        },
+        {
+          "title": "Revaluation coefficients — STATEC scale",
+          "org": "Direct Tax Administration (ACD)",
+          "url": "https://impotsdirects.public.lu/fr/legislation/LIR.html"
+        },
+        {
+          "title": "Real estate capital gains — explanatory guide",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/activite-patrimoine/plus-values/plus-value-cession-immeuble.html"
+        },
+        {
+          "title": "Construction price index",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Article 99bis LIR — speculation profit",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        },
+        {
+          "title": "Article 102bis LIR — quarter of global rate",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        }
       ]
     },
     "bailHabitation": {
@@ -9506,26 +9855,86 @@
         "cta": "Compute the maximum rent"
       },
       "tools": [
-        { "href": "/calculateur-loyer", "title": "Legal rent calculator", "description": "5% cap on revalued invested capital, wear and tear, flat-sharing." },
-        { "href": "/locataire", "title": "Tenant area", "description": "Tools: charge tracking, letter templates, inventory reminders." },
-        { "href": "/carte", "title": "Rental price map", "description": "Median rent by municipality and dwelling type for comparison." },
-        { "href": "/aml-kyc", "title": "Landlord verification", "description": "Useful when in doubt about the landlord's identity or solvency." }
+        {
+          "href": "/calculateur-loyer",
+          "title": "Legal rent calculator",
+          "description": "5% cap on revalued invested capital, wear and tear, flat-sharing."
+        },
+        {
+          "href": "/locataire",
+          "title": "Tenant area",
+          "description": "Tools: charge tracking, letter templates, inventory reminders."
+        },
+        {
+          "href": "/carte",
+          "title": "Rental price map",
+          "description": "Median rent by municipality and dwelling type for comparison."
+        },
+        {
+          "href": "/aml-kyc",
+          "title": "Landlord verification",
+          "description": "Useful when in doubt about the landlord's identity or solvency."
+        }
       ],
       "faq": [
-        { "q": "What is the notice period to leave a rental in Luxembourg?", "a": "The tenant gives 3 months' notice by registered letter (Art. 12 of the 2006 law). The landlord gives 6 months' notice and may only terminate for legitimate reasons (personal need, serious breach, major works)." },
-        { "q": "What is the maximum rental deposit in Luxembourg?", "a": "The deposit is capped at 3 months' rent excluding charges (Art. 5 of the 2006 law). It must be placed in a blocked account in the tenant's name and interest belongs to the tenant. Any clause exceeding this is void." },
-        { "q": "Can the landlord raise the rent during the lease?", "a": "Revision is allowed only once every two years, capped by the STATEC consumer price index, or if improvement works justify a re-evaluation of the invested capital (with re-evaluation of the 5% cap). Increases must be notified by registered letter with one month's notice." },
-        { "q": "What charges can be billed in addition to rent?", "a": "Only those listed in the Grand Ducal Regulation of 16 June 2015: water, electricity and gas of common areas, collective heating, routine common area maintenance (cleaning, gardening, elevator), municipal waste tax and building liability insurance. Everything else (major works, syndic, property tax) is borne by the landlord." },
-        { "q": "How to challenge an excessive rent?", "a": "Refer free of charge to your municipality's Rent Commission. It checks the revalued invested capital calculation and issues an opinion. If the landlord refuses to comply, you can bring the case before the justice of the peace, who can order a retroactive rent reduction." },
-        { "q": "What if the landlord does not return the deposit?", "a": "Send a formal notice by registered letter first. Without reply within 30 days, refer to the Rent Commission or directly to the justice of the peace. The judge may order restitution plus interest and damages. Keep the exit inventory as evidence." }
+        {
+          "q": "What is the notice period to leave a rental in Luxembourg?",
+          "a": "The tenant gives 3 months' notice by registered letter (Art. 12 of the 2006 law). The landlord gives 6 months' notice and may only terminate for legitimate reasons (personal need, serious breach, major works)."
+        },
+        {
+          "q": "What is the maximum rental deposit in Luxembourg?",
+          "a": "The deposit is capped at 3 months' rent excluding charges (Art. 5 of the 2006 law). It must be placed in a blocked account in the tenant's name and interest belongs to the tenant. Any clause exceeding this is void."
+        },
+        {
+          "q": "Can the landlord raise the rent during the lease?",
+          "a": "Revision is allowed only once every two years, capped by the STATEC consumer price index, or if improvement works justify a re-evaluation of the invested capital (with re-evaluation of the 5% cap). Increases must be notified by registered letter with one month's notice."
+        },
+        {
+          "q": "What charges can be billed in addition to rent?",
+          "a": "Only those listed in the Grand Ducal Regulation of 16 June 2015: water, electricity and gas of common areas, collective heating, routine common area maintenance (cleaning, gardening, elevator), municipal waste tax and building liability insurance. Everything else (major works, syndic, property tax) is borne by the landlord."
+        },
+        {
+          "q": "How to challenge an excessive rent?",
+          "a": "Refer free of charge to your municipality's Rent Commission. It checks the revalued invested capital calculation and issues an opinion. If the landlord refuses to comply, you can bring the case before the justice of the peace, who can order a retroactive rent reduction."
+        },
+        {
+          "q": "What if the landlord does not return the deposit?",
+          "a": "Send a formal notice by registered letter first. Without reply within 30 days, refer to the Rent Commission or directly to the justice of the peace. The judge may order restitution plus interest and damages. Keep the exit inventory as evidence."
+        }
       ],
       "sources": [
-        { "title": "Modified law of 21 September 2006 on residential tenancy", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo", "year": 2006 },
-        { "title": "Grand Ducal Regulation of 16 June 2015 — recoverable charges", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo", "year": 2015 },
-        { "title": "Residential lease — full guide", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html" },
-        { "title": "Rent Commission — procedure", "org": "Logement.lu — Ministry of Housing", "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html" },
-        { "title": "Rental guarantee — State support", "org": "Logement.lu", "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html" },
-        { "title": "Civil Code — landlord obligations (Art. 1719 et seq.)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+        {
+          "title": "Modified law of 21 September 2006 on residential tenancy",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo",
+          "year": 2006
+        },
+        {
+          "title": "Grand Ducal Regulation of 16 June 2015 — recoverable charges",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo",
+          "year": 2015
+        },
+        {
+          "title": "Residential lease — full guide",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html"
+        },
+        {
+          "title": "Rent Commission — procedure",
+          "org": "Logement.lu — Ministry of Housing",
+          "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html"
+        },
+        {
+          "title": "Rental guarantee — State support",
+          "org": "Logement.lu",
+          "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html"
+        },
+        {
+          "title": "Civil Code — landlord obligations (Art. 1719 et seq.)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+        }
       ]
     },
     "copropriete": {
@@ -9564,25 +9973,81 @@
         "cta": "Open the co-ownership area"
       },
       "tools": [
-        { "href": "/copropriete", "title": "Co-ownership area", "description": "Charge tracking, GM, syndical council, archives." },
-        { "href": "/syndic", "title": "Syndic tools", "description": "Manage a portfolio of co-ownerships for professional syndics." },
-        { "href": "/conseil-syndical", "title": "Syndical council", "description": "Tools dedicated to overseeing the syndic's management." },
-        { "href": "/calculateur-vrd", "title": "Works VRD", "description": "Cost estimation for works voted at the GM." }
+        {
+          "href": "/copropriete",
+          "title": "Co-ownership area",
+          "description": "Charge tracking, GM, syndical council, archives."
+        },
+        {
+          "href": "/syndic",
+          "title": "Syndic tools",
+          "description": "Manage a portfolio of co-ownerships for professional syndics."
+        },
+        {
+          "href": "/conseil-syndical",
+          "title": "Syndical council",
+          "description": "Tools dedicated to overseeing the syndic's management."
+        },
+        {
+          "href": "/calculateur-vrd",
+          "title": "Works VRD",
+          "description": "Cost estimation for works voted at the GM."
+        }
       ],
       "faq": [
-        { "q": "Is a syndic mandatory in Luxembourg co-ownerships?", "a": "Yes, appointing a professional syndic is mandatory for co-ownerships with more than 5 lots (Art. 16 of the modified 1975 law). For small co-ownerships (≤ 5 lots), management can be ensured directly by co-owners or by a volunteer syndic." },
-        { "q": "What majority is needed to vote on works in a co-ownership?", "a": "Routine maintenance: simple majority. Improvement works: absolute majority. Amendment of regulations or transformation works: 3/4 majority of all shares. Impact on private rights: unanimity." },
-        { "q": "How much should be put aside in the reserve fund?", "a": "The law sets no percentage, but the GM must vote a realistic annual contribution to fund upcoming major works. In practice, allow 5 to 10% of the annual current budget. For an old building, up to 15% may be needed to anticipate facade and roof works." },
-        { "q": "What happens if a co-owner does not pay?", "a": "The syndic sends a formal notice and can refer the matter to the justice of the peace. The association has a first-rank real estate privilege on the lot for the current two years' charges (Art. 24). As a last resort, the lot can be sold at forced auction to clear the debt." },
-        { "q": "How to change the syndic in Luxembourg?", "a": "At the end of the 3-year term, the GM votes the appointment of a new syndic by absolute majority. During the term, dismissal is possible by absolute majority for serious fault (mismanagement, non-compliance with GM decisions, conflict of interest). The dismissed syndic must transfer archives and treasury within 15 days." },
-        { "q": "Is the syndical council mandatory?", "a": "No, it is an optional body. Composed of co-owners elected at the GM, it assists and oversees the syndic, advises on important contracts and prepares GMs. Strongly recommended once a co-ownership has more than 10 lots to avoid total dependence on the syndic." }
+        {
+          "q": "Is a syndic mandatory in Luxembourg co-ownerships?",
+          "a": "Yes, appointing a professional syndic is mandatory for co-ownerships with more than 5 lots (Art. 16 of the modified 1975 law). For small co-ownerships (≤ 5 lots), management can be ensured directly by co-owners or by a volunteer syndic."
+        },
+        {
+          "q": "What majority is needed to vote on works in a co-ownership?",
+          "a": "Routine maintenance: simple majority. Improvement works: absolute majority. Amendment of regulations or transformation works: 3/4 majority of all shares. Impact on private rights: unanimity."
+        },
+        {
+          "q": "How much should be put aside in the reserve fund?",
+          "a": "The law sets no percentage, but the GM must vote a realistic annual contribution to fund upcoming major works. In practice, allow 5 to 10% of the annual current budget. For an old building, up to 15% may be needed to anticipate facade and roof works."
+        },
+        {
+          "q": "What happens if a co-owner does not pay?",
+          "a": "The syndic sends a formal notice and can refer the matter to the justice of the peace. The association has a first-rank real estate privilege on the lot for the current two years' charges (Art. 24). As a last resort, the lot can be sold at forced auction to clear the debt."
+        },
+        {
+          "q": "How to change the syndic in Luxembourg?",
+          "a": "At the end of the 3-year term, the GM votes the appointment of a new syndic by absolute majority. During the term, dismissal is possible by absolute majority for serious fault (mismanagement, non-compliance with GM decisions, conflict of interest). The dismissed syndic must transfer archives and treasury within 15 days."
+        },
+        {
+          "q": "Is the syndical council mandatory?",
+          "a": "No, it is an optional body. Composed of co-owners elected at the GM, it assists and oversees the syndic, advises on important contracts and prepares GMs. Strongly recommended once a co-ownership has more than 10 lots to avoid total dependence on the syndic."
+        }
       ],
       "sources": [
-        { "title": "Modified law of 16 May 1975 regulating co-ownership", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1975/05/16/n1/jo", "year": 1975 },
-        { "title": "Law of 6 August 2018 amending the 16 May 1975 law (co-ownership reform)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo", "year": 2018 },
-        { "title": "Co-ownership — information sheet", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/charges-immeuble/copropriete.html" },
-        { "title": "Law of 1 August 2018 — mandatory reserve fund", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo" },
-        { "title": "Civil Code — real rights (book II)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" }
+        {
+          "title": "Modified law of 16 May 1975 regulating co-ownership",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1975/05/16/n1/jo",
+          "year": 1975
+        },
+        {
+          "title": "Law of 6 August 2018 amending the 16 May 1975 law (co-ownership reform)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo",
+          "year": 2018
+        },
+        {
+          "title": "Co-ownership — information sheet",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/charges-immeuble/copropriete.html"
+        },
+        {
+          "title": "Law of 1 August 2018 — mandatory reserve fund",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/08/06/a677/jo"
+        },
+        {
+          "title": "Civil Code — real rights (book II)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+        }
       ]
     },
     "klimabonus": {
@@ -9612,13 +10077,43 @@
       "section4Intro": "For a deep renovation of an older single-family house (class G → class A), here are the orders of magnitude of stackable aids in 2026.",
       "table": {
         "caption": "Klimabonus aid stacking 2026 — worked examples",
-        "headers": ["Item", "Cost excl. VAT", "PRIMe House base", "Social Topup (≤ €60k)"],
+        "headers": [
+          "Item",
+          "Cost excl. VAT",
+          "PRIMe House base",
+          "Social Topup (≤ €60k)"
+        ],
         "rows": [
-          ["Roof insulation (200 m²)", "€20,000", "€11,000", "€16,500"],
-          ["Wall insulation (150 m²)", "€30,000", "€16,500", "€24,750"],
-          ["Triple-glazed windows (30 m²)", "€18,000", "€4,500", "€6,750"],
-          ["Geothermal heat pump", "€30,000", "€12,000", "€18,000"],
-          ["10 kWp photovoltaic", "€20,000", "€5,000", "€5,000"]
+          [
+            "Roof insulation (200 m²)",
+            "€20,000",
+            "€11,000",
+            "€16,500"
+          ],
+          [
+            "Wall insulation (150 m²)",
+            "€30,000",
+            "€16,500",
+            "€24,750"
+          ],
+          [
+            "Triple-glazed windows (30 m²)",
+            "€18,000",
+            "€4,500",
+            "€6,750"
+          ],
+          [
+            "Geothermal heat pump",
+            "€30,000",
+            "€12,000",
+            "€18,000"
+          ],
+          [
+            "10 kWp photovoltaic",
+            "€20,000",
+            "€5,000",
+            "€5,000"
+          ]
         ],
         "footnote": "Total deep renovation project: ~€118,000 excl. VAT, of which €49,000 to €71,000 of PRIMe House subsidies. Add: 3% VAT saving (~€16,500) and effective 0% Klimaprêt up to €50,000."
       },
@@ -9630,25 +10125,80 @@
         "cta": "Run the simulation"
       },
       "tools": [
-        { "href": "/simulateur-aides", "title": "Renovation aids simulator", "description": "PRIMe House, social Topup, 3% VAT, Klimaprêt — automated stack." },
-        { "href": "/energy", "title": "tevaxia Energy module", "description": "Valuation impact, renovation ROI, energy community, EPBD/CPE." },
-        { "href": "/energy/cpe", "title": "EPC diagnostic", "description": "Preliminary energy class estimate before official audit." },
-        { "href": "/vefa", "title": "VEFA simulator", "description": "For new-build buyers already in class A/B." }
+        {
+          "href": "/simulateur-aides",
+          "title": "Renovation aids simulator",
+          "description": "PRIMe House, social Topup, 3% VAT, Klimaprêt — automated stack."
+        },
+        {
+          "href": "/energy",
+          "title": "tevaxia Energy module",
+          "description": "Valuation impact, renovation ROI, energy community, EPBD/CPE."
+        },
+        {
+          "href": "/energy/cpe",
+          "title": "EPC diagnostic",
+          "description": "Preliminary energy class estimate before official audit."
+        },
+        {
+          "href": "/vefa",
+          "title": "VEFA simulator",
+          "description": "For new-build buyers already in class A/B."
+        }
       ],
       "faq": [
-        { "q": "Can Klimabonus subsidies be combined with 3% VAT?", "a": "Yes. PRIMe House / Klimabonus subsidies are fully combinable with 3% housing VAT and the effective 0% Klimaprêt. It is one of Europe's most advantageous schemes for energy renovation." },
-        { "q": "How much can you get for installing a heat pump in Luxembourg?", "a": "PRIMe House aid for an air-to-water or geothermal HP ranges from €6,000 to €12,000 depending on type and capacity. With the 2026 social Topup (income ≤ €60,000), it can reach €18,000. Add 3% housing VAT and 0% Klimaprêt." },
-        { "q": "What is the 2026 social Topup?", "a": "An increase up to 150% of the base PRIMe House amount for households whose annual taxable income does not exceed €60,000. It aims to make energy renovation accessible to low-income households. Stackable with other bonuses (social rent, deep renovation)." },
-        { "q": "Is an energy audit required to benefit from Klimabonus?", "a": "The free audit by a myenergy adviser is not strictly mandatory but strongly recommended. The EPC by an approved adviser (before and after works) is mandatory for subsidies, and energy improvement must reach at least 2 classes or class A/B." },
-        { "q": "Does Klimaprêt replace PRIMe House?", "a": "No, they are two complementary schemes. PRIMe House = capital grants paid after works. Klimaprêt = 1.5% bank loan with State subsidy bringing the effective cost to 0% for the household. You can and should stack them." },
-        { "q": "Can co-ownerships benefit from Klimabonus?", "a": "Yes. A co-ownership can apply for Klimabonus on works voted at the GM on common parts (roof, facade, collective heating). Each co-owner benefits from the share proportional to their tantièmes. The syndic can also request a Klimaprêt on behalf of the association." }
+        {
+          "q": "Can Klimabonus subsidies be combined with 3% VAT?",
+          "a": "Yes. PRIMe House / Klimabonus subsidies are fully combinable with 3% housing VAT and the effective 0% Klimaprêt. It is one of Europe's most advantageous schemes for energy renovation."
+        },
+        {
+          "q": "How much can you get for installing a heat pump in Luxembourg?",
+          "a": "PRIMe House aid for an air-to-water or geothermal HP ranges from €6,000 to €12,000 depending on type and capacity. With the 2026 social Topup (income ≤ €60,000), it can reach €18,000. Add 3% housing VAT and 0% Klimaprêt."
+        },
+        {
+          "q": "What is the 2026 social Topup?",
+          "a": "An increase up to 150% of the base PRIMe House amount for households whose annual taxable income does not exceed €60,000. It aims to make energy renovation accessible to low-income households. Stackable with other bonuses (social rent, deep renovation)."
+        },
+        {
+          "q": "Is an energy audit required to benefit from Klimabonus?",
+          "a": "The free audit by a myenergy adviser is not strictly mandatory but strongly recommended. The EPC by an approved adviser (before and after works) is mandatory for subsidies, and energy improvement must reach at least 2 classes or class A/B."
+        },
+        {
+          "q": "Does Klimaprêt replace PRIMe House?",
+          "a": "No, they are two complementary schemes. PRIMe House = capital grants paid after works. Klimaprêt = 1.5% bank loan with State subsidy bringing the effective cost to 0% for the household. You can and should stack them."
+        },
+        {
+          "q": "Can co-ownerships benefit from Klimabonus?",
+          "a": "Yes. A co-ownership can apply for Klimabonus on works voted at the GM on common parts (roof, facade, collective heating). Each co-owner benefits from the share proportional to their tantièmes. The syndic can also request a Klimaprêt on behalf of the association."
+        }
       ],
       "sources": [
-        { "title": "Klimabonus — official myenergy portal", "org": "myenergy / Ministry of the Environment", "url": "https://www.myenergy.lu/" },
-        { "title": "PRIMe House — procedure", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-construction-renovation/aides-amelioration.html" },
-        { "title": "Klimaprêt — procedure", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-financieres/klimapret.html" },
-        { "title": "Modified law of 23 December 2016 — sustainable housing aids", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2016/12/23/n3/jo", "year": 2016 },
-        { "title": "Energy Performance Certificate (EPC)", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/economie-energie/certificat-performance-energetique.html" }
+        {
+          "title": "Klimabonus — official myenergy portal",
+          "org": "myenergy / Ministry of the Environment",
+          "url": "https://www.myenergy.lu/"
+        },
+        {
+          "title": "PRIMe House — procedure",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-construction-renovation/aides-amelioration.html"
+        },
+        {
+          "title": "Klimaprêt — procedure",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-financieres/klimapret.html"
+        },
+        {
+          "title": "Modified law of 23 December 2016 — sustainable housing aids",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2016/12/23/n3/jo",
+          "year": 2016
+        },
+        {
+          "title": "Energy Performance Certificate (EPC)",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/economie-energie/certificat-performance-energetique.html"
+        }
       ]
     },
     "estimation": {
@@ -9687,26 +10237,85 @@
         "cta": "Run the estimate"
       },
       "tools": [
-        { "href": "/estimation", "title": "Instant estimator", "description": "LU hedonic model with range and confidence level." },
-        { "href": "/hedonique", "title": "Advanced hedonic", "description": "Decomposition by characteristic to understand value." },
-        { "href": "/dcf-multi", "title": "Multi-period DCF", "description": "For rental and commercial assets, 10-15 year projection." },
-        { "href": "/carte", "title": "Price map", "description": "Observed prices by municipality and neighbourhood (Housing Observatory)." }
+        {
+          "href": "/estimation",
+          "title": "Instant estimator",
+          "description": "LU hedonic model with range and confidence level."
+        },
+        {
+          "href": "/hedonique",
+          "title": "Advanced hedonic",
+          "description": "Decomposition by characteristic to understand value."
+        },
+        {
+          "href": "/dcf-multi",
+          "title": "Multi-period DCF",
+          "description": "For rental and commercial assets, 10-15 year projection."
+        },
+        {
+          "href": "/carte",
+          "title": "Price map",
+          "description": "Observed prices by municipality and neighbourhood (Housing Observatory)."
+        }
       ],
       "faq": [
-        { "q": "What is the most reliable method for valuing a property in Luxembourg?", "a": "For residential, direct comparison combined with a hedonic model is the most reliable. For rental, income capitalisation is preferred. For commercial/hospitality, DCF is the standard. TEGOVA EVS 2025 recommend cross-checking at least two methods to strengthen reliability." },
-        { "q": "Does the EPC affect property prices in Luxembourg?", "a": "Yes. LISER studies put the value spread per EPC class at 3-8% (a class F to C jump can value 10-25% more). Impact will grow with European energy renovation obligations (EPBD revised 2024)." },
-        { "q": "How much does a REV/TRV expertise cost in Luxembourg?", "a": "For a residential property, expect €800 to €2,500 depending on complexity. For a commercial or hospitality asset, €3,000 to €15,000 by value and complexity. Fees are unregulated, based on time spent and liability assumed. The TEGOVA report is recognised by banks and courts." },
-        { "q": "Where to find actual sale prices in Luxembourg?", "a": "The Land Registry (AED) publishes actual prices of notarial deeds quarterly. The LISER Housing Observatory aggregates and publishes these data by municipality and property type (observatoire.liser.lu)." },
-        { "q": "What is the typical capitalisation rate in Luxembourg?", "a": "For residential: 3 to 5% gross by location (3-3.5% in prime LU City zones, 4-5% in cantons). For prime LU City offices: 4 to 5%. For hospitality: 6 to 8% by category and performance. These rates evolve with policy rates and bond yields." },
-        { "q": "Should VAT be considered in the estimate?", "a": "For new VEFA, value is typically presented excluding VAT then converted to TTC at the applicable rate (3% housing VAT with €50,000 cap). For existing (between private parties), no VAT but registration duties owed by the buyer. TEGOVA reports always distinguish excl./incl. VAT." }
+        {
+          "q": "What is the most reliable method for valuing a property in Luxembourg?",
+          "a": "For residential, direct comparison combined with a hedonic model is the most reliable. For rental, income capitalisation is preferred. For commercial/hospitality, DCF is the standard. TEGOVA EVS 2025 recommend cross-checking at least two methods to strengthen reliability."
+        },
+        {
+          "q": "Does the EPC affect property prices in Luxembourg?",
+          "a": "Yes. LISER studies put the value spread per EPC class at 3-8% (a class F to C jump can value 10-25% more). Impact will grow with European energy renovation obligations (EPBD revised 2024)."
+        },
+        {
+          "q": "How much does a REV/TRV expertise cost in Luxembourg?",
+          "a": "For a residential property, expect €800 to €2,500 depending on complexity. For a commercial or hospitality asset, €3,000 to €15,000 by value and complexity. Fees are unregulated, based on time spent and liability assumed. The TEGOVA report is recognised by banks and courts."
+        },
+        {
+          "q": "Where to find actual sale prices in Luxembourg?",
+          "a": "The Land Registry (AED) publishes actual prices of notarial deeds quarterly. The LISER Housing Observatory aggregates and publishes these data by municipality and property type (observatoire.liser.lu)."
+        },
+        {
+          "q": "What is the typical capitalisation rate in Luxembourg?",
+          "a": "For residential: 3 to 5% gross by location (3-3.5% in prime LU City zones, 4-5% in cantons). For prime LU City offices: 4 to 5%. For hospitality: 6 to 8% by category and performance. These rates evolve with policy rates and bond yields."
+        },
+        {
+          "q": "Should VAT be considered in the estimate?",
+          "a": "For new VEFA, value is typically presented excluding VAT then converted to TTC at the applicable rate (3% housing VAT with €50,000 cap). For existing (between private parties), no VAT but registration duties owed by the buyer. TEGOVA reports always distinguish excl./incl. VAT."
+        }
       ],
       "sources": [
-        { "title": "TEGOVA — European Valuation Standards 2025", "org": "The European Group of Valuers' Associations", "url": "https://www.tegova.org/", "year": 2025 },
-        { "title": "Housing Observatory — prices by municipality", "org": "LISER", "url": "https://observatoire.liser.lu/" },
-        { "title": "Residential Property Price Index (IPIR)", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Land registry — sale deeds", "org": "Registration, Estates and VAT Administration", "url": "https://pfi.public.lu/fr.html" },
-        { "title": "Law of 4 December 1967 (LIR) — STATEC coefficient base", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
-        { "title": "Hedonic studies on the LU property market", "org": "LISER", "url": "https://www.liser.lu/" }
+        {
+          "title": "TEGOVA — European Valuation Standards 2025",
+          "org": "The European Group of Valuers' Associations",
+          "url": "https://www.tegova.org/",
+          "year": 2025
+        },
+        {
+          "title": "Housing Observatory — prices by municipality",
+          "org": "LISER",
+          "url": "https://observatoire.liser.lu/"
+        },
+        {
+          "title": "Residential Property Price Index (IPIR)",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Land registry — sale deeds",
+          "org": "Registration, Estates and VAT Administration",
+          "url": "https://pfi.public.lu/fr.html"
+        },
+        {
+          "title": "Law of 4 December 1967 (LIR) — STATEC coefficient base",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        },
+        {
+          "title": "Hedonic studies on the LU property market",
+          "org": "LISER",
+          "url": "https://www.liser.lu/"
+        }
       ]
     },
     "achatNonResident": {
@@ -9738,12 +10347,37 @@
       "section4Intro": "For the same property bought as primary residence or buy-to-let (price €600,000), here is the comparison of acquisition costs by profile.",
       "table": {
         "caption": "Acquisition cost of a €600,000 property by profile",
-        "headers": ["Buyer profile", "7% duties", "Bëllegen Akt", "Emoluments + mortgage"],
+        "headers": [
+          "Buyer profile",
+          "7% duties",
+          "Bëllegen Akt",
+          "Emoluments + mortgage"
+        ],
         "rows": [
-          ["Resident couple, primary residence", "€42,000", "−€42,000", "≈ €11,700"],
-          ["Non-resident couple moving to LU", "€42,000", "−€42,000", "≈ €12,500"],
-          ["Non-resident couple, pure buy-to-let", "€42,000", "€0", "≈ €12,500"],
-          ["Non-resident single, pure buy-to-let", "€42,000", "€0", "≈ €12,500"]
+          [
+            "Resident couple, primary residence",
+            "€42,000",
+            "−€42,000",
+            "≈ €11,700"
+          ],
+          [
+            "Non-resident couple moving to LU",
+            "€42,000",
+            "−€42,000",
+            "≈ €12,500"
+          ],
+          [
+            "Non-resident couple, pure buy-to-let",
+            "€42,000",
+            "€0",
+            "≈ €12,500"
+          ],
+          [
+            "Non-resident single, pure buy-to-let",
+            "€42,000",
+            "€0",
+            "≈ €12,500"
+          ]
         ],
         "footnote": "Emoluments slightly higher for non-residents due to possible additional powers of attorney. For pure buy-to-let, also budget property tax and annual management cost (10-12% of rents)."
       },
@@ -9755,25 +10389,79 @@
         "cta": "Run the simulation"
       },
       "tools": [
-        { "href": "/frais-acquisition", "title": "Acquisition costs calculator", "description": "Resident vs non-resident, Bëllegen Akt by project, housing VAT, mortgage." },
-        { "href": "/outils-bancaires", "title": "Banking tools", "description": "Borrowing capacity, monthly payment, DSTI/LTV ratios adapted to status." },
-        { "href": "/portfolio", "title": "Real estate portfolio", "description": "Track yield of multiple properties over the long run." },
-        { "href": "/aml-kyc", "title": "AML/KYC verification", "description": "Foreign buyer compliance for the LU notary and bank." }
+        {
+          "href": "/frais-acquisition",
+          "title": "Acquisition costs calculator",
+          "description": "Resident vs non-resident, Bëllegen Akt by project, housing VAT, mortgage."
+        },
+        {
+          "href": "/outils-bancaires",
+          "title": "Banking tools",
+          "description": "Borrowing capacity, monthly payment, DSTI/LTV ratios adapted to status."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Real estate portfolio",
+          "description": "Track yield of multiple properties over the long run."
+        },
+        {
+          "href": "/aml-kyc",
+          "title": "AML/KYC verification",
+          "description": "Foreign buyer compliance for the LU notary and bank."
+        }
       ],
       "faq": [
-        { "q": "Can a non-resident benefit from Bëllegen Akt?", "a": "Yes, provided the acquired property effectively serves as the new buyer's primary residence, with a commitment to move in personally within 2 years of the deed. For a pure buy-to-let, Bëllegen Akt is not accessible and the full 7% duties are due." },
-        { "q": "What is the minimum deposit for a non-resident in Luxembourg?", "a": "LU banks generally require a 25-30% deposit for non-residents (LTV 70-75%), versus sometimes 0-20% for residents in primary residence. The ratio varies by bank, borrower profile and property location." },
-        { "q": "What documents to provide to the LU bank as a non-resident?", "a": "ID, last 3 tax assessments from the country of residence, last 6 payslips, employment contract, 3 months of bank statements, proof of deposit, detailed financing plan. For a buy-to-let, add the sale agreement and rental estimate." },
-        { "q": "How does the France-Luxembourg tax treaty work for real estate?", "a": "The 2018 France-Luxembourg treaty provides that property income and capital gains from a property in LU are taxable in LU. France exempts them but retains them to compute the global effective tax rate. You pay LU income tax on these, with no double taxation." },
-        { "q": "Do I need a LU bank account to buy?", "a": "Not mandatory for the deed (the notary accepts a transfer from abroad), but strongly recommended for subsequent management: rent collection, charges and tax payment, mortgage drawdowns. Several LU banks open a non-resident account within a few days." },
-        { "q": "What annual taxes does a non-resident owner pay?", "a": "Municipal property tax (modest, 0.1 to 1% of cadastral value), income tax on net rental income if rented (LU IR scale with deductions), possibly capital gains tax on resale before the exemption period. No wealth tax in Luxembourg." }
+        {
+          "q": "Can a non-resident benefit from Bëllegen Akt?",
+          "a": "Yes, provided the acquired property effectively serves as the new buyer's primary residence, with a commitment to move in personally within 2 years of the deed. For a pure buy-to-let, Bëllegen Akt is not accessible and the full 7% duties are due."
+        },
+        {
+          "q": "What is the minimum deposit for a non-resident in Luxembourg?",
+          "a": "LU banks generally require a 25-30% deposit for non-residents (LTV 70-75%), versus sometimes 0-20% for residents in primary residence. The ratio varies by bank, borrower profile and property location."
+        },
+        {
+          "q": "What documents to provide to the LU bank as a non-resident?",
+          "a": "ID, last 3 tax assessments from the country of residence, last 6 payslips, employment contract, 3 months of bank statements, proof of deposit, detailed financing plan. For a buy-to-let, add the sale agreement and rental estimate."
+        },
+        {
+          "q": "How does the France-Luxembourg tax treaty work for real estate?",
+          "a": "The 2018 France-Luxembourg treaty provides that property income and capital gains from a property in LU are taxable in LU. France exempts them but retains them to compute the global effective tax rate. You pay LU income tax on these, with no double taxation."
+        },
+        {
+          "q": "Do I need a LU bank account to buy?",
+          "a": "Not mandatory for the deed (the notary accepts a transfer from abroad), but strongly recommended for subsequent management: rent collection, charges and tax payment, mortgage drawdowns. Several LU banks open a non-resident account within a few days."
+        },
+        {
+          "q": "What annual taxes does a non-resident owner pay?",
+          "a": "Municipal property tax (modest, 0.1 to 1% of cadastral value), income tax on net rental income if rented (LU IR scale with deductions), possibly capital gains tax on resale before the exemption period. No wealth tax in Luxembourg."
+        }
       ],
       "sources": [
-        { "title": "Property acquisition by a non-resident — procedure", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/achat-vente/achat/achat-immobilier.html" },
-        { "title": "Luxembourg bilateral tax treaties", "org": "Direct Tax Administration", "url": "https://impotsdirects.public.lu/fr/conventions.html" },
-        { "title": "Model 100F return — non-resident", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/declaration-impots/declaration-non-resident.html" },
-        { "title": "Bëllegen Akt — official factsheet", "org": "Logement.lu", "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html" },
-        { "title": "Law of 4 December 1967 (LIR) — articles 99 et seq.", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" }
+        {
+          "title": "Property acquisition by a non-resident — procedure",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/achat-vente/achat/achat-immobilier.html"
+        },
+        {
+          "title": "Luxembourg bilateral tax treaties",
+          "org": "Direct Tax Administration",
+          "url": "https://impotsdirects.public.lu/fr/conventions.html"
+        },
+        {
+          "title": "Model 100F return — non-resident",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/impots-taxes/declaration-impots/declaration-non-resident.html"
+        },
+        {
+          "title": "Bëllegen Akt — official factsheet",
+          "org": "Logement.lu",
+          "url": "https://logement.public.lu/fr/proprietaire/fiscalit/credit-impot-actes-notariaux-bellegen-akt.html"
+        },
+        {
+          "title": "Law of 4 December 1967 (LIR) — articles 99 et seq.",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        }
       ]
     },
     "tva3Pourcent": {
@@ -9805,13 +10493,49 @@
       "section4Intro": "Effect of the 3% VAT benefit on typical projects. The calculation compares TTC cost at 17% (standard) vs 3% (benefit).",
       "table": {
         "caption": "Savings achieved with the 3% housing VAT",
-        "headers": ["Project", "Excl. VAT", "VAT 17%", "VAT 3%", "Savings"],
+        "headers": [
+          "Project",
+          "Excl. VAT",
+          "VAT 17%",
+          "VAT 3%",
+          "Savings"
+        ],
         "rows": [
-          ["Bathroom renovation", "€30,000", "€5,100", "€900", "€4,200"],
-          ["Heavy apartment renovation", "€100,000", "€17,000", "€3,000", "€14,000"],
-          ["New construction", "€300,000", "€51,000", "€9,000", "€42,000"],
-          ["High-end construction", "€400,000", "€68,000", "€12,000", "€50,000"],
-          ["Construction beyond cap", "€500,000", "€85,000", "€27,000", "€50,000"]
+          [
+            "Bathroom renovation",
+            "€30,000",
+            "€5,100",
+            "€900",
+            "€4,200"
+          ],
+          [
+            "Heavy apartment renovation",
+            "€100,000",
+            "€17,000",
+            "€3,000",
+            "€14,000"
+          ],
+          [
+            "New construction",
+            "€300,000",
+            "€51,000",
+            "€9,000",
+            "€42,000"
+          ],
+          [
+            "High-end construction",
+            "€400,000",
+            "€68,000",
+            "€12,000",
+            "€50,000"
+          ],
+          [
+            "Construction beyond cap",
+            "€500,000",
+            "€85,000",
+            "€27,000",
+            "€50,000"
+          ]
         ],
         "footnote": "Savings = difference between VAT 17% and VAT 3%, capped at €50,000 per dwelling."
       },
@@ -9823,25 +10547,80 @@
         "cta": "Run the VEFA simulation"
       },
       "tools": [
-        { "href": "/vefa", "title": "VEFA simulator", "description": "Land vs construction split and 3% housing VAT automated." },
-        { "href": "/frais-acquisition", "title": "Acquisition costs", "description": "Comprehensive computation with VAT, duties, Bëllegen Akt and mortgage." },
-        { "href": "/estimateur-construction", "title": "Construction estimator", "description": "Detailed new-build cost by item." },
-        { "href": "/simulateur-aides", "title": "Acquisition aids", "description": "Combine 3% VAT, Bëllegen Akt, Klimabonus and premiums." }
+        {
+          "href": "/vefa",
+          "title": "VEFA simulator",
+          "description": "Land vs construction split and 3% housing VAT automated."
+        },
+        {
+          "href": "/frais-acquisition",
+          "title": "Acquisition costs",
+          "description": "Comprehensive computation with VAT, duties, Bëllegen Akt and mortgage."
+        },
+        {
+          "href": "/estimateur-construction",
+          "title": "Construction estimator",
+          "description": "Detailed new-build cost by item."
+        },
+        {
+          "href": "/simulateur-aides",
+          "title": "Acquisition aids",
+          "description": "Combine 3% VAT, Bëllegen Akt, Klimabonus and premiums."
+        }
       ],
       "faq": [
-        { "q": "What is the 3% VAT benefit cap in Luxembourg?", "a": "The benefit cap is €50,000 of VAT per dwelling over its lifetime. This corresponds to about €357,000 of works excluding VAT at the reduced rate. Beyond, the 17% standard rate applies to the surplus." },
-        { "q": "Is prior authorisation required for the 3% VAT?", "a": "Yes. A prior request must be submitted to the AED before any works start or VEFA acquisition deed is signed. The form is available on guichet.lu and must include plans, permit and a costed estimate." },
-        { "q": "Does the 3% VAT apply to a buy-to-let investment?", "a": "Yes, provided the tenant uses the dwelling as their residence (effective occupation). The property must remain rented as housing for at least two years after delivery, on penalty of benefit clawback." },
-        { "q": "Does the 3% VAT apply to renovation?", "a": "Yes, on renovation and repair of a dwelling over 20 years old, and with no age condition for creation of housing by conversion (e.g., turning a commercial premises into housing). Insulation, heating, windows, bathroom works are eligible. Decoration and luxury outdoor amenities are not." },
-        { "q": "Can the 3% VAT be combined with the Bëllegen Akt and Klimabonus?", "a": "Yes, the three schemes fully combine. For a first-time buyer in VEFA carrying out eligible energy renovation works, total savings can exceed €130,000." },
-        { "q": "What is the maximum habitable area entitled to the 3% VAT?", "a": "400 m² of habitable area. Beyond, the standard rate applies to the excess. Cellars, unconverted attics, non-attached garages and commercial parts are not counted in the habitable area." }
+        {
+          "q": "What is the 3% VAT benefit cap in Luxembourg?",
+          "a": "The benefit cap is €50,000 of VAT per dwelling over its lifetime. This corresponds to about €357,000 of works excluding VAT at the reduced rate. Beyond, the 17% standard rate applies to the surplus."
+        },
+        {
+          "q": "Is prior authorisation required for the 3% VAT?",
+          "a": "Yes. A prior request must be submitted to the AED before any works start or VEFA acquisition deed is signed. The form is available on guichet.lu and must include plans, permit and a costed estimate."
+        },
+        {
+          "q": "Does the 3% VAT apply to a buy-to-let investment?",
+          "a": "Yes, provided the tenant uses the dwelling as their residence (effective occupation). The property must remain rented as housing for at least two years after delivery, on penalty of benefit clawback."
+        },
+        {
+          "q": "Does the 3% VAT apply to renovation?",
+          "a": "Yes, on renovation and repair of a dwelling over 20 years old, and with no age condition for creation of housing by conversion (e.g., turning a commercial premises into housing). Insulation, heating, windows, bathroom works are eligible. Decoration and luxury outdoor amenities are not."
+        },
+        {
+          "q": "Can the 3% VAT be combined with the Bëllegen Akt and Klimabonus?",
+          "a": "Yes, the three schemes fully combine. For a first-time buyer in VEFA carrying out eligible energy renovation works, total savings can exceed €130,000."
+        },
+        {
+          "q": "What is the maximum habitable area entitled to the 3% VAT?",
+          "a": "400 m² of habitable area. Beyond, the standard rate applies to the excess. Cellars, unconverted attics, non-attached garages and commercial parts are not counted in the habitable area."
+        }
       ],
       "sources": [
-        { "title": "Application of the super-reduced VAT rate — procedure", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/construction/aides-construction/taux-tva-super-reduit-logement.html" },
-        { "title": "Article 44ter modified VAT law — super-reduced housing rate", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1979/02/12/n1/jo" },
-        { "title": "Grand Ducal Regulation of 30 July 2002 — application terms", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/rgd/2002/07/30/n4/jo", "year": 2002 },
-        { "title": "AED circular no. 800 — housing VAT", "org": "AED", "url": "https://pfi.public.lu/fr.html" },
-        { "title": "eAED teleprocedures — housing VAT requests", "org": "AED", "url": "https://eaed.b2g.etat.lu/" }
+        {
+          "title": "Application of the super-reduced VAT rate — procedure",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/logement/construction/aides-construction/taux-tva-super-reduit-logement.html"
+        },
+        {
+          "title": "Article 44ter modified VAT law — super-reduced housing rate",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1979/02/12/n1/jo"
+        },
+        {
+          "title": "Grand Ducal Regulation of 30 July 2002 — application terms",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2002/07/30/n4/jo",
+          "year": 2002
+        },
+        {
+          "title": "AED circular no. 800 — housing VAT",
+          "org": "AED",
+          "url": "https://pfi.public.lu/fr.html"
+        },
+        {
+          "title": "eAED teleprocedures — housing VAT requests",
+          "org": "AED",
+          "url": "https://eaed.b2g.etat.lu/"
+        }
       ]
     },
     "bailCommercial": {
@@ -9880,25 +10659,80 @@
         "cta": "Run the analysis"
       },
       "tools": [
-        { "href": "/bail-commercial", "title": "Commercial lease tool", "description": "Rent, key money, CPI indexation, landlord/tenant yield." },
-        { "href": "/dcf-multi", "title": "Multi-period DCF", "description": "Valuation of an asset leased commercially over 9 years." },
-        { "href": "/portfolio", "title": "Property portfolio", "description": "Track several commercial leased premises." },
-        { "href": "/aml-kyc", "title": "Tenant verification", "description": "Solvency of the tenant company before signing the lease." }
+        {
+          "href": "/bail-commercial",
+          "title": "Commercial lease tool",
+          "description": "Rent, key money, CPI indexation, landlord/tenant yield."
+        },
+        {
+          "href": "/dcf-multi",
+          "title": "Multi-period DCF",
+          "description": "Valuation of an asset leased commercially over 9 years."
+        },
+        {
+          "href": "/portfolio",
+          "title": "Property portfolio",
+          "description": "Track several commercial leased premises."
+        },
+        {
+          "href": "/aml-kyc",
+          "title": "Tenant verification",
+          "description": "Solvency of the tenant company before signing the lease."
+        }
       ],
       "faq": [
-        { "q": "What is the minimum term of a commercial lease in Luxembourg?", "a": "9 years (Art. 2 of the law of 3 February 2018). The tenant may terminate at each triennial period (3, 6, 9 years) with 6 months' notice. The landlord may only terminate for serious breach, personal business need or demolition/reconstruction." },
-        { "q": "Is commercial rent capped in Luxembourg?", "a": "No, unlike residential leases (5% cap on invested capital), commercial rent is freely set between parties. Indexation uses STATEC CPI if an express clause provides for it." },
-        { "q": "What is key money and how to negotiate it?", "a": "Key money (pas-de-porte) is an initial payment by the tenant to the landlord in exchange for the location's commercial advantages. Lawful in LU, unregulated, freely negotiated (typically 1 to 6 months' rent for an average location, up to several years for prime). Can be amortised by the tenant over the lease term." },
-        { "q": "How does the renewal right work?", "a": "The tenant notifies a renewal request at least 6 months before the lease term. A landlord refusing without legitimate grounds (breach, demolition, personal business need) must pay eviction compensation covering clientele loss, moving and goodwill loss. The amount is set amicably or by a judge." },
-        { "q": "Can the landlord block the lease assignment to a buyer?", "a": "No, unless an opposite clause in the lease. Commercial lease assignment is free, generally tied to the goodwill assignment. The landlord must be informed but cannot oppose if the lease conditions (rent, use) are respected by the buyer. Provide an approval clause if the landlord wants oversight." },
-        { "q": "What to do in case of serious tenant breach?", "a": "The landlord sends a formal notice by registered letter specifying the breach (unpaid rent > 2 months, prohibited subletting, change of use, major damage). Without remedy within 30 days, the landlord can refer the matter to court for judicial termination with eviction and arrears/damages claim." }
+        {
+          "q": "What is the minimum term of a commercial lease in Luxembourg?",
+          "a": "9 years (Art. 2 of the law of 3 February 2018). The tenant may terminate at each triennial period (3, 6, 9 years) with 6 months' notice. The landlord may only terminate for serious breach, personal business need or demolition/reconstruction."
+        },
+        {
+          "q": "Is commercial rent capped in Luxembourg?",
+          "a": "No, unlike residential leases (5% cap on invested capital), commercial rent is freely set between parties. Indexation uses STATEC CPI if an express clause provides for it."
+        },
+        {
+          "q": "What is key money and how to negotiate it?",
+          "a": "Key money (pas-de-porte) is an initial payment by the tenant to the landlord in exchange for the location's commercial advantages. Lawful in LU, unregulated, freely negotiated (typically 1 to 6 months' rent for an average location, up to several years for prime). Can be amortised by the tenant over the lease term."
+        },
+        {
+          "q": "How does the renewal right work?",
+          "a": "The tenant notifies a renewal request at least 6 months before the lease term. A landlord refusing without legitimate grounds (breach, demolition, personal business need) must pay eviction compensation covering clientele loss, moving and goodwill loss. The amount is set amicably or by a judge."
+        },
+        {
+          "q": "Can the landlord block the lease assignment to a buyer?",
+          "a": "No, unless an opposite clause in the lease. Commercial lease assignment is free, generally tied to the goodwill assignment. The landlord must be informed but cannot oppose if the lease conditions (rent, use) are respected by the buyer. Provide an approval clause if the landlord wants oversight."
+        },
+        {
+          "q": "What to do in case of serious tenant breach?",
+          "a": "The landlord sends a formal notice by registered letter specifying the breach (unpaid rent > 2 months, prohibited subletting, change of use, major damage). Without remedy within 30 days, the landlord can refer the matter to court for judicial termination with eviction and arrears/damages claim."
+        }
       ],
       "sources": [
-        { "title": "Law of 3 February 2018 on commercial leases", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo", "year": 2018 },
-        { "title": "Commercial lease — practical guide", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html" },
-        { "title": "Consumer Price Index (CPI)", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html" },
-        { "title": "Civil Code — articles 1709 et seq.", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo" },
-        { "title": "Chamber of Commerce — entrepreneurs support", "org": "Luxembourg Chamber of Commerce", "url": "https://www.cc.lu/" }
+        {
+          "title": "Law of 3 February 2018 on commercial leases",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo",
+          "year": 2018
+        },
+        {
+          "title": "Commercial lease — practical guide",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html"
+        },
+        {
+          "title": "Consumer Price Index (CPI)",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
+        },
+        {
+          "title": "Civil Code — articles 1709 et seq.",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+        },
+        {
+          "title": "Chamber of Commerce — entrepreneurs support",
+          "org": "Luxembourg Chamber of Commerce",
+          "url": "https://www.cc.lu/"
+        }
       ]
     },
     "investirHotel": {
@@ -9937,26 +10771,85 @@
         "cta": "Open the hotel analysis"
       },
       "tools": [
-        { "href": "/hotellerie/valorisation", "title": "TEGOVA hotel valuation", "description": "DCF + EBITDA multiples + price per key under EVS 2025." },
-        { "href": "/hotellerie/dscr", "title": "Bank DSCR", "description": "Financing capacity and rate stress test." },
-        { "href": "/hotellerie/observatoire-lu", "title": "LU observatory", "description": "STATEC overnight stays + RevPAR indices by region." },
-        { "href": "/hotellerie/pre-acquisition", "title": "Pre-acquisition", "description": "E-2 / hotel dealer tool." }
+        {
+          "href": "/hotellerie/valorisation",
+          "title": "TEGOVA hotel valuation",
+          "description": "DCF + EBITDA multiples + price per key under EVS 2025."
+        },
+        {
+          "href": "/hotellerie/dscr",
+          "title": "Bank DSCR",
+          "description": "Financing capacity and rate stress test."
+        },
+        {
+          "href": "/hotellerie/observatoire-lu",
+          "title": "LU observatory",
+          "description": "STATEC overnight stays + RevPAR indices by region."
+        },
+        {
+          "href": "/hotellerie/pre-acquisition",
+          "title": "Pre-acquisition",
+          "description": "E-2 / hotel dealer tool."
+        }
       ],
       "faq": [
-        { "q": "What is the average RevPAR of hotels in Luxembourg?", "a": "Average RevPAR in LU ranges from €60 (budget/economy) to €150 (upscale/luxury). Luxembourg City shows the highest RevPAR, driven by business tourism and EU institutions. Tourist regions (Ardennes, Moselle) have more seasonal RevPAR patterns." },
-        { "q": "What DSCR do banks require for a hotel loan in Luxembourg?", "a": "LU banks generally require a DSCR of 1.25 to 1.40x: cash flow after operating expenses must cover at least 1.25-1.40 times the annual debt service. A DSCR below 1.25x makes financing difficult to obtain." },
-        { "q": "What EBITDA multiples to value a LU hotel?", "a": "LU EBITDA multiples range from 8x (budget regional, dated) to 14x (luxury prime LU City). A healthy 3* in Luxembourg City typically trades at 10-12x stabilised EBITDA. Cross-check with price/room and 10-year DCF to validate." },
-        { "q": "What price per room to buy a hotel in Luxembourg?", "a": "Observed prices: €80,000-120,000/room (budget/regions), €150,000-200,000/room (mid 3*), €250,000-400,000/room (upscale/luxury LU City). Above, luxury prime on exceptional locations. Always cross-check with potential RevPAR for consistency." },
-        { "q": "Is hotel investment in LU eligible for the US E-2 visa?", "a": "LU is not a US E-2 treaty country. For US investors, the alternative is the LU residence permit for investors (€500,000 for takeover, €3M for creation/takeover with jobs) via the Ministry of Foreign Affairs. Hospitality is eligible." },
-        { "q": "What aids to renovate a hotel energetically in LU?", "a": "Tertiary Klimabonus offers subsidies for energy renovation of commercial buildings: insulation, heat pumps, photovoltaic, ventilation. Stackable with SME aids for modernisation. EPBD directive imposes renovation trajectories for the most energy-intensive tertiary assets by 2030-2033." }
+        {
+          "q": "What is the average RevPAR of hotels in Luxembourg?",
+          "a": "Average RevPAR in LU ranges from €60 (budget/economy) to €150 (upscale/luxury). Luxembourg City shows the highest RevPAR, driven by business tourism and EU institutions. Tourist regions (Ardennes, Moselle) have more seasonal RevPAR patterns."
+        },
+        {
+          "q": "What DSCR do banks require for a hotel loan in Luxembourg?",
+          "a": "LU banks generally require a DSCR of 1.25 to 1.40x: cash flow after operating expenses must cover at least 1.25-1.40 times the annual debt service. A DSCR below 1.25x makes financing difficult to obtain."
+        },
+        {
+          "q": "What EBITDA multiples to value a LU hotel?",
+          "a": "LU EBITDA multiples range from 8x (budget regional, dated) to 14x (luxury prime LU City). A healthy 3* in Luxembourg City typically trades at 10-12x stabilised EBITDA. Cross-check with price/room and 10-year DCF to validate."
+        },
+        {
+          "q": "What price per room to buy a hotel in Luxembourg?",
+          "a": "Observed prices: €80,000-120,000/room (budget/regions), €150,000-200,000/room (mid 3*), €250,000-400,000/room (upscale/luxury LU City). Above, luxury prime on exceptional locations. Always cross-check with potential RevPAR for consistency."
+        },
+        {
+          "q": "Is hotel investment in LU eligible for the US E-2 visa?",
+          "a": "LU is not a US E-2 treaty country. For US investors, the alternative is the LU residence permit for investors (€500,000 for takeover, €3M for creation/takeover with jobs) via the Ministry of Foreign Affairs. Hospitality is eligible."
+        },
+        {
+          "q": "What aids to renovate a hotel energetically in LU?",
+          "a": "Tertiary Klimabonus offers subsidies for energy renovation of commercial buildings: insulation, heat pumps, photovoltaic, ventilation. Stackable with SME aids for modernisation. EPBD directive imposes renovation trajectories for the most energy-intensive tertiary assets by 2030-2033."
+        }
       ],
       "sources": [
-        { "title": "STATEC tourism observatory", "org": "STATEC", "url": "https://statistiques.public.lu/fr/themes/economie-finances/secteurs/tourisme.html" },
-        { "title": "Tertiary Klimabonus — commercial energy renovation", "org": "myenergy / Ministry of Environment", "url": "https://www.myenergy.lu/fr/professionnels" },
-        { "title": "SME aids — investment and innovation", "org": "Ministry of Economy", "url": "https://meco.gouvernement.lu/fr/le-ministere/aides.html" },
-        { "title": "Labour and Mines Inspectorate (ITM) — fire safety", "org": "ITM", "url": "https://itm.public.lu/" },
-        { "title": "Investor residence permit", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/immigration/plus-3-mois/ressortissant-tiers/investisseur.html" },
-        { "title": "TEGOVA EVS 2025 — Valuation of Hotels", "org": "TEGOVA", "url": "https://www.tegova.org/", "year": 2025 }
+        {
+          "title": "STATEC tourism observatory",
+          "org": "STATEC",
+          "url": "https://statistiques.public.lu/fr/themes/economie-finances/secteurs/tourisme.html"
+        },
+        {
+          "title": "Tertiary Klimabonus — commercial energy renovation",
+          "org": "myenergy / Ministry of Environment",
+          "url": "https://www.myenergy.lu/fr/professionnels"
+        },
+        {
+          "title": "SME aids — investment and innovation",
+          "org": "Ministry of Economy",
+          "url": "https://meco.gouvernement.lu/fr/le-ministere/aides.html"
+        },
+        {
+          "title": "Labour and Mines Inspectorate (ITM) — fire safety",
+          "org": "ITM",
+          "url": "https://itm.public.lu/"
+        },
+        {
+          "title": "Investor residence permit",
+          "org": "Guichet.lu",
+          "url": "https://guichet.public.lu/fr/citoyens/immigration/plus-3-mois/ressortissant-tiers/investisseur.html"
+        },
+        {
+          "title": "TEGOVA EVS 2025 — Valuation of Hotels",
+          "org": "TEGOVA",
+          "url": "https://www.tegova.org/",
+          "year": 2025
+        }
       ]
     },
     "iaTevaxia": {
@@ -9995,25 +10888,80 @@
         "cta": "Open my profile"
       },
       "tools": [
-        { "href": "/profil", "title": "Configure my BYOK key", "description": "Anthropic, OpenAI, Groq, Cerebras — unlimited use." },
-        { "href": "/api-docs", "title": "Public B2B API", "description": "3 endpoints: analyze, chat, extract — X-API-Key auth." },
-        { "href": "/valorisation", "title": "EVS 2025 report", "description": "Drafter + Challenger AI mode for your TEGOVA reports." },
-        { "href": "/bilan-promoteur", "title": "AI promoter P&L", "description": "PDF pre-fill + viability analysis." }
+        {
+          "href": "/profil",
+          "title": "Configure my BYOK key",
+          "description": "Anthropic, OpenAI, Groq, Cerebras — unlimited use."
+        },
+        {
+          "href": "/api-docs",
+          "title": "Public B2B API",
+          "description": "3 endpoints: analyze, chat, extract — X-API-Key auth."
+        },
+        {
+          "href": "/valorisation",
+          "title": "EVS 2025 report",
+          "description": "Drafter + Challenger AI mode for your TEGOVA reports."
+        },
+        {
+          "href": "/bilan-promoteur",
+          "title": "AI promoter P&L",
+          "description": "PDF pre-fill + viability analysis."
+        }
       ],
       "faq": [
-        { "q": "Is tevaxia AI really free?", "a": "Yes: 5 analyses per day per signed-in user, no credit card or subscription. Beyond that, add your own Cerebras, Groq, OpenAI or Anthropic key in your profile for unlimited use. The free tier uses Cerebras (Llama 3.1 8B) with Groq fallback if configured." },
-        { "q": "Is my data sent to a third party?", "a": "Yes, requests transit through the configured AI provider (Cerebras by default, or your BYOK key). Contexts sent contain only the current calculation's inputs and results — never personal data beyond that scope. Cerebras and Groq don't store prompts for training. For strong confidentiality, prefer Anthropic or OpenAI with enterprise no-training contract." },
-        { "q": "Can the AI replace a TEGOVA-certified expert?", "a": "No. The AI provides drafting and analysis assistance, not a binding expert opinion. For an EVS report intended for a bank or court, the TEGOVA REV/TRV expert remains responsible for the retained value and must review, correct and sign. The AI accelerates production but doesn't replace human expertise or the on-site visit." },
-        { "q": "Which models are supported in BYOK?", "a": "Anthropic (Claude 4.x — recommended for PDF vision and EVS drafting), OpenAI (GPT-4o, GPT-4 Turbo — strong vision), Groq (fast Llama 3.x), Cerebras (Llama 3.1 8B — free, default). 2-click setup in /profil. Unit costs displayed in real time." },
-        { "q": "How to access the public tevaxia API?", "a": "On /api-docs you'll find full documentation of the 3 endpoints (analyze, chat, extract) with cURL examples, JS and Python SDK. Authentication via X-API-Key header. Standard rate-limit tier is free; for high volumes or SLA, contact us via /pricing for an enterprise tier." },
-        { "q": "What are the AI analysis limits?", "a": "Models occasionally make calculation errors or cite outdated references (knowledge cutoff varies by model). tevaxia injects up-to-date key figures (2026 rates, STATEC coefficients, Bëllegen Akt amounts) into the context to reduce these errors. For critical figures, always verify with our deterministic tools (calculators, simulators)." }
+        {
+          "q": "Is tevaxia AI really free?",
+          "a": "Yes: 5 analyses per day per signed-in user, no credit card or subscription. Beyond that, add your own Cerebras, Groq, OpenAI or Anthropic key in your profile for unlimited use. The free tier uses Cerebras (Llama 3.1 8B) with Groq fallback if configured."
+        },
+        {
+          "q": "Is my data sent to a third party?",
+          "a": "Yes, requests transit through the configured AI provider (Cerebras by default, or your BYOK key). Contexts sent contain only the current calculation's inputs and results — never personal data beyond that scope. Cerebras and Groq don't store prompts for training. For strong confidentiality, prefer Anthropic or OpenAI with enterprise no-training contract."
+        },
+        {
+          "q": "Can the AI replace a TEGOVA-certified expert?",
+          "a": "No. The AI provides drafting and analysis assistance, not a binding expert opinion. For an EVS report intended for a bank or court, the TEGOVA REV/TRV expert remains responsible for the retained value and must review, correct and sign. The AI accelerates production but doesn't replace human expertise or the on-site visit."
+        },
+        {
+          "q": "Which models are supported in BYOK?",
+          "a": "Anthropic (Claude 4.x — recommended for PDF vision and EVS drafting), OpenAI (GPT-4o, GPT-4 Turbo — strong vision), Groq (fast Llama 3.x), Cerebras (Llama 3.1 8B — free, default). 2-click setup in /profil. Unit costs displayed in real time."
+        },
+        {
+          "q": "How to access the public tevaxia API?",
+          "a": "On /api-docs you'll find full documentation of the 3 endpoints (analyze, chat, extract) with cURL examples, JS and Python SDK. Authentication via X-API-Key header. Standard rate-limit tier is free; for high volumes or SLA, contact us via /pricing for an enterprise tier."
+        },
+        {
+          "q": "What are the AI analysis limits?",
+          "a": "Models occasionally make calculation errors or cite outdated references (knowledge cutoff varies by model). tevaxia injects up-to-date key figures (2026 rates, STATEC coefficients, Bëllegen Akt amounts) into the context to reduce these errors. For critical figures, always verify with our deterministic tools (calculators, simulators)."
+        }
       ],
       "sources": [
-        { "title": "tevaxia public API documentation", "org": "tevaxia.lu", "url": "https://tevaxia.lu/api-docs" },
-        { "title": "TEGOVA EVS 2025 — European Valuation Standards", "org": "TEGOVA", "url": "https://www.tegova.org/", "year": 2025 },
-        { "title": "Modified law of 4 December 1967 (LIR)", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo" },
-        { "title": "Cerebras Inference — open-weight models", "org": "Cerebras Systems", "url": "https://cerebras.ai/inference" },
-        { "title": "Anthropic API — Claude for PDF vision", "org": "Anthropic", "url": "https://docs.anthropic.com/" }
+        {
+          "title": "tevaxia public API documentation",
+          "org": "tevaxia.lu",
+          "url": "https://tevaxia.lu/api-docs"
+        },
+        {
+          "title": "TEGOVA EVS 2025 — European Valuation Standards",
+          "org": "TEGOVA",
+          "url": "https://www.tegova.org/",
+          "year": 2025
+        },
+        {
+          "title": "Modified law of 4 December 1967 (LIR)",
+          "org": "Legilux",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
+        },
+        {
+          "title": "Cerebras Inference — open-weight models",
+          "org": "Cerebras Systems",
+          "url": "https://cerebras.ai/inference"
+        },
+        {
+          "title": "Anthropic API — Claude for PDF vision",
+          "org": "Anthropic",
+          "url": "https://docs.anthropic.com/"
+        }
       ]
     }
   },
@@ -16603,5 +17551,324 @@
     "checkApiDesc": "Endpoint /api/v1/estimation",
     "checkObservName": "data.public.lu",
     "checkObservDesc": "Housing Observatory"
+  },
+  "portalLandings": {
+    "copropriete": {
+      "meta": {
+        "title": "Co-owner portal Luxembourg — tevaxia access",
+        "description": "Access your co-owner portal: AGM notices, online voting, individual accounts, fund calls. Secure magic link provided by your syndic."
+      },
+      "hero": {
+        "badge": "Co-owner portal",
+        "title": "Your co-ownership",
+        "titleAccent": "in full transparency",
+        "subtitle": "AGM notices, minutes, online voting, fund call tracking and individual account: your full co-ownership file in one place. Secure magic link access provided by your syndic.",
+        "primaryCta": "Request my access link",
+        "secondaryCta": "Understand co-ownership in Luxembourg"
+      },
+      "features": {
+        "title": "What you find in your portal",
+        "intro": "All legal information about your co-ownership, available 24/7 from any device.",
+        "items": [
+          {
+            "icon": "📋",
+            "title": "AGM notices & minutes",
+            "desc": "Download notices, agendas and signed minutes. Full history kept."
+          },
+          {
+            "icon": "🗳️",
+            "title": "Online voting on resolutions",
+            "desc": "Vote electronically at general assemblies (Law of 16 May 1975 as amended)."
+          },
+          {
+            "icon": "💶",
+            "title": "My individual account",
+            "desc": "Track fund calls, charges, payments and current balance. Download your statement as PDF."
+          },
+          {
+            "icon": "🤖",
+            "title": "AI co-ownership assistant",
+            "desc": "Ask about the rules, charges or Luxembourg law — sourced answers."
+          }
+        ]
+      },
+      "access": {
+        "title": "How to access your portal",
+        "intro": "No account creation. Your syndic sends you a secure personal magic link.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Request from syndic",
+            "desc": "Contact your professional or volunteer syndic and request your tevaxia co-owner access link."
+          },
+          {
+            "number": "2",
+            "title": "Receive by email",
+            "desc": "You receive an email with your personal link. Keep it — valid as long as not revoked."
+          },
+          {
+            "number": "3",
+            "title": "Direct access",
+            "desc": "Click the link: you reach your file without a password. No app to install."
+          }
+        ],
+        "note": "Haven't received a link? Your syndic may not use tevaxia yet. Invite them to discover our syndic solution."
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          {
+            "q": "Is the link secure?",
+            "a": "The token is random (256 bits), unique and opaque. It strictly identifies your lot and your data. You can ask your syndic to revoke it at any time."
+          },
+          {
+            "q": "Can I vote at the AGM from the portal?",
+            "a": "Yes, on resolutions open for electronic voting. Luxembourg law of 16 May 1975 (amended 6 June 2023) allows remote voting unless the co-ownership rules forbid it."
+          },
+          {
+            "q": "What if I'm also a tenant elsewhere?",
+            "a": "You can have multiple separate accesses (one per co-ownership lot + one per rental lease). Each token is independent."
+          },
+          {
+            "q": "Is my data stored in Europe?",
+            "a": "Yes. tevaxia hosts all data in the European Union (Supabase EU + Vercel EU). GDPR compliant."
+          },
+          {
+            "q": "How much does this access cost me?",
+            "a": "Co-owner access is free. Your syndic subscribes to tevaxia to manage the co-ownership."
+          }
+        ]
+      },
+      "related": {
+        "title": "Going further",
+        "items": [
+          {
+            "label": "Co-ownership guide Luxembourg",
+            "href": "/guide/copropriete-luxembourg",
+            "desc": "Law of 16 May 1975, AGM, charges, syndic council."
+          },
+          {
+            "label": "Syndic solution",
+            "href": "/solutions/syndic",
+            "desc": "For professional and volunteer syndics."
+          },
+          {
+            "label": "Syndic council portal",
+            "href": "/conseil-syndical",
+            "desc": "Council members: steer the co-ownership."
+          }
+        ]
+      }
+    },
+    "conseilSyndical": {
+      "meta": {
+        "title": "Syndic council portal Luxembourg — tevaxia",
+        "description": "Steer your co-ownership as a syndic council member: consolidated view, works tracking, AGM preparation, owner communication."
+      },
+      "hero": {
+        "badge": "Syndic council portal",
+        "title": "Steer your co-ownership",
+        "titleAccent": "with confidence",
+        "subtitle": "Consolidated account view, voted works tracking, AGM preparation and consolidated communication to owners. The dedicated tool for elected syndic council members.",
+        "primaryCta": "Request my access link",
+        "secondaryCta": "Syndic council role"
+      },
+      "features": {
+        "title": "Your steering tools",
+        "intro": "As an elected member, you represent the owners and oversee the syndic. tevaxia gives you the right indicators.",
+        "items": [
+          {
+            "icon": "📊",
+            "title": "Consolidated account view",
+            "desc": "Balances, current charges, working fund, works fund, aggregated arrears."
+          },
+          {
+            "icon": "🛠️",
+            "title": "Works tracking",
+            "desc": "Status of voted works resolutions, compared quotes, invoices."
+          },
+          {
+            "icon": "📝",
+            "title": "AGM preparation",
+            "desc": "Collaborative agenda, draft resolutions, documents to attach."
+          },
+          {
+            "icon": "✉️",
+            "title": "Owner communication",
+            "desc": "Group messaging to owners, archived exchanges."
+          }
+        ]
+      },
+      "access": {
+        "title": "How to access your portal",
+        "intro": "The syndic grants you syndic council access upon your election at the AGM.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Election at AGM",
+            "desc": "You are elected to the syndic council by the general assembly (Article 15-1, Law 1975)."
+          },
+          {
+            "number": "2",
+            "title": "Link sent by syndic",
+            "desc": "The syndic sends your personal syndic council access link by email."
+          },
+          {
+            "number": "3",
+            "title": "Permanent access",
+            "desc": "Connect any time from any device. No password required."
+          }
+        ],
+        "note": "The syndic council mandate is time-limited (usually 1 to 3 years). Your access is revoked at the end of the mandate."
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          {
+            "q": "What are my legal duties?",
+            "a": "The syndic council assists and oversees the syndic. It must be consulted for any contract above a threshold set by the AGM (Article 15-1, Law of 16 May 1975 as amended)."
+          },
+          {
+            "q": "Can I see accounting documents?",
+            "a": "Yes, the syndic council can access supporting documents at any time. tevaxia gives access to invoices scanned by the syndic."
+          },
+          {
+            "q": "What if I detect an anomaly?",
+            "a": "Report it to the syndic via tevaxia messaging (traceability kept). In case of dispute, the council can call an extraordinary AGM."
+          },
+          {
+            "q": "How many council members?",
+            "a": "Luxembourg law sets no fixed number. Practice is 3 to 5 members for a medium-sized co-ownership."
+          }
+        ]
+      },
+      "related": {
+        "title": "Going further",
+        "items": [
+          {
+            "label": "Co-ownership guide",
+            "href": "/guide/copropriete-luxembourg",
+            "desc": "Law 1975, syndic council role, AGM."
+          },
+          {
+            "label": "Syndic solution",
+            "href": "/solutions/syndic",
+            "desc": "For syndics — full management tool."
+          },
+          {
+            "label": "Co-owner portal",
+            "href": "/copropriete",
+            "desc": "Individual portal for co-owners."
+          }
+        ]
+      }
+    },
+    "locataire": {
+      "meta": {
+        "title": "Tenant portal Luxembourg — tevaxia",
+        "description": "Access your tenant portal: rent receipts, digital condition reports, charge statements, lease AI assistant. Secure magic link provided by your landlord."
+      },
+      "hero": {
+        "badge": "Tenant portal",
+        "title": "Your Luxembourg lease",
+        "titleAccent": "all in one place",
+        "subtitle": "Rent receipts, digital condition reports, charge statements, exchanges with your landlord or agency. Secure magic link access without account creation.",
+        "primaryCta": "Request my access link",
+        "secondaryCta": "Understand your lease"
+      },
+      "features": {
+        "title": "What you find in your portal",
+        "intro": "All your lease documents accessible 24/7, compliant with Luxembourg rental law.",
+        "items": [
+          {
+            "icon": "🧾",
+            "title": "Rent receipts",
+            "desc": "Download your signed monthly receipts. Essential for administrative procedures."
+          },
+          {
+            "icon": "📋",
+            "title": "Digital condition report",
+            "desc": "Time-stamped entry and exit reports with photos. Side-by-side comparison."
+          },
+          {
+            "icon": "💶",
+            "title": "Charge statements",
+            "desc": "Annual reconciliation broken down line by line, with supporting documents."
+          },
+          {
+            "icon": "🤖",
+            "title": "AI lease assistant",
+            "desc": "Ask about Luxembourg law of 21 September 2006 — rights, duties, deposit."
+          }
+        ]
+      },
+      "access": {
+        "title": "How to access your portal",
+        "intro": "No account creation. Your landlord or agency sends you a secure personal magic link.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Request from landlord",
+            "desc": "Contact your landlord or the agency managing your lease and request your tevaxia tenant access link."
+          },
+          {
+            "number": "2",
+            "title": "Receive by email",
+            "desc": "You receive an email with your personal link. Valid for the entire lease duration."
+          },
+          {
+            "number": "3",
+            "title": "Direct access",
+            "desc": "Click the link: you reach your file without a password. No app to install."
+          }
+        ],
+        "note": "Haven't received a link? Your landlord may not use tevaxia yet. Invite them to discover our rental management solution."
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          {
+            "q": "Is the link secure?",
+            "a": "The token is random (256 bits), unique and opaque. You can ask your landlord to revoke it at any time."
+          },
+          {
+            "q": "What if I dispute the charges?",
+            "a": "You have the right to consult supporting documents. Luxembourg law of 21 September 2006 governs reconciliation. In case of persistent disagreement, the rent commission can be seized."
+          },
+          {
+            "q": "Is the deposit managed here?",
+            "a": "Yes — the deposit (placed on a blocked account per Article 5 of the law) is visible in your portal, with placement and expected restitution dates."
+          },
+          {
+            "q": "What if I move?",
+            "a": "Your new landlord will send you a new link. The old one stays read-only for 12 months."
+          },
+          {
+            "q": "How much does this access cost me?",
+            "a": "Tenant access is free. Your landlord subscribes to tevaxia."
+          }
+        ]
+      },
+      "related": {
+        "title": "Going further",
+        "items": [
+          {
+            "label": "Housing lease guide",
+            "href": "/guide/bail-habitation-luxembourg",
+            "desc": "Law 21 September 2006, rights, duties, charges."
+          },
+          {
+            "label": "5% rule",
+            "href": "/guide/regle-5-pourcent-loyer",
+            "desc": "Legal rent cap in Luxembourg."
+          },
+          {
+            "label": "Rent calculator",
+            "href": "/calculateur-loyer",
+            "desc": "Check whether your rent complies with the 5% rule."
+          }
+        ]
+      }
+    }
   }
 }
