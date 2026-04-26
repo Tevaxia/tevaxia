@@ -9369,21 +9369,70 @@
       ]
     },
     "klimabonus": {
-      "title": "Welche Klimabonus-Beihilfen gibt es für die energetische Sanierung?",
-      "metaDescription": "Klimabonus-Beihilfen Luxemburg: PRIMe House, Zuschüsse Dämmung/Fenster/Wärmepumpe/PV, Beträge, EPB-Bedingungen, 3% MwSt.-Kombination, Klimaprêt Nullzins.",
-      "intro": "Luxemburg bietet großzügige Beihilfen zur Förderung der energetischen Sanierung bestehender Wohngebäude und des nachhaltigen Bauens. Das PRIMe-House-Programm, 2024 unter dem Label 'Klimabonus' neu aufgelegt, umfasst Wärmedämmung, Fenstertausch, Wärmepumpen-Installation (WP), Photovoltaik-Anlagen (PV) und Ladestationen. Diese Beihilfen sind kombinierbar mit der 3%-MwSt. auf Renovierungsarbeiten und dem zinslosen Klimaprêt. Hier die Details zu Beträgen, Bedingungen und Verfahren.",
-      "section1Title": "PRIMe House: Zuschüsse nach Arbeitskategorie",
-      "section1Content": "PRIMe-House-/Klimabonus-Zuschüsse werden vom Ministerium für Umwelt, Klima und nachhaltige Entwicklung über myenergy gewährt. Wichtige Beträge (Tarif 2024-2025): Dach-/Dachbodendämmung bis zu 55 €/m²; Außenwanddämmung bis zu 110 €/m²; Boden-/Kellerdämmung bis zu 55 €/m²; Fensteraustausch Dreifachverglasung bis zu 150 €/m² Glasfläche; Luft-Wasser-/Erdwärmepumpe 6.000 bis 12.000 €; Photovoltaikanlage 500 €/kWp (max. 20 kWp); Lüftung mit Wärmerückgewinnung 3.000 bis 5.000 €. Die genauen Beträge hängen von der erreichten Leistung (Verbesserung der EPB-Klasse) ab und können nach sozialen Kriterien erhöht werden. Ein Bonus von 25 % wird gewährt, wenn die Wohnung zu einer Sozialmiete vermietet wird.",
-      "section2Title": "Bedingungen: Der Energieausweis (EPB)",
-      "section2Content": "Um Klimabonus-Beihilfen zu erhalten, muss ein Energieausweis (EPB) vor und nach den Arbeiten von einem zugelassenen Energieberater erstellt werden. Der EPB klassifiziert das Gebäude von A (sehr effizient) bis I (sehr energieintensiv) nach zwei Achsen: Primärenergiebedarf (kWh/m²/Jahr) und Wärmedämmung der Gebäudehülle. Die Zuschüsse erfordern eine Verbesserung um mindestens 2 EPB-Klassen (z.B. von F auf D). Für Tiefensanierungen mit Zielklasse A oder B sind erhöhte Beträge vorgesehen. Der EPB vor Beginn der Arbeiten darf nicht älter als 2 Jahre sein. Das Energieaudit selbst wird von myenergy subventioniert (kostenlose Beratung). Die Arbeiten müssen von in Luxemburg oder der EU ansässigen Unternehmen durchgeführt werden, und die Rechnungen müssen innerhalb von 4 Jahren nach der Grundsatzvereinbarung beglichen sein.",
-      "section3Title": "Kombination mit 3% MwSt. und Klimaprêt",
-      "section3Content": "Die Klimabonus-Beihilfen sind kombinierbar mit dem super-ermäßigten MwSt.-Satz von 3 % für Renovierungs- und Umbauarbeiten an Wohnungen in Luxemburg (begrenzt auf eine Obergrenze von 50.000 € MwSt. pro Wohnung). Sie sind auch kombinierbar mit dem Klimaprêt, einem zinslosen Darlehen von Partnerbanken (BCEE, BIL, Raiffeisen etc.) zur Finanzierung energetischer Sanierungsarbeiten. Das Klimaprêt kann bis zu 50.000 € betragen, rückzahlbar über maximal 15 Jahre, zinsfrei (der Staat übernimmt die Zinsbonifikation). Voraussetzung ist, dass die Arbeiten im von myenergy validierten Kostenvoranschlag aufgeführt sind und eine effektive Verbesserung der Energieeffizienz betreffen. Insgesamt kann ein Eigentümer, der ein älteres Gebäude von Klasse G auf Klasse B saniert, 30.000 bis 50.000 € PRIMe-House-Zuschüsse, die ermäßigte MwSt. (Ersparnis 10.000 bis 20.000 €) und einen Klimaprêt zu 0 % kombinieren, was die Restkosten erheblich reduziert.",
-      "relatedToolLabel": "Simulieren Sie Ihre Renovierungszuschüsse",
-      "relatedToolLink": "/simulateur-aides",
-      "faq1Q": "Sind Klimabonus-Beihilfen mit der 3%-MwSt. kombinierbar?",
-      "faq1A": "Ja, die PRIMe-House-/Klimabonus-Zuschüsse sind vollständig kombinierbar mit der 3%-MwSt. auf Renovierungsarbeiten und dem zinslosen Klimaprêt. Es ist eines der vorteilhaftesten Programme in Europa für energetische Sanierung.",
-      "faq2Q": "Wie viel Zuschuss gibt es für eine Wärmepumpe in Luxemburg?",
-      "faq2A": "Der Zuschuss für die Installation einer Wärmepumpe (Luft-Wasser oder Erdwärme) beträgt 6.000 bis 12.000 € je nach Typ und Leistung im Rahmen des PRIMe-House-/Klimabonus-Programms. Dieser Betrag kann um 25 % erhöht werden, wenn die Wohnung zu einer Sozialmiete vermietet wird. Hinzu kommen die 3%-MwSt.-Vergünstigung und der zinslose Klimaprêt."
+      "title": "Klimabonus 2026: Beihilfen für energetische Sanierung in Luxemburg",
+      "metaDescription": "Klimabonus 2026 LU: PRIMe-House-Zuschüsse (Dämmung, WP, PV, Fenster), 150 % Sozial-Topup, kostenlose Energieberatung, zinsloser Klimaprêt, 3 % MwSt.-Kombination, Beträge je Posten.",
+      "subtitle": "Der vollständige Überblick über die Beihilfen zur energetischen Sanierung in Luxemburg: Beträge, Bedingungen, Audit, Klimaprêt und mögliche Kombinationen 2026.",
+      "category": "Energie & Sanierung",
+      "essentiel": [
+        "Klimabonus = Bündel der Beihilfen PRIMe House (Kapitalzuschüsse) + Klimaprêt (Nullzins-Darlehen) + empfohlene kostenlose Energieberatung.",
+        "Sozial-Topup 2026: Erhöhung bis 150 % des Grundbetrags bei jährlichem zu versteuerndem Einkommen ≤ 60.000 €.",
+        "Indikative Gesamtobergrenze: bis zu 75 % der berechtigten Arbeiten kumuliert (mit Sozial-Topup).",
+        "Kostenlose Energieberatung (myenergy), dann EPB durch zugelassenen Berater: vor und nach Arbeiten.",
+        "Kombinierbar mit 3 % Wohn-MwSt. und Klimaprêt 1,5 % (bis 50.000 € zinsfrei vom Staat übernommen)."
+      ],
+      "section1Title": "Prinzip und Architektur des Programms",
+      "section1P1": "Klimabonus ist das luxemburgische Programm für Beihilfen zur energetischen Sanierung, vom Umweltministerium über myenergy verwaltet. Es bündelt drei komplementäre Hebel: Kapitalzuschüsse PRIMe House (nach Arbeiten ausgezahlt), Klimaprêt (Bankdarlehen zu 1,5 %, Staat übernimmt die Bonifikation für effektive 0 % Haushaltskosten) und Energieaudit durch zugelassenen Berater zur Projektsteuerung (bis 1.500 € subventioniert).",
+      "section1P2": "Das Programm gilt für bestehende Wohngebäude in Luxemburg, ob selbst bewohnt oder vermietet. Arbeiten müssen von in Luxemburg oder der EU ansässigen Unternehmen ausgeführt werden, Rechnungen innerhalb von 4 Jahren nach der Grundsatzvereinbarung beglichen. Eine Reform 2026 hat einen Sozial-Topup für einkommensschwache Haushalte eingeführt, der die Hilfe um bis zu 150 % des Grundbetrags erhöht.",
+      "callout1Title": "Sozial-Topup 2026",
+      "callout1Body": "Wenn das jährliche zu versteuernde Haushaltseinkommen 60.000 € nicht überschreitet, wird die PRIMe-House-Hilfe auf 150 % des Grundbetrags angehoben. Kombiniert mit 3 % Wohn-MwSt. und 0 %-Klimaprêt kann die Gesamthilfe bis zu 75 % der Arbeitskosten für berechtigte Haushalte abdecken.",
+      "section2Title": "Berechtigte Arbeiten und Beträge",
+      "section2P1": "Hauptposten (Tarif 2025-2026, Grundbeträge ohne Sozial-Topup): Dach-/Dachbodendämmung bis 55 €/m²; Außenwanddämmung bis 110 €/m²; Boden-/Kellerdämmung bis 55 €/m²; Fenster Dreifachverglasung bis 150 €/m² Glasfläche; Luft-Wasser- oder Erdwärmepumpe 6.000 bis 12.000 €; Lüftung mit Wärmerückgewinnung 3.000 bis 5.000 €; Photovoltaikanlage 500 €/kWp (max. 20 kWp); E-Auto-Ladestation bis 1.200 €.",
+      "section2P2": "Für Tiefensanierungen mit Zielklasse A oder B (Sprung von G/F auf A/B) erhöht ein Energiesanierungs-Bonus die Zuschüsse um 25 bis 50 % je Klassensprung. Ein Bonus von 25 % wird gewährt, wenn die Wohnung zu einer Sozial- oder bezahlbaren Miete vermietet wird. Der Sozial-Topup 2026 (Einkommen ≤ 60.000 €) erhöht bis 150 % des Grundbetrags und ist mit den anderen Bonifikationen kumulierbar.",
+      "section3Title": "Verfahren und EPB",
+      "section3P1": "Das Verfahren startet mit einem kostenlosen Energieaudit durch myenergy (neutrale Beratung bis 1.500 € subventioniert). Anschließend erstellt ein zugelassener Energieberater einen EPB vor den Arbeiten. Der EPB klassifiziert das Gebäude von A (sehr effizient) bis I (sehr energieintensiv) nach Primärenergiebedarf und Wärmedämmung der Gebäudehülle.",
+      "section3P2": "Eine Grundsatzvereinbarung wird auf myenergy.lu mit Kostenvoranschlag und EPB beantragt. Nach Abschluss der Arbeiten (innerhalb 4 Jahren) muss ein neuer EPB nach Arbeiten eine Verbesserung um mindestens 2 Energieklassen (oder Erreichen der Klasse A/B) zeigen. Das endgültige Dossier mit beglichenen Rechnungen löst die Auszahlung per Banküberweisung aus.",
+      "section4Title": "Beispiele für Beihilfenkumulation",
+      "section4Intro": "Für eine Tiefensanierung eines älteren Einfamilienhauses (Klasse G → Klasse A) hier die Größenordnungen der kumulierbaren Beihilfen 2026.",
+      "table": {
+        "caption": "Klimabonus-Beihilfenkumulation 2026 — Rechenbeispiele",
+        "headers": ["Posten", "Netto-Kosten", "PRIMe House Basis", "Sozial-Topup (≤ 60k €)"],
+        "rows": [
+          ["Dachdämmung (200 m²)", "20.000 €", "11.000 €", "16.500 €"],
+          ["Wanddämmung (150 m²)", "30.000 €", "16.500 €", "24.750 €"],
+          ["Dreifachverglaste Fenster (30 m²)", "18.000 €", "4.500 €", "6.750 €"],
+          ["Geothermie-Wärmepumpe", "30.000 €", "12.000 €", "18.000 €"],
+          ["Photovoltaik 10 kWp", "20.000 €", "5.000 €", "5.000 €"]
+        ],
+        "footnote": "Gesamtprojekt Tiefensanierung: ~118.000 € netto, davon 49.000 bis 71.000 € PRIMe-House-Zuschüsse. Hinzu: MwSt.-3 %-Ersparnis (~16.500 €) und effektiv 0 %-Klimaprêt bis 50.000 €."
+      },
+      "callout3Title": "Tatsächliche Restkosten nach Beihilfen",
+      "callout3Body": "Für die Tiefensanierung der Tabelle (118.000 € netto, Sozial-Topup-Haushalt) ergibt der Stack: 71.000 € PRIMe House + 16.500 € MwSt.-3 %-Ersparnis = 87.500 € direkte Beihilfen. Restfinanzierung: 30.500 €, finanzierbar per effektivem 0 %-Klimaprêt über 15 Jahre (~170 € monatlich). Also weniger als 30 % der Gesamtkosten effektiv vom Haushalt zu tragen.",
+      "inlineCalc": {
+        "title": "Simulieren Sie Ihre Klimabonus-Beihilfen in wenigen Klicks",
+        "description": "Unser Beihilfen-Simulator (Erwerb / Sanierung) berechnet den Stack PRIMe House + Sozial-Topup + 3 % MwSt. + Klimaprêt entsprechend Ihrer Situation und Ihren Arbeiten.",
+        "cta": "Simulation starten"
+      },
+      "tools": [
+        { "href": "/simulateur-aides", "title": "Sanierungs-Beihilfen-Simulator", "description": "PRIMe House, Sozial-Topup, 3 % MwSt., Klimaprêt — automatisierter Stack." },
+        { "href": "/energy", "title": "tevaxia Energie-Modul", "description": "Wertimpakt, Sanierungs-ROI, Energiegemeinschaft, EPBD/CPE." },
+        { "href": "/energy/cpe", "title": "EPB-Diagnose", "description": "Vorabschätzung der Energieklasse vor offiziellem Audit." },
+        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Für Käufer von Neubauten bereits in Klasse A/B." }
+      ],
+      "faq": [
+        { "q": "Sind Klimabonus-Beihilfen mit der 3 % MwSt. kombinierbar?", "a": "Ja. PRIMe-House-/Klimabonus-Zuschüsse sind voll mit der 3 % Wohn-MwSt. und dem effektiven 0 %-Klimaprêt kombinierbar. Es ist eines der vorteilhaftesten Programme Europas für energetische Sanierung." },
+        { "q": "Wie viel Zuschuss gibt es für eine Wärmepumpe in Luxemburg?", "a": "PRIMe-House-Hilfe für eine Luft-Wasser- oder Erdwärmepumpe variiert von 6.000 bis 12.000 € je nach Typ und Leistung. Mit dem Sozial-Topup 2026 (Einkommen ≤ 60.000 €) kann sie 18.000 € erreichen. Hinzu 3 % Wohn-MwSt. und 0 %-Klimaprêt." },
+        { "q": "Was ist der Sozial-Topup 2026?", "a": "Eine Erhöhung bis 150 % des PRIMe-House-Grundbetrags für Haushalte mit jährlichem zu versteuerndem Einkommen ≤ 60.000 €. Sie soll energetische Sanierung für einkommensschwache Haushalte zugänglich machen. Mit anderen Bonifikationen kumulierbar (Sozialmiete, Tiefensanierung)." },
+        { "q": "Ist ein Energieaudit für den Klimabonus erforderlich?", "a": "Das kostenlose Audit durch einen myenergy-Berater ist nicht zwingend, aber stark empfohlen. Der EPB durch einen zugelassenen Berater (vor und nach Arbeiten) ist für Zuschüsse Pflicht, und die Energieverbesserung muss mindestens 2 Klassen oder Klasse A/B erreichen." },
+        { "q": "Ersetzt Klimaprêt PRIMe House?", "a": "Nein, sie sind zwei komplementäre Programme. PRIMe House = Kapitalzuschüsse nach Arbeiten. Klimaprêt = Bankdarlehen zu 1,5 % mit Staatsbonifikation für effektive 0 % Haushaltskosten. Sie können und sollten beide kumulieren." },
+        { "q": "Können Eigentümergemeinschaften vom Klimabonus profitieren?", "a": "Ja. Eine Eigentümergemeinschaft kann eine Klimabonus-Anfrage für in der EV beschlossene Arbeiten an Gemeinschaftsteilen stellen (Dach, Fassade, Heizzentrale). Jeder Miteigentümer profitiert von der quote-part anteilig zu seinen Anteilen. Der Syndikus kann auch einen Klimaprêt im Namen der Gemeinschaft beantragen." }
+      ],
+      "sources": [
+        { "title": "Klimabonus — offizielles myenergy-Portal", "org": "myenergy / Umweltministerium", "url": "https://www.myenergy.lu/" },
+        { "title": "PRIMe House — Verfahren", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-construction-renovation/aides-amelioration.html" },
+        { "title": "Klimaprêt — Verfahren", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-financieres/klimapret.html" },
+        { "title": "Geändertes Gesetz vom 23. Dezember 2016 — Beihilfen für nachhaltiges Wohnen", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2016/12/23/n3/jo", "year": 2016 },
+        { "title": "Energieausweis (EPB)", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/economie-energie/certificat-performance-energetique.html" }
+      ]
     },
     "estimation": {
       "title": "Wie schätzt man den Wert einer Immobilie in Luxemburg?",

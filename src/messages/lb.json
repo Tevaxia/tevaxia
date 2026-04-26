@@ -9369,21 +9369,70 @@
       ]
     },
     "klimabonus": {
-      "title": "Wéi eng Klimabonus-Hëllefen gëtt et fir déi energeetesch Sanéierung?",
-      "metaDescription": "Klimabonus-Hëllefen Lëtzebuerg: PRIMe House, Subventiounen Isolatioun/Fënsteren/Wärmepompel/PV, Montanten, CPE-Bedingungen, 3% TVA-Kombinatioun, Klimaprêt Nullzins.",
-      "intro": "Lëtzebuerg bitt eng generéis Rei vu Subventiounen fir déi energeetesch Sanéierung vu bestoende Wunnenge an nohaltegt Bauen ze fërderen. De PRIMe-House-Programm, 2024 ënnert dem Label 'Klimabonus' nei opgeluecht, deckt Wärmedämmung, Fënstertausch, Wärmepompel-Installatioun (WP), Photovoltaik-Anlagen (PV) a Luedstatiounen of. Dës Hëllefen si kombinéierbar mat der 3%-TVA op Renovatiounsaarbechten an dem zinslose Klimaprêt. Hei d'Detailer zu Montanten, Bedingungen a Prozeduren.",
-      "section1Title": "PRIMe House: Subventiounen no Aarbechtskategorie",
-      "section1Content": "PRIMe-House-/Klimabonus-Subventiounen gi vum Ministère fir Ëmwelt, Klima an nohalteg Entwécklung iwwer myenergy accordéiert. Wichteg Montanten (Tarif 2024-2025): Daach-/Daachbuedemdämmung bis zu 55 €/m²; Baussemauerisolatioun bis zu 110 €/m²; Buedem-/Kellerdämmung bis zu 55 €/m²; Fënstertausch Dräifachverglasung bis zu 150 €/m² Glasfläch; Loft-Waasser-/Äerdwärmepompel 6.000 bis 12.000 €; Photovoltaikanlage 500 €/kWp (max. 20 kWp); Lëftung mat Wärmeréckgewannung 3.000 bis 5.000 €. Déi genee Montante hänken vun der erreechter Leeschtung (Verbesserung vun der CPE-Klass) of a kënne no sozialen Kritären erhéicht ginn. E Bonus vu 25 % gëtt accordéiert, wann d'Wunneng zu enger Sozialloyer verlount gëtt.",
-      "section2Title": "Bedingungen: Den Energieausweis (CPE)",
-      "section2Content": "Fir Klimabonus-Hëllefen ze kréien, muss en Energieausweis (CPE) virun an no den Aarbechte vun engem zougeloossenen Energieberoder erstallt ginn. De CPE klasséiert d'Gebai vun A (ganz effizient) bis I (ganz energieintensiv) no zwee Achsen: Primärenergiebesoin (kWh/m²/Joer) an Wärmedämmung vun der Gebaienhüll. D'Subventiounen erfuerderen eng Verbesserung vun op mannst 2 CPE-Klassen (z.B. vu F op D). Fir Déifsanéierunge mat Zilklass A oder B sinn erhéicht Montante virgesinn. De CPE virun den Aarbechte dierf net méi al wéi 2 Joer sinn. Den Energieaudit selwer gëtt vu myenergy subventionéiert (gratis Berodung). D'Aarbechte mussen vun zu Lëtzebuerg oder an der EU ugesiddelten Entreprisen duerchgefouert ginn, an d'Rechnunge mussen bannent 4 Joer no der Grondverständegung bezuelt sinn.",
-      "section3Title": "Kombinatioun mat 3% TVA an Klimaprêt",
-      "section3Content": "D'Klimabonus-Hëllefen si kombinéierbar mam super-reduzéierten TVA-Saz vu 3 % fir Renovatiouns- an Ëmbauaarbechten u Wunnengen zu Lëtzebuerg (limitéiert op en Héchstbetrag vu 50.000 € TVA pro Wunneng). Si si och kombinéierbar mam Klimaprêt, engem zinslose Prêt vu Partnerbanken (BCEE, BIL, Raiffeisen etc.) fir déi energeetesch Sanéierungsaarbechten ze finanzéieren. De Klimaprêt kann bis zu 50.000 € erreechen, réckzuelbar iwwer maximal 15 Joer, ouni Zinsen (de Staat iwwerhëlt d'Zinsbonifikatioun). Viraussetzung ass, dass d'Aarbechten am vun myenergy validéierte Kostenvirschlag opgelëscht sinn an eng effektiv Verbesserung vun der Energieeffizienz betreffen. Am Ganzen kann en Proprietaire, deen en eelert Gebai vu Klass G op Klass B sanéiert, 30.000 bis 50.000 € PRIMe-House-Subventiounen, d'reduzéiert TVA (Erspuernis 10.000 bis 20.000 €) an e Klimaprêt zu 0 % kombinéieren, wat d'Reschtkosten erhieflech reduzéiert.",
-      "relatedToolLabel": "Simuléiert Är Renovatiounssubventiounen",
-      "relatedToolLink": "/simulateur-aides",
-      "faq1Q": "Sinn d'Klimabonus-Hëllefen mat der 3%-TVA kombinéierbar?",
-      "faq1A": "Jo, d'PRIMe-House-/Klimabonus-Subventiounen si vollstänneg kombinéierbar mat der 3%-TVA op Renovatiounsaarbechten an dem zinslose Klimaprêt. Et ass eent vun de virdeelechsten Programmer an Europa fir energeetesch Sanéierung.",
-      "faq2Q": "Wéi vill Subventioun kritt een fir eng Wärmepompel zu Lëtzebuerg?",
-      "faq2A": "D'Subventioun fir d'Installatioun vun enger Wärmepompel (Loft-Waasser oder Äerdwärm) betreit 6.000 bis 12.000 € je no Typ a Leeschtung am Kader vum PRIMe-House-/Klimabonus-Programm. Dëse Montant kann ëm 25 % erhéicht ginn, wann d'Wunneng zu enger Sozialloyer verlount gëtt. Dozou kommen d'3%-TVA-Vergënschtegung an de zinslose Klimaprêt."
+      "title": "Klimabonus 2026: Hëllefe fir energeetesch Sanéierung zu Lëtzebuerg",
+      "metaDescription": "Klimabonus 2026 LU: PRIMe-House-Subventiounen (Isolatioun, WP, PV, Fënsteren), 150 % Sozial-Topup, gratis Energieaudit, zinslose Klimaprêt, 3 % TVA-Kombinatioun, Montanten je Posten.",
+      "subtitle": "Den komplette Iwwerbléck iwwer d'Hëllefen zur energeetescher Sanéierung zu Lëtzebuerg: Montanten, Bedingungen, Audit, Klimaprêt a méiglech Kombinatiounen 2026.",
+      "category": "Energie a Sanéierung",
+      "essentiel": [
+        "Klimabonus = Bündel vun den Hëllefe PRIMe House (Kapitalsubventiounen) + Klimaprêt (Nullzins-Prêt) + empfuelene gratis Energieberodung.",
+        "Sozial-Topup 2026: Erhéijung bis 150 % vum Grondbetrag bei jährlechem zu versteierendem Akommes ≤ 60.000 €.",
+        "Indikative Gesamthéchstwert: bis zu 75 % vun de berechtegten Aarbechte kumuléiert (mat Sozial-Topup).",
+        "Gratis Energieberodung (myenergy), dann CPE duerch zougeloossenen Beroder: virun an no Aarbechten.",
+        "Kombinéierbar mat 3 % Wunn-TVA a Klimaprêt 1,5 % (bis 50.000 € zinsfräi vum Staat iwwerholl)."
+      ],
+      "section1Title": "Prinzip an Architektur vum Programm",
+      "section1P1": "Klimabonus ass de Lëtzebuerger Programm fir Hëllefen zur energeetescher Sanéierung, vum Ëmweltministère iwwer myenergy verwalt. En bündelt dräi komplementär Hiewelen: Kapitalsubventiounen PRIMe House (no Aarbechten ausbezuelt), Klimaprêt (Bankprêt zu 1,5 %, Staat iwwerhëlt d'Bonifikatioun fir effektiv 0 % Haushaltskäschten) an Energieaudit duerch zougeloossenen Beroder fir d'Projet ze steieren (bis 1.500 € subventionéiert).",
+      "section1P2": "De Programm gëllt fir bestoend Wunnengen zu Lëtzebuerg, ob selwer bewunnt oder verlount. Aarbechten musse vun zu Lëtzebuerg oder an der EU ugesiddelten Entreprisen duerchgefouert ginn, Rechnungen bannent 4 Joer no der Grondverständegung bezuelt. Eng Reform 2026 huet en Sozial-Topup fir akommesschwaach Haushaller agefouert, deen d'Hëllef bis 150 % vum Grondbetrag erhéije kann.",
+      "callout1Title": "Sozial-Topup 2026",
+      "callout1Body": "Wann d'jährlecht zu versteierend Haushaltsakommes 60.000 € net iwwerschreit, gëtt d'PRIMe-House-Hëllef op 150 % vum Grondbetrag erhéicht. Kombinéiert mat 3 % Wunn-TVA an 0 %-Klimaprêt kann d'Gesamthëllef bis zu 75 % vun den Aarbechtskäschte fir berechtegt Haushaller ofdecken.",
+      "section2Title": "Berechtegt Aarbechten a Montanten",
+      "section2P1": "Haaptpostren (Tarif 2025-2026, Grondbeträg ouni Sozial-Topup): Daach-/Daachbuedemdämmung bis 55 €/m²; Baussemauer-Isolatioun bis 110 €/m²; Buedem-/Kellerdämmung bis 55 €/m²; Fënster Dräifachverglasung bis 150 €/m² Glasfläch; Loft-Waasser- oder Äerdwärmepompel 6.000 bis 12.000 €; Lëftung mat Wärmeréckgewannung 3.000 bis 5.000 €; Photovoltaikanlage 500 €/kWp (max. 20 kWp); E-Auto-Luedstatioun bis 1.200 €.",
+      "section2P2": "Fir Déifsanéierunge mat Zilklass A oder B (Sprong vu G/F op A/B) erhéicht en Energiesanéierungs-Bonus d'Subventiounen ëm 25 bis 50 % je Klassesprong. E Bonus vu 25 % gëtt accordéiert, wann d'Wunneng zu enger Sozial- oder bezuelbarer Loyer verlount gëtt. De Sozial-Topup 2026 (Akommes ≤ 60.000 €) erhéicht bis 150 % vum Grondbetrag an ass mat den anere Bonifikatioune kumuléierbar.",
+      "section3Title": "Prozedur an CPE",
+      "section3P1": "D'Prozedur fänkt mat engem gratis Energieaudit duerch myenergy un (neutral Berodung bis 1.500 € subventionéiert). Duerno erstellt en zougeloossenen Energieberoder e CPE virun den Aarbechten. De CPE klasséiert d'Gebai vun A (ganz effizient) bis I (ganz energieintensiv) no Primärenergiebedarf an Wärmedämmung vun der Gebaienhüll.",
+      "section3P2": "Eng Grondverständegung gëtt op myenergy.lu mat Kostenvirschlag a CPE beantraagt. Nodeems d'Aarbechte gemaach sinn (bannent 4 Joer), muss en neie CPE no Aarbechten eng Verbesserung vun op mannst 2 Energieklassen (oder Erreeche vun der Klass A/B) weisen. Den finalen Dossier mat bezuelte Rechnungen léist d'Auszuelung per Banküberweisung aus.",
+      "section4Title": "Beispiller fir Hëllefekumulatioun",
+      "section4Intro": "Fir eng Déifsanéierung vun engem ältere Eenfamilljenhaus (Klass G → Klass A) hei d'Gréissteuerunge vun de kumuléierbaren Hëllefen 2026.",
+      "table": {
+        "caption": "Klimabonus-Hëllefekumulatioun 2026 — Rechenbeispiller",
+        "headers": ["Posten", "Netto-Käschten", "PRIMe House Basis", "Sozial-Topup (≤ 60k €)"],
+        "rows": [
+          ["Daachdämmung (200 m²)", "20.000 €", "11.000 €", "16.500 €"],
+          ["Mauerdämmung (150 m²)", "30.000 €", "16.500 €", "24.750 €"],
+          ["Dräifachverglaste Fënsteren (30 m²)", "18.000 €", "4.500 €", "6.750 €"],
+          ["Geothermie-Wärmepompel", "30.000 €", "12.000 €", "18.000 €"],
+          ["Photovoltaik 10 kWp", "20.000 €", "5.000 €", "5.000 €"]
+        ],
+        "footnote": "Gesamtprojet Déifsanéierung: ~118.000 € netto, dovun 49.000 bis 71.000 € PRIMe-House-Subventiounen. Dozou: TVA-3 %-Erspuernis (~16.500 €) an effektiv 0 %-Klimaprêt bis 50.000 €."
+      },
+      "callout3Title": "Tatsächlech Reschtkäschten no Hëllefen",
+      "callout3Body": "Fir d'Déifsanéierung vum Tableau (118.000 € netto, Sozial-Topup-Haushalt) ergëtt de Stack: 71.000 € PRIMe House + 16.500 € TVA-3 %-Erspuernis = 87.500 € direkt Hëllefen. Restfinanzéierung: 30.500 €, finanzéierbar per effektivem 0 %-Klimaprêt iwwer 15 Joer (~170 € pro Mount). Also manner wéi 30 % vun de Gesamtkäschten effektiv vum Haushalt ze droen.",
+      "inlineCalc": {
+        "title": "Simuléiert Är Klimabonus-Hëllefen a wéinegen Klicks",
+        "description": "Eise Hëllefen-Simulator (Erwerb / Sanéierung) berechent de Stack PRIMe House + Sozial-Topup + 3 % TVA + Klimaprêt no Ärer Situatioun an Ären Aarbechten.",
+        "cta": "Simulatioun starten"
+      },
+      "tools": [
+        { "href": "/simulateur-aides", "title": "Sanéierungs-Hëllefen-Simulator", "description": "PRIMe House, Sozial-Topup, 3 % TVA, Klimaprêt — automatiséierten Stack." },
+        { "href": "/energy", "title": "tevaxia Energie-Modul", "description": "Wäerimpakt, Sanéierungs-ROI, Energiegemeinschaft, EPBD/CPE." },
+        { "href": "/energy/cpe", "title": "CPE-Diagnos", "description": "Virschätzung vun der Energieklass virum offiziellen Audit." },
+        { "href": "/vefa", "title": "VEFA-Simulator", "description": "Fir Keefer vu Neibaute schonn an Klass A/B." }
+      ],
+      "faq": [
+        { "q": "Sinn d'Klimabonus-Hëllefen mat der 3 % TVA kombinéierbar?", "a": "Jo. PRIMe-House-/Klimabonus-Subventiounen si voll mat der 3 % Wunn-TVA an dem effektive 0 %-Klimaprêt kombinéierbar. Et ass eent vun de virdeelechste Programmer Europas fir energeetesch Sanéierung." },
+        { "q": "Wéi vill Subventioun kritt een fir eng Wärmepompel zu Lëtzebuerg?", "a": "PRIMe-House-Hëllef fir eng Loft-Waasser- oder Äerdwärmepompel variéiert vu 6.000 bis 12.000 € je no Typ a Leeschtung. Mam Sozial-Topup 2026 (Akommes ≤ 60.000 €) kann se 18.000 € erreechen. Dozou 3 % Wunn-TVA an 0 %-Klimaprêt." },
+        { "q": "Wat ass de Sozial-Topup 2026?", "a": "Eng Erhéijung bis 150 % vum PRIMe-House-Grondbetrag fir Haushaller mat jährlechem zu versteierendem Akommes ≤ 60.000 €. Si soll energeetesch Sanéierung fir akommesschwaach Haushaller zougänglech maachen. Mat anere Bonifikatioune kumuléierbar (Sozialloyer, Déifsanéierung)." },
+        { "q": "Brauch et en Energieaudit fir vum Klimabonus ze profitéieren?", "a": "De gratis Audit duerch e myenergy-Beroder ass net zwingend, awer staark empfuelen. De CPE duerch en zougeloossenen Beroder (virun an no Aarbechten) ass fir Subventiounen Pflicht, an d'Energieverbesserung muss op mannst 2 Klassen oder Klass A/B erreechen." },
+        { "q": "Ersetzt Klimaprêt PRIMe House?", "a": "Nee, et sinn zwee komplementär Programmer. PRIMe House = Kapitalsubventiounen no Aarbechten. Klimaprêt = Bankprêt zu 1,5 % mat Staatsbonifikatioun fir effektiv 0 % Haushaltskäschten. Dir kënnt a sollt béid kumuléieren." },
+        { "q": "Kënne Copropriétéite vum Klimabonus profitéieren?", "a": "Jo. Eng Copropriétéit kann eng Klimabonus-Demande fir an der GV beschlossen Aarbechten op Gemeinschaftsdeeler maachen (Daach, Fassad, Heizungszentral). All Copropriétaire profitéiert vun der quote-part anteileg zu sengen Undeeler. De Syndikus kann och e Klimaprêt am Numm vun der Gemeinschaft ufroen." }
+      ],
+      "sources": [
+        { "title": "Klimabonus — offiziellt myenergy-Portal", "org": "myenergy / Ëmweltministère", "url": "https://www.myenergy.lu/" },
+        { "title": "PRIMe House — Prozedur", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-construction-renovation/aides-amelioration.html" },
+        { "title": "Klimaprêt — Prozedur", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-financieres/klimapret.html" },
+        { "title": "Geännert Gesetz vum 23. Dezember 2016 — Hëllefe fir nohaltegt Wunnen", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2016/12/23/n3/jo", "year": 2016 },
+        { "title": "Energieausweis (CPE)", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/economie-energie/certificat-performance-energetique.html" }
+      ]
     },
     "estimation": {
       "title": "Wéi schätzt een de Wäert vun enger Immobilie zu Lëtzebuerg?",

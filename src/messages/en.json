@@ -9491,21 +9491,70 @@
       ]
     },
     "klimabonus": {
-      "title": "What Are the Klimabonus Subsidies for Energy Renovation?",
-      "metaDescription": "Klimabonus subsidies Luxembourg: PRIMe House, insulation/windows/heat pump/PV grants, amounts, EPC conditions, 3% VAT combination, zero-rate Klimaprêt.",
-      "intro": "Luxembourg offers a generous set of subsidies to encourage energy renovation of existing dwellings and sustainable construction. The PRIMe House programme, revamped in 2024 under the 'Klimabonus' label, covers thermal insulation, window replacement, heat pump (HP) installation, photovoltaic (PV) panels and charging stations. These subsidies can be combined with the 3% VAT on renovation works and the zero-rate Klimaprêt loan. Here are the details on amounts, conditions and procedures.",
-      "section1Title": "PRIMe House: Subsidies by Work Category",
-      "section1Content": "PRIMe House / Klimabonus subsidies are granted by the Ministry of the Environment, Climate and Sustainable Development via myenergy. Key amounts (2024-2025 schedule): roof/attic insulation up to EUR 55/m²; external wall insulation up to EUR 110/m²; floor/cellar insulation up to EUR 55/m²; triple-glazed window replacement up to EUR 150/m² of glazed area; air-to-water/geothermal heat pump EUR 6,000 to 12,000; photovoltaic installation EUR 500/kWp (max 20 kWp); dual-flow ventilation with heat recovery EUR 3,000 to 5,000. Exact amounts depend on the performance achieved (improvement in EPC class) and may be increased based on social criteria. A 25% bonus is granted if the dwelling is rented at a social rent.",
-      "section2Title": "Conditions: The Energy Performance Certificate (EPC)",
-      "section2Content": "To qualify for Klimabonus subsidies, an Energy Performance Certificate (EPC) must be carried out before and after works by an approved energy advisor. The EPC classifies the building from A (very efficient) to I (very energy-intensive) on two axes: primary energy demand (kWh/m²/year) and thermal insulation of the envelope. Subsidies require improvement of at least 2 EPC classes (e.g. from F to D). For deep renovations targeting class A or B, increased amounts are available. The pre-works EPC must not be older than 2 years. The energy audit itself is subsidised by myenergy (free advice). Works must be carried out by companies established in Luxembourg or the EU, and invoices must be settled within 4 years of the agreement in principle.",
-      "section3Title": "Combining with 3% VAT and Klimaprêt",
-      "section3Content": "Klimabonus subsidies can be combined with the super-reduced 3% VAT rate applicable to renovation and conversion works on housing in Luxembourg (limited to a ceiling of EUR 50,000 in VAT per dwelling). They are also combinable with the Klimaprêt, a zero-rate loan granted by partner banks (BCEE, BIL, Raiffeisen, etc.) to finance energy renovation works. The Klimaprêt amount can reach EUR 50,000 repayable over a maximum of 15 years, interest-free (the State covers the interest subsidy). To qualify, works must appear in the quote validated by myenergy and concern effective improvement of energy performance. In total, an owner renovating an older dwelling from class G to class B can combine EUR 30,000 to 50,000 in PRIMe House subsidies, reduced VAT (saving EUR 10,000 to 20,000) and a 0% Klimaprêt, considerably reducing the remaining cost.",
-      "relatedToolLabel": "Simulate your renovation subsidies",
-      "relatedToolLink": "/simulateur-aides",
-      "faq1Q": "Can Klimabonus subsidies be combined with 3% VAT?",
-      "faq1A": "Yes, PRIMe House / Klimabonus subsidies are fully combinable with the 3% VAT on renovation works and with the zero-rate Klimaprêt. It is one of the most advantageous schemes in Europe for energy renovation.",
-      "faq2Q": "How much can you get for installing a heat pump in Luxembourg?",
-      "faq2A": "The subsidy for installing a heat pump (air-to-water or geothermal) ranges from EUR 6,000 to 12,000 depending on type and capacity, under the PRIMe House / Klimabonus programme. This amount can be increased by 25% if the dwelling is rented at a social rent. Additionally, the 3% VAT benefit and zero-rate Klimaprêt apply."
+      "title": "Klimabonus 2026: Energy Renovation Aids in Luxembourg",
+      "metaDescription": "Klimabonus 2026 LU: PRIMe House subsidies (insulation, HP, PV, windows), 150% social Topup, free energy audit, zero-rate Klimaprêt, 3% VAT combination, amounts by item.",
+      "subtitle": "The complete overview of energy renovation aids in Luxembourg: amounts, conditions, audit, Klimaprêt and possible combinations in 2026.",
+      "category": "Energy & renovation",
+      "essentiel": [
+        "Klimabonus = combined PRIMe House subsidies (capital grants) + Klimaprêt (zero-rate loan) + recommended free energy audit.",
+        "2026 social Topup: increase up to 150% of the base amount if annual taxable income ≤ €60,000.",
+        "Indicative overall cap: up to 75% of eligible works combined (with social Topup).",
+        "Free energy advice (myenergy) then EPC by an approved adviser: before + after works.",
+        "Combinable with 3% housing VAT and 1.5% Klimaprêt (up to €50,000 interest-free covered by the State)."
+      ],
+      "section1Title": "Principle and architecture of the scheme",
+      "section1P1": "Klimabonus is the Luxembourg programme of energy renovation aids, managed by the Ministry of the Environment via myenergy. It combines three complementary levers: PRIMe House capital grants (paid after works), the Klimaprêt (1.5% bank loan, with State subsidy bringing the effective rate to 0% for the household), and the energy audit by an approved adviser to scope the project (subsidised up to €1,500).",
+      "section1P2": "The programme applies to existing dwellings in Luxembourg, whether owner-occupied or rented. Works must be carried out by companies established in Luxembourg or the EU, and invoices settled within 4 years of the agreement in principle. A 2026 reform introduced a social Topup for low-income households, which can boost the aid by up to 150% of the base amount.",
+      "callout1Title": "2026 social Topup",
+      "callout1Body": "If the household's annual taxable income does not exceed €60,000, PRIMe House aid is increased to 150% of the base amount. Combined with 3% housing VAT and 0% Klimaprêt, total aids can cover up to 75% of works for eligible households.",
+      "section2Title": "Eligible works and amounts",
+      "section2P1": "Main items (2025-2026 schedule, base amounts excluding social Topup): roof/attic insulation up to €55/m²; external wall insulation up to €110/m²; floor/cellar insulation up to €55/m²; triple-glazed windows up to €150/m² of glazed area; air-to-water or geothermal heat pump €6,000 to €12,000; dual-flow ventilation with heat recovery €3,000 to €5,000; photovoltaic installation €500/kWp (max 20 kWp); EV charging station up to €1,200.",
+      "section2P2": "For deep renovations targeting energy class A or B (jump from G/F to A/B), an energy renovation bonus increases subsidies by 25 to 50% depending on the class jump. A 25% bonus is granted if the dwelling is rented at a social or affordable rent. The 2026 social Topup (income ≤ €60,000) increases up to 150% of the base amount and can stack with the other bonuses.",
+      "section3Title": "Procedure and EPC",
+      "section3P1": "The procedure starts with a free energy audit by myenergy (neutral advice subsidised up to €1,500). A pre-works Energy Performance Certificate (EPC) is then produced by an approved energy adviser. The EPC classes the building from A (very efficient) to I (very energy-intensive) by primary energy demand and thermal insulation of the envelope.",
+      "section3P2": "An agreement-in-principle request is filed on myenergy.lu with the works quote and EPC. Once works are done (within 4 years), a new post-works EPC must show an improvement of at least 2 energy classes (or A/B class achieved). The final dossier with paid invoices triggers the subsidy payment by bank transfer.",
+      "section4Title": "Examples of aid stacking",
+      "section4Intro": "For a deep renovation of an older single-family house (class G → class A), here are the orders of magnitude of stackable aids in 2026.",
+      "table": {
+        "caption": "Klimabonus aid stacking 2026 — worked examples",
+        "headers": ["Item", "Cost excl. VAT", "PRIMe House base", "Social Topup (≤ €60k)"],
+        "rows": [
+          ["Roof insulation (200 m²)", "€20,000", "€11,000", "€16,500"],
+          ["Wall insulation (150 m²)", "€30,000", "€16,500", "€24,750"],
+          ["Triple-glazed windows (30 m²)", "€18,000", "€4,500", "€6,750"],
+          ["Geothermal heat pump", "€30,000", "€12,000", "€18,000"],
+          ["10 kWp photovoltaic", "€20,000", "€5,000", "€5,000"]
+        ],
+        "footnote": "Total deep renovation project: ~€118,000 excl. VAT, of which €49,000 to €71,000 of PRIMe House subsidies. Add: 3% VAT saving (~€16,500) and effective 0% Klimaprêt up to €50,000."
+      },
+      "callout3Title": "Real out-of-pocket cost after aids",
+      "callout3Body": "For the table's deep renovation (€118,000 excl. VAT, social Topup household), the stack gives: €71,000 PRIMe House + €16,500 VAT 3% saving = €87,500 in direct aids. Remaining to finance: €30,500, fundable by effective 0% Klimaprêt over 15 years (~€170 monthly). I.e., less than 30% of total cost actually borne by the household.",
+      "inlineCalc": {
+        "title": "Simulate your Klimabonus aids in a few clicks",
+        "description": "Our acquisition / renovation aids simulator computes the PRIMe House + social Topup + 3% VAT + Klimaprêt stack based on your situation and works detail.",
+        "cta": "Run the simulation"
+      },
+      "tools": [
+        { "href": "/simulateur-aides", "title": "Renovation aids simulator", "description": "PRIMe House, social Topup, 3% VAT, Klimaprêt — automated stack." },
+        { "href": "/energy", "title": "tevaxia Energy module", "description": "Valuation impact, renovation ROI, energy community, EPBD/CPE." },
+        { "href": "/energy/cpe", "title": "EPC diagnostic", "description": "Preliminary energy class estimate before official audit." },
+        { "href": "/vefa", "title": "VEFA simulator", "description": "For new-build buyers already in class A/B." }
+      ],
+      "faq": [
+        { "q": "Can Klimabonus subsidies be combined with 3% VAT?", "a": "Yes. PRIMe House / Klimabonus subsidies are fully combinable with 3% housing VAT and the effective 0% Klimaprêt. It is one of Europe's most advantageous schemes for energy renovation." },
+        { "q": "How much can you get for installing a heat pump in Luxembourg?", "a": "PRIMe House aid for an air-to-water or geothermal HP ranges from €6,000 to €12,000 depending on type and capacity. With the 2026 social Topup (income ≤ €60,000), it can reach €18,000. Add 3% housing VAT and 0% Klimaprêt." },
+        { "q": "What is the 2026 social Topup?", "a": "An increase up to 150% of the base PRIMe House amount for households whose annual taxable income does not exceed €60,000. It aims to make energy renovation accessible to low-income households. Stackable with other bonuses (social rent, deep renovation)." },
+        { "q": "Is an energy audit required to benefit from Klimabonus?", "a": "The free audit by a myenergy adviser is not strictly mandatory but strongly recommended. The EPC by an approved adviser (before and after works) is mandatory for subsidies, and energy improvement must reach at least 2 classes or class A/B." },
+        { "q": "Does Klimaprêt replace PRIMe House?", "a": "No, they are two complementary schemes. PRIMe House = capital grants paid after works. Klimaprêt = 1.5% bank loan with State subsidy bringing the effective cost to 0% for the household. You can and should stack them." },
+        { "q": "Can co-ownerships benefit from Klimabonus?", "a": "Yes. A co-ownership can apply for Klimabonus on works voted at the GM on common parts (roof, facade, collective heating). Each co-owner benefits from the share proportional to their tantièmes. The syndic can also request a Klimaprêt on behalf of the association." }
+      ],
+      "sources": [
+        { "title": "Klimabonus — official myenergy portal", "org": "myenergy / Ministry of the Environment", "url": "https://www.myenergy.lu/" },
+        { "title": "PRIMe House — procedure", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-construction-renovation/aides-amelioration.html" },
+        { "title": "Klimaprêt — procedure", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-financieres/klimapret.html" },
+        { "title": "Modified law of 23 December 2016 — sustainable housing aids", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2016/12/23/n3/jo", "year": 2016 },
+        { "title": "Energy Performance Certificate (EPC)", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/economie-energie/certificat-performance-energetique.html" }
+      ]
     },
     "estimation": {
       "title": "How to Estimate the Value of a Property in Luxembourg?",

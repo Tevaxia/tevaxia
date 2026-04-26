@@ -9491,21 +9491,70 @@
       ]
     },
     "klimabonus": {
-      "title": "Quelles sont les aides Klimabonus pour la rénovation énergétique ?",
-      "metaDescription": "Aides Klimabonus Luxembourg : PRIMe House, subventions isolation/fenêtres/PAC/PV, montants, conditions CPE, cumul TVA 3 %, Klimaprêt taux zéro.",
-      "intro": "Le Luxembourg offre un ensemble généreux de subventions pour encourager la rénovation énergétique des logements existants et la construction durable. Le programme PRIMe House, remanié en 2024 sous l'appellation « Klimabonus », couvre l'isolation thermique, le remplacement des fenêtres, l'installation de pompes à chaleur (PAC), de panneaux photovoltaïques (PV) et de bornes de recharge. Ces aides sont cumulables avec la TVA à 3 % sur les travaux de rénovation et le Klimaprêt à taux zéro. Voici le détail des montants, conditions et démarches.",
-      "section1Title": "PRIMe House : subventions par poste de travaux",
-      "section1Content": "Les subventions PRIMe House / Klimabonus sont accordées par le Ministère de l'Environnement, du Climat et du Développement durable via myenergy. Principaux montants (barème 2024-2025) : isolation toiture/combles jusqu'à 55 €/m² ; isolation murs extérieurs jusqu'à 110 €/m² ; isolation dalle/cave jusqu'à 55 €/m² ; remplacement fenêtres triple vitrage jusqu'à 150 €/m² de surface vitrée ; pompe à chaleur air-eau/géothermique 6 000 à 12 000 € ; installation photovoltaïque 500 €/kWc (max 20 kWc) ; ventilation double flux avec récupération de chaleur 3 000 à 5 000 €. Les montants exacts dépendent de la performance atteinte (amélioration de la classe CPE) et peuvent être majorés en fonction de critères sociaux. Une bonification de 25 % est accordée si le logement est loué à un loyer social.",
-      "section2Title": "Conditions : le certificat de performance énergétique (CPE)",
-      "section2Content": "Pour bénéficier des aides Klimabonus, un certificat de performance énergétique (CPE) doit être réalisé avant et après les travaux par un conseiller en énergie agréé. Le CPE classe le bâtiment de A (très performant) à I (très énergivore) selon deux axes : besoin en énergie primaire (kWh/m²/an) et isolation thermique de l'enveloppe. Les subventions sont conditionnées à une amélioration d'au moins 2 classes CPE (ex. : passer de F à D). Pour les rénovations profondes visant la classe A ou B, des montants majorés sont prévus. Le CPE avant travaux ne doit pas dater de plus de 2 ans. L'audit énergétique lui-même est subventionné par myenergy (conseil gratuit). Les travaux doivent être réalisés par des entreprises établies au Luxembourg ou dans l'UE, et les factures doivent être acquittées dans les 4 ans suivant l'accord de principe.",
-      "section3Title": "Cumul avec la TVA à 3 % et le Klimaprêt",
-      "section3Content": "Les aides Klimabonus sont cumulables avec le taux de TVA super-réduit de 3 % applicable aux travaux de rénovation et de transformation de logements au Luxembourg (application limitée à un plafond de 50 000 € de TVA par logement). Elles sont également cumulables avec le Klimaprêt, un prêt à taux zéro accordé par les banques partenaires (BCEE, BIL, Raiffeisen, etc.) pour financer les travaux de rénovation énergétique. Le montant du Klimaprêt peut atteindre 50 000 € remboursable sur 15 ans maximum, sans intérêts (l'État prend en charge la bonification). Pour en bénéficier, les travaux doivent figurer dans le devis validé par myenergy et concerner une amélioration effective de la performance énergétique. Au total, un propriétaire qui rénove un logement ancien de classe G vers classe B peut cumuler 30 000 à 50 000 € de subventions PRIMe House, la TVA réduite (économie de 10 000 à 20 000 €) et un Klimaprêt à 0 %, réduisant considérablement le reste à charge.",
-      "relatedToolLabel": "Simuler vos aides à la rénovation",
-      "relatedToolLink": "/simulateur-aides",
-      "faq1Q": "Les aides Klimabonus sont-elles cumulables avec la TVA à 3 % ?",
-      "faq1A": "Oui, les subventions PRIMe House / Klimabonus sont intégralement cumulables avec la TVA à 3 % sur les travaux de rénovation et avec le Klimaprêt à taux zéro. C'est l'un des dispositifs les plus avantageux d'Europe pour la rénovation énergétique.",
-      "faq2Q": "Combien peut-on obtenir pour l'installation d'une pompe à chaleur au Luxembourg ?",
-      "faq2A": "L'aide pour l'installation d'une pompe à chaleur (air-eau ou géothermique) varie de 6 000 à 12 000 € selon le type et la puissance, dans le cadre du programme PRIMe House / Klimabonus. Ce montant peut être majoré de 25 % si le logement est loué à un loyer social. S'y ajoute le bénéfice de la TVA à 3 % et du Klimaprêt à taux zéro."
+      "title": "Klimabonus 2026 : aides à la rénovation énergétique au Luxembourg",
+      "metaDescription": "Klimabonus 2026 LU : subventions PRIMe House (isolation, PAC, PV, fenêtres), Topup social 150 %, audit énergétique gratuit, Klimaprêt taux zéro, cumul TVA 3 %, montants par poste.",
+      "subtitle": "Le panorama complet des aides à la rénovation énergétique au Luxembourg : montants, conditions, audit, Klimaprêt et cumuls possibles en 2026.",
+      "category": "Énergie & rénovation",
+      "essentiel": [
+        "Klimabonus = ensemble des aides PRIMe House (subventions en capital) + Klimaprêt (prêt à taux 0 %) + audit énergétique conseillé gratuit.",
+        "Topup social 2026 : majoration jusqu'à 150 % du montant de base si revenu imposable annuel ≤ 60 000 €.",
+        "Plafond global indicatif : jusqu'à 75 % des travaux éligibles cumulés (avec Topup social).",
+        "Conseil énergétique gratuit (myenergy) puis CPE par un conseiller agréé : avant + après travaux.",
+        "Cumulable avec la TVA logement à 3 % et le Klimaprêt 1,5 % (jusqu'à 50 000 € sans intérêts pris en charge par l'État)."
+      ],
+      "section1Title": "Principe et architecture du dispositif",
+      "section1P1": "Le Klimabonus est le programme luxembourgeois d'aides à la rénovation énergétique, géré par le Ministère de l'Environnement via myenergy. Il regroupe trois leviers complémentaires : les subventions en capital PRIMe House (versées après travaux), le Klimaprêt (prêt bancaire à 1,5 %, l'État prenant en charge la bonification pour atteindre 0 % effectif pour le ménage), et l'audit énergétique réalisé par un conseiller agréé pour orienter le projet (subventionné jusqu'à 1 500 €).",
+      "section1P2": "Le programme s'applique aux logements existants au Luxembourg, qu'ils soient occupés par leur propriétaire ou loués. Les travaux doivent être réalisés par des entreprises établies au Luxembourg ou dans l'UE, et les factures doivent être acquittées dans les 4 ans suivant l'accord de principe. Une réforme 2026 a introduit un Topup social pour les ménages à revenus modestes, qui peut majorer le montant de l'aide jusqu'à 150 % du montant de base.",
+      "callout1Title": "Topup social 2026",
+      "callout1Body": "Si le revenu imposable annuel du ménage ne dépasse pas 60 000 €, l'aide PRIMe House est majorée à 150 % du montant de base. Combinée avec la TVA logement à 3 % et le Klimaprêt à 0 %, l'aide totale peut couvrir jusqu'à 75 % du coût des travaux pour les ménages éligibles.",
+      "section2Title": "Travaux éligibles et montants",
+      "section2P1": "Principaux postes (barème 2025-2026, montants de base, hors Topup social) : isolation toiture/combles jusqu'à 55 €/m² ; isolation murs extérieurs jusqu'à 110 €/m² ; isolation dalle/cave jusqu'à 55 €/m² ; fenêtres triple vitrage jusqu'à 150 €/m² de surface vitrée ; pompe à chaleur air-eau ou géothermique 6 000 à 12 000 € ; ventilation double flux avec récupération de chaleur 3 000 à 5 000 € ; installation photovoltaïque 500 €/kWc (max 20 kWc) ; borne de recharge véhicule électrique jusqu'à 1 200 €.",
+      "section2P2": "Pour les rénovations profondes visant la classe énergétique A ou B (passage de classes G/F à A/B), un bonus rénovation énergétique majore les subventions de 25 à 50 % selon le saut de classes. Une bonification de 25 % est accordée si le logement est loué à un loyer social ou abordable. Le Topup social 2026 (revenu ≤ 60 000 €) majore jusqu'à 150 % du montant de base et peut se cumuler avec les autres bonifications.",
+      "section3Title": "Démarche et CPE",
+      "section3P1": "La procédure démarre par un audit énergétique gratuit par myenergy (conseil neutre subventionné jusqu'à 1 500 €). Un certificat de performance énergétique (CPE) avant travaux est ensuite établi par un conseiller énergie agréé. Le CPE classe le bâtiment de A (très performant) à I (très énergivore) selon le besoin en énergie primaire et l'isolation thermique de l'enveloppe.",
+      "section3P2": "Une demande d'accord de principe est déposée sur myenergy.lu avec le devis des travaux et le CPE. Une fois les travaux réalisés (sous 4 ans), un nouveau CPE après travaux doit montrer une amélioration d'au moins 2 classes énergétiques (ou atteinte de classe A/B). Le dossier final avec factures acquittées déclenche le versement des subventions par virement bancaire.",
+      "section4Title": "Exemples de cumul d'aides",
+      "section4Intro": "Pour une rénovation profonde d'une maison individuelle ancienne (classe G → classe A), voici les ordres de grandeur des aides cumulables en 2026.",
+      "table": {
+        "caption": "Cumul d'aides Klimabonus 2026 — exemples chiffrés",
+        "headers": ["Poste", "Coût HT", "PRIMe House base", "Topup social (≤ 60k €)"],
+        "rows": [
+          ["Isolation toiture (200 m²)", "20 000 €", "11 000 €", "16 500 €"],
+          ["Isolation murs (150 m²)", "30 000 €", "16 500 €", "24 750 €"],
+          ["Fenêtres triple vitrage (30 m²)", "18 000 €", "4 500 €", "6 750 €"],
+          ["PAC géothermique", "30 000 €", "12 000 €", "18 000 €"],
+          ["Photovoltaïque 10 kWc", "20 000 €", "5 000 €", "5 000 €"]
+        ],
+        "footnote": "Total projet rénovation profonde : ~118 000 € HT, dont 49 000 € à 71 000 € de subventions PRIMe House. À ajouter : économie TVA 3 % (~16 500 €) et Klimaprêt à 0 % effectif jusqu'à 50 000 €."
+      },
+      "callout3Title": "Reste à charge réel après aides",
+      "callout3Body": "Pour la rénovation profonde du tableau (118 000 € HT, ménage Topup social), le cumul donne : 71 000 € PRIMe House + 16 500 € économie TVA 3 % = 87 500 € d'aides directes. Reste à financer : 30 500 €, finançables par Klimaprêt à 0 % effectif sur 15 ans (mensualité ~170 €). Soit moins de 30 % du coût total à la charge réelle du ménage.",
+      "inlineCalc": {
+        "title": "Simulez vos aides Klimabonus en quelques clics",
+        "description": "Notre simulateur d'aides à l'acquisition / rénovation calcule le cumul PRIMe House + Topup social + TVA 3 % + Klimaprêt selon votre situation et le détail de vos travaux.",
+        "cta": "Lancer la simulation"
+      },
+      "tools": [
+        { "href": "/simulateur-aides", "title": "Simulateur d'aides rénovation", "description": "PRIMe House, Topup social, TVA 3 %, Klimaprêt — cumul automatisé." },
+        { "href": "/energy", "title": "Module Énergie tevaxia", "description": "Impact valorisation, ROI rénovation, communauté énergétique, EPBD/CPE." },
+        { "href": "/energy/cpe", "title": "Diagnostic CPE", "description": "Estimation préalable de la classe énergétique avant audit officiel." },
+        { "href": "/vefa", "title": "Simulateur VEFA", "description": "Pour les acquéreurs de bien neuf déjà classe A/B." }
+      ],
+      "faq": [
+        { "q": "Les aides Klimabonus sont-elles cumulables avec la TVA à 3 % ?", "a": "Oui. Les subventions PRIMe House / Klimabonus sont intégralement cumulables avec la TVA logement à 3 % et avec le Klimaprêt à 0 % effectif. C'est l'un des dispositifs les plus avantageux d'Europe pour la rénovation énergétique." },
+        { "q": "Combien peut-on obtenir pour l'installation d'une pompe à chaleur au Luxembourg ?", "a": "L'aide PRIMe House pour une PAC air-eau ou géothermique varie de 6 000 à 12 000 € selon le type et la puissance. Avec le Topup social 2026 (revenu ≤ 60 000 €), elle peut atteindre 18 000 €. S'y ajoute la TVA logement 3 % et le Klimaprêt à 0 %." },
+        { "q": "Qu'est-ce que le Topup social 2026 ?", "a": "Une majoration jusqu'à 150 % du montant de base PRIMe House pour les ménages dont le revenu imposable annuel ne dépasse pas 60 000 €. Il vise à rendre la rénovation énergétique accessible aux foyers modestes. Cumulable avec les autres bonifications (loyer social, rénovation profonde)." },
+        { "q": "Faut-il un audit énergétique pour bénéficier du Klimabonus ?", "a": "L'audit gratuit par un conseiller myenergy n'est pas strictement obligatoire mais fortement recommandé. Le CPE par un conseiller agréé (avant et après travaux) est obligatoire pour les subventions, et l'amélioration énergétique doit atteindre au moins 2 classes ou classe A/B." },
+        { "q": "Le Klimaprêt remplace-t-il le PRIMe House ?", "a": "Non, ce sont deux dispositifs complémentaires. PRIMe House = subventions en capital versées après travaux. Klimaprêt = prêt bancaire à 1,5 % avec bonification d'État portant le coût effectif à 0 % pour le ménage. Vous pouvez et devez les cumuler." },
+        { "q": "Les copropriétés peuvent-elles bénéficier du Klimabonus ?", "a": "Oui. Une copropriété peut faire une demande Klimabonus pour les travaux votés en AG sur les parties communes (toiture, façade, chaufferie collective). Chaque copropriétaire bénéficie de la quote-part proportionnelle aux tantièmes. Le syndic peut aussi solliciter le Klimaprêt pour le compte du syndicat." }
+      ],
+      "sources": [
+        { "title": "Klimabonus — portail officiel myenergy", "org": "myenergy / Ministère de l'Environnement", "url": "https://www.myenergy.lu/" },
+        { "title": "PRIMe House — démarche", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-construction-renovation/aides-amelioration.html" },
+        { "title": "Klimaprêt — démarche", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-financieres/klimapret.html" },
+        { "title": "Loi modifiée du 23 décembre 2016 — aides logement durable", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2016/12/23/n3/jo", "year": 2016 },
+        { "title": "Certificat de performance énergétique (CPE)", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/economie-energie/certificat-performance-energetique.html" }
+      ]
     },
     "estimation": {
       "title": "Comment estimer la valeur d'un bien immobilier au Luxembourg ?",

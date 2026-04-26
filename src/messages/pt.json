@@ -9369,21 +9369,70 @@
       ]
     },
     "klimabonus": {
-      "title": "Quais são as ajudas Klimabonus para a renovação energética?",
-      "metaDescription": "Ajudas Klimabonus Luxemburgo: PRIMe House, subsídios isolamento/janelas/bomba de calor/PV, montantes, condições CPE, combinação IVA 3%, Klimaprêt taxa zero.",
-      "intro": "O Luxemburgo oferece um conjunto generoso de subsídios para incentivar a renovação energética de habitações existentes e a construção sustentável. O programa PRIMe House, remodelado em 2024 sob a designação 'Klimabonus', cobre o isolamento térmico, a substituição de janelas, a instalação de bombas de calor (BC), painéis fotovoltaicos (PV) e postos de carregamento. Estas ajudas são cumuláveis com o IVA a 3% sobre obras de renovação e o Klimaprêt a taxa zero. Eis o detalhe dos montantes, condições e procedimentos.",
-      "section1Title": "PRIMe House: subsídios por categoria de obras",
-      "section1Content": "Os subsídios PRIMe House / Klimabonus são concedidos pelo Ministério do Ambiente, Clima e Desenvolvimento Sustentável via myenergy. Montantes principais (tabela 2024-2025): isolamento telhado/sótão até 55 EUR/m²; isolamento paredes exteriores até 110 EUR/m²; isolamento laje/cave até 55 EUR/m²; substituição janelas triplas até 150 EUR/m² de superfície envidraçada; bomba de calor ar-água/geotérmica 6.000 a 12.000 EUR; instalação fotovoltaica 500 EUR/kWp (máx. 20 kWp); ventilação duplo fluxo com recuperação de calor 3.000 a 5.000 EUR. Os montantes exatos dependem do desempenho alcançado (melhoria da classe CPE) e podem ser majorados segundo critérios sociais. Uma bonificação de 25% é concedida se a habitação for arrendada a renda social.",
-      "section2Title": "Condições: o Certificado de Desempenho Energético (CPE)",
-      "section2Content": "Para beneficiar das ajudas Klimabonus, um Certificado de Desempenho Energético (CPE) deve ser realizado antes e depois das obras por um consultor energético aprovado. O CPE classifica o edifício de A (muito eficiente) a I (muito energívoro) segundo dois eixos: necessidade de energia primária (kWh/m²/ano) e isolamento térmico da envolvente. Os subsídios estão condicionados a uma melhoria de pelo menos 2 classes CPE (ex.: passar de F a D). Para renovações profundas visando a classe A ou B, estão previstos montantes majorados. O CPE antes das obras não deve ter mais de 2 anos. A auditoria energética em si é subsidiada pela myenergy (aconselhamento gratuito). As obras devem ser realizadas por empresas estabelecidas no Luxemburgo ou na UE, e as faturas devem ser liquidadas nos 4 anos seguintes ao acordo de princípio.",
-      "section3Title": "Acumulação com IVA a 3% e Klimaprêt",
-      "section3Content": "As ajudas Klimabonus são cumuláveis com a taxa de IVA super-reduzida de 3% aplicável a obras de renovação e transformação de habitações no Luxemburgo (limitada a um teto de 50.000 EUR de IVA por habitação). São igualmente cumuláveis com o Klimaprêt, um empréstimo a taxa zero concedido por bancos parceiros (BCEE, BIL, Raiffeisen, etc.) para financiar obras de renovação energética. O montante do Klimaprêt pode atingir 50.000 EUR reembolsável em máximo 15 anos, sem juros (o Estado assume a bonificação de juros). Para beneficiar, as obras devem constar do orçamento validado pela myenergy e referir-se a uma melhoria efetiva do desempenho energético. No total, um proprietário que renove uma habitação antiga de classe G para classe B pode acumular 30.000 a 50.000 EUR de subsídios PRIMe House, o IVA reduzido (poupança de 10.000 a 20.000 EUR) e um Klimaprêt a 0%, reduzindo consideravelmente o custo remanescente.",
-      "relatedToolLabel": "Simule as suas ajudas à renovação",
-      "relatedToolLink": "/simulateur-aides",
-      "faq1Q": "As ajudas Klimabonus são cumuláveis com o IVA a 3%?",
-      "faq1A": "Sim, os subsídios PRIMe House / Klimabonus são integralmente cumuláveis com o IVA a 3% sobre obras de renovação e com o Klimaprêt a taxa zero. É um dos dispositivos mais vantajosos da Europa para renovação energética.",
-      "faq2Q": "Quanto se pode obter para instalar uma bomba de calor no Luxemburgo?",
-      "faq2A": "O subsídio para instalação de uma bomba de calor (ar-água ou geotérmica) varia de 6.000 a 12.000 EUR segundo o tipo e a potência, no âmbito do programa PRIMe House / Klimabonus. Este montante pode ser majorado em 25% se a habitação for arrendada a renda social. Acresce o benefício do IVA a 3% e do Klimaprêt a taxa zero."
+      "title": "Klimabonus 2026: ajudas à renovação energética no Luxemburgo",
+      "metaDescription": "Klimabonus 2026 LU: subsídios PRIMe House (isolamento, BC, PV, janelas), Topup social 150%, auditoria energética gratuita, Klimaprêt taxa zero, cumulação IVA 3%, montantes por item.",
+      "subtitle": "Panorama completo das ajudas à renovação energética no Luxemburgo: montantes, condições, auditoria, Klimaprêt e cumulações possíveis em 2026.",
+      "category": "Energia & renovação",
+      "essentiel": [
+        "Klimabonus = conjunto das ajudas PRIMe House (subsídios em capital) + Klimaprêt (empréstimo a taxa 0%) + auditoria energética gratuita aconselhada.",
+        "Topup social 2026: majoração até 150% do montante de base se rendimento tributável anual ≤ 60 000 €.",
+        "Limite global indicativo: até 75% das obras elegíveis cumuladas (com Topup social).",
+        "Aconselhamento energético gratuito (myenergy) e depois CPE por consultor aprovado: antes + depois das obras.",
+        "Cumulável com IVA habitação 3% e Klimaprêt 1,5% (até 50 000 € sem juros suportados pelo Estado)."
+      ],
+      "section1Title": "Princípio e arquitetura do dispositivo",
+      "section1P1": "O Klimabonus é o programa luxemburguês de ajudas à renovação energética, gerido pelo Ministério do Ambiente via myenergy. Reúne três alavancas complementares: subsídios em capital PRIMe House (pagos após obras), Klimaprêt (empréstimo bancário a 1,5%, com o Estado a assumir a bonificação para atingir 0% efetivo para o agregado familiar) e auditoria energética por consultor aprovado para orientar o projeto (subsidiada até 1 500 €).",
+      "section1P2": "O programa aplica-se a habitações existentes no Luxemburgo, ocupadas pelo proprietário ou arrendadas. As obras devem ser realizadas por empresas estabelecidas no Luxemburgo ou na UE, e as faturas pagas nos 4 anos seguintes ao acordo de princípio. Uma reforma de 2026 introduziu um Topup social para agregados de baixos rendimentos, que pode majorar o apoio até 150% do montante de base.",
+      "callout1Title": "Topup social 2026",
+      "callout1Body": "Se o rendimento tributável anual do agregado não exceder 60 000 €, a ajuda PRIMe House é majorada para 150% do montante de base. Combinada com o IVA habitação 3% e o Klimaprêt a 0%, a ajuda total pode cobrir até 75% do custo das obras para os agregados elegíveis.",
+      "section2Title": "Obras elegíveis e montantes",
+      "section2P1": "Principais itens (tabela 2025-2026, montantes de base sem Topup social): isolamento telhado/sótão até 55 €/m²; isolamento paredes exteriores até 110 €/m²; isolamento laje/cave até 55 €/m²; janelas triplas até 150 €/m² de área envidraçada; bomba de calor ar-água ou geotérmica 6 000 a 12 000 €; ventilação duplo fluxo com recuperação de calor 3 000 a 5 000 €; instalação fotovoltaica 500 €/kWp (máx 20 kWp); posto de carregamento VE até 1 200 €.",
+      "section2P2": "Para renovações profundas visando classe A ou B (salto de G/F para A/B), um bónus renovação energética majora os subsídios em 25 a 50% conforme o salto de classes. Bonificação de 25% se a habitação for arrendada a renda social ou acessível. O Topup social 2026 (rendimento ≤ 60 000 €) majora até 150% do montante de base e cumula com as outras bonificações.",
+      "section3Title": "Procedimento e CPE",
+      "section3P1": "O processo começa por uma auditoria energética gratuita pela myenergy (aconselhamento neutro subsidiado até 1 500 €). Em seguida, é elaborado um Certificado de Desempenho Energético (CPE) antes das obras por um consultor aprovado. O CPE classifica o edifício de A (muito eficiente) a I (muito energívoro) segundo a necessidade de energia primária e o isolamento térmico da envolvente.",
+      "section3P2": "É feito um pedido de acordo de princípio em myenergy.lu com o orçamento das obras e o CPE. Uma vez realizadas as obras (em 4 anos), um novo CPE pós-obras deve mostrar uma melhoria de pelo menos 2 classes energéticas (ou alcance da classe A/B). O dossier final com as faturas pagas desencadeia o pagamento dos subsídios por transferência bancária.",
+      "section4Title": "Exemplos de cumulação de ajudas",
+      "section4Intro": "Para uma renovação profunda de uma moradia unifamiliar antiga (classe G → classe A), eis as ordens de grandeza das ajudas cumuláveis em 2026.",
+      "table": {
+        "caption": "Cumulação de ajudas Klimabonus 2026 — exemplos calculados",
+        "headers": ["Item", "Custo s/ IVA", "PRIMe House base", "Topup social (≤ 60k €)"],
+        "rows": [
+          ["Isolamento telhado (200 m²)", "20 000 €", "11 000 €", "16 500 €"],
+          ["Isolamento paredes (150 m²)", "30 000 €", "16 500 €", "24 750 €"],
+          ["Janelas triplas (30 m²)", "18 000 €", "4 500 €", "6 750 €"],
+          ["BC geotérmica", "30 000 €", "12 000 €", "18 000 €"],
+          ["Fotovoltaico 10 kWp", "20 000 €", "5 000 €", "5 000 €"]
+        ],
+        "footnote": "Total projeto renovação profunda: ~118 000 € sem IVA, dos quais 49 000 a 71 000 € de subsídios PRIMe House. Acrescentar: poupança IVA 3% (~16 500 €) e Klimaprêt a 0% efetivo até 50 000 €."
+      },
+      "callout3Title": "Custo real residual após ajudas",
+      "callout3Body": "Para a renovação profunda do quadro (118 000 € s/IVA, agregado Topup social), a cumulação dá: 71 000 € PRIMe House + 16 500 € poupança IVA 3% = 87 500 € de ajudas diretas. Resta financiar: 30 500 €, financiáveis por Klimaprêt a 0% efetivo a 15 anos (prestação ~170 €). Ou seja, menos de 30% do custo total efetivamente a cargo do agregado.",
+      "inlineCalc": {
+        "title": "Simule as suas ajudas Klimabonus em alguns cliques",
+        "description": "O nosso simulador de apoios à aquisição/renovação calcula a cumulação PRIMe House + Topup social + IVA 3% + Klimaprêt segundo a sua situação e o detalhe das suas obras.",
+        "cta": "Iniciar a simulação"
+      },
+      "tools": [
+        { "href": "/simulateur-aides", "title": "Simulador de apoios à renovação", "description": "PRIMe House, Topup social, IVA 3%, Klimaprêt — cumulação automatizada." },
+        { "href": "/energy", "title": "Módulo Energia tevaxia", "description": "Impacto na valorização, ROI da renovação, comunidade energética, EPBD/CPE." },
+        { "href": "/energy/cpe", "title": "Diagnóstico CPE", "description": "Estimativa preliminar da classe energética antes da auditoria oficial." },
+        { "href": "/vefa", "title": "Simulador VEFA", "description": "Para compradores de imóveis novos já em classe A/B." }
+      ],
+      "faq": [
+        { "q": "As ajudas Klimabonus são cumuláveis com o IVA a 3%?", "a": "Sim. Os subsídios PRIMe House / Klimabonus são integralmente cumuláveis com o IVA habitação 3% e com o Klimaprêt a 0% efetivo. É um dos dispositivos mais vantajosos da Europa para renovação energética." },
+        { "q": "Quanto se pode obter para instalar uma bomba de calor no Luxemburgo?", "a": "A ajuda PRIMe House para uma BC ar-água ou geotérmica varia de 6 000 a 12 000 € consoante o tipo e a potência. Com o Topup social 2026 (rendimento ≤ 60 000 €) pode atingir 18 000 €. Acresce o IVA habitação 3% e o Klimaprêt a 0%." },
+        { "q": "O que é o Topup social 2026?", "a": "Uma majoração até 150% do montante de base PRIMe House para agregados com rendimento tributável anual ≤ 60 000 €. Visa tornar a renovação energética acessível aos agregados modestos. Cumulável com as outras bonificações (renda social, renovação profunda)." },
+        { "q": "É necessária uma auditoria energética para beneficiar do Klimabonus?", "a": "A auditoria gratuita por consultor myenergy não é estritamente obrigatória mas fortemente recomendada. O CPE por consultor aprovado (antes e depois das obras) é obrigatório para os subsídios, e a melhoria energética deve atingir pelo menos 2 classes ou classe A/B." },
+        { "q": "O Klimaprêt substitui o PRIMe House?", "a": "Não, são dois dispositivos complementares. PRIMe House = subsídios em capital pagos após obras. Klimaprêt = empréstimo bancário a 1,5% com bonificação do Estado levando o custo efetivo a 0% para o agregado. Pode e deve cumulá-los." },
+        { "q": "Os condomínios podem beneficiar do Klimabonus?", "a": "Sim. Um condomínio pode pedir Klimabonus para obras votadas em AG nas partes comuns (telhado, fachada, central de aquecimento). Cada condómino beneficia da quota-parte proporcional aos seus milésimos. O síndico pode também solicitar o Klimaprêt em nome do sindicato." }
+      ],
+      "sources": [
+        { "title": "Klimabonus — portal oficial myenergy", "org": "myenergy / Ministério do Ambiente", "url": "https://www.myenergy.lu/" },
+        { "title": "PRIMe House — procedimento", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-construction-renovation/aides-amelioration.html" },
+        { "title": "Klimaprêt — procedimento", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/aides-construction-renovation/aides-financieres/klimapret.html" },
+        { "title": "Lei modificada de 23 de dezembro de 2016 — apoios à habitação sustentável", "org": "Legilux", "url": "https://legilux.public.lu/eli/etat/leg/loi/2016/12/23/n3/jo", "year": 2016 },
+        { "title": "Certificado de Desempenho Energético (CPE)", "org": "Guichet.lu", "url": "https://guichet.public.lu/fr/citoyens/logement/proprietaire/economie-energie/certificat-performance-energetique.html" }
+      ]
     },
     "estimation": {
       "title": "Como estimar o valor de um imóvel no Luxemburgo?",
