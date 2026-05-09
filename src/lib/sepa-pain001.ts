@@ -78,7 +78,7 @@ export function buildPain001Xml(config: SepaBatchConfig): string {
   const batchBooking = config.batch_booking ?? false;
   const paymentInfoId = truncate(`${config.message_id}-PI1`, 35);
 
-  const paymentLines = config.payments.map((p, idx) => {
+  const paymentLines = config.payments.map((p, _idx) => {
     const bicLine = p.creditor_bic
       ? `          <CdtrAgt>
             <FinInstnId>

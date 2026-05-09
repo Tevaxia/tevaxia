@@ -109,6 +109,7 @@ export default function AgentPerformancePage() {
     setLoading(false);
   }, [user, year]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (!authLoading && user) void reload(); }, [user, authLoading, reload]);
 
   const totals = useMemo(() => ({

@@ -22,6 +22,7 @@ export default function HistoriquePage() {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     if (authLoading || !user) { if (!authLoading) setLoading(false); return; }
     (async () => {
       setLoading(true);

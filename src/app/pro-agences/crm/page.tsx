@@ -163,6 +163,7 @@ export default function CrmDashboardPage() {
           ) : (
             <ul className="space-y-2">
               {upcomingTasks.slice(0, 6).map((task) => {
+                // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render
                 const daysLeft = task.due_at ? Math.ceil((new Date(task.due_at).getTime() - Date.now()) / (1000 * 60 * 60 * 24)) : null;
                 return (
                   <li key={task.id} className="flex items-start gap-2 rounded border border-card-border/50 bg-background p-2 text-xs">

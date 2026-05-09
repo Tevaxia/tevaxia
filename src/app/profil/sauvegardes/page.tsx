@@ -28,6 +28,7 @@ export default function SauvegardesPage() {
     if (!user) return;
     lastBackupPerModule().then(setLastByModule).catch(() => setLastByModule({}));
     listBackups(20).then(setHistory).catch(() => setHistory([]));
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     setFreqs(getReminderSettings());
   }, [user, refreshTick]);
 

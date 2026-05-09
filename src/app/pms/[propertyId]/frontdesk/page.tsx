@@ -25,6 +25,7 @@ export default function FrontdeskPage(props: { params: Promise<{ propertyId: str
   const [search, setSearch] = useState("");
 
   const today = new Date().toISOString().slice(0, 10);
+  // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render
   const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
 
   const reload = useCallback(async () => {

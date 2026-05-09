@@ -7,7 +7,7 @@ import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
 import { formatEUR, formatPct } from "@/lib/calculations";
-import { calculerRentabiliteSTR, OTA_COMMISSION, STR_DEFAULT_COSTS, STR_MAX_MARGINAL_TAX_RATE } from "@/lib/str-calc";
+import { calculerRentabiliteSTR, OTA_COMMISSION, STR_DEFAULT_COSTS } from "@/lib/str-calc";
 import SaveButton from "@/components/SaveButton";
 import { sauvegarderEvaluation } from "@/lib/storage";
 

@@ -52,6 +52,7 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
     setLoading(false);
   }, [token, t]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { void reload(); }, [reload]);
 
   const handleSign = async () => {

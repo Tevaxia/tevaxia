@@ -8,7 +8,7 @@ import {
   ASSET_TYPE_LABELS, LU_ENERGY_SOURCE_LABELS, EPBD_DEADLINES,
   type CrremAssetType, type LuEnergySource, type AssetInput, type StrandingResult,
 } from "@/lib/crrem";
-import { formatEUR } from "@/lib/calculations";
+
 import {
   ResponsiveContainer, ComposedChart, Line, Area, XAxis, YAxis, Tooltip,
   CartesianGrid, Legend, ReferenceLine,

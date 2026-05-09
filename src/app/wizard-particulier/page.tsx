@@ -143,9 +143,10 @@ export default function WizardParticulier() {
     // 1) URL params (mode conseiller) — prioritaire sur le localStorage
     const params = new URLSearchParams(window.location.search);
     if (params.has("c") || params.has("s") || params.has("nego")) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+
       const c = params.get("c");
       if (c) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
         setCommuneSearch(c);
         const results = rechercherCommune(c);
         if (results.length > 0) setSelectedResult(results[0]);
@@ -187,7 +188,7 @@ export default function WizardParticulier() {
       const raw = localStorage.getItem(DRAFT_KEY);
       if (!raw) return;
       const d = JSON.parse(raw) as Record<string, unknown>;
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+
       if (typeof d.step === "number") setStep(d.step as Step);
       if (typeof d.communeSearch === "string") setCommuneSearch(d.communeSearch);
       if (d.selectedResult) setSelectedResult(d.selectedResult as SearchResult);

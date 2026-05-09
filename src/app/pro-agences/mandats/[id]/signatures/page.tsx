@@ -141,6 +141,7 @@ export default function SignaturesPage() {
     setLoading(false);
   }, [mandateId, form.document_body, t, dateLocale]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { void reload(); }, [reload]);
 
   const handleCreate = async () => {

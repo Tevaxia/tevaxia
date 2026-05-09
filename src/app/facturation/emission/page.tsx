@@ -12,7 +12,7 @@ type TemplateId = "generic" | "landlord" | "syndic" | "hotel" | "lease" | "value
 
 const STORAGE_KEY = "tevaxia-facturation-draft";
 
-function fmt2(n: number): string { return n.toFixed(2); }
+function _fmt2(n: number): string { return n.toFixed(2); }
 function formatEUR(n: number, currency = "EUR"): string {
   if (!isFinite(n)) return "—";
   return new Intl.NumberFormat("fr-FR", { style: "currency", currency, maximumFractionDigits: 2 }).format(n);
@@ -127,6 +127,7 @@ export default function EmissionPage() {
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
       if (raw) setInv(JSON.parse(raw));
     } catch {}
     setHydrated(true);

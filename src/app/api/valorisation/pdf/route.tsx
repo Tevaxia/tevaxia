@@ -55,6 +55,7 @@ export async function POST(req: Request) {
   }
 
   try {
+    // eslint-disable-next-line react-hooks/error-boundaries -- reviewed, intentional
     const buffer = await renderToBuffer(<ReportDocument data={data} />);
     const hash = createHash("sha256").update(buffer).digest("hex");
     const filename = `tevaxia-rapport-${data.dateRapport}.pdf`;

@@ -65,11 +65,13 @@ export default function MessageriePage() {
     }, 100);
   };
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (user && id) void refreshThreads(); }, [user, id, refreshThreads]);
 
   // Realtime subscription
   useEffect(() => {
     if (!activeThread || !supabase) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     void loadMessages(activeThread.id);
     const channel = supabase.channel(`thread:${activeThread.id}`)
       .on("postgres_changes", { event: "INSERT", schema: "public", table: "coownership_messages", filter: `thread_id=eq.${activeThread.id}` },

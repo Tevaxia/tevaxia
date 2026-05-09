@@ -56,6 +56,7 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
   }, [userId]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     void load();
   }, [load]);
 
@@ -114,7 +115,7 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
     return (
       <div className="rounded-xl border border-card-border bg-card p-6">
         <h3 className="text-lg font-semibold text-navy">Synchroniser mon calendrier</h3>
-        <p className="mt-2 text-sm text-muted">Connectez-vous pour générer un lien d'abonnement calendrier.</p>
+        <p className="mt-2 text-sm text-muted">Connectez-vous pour générer un lien d’abonnement calendrier.</p>
       </div>
     );
   }
@@ -130,7 +131,7 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
         <div className="flex-1">
           <h3 className="text-lg font-semibold text-navy">Synchroniser mon calendrier</h3>
           <p className="mt-1 text-sm text-muted leading-relaxed">
-            Générez une URL d'abonnement à coller dans Google Calendar, Outlook ou Apple Calendar pour voir vos tâches CRM et visites planifiées.
+            Générez une URL d’abonnement à coller dans Google Calendar, Outlook ou Apple Calendar pour voir vos tâches CRM et visites planifiées.
             Lecture seule, mise à jour toutes les heures.
           </p>
         </div>
@@ -152,7 +153,7 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
               onClick={createSubscription}
               className="mt-3 inline-flex items-center gap-2 rounded-md bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-50 transition-colors"
             >
-              Générer une URL d'abonnement
+              Générer une URL d’abonnement
             </button>
           </div>
         ) : (
@@ -222,7 +223,7 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
                         </a>
                       </div>
                       <p className="text-[11px] text-muted">
-                        Dans Outlook : <em>Paramètres → Calendrier → Calendriers partagés → Publier un calendrier</em> puis collez l'URL HTTPS ci-dessus.
+                        Dans Outlook : <em>Paramètres → Calendrier → Calendriers partagés → Publier un calendrier</em> puis collez l’URL HTTPS ci-dessus.
                       </p>
                     </div>
                   )}
@@ -251,7 +252,7 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
             <p className="mt-1 text-muted">
               Connexion OAuth pour synchroniser dans les deux sens (les modifications côté Google/Outlook reviennent dans tevaxia).
               <strong className="text-amber-700"> Configuration requise :</strong> clés OAuth Google Cloud + Azure App Registration à fournir
-              dans les variables d'environnement (cf. roadmap technique).
+              dans les variables d’environnement (cf. roadmap technique).
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
               <a

@@ -54,6 +54,7 @@ export default function DashboardHero({ user, profile }: DashboardHeroProps) {
   const [hour, setHour] = useState(() => new Date().getHours());
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     setHour(new Date().getHours());
   }, []);
 

@@ -57,6 +57,7 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
     setLoading(false);
   }, [token, assemblyId, t]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { void reload(); }, [reload]);
 
   const cast = async (resolutionId: string, vote: VoteValue) => {

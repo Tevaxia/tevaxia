@@ -93,6 +93,7 @@ function AideCard({ aide, t }: { aide: AideDetail; t: (key: string, values?: Rec
             <p className="mt-1 text-[10px] text-muted/50">Source : {aide.source}</p>
           )}
           {aide.lastVerified && (() => {
+            // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render
             const ageMonths = (Date.now() - new Date(aide.lastVerified).getTime()) / (1000 * 60 * 60 * 24 * 30);
             const stale = ageMonths > 6;
             return (

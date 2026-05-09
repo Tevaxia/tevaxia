@@ -62,6 +62,7 @@ export default function TravauxPage() {
     }
   }, [id, user, activeId]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { void refresh(); }, [refresh]);
 
   const active = projects.find((p) => p.id === activeId);

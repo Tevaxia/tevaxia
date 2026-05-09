@@ -85,6 +85,7 @@ export default function MandatesPage() {
     setLoading(false);
   }, [user]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { void reload(); }, [reload]);
 
   const handleCreate = async () => {

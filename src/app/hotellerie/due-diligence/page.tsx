@@ -87,7 +87,7 @@ const pdfStyles = StyleSheet.create({
   notes: { width: "25%", fontSize: 7, color: "#475569" },
 });
 
-function DdPdf({ hotelName, items, labels }: { hotelName: string; items: DDItem[]; labels: { title: string; dateLine: string; categoryLabels: Record<DDItem["category"], string>; catPoints: (n: number) => string; statusNa: string; noNotes: string } }) {
+function DdPdf({ hotelName: _hotelName, items, labels }: { hotelName: string; items: DDItem[]; labels: { title: string; dateLine: string; categoryLabels: Record<DDItem["category"], string>; catPoints: (n: number) => string; statusNa: string; noNotes: string } }) {
   const byCategory = Object.keys(CAT_COLORS) as DDItem["category"][];
   return (
     <Document>

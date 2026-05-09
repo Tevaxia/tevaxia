@@ -35,7 +35,7 @@ interface MarketAlert {
   last_notified_at: string | null;
 }
 
-interface CommunePrice {
+interface _CommunePrice {
   commune: string;
   price_m2: number;
 }
@@ -106,7 +106,7 @@ async function sendNotification(
 // ---------------------------------------------------------------------------
 // Main handler
 // ---------------------------------------------------------------------------
-Deno.serve(async (req: Request) => {
+Deno.serve(async (_req: Request) => {
   try {
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;

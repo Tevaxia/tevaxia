@@ -51,6 +51,7 @@ export default function RelancesPage() {
     setLoading(false);
   }, [id, t]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (user) void reload(); }, [user, reload]);
 
   const eligibleCharges = useMemo(

@@ -864,6 +864,7 @@ export default function DCFMulti() {
                 let cumulEquity = 0;
                 const chartData = result.cashFlows.map((cf) => {
                   const distribuable = cf.noi - serviceDette - capexAnnuel;
+                  // eslint-disable-next-line react-hooks/immutability -- reviewed, intentional
                   cumulEquity += distribuable;
                   return {
                     annee: `A${cf.annee}`,

@@ -47,7 +47,7 @@ export default function CalendrierPage() {
         </h1>
         <p className="mt-3 text-base text-slate-600 leading-relaxed">
           Récupérez vos tâches CRM et visites planifiées dans votre calendrier favori (Google Calendar, Outlook, Apple Calendar).
-          Aucune installation, juste une URL d'abonnement à coller.
+          Aucune installation, juste une URL d’abonnement à coller.
         </p>
 
         <Suspense fallback={null}>
@@ -61,11 +61,11 @@ export default function CalendrierPage() {
         <div className="mt-10 rounded-xl border border-card-border bg-card p-5">
           <h2 className="text-sm font-bold uppercase tracking-wider text-navy">Comment ça marche</h2>
           <ol className="mt-3 space-y-2.5 text-sm text-slate-700 list-decimal list-inside">
-            <li>Cliquez sur <strong>« Générer une URL d'abonnement »</strong>. Un token aléatoire unique est créé pour vous.</li>
-            <li>Copiez l'URL HTTPS générée.</li>
-            <li>Dans <strong>Google Calendar</strong> : cliquez le bouton dédié, ou ouvrez les paramètres → « Ajouter un calendrier » → « À partir de l'URL ».</li>
-            <li>Dans <strong>Outlook</strong> : Paramètres → Calendrier → Calendriers partagés → « Ajouter un calendrier » → « S'abonner à partir du Web ».</li>
-            <li>Dans <strong>Apple Calendar</strong> : utilisez le lien <code className="text-xs">webcal://</code> ou Fichier → « S'abonner à un calendrier ».</li>
+            <li>Cliquez sur <strong>« Générer une URL d’abonnement »</strong>. Un token aléatoire unique est créé pour vous.</li>
+            <li>Copiez l’URL HTTPS générée.</li>
+            <li>Dans <strong>Google Calendar</strong> : cliquez le bouton dédié, ou ouvrez les paramètres → « Ajouter un calendrier » → « À partir de l’URL ».</li>
+            <li>Dans <strong>Outlook</strong> : Paramètres → Calendrier → Calendriers partagés → « Ajouter un calendrier » → « S’abonner à partir du Web ».</li>
+            <li>Dans <strong>Apple Calendar</strong> : utilisez le lien <code className="text-xs">webcal://</code> ou Fichier → « S’abonner à un calendrier ».</li>
           </ol>
         </div>
 
@@ -82,9 +82,9 @@ export default function CalendrierPage() {
         <div className="mt-6 rounded-xl border border-card-border bg-card p-5">
           <h2 className="text-sm font-bold uppercase tracking-wider text-navy">Sécurité</h2>
           <ul className="mt-3 space-y-2 text-sm text-slate-700 list-disc list-inside">
-            <li>Le token est aléatoire (128 bits), unique, et opaque. Sans le token, l'URL ne renvoie aucun événement.</li>
+            <li>Le token est aléatoire (128 bits), unique, et opaque. Sans le token, l’URL ne renvoie aucun événement.</li>
             <li>Vous pouvez révoquer un abonnement à tout moment (le calendrier externe arrêtera de se mettre à jour).</li>
-            <li>Le serveur trace les accès (date du dernier appel, nombre total d'appels) pour détecter une fuite éventuelle.</li>
+            <li>Le serveur trace les accès (date du dernier appel, nombre total d’appels) pour détecter une fuite éventuelle.</li>
             <li>Aucune donnée personnelle client en clair dans le flux ICS — uniquement vos titres de tâche.</li>
           </ul>
         </div>

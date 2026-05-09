@@ -973,12 +973,10 @@ export function simulerRemboursementAnticipe(input: PrepaymentInput): Prepayment
   const moisN = Math.max(1, Math.min(nbMoisTotal, Math.round(moisPrepaiement)));
 
   let capitalRestantAvant = capital;
-  let interetsCumulesAvantRA = 0;
   for (let m = 1; m <= moisN; m++) {
     const i = capitalRestantAvant * tauxMensuel;
     const c = mensualiteInitiale - i;
     capitalRestantAvant = Math.max(0, capitalRestantAvant - c);
-    interetsCumulesAvantRA += i;
   }
 
   const montantEffectif = Math.max(0, Math.min(montantRembourse, capitalRestantAvant));

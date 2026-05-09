@@ -53,6 +53,7 @@ export default function YieldAlertsPage() {
     setLoading(false);
   };
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { void refresh(); }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleCreate = async (type: AlertRow["alert_type"]) => {

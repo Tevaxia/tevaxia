@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
@@ -65,9 +65,9 @@ export default function HotelForecastPage() {
         if (allHotels.length > 0) setActiveHotelId(allHotels[0].id);
       } catch (e) { setError(errMsg(e, t("error"))); }
     })();
-  }, [user]);
+  }, [user, t]);
 
-  const refreshMetrics = async (hotelId: string) => {
+  const refreshMetrics = useCallback(async (hotelId: string) => {
     try {
       // Charge les 365 derniers jours pour historique
       const from = new Date();
@@ -75,12 +75,12 @@ export default function HotelForecastPage() {
       const ms = await listMetrics(hotelId, from.toISOString().slice(0, 10));
       setMetrics(ms);
     } catch (e) { setError(errMsg(e, t("error"))); }
-  };
+  }, [t]);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     if (activeHotelId) void refreshMetrics(activeHotelId);
-  }, [activeHotelId]);
+  }, [activeHotelId, refreshMetrics]);
 
   const forecast: ForecastResult | null = useMemo(() => {
     if (metrics.length < 14) return null;

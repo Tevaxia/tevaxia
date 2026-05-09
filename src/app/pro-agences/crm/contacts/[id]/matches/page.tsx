@@ -48,6 +48,7 @@ export default function ContactMatchesPage() {
     setLoading(false);
   }, [contactId, user, minScore, t]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { void reload(); }, [reload]);
 
   if (authLoading || loading) {

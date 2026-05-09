@@ -25,7 +25,7 @@ const W_YIELD = 0.10;
 
 // Références normalisation (Q1 2020)
 const TAUX_REF = 1.5; // taux hypothécaire Q1 2020
-const ICV_REF = 100;
+const _ICV_REF = 100;
 const YIELD_REF = 3.8; // yield brut Q1 2020 LU
 
 function normalizeTaux(taux: number): number {

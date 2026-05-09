@@ -30,6 +30,7 @@ export default function Connexion() {
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
     const hasCode = params.has("code") || window.location.hash.includes("access_token");
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     if (hasCode) setIsCallback(true);
     // Affiche l'erreur renvoyée par /auth/callback
     const err = params.get("error");

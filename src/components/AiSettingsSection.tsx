@@ -28,6 +28,7 @@ export default function AiSettingsSection() {
 
   useEffect(() => {
     if (!user || !supabase) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
       setLoading(false);
       return;
     }

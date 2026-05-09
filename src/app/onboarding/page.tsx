@@ -57,6 +57,7 @@ export default function OnboardingPage() {
 
   useEffect(() => {
     if (user?.email && !orgForm.contact_email) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
       setOrgForm((f) => ({ ...f, contact_email: user.email ?? "" }));
     }
   }, [user, orgForm.contact_email]);

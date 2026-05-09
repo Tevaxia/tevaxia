@@ -19,7 +19,7 @@ export default async function OfflinePage() {
         </div>
         <h1 className="mt-6 text-2xl font-bold text-navy">Vous êtes hors ligne</h1>
         <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-          La page demandée nécessite une connexion internet. Vos données récemment consultées restent accessibles depuis l'app installée.
+          La page demandée nécessite une connexion internet. Vos données récemment consultées restent accessibles depuis l’app installée.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <Link href="/" className="inline-flex items-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-white hover:bg-navy-light transition-colors">

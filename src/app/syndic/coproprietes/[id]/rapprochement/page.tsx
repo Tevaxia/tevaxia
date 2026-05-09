@@ -314,6 +314,7 @@ export default function RapprochementPage() {
                       {psd2Institutions.map((inst) => (
                         <button key={inst.id} onClick={() => connectBank(inst)}
                           className="w-full flex items-center gap-3 rounded-lg border border-card-border bg-white px-3 py-2 text-left hover:border-emerald-400 hover:bg-emerald-50">
+                          {/* eslint-disable-next-line @next/next/no-img-element -- bank logo URLs from PSD2 are dynamic (domains not predeclarable in next.config remotePatterns) */}
                           {inst.logo && <img src={inst.logo} alt="" className="h-6 w-6 object-contain" />}
                           <div className="flex-1">
                             <div className="text-xs font-semibold text-navy">{inst.name}</div>

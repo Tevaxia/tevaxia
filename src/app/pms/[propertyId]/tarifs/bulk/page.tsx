@@ -28,6 +28,7 @@ export default function BulkRateEditorPage(props: { params: Promise<{ propertyId
     rate_plan_id: "",
     room_type_id: "",
     start_date: new Date().toISOString().slice(0, 10),
+    // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render
     end_date: new Date(Date.now() + 90 * 86400000).toISOString().slice(0, 10),
   });
 

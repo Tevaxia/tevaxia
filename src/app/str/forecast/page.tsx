@@ -180,7 +180,7 @@ export default function StrForecastPage() {
               <div className="mt-4 flex items-end gap-1 overflow-x-auto">
                 {[...forecast.historical, ...forecast.forecast].map((p, i) => {
                   const hPct = (p.revenue / max) * 100;
-                  const bandPct = p.isForecast ? ((p.upperRevenue - p.lowerRevenue) / max) * 100 : 0;
+                  const _bandPct = p.isForecast ? ((p.upperRevenue - p.lowerRevenue) / max) * 100 : 0;
                   return (
                     <div key={i} className="flex min-w-[28px] flex-1 flex-col items-center">
                       <div className="relative h-40 w-full flex flex-col justify-end">

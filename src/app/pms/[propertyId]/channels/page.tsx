@@ -98,6 +98,7 @@ export default function ChannelsPage(props: { params: Promise<{ propertyId: stri
     setLoading(false);
   }, [propertyId]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (!authLoading && user) void reload(); }, [user, authLoading, reload]);
 
   const submitNew = async () => {

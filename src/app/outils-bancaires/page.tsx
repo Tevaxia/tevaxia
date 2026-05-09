@@ -577,7 +577,7 @@ interface OffreBancaire {
 }
 
 function TabComparateur() {
-  const t = useTranslations("outilsBancaires");
+  const _t = useTranslations("outilsBancaires");
   const [capital, setCapital] = useState(600000);
   const [offres, setOffres] = useState<OffreBancaire[]>([
     { nom: "Spuerkeess", taux: 3.10, duree: 25, assuranceSRD: 0.30, fraisDossier: 1500 },

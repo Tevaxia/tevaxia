@@ -11,10 +11,7 @@ import {
   getLatestYearOccupancy,
   yearOverYearChange,
 } from "@/lib/hotellerie/statec-tourism";
-import {
-  BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer,
-  ComposedChart, Line, Legend, PieChart, Pie, Cell,
-} from "recharts";
+import { Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, ComposedChart, Line, Legend, PieChart, Pie, Cell } from "recharts";
 
 const MONTH_LABELS = ["Jan", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Août", "Sept", "Oct", "Nov", "Déc"];
 const ORIGIN_COLORS = ["#1e3a5f", "#b8860b", "#2c7a7b", "#4a90d9", "#6b7280", "#9333ea", "#dc2626", "#059669"];

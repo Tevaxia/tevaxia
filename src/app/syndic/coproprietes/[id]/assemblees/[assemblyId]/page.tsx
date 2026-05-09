@@ -48,7 +48,7 @@ export default function AssemblyDetailPage() {
   const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const coownershipId = String(params?.id ?? "");
   const assemblyId = String(params?.assemblyId ?? "");
-  const { user, loading: authLoading } = useAuth();
+  const { user, loading: _authLoading } = useAuth();
 
   const [coown, setCoown] = useState<Coownership | null>(null);
   const [assembly, setAssembly] = useState<Assembly | null>(null);
@@ -78,6 +78,7 @@ export default function AssemblyDetailPage() {
     setLoading(false);
   }, [coownershipId, assemblyId, activeResolutionId, t]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (user) void reload(); }, [user, reload]);
 
   useEffect(() => {

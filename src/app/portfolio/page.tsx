@@ -9,20 +9,7 @@ import { formatEUR, formatPct } from "@/lib/calculations";
 import { listerEvaluations, type SavedValuation } from "@/lib/storage";
 import SEOContent from "@/components/SEOContent";
 import RelatedTools from "@/components/RelatedTools";
-import {
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  AreaChart,
-  Area,
-  BarChart,
-  Bar,
-  Legend,
-  Line,
-  ComposedChart,
-  CartesianGrid,
-} from "recharts";
+import { XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area, Bar, Legend, Line, ComposedChart, CartesianGrid } from "recharts";
 
 const STORAGE_KEY = "tevaxia_portfolio";
 

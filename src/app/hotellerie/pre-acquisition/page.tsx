@@ -32,6 +32,7 @@ export default function PreAcquisitionPage() {
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
       if (raw) setDeal(JSON.parse(raw));
     } catch {}
     setHydrated(true);

@@ -47,7 +47,7 @@ export function reset(): void {
  */
 export function captureError(err: unknown, context?: Record<string, unknown>): void {
   // Toujours log en console — utile dev et fallback prod sans Sentry
-  // eslint-disable-next-line no-console
+
   console.error("[tevaxia error]", err, context);
 
   if (typeof window === "undefined") return;

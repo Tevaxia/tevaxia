@@ -227,7 +227,6 @@ export function restaurerEvaluation(id: string) {
   const item = trash.find((t) => t.id === id);
   if (item) {
     saveTrash(trash.filter((t) => t.id !== id));
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { deletedAt: _deletedAt, ...valuation } = item;
     const all = getAll();
     all.unshift(valuation);

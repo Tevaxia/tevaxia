@@ -443,7 +443,7 @@ const NEW_KEYS = {
 };
 
 // Deep merge helper
-function deepMerge(target, source) {
+function _deepMerge(target, source) {
   for (const key of Object.keys(source)) {
     if (source[key] && typeof source[key] === "object" && !Array.isArray(source[key])) {
       if (!target[key]) target[key] = {};

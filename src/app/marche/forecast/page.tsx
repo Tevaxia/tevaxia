@@ -5,10 +5,7 @@ import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { buildPriceForecast, DEFAULT_SCENARIOS } from "@/lib/price-forecast";
 import { rechercherCommune, type SearchResult, getAllCommunes, getMarketDataCommune } from "@/lib/market-data";
-import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
-  Area, ComposedChart,
-} from "recharts";
+import { Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart } from "recharts";
 
 export default function MarcheForecastPage() {
   const locale = useLocale();

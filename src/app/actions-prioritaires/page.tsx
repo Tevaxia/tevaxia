@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
-import { listMyMandates, mandateDaysRemaining, type AgencyMandate } from "@/lib/agency-mandates";
+import { listMyMandates, mandateDaysRemaining } from "@/lib/agency-mandates";
 import { listSignatureRequests, type SignatureRequest } from "@/lib/agency-signatures";
 import { formatEUR } from "@/lib/calculations";
 
@@ -187,6 +187,7 @@ export default function AlertsPage() {
     setLoading(false);
   }, [user, t, lp, dateLocale]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (!authLoading && user) void buildAlerts(); }, [user, authLoading, buildAlerts]);
 
   const filtered = alerts.filter((a) => {

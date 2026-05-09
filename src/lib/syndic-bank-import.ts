@@ -85,7 +85,7 @@ function parseDate(v: string): string {
 /**
  * Mappe les colonnes usuelles vers notre modèle BankTransaction.
  */
-function mapRow(row: Record<string, string>, format: ParsedBankStatement["format"]): BankTransaction | null {
+function mapRow(row: Record<string, string>, _format: ParsedBankStatement["format"]): BankTransaction | null {
   const find = (keys: string[]): string | null => {
     for (const k of keys) {
       const val = Object.entries(row).find(([hk]) => hk.toLowerCase().includes(k))?.[1];

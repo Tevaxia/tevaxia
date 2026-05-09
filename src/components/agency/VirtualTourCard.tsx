@@ -33,6 +33,7 @@ export default function VirtualTourCard({ mandateId, initialTourUrl, initialVide
   useEffect(() => {
     if (initialTourUrl !== undefined || initialVideoUrl !== undefined) return;
     if (!isSupabaseConfigured || !supabase) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
       setLoading(false);
       return;
     }
@@ -132,8 +133,8 @@ export default function VirtualTourCard({ mandateId, initialTourUrl, initialVide
       {!editing && !tourUrl && !videoUrl && (
         <div className="mt-3 rounded-lg border border-dashed border-card-border bg-background p-4 text-center">
           <p className="text-xs text-muted">
-            Ajoutez un tour virtuel (Matterport, Klapty, Kuula…) ou une vidéo (YouTube, Vimeo) pour enrichir l'annonce.
-            Inclus automatiquement dans l'export OpenImmo et le PDF co-brandé.
+            Ajoutez un tour virtuel (Matterport, Klapty, Kuula…) ou une vidéo (YouTube, Vimeo) pour enrichir l’annonce.
+            Inclus automatiquement dans l’export OpenImmo et le PDF co-brandé.
           </p>
         </div>
       )}
@@ -214,7 +215,7 @@ export default function VirtualTourCard({ mandateId, initialTourUrl, initialVide
               className="mt-1 w-full rounded-md border border-card-border bg-white px-3 py-2 text-sm focus:border-navy focus:outline-none"
             />
             <p className="mt-1 text-[11px] text-muted">
-              YouTube et Vimeo : conversion automatique en URL d'embed.
+              YouTube et Vimeo : conversion automatique en URL d’embed.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-end gap-2">

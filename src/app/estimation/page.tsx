@@ -67,7 +67,7 @@ export default function Estimation() {
     try {
       const raw = localStorage.getItem(HISTORY_KEY);
       if (raw) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
+
         setHistory(JSON.parse(raw) as HistoryEntry[]);
       }
     } catch { /* ignore */ }
@@ -77,6 +77,7 @@ export default function Estimation() {
     if (!selectedResult || !result) return;
     const adresse = adresseInput.trim() || undefined;
     const entry: HistoryEntry = {
+      // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render
       id: `est-${Date.now()}`,
       date: new Date().toISOString(),
       commune: selectedResult.commune.commune,
@@ -127,7 +128,7 @@ export default function Estimation() {
     const n = params.get("n") ?? (hash?.n as string | undefined);
 
     if (commune) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+
       setCommuneSearch(String(commune));
       const results = rechercherCommune(String(commune));
       if (results.length > 0) setSelectedResult(results[0]);

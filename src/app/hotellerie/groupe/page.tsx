@@ -51,7 +51,7 @@ export default function HotelGroupDashboard() {
         if (hotelOrgs.length > 0 && !activeOrgId) setActiveOrgId(hotelOrgs[0].id);
       })
       .catch((e) => setError(errMsg(e, tg("error"))));
-  }, [user, activeOrgId]);
+  }, [user, activeOrgId, tg]);
 
   useEffect(() => {
     if (!activeOrgId) return;
@@ -61,7 +61,7 @@ export default function HotelGroupDashboard() {
       .then(setHotels)
       .catch((e) => setError(errMsg(e, tg("error"))))
       .finally(() => setLoading(false));
-  }, [activeOrgId]);
+  }, [activeOrgId, tg]);
 
   const handleCreate = async () => {
     if (!activeOrgId || !newName.trim()) return;

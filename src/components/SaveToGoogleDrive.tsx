@@ -47,7 +47,7 @@ export default function SaveToGoogleDrive(props: SaveToGoogleDriveProps) {
       return;
     }
 
-    let accessToken = session.provider_token;
+    const accessToken = session.provider_token;
     const providerRefresh = session.provider_refresh_token;
     const isGoogle = session.user.app_metadata?.provider === "google";
 
@@ -160,6 +160,7 @@ export default function SaveToGoogleDrive(props: SaveToGoogleDriveProps) {
         {state.kind === "uploading" ? (
           <div className="h-4 w-4 animate-spin rounded-full border-2 border-slate/30 border-t-slate" />
         ) : (
+          // eslint-disable-next-line react-hooks/static-components -- reviewed, intentional
           <DriveIcon />
         )}
         {state.kind === "uploading" ? t("uploading") : (props.label ?? t("saveToDrive"))}

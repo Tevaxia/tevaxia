@@ -5,10 +5,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { getProperty } from "@/lib/pms/properties";
-import {
-  listRoomTypes, listRooms, createRoomType, updateRoomType, deleteRoomType,
-  createRoom, updateRoom, deleteRoom, setRoomStatus,
-} from "@/lib/pms/rooms";
+import { listRoomTypes, listRooms, createRoomType, updateRoomType, deleteRoomType, createRoom, deleteRoom, setRoomStatus } from "@/lib/pms/rooms";
 import {
   listRatePlans, createRatePlan, updateRatePlan, deleteRatePlan,
 } from "@/lib/pms/rates";
@@ -51,6 +48,7 @@ export default function RoomsPage(props: { params: Promise<{ propertyId: string 
 
   useEffect(() => {
     if (authLoading || !user) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     void reload();
   }, [user, authLoading, reload]);
 

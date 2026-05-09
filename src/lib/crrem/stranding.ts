@@ -137,7 +137,7 @@ export interface RetrofitScenario {
 }
 
 export function simulateRetrofit(base: AssetInput, scenario: RetrofitScenario): StrandingResult {
-  const area = base.floorAreaM2;
+  const _area = base.floorAreaM2;
   const currentTotalKwh = Object.values(base.energyMix).reduce((s, v) => s + (v ?? 0), 0);
   const reducedKwh = currentTotalKwh * (1 - scenario.energyReductionPct);
 

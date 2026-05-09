@@ -32,11 +32,11 @@ export default function StrPricingPage() {
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
 
-  const MONTH_NAMES = [
+  const MONTH_NAMES = useMemo(() => [
     t("months.jan"), t("months.feb"), t("months.mar"), t("months.apr"),
     t("months.may"), t("months.jun"), t("months.jul"), t("months.aug"),
     t("months.sep"), t("months.oct"), t("months.nov"), t("months.dec"),
-  ];
+  ], [t]);
 
   const [zone, setZone] = useState<ZoneKey>("luxembourg_ville");
   const [baseAdr, setBaseAdr] = useState(120);

@@ -16,7 +16,7 @@
 // Sellsy, Chorus Pro). Validation stricte PDF/A-3B veritypdf
 // prévue pour V1.2.
 
-import { PDFDocument, PDFName, PDFHexString, PDFString, StandardFonts, rgb, AFRelationship } from "pdf-lib";
+import { PDFDocument, PDFName, StandardFonts, rgb, AFRelationship } from "pdf-lib";
 import type { FacturXInvoice } from "./factur-x";
 import { buildFacturXCiiXml, computeTotals } from "./factur-x";
 

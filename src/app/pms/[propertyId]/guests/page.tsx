@@ -39,6 +39,7 @@ export default function GuestsPage(props: { params: Promise<{ propertyId: string
 
   useEffect(() => {
     if (authLoading || !user) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     void reload();
   }, [user, authLoading, reload]);
 

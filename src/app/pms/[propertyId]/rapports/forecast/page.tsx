@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable react-hooks/purity -- Date.now() used in alert filtering for "days from today"; precision-to-the-millisecond not required, refactor to useMemo if exact-render-time needed */
+
 import { useEffect, useState, use, useCallback } from "react";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
@@ -13,10 +15,7 @@ import type { EventImpact } from "@/lib/pms/events-calendar-lu";
 import type { PmsProperty } from "@/lib/pms/types";
 import { formatEUR } from "@/lib/calculations";
 import { errMsg } from "@/lib/pms/errors";
-import {
-  ResponsiveContainer, ComposedChart, Area, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend,
-  LineChart, Line,
-} from "recharts";
+import { ResponsiveContainer, ComposedChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend, Line } from "recharts";
 
 const IMPACT_KEY: Record<EventImpact, "impactLow" | "impactMedium" | "impactHigh" | "impactExtreme"> = {
   low: "impactLow",

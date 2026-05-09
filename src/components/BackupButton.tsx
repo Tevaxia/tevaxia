@@ -97,7 +97,7 @@ export default function BackupButton({ module, label }: Props) {
         setState({ kind: "error", message: tDrive("googleOnly") });
         return;
       }
-      let accessToken = session.provider_token;
+      const accessToken = session.provider_token;
       if (!accessToken) {
         await requestDriveScope();
         return;

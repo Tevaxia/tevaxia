@@ -409,6 +409,7 @@ export default function Profil() {
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
     const s = params.get("section") as TabKey | null;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     if (s && TABS.some((tb) => tb.key === s)) setTab(s);
   }, []);
 

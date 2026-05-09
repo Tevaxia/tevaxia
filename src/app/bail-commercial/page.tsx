@@ -100,6 +100,7 @@ export default function BailCommercial() {
     return rows;
   }, [loyerInitial, anneeSignature, plafondIndexationPct, duree, currentYear]);
 
+
   const breakDates = useMemo(() => {
     if (duree === 99) return [];
     const dates: { year: number; label: string }[] = [];
@@ -112,7 +113,7 @@ export default function BailCommercial() {
       }
     }
     return dates;
-  }, [anneeSignature, duree]);
+  }, [anneeSignature, duree, t]);
 
   const totalCostDuree = useMemo(() => {
     const yearsInDuree = duree === 99 ? 25 : duree;

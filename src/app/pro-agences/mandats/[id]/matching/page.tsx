@@ -60,6 +60,7 @@ export default function MandateMatchingPage() {
     setLoading(false);
   }, [mandateId, user, minScore, t]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { void reload(); }, [reload]);
 
   const flagAndContact = async (m: MatchResult) => {

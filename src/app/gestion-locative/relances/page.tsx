@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { pdf, Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { pdf, Document, Page, Text, StyleSheet } from "@react-pdf/renderer";
 import { useAuth } from "@/components/AuthProvider";
 import { supabase } from "@/lib/supabase";
 import { formatEUR } from "@/lib/calculations";
@@ -126,6 +126,7 @@ export default function RelancesPage() {
     setLoading(false);
   };
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { void refresh(); }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const sendDunning = async (row: UnpaidRow, level: 1 | 2 | 3) => {

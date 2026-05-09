@@ -64,6 +64,7 @@ export default function ReservationDetailPage(props: { params: Promise<{ propert
 
   useEffect(() => {
     if (authLoading || !user) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     void reload();
   }, [user, authLoading, reload]);
 

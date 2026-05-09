@@ -10,10 +10,7 @@ import { aggregateKpis } from "@/lib/pms/kpi";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import type { PmsProperty, PmsReservation, PmsNightAudit } from "@/lib/pms/types";
 import { formatEUR } from "@/lib/calculations";
-import {
-  ResponsiveContainer, BarChart, Bar, LineChart, Line,
-  XAxis, YAxis, Tooltip, CartesianGrid, Legend, ComposedChart,
-} from "recharts";
+import { ResponsiveContainer, BarChart, Bar, Line, XAxis, YAxis, Tooltip, CartesianGrid, Legend, ComposedChart } from "recharts";
 
 function plusDaysISO(n: number): string {
   const d = new Date(); d.setDate(d.getDate() + n); return d.toISOString().slice(0, 10);

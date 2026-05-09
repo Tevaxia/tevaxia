@@ -162,6 +162,7 @@ export default function Psd2Page() {
                 {institutions.map((i) => (
                   <button key={`${i.id}-${i.country}`} onClick={() => connect(i)}
                     className="flex items-center gap-3 rounded-xl border border-card-border bg-card p-4 text-left shadow-sm hover:border-navy hover:shadow-md transition">
+                    {/* eslint-disable-next-line @next/next/no-img-element -- bank logo URLs from PSD2 are dynamic (domains not predeclarable in next.config remotePatterns) */}
                     {i.logo && <img src={i.logo} alt={i.name} className="h-10 w-10 object-contain" />}
                     <div>
                       <div className="text-sm font-semibold text-navy">{i.name}</div>

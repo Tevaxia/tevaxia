@@ -19,6 +19,7 @@ export default function HotelImpayesPage() {
   const [fraisAdministratifs, setFraisAdministratifs] = useState(40);
   const [avocatHonoraires, setAvocatHonoraires] = useState(0);
   const [nbFactures, setNbFactures] = useState(1);
+  // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render
   const [lastInvoiceDate, setLastInvoiceDate] = useState(new Date(Date.now() - 35 * 24 * 3600 * 1000).toISOString().slice(0, 10));
 
   function calcPalier(j: number): { niveau: 0 | 1 | 2 | 3; label: string; description: string; action: string } {

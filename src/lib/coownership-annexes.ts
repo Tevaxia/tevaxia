@@ -15,9 +15,9 @@
 //   5. État détaillé des dépenses
 
 import { supabase, isSupabaseConfigured } from "./supabase";
-import { getBalance, listAccounts, listEntries, listLines, type BalanceRow, type Account, type Entry, type EntryLine } from "./coownership-accounting";
+import { getBalance, listAccounts, listEntries, listLines, type BalanceRow, type Account, type EntryLine } from "./coownership-accounting";
 import { listBudgetLines, type BudgetLine } from "./coownership-budgets";
-import type { Coownership, CoownershipUnit } from "./coownerships";
+import type { Coownership } from "./coownerships";
 
 // ============================================================
 // Structures des 5 annexes

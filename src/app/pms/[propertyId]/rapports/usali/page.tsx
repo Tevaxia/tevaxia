@@ -41,6 +41,7 @@ export default function UsaliReportPage(props: { params: Promise<{ propertyId: s
     setLoading(false);
   }, [propertyId]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (!authLoading && user) void reload(); }, [user, authLoading, reload]);
 
   const build = useCallback(async () => {
@@ -53,6 +54,7 @@ export default function UsaliReportPage(props: { params: Promise<{ propertyId: s
     setBuilding(false);
   }, [propertyId, year, month]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (user && property) void build(); }, [user, property, build]);
 
   const download = async () => {

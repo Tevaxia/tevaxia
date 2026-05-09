@@ -155,6 +155,7 @@ export default function MandateDetailPage() {
     setLoading(false);
   }, [mandateId, user, t]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { void reload(); }, [reload]);
 
   const save = async () => {

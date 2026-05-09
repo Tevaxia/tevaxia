@@ -19,6 +19,7 @@ export default function PmsHomePage() {
   useEffect(() => {
     if (authLoading) return;
     if (!user || !isSupabaseConfigured) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
       setLoading(false);
       return;
     }

@@ -44,6 +44,7 @@ export default function AnnexesPage() {
     setLoading(false);
   }, [id, activeYearId, t]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (user) void loadBase(); }, [user, loadBase]);
 
   const activeYear = years.find((y) => y.id === activeYearId);
@@ -62,6 +63,7 @@ export default function AnnexesPage() {
     setBuilding(false);
   }, [coown, activeYear, t]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (activeYearId && coown) void buildBundle(); }, [activeYearId, coown, buildBundle]);
 
   const downloadPdf = async () => {

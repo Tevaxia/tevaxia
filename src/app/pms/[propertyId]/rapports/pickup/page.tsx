@@ -35,6 +35,7 @@ export default function PickupReportPage(props: { params: Promise<{ propertyId: 
     setLoading(false);
   }, [propertyId]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (!authLoading && user) void reload(); }, [user, authLoading, reload]);
 
   const build = useCallback(async () => {
@@ -47,6 +48,7 @@ export default function PickupReportPage(props: { params: Promise<{ propertyId: 
     setBuilding(false);
   }, [propertyId, windowDays]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (user && property) void build(); }, [user, property, build]);
 
   if (authLoading || loading) {
