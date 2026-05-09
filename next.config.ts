@@ -9,7 +9,7 @@ const withBundleAnalyzer = bundleAnalyzer({
 
 const nextConfig: NextConfig = {
   experimental: {
-    optimizePackageImports: ["@react-pdf/renderer", "posthog-js", "@sentry/nextjs", "@supabase/supabase-js"],
+    optimizePackageImports: ["@react-pdf/renderer", "posthog-js", "@sentry/nextjs", "@supabase/supabase-js", "recharts", "pdfjs-dist", "tesseract.js", "leaflet", "react-leaflet"],
     optimizeCss: true,
   },
   async redirects() {
