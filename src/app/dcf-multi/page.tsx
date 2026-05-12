@@ -861,19 +861,18 @@ export default function DCFMulti() {
               <p className="mt-0.5 text-xs text-muted mb-4">{t("liquiditySubtitle")}</p>
               {(() => {
                 const serviceDette = montantDette > 0 ? montantDette * (tauxDette / 100) : 0;
-                let cumulEquity = 0;
-                const chartData = result.cashFlows.map((cf) => {
+                const chartData = result.cashFlows.reduce<Array<{ annee: string; noi: number; distribuable: number; cumul: number; debtService: number | undefined }>>((acc, cf) => {
                   const distribuable = cf.noi - serviceDette - capexAnnuel;
-                  // eslint-disable-next-line react-hooks/immutability -- reviewed, intentional
-                  cumulEquity += distribuable;
-                  return {
+                  const cumul = (acc[acc.length - 1]?.cumul ?? 0) + distribuable;
+                  acc.push({
                     annee: `A${cf.annee}`,
                     noi: Math.round(cf.noi),
                     distribuable: Math.round(distribuable),
-                    cumul: Math.round(cumulEquity),
+                    cumul: Math.round(cumul),
                     debtService: serviceDette > 0 ? Math.round(serviceDette) : undefined,
-                  };
-                });
+                  });
+                  return acc;
+                }, []);
                 return (
                   <ResponsiveContainer width="100%" height={280}>
                     <ComposedChart data={chartData} margin={{ top: 5, right: 10, bottom: 0, left: 0 }}>

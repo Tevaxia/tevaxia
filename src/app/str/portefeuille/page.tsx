@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
@@ -64,15 +64,15 @@ export default function StrPortefeuillePage() {
     expired: t("license.expired"),
   };
 
-  const refresh = async () => {
+  const refresh = useCallback(async () => {
     if (!user || !supabase) return;
     const { data } = await supabase.from("str_properties").select("*").eq("user_id", user.id).order("created_at", { ascending: false });
     setProperties((data ?? []) as StrProperty[]);
     setLoading(false);
-  };
+  }, [user]);
 
   // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
-  useEffect(() => { void refresh(); }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { void refresh(); }, [refresh]);
 
   const handleAdd = async () => {
     if (!user || !supabase || !newProp.name) return;

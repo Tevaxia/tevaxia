@@ -1,7 +1,5 @@
 "use client";
 
-/* eslint-disable react-hooks/purity -- Date.now() used in alert filtering for "days from today"; precision-to-the-millisecond not required, refactor to useMemo if exact-render-time needed */
-
 import { useEffect, useState, use, useCallback } from "react";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
@@ -36,6 +34,7 @@ export default function ForecastPage(props: { params: Promise<{ propertyId: stri
   const [loading, setLoading] = useState(true);
   const [building, setBuilding] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [mountNow] = useState(() => Date.now());
 
   const reload = useCallback(async () => {
     if (!propertyId) return;
@@ -45,6 +44,7 @@ export default function ForecastPage(props: { params: Promise<{ propertyId: stri
     setLoading(false);
   }, [propertyId]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (!authLoading && user) void reload(); }, [user, authLoading, reload]);
 
   const build = useCallback(async () => {
@@ -55,6 +55,7 @@ export default function ForecastPage(props: { params: Promise<{ propertyId: stri
     setBuilding(false);
   }, [propertyId, horizon]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (user && property) void build(); }, [user, property, build]);
 
   if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
@@ -163,10 +164,10 @@ export default function ForecastPage(props: { params: Promise<{ propertyId: stri
             <h2 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">{t("sectionAlerts")}</h2>
             <div className="space-y-2">
               {report.days.filter((d) => {
-                const days = Math.floor((new Date(d.date).getTime() - Date.now()) / 86400000);
+                const days = Math.floor((new Date(d.date).getTime() - mountNow) / 86400000);
                 return forecastAlert(d.forecast_occupancy, days).level !== "ok";
               }).slice(0, 10).map((d) => {
-                const days = Math.floor((new Date(d.date).getTime() - Date.now()) / 86400000);
+                const days = Math.floor((new Date(d.date).getTime() - mountNow) / 86400000);
                 const alert = forecastAlert(d.forecast_occupancy, days);
                 const dateStr = new Date(d.date).toLocaleDateString(dateLocale, { weekday: "short", day: "2-digit", month: "short" });
                 return (
@@ -186,7 +187,7 @@ export default function ForecastPage(props: { params: Promise<{ propertyId: stri
                 );
               })}
               {report.days.every((d) => {
-                const days = Math.floor((new Date(d.date).getTime() - Date.now()) / 86400000);
+                const days = Math.floor((new Date(d.date).getTime() - mountNow) / 86400000);
                 return forecastAlert(d.forecast_occupancy, days).level === "ok";
               }) && (
                 <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-900">

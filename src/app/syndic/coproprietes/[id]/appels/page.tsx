@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
@@ -72,23 +72,28 @@ export default function FundsCallsPage() {
     nature: "courantes",
   });
 
-  const refresh = async () => {
+  const refresh = useCallback(async () => {
     try {
       const [c, u, cs, ks] = await Promise.all([getCoownership(id), listUnits(id), listCalls(id), listAllocationKeys(id)]);
       setCoown(c); setUnits(u); setCalls(cs); setKeys(ks);
-      if (activeCallId && cs.find((x) => x.id === activeCallId)) {
-        setCharges(await listCharges(activeCallId));
-      } else if (cs.length > 0) {
-        setActiveCallId(cs[0].id);
-        setCharges(await listCharges(cs[0].id));
-      }
+      setActiveCallId((prev) => {
+        if (prev && cs.find((x) => x.id === prev)) {
+          listCharges(prev).then(setCharges);
+          return prev;
+        }
+        if (cs.length > 0) {
+          listCharges(cs[0].id).then(setCharges);
+          return cs[0].id;
+        }
+        return prev;
+      });
     } catch (e) { setError(errMsg(e, t("error"))); }
-  };
+  }, [id, t]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     if (id && user) void refresh();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, user]);
+  }, [id, user, refresh]);
 
   useEffect(() => {
     if (!activeCallId) return;

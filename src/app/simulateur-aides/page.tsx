@@ -58,7 +58,7 @@ function CommuneAutocomplete({ label, value, onChange, hint }: { label: string; 
   );
 }
 
-function AideCard({ aide, t }: { aide: AideDetail; t: (key: string, values?: Record<string, string | number>) => string }) {
+function AideCard({ aide, t, mountNow }: { aide: AideDetail; t: (key: string, values?: Record<string, string | number>) => string; mountNow: number }) {
   const CATEGORIE_LABELS: Record<string, { color: string; bg: string }> = {
     etatique_acquisition: { color: "text-navy", bg: "bg-navy/5 border-navy/20" },
     etatique_energie: { color: "text-teal", bg: "bg-teal/5 border-teal/20" },
@@ -93,8 +93,7 @@ function AideCard({ aide, t }: { aide: AideDetail; t: (key: string, values?: Rec
             <p className="mt-1 text-[10px] text-muted/50">Source : {aide.source}</p>
           )}
           {aide.lastVerified && (() => {
-            // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render
-            const ageMonths = (Date.now() - new Date(aide.lastVerified).getTime()) / (1000 * 60 * 60 * 24 * 30);
+            const ageMonths = (mountNow - new Date(aide.lastVerified).getTime()) / (1000 * 60 * 60 * 24 * 30);
             const stale = ageMonths > 6;
             return (
               <p className={`mt-1 text-[10px] ${stale ? "text-amber-700 font-semibold" : "text-emerald-700/70"}`}>
@@ -150,6 +149,7 @@ interface MesureState {
 
 export default function SimulateurAides() {
   const t = useTranslations("simulateurAides");
+  const mountNow = useMemo(() => Date.now(), []);
   const [typeProjet, setTypeProjet] = useState<"acquisition" | "construction" | "renovation">("acquisition");
   const [prixBien, setPrixBien] = useState(750000);
   const [travauxPrevus, setTravauxPrevus] = useState(false);
@@ -669,7 +669,7 @@ export default function SimulateurAides() {
                 </h3>
                 <div className="space-y-3">
                   {aides.map((aide, i) => (
-                    <AideCard key={i} aide={aide} t={t} />
+                    <AideCard key={i} aide={aide} t={t} mountNow={mountNow} />
                   ))}
                 </div>
               </div>

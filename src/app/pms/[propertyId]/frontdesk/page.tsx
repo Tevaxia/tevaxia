@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, use, useCallback } from "react";
+import { useEffect, useState, use, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
@@ -24,9 +24,10 @@ export default function FrontdeskPage(props: { params: Promise<{ propertyId: str
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
 
-  const today = new Date().toISOString().slice(0, 10);
-  // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render
-  const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+  const [today, tomorrow] = useMemo(() => {
+    const now = new Date();
+    return [now.toISOString().slice(0, 10), new Date(now.getTime() + 86400000).toISOString().slice(0, 10)] as const;
+  }, []);
 
   const reload = useCallback(async () => {
     if (!propertyId) return;
@@ -46,6 +47,7 @@ export default function FrontdeskPage(props: { params: Promise<{ propertyId: str
     setLoading(false);
   }, [propertyId, today, tomorrow]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (!authLoading && user) void reload(); }, [user, authLoading, reload]);
 
   if (authLoading || loading) return <div className="mx-auto max-w-6xl px-4 py-16 text-center text-muted">{t("loading")}</div>;

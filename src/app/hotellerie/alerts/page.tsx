@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
@@ -43,7 +43,7 @@ export default function YieldAlertsPage() {
     gop_margin_below: { title: t("typeGopTitle"), desc: t("typeGopDesc"), icon: "⚠️" },
   };
 
-  const refresh = async () => {
+  const refresh = useCallback(async () => {
     if (!user || !supabase) return;
     const { data: hs } = await supabase.from("hotels").select("id, name, nb_chambres, category").eq("created_by", user.id);
     setHotels((hs ?? []) as HotelRow[]);
@@ -51,10 +51,10 @@ export default function YieldAlertsPage() {
     const { data: al } = await supabase.from("hotel_yield_alerts").select("*").eq("user_id", user.id);
     setAlerts((al ?? []) as AlertRow[]);
     setLoading(false);
-  };
+  }, [user, selectedHotel]);
 
   // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
-  useEffect(() => { void refresh(); }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { void refresh(); }, [refresh]);
 
   const handleCreate = async (type: AlertRow["alert_type"]) => {
     if (!supabase || !user || !selectedHotel) return;

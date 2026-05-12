@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
@@ -33,14 +33,7 @@ function VerifyContent() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (queryHash) {
-      void doVerify(queryHash);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [queryHash]);
-
-  async function doVerify(h: string) {
+  const doVerify = useCallback(async (h: string) => {
     if (!/^[0-9a-fA-F]{64}$/.test(h)) {
       setError(t("errHashInvalid"));
       setResult(null);
@@ -56,7 +49,13 @@ function VerifyContent() {
     } finally {
       setLoading(false);
     }
-  }
+  }, [t]);
+
+  useEffect(() => {
+    if (queryHash) {
+      void doVerify(queryHash);
+    }
+  }, [queryHash, doVerify]);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">

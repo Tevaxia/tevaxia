@@ -28,6 +28,7 @@ export default function CrmDashboardPage() {
   const [tasks, setTasks] = useState<CrmTask[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [mountNow] = useState(() => Date.now());
 
   const STATUS_LABEL: Record<MandateStatus, string> = {
     prospect: t("statusProspect"),
@@ -60,6 +61,7 @@ export default function CrmDashboardPage() {
 
   useEffect(() => {
     if (authLoading) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     void reload();
   }, [authLoading, reload]);
 
@@ -163,8 +165,7 @@ export default function CrmDashboardPage() {
           ) : (
             <ul className="space-y-2">
               {upcomingTasks.slice(0, 6).map((task) => {
-                // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render
-                const daysLeft = task.due_at ? Math.ceil((new Date(task.due_at).getTime() - Date.now()) / (1000 * 60 * 60 * 24)) : null;
+                const daysLeft = task.due_at ? Math.ceil((new Date(task.due_at).getTime() - mountNow) / (1000 * 60 * 60 * 24)) : null;
                 return (
                   <li key={task.id} className="flex items-start gap-2 rounded border border-card-border/50 bg-background p-2 text-xs">
                     <button

@@ -54,9 +54,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "invalid_payload" }, { status: 400 });
   }
 
+  const document = <ReportDocument data={data} />;
   try {
-    // eslint-disable-next-line react-hooks/error-boundaries -- reviewed, intentional
-    const buffer = await renderToBuffer(<ReportDocument data={data} />);
+    const buffer = await renderToBuffer(document);
     const hash = createHash("sha256").update(buffer).digest("hex");
     const filename = `tevaxia-rapport-${data.dateRapport}.pdf`;
 

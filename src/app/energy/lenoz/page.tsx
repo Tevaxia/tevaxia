@@ -71,7 +71,7 @@ export default function LenozPage() {
     return { label: t("ratingNone"), color: "text-gray-400", bg: "bg-gray-50", border: "border-gray-300" };
   }
 
-  const CATEGORIES: Category[] = [
+  const CATEGORIES: Category[] = useMemo(() => [
     {
       key: "A",
       title: t("catATitle"),
@@ -310,7 +310,7 @@ export default function LenozPage() {
         },
       ],
     },
-  ];
+  ], [t]);
 
   const catScores = useMemo(() => {
     const map: Record<string, number> = {};
@@ -318,8 +318,7 @@ export default function LenozPage() {
       map[cat.key] = cat.criteria.reduce((sum, cr) => sum + (scores[cr.id] ?? 0), 0);
     }
     return map;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scores]);
+  }, [scores, CATEGORIES]);
 
   const totalScore = useMemo(
     () => Object.values(catScores).reduce((a, b) => a + b, 0),

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
@@ -54,7 +54,7 @@ export default function PaymentsPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editAmount, setEditAmount] = useState(0);
 
-  const refresh = async () => {
+  const refresh = useCallback(async () => {
     if (!id) return;
     try {
       const l = getLot(id);
@@ -62,12 +62,11 @@ export default function PaymentsPage() {
       const ps = await listPaymentsForLot(id);
       setPayments(ps);
     } catch (e) { setError(errMsg(e, t("error"))); }
-  };
+  }, [id, t]);
 
   useEffect(() => {
     if (id && user) void refresh();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, user]);
+  }, [id, user, refresh]);
 
   if (!lot) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
 

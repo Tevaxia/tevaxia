@@ -27,6 +27,17 @@ type UiState =
   | { kind: "success"; fileUrl: string; filename: string }
   | { kind: "error"; message: string };
 
+function DriveIcon() {
+  return (
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none">
+      <path d="M7.71 3.5L1.15 15l2.85 4.5h17.8L24 15 17.29 3.5H7.71z" fill="#4285F4" />
+      <path d="M3.99 19.5L1.15 15 7.71 3.5h2.57L3.99 19.5z" fill="#1967D2" />
+      <path d="M3.99 19.5l13.3-16h3.38L7.51 19.5H3.99z" fill="#FBBC04" />
+      <path d="M17.29 3.5L24 15l-2.85 4.5H7.51L17.29 3.5z" fill="#188038" />
+    </svg>
+  );
+}
+
 export default function SaveToGoogleDrive(props: SaveToGoogleDriveProps) {
   const t = useTranslations("drive");
   const [state, setState] = useState<UiState>({ kind: "idle" });
@@ -113,15 +124,6 @@ export default function SaveToGoogleDrive(props: SaveToGoogleDriveProps) {
     }
   };
 
-  const DriveIcon = () => (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none">
-      <path d="M7.71 3.5L1.15 15l2.85 4.5h17.8L24 15 17.29 3.5H7.71z" fill="#4285F4" />
-      <path d="M3.99 19.5L1.15 15 7.71 3.5h2.57L3.99 19.5z" fill="#1967D2" />
-      <path d="M3.99 19.5l13.3-16h3.38L7.51 19.5H3.99z" fill="#FBBC04" />
-      <path d="M17.29 3.5L24 15l-2.85 4.5H7.51L17.29 3.5z" fill="#188038" />
-    </svg>
-  );
-
   if (state.kind === "success") {
     return (
       <div className="inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm text-emerald-900">
@@ -160,7 +162,6 @@ export default function SaveToGoogleDrive(props: SaveToGoogleDriveProps) {
         {state.kind === "uploading" ? (
           <div className="h-4 w-4 animate-spin rounded-full border-2 border-slate/30 border-t-slate" />
         ) : (
-          // eslint-disable-next-line react-hooks/static-components -- reviewed, intentional
           <DriveIcon />
         )}
         {state.kind === "uploading" ? t("uploading") : (props.label ?? t("saveToDrive"))}

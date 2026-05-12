@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { supabase } from "@/lib/supabase";
@@ -27,13 +27,13 @@ export default function Psd2Page() {
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [movements, setMovements] = useState<BankMovement[]>([]);
 
-  const authFetch = async (input: string, init?: RequestInit) => {
+  const authFetch = useCallback(async (input: string, init?: RequestInit) => {
     if (!supabase) throw new Error(t("errSupabase"));
     const { data: { session } } = await supabase.auth.getSession();
     const token = session?.access_token;
     if (!token) throw new Error(t("errSignIn"));
     return fetch(input, { ...init, headers: { ...(init?.headers ?? {}), Authorization: `Bearer ${token}` } });
-  };
+  }, [t]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -56,7 +56,7 @@ export default function Psd2Page() {
         }
       })();
     }
-  }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [user, authFetch, t]);
 
   useEffect(() => {
     const hasCode = new URLSearchParams(window.location.search).has("code");

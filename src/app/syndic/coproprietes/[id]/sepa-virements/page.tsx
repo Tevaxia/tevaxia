@@ -31,8 +31,7 @@ export default function SepaVirementsPage() {
     bic: "",
   });
   const [executionDate, setExecutionDate] = useState(
-    // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render
-    new Date(Date.now() + 2 * 86400000).toISOString().slice(0, 10),
+    () => new Date(Date.now() + 2 * 86400000).toISOString().slice(0, 10),
   );
   const [payments, setPayments] = useState<Array<{
     id: string;
@@ -62,6 +61,7 @@ export default function SepaVirementsPage() {
     setLoading(false);
   }, [coownershipId]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (!authLoading && user) void reload(); }, [user, authLoading, reload]);
 
   const addPayment = () => {

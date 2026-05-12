@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
@@ -121,17 +121,7 @@ export default function AssembliesPage() {
     }
   };
 
-  const refresh = async () => {
-    try {
-      const [c, u, a] = await Promise.all([getCoownership(id), listUnits(id), listAssemblies(id)]);
-      setCoown(c); setUnits(u); setAssemblies(a);
-      const nextActive = activeAssemblyId && a.find((x) => x.id === activeAssemblyId) ? activeAssemblyId : (a[0]?.id ?? null);
-      setActiveAssemblyId(nextActive);
-      if (nextActive) await loadAssemblyDetails(nextActive);
-    } catch (e) { setError(errMsg(e, t("error"))); }
-  };
-
-  const loadAssemblyDetails = async (assemblyId: string) => {
+  const loadAssemblyDetails = useCallback(async (assemblyId: string) => {
     const r = await listResolutions(assemblyId);
     setResolutions(r);
     const votesByRes: Record<string, AssemblyVote[]> = {};
@@ -139,16 +129,29 @@ export default function AssembliesPage() {
       votesByRes[res.id] = await listVotes(res.id);
     }
     setVotesMap(votesByRes);
-  };
+  }, []);
+
+  const refresh = useCallback(async () => {
+    try {
+      const [c, u, a] = await Promise.all([getCoownership(id), listUnits(id), listAssemblies(id)]);
+      setCoown(c); setUnits(u); setAssemblies(a);
+      setActiveAssemblyId((prev) => {
+        const nextActive = prev && a.find((x) => x.id === prev) ? prev : (a[0]?.id ?? null);
+        if (nextActive) void loadAssemblyDetails(nextActive);
+        return nextActive;
+      });
+    } catch (e) { setError(errMsg(e, t("error"))); }
+  }, [id, t, loadAssemblyDetails]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     if (id && user) void refresh();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, user]);
+  }, [id, user, refresh]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     if (activeAssemblyId) void loadAssemblyDetails(activeAssemblyId);
-  }, [activeAssemblyId]);
+  }, [activeAssemblyId, loadAssemblyDetails]);
 
   if (!coown) return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
 

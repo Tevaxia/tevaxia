@@ -52,14 +52,15 @@ export default function ConfidentialitePage() {
     setConsentsLoaded(c);
     setHistory(h);
     setActivity(a);
-    const map = { ...consents };
-    for (const cc of CONSENT_CATEGORIES) {
-      const found = c.find((x) => x.category === cc.category);
-      map[cc.category] = found ? found.granted : cc.defaultGranted;
-    }
-    setConsents(map);
+    setConsents((prev) => {
+      const map = { ...prev };
+      for (const cc of CONSENT_CATEGORIES) {
+        const found = c.find((x) => x.category === cc.category);
+        map[cc.category] = found ? found.granted : cc.defaultGranted;
+      }
+      return map;
+    });
     setLoading(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   useEffect(() => { void reload(); }, [reload]);

@@ -61,10 +61,10 @@ export default function AllocationKeysPage() {
 
   const activeKey = useMemo(() => keys.find((k) => k.id === activeKeyId) ?? null, [keys, activeKeyId]);
 
-  const getShares = (unitId: string): number => {
+  const getShares = useCallback((unitId: string): number => {
     if (editing[unitId] !== undefined) return editing[unitId];
     return Number(allocs.find((a) => a.unit_id === unitId)?.shares ?? 0);
-  };
+  }, [editing, allocs]);
 
   const saveShares = async (unitId: string, shares: number) => {
     if (!activeKeyId) return;
@@ -82,7 +82,7 @@ export default function AllocationKeysPage() {
 
   const totalShares = useMemo(
     () => units.reduce((s, u) => s + getShares(u.id), 0),
-    [units, allocs, editing],  // eslint-disable-line react-hooks/exhaustive-deps
+    [units, getShares],
   );
 
   const createCustomKey = async () => {

@@ -24,13 +24,12 @@ export default function BulkRateEditorPage(props: { params: Promise<{ propertyId
   const [error, setError] = useState<string | null>(null);
   const [flash, setFlash] = useState<string | null>(null);
 
-  const [filter, setFilter] = useState({
+  const [filter, setFilter] = useState(() => ({
     rate_plan_id: "",
     room_type_id: "",
     start_date: new Date().toISOString().slice(0, 10),
-    // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render
     end_date: new Date(Date.now() + 90 * 86400000).toISOString().slice(0, 10),
-  });
+  }));
 
   const [action, setAction] = useState<{
     type: "add_pct" | "add_fixed" | "set_value" | "close_range" | "reopen_range";
@@ -54,6 +53,7 @@ export default function BulkRateEditorPage(props: { params: Promise<{ propertyId
     setLoading(false);
   }, [propertyId]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { if (!authLoading && user) void reload(); }, [user, authLoading, reload]);
 
   const filtered = rates.filter((r) => {

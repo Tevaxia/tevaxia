@@ -30,6 +30,7 @@ export default function MesEvaluations() {
   const [cloudSynced, setCloudSynced] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     setTrash(listerCorbeille());
     listerEvaluationsAsync().then(({ items, cloud }) => {
       setEvaluations(items);
@@ -70,10 +71,9 @@ export default function MesEvaluations() {
     setTrash([]);
   };
 
+  const [mountNow] = useState(() => Date.now());
   function daysLeft(deletedAt: string): number {
-    // eslint-disable-next-line react-hooks/purity
-    const now = Date.now();
-    const ms = 7 * 24 * 60 * 60 * 1000 - (now - new Date(deletedAt).getTime());
+    const ms = 7 * 24 * 60 * 60 * 1000 - (mountNow - new Date(deletedAt).getTime());
     return Math.max(0, Math.ceil(ms / (24 * 60 * 60 * 1000)));
   }
 

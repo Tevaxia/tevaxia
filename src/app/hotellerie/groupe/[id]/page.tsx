@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
@@ -48,7 +48,7 @@ export default function HotelDetailPage() {
   };
   const [draft, setDraft] = useState<Draft>(emptyDraft);
 
-  const refresh = async () => {
+  const refresh = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
@@ -62,12 +62,11 @@ export default function HotelDetailPage() {
       }
     } catch (e) { setError(errMsg(e, t("error"))); }
     finally { setLoading(false); }
-  };
+  }, [id, t]);
 
   useEffect(() => {
     if (id && user) void refresh();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, user]);
+  }, [id, user, refresh]);
 
   const applyQuarterPreset = (q: typeof QUARTER_PRESETS[0], year: number) => {
     const start = new Date(Date.UTC(year, q.startM, 1));

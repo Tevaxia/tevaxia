@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { pdf, Document, Page, Text, StyleSheet } from "@react-pdf/renderer";
@@ -87,7 +87,7 @@ export default function RelancesPage() {
     3: { label: t("level3Label"), days: 60, color: "bg-rose-100 text-rose-800" },
   };
 
-  const refresh = async () => {
+  const refresh = useCallback(async () => {
     if (!user || !supabase) return;
     const { data: prof } = await supabase.from("user_profiles").select("nom_complet").eq("user_id", user.id).maybeSingle();
     if (prof && (prof as { nom_complet?: string }).nom_complet) setProfileName((prof as { nom_complet: string }).nom_complet);
@@ -124,10 +124,10 @@ export default function RelancesPage() {
     }
     setRows(list);
     setLoading(false);
-  };
+  }, [user]);
 
   // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
-  useEffect(() => { void refresh(); }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { void refresh(); }, [refresh]);
 
   const sendDunning = async (row: UnpaidRow, level: 1 | 2 | 3) => {
     if (!user || !supabase) return;

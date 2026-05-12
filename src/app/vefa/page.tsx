@@ -120,10 +120,24 @@ export default function VefaCalculator() {
     const [startYear, startMonth] = moisDebut.split("-").map(Number);
     const tauxMensuel = (tauxHypotheque / 100) / 12;
 
-    let cumulVerse = 0;      // cumulative amount paid to promoter
-    let cumulIntercalaire = 0; // cumulative intercalary interest paid
+    const ratioMortgage = montantHypotheque > 0 && prixTotal > 0
+      ? Math.min(1, montantHypotheque / prixTotal)
+      : 0;
 
-    const milestoneRows = DEFAULT_MILESTONES.map((m, i) => {
+    type MilestoneRow = {
+      labelKey: string;
+      pct: number;
+      montant: number;
+      cumul: number;
+      dateStr: string;
+      monthsAfterStart: number;
+      drawnMortgage: number;
+      monthsToNext: number;
+      interetPhase: number;
+      cumulIntercalaire: number;
+    };
+
+    const milestoneRows = DEFAULT_MILESTONES.reduce<MilestoneRow[]>((acc, m, i) => {
       const pct = milestonePcts[i] / 100;
       const montant = prixTotal * pct;
       const totalMonths = (startYear * 12 + (startMonth - 1)) + m.monthsAfterStart;
@@ -131,48 +145,34 @@ export default function VefaCalculator() {
       const month = (totalMonths % 12) + 1;
       const dateStr = `${String(month).padStart(2, "0")}/${year}`;
 
-      // Intercalary interest calculation:
-      // After this payment, the bank has disbursed cumulVerse + montant of the mortgage.
-      // But the disbursed amount from the mortgage is capped at the mortgage amount.
-      // Between this milestone and the next, the buyer pays interest on the drawn-down amount.
-      // eslint-disable-next-line react-hooks/immutability
-      cumulVerse += montant;
+      const prevCumul = acc[acc.length - 1]?.cumul ?? 0;
+      const prevCumulIntercalaire = acc[acc.length - 1]?.cumulIntercalaire ?? 0;
+      const cumul = prevCumul + montant;
+      const drawnAfterPayment = Math.min(montantHypotheque, cumul * ratioMortgage);
 
-      // The amount drawn from the mortgage at this point:
-      // Typically the buyer's own funds (apport) are used first, then the mortgage.
-      // For simplicity, we assume the mortgage is drawn proportionally to payments.
-      // drawn = min(cumulVerse, montantHypotheque) * (montantHypotheque / prixTotal)
-      // A more standard approach: drawn = cumulVerse * (montantHypotheque / prixTotal)
-      // capped at montantHypotheque
-      const ratioMortgage = montantHypotheque > 0 && prixTotal > 0
-        ? Math.min(1, montantHypotheque / prixTotal)
-        : 0;
-      const drawnAfterPayment = Math.min(montantHypotheque, cumulVerse * ratioMortgage);
-
-      // Months until next milestone (or 0 for last)
       const nextMonths = i < DEFAULT_MILESTONES.length - 1
         ? DEFAULT_MILESTONES[i + 1].monthsAfterStart - m.monthsAfterStart
         : 0;
 
-      // Intercalary interest for this phase = drawn amount * monthly rate * months
       const interetPhase = drawnAfterPayment * tauxMensuel * nextMonths;
-      cumulIntercalaire += interetPhase;
+      const cumulIntercalaire = prevCumulIntercalaire + interetPhase;
 
-      return {
+      acc.push({
         labelKey: m.labelKey,
         pct,
         montant,
-        cumul: cumulVerse,
+        cumul,
         dateStr,
         monthsAfterStart: m.monthsAfterStart,
         drawnMortgage: drawnAfterPayment,
         monthsToNext: nextMonths,
         interetPhase,
         cumulIntercalaire,
-      };
-    });
+      });
+      return acc;
+    }, []);
 
-    const totalIntercalaire = cumulIntercalaire;
+    const totalIntercalaire = milestoneRows[milestoneRows.length - 1]?.cumulIntercalaire ?? 0;
 
     // Surcoût lié au retard chantier : la banque a déjà décaissé la totalité
     // du crédit à la livraison ; pendant le retard supplémentaire, l'acquéreur

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
@@ -19,17 +19,16 @@ export default function HotelImpayesPage() {
   const [fraisAdministratifs, setFraisAdministratifs] = useState(40);
   const [avocatHonoraires, setAvocatHonoraires] = useState(0);
   const [nbFactures, setNbFactures] = useState(1);
-  // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render
-  const [lastInvoiceDate, setLastInvoiceDate] = useState(new Date(Date.now() - 35 * 24 * 3600 * 1000).toISOString().slice(0, 10));
+  const [lastInvoiceDate, setLastInvoiceDate] = useState(() => new Date(Date.now() - 35 * 24 * 3600 * 1000).toISOString().slice(0, 10));
 
-  function calcPalier(j: number): { niveau: 0 | 1 | 2 | 3; label: string; description: string; action: string } {
+  const calcPalier = useCallback((j: number): { niveau: 0 | 1 | 2 | 3; label: string; description: string; action: string } => {
     if (j < 15) return { niveau: 0, label: t("palier0Label"), description: t("palier0Desc"), action: t("palier0Action") };
     if (j < 30) return { niveau: 1, label: t("palier1Label"), description: t("palier1Desc"), action: t("palier1Action") };
     if (j < 60) return { niveau: 2, label: t("palier2Label"), description: t("palier2Desc"), action: t("palier2Action") };
     return { niveau: 3, label: t("palier3Label"), description: t("palier3Desc"), action: t("palier3Action") };
-  }
+  }, [t]);
 
-  const palier = useMemo(() => calcPalier(joursRetard), [joursRetard, t]); // eslint-disable-line react-hooks/exhaustive-deps
+  const palier = useMemo(() => calcPalier(joursRetard), [joursRetard, calcPalier]);
 
   const interetsRetard = useMemo(
     () => computeInteretsRetard(montantFacture * nbFactures, joursRetard, tauxInteretRetard),

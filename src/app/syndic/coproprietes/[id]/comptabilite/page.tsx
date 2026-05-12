@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
@@ -58,15 +58,15 @@ export default function AccountingPage() {
     ],
   });
 
-  const refresh = async () => {
+  const refresh = useCallback(async () => {
     try {
       const [c, y, a] = await Promise.all([getCoownership(id), listYears(id), listAccounts(id)]);
       setCoown(c); setYears(y); setAccounts(a);
-      if (!activeYearId && y.length > 0) setActiveYearId(y[0].id);
+      setActiveYearId((prev) => prev ?? (y.length > 0 ? y[0].id : null));
     } catch (e) { setError(errMsg(e, t("error"))); }
-  };
+  }, [id, t]);
 
-  const loadYearDetails = async (yearId: string, year: number) => {
+  const loadYearDetails = useCallback(async (yearId: string, year: number) => {
     const [es, b] = await Promise.all([listEntries(yearId), getBalance(id, year)]);
     setEntries(es);
     setBalance(b);
@@ -75,19 +75,19 @@ export default function AccountingPage() {
       linesMap[e.id] = await listLines(e.id);
     }
     setLinesByEntry(linesMap);
-  };
+  }, [id]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     if (id && user) void refresh();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, user]);
+  }, [id, user, refresh]);
 
   const activeYear = useMemo(() => years.find((y) => y.id === activeYearId) ?? null, [years, activeYearId]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
     if (activeYear) void loadYearDetails(activeYear.id, activeYear.year);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeYear]);
+  }, [activeYear, loadYearDetails]);
 
   if (!coown) {
     return (
