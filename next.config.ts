@@ -18,7 +18,11 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ["@react-pdf/renderer", "posthog-js", "@sentry/nextjs", "@supabase/supabase-js", "recharts", "pdfjs-dist", "tesseract.js", "leaflet", "react-leaflet"],
-    optimizeCss: true,
+    // Inlines the page's critical CSS into the HTML response, removing the
+    // render-blocking CSS request (the 25 KB Tailwind chunk that PageSpeed
+    // flagged at 640 ms LCP delay). Next 16 native, replaces optimizeCss
+    // which silently no-op'd without critters/beasties installed.
+    inlineCss: true,
   },
   async redirects() {
     const LOCALES = ["en", "de", "lb", "pt"];

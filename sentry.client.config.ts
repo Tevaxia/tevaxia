@@ -9,7 +9,10 @@ if (dsn) {
   Sentry.init({
     dsn,
     environment: process.env.NEXT_PUBLIC_SENTRY_ENV ?? process.env.NODE_ENV,
-    tracesSampleRate: 0.1,
+    // 0 = no perf tracing on the client. Saves the tracing instrumentation
+    // from running on every nav. Default integrations (breadcrumbs,
+    // global error handlers) are kept so window.onerror is still captured.
+    tracesSampleRate: 0,
     debug: false,
     integrations: [],
   });
