@@ -426,30 +426,22 @@ export default async function Home() {
   return (
     <div className="bg-background">
       <SoftwareApplicationJsonLd name="tevaxia.lu" description={t("jsonLdDescription")} url="https://tevaxia.lu" />
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-navy py-20 sm:py-28">
+      {/* Hero compact : promesse + 2 CTAs */}
+      <section className="relative overflow-hidden bg-navy pt-14 pb-10 sm:pt-20 sm:pb-12">
         <div className="absolute inset-0 bg-gradient-to-br from-navy-dark via-navy to-navy-light opacity-90" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+        <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
               {t("heroTitle")}{" "}
               <span className="text-gold">{t("heroHighlight")}</span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-white/70">
+            <p className="mt-5 text-base leading-7 text-white/80 sm:text-lg sm:leading-8">
               {t("heroDescription")}
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm text-white/50">
-              <span className="rounded-full border border-white/20 px-3 py-1">{t("tags.habitat")}</span>
-              <span className="rounded-full border border-white/20 px-3 py-1">{t("tags.tegova")}</span>
-              <span className="rounded-full border border-white/20 px-3 py-1">{t("tags.epbd")}</span>
-              <span className="rounded-full border border-white/20 px-3 py-1">{t("tags.lir")}</span>
-              <span className="rounded-full border border-white/20 px-3 py-1">{t("tags.bail")}</span>
-              <span className="rounded-full border border-white/20 px-3 py-1">{t("tags.statec")}</span>
-            </div>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
               <a
                 href="#profils"
-                className="inline-flex items-center gap-2 rounded-lg bg-gold px-6 py-3 text-sm font-semibold text-navy-dark shadow-sm transition-colors hover:bg-gold-light"
+                className="inline-flex items-center gap-2 rounded-lg bg-gold px-5 py-2.5 text-sm font-semibold text-navy-dark shadow-sm transition-colors hover:bg-gold-light"
               >
                 {t("heroCta1")}
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -457,8 +449,8 @@ export default async function Home() {
                 </svg>
               </a>
               <Link
-                href={`${lp}/plan-du-site`}
-                className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                href={`${lp}/estimation`}
+                className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
               >
                 {t("heroCta2")}
               </Link>
@@ -467,11 +459,31 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Onboarding by intent */}
+      {/* Onboarding by intent — remonté juste sous le hero, contraste light pour lisibilité */}
       <OnboardingIntent />
 
-      {/* Trust signals band */}
-      <section className="bg-navy py-14">
+      {/* Stats clés (réduit, compact) */}
+      <section className="border-y border-card-border bg-card py-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-5">
+            {[
+              { value: "30+", label: t("stats.tools") },
+              { value: "8", label: t("stats.energySimulators") },
+              { value: "100", label: t("stats.communes") },
+              { value: "5", label: t("stats.languages") },
+              { value: "991", label: t("stats.tests") },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="text-2xl font-bold text-navy sm:text-3xl">{stat.value}</div>
+                <div className="mt-1 text-xs text-muted sm:text-sm">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust signals band : agile / sur-mesure / support */}
+      <section className="bg-navy py-12">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 md:grid-cols-3">
             <div className="flex items-start gap-3">
@@ -499,46 +511,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Modules grid */}
-      <section className="py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-6">
-            {MODULES.map((module) => (
-              <Link
-                key={module.href}
-                href={`${lp}${module.href}`}
-                className="group relative flex w-full flex-col rounded-2xl border border-card-border bg-card p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-0.5 sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
-              >
-                <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${module.color} text-white shadow-sm`}>
-                  {module.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-navy group-hover:text-navy-light transition-colors">
-                  {module.title}
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
-                  {module.description}
-                </p>
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="rounded-full bg-background px-2.5 py-0.5 text-xs font-medium text-navy">
-                    {module.tag}
-                  </span>
-                  <svg
-                    className="h-5 w-5 text-muted transition-transform group-hover:translate-x-1 group-hover:text-navy"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Guide immobilier LU — GEO */}
+      {/* Guide immobilier LU — GEO (questions fréquentes, contenu indexable) */}
       <section className="py-16 sm:py-20 border-t border-card-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
@@ -580,21 +553,46 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Key figures */}
-      <section className="border-t border-card-border bg-card py-16">
+      {/* Modules grid — repoussé en bas avec heading explicite, grid 4 col plus compacte */}
+      <section className="border-t border-card-border bg-card py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-5">
-            {[
-              { value: "30+", label: t("stats.tools") },
-              { value: "8", label: t("stats.energySimulators") },
-              { value: "100", label: t("stats.communes") },
-              { value: "5", label: t("stats.languages") },
-              { value: "172", label: t("stats.tests") },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-3xl font-bold text-navy sm:text-4xl">{stat.value}</div>
-                <div className="mt-2 text-sm text-muted">{stat.label}</div>
-              </div>
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-bold text-navy sm:text-3xl">{t("exploreAllTools")}</h2>
+            <p className="mt-3 text-sm text-muted max-w-2xl mx-auto">{t("exploreAllToolsHint")}</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {MODULES.map((module) => (
+              <Link
+                key={module.href}
+                href={`${lp}${module.href}`}
+                className="group relative flex flex-col rounded-xl border border-card-border bg-background p-4 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${module.color} text-white shadow-sm`}>
+                    <span className="scale-75">{module.icon}</span>
+                  </div>
+                  <h3 className="text-sm font-semibold text-navy leading-tight group-hover:text-navy-light transition-colors">
+                    {module.title}
+                  </h3>
+                </div>
+                <p className="mt-2 flex-1 text-xs leading-relaxed text-muted line-clamp-3">
+                  {module.description}
+                </p>
+                <div className="mt-3 flex items-center justify-between">
+                  <span className="rounded-full bg-card px-2 py-0.5 text-[10px] font-medium text-navy">
+                    {module.tag}
+                  </span>
+                  <svg
+                    className="h-4 w-4 text-muted transition-transform group-hover:translate-x-1 group-hover:text-navy"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

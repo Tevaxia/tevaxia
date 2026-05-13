@@ -108,9 +108,12 @@
     }
   },
   "home": {
-    "heroTitle": "40+ LU Immobilien-Tools,",
-    "heroHighlight": "een Plaz",
-    "heroDescription": "Privatpersoun, Investisseur, Promoteur, Agent, Syndic, Bank oder Hotelier — wielt Äert Profil a kritt Zougang zu den Tools fir Äre Beruff. Ëffentlech Donnéeën, LU-konform, 5 Sproochen.",
+    "heroTitle": "D'Immobilien-Analyse vu Lëtzebuerg,",
+    "heroHighlight": "no Beruff",
+    "heroDescription": "Hedonesch Schätzung um Observatoire de l'Habitat, TEGOVA EVS 2025 Bewäertung, Locataire-Gestioun no der Loi vum 21. September 2006, Syndic no der Loi vum 16. Mee 1975, Hotel-PMS, Banken-API. 7 Profiler, 30+ Tools, ëffentlech Lëtzebuerger Donnéeën.",
+    "heroSectionLabel": "Fir wat fir e Beruff schafft Dir?",
+    "exploreAllTools": "All 30+ Tools entdecken",
+    "exploreAllToolsHint": "Wësst Dir scho wat Dir sicht? Gitt op déi ganz Lëscht.",
     "trust": {
       "heading": "Solid Grondlagen",
       "tegova": "TEGOVA EVS 2025",
@@ -342,8 +345,8 @@
       "sourcesLine4": "Maartberichter Büroën, Handel, Logistik",
       "sourcesLine5": "Hypothéikenzinsen a Baukostenindexen"
     },
-    "heroCta1": "Meng Tools fannen",
-    "heroCta2": "40+ Moduler entdecken",
+    "heroCta1": "Tools fir mäi Beruff weisen",
+    "heroCta2": "E Bien schätzen",
     "guideSection": {
       "title": "Heefeg Froen iwwer Immobilien zu Lëtzebuerg",
       "subtitle": "12 praktesch Guiden mat Gesetzesverwäiser. All Äntwert verlinkt op en Berechnungstool.",
@@ -3433,13 +3436,13 @@
     "commissionnairePlaceholder": "Opdrag-Gëeebber (Bank / Riichter / Notar) — fakultativ"
   },
   "onboarding": {
-    "heading": "Wat ass Äert Profil?",
-    "subheading": "7 Entréesdieren — Privatleit, Profien, Banken, Hotellerie. Wielt Äert.",
+    "heading": "Fir wat fir e Beruff schafft Dir?",
+    "subheading": "7 Profiler, all mat senge Tools an senger Léisungssäit. Klickt op Äert.",
     "viewSolution": "Détailléiert Léisung kucken",
-    "allSolutions": "All d'Léisunge kucken",
+    "allSolutions": "D'Léisunge vergläichen",
     "particulier": {
       "title": "Privatperson",
-      "description": "Kafen, verkafen oder lounen",
+      "description": "Schätzung, Bëllegen-Akt-Käschten, Klimabonus-Hëllef-Simulator, Kaaf-vs-Loyer-Verglach",
       "linkWizard": "★ Komplette Guidéeierung (4 Schrëtt)",
       "link1": "Präisschätzung",
       "link2": "Akquisitiounskäschten",
@@ -3451,7 +3454,7 @@
     },
     "investisseur": {
       "title": "Investisseur",
-      "description": "Rendement, DCF, Portfolio, Cashflow",
+      "description": "EVS 2025 Bewäertung, DCF pro Locataire, Loyerdach Art. 102 LIR, Multi-Biens-Suivi",
       "linkGestion": "★ LU Lounungsverwaltung (5%-Regel, Klimabonus)",
       "link1": "EVS Bewäertung",
       "link2": "DCF Multi-Locatairen",
@@ -3463,7 +3466,7 @@
     },
     "promoteur": {
       "title": "Promoteur",
-      "description": "Bilanz, VEFA, Bau, Urbanismus",
+      "description": "Bilan rückwärts, VEFA-Plang 3%/17% TVA, STATEC-Baukäschten, PAG-Konformitéit",
       "link1": "Promoteur-Bilanz",
       "link2": "VEFA",
       "link3": "Baukäschten-Schätzer",
@@ -3473,7 +3476,7 @@
     },
     "agent": {
       "title": "Immobiliesagent",
-      "description": "Co-branded Berichter, Clientsschätzung",
+      "description": "Mandats-CRM, automatescht Matching, elektronesch Signaturen, Co-Branded Schätzungs-PDF",
       "link1": "B2B Offer Agencen",
       "link2": "Séier Schätzung",
       "link3": "Hedonesch Method",
@@ -3481,7 +3484,7 @@
     },
     "syndic": {
       "title": "Syndic / Gestionnaire",
-      "description": "Käschten, 5-%-Reegel, Energie-Portfolio",
+      "description": "Buchhaltung pro Exercice, AG online mat Vote, OCR Rechnungen, SEPA pain.001, Travaux-Fong",
       "link1": "Syndic-Modul",
       "link2": "Gesetzleche Loyer (5 %)",
       "link3": "Immobilien-Portfolio",
@@ -3492,7 +3495,7 @@
     },
     "banque": {
       "title": "Bank / Finanzwiesen",
-      "description": "LU-Schätzungs-API, MLV, AML/KYC",
+      "description": "REST API Schätzung, TEGOVA MLV, AML/KYC, SHA-256 ënnerschriwwen Bericht ëffentlech verifizéierbar",
       "link1": "Schätzungs-API (Banken)",
       "link2": "Bankinstrumenter",
       "link3": "AML / KYC",
@@ -3500,7 +3503,7 @@
     },
     "hotellerie": {
       "title": "Hotellerie",
-      "description": "Hotel-Virakaf: RevPAR, DSCR, E-2",
+      "description": "Virakaf RevPAR/DSCR, PMS Frontdesk + Channels + Tariffer, USALI-Rapporten, Pickup-Forecast",
       "link1": "Hotellerie-Hub",
       "link2": "Hotelbewäertung (RevPAR/EBITDA)",
       "link3": "DSCR & Hotelfinanzéierung",

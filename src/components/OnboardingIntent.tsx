@@ -173,24 +173,15 @@ export default function OnboardingIntent() {
   }
 
   return (
-    <section id="profils" className="py-12 sm:py-16 scroll-mt-4">
+    <section id="profils" className="py-16 sm:py-20 scroll-mt-4">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center text-xl font-bold text-navy sm:text-2xl">
-          {t("heading")}
-        </h2>
-        <p className="mt-2 text-center text-sm text-muted">
-          {t("subheading")}
-        </p>
-        <div className="mt-4 text-center">
-          <Link
-            href={`${lp}/solutions`}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-navy-light transition-colors"
-          >
-            {t("allSolutions")}
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </svg>
-          </Link>
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-navy sm:text-3xl">
+            {t("heading")}
+          </h2>
+          <p className="mt-3 text-sm text-muted max-w-2xl mx-auto leading-relaxed">
+            {t("subheading")}
+          </p>
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
           {INTENTS.map((intent) => {
@@ -260,6 +251,17 @@ export default function OnboardingIntent() {
               </div>
             );
           })}
+        </div>
+        <div className="mt-10 text-center">
+          <Link
+            href={`${lp}/solutions`}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-navy-light transition-colors"
+          >
+            {t("allSolutions")}
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>

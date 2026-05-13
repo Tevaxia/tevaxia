@@ -108,9 +108,12 @@
     }
   },
   "home": {
-    "heroTitle": "40+ outils immobiliers LU,",
-    "heroHighlight": "un seul endroit",
-    "heroDescription": "Particulier, investisseur, promoteur, agent, syndic, banque ou hôtelier — choisissez votre profil et accédez aux outils adaptés à votre métier. Données publiques, conformité luxembourgeoise, 5 langues.",
+    "heroTitle": "L'analyse immobilière du Luxembourg,",
+    "heroHighlight": "par métier",
+    "heroDescription": "Estimation hédonique sur l'Observatoire de l'Habitat, valorisation TEGOVA EVS 2025, gestion locative loi 21 septembre 2006, syndic loi 16 mai 1975, PMS hôtelier, API banque. 7 profils, 30+ outils, données publiques luxembourgeoises.",
+    "heroSectionLabel": "Pour quel métier travaillez-vous ?",
+    "exploreAllTools": "Explorer les 30+ outils",
+    "exploreAllToolsHint": "Vous savez déjà ce que vous cherchez ? Accédez à la liste complète.",
     "trust": {
       "heading": "Fondations solides",
       "tegova": "TEGOVA EVS 2025",
@@ -342,8 +345,8 @@
       "sourcesLine4": "Rapports de marché bureaux, commerces, logistique",
       "sourcesLine5": "Taux hypothécaires et indices de construction"
     },
-    "heroCta1": "Trouver mes outils",
-    "heroCta2": "Explorer les 40+ modules",
+    "heroCta1": "Voir les outils pour mon métier",
+    "heroCta2": "Estimer un bien",
     "guideSection": {
       "title": "Questions fréquentes sur l'immobilier au Luxembourg",
       "subtitle": "12 guides pratiques avec références légales. Chaque réponse est liée à un outil de calcul.",
@@ -3433,13 +3436,13 @@
     "commissionnairePlaceholder": "Commissionnaire (banque / juge / notaire) — optionnel"
   },
   "onboarding": {
-    "heading": "Quel est votre profil ?",
-    "subheading": "7 portes d'entrée — particuliers, pros, banques, hôtellerie. Choisissez la vôtre.",
+    "heading": "Pour quel métier travaillez-vous ?",
+    "subheading": "7 profils, chacun avec ses outils dédiés et sa page solution. Cliquez sur le vôtre.",
     "viewSolution": "Voir la solution détaillée",
-    "allSolutions": "Explorer toutes les solutions",
+    "allSolutions": "Comparer les solutions",
     "particulier": {
       "title": "Particulier",
-      "description": "Acheter, vendre, louer son bien",
+      "description": "Estimation, frais Bëllegen Akt, simulateur aides Klimabonus, comparaison achat vs location",
       "linkWizard": "★ Parcours guidé complet (4 étapes)",
       "link1": "Estimation de prix",
       "link2": "Frais d'acquisition",
@@ -3451,7 +3454,7 @@
     },
     "investisseur": {
       "title": "Investisseur",
-      "description": "Rentabilité, DCF, portefeuille, cashflow",
+      "description": "Valorisation EVS 2025, DCF bail par bail, plafond loyer Art. 102 LIR, suivi multi-biens",
       "linkGestion": "★ Gestion locative LU (règle 5%, Klimabonus)",
       "link1": "Valorisation EVS",
       "link2": "DCF multi-locataires",
@@ -3463,7 +3466,7 @@
     },
     "promoteur": {
       "title": "Promoteur",
-      "description": "Bilan, VEFA, construction, urbanisme",
+      "description": "Bilan compte à rebours, échéancier VEFA TVA 3%/17%, coûts construction STATEC, conformité PAG",
       "link1": "Bilan promoteur",
       "link2": "VEFA",
       "link3": "Estimateur coût construction",
@@ -3473,7 +3476,7 @@
     },
     "agent": {
       "title": "Agent immobilier",
-      "description": "Rapports co-brandés, estimation client",
+      "description": "CRM mandats, matching automatique, signatures électroniques, PDF estimation co-brandé",
       "link1": "Offre agences B2B",
       "link2": "Estimation rapide",
       "link3": "Méthode hédonique",
@@ -3481,7 +3484,7 @@
     },
     "syndic": {
       "title": "Syndic / Gestionnaire",
-      "description": "Charges, règle 5 %, portfolio énergie",
+      "description": "Compta par exercice, AG en ligne avec votes, OCR factures, SEPA pain.001, fonds travaux",
       "link1": "Module syndic",
       "link2": "Loyer légal (règle 5 %)",
       "link3": "Portefeuille immobilier",
@@ -3492,7 +3495,7 @@
     },
     "banque": {
       "title": "Banque / Finance",
-      "description": "API estimation LU, MLV, AML/KYC",
+      "description": "API REST estimation, MLV TEGOVA, AML/KYC, rapport signé SHA-256 vérifiable publiquement",
       "link1": "API estimation (banques)",
       "link2": "Outils bancaires",
       "link3": "AML / KYC",
@@ -3500,7 +3503,7 @@
     },
     "hotellerie": {
       "title": "Hôtellerie",
-      "description": "Pré-acquisition hôtel : RevPAR, DSCR, E-2",
+      "description": "Pré-acquisition RevPAR/DSCR, PMS frontdesk + channels + tarifs, rapports USALI, forecast pickup",
       "link1": "Hub hôtellerie",
       "link2": "Valorisation hôtelière (RevPAR/EBITDA)",
       "link3": "DSCR & financement hôtel",

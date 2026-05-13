@@ -108,9 +108,12 @@
     }
   },
   "home": {
-    "heroTitle": "40+ LU Immobilien-Tools,",
-    "heroHighlight": "ein Ort",
-    "heroDescription": "Privatperson, Investor, Bauträger, Makler, Hausverwalter, Bank oder Hotelier — wählen Sie Ihr Profil und greifen Sie auf die passenden Tools zu. Öffentliche Daten, LU-konform, 5 Sprachen.",
+    "heroTitle": "Luxemburger Immobilienanalyse,",
+    "heroHighlight": "nach Beruf",
+    "heroDescription": "Hedonische Schätzung auf Basis des Observatoire de l'Habitat, TEGOVA EVS 2025 Bewertung, Mietverwaltung nach Gesetz vom 21. September 2006, Hausverwaltung nach Gesetz vom 16. Mai 1975, Hotel-PMS, Banken-API. 7 Profile, 30+ Tools, öffentliche luxemburgische Daten.",
+    "heroSectionLabel": "Für welchen Beruf arbeiten Sie?",
+    "exploreAllTools": "Alle 30+ Tools entdecken",
+    "exploreAllToolsHint": "Sie wissen schon, was Sie suchen? Vollständige Liste durchsuchen.",
     "trust": {
       "heading": "Solide Grundlagen",
       "tegova": "TEGOVA EVS 2025",
@@ -342,8 +345,8 @@
       "sourcesLine4": "Marktberichte Büros, Einzelhandel, Logistik",
       "sourcesLine5": "Hypothekenzinsen und Baukostenindizes"
     },
-    "heroCta1": "Meine Tools finden",
-    "heroCta2": "40+ Module entdecken",
+    "heroCta1": "Tools für meinen Beruf ansehen",
+    "heroCta2": "Eine Immobilie schätzen",
     "guideSection": {
       "title": "Häufige Fragen zur Immobilie in Luxemburg",
       "subtitle": "12 praktische Leitfäden mit Gesetzesverweisen. Jede Antwort verlinkt auf ein Berechnungstool.",
@@ -3433,13 +3436,13 @@
     "commissionnairePlaceholder": "Auftraggeber (Bank / Gericht / Notar) — optional"
   },
   "onboarding": {
-    "heading": "Was ist Ihr Profil?",
-    "subheading": "7 Eingangstüren — Privatpersonen, Profis, Banken, Hotellerie. Wählen Sie Ihres.",
+    "heading": "Für welchen Beruf arbeiten Sie?",
+    "subheading": "7 Profile, jedes mit seinen eigenen Tools und seiner Lösungsseite. Klicken Sie auf Ihres.",
     "viewSolution": "Detaillierte Lösung ansehen",
-    "allSolutions": "Alle Lösungen ansehen",
+    "allSolutions": "Lösungen vergleichen",
     "particulier": {
       "title": "Privatperson",
-      "description": "Kaufen, verkaufen oder vermieten",
+      "description": "Schätzung, Bëllegen-Akt-Gebühren, Klimabonus-Förderrechner, Kauf-vs-Miete-Vergleich",
       "linkWizard": "★ Vollständiger Leitfaden (4 Schritte)",
       "link1": "Preisschätzung",
       "link2": "Erwerbsnebenkosten",
@@ -3451,7 +3454,7 @@
     },
     "investisseur": {
       "title": "Investor",
-      "description": "Rendite, DCF, Portfolio, Cashflow",
+      "description": "EVS 2025 Bewertung, mietvertragsweise DCF, Mietendeckel Art. 102 LIR, Multi-Immobilien-Tracking",
       "linkGestion": "★ LU-Vermietungsverwaltung (5%-Regel, Klimabonus)",
       "link1": "EVS-Bewertung",
       "link2": "DCF Mehrmieter",
@@ -3463,7 +3466,7 @@
     },
     "promoteur": {
       "title": "Projektentwickler",
-      "description": "Bilanz, VEFA, Bau, Städtebau",
+      "description": "Rückwärtsbudget, VEFA-Zahlungsplan 3%/17% MwSt., STATEC-Baukosten, PAG-Konformität",
       "link1": "Projektentwicklerbilanz",
       "link2": "VEFA",
       "link3": "Baukostenschätzer",
@@ -3473,7 +3476,7 @@
     },
     "agent": {
       "title": "Immobilienmakler",
-      "description": "Co-branded Berichte, Kundenschätzung",
+      "description": "Mandats-CRM, automatisches Matching, elektronische Signaturen, Co-Branded-Schätzungs-PDF",
       "link1": "B2B-Angebot Maklerbüros",
       "link2": "Schnellschätzung",
       "link3": "Hedonische Methode",
@@ -3481,7 +3484,7 @@
     },
     "syndic": {
       "title": "Hausverwalter",
-      "description": "Nebenkosten, 5-%-Regel, Energie-Portfolio",
+      "description": "Buchhaltung pro Geschäftsjahr, Online-EV mit Abstimmung, Rechnungs-OCR, SEPA pain.001, Erhaltungsrücklage",
       "link1": "Hausverwalter-Modul",
       "link2": "Gesetzlicher Mietzins (5 %)",
       "link3": "Immobilien-Portfolio",
@@ -3492,7 +3495,7 @@
     },
     "banque": {
       "title": "Bank / Finanzwesen",
-      "description": "LU-Schätzungs-API, MLV, AML/KYC",
+      "description": "REST-Schätzungs-API, TEGOVA MLV, AML/KYC, SHA-256 signierter Bericht öffentlich verifizierbar",
       "link1": "Schätzungs-API (Banken)",
       "link2": "Banktools",
       "link3": "AML / KYC",
@@ -3500,7 +3503,7 @@
     },
     "hotellerie": {
       "title": "Hotellerie",
-      "description": "Hotel-Vorerwerb: RevPAR, DSCR, E-2",
+      "description": "Vorerwerb RevPAR/DSCR, PMS Frontdesk + Channels + Tarife, USALI-Berichte, Pickup-Forecast",
       "link1": "Hotellerie-Hub",
       "link2": "Hotelbewertung (RevPAR/EBITDA)",
       "link3": "DSCR & Hotelfinanzierung",

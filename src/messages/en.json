@@ -108,9 +108,12 @@
     }
   },
   "home": {
-    "heroTitle": "40+ LU real estate tools,",
-    "heroHighlight": "one place",
-    "heroDescription": "Homeowner, investor, developer, agent, property manager, bank or hotelier — pick your profile and access the tools for your job. Public data, Luxembourg compliance, 5 languages.",
+    "heroTitle": "Luxembourg real estate analysis,",
+    "heroHighlight": "by profession",
+    "heroDescription": "Hedonic estimation on the Observatoire de l'Habitat, TEGOVA EVS 2025 valuation, rental management under the law of 21 September 2006, condominium management under the law of 16 May 1975, hotel PMS, banking API. 7 profiles, 30+ tools, Luxembourg public data.",
+    "heroSectionLabel": "What's your profession?",
+    "exploreAllTools": "Explore all 30+ tools",
+    "exploreAllToolsHint": "Already know what you're looking for? Browse the full list.",
     "trust": {
       "heading": "Solid foundations",
       "tegova": "TEGOVA EVS 2025",
@@ -342,8 +345,8 @@
       "sourcesLine4": "Office, retail & logistics market reports",
       "sourcesLine5": "Mortgage rates and construction indices"
     },
-    "heroCta1": "Find my tools",
-    "heroCta2": "Explore 40+ modules",
+    "heroCta1": "See the tools for my profession",
+    "heroCta2": "Estimate a property",
     "guideSection": {
       "title": "Frequently asked questions about Luxembourg real estate",
       "subtitle": "12 practical guides with legal references. Each answer links to a calculation tool.",
@@ -3433,13 +3436,13 @@
     "commissionnairePlaceholder": "Commissioning party (bank / judge / notary) — optional"
   },
   "onboarding": {
-    "heading": "What is your profile?",
-    "subheading": "7 entry doors — individuals, pros, banks, hospitality. Pick yours.",
+    "heading": "What's your profession?",
+    "subheading": "7 profiles, each with its dedicated tools and solution page. Click yours.",
     "viewSolution": "See the detailed solution",
-    "allSolutions": "Explore all solutions",
+    "allSolutions": "Compare the solutions",
     "particulier": {
       "title": "Individual",
-      "description": "Buy, sell or rent your home",
+      "description": "Estimation, Bëllegen Akt fees, Klimabonus aid simulator, buy vs rent comparison",
       "linkWizard": "★ Full guided journey (4 steps)",
       "link1": "Price estimation",
       "link2": "Acquisition fees",
@@ -3451,7 +3454,7 @@
     },
     "investisseur": {
       "title": "Investor",
-      "description": "Yield, DCF, portfolio, cash flow",
+      "description": "EVS 2025 valuation, lease-by-lease DCF, rent ceiling Art. 102 LIR, multi-property tracking",
       "linkGestion": "★ LU rental management (5% rule, Klimabonus)",
       "link1": "EVS Valuation",
       "link2": "Multi-tenant DCF",
@@ -3463,7 +3466,7 @@
     },
     "promoteur": {
       "title": "Developer",
-      "description": "Feasibility, VEFA, construction, zoning",
+      "description": "Backwards budget, VEFA schedule 3%/17% VAT, STATEC construction costs, PAG compliance",
       "link1": "Developer feasibility",
       "link2": "VEFA",
       "link3": "Construction cost estimator",
@@ -3473,7 +3476,7 @@
     },
     "agent": {
       "title": "Real estate agent",
-      "description": "Co-branded reports, client estimation",
+      "description": "Mandate CRM, automatic matching, e-signatures, co-branded estimation PDF",
       "link1": "Agency B2B offer",
       "link2": "Quick estimation",
       "link3": "Hedonic method",
@@ -3481,7 +3484,7 @@
     },
     "syndic": {
       "title": "Property manager",
-      "description": "Charges, 5 % rule, energy portfolio",
+      "description": "Per-year accounting, online AGM with voting, invoice OCR, SEPA pain.001, works fund",
       "link1": "Property manager module",
       "link2": "Legal rent (5 % rule)",
       "link3": "Property portfolio",
@@ -3492,7 +3495,7 @@
     },
     "banque": {
       "title": "Bank / Finance",
-      "description": "LU estimation API, MLV, AML/KYC",
+      "description": "REST estimation API, TEGOVA MLV, AML/KYC, SHA-256 signed report verifiable publicly",
       "link1": "Estimation API (banks)",
       "link2": "Banking tools",
       "link3": "AML / KYC",
@@ -3500,7 +3503,7 @@
     },
     "hotellerie": {
       "title": "Hospitality",
-      "description": "Hotel pre-acquisition: RevPAR, DSCR, E-2",
+      "description": "Pre-acquisition RevPAR/DSCR, PMS frontdesk + channels + rates, USALI reports, pickup forecast",
       "link1": "Hospitality hub",
       "link2": "Hotel valuation (RevPAR/EBITDA)",
       "link3": "DSCR & hotel financing",
