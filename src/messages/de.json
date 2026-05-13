@@ -111,7 +111,6 @@
     "heroTitle": "Luxemburger Immobilienanalyse,",
     "heroHighlight": "nach Beruf",
     "heroDescription": "Hedonische Schätzung auf Basis des Observatoire de l'Habitat, TEGOVA EVS 2025 Bewertung, Mietverwaltung nach Gesetz vom 21. September 2006, Hausverwaltung nach Gesetz vom 16. Mai 1975, Hotel-PMS, Banken-API. 7 Profile, 30+ Tools, öffentliche luxemburgische Daten.",
-    "heroSectionLabel": "Für welchen Beruf arbeiten Sie?",
     "exploreAllTools": "Alle 30+ Tools entdecken",
     "exploreAllToolsHint": "Sie wissen schon, was Sie suchen? Vollständige Liste durchsuchen.",
     "trust": {
@@ -3436,8 +3435,8 @@
     "commissionnairePlaceholder": "Auftraggeber (Bank / Gericht / Notar) — optional"
   },
   "onboarding": {
-    "heading": "Für welchen Beruf arbeiten Sie?",
-    "subheading": "7 Profile, jedes mit seinen eigenen Tools und seiner Lösungsseite. Klicken Sie auf Ihres.",
+    "heading": "Finden Sie die auf Ihren Beruf zugeschnittenen Tools",
+    "subheading": "Privatpersonen, Investoren, Bauträger, Makler, Hausverwalter, Banken, Hoteliers. Wählen Sie Ihr Profil und greifen Sie auf die für Ihre Praxis maßgeschneiderten Berechnungen und Berichte zu.",
     "viewSolution": "Detaillierte Lösung ansehen",
     "allSolutions": "Lösungen vergleichen",
     "particulier": {

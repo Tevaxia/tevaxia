@@ -111,7 +111,6 @@
     "heroTitle": "Análise imobiliária do Luxemburgo,",
     "heroHighlight": "por profissão",
     "heroDescription": "Estimativa hedónica sobre o Observatoire de l'Habitat, avaliação TEGOVA EVS 2025, gestão locativa lei de 21 de setembro de 2006, condomínios lei de 16 de maio de 1975, PMS hoteleiro, API bancária. 7 perfis, 30+ ferramentas, dados públicos luxemburgueses.",
-    "heroSectionLabel": "Para que profissão trabalha?",
     "exploreAllTools": "Explorar as 30+ ferramentas",
     "exploreAllToolsHint": "Já sabe o que procura? Aceda à lista completa.",
     "trust": {
@@ -3436,8 +3435,8 @@
     "commissionnairePlaceholder": "Requerente (banco / juiz / notário) — opcional"
   },
   "onboarding": {
-    "heading": "Para que profissão trabalha?",
-    "subheading": "7 perfis, cada um com as suas ferramentas e a sua página de solução. Clique no seu.",
+    "heading": "Encontre as ferramentas calibradas para a sua profissão",
+    "subheading": "Particulares, investidores, promotores, agentes, síndicos, bancos, hoteleiros. Selecione o seu perfil para aceder aos cálculos e relatórios adaptados à sua prática.",
     "viewSolution": "Ver a solução detalhada",
     "allSolutions": "Comparar as soluções",
     "particulier": {

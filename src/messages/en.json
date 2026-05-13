@@ -111,7 +111,6 @@
     "heroTitle": "Luxembourg real estate analysis,",
     "heroHighlight": "by profession",
     "heroDescription": "Hedonic estimation on the Observatoire de l'Habitat, TEGOVA EVS 2025 valuation, rental management under the law of 21 September 2006, condominium management under the law of 16 May 1975, hotel PMS, banking API. 7 profiles, 30+ tools, Luxembourg public data.",
-    "heroSectionLabel": "What's your profession?",
     "exploreAllTools": "Explore all 30+ tools",
     "exploreAllToolsHint": "Already know what you're looking for? Browse the full list.",
     "trust": {
@@ -3436,8 +3435,8 @@
     "commissionnairePlaceholder": "Commissioning party (bank / judge / notary) — optional"
   },
   "onboarding": {
-    "heading": "What's your profession?",
-    "subheading": "7 profiles, each with its dedicated tools and solution page. Click yours.",
+    "heading": "Find the tools calibrated to your profession",
+    "subheading": "Homeowners, investors, developers, agents, property managers, banks, hoteliers. Select your profile to access the calculations and reports tailored to your practice.",
     "viewSolution": "See the detailed solution",
     "allSolutions": "Compare the solutions",
     "particulier": {

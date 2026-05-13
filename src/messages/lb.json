@@ -111,7 +111,6 @@
     "heroTitle": "D'Immobilien-Analyse vu Lëtzebuerg,",
     "heroHighlight": "no Beruff",
     "heroDescription": "Hedonesch Schätzung um Observatoire de l'Habitat, TEGOVA EVS 2025 Bewäertung, Locataire-Gestioun no der Loi vum 21. September 2006, Syndic no der Loi vum 16. Mee 1975, Hotel-PMS, Banken-API. 7 Profiler, 30+ Tools, ëffentlech Lëtzebuerger Donnéeën.",
-    "heroSectionLabel": "Fir wat fir e Beruff schafft Dir?",
     "exploreAllTools": "All 30+ Tools entdecken",
     "exploreAllToolsHint": "Wësst Dir scho wat Dir sicht? Gitt op déi ganz Lëscht.",
     "trust": {
@@ -3436,8 +3435,8 @@
     "commissionnairePlaceholder": "Opdrag-Gëeebber (Bank / Riichter / Notar) — fakultativ"
   },
   "onboarding": {
-    "heading": "Fir wat fir e Beruff schafft Dir?",
-    "subheading": "7 Profiler, all mat senge Tools an senger Léisungssäit. Klickt op Äert.",
+    "heading": "Fannt d'Tools, déi op Äre Beruff zougeschnidde sinn",
+    "subheading": "Privatleit, Investisseuren, Promoteuren, Agenten, Syndic, Banken, Hoteliers. Wielt Äert Profil fir Zougang ze kréien zu de Berechnungen a Berichter, déi op Är Praxis ugepasst sinn.",
     "viewSolution": "Détailléiert Léisung kucken",
     "allSolutions": "D'Léisunge vergläichen",
     "particulier": {
