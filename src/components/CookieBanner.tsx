@@ -37,6 +37,9 @@ export default function CookieBanner() {
   function accept() {
     localStorage.setItem("tevaxia_consent", "granted");
     updateConsent(true);
+    // Notify deferred loaders (GtagLoader, PostHogProvider) that consent
+    // was just granted, so they can initialise without requiring a reload.
+    window.dispatchEvent(new CustomEvent("tevaxia:consent-granted"));
     setVisible(false);
   }
 

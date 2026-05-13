@@ -15,6 +15,7 @@ import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
 import { OrganizationJsonLd, WebSiteJsonLd, PersonJsonLd } from "@/components/JsonLd";
 import DeferredWidgets from "@/components/DeferredWidgets";
 import DeferredContextBars from "@/components/DeferredContextBars";
+import GtagLoader from "@/components/GtagLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -125,13 +126,6 @@ export default async function RootLayout({
         function gtag(){dataLayer.push(arguments);}
         gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
       `}</Script>
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-4033901KHR" strategy="lazyOnload" />
-      <Script id="gtag-config" strategy="lazyOnload">{`
-        window.dataLayer=window.dataLayer||[];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js',new Date());
-        gtag('config','G-4033901KHR');
-      `}</Script>
       <body className="min-h-full flex flex-col">
         <ServiceWorkerRegistration />
         <NextIntlClientProvider messages={messages}>
@@ -142,6 +136,7 @@ export default async function RootLayout({
               <main className="flex-1">{children}</main>
               <Footer />
               <CookieBanner />
+              <GtagLoader />
               <DeferredWidgets />
             </PostHogProvider>
           </AuthProvider>
