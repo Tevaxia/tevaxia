@@ -7,7 +7,8 @@ import SliderField from "@/components/SliderField";
 import ToggleField from "@/components/ToggleField";
 import ResultPanel from "@/components/ResultPanel";
 import { formatEUR } from "@/lib/calculations";
-import { generateVrdPdfBlob, PdfButton } from "@/components/ToolsPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateVrdPdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generateVrdPdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generateVrdPdfBlob(...args);
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SEOContent from "@/components/SEOContent";
 
@@ -1719,7 +1720,7 @@ export default function CalculateurVRD() {
               <PdfButton
                 label="PDF"
                 filename={`calculateur-vrd-${new Date().toLocaleDateString("fr-LU")}.pdf`}
-                generateBlob={() => generateVrdPdfBlob({
+                generateBlob={() => _lazy_generateVrdPdfBlob({
                   nomProjet,
                   commune,
                   lots: result.lots.map(l => ({ num: l.num, nom: l.nom, total: l.total })),

@@ -20,7 +20,8 @@ import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import RelatedTools from "@/components/RelatedTools";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { generateEstimationPdfBlob, PdfButton } from "@/components/ToolsPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateEstimationPdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generateEstimationPdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generateEstimationPdfBlob(...args);
 import ShareLinkButton from "@/components/ShareLinkButton";
 import ShareButton from "@/components/ShareButton";
 import AuthGate from "@/components/AuthGate";
@@ -825,7 +826,7 @@ export default function Estimation() {
                   label="PDF"
                   filename={`estimation-${(selectedResult?.commune.commune || communeSearch).toLowerCase()}-${new Date().toLocaleDateString("fr-LU")}.pdf`}
                   generateBlob={() =>
-                    generateEstimationPdfBlob({
+                    _lazy_generateEstimationPdfBlob({
                       commune: selectedResult?.commune.commune || communeSearch,
                       typeBien: t("typeBienAppartement"),
                       surface,

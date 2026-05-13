@@ -7,7 +7,8 @@ import SliderField from "@/components/SliderField";
 import ToggleField from "@/components/ToggleField";
 import ResultPanel from "@/components/ResultPanel";
 import { formatEUR } from "@/lib/calculations";
-import { generateHvacPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateHvacPdfBlob = async (...args: Parameters<typeof import("@/components/energy/EnergyPdf")["generateHvacPdfBlob"]>): Promise<Blob> => (await import("@/components/energy/EnergyPdf")).generateHvacPdfBlob(...args);
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SEOContent from "@/components/SEOContent";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
@@ -1390,7 +1391,7 @@ export default function HVACSimulator() {
             <PdfButton
               label="PDF"
               filename={`hvac-${new Date().toLocaleDateString("fr-LU")}.pdf`}
-              generateBlob={() => generateHvacPdfBlob({
+              generateBlob={() => _lazy_generateHvacPdfBlob({
                 surface,
                 typeBatiment,
                 classeActuelle,

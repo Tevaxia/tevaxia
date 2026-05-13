@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { generateEpbdPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateEpbdPdfBlob = async (...args: Parameters<typeof import("@/components/energy/EnergyPdf")["generateEpbdPdfBlob"]>): Promise<Blob> => (await import("@/components/energy/EnergyPdf")).generateEpbdPdfBlob(...args);
 import SEOContent from "@/components/SEOContent";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
 
@@ -358,7 +359,7 @@ export default function EPBDPage() {
               </p>
             </div>
             <div className="mt-4 flex justify-end">
-              <PdfButton generateBlob={() => generateEpbdPdfBlob({ classe: selectedClass, riskLevel: t(risk.levelKey), riskDescription: t(risk.descriptionKey), nonComplianceYear: t(risk.nonComplianceYearKey), actions: risk.actionKeys.map((k: string) => t(k)), valueImpact: t(risk.valueImpactKey) })} filename={`energy-epbd-classe-${selectedClass}-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf") || "PDF"} />
+              <PdfButton generateBlob={() => _lazy_generateEpbdPdfBlob({ classe: selectedClass, riskLevel: t(risk.levelKey), riskDescription: t(risk.descriptionKey), nonComplianceYear: t(risk.nonComplianceYearKey), actions: risk.actionKeys.map((k: string) => t(k)), valueImpact: t(risk.valueImpactKey) })} filename={`energy-epbd-classe-${selectedClass}-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf") || "PDF"} />
             </div>
           </div>
         </div>

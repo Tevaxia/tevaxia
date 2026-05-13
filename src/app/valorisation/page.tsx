@@ -33,8 +33,8 @@ import {
 } from "@/lib/asset-types";
 import AdjustmentGuidePanel from "@/components/AdjustmentGuide";
 import MarketDataPanel from "@/components/MarketDataPanel";
-import { generateReportBlob } from "@/components/ValuationReport";
-import { PdfButton } from "@/components/energy/EnergyPdf";
+const _lazy_generateReportBlob = async (...args: Parameters<typeof import("@/components/ValuationReport")["generateReportBlob"]>): Promise<Blob> => (await import("@/components/ValuationReport")).generateReportBlob(...args);
+import { PdfButton } from "@/components/PdfButton";
 import { downloadDocxReport } from "@/components/ValuationDocx";
 import { getDemographics } from "@/lib/demographics";
 import { getLatestValue, TAUX_HYPOTHECAIRE, OAT_10Y, INDICE_CONSTRUCTION } from "@/lib/macro-data";
@@ -1898,7 +1898,7 @@ export default function Valorisation() {
                 generateBlob={() => {
                   const demo = selectedCommune ? getDemographics(selectedCommune.commune) : undefined;
                   const prof = getProfile();
-                  return generateReportBlob({
+                  return _lazy_generateReportBlob({
                     dateRapport: new Date().toISOString().split("T")[0],
                     commune: selectedCommune?.commune,
                     assetType: t(assetConfig.labelKey),

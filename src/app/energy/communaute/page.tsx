@@ -4,7 +4,8 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from "recharts";
 import { calculerCommunaute, type CommunauteResponse } from "@/lib/energy-api";
-import { generateCommunautePdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateCommunautePdfBlob = async (...args: Parameters<typeof import("@/components/energy/EnergyPdf")["generateCommunautePdfBlob"]>): Promise<Blob> => (await import("@/components/energy/EnergyPdf")).generateCommunautePdfBlob(...args);
 import {
   fetchPVGISProduction,
   getCommuneCoords,
@@ -487,7 +488,7 @@ export default function CommunautePage() {
           </div>
 
           <div className="flex justify-end">
-            <PdfButton generateBlob={() => generateCommunautePdfBlob(result, { nbParticipants, puissancePV, consoMoyenneParParticipant: consoMoyenne, tarifReseau, tarifPartage })} filename={`energy-communaute-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf")} />
+            <PdfButton generateBlob={() => _lazy_generateCommunautePdfBlob(result, { nbParticipants, puissancePV, consoMoyenneParParticipant: consoMoyenne, tarifReseau, tarifPartage })} filename={`energy-communaute-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf")} />
           </div>
 
           <AiAnalysisCard

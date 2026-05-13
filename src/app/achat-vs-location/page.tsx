@@ -18,7 +18,8 @@ import InputField from "@/components/InputField";
 import SliderField from "@/components/SliderField";
 import ResultPanel from "@/components/ResultPanel";
 import { formatEUR, formatEUR2 } from "@/lib/calculations";
-import { generateAchatLocationPdfBlob, PdfButton } from "@/components/ToolsPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateAchatLocationPdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generateAchatLocationPdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generateAchatLocationPdfBlob(...args);
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import SEOContent from "@/components/SEOContent";
@@ -609,7 +610,7 @@ export default function AchatVsLocation() {
                 label="PDF"
                 filename={`achat-vs-location-${new Date().toLocaleDateString("fr-LU")}.pdf`}
                 generateBlob={() =>
-                  generateAchatLocationPdfBlob({
+                  _lazy_generateAchatLocationPdfBlob({
                     verdict: result.derniere.patrimoineNetAchat > result.derniere.patrimoineNetLocation ? "Achat" : "Location",
                     prixAchat: prixBien,
                     loyerMensuel,

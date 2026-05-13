@@ -4,7 +4,8 @@ import { useState, useCallback, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { calculerRenovation, type RenovationResponse } from "@/lib/energy-api";
 import { estimerCoutsRenovation } from "@/lib/renovation-costs";
-import { generateRenovationPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateRenovationPdfBlob = async (...args: Parameters<typeof import("@/components/energy/EnergyPdf")["generateRenovationPdfBlob"]>): Promise<Blob> => (await import("@/components/energy/EnergyPdf")).generateRenovationPdfBlob(...args);
 import SEOContent from "@/components/SEOContent";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
 
@@ -172,7 +173,7 @@ export default function RenovationPage() {
                   <h2 className="font-semibold text-foreground">{t("resultTitle")}</h2>
                   <p className="text-xs text-muted mt-0.5">{result.sautClasse} · {surface} m² · {annee}</p>
                 </div>
-                <PdfButton generateBlob={() => generateRenovationPdfBlob(result, { classeActuelle, classeCible, surface, anneeConstruction: annee, valeurBien: valeur })} filename={`energy-renovation-roi-${new Date().toLocaleDateString("fr-LU")}.pdf`} label="PDF" />
+                <PdfButton generateBlob={() => _lazy_generateRenovationPdfBlob(result, { classeActuelle, classeCible, surface, anneeConstruction: annee, valeurBien: valeur })} filename={`energy-renovation-roi-${new Date().toLocaleDateString("fr-LU")}.pdf`} label="PDF" />
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">

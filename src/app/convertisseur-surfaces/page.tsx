@@ -6,7 +6,8 @@ import InputField from "@/components/InputField";
 import SliderField from "@/components/SliderField";
 import ResultPanel from "@/components/ResultPanel";
 import { formatEUR } from "@/lib/calculations";
-import { generateSurfacesPdfBlob, PdfButton } from "@/components/ToolsPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateSurfacesPdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generateSurfacesPdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generateSurfacesPdfBlob(...args);
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SEOContent from "@/components/SEOContent";
 import { ZONES_PAG } from "@/lib/pag-pap";
@@ -642,7 +643,7 @@ export default function ConvertisseurSurfaces() {
             <PdfButton
               label="PDF"
               filename={`convertisseur-surfaces-${new Date().toLocaleDateString("fr-LU")}.pdf`}
-              generateBlob={() => generateSurfacesPdfBlob({
+              generateBlob={() => _lazy_generateSurfacesPdfBlob({
                 surfaceReference,
                 typeSurface,
                 typeBatiment,

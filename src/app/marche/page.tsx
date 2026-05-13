@@ -14,7 +14,8 @@ import {
 } from "@/lib/market-data-commercial";
 import { formatEUR } from "@/lib/calculations";
 import { PriceEvolutionChart } from "@/components/PriceChart";
-import { generateMarchePdfBlob, PdfButton } from "@/components/ToolsPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateMarchePdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generateMarchePdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generateMarchePdfBlob(...args);
 import SEOContent from "@/components/SEOContent";
 import RelatedTools from "@/components/RelatedTools";
 
@@ -241,7 +242,7 @@ function TabResidentiel() {
               const totalTx = filtered.reduce((s, c) => s + (c.nbTransactions || 0), 0);
               const withVefa = filtered.filter((c) => c.prixM2VEFA != null);
               const avgVefa = withVefa.length > 0 ? Math.round(withVefa.reduce((s, c) => s + (c.prixM2VEFA || 0), 0) / withVefa.length) : undefined;
-              return generateMarchePdfBlob({
+              return _lazy_generateMarchePdfBlob({
                 commune: search ? `Recherche : ${search}` : "Luxembourg (national)",
                 prixM2Appart: avgPrix > 0 ? avgPrix : undefined,
                 prixM2Maison: avgVefa,

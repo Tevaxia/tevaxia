@@ -11,7 +11,8 @@ import SaveButton from "@/components/SaveButton";
 import RelatedTools from "@/components/RelatedTools";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SEOContent from "@/components/SEOContent";
-import { generatePlusValuesPdfBlob, PdfButton } from "@/components/ToolsPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generatePlusValuesPdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generatePlusValuesPdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generatePlusValuesPdfBlob(...args);
 import AiAnalysisCard from "@/components/AiAnalysisCard";
 import PdfExtractButton from "@/components/PdfExtractButton";
 
@@ -597,7 +598,7 @@ export default function PlusValues() {
                 label="PDF"
                 filename={`plus-values-${new Date().toLocaleDateString("fr-LU")}.pdf`}
                 generateBlob={() =>
-                  generatePlusValuesPdfBlob({
+                  _lazy_generatePlusValuesPdfBlob({
                     prixAcquisition,
                     prixCession,
                     anneeAcquisition,

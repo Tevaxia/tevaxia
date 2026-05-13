@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { useTranslations } from "next-intl";
-import { generatePortfolioPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generatePortfolioPdfBlob = async (...args: Parameters<typeof import("@/components/energy/EnergyPdf")["generatePortfolioPdfBlob"]>): Promise<Blob> => (await import("@/components/energy/EnergyPdf")).generatePortfolioPdfBlob(...args);
 import AiAnalysisCard from "@/components/AiAnalysisCard";
 
 /* ------------------------------------------------------------------ */
@@ -706,7 +707,7 @@ export default function PortfolioPage() {
               <h2 className="font-semibold text-foreground">
                 {t("yourProperties", { count: properties.length })}
               </h2>
-              {stats && <PdfButton generateBlob={() => generatePortfolioPdfBlob({ properties: properties.map((p) => ({ nom: p.nom, classe: p.classe, surface: p.surface, valeur: p.valeur })), averageScore: stats.weightedClasse, totalValeur: stats.totalValeur, totalConso: stats.totalConsoKwh, totalCO2: Math.round(stats.totalConsoKwh * 0.75 * 300 / 1000), worstCount: stats.worstPerformers.length })} filename={`energy-portfolio-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf") || "PDF"} />}
+              {stats && <PdfButton generateBlob={() => _lazy_generatePortfolioPdfBlob({ properties: properties.map((p) => ({ nom: p.nom, classe: p.classe, surface: p.surface, valeur: p.valeur })), averageScore: stats.weightedClasse, totalValeur: stats.totalValeur, totalConso: stats.totalConsoKwh, totalCO2: Math.round(stats.totalConsoKwh * 0.75 * 300 / 1000), worstCount: stats.worstPerformers.length })} filename={`energy-portfolio-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf") || "PDF"} />}
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {properties.map((p) => (

@@ -5,7 +5,8 @@ import { useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import ResultPanel from "@/components/ResultPanel";
 import { formatEUR, formatPct } from "@/lib/calculations";
-import { generateBilanPromoteurPdfBlob, PdfButton } from "@/components/ToolsPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateBilanPromoteurPdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generateBilanPromoteurPdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generateBilanPromoteurPdfBlob(...args);
 import ShareLinkButton from "@/components/ShareLinkButton";
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
@@ -648,7 +649,7 @@ export default function BilanPromoteur() {
                 label="PDF"
                 filename={`bilan-promoteur-${new Date().toLocaleDateString("fr-LU")}.pdf`}
                 generateBlob={() =>
-                  generateBilanPromoteurPdfBlob({
+                  _lazy_generateBilanPromoteurPdfBlob({
                     surfaceTerrain,
                     surfacePlancher: surfaceVendable,
                     prixVenteM2,

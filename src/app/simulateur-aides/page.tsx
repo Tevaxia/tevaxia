@@ -8,7 +8,8 @@ import { KLIMABONUS_TOPUP_SOCIAL_MULT } from "@/lib/constants";
 import ToggleField from "@/components/ToggleField";
 import { simulerAides, formatEUR, type AideDetail } from "@/lib/calculations";
 import RelatedTools from "@/components/RelatedTools";
-import { generateAidesPdfBlob, PdfButton } from "@/components/ToolsPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateAidesPdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generateAidesPdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generateAidesPdfBlob(...args);
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
 import AuthGate from "@/components/AuthGate";
@@ -632,7 +633,7 @@ export default function SimulateurAides() {
                 label="PDF"
                 filename={`aides-logement-${new Date().toLocaleDateString("fr-LU")}.pdf`}
                 generateBlob={() =>
-                  generateAidesPdfBlob({
+                  _lazy_generateAidesPdfBlob({
                     profil: typeProjet === "acquisition" ? "Acquisition" : typeProjet === "construction" ? "Construction" : "Renovation",
                     revenus: `${formatEUR(revenuMenage)}/an`,
                     aides: result.aides.map((a) => ({

@@ -7,7 +7,8 @@ import ResultPanel from "@/components/ResultPanel";
 import { formatEUR, formatEUR2 } from "@/lib/calculations";
 import { calculerDCFLeases, type Lease } from "@/lib/dcf-leases";
 import { calculerIRR } from "@/lib/valuation";
-import { generateDcfMultiPdfBlob, PdfButton } from "@/components/ToolsPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateDcfMultiPdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generateDcfMultiPdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generateDcfMultiPdfBlob(...args);
 import ShareLinkButton from "@/components/ShareLinkButton";
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
@@ -440,7 +441,7 @@ export default function DCFMulti() {
                   label="PDF"
                   filename={`dcf-multi-${new Date().toLocaleDateString("fr-LU")}.pdf`}
                   generateBlob={() =>
-                    generateDcfMultiPdfBlob({
+                    _lazy_generateDcfMultiPdfBlob({
                       baux: leases.map((l) => ({
                         locataire: l.locataire || "—",
                         loyer: l.loyerAnnuel,

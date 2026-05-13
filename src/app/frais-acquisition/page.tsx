@@ -12,7 +12,8 @@ import SaveButton from "@/components/SaveButton";
 import RelatedTools from "@/components/RelatedTools";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SEOContent from "@/components/SEOContent";
-import { generateFraisPdfBlob, PdfButton } from "@/components/ToolsPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateFraisPdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generateFraisPdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generateFraisPdfBlob(...args);
 
 export default function FraisAcquisition() {
   const t = useTranslations("fraisAcquisition");
@@ -379,7 +380,7 @@ export default function FraisAcquisition() {
                 label="PDF"
                 filename={`frais-acquisition-${new Date().toLocaleDateString("fr-LU")}.pdf`}
                 generateBlob={() =>
-                  generateFraisPdfBlob({
+                  _lazy_generateFraisPdfBlob({
                     prixAchat: prixBien,
                     droitsEnregistrement: result.droitsEnregistrement,
                     droitTranscription: result.droitsTranscription,

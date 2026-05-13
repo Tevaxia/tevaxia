@@ -3,7 +3,8 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { calculerImpact, type ImpactResponse, type ClasseImpact } from "@/lib/energy-api";
-import { generateImpactPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateImpactPdfBlob = async (...args: Parameters<typeof import("@/components/energy/EnergyPdf")["generateImpactPdfBlob"]>): Promise<Blob> => (await import("@/components/energy/EnergyPdf")).generateImpactPdfBlob(...args);
 import { getEnergyComparables, getAvailableCommunes, buildImpactRange } from "@/lib/energy-comparables";
 import SEOContent from "@/components/SEOContent";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
@@ -297,7 +298,7 @@ export default function ImpactPage() {
           <div className="px-6 py-3 bg-gray-50 space-y-2">
             <div className="flex items-center justify-between">
               <span className="text-xs text-muted">{t("classeRef")} · {t("source")}</span>
-              <PdfButton generateBlob={() => generateImpactPdfBlob(result, classeActuelle, valeur)} filename={`energy-impact-cpe-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf")} />
+              <PdfButton generateBlob={() => _lazy_generateImpactPdfBlob(result, classeActuelle, valeur)} filename={`energy-impact-cpe-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf")} />
             </div>
             <p className="text-[11px] text-muted leading-snug">{t("calibrationNote")}</p>
           </div>

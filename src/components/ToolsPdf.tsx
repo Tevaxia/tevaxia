@@ -25,7 +25,7 @@ if (typeof window !== "undefined") {
   });
 }
 
-export { PdfButton } from "@/components/energy/EnergyPdf";
+export { PdfButton } from "@/components/PdfButton";
 
 /* ---------- Helpers ---------- */
 const fmtEur = (n: number) => {

@@ -23,7 +23,8 @@ import {
   formatEUR2,
   formatPct,
 } from "@/lib/calculations";
-import { generateBancairePdfBlob, PdfButton } from "@/components/ToolsPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateBancairePdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generateBancairePdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generateBancairePdfBlob(...args);
 import {
   simulateMortgageWithEnergy,
   getAllEnergyLTVAdjustments,
@@ -307,7 +308,7 @@ function TabAmortissement() {
             generateBlob={() => {
               const prixBien = Math.round(capital / 0.8);
               const apport = prixBien - capital;
-              return generateBancairePdfBlob({
+              return _lazy_generateBancairePdfBlob({
                 prixBien,
                 apport,
                 montantCredit: capital,

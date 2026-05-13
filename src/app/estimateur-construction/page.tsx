@@ -6,7 +6,8 @@ import InputField from "@/components/InputField";
 import SliderField from "@/components/SliderField";
 import ResultPanel from "@/components/ResultPanel";
 import { formatEUR, formatPct } from "@/lib/calculations";
-import { generateConstructionPdfBlob, PdfButton } from "@/components/ToolsPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateConstructionPdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generateConstructionPdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generateConstructionPdfBlob(...args);
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SEOContent from "@/components/SEOContent";
 
@@ -415,7 +416,7 @@ export default function EstimateurConstruction() {
               <PdfButton
                 label="PDF"
                 filename={`estimateur-construction-${new Date().toLocaleDateString("fr-LU")}.pdf`}
-                generateBlob={() => generateConstructionPdfBlob({
+                generateBlob={() => _lazy_generateConstructionPdfBlob({
                   surfaceBrute,
                   typeBatiment,
                   classeEnergetique,

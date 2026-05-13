@@ -2,7 +2,8 @@
 
 import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
-import { generateLenozPdfBlob, PdfButton } from "@/components/energy/EnergyPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateLenozPdfBlob = async (...args: Parameters<typeof import("@/components/energy/EnergyPdf")["generateLenozPdfBlob"]>): Promise<Blob> => (await import("@/components/energy/EnergyPdf")).generateLenozPdfBlob(...args);
 import SEOContent from "@/components/SEOContent";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
 
@@ -478,7 +479,7 @@ export default function LenozPage() {
               </div>
 
               {/* Disclaimer */}
-              <PdfButton generateBlob={() => generateLenozPdfBlob({ totalScore, maxScore: 60, rating: rating.label, categories: CATEGORIES.map((cat) => ({ title: cat.title, score: catScores[cat.key], max: cat.criteria.length * 3 })) })} filename={`energy-lenoz-${rating.label.toLowerCase()}-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf") || "PDF"} />
+              <PdfButton generateBlob={() => _lazy_generateLenozPdfBlob({ totalScore, maxScore: 60, rating: rating.label, categories: CATEGORIES.map((cat) => ({ title: cat.title, score: catScores[cat.key], max: cat.criteria.length * 3 })) })} filename={`energy-lenoz-${rating.label.toLowerCase()}-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf") || "PDF"} />
 
               <AiAnalysisCard
                 context={[

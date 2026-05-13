@@ -13,7 +13,8 @@ import SaveButton from "@/components/SaveButton";
 import RelatedTools from "@/components/RelatedTools";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SEOContent from "@/components/SEOContent";
-import { generateLoyerPdfBlob, PdfButton } from "@/components/ToolsPdf";
+import { PdfButton } from "@/components/PdfButton";
+const _lazy_generateLoyerPdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generateLoyerPdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generateLoyerPdfBlob(...args);
 
 export default function CalculateurLoyer() {
   const t = useTranslations("calculLoyer");
@@ -521,7 +522,7 @@ export default function CalculateurLoyer() {
                 label="PDF"
                 filename={`loyer-plafond-${new Date().toLocaleDateString("fr-LU")}.pdf`}
                 generateBlob={() =>
-                  generateLoyerPdfBlob({
+                  _lazy_generateLoyerPdfBlob({
                     capitalInvesti: result.capitalInvesti,
                     surface: surfaceHabitable,
                     plafondLoyer: result.loyerAnnuelMax,
