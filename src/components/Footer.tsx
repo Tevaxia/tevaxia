@@ -1,11 +1,11 @@
-"use client";
-
+import { getTranslations } from "next-intl/server";
 import LocaleLink from "./LocaleLink";
-import { useTranslations } from "next-intl";
 
-export default function Footer() {
-  const tc = useTranslations("common");
-  const tn = useTranslations("nav");
+export default async function Footer() {
+  const [tc, tn] = await Promise.all([
+    getTranslations("common"),
+    getTranslations("nav"),
+  ]);
 
   return (
     <footer className="border-t border-card-border bg-navy-dark text-white/60">
@@ -34,15 +34,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Sources externes */}
+          {/* Sources de données (publics, institutionnelles) */}
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-3">{tn("sourcesExternes")}</h3>
             <ul className="space-y-1.5 text-sm">
-              <li><a href="https://observatoire.liser.lu" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Observatoire de l&apos;Habitat</a></li>
-              <li><a href="https://statistiques.public.lu" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">STATEC</a></li>
-              <li><a href="https://data.public.lu" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">data.public.lu</a></li>
-              <li><a href="https://legilux.public.lu" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Legilux</a></li>
-              <li><a href="https://www.myenergy.lu" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">myenergy.lu</a></li>
+              <li><a href="https://observatoire.liser.lu" target="_blank" rel="noopener external" className="hover:text-white transition-colors">Observatoire de l&apos;Habitat</a></li>
+              <li><a href="https://statistiques.public.lu" target="_blank" rel="noopener external" className="hover:text-white transition-colors">STATEC</a></li>
+              <li><a href="https://data.public.lu" target="_blank" rel="noopener external" className="hover:text-white transition-colors">data.public.lu</a></li>
+              <li><a href="https://legilux.public.lu" target="_blank" rel="noopener external" className="hover:text-white transition-colors">Legilux</a></li>
+              <li><a href="https://www.myenergy.lu" target="_blank" rel="noopener external" className="hover:text-white transition-colors">myenergy.lu</a></li>
             </ul>
           </div>
 

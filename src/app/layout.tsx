@@ -116,6 +116,8 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <OrganizationJsonLd />
         <WebSiteJsonLd />
         <PersonJsonLd />
@@ -125,8 +127,8 @@ export default async function RootLayout({
         function gtag(){dataLayer.push(arguments);}
         gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
       `}</Script>
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-4033901KHR" strategy="afterInteractive" />
-      <Script id="gtag-config" strategy="afterInteractive">{`
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-4033901KHR" strategy="lazyOnload" />
+      <Script id="gtag-config" strategy="lazyOnload">{`
         window.dataLayer=window.dataLayer||[];
         function gtag(){dataLayer.push(arguments);}
         gtag('js',new Date());
