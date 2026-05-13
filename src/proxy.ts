@@ -67,10 +67,15 @@ export function proxy(request: NextRequest) {
     }
   }
 
-  // --- Domaine principal : injecter x-url pour next-intl ---
-  const response = NextResponse.next();
-  response.headers.set("x-url", pathname);
-  return response;
+  // --- Domaine principal : injecter x-url pour next-intl (lu par les
+  // server components via headers()). Doit être set sur la REQUEST,
+  // pas la response — set sur response.headers ne propage rien aux RSC,
+  // ce qui faisait fallback pickNamespaces à "/" et affichait les keys
+  // brutes (amlKyc.title, estimation.subtitle, etc.) sur toute route
+  // autre que la home.
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-url", pathname);
+  return NextResponse.next({ request: { headers: requestHeaders } });
 }
 
 export const config = {
