@@ -13,10 +13,10 @@
   <!-- Name -->
   <text x="600" y="200" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="700" font-size="36" fill="white">tevaxia<tspan fill="#C8A951">.lu</tspan></text>
   <!-- Title -->
-  <text x="600" y="290" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="700" font-size="38" fill="white">L'immobilier luxembourgeois,</text>
-  <text x="600" y="340" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="700" font-size="38" fill="#C8A951">calculé avec précision</text>
+  <text x="600" y="290" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="700" font-size="38" fill="white">L'analyse immobilière du Luxembourg,</text>
+  <text x="600" y="340" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="700" font-size="38" fill="#C8A951">par métier</text>
   <!-- Subtitle -->
-  <text x="600" y="420" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="rgba(255,255,255,0.5)">100 communes · 8 méthodes EVS · 9 types d'actifs · FR &amp; EN</text>
+  <text x="600" y="420" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="rgba(255,255,255,0.55)">7 profils · 30+ outils · 5 langues · TEGOVA EVS 2025</text>
   <!-- Tags -->
-  <text x="600" y="520" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="rgba(255,255,255,0.35)">Estimation · Frais · Aides · Valorisation EVS · DCF · MLV/CRR · Portfolio</text>
+  <text x="600" y="520" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="rgba(255,255,255,0.35)">Particulier · Investisseur · Promoteur · Agent · Syndic · Banque · Hôtellerie</text>
 </svg>
