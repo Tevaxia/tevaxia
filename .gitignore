@@ -49,3 +49,4 @@ test-results/
 
 # Lint output cache (used by scripts/{suppress-react-hooks-errors,fix-unused-vars,prefix-unused-vars}.mjs)
 .lint-output.tmp
+build-analyze.log

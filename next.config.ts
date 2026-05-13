@@ -8,6 +8,14 @@ const withBundleAnalyzer = bundleAnalyzer({
 });
 
 const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  poweredByHeader: false,
+  compress: true,
+  productionBrowserSourceMaps: false,
+  compiler: {
+    // Strip console.* calls in production builds (keep error/warn for Sentry).
+    removeConsole: { exclude: ["error", "warn"] },
+  },
   experimental: {
     optimizePackageImports: ["@react-pdf/renderer", "posthog-js", "@sentry/nextjs", "@supabase/supabase-js", "recharts", "pdfjs-dist", "tesseract.js", "leaflet", "react-leaflet"],
     optimizeCss: true,
