@@ -1,5 +1,5 @@
-// Tevaxia Service Worker — v2 (PWA + offline fallback)
-const CACHE_VERSION = "tevaxia-v2";
+// Tevaxia Service Worker — v3 (PWA + offline fallback)
+const CACHE_VERSION = "tevaxia-v3";
 const APP_SHELL = ["/", "/offline", "/manifest.json", "/logo-tevaxia-512.svg"];
 
 // Install: pre-cache app shell
