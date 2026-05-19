@@ -79,5 +79,7 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next|icon|favicon|.*\\.).*)"],
+  // api/ + _next/ avec slash : on ne veut pas exclure /api-banques, /api-docs
+  // (qui commencent par "api" mais sont des pages normales).
+  matcher: ["/((?!api/|_next/|icon|favicon|.*\\.).*)"],
 };
