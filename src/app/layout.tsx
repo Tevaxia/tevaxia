@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { headers } from "next/headers";
 import { pickNamespaces } from "@/i18n/pick-namespaces";
+import FullMessagesProvider from "@/components/FullMessagesProvider";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -102,10 +103,14 @@ export default async function RootLayout({
     headers(),
   ]);
 
-  // Pick only namespaces required by THIS route's client components.
-  // The map is generated at build time by scripts/generate_route_namespaces.py
-  // walking each page's import graph. Cuts the inlined hydration JSON from
-  // ~1 MB (full message file) to ~10–80 KB per page.
+  // Server side we inline ONLY this route's namespaces (~10–80 KB) so the first
+  // paint is correct + light. But the root layout does NOT re-render on
+  // client-side navigation, so this provider would stay frozen on the landing
+  // page's namespace set and every page reached by a link click would render
+  // raw keys (vefa.title, …). FullMessagesProvider (below) fixes that: after
+  // hydration it loads the complete locale bundle once (a cached JS chunk, not
+  // re-inlined per page) and re-provides it, so in-app navigation always has
+  // the namespaces it needs.
   const pathname = h.get("x-url") || "/";
   const messages = pickNamespaces(allMessages as Record<string, unknown>, pathname);
 
@@ -133,7 +138,9 @@ export default async function RootLayout({
             <PostHogProvider>
               <Header />
               <DeferredContextBars />
-              <main className="flex-1">{children}</main>
+              <main className="flex-1">
+                <FullMessagesProvider locale={locale}>{children}</FullMessagesProvider>
+              </main>
               <Footer />
               <CookieBanner />
               <GtagLoader />
