@@ -10,7 +10,7 @@ export default function ConseilSyndicalDashboard() {
   const params = useParams();
   const locale = useLocale();
   const t = useTranslations("conseilSyndical");
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const token = String(params?.token ?? "");
   const [data, setData] = useState<PortalData | null>(null);
   const [loading, setLoading] = useState(true);

@@ -15,7 +15,7 @@ export default function FrontdeskPage(props: { params: Promise<{ propertyId: str
   const { propertyId } = use(props.params);
   const t = useTranslations("pmsFrontdesk");
   const locale = useLocale();
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const { user, loading: authLoading } = useAuth();
   const [property, setProperty] = useState<PmsProperty | null>(null);
   const [reservations, setReservations] = useState<PmsReservation[]>([]);

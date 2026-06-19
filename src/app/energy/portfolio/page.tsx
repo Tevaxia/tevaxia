@@ -69,11 +69,11 @@ interface Property {
 /* ------------------------------------------------------------------ */
 
 function fmt(n: number): string {
-  return n.toLocaleString("fr-LU", { maximumFractionDigits: 0 });
+  return n.toLocaleString("fr-FR", { maximumFractionDigits: 0 });
 }
 
 function fmtDec(n: number, digits = 1): string {
-  return n.toLocaleString("fr-LU", { minimumFractionDigits: digits, maximumFractionDigits: digits });
+  return n.toLocaleString("fr-FR", { minimumFractionDigits: digits, maximumFractionDigits: digits });
 }
 
 function classeIndex(c: string): number {
@@ -707,7 +707,7 @@ export default function PortfolioPage() {
               <h2 className="font-semibold text-foreground">
                 {t("yourProperties", { count: properties.length })}
               </h2>
-              {stats && <PdfButton generateBlob={() => _lazy_generatePortfolioPdfBlob({ properties: properties.map((p) => ({ nom: p.nom, classe: p.classe, surface: p.surface, valeur: p.valeur })), averageScore: stats.weightedClasse, totalValeur: stats.totalValeur, totalConso: stats.totalConsoKwh, totalCO2: Math.round(stats.totalConsoKwh * 0.75 * 300 / 1000), worstCount: stats.worstPerformers.length })} filename={`energy-portfolio-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf") || "PDF"} />}
+              {stats && <PdfButton generateBlob={() => _lazy_generatePortfolioPdfBlob({ properties: properties.map((p) => ({ nom: p.nom, classe: p.classe, surface: p.surface, valeur: p.valeur })), averageScore: stats.weightedClasse, totalValeur: stats.totalValeur, totalConso: stats.totalConsoKwh, totalCO2: Math.round(stats.totalConsoKwh * 0.75 * 300 / 1000), worstCount: stats.worstPerformers.length })} filename={`energy-portfolio-${new Date().toLocaleDateString("fr-FR")}.pdf`} label={t("downloadPdf") || "PDF"} />}
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {properties.map((p) => (

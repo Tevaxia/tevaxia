@@ -479,7 +479,7 @@ export default function LenozPage() {
               </div>
 
               {/* Disclaimer */}
-              <PdfButton generateBlob={() => _lazy_generateLenozPdfBlob({ totalScore, maxScore: 60, rating: rating.label, categories: CATEGORIES.map((cat) => ({ title: cat.title, score: catScores[cat.key], max: cat.criteria.length * 3 })) })} filename={`energy-lenoz-${rating.label.toLowerCase()}-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf") || "PDF"} />
+              <PdfButton generateBlob={() => _lazy_generateLenozPdfBlob({ totalScore, maxScore: 60, rating: rating.label, categories: CATEGORIES.map((cat) => ({ title: cat.title, score: catScores[cat.key], max: cat.criteria.length * 3 })) })} filename={`energy-lenoz-${rating.label.toLowerCase()}-${new Date().toLocaleDateString("fr-FR")}.pdf`} label={t("downloadPdf") || "PDF"} />
 
               <AiAnalysisCard
                 context={[

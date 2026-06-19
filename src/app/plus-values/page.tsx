@@ -596,7 +596,7 @@ export default function PlusValues() {
               />
               <PdfButton
                 label="PDF"
-                filename={`plus-values-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                filename={`plus-values-${new Date().toLocaleDateString("fr-FR")}.pdf`}
                 generateBlob={() =>
                   _lazy_generatePlusValuesPdfBlob({
                     prixAcquisition,

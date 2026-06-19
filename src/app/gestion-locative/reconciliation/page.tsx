@@ -66,7 +66,7 @@ function parseCsvBankExport(csv: string): BankMovement[] {
 export default function ReconciliationPage() {
   const locale = useLocale();
   const t = useTranslations("glReconciliation");
-  const numLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const numLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const [movements, setMovements] = useState<BankMovement[]>([]);
   const [fileName, setFileName] = useState<string>("");
 

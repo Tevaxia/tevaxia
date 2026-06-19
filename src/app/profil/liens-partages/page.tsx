@@ -18,7 +18,7 @@ import {
 } from "@/lib/shared-links";
 
 function fmtDate(s: string): string {
-  return new Date(s).toLocaleDateString("fr-LU", { day: "2-digit", month: "short", year: "numeric" });
+  return new Date(s).toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" });
 }
 
 function Sparkline({ data }: { data: SharedLinkTimelineDay[] }) {
@@ -266,7 +266,7 @@ export default function LiensPartagesPage() {
                                     )}
                                   </div>
                                   <span className="text-muted font-mono">
-                                    {new Date(c.created_at).toLocaleString("fr-LU", {
+                                    {new Date(c.created_at).toLocaleString("fr-FR", {
                                       dateStyle: "short",
                                       timeStyle: "short",
                                     })}

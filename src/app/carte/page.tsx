@@ -422,7 +422,7 @@ export default function Carte() {
                     <div className="mt-3 flex justify-end">
                       <PdfButton
                         label="PDF"
-                        filename={`carte-prix-${selectedCommune.commune.toLowerCase()}-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                        filename={`carte-prix-${selectedCommune.commune.toLowerCase()}-${new Date().toLocaleDateString("fr-FR")}.pdf`}
                         generateBlob={() =>
                           _lazy_generateCartePdfBlob({
                             commune: selectedCommune.commune,
@@ -455,7 +455,7 @@ export default function Carte() {
                       <div className="rounded-xl border border-card-border bg-card p-4 shadow-sm">
                         <h3 className="text-sm font-semibold text-navy mb-2">{t("demographics")}</h3>
                         <div className="grid grid-cols-2 gap-2 text-xs">
-                          <div><span className="text-muted">{t("population")}</span><br/><span className="font-semibold">{demo.population.toLocaleString("fr-LU")}</span></div>
+                          <div><span className="text-muted">{t("population")}</span><br/><span className="font-semibold">{demo.population.toLocaleString("fr-FR")}</span></div>
                           <div><span className="text-muted">{t("growth")}</span><br/><span className="font-semibold text-success">+{demo.croissancePct}%</span> <span className="text-[10px] text-muted">{t("tenYears")}</span></div>
                           <div><span className="text-muted">{t("density")}</span><br/><span className="font-semibold">{demo.densiteHabKm2} {t("densityUnit")}</span></div>
                           <div><span className="text-muted">{t("foreignersPct")}</span><br/><span className="font-semibold">{demo.pctEtrangers}%</span></div>

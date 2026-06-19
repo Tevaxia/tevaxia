@@ -93,7 +93,7 @@ const ENERGY_CLASS_COLORS: Record<string, string> = {
 
 const fmtEUR = (n: number | undefined) => {
   if (n == null || !isFinite(n)) return "—";
-  return new Intl.NumberFormat("fr-LU", { maximumFractionDigits: 0 }).format(Math.round(n)) + " €";
+  return new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 }).format(Math.round(n)) + " €";
 };
 
 export default function PropertyPresentationPdf(p: PropertyPresentationProps) {
@@ -111,7 +111,7 @@ export default function PropertyPresentationPdf(p: PropertyPresentationProps) {
           </View>
           <View style={s.headerRight}>
             <Text style={s.headerSubtitle}>Fiche bien</Text>
-            <Text style={s.headerSubtitle}>Édité le {new Date().toLocaleDateString("fr-LU")}</Text>
+            <Text style={s.headerSubtitle}>Édité le {new Date().toLocaleDateString("fr-FR")}</Text>
           </View>
         </View>
 

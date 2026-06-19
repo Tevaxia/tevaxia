@@ -149,7 +149,7 @@ export default function MesEvaluations() {
                       <h3 className="text-sm font-semibold text-slate truncate">{ev.nom}</h3>
                     </div>
                     <div className="mt-1 flex items-center gap-3 text-xs text-muted">
-                      <span>{new Date(ev.date).toLocaleDateString("fr-LU", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })}</span>
+                      <span>{new Date(ev.date).toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })}</span>
                       {ev.commune && <span>{ev.commune}</span>}
                       {ev.assetType && <span>{ev.assetType}</span>}
                     </div>
@@ -199,7 +199,7 @@ export default function MesEvaluations() {
                         <h3 className="text-sm text-slate/70 truncate">{item.nom}</h3>
                       </div>
                       <div className="text-xs text-muted">
-                        {new Date(item.date).toLocaleDateString("fr-LU", { day: "numeric", month: "short", year: "numeric" })}
+                        {new Date(item.date).toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" })}
                         {item.valeurPrincipale ? ` — ${formatEUR(item.valeurPrincipale)}` : ""}
                       </div>
                     </div>

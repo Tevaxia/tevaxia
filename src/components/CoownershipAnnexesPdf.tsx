@@ -64,7 +64,7 @@ const fmtEUR = (n: number): string => {
 
 const fmtDate = (iso: string): string => {
   const d = new Date(iso);
-  return isNaN(d.getTime()) ? iso : d.toLocaleDateString("fr-LU");
+  return isNaN(d.getTime()) ? iso : d.toLocaleDateString("fr-FR");
 };
 
 interface Props {

@@ -82,7 +82,7 @@ export default function BackupRestoreZone() {
               Module : <span className="font-mono">{state.parsed.manifest.module}</span>
             </div>
             <div className="mt-0.5 text-muted">
-              Exporté le {new Date(state.parsed.manifest.exportedAt).toLocaleString("fr-LU")}
+              Exporté le {new Date(state.parsed.manifest.exportedAt).toLocaleString("fr-FR")}
             </div>
             <div className="mt-2 flex flex-wrap gap-x-3 gap-y-0.5 text-slate">
               {Object.entries(state.parsed.manifest.counts).map(([k, v]) => (

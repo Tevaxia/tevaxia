@@ -81,7 +81,7 @@ describe("prepareReminder", () => {
 
   it("template remplacé avec variables montant", () => {
     const r = prepareReminder(charge, rule2);
-    // fr-LU utilise . comme séparateur milliers et , décimal : "1.000,00 €"
+    // fr-FR utilise une espace insécable comme séparateur milliers et , décimal : "1 000,00 €"
     expect(r.letter_body).toMatch(/1[\s\u202f.,]000,00/);
     expect(r.letter_body).toContain("25,00");
   });

@@ -206,7 +206,7 @@ function TabResidentiel() {
 
   const fmtPrice = (v: number | null) => (v != null ? formatEUR(v) : "—");
   const fmtRent = (v: number | null) => (v != null ? `${v.toFixed(1)} €` : "—");
-  const fmtTx = (v: number | null) => (v != null ? v.toLocaleString("fr-LU") : "—");
+  const fmtTx = (v: number | null) => (v != null ? v.toLocaleString("fr-FR") : "—");
 
   function handleExportCSV() {
     const headers = [t("commune"), t("canton"), t("priceExisting"), t("priceVefa"), t("priceListings"), t("rentPerSqm"), t("transactionsHeader")];
@@ -235,7 +235,7 @@ function TabResidentiel() {
           <ExportCSVButton label={t("exportCSV")} onClick={handleExportCSV} />
           <PdfButton
             label="PDF"
-            filename={`marche-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+            filename={`marche-${new Date().toLocaleDateString("fr-FR")}.pdf`}
             generateBlob={() => {
               const withPrix = filtered.filter((c) => c.prixM2Existant != null);
               const avgPrix = withPrix.length > 0 ? Math.round(withPrix.reduce((s, c) => s + (c.prixM2Existant || 0), 0) / withPrix.length) : 0;
@@ -376,10 +376,10 @@ function TabBureaux() {
     <div className="space-y-4">
       {/* Summary cards */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <SummaryCard label={t("annualTakeUp")} value={`${(OFFICE_MARKET_SUMMARY.takeUpAnnuel).toLocaleString("fr-LU")} m²`} sub={OFFICE_MARKET_SUMMARY.takeUpEvolution} />
+        <SummaryCard label={t("annualTakeUp")} value={`${(OFFICE_MARKET_SUMMARY.takeUpAnnuel).toLocaleString("fr-FR")} m²`} sub={OFFICE_MARKET_SUMMARY.takeUpEvolution} />
         <SummaryCard label={t("primeYield")} value={`${OFFICE_MARKET_SUMMARY.yieldPrime} %`} />
         <SummaryCard label={t("globalVacancy")} value={`${OFFICE_MARKET_SUMMARY.vacanceGlobale} %`} />
-        <SummaryCard label={t("pipelineUnderConstruction")} value={`${(OFFICE_MARKET_SUMMARY.pipelineEnConstruction).toLocaleString("fr-LU")} m²`} />
+        <SummaryCard label={t("pipelineUnderConstruction")} value={`${(OFFICE_MARKET_SUMMARY.pipelineEnConstruction).toLocaleString("fr-FR")} m²`} />
       </div>
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -410,7 +410,7 @@ function TabBureaux() {
                 <td className="px-4 py-2.5 text-right font-mono">{o.loyerPrime} €</td>
                 <td className="px-4 py-2.5 text-right font-mono">{o.loyerMoyen} €</td>
                 <td className="px-4 py-2.5 text-right font-mono">{o.vacance.toFixed(1)} %</td>
-                <td className="px-4 py-2.5 text-right font-mono">{o.stock.toLocaleString("fr-LU")}</td>
+                <td className="px-4 py-2.5 text-right font-mono">{o.stock.toLocaleString("fr-FR")}</td>
                 <td className="px-4 py-2.5 text-right"><TendanceBadge tendance={o.tendance} labels={tendanceLabels} /></td>
               </tr>
             ))}
@@ -603,7 +603,7 @@ function TabLogistique() {
                 <td className="px-4 py-2.5 font-medium text-navy">{z.nom}</td>
                 <td className="px-4 py-2.5 text-right font-mono">{z.loyerMin} €</td>
                 <td className="px-4 py-2.5 text-right font-mono">{z.loyerMax} €</td>
-                <td className="px-4 py-2.5 text-right font-mono">{z.stockEstime.toLocaleString("fr-LU")}</td>
+                <td className="px-4 py-2.5 text-right font-mono">{z.stockEstime.toLocaleString("fr-FR")}</td>
                 <td className="px-4 py-2.5 text-right"><TendanceBadge tendance={z.tendance} labels={tendanceLabels} /></td>
               </tr>
             ))}

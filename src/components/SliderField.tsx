@@ -18,13 +18,13 @@ function defaultFormat(v: number, suffix?: string): string {
   const s = suffix?.trim();
   if (s === "€") {
     return v >= 1000
-      ? `${Math.round(v).toLocaleString("fr-LU")} €`
+      ? `${Math.round(v).toLocaleString("fr-FR")} €`
       : `${v} €`;
   }
   if (s === "%") {
-    return `${v.toLocaleString("fr-LU", { maximumFractionDigits: 2 })} %`;
+    return `${v.toLocaleString("fr-FR", { maximumFractionDigits: 2 })} %`;
   }
-  return `${v.toLocaleString("fr-LU", { maximumFractionDigits: 2 })}${s ? ` ${s}` : ""}`;
+  return `${v.toLocaleString("fr-FR", { maximumFractionDigits: 2 })}${s ? ` ${s}` : ""}`;
 }
 
 export default function SliderField({

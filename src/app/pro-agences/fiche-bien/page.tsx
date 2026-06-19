@@ -12,7 +12,7 @@ export default function FicheBienPage() {
   const t = useTranslations("proaFicheBien");
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
 
   const [agencyName, setAgencyName] = useState("");
   const [agentName, setAgentName] = useState("");

@@ -405,7 +405,7 @@ export default function EstimateurCpePage() {
                 <div className="rounded-xl border border-card-border bg-gray-50 p-4 text-center">
                   <p className="text-xs text-muted mb-1">{t("consoTotale")}</p>
                   <p className="text-xl font-bold text-foreground">
-                    {(conso.central * surface).toLocaleString("fr-LU")}
+                    {(conso.central * surface).toLocaleString("fr-FR")}
                   </p>
                   <p className="text-xs text-muted">kWh/an</p>
                   <p className="text-[11px] text-muted mt-1">
@@ -415,7 +415,7 @@ export default function EstimateurCpePage() {
                 <div className="rounded-xl border border-card-border bg-gray-50 p-4 text-center">
                   <p className="text-xs text-muted mb-1">{t("coutEstime")}</p>
                   <p className="text-xl font-bold text-foreground">
-                    {Math.round(conso.central * surface * PRIX_KWH).toLocaleString("fr-LU")}
+                    {Math.round(conso.central * surface * PRIX_KWH).toLocaleString("fr-FR")}
                   </p>
                   <p className="text-xs text-muted">&euro;/an</p>
                   <p className="text-[11px] text-muted mt-1">{t("prixKwh")}</p>
@@ -423,7 +423,7 @@ export default function EstimateurCpePage() {
                 <div className="rounded-xl border border-card-border bg-gray-50 p-4 text-center">
                   <p className="text-xs text-muted mb-1">{t("emissionsCO2")}</p>
                   <p className="text-xl font-bold text-foreground">
-                    {(conso.central * surface * CO2_FACTOR / 1000).toLocaleString("fr-LU", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}
+                    {(conso.central * surface * CO2_FACTOR / 1000).toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}
                   </p>
                   <p className="text-xs text-muted">tonnes/an</p>
                 </div>

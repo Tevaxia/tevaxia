@@ -104,7 +104,7 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
           </div>
           <h1 className="mt-1 text-2xl sm:text-3xl font-bold">{a.title}</h1>
           <p className="mt-1 text-sm text-white/80">
-            {new Date(a.scheduled_at).toLocaleString("fr-LU", { dateStyle: "full", timeStyle: "short" })}
+            {new Date(a.scheduled_at).toLocaleString("fr-FR", { dateStyle: "full", timeStyle: "short" })}
           </p>
           {a.location && <p className="text-xs text-white/70">{a.location}</p>}
           {a.virtual_url && (
@@ -160,7 +160,7 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
                 {r.my_vote && r.my_vote !== "absent" && (
                   <div className="mt-4 rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-xs text-emerald-900">
                     <span dangerouslySetInnerHTML={{ __html: t("voteSaved", { vote: t(VOTE_KEY[r.my_vote]) }) }} />
-                    {r.my_voted_at && t("voteSavedAt", { date: new Date(r.my_voted_at).toLocaleString("fr-LU") })}
+                    {r.my_voted_at && t("voteSavedAt", { date: new Date(r.my_voted_at).toLocaleString("fr-FR") })}
                   </div>
                 )}
 

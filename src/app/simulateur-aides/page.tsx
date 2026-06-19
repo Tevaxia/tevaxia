@@ -98,7 +98,7 @@ function AideCard({ aide, t, mountNow }: { aide: AideDetail; t: (key: string, va
             const stale = ageMonths > 6;
             return (
               <p className={`mt-1 text-[10px] ${stale ? "text-amber-700 font-semibold" : "text-emerald-700/70"}`}>
-                {stale ? "⚠" : "✓"} {t("aideVerifie", { date: new Date(aide.lastVerified).toLocaleDateString("fr-LU") })}
+                {stale ? "⚠" : "✓"} {t("aideVerifie", { date: new Date(aide.lastVerified).toLocaleDateString("fr-FR") })}
                 {stale && <span className="ml-1">— {t("aideAVerifier")}</span>}
               </p>
             );
@@ -475,7 +475,7 @@ export default function SimulateurAides() {
                                   const url = URL.createObjectURL(blob);
                                   const a = document.createElement("a");
                                   a.href = url;
-                                  a.download = `dossier-klimabonus-${new Date().toLocaleDateString("fr-LU").replace(/\//g, "-")}.pdf`;
+                                  a.download = `dossier-klimabonus-${new Date().toLocaleDateString("fr-FR").replace(/\//g, "-")}.pdf`;
                                   a.click();
                                   URL.revokeObjectURL(url);
                                 }}
@@ -631,7 +631,7 @@ export default function SimulateurAides() {
               />
               <PdfButton
                 label="PDF"
-                filename={`aides-logement-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                filename={`aides-logement-${new Date().toLocaleDateString("fr-FR")}.pdf`}
                 generateBlob={() =>
                   _lazy_generateAidesPdfBlob({
                     profil: typeProjet === "acquisition" ? "Acquisition" : typeProjet === "construction" ? "Construction" : "Renovation",
@@ -822,7 +822,7 @@ export default function SimulateurAides() {
               <p className="mt-0.5 text-xs text-muted">{t("memorialSubtitle")}</p>
             </div>
             <span className="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-[10px] text-emerald-800 font-semibold">
-              {t("memorialLastUpdate", { date: new Date(MEMORIAL_LAST_UPDATED).toLocaleDateString("fr-LU") })}
+              {t("memorialLastUpdate", { date: new Date(MEMORIAL_LAST_UPDATED).toLocaleDateString("fr-FR") })}
             </span>
           </div>
           <div className="space-y-2">
@@ -849,7 +849,7 @@ export default function SimulateurAides() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
                         <span className="font-mono text-[10px] text-muted">
-                          {new Date(entry.date).toLocaleDateString("fr-LU", { day: "2-digit", month: "short", year: "numeric" })}
+                          {new Date(entry.date).toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" })}
                         </span>
                         <span className={`text-[10px] font-semibold uppercase tracking-wider ${categoryColor}`}>
                           {t(`memorialCat_${entry.category}`)}

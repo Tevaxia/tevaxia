@@ -28,7 +28,7 @@ const STATUS_COLOR: Record<CotenantStatus, string> = {
 export default function CotenantsPage() {
   const locale = useLocale();
   const t = useTranslations("glColoc");
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const lp = locale === "fr" ? "" : `/${locale}`;
   const params = useParams();
   const id = String(params?.id ?? "");

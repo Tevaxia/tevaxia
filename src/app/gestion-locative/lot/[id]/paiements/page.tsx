@@ -364,7 +364,7 @@ export default function PaymentsPage() {
                         {STATUS_LABEL[p.status]}
                       </span>
                     </td>
-                    <td className="px-4 py-2 text-xs">{p.paid_at ? new Date(p.paid_at).toLocaleDateString("fr-LU") : "\u2014"}</td>
+                    <td className="px-4 py-2 text-xs">{p.paid_at ? new Date(p.paid_at).toLocaleDateString("fr-FR") : "\u2014"}</td>
                     <td className="px-4 py-2 text-xs">{p.payment_method ?? "\u2014"}</td>
                     <td className="px-4 py-2 text-right space-x-1">
                       {isEditing ? (

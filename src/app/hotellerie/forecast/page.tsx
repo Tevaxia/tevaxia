@@ -293,7 +293,7 @@ export default function HotelForecastPage() {
                       <tbody className="divide-y divide-card-border/50">
                         {forecast.forecast.map((p) => (
                           <tr key={p.date}>
-                            <td className="px-3 py-1.5">{new Date(p.date).toLocaleDateString("fr-LU", { weekday: "short", day: "2-digit", month: "short" })}</td>
+                            <td className="px-3 py-1.5">{new Date(p.date).toLocaleDateString("fr-FR", { weekday: "short", day: "2-digit", month: "short" })}</td>
                             <td className="px-3 py-1.5 text-right font-medium">
                               {activeMetric === "occupancy" ? `${(p.value * 100).toFixed(1)} %` : formatEUR(p.value)}
                             </td>
@@ -337,7 +337,7 @@ export default function HotelForecastPage() {
                     <tbody className="divide-y divide-card-border/50">
                       {metrics.slice().reverse().slice(0, 60).map((m) => (
                         <tr key={m.id}>
-                          <td className="px-3 py-1.5">{new Date(m.metric_date).toLocaleDateString("fr-LU")}</td>
+                          <td className="px-3 py-1.5">{new Date(m.metric_date).toLocaleDateString("fr-FR")}</td>
                           <td className="px-3 py-1.5 text-right">{m.occupancy !== null ? `${(m.occupancy * 100).toFixed(1)} %` : "—"}</td>
                           <td className="px-3 py-1.5 text-right">{m.adr !== null ? formatEUR(m.adr) : "—"}</td>
                           <td className="px-3 py-1.5 text-right">{m.revpar !== null ? formatEUR(m.revpar) : "—"}</td>

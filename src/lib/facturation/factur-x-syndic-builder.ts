@@ -100,6 +100,6 @@ export function buildCoproFacturX(input: CoproFacturXInput): FacturXInvoice {
     payment_iban: call.bank_iban ?? undefined,
     payment_bic: call.bank_bic ?? undefined,
     payment_reference: charge.payment_reference,
-    payment_terms: `À régler avant le ${new Date(call.due_date).toLocaleDateString("fr-LU")}`,
+    payment_terms: `À régler avant le ${new Date(call.due_date).toLocaleDateString("fr-FR")}`,
   };
 }

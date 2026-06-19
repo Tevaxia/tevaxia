@@ -26,7 +26,7 @@ export default function ForecastPage(props: { params: Promise<{ propertyId: stri
   const { propertyId } = use(props.params);
   const t = useTranslations("pmsForecast");
   const locale = useLocale();
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const { user, loading: authLoading } = useAuth();
   const [property, setProperty] = useState<PmsProperty | null>(null);
   const [report, setReport] = useState<ForecastSummary | null>(null);

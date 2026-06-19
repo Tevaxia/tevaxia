@@ -23,7 +23,7 @@ type DraftLine = { account_id: string; debit: number; credit: number; line_label
 export default function AccountingPage() {
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
-  const numberLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const numberLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const t = useTranslations("syndicComptabilite");
   const { user } = useAuth();
   const params = useParams();

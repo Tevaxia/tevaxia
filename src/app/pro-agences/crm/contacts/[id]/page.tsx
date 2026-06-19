@@ -58,7 +58,7 @@ const INTERACTION_ICON: Record<CrmInteractionType, string> = {
 export default function ContactDetailPage(props: { params: Promise<{ id: string }> }) {
   const t = useTranslations("proaCrmContactDetail");
   const locale = useLocale();
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
 
   const { id } = use(props.params);
   const router = useRouter();

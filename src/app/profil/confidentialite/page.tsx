@@ -18,7 +18,7 @@ import {
 } from "@/lib/consents";
 
 function fmtDate(s: string): string {
-  return new Date(s).toLocaleString("fr-LU", { dateStyle: "short", timeStyle: "short" });
+  return new Date(s).toLocaleString("fr-FR", { dateStyle: "short", timeStyle: "short" });
 }
 
 export default function ConfidentialitePage() {

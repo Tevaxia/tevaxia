@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 });
 
 function fmtEur(n: number, currency = "EUR"): string {
-  return new Intl.NumberFormat("fr-LU", { style: "currency", currency, minimumFractionDigits: 2 }).format(n);
+  return new Intl.NumberFormat("fr-FR", { style: "currency", currency, minimumFractionDigits: 2 }).format(n);
 }
 
 export function PmsInvoiceDocument({ invoice, property }: { invoice: PmsInvoice; property: PmsProperty }) {

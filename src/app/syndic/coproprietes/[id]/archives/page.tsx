@@ -19,7 +19,7 @@ export default function ArchivesPage() {
   const t = useTranslations("syndicArchives");
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const params = useParams();
   const coownershipId = String(params?.id ?? "");
   const { user, loading: authLoading } = useAuth();

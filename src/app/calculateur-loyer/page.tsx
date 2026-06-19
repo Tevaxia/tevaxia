@@ -211,19 +211,19 @@ export default function CalculateurLoyer() {
                       <div className="mt-2 grid gap-2 sm:grid-cols-3 text-xs">
                         <div className="rounded bg-white p-2 border border-sky-200">
                           <div className="text-[10px] uppercase text-muted">{t("postTravauxLoyerAvant")}</div>
-                          <div className="font-mono font-bold text-slate">{Math.round(result.loyerMensuelMax).toLocaleString("fr-LU")} €/mois</div>
+                          <div className="font-mono font-bold text-slate">{Math.round(result.loyerMensuelMax).toLocaleString("fr-FR")} €/mois</div>
                         </div>
                         <div className="rounded bg-white p-2 border border-emerald-200">
                           <div className="text-[10px] uppercase text-emerald-700">{t("postTravauxLoyerApres")}</div>
-                          <div className="font-mono font-bold text-emerald-900">{Math.round(resultPostTravaux.loyerMensuelMax).toLocaleString("fr-LU")} €/mois</div>
+                          <div className="font-mono font-bold text-emerald-900">{Math.round(resultPostTravaux.loyerMensuelMax).toLocaleString("fr-FR")} €/mois</div>
                         </div>
                         <div className="rounded bg-navy p-2 border border-navy">
                           <div className="text-[10px] uppercase text-white/70">{t("postTravauxGain")}</div>
                           <div className="font-mono font-bold text-white">
-                            + {Math.round(resultPostTravaux.loyerMensuelMax - result.loyerMensuelMax).toLocaleString("fr-LU")} €/mois
+                            + {Math.round(resultPostTravaux.loyerMensuelMax - result.loyerMensuelMax).toLocaleString("fr-FR")} €/mois
                           </div>
                           <div className="text-[10px] text-white/80">
-                            ({Math.round((resultPostTravaux.loyerMensuelMax - result.loyerMensuelMax) * 12).toLocaleString("fr-LU")} €/an)
+                            ({Math.round((resultPostTravaux.loyerMensuelMax - result.loyerMensuelMax) * 12).toLocaleString("fr-FR")} €/an)
                           </div>
                         </div>
                       </div>
@@ -520,7 +520,7 @@ export default function CalculateurLoyer() {
               />
               <PdfButton
                 label="PDF"
-                filename={`loyer-plafond-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                filename={`loyer-plafond-${new Date().toLocaleDateString("fr-FR")}.pdf`}
                 generateBlob={() =>
                   _lazy_generateLoyerPdfBlob({
                     capitalInvesti: result.capitalInvesti,

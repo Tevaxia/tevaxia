@@ -78,7 +78,7 @@ export interface InvoiceData {
 }
 
 function fmtEur(n: number, currency: string): string {
-  return new Intl.NumberFormat("fr-LU", {
+  return new Intl.NumberFormat("fr-FR", {
     style: "currency",
     currency,
     minimumFractionDigits: 2,

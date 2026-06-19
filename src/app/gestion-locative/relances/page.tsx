@@ -76,7 +76,7 @@ export default function RelancesPage() {
   const { user } = useAuth();
   const locale = useLocale();
   const t = useTranslations("glRelances");
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const [rows, setRows] = useState<UnpaidRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [profileName, setProfileName] = useState(t("defaultLandlord"));

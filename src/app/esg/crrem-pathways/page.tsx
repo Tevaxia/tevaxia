@@ -26,7 +26,7 @@ function initialMix(): Partial<Record<LuEnergySource, number>> {
 export default function CrremPathwaysPage() {
   const t = useTranslations("esgCrrem");
   const locale = useLocale();
-  const numLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const numLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const [name, setName] = useState(t("nameDefault"));
   const [assetType, setAssetType] = useState<CrremAssetType>("residential_mfh");
   const [floorAreaM2, setFloorAreaM2] = useState(150);

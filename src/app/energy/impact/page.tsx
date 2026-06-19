@@ -50,7 +50,7 @@ const CLASS_COLORS: Record<string, string> = {
 };
 
 function fmt(n: number): string {
-  return n.toLocaleString("fr-LU", { maximumFractionDigits: 0 });
+  return n.toLocaleString("fr-FR", { maximumFractionDigits: 0 });
 }
 
 interface ClasseImpactLocal extends ClasseImpact {
@@ -298,7 +298,7 @@ export default function ImpactPage() {
           <div className="px-6 py-3 bg-gray-50 space-y-2">
             <div className="flex items-center justify-between">
               <span className="text-xs text-muted">{t("classeRef")} · {t("source")}</span>
-              <PdfButton generateBlob={() => _lazy_generateImpactPdfBlob(result, classeActuelle, valeur)} filename={`energy-impact-cpe-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf")} />
+              <PdfButton generateBlob={() => _lazy_generateImpactPdfBlob(result, classeActuelle, valeur)} filename={`energy-impact-cpe-${new Date().toLocaleDateString("fr-FR")}.pdf`} label={t("downloadPdf")} />
             </div>
             <p className="text-[11px] text-muted leading-snug">{t("calibrationNote")}</p>
           </div>

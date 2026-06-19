@@ -39,10 +39,10 @@ const s = StyleSheet.create({
 });
 
 export default function ProcurationPdf(p: ProcurationProps) {
-  const assemblyDateFormatted = new Date(p.assemblyDate).toLocaleDateString("fr-LU", {
+  const assemblyDateFormatted = new Date(p.assemblyDate).toLocaleDateString("fr-FR", {
     weekday: "long", day: "2-digit", month: "long", year: "numeric",
   });
-  const issuedDateFormatted = new Date(p.issuedDate).toLocaleDateString("fr-LU", {
+  const issuedDateFormatted = new Date(p.issuedDate).toLocaleDateString("fr-FR", {
     day: "2-digit", month: "long", year: "numeric",
   });
 
@@ -74,7 +74,7 @@ export default function ProcurationPdf(p: ProcurationProps) {
           </View>
           <View style={s.row}>
             <Text style={s.label}>Tantièmes</Text>
-            {p.unitTantiemes ? <Text style={s.value}>{p.unitTantiemes.toLocaleString("fr-LU")} millièmes</Text> : <View style={s.blank} />}
+            {p.unitTantiemes ? <Text style={s.value}>{p.unitTantiemes.toLocaleString("fr-FR")} millièmes</Text> : <View style={s.blank} />}
           </View>
         </View>
 

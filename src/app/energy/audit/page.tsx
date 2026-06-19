@@ -178,7 +178,7 @@ export default function EnergyAuditGuide() {
                         </div>
                         <div className="text-right shrink-0">
                           <div className="text-xs font-mono text-navy font-semibold">
-                            {r.coutMin.toLocaleString("fr-LU")} — {r.coutMax.toLocaleString("fr-LU")} €
+                            {r.coutMin.toLocaleString("fr-FR")} — {r.coutMax.toLocaleString("fr-FR")} €
                           </div>
                           <div className="text-[10px] text-emerald-700">
                             {t("klimabonus")} {r.klimabonusPct} %
@@ -202,19 +202,19 @@ export default function EnergyAuditGuide() {
                   <div>
                     <div className="text-[10px] uppercase tracking-wider text-emerald-700">{t("totalCost")}</div>
                     <div className="font-mono font-bold text-emerald-900">
-                      {result.coutTotal.min.toLocaleString("fr-LU")} — {result.coutTotal.max.toLocaleString("fr-LU")} €
+                      {result.coutTotal.min.toLocaleString("fr-FR")} — {result.coutTotal.max.toLocaleString("fr-FR")} €
                     </div>
                   </div>
                   <div>
                     <div className="text-[10px] uppercase tracking-wider text-emerald-700">{t("totalKlimabonus")}</div>
                     <div className="font-mono font-bold text-emerald-900">
-                      {result.klimabonusTotal.min.toLocaleString("fr-LU")} — {result.klimabonusTotal.max.toLocaleString("fr-LU")} €
+                      {result.klimabonusTotal.min.toLocaleString("fr-FR")} — {result.klimabonusTotal.max.toLocaleString("fr-FR")} €
                     </div>
                   </div>
                   <div>
                     <div className="text-[10px] uppercase tracking-wider text-emerald-700">{t("totalReste")}</div>
                     <div className="font-mono font-bold text-emerald-900">
-                      {(result.coutTotal.min - result.klimabonusTotal.max).toLocaleString("fr-LU")} — {(result.coutTotal.max - result.klimabonusTotal.min).toLocaleString("fr-LU")} €
+                      {(result.coutTotal.min - result.klimabonusTotal.max).toLocaleString("fr-FR")} — {(result.coutTotal.max - result.klimabonusTotal.min).toLocaleString("fr-FR")} €
                     </div>
                   </div>
                 </div>

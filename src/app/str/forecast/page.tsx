@@ -160,9 +160,9 @@ export default function StrForecastPage() {
         {forecast && (
           <>
             <div className="mt-8 grid gap-3 sm:grid-cols-4">
-              <Kpi label={t("kpiHistorical")} value={`${Math.round(totalHistorical).toLocaleString("fr-LU")} €`} hint={t("kpiHistoricalHint", { months: forecast.historical.length })} />
-              <Kpi label={t("kpiForecast")} value={`${Math.round(totalForecast).toLocaleString("fr-LU")} €`} hint={t("kpiForecastHint", { months: forecast.forecast.length })} />
-              <Kpi label={t("kpiRange")} value={`${Math.round(totalLow).toLocaleString("fr-LU")} – ${Math.round(totalHigh).toLocaleString("fr-LU")} €`} hint={t("kpiRangeHint")} />
+              <Kpi label={t("kpiHistorical")} value={`${Math.round(totalHistorical).toLocaleString("fr-FR")} €`} hint={t("kpiHistoricalHint", { months: forecast.historical.length })} />
+              <Kpi label={t("kpiForecast")} value={`${Math.round(totalForecast).toLocaleString("fr-FR")} €`} hint={t("kpiForecastHint", { months: forecast.forecast.length })} />
+              <Kpi label={t("kpiRange")} value={`${Math.round(totalLow).toLocaleString("fr-FR")} – ${Math.round(totalHigh).toLocaleString("fr-FR")} €`} hint={t("kpiRangeHint")} />
               <Kpi label={t("kpiMape")} value={`${forecast.mape.revenue.toFixed(1)} %`} hint={t("kpiMapeHint")} />
             </div>
 
@@ -230,9 +230,9 @@ export default function StrForecastPage() {
                       <td className="px-3 py-1.5 font-medium">{p.year}-{String(p.month).padStart(2, "0")}</td>
                       <td className="px-3 py-1.5 text-right tabular-nums">{(p.occupancy * 100).toFixed(1)} %</td>
                       <td className="px-3 py-1.5 text-right tabular-nums">{p.adr.toFixed(0)} €</td>
-                      <td className="px-3 py-1.5 text-right tabular-nums font-semibold">{Math.round(p.revenue).toLocaleString("fr-LU")} €</td>
+                      <td className="px-3 py-1.5 text-right tabular-nums font-semibold">{Math.round(p.revenue).toLocaleString("fr-FR")} €</td>
                       <td className="px-3 py-1.5 text-right tabular-nums text-muted">
-                        {p.isForecast ? `${Math.round(p.lowerRevenue).toLocaleString("fr-LU")} – ${Math.round(p.upperRevenue).toLocaleString("fr-LU")}` : "—"}
+                        {p.isForecast ? `${Math.round(p.lowerRevenue).toLocaleString("fr-FR")} – ${Math.round(p.upperRevenue).toLocaleString("fr-FR")}` : "—"}
                       </td>
                       <td className="px-3 py-1.5 text-center">
                         <span className={`inline-flex rounded-full px-1.5 py-0.5 text-[9px] font-semibold ${p.isForecast ? "bg-navy/10 text-navy" : "bg-emerald-100 text-emerald-800"}`}>

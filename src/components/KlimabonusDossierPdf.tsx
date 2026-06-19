@@ -74,7 +74,7 @@ const s = StyleSheet.create({
   footer: { position: "absolute", bottom: 20, left: 40, right: 40, textAlign: "center", fontSize: 7, color: "#94A3B8" },
 });
 
-const fmtEUR = (n: number) => Math.round(n).toLocaleString("fr-LU") + " €";
+const fmtEUR = (n: number) => Math.round(n).toLocaleString("fr-FR") + " €";
 
 export default function KlimabonusDossierPdf(props: KlimabonusDossierProps) {
   const { lignes, totalTravaux, totalKlima, totalBonusEco, topupSocial, adresse, labels } = props;
@@ -87,7 +87,7 @@ export default function KlimabonusDossierPdf(props: KlimabonusDossierProps) {
           <Text style={s.title}>{labels.title}</Text>
           <Text style={s.subtitle}>{labels.subtitle}</Text>
           <Text style={{ fontSize: 8, color: "#94A3B8", marginTop: 3 }}>
-            {labels.dateLabel} : {new Date().toLocaleDateString("fr-LU", { day: "2-digit", month: "long", year: "numeric" })}
+            {labels.dateLabel} : {new Date().toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" })}
           </Text>
         </View>
 

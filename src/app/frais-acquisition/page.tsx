@@ -378,7 +378,7 @@ export default function FraisAcquisition() {
               />
               <PdfButton
                 label="PDF"
-                filename={`frais-acquisition-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                filename={`frais-acquisition-${new Date().toLocaleDateString("fr-FR")}.pdf`}
                 generateBlob={() =>
                   _lazy_generateFraisPdfBlob({
                     prixAchat: prixBien,

@@ -39,7 +39,7 @@ export async function generateMetadata({
   const normSlug = slugifyCommune(commune.commune);
 
   const prixStr = commune.prixM2Existant
-    ? `${commune.prixM2Existant.toLocaleString("fr-LU")} EUR/m2`
+    ? `${commune.prixM2Existant.toLocaleString("fr-FR")} EUR/m2`
     : "";
 
   const title = `Immobilier ${commune.commune} — Prix m², tendances, estimation`;
@@ -101,7 +101,7 @@ function buildJsonLd(slug: string) {
     "@context": "https://schema.org",
     "@type": "Place",
     name: commune.commune,
-    description: `Marché immobilier à ${commune.commune}, canton ${commune.canton}, Luxembourg. Prix moyen : ${commune.prixM2Existant ? commune.prixM2Existant.toLocaleString("fr-LU") + " EUR/m2" : "N/A"}.`,
+    description: `Marché immobilier à ${commune.commune}, canton ${commune.canton}, Luxembourg. Prix moyen : ${commune.prixM2Existant ? commune.prixM2Existant.toLocaleString("fr-FR") + " EUR/m2" : "N/A"}.`,
     url: canonical,
     address: {
       "@type": "PostalAddress",

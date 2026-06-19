@@ -16,7 +16,7 @@ export default function DashboardPage() {
   const t = useTranslations("dashboardPage");
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
-  const dateLocale = locale === "fr" ? "fr-LU" : locale;
+  const dateLocale = locale === "fr" ? "fr-FR" : locale;
 
   const fmtDate = (s: string): string =>
     new Date(s).toLocaleDateString(dateLocale, { day: "2-digit", month: "short", year: "numeric" });

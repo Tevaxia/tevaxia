@@ -47,12 +47,12 @@ const LOT_COLORS: Record<string, string> = {
 };
 
 /* Number formatters for the bordereau table */
-const fmtPU = new Intl.NumberFormat("fr-LU", {
+const fmtPU = new Intl.NumberFormat("fr-FR", {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 });
-const fmtQte = new Intl.NumberFormat("fr-LU", { maximumFractionDigits: 0 });
-const fmtTotal = new Intl.NumberFormat("fr-LU", {
+const fmtQte = new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 });
+const fmtTotal = new Intl.NumberFormat("fr-FR", {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 });
@@ -1719,7 +1719,7 @@ export default function CalculateurVRD() {
             <div className="flex flex-wrap gap-2 justify-center">
               <PdfButton
                 label="PDF"
-                filename={`calculateur-vrd-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                filename={`calculateur-vrd-${new Date().toLocaleDateString("fr-FR")}.pdf`}
                 generateBlob={() => _lazy_generateVrdPdfBlob({
                   nomProjet,
                   commune,
@@ -1738,13 +1738,13 @@ export default function CalculateurVRD() {
               />
               <button
                 onClick={() => {
-                  const today = new Date().toLocaleDateString("fr-LU");
+                  const today = new Date().toLocaleDateString("fr-FR");
                   const title = nomProjet || "Projet VRD";
                   const commLine = commune ? `Commune de ${commune}` : "[Commune]";
                   // Bordereau quantitatif CCTP
                   const bordLines = result.bordereau
                     .filter((r): r is typeof r & { num: string; designation: string; unite: string; quantite: number; pu: number; total: number } => r.type === "line")
-                    .map((r) => `  ${r.num}\t${r.designation}\t${r.unite}\t${r.quantite}\t${r.pu.toLocaleString("fr-LU")} €\t${r.total.toLocaleString("fr-LU")} €`);
+                    .map((r) => `  ${r.num}\t${r.designation}\t${r.unite}\t${r.quantite}\t${r.pu.toLocaleString("fr-FR")} €\t${r.total.toLocaleString("fr-FR")} €`);
 
                   const content = `CAHIER DES CLAUSES ADMINISTRATIVES PARTICULIÈRES (CCAP)
 et CAHIER DES CLAUSES TECHNIQUES PARTICULIÈRES (CCTP)
@@ -1758,8 +1758,8 @@ ARTICLE 1 — OBJET DU MARCHÉ
 Le présent marché porte sur les travaux de viabilité et de réseaux divers
 (VRD) pour le projet « ${title} », situé à ${commLine}.
 
-Surface concernée : ${surfaceTotale.toLocaleString("fr-LU")} m²
-Montant estimé travaux : ${result.totalGeneral.toLocaleString("fr-LU")} € HT
+Surface concernée : ${surfaceTotale.toLocaleString("fr-FR")} m²
+Montant estimé travaux : ${result.totalGeneral.toLocaleString("fr-FR")} € HT
 
 ARTICLE 2 — PIÈCES CONSTITUTIVES DU MARCHÉ
 Par ordre de priorité :
@@ -1827,7 +1827,7 @@ Les travaux seront exécutés conformément :
 
 ${result.lots.map((lot) => `
 CHAPITRE ${lot.num} — LOT ${String(lot.num).toUpperCase()} : ${lot.nom.toUpperCase()}
-Montant estimé : ${lot.total.toLocaleString("fr-LU")} € HT
+Montant estimé : ${lot.total.toLocaleString("fr-FR")} € HT
 [Description technique détaillée du lot à compléter par le maître d'œuvre]
 `).join("\n")}
 
@@ -1838,11 +1838,11 @@ BORDEREAU DE PRIX UNITAIRE (BPU) / DQE
   N°\tDésignation\tUnité\tQté\tP.U. HT\tTotal HT
 ${bordLines.join("\n")}
 
-TOTAL TRAVAUX HT : ${result.totalTravaux.toLocaleString("fr-LU")} €
-Études & divers : ${result.totalEtudes.toLocaleString("fr-LU")} €
-Honoraires BE : ${result.montantHonorairesBE.toLocaleString("fr-LU")} €
-Aléas : ${result.montantAleas.toLocaleString("fr-LU")} €
-TOTAL GÉNÉRAL HT : ${result.totalGeneral.toLocaleString("fr-LU")} €
+TOTAL TRAVAUX HT : ${result.totalTravaux.toLocaleString("fr-FR")} €
+Études & divers : ${result.totalEtudes.toLocaleString("fr-FR")} €
+Honoraires BE : ${result.montantHonorairesBE.toLocaleString("fr-FR")} €
+Aléas : ${result.montantAleas.toLocaleString("fr-FR")} €
+TOTAL GÉNÉRAL HT : ${result.totalGeneral.toLocaleString("fr-FR")} €
 
 ================================================================
 Document généré par tevaxia.lu le ${today}

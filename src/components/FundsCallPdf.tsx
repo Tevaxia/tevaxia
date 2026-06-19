@@ -65,7 +65,7 @@ const fmtEUR2 = (n: number) => {
 
 const fmtDate = (iso: string) => {
   const d = new Date(iso);
-  return isNaN(d.getTime()) ? iso : d.toLocaleDateString("fr-LU");
+  return isNaN(d.getTime()) ? iso : d.toLocaleDateString("fr-FR");
 };
 
 export default function FundsCallPdf({ coownership, syndic, call, unit, charge }: Props) {
@@ -82,7 +82,7 @@ export default function FundsCallPdf({ coownership, syndic, call, unit, charge }
             {syndic.phone && <Text style={{ fontSize: 9, color: "#334155" }}>{syndic.phone}</Text>}
           </View>
           <View style={{ textAlign: "right" }}>
-            <Text style={{ fontSize: 9, color: "#6B7280" }}>Émis le {new Date().toLocaleDateString("fr-LU")}</Text>
+            <Text style={{ fontSize: 9, color: "#6B7280" }}>Émis le {new Date().toLocaleDateString("fr-FR")}</Text>
             <Text style={{ fontSize: 9, color: "#6B7280" }}>Échéance : {fmtDate(call.due_date)}</Text>
           </View>
         </View>
@@ -106,7 +106,7 @@ export default function FundsCallPdf({ coownership, syndic, call, unit, charge }
           <View style={s.row}>
             <Text style={s.label}>Tantièmes</Text>
             <Text style={s.value}>
-              {unit.tantiemes.toLocaleString("fr-LU")} / {coownership.total_tantiemes.toLocaleString("fr-LU")} ({tantiemePct.toFixed(2)} %)
+              {unit.tantiemes.toLocaleString("fr-FR")} / {coownership.total_tantiemes.toLocaleString("fr-FR")} ({tantiemePct.toFixed(2)} %)
             </Text>
           </View>
         </View>

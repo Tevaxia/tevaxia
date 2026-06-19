@@ -69,7 +69,7 @@ function scoreBudget(
   if (prix >= min && prix <= max) {
     return {
       score: 40,
-      note: `Prix ${prix.toLocaleString("fr-LU")} € dans le budget`,
+      note: `Prix ${prix.toLocaleString("fr-FR")} € dans le budget`,
       noteKey: { key: "noteBudgetInRange", params: { price: prix } },
     };
   }

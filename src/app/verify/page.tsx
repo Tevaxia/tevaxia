@@ -25,7 +25,7 @@ function VerifyContent() {
   const params = useSearchParams();
   const locale = useLocale();
   const t = useTranslations("verify");
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const queryHash = params?.get("hash") ?? "";
 
   const [hash, setHash] = useState(queryHash);

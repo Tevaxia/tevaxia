@@ -239,14 +239,14 @@ export function signingUrl(token: string, origin?: string): string {
 export interface MailtoLabels {
   subject: string;     // "Signature demandée : {title}"
   body: string;        // multiline template with {name}, {title}, {expires}, {url} placeholders
-  dateLocale: string;  // e.g. "fr-LU"
+  dateLocale: string;  // e.g. "fr-FR"
 }
 
 export function mailtoLink(req: SignatureRequest, origin?: string, labels?: MailtoLabels): string {
   const url = signingUrl(req.token, origin);
   const fmt = (s: string, vars: Record<string, string>) =>
     s.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? "");
-  const dateLocale = labels?.dateLocale ?? "fr-LU";
+  const dateLocale = labels?.dateLocale ?? "fr-FR";
   const expires = new Date(req.expires_at).toLocaleDateString(dateLocale);
   const subjTpl = labels?.subject ?? "Signature demandée : {title}";
   const bodyTpl = labels?.body ?? (

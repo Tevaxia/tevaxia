@@ -165,7 +165,7 @@ export default function HotelGroupDashboard() {
               </div>
               <div className="rounded-xl border border-card-border bg-card p-4">
                 <div className="text-xs uppercase tracking-wider text-muted font-semibold">{tg("totalRooms")}</div>
-                <div className="mt-1 text-2xl font-bold text-navy">{totalRooms.toLocaleString("fr-LU")}</div>
+                <div className="mt-1 text-2xl font-bold text-navy">{totalRooms.toLocaleString("fr-FR")}</div>
               </div>
               <div className="rounded-xl border border-card-border bg-card p-4">
                 <div className="text-xs uppercase tracking-wider text-muted font-semibold">{tg("capexCumul")}</div>

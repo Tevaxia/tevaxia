@@ -56,11 +56,11 @@ const COUNTRY_DEFAULTS: Record<string, { price: number; rent: number; rate: numb
 };
 
 function fmtEUR(v: number): string {
-  return new Intl.NumberFormat("fr-LU", { maximumFractionDigits: 0 }).format(Math.round(v)) + " €";
+  return new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 }).format(Math.round(v)) + " €";
 }
 
 function fmtCurrency(v: number, symbol: string): string {
-  return new Intl.NumberFormat("fr-LU", { maximumFractionDigits: 0 }).format(Math.round(v)) + " " + symbol;
+  return new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 }).format(Math.round(v)) + " " + symbol;
 }
 
 export default function PropcalcCashflowDemo() {

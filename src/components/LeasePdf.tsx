@@ -56,7 +56,7 @@ const s = StyleSheet.create({
 });
 
 function formatEUR(n: number): string {
-  return new Intl.NumberFormat("fr-LU", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
+  return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
 }
 
 export default function LeasePdf({
@@ -187,7 +187,7 @@ export default function LeasePdf({
                 <Text style={{ fontSize: 8 }}>Le bailleur — {landlord.name}</Text>
                 {signedAtLandlord && (
                   <Text style={{ color: "#6B7280", fontSize: 7, marginTop: 2 }}>
-                    Signé le {new Date(signedAtLandlord).toLocaleString("fr-LU", { dateStyle: "medium", timeStyle: "short" })}
+                    Signé le {new Date(signedAtLandlord).toLocaleString("fr-FR", { dateStyle: "medium", timeStyle: "short" })}
                   </Text>
                 )}
               </>
@@ -209,7 +209,7 @@ export default function LeasePdf({
                 <Text style={{ fontSize: 8 }}>Le locataire — {tenant.name}</Text>
                 {signedAtTenant && (
                   <Text style={{ color: "#6B7280", fontSize: 7, marginTop: 2 }}>
-                    Signé le {new Date(signedAtTenant).toLocaleString("fr-LU", { dateStyle: "medium", timeStyle: "short" })}
+                    Signé le {new Date(signedAtTenant).toLocaleString("fr-FR", { dateStyle: "medium", timeStyle: "short" })}
                   </Text>
                 )}
               </>

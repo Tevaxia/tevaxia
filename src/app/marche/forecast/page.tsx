@@ -83,7 +83,7 @@ export default function MarcheForecastPage() {
                     }}
                     className="block w-full text-left px-2 py-1 text-xs rounded hover:bg-navy/5"
                   >
-                    {r.commune.commune} · {r.commune.prixM2Existant ? `${r.commune.prixM2Existant.toLocaleString("fr-LU")} €/m²` : "—"}
+                    {r.commune.commune} · {r.commune.prixM2Existant ? `${r.commune.prixM2Existant.toLocaleString("fr-FR")} €/m²` : "—"}
                   </button>
                 ))}
               </div>
@@ -93,7 +93,7 @@ export default function MarcheForecastPage() {
               <div className="mt-3 rounded-lg bg-navy/5 border border-navy/10 p-3">
                 <div className="text-xs text-muted">{t("currentPrice")}</div>
                 <div className="text-2xl font-mono font-bold text-navy">
-                  {basePrice.toLocaleString("fr-LU")} €/m²
+                  {basePrice.toLocaleString("fr-FR")} €/m²
                 </div>
                 <div className="text-xs text-muted">
                   {selectedResult.commune.commune} · Q4 2025 Observatoire Habitat
@@ -166,7 +166,7 @@ export default function MarcheForecastPage() {
           <div className="rounded-xl border border-rose-200 bg-rose-50 p-4">
             <div className="text-[10px] uppercase tracking-wider text-rose-700 font-semibold">{t("pessimiste")}</div>
             <div className="mt-1 text-2xl font-mono font-bold text-rose-900">
-              {forecast.endPessimiste.toLocaleString("fr-LU")} €/m²
+              {forecast.endPessimiste.toLocaleString("fr-FR")} €/m²
             </div>
             <div className="text-[10px] text-rose-700">
               {((forecast.endPessimiste - forecast.basePrice) / forecast.basePrice * 100).toFixed(1)} %
@@ -175,7 +175,7 @@ export default function MarcheForecastPage() {
           <div className="rounded-xl border border-navy/20 bg-navy/5 p-4">
             <div className="text-[10px] uppercase tracking-wider text-navy font-semibold">{t("central")}</div>
             <div className="mt-1 text-2xl font-mono font-bold text-navy">
-              {forecast.endCentral.toLocaleString("fr-LU")} €/m²
+              {forecast.endCentral.toLocaleString("fr-FR")} €/m²
             </div>
             <div className="text-[10px] text-navy/80">
               {((forecast.endCentral - forecast.basePrice) / forecast.basePrice * 100).toFixed(1)} %
@@ -184,7 +184,7 @@ export default function MarcheForecastPage() {
           <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4">
             <div className="text-[10px] uppercase tracking-wider text-emerald-700 font-semibold">{t("optimiste")}</div>
             <div className="mt-1 text-2xl font-mono font-bold text-emerald-900">
-              {forecast.endOptimiste.toLocaleString("fr-LU")} €/m²
+              {forecast.endOptimiste.toLocaleString("fr-FR")} €/m²
             </div>
             <div className="text-[10px] text-emerald-700">
               {((forecast.endOptimiste - forecast.basePrice) / forecast.basePrice * 100).toFixed(1)} %
@@ -201,7 +201,7 @@ export default function MarcheForecastPage() {
               <XAxis dataKey="label" tick={{ fontSize: 9 }} interval={2} />
               <YAxis tick={{ fontSize: 10 }} tickFormatter={(v: number) => `${(v/1000).toFixed(1)}k`} />
               <Tooltip
-                formatter={(v: unknown) => typeof v === "number" ? `${v.toLocaleString("fr-LU")} €/m²` : "—"}
+                formatter={(v: unknown) => typeof v === "number" ? `${v.toLocaleString("fr-FR")} €/m²` : "—"}
                 contentStyle={{ fontSize: 12, borderRadius: 8 }}
               />
               <Legend wrapperStyle={{ fontSize: 11 }} />

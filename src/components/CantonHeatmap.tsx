@@ -134,7 +134,7 @@ export default function CantonHeatmap({ data }: { data: MarketDataCommune[] }) {
                 backgroundColor: bg,
                 color: fg,
               }}
-              title={agg ? `${tile.displayName} — ${Math.round(agg.prixMoyen).toLocaleString("fr-LU")} €/m² moyen (${agg.nbCommunes} communes, ${agg.nbTransactions} transactions)` : tile.displayName}
+              title={agg ? `${tile.displayName} — ${Math.round(agg.prixMoyen).toLocaleString("fr-FR")} €/m² moyen (${agg.nbCommunes} communes, ${agg.nbTransactions} transactions)` : tile.displayName}
             >
               <div className="text-[10px] font-bold uppercase tracking-wider leading-tight">
                 {tile.displayName}
@@ -142,7 +142,7 @@ export default function CantonHeatmap({ data }: { data: MarketDataCommune[] }) {
               {agg && (
                 <>
                   <div className="text-base font-mono font-bold">
-                    {Math.round(agg.prixMoyen).toLocaleString("fr-LU")}
+                    {Math.round(agg.prixMoyen).toLocaleString("fr-FR")}
                   </div>
                   <div className="text-[9px] font-semibold opacity-80">
                     €/m² · {agg.nbCommunes} comm.
@@ -161,12 +161,12 @@ export default function CantonHeatmap({ data }: { data: MarketDataCommune[] }) {
           <span className="font-semibold text-slate">Observatoire Habitat Q4 2025</span>
         </div>
         <div className="flex items-center gap-1.5 text-[10px]">
-          <span className="text-muted">{Math.round(globalMin).toLocaleString("fr-LU")} €</span>
+          <span className="text-muted">{Math.round(globalMin).toLocaleString("fr-FR")} €</span>
           <span className="inline-block h-3 w-6 rounded" style={{ backgroundColor: "#86efac" }} />
           <span className="inline-block h-3 w-6 rounded" style={{ backgroundColor: "#fde047" }} />
           <span className="inline-block h-3 w-6 rounded" style={{ backgroundColor: "#fb923c" }} />
           <span className="inline-block h-3 w-6 rounded" style={{ backgroundColor: "#f87171" }} />
-          <span className="text-muted">{Math.round(globalMax).toLocaleString("fr-LU")} €</span>
+          <span className="text-muted">{Math.round(globalMax).toLocaleString("fr-FR")} €</span>
         </div>
       </div>
     </div>

@@ -240,7 +240,7 @@ export default function VirtualTourCard({ mandateId, initialTourUrl, initialVide
 
       {savedAt && !editing && (
         <div className="mt-3 text-xs text-emerald-700">
-          ✓ Enregistré à {savedAt.toLocaleTimeString("fr-LU")}
+          ✓ Enregistré à {savedAt.toLocaleTimeString("fr-FR")}
         </div>
       )}
     </div>

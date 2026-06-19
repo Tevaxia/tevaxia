@@ -179,7 +179,7 @@ export default function IndicesPage() {
                     {changeYoY.pct >= 0 ? "+" : ""}{changeYoY.pct.toFixed(1)} %
                   </div>
                   <div className="mt-1 text-[10px] text-white/50">
-                    Mise à jour : {new Date(TEVAXIA_INDEX_LAST_UPDATE).toLocaleDateString("fr-LU")}
+                    Mise à jour : {new Date(TEVAXIA_INDEX_LAST_UPDATE).toLocaleDateString("fr-FR")}
                   </div>
                 </div>
               </div>
@@ -241,7 +241,7 @@ export default function IndicesPage() {
             </div>
             <div className="text-center">
               <div className="text-xs text-muted">{t("transactions_last_quarter")}</div>
-              <div className="text-2xl font-bold text-navy">{summary.totalTransactions.toLocaleString("fr-LU")}</div>
+              <div className="text-2xl font-bold text-navy">{summary.totalTransactions.toLocaleString("fr-FR")}</div>
             </div>
           </div>
         </div>
@@ -256,7 +256,7 @@ export default function IndicesPage() {
               })}
             </p>
             <p>
-              {t("analysis_paragraph_2", { transactions: summary.totalTransactions.toLocaleString("fr-LU") })}
+              {t("analysis_paragraph_2", { transactions: summary.totalTransactions.toLocaleString("fr-FR") })}
             </p>
           </div>
         </div>

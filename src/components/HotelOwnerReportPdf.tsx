@@ -53,7 +53,7 @@ const fmtDelta = (curr: number | null | undefined, prev: number | null | undefin
 
 const fmtDate = (iso: string) => {
   const d = new Date(iso);
-  return d.toLocaleDateString("fr-LU", { day: "numeric", month: "short", year: "numeric" });
+  return d.toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" });
 };
 
 export default function HotelOwnerReportPdf({ hotel, period, groupName, previousPeriod }: Props) {
@@ -66,7 +66,7 @@ export default function HotelOwnerReportPdf({ hotel, period, groupName, previous
             <Text style={{ fontSize: 8, color: "#6B7280" }}>Owner Report</Text>
           </View>
           <View style={{ textAlign: "right" }}>
-            <Text style={{ fontSize: 9, color: "#6B7280" }}>Émis le {new Date().toLocaleDateString("fr-LU")}</Text>
+            <Text style={{ fontSize: 9, color: "#6B7280" }}>Émis le {new Date().toLocaleDateString("fr-FR")}</Text>
           </View>
         </View>
 

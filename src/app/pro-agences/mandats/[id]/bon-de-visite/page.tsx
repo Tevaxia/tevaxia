@@ -16,7 +16,7 @@ import { errMsg } from "@/lib/errors";
 export default function BonDeVisitePage() {
   const t = useTranslations("proaVisitSlip");
   const locale = useLocale();
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
 
   const params = useParams<{ id: string }>();
   const mandateId = params?.id;

@@ -151,7 +151,7 @@ export default function CommunePageClient() {
               <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
                 <h2 className="text-base font-semibold text-navy mb-3">{t("demographics")}</h2>
                 <div className="grid grid-cols-2 gap-3 text-sm">
-                  <div><span className="text-muted">{t("demoPopulation")}</span><br/><span className="font-semibold">{demo.population.toLocaleString("fr-LU")}</span></div>
+                  <div><span className="text-muted">{t("demoPopulation")}</span><br/><span className="font-semibold">{demo.population.toLocaleString("fr-FR")}</span></div>
                   <div><span className="text-muted">{t("demoGrowth10y")}</span><br/><span className="font-semibold text-success">+{demo.croissancePct}%</span></div>
                   <div><span className="text-muted">{t("demoDensity")}</span><br/><span className="font-semibold">{demo.densiteHabKm2} {t("habKm2")}</span></div>
                   <div><span className="text-muted">{t("demoForeigners")}</span><br/><span className="font-semibold">{demo.pctEtrangers}%</span></div>

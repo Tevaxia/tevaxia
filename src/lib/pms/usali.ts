@@ -124,7 +124,7 @@ function daysInMonth(year: number, month: number): number {
   return new Date(year, month, 0).getDate();
 }
 
-export function monthLabel(year: number, month: number, locale = "fr-LU"): string {
+export function monthLabel(year: number, month: number, locale = "fr-FR"): string {
   return new Date(year, month - 1, 1).toLocaleDateString(locale, { month: "long", year: "numeric" });
 }
 

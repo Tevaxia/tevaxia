@@ -274,7 +274,7 @@ function SavedComparator({ t }: { t: ReturnType<typeof useTranslations> }) {
   // Format date nicely
   const fmtDate = (iso: string) => {
     try {
-      return new Date(iso).toLocaleDateString("fr-LU", { day: "2-digit", month: "2-digit", year: "numeric" });
+      return new Date(iso).toLocaleDateString("fr-FR", { day: "2-digit", month: "2-digit", year: "numeric" });
     } catch {
       return iso;
     }

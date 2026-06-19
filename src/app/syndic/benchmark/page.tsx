@@ -128,7 +128,7 @@ function cellClass(pct: number | null, invert = false): string {
 export default function SyndicBenchmarkPage() {
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
-  const numberLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const numberLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const t = useTranslations("syndicBenchmark");
   const { user } = useAuth();
 

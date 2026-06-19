@@ -139,7 +139,7 @@ export default function TwoFactorSection() {
                   <div>
                     <div className="text-sm font-medium text-navy">{f.friendly_name || t("unnamedFactor")}</div>
                     <div className="text-xs text-muted">
-                      {t("addedOn")} {new Date(f.created_at).toLocaleDateString("fr-LU")}
+                      {t("addedOn")} {new Date(f.created_at).toLocaleDateString("fr-FR")}
                     </div>
                   </div>
                   <button

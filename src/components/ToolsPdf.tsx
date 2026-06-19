@@ -37,7 +37,7 @@ const fmtNum = (n: number, d = 0) => {
   return fixed.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 };
 const fmtPct = (n: number, d = 1) => `${n.toFixed(d)} %`;
-const today = () => new Date().toLocaleDateString("fr-LU");
+const today = () => new Date().toLocaleDateString("fr-FR");
 
 /* ---------- Styles ---------- */
 const s = StyleSheet.create({

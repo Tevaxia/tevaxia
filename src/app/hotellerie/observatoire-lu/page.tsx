@@ -63,7 +63,7 @@ export default function ObservatoireHotellerieLu() {
 
         {/* KPI cards */}
         <div className="mt-6 grid gap-3 sm:grid-cols-4">
-          <Kpi label={t("kpiNights")} value={`${Math.round(latestNights / 1000).toLocaleString("fr-LU")} k`} hint={`${yoy.nights >= 0 ? "+" : ""}${yoy.nights.toFixed(1)} % YoY`} positive={yoy.nights >= 0} />
+          <Kpi label={t("kpiNights")} value={`${Math.round(latestNights / 1000).toLocaleString("fr-FR")} k`} hint={`${yoy.nights >= 0 ? "+" : ""}${yoy.nights.toFixed(1)} % YoY`} positive={yoy.nights >= 0} />
           <Kpi label={t("kpiOcc")} value={`${latestOcc.toFixed(1)} %`} hint={`${yoy.occupancy >= 0 ? "+" : ""}${yoy.occupancy.toFixed(1)} pp YoY`} positive={yoy.occupancy >= 0} />
           <Kpi label={t("kpiAdrNat")} value={`~165 €`} hint={t("kpiAdrNatHint")} />
           <Kpi label={t("kpiRevPARNat")} value={`~115 €`} hint={t("kpiRevPARNatHint")} />
@@ -126,7 +126,7 @@ export default function ObservatoireHotellerieLu() {
                       <td className="px-3 py-2 text-right tabular-nums">{c.occupancyPct} %</td>
                       <td className="px-3 py-2 text-right tabular-nums">{c.adrEstimate} €</td>
                       <td className="px-3 py-2 text-right tabular-nums font-semibold">{c.revPAR} €</td>
-                      <td className="px-3 py-2 text-right tabular-nums text-muted">{Math.round((c.nightsLU + c.nightsNonLU) / 1000).toLocaleString("fr-LU")} k</td>
+                      <td className="px-3 py-2 text-right tabular-nums text-muted">{Math.round((c.nightsLU + c.nightsNonLU) / 1000).toLocaleString("fr-FR")} k</td>
                     </tr>
                   ))}
                 </tbody>

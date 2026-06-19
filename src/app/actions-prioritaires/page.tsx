@@ -43,7 +43,7 @@ export default function AlertsPage() {
   const t = useTranslations("actionsPrioritaires");
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
-  const dateLocale = locale === "fr" ? "fr-LU" : locale;
+  const dateLocale = locale === "fr" ? "fr-FR" : locale;
 
   const { user, loading: authLoading } = useAuth();
   const [alerts, setAlerts] = useState<AlertItem[]>([]);

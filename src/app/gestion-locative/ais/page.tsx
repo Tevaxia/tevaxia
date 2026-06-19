@@ -147,17 +147,17 @@ export default function AISPage() {
             <div className="space-y-3">
               <div className="rounded-lg border border-amber-200 bg-amber-50 p-3">
                 <div className="text-[10px] uppercase tracking-wider text-amber-700 font-semibold">{t("scenarioStandard")}</div>
-                <div className="mt-0.5 font-mono text-xl font-bold text-amber-900">{calc.impotStandard.toLocaleString("fr-LU")} €</div>
+                <div className="mt-0.5 font-mono text-xl font-bold text-amber-900">{calc.impotStandard.toLocaleString("fr-FR")} €</div>
                 <div className="text-[11px] text-amber-800">{t("scenarioStandardHint")}</div>
               </div>
               <div className="rounded-lg border border-emerald-300 bg-emerald-50 p-3">
                 <div className="text-[10px] uppercase tracking-wider text-emerald-700 font-semibold">{t("scenarioAIS")}</div>
-                <div className="mt-0.5 font-mono text-xl font-bold text-emerald-900">{calc.impotAIS.toLocaleString("fr-LU")} €</div>
+                <div className="mt-0.5 font-mono text-xl font-bold text-emerald-900">{calc.impotAIS.toLocaleString("fr-FR")} €</div>
                 <div className="text-[11px] text-emerald-800">{t("scenarioAISHint")}</div>
               </div>
               <div className="rounded-lg border-2 border-navy bg-navy/5 p-3">
                 <div className="text-[10px] uppercase tracking-wider text-navy font-semibold">{t("economie")}</div>
-                <div className="mt-0.5 font-mono text-2xl font-bold text-navy">{calc.economie.toLocaleString("fr-LU")} €</div>
+                <div className="mt-0.5 font-mono text-2xl font-bold text-navy">{calc.economie.toLocaleString("fr-FR")} €</div>
                 <div className="text-[11px] text-navy/80">{t("economiePct", { pct: calc.economiePct.toFixed(0) })}</div>
               </div>
             </div>

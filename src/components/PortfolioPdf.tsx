@@ -35,7 +35,7 @@ const fmtNum = (n: number, d = 0) => {
   return fixed.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 };
 
-const today = () => new Date().toLocaleDateString("fr-LU");
+const today = () => new Date().toLocaleDateString("fr-FR");
 
 /* ---------- Styles ---------- */
 
@@ -189,7 +189,7 @@ export function PortfolioPdfDocument({ params }: { params: PortfolioPdfParams })
               <Text style={s.tCellR}>{p.surface > 0 ? `${fmtNum(p.surface)} m2` : "--"}</Text>
               <Text style={s.tCellR}>{p.prixM2 > 0 ? fmtEur(p.prixM2) : "--"}</Text>
               <Text style={s.tCellC}>{p.energyClass || "--"}</Text>
-              <Text style={s.tCell}>{p.date ? new Date(p.date).toLocaleDateString("fr-LU") : "--"}</Text>
+              <Text style={s.tCell}>{p.date ? new Date(p.date).toLocaleDateString("fr-FR") : "--"}</Text>
             </View>
           );
         })}

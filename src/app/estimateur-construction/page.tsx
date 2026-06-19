@@ -415,7 +415,7 @@ export default function EstimateurConstruction() {
             <div className="flex flex-wrap gap-2 justify-center">
               <PdfButton
                 label="PDF"
-                filename={`estimateur-construction-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                filename={`estimateur-construction-${new Date().toLocaleDateString("fr-FR")}.pdf`}
                 generateBlob={() => _lazy_generateConstructionPdfBlob({
                   surfaceBrute,
                   typeBatiment,
@@ -468,7 +468,7 @@ export default function EstimateurConstruction() {
                   const url = URL.createObjectURL(blob);
                   const a = document.createElement("a");
                   a.href = url;
-                  a.download = `bordereau-construction-${new Date().toLocaleDateString("fr-LU")}.csv`;
+                  a.download = `bordereau-construction-${new Date().toLocaleDateString("fr-FR")}.csv`;
                   a.click();
                   URL.revokeObjectURL(url);
                 }}

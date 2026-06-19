@@ -65,7 +65,7 @@ export default function OrgAgencyStats({ orgId }: { orgId: string }) {
       <div className="grid gap-3 sm:grid-cols-4">
         <Kpi label="Membres" value={stats.members_count} />
         <Kpi label="Clés API actives" value={stats.keys_active} />
-        <Kpi label={`Appels ${stats.period_days}j`} value={stats.calls_total.toLocaleString("fr-LU")} />
+        <Kpi label={`Appels ${stats.period_days}j`} value={stats.calls_total.toLocaleString("fr-FR")} />
         <Kpi
           label="Taux d'erreur"
           value={`${stats.error_rate} %`}
@@ -109,7 +109,7 @@ export default function OrgAgencyStats({ orgId }: { orgId: string }) {
                   <td className="py-1 font-mono text-[10px] text-muted">
                     #{i + 1} · {m.user_id.slice(0, 8)}…
                   </td>
-                  <td className="py-1 text-right font-mono tabular-nums">{m.calls.toLocaleString("fr-LU")}</td>
+                  <td className="py-1 text-right font-mono tabular-nums">{m.calls.toLocaleString("fr-FR")}</td>
                 </tr>
               ))}
             </tbody>

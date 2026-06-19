@@ -167,9 +167,9 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
                     <div>
                       <div className="text-sm font-semibold text-navy">{sub.label}</div>
                       <div className="mt-0.5 text-xs text-muted">
-                        Créé le {new Date(sub.created_at).toLocaleDateString("fr-LU")} ·{" "}
+                        Créé le {new Date(sub.created_at).toLocaleDateString("fr-FR")} ·{" "}
                         {sub.last_accessed_at
-                          ? `dernier accès ${new Date(sub.last_accessed_at).toLocaleString("fr-LU")} (${sub.access_count} appels)`
+                          ? `dernier accès ${new Date(sub.last_accessed_at).toLocaleString("fr-FR")} (${sub.access_count} appels)`
                           : "jamais accédé"}
                         {!sub.active && <span className="ml-2 rounded bg-rose-100 px-1.5 py-0.5 text-rose-700">révoqué</span>}
                       </div>

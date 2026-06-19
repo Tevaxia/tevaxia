@@ -149,7 +149,7 @@ export default function DashboardHero({ user, profile }: DashboardHeroProps) {
           <Kpi
             label={t("kpiValuations")}
             value={stats?.valuationsCount ?? "—"}
-            hint={stats ? `/ ${stats.itemsCap.toLocaleString("fr-LU")}` : undefined}
+            hint={stats ? `/ ${stats.itemsCap.toLocaleString("fr-FR")}` : undefined}
           />
           <Kpi
             label={t("kpiAiAnalyses")}

@@ -389,12 +389,12 @@ export default function Estimation() {
                         <div key={h.id} className="flex items-center justify-between gap-3 rounded-lg border border-card-border/50 bg-background p-2.5 text-xs">
                           <div className="flex-1 min-w-0">
                             <div className="font-medium text-navy">
-                              {new Date(h.date).toLocaleDateString("fr-LU", { year: "numeric", month: "short", day: "numeric" })}
+                              {new Date(h.date).toLocaleDateString("fr-FR", { year: "numeric", month: "short", day: "numeric" })}
                               {h.adresse && <span className="ml-1 text-muted">· {h.adresse}</span>}
                               {!h.adresse && h.quartier && <span className="ml-1 text-muted">· {h.quartier}</span>}
                             </div>
                             <div className="text-[10px] text-muted">
-                              {h.surface} m² · {h.classeEnergie} · {Math.round(h.prixM2Ajuste).toLocaleString("fr-LU")} €/m²
+                              {h.surface} m² · {h.classeEnergie} · {Math.round(h.prixM2Ajuste).toLocaleString("fr-FR")} €/m²
                             </div>
                           </div>
                           <div className="text-right">
@@ -569,7 +569,7 @@ export default function Estimation() {
                     <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm sm:grid-cols-3">
                       <div>
                         <div className="text-[10px] text-muted uppercase tracking-wide">{t("population")}</div>
-                        <div className="font-semibold font-mono">{demo.population.toLocaleString("fr-LU")}</div>
+                        <div className="font-semibold font-mono">{demo.population.toLocaleString("fr-FR")}</div>
                       </div>
                       <div>
                         <div className="text-[10px] text-muted uppercase tracking-wide">{t("croissance")}</div>
@@ -577,7 +577,7 @@ export default function Estimation() {
                       </div>
                       <div>
                         <div className="text-[10px] text-muted uppercase tracking-wide">{t("densite")}</div>
-                        <div className="font-semibold font-mono">{demo.densiteHabKm2.toLocaleString("fr-LU")} {t("densiteUnit")}</div>
+                        <div className="font-semibold font-mono">{demo.densiteHabKm2.toLocaleString("fr-FR")} {t("densiteUnit")}</div>
                       </div>
                       {demo.revenuMedian && (
                         <div>
@@ -824,7 +824,7 @@ export default function Estimation() {
                 />
                 <PdfButton
                   label="PDF"
-                  filename={`estimation-${(selectedResult?.commune.commune || communeSearch).toLowerCase()}-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                  filename={`estimation-${(selectedResult?.commune.commune || communeSearch).toLowerCase()}-${new Date().toLocaleDateString("fr-FR")}.pdf`}
                   generateBlob={() =>
                     _lazy_generateEstimationPdfBlob({
                       commune: selectedResult?.commune.commune || communeSearch,

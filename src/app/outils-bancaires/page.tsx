@@ -304,7 +304,7 @@ function TabAmortissement() {
         <div className="flex justify-end">
           <PdfButton
             label="PDF"
-            filename={`simulation-bancaire-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+            filename={`simulation-bancaire-${new Date().toLocaleDateString("fr-FR")}.pdf`}
             generateBlob={() => {
               const prixBien = Math.round(capital / 0.8);
               const apport = prixBien - capital;

@@ -25,7 +25,7 @@ const COUNTRY_FLAGS: Record<string, string> = {
 export default function HotelTransactionsPage() {
   const locale = useLocale();
   const t = useTranslations("hotelTransactions");
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const [country, setCountry] = useState<string>("all");
   const [category, setCategory] = useState<HotelCategory | "all">("all");
 

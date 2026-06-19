@@ -46,10 +46,10 @@ export default function RentReceiptPdf({ lot, landlord, payment }: Props) {
             {landlord.phone && <Text style={{ fontSize: 9, color: "#334155" }}>{landlord.phone}</Text>}
           </View>
           <View style={{ textAlign: "right" }}>
-            <Text style={{ fontSize: 9, color: "#6B7280" }}>Émis le {new Date().toLocaleDateString("fr-LU")}</Text>
+            <Text style={{ fontSize: 9, color: "#6B7280" }}>Émis le {new Date().toLocaleDateString("fr-FR")}</Text>
             {payment.paid_at && (
               <Text style={{ fontSize: 9, color: "#6B7280" }}>
-                Paiement reçu le {new Date(payment.paid_at).toLocaleDateString("fr-LU")}
+                Paiement reçu le {new Date(payment.paid_at).toLocaleDateString("fr-FR")}
               </Text>
             )}
           </View>
@@ -96,7 +96,7 @@ export default function RentReceiptPdf({ lot, landlord, payment }: Props) {
         </Text>
 
         <View style={s.sig}>
-          <Text style={{ fontSize: 10, marginBottom: 4 }}>Fait à {lot.commune ?? "Luxembourg"}, le {new Date().toLocaleDateString("fr-LU")}</Text>
+          <Text style={{ fontSize: 10, marginBottom: 4 }}>Fait à {lot.commune ?? "Luxembourg"}, le {new Date().toLocaleDateString("fr-FR")}</Text>
           <Text style={{ fontSize: 10, marginTop: 20 }}>Signature du bailleur</Text>
           <Text style={{ fontSize: 10, color: "#6B7280", marginTop: 20 }}>{landlord.name}</Text>
         </View>

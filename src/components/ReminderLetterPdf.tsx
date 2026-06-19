@@ -106,7 +106,7 @@ const fmtEUR = (n: number): string => {
 
 const fmtDate = (iso: string): string => {
   const d = new Date(iso);
-  return isNaN(d.getTime()) ? iso : d.toLocaleDateString("fr-LU", {
+  return isNaN(d.getTime()) ? iso : d.toLocaleDateString("fr-FR", {
     year: "numeric", month: "long", day: "numeric",
   });
 };
@@ -214,7 +214,7 @@ export default function ReminderLetterPdf({ coownership, syndic, owner, reminder
         )}
 
         <Text style={s.footer} fixed>
-          Lettre générée par {syndic.name} · Horodatage : {new Date(reminder.sent_at).toLocaleString("fr-LU")}
+          Lettre générée par {syndic.name} · Horodatage : {new Date(reminder.sent_at).toLocaleString("fr-FR")}
           · Preuve archivée (durée légale 30 ans / prescription action civile copropriété).
         </Text>
       </Page>

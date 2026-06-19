@@ -38,7 +38,7 @@ export function getCoefficient(annee: number): number {
 }
 
 export function formatEUR(amount: number): string {
-  return new Intl.NumberFormat("fr-LU", {
+  return new Intl.NumberFormat("fr-FR", {
     style: "currency",
     currency: "EUR",
     minimumFractionDigits: 0,
@@ -47,7 +47,7 @@ export function formatEUR(amount: number): string {
 }
 
 export function formatEUR2(amount: number): string {
-  return new Intl.NumberFormat("fr-LU", {
+  return new Intl.NumberFormat("fr-FR", {
     style: "currency",
     currency: "EUR",
     minimumFractionDigits: 2,

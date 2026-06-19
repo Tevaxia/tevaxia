@@ -109,7 +109,7 @@ export default function AmlKyc() {
     window.print();
   };
 
-  const today = new Date().toLocaleDateString("fr-LU", {
+  const today = new Date().toLocaleDateString("fr-FR", {
     year: "numeric",
     month: "long",
     day: "numeric",

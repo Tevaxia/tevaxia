@@ -18,7 +18,7 @@ const CLASS_COLORS: Record<string, string> = {
   G: "bg-red-600 text-white", H: "bg-red-700 text-white", I: "bg-red-900 text-white",
 };
 
-function fmt(n: number): string { return n.toLocaleString("fr-LU", { maximumFractionDigits: 0 }); }
+function fmt(n: number): string { return n.toLocaleString("fr-FR", { maximumFractionDigits: 0 }); }
 
 const CO2_FACTEUR = 300; // g CO₂/kWh mix luxembourgeois
 
@@ -173,7 +173,7 @@ export default function RenovationPage() {
                   <h2 className="font-semibold text-foreground">{t("resultTitle")}</h2>
                   <p className="text-xs text-muted mt-0.5">{result.sautClasse} · {surface} m² · {annee}</p>
                 </div>
-                <PdfButton generateBlob={() => _lazy_generateRenovationPdfBlob(result, { classeActuelle, classeCible, surface, anneeConstruction: annee, valeurBien: valeur })} filename={`energy-renovation-roi-${new Date().toLocaleDateString("fr-LU")}.pdf`} label="PDF" />
+                <PdfButton generateBlob={() => _lazy_generateRenovationPdfBlob(result, { classeActuelle, classeCible, surface, anneeConstruction: annee, valeurBien: valeur })} filename={`energy-renovation-roi-${new Date().toLocaleDateString("fr-FR")}.pdf`} label="PDF" />
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">

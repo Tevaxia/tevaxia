@@ -30,7 +30,7 @@ export interface VisitReceiptLabels {
   sigAgent: string;
   sigLabel: string;
   footer: string; // "{agency} · ... le {date} · ..."
-  dateLocale: string; // "fr-LU" / "en-GB" etc.
+  dateLocale: string; // "fr-FR" / "en-GB" etc.
 }
 
 interface Props {

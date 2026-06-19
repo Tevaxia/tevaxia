@@ -84,7 +84,7 @@ export default function PosPage(props: { params: Promise<{ propertyId: string }>
   const t = useTranslations("pmsPos");
   const tFolio = useTranslations("pmsFolio");
   const locale = useLocale();
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const { user, loading: authLoading } = useAuth();
   const [property, setProperty] = useState<PmsProperty | null>(null);
   const [reservations, setReservations] = useState<PmsReservation[]>([]);

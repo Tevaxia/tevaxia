@@ -36,7 +36,7 @@ const fmtNum = (n: number, d = 0) => {
 
 const fmtPct = (n: number, d = 1) => `${n.toFixed(d)} %`;
 
-const today = () => new Date().toLocaleDateString("fr-LU");
+const today = () => new Date().toLocaleDateString("fr-FR");
 
 export const generateRef = () =>
   `TVX-${new Date().getFullYear()}-${Math.random().toString(36).slice(2, 7).toUpperCase()}`;

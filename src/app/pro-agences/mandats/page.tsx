@@ -55,7 +55,7 @@ const STATUS_ORDER: MandateStatus[] = [
 export default function MandatesPage() {
   const t = useTranslations("proaMandates");
   const locale = useLocale();
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const fmtDate = (s: string | null): string => {
     if (!s) return t("dash");
     return new Date(s).toLocaleDateString(dateLocale, { year: "numeric", month: "short", day: "numeric" });

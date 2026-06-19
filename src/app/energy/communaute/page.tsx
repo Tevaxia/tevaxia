@@ -66,7 +66,7 @@ function fallbackLocal(nb: number, pv: number, conso: number, tr: number, tp: nu
   };
 }
 
-function fmt(n: number, dec = 0): string { return n.toLocaleString("fr-LU", { maximumFractionDigits: dec }); }
+function fmt(n: number, dec = 0): string { return n.toLocaleString("fr-FR", { maximumFractionDigits: dec }); }
 
 export default function CommunautePage() {
   const t = useTranslations("energy.communaute");
@@ -488,7 +488,7 @@ export default function CommunautePage() {
           </div>
 
           <div className="flex justify-end">
-            <PdfButton generateBlob={() => _lazy_generateCommunautePdfBlob(result, { nbParticipants, puissancePV, consoMoyenneParParticipant: consoMoyenne, tarifReseau, tarifPartage })} filename={`energy-communaute-${new Date().toLocaleDateString("fr-LU")}.pdf`} label={t("downloadPdf")} />
+            <PdfButton generateBlob={() => _lazy_generateCommunautePdfBlob(result, { nbParticipants, puissancePV, consoMoyenneParParticipant: consoMoyenne, tarifReseau, tarifPartage })} filename={`energy-communaute-${new Date().toLocaleDateString("fr-FR")}.pdf`} label={t("downloadPdf")} />
           </div>
 
           <AiAnalysisCard
@@ -499,14 +499,14 @@ export default function CommunautePage() {
               `Données PVGIS utilisées: ${usePvgis ? "oui" : "non (fallback moyennes LU)"}`,
               `Tarifs: réseau ${tarifReseau} €/kWh, partage interne ${tarifPartage} €/kWh, rachat surplus ${result.parametres.tarifRachatSurplus} €/kWh`,
               "",
-              `Production annuelle: ${result.productionAnnuelle.toLocaleString("fr-LU")} kWh`,
-              `Consommation totale: ${result.consoTotale.toLocaleString("fr-LU")} kWh`,
+              `Production annuelle: ${result.productionAnnuelle.toLocaleString("fr-FR")} kWh`,
+              `Consommation totale: ${result.consoTotale.toLocaleString("fr-FR")} kWh`,
               `Taux de couverture: ${result.tauxCouverturePct}%`,
               `Taux autoconsommation: ${result.tauxAutoConsoPct}%`,
-              `Énergie autoconsommée: ${result.energieAutoconsommee.toLocaleString("fr-LU")} kWh · surplus ${result.surplus.toLocaleString("fr-LU")} kWh`,
-              `Économie totale: ${result.economieTotale.toLocaleString("fr-LU")} €/an (${result.economieParParticipant.toLocaleString("fr-LU")} €/participant)`,
-              `Revenu surplus: ${result.revenuSurplus.toLocaleString("fr-LU")} €/an`,
-              `Coût installation TTC: ${result.coutInstallationTTC.toLocaleString("fr-LU")} € (${result.coutParParticipant.toLocaleString("fr-LU")} €/participant)`,
+              `Énergie autoconsommée: ${result.energieAutoconsommee.toLocaleString("fr-FR")} kWh · surplus ${result.surplus.toLocaleString("fr-FR")} kWh`,
+              `Économie totale: ${result.economieTotale.toLocaleString("fr-FR")} €/an (${result.economieParParticipant.toLocaleString("fr-FR")} €/participant)`,
+              `Revenu surplus: ${result.revenuSurplus.toLocaleString("fr-FR")} €/an`,
+              `Coût installation TTC: ${result.coutInstallationTTC.toLocaleString("fr-FR")} € (${result.coutParParticipant.toLocaleString("fr-FR")} €/participant)`,
               `Payback global: ${result.paybackGlobalAnnees} ans`,
               `CO2 évité: ${result.co2EviteKg} kg/an`,
             ].join("\n")}

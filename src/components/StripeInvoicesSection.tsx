@@ -85,7 +85,7 @@ export default function StripeInvoicesSection() {
                   <td className="px-3 py-2 font-mono">{inv.number ?? inv.id.slice(-8)}</td>
                   <td className="px-3 py-2">{inv.date ?? "—"}</td>
                   <td className="px-3 py-2 text-right font-mono tabular-nums">
-                    {new Intl.NumberFormat("fr-LU", { style: "currency", currency: inv.currency }).format(inv.amount)}
+                    {new Intl.NumberFormat("fr-FR", { style: "currency", currency: inv.currency }).format(inv.amount)}
                   </td>
                   <td className="px-3 py-2 text-center">
                     <span className={`inline-flex rounded-full px-2 py-0.5 text-[10px] font-semibold ${

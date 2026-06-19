@@ -53,7 +53,7 @@ const fmtNum = (n: number, d = 0) => {
 
 const fmtPct2 = (n: number, d = 2) => `${n.toFixed(d)} %`;
 
-const today = () => new Date().toLocaleDateString("fr-LU");
+const today = () => new Date().toLocaleDateString("fr-FR");
 
 // ============================================================
 // Styles
@@ -999,7 +999,7 @@ function ValuationDisclaimerPage({ data, reference }: { data: ReportData; refere
           )}
           {data.signatureDate && (
             <Text style={{ fontSize: 7, color: "#065F46", marginTop: 4 }}>
-              Signé le {new Date(data.signatureDate).toLocaleString("fr-LU")}
+              Signé le {new Date(data.signatureDate).toLocaleString("fr-FR")}
             </Text>
           )}
         </View>

@@ -137,7 +137,7 @@ export default function SauvegardesPage() {
                     <tr key={h.id} className="border-t border-card-border">
                       <td className="px-3 py-2 text-navy font-medium">{h.module}</td>
                       <td className="px-3 py-2 text-slate">{h.destination === "drive" ? "Drive" : "ZIP"}</td>
-                      <td className="px-3 py-2 text-muted">{new Date(h.created_at).toLocaleString("fr-LU")}</td>
+                      <td className="px-3 py-2 text-muted">{new Date(h.created_at).toLocaleString("fr-FR")}</td>
                       <td className="px-3 py-2 text-right font-mono text-navy">{total}</td>
                     </tr>
                   );

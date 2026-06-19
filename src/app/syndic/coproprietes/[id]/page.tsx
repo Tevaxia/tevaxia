@@ -16,7 +16,7 @@ import {
 export default function CoownershipDetailPage() {
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
-  const numberLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const numberLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const t = useTranslations("syndicDetail");
   const { user } = useAuth();
   const params = useParams();

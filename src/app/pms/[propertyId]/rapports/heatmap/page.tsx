@@ -21,7 +21,7 @@ export default function HeatmapPage(props: { params: Promise<{ propertyId: strin
   const { propertyId } = use(props.params);
   const t = useTranslations("pmsHeatmap");
   const locale = useLocale();
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const { user, loading: authLoading } = useAuth();
   const [property, setProperty] = useState<PmsProperty | null>(null);
   const [year, setYear] = useState<number>(new Date().getFullYear());

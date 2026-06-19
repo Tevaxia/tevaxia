@@ -24,7 +24,7 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
   const { token } = use(props.params);
   const locale = useLocale();
   const t = useTranslations("signer");
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
 
   const [request, setRequest] = useState<PublicRequest | null>(null);
   const [loading, setLoading] = useState(true);

@@ -215,7 +215,7 @@ export default function DCFMulti() {
                     }
                     const header = ["Locataire", "Surface", "Loyer annuel", "Début", "Fin", "Indexation %", ...months, "Total A1"];
                     const rows: string[] = [
-                      `# Export schedule DCF ${leases.length} baux — ${new Date().toLocaleDateString("fr-LU")}`,
+                      `# Export schedule DCF ${leases.length} baux — ${new Date().toLocaleDateString("fr-FR")}`,
                       `# Date valeur : ${dateValeur}, période : 12 mois`,
                       "",
                       header.map((h) => `"${h}"`).join(";"),
@@ -439,7 +439,7 @@ export default function DCFMulti() {
                 />
                 <PdfButton
                   label="PDF"
-                  filename={`dcf-multi-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                  filename={`dcf-multi-${new Date().toLocaleDateString("fr-FR")}.pdf`}
                   generateBlob={() =>
                     _lazy_generateDcfMultiPdfBlob({
                       baux: leases.map((l) => ({
@@ -948,11 +948,11 @@ export default function DCFMulti() {
                             <td key={i} className={`px-2 py-1.5 text-right font-mono tabular-nums ${
                               !c.active ? "text-muted/40" : c.franchise ? "text-amber-700 italic" : ""
                             }`}>
-                              {c.active ? (c.franchise ? t("monthlyLeaseFranchise") : Math.round(c.loyer).toLocaleString("fr-LU")) : "—"}
+                              {c.active ? (c.franchise ? t("monthlyLeaseFranchise") : Math.round(c.loyer).toLocaleString("fr-FR")) : "—"}
                             </td>
                           ))}
                           <td className="px-2 py-1.5 text-right font-mono font-semibold border-l border-card-border">
-                            {Math.round(total).toLocaleString("fr-LU")}
+                            {Math.round(total).toLocaleString("fr-FR")}
                           </td>
                         </tr>
                       );
@@ -976,7 +976,7 @@ export default function DCFMulti() {
                         }
                         return (
                           <td key={i} className="px-2 py-2 text-right font-mono tabular-nums">
-                            {Math.round(monthTotal).toLocaleString("fr-LU")}
+                            {Math.round(monthTotal).toLocaleString("fr-FR")}
                           </td>
                         );
                       })}
@@ -995,7 +995,7 @@ export default function DCFMulti() {
                             rowTotal += (l.loyerAnnuel / 12) * Math.pow(1 + l.indexation / 100, monthsSinceStart / 12);
                           }
                           return s + rowTotal;
-                        }, 0)).toLocaleString("fr-LU")}
+                        }, 0)).toLocaleString("fr-FR")}
                       </td>
                     </tr>
                   </tbody>

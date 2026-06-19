@@ -9,7 +9,7 @@ export default function ObservatoireStr() {
   const t = useTranslations("strObservatoire");
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
-  const numLocale = locale === "fr" ? "fr-LU" : locale;
+  const numLocale = locale === "fr" ? "fr-FR" : locale;
   const [filter, setFilter] = useState<"all" | "lu-ville" | "sud" | "nord" | "moselle">("all");
 
   const filtered = useMemo(() => {

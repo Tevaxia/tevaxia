@@ -34,7 +34,7 @@ const STATUS_COLOR: Record<AssemblyStatus, string> = {
 export default function AssembliesPage() {
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
-  const numberLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const numberLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const t = useTranslations("syndicAssemblees");
   const { user } = useAuth();
   const params = useParams();

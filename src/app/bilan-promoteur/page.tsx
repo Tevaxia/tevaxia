@@ -647,7 +647,7 @@ export default function BilanPromoteur() {
               />
               <PdfButton
                 label="PDF"
-                filename={`bilan-promoteur-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                filename={`bilan-promoteur-${new Date().toLocaleDateString("fr-FR")}.pdf`}
                 generateBlob={() =>
                   _lazy_generateBilanPromoteurPdfBlob({
                     surfaceTerrain,
@@ -1258,8 +1258,8 @@ export default function BilanPromoteur() {
                     <td className="px-3 py-2 font-semibold text-emerald-800">
                       {t("scnCurrent")}
                     </td>
-                    <td className="px-3 py-2 text-right font-mono">{prixVenteM2.toLocaleString("fr-LU")}</td>
-                    <td className="px-3 py-2 text-right font-mono">{coutConstructionM2.toLocaleString("fr-LU")}</td>
+                    <td className="px-3 py-2 text-right font-mono">{prixVenteM2.toLocaleString("fr-FR")}</td>
+                    <td className="px-3 py-2 text-right font-mono">{coutConstructionM2.toLocaleString("fr-FR")}</td>
                     <td className="px-3 py-2 text-right font-mono">{margePromoteur} %</td>
                     <td className="px-3 py-2 text-right font-mono">{formatEUR(result.caTotal)}</td>
                     <td className="px-3 py-2 text-right font-mono font-semibold">{formatEUR(result.chargeFonciere)}</td>
@@ -1273,10 +1273,10 @@ export default function BilanPromoteur() {
                       <tr key={s.id} className="border-t border-card-border">
                         <td className="px-3 py-2">
                           <div className="font-medium text-navy">{s.name}</div>
-                          <div className="text-[10px] text-muted">{new Date(s.date).toLocaleDateString("fr-LU")}</div>
+                          <div className="text-[10px] text-muted">{new Date(s.date).toLocaleDateString("fr-FR")}</div>
                         </td>
-                        <td className="px-3 py-2 text-right font-mono">{s.prixVenteM2.toLocaleString("fr-LU")}</td>
-                        <td className="px-3 py-2 text-right font-mono">{s.coutConstructionM2.toLocaleString("fr-LU")}</td>
+                        <td className="px-3 py-2 text-right font-mono">{s.prixVenteM2.toLocaleString("fr-FR")}</td>
+                        <td className="px-3 py-2 text-right font-mono">{s.coutConstructionM2.toLocaleString("fr-FR")}</td>
                         <td className="px-3 py-2 text-right font-mono">{s.margePromoteur} %</td>
                         <td className="px-3 py-2 text-right font-mono">{formatEUR(s.caTotal)}</td>
                         <td className="px-3 py-2 text-right font-mono font-semibold">

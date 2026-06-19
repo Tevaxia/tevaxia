@@ -71,7 +71,7 @@ function computeMice(i: MiceInputs) {
 export default function MicePage() {
   const t = useTranslations("hotelMice");
   const locale = useLocale();
-  const numLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const numLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const [nbRooms, setNbRooms] = useState(80);
   const [nbMeetingRooms, setNbMeetingRooms] = useState(3);
   const [avgRfqPerMonth, setAvgRfqPerMonth] = useState(25);

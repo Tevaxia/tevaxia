@@ -22,7 +22,7 @@ const RISK_COLORS: Record<KycRiskLevel, string> = {
 export default function KycArchivesPage() {
   const t = useTranslations("amlKycArchives");
   const locale = useLocale();
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const dash = "—";
 
   const fmtDate = useCallback((s: string | null): string => {

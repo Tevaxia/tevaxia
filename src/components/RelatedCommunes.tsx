@@ -69,7 +69,7 @@ export default function RelatedCommunes({ current, pool, max = 6 }: Props) {
             </div>
             {c.prixM2Existant && (
               <div className="mt-1 text-xs text-slate">
-                {c.prixM2Existant.toLocaleString("fr-LU")} EUR/m²
+                {c.prixM2Existant.toLocaleString("fr-FR")} EUR/m²
               </div>
             )}
           </LocaleLink>

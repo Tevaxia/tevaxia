@@ -120,7 +120,7 @@ function DdPdf({ hotelName: _hotelName, items, labels }: { hotelName: string; it
 export default function DueDiligencePage() {
   const t = useTranslations("hotelDd");
   const locale = useLocale();
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const [hotelName, setHotelName] = useState("");
   const [items, setItems] = useState<DDItem[]>(
     DD_STRUCTURE.map((it) => ({ ...it, status: "todo" as const, notes: "", label: t(`items.${it.id}`) })),

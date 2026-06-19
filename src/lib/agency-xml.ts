@@ -232,7 +232,7 @@ export function buildPortalCsv(mandates: AgencyMandate[]): string {
   const esc = (s: string) => `"${s.replace(/"/g, '""')}"`;
   const lines = [
     `# Export CSV — format portails immobiliers LU (athome / Immotop / Immoweb compatible)`,
-    `# Généré le ${new Date().toLocaleDateString("fr-LU")} · ${rows.length} biens`,
+    `# Généré le ${new Date().toLocaleDateString("fr-FR")} · ${rows.length} biens`,
     "",
     header.map(esc).join(";"),
     ...rows.map((r) => header.map((h) => esc(r[h])).join(";")),

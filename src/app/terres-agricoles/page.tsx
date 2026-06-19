@@ -38,7 +38,7 @@ export default function TerresAgricoles() {
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
               <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionLand")}</h2>
               <div className="space-y-4">
-                <InputField label={t("surface")} value={surfaceHa} onChange={(v) => setSurfaceHa(Number(v))} suffix={t("hectares")} step={0.5} min={0.1} hint={`= ${(surfaceHa * 10000).toLocaleString("fr-LU")} m²`} />
+                <InputField label={t("surface")} value={surfaceHa} onChange={(v) => setSurfaceHa(Number(v))} suffix={t("hectares")} step={0.5} min={0.1} hint={`= ${(surfaceHa * 10000).toLocaleString("fr-FR")} m²`} />
                 <InputField label={t("soilQuality")} type="select" value={qualiteSol} onChange={(v) => setQualiteSol(v as typeof qualiteSol)} options={[
                   { value: "bonne", label: t("soilGood") },
                   { value: "moyenne", label: t("soilAverage") },

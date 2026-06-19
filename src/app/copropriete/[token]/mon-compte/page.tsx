@@ -172,7 +172,7 @@ export default function MyAccountPage(props: { params: Promise<{ token: string }
                   <tr key={u.charge_id} className={u.days_late > 30 ? "bg-rose-50/50" : ""}>
                     <td className="px-2 py-1.5 font-medium">{u.call_label}</td>
                     <td className="px-2 py-1.5 text-xs">
-                      {new Date(u.due_date).toLocaleDateString("fr-LU")}
+                      {new Date(u.due_date).toLocaleDateString("fr-FR")}
                       {u.days_late > 0 && (
                         <span className="ml-1 text-[10px] text-rose-700 font-semibold">
                           {t("daysLate", { n: u.days_late })}
@@ -209,7 +209,7 @@ export default function MyAccountPage(props: { params: Promise<{ token: string }
                       {t("palier", { n: r.palier, label: t(PALIER_KEY[r.palier]) })}
                     </span>
                     <span className="text-xs text-muted">
-                      {new Date(r.sent_at).toLocaleDateString("fr-LU")}
+                      {new Date(r.sent_at).toLocaleDateString("fr-FR")}
                     </span>
                     <span className="text-[10px] text-muted">via {r.channel}</span>
                   </div>
@@ -239,7 +239,7 @@ export default function MyAccountPage(props: { params: Promise<{ token: string }
                   <div>
                     <div className="font-semibold text-navy">{t("yearLabel", { year: y.year })}</div>
                     <div className="text-[10px] text-muted">
-                      {t("yearClosedOn", { date: y.closed_at ? new Date(y.closed_at).toLocaleDateString("fr-LU") : t("dash") })}
+                      {t("yearClosedOn", { date: y.closed_at ? new Date(y.closed_at).toLocaleDateString("fr-FR") : t("dash") })}
                     </div>
                   </div>
                   <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] text-slate-600">

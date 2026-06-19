@@ -135,7 +135,7 @@ export async function GET(req: Request) {
     results.push({
       type: "pms_reservation", id: r.id,
       title: `${r.reservation_number} — ${r.booker_name ?? "—"}`,
-      subtitle: `Arrivée ${new Date(r.check_in).toLocaleDateString("fr-LU")}${r.booker_email ? ` · ${r.booker_email}` : ""}`,
+      subtitle: `Arrivée ${new Date(r.check_in).toLocaleDateString("fr-FR")}${r.booker_email ? ` · ${r.booker_email}` : ""}`,
       url: `/pms/${r.property_id}/reservations/${r.id}`,
       amount: Number(r.total_amount),
     });

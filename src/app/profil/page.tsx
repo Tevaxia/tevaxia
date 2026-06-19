@@ -333,7 +333,7 @@ function TierAndExportSection({ user }: { user: { id: string } | null }) {
         <div className="mt-4 rounded-lg border border-card-border bg-background p-4 text-sm">
           <div className="flex items-center justify-between">
             <span className="text-muted">Plafond de stockage cloud</span>
-            <span className="font-semibold text-navy">{tier.items_cap.toLocaleString("fr-LU")} items</span>
+            <span className="font-semibold text-navy">{tier.items_cap.toLocaleString("fr-FR")} items</span>
           </div>
           <div className="mt-1 flex items-center justify-between">
             <span className="text-muted">Rétention automatique</span>

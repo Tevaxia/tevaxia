@@ -273,7 +273,7 @@ export default function Portfolio() {
     const dayMap = new Map<string, number>();
     let cumulative = 0;
     for (const v of withDates) {
-      const day = new Date(v.date).toLocaleDateString("fr-LU", { day: "2-digit", month: "short", year: "numeric" });
+      const day = new Date(v.date).toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" });
       cumulative += v.valeurPrincipale!;
       dayMap.set(day, cumulative);
     }
@@ -301,7 +301,7 @@ export default function Portfolio() {
     const months: { label: string; income: number; charges: number; dette: number; net: number }[] = [];
     for (let i = 0; i < 12; i++) {
       const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
-      const label = d.toLocaleDateString("fr-LU", { month: "short", year: "2-digit" });
+      const label = d.toLocaleDateString("fr-FR", { month: "short", year: "2-digit" });
       // Saisonnalité légère : décembre/janvier = -10 %, juin-août = +5 %
       const month = d.getMonth();
       const season = (month === 11 || month === 0) ? 0.90 : (month >= 5 && month <= 7) ? 1.05 : 1.0;
@@ -394,7 +394,7 @@ export default function Portfolio() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `portfolio-${new Date().toLocaleDateString("fr-LU").replace(/\//g, "-")}.pdf`;
+    a.download = `portfolio-${new Date().toLocaleDateString("fr-FR").replace(/\//g, "-")}.pdf`;
     a.click();
     URL.revokeObjectURL(url);
   }, [filteredProperties, stats]);
@@ -486,7 +486,7 @@ export default function Portfolio() {
 
     const preamble = [
       `# Déclaration impôt sur le revenu ${year} — Annexe 190 (revenus locatifs)`,
-      `# Généré par tevaxia.lu le ${new Date().toLocaleDateString("fr-LU")}`,
+      `# Généré par tevaxia.lu le ${new Date().toLocaleDateString("fr-FR")}`,
       `# Base légale : art. 99 LIR (revenus location), règlement GD 21/12/2007 (amortissement)`,
       `# Hypothèses : taux emprunt ${(rate * 100).toFixed(1)}%, PNO ${(pnoRate * 100).toFixed(2)}% de la valeur, taxe foncière ${(taxeFonciereRate * 100).toFixed(2)}% de la valeur, gestion forfaitaire ${(gestionRate * 100).toFixed(0)}%, amortissement linéaire ${(amortFixed * 100).toFixed(0)}%`,
       `# À reporter dans le formulaire 100 F (ligne 41 + annexe dédiée) ou 100 bis (conjoint séparé).`,
@@ -525,7 +525,7 @@ export default function Portfolio() {
                   "Loyer annuel (€)", "Dette (€)", "LTV (%)", "Yield brut (%)", "Yield net (%)",
                 ];
                 const rows: string[] = [
-                  `# Export portfolio complet — ${new Date().toLocaleDateString("fr-LU")}`,
+                  `# Export portfolio complet — ${new Date().toLocaleDateString("fr-FR")}`,
                   `# ${assets.length} biens · valeur totale ${Math.round(stats.valeurTotale)} €`,
                   "",
                   header.map((h) => `"${h}"`).join(";"),
@@ -557,7 +557,7 @@ export default function Portfolio() {
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement("a");
                 a.href = url;
-                a.download = `portfolio-complet-${new Date().toLocaleDateString("fr-LU").replace(/\//g, "-")}.csv`;
+                a.download = `portfolio-complet-${new Date().toLocaleDateString("fr-FR").replace(/\//g, "-")}.csv`;
                 a.click();
                 URL.revokeObjectURL(url);
               }}
@@ -901,7 +901,7 @@ export default function Portfolio() {
                           )}
                         </td>
                         <td className="px-3 py-2 text-muted whitespace-nowrap">
-                          {p.date ? new Date(p.date).toLocaleDateString("fr-LU") : "--"}
+                          {p.date ? new Date(p.date).toLocaleDateString("fr-FR") : "--"}
                         </td>
                       </tr>
                     );

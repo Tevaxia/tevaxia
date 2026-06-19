@@ -232,7 +232,7 @@ export function renderTemplate(
 }
 
 export function formatEurFR(n: number): string {
-  return new Intl.NumberFormat("fr-LU", { style: "currency", currency: "EUR" }).format(n);
+  return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" }).format(n);
 }
 
 /**
@@ -263,7 +263,7 @@ export function prepareReminder(
     total: formatEurFR(total_claimed),
     rate: rule.interest_rate_pct.toFixed(2),
     days: charge.days_late,
-    prev_date: new Date(Date.now() - rule.days_after_due * 86400000).toLocaleDateString("fr-LU"),
+    prev_date: new Date(Date.now() - rule.days_after_due * 86400000).toLocaleDateString("fr-FR"),
   });
 
   return { late_interest: interest, penalty, total_claimed, letter_body };

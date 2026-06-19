@@ -41,11 +41,11 @@ function effectiveCoeff(surface: number, coeff: typeof ACT_COEFFICIENTS[keyof ty
 /*  Formatting helpers                                                */
 /* ------------------------------------------------------------------ */
 function fmtM2(v: number): string {
-  return `${v.toLocaleString("fr-LU", { maximumFractionDigits: 1 })} m²`;
+  return `${v.toLocaleString("fr-FR", { maximumFractionDigits: 1 })} m²`;
 }
 
 function fmtPct(v: number): string {
-  return `${(v * 100).toLocaleString("fr-LU", { maximumFractionDigits: 1 })} %`;
+  return `${(v * 100).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} %`;
 }
 
 /* ------------------------------------------------------------------ */
@@ -642,7 +642,7 @@ export default function ConvertisseurSurfaces() {
 
             <PdfButton
               label="PDF"
-              filename={`convertisseur-surfaces-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+              filename={`convertisseur-surfaces-${new Date().toLocaleDateString("fr-FR")}.pdf`}
               generateBlob={() => _lazy_generateSurfacesPdfBlob({
                 surfaceReference,
                 typeSurface,

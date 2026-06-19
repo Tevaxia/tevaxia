@@ -94,7 +94,7 @@ const fmtEUR = (n: number): string => {
 
 const fmtDate = (iso: string): string => {
   const d = new Date(iso);
-  return isNaN(d.getTime()) ? iso : d.toLocaleDateString("fr-LU");
+  return isNaN(d.getTime()) ? iso : d.toLocaleDateString("fr-FR");
 };
 
 const TYPE_LABELS: Record<Props["items"][number]["type"], string> = {
@@ -208,7 +208,7 @@ export default function OwnerStatementPdf({ coownership, syndic, owner, period, 
         )}
 
         <Text style={s.footer} fixed>
-          Relevé généré le {new Date().toLocaleString("fr-LU")} par {syndic.name}
+          Relevé généré le {new Date().toLocaleString("fr-FR")} par {syndic.name}
           · Document à valeur informative (à faire confirmer par le syndic en cas de contestation)
         </Text>
       </Page>

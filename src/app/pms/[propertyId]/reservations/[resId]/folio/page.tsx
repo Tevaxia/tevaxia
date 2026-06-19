@@ -74,7 +74,7 @@ export default function FolioPage(props: { params: Promise<{ propertyId: string;
   const router = useRouter();
   const t = useTranslations("pmsFolio");
   const locale = useLocale();
-  const dateLocale = locale === "fr" ? "fr-LU" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
 
   const fmtDateTime = useCallback((s: string | null | undefined): string => {
     if (!s) return t("dash");

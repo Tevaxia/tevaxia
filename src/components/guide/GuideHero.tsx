@@ -12,8 +12,8 @@ type Props = {
 export default async function GuideHero({ title, subtitle, category, readingMinutes, updatedAt }: Props) {
   const [locale, tc] = await Promise.all([getLocale(), getTranslations("common")]);
   const lp = locale === "fr" ? "" : `/${locale}`;
-  const localeMap: Record<string, string> = { fr: "fr-LU", en: "en-GB", de: "de-LU", lb: "lb-LU", pt: "pt-PT" };
-  const dateLabel = new Date(updatedAt).toLocaleDateString(localeMap[locale] || "fr-LU", {
+  const localeMap: Record<string, string> = { fr: "fr-FR", en: "en-GB", de: "de-LU", lb: "lb-LU", pt: "pt-PT" };
+  const dateLabel = new Date(updatedAt).toLocaleDateString(localeMap[locale] || "fr-FR", {
     year: "numeric",
     month: "long",
     day: "numeric",

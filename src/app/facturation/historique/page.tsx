@@ -113,7 +113,7 @@ export default function HistoriquePage() {
               {filtered.map((e) => (
                 <tr key={e.id}>
                   <td className="px-3 py-2 font-mono text-xs">{e.invoice_number}</td>
-                  <td className="px-3 py-2 text-xs">{new Date(e.invoice_date).toLocaleDateString(locale === "fr" ? "fr-LU" : locale)}</td>
+                  <td className="px-3 py-2 text-xs">{new Date(e.invoice_date).toLocaleDateString(locale === "fr" ? "fr-FR" : locale)}</td>
                   <td className="px-3 py-2 text-xs">{e.buyer_name}</td>
                   <td className="px-3 py-2 text-xs text-right font-mono">{formatEUR(e.total_ttc, e.currency)}</td>
                   <td className="px-3 py-2 text-xs">

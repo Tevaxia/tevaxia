@@ -608,7 +608,7 @@ export default function AchatVsLocation() {
               />
               <PdfButton
                 label="PDF"
-                filename={`achat-vs-location-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+                filename={`achat-vs-location-${new Date().toLocaleDateString("fr-FR")}.pdf`}
                 generateBlob={() =>
                   _lazy_generateAchatLocationPdfBlob({
                     verdict: result.derniere.patrimoineNetAchat > result.derniere.patrimoineNetLocation ? "Achat" : "Location",

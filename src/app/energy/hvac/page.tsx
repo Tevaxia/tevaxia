@@ -74,12 +74,12 @@ const LOT_COLORS: Record<string, string> = {
 };
 
 /* Number formatters for the bordereau table */
-const fmtPU = new Intl.NumberFormat("fr-LU", {
+const fmtPU = new Intl.NumberFormat("fr-FR", {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 });
-const fmtQte = new Intl.NumberFormat("fr-LU", { maximumFractionDigits: 1 });
-const fmtTotal = new Intl.NumberFormat("fr-LU", {
+const fmtQte = new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 1 });
+const fmtTotal = new Intl.NumberFormat("fr-FR", {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 });
@@ -1390,7 +1390,7 @@ export default function HVACSimulator() {
 
             <PdfButton
               label="PDF"
-              filename={`hvac-${new Date().toLocaleDateString("fr-LU")}.pdf`}
+              filename={`hvac-${new Date().toLocaleDateString("fr-FR")}.pdf`}
               generateBlob={() => _lazy_generateHvacPdfBlob({
                 surface,
                 typeBatiment,
@@ -1580,7 +1580,7 @@ export default function HVACSimulator() {
                   onClick={() => {
                     const header = ["N°", "Désignation", "Unité", "Quantité", "PU (€)", "Total (€)"];
                     const rows: string[] = [
-                      `# Bordereau HVAC tevaxia.lu — Généré le ${new Date().toLocaleDateString("fr-LU")}`,
+                      `# Bordereau HVAC tevaxia.lu — Généré le ${new Date().toLocaleDateString("fr-FR")}`,
                       `# ${result.bordereau.filter((r) => r.type === "line").length} lignes`,
                       "",
                       header.map((h) => `"${h}"`).join(";"),
@@ -1611,7 +1611,7 @@ export default function HVACSimulator() {
                     const url = URL.createObjectURL(blob);
                     const a = document.createElement("a");
                     a.href = url;
-                    a.download = `bordereau-hvac-${new Date().toLocaleDateString("fr-LU").replace(/\//g, "-")}.csv`;
+                    a.download = `bordereau-hvac-${new Date().toLocaleDateString("fr-FR").replace(/\//g, "-")}.csv`;
                     a.click();
                     URL.revokeObjectURL(url);
                   }}
@@ -1774,7 +1774,7 @@ export default function HVACSimulator() {
               lines={[
                 {
                   label: t("results.economieEnergie"),
-                  value: `${Math.round(result.consoAncienneKWh).toLocaleString("fr-LU")} kWh = ${formatEUR(Math.round(result.economieAnnuelle))}/an`,
+                  value: `${Math.round(result.consoAncienneKWh).toLocaleString("fr-FR")} kWh = ${formatEUR(Math.round(result.economieAnnuelle))}/an`,
                 },
                 {
                   label: t("results.payback"),
@@ -1783,7 +1783,7 @@ export default function HVACSimulator() {
                 },
                 {
                   label: t("results.economieCO2"),
-                  value: `${result.economieCO2.toLocaleString("fr-LU")} kg/an`,
+                  value: `${result.economieCO2.toLocaleString("fr-FR")} kg/an`,
                 },
               ]}
             />
@@ -1826,11 +1826,11 @@ export default function HVACSimulator() {
                 `Surface: ${surface} m² · bâtiment ancien: ${result.batimentAncien ? "oui" : "non"}`,
                 `Déperdition: ${result.depWm2} W/m² (vitrage ×${result.vitrFactor.toFixed(2)}, région ×${result.regionFactor.toFixed(2)}, T°ext ${result.tempExt}°C)`,
                 `Puissance chauffage: ${result.puissanceKW.toFixed(1)} kW + ECS ${result.puissanceECS.toFixed(1)} kW = ${result.puissanceTotale.toFixed(1)} kW`,
-                `Total travaux: ${result.totalTravaux.toLocaleString("fr-LU")} € (${result.coutM2.toLocaleString("fr-LU")} €/m²)`,
-                `Aides: Klimabonus ${result.klimabonus.toLocaleString("fr-LU")} € + Enoprimes ${result.enoprimes.toLocaleString("fr-LU")} € + TVA 3% économie ${result.tva3Economie.toLocaleString("fr-LU")} € = ${result.totalAides.toLocaleString("fr-LU")} €`,
-                `Retrait cuve fioul: ${result.coutRetraitCuve.toLocaleString("fr-LU")} €`,
-                `Reste à charge: ${result.resteACharge.toLocaleString("fr-LU")} €`,
-                `Économie annuelle: ${result.economieAnnuelle.toLocaleString("fr-LU")} € (${result.economieCO2.toFixed(1)} t CO2/an évitées)`,
+                `Total travaux: ${result.totalTravaux.toLocaleString("fr-FR")} € (${result.coutM2.toLocaleString("fr-FR")} €/m²)`,
+                `Aides: Klimabonus ${result.klimabonus.toLocaleString("fr-FR")} € + Enoprimes ${result.enoprimes.toLocaleString("fr-FR")} € + TVA 3% économie ${result.tva3Economie.toLocaleString("fr-FR")} € = ${result.totalAides.toLocaleString("fr-FR")} €`,
+                `Retrait cuve fioul: ${result.coutRetraitCuve.toLocaleString("fr-FR")} €`,
+                `Reste à charge: ${result.resteACharge.toLocaleString("fr-FR")} €`,
+                `Économie annuelle: ${result.economieAnnuelle.toLocaleString("fr-FR")} € (${result.economieCO2.toFixed(1)} t CO2/an évitées)`,
                 `Payback: ${result.payback} ans`,
               ].join("\n")}
               prompt="Analyse ce dimensionnement HVAC (chauffage + ECS + ventilation) pour un bâtiment LU. Livre : (1) pertinence du choix de système (PAC air-eau / géothermie / hybride / gaz) selon puissance calculée et type bâtiment, (2) validation des facteurs de déperdition (vitrage, région, T°ext -10°C standard LU) vs construction réelle, (3) articulation optimale des aides (Klimabonus, Enoprimes CEE, TVA 3% rénovation, Klimaprêt taux zéro), (4) payback réaliste vs attendus constructeurs, risque de sur-dimensionnement, (5) recommandations pratiques : marques / modèles LU, timing installation, garanties. Concret, chiffré."

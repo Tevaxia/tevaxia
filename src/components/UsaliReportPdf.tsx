@@ -57,7 +57,7 @@ const s = StyleSheet.create({
 });
 
 const fmt = (n: number, decimals = 0): string =>
-  n.toLocaleString("fr-LU", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+  n.toLocaleString("fr-FR", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
 
 const fmtEUR = (n: number): string =>
   fmt(n, 2) + " €";
@@ -189,7 +189,7 @@ export default function UsaliReportPdf({ report, syndic }: Props) {
         </View>
 
         <Text style={s.footer} fixed>
-          {report.property_name} · {report.month_label} · USALI monthly report · généré le {new Date().toLocaleDateString("fr-LU")}
+          {report.property_name} · {report.month_label} · USALI monthly report · généré le {new Date().toLocaleDateString("fr-FR")}
         </Text>
       </Page>
     </Document>

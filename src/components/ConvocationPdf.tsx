@@ -54,7 +54,7 @@ const s = StyleSheet.create({
 const fmtDateTime = (iso: string) => {
   const d = new Date(iso);
   if (isNaN(d.getTime())) return iso;
-  return d.toLocaleString("fr-LU", {
+  return d.toLocaleString("fr-FR", {
     weekday: "long", year: "numeric", month: "long", day: "numeric",
     hour: "2-digit", minute: "2-digit",
   });
@@ -72,7 +72,7 @@ export default function ConvocationPdf({ coownership, syndic, assembly, resoluti
             {syndic.phone && <Text style={{ fontSize: 9, color: "#334155" }}>{syndic.phone}</Text>}
           </View>
           <View style={{ textAlign: "right" }}>
-            <Text style={{ fontSize: 9, color: "#334155" }}>Émis le {new Date().toLocaleDateString("fr-LU")}</Text>
+            <Text style={{ fontSize: 9, color: "#334155" }}>Émis le {new Date().toLocaleDateString("fr-FR")}</Text>
           </View>
         </View>
 
