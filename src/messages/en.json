@@ -6379,10 +6379,10 @@
         "description": "EVS 2025 compliant valuation report in 20 min: 8 methods, 9 asset types, auto-filled data (98 communes + 12 macro series), SHA-256 signature."
       },
       "hero": {
-        "badge": "TEGOVA EVS 2025 + Charte 5th ed. compliant",
-        "title": "EVS 2025 compliant report in",
+        "badge": "Aligned with EVS standards and Charte 5th ed.",
+        "title": "EVS 2025-format report in",
         "titleAccent": "20 minutes instead of 4 hours",
-        "subtitle": "Valuation module with 11 sections + annexes compliant with TEGOVA European Valuation Standards 2025 and Charte de l'expertise 5th ed. 8 methods, 9 asset types, data auto-filled for 98 Luxembourg communes.",
+        "subtitle": "Valuation module with 11 sections + annexes, structured along the European Valuation Standards (TEGOVA) and the Charte de l'expertise 5th ed. 8 methods, 9 asset types, data auto-filled for 98 Luxembourg communes.",
         "cta": "Start for free",
         "ctaSecondary": "See how it works",
         "kpis": [

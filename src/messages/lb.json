@@ -6442,10 +6442,10 @@
         "description": "EVS-2025-konforme Bewäertungsrapport an 20 min: 8 Methoden, 9 Asset-Typen, automatesch ausgefëllt Daten (98 Gemengen + 12 Makro-Serien), SHA-256-Ënnerschrëft."
       },
       "hero": {
-        "badge": "TEGOVA EVS 2025 + Charte 5e éd. konform",
-        "title": "EVS-2025-konforme Rapport an",
+        "badge": "Un den EVS-Standarden an der Charte 5e éd. ausgeriicht",
+        "title": "Rapport am EVS-2025-Format an",
         "titleAccent": "20 Minutten amplaz vun 4 Stonnen",
-        "subtitle": "Bewäertungsmodul mat 11 Sektiounen + Annexe konform TEGOVA European Valuation Standards 2025 a Charte de l'expertise 5e éd. 8 Methoden, 9 Asset-Typen, Daten fir 98 Lëtzebuerger Gemengen automatesch ausgefëllt. Gebaut fir REV, TRV an onofhängeg Schätzer.",
+        "subtitle": "Bewäertungsmodul mat 11 Sektiounen + Annexe, strukturéiert no den European Valuation Standards (TEGOVA) an der Charte de l'expertise 5e éd. 8 Methoden, 9 Asset-Typen, Daten fir 98 Lëtzebuerger Gemengen automatesch ausgefëllt. Gebaut fir REV, TRV an onofhängeg Schätzer.",
         "cta": "Gratis ufänken",
         "ctaSecondary": "Kuckt wéi et funktionéiert",
         "kpis": [

@@ -6442,10 +6442,10 @@
         "description": "Relatório de avaliação conforme EVS 2025 em 20 min: 8 métodos, 9 tipos de ativos, dados pré-preenchidos (98 comunas + 12 séries macro), assinatura SHA-256."
       },
       "hero": {
-        "badge": "Conforme TEGOVA EVS 2025 + Carta 5.ª ed.",
-        "title": "Relatório conforme EVS 2025 em",
+        "badge": "Alinhado com os padrões EVS e a Carta 5.ª ed.",
+        "title": "Relatório em formato EVS 2025 em",
         "titleAccent": "20 minutos em vez de 4 horas",
-        "subtitle": "Módulo de avaliação com 11 secções + anexos conforme TEGOVA European Valuation Standards 2025 e Carta do perito 5.ª edição. 8 métodos, 9 tipos de ativos, dados de 98 comunas luxemburguesas pré-preenchidos. Concebido para peritos REV, TRV e avaliadores independentes.",
+        "subtitle": "Módulo de avaliação com 11 secções + anexos, estruturado segundo os European Valuation Standards (TEGOVA) e a Carta do perito 5.ª edição. 8 métodos, 9 tipos de ativos, dados de 98 comunas luxemburguesas pré-preenchidos. Concebido para peritos REV, TRV e avaliadores independentes.",
         "cta": "Começar gratuitamente",
         "ctaSecondary": "Ver como funciona",
         "kpis": [

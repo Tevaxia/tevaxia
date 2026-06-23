@@ -6379,10 +6379,10 @@
         "description": "Rapport d'évaluation EVS 2025 conforme en 20 min : 8 méthodes, 9 types d'actifs, données auto-remplies (98 communes + 12 séries macro), signature SHA-256."
       },
       "hero": {
-        "badge": "Conforme TEGOVA EVS 2025 et Charte 5e éd.",
-        "title": "Rapport EVS 2025 conforme en",
+        "badge": "Aligné sur les standards EVS et la Charte 5e éd.",
+        "title": "Rapport au format EVS 2025 en",
         "titleAccent": "20 minutes au lieu de 4 heures",
-        "subtitle": "Module de valorisation 11 sections + annexes conforme TEGOVA European Valuation Standards 2025 et Charte de l'expertise 5e éd. 8 méthodes, 9 types d'actifs, données auto-remplies pour 98 communes luxembourgeoises. Pensé pour les REV, TRV et experts indépendants.",
+        "subtitle": "Module de valorisation 11 sections + annexes, structuré selon les European Valuation Standards (TEGOVA) et la Charte de l'expertise 5e éd. 8 méthodes, 9 types d'actifs, données auto-remplies pour 98 communes luxembourgeoises. Pensé pour les REV, TRV et experts indépendants.",
         "cta": "Démarrer gratuitement",
         "ctaSecondary": "Voir comment ça marche",
         "kpis": [
