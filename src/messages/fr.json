@@ -3570,7 +3570,7 @@
       "cta": "Accéder gratuitement",
       "badge": "Offert",
       "inherited": "Tout le Compte, plus :",
-      "f1": "Rapport d'expertise EVS 2025 — 11 sections + annexes, conforme TEGOVA/Charte 5e éd.",
+      "f1": "Rapport d'expertise au format EVS 2025 : 11 sections + annexes, aligné sur les standards EVS et la Charte 5e éd.",
       "f2": "Syndic complet : copropriétés, appels de fonds (Factur-X batch), AG virtuelle avec procuration, lettres-types éditables (DOCX/PDF/Drive), benchmark",
       "f3": "Hôtellerie groupe : dashboard multi-sites, owner report PDF, forecast 90j, CAPEX 10 ans, alerts, due diligence, housekeeping, impayés B2B",
       "f4": "CRM agences B2B : pipeline mandats, contacts, tâches, fiche bien PDF co-brandée",
@@ -3654,7 +3654,7 @@
     "intro": "Les présentes Conditions Générales d'Utilisation (CGU) régissent l'utilisation de la plateforme tevaxia.lu et de ses services. En accédant au site ou en créant un compte, l'utilisateur accepte sans réserve les présentes CGU.",
     "article1": {
       "title": "1. Objet",
-      "p1": "tevaxia.lu est une plateforme luxembourgeoise réunissant : (a) des outils gratuits publics (calculateurs, simulateurs, estimateur hédonique, carte des prix), (b) un module de valorisation immobilière professionnelle conforme au standard EVS TEGOVA 2025, et (c) des logiciels métiers pour agences immobilières (CRM), syndics de copropriété et hôteliers (PMS).",
+      "p1": "tevaxia.lu est une plateforme luxembourgeoise réunissant : (a) des outils gratuits publics (calculateurs, simulateurs, estimateur hédonique, carte des prix), (b) un module de valorisation immobilière professionnelle structuré selon les standards EVS (TEGOVA), et (c) des logiciels métiers pour agences immobilières (CRM), syndics de copropriété et hôteliers (PMS).",
       "p2": "Les services professionnels sont accessibles sur abonnement, après création d'un compte et d'une organisation."
     },
     "article2": {
@@ -9000,7 +9000,7 @@
   "inspectionTegova": {
     "backLink": "← tevaxia.lu",
     "pageTitle": "Inspection terrain TEGOVA",
-    "pageDescription": "Checklist conforme EVS 2025. Sauvegarde locale automatique — fonctionne hors connexion.",
+    "pageDescription": "Checklist au format EVS 2025. Sauvegarde locale automatique, fonctionne hors connexion.",
     "labelAdresse": "Adresse du bien",
     "labelInspecteur": "Inspecteur",
     "labelDate": "Date",

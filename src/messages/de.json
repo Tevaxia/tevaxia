@@ -3568,7 +3568,7 @@
       "cta": "Kostenlos zugreifen",
       "badge": "Angeboten",
       "inherited": "Alles aus Konto, plus:",
-      "f1": "EVS 2025-Gutachten — 11 Abschnitte + Anhänge, konform TEGOVA / Charte 5. Aufl.",
+      "f1": "Gutachten im EVS-2025-Format: 11 Abschnitte + Anhänge, an den EVS-Standards und der Charte 5. Aufl. ausgerichtet.",
       "f2": "Vollständige Hausverwaltung: Gemeinschaften, Mittelabrufe (Factur-X-Stapel), virtuelle Eigentümerversammlung mit Vollmacht, bearbeitbare Musterschreiben (DOCX/PDF/Drive), Benchmark",
       "f3": "Hotelgruppe: Multi-Standort-Dashboard, Eigentümerbericht PDF, 90-Tage-Prognose, 10-Jahres-CAPEX, Alerts, Due Diligence, Housekeeping, B2B-Zahlungsausfälle",
       "f4": "B2B-Agentur-CRM: Mandatspipeline, Kontakte, Aufgaben, Co-Branding-Objekt-PDF",
@@ -3654,7 +3654,7 @@
     "intro": "Diese Allgemeinen Nutzungsbedingungen (AGB) regeln die Nutzung der Plattform tevaxia.lu und ihrer Dienste. Durch den Zugriff auf die Website oder die Erstellung eines Kontos akzeptiert der Nutzer diese AGB vorbehaltlos.",
     "article1": {
       "title": "1. Gegenstand",
-      "p1": "tevaxia.lu ist eine luxemburgische Plattform mit: (a) kostenlosen öffentlichen Tools (Rechner, Simulatoren, hedonischer Schätzer, Preiskarte), (b) einem Modul zur professionellen Immobilienbewertung gemäß TEGOVA EVS 2025 und (c) Profi-Software für Immobilienagenturen (CRM), Syndikusverwalter und Hoteliers (PMS).",
+      "p1": "tevaxia.lu ist eine luxemburgische Plattform mit: (a) kostenlosen öffentlichen Tools (Rechner, Simulatoren, hedonischer Schätzer, Preiskarte), (b) einem Modul zur professionellen Immobilienbewertung nach den EVS-Standards (TEGOVA) und (c) Profi-Software für Immobilienagenturen (CRM), Syndikusverwalter und Hoteliers (PMS).",
       "p2": "Professionelle Dienste sind im Abonnement nach Erstellung eines Kontos und einer Organisation verfügbar."
     },
     "article2": {
@@ -7248,7 +7248,7 @@
         "items": [
           {
             "title": "EVS-2025-Bewertung",
-            "desc": "8 TEGOVA-Methoden, 9 Asset-Typen, 98 LU-Gemeinde-Daten, automatische Sensibilität. Charte 5. Aufl. konform."
+            "desc": "8 TEGOVA-Methoden, 9 Asset-Typen, 98 LU-Gemeinde-Daten, automatische Sensibilität. An der Charte 5. Aufl. ausgerichtet."
           },
           {
             "title": "CRR-Beleihungswert",
@@ -8878,7 +8878,7 @@
   "inspectionTegova": {
     "backLink": "← tevaxia.lu",
     "pageTitle": "TEGOVA Vor-Ort-Inspektion",
-    "pageDescription": "Checkliste gemäß EVS 2025. Automatische lokale Speicherung — funktioniert offline.",
+    "pageDescription": "Checkliste im EVS-2025-Format. Automatische lokale Speicherung, funktioniert offline.",
     "labelAdresse": "Adresse der Immobilie",
     "labelInspecteur": "Inspektor",
     "labelDate": "Datum",
@@ -11517,7 +11517,7 @@
       "parcoursStep3Title": "Signierten Bericht liefern",
       "parcoursStep3Desc": "PDF EVS 2025 Export mit SHA-256-Block + /verify-URL. Kunde kann Berichtsintegrität öffentlich prüfen.",
       "toolsTitle": "Empfohlene Tools",
-      "toolsIntro": "TEGOVA-konforme Module + Modell-Transparenz.",
+      "toolsIntro": "TEGOVA-ausgerichtete Module + Modell-Transparenz.",
       "faqTitle": "Häufige Fragen",
       "faq1q": "Ist die hedonische Methode veröffentlicht?",
       "faq1a": "Ja, /transparence zeigt 14 Koeffizienten, KI 95 %, Signifikanz, MAPE 14,7 % und R². Sie können diese Methode in Ihrem Bericht zitieren.",

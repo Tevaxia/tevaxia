@@ -3568,7 +3568,7 @@
       "cta": "Aceder gratuitamente",
       "badge": "Oferecido",
       "inherited": "Tudo do tier Conta, mais:",
-      "f1": "Relatório de peritagem EVS 2025 — 11 secções + anexos, conforme TEGOVA / Charte 5.ª ed.",
+      "f1": "Relatório de peritagem em formato EVS 2025: 11 secções + anexos, alinhado com os padrões EVS e a Carta 5.ª ed.",
       "f2": "Síndico completo: copropriedades, chamadas de fundos (Factur-X em lote), AG virtual com procuração, modelos de cartas editáveis (DOCX/PDF/Drive), benchmark",
       "f3": "Grupo hoteleiro: dashboard multi-sites, owner report PDF, forecast 90 dias, CAPEX 10 anos, alertas, due diligence, housekeeping, incobráveis B2B",
       "f4": "CRM agências B2B: pipeline de mandatos, contactos, tarefas, ficha de imóvel PDF co-marca",
@@ -3654,7 +3654,7 @@
     "intro": "Os presentes Termos e Condicoes de Utilizacao (TCU) regem a utilizacao da plataforma tevaxia.lu e dos seus servicos. Ao aceder ao site ou criar uma conta, o utilizador aceita sem reservas os presentes TCU.",
     "article1": {
       "title": "1. Objeto",
-      "p1": "tevaxia.lu e uma plataforma luxemburguesa que reune: (a) ferramentas gratuitas publicas (calculadoras, simuladores, estimador hedonico, mapa de precos), (b) um modulo de avaliacao imobiliaria profissional conforme o padrao TEGOVA EVS 2025, e (c) software profissional para agencias imobiliarias (CRM), administradores de condominios e hoteleiros (PMS).",
+      "p1": "tevaxia.lu e uma plataforma luxemburguesa que reune: (a) ferramentas gratuitas publicas (calculadoras, simuladores, estimador hedonico, mapa de precos), (b) um modulo de avaliacao imobiliaria profissional estruturado segundo os padroes EVS (TEGOVA), e (c) software profissional para agencias imobiliarias (CRM), administradores de condominios e hoteleiros (PMS).",
       "p2": "Os servicos profissionais estao disponiveis por subscricao, apos criacao de conta e organizacao."
     },
     "article2": {
@@ -8878,7 +8878,7 @@
   "inspectionTegova": {
     "backLink": "← tevaxia.lu",
     "pageTitle": "Inspeção de campo TEGOVA",
-    "pageDescription": "Checklist conforme EVS 2025. Gravação local automática — funciona offline.",
+    "pageDescription": "Checklist em formato EVS 2025. Gravação local automática, funciona offline.",
     "labelAdresse": "Morada do imóvel",
     "labelInspecteur": "Inspetor",
     "labelDate": "Data",

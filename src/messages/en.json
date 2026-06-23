@@ -3568,7 +3568,7 @@
       "cta": "Access for free",
       "badge": "Offered",
       "inherited": "Everything in Account, plus:",
-      "f1": "EVS 2025 valuation report — 11 sections + annexes, TEGOVA / Charte 5th ed. compliant",
+      "f1": "EVS 2025-format valuation report: 11 sections + annexes, aligned with EVS standards and the Charte 5th ed.",
       "f2": "Full syndic: co-ownerships, fund calls (Factur-X batch), virtual AGM with proxy, editable letter templates (DOCX/PDF/Drive), benchmark",
       "f3": "Hotel group: multi-site dashboard, owner report PDF, 90-day forecast, 10-year CAPEX, alerts, due diligence, housekeeping, B2B unpaid",
       "f4": "B2B agency CRM: mandate pipeline, contacts, tasks, co-branded property PDF",
@@ -3654,7 +3654,7 @@
     "intro": "These Terms of Service (TOS) govern the use of the tevaxia.lu platform and its services. By accessing the site or creating an account, the user accepts these TOS without reservation.",
     "article1": {
       "title": "1. Purpose",
-      "p1": "tevaxia.lu is a Luxembourg platform offering: (a) free public tools (calculators, simulators, hedonic estimator, price map), (b) a professional property valuation module compliant with TEGOVA EVS 2025 standard, and (c) professional software for real estate agencies (CRM), condominium managers (syndic) and hoteliers (PMS).",
+      "p1": "tevaxia.lu is a Luxembourg platform offering: (a) free public tools (calculators, simulators, hedonic estimator, price map), (b) a professional property valuation module structured along the EVS standards (TEGOVA), and (c) professional software for real estate agencies (CRM), condominium managers (syndic) and hoteliers (PMS).",
       "p2": "Professional services are available on subscription, after creating an account and an organisation."
     },
     "article2": {
@@ -7185,7 +7185,7 @@
         "items": [
           {
             "title": "EVS 2025 valuation",
-            "desc": "8 TEGOVA methods, 9 asset types, 98 LU commune data, automatic sensitivity. Charte 5th ed. compliant."
+            "desc": "8 TEGOVA methods, 9 asset types, 98 LU commune data, automatic sensitivity. Aligned with the Charte 5th ed."
           },
           {
             "title": "CRR mortgage lending value",
@@ -9000,7 +9000,7 @@
   "inspectionTegova": {
     "backLink": "← tevaxia.lu",
     "pageTitle": "TEGOVA field inspection",
-    "pageDescription": "Checklist compliant with EVS 2025. Automatic local save — works offline.",
+    "pageDescription": "EVS 2025-format checklist. Automatic local save, works offline.",
     "labelAdresse": "Property address",
     "labelInspecteur": "Inspector",
     "labelDate": "Date",
