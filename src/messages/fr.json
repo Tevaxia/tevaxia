@@ -5907,7 +5907,7 @@
       },
       "expert-evaluateur": {
         "title": "Expert évaluateur",
-        "desc": "Rapport EVS 2025 conforme TEGOVA en 20 min, 8 méthodes, 9 types d'actifs, données auto-remplies (98 communes + 12 séries macro)."
+        "desc": "Rapport au format EVS 2025 en 20 min, 8 méthodes, 9 types d'actifs, données auto-remplies (98 communes + 12 séries macro)."
       },
       "investisseur": {
         "title": "Investisseur",

@@ -5907,7 +5907,7 @@
       },
       "expert-evaluateur": {
         "title": "Valuer / Expert",
-        "desc": "TEGOVA EVS 2025 compliant report in 20 min, 8 methods, 9 asset types, auto-filled data (98 communes + 12 macro series)."
+        "desc": "EVS 2025-format report in 20 min, 8 methods, 9 asset types, auto-filled data (98 communes + 12 macro series)."
       },
       "investisseur": {
         "title": "Investor",
