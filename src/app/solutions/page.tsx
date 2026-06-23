@@ -16,13 +16,87 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const PERSONAS = [
-  { slug: "syndic", icon: "🏛️", kw: ["ag", "appels", "copro"] },
-  { slug: "agence", icon: "🏘️", kw: ["mandats", "crm", "openimmo"] },
-  { slug: "hotel", icon: "🏨", kw: ["pms", "usali", "tva"] },
-  { slug: "expert-evaluateur", icon: "📐", kw: ["evs", "tegova", "rapport"] },
-  { slug: "investisseur", icon: "📈", kw: ["dcf", "portfolio", "bëllegen"] },
-  { slug: "particulier", icon: "🏠", kw: ["estimation", "aides", "loyer"] },
+  { slug: "syndic", kw: ["ag", "appels", "copro"] },
+  { slug: "agence", kw: ["mandats", "crm", "openimmo"] },
+  { slug: "hotel", kw: ["pms", "usali", "tva"] },
+  { slug: "expert-evaluateur", kw: ["evs", "tegova", "rapport"] },
+  { slug: "investisseur", kw: ["dcf", "portfolio", "bëllegen"] },
+  { slug: "particulier", kw: ["estimation", "aides", "loyer"] },
 ];
+
+// Icônes line (style Lucide) cohérentes avec le reste du site — remplacent
+// les anciens emojis, qui rendaient différemment selon l'OS et juraient avec le ton pro.
+function PersonaIcon({ slug, className }: { slug: string; className?: string }) {
+  const common = {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.75,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    className,
+  };
+  switch (slug) {
+    case "syndic": // institution / copropriété
+      return (
+        <svg {...common}>
+          <line x1="3" x2="21" y1="22" y2="22" />
+          <line x1="6" x2="6" y1="18" y2="11" />
+          <line x1="10" x2="10" y1="18" y2="11" />
+          <line x1="14" x2="14" y1="18" y2="11" />
+          <line x1="18" x2="18" y1="18" y2="11" />
+          <polygon points="12 2 20 7 4 7" />
+        </svg>
+      );
+    case "agence": // immeubles
+      return (
+        <svg {...common}>
+          <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+          <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+          <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+          <path d="M10 6h4" />
+          <path d="M10 10h4" />
+          <path d="M10 14h4" />
+          <path d="M10 18h4" />
+        </svg>
+      );
+    case "hotel": // lit / hébergement
+      return (
+        <svg {...common}>
+          <path d="M2 4v16" />
+          <path d="M2 8h18a2 2 0 0 1 2 2v10" />
+          <path d="M2 17h20" />
+          <path d="M6 8v9" />
+        </svg>
+      );
+    case "expert-evaluateur": // règle / mesure
+      return (
+        <svg {...common}>
+          <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z" />
+          <path d="m14.5 12.5 2-2" />
+          <path d="m11.5 9.5 2-2" />
+          <path d="m8.5 6.5 2-2" />
+          <path d="m17.5 15.5 2-2" />
+        </svg>
+      );
+    case "investisseur": // courbe ascendante
+      return (
+        <svg {...common}>
+          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+          <polyline points="16 7 22 7 22 13" />
+        </svg>
+      );
+    case "particulier": // maison
+      return (
+        <svg {...common}>
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
 
 export default async function SolutionsHub() {
   const [t, locale] = await Promise.all([
@@ -57,7 +131,9 @@ export default async function SolutionsHub() {
                 href={`${lp}/solutions/${p.slug}`}
                 className="group rounded-xl border border-card-border bg-card p-6 hover:border-navy hover:shadow-lg transition-all"
               >
-                <div className="text-3xl mb-3">{p.icon}</div>
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-navy/5 text-navy transition-colors group-hover:bg-navy group-hover:text-white">
+                  <PersonaIcon slug={p.slug} className="h-6 w-6" />
+                </div>
                 <h2 className="text-base font-bold text-navy group-hover:text-navy-light">
                   {t(`personas.${p.slug}.title`)}
                 </h2>
@@ -101,8 +177,9 @@ export default async function SolutionsHub() {
                 {PERSONAS.map((p) => (
                   <tr key={p.slug}>
                     <td className="py-4 pr-3 align-top">
-                      <Link href={`${lp}/solutions/${p.slug}`} className="font-semibold text-navy hover:underline">
-                        {p.icon} {t(`personas.${p.slug}.title`)}
+                      <Link href={`${lp}/solutions/${p.slug}`} className="inline-flex items-center gap-2 font-semibold text-navy hover:underline">
+                        <PersonaIcon slug={p.slug} className="h-4 w-4 shrink-0 text-gold-dark" />
+                        {t(`personas.${p.slug}.title`)}
                       </Link>
                     </td>
                     <td className="py-4 px-3 align-top text-slate">
