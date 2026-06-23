@@ -137,7 +137,7 @@
     "jsonLdDescription": "Ferramentas imobiliárias Luxemburgo",
     "tags": {
       "habitat": "Observatoire de l'Habitat",
-      "tegova": "TEGOVA EVS 2025",
+      "tegova": "Padrões EVS",
       "epbd": "Diretiva EPBD 2024",
       "lir": "Código fiscal LU (LIR)",
       "bail": "Lei arrendamento 21/09/2006",
@@ -211,8 +211,8 @@
       },
       "valorisation": {
         "title": "Avaliação EVS 2025",
-        "description": "Comparação, capitalização direta, DCF, Mortgage Lending Value, reconciliação. Conforme TEGOVA European Valuation Standards.",
-        "tag": "TEGOVA EVS 2025"
+        "description": "Comparação, capitalização direta, DCF, Mortgage Lending Value, reconciliação. Estrutura inspirada nos European Valuation Standards (TEGOVA).",
+        "tag": "Padrões EVS"
       },
       "bancaire": {
         "title": "Ferramentas Bancárias",

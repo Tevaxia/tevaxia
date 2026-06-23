@@ -137,7 +137,7 @@
     "jsonLdDescription": "Outils immobiliers Luxembourg",
     "tags": {
       "habitat": "Observatoire de l'Habitat",
-      "tegova": "TEGOVA EVS 2025",
+      "tegova": "Standards EVS",
       "epbd": "Directive EPBD 2025",
       "lir": "Klimabonus 2026",
       "bail": "Code fiscal LU (LIR)",
@@ -211,8 +211,8 @@
       },
       "valorisation": {
         "title": "Valorisation EVS 2025",
-        "description": "Comparaison, capitalisation directe, DCF, Mortgage Lending Value, réconciliation. Conforme TEGOVA European Valuation Standards.",
-        "tag": "TEGOVA EVS 2025"
+        "description": "Comparaison, capitalisation directe, DCF, Mortgage Lending Value, réconciliation. Structure inspirée des European Valuation Standards (TEGOVA).",
+        "tag": "Standards EVS"
       },
       "bancaire": {
         "title": "Outils Bancaires",

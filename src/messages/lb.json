@@ -137,7 +137,7 @@
     "jsonLdDescription": "Immobilientools Lëtzebuerg",
     "tags": {
       "habitat": "Observatoire de l'Habitat",
-      "tegova": "TEGOVA EVS 2025",
+      "tegova": "EVS-Standarden",
       "epbd": "EPBD Direktiv 2024",
       "lir": "LU Steiergesetz (LIR)",
       "bail": "Loyersgesetz 21/09/2006",
@@ -211,8 +211,8 @@
       },
       "valorisation": {
         "title": "Bewäertung EVS 2025",
-        "description": "Vergläich, direkt Kapitaliséierung, DCF, Beleihungswäert, Abstëmmung. Konform mat TEGOVA European Valuation Standards.",
-        "tag": "TEGOVA EVS 2025"
+        "description": "Vergläich, direkt Kapitaliséierung, DCF, Beleihungswäert, Abstëmmung. Struktur inspiréiert vun den European Valuation Standards (TEGOVA).",
+        "tag": "EVS-Standarden"
       },
       "bancaire": {
         "title": "Bankinstrumenter",

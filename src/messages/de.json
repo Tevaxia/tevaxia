@@ -137,7 +137,7 @@
     "jsonLdDescription": "Immobilientools Luxemburg",
     "tags": {
       "habitat": "Observatoire de l'Habitat",
-      "tegova": "TEGOVA EVS 2025",
+      "tegova": "EVS-Standards",
       "epbd": "EPBD-Richtlinie 2024",
       "lir": "LU Steuergesetz (LIR)",
       "bail": "Mietgesetz 21/09/2006",
@@ -211,8 +211,8 @@
       },
       "valorisation": {
         "title": "Bewertung EVS 2025",
-        "description": "Vergleich, direkte Kapitalisierung, DCF, Beleihungswert, Abstimmung. Konform mit TEGOVA European Valuation Standards.",
-        "tag": "TEGOVA EVS 2025"
+        "description": "Vergleich, direkte Kapitalisierung, DCF, Beleihungswert, Abstimmung. Struktur inspiriert von den European Valuation Standards (TEGOVA).",
+        "tag": "EVS-Standards"
       },
       "bancaire": {
         "title": "Banktools",

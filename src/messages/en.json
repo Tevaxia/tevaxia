@@ -137,7 +137,7 @@
     "jsonLdDescription": "Luxembourg real estate tools",
     "tags": {
       "habitat": "Observatoire de l'Habitat",
-      "tegova": "TEGOVA EVS 2025",
+      "tegova": "EVS standards",
       "epbd": "EPBD Directive 2024",
       "lir": "LU Tax Code (LIR)",
       "bail": "Lease Law 21/09/2006",
@@ -211,8 +211,8 @@
       },
       "valorisation": {
         "title": "EVS 2025 Valuation",
-        "description": "Comparison, direct capitalisation, DCF, Mortgage Lending Value, reconciliation. Compliant with TEGOVA European Valuation Standards.",
-        "tag": "TEGOVA EVS 2025"
+        "description": "Comparison, direct capitalisation, DCF, Mortgage Lending Value, reconciliation. Structure inspired by the European Valuation Standards (TEGOVA).",
+        "tag": "EVS standards"
       },
       "bancaire": {
         "title": "Banking Tools",
