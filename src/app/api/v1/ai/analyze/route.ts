@@ -189,10 +189,10 @@ async function callAnthropic(apiKey: string, model: string, context: string, pro
 }
 
 const DEFAULT_MODELS: Record<string, string> = {
-  cerebras: "llama3.1-8b",
+  cerebras: "gpt-oss-120b",
   groq: "llama-3.3-70b-versatile",
   openai: "gpt-4o-mini",
-  anthropic: "claude-sonnet-4-20250514",
+  anthropic: "claude-sonnet-5",
 };
 
 // ── Route handlers ─────────────────────────────────────────

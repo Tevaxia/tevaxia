@@ -183,7 +183,7 @@ async function callAnthropicVision(apiKey: string, fileBase64: string, mediaType
       "anthropic-version": "2023-06-01",
     },
     body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-sonnet-5",
       max_tokens: 2048,
       messages: [{ role: "user", content: contentBlocks }],
     }),
@@ -315,7 +315,7 @@ export async function POST(request: Request) {
     }
 
     const response = NextResponse.json(
-      { data: extracted, schema, provider, model: provider === "anthropic" ? "claude-sonnet-4-20250514" : "gpt-4o" },
+      { data: extracted, schema, provider, model: provider === "anthropic" ? "claude-sonnet-5" : "gpt-4o" },
       { status: 200, headers: CORS_HEADERS },
     );
     if (auth.keyRecord) {

@@ -104,7 +104,7 @@ curl https://www.tevaxia.lu/api/v1/ai/analyze \\
     "prompt": "Comment this estimate vs market."
   }'
 
-# → { "text": "...", "model": "llama3.1-8b", "provider": "cerebras", "remaining": -1 }
+# → { "text": "...", "model": "gpt-oss-120b", "provider": "cerebras", "remaining": -1 }
 
 
 # POST /api/v1/ai/chat

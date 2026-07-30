@@ -10738,7 +10738,7 @@
       "subtitle": "Todas as funcionalidades de IA da tevaxia.lu e como tirar partido delas para ganhar tempo no imobiliário luxemburguês.",
       "category": "Produto & IA",
       "essentiel": [
-        "5 análises gratuitas por dia por conta autenticada, via Cerebras (Llama 3.1 8B), sem cartão de crédito.",
+        "5 análises gratuitas por dia por conta autenticada, via Cerebras (GPT-OSS 120B), sem cartão de crédito.",
         "Modo BYOK (Bring Your Own Key): adicione a sua chave Anthropic, OpenAI, Groq ou Cerebras em /profil para uso ilimitado.",
         "4 casos de uso-chave: análise inline de resultados, redação de relatório EVS 2025, extração de PDF (visão), chat imobiliário LU multi-turno.",
         "Competências especializadas LU: LIR, TEGOVA EVS 2025, VEFA, copropriedade, USALI hotelaria, AML/KYC, Bëllegen Akt, regra dos 5%.",
@@ -10747,8 +10747,8 @@
       "section1Title": "Análise automática dos resultados",
       "section1P1": "Em cerca de dez ferramentas (estimativa, valorização EVS, balanço do promotor, DCF multi-arrendamento, hotel USALI, score visto E-2, VEFA, mais-valias, comparação de imóveis, comprar vs arrendar), aparece um botão 'Analisar com a IA' após cada cálculo. A IA recebe o contexto completo (entradas e resultados) e redige um comentário profissional: diagnóstico do nível de preço, identificação de riscos, coerência dos rácios face aos padrões do mercado LU, recomendações de arbitragem.",
       "section1P2": "Os prompts são especializados por domínio: a análise de um balanço de promotor cita os rácios típicos de custo fundiário (10-20% do volume de negócios), a de um P&L USALI compara com a margem GOP esperada por categoria de hotel (3* = 35-40%, 4* = 38-42%, 5* = 40-45%). A IA usa as referências TEGOVA EVS 2025 e os coeficientes STATEC atualizados para validar pressupostos.",
-      "callout1Title": "Modelo predefinido: Cerebras Llama 3.1 8B",
-      "callout1Body": "O tier gratuito usa Cerebras Llama 3.1 8B (rápido, gratuito, alojado fora da UE para análises não sensíveis). Para análises confidenciais (AML/KYC, dados nominativos), prefira a sua chave Anthropic ou OpenAI com contrato empresarial e opção no-training.",
+      "callout1Title": "Modelo predefinido: Cerebras GPT-OSS 120B",
+      "callout1Body": "O tier gratuito usa Cerebras GPT-OSS 120B (rápido, gratuito, alojado fora da UE para análises não sensíveis). Para análises confidenciais (AML/KYC, dados nominativos), prefira a sua chave Anthropic ou OpenAI com contrato empresarial e opção no-training.",
       "section2Title": "Redação do relatório EVS 2025",
       "section2P1": "O modo Relatório EVS da página /valorisation integra 8 botões 'Redigir com a IA' colocados junto aos campos narrativos (localização, envolvente, acessibilidade, justificação dos métodos, regime fiscal, impacto ESG, reservas, incerteza). Cada botão gera um parágrafo formal injetado diretamente no campo, conforme às normas TEGOVA e à Carta 5.ª edição, com referências legais (art. 102bis LIR, IVS 103, pathway CRREM).",
       "section2P2": "O modo Challenger EVS, no separador Reconciliação, atua como auditor crítico: assinala os dados em falta, as incoerências, os rácios anormais e os riscos de não conformidade antes da assinatura, com os prefixos [BLOQUEANTE], [GRAVE] ou [MENOR]. O relatório gerado permanece sob responsabilidade do perito TEGOVA REV/TRV que o relê, corrige e assina.",
@@ -10792,7 +10792,7 @@
       "faq": [
         {
           "q": "A IA tevaxia é mesmo gratuita?",
-          "a": "Sim: 5 análises por dia por utilizador autenticado, sem cartão de crédito nem subscrição. Para além disso, adicione a sua própria chave Cerebras, Groq, OpenAI ou Anthropic no seu perfil para uso ilimitado. O tier gratuito usa Cerebras (Llama 3.1 8B) com fallback Groq se configurado."
+          "a": "Sim: 5 análises por dia por utilizador autenticado, sem cartão de crédito nem subscrição. Para além disso, adicione a sua própria chave Cerebras, Groq, OpenAI ou Anthropic no seu perfil para uso ilimitado. O tier gratuito usa Cerebras (GPT-OSS 120B) com fallback Groq se configurado."
         },
         {
           "q": "Os meus dados são enviados a terceiros?",
@@ -10804,7 +10804,7 @@
         },
         {
           "q": "Que modelos são suportados em BYOK?",
-          "a": "Anthropic (Claude 4.x — recomendado para visão PDF e redação EVS), OpenAI (GPT-4o, GPT-4 Turbo — bom em visão), Groq (Llama 3.x rápido), Cerebras (Llama 3.1 8B — gratuito, predefinido). Configuração em 2 cliques em /profil. Custos unitários exibidos em tempo real."
+          "a": "Anthropic (Claude 4.x — recomendado para visão PDF e redação EVS), OpenAI (GPT-4o, GPT-4 Turbo — bom em visão), Groq (Llama 3.x rápido), Cerebras (GPT-OSS 120B — gratuito, predefinido). Configuração em 2 cliques em /profil. Custos unitários exibidos em tempo real."
         },
         {
           "q": "Como aceder à API pública tevaxia?",
@@ -10853,7 +10853,7 @@
     "apiKeyHint": "A sua chave fica no servidor e nunca é exposta do lado do cliente. Deixe vazio para utilizar o serviço gratuito Cerebras.",
     "usageToday": "Análises hoje",
     "unlimited": "Ilimitado (chave pessoal)",
-    "byokExplain": "Por defeito, o Tevaxia utiliza Cerebras (Llama 3.1 8B, 5 análises gratuitas/dia). Para uso ilimitado ou outro modelo, adicione a sua própria chave API (BYOK). Obtenha-a no site do fornecedor escolhido.",
+    "byokExplain": "Por defeito, o Tevaxia utiliza Cerebras (GPT-OSS 120B, 5 análises gratuitas/dia). Para uso ilimitado ou outro modelo, adicione a sua própria chave API (BYOK). Obtenha-a no site do fornecedor escolhido.",
     "byokActive": "Chave pessoal ativa",
     "freeTier": "Gratuito (5/dia)",
     "loading": "A carregar...",
@@ -10871,7 +10871,7 @@
     "retry": "Tentar novamente",
     "reanalyze": "Relançar análise",
     "remaining": "{count, plural, =0 {Quota esgotada — adicione a sua chave API no seu perfil} one {# análise restante hoje} other {# análises restantes hoje}}",
-    "disclaimer": "Análise gerada por IA (Llama 3.1 8B via Cerebras/Groq ou o seu próprio modelo). Apenas para fins informativos — não substitui um parecer de perito certificado."
+    "disclaimer": "Análise gerada por IA (GPT-OSS 120B via Cerebras/Groq ou o seu próprio modelo). Apenas para fins informativos — não substitui um parecer de perito certificado."
   },
   "dashboardHero": {
     "welcome": "Bem-vindo",
@@ -12429,7 +12429,7 @@
     "ai": {
       "title": "Endpoints IA — análise & chat",
       "intro": "Dois endpoints IA acessíveis com a sua chave API tevaxia (rate-limit tier standard):",
-      "footer": "O servidor usa por defeito Cerebras (Llama 3.1 8B, fallback Groq Llama 3.3). Se configurou uma chave BYOK OpenAI/Anthropic no seu perfil, será usada automaticamente. Limite: rate-limit tier da sua chave API (Free: 10/min, 200/dia)."
+      "footer": "O servidor usa por defeito Cerebras (GPT-OSS 120B, fallback Groq Llama 3.3). Se configurou uma chave BYOK OpenAI/Anthropic no seu perfil, será usada automaticamente. Limite: rate-limit tier da sua chave API (Free: 10/min, 200/dia)."
     },
     "example": {
       "title": "Exemplo JavaScript (batch)"

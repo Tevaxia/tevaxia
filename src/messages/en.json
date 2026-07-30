@@ -10860,7 +10860,7 @@
       "subtitle": "All tevaxia.lu AI features and how to leverage them to save time on Luxembourg real estate.",
       "category": "Product & AI",
       "essentiel": [
-        "5 free analyses per day per signed-in account, via Cerebras (Llama 3.1 8B), no credit card required.",
+        "5 free analyses per day per signed-in account, via Cerebras (GPT-OSS 120B), no credit card required.",
         "BYOK mode (Bring Your Own Key): add your Anthropic, OpenAI, Groq or Cerebras key in /profil for unlimited use.",
         "4 key use cases: inline result analysis, EVS 2025 report drafting, PDF extraction (vision), multi-turn LU real estate chat.",
         "LU specialised skills: LIR, TEGOVA EVS 2025, VEFA, condominium, USALI hospitality, AML/KYC, Bëllegen Akt, 5% rule.",
@@ -10869,8 +10869,8 @@
       "section1Title": "Automatic analysis of results",
       "section1P1": "On about ten tools (estimation, EVS valuation, promoter P&L, multi-lease DCF, USALI hotel, E-2 visa score, VEFA, capital gains, property comparison, buy-vs-rent), an 'Analyze with AI' button appears after each calculation. The AI receives the full context (inputs + results) and writes a professional commentary: price-level diagnostic, risk identification, ratio consistency vs LU market standards, arbitrage recommendations.",
       "section1P2": "Prompts are domain-specific: a promoter P&L analysis cites typical land-cost ratios (10-20% of revenue), a USALI P&L analysis compares to the expected GOP margin by hotel category (3* = 35-40%, 4* = 38-42%, 5* = 40-45%). The AI uses TEGOVA EVS 2025 references and up-to-date STATEC coefficients to validate assumptions.",
-      "callout1Title": "Default model: Cerebras Llama 3.1 8B",
-      "callout1Body": "The free tier uses Cerebras Llama 3.1 8B (fast, free, hosted outside the EU for non-sensitive analyses). For confidential analyses (AML/KYC, named data), prefer your Anthropic or OpenAI key with enterprise contract and no-training option.",
+      "callout1Title": "Default model: Cerebras GPT-OSS 120B",
+      "callout1Body": "The free tier uses Cerebras GPT-OSS 120B (fast, free, hosted outside the EU for non-sensitive analyses). For confidential analyses (AML/KYC, named data), prefer your Anthropic or OpenAI key with enterprise contract and no-training option.",
       "section2Title": "EVS 2025 report drafting",
       "section2P1": "The EVS Report mode on the /valorisation page embeds 8 'Draft with AI' buttons next to the narrative fields (location, environment, access, method justification, tax regime, ESG impact, reservations, uncertainty). Each button generates a formal paragraph injected directly into the field, compliant with TEGOVA standards and the Charter 5th edition, with legal references (art. 102bis LIR, IVS 103, CRREM pathway).",
       "section2P2": "The EVS Challenger mode on the Reconciliation tab acts as a critical auditor: it flags missing data, inconsistencies, abnormal ratios and compliance risks before signing, prefixed [BLOCKING], [MAJOR] or [MINOR]. The generated report remains the responsibility of the TEGOVA REV/TRV expert who reviews, corrects and signs it.",
@@ -10914,7 +10914,7 @@
       "faq": [
         {
           "q": "Is tevaxia AI really free?",
-          "a": "Yes: 5 analyses per day per signed-in user, no credit card or subscription. Beyond that, add your own Cerebras, Groq, OpenAI or Anthropic key in your profile for unlimited use. The free tier uses Cerebras (Llama 3.1 8B) with Groq fallback if configured."
+          "a": "Yes: 5 analyses per day per signed-in user, no credit card or subscription. Beyond that, add your own Cerebras, Groq, OpenAI or Anthropic key in your profile for unlimited use. The free tier uses Cerebras (GPT-OSS 120B) with Groq fallback if configured."
         },
         {
           "q": "Is my data sent to a third party?",
@@ -10926,7 +10926,7 @@
         },
         {
           "q": "Which models are supported in BYOK?",
-          "a": "Anthropic (Claude 4.x — recommended for PDF vision and EVS drafting), OpenAI (GPT-4o, GPT-4 Turbo — strong vision), Groq (fast Llama 3.x), Cerebras (Llama 3.1 8B — free, default). 2-click setup in /profil. Unit costs displayed in real time."
+          "a": "Anthropic (Claude 4.x — recommended for PDF vision and EVS drafting), OpenAI (GPT-4o, GPT-4 Turbo — strong vision), Groq (fast Llama 3.x), Cerebras (GPT-OSS 120B — free, default). 2-click setup in /profil. Unit costs displayed in real time."
         },
         {
           "q": "How to access the public tevaxia API?",
@@ -10975,7 +10975,7 @@
     "apiKeyHint": "Your key stays on the server and is never exposed client-side. Leave empty to use the free Cerebras service.",
     "usageToday": "Analyses today",
     "unlimited": "Unlimited (personal key)",
-    "byokExplain": "By default, Tevaxia uses Cerebras (Llama 3.1 8B, 5 free analyses/day). For unlimited usage or a different model, add your own API key (BYOK). Get it from your chosen provider's website.",
+    "byokExplain": "By default, Tevaxia uses Cerebras (GPT-OSS 120B, 5 free analyses/day). For unlimited usage or a different model, add your own API key (BYOK). Get it from your chosen provider's website.",
     "byokActive": "Personal key active",
     "freeTier": "Free (5/day)",
     "loading": "Loading...",
@@ -10993,7 +10993,7 @@
     "retry": "Retry",
     "reanalyze": "Re-run analysis",
     "remaining": "{count, plural, =0 {Quota exhausted — add your API key in your profile} one {# analysis remaining today} other {# analyses remaining today}}",
-    "disclaimer": "Analysis generated by AI (Llama 3.1 8B via Cerebras/Groq or your own model). For informational purposes only — does not replace a certified expert opinion."
+    "disclaimer": "Analysis generated by AI (GPT-OSS 120B via Cerebras/Groq or your own model). For informational purposes only — does not replace a certified expert opinion."
   },
   "dashboardHero": {
     "welcome": "Welcome",
@@ -12551,7 +12551,7 @@
     "ai": {
       "title": "AI endpoints — analysis & chat",
       "intro": "Two AI endpoints accessible with your tevaxia API key (standard rate-limit tier):",
-      "footer": "The server uses Cerebras by default (Llama 3.1 8B, Groq Llama 3.3 fallback). If you configured a BYOK OpenAI/Anthropic key in your profile, it will be used automatically. Limit: your API key rate-limit tier (Free: 10/min, 200/day)."
+      "footer": "The server uses Cerebras by default (GPT-OSS 120B, Groq Llama 3.3 fallback). If you configured a BYOK OpenAI/Anthropic key in your profile, it will be used automatically. Limit: your API key rate-limit tier (Free: 10/min, 200/day)."
     },
     "example": {
       "title": "JavaScript example (batch)"
