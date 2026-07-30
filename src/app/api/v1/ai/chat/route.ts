@@ -263,7 +263,7 @@ export async function POST(request: Request) {
       }
     }
 
-    const model = DEFAULT_MODELS[provider] ?? DEFAULT_MODELS.cerebras;
+    let model = DEFAULT_MODELS[provider] ?? DEFAULT_MODELS.cerebras;
     let text: string;
 
     try {
@@ -274,8 +274,21 @@ export async function POST(request: Request) {
         default: text = await callCerebras(apiKey!, model, messages); provider = "cerebras"; break;
       }
     } catch (err) {
-      const message = err instanceof Error ? err.message : "Erreur API LLM";
-      return NextResponse.json({ error: `Erreur du fournisseur IA : ${message}` }, { status: 502, headers: CORS_HEADERS });
+      // Tier gratuit : si Cerebras échoue (compte suspendu, modèle retiré…), bascule sur Groq
+      const groqKey = process.env.GROQ_API_KEY;
+      if (!hasByok && provider === "cerebras" && groqKey) {
+        try {
+          model = DEFAULT_MODELS.groq;
+          text = await callGroq(groqKey, model, messages);
+          provider = "groq";
+        } catch (err2) {
+          const message = err2 instanceof Error ? err2.message : "Erreur API LLM";
+          return NextResponse.json({ error: `Erreur du fournisseur IA : ${message}` }, { status: 502, headers: CORS_HEADERS });
+        }
+      } else {
+        const message = err instanceof Error ? err.message : "Erreur API LLM";
+        return NextResponse.json({ error: `Erreur du fournisseur IA : ${message}` }, { status: 502, headers: CORS_HEADERS });
+      }
     }
 
     if (!hasByok && auth.source === "jwt") {
