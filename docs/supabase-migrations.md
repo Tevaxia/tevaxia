@@ -80,12 +80,20 @@ Pour un nouveau déploiement from scratch, exécuter dans cet ordre strict :
 ### Round 7 (056)
 - [ ] `056_facturation_history.sql` — historique Factur-X 12 mois + fonction purge
 
+### Round 8 (057-061)
+- [ ] `057_backup_history.sql` — historique des sauvegardes
+- [ ] `058_crm_calendar_subscriptions.sql` — abonnements calendrier CRM
+- [ ] `059_agency_mandates_virtual_tour.sql` — visite virtuelle sur mandats
+- [ ] `060_calendar_oauth_integrations.sql` — OAuth calendrier Google/Microsoft/Apple
+- [ ] **`061_ai_add_gemini.sql`** — ⚠ **À APPLIQUER AVANT LE DÉPLOIEMENT** du provider Gemini
+
 ## Hot fixes / migrations bloquantes
 
 | Migration | Problème résolu | Symptôme avant |
 |-----------|-----------------|----------------|
 | `054_create_org_rpc.sql` | RLS error 42501 à la création d'organisation via `/mon-agence` | `new row violates row-level security policy for table "organizations"` |
 | `056_facturation_history.sql` | Page `/facturation/historique` vide | Pas d'erreur UI, juste aucune facture listée |
+| `061_ai_add_gemini.sql` | `CHECK` sur `ai_provider` refusait `'gemini'` | Le code écrit `ai_provider = 'gemini'` à chaque incrément de quota : sans la migration, l'upsert viole la contrainte et le tier gratuit tombe en erreur. **Appliquer avant de déployer**, pas après. |
 
 ## Fonctions SECURITY DEFINER à brancher sur cron
 
@@ -107,6 +115,9 @@ Pour que toutes les migrations fonctionnent en prod, s'assurer que Vercel a :
 - `SUPABASE_SERVICE_ROLE_KEY` — requis pour cron + signatures + portails publics (tokens)
 - `CRON_SECRET` — requis pour `/api/cron/daily`
 - `PMS_ICAL_SHARE_SECRET` — pour flux iCal sortant par token public
+- `GEMINI_API_KEY` — fournisseur du tier gratuit IA (`/api/v1/ai/*`). Sans au
+  moins une clé de la chaîne (`GEMINI_API_KEY`, `GROQ_API_KEY`,
+  `CEREBRAS_API_KEY`), ces routes répondent 503. Détail dans `.env.example`.
 
 ## Rollback strategy
 
