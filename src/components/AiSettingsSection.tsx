@@ -11,7 +11,7 @@ interface AiPrefs {
 }
 
 const PROVIDERS = [
-  { value: "gemini", label: "Google Gemini (2.5 Flash — gratuit, vision PDF)" },
+  { value: "gemini", label: "Google Gemini (3.6 Flash — gratuit, vision PDF)" },
   { value: "cerebras", label: "Cerebras (GPT-OSS 120B — payant depuis la migration PayGo)" },
   { value: "groq", label: "Groq (Llama 3.3 70B — gratuit)" },
   { value: "openai", label: "OpenAI (GPT-4o)" },
@@ -19,7 +19,7 @@ const PROVIDERS = [
 ] as const;
 
 const KEY_PLACEHOLDERS: Record<AiPrefs["ai_provider"], string> = {
-  gemini: "AIza...",
+  gemini: "AQ.... ou AIza...",
   cerebras: "csk-...",
   groq: "gsk_...",
   openai: "sk-...",

@@ -196,8 +196,9 @@ async function callAnthropicVision(apiKey: string, fileBase64: string, mediaType
 // Gemini gère nativement PDF *et* images via inline_data. On passe par l'API
 // native (et non l'endpoint OpenAI-compatible), qui n'accepte pas les PDF.
 async function callGeminiVision(apiKey: string, fileBase64: string, mediaType: string, prompt: string) {
+  const model = process.env.GEMINI_MODEL ?? "gemini-3.6-flash";
   const res = await fetch(
-    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
@@ -210,7 +211,9 @@ async function callGeminiVision(apiKey: string, fileBase64: string, mediaType: s
             ],
           },
         ],
-        generationConfig: { maxOutputTokens: 2048, temperature: 0 },
+        // maxOutputTokens inclut le budget de raisonnement de Gemini 3.x
+        // (~700 tokens) : sans marge, le JSON extrait revient tronqué.
+        generationConfig: { maxOutputTokens: 4096, temperature: 0 },
       }),
     },
   );

@@ -88,11 +88,16 @@ describe("POST /api/v1/ai/analyze", () => {
     expect(res.status).toBe(200);
     const json = await res.json();
     expect(json.provider).toBe("gemini");
-    expect(json.model).toBe("gemini-2.5-flash");
+    expect(json.model).toBe("gemini-3.6-flash");
     expect(fetchSpy).toHaveBeenCalledWith(
       "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
       expect.objectContaining({ method: "POST" }),
     );
+    // Gemini 3.x mange max_tokens en raisonnement : sans cette marge la
+    // réponse revient tronquée (finish_reason "length").
+    const body = JSON.parse(fetchSpy.mock.calls[0][1]!.body as string);
+    expect(body.max_tokens).toBe(3000);
+    expect(body.reasoning_effort).toBe("low");
   });
 
   // Régression : le repli existait mais restait inerte faute de clé configurée,

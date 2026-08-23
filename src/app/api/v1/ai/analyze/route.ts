@@ -114,7 +114,14 @@ function getRemainingQuota(settings: AiSettings | null): number {
 }
 
 // ── LLM call adapters ──────────────────────────────────────
-async function callOpenAICompatible(endpoint: string, apiKey: string, model: string, context: string, prompt: string) {
+// Gemini 3.x prélève son budget de raisonnement SUR max_tokens, sans le compter
+// dans completion_tokens. Mesuré sur gemini-3.6-flash : avec max_tokens=800, le
+// raisonnement consomme ~770 tokens et il ne reste que 27 tokens de réponse —
+// tronquée (finish_reason "length"). D'où la marge et l'effort abaissé.
+// `reasoning_effort: "none"` n'est pas accepté par l'API (400 INVALID_ARGUMENT).
+const GEMINI_OVERRIDES = { max_tokens: 3000, reasoning_effort: "low" };
+
+async function callOpenAICompatible(endpoint: string, apiKey: string, model: string, context: string, prompt: string, overrides: Record<string, unknown> = {}) {
   const res = await fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
@@ -126,6 +133,7 @@ async function callOpenAICompatible(endpoint: string, apiKey: string, model: str
       ],
       temperature: 0.3,
       max_tokens: 1024,
+      ...overrides,
     }),
   });
   if (!res.ok) {
@@ -142,7 +150,10 @@ const callGroq = (apiKey: string, model: string, context: string, prompt: string
   callOpenAICompatible("https://api.groq.com/openai/v1/chat/completions", apiKey, model, context, prompt);
 // Gemini expose un endpoint OpenAI-compatible : même helper, autre base URL.
 const callGemini = (apiKey: string, model: string, context: string, prompt: string) =>
-  callOpenAICompatible("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", apiKey, model, context, prompt);
+  callOpenAICompatible(
+    "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+    apiKey, model, context, prompt, GEMINI_OVERRIDES,
+  );
 
 async function callOpenAI(apiKey: string, model: string, context: string, prompt: string) {
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -216,8 +227,13 @@ function resolveFreeTierChain(): { provider: string; apiKey: string }[] {
     .filter((c): c is { provider: string; apiKey: string } => !!c.apiKey);
 }
 
+// Modèle Gemini pilotable par variable d'env : Google ferme les anciens modèles
+// aux nouveaux comptes (gemini-2.5-flash renvoie déjà 404 « no longer available
+// to new users »). Une rotation se règle alors sur Vercel, sans redéploiement.
+const GEMINI_MODEL = process.env.GEMINI_MODEL ?? "gemini-3.6-flash";
+
 const DEFAULT_MODELS: Record<string, string> = {
-  gemini: "gemini-2.5-flash",
+  gemini: GEMINI_MODEL,
   cerebras: "gpt-oss-120b",
   groq: "llama-3.3-70b-versatile",
   openai: "gpt-4o-mini",

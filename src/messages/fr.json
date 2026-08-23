@@ -10860,7 +10860,7 @@
       "subtitle": "Toutes les fonctionnalités IA de tevaxia.lu et comment en tirer parti pour gagner du temps sur l'immobilier luxembourgeois.",
       "category": "Produit & IA",
       "essentiel": [
-        "5 analyses gratuites par jour par compte connecté, via Google Gemini (2.5 Flash), aucune carte bancaire requise.",
+        "5 analyses gratuites par jour par compte connecté, via Google Gemini (3.6 Flash), aucune carte bancaire requise.",
         "Mode BYOK (Bring Your Own Key) : ajoutez votre clé Anthropic, OpenAI, Groq ou Google Gemini dans /profil pour un usage illimité.",
         "4 cas d'usage clés : analyse de résultats inline, rédaction de rapport EVS 2025, extraction de PDF (vision), chat immobilier LU multi-tour.",
         "Compétences spécialisées LU : LIR, TEGOVA EVS 2025, VEFA, copropriété, USALI hôtellerie, AML/KYC, Bëllegen Akt, règle des 5 %.",
@@ -10869,8 +10869,8 @@
       "section1Title": "Analyse automatique des résultats",
       "section1P1": "Sur une dizaine d'outils (estimation, valorisation EVS, bilan promoteur, DCF multi-baux, hôtel USALI, score visa E-2, VEFA, plus-values, comparaison de biens, achat-vs-location), un bouton « Analyser avec l'IA » apparaît après chaque calcul. L'IA reçoit le contexte complet (inputs + résultats) et rédige un commentaire professionnel : diagnostic du niveau de prix, identification des risques, cohérence des ratios vs standards du marché LU, recommandations d'arbitrage.",
       "section1P2": "Les prompts sont spécialisés par métier : l'analyse d'un bilan promoteur cite les ratios de charge foncière typiques (10-20 % du CA), celle d'un P&L USALI compare à la GOP margin attendue par catégorie d'hôtel (3* = 35-40 %, 4* = 38-42 %, 5* = 40-45 %). L'IA utilise les références TEGOVA EVS 2025 et les coefficients STATEC à jour pour valider les hypothèses.",
-      "callout1Title": "Modèle par défaut : Google Gemini 2.5 Flash",
-      "callout1Body": "Le tier gratuit utilise Google Gemini 2.5 Flash (rapide, gratuit, hébergé hors UE). Attention : sur le tier gratuit de l'API Gemini, Google peut utiliser les prompts et les réponses pour améliorer ses produits — réservez-le aux analyses non sensibles. Pour des analyses confidentielles (AML/KYC, données nominatives), utilisez votre propre clé Anthropic ou OpenAI avec contrat d'entreprise et option no-training, ou une clé Gemini payante, exclue de l'entraînement.",
+      "callout1Title": "Modèle par défaut : Google Gemini 3.6 Flash",
+      "callout1Body": "Le tier gratuit utilise Google Gemini 3.6 Flash (rapide, gratuit, hébergé hors UE). Attention : sur le tier gratuit de l'API Gemini, Google peut utiliser les prompts et les réponses pour améliorer ses produits — réservez-le aux analyses non sensibles. Pour des analyses confidentielles (AML/KYC, données nominatives), utilisez votre propre clé Anthropic ou OpenAI avec contrat d'entreprise et option no-training, ou une clé Gemini payante, exclue de l'entraînement.",
       "section2Title": "Rédaction du rapport EVS 2025",
       "section2P1": "Le mode Rapport EVS de la page /valorisation intègre 8 boutons « Rédiger avec l'IA » placés près des champs narratifs (localisation, environnement, desserte, justification des méthodes, régime fiscal, impact ESG, réserves, incertitude). Chaque bouton génère un paragraphe formel directement injecté dans le champ, conforme aux normes TEGOVA et à la Charte 5e édition, avec références légales (art. 102bis LIR, IVS 103, CRREM pathway).",
       "section2P2": "Le mode Challenger EVS, sur l'onglet Réconciliation, agit comme auditeur critique : il flagge les données manquantes, les incohérences, les ratios anormaux et les risques de non-conformité avant signature, préfixés [BLOQUANT], [MAJEUR] ou [MINEUR]. Le rapport généré reste sous responsabilité de l'expert TEGOVA REV/TRV qui le relit, corrige et signe.",
@@ -10914,7 +10914,7 @@
       "faq": [
         {
           "q": "L'IA tevaxia est-elle vraiment gratuite ?",
-          "a": "Oui : 5 analyses par jour par utilisateur connecté, sans carte bancaire ni abonnement. Au-delà, ajoutez votre propre clé Gemini, Groq, OpenAI ou Anthropic dans votre profil pour un usage illimité. Le tier gratuit utilise Google Gemini 2.5 Flash, avec repli automatique sur les autres fournisseurs configurés si celui-ci est indisponible."
+          "a": "Oui : 5 analyses par jour par utilisateur connecté, sans carte bancaire ni abonnement. Au-delà, ajoutez votre propre clé Gemini, Groq, OpenAI ou Anthropic dans votre profil pour un usage illimité. Le tier gratuit utilise Google Gemini 3.6 Flash, avec repli automatique sur les autres fournisseurs configurés si celui-ci est indisponible."
         },
         {
           "q": "Mes données sont-elles envoyées à un tiers ?",
@@ -10926,7 +10926,7 @@
         },
         {
           "q": "Quels modèles sont supportés en BYOK ?",
-          "a": "Anthropic (Claude 4.x — recommandé pour vision PDF et rédaction EVS), OpenAI (GPT-4o, GPT-4 Turbo — bon en vision), Groq (Llama 3.x rapide), Google Gemini (2.5 Flash — gratuit, par défaut). Configuration en 2 clics dans /profil. Les coûts unitaires sont affichés en temps réel."
+          "a": "Anthropic (Claude 4.x — recommandé pour vision PDF et rédaction EVS), OpenAI (GPT-4o, GPT-4 Turbo — bon en vision), Groq (Llama 3.x rapide), Google Gemini (3.6 Flash — gratuit, par défaut). Configuration en 2 clics dans /profil. Les coûts unitaires sont affichés en temps réel."
         },
         {
           "q": "Comment accéder à l'API publique tevaxia ?",
@@ -10975,7 +10975,7 @@
     "apiKeyHint": "Votre clé reste sur le serveur et n'est jamais exposée côté client. Laissez vide pour utiliser le service gratuit Google Gemini.",
     "usageToday": "Analyses aujourd'hui",
     "unlimited": "Illimité (clé personnelle)",
-    "byokExplain": "Par défaut, Tevaxia utilise Google Gemini (2.5 Flash, 5 analyses/jour gratuites). Pour un usage illimité ou un autre modèle, ajoutez votre propre clé API (BYOK). Obtenez-la sur le site du fournisseur choisi.",
+    "byokExplain": "Par défaut, Tevaxia utilise Google Gemini (3.6 Flash, 5 analyses/jour gratuites). Pour un usage illimité ou un autre modèle, ajoutez votre propre clé API (BYOK). Obtenez-la sur le site du fournisseur choisi.",
     "byokActive": "Clé perso active",
     "freeTier": "Gratuit (5/jour)",
     "loading": "Chargement...",
@@ -10993,7 +10993,7 @@
     "retry": "Réessayer",
     "reanalyze": "Relancer l'analyse",
     "remaining": "{count, plural, =0 {Quota épuisé — ajoutez votre clé API dans votre profil} one {# analyse restante aujourd'hui} other {# analyses restantes aujourd'hui}}",
-    "disclaimer": "Analyse générée par IA (Gemini 2.5 Flash via Google ou votre propre modèle). À titre informatif uniquement — ne remplace pas un avis d'expert certifié."
+    "disclaimer": "Analyse générée par IA (Gemini 3.6 Flash via Google ou votre propre modèle). À titre informatif uniquement — ne remplace pas un avis d'expert certifié."
   },
   "dashboardHero": {
     "welcome": "Bienvenue",
@@ -12551,7 +12551,7 @@
     "ai": {
       "title": "Endpoints IA — analyse & chat",
       "intro": "Deux endpoints IA accessibles avec votre clé API tevaxia (rate-limit tier standard) :",
-      "footer": "Le serveur essaie les fournisseurs gratuits dans l'ordre : Google Gemini 2.5 Flash, puis Groq et Cerebras si leurs clés sont configurées — il bascule automatiquement au suivant en cas d'échec. Si vous avez configuré une clé BYOK dans votre profil, elle est utilisée en priorité. Limite : rate-limit tier de votre clé API (Free : 10/min, 200/jour)."
+      "footer": "Le serveur essaie les fournisseurs gratuits dans l'ordre : Google Gemini 3.6 Flash, puis Groq et Cerebras si leurs clés sont configurées — il bascule automatiquement au suivant en cas d'échec. Si vous avez configuré une clé BYOK dans votre profil, elle est utilisée en priorité. Limite : rate-limit tier de votre clé API (Free : 10/min, 200/jour)."
     },
     "example": {
       "title": "Exemple JavaScript (batch)"

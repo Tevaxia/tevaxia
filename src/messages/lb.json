@@ -10738,7 +10738,7 @@
       "subtitle": "All KI-Funktiounen vun tevaxia.lu a wéi se ze notzen, fir Zäit op Lëtzebuerger Immobilien ze spueren.",
       "category": "Produkt & KI",
       "essentiel": [
-        "5 gratis Analysen pro Dag pro ageloggte Konto, via Google Gemini (2.5 Flash), keng Kreditkaart erfuerderlech.",
+        "5 gratis Analysen pro Dag pro ageloggte Konto, via Google Gemini (3.6 Flash), keng Kreditkaart erfuerderlech.",
         "BYOK-Modus (Bring Your Own Key): Setzt Ären Anthropic-, OpenAI-, Groq- oder Gemini-Schlëssel an /profil fir onlimitéiert Notzung.",
         "4 Schlësselusage-Cases: Inline-Resultat-Analys, EVS-2025-Bericht-Redaktioun, PDF-Extraktioun (Visioun), Multi-tour LU-Immobilien-Chat.",
         "LU spezialiséiert Skills: LIR, TEGOVA EVS 2025, VEFA, Kopropriétéit, USALI Hotellerie, AML/KYC, Bëllegen Akt, 5%-Regel.",
@@ -10747,8 +10747,8 @@
       "section1Title": "Automatesch Analys vun de Resultater",
       "section1P1": "Op ongeféier zéng Tools (Schätzung, EVS-Valorisatioun, Promoter-Bilan, DCF multi-Baux, USALI-Hotel, E-2-Visa-Score, VEFA, Plus-value, Bien-Verglach, Kafen-géint-Lounen) erschéngt no all Berechnung e Knäppchen 'Mat der KI analyséieren'. D'KI kritt de komplette Kontext (Inputs an Resultater) a schreift e professionelle Kommentar: Präis-Diagnos, Risiko-Erkennung, Kohärenz vun de Ratioen géintiwwer de Lëtzebuerger Maartstandarden, Arbitrage-Empfehlungen.",
       "section1P2": "D'Prompts si spezialiséiert pro Beruff: d'Analys vun engem Promoter-Bilan zitéiert déi typesch Baulandkäschten-Quoten (10-20% vum Ëmsaz), déi vun engem P&L USALI vergläicht mat der erwaarter GOP-Marge pro Hotelkategorie (3* = 35-40%, 4* = 38-42%, 5* = 40-45%). D'KI notzt TEGOVA EVS 2025 Referenzen an aktuell STATEC-Koeffizienten fir d'Annahmen ze validéieren.",
-      "callout1Title": "Standardmodell: Google Gemini 2.5 Flash",
-      "callout1Body": "De gratis Tier notzt Google Gemini 2.5 Flash (séier, gratis, ausserhalb der EU gehost). Opgepasst: am gratis Tier vun der Gemini-API kann Google d'Prompts an d'Äntwerten notzen fir seng Produiten ze verbesseren — notzt en nëmme fir net-sensibel Analysen. Fir vertraulech Analysen (AML/KYC, nominell Donnéeën) notzt Ären eegenen Anthropic- oder OpenAI-Schlëssel mat Entreprisevertrag a No-Training-Optioun, oder e bezuelte Gemini-Schlëssel, deen aus dem Training ausgeschloss ass.",
+      "callout1Title": "Standardmodell: Google Gemini 3.6 Flash",
+      "callout1Body": "De gratis Tier notzt Google Gemini 3.6 Flash (séier, gratis, ausserhalb der EU gehost). Opgepasst: am gratis Tier vun der Gemini-API kann Google d'Prompts an d'Äntwerten notzen fir seng Produiten ze verbesseren — notzt en nëmme fir net-sensibel Analysen. Fir vertraulech Analysen (AML/KYC, nominell Donnéeën) notzt Ären eegenen Anthropic- oder OpenAI-Schlëssel mat Entreprisevertrag a No-Training-Optioun, oder e bezuelte Gemini-Schlëssel, deen aus dem Training ausgeschloss ass.",
       "section2Title": "EVS-2025-Bericht-Redaktioun",
       "section2P1": "De Modus EVS-Bericht op der Säit /valorisation integréiert 8 Knäppercher 'Mat der KI schreiwen' nieft den narrative Felder (Lag, Ëmfeld, Ubannung, Justifikatioun vun de Methoden, Steierregime, ESG-Impakt, Reserven, Onsécherheet). All Knäppche generéiert e formellen Abschnitt, deen direkt an d'Feld geschriwwe gëtt, konform mat den TEGOVA-Normen an der Chart 5. Editioun, mat legalen Referenzen (Art. 102bis LIR, IVS 103, CRREM-Pfad).",
       "section2P2": "De Modus EVS-Challenger, op der Ongletbar Reconciliatioun, handelt als kritesche Verifizéierer: hie markéiert déi feelend Donnéeën, d'Inkohärenzen, déi anormal Ratioen an d'Risike vu Net-Konformitéit virun der Ënnerschrëft, mam Präfix [BLOCKÉIEREND], [GROUSS] oder [KLENG]. De generéierte Bericht bleift ënner der Verantwortung vum TEGOVA REV/TRV-Expert, dee den Bericht nokontrolléiert, korrigéiert an ënnerschreift.",
@@ -10792,7 +10792,7 @@
       "faq": [
         {
           "q": "Ass d'tevaxia-KI wierklech gratis?",
-          "a": "Jo: 5 Analysen pro Dag pro ageloggte Notzer, keng Kreditkaart oder Abonnement. Doriwwer eraus, fügt Ären eegene Gemini-, Groq-, OpenAI- oder Anthropic-Schlëssel an Ärem Profil fir onlimitéiert Notzung. De gratis Tier notzt Google Gemini 2.5 Flash, mat automateschem Fallback op déi aner konfiguréiert Fournisseuren wann deen net verfügbar ass."
+          "a": "Jo: 5 Analysen pro Dag pro ageloggte Notzer, keng Kreditkaart oder Abonnement. Doriwwer eraus, fügt Ären eegene Gemini-, Groq-, OpenAI- oder Anthropic-Schlëssel an Ärem Profil fir onlimitéiert Notzung. De gratis Tier notzt Google Gemini 3.6 Flash, mat automateschem Fallback op déi aner konfiguréiert Fournisseuren wann deen net verfügbar ass."
         },
         {
           "q": "Ginn meng Donnéeën un Drëtter geschéckt?",
@@ -10804,7 +10804,7 @@
         },
         {
           "q": "Wéi eng Modeller ginn am BYOK ënnerstëtzt?",
-          "a": "Anthropic (Claude 4.x — empfuelen fir PDF-Visioun an EVS-Redaktioun), OpenAI (GPT-4o, GPT-4 Turbo — gutt an Visioun), Groq (séier Llama 3.x), Google Gemini (2.5 Flash — gratis, Standard). 2-Klick-Setup an /profil. Stéckkäschten an Echtzäit ugewisen."
+          "a": "Anthropic (Claude 4.x — empfuelen fir PDF-Visioun an EVS-Redaktioun), OpenAI (GPT-4o, GPT-4 Turbo — gutt an Visioun), Groq (séier Llama 3.x), Google Gemini (3.6 Flash — gratis, Standard). 2-Klick-Setup an /profil. Stéckkäschten an Echtzäit ugewisen."
         },
         {
           "q": "Wéi gräifen ech op déi ëffentlech tevaxia-API zou?",
@@ -10853,7 +10853,7 @@
     "apiKeyHint": "Äre Schlëssel bleift um Server a gëtt ni clientsäiteg exponéiert. Eidel loossen fir de gratis Gemini-Service ze benotzen.",
     "usageToday": "Analysen haut",
     "unlimited": "Onlimitéiert (perséinleche Schlëssel)",
-    "byokExplain": "Par défaut benotzt Tevaxia Google Gemini (2.5 Flash, 5 gratis Analysen/Dag). Fir onlimitéiert Notzung oder en anere Modell, füügt Äre eegene API-Schlëssel derbäi (BYOK). Kritt en op der Websäit vum gewielte Fournisseur.",
+    "byokExplain": "Par défaut benotzt Tevaxia Google Gemini (3.6 Flash, 5 gratis Analysen/Dag). Fir onlimitéiert Notzung oder en anere Modell, füügt Äre eegene API-Schlëssel derbäi (BYOK). Kritt en op der Websäit vum gewielte Fournisseur.",
     "byokActive": "Perséinleche Schlëssel aktiv",
     "freeTier": "Gratis (5/Dag)",
     "loading": "Lueden...",
@@ -10871,7 +10871,7 @@
     "retry": "Nach eng Kéier probéieren",
     "reanalyze": "Analyse nei starten",
     "remaining": "{count, plural, =0 {Kontingent opgebraucht — setzt Ären API-Schlëssel an Ärem Profil derbäi} one {# Analyse haut iwwreg} other {# Analysen haut iwwreg}}",
-    "disclaimer": "Analyse generéiert duerch KI (Gemini 2.5 Flash iwwer Google Gemini/Groq oder Äert eegent Modell). Nëmme fir Informatiounszwecker — ersetzt keen zertifizéiert Sachverständegegutachten."
+    "disclaimer": "Analyse generéiert duerch KI (Gemini 3.6 Flash iwwer Google Gemini/Groq oder Äert eegent Modell). Nëmme fir Informatiounszwecker — ersetzt keen zertifizéiert Sachverständegegutachten."
   },
   "dashboardHero": {
     "welcome": "Wëllkomm",
@@ -12429,7 +12429,7 @@
     "ai": {
       "title": "IA-Endpoints — Analyse & Chat",
       "intro": "Zwee IA-Endpoints accessibel mat Ärem tevaxia API-Schlëssel (Standard-Rate-Limit):",
-      "footer": "De Server probéiert déi gratis Fournisseuren an dëser Reiefolleg: Google Gemini 2.5 Flash, duerno Groq a Cerebras wann hir Schlëssele konfiguréiert sinn — bei engem Feeler gëtt automatesch den nächsten geholl. Wann Dir e BYOK-Schlëssel an Ärem Profil konfiguréiert hutt, huet dësen Virrang. Limitt: Rate-Limit-Stuff vun Ärem API-Schlëssel (Free: 10/Min, 200/Dag)."
+      "footer": "De Server probéiert déi gratis Fournisseuren an dëser Reiefolleg: Google Gemini 3.6 Flash, duerno Groq a Cerebras wann hir Schlëssele konfiguréiert sinn — bei engem Feeler gëtt automatesch den nächsten geholl. Wann Dir e BYOK-Schlëssel an Ärem Profil konfiguréiert hutt, huet dësen Virrang. Limitt: Rate-Limit-Stuff vun Ärem API-Schlëssel (Free: 10/Min, 200/Dag)."
     },
     "example": {
       "title": "JavaScript-Beispill (Batch)"

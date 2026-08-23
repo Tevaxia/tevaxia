@@ -10738,7 +10738,7 @@
       "subtitle": "Alle KI-Funktionen von tevaxia.lu und wie Sie sie nutzen, um Zeit bei Luxemburger Immobilien zu sparen.",
       "category": "Produkt & KI",
       "essentiel": [
-        "5 kostenlose Analysen pro Tag pro angemeldetem Konto, via Google Gemini (2.5 Flash), keine Kreditkarte erforderlich.",
+        "5 kostenlose Analysen pro Tag pro angemeldetem Konto, via Google Gemini (3.6 Flash), keine Kreditkarte erforderlich.",
         "BYOK-Modus (Bring Your Own Key): Fügen Sie Ihren Anthropic-, OpenAI-, Groq- oder Gemini-Schlüssel in /profil für unbegrenzte Nutzung hinzu.",
         "4 Schlüssel-Use-Cases: Inline-Ergebnisanalyse, EVS-2025-Berichtsentwurf, PDF-Extraktion (Vision), mehrturniger LU-Immobilien-Chat.",
         "LU-spezialisierte Skills: LIR, TEGOVA EVS 2025, VEFA, Miteigentum, USALI-Hotellerie, AML/KYC, Bëllegen Akt, 5%-Regel.",
@@ -10747,8 +10747,8 @@
       "section1Title": "Automatische Ergebnisanalyse",
       "section1P1": "Rund zehn Tools (Schätzung, EVS-Bewertung, Projektentwickler-P&L, Multi-Lease-DCF, USALI-Hotel, E-2-Visa-Score, VEFA, Wertzuwachs, Vergleich, Kauf-vs-Miete) zeigen nach jeder Berechnung eine Schaltfläche 'Mit KI analysieren'. Die KI erhält den vollständigen Kontext (Inputs und Ergebnisse) und verfasst einen professionellen Kommentar: Preisdiagnose, Risikoerkennung, Kennzahlenkonsistenz gegenüber LU-Marktstandards, Arbitrage-Empfehlungen.",
       "section1P2": "Die Prompts sind fachspezifisch: eine Bilanzanalyse nennt typische Baulandkosten-Quoten (10-20% des Umsatzes), eine USALI-P&L-Analyse vergleicht die GOP-Marge mit dem erwarteten Wert je Hotelkategorie (3* = 35-40%, 4* = 38-42%, 5* = 40-45%). Die KI nutzt TEGOVA-EVS-2025-Referenzen und aktuelle STATEC-Koeffizienten zur Annahmenvalidierung.",
-      "callout1Title": "Standardmodell: Google Gemini 2.5 Flash",
-      "callout1Body": "Der kostenlose Tarif nutzt Google Gemini 2.5 Flash (schnell, kostenlos, außerhalb der EU gehostet). Achtung: Im kostenlosen Tarif der Gemini-API kann Google Prompts und Antworten zur Verbesserung seiner Produkte verwenden — nutzen Sie ihn nur für nicht-sensible Analysen. Für vertrauliche Analysen (AML/KYC, namentliche Daten) verwenden Sie Ihren eigenen Anthropic- oder OpenAI-Schlüssel mit Unternehmensvertrag und No-Training-Option, oder einen kostenpflichtigen Gemini-Schlüssel, der vom Training ausgenommen ist.",
+      "callout1Title": "Standardmodell: Google Gemini 3.6 Flash",
+      "callout1Body": "Der kostenlose Tarif nutzt Google Gemini 3.6 Flash (schnell, kostenlos, außerhalb der EU gehostet). Achtung: Im kostenlosen Tarif der Gemini-API kann Google Prompts und Antworten zur Verbesserung seiner Produkte verwenden — nutzen Sie ihn nur für nicht-sensible Analysen. Für vertrauliche Analysen (AML/KYC, namentliche Daten) verwenden Sie Ihren eigenen Anthropic- oder OpenAI-Schlüssel mit Unternehmensvertrag und No-Training-Option, oder einen kostenpflichtigen Gemini-Schlüssel, der vom Training ausgenommen ist.",
       "section2Title": "EVS-2025-Berichtserstellung",
       "section2P1": "Der Modus EVS-Bericht auf der Seite /valorisation bietet 8 Schaltflächen 'Mit KI formulieren' neben den narrativen Feldern (Lage, Umfeld, Anbindung, Methodenbegründung, Steuerregime, ESG-Wirkung, Vorbehalte, Unsicherheit). Jede Schaltfläche erzeugt einen formalen Absatz, der direkt in das Feld eingefügt wird, konform mit den TEGOVA-Normen und der Charta 5. Auflage, mit Rechtsverweisen (Art. 102bis LIR, IVS 103, CRREM-Pfad).",
       "section2P2": "Der Modus EVS-Challenger auf der Registerkarte Abstimmung fungiert als kritischer Auditor: er kennzeichnet fehlende Daten, Inkonsistenzen, auffällige Kennzahlen und Compliance-Risiken vor der Unterzeichnung, jeweils mit dem Präfix [BLOCKIEREND], [GRAVIEREND] oder [GERING]. Der erstellte Bericht bleibt in der Verantwortung des TEGOVA REV/TRV-Sachverständigen, der ihn prüft, korrigiert und unterzeichnet.",
@@ -10792,7 +10792,7 @@
       "faq": [
         {
           "q": "Ist die tevaxia-KI wirklich kostenlos?",
-          "a": "Ja: 5 Analysen pro Tag pro angemeldetem Nutzer, ohne Kreditkarte oder Abo. Darüber hinaus fügen Sie Ihren eigenen Gemini-, Groq-, OpenAI- oder Anthropic-Schlüssel im Profil für unbegrenzte Nutzung hinzu. Der kostenlose Tarif nutzt Google Gemini 2.5 Flash, mit automatischem Fallback auf die anderen konfigurierten Anbieter, falls dieser nicht verfügbar ist."
+          "a": "Ja: 5 Analysen pro Tag pro angemeldetem Nutzer, ohne Kreditkarte oder Abo. Darüber hinaus fügen Sie Ihren eigenen Gemini-, Groq-, OpenAI- oder Anthropic-Schlüssel im Profil für unbegrenzte Nutzung hinzu. Der kostenlose Tarif nutzt Google Gemini 3.6 Flash, mit automatischem Fallback auf die anderen konfigurierten Anbieter, falls dieser nicht verfügbar ist."
         },
         {
           "q": "Werden meine Daten an Dritte weitergegeben?",
@@ -10804,7 +10804,7 @@
         },
         {
           "q": "Welche Modelle werden im BYOK unterstützt?",
-          "a": "Anthropic (Claude 4.x — empfohlen für PDF-Vision und EVS-Erstellung), OpenAI (GPT-4o, GPT-4 Turbo — gut in Vision), Groq (schnelles Llama 3.x), Google Gemini (2.5 Flash — kostenlos, Standard). 2-Klick-Setup in /profil. Stückkosten in Echtzeit angezeigt."
+          "a": "Anthropic (Claude 4.x — empfohlen für PDF-Vision und EVS-Erstellung), OpenAI (GPT-4o, GPT-4 Turbo — gut in Vision), Groq (schnelles Llama 3.x), Google Gemini (3.6 Flash — kostenlos, Standard). 2-Klick-Setup in /profil. Stückkosten in Echtzeit angezeigt."
         },
         {
           "q": "Wie greife ich auf die öffentliche tevaxia-API zu?",
@@ -10853,7 +10853,7 @@
     "apiKeyHint": "Ihr Schlüssel bleibt auf dem Server und wird nie clientseitig offengelegt. Leer lassen, um den kostenlosen Gemini-Dienst zu nutzen.",
     "usageToday": "Analysen heute",
     "unlimited": "Unbegrenzt (persönlicher Schlüssel)",
-    "byokExplain": "Standardmässig nutzt Tevaxia Google Gemini (2.5 Flash, 5 kostenlose Analysen/Tag). Für unbegrenzten Einsatz oder ein anderes Modell fügen Sie Ihren eigenen API-Schlüssel hinzu (BYOK). Erhalten Sie ihn auf der Website des gewählten Anbieters.",
+    "byokExplain": "Standardmässig nutzt Tevaxia Google Gemini (3.6 Flash, 5 kostenlose Analysen/Tag). Für unbegrenzten Einsatz oder ein anderes Modell fügen Sie Ihren eigenen API-Schlüssel hinzu (BYOK). Erhalten Sie ihn auf der Website des gewählten Anbieters.",
     "byokActive": "Persönlicher Schlüssel aktiv",
     "freeTier": "Kostenlos (5/Tag)",
     "loading": "Laden...",
@@ -10871,7 +10871,7 @@
     "retry": "Erneut versuchen",
     "reanalyze": "Analyse neu starten",
     "remaining": "{count, plural, =0 {Kontingent erschöpft — fügen Sie Ihren API-Schlüssel in Ihrem Profil hinzu} one {# Analyse heute übrig} other {# Analysen heute übrig}}",
-    "disclaimer": "Analyse generiert durch KI (Gemini 2.5 Flash über Google Gemini/Groq oder Ihr eigenes Modell). Nur zu Informationszwecken — ersetzt kein zertifiziertes Sachverständigengutachten."
+    "disclaimer": "Analyse generiert durch KI (Gemini 3.6 Flash über Google Gemini/Groq oder Ihr eigenes Modell). Nur zu Informationszwecken — ersetzt kein zertifiziertes Sachverständigengutachten."
   },
   "dashboardHero": {
     "welcome": "Willkommen",
@@ -12429,7 +12429,7 @@
     "ai": {
       "title": "KI-Endpoints — Analyse & Chat",
       "intro": "Zwei KI-Endpoints mit Ihrem tevaxia API-Schlüssel zugänglich (Standard-Rate-Limit):",
-      "footer": "Der Server versucht die kostenlosen Anbieter der Reihe nach: Google Gemini 2.5 Flash, dann Groq und Cerebras, sofern deren Schlüssel konfiguriert sind — bei einem Fehler wird automatisch der nächste verwendet. Wenn Sie einen BYOK-Schlüssel in Ihrem Profil konfiguriert haben, hat dieser Vorrang. Limit: Rate-Limit-Stufe Ihres API-Schlüssels (Free: 10/Min, 200/Tag)."
+      "footer": "Der Server versucht die kostenlosen Anbieter der Reihe nach: Google Gemini 3.6 Flash, dann Groq und Cerebras, sofern deren Schlüssel konfiguriert sind — bei einem Fehler wird automatisch der nächste verwendet. Wenn Sie einen BYOK-Schlüssel in Ihrem Profil konfiguriert haben, hat dieser Vorrang. Limit: Rate-Limit-Stufe Ihres API-Schlüssels (Free: 10/Min, 200/Tag)."
     },
     "example": {
       "title": "JavaScript-Beispiel (Batch)"
