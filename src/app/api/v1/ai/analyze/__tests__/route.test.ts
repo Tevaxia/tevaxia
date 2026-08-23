@@ -40,6 +40,7 @@ describe("POST /api/v1/ai/analyze", () => {
     process.env.SUPABASE_SERVICE_ROLE_KEY = "service-key";
     process.env.CEREBRAS_API_KEY = "csk-test";
     delete process.env.GROQ_API_KEY;
+    delete process.env.GEMINI_API_KEY;
     vi.restoreAllMocks();
   });
 
@@ -73,8 +74,54 @@ describe("POST /api/v1/ai/analyze", () => {
   it("503 when no server AI key configured", async () => {
     delete process.env.CEREBRAS_API_KEY;
     delete process.env.GROQ_API_KEY;
+    delete process.env.GEMINI_API_KEY;
     const res = await POST(req({ Authorization: "Bearer fake-jwt" }, { context: "c", prompt: "p" }));
     expect(res.status).toBe(503);
+  });
+
+  it("préfère Gemini quand sa clé est configurée", async () => {
+    process.env.GEMINI_API_KEY = "AIza-test";
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response(JSON.stringify({ choices: [{ message: { content: "Réponse Gemini" } }] }), { status: 200 }),
+    );
+    const res = await POST(req({ Authorization: "Bearer fake-jwt" }, { context: "c", prompt: "p" }));
+    expect(res.status).toBe(200);
+    const json = await res.json();
+    expect(json.provider).toBe("gemini");
+    expect(json.model).toBe("gemini-2.5-flash");
+    expect(fetchSpy).toHaveBeenCalledWith(
+      "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+      expect.objectContaining({ method: "POST" }),
+    );
+  });
+
+  // Régression : le repli existait mais restait inerte faute de clé configurée,
+  // ce qui a transformé le 402 PayGo de Cerebras en panne du tier gratuit.
+  it("bascule sur le fournisseur suivant quand le premier échoue", async () => {
+    process.env.GEMINI_API_KEY = "AIza-test";
+    const fetchSpy = vi.spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce(new Response("quota", { status: 402 }))
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ choices: [{ message: { content: "Repli" } }] }), { status: 200 }),
+      );
+    const res = await POST(req({ Authorization: "Bearer fake-jwt" }, { context: "c", prompt: "p" }));
+    expect(res.status).toBe(200);
+    const json = await res.json();
+    expect(json.text).toBe("Repli");
+    expect(json.provider).toBe("cerebras");
+    expect(json.model).toBe("gpt-oss-120b");
+    expect(fetchSpy).toHaveBeenNthCalledWith(2,
+      "https://api.cerebras.ai/v1/chat/completions",
+      expect.objectContaining({ method: "POST" }),
+    );
+  });
+
+  it("502 seulement quand toute la chaîne échoue", async () => {
+    process.env.GEMINI_API_KEY = "AIza-test";
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("quota", { status: 402 }));
+    const res = await POST(req({ Authorization: "Bearer fake-jwt" }, { context: "c", prompt: "p" }));
+    expect(res.status).toBe(502);
+    expect(fetchSpy).toHaveBeenCalledTimes(2);
   });
 
   it("200 on happy path (mocked LLM)", async () => {

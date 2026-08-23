@@ -38,6 +38,7 @@ describe("POST /api/v1/ai/chat", () => {
     process.env.SUPABASE_SERVICE_ROLE_KEY = "service-key";
     process.env.CEREBRAS_API_KEY = "csk-test";
     delete process.env.GROQ_API_KEY;
+    delete process.env.GEMINI_API_KEY;
     vi.restoreAllMocks();
   });
 
@@ -99,9 +100,29 @@ describe("POST /api/v1/ai/chat", () => {
   it("503 when no server AI key", async () => {
     delete process.env.CEREBRAS_API_KEY;
     delete process.env.GROQ_API_KEY;
+    delete process.env.GEMINI_API_KEY;
     const res = await POST(req({ Authorization: "Bearer fake-jwt" }, {
       messages: [{ role: "user", content: "hi" }],
     }));
     expect(res.status).toBe(503);
+  });
+
+  it("préfère Gemini et bascule sur le suivant en cas d'échec", async () => {
+    process.env.GEMINI_API_KEY = "AIza-test";
+    const fetchSpy = vi.spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce(new Response("quota", { status: 402 }))
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ choices: [{ message: { content: "Repli" } }] }), { status: 200 }),
+      );
+    const res = await POST(req({ Authorization: "Bearer fake-jwt" }, {
+      messages: [{ role: "user", content: "hi" }],
+    }));
+    expect(res.status).toBe(200);
+    const json = await res.json();
+    expect(json.provider).toBe("cerebras");
+    expect(fetchSpy).toHaveBeenNthCalledWith(1,
+      "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+      expect.objectContaining({ method: "POST" }),
+    );
   });
 });

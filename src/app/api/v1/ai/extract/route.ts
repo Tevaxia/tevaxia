@@ -5,8 +5,8 @@ import { authenticateApiRequestAsync, logApiCall, type ApiKeyRecord } from "@/li
 // ============================================================
 // AI EXTRACT — Extraction structurée depuis PDF/image (BYOK only)
 // ============================================================
-// Accepte PDF (Anthropic natif) ou image (OpenAI / Anthropic).
-// Nécessite une clé BYOK OpenAI ou Anthropic (Groq ne fait pas de vision).
+// Accepte PDF (Gemini / Anthropic natif) ou image (Gemini / OpenAI / Anthropic).
+// Nécessite une clé BYOK Gemini, OpenAI ou Anthropic (Groq/Cerebras : pas de vision).
 // Rate-limit : quota JWT 5/jour gratuit OU illimité BYOK OU tier API key.
 
 const CORS_HEADERS = {
@@ -103,7 +103,7 @@ function getServiceClient() {
 }
 
 interface AiSettings {
-  ai_provider: "groq" | "openai" | "anthropic";
+  ai_provider: "gemini" | "cerebras" | "groq" | "openai" | "anthropic";
   ai_api_key_encrypted: string | null;
   daily_usage: number;
   last_usage_date: string;
@@ -193,6 +193,32 @@ async function callAnthropicVision(apiKey: string, fileBase64: string, mediaType
   return data.content?.[0]?.text ?? "";
 }
 
+// Gemini gère nativement PDF *et* images via inline_data. On passe par l'API
+// native (et non l'endpoint OpenAI-compatible), qui n'accepte pas les PDF.
+async function callGeminiVision(apiKey: string, fileBase64: string, mediaType: string, prompt: string) {
+  const res = await fetch(
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [
+              { inline_data: { mime_type: mediaType, data: fileBase64 } },
+              { text: prompt },
+            ],
+          },
+        ],
+        generationConfig: { maxOutputTokens: 2048, temperature: 0 },
+      }),
+    },
+  );
+  if (!res.ok) throw new Error(`Gemini API ${res.status}: ${await res.text()}`);
+  const data = await res.json();
+  return data.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text ?? "").join("") ?? "";
+}
+
 async function callOpenAIVision(apiKey: string, fileBase64: string, mediaType: string, prompt: string) {
   if (mediaType === "application/pdf") {
     throw new Error("OpenAI vision ne supporte pas les PDF directement — utilisez une image (JPG/PNG) ou une clé Anthropic.");
@@ -269,16 +295,16 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           error:
-            "Extraction PDF nécessite une clé API BYOK OpenAI ou Anthropic (Groq ne supporte pas la vision). Configurez votre clé dans /profil.",
+            "Extraction PDF nécessite une clé API BYOK Gemini, OpenAI ou Anthropic. Configurez votre clé dans /profil.",
         },
         { status: 402, headers: CORS_HEADERS },
       );
     }
 
     const provider = settings.ai_provider;
-    if (provider !== "openai" && provider !== "anthropic") {
+    if (provider !== "openai" && provider !== "anthropic" && provider !== "gemini") {
       return NextResponse.json(
-        { error: "Le provider BYOK configuré (Groq) ne supporte pas l'extraction vision. Utilisez OpenAI ou Anthropic." },
+        { error: "Le provider BYOK configuré ne supporte pas l'extraction vision. Utilisez Gemini, OpenAI ou Anthropic." },
         { status: 400, headers: CORS_HEADERS },
       );
     }
@@ -292,10 +318,13 @@ export async function POST(request: Request) {
     const prompt = buildPrompt(schema);
     let rawText: string;
     try {
+      const key = settings.ai_api_key_encrypted;
       rawText =
         provider === "anthropic"
-          ? await callAnthropicVision(settings.ai_api_key_encrypted, fileBase64, mediaType, prompt)
-          : await callOpenAIVision(settings.ai_api_key_encrypted, fileBase64, mediaType, prompt);
+          ? await callAnthropicVision(key, fileBase64, mediaType, prompt)
+          : provider === "gemini"
+            ? await callGeminiVision(key, fileBase64, mediaType, prompt)
+            : await callOpenAIVision(key, fileBase64, mediaType, prompt);
     } catch (err) {
       const message = err instanceof Error ? err.message : "Erreur API LLM";
       return NextResponse.json({ error: `Erreur fournisseur : ${message}` }, { status: 502, headers: CORS_HEADERS });

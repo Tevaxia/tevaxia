@@ -10734,12 +10734,12 @@
     },
     "iaTevaxia": {
       "title": "Wéi d'KI op tevaxia.lu notzen: komplette Guide 2026",
-      "metaDescription": "tevaxia.lu KI-Assistent: Resultat-Analys, EVS-2025-Bericht, PDF-Extraktioun, Lëtzebuerger Immobilien-Chat. 5 gratis Analysen/Dag via Cerebras, onlimitéiert mat BYOK-Schlëssel (Anthropic, OpenAI, Groq).",
+      "metaDescription": "tevaxia.lu KI-Assistent: Resultat-Analys, EVS-2025-Bericht, PDF-Extraktioun, Lëtzebuerger Immobilien-Chat. 5 gratis Analysen/Dag via Google Gemini, onlimitéiert mat BYOK-Schlëssel (Anthropic, OpenAI, Groq).",
       "subtitle": "All KI-Funktiounen vun tevaxia.lu a wéi se ze notzen, fir Zäit op Lëtzebuerger Immobilien ze spueren.",
       "category": "Produkt & KI",
       "essentiel": [
-        "5 gratis Analysen pro Dag pro ageloggte Konto, via Cerebras (GPT-OSS 120B), keng Kreditkaart erfuerderlech.",
-        "BYOK-Modus (Bring Your Own Key): Setzt Ären Anthropic-, OpenAI-, Groq- oder Cerebras-Schlëssel an /profil fir onlimitéiert Notzung.",
+        "5 gratis Analysen pro Dag pro ageloggte Konto, via Google Gemini (2.5 Flash), keng Kreditkaart erfuerderlech.",
+        "BYOK-Modus (Bring Your Own Key): Setzt Ären Anthropic-, OpenAI-, Groq- oder Gemini-Schlëssel an /profil fir onlimitéiert Notzung.",
         "4 Schlësselusage-Cases: Inline-Resultat-Analys, EVS-2025-Bericht-Redaktioun, PDF-Extraktioun (Visioun), Multi-tour LU-Immobilien-Chat.",
         "LU spezialiséiert Skills: LIR, TEGOVA EVS 2025, VEFA, Kopropriétéit, USALI Hotellerie, AML/KYC, Bëllegen Akt, 5%-Regel.",
         "Ëffentlech B2B-API: 3 Endpoints (analyze / chat / extract) mat tevaxia-Schlëssel zougänglech, Dokumentatioun op /api-docs."
@@ -10747,16 +10747,16 @@
       "section1Title": "Automatesch Analys vun de Resultater",
       "section1P1": "Op ongeféier zéng Tools (Schätzung, EVS-Valorisatioun, Promoter-Bilan, DCF multi-Baux, USALI-Hotel, E-2-Visa-Score, VEFA, Plus-value, Bien-Verglach, Kafen-géint-Lounen) erschéngt no all Berechnung e Knäppchen 'Mat der KI analyséieren'. D'KI kritt de komplette Kontext (Inputs an Resultater) a schreift e professionelle Kommentar: Präis-Diagnos, Risiko-Erkennung, Kohärenz vun de Ratioen géintiwwer de Lëtzebuerger Maartstandarden, Arbitrage-Empfehlungen.",
       "section1P2": "D'Prompts si spezialiséiert pro Beruff: d'Analys vun engem Promoter-Bilan zitéiert déi typesch Baulandkäschten-Quoten (10-20% vum Ëmsaz), déi vun engem P&L USALI vergläicht mat der erwaarter GOP-Marge pro Hotelkategorie (3* = 35-40%, 4* = 38-42%, 5* = 40-45%). D'KI notzt TEGOVA EVS 2025 Referenzen an aktuell STATEC-Koeffizienten fir d'Annahmen ze validéieren.",
-      "callout1Title": "Standardmodell: Cerebras GPT-OSS 120B",
-      "callout1Body": "De gratis Tier notzt Cerebras GPT-OSS 120B (séier, gratis, ausserhalb der EU gehost fir net-sensibel Analysen). Fir vertraulech Analysen (AML/KYC, nominell Donnéeën) bevorzugt Ären Anthropic- oder OpenAI-Schlëssel mat Entreprisevertrag a No-Training-Optioun.",
+      "callout1Title": "Standardmodell: Google Gemini 2.5 Flash",
+      "callout1Body": "De gratis Tier notzt Google Gemini 2.5 Flash (séier, gratis, ausserhalb der EU gehost). Opgepasst: am gratis Tier vun der Gemini-API kann Google d'Prompts an d'Äntwerten notzen fir seng Produiten ze verbesseren — notzt en nëmme fir net-sensibel Analysen. Fir vertraulech Analysen (AML/KYC, nominell Donnéeën) notzt Ären eegenen Anthropic- oder OpenAI-Schlëssel mat Entreprisevertrag a No-Training-Optioun, oder e bezuelte Gemini-Schlëssel, deen aus dem Training ausgeschloss ass.",
       "section2Title": "EVS-2025-Bericht-Redaktioun",
       "section2P1": "De Modus EVS-Bericht op der Säit /valorisation integréiert 8 Knäppercher 'Mat der KI schreiwen' nieft den narrative Felder (Lag, Ëmfeld, Ubannung, Justifikatioun vun de Methoden, Steierregime, ESG-Impakt, Reserven, Onsécherheet). All Knäppche generéiert e formellen Abschnitt, deen direkt an d'Feld geschriwwe gëtt, konform mat den TEGOVA-Normen an der Chart 5. Editioun, mat legalen Referenzen (Art. 102bis LIR, IVS 103, CRREM-Pfad).",
       "section2P2": "De Modus EVS-Challenger, op der Ongletbar Reconciliatioun, handelt als kritesche Verifizéierer: hie markéiert déi feelend Donnéeën, d'Inkohärenzen, déi anormal Ratioen an d'Risike vu Net-Konformitéit virun der Ënnerschrëft, mam Präfix [BLOCKÉIEREND], [GROUSS] oder [KLENG]. De generéierte Bericht bleift ënner der Verantwortung vum TEGOVA REV/TRV-Expert, dee den Bericht nokontrolléiert, korrigéiert an ënnerschreift.",
       "section3Title": "PDF-Extraktioun (BYOK gefrot)",
       "section3P1": "Fir e Formulaire virauszefëllen op Basis vun engem existéierenden Dokument (Promoter-Budget, notariellen Akt fir Plus-value, CPE-Zertifikat) lancéiert e Knäppchen 'Virfëllen aus PDF' eng Visiouns-Extraktioun iwwer Äre BYOK-Schlëssel: Anthropic (fir nativ PDF) oder OpenAI (fir gescannte Biller). De Modell gëtt e strukturéierte JSON zréck, deen d'Felder direkt fëllt.",
-      "section3P2": "Dës Funktioun brauch e BYOK-API-Schlëssel, well déi gratis Modeller Cerebras a Groq keng Visioun traitéieren. Limit vun 8 MB pro Datei. Aktuell verfügbar op /bilan-promoteur an /plus-values; déi aner Schemaen (CPE, Geschäftsmieten) ginn op Demande iwwer d'B2B-API ënnerstëtzt. tevaxia-Säiten déi PDF traitéieren kënnen op Demande erweidert ginn.",
+      "section3P2": "Dës Funktioun brauch e BYOK-API-Schlëssel vu Gemini, OpenAI oder Anthropic: d'Modeller vu Groq a Cerebras traitéieren keng Visioun. Gemini an Anthropic huelen PDF nativ un; OpenAI brauch e Bild (JPG/PNG). Limit vun 8 MB pro Datei. Aktuell verfügbar op /bilan-promoteur an /plus-values; déi aner Schemaen (CPE, Geschäftsmieten) ginn op Demande iwwer d'B2B-API ënnerstëtzt. tevaxia-Säiten déi PDF traitéieren kënnen op Demande erweidert ginn.",
       "callout2Title": "BYOK-Setup an 2 Minutten",
-      "callout2Body": "Gitt op /profil → Ongletbar KI → fügt Ären API-Schlëssel an (Anthropic, OpenAI, Groq, Cerebras). De Schlëssel gëtt server-säit verschlësselt an nëmme fir Är Ufroe benotzt. Dir kënnt e jee zréckruffen. Detailer iwwer ënnerstëtzt Modeller a Stéckkäschten op /profil/api.",
+      "callout2Body": "Gitt op /profil → Ongletbar KI → fügt Ären API-Schlëssel an (Anthropic, OpenAI, Groq, Google Gemini). De Schlëssel gëtt server-säit verschlësselt an nëmme fir Är Ufroe benotzt. Dir kënnt e jee zréckruffen. Detailer iwwer ënnerstëtzt Modeller a Stéckkäschten op /profil/api.",
       "section4Title": "KI-Chat an ëffentlech B2B-API",
       "section4P1": "E schwiewende Chat-Widget ënnen riets opent e fräie Gespréich mam Lëtzebuerger Immobilien-Assistent. Dir kënnt him transversal Froe stellen déi net an ee spezifescht Tool passen: 'wéi eng TVA op d'Renovatioun vun engem gemëschte Gebai uwenden?', 'wéi eng Majoritéit ass néideg fir d'Dachreparatur an der Kopropriétéit ze stëmmen?', 'wéi gëtt de Bëllegen Akt fir e net-residentent Koppel berechent?'. Den Assistent behält de Kontext iwwer méi Ronnen.",
       "section4P2": "Fir B2B-Integrateuren sinn dräi Endpoints zougänglech mat engem tevaxia-API-Schlëssel (Header X-API-Key) am Standard-Rate-Limit-Tarif: `/api/v1/ai/analyze` (Inline-Analys), `/api/v1/ai/chat` (Multi-tour), `/api/v1/ai/extract` (PDF-Extraktioun). Komplett Dokumentatioun, cURL-Beispiller a JS/Python-SDK op /api-docs. Fir héich Volumen oder spezifesch SLA, kontaktéiert eis fir en Enterprise-Tarif.",
@@ -10764,14 +10764,14 @@
       "callout3Body": "D'KI beschleunegt d'Schreiwen an d'Analys, ersetzt awer kee zertifizéierten Expert. Fir en EVS-Bericht fir eng Bank oder e Geriicht bleift den TEGOVA REV/TRV-Expert responsabel fir de gehalene Wäert a muss kontrolléieren, korrigéieren an ënnerschreiwen. Fir sensibel AML/KYC-Donnéeën, bevorzugt e BYOK-Schlëssel mat No-Training-Optioun. Schéckt ni Identitéitsdokumenter oder Bankdaten an der fräier Andréchnung.",
       "inlineCalc": {
         "title": "Aktivéiert Ären KI-Schlëssel (BYOK) an 2 Minutten",
-        "description": "Konfiguréiert Ären KI-Fournisseur (gratis Cerebras, Anthropic, OpenAI, Groq) an Ärem tevaxia-Profil fir d'onlimitéiert Notzung, d'PDF-Extraktioun an d'API z'aktivéieren.",
+        "description": "Konfiguréiert Ären KI-Fournisseur (gratis Google Gemini, Anthropic, OpenAI, Groq) an Ärem tevaxia-Profil fir d'onlimitéiert Notzung, d'PDF-Extraktioun an d'API z'aktivéieren.",
         "cta": "Mäi Profil opmaachen"
       },
       "tools": [
         {
           "href": "/profil",
           "title": "Mäi BYOK-Schlëssel konfiguréieren",
-          "description": "Anthropic, OpenAI, Groq, Cerebras — onlimitéiert Notzung."
+          "description": "Anthropic, OpenAI, Groq, Google Gemini — onlimitéiert Notzung."
         },
         {
           "href": "/api-docs",
@@ -10792,11 +10792,11 @@
       "faq": [
         {
           "q": "Ass d'tevaxia-KI wierklech gratis?",
-          "a": "Jo: 5 Analysen pro Dag pro ageloggte Notzer, keng Kreditkaart oder Abonnement. Doriwwer eraus, fügt Ären eegene Cerebras-, Groq-, OpenAI- oder Anthropic-Schlëssel an Ärem Profil fir onlimitéiert Notzung. De gratis Tier notzt Cerebras (GPT-OSS 120B) mat Groq-Fallback wann konfiguréiert."
+          "a": "Jo: 5 Analysen pro Dag pro ageloggte Notzer, keng Kreditkaart oder Abonnement. Doriwwer eraus, fügt Ären eegene Gemini-, Groq-, OpenAI- oder Anthropic-Schlëssel an Ärem Profil fir onlimitéiert Notzung. De gratis Tier notzt Google Gemini 2.5 Flash, mat automateschem Fallback op déi aner konfiguréiert Fournisseuren wann deen net verfügbar ass."
         },
         {
           "q": "Ginn meng Donnéeën un Drëtter geschéckt?",
-          "a": "Jo, d'Ufroe ginn iwwer de konfiguréierte KI-Fournisseur (Cerebras par défaut, oder Äre BYOK-Schlëssel). Déi geschéckte Kontexter enthalen nëmmen d'Inputs an d'Resultater vum aktuelle Kalkul, ni perséinlech Donnéeën dobausse dovun. Cerebras a Groq späicheren d'Prompts net fir d'Training. Fir héich Vertraulechkeet, bevorzugt Anthropic oder OpenAI mat Entreprise-No-Training-Vertrag."
+          "a": "Jo, d'Ufroe ginn iwwer de konfiguréierte KI-Fournisseur (Google Gemini par défaut, oder Äre BYOK-Schlëssel). Déi geschéckte Kontexter enthalen nëmmen d'Inputs an d'Resultater vum aktuelle Kalkul, ni perséinlech Donnéeën dobausse dovun. Wichteg: am gratis Tier vun der Gemini-API kann Google d'Prompts an d'Äntwerten notzen fir seng Produiten ze verbesseren; notzt en net fir vertraulech Donnéeën. Fir héich Vertraulechkeet, bevorzugt Anthropic oder OpenAI mat Entreprise-No-Training-Vertrag, oder e bezuelte Gemini-Schlëssel (aus dem Training ausgeschloss)."
         },
         {
           "q": "Kann d'KI en TEGOVA-zertifizéierten Expert ersetzen?",
@@ -10804,7 +10804,7 @@
         },
         {
           "q": "Wéi eng Modeller ginn am BYOK ënnerstëtzt?",
-          "a": "Anthropic (Claude 4.x — empfuelen fir PDF-Visioun an EVS-Redaktioun), OpenAI (GPT-4o, GPT-4 Turbo — gutt an Visioun), Groq (séier Llama 3.x), Cerebras (GPT-OSS 120B — gratis, Standard). 2-Klick-Setup an /profil. Stéckkäschten an Echtzäit ugewisen."
+          "a": "Anthropic (Claude 4.x — empfuelen fir PDF-Visioun an EVS-Redaktioun), OpenAI (GPT-4o, GPT-4 Turbo — gutt an Visioun), Groq (séier Llama 3.x), Google Gemini (2.5 Flash — gratis, Standard). 2-Klick-Setup an /profil. Stéckkäschten an Echtzäit ugewisen."
         },
         {
           "q": "Wéi gräifen ech op déi ëffentlech tevaxia-API zou?",
@@ -10833,9 +10833,9 @@
           "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
         },
         {
-          "title": "Cerebras Inference — Open-Weight-Modeller",
-          "org": "Cerebras Systems",
-          "url": "https://cerebras.ai/inference"
+          "title": "Gemini API — offiziell Dokumentatioun",
+          "org": "Google AI for Developers",
+          "url": "https://ai.google.dev/gemini-api/docs"
         },
         {
           "title": "Anthropic API — Claude fir PDF-Visioun",
@@ -10850,10 +10850,10 @@
     "desc": "Konfiguréiert den KI-Fournisseur fir d'automatesch Analyse vun Ären Berechnungsresultater.",
     "providerLabel": "Fournisseur",
     "apiKeyLabel": "API-Schlëssel",
-    "apiKeyHint": "Äre Schlëssel bleift um Server a gëtt ni clientsäiteg exponéiert. Eidel loossen fir de gratis Cerebras-Service ze benotzen.",
+    "apiKeyHint": "Äre Schlëssel bleift um Server a gëtt ni clientsäiteg exponéiert. Eidel loossen fir de gratis Gemini-Service ze benotzen.",
     "usageToday": "Analysen haut",
     "unlimited": "Onlimitéiert (perséinleche Schlëssel)",
-    "byokExplain": "Par défaut benotzt Tevaxia Cerebras (GPT-OSS 120B, 5 gratis Analysen/Dag). Fir onlimitéiert Notzung oder en anere Modell, füügt Äre eegene API-Schlëssel derbäi (BYOK). Kritt en op der Websäit vum gewielte Fournisseur.",
+    "byokExplain": "Par défaut benotzt Tevaxia Google Gemini (2.5 Flash, 5 gratis Analysen/Dag). Fir onlimitéiert Notzung oder en anere Modell, füügt Äre eegene API-Schlëssel derbäi (BYOK). Kritt en op der Websäit vum gewielte Fournisseur.",
     "byokActive": "Perséinleche Schlëssel aktiv",
     "freeTier": "Gratis (5/Dag)",
     "loading": "Lueden...",
@@ -10871,7 +10871,7 @@
     "retry": "Nach eng Kéier probéieren",
     "reanalyze": "Analyse nei starten",
     "remaining": "{count, plural, =0 {Kontingent opgebraucht — setzt Ären API-Schlëssel an Ärem Profil derbäi} one {# Analyse haut iwwreg} other {# Analysen haut iwwreg}}",
-    "disclaimer": "Analyse generéiert duerch KI (GPT-OSS 120B iwwer Cerebras/Groq oder Äert eegent Modell). Nëmme fir Informatiounszwecker — ersetzt keen zertifizéiert Sachverständegegutachten."
+    "disclaimer": "Analyse generéiert duerch KI (Gemini 2.5 Flash iwwer Google Gemini/Groq oder Äert eegent Modell). Nëmme fir Informatiounszwecker — ersetzt keen zertifizéiert Sachverständegegutachten."
   },
   "dashboardHero": {
     "welcome": "Wëllkomm",
@@ -12429,7 +12429,7 @@
     "ai": {
       "title": "IA-Endpoints — Analyse & Chat",
       "intro": "Zwee IA-Endpoints accessibel mat Ärem tevaxia API-Schlëssel (Standard-Rate-Limit):",
-      "footer": "De Server benotzt par défaut Cerebras (GPT-OSS 120B, Fallback Groq Llama 3.3). Wann Dir e BYOK OpenAI/Anthropic-Schlëssel an Ärem Profil konfiguréiert hutt, gëtt dësen automatesch benotzt. Limitt: Rate-Limit-Stuff vun Ärem API-Schlëssel (Free: 10/Min, 200/Dag)."
+      "footer": "De Server probéiert déi gratis Fournisseuren an dëser Reiefolleg: Google Gemini 2.5 Flash, duerno Groq a Cerebras wann hir Schlëssele konfiguréiert sinn — bei engem Feeler gëtt automatesch den nächsten geholl. Wann Dir e BYOK-Schlëssel an Ärem Profil konfiguréiert hutt, huet dësen Virrang. Limitt: Rate-Limit-Stuff vun Ärem API-Schlëssel (Free: 10/Min, 200/Dag)."
     },
     "example": {
       "title": "JavaScript-Beispill (Batch)"

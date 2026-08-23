@@ -6,21 +6,30 @@ import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/components/AuthProvider";
 
 interface AiPrefs {
-  ai_provider: "cerebras" | "groq" | "openai" | "anthropic";
+  ai_provider: "gemini" | "cerebras" | "groq" | "openai" | "anthropic";
   ai_api_key_encrypted: string;
 }
 
 const PROVIDERS = [
-  { value: "cerebras", label: "Cerebras (GPT-OSS 120B — gratuit, ultra-rapide)" },
+  { value: "gemini", label: "Google Gemini (2.5 Flash — gratuit, vision PDF)" },
+  { value: "cerebras", label: "Cerebras (GPT-OSS 120B — payant depuis la migration PayGo)" },
   { value: "groq", label: "Groq (Llama 3.3 70B — gratuit)" },
   { value: "openai", label: "OpenAI (GPT-4o)" },
   { value: "anthropic", label: "Anthropic (Claude)" },
 ] as const;
 
+const KEY_PLACEHOLDERS: Record<AiPrefs["ai_provider"], string> = {
+  gemini: "AIza...",
+  cerebras: "csk-...",
+  groq: "gsk_...",
+  openai: "sk-...",
+  anthropic: "sk-ant-...",
+};
+
 export default function AiSettingsSection() {
   const t = useTranslations("aiSettings");
   const { user } = useAuth();
-  const [prefs, setPrefs] = useState<AiPrefs>({ ai_provider: "cerebras", ai_api_key_encrypted: "" });
+  const [prefs, setPrefs] = useState<AiPrefs>({ ai_provider: "gemini", ai_api_key_encrypted: "" });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -114,7 +123,7 @@ export default function AiSettingsSection() {
                 setPrefs((p) => ({ ...p, ai_api_key_encrypted: e.target.value }));
                 setSaved(false);
               }}
-              placeholder={prefs.ai_provider === "cerebras" ? "csk-..." : prefs.ai_provider === "groq" ? "gsk_..." : prefs.ai_provider === "openai" ? "sk-..." : "sk-ant-..."}
+              placeholder={KEY_PLACEHOLDERS[prefs.ai_provider]}
               className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm font-mono shadow-sm focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
             />
             <p className="mt-1 text-xs text-muted">{t("apiKeyHint")}</p>

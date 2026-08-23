@@ -73,7 +73,7 @@ async function resolveAuth(request: Request): Promise<AuthContext | null> {
 }
 
 interface AiSettings {
-  ai_provider: "cerebras" | "groq" | "openai" | "anthropic";
+  ai_provider: "gemini" | "cerebras" | "groq" | "openai" | "anthropic";
   ai_api_key_encrypted: string | null;
   daily_usage: number;
   last_usage_date: string;
@@ -99,7 +99,7 @@ async function incrementUsage(userId: string, settings: AiSettings | null): Prom
 
   await client.from("user_ai_settings").upsert({
     user_id: userId,
-    ai_provider: settings?.ai_provider ?? "cerebras",
+    ai_provider: settings?.ai_provider ?? "gemini",
     ai_api_key_encrypted: settings?.ai_api_key_encrypted ?? null,
     daily_usage: newUsage,
     last_usage_date: today,
@@ -140,6 +140,9 @@ const callCerebras = (apiKey: string, model: string, context: string, prompt: st
   callOpenAICompatible("https://api.cerebras.ai/v1/chat/completions", apiKey, model, context, prompt);
 const callGroq = (apiKey: string, model: string, context: string, prompt: string) =>
   callOpenAICompatible("https://api.groq.com/openai/v1/chat/completions", apiKey, model, context, prompt);
+// Gemini expose un endpoint OpenAI-compatible : même helper, autre base URL.
+const callGemini = (apiKey: string, model: string, context: string, prompt: string) =>
+  callOpenAICompatible("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", apiKey, model, context, prompt);
 
 async function callOpenAI(apiKey: string, model: string, context: string, prompt: string) {
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -188,7 +191,33 @@ async function callAnthropic(apiKey: string, model: string, context: string, pro
   return data.content?.[0]?.text ?? "";
 }
 
+function callProvider(provider: string, apiKey: string, model: string, context: string, prompt: string) {
+  switch (provider) {
+    case "openai": return callOpenAI(apiKey, model, context, prompt);
+    case "anthropic": return callAnthropic(apiKey, model, context, prompt);
+    case "groq": return callGroq(apiKey, model, context, prompt);
+    case "cerebras": return callCerebras(apiKey, model, context, prompt);
+    default: return callGemini(apiKey, model, context, prompt);
+  }
+}
+
+// Tier gratuit : chaîne de repli, essayée dans l'ordre. Gemini d'abord (seul
+// tier réellement gratuit, sans carte bancaire) ; les suivants ne sont tentés
+// que si leur clé serveur est configurée. Ajouter un fournisseur = une ligne.
+const FREE_TIER_CHAIN: { provider: string; env: string }[] = [
+  { provider: "gemini", env: "GEMINI_API_KEY" },
+  { provider: "groq", env: "GROQ_API_KEY" },
+  { provider: "cerebras", env: "CEREBRAS_API_KEY" },
+];
+
+function resolveFreeTierChain(): { provider: string; apiKey: string }[] {
+  return FREE_TIER_CHAIN
+    .map((c) => ({ provider: c.provider, apiKey: process.env[c.env] }))
+    .filter((c): c is { provider: string; apiKey: string } => !!c.apiKey);
+}
+
 const DEFAULT_MODELS: Record<string, string> = {
+  gemini: "gemini-2.5-flash",
   cerebras: "gpt-oss-120b",
   groq: "llama-3.3-70b-versatile",
   openai: "gpt-4o-mini",
@@ -236,29 +265,23 @@ export async function POST(request: Request) {
     const settings = await getAiSettings(userId);
     const hasByok = !!settings?.ai_api_key_encrypted;
 
-    let provider = (body.provider ?? settings?.ai_provider ?? "cerebras") as string;
+    let provider = (body.provider ?? settings?.ai_provider ?? "gemini") as string;
     let apiKey: string | null = null;
+    const freeChain = hasByok ? [] : resolveFreeTierChain();
 
     if (hasByok && settings?.ai_api_key_encrypted) {
       // BYOK: use stored key (stored as plain text in this v1 — encryption note below)
       apiKey = settings.ai_api_key_encrypted;
       provider = settings.ai_provider;
+    } else if (freeChain.length > 0) {
+      // Tier gratuit : premier fournisseur disponible de la chaîne (Gemini par défaut)
+      provider = freeChain[0].provider;
+      apiKey = freeChain[0].apiKey;
     } else {
-      // Free tier: prefer Cerebras (open signups), fallback to Groq if configured
-      const cerebrasKey = process.env.CEREBRAS_API_KEY;
-      const groqKey = process.env.GROQ_API_KEY;
-      if (cerebrasKey) {
-        provider = "cerebras";
-        apiKey = cerebrasKey;
-      } else if (groqKey) {
-        provider = "groq";
-        apiKey = groqKey;
-      } else {
-        return NextResponse.json(
-          { error: "Service IA temporairement indisponible (clé serveur non configurée)" },
-          { status: 503, headers: CORS_HEADERS },
-        );
-      }
+      return NextResponse.json(
+        { error: "Service IA temporairement indisponible (clé serveur non configurée)" },
+        { status: 503, headers: CORS_HEADERS },
+      );
     }
 
     // ── Rate limit (JWT free tier only — API keys already rate-limited by tier) ──
@@ -276,47 +299,40 @@ export async function POST(request: Request) {
     }
 
     // ── Call LLM ──
-    let model = body.model ?? DEFAULT_MODELS[provider] ?? DEFAULT_MODELS.cerebras;
-    let text: string;
+    let model = body.model ?? DEFAULT_MODELS[provider] ?? DEFAULT_MODELS.gemini;
+    let text: string | null = null;
+    let lastError: unknown = null;
 
-    try {
-      switch (provider) {
-        case "openai":
-          text = await callOpenAI(apiKey!, model, context, prompt);
-          break;
-        case "anthropic":
-          text = await callAnthropic(apiKey!, model, context, prompt);
-          break;
-        case "groq":
-          text = await callGroq(apiKey!, model, context, prompt);
-          break;
-        default:
-          text = await callCerebras(apiKey!, model, context, prompt);
-          provider = "cerebras";
-          break;
+    if (hasByok) {
+      try {
+        text = await callProvider(provider, apiKey!, model, context, prompt);
+      } catch (err) {
+        lastError = err;
       }
-    } catch (err) {
-      // Tier gratuit : si Cerebras échoue (compte suspendu, modèle retiré…), bascule sur Groq
-      const groqKey = process.env.GROQ_API_KEY;
-      if (!hasByok && provider === "cerebras" && groqKey) {
+    } else {
+      // Tier gratuit : on parcourt la chaîne jusqu'à ce qu'un fournisseur réponde
+      // (compte suspendu, quota épuisé, modèle retiré du catalogue…). Le modèle
+      // demandé explicitement ne vaut que pour la première tentative : les replis
+      // utilisent le modèle par défaut de LEUR fournisseur.
+      for (const [i, candidate] of freeChain.entries()) {
         try {
-          model = DEFAULT_MODELS.groq;
-          text = await callGroq(groqKey, model, context, prompt);
-          provider = "groq";
-        } catch (err2) {
-          const message = err2 instanceof Error ? err2.message : "Erreur API LLM";
-          return NextResponse.json(
-            { error: `Erreur du fournisseur IA : ${message}` },
-            { status: 502, headers: CORS_HEADERS },
-          );
+          model = (i === 0 ? body.model : undefined) ?? DEFAULT_MODELS[candidate.provider] ?? model;
+          text = await callProvider(candidate.provider, candidate.apiKey, model, context, prompt);
+          provider = candidate.provider;
+          lastError = null;
+          break;
+        } catch (err) {
+          lastError = err;
         }
-      } else {
-        const message = err instanceof Error ? err.message : "Erreur API LLM";
-        return NextResponse.json(
-          { error: `Erreur du fournisseur IA : ${message}` },
-          { status: 502, headers: CORS_HEADERS },
-        );
       }
+    }
+
+    if (text === null) {
+      const message = lastError instanceof Error ? lastError.message : "Erreur API LLM";
+      return NextResponse.json(
+        { error: `Erreur du fournisseur IA : ${message}` },
+        { status: 502, headers: CORS_HEADERS },
+      );
     }
 
     // ── Increment usage (JWT free tier) ──

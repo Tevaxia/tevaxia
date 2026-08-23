@@ -33,6 +33,9 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# …sauf le modèle, qui ne contient que des placeholders et documente les
+# variables attendues (notamment la chaîne de fournisseurs IA).
+!.env.example
 
 # vercel
 .vercel

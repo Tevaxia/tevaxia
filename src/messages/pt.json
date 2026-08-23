@@ -10734,12 +10734,12 @@
     },
     "iaTevaxia": {
       "title": "Como usar a IA em tevaxia.lu: guia completo 2026",
-      "metaDescription": "Assistente IA tevaxia.lu: análise de resultados, redação EVS 2025, extração de PDF, chat imobiliário luxemburguês. 5 análises gratuitas/dia via Cerebras, ilimitado com chave BYOK (Anthropic, OpenAI, Groq).",
+      "metaDescription": "Assistente IA tevaxia.lu: análise de resultados, redação EVS 2025, extração de PDF, chat imobiliário luxemburguês. 5 análises gratuitas/dia via Google Gemini, ilimitado com chave BYOK (Anthropic, OpenAI, Groq).",
       "subtitle": "Todas as funcionalidades de IA da tevaxia.lu e como tirar partido delas para ganhar tempo no imobiliário luxemburguês.",
       "category": "Produto & IA",
       "essentiel": [
-        "5 análises gratuitas por dia por conta autenticada, via Cerebras (GPT-OSS 120B), sem cartão de crédito.",
-        "Modo BYOK (Bring Your Own Key): adicione a sua chave Anthropic, OpenAI, Groq ou Cerebras em /profil para uso ilimitado.",
+        "5 análises gratuitas por dia por conta autenticada, via Google Gemini (2.5 Flash), sem cartão de crédito.",
+        "Modo BYOK (Bring Your Own Key): adicione a sua chave Anthropic, OpenAI, Groq ou Google Gemini em /profil para uso ilimitado.",
         "4 casos de uso-chave: análise inline de resultados, redação de relatório EVS 2025, extração de PDF (visão), chat imobiliário LU multi-turno.",
         "Competências especializadas LU: LIR, TEGOVA EVS 2025, VEFA, copropriedade, USALI hotelaria, AML/KYC, Bëllegen Akt, regra dos 5%.",
         "API pública B2B: 3 endpoints (analyze / chat / extract) acessíveis com chave tevaxia, documentação em /api-docs."
@@ -10747,16 +10747,16 @@
       "section1Title": "Análise automática dos resultados",
       "section1P1": "Em cerca de dez ferramentas (estimativa, valorização EVS, balanço do promotor, DCF multi-arrendamento, hotel USALI, score visto E-2, VEFA, mais-valias, comparação de imóveis, comprar vs arrendar), aparece um botão 'Analisar com a IA' após cada cálculo. A IA recebe o contexto completo (entradas e resultados) e redige um comentário profissional: diagnóstico do nível de preço, identificação de riscos, coerência dos rácios face aos padrões do mercado LU, recomendações de arbitragem.",
       "section1P2": "Os prompts são especializados por domínio: a análise de um balanço de promotor cita os rácios típicos de custo fundiário (10-20% do volume de negócios), a de um P&L USALI compara com a margem GOP esperada por categoria de hotel (3* = 35-40%, 4* = 38-42%, 5* = 40-45%). A IA usa as referências TEGOVA EVS 2025 e os coeficientes STATEC atualizados para validar pressupostos.",
-      "callout1Title": "Modelo predefinido: Cerebras GPT-OSS 120B",
-      "callout1Body": "O tier gratuito usa Cerebras GPT-OSS 120B (rápido, gratuito, alojado fora da UE para análises não sensíveis). Para análises confidenciais (AML/KYC, dados nominativos), prefira a sua chave Anthropic ou OpenAI com contrato empresarial e opção no-training.",
+      "callout1Title": "Modelo predefinido: Google Gemini 2.5 Flash",
+      "callout1Body": "O tier gratuito usa Google Gemini 2.5 Flash (rápido, gratuito, alojado fora da UE). Atenção: no tier gratuito da API Gemini, a Google pode usar os prompts e as respostas para melhorar os seus produtos — reserve-o para análises não sensíveis. Para análises confidenciais (AML/KYC, dados nominativos), use a sua própria chave Anthropic ou OpenAI com contrato empresarial e opção no-training, ou uma chave Gemini paga, excluída do treino.",
       "section2Title": "Redação do relatório EVS 2025",
       "section2P1": "O modo Relatório EVS da página /valorisation integra 8 botões 'Redigir com a IA' colocados junto aos campos narrativos (localização, envolvente, acessibilidade, justificação dos métodos, regime fiscal, impacto ESG, reservas, incerteza). Cada botão gera um parágrafo formal injetado diretamente no campo, conforme às normas TEGOVA e à Carta 5.ª edição, com referências legais (art. 102bis LIR, IVS 103, pathway CRREM).",
       "section2P2": "O modo Challenger EVS, no separador Reconciliação, atua como auditor crítico: assinala os dados em falta, as incoerências, os rácios anormais e os riscos de não conformidade antes da assinatura, com os prefixos [BLOQUEANTE], [GRAVE] ou [MENOR]. O relatório gerado permanece sob responsabilidade do perito TEGOVA REV/TRV que o relê, corrige e assina.",
       "section3Title": "Extração a partir de PDF (BYOK obrigatório)",
       "section3P1": "Para pré-preencher um formulário a partir de um documento existente (balanço previsional de promotor, escritura notarial de mais-valia, certificado CPE), um botão 'Pré-preencher a partir de PDF' lança uma extração por visão através da sua chave BYOK: Anthropic (para PDF nativos) ou OpenAI (para imagens digitalizadas). O modelo devolve um JSON estruturado que alimenta diretamente os campos do formulário.",
-      "section3P2": "Esta funcionalidade exige uma chave API BYOK, pois os modelos gratuitos Cerebras e Groq não tratam visão. Limite de 8 MB por ficheiro. Disponível atualmente em /bilan-promoteur e /plus-values; os outros esquemas (CPE, arrendamentos comerciais) são suportados pela API B2B mediante pedido. Páginas tevaxia que tratem de PDF podem ser estendidas mediante pedido.",
+      "section3P2": "Esta funcionalidade exige uma chave API BYOK Gemini, OpenAI ou Anthropic: os modelos Groq e Cerebras não tratam visão. Gemini e Anthropic aceitam PDF nativamente; OpenAI exige uma imagem (JPG/PNG). Limite de 8 MB por ficheiro. Disponível atualmente em /bilan-promoteur e /plus-values; os outros esquemas (CPE, arrendamentos comerciais) são suportados pela API B2B mediante pedido. Páginas tevaxia que tratem de PDF podem ser estendidas mediante pedido.",
       "callout2Title": "Configuração BYOK em 2 minutos",
-      "callout2Body": "Vá a /profil → separador IA → cole a sua chave API (Anthropic, OpenAI, Groq, Cerebras). A chave é cifrada do lado servidor e usada apenas para os seus pedidos. Pode revogá-la a qualquer momento. Detalhes sobre modelos suportados e custos unitários em /profil/api.",
+      "callout2Body": "Vá a /profil → separador IA → cole a sua chave API (Anthropic, OpenAI, Groq, Google Gemini). A chave é cifrada do lado servidor e usada apenas para os seus pedidos. Pode revogá-la a qualquer momento. Detalhes sobre modelos suportados e custos unitários em /profil/api.",
       "section4Title": "Chat IA e API pública B2B",
       "section4P1": "Um widget de chat flutuante no canto inferior direito abre uma conversa livre com o assistente imobiliário luxemburguês. Pode colocar-lhe questões transversais que não cabem numa ferramenta específica: 'que IVA aplicar à renovação de um imóvel misto?', 'que maioria para votar a reparação do telhado em copropriedade?', 'como se calcula o Bëllegen Akt para um casal não residente?'. O assistente mantém o contexto ao longo de várias interações.",
       "section4P2": "Para integradores B2B, três endpoints estão acessíveis com chave API tevaxia (cabeçalho X-API-Key) no tier rate-limit padrão: `/api/v1/ai/analyze` (análise inline), `/api/v1/ai/chat` (multi-turno), `/api/v1/ai/extract` (extração de PDF). Documentação completa, exemplos cURL e SDK JS/Python em /api-docs. Para volumes elevados ou SLA específico, contacte-nos para um tier empresarial.",
@@ -10764,14 +10764,14 @@
       "callout3Body": "A IA acelera a redação e a análise, mas não substitui um perito certificado. Para um relatório EVS destinado a um banco ou tribunal, o perito TEGOVA REV/TRV mantém-se responsável pelo valor retido e deve relê-lo, corrigi-lo e assiná-lo. Para dados AML/KYC sensíveis, prefira uma chave BYOK com opção no-training. Nunca envie documentos de identificação ou IBAN em entrada livre.",
       "inlineCalc": {
         "title": "Ative a sua chave de IA (BYOK) em 2 minutos",
-        "description": "Configure o seu fornecedor de IA (Cerebras gratuito, Anthropic, OpenAI, Groq) no seu perfil tevaxia para desbloquear o uso ilimitado, a extração de PDF e a API.",
+        "description": "Configure o seu fornecedor de IA (Google Gemini gratuito, Anthropic, OpenAI, Groq) no seu perfil tevaxia para desbloquear o uso ilimitado, a extração de PDF e a API.",
         "cta": "Abrir o meu perfil"
       },
       "tools": [
         {
           "href": "/profil",
           "title": "Configurar a minha chave BYOK",
-          "description": "Anthropic, OpenAI, Groq, Cerebras — uso ilimitado."
+          "description": "Anthropic, OpenAI, Groq, Google Gemini — uso ilimitado."
         },
         {
           "href": "/api-docs",
@@ -10792,11 +10792,11 @@
       "faq": [
         {
           "q": "A IA tevaxia é mesmo gratuita?",
-          "a": "Sim: 5 análises por dia por utilizador autenticado, sem cartão de crédito nem subscrição. Para além disso, adicione a sua própria chave Cerebras, Groq, OpenAI ou Anthropic no seu perfil para uso ilimitado. O tier gratuito usa Cerebras (GPT-OSS 120B) com fallback Groq se configurado."
+          "a": "Sim: 5 análises por dia por utilizador autenticado, sem cartão de crédito nem subscrição. Para além disso, adicione a sua própria chave Gemini, Groq, OpenAI ou Anthropic no seu perfil para uso ilimitado. O tier gratuito usa Google Gemini 2.5 Flash, com fallback automático para os outros fornecedores configurados se este estiver indisponível."
         },
         {
           "q": "Os meus dados são enviados a terceiros?",
-          "a": "Sim, os pedidos passam pelo fornecedor de IA configurado (Cerebras por omissão, ou a sua chave BYOK). Os contextos enviados contêm apenas as entradas e resultados do cálculo em curso, nunca dados pessoais fora desse âmbito. Cerebras e Groq não armazenam os prompts para treino. Para confidencialidade forte, prefira Anthropic ou OpenAI com contrato empresarial no-training."
+          "a": "Sim, os pedidos passam pelo fornecedor de IA configurado (Google Gemini por omissão, ou a sua chave BYOK). Os contextos enviados contêm apenas as entradas e resultados do cálculo em curso, nunca dados pessoais fora desse âmbito. Importante: no tier gratuito da API Gemini, a Google pode usar os prompts e as respostas para melhorar os seus produtos; não o use para dados confidenciais. Para confidencialidade forte, prefira Anthropic ou OpenAI com contrato empresarial no-training, ou uma chave Gemini paga (excluída do treino)."
         },
         {
           "q": "A IA pode substituir um perito certificado TEGOVA?",
@@ -10804,7 +10804,7 @@
         },
         {
           "q": "Que modelos são suportados em BYOK?",
-          "a": "Anthropic (Claude 4.x — recomendado para visão PDF e redação EVS), OpenAI (GPT-4o, GPT-4 Turbo — bom em visão), Groq (Llama 3.x rápido), Cerebras (GPT-OSS 120B — gratuito, predefinido). Configuração em 2 cliques em /profil. Custos unitários exibidos em tempo real."
+          "a": "Anthropic (Claude 4.x — recomendado para visão PDF e redação EVS), OpenAI (GPT-4o, GPT-4 Turbo — bom em visão), Groq (Llama 3.x rápido), Google Gemini (2.5 Flash — gratuito, predefinido). Configuração em 2 cliques em /profil. Custos unitários exibidos em tempo real."
         },
         {
           "q": "Como aceder à API pública tevaxia?",
@@ -10833,9 +10833,9 @@
           "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
         },
         {
-          "title": "Cerebras Inference — modelos open-weights",
-          "org": "Cerebras Systems",
-          "url": "https://cerebras.ai/inference"
+          "title": "API Gemini — documentação oficial",
+          "org": "Google AI for Developers",
+          "url": "https://ai.google.dev/gemini-api/docs"
         },
         {
           "title": "API Anthropic — Claude para visão PDF",
@@ -10850,10 +10850,10 @@
     "desc": "Configure o fornecedor IA para análise automática dos seus resultados de cálculo.",
     "providerLabel": "Fornecedor",
     "apiKeyLabel": "Chave API",
-    "apiKeyHint": "A sua chave fica no servidor e nunca é exposta do lado do cliente. Deixe vazio para utilizar o serviço gratuito Cerebras.",
+    "apiKeyHint": "A sua chave fica no servidor e nunca é exposta do lado do cliente. Deixe vazio para utilizar o serviço gratuito Google Gemini.",
     "usageToday": "Análises hoje",
     "unlimited": "Ilimitado (chave pessoal)",
-    "byokExplain": "Por defeito, o Tevaxia utiliza Cerebras (GPT-OSS 120B, 5 análises gratuitas/dia). Para uso ilimitado ou outro modelo, adicione a sua própria chave API (BYOK). Obtenha-a no site do fornecedor escolhido.",
+    "byokExplain": "Por defeito, o Tevaxia utiliza Google Gemini (2.5 Flash, 5 análises gratuitas/dia). Para uso ilimitado ou outro modelo, adicione a sua própria chave API (BYOK). Obtenha-a no site do fornecedor escolhido.",
     "byokActive": "Chave pessoal ativa",
     "freeTier": "Gratuito (5/dia)",
     "loading": "A carregar...",
@@ -10871,7 +10871,7 @@
     "retry": "Tentar novamente",
     "reanalyze": "Relançar análise",
     "remaining": "{count, plural, =0 {Quota esgotada — adicione a sua chave API no seu perfil} one {# análise restante hoje} other {# análises restantes hoje}}",
-    "disclaimer": "Análise gerada por IA (GPT-OSS 120B via Cerebras/Groq ou o seu próprio modelo). Apenas para fins informativos — não substitui um parecer de perito certificado."
+    "disclaimer": "Análise gerada por IA (Gemini 2.5 Flash via Google ou o seu próprio modelo). Apenas para fins informativos — não substitui um parecer de perito certificado."
   },
   "dashboardHero": {
     "welcome": "Bem-vindo",
@@ -12429,7 +12429,7 @@
     "ai": {
       "title": "Endpoints IA — análise & chat",
       "intro": "Dois endpoints IA acessíveis com a sua chave API tevaxia (rate-limit tier standard):",
-      "footer": "O servidor usa por defeito Cerebras (GPT-OSS 120B, fallback Groq Llama 3.3). Se configurou uma chave BYOK OpenAI/Anthropic no seu perfil, será usada automaticamente. Limite: rate-limit tier da sua chave API (Free: 10/min, 200/dia)."
+      "footer": "O servidor tenta os fornecedores gratuitos por ordem: Google Gemini 2.5 Flash, depois Groq e Cerebras se as suas chaves estiverem configuradas — passa automaticamente ao seguinte em caso de falha. Se configurou uma chave BYOK no seu perfil, esta tem prioridade. Limite: rate-limit tier da sua chave API (Free: 10/min, 200/dia)."
     },
     "example": {
       "title": "Exemplo JavaScript (batch)"
