@@ -12889,11 +12889,11 @@
     "kpi": {
       "evaluations": "Gespäichert Bewäertungen",
       "rentalLots": "Locatiounsloter",
-      "activeMandates": "Aktiv Mandater",
+      "activeMandates": "Lafend Mandater no Status",
       "activeShareLinks": "Aktiv Deelungslinks",
       "patrimoine": "Kumuléiert Bewäertungswäert",
       "viewPortfolio": "Portfolio kucken →",
-      "commissions": "Erhaalt Provisiounen (geschloss Verkäf)",
+      "commissions": "Erfaasst kritt Kommissiounen",
       "salesClosed": "{n} geschlossen Verkaf/Verkäf",
       "shareLinkViews": "Kumuléiert Deelungslink-Vuen",
       "viewAnalytics": "Analytics kucken →"
@@ -12921,7 +12921,13 @@
       "str": "STR / Airbnb",
       "portfolio": "Portfolio"
     },
-    "archiveError": "D’Luede oder d’Ännerung konnt net bestätegt ginn. Déi ugewisen Donnéeë kënnen eng lokal Kopie sinn. Probéiert nach eng Kéier, ier Dir Iech drop verlooss."
+    "archiveError": "D’Luede oder d’Ännerung konnt net bestätegt ginn. Déi ugewisen Donnéeë kënnen eng lokal Kopie sinn. Probéiert nach eng Kéier, ier Dir Iech drop verlooss.",
+    "dataError": "Verschidden Date sinn net disponibel. E Stréch bedeit net null.",
+    "retry": "Nach eng Kéier probéieren",
+    "unavailable": "Daten net disponibel",
+    "propertyEstimates": "Gespäichert Immobiliebewäertungen",
+    "propertyEstimateNote": "Gespäichert Berechnungen, keng eenzel Immobilien.",
+    "commissionNote": "Bei enger feelender Kommissioun ass den Total net disponibel."
   },
   "strHub": {
     "meta": {

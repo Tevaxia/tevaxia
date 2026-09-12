@@ -12889,11 +12889,11 @@
     "kpi": {
       "evaluations": "Avaliacoes guardadas",
       "rentalLots": "Lotes locativos",
-      "activeMandates": "Mandatos ativos",
+      "activeMandates": "Mandatos em curso por estado",
       "activeShareLinks": "Links partilhados ativos",
       "patrimoine": "Valor cumulativo avaliacoes",
       "viewPortfolio": "Ver portfolio →",
-      "commissions": "Comissoes recebidas (vendas fechadas)",
+      "commissions": "Comissões recebidas registadas",
       "salesClosed": "{n} venda(s) fechada(s)",
       "shareLinkViews": "Visualizacoes cumulativas links",
       "viewAnalytics": "Ver analytics →"
@@ -12921,7 +12921,13 @@
       "str": "STR / Airbnb",
       "portfolio": "Portfolio"
     },
-    "archiveError": "Não foi possível confirmar o carregamento ou a alteração. Os dados apresentados podem ser uma cópia local. Tente novamente antes de os utilizar."
+    "archiveError": "Não foi possível confirmar o carregamento ou a alteração. Os dados apresentados podem ser uma cópia local. Tente novamente antes de os utilizar.",
+    "dataError": "Alguns dados estão indisponíveis. Um travessão não significa zero.",
+    "retry": "Tentar novamente",
+    "unavailable": "Dados indisponíveis",
+    "propertyEstimates": "Avaliações imobiliárias guardadas",
+    "propertyEstimateNote": "Cálculos guardados, não imóveis distintos.",
+    "commissionNote": "Uma comissão em falta torna o total indisponível."
   },
   "strHub": {
     "meta": {

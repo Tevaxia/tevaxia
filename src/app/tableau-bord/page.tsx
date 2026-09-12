@@ -4,12 +4,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
-import { isSupabaseConfigured, supabase } from "@/lib/supabase";
+import { loadBusinessDashboard, summarizeMandates, propertyEstimateCount, type BusinessDashboard } from "@/lib/business-dashboard";
 import { listOwnedSharedLinks, type OwnedSharedLink as SharedLink } from "@/lib/owned-shared-links";
-import { listMyMandates, type AgencyMandate } from "@/lib/agency-mandates";
-import { listMyActivity, type ActivityEntry } from "@/lib/activity-log";
 import { listerEvaluationsAsync, type SavedValuation } from "@/lib/storage";
-import { formatEUR } from "@/lib/calculations";
 import { SkeletonStat, SkeletonText } from "@/components/Skeleton";
 
 export default function DashboardPage() {
@@ -19,11 +16,11 @@ export default function DashboardPage() {
 }
 
 function DashboardPageContent() {
-  const { user: valuationUser } = useAuth();
   const t = useTranslations("dashboardPage");
   const locale = useLocale();
   const lp = locale === "fr" ? "" : `/${locale}`;
-  const dateLocale = locale === "fr" ? "fr-FR" : locale;
+  const dateLocale = locale === "fr" ? "fr-FR" : locale === "lb" ? "de-LU" : locale;
+  const money = (value: number) => new Intl.NumberFormat(dateLocale, {style:"currency", currency:"EUR", minimumFractionDigits:2, maximumFractionDigits:2}).format(value);
 
   const fmtDate = (s: string): string =>
     new Date(s).toLocaleDateString(dateLocale, { day: "2-digit", month: "short", year: "numeric" });
@@ -35,47 +32,37 @@ function DashboardPageContent() {
   const [links, setLinks] = useState<SharedLink[]>([]);
   const [linksFailed,setLinksFailed]=useState(false);
   const linkText=useTranslations("ownedLinks");
-  const [mandates, setMandates] = useState<AgencyMandate[]>([]);
-  const [activity, setActivity] = useState<ActivityEntry[]>([]);
-  const [rentalLotsCount, setRentalLotsCount] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [business,setBusiness]=useState<BusinessDashboard>({mandates:null,activity:null,rentalLots:null});
+  const [loading,setLoading]=useState(Boolean(user));
+  const [attempt,setAttempt]=useState(0);
+  const owner=user?.id;
+  const [clock,setClock]=useState(()=>Date.now());
+  useEffect(()=>{const timer=setInterval(()=>setClock(Date.now()),30000);return()=>clearInterval(timer);},[]);
 
-  useEffect(()=>{let active=true;listerEvaluationsAsync(valuationUser?.id??null).then(({items,cloudError})=>{if(active){setEvals(items);setArchiveError(cloudError);setArchiveLoaded(true);}}).catch(()=>{if(active){setArchiveError(true);setArchiveLoaded(true);}});return()=>{active=false;};},[valuationUser?.id]);
+  useEffect(()=>{
+    if(!owner)return;
+    let active=true;
+    listerEvaluationsAsync(owner).then(({items,cloudError})=>{if(active){setEvals(items);setArchiveError(cloudError);setArchiveLoaded(true);}}).catch(()=>{if(active){setArchiveError(true);setArchiveLoaded(true);}});
+    return()=>{active=false;};
+  },[owner,attempt]);
 
-  useEffect(() => {
-    if (authLoading || !user) {
-      setLoading(false);
-      return;
-    }
-    let cancel = false;
-    (async () => {
-      try {
-        const [l, m, a] = await Promise.all([
-          isSupabaseConfigured ? listOwnedSharedLinks(user.id).catch(() => { if (!cancel) setLinksFailed(true); return []; }) : Promise.resolve([]),
-          isSupabaseConfigured ? listMyMandates() : Promise.resolve([]),
-          isSupabaseConfigured ? listMyActivity(10) : Promise.resolve([]),
-        ]);
-        if (cancel) return;
-        setLinks(l);
-        setMandates(m);
-        setActivity(a);
+  useEffect(()=>{
+    if(!owner)return;
+    let active=true;
+    Promise.all([
+      listOwnedSharedLinks(owner).then(rows=>{if(active)setLinks(rows);}).catch(()=>{if(active)setLinksFailed(true);}),
+      loadBusinessDashboard(owner).then(data=>{if(active)setBusiness(data);}).catch(()=>{if(active)setBusiness({mandates:null,activity:null,rentalLots:null});}),
+    ]).finally(()=>{if(active)setLoading(false);});
+    return()=>{active=false;};
+  },[owner,attempt]);
 
-        if (isSupabaseConfigured && supabase) {
-          const { count } = await supabase.from("rental_lots").select("id", { count: "exact", head: true }).eq("user_id", user.id);
-          if (!cancel) setRentalLotsCount(count ?? 0);
-        }
-      } finally {
-        if (!cancel) setLoading(false);
-      }
-    })();
-    return () => { cancel = true; };
-  }, [user, authLoading]);
-
-  const activeLinks = links.filter((l) => new Date(l.expires_at) > new Date() && (l.max_views === null || l.view_count < l.max_views));
-  const activeMandates = mandates.filter((m) => ["mandat_signe", "sous_compromis"].includes(m.status));
-  const soldMandates = mandates.filter((m) => m.status === "vendu");
-  const totalCommission = soldMandates.reduce((s, m) => s + (Number(m.commission_amount_percue) || 0), 0);
-  const patrimoineCalcule = evals.reduce((s, e) => s + (e.valeurPrincipale ?? 0), 0);
+  function retry(){setLoading(true);setLinks([]);setLinksFailed(false);setBusiness({mandates:null,activity:null,rentalLots:null});setEvals([]);setArchiveLoaded(false);setArchiveError(false);setAttempt(n=>n+1);}
+  const activeLinks=links.filter(l=>Date.parse(l.expires_at)>clock&&(l.max_views===null||l.view_count<l.max_views));
+  const summary=summarizeMandates(business.mandates);
+  const activeMandates=summary.active;
+  const activity=business.activity;
+  const businessFailed=business.mandates===null||activity===null||business.rentalLots===null;
+  const linkViews=links.reduce((sum,l)=>sum+l.view_count,0);
 
   if (authLoading || loading) {
     return (
@@ -97,7 +84,7 @@ function DashboardPageContent() {
   if (!user) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-12 text-center">
-        <h1 className="text-2xl font-bold text-navy mb-3">{t("signInTitle")}</h1>
+        <h1 className="break-words text-2xl font-bold text-navy mb-3">{t("signInTitle")}</h1>
         <p className="text-sm text-muted">
           <Link href={`${lp}/connexion`} className="text-navy underline">{t("signInLink")}</Link>{" "}{t("signInIntro")}
         </p>
@@ -109,33 +96,37 @@ function DashboardPageContent() {
     <div className="mx-auto max-w-7xl px-4 py-10">
       {archiveError && <p role="alert" className="text-sm text-amber-800">{t("archiveError")}</p>}
       {linksFailed && <p role="alert" className="text-sm text-amber-800">{linkText("error")}</p>}
+      {businessFailed && <p role="alert" className="text-sm text-amber-800">{t("dataError")}</p>}
+      {(archiveError||linksFailed||businessFailed) && <button type="button" onClick={retry} className="my-2 rounded border border-navy px-3 py-2 text-sm">{t("retry")}</button>}
       <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("title")}</h1>
       <p className="mt-1 text-sm text-muted">{t("subtitle")}</p>
 
       <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
         <KpiCard label={t("kpi.evaluations")} value={archiveLoaded && !archiveError ? evals.length : "—"} href={`${lp}/mes-evaluations`} />
-        <KpiCard label={t("kpi.rentalLots")} value={rentalLotsCount} href={`${lp}/gestion-locative/portefeuille`} />
-        <KpiCard label={t("kpi.activeMandates")} value={activeMandates.length} href={`${lp}/pro-agences/mandats`} />
+        <KpiCard label={t("kpi.rentalLots")} value={business.rentalLots ?? "—"} href={`${lp}/gestion-locative/portefeuille`} />
+        <KpiCard label={t("kpi.activeMandates")} value={activeMandates?.length ?? "—"} href={`${lp}/pro-agences/mandats`} />
         <KpiCard label={t("kpi.activeShareLinks")} value={linksFailed ? "—" : activeLinks.length} href={`${lp}/profil/liens-partages`} />
       </div>
 
       <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
         <div className="rounded-2xl bg-gradient-to-br from-navy to-navy-light p-5 text-white shadow-lg">
-          <div className="text-xs text-white/70">{t("kpi.patrimoine")}</div>
-          <div className="mt-1 text-2xl font-bold">{formatEUR(patrimoineCalcule)}</div>
-          <Link href={`${lp}/portfolio`} className="mt-2 inline-block text-[11px] text-white/70 hover:text-white">
-            {t("kpi.viewPortfolio")}
+          <div className="text-xs text-white/70">{t("propertyEstimates")}</div>
+          <div className="mt-1 text-2xl font-bold">{archiveLoaded && !archiveError ? propertyEstimateCount(evals) : "—"}</div>
+          <p className="mt-2 text-xs text-white/80">{t("propertyEstimateNote")}</p>
+          <Link href={`${lp}/mes-evaluations`} className="mt-2 inline-block text-[11px] text-white/70 hover:text-white">
+            {t("sections.viewAll")}
           </Link>
         </div>
         <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
           <div className="text-xs text-emerald-800">{t("kpi.commissions")}</div>
-          <div className="mt-1 text-2xl font-bold text-emerald-900">{formatEUR(totalCommission)}</div>
-          <div className="mt-1 text-[10px] text-emerald-700">{t("kpi.salesClosed", { n: soldMandates.length })}</div>
+          <div className="mt-1 text-2xl font-bold text-emerald-900">{summary.commission === null ? "—" : money(summary.commission)}</div>
+          <p className="mt-1 text-xs text-emerald-800">{t("commissionNote")}</p>
+          <div className="mt-1 text-[10px] text-emerald-700">{summary.sold === null ? t("unavailable") : t("kpi.salesClosed", { n: summary.sold })}</div>
         </div>
         <div className="rounded-2xl border border-card-border bg-card p-5">
           <div className="text-xs text-muted">{t("kpi.shareLinkViews")}</div>
           <div className="mt-1 text-2xl font-bold text-navy">
-            {linksFailed ? "—" : links.reduce((s, l) => s + l.view_count, 0)}
+            {linksFailed || !Number.isSafeInteger(linkViews) ? "—" : linkViews}
           </div>
           <Link href={`${lp}/profil/liens-partages`} className="mt-1 inline-block text-[10px] text-navy/70 hover:text-navy">
             {t("kpi.viewAnalytics")}
@@ -149,7 +140,7 @@ function DashboardPageContent() {
             <h2 className="text-base font-semibold text-navy">{t("sections.recentEvals")}</h2>
             <Link href={`${lp}/mes-evaluations`} className="text-xs text-navy hover:underline">{t("sections.viewAll")}</Link>
           </div>
-          {evals.length === 0 ? (
+          {!archiveLoaded || archiveError ? <p role="status" className="text-xs text-muted">{t(archiveError ? "unavailable" : "loading")}</p> : evals.length === 0 ? (
             <p className="text-xs text-muted italic">
               {t("empty.evals")}{" "}<Link href={`${lp}/estimation`} className="text-navy underline">/estimation</Link>{" "}{t("empty.or")}{" "}<Link href={`${lp}/valorisation`} className="text-navy underline">/valorisation</Link>.
             </p>
@@ -162,7 +153,7 @@ function DashboardPageContent() {
                     <div className="text-[10px] text-muted font-mono">{e.type} · {fmtDate(e.date)}</div>
                   </div>
                   {e.valeurPrincipale != null && (
-                    <div className="font-mono font-semibold">{formatEUR(e.valeurPrincipale)}</div>
+                    <div className="font-mono font-semibold">{money(e.valeurPrincipale)}</div>
                   )}
                 </li>
               ))}
@@ -175,7 +166,7 @@ function DashboardPageContent() {
             <h2 className="text-base font-semibold text-navy">{t("sections.activeMandates")}</h2>
             <Link href={`${lp}/pro-agences/mandats`} className="text-xs text-navy hover:underline">{t("sections.viewAll")}</Link>
           </div>
-          {activeMandates.length === 0 ? (
+          {activeMandates === null ? <p role="status" className="text-xs text-muted">{t("unavailable")}</p> : activeMandates.length === 0 ? (
             <p className="text-xs text-muted italic">{t("empty.mandates")}</p>
           ) : (
             <ul className="space-y-2">
@@ -188,7 +179,7 @@ function DashboardPageContent() {
                     </div>
                   </div>
                   {m.prix_demande != null && (
-                    <div className="font-mono font-semibold">{formatEUR(m.prix_demande)}</div>
+                    <div className="font-mono font-semibold">{money(m.prix_demande)}</div>
                   )}
                 </li>
               ))}
@@ -201,12 +192,12 @@ function DashboardPageContent() {
             <h2 className="text-base font-semibold text-navy">{t("sections.recentActivity")}</h2>
             <Link href={`${lp}/profil/confidentialite`} className="text-xs text-navy hover:underline">{t("sections.viewAll")}</Link>
           </div>
-          {activity.length === 0 ? (
+          {activity === null ? <p role="status" className="text-xs text-muted">{t("unavailable")}</p> : activity.length === 0 ? (
             <p className="text-xs text-muted italic">{t("empty.activity")}</p>
           ) : (
             <ul className="space-y-1">
               {activity.slice(0, 10).map((a) => (
-                <li key={a.id} className="flex items-center gap-3 text-xs py-1 border-b border-card-border/30 last:border-0">
+                <li key={a.id} className="flex flex-wrap items-center gap-3 break-words text-xs py-1 border-b border-card-border/30 last:border-0">
                   <span className="font-mono text-[10px] text-muted shrink-0 w-28">
                     {new Date(a.created_at).toLocaleString(dateLocale, { dateStyle: "short", timeStyle: "short" })}
                   </span>

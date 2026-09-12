@@ -12889,11 +12889,11 @@
     "kpi": {
       "evaluations": "Gespeicherte Bewertungen",
       "rentalLots": "Mieteinheiten",
-      "activeMandates": "Aktive Mandate",
+      "activeMandates": "Laufende Mandate nach Status",
       "activeShareLinks": "Aktive Freigabelinks",
       "patrimoine": "Kumulierter Bewertungswert",
       "viewPortfolio": "Portfolio ansehen →",
-      "commissions": "Erhaltene Provisionen (abgeschlossene Verkäufe)",
+      "commissions": "Erfasste erhaltene Provisionen",
       "salesClosed": "{n} abgeschlossene(r) Verkauf/Verkäufe",
       "shareLinkViews": "Kumulierte Freigabelink-Aufrufe",
       "viewAnalytics": "Analytics ansehen →"
@@ -12921,7 +12921,13 @@
       "str": "STR / Airbnb",
       "portfolio": "Portfolio"
     },
-    "archiveError": "Laden oder Änderung konnte nicht bestätigt werden. Die angezeigten Daten können eine lokale Kopie sein. Versuchen Sie es erneut, bevor Sie sich darauf verlassen."
+    "archiveError": "Laden oder Änderung konnte nicht bestätigt werden. Die angezeigten Daten können eine lokale Kopie sein. Versuchen Sie es erneut, bevor Sie sich darauf verlassen.",
+    "dataError": "Einige Daten sind nicht verfügbar. Ein Strich bedeutet nicht null.",
+    "retry": "Erneut versuchen",
+    "unavailable": "Daten nicht verfügbar",
+    "propertyEstimates": "Gespeicherte Immobilienbewertungen",
+    "propertyEstimateNote": "Gespeicherte Berechnungen, keine eindeutigen Immobilien.",
+    "commissionNote": "Bei einer fehlenden Provision ist die Summe nicht verfügbar."
   },
   "strHub": {
     "meta": {

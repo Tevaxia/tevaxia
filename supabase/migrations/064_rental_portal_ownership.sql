@@ -31,23 +31,30 @@ CREATE POLICY tenant_portal_owned_lot_guard ON public.tenant_portal_tokens
 
 CREATE OR REPLACE FUNCTION public.get_tenant_portal_data(p_token TEXT)
 RETURNS JSONB
-LANGUAGE plpgsql SECURITY DEFINER SET search_path = '' AS $$
+LANGUAGE plpgsql SECURITY DEFINER SET search_path = '' SET lock_timeout = '5s' AS $$
 DECLARE
  v_token public.tenant_portal_tokens%ROWTYPE;
  v_lot JSONB;
  v_payments JSONB;
+ v_access_time TIMESTAMPTZ;
 BEGIN
  SELECT t.* INTO v_token FROM public.tenant_portal_tokens t
- WHERE t.token = p_token AND t.revoked_at IS NULL AND t.expires_at > NOW()
-   AND EXISTS (SELECT 1 FROM public.rental_lots l WHERE l.id=t.lot_id AND l.user_id=t.owner_id)
+ WHERE t.token = p_token
  FOR UPDATE OF t;
  IF NOT FOUND THEN RETURN jsonb_build_object('error','invalid_token'); END IF;
+ IF v_token.revoked_at IS NOT NULL OR v_token.expires_at <= clock_timestamp() THEN
+   RETURN jsonb_build_object('error','invalid_token');
+ END IF;
 
  SELECT to_jsonb(l) INTO v_lot FROM (
    SELECT name,address,commune,surface,nb_chambres,classe_energie,est_meuble
-   FROM public.rental_lots WHERE id=v_token.lot_id AND user_id=v_token.owner_id
+ FROM public.rental_lots WHERE id=v_token.lot_id AND user_id=v_token.owner_id
+ FOR SHARE
  ) l;
  IF v_lot IS NULL THEN RETURN jsonb_build_object('error','invalid_token'); END IF;
+ -- Keep ownership stable during this read and check expiry after either lock wait.
+ v_access_time := clock_timestamp();
+ IF v_token.expires_at <= v_access_time THEN RETURN jsonb_build_object('error','invalid_token'); END IF;
 
  SELECT jsonb_agg(jsonb_build_object(
    'id',p.id,'period',p.period_year||'-'||LPAD(p.period_month::text,2,'0'),
@@ -62,7 +69,7 @@ BEGIN
  ) p;
 
  UPDATE public.tenant_portal_tokens
- SET view_count=LEAST(COALESCE(view_count,0)::bigint+1,2147483647)::integer,last_viewed_at=NOW()
+ SET view_count=LEAST(COALESCE(view_count,0)::bigint+1,2147483647)::integer,last_viewed_at=v_access_time
  WHERE id=v_token.id;
  RETURN jsonb_build_object('lot',v_lot,'tenant_name',v_token.tenant_name,'payments',COALESCE(v_payments,'[]'::jsonb));
 END;

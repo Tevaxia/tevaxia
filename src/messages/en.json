@@ -13011,11 +13011,11 @@
     "kpi": {
       "evaluations": "Saved valuations",
       "rentalLots": "Rental units",
-      "activeMandates": "Active mandates",
+      "activeMandates": "Ongoing mandates by status",
       "activeShareLinks": "Active share links",
       "patrimoine": "Cumulative valuation",
       "viewPortfolio": "View portfolio →",
-      "commissions": "Earned commissions (closed sales)",
+      "commissions": "Recorded commissions received",
       "salesClosed": "{n} closed sale(s)",
       "shareLinkViews": "Cumulative share link views",
       "viewAnalytics": "View analytics →"
@@ -13043,7 +13043,13 @@
       "str": "STR / Airbnb",
       "portfolio": "Portfolio"
     },
-    "archiveError": "Loading or the change could not be confirmed. The displayed data may be a local copy. Retry before relying on it."
+    "archiveError": "Loading or the change could not be confirmed. The displayed data may be a local copy. Retry before relying on it.",
+    "dataError": "Some data is unavailable. A dash does not mean zero.",
+    "retry": "Retry",
+    "unavailable": "Data unavailable",
+    "propertyEstimates": "Saved property valuations",
+    "propertyEstimateNote": "Saved calculations, not distinct properties.",
+    "commissionNote": "A missing commission makes the total unavailable."
   },
   "strHub": {
     "meta": {

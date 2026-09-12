@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- Standalone CommonJS SQL test runner. */
 // Isolated in-memory PostgreSQL only. Never opens a production connection.
 // PGLITE_MODULE can point to a separately installed @electric-sql/pglite package.
 const {PGlite}=require(process.env.PGLITE_MODULE||'@electric-sql/pglite');
@@ -58,6 +59,10 @@ const la='10000000-0000-4000-8000-000000000001',lb='10000000-0000-4000-8000-0000
  await db.exec("UPDATE tenant_portal_tokens SET revoked_at=NULL,expires_at=NOW()-INTERVAL '1 day' WHERE token='valid-a'");
  assert.deepEqual(await rpc('valid-a'),{error:'invalid_token'});
  assert.deepEqual(await rpc('missing'),{error:'invalid_token'});
+ await db.exec("BEGIN; UPDATE tenant_portal_tokens SET revoked_at=NULL,expires_at=clock_timestamp()+interval '30 milliseconds' WHERE token='valid-a'; SELECT pg_sleep(0.08);");
+ assert.deepEqual(await rpc('valid-a'),{error:'invalid_token'});
+ await db.exec('ROLLBACK');
+ console.log('PASS expiry uses the current clock within an already-open transaction');
  const config=(await db.query("SELECT proconfig FROM pg_proc WHERE oid='public.get_tenant_portal_data(text)'::regprocedure")).rows[0].proconfig;
  assert.ok(config.some(s=>s.startsWith('search_path=')));
  console.log('PASS bounded sorted history, revoked/expired/missing tokens and fixed function search_path');
