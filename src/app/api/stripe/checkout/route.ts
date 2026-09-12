@@ -1,3 +1,4 @@
+import { getAssuredUser } from "@/lib/mfa-assurance";
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { stripe, STRIPE_PRICE_PRO, isStripeConfigured } from "@/lib/stripe";
@@ -33,7 +34,7 @@ export async function POST(req: Request) {
     global: { headers: { Authorization: `Bearer ${accessToken}` } },
   });
 
-  const { data: authData, error: authError } = await supabase.auth.getUser();
+  const { data: authData, error: authError } = await getAssuredUser(supabase, accessToken);
   if (authError || !authData?.user) {
     return NextResponse.json({ error: "Invalid session" }, { status: 401 });
   }

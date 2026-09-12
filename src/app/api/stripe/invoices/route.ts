@@ -1,3 +1,4 @@
+import { getAssuredUser } from "@/lib/mfa-assurance";
 import { NextResponse } from "next/server";
 import { stripe, isStripeConfigured } from "@/lib/stripe";
 import { createClient } from "@supabase/supabase-js";
@@ -27,7 +28,7 @@ export async function GET(req: Request) {
     global: { headers: { Authorization: `Bearer ${token}` } },
   });
 
-  const { data: authData } = await supabase.auth.getUser();
+  const { data: authData } = await getAssuredUser(supabase, token);
   const user = authData?.user;
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 

@@ -1,3 +1,4 @@
+import { getAssuredUser } from "@/lib/mfa-assurance";
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { authenticateApiRequestAsync, logApiCall, type ApiKeyRecord } from "@/lib/api-auth";
@@ -149,7 +150,7 @@ async function resolveAuth(request: Request): Promise<AuthContext | null> {
     auth: { persistSession: false },
     global: { headers: { Authorization: `Bearer ${token}` } },
   });
-  const { data: { user } } = await supabase.auth.getUser();
+  const { data: { user } } = await getAssuredUser(supabase, token);
   if (!user?.id) return null;
   return { userId: user.id, source: "jwt" };
 }

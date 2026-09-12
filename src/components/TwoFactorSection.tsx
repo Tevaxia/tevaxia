@@ -1,239 +1,112 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
-import { supabase } from "@/lib/supabase";
-import { useAuth } from "@/components/AuthProvider";
-import { errMsg } from "@/lib/errors";
-
-// Utilise le MFA natif de Supabase Auth :
-// https://supabase.com/docs/guides/auth/auth-mfa
-// Pré-requis : activer l'option MFA dans le dashboard Supabase
-// (Authentication → Providers → MFA → TOTP enabled).
-
-interface Factor {
-  id: string;
-  friendly_name: string | null;
-  factor_type: string;
-  status: string;
-  created_at: string;
-}
+import { useEffect, useRef, useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
+import type { User } from '@supabase/supabase-js';
+import { supabase } from '@/lib/supabase';
+import { useAuth } from '@/components/AuthProvider';
+import { captureMfaSession, ownedMfaRequest } from '@/lib/owned-mfa';
+import type { SessionIdentity } from '@/lib/signed-out-session';
 
 export default function TwoFactorSection() {
-  const t = useTranslations("profil.mfa");
   const { user } = useAuth();
+  return user && supabase ? <OwnedTwoFactorSection key={user.id} owner={user.id} /> : null;
+}
 
-  const [factors, setFactors] = useState<Factor[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [enrolling, setEnrolling] = useState(false);
-  const [qrUrl, setQrUrl] = useState<string | null>(null);
-  const [factorId, setFactorId] = useState<string | null>(null);
-  const [secret, setSecret] = useState<string | null>(null);
-  const [code, setCode] = useState("");
-  const [friendlyName, setFriendlyName] = useState("");
-  const [error, setError] = useState<string | null>(null);
-
-  const refreshFactors = async () => {
-    if (!supabase) return;
-    try {
-      const { data } = await supabase.auth.mfa.listFactors();
-      setFactors((data?.totp ?? []) as Factor[]);
-    } catch (e) {
-      console.warn("listFactors failed:", e);
-    }
+function OwnedTwoFactorSection({ owner }: { owner: string }) {
+  const t = useTranslations('profil.mfa'), locale = useLocale();
+  const [factors, setFactors] = useState<NonNullable<User['factors']>>([]);
+  const [loading, setLoading] = useState(true), [pending, setPending] = useState(false);
+  const [enrolling, setEnrolling] = useState(false), [code, setCode] = useState('');
+  const [setup, setSetup] = useState<{ id: string; qr: string; secret: string } | null>(null);
+  const [friendlyName, setFriendlyName] = useState(''), [error, setError] = useState(false);
+  const busy = useRef(false), alive = useRef(true), expected = useRef<SessionIdentity | null>(null);
+  const refresh = async () => {
+    const snapshot = await captureMfaSession(owner, expected.current);
+    const result = await supabase!.auth.getUser(snapshot.session.access_token);
+    if (result.error || result.data.user?.id !== owner) throw new Error('Session');
+    await captureMfaSession(owner, snapshot.identity);
+    if (alive.current) { expected.current = snapshot.identity; setFactors(result.data.user.factors ?? []); }
   };
-
   useEffect(() => {
-    if (!user || !supabase) {
-      setLoading(false);
-      return;
-    }
-    refreshFactors().finally(() => setLoading(false));
-  }, [user]);
+    alive.current = true;
+    void refresh().catch(() => { if (alive.current) setError(true); }).finally(() => { if (alive.current) setLoading(false); });
+    return () => { alive.current = false; };
+    // This instance is remounted on account changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [owner]);
 
-  const startEnroll = async () => {
-    if (!supabase) return;
-    setEnrolling(true);
-    setError(null);
-    try {
-      const { data, error } = await supabase.auth.mfa.enroll({
-        factorType: "totp",
-        friendlyName: friendlyName || `tevaxia-${new Date().toISOString().slice(0, 10)}`,
-      });
-      if (error) throw error;
-      setFactorId(data.id);
-      setQrUrl(data.totp.qr_code);
-      setSecret(data.totp.secret);
-    } catch (e) {
-      setError(errMsg(e, "Enroll failed"));
-      setEnrolling(false);
-    }
+  const run = async (action: () => Promise<void>) => {
+    if (busy.current || !alive.current) return;
+    busy.current = true; setPending(true); setError(false);
+    try { await action(); }
+    catch { if (alive.current) setError(true); }
+    finally { busy.current = false; if (alive.current) setPending(false); }
   };
-
-  const verifyEnroll = async () => {
-    if (!supabase || !factorId) return;
-    setError(null);
+  const clear = () => { setSetup(null); setCode(''); setFriendlyName(''); setEnrolling(false); };
+  const start = () => run(async () => {
+    const { session, identity } = await captureMfaSession(owner, expected.current);
+    const result = await ownedMfaRequest<{ id: string; totp: { qr_code: string; secret: string } }>(session.access_token, '', 'POST', { factor_type: 'totp', friendly_name: friendlyName.trim() || `Tevaxia ${new Date().toISOString().slice(0, 10)}` });
     try {
-      const { data: challengeData, error: challengeError } = await supabase.auth.mfa.challenge({ factorId });
-      if (challengeError) throw challengeError;
-      const { error: verifyError } = await supabase.auth.mfa.verify({
-        factorId,
-        challengeId: challengeData.id,
-        code,
-      });
-      if (verifyError) throw verifyError;
-      setEnrolling(false);
-      setFactorId(null);
-      setQrUrl(null);
-      setSecret(null);
-      setCode("");
-      setFriendlyName("");
-      await refreshFactors();
-    } catch (e) {
-      setError(errMsg(e, "Verification failed"));
+      await captureMfaSession(owner, identity);
+      if (!alive.current) throw new Error('Unmounted');
+      setSetup({ id: result.id, qr: result.totp.qr_code, secret: result.totp.secret });
+    } catch {
+      // Only the newly created, still unverified factor from this operation.
+      await ownedMfaRequest(session.access_token, `/${encodeURIComponent(result.id)}`, 'DELETE');
+      throw new Error('Session changed');
     }
-  };
-
-  const unenroll = async (id: string) => {
-    if (!supabase) return;
-    if (!confirm(t("unenrollConfirm"))) return;
-    try {
-      const { error } = await supabase.auth.mfa.unenroll({ factorId: id });
-      if (error) throw error;
-      await refreshFactors();
-    } catch (e) {
-      setError(errMsg(e, "Unenroll failed"));
-    }
-  };
-
-  if (!user || !supabase) return null;
-
-  const active = factors.filter((f) => f.status === "verified");
-
-  return (
-    <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
-      <div className="flex flex-wrap items-start justify-between gap-2">
-        <div>
-          <h2 className="text-base font-semibold text-navy">{t("title")}</h2>
-          <p className="mt-0.5 text-xs text-muted">{t("desc")}</p>
-        </div>
-        {active.length > 0 && (
-          <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-0.5 text-[11px] font-medium text-emerald-800">
-            <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            {t("enabled")}
-          </span>
-        )}
-      </div>
-
-      {loading ? (
-        <p className="mt-4 text-sm text-muted">{t("loading")}</p>
-      ) : (
-        <>
-          {/* Facteurs actifs */}
-          {active.length > 0 && (
-            <div className="mt-4 space-y-2">
-              {active.map((f) => (
-                <div key={f.id} className="flex items-center justify-between rounded-lg border border-card-border bg-background p-3">
-                  <div>
-                    <div className="text-sm font-medium text-navy">{f.friendly_name || t("unnamedFactor")}</div>
-                    <div className="text-xs text-muted">
-                      {t("addedOn")} {new Date(f.created_at).toLocaleDateString("fr-FR")}
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => unenroll(f.id)}
-                    className="rounded-md border border-rose-200 bg-white px-3 py-1.5 text-xs font-medium text-rose-700 hover:bg-rose-50"
-                  >
-                    {t("unenroll")}
-                  </button>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Enrollment */}
-          {!enrolling ? (
-            active.length === 0 && (
-              <button
-                onClick={() => setEnrolling(true)}
-                className="mt-4 inline-flex items-center gap-2 rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light"
-              >
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                </svg>
-                {t("enable")}
-              </button>
-            )
-          ) : !qrUrl ? (
-            <div className="mt-4 rounded-lg border border-navy/20 bg-navy/5 p-4">
-              <p className="text-sm font-medium text-navy">{t("enrollStep1Title")}</p>
-              <p className="mt-1 text-xs text-muted">{t("enrollStep1Desc")}</p>
-              <input
-                type="text"
-                value={friendlyName}
-                onChange={(e) => setFriendlyName(e.target.value)}
-                placeholder={t("friendlyNamePlaceholder")}
-                className="mt-3 w-full rounded-lg border border-input-border bg-white px-3 py-2 text-sm"
-              />
-              <div className="mt-3 flex gap-2">
-                <button onClick={() => setEnrolling(false)} className="rounded-lg border border-card-border bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50">
-                  {t("cancel")}
-                </button>
-                <button onClick={startEnroll} className="rounded-lg bg-navy px-3 py-2 text-xs font-semibold text-white hover:bg-navy-light">
-                  {t("continue")}
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="mt-4 rounded-lg border border-navy/20 bg-navy/5 p-4">
-              <p className="text-sm font-medium text-navy">{t("enrollStep2Title")}</p>
-              <p className="mt-1 text-xs text-muted">{t("enrollStep2Desc")}</p>
-              <div className="mt-3 flex flex-col items-center sm:flex-row sm:items-start sm:gap-4">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={qrUrl} alt="MFA QR" className="h-40 w-40 rounded-lg border border-card-border bg-white p-2" />
-                <div className="mt-3 sm:mt-0 flex-1">
-                  <p className="text-xs text-muted">{t("secretFallback")}</p>
-                  <code className="mt-1 block break-all rounded bg-white border border-card-border p-2 text-xs font-mono">{secret}</code>
-                </div>
-              </div>
-
-              <label className="mt-4 block text-xs font-medium text-slate-700">{t("codeLabel")}</label>
-              <input
-                type="text"
-                inputMode="numeric"
-                pattern="[0-9]*"
-                maxLength={6}
-                value={code}
-                onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
-                placeholder="123456"
-                className="mt-1 w-40 rounded-lg border border-input-border bg-white px-3 py-2 text-center font-mono text-lg tracking-widest"
-              />
-
-              {error && <p className="mt-3 text-xs text-rose-700">{error}</p>}
-
-              <div className="mt-4 flex gap-2">
-                <button
-                  onClick={() => { setEnrolling(false); setQrUrl(null); setFactorId(null); setSecret(null); setCode(""); setError(null); }}
-                  className="rounded-lg border border-card-border bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"
-                >
-                  {t("cancel")}
-                </button>
-                <button
-                  onClick={verifyEnroll}
-                  disabled={code.length !== 6}
-                  className="rounded-lg bg-navy px-3 py-2 text-xs font-semibold text-white hover:bg-navy-light disabled:opacity-40"
-                >
-                  {t("verify")}
-                </button>
-              </div>
-            </div>
-          )}
-
-          {error && !enrolling && <p className="mt-3 text-xs text-rose-700">{error}</p>}
-        </>
-      )}
-    </div>
-  );
+  });
+  const remove = (id: string, cancelSetup = false) => run(async () => {
+    const { session } = await captureMfaSession(owner, expected.current);
+    await ownedMfaRequest(session.access_token, `/${encodeURIComponent(id)}`, 'DELETE');
+    if (alive.current && cancelSetup) clear();
+    await refresh();
+  });
+  const verify = () => run(async () => {
+    if (!setup || !/^\d{6}$/.test(code)) return;
+    await captureMfaSession(owner, expected.current);
+    const challenge = await supabase!.auth.mfa.challenge({ factorId: setup.id });
+    if (challenge.error) throw challenge.error;
+    await captureMfaSession(owner, expected.current);
+    const result = await supabase!.auth.mfa.verify({ factorId: setup.id, challengeId: challenge.data.id, code });
+    if (result.error) throw result.error;
+    if (alive.current) clear();
+    await refresh();
+  });
+  const active = factors.filter(f => f.status === 'verified');
+  const incomplete = factors.filter(f => f.status === 'unverified' && f.factor_type === 'totp' && f.id !== setup?.id);
+  return <section className="rounded-xl border border-card-border bg-card p-6 shadow-sm" aria-busy={loading || pending}>
+    <h2 className="text-base font-semibold text-navy">{t('title')}</h2>
+    <p className="mt-1 text-xs text-muted">{t('desc')}</p>
+    {loading ? <p className="mt-4" role="status">{t('loading')}</p> : <>
+      {active.map(f => <div key={f.id} className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg border p-3">
+        <div><p className="text-sm font-medium">{f.friendly_name || t('unnamedFactor')} · {t('enabled')}</p><p className="text-xs text-muted">{t('addedOn')} {new Date(f.created_at).toLocaleDateString(locale)}</p></div>
+        <button disabled={pending} onClick={() => { if (confirm(t('unenrollConfirm'))) void remove(f.id); }} className="rounded border border-rose-200 px-3 py-2 text-xs text-rose-700 disabled:opacity-50">{t('unenroll')}</button>
+      </div>)}
+      {incomplete.map(f => <div key={f.id} className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-lg border p-3 text-xs"><span>{f.friendly_name || t('unnamedFactor')} · {t('incomplete')}</span><button disabled={pending} onClick={() => void remove(f.id)}>{t('removeIncomplete')}</button></div>)}
+      {!enrolling && !active.length && !error && <button disabled={pending} onClick={() => setEnrolling(true)} className="mt-4 rounded-lg bg-navy px-4 py-2 text-sm text-white">{t('enable')}</button>}
+      {enrolling && <div className="mt-4 rounded-lg border bg-background p-4">
+        {!setup ? <>
+          <p className="text-sm font-medium">{t('enrollStep1Title')}</p><p className="mt-1 text-xs">{t('enrollStep1Desc')}</p>
+          <label className="mt-3 block text-xs" htmlFor="mfa-factor-name">{t('factorLabel')}</label>
+          <input id="mfa-factor-name" className="mt-1 w-full rounded border p-2" maxLength={100} value={friendlyName} disabled={pending} onChange={e => setFriendlyName(e.target.value)} placeholder={t('friendlyNamePlaceholder')} />
+          <div className="mt-3 flex flex-wrap gap-4"><button disabled={pending} onClick={clear}>{t('cancel')}</button><button disabled={pending} onClick={() => void start()}>{pending ? t('loading') : t('continue')}</button></div>
+        </> : <>
+          <p className="text-sm font-medium">{t('enrollStep2Title')}</p><p className="mt-1 text-xs">{t('enrollStep2Desc')}</p>
+          <div className="mt-3 flex flex-col gap-3 sm:flex-row">
+            {/* eslint-disable-next-line @next/next/no-img-element -- Authenticator QR supplied by Supabase Auth. */}
+            <img src={setup.qr.startsWith('data:') ? setup.qr : `data:image/svg+xml;charset=utf-8,${encodeURIComponent(setup.qr)}`} alt={t('factorLabel')} className="h-40 w-40 rounded border bg-white p-2" />
+            <div className="min-w-0"><p className="text-xs">{t('secretFallback')}</p><code className="mt-1 block break-all rounded border bg-white p-2 text-xs">{setup.secret}</code></div>
+          </div>
+          <form className="mt-4" onSubmit={e => { e.preventDefault(); void verify(); }}>
+            <label className="block text-xs" htmlFor="mfa-enroll-code">{t('codeLabel')}</label>
+            <input id="mfa-enroll-code" autoComplete="one-time-code" inputMode="numeric" pattern="[0-9]{6}" maxLength={6} value={code} disabled={pending} onChange={e => setCode(e.target.value.replace(/\D/g, ''))} className="mt-1 w-full rounded border p-2 font-mono tracking-widest" required />
+            <div className="mt-4 flex flex-wrap gap-4"><button type="button" disabled={pending} onClick={() => void remove(setup.id, true)}>{t('cancel')}</button><button disabled={pending || code.length !== 6}>{pending ? t('loading') : t('verify')}</button></div>
+          </form>
+        </>}
+      </div>}
+    </>}
+    {error && <div className="mt-3 text-sm"><p role="alert" className="text-rose-700">{t('actionFailed')}</p><button disabled={pending} className="mt-2 underline" onClick={() => void run(refresh)}>{t('retry')}</button></div>}
+  </section>;
 }

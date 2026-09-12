@@ -1,3 +1,4 @@
+import { getAssuredUser } from "@/lib/mfa-assurance";
 import { safeOutbound } from "@/lib/safe-outbound";
 import { validateICal } from "@/lib/pms/ical-parser";
 import { NextResponse } from "next/server";
@@ -44,7 +45,7 @@ export async function POST(
   const supabase = createClient(supabaseUrl, anonKey, {
     global: { headers: { Authorization: `Bearer ${bearer}` } },
   });
-  const { data: authData } = await supabase.auth.getUser();
+  const { data: authData } = await getAssuredUser(supabase, bearer);
   if (!authData?.user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   // Charge le calendrier

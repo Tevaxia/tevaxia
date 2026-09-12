@@ -5077,7 +5077,18 @@
       "enrollStep2Desc": "Ouvrez votre application d'authentification (Google Authenticator, Authy, 1Password…), scannez le QR code, puis saisissez le code à 6 chiffres généré.",
       "secretFallback": "Si vous ne pouvez pas scanner, entrez ce secret manuellement dans votre application :",
       "codeLabel": "Code à 6 chiffres",
-      "verify": "Vérifier et activer"
+      "verify": "Vérifier et activer",
+      "challengeTitle": "Vérification en deux étapes",
+      "challengeDesc": "Saisissez le code de votre application d’authentification pour accéder à votre compte.",
+      "checkFailed": "Impossible de vérifier la sécurité de cette session. Réessayez.",
+      "factorLabel": "Application d’authentification",
+      "unsupportedFactor": "Ce compte utilise un autre type de second facteur. Connectez-vous avec une méthode compatible ou contactez le support.",
+      "verifyFailed": "Code invalide ou expiré. Réessayez avec un nouveau code.",
+      "retry": "Réessayer",
+      "signOut": "Se déconnecter",
+      "actionFailed": "Action impossible. Vérifiez votre connexion et réessayez.",
+      "incomplete": "Configuration inachevée",
+      "removeIncomplete": "Supprimer la configuration inachevée"
     },
     "settingsTitle": "Paramètres",
     "tabIdentity": "Identité & rapport",
@@ -20276,5 +20287,19 @@
     "uncertain": "Création non confirmée. Un lien a pu être enregistré : vérifiez votre profil. Réessayer avec les mêmes paramètres recherche le même lien avant toute nouvelle création.",
     "copyFailed": "Copie non confirmée. Vous pouvez sélectionner le lien et le copier manuellement.",
     "invalidPayload": "Ces données ne peuvent pas être partagées : vérifiez les résultats et leur taille."
+  },
+  "authMfa": {
+    "challengeTitle": "Vérification en deux étapes",
+    "challengeDesc": "Saisissez le code de votre application d’authentification pour accéder à votre compte.",
+    "checkFailed": "Impossible de vérifier la sécurité de cette session. Réessayez.",
+    "factorLabel": "Application d’authentification",
+    "unsupportedFactor": "Ce compte utilise un autre type de second facteur. Connectez-vous avec une méthode compatible ou contactez le support.",
+    "verifyFailed": "Code invalide ou expiré. Réessayez avec un nouveau code.",
+    "retry": "Réessayer",
+    "signOut": "Se déconnecter",
+    "unnamedFactor": "Facteur sans nom",
+    "loading": "Chargement…",
+    "codeLabel": "Code à 6 chiffres",
+    "verify": "Vérifier"
   }
 }

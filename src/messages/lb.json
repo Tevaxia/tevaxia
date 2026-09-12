@@ -5077,7 +5077,18 @@
       "enrollStep2Desc": "Maacht Är Authenticator-App op (Google Authenticator, Authy, 1Password…), scannt de QR-Code, gitt dann de generéierten 6-zifferegen Code an.",
       "secretFallback": "Wann Dir net scanne kënnt, gitt dëst Geheimnis manuell an Är App an:",
       "codeLabel": "6-zifferegen Code",
-      "verify": "Préiwen an aktivéieren"
+      "verify": "Préiwen an aktivéieren",
+      "challengeTitle": "Verifikatioun an zwee Schrëtt",
+      "challengeDesc": "Gitt de Code aus Ärer Authentifikatiounsapp an, fir op Äre Kont zouzegräifen.",
+      "checkFailed": "D’Sécherheet vun dëser Sessioun konnt net iwwerpréift ginn. Probéiert nach eng Kéier.",
+      "factorLabel": "Authentifikatiounsapp",
+      "unsupportedFactor": "Dëse Kont benotzt en aneren zweete Faktor. Mellt Iech mat enger kompatibeler Method un oder kontaktéiert de Support.",
+      "verifyFailed": "Ongültegen oder ofgelafene Code. Probéiert et mat engem neie Code.",
+      "retry": "Nach eng Kéier probéieren",
+      "signOut": "Ofmellen",
+      "actionFailed": "D’Aktioun konnt net ofgeschloss ginn. Kontrolléiert Är Verbindung a probéiert nach eng Kéier.",
+      "incomplete": "Onofgeschlosse Konfiguratioun",
+      "removeIncomplete": "Onofgeschlosse Konfiguratioun läschen"
     },
     "settingsTitle": "Astellungen",
     "tabIdentity": "Identitéit & Bericht",
@@ -20276,5 +20287,19 @@
     "uncertain": "Erstellung net confirméiert. E Link kéint gespäichert sinn: kontrolléiert Äre Profil. En neie Versuch mat de selwechte Parameteren sicht als éischt dee selwechte Link.",
     "copyFailed": "Kopéieren net confirméiert. Dir kënnt de Link auswielen a manuell kopéieren.",
     "invalidPayload": "Dës Donnéeë kënnen net gedeelt ginn: kontrolléiert d’Resultater an hir Gréisst."
+  },
+  "authMfa": {
+    "challengeTitle": "Verifikatioun an zwee Schrëtt",
+    "challengeDesc": "Gitt de Code aus Ärer Authentifikatiounsapp an, fir op Äre Kont zouzegräifen.",
+    "checkFailed": "D’Sécherheet vun dëser Sessioun konnt net iwwerpréift ginn. Probéiert nach eng Kéier.",
+    "factorLabel": "Authentifikatiounsapp",
+    "unsupportedFactor": "Dëse Kont benotzt en aneren zweete Faktor. Mellt Iech mat enger kompatibeler Method un oder kontaktéiert de Support.",
+    "verifyFailed": "Ongültegen oder ofgelafene Code. Probéiert et mat engem neie Code.",
+    "retry": "Nach eng Kéier probéieren",
+    "signOut": "Ofmellen",
+    "unnamedFactor": "Ongenimmelt Faktor",
+    "loading": "Lued…",
+    "codeLabel": "6-zifferegen Code",
+    "verify": "Verifizéieren"
   }
 }

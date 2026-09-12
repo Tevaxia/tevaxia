@@ -15,6 +15,7 @@ export const CLIENT_NAMESPACES = [
   "amlKyc",
   "amlKycArchives",
   "authGate",
+  "authMfa",
   "backup",
   "bailCommercial",
   "bailCommercialLabels",

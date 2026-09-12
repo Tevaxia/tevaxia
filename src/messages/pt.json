@@ -5077,7 +5077,18 @@
       "enrollStep2Desc": "Abra a sua app de autenticação (Google Authenticator, Authy, 1Password…), leia o QR code, depois introduza o código de 6 dígitos gerado.",
       "secretFallback": "Se não conseguir ler o QR code, insira este segredo manualmente na sua app:",
       "codeLabel": "Código de 6 dígitos",
-      "verify": "Verificar e ativar"
+      "verify": "Verificar e ativar",
+      "challengeTitle": "Verificação em duas etapas",
+      "challengeDesc": "Introduza o código da aplicação de autenticação para aceder à sua conta.",
+      "checkFailed": "Não foi possível verificar a segurança desta sessão. Tente novamente.",
+      "factorLabel": "Aplicação de autenticação",
+      "unsupportedFactor": "Esta conta utiliza outro tipo de segundo fator. Inicie sessão com um método compatível ou contacte o suporte.",
+      "verifyFailed": "Código inválido ou expirado. Tente novamente com um novo código.",
+      "retry": "Tentar novamente",
+      "signOut": "Terminar sessão",
+      "actionFailed": "Não foi possível concluir a ação. Verifique a ligação e tente novamente.",
+      "incomplete": "Configuração incompleta",
+      "removeIncomplete": "Remover configuração incompleta"
     },
     "settingsTitle": "Definições",
     "tabIdentity": "Identidade & relatório",
@@ -20276,5 +20287,19 @@
     "uncertain": "Criação não confirmada. Uma ligação pode ter sido guardada: verifique o perfil. Tentar novamente com os mesmos parâmetros procura a mesma ligação antes de criar outra.",
     "copyFailed": "Cópia não confirmada. Pode selecionar a ligação e copiá-la manualmente.",
     "invalidPayload": "Estes dados não podem ser partilhados: verifique os resultados e o tamanho."
+  },
+  "authMfa": {
+    "challengeTitle": "Verificação em duas etapas",
+    "challengeDesc": "Introduza o código da aplicação de autenticação para aceder à sua conta.",
+    "checkFailed": "Não foi possível verificar a segurança desta sessão. Tente novamente.",
+    "factorLabel": "Aplicação de autenticação",
+    "unsupportedFactor": "Esta conta utiliza outro tipo de segundo fator. Inicie sessão com um método compatível ou contacte o suporte.",
+    "verifyFailed": "Código inválido ou expirado. Tente novamente com um novo código.",
+    "retry": "Tentar novamente",
+    "signOut": "Terminar sessão",
+    "unnamedFactor": "Fator sem nome",
+    "loading": "A carregar…",
+    "codeLabel": "Código de 6 dígitos",
+    "verify": "Verificar"
   }
 }

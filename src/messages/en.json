@@ -5077,7 +5077,18 @@
       "enrollStep2Desc": "Open your authenticator app (Google Authenticator, Authy, 1Password…), scan the QR code, then enter the generated 6-digit code.",
       "secretFallback": "If you cannot scan, enter this secret manually into your app:",
       "codeLabel": "6-digit code",
-      "verify": "Verify and enable"
+      "verify": "Verify and enable",
+      "challengeTitle": "Two-step verification",
+      "challengeDesc": "Enter the code from your authenticator app to access your account.",
+      "checkFailed": "Unable to verify this session’s security. Please retry.",
+      "factorLabel": "Authenticator app",
+      "unsupportedFactor": "This account uses another type of second factor. Sign in with a compatible method or contact support.",
+      "verifyFailed": "Invalid or expired code. Try again with a new code.",
+      "retry": "Retry",
+      "signOut": "Sign out",
+      "actionFailed": "Unable to complete this action. Check your connection and try again.",
+      "incomplete": "Incomplete setup",
+      "removeIncomplete": "Remove incomplete setup"
     },
     "settingsTitle": "Settings",
     "tabIdentity": "Identity & report",
@@ -20276,5 +20287,19 @@
     "uncertain": "Creation not confirmed. A link may have been saved: check your profile. Retrying with the same settings looks up the same link before creating a new one.",
     "copyFailed": "Copy not confirmed. You can select the link and copy it manually.",
     "invalidPayload": "These data cannot be shared: check the results and their size."
+  },
+  "authMfa": {
+    "challengeTitle": "Two-step verification",
+    "challengeDesc": "Enter the code from your authenticator app to access your account.",
+    "checkFailed": "Unable to verify this session’s security. Please retry.",
+    "factorLabel": "Authenticator app",
+    "unsupportedFactor": "This account uses another type of second factor. Sign in with a compatible method or contact support.",
+    "verifyFailed": "Invalid or expired code. Try again with a new code.",
+    "retry": "Retry",
+    "signOut": "Sign out",
+    "unnamedFactor": "Unnamed factor",
+    "loading": "Loading…",
+    "codeLabel": "6-digit code",
+    "verify": "Verify"
   }
 }

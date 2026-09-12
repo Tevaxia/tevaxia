@@ -1,3 +1,4 @@
+import { getAssuredUser } from "@/lib/mfa-assurance";
 import { safeOutbound } from "@/lib/safe-outbound";
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
@@ -37,7 +38,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "supabase_not_configured" }, { status: 503 });
   }
 
-  const { data: userData, error: userErr } = await client.auth.getUser(token);
+  const { data: userData, error: userErr } = await getAssuredUser(client, token);
   if (userErr || !userData?.user) {
     return NextResponse.json({ error: "invalid_token" }, { status: 401 });
   }

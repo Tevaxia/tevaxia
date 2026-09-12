@@ -4,6 +4,7 @@
 // Common namespaces always included (layout-tree client components).
 export const COMMON_NAMESPACES = [
   "aiChat",
+  "authMfa",
   "backup",
   "common",
   "cookie",
@@ -21,6 +22,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "achatLocation",
     "aiAnalysis",
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -35,6 +37,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   "/actions-prioritaires": [
     "actionsPrioritaires",
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -47,6 +50,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   "/aml-kyc/archives": [
     "aiChat",
     "amlKycArchives",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -60,6 +64,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "aiAnalysis",
     "aiChat",
     "amlKyc",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -71,6 +76,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/api-banques": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -82,6 +88,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/api-docs": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -93,6 +100,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/bail-commercial": [
     "aiChat",
+    "authMfa",
     "backup",
     "bailCommercial",
     "bailCommercialLabels",
@@ -107,6 +115,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/bilan-promoteur": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -120,6 +129,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/calculateur-loyer/observatoire": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -132,6 +142,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/calculateur-loyer": [
     "aiChat",
+    "authMfa",
     "backup",
     "calculLoyer",
     "common",
@@ -146,6 +157,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/calculateur-vrd": [
     "aiChat",
+    "authMfa",
     "backup",
     "calculateurVrd",
     "common",
@@ -162,6 +174,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/carte": [
     "aiChat",
+    "authMfa",
     "backup",
     "carte",
     "common",
@@ -179,6 +192,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/cgu": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -190,6 +204,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/commune/[slug]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "commune",
@@ -207,6 +222,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   "/comparer": [
     "aiAnalysis",
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "comparer",
@@ -220,6 +236,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/confidentialite": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -231,6 +248,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/connexion": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "connexion",
@@ -243,6 +261,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/conseil-syndical/[token]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "conseilSyndical",
@@ -255,6 +274,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/conseil-syndical": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -266,6 +286,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/convertisseur-surfaces": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "convertisseurSurfaces",
@@ -279,6 +300,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/copropriete/[token]/ag/[assemblyId]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -291,6 +313,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/copropriete/[token]/assistant": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -303,6 +326,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/copropriete/[token]/mon-compte": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -315,6 +339,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/copropriete/[token]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -327,6 +352,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/copropriete": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -338,6 +364,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/dcf-multi": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -354,6 +381,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/docs/[persona]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -365,6 +393,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/docs": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -376,6 +405,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/energy/audit": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -389,6 +419,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/energy/communaute": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -402,6 +433,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/energy/connexion": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "connexion",
@@ -414,6 +446,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/energy/epbd": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -427,6 +460,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/energy/estimateur-cpe": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -440,6 +474,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/energy/hvac": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -454,6 +489,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/energy/impact": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -467,6 +503,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/energy/lenoz": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -480,6 +517,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/energy/mes-evaluations": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -492,6 +530,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/energy": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -504,6 +543,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/energy/portfolio": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -520,6 +560,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "accountExport",
     "aiChat",
     "aiSettings",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -537,6 +578,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/energy/renovation": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -550,6 +592,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/esg/crrem-pathways": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -562,6 +605,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/esg": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -573,6 +617,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/esg/taxonomy": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -585,6 +630,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/estimateur-construction": [
     "aiChat",
+    "authMfa",
     "backup",
     "calculateurVrd",
     "common",
@@ -603,6 +649,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "aiAnalysis",
     "aiChat",
     "authGate",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -621,6 +668,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/facturation/emission": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -635,6 +683,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/facturation/historique": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -647,6 +696,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/facturation": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -659,6 +709,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   "/frais-acquisition": [
     "acquisitionAudit",
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -673,6 +724,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/gestion-locative/ais": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -685,6 +737,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/gestion-locative/assurance-impayes": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -697,6 +750,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/gestion-locative/etat-des-lieux": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -709,6 +763,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/gestion-locative/fiscal": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -721,6 +776,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/gestion-locative/lot/[id]/colocataires": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -733,6 +789,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/gestion-locative/lot/[id]": [
     "aiChat",
+    "authMfa",
     "backup",
     "calculLoyer",
     "common",
@@ -746,6 +803,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/gestion-locative/lot/[id]/paiements": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -759,6 +817,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/gestion-locative": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -772,6 +831,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/gestion-locative/portefeuille": [
     "aiChat",
+    "authMfa",
     "backup",
     "calculLoyer",
     "common",
@@ -785,6 +845,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/gestion-locative/reconciliation": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -797,6 +858,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/gestion-locative/reconciliation/psd2": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -809,6 +871,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/gestion-locative/relances": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -821,6 +884,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/guide/achat-immobilier-non-resident": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -832,6 +896,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/guide/bail-commercial-luxembourg": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -843,6 +908,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/guide/bail-habitation-luxembourg": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -854,6 +920,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/guide/bellegen-akt": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -865,6 +932,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/guide/copropriete-luxembourg": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -876,6 +944,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/guide/estimation-bien-immobilier": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -887,6 +956,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/guide/frais-notaire-luxembourg": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -898,6 +968,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/guide/ia-tevaxia": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -909,6 +980,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/guide/investir-hotel-luxembourg": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -920,6 +992,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/guide/klimabonus": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -931,6 +1004,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/guide": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -942,6 +1016,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/guide/plus-value-immobiliere": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -953,6 +1028,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/guide/regle-5-pourcent-loyer": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -964,6 +1040,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/guide/tva-3-pourcent-logement": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -977,6 +1054,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "aiAnalysis",
     "aiChat",
     "authGate",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -995,6 +1073,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/alerts": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1007,6 +1086,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/benchmark": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1019,6 +1099,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/capex": [
     "aiChat",
+    "authMfa",
     "backup",
     "capexPlan",
     "common",
@@ -1031,6 +1112,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/certifications-esg": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1043,6 +1125,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/compset": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1055,6 +1138,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/dscr": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1067,6 +1151,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/due-diligence": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1079,6 +1164,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/exploitation": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1091,6 +1177,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/forecast": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1103,6 +1190,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/groupe/[id]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1115,6 +1203,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/groupe": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1127,6 +1216,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/housekeeping": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1139,6 +1229,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/impayes": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1151,6 +1242,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/mice": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1163,6 +1255,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/motel": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1174,6 +1267,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/observatoire-lu": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1186,6 +1280,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1198,6 +1293,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/pre-acquisition": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1210,6 +1306,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/renovation": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1224,6 +1321,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/revpar-comparison": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1235,6 +1333,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/score-e2": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1247,6 +1346,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/transactions": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1259,6 +1359,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/hotellerie/valorisation": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1271,6 +1372,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/indices": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1283,6 +1385,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/inspection": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1296,6 +1399,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/invitation/[token]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1308,6 +1412,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/locataire/[token]/assistant": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1320,6 +1425,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/locataire/[token]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1332,6 +1438,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/locataire": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1343,6 +1450,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/marche/forecast": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1355,6 +1463,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/marche": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1371,6 +1480,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/mentions-legales": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1382,6 +1492,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/mes-evaluations": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1394,6 +1505,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/onboarding": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1406,6 +1518,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/outils-bancaires": [
     "aiChat",
+    "authMfa",
     "backup",
     "bankingBasicsAudit",
     "common",
@@ -1423,6 +1536,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pag-pap": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1435,6 +1549,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1447,6 +1562,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/partage/[token]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1459,6 +1575,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/plan-du-site": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1470,6 +1587,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/plus-values": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1483,6 +1601,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/calendrier": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1496,6 +1615,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/chambres": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1509,6 +1629,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/channels": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1523,6 +1644,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/factures": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1537,6 +1659,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/frontdesk": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1551,6 +1674,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/groupes": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1565,6 +1689,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/guests": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1578,6 +1703,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1591,6 +1717,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/pos": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1608,6 +1735,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/rapports/forecast": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1622,6 +1750,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/rapports/heatmap": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1636,6 +1765,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/rapports": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1649,6 +1779,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/rapports/pickup": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1663,6 +1794,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/rapports/usali": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1677,6 +1809,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/reservations/[resId]/folio": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1694,6 +1827,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/reservations/[resId]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1707,6 +1841,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/reservations/nouveau": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1720,6 +1855,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/reservations": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1733,6 +1869,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/setup": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1746,6 +1883,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/tarifs/bulk": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1760,6 +1898,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/[propertyId]/tarifs": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1773,6 +1912,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1785,6 +1925,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pms/proprietes/nouveau": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1797,6 +1938,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/portfolio": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1810,6 +1952,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pricing": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1821,6 +1964,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences/commissions": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1833,6 +1977,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences/crm/contacts/[id]/matches": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1845,6 +1990,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences/crm/contacts/[id]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1857,6 +2003,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences/crm/contacts/import": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1869,6 +2016,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences/crm/contacts": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1881,6 +2029,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences/crm": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1893,6 +2042,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences/crm/tasks": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1905,6 +2055,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences/crm/templates": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1918,6 +2069,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   "/pro-agences/fiche-bien": [
     "agencyPresentationAudit",
     "aiChat",
+    "authMfa",
     "backup",
     "bankingBasicsAudit",
     "common",
@@ -1932,6 +2084,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences/mandats/[id]/bon-de-visite": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1944,6 +2097,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences/mandats/[id]/matching": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1956,6 +2110,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences/mandats/[id]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1968,6 +2123,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences/mandats/[id]/signatures": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1980,6 +2136,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences/mandats": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -1992,6 +2149,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2004,6 +2162,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/pro-agences/performance": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2016,6 +2175,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/profil/api": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2028,6 +2188,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/profil/calendrier": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2039,6 +2200,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/profil/confidentialite": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2051,6 +2213,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/profil/liens-partages": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2064,6 +2227,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/profil/organisation": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2078,6 +2242,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "accountExport",
     "aiChat",
     "aiSettings",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2095,6 +2260,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/profil/sauvegardes": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2107,6 +2273,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/propcalc/developers": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2118,6 +2285,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/propcalc": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2130,6 +2298,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/recherche": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2142,6 +2311,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/signer/[token]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2156,6 +2326,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "aiChat",
     "aidesAudit",
     "authGate",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2170,6 +2341,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/solutions/agence": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2181,6 +2353,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/solutions/banque": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2192,6 +2365,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/solutions/expert-evaluateur": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2203,6 +2377,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/solutions/hotel": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2214,6 +2389,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/solutions/investisseur": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2225,6 +2401,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/solutions": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2236,6 +2413,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/solutions/particulier": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2247,6 +2425,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/solutions/promoteur": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2258,6 +2437,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/solutions/syndic": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2269,6 +2449,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/status": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2281,6 +2462,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   "/str/arbitrage": [
     "aiAnalysis",
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2294,6 +2476,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   "/str/compliance": [
     "aiAnalysis",
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2306,6 +2489,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/str/compliance-eu": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2318,6 +2502,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/str/forecast": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2330,6 +2515,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/str/observatoire": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2342,6 +2528,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/str": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2354,6 +2541,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   "/str/portefeuille": [
     "aiAnalysis",
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2367,6 +2555,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   "/str/pricing": [
     "aiAnalysis",
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2380,6 +2569,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   "/str/rentabilite": [
     "aiAnalysis",
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2393,6 +2583,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/benchmark": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2405,6 +2596,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/annexes": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2418,6 +2610,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/appels": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2431,6 +2624,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/archives": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2444,6 +2638,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/assemblees/[assemblyId]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2457,6 +2652,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/assemblees/[assemblyId]/visio": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2470,6 +2666,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/assemblees": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2483,6 +2680,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/budget": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2496,6 +2694,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/cles-repartition": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2509,6 +2708,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/comptabilite": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2523,6 +2723,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   "/syndic/coproprietes/[id]/fonds-travaux": [
     "aiAnalysis",
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2536,6 +2737,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/messagerie": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2549,6 +2751,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/ocr-factures": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2562,6 +2765,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2575,6 +2779,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/rapprochement": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2588,6 +2793,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/relances": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2601,6 +2807,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/sepa-virements": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2614,6 +2821,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes/[id]/travaux": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2627,6 +2835,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/coproprietes": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2639,6 +2848,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/lettres-types": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2651,6 +2861,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2664,6 +2875,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/portefeuille": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2676,6 +2888,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/syndic/procuration": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2688,6 +2901,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/tableau-bord": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2702,6 +2916,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   "/terres-agricoles": [
     "agriculturalEvidence",
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2713,6 +2928,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/transparence": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2725,6 +2941,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/valorisation": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "comparisonAudit",
@@ -2751,6 +2968,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "acquisitionAudit",
     "aiAnalysis",
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2763,6 +2981,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
   ],
   "/verify": [
     "aiChat",
+    "authMfa",
     "backup",
     "common",
     "cookie",
@@ -2777,6 +2996,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "acquisitionAudit",
     "aiChat",
     "aidesAudit",
+    "authMfa",
     "backup",
     "calculLoyer",
     "common",

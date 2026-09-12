@@ -5077,7 +5077,18 @@
       "enrollStep2Desc": "Öffnen Sie Ihre Authenticator-App (Google Authenticator, Authy, 1Password…), scannen Sie den QR-Code und geben Sie den erzeugten 6-stelligen Code ein.",
       "secretFallback": "Wenn Sie nicht scannen können, geben Sie dieses Geheimnis manuell in Ihre App ein:",
       "codeLabel": "6-stelliger Code",
-      "verify": "Prüfen und aktivieren"
+      "verify": "Prüfen und aktivieren",
+      "challengeTitle": "Bestätigung in zwei Schritten",
+      "challengeDesc": "Geben Sie den Code Ihrer Authenticator-App ein, um auf Ihr Konto zuzugreifen.",
+      "checkFailed": "Die Sicherheit dieser Sitzung konnte nicht geprüft werden. Bitte erneut versuchen.",
+      "factorLabel": "Authenticator-App",
+      "unsupportedFactor": "Dieses Konto verwendet einen anderen zweiten Faktor. Melden Sie sich mit einer kompatiblen Methode an oder kontaktieren Sie den Support.",
+      "verifyFailed": "Ungültiger oder abgelaufener Code. Versuchen Sie es mit einem neuen Code.",
+      "retry": "Erneut versuchen",
+      "signOut": "Abmelden",
+      "actionFailed": "Die Aktion konnte nicht abgeschlossen werden. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
+      "incomplete": "Unvollständige Einrichtung",
+      "removeIncomplete": "Unvollständige Einrichtung entfernen"
     },
     "settingsTitle": "Einstellungen",
     "tabIdentity": "Identität & Bericht",
@@ -20276,5 +20287,19 @@
     "uncertain": "Erstellung nicht bestätigt. Ein Link könnte gespeichert sein: Prüfen Sie Ihr Profil. Ein erneuter Versuch mit gleichen Einstellungen sucht zuerst denselben Link.",
     "copyFailed": "Kopieren nicht bestätigt. Sie können den Link markieren und manuell kopieren.",
     "invalidPayload": "Diese Daten können nicht geteilt werden: Prüfen Sie Ergebnisse und Umfang."
+  },
+  "authMfa": {
+    "challengeTitle": "Bestätigung in zwei Schritten",
+    "challengeDesc": "Geben Sie den Code Ihrer Authenticator-App ein, um auf Ihr Konto zuzugreifen.",
+    "checkFailed": "Die Sicherheit dieser Sitzung konnte nicht geprüft werden. Bitte erneut versuchen.",
+    "factorLabel": "Authenticator-App",
+    "unsupportedFactor": "Dieses Konto verwendet einen anderen zweiten Faktor. Melden Sie sich mit einer kompatiblen Methode an oder kontaktieren Sie den Support.",
+    "verifyFailed": "Ungültiger oder abgelaufener Code. Versuchen Sie es mit einem neuen Code.",
+    "retry": "Erneut versuchen",
+    "signOut": "Abmelden",
+    "unnamedFactor": "Unbenannter Faktor",
+    "loading": "Lädt…",
+    "codeLabel": "6-stelliger Code",
+    "verify": "Bestätigen"
   }
 }

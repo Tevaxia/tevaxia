@@ -1,3 +1,4 @@
+import { getAssuredUser } from "@/lib/mfa-assurance";
 import { NextResponse } from "next/server";
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { cookies } from "next/headers";
@@ -108,7 +109,7 @@ export async function GET(request: Request) {
     },
   });
 
-  const { data: { user } } = await supabase.auth.getUser();
+  const { data: { user } } = await getAssuredUser(supabase);
   if (!user) {
     return redirectToProfile("error", "not_authenticated");
   }

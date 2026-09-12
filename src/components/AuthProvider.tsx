@@ -6,6 +6,7 @@ import { DELETED_AUTH_EVENT, DELETED_AUTH_PREFIX, visibleAuthUser, type DeletedA
 import { SIGNED_OUT_EVENT, SIGNED_OUT_PREFIX, isSignedOutSession, sessionIdentity, type SessionIdentity } from "@/lib/signed-out-session";
 import { signOutOwnedSession } from "@/lib/sign-out-owned-session";
 import type { Session, User } from "@supabase/supabase-js";
+import MfaGate from './MfaGate';
 
 interface AuthContextType {
   user: User | null;
@@ -126,6 +127,6 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
   return <AuthContext.Provider value={{ user, loading, signingOut, signOut, signOutAll }}>
     {deletionNotice && <p role="status" className="border-b border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900 [overflow-wrap:anywhere]">{deletionNotice}</p>}
     {logoutNotice && <p role={logoutNotice.error ? 'alert' : 'status'} className="border-b border-card-border bg-card px-4 py-3 text-sm [overflow-wrap:anywhere]">{t(logoutNotice.key)}</p>}
-    {children}
+    {sessionSnapshot ? <MfaGate key={renderedIdentity?.sessionId ?? sessionSnapshot.access_token} session={sessionSnapshot} signOut={signOut} signingOut={signingOut}>{children}</MfaGate> : children}
   </AuthContext.Provider>;
 }

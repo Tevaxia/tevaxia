@@ -1,3 +1,4 @@
+import { getAssuredUser } from "@/lib/mfa-assurance";
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
@@ -40,7 +41,7 @@ export async function GET(req: Request) {
   const supabase = createClient(supabaseUrl, anonKey, {
     global: { headers: { Authorization: `Bearer ${bearer}` } },
   });
-  const { data: authData } = await supabase.auth.getUser();
+  const { data: authData } = await getAssuredUser(supabase, bearer);
   if (!authData?.user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const esc = q.replace(/[%_]/g, "\\$&");

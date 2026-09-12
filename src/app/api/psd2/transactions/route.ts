@@ -1,3 +1,4 @@
+import { getAssuredUser } from "@/lib/mfa-assurance";
 import { ownsBankAccount } from "@/lib/banking-store";
 import { NextResponse } from "next/server";
 import { isConfigured, getAccountTransactions } from "@/lib/enable-banking";
@@ -20,7 +21,7 @@ export async function GET(req: Request) {
   const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !anon) return NextResponse.json({ error: "Supabase not configured" }, { status: 501 });
   const sb = createClient(url, anon, { global: { headers: { Authorization: `Bearer ${token}` } } });
-  const { data } = await sb.auth.getUser();
+  const { data } = await getAssuredUser(sb, token);
   if (!data?.user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const qp = new URL(req.url).searchParams;
