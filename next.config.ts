@@ -67,6 +67,10 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      ...['', '/en', '/de', '/pt', '/lb'].map(locale => ({ source: `${locale}/partage/:token`, headers: [
+        { key: 'Referrer-Policy', value: 'no-referrer' },
+        { key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' },
+      ] })),
       { source: "/auth/callback", headers: [{ key: "Referrer-Policy", value: "no-referrer" }] },
     ];
   },

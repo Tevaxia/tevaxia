@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { fetchSharedLinkByToken, postSharedLinkComment, type SharedLinkPublic } from "@/lib/shared-links";
+import { isBilanPromoteurPayload, isHotelValorisationPayload, isHotelDscrPayload, isEstimationPayload, isDcfMultiPayload, isValorisationPayload, isMonthlyDcfPayload, sharedCalculatorPath, type BilanPromoteurPayload, type HotelValorisationPayload, type HotelDscrPayload, type EstimationPayload, type DcfMultiPayload, type ValorisationPayload, type MonthlyDcfPayload } from "@/lib/public-shared-payload";
 import { isSupabaseConfigured } from "@/lib/supabase";
 
 function CommentForm({ token }: { token: string }) {
@@ -14,26 +15,23 @@ function CommentForm({ token }: { token: string }) {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errKey, setErrKey] = useState<string>("");
+  const busy = useRef(false);
+  const live = useRef(false);
+  useEffect(() => { live.current = true; return () => { live.current = false; }; }, []);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!message.trim()) return;
+    if (!live.current || busy.current || !message.trim()) return;
+    busy.current = true;
     setStatus("sending");
-    const res = await postSharedLinkComment({
-      token,
-      message: message.trim(),
-      visitorName: name.trim() || undefined,
-      visitorEmail: email.trim() || undefined,
-    });
-    if (res.success) {
-      setStatus("sent");
-      setName("");
-      setEmail("");
-      setMessage("");
-    } else {
-      setStatus("error");
-      setErrKey(res.error ?? "unknown");
-    }
+    try {
+      const res = await postSharedLinkComment({ token, message: message.trim(), visitorName: name.trim() || undefined, visitorEmail: email.trim() || undefined });
+      if (!live.current) return;
+      if (res.success) { setStatus("sent"); setName(""); setEmail(""); setMessage(""); }
+      else { setStatus("error"); setErrKey(res.error ?? "unavailable"); }
+    } catch {
+      if (live.current) { setStatus("error"); setErrKey("unavailable"); }
+    } finally { busy.current = false; }
   }
 
   return (
@@ -41,26 +39,29 @@ function CommentForm({ token }: { token: string }) {
       <h3 className="text-sm font-semibold text-navy">{t("commentFormTitle")}</h3>
       <p className="mt-0.5 text-xs text-muted">{t("commentFormSubtitle")}</p>
       <form onSubmit={onSubmit} className="mt-3 space-y-2">
-        <div className="grid gap-2 sm:grid-cols-2">
+        <div className="grid gap-2">
+          <label className="block min-w-0 text-sm" htmlFor="shared-comment-name">{t("commentName")}</label>
           <input
-            type="text"
+            id="shared-comment-name" disabled={status === "sending"} type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder={t("commentName")}
             maxLength={100}
-            className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
+            className="min-w-0 w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
           />
+          <label className="block min-w-0 text-sm" htmlFor="shared-comment-email">{t("commentEmail")}</label>
           <input
-            type="email"
+            id="shared-comment-email" disabled={status === "sending"} type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder={t("commentEmail")}
             maxLength={200}
-            className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
+            className="min-w-0 w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
           />
         </div>
-        <textarea
-          value={message}
+        <label className="block min-w-0 text-sm" htmlFor="shared-comment-message">{t("commentMessage")}</label>
+          <textarea
+          id="shared-comment-message" disabled={status === "sending"} value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder={t("commentMessage")}
           rows={3}
@@ -68,11 +69,11 @@ function CommentForm({ token }: { token: string }) {
           required
           className="w-full rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm"
         />
-        <div className="flex items-center justify-between gap-3">
-          <p className="text-[10px] text-muted">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p role={status === "error" ? "alert" : "status"} aria-live="polite" className="text-xs text-muted">
             {status === "sent" && <span className="text-emerald-700 font-medium">{t("commentSent")}</span>}
             {status === "error" && errKey === "rate_limited" && <span className="text-amber-700">{t("commentRateLimited")}</span>}
-            {status === "error" && errKey !== "rate_limited" && <span className="text-rose-700">{t("commentError")}</span>}
+            {status === "error" && errKey !== "rate_limited" && <span className="text-rose-700">{t(errKey === "unavailable" ? "commentUncertain" : "commentError")}</span>}
             {status === "idle" && t("commentCharCount", { count: message.length })}
           </p>
           <button
@@ -88,44 +89,17 @@ function CommentForm({ token }: { token: string }) {
   );
 }
 
-function formatEUR(n: number | undefined | null): string {
-  if (n == null || !isFinite(n)) return "—";
-  return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
-}
-
-function formatPct(n: number | undefined | null, digits = 1): string {
-  if (n == null || !isFinite(n)) return "—";
-  return `${(n * 100).toFixed(digits)} %`;
-}
-
-interface BilanPromoteurPayload {
-  inputs: Record<string, unknown>;
-  results: {
-    caTotal: number;
-    caLogements: number;
-    caParkings: number;
-    coutTerrain: number;
-    totalConstruction: number;
-    totalFrais: number;
-    margeMontant: number;
-    margeEffective: number;
-    chargeFonciere: number;
-    chargeFonciereM2Terrain: number;
-    coutsConstruction: number;
-    coutsArchitecte: number;
-    coutsBET: number;
-    coutsEtudes: number;
-    coutsAleas: number;
-    fFinanciers: number;
-    fCommerciaux: number;
-    fAssurances: number;
-    fGestion: number;
-    ratioConstructionCA: number;
-    ratioFraisCA: number;
+function useSharedFormatters() {
+  const locale = useLocale();
+  const numberLocale = locale === 'en' ? 'en-GB' : locale === 'lb' ? 'de-LU' : locale;
+  return {
+    formatEUR: (n: unknown) => typeof n === 'number' && Number.isFinite(n) ? new Intl.NumberFormat(numberLocale, { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n) : '—',
+    formatPct: (n: unknown, digits = 1) => typeof n === 'number' && Number.isFinite(n) ? new Intl.NumberFormat(numberLocale, { style: 'percent', minimumFractionDigits: digits, maximumFractionDigits: digits }).format(n) : '—',
   };
 }
 
 function BilanPromoteurView({ payload, title }: { payload: BilanPromoteurPayload; title: string | null | undefined }) {
+  const { formatEUR, formatPct } = useSharedFormatters();
   const t = useTranslations("partage.views.bilan");
   const { results, inputs } = payload;
   return (
@@ -133,7 +107,7 @@ function BilanPromoteurView({ payload, title }: { payload: BilanPromoteurPayload
       <div className="rounded-2xl bg-gradient-to-br from-amber-600 to-orange-700 p-6 text-white shadow-lg">
         <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">{t("badge")}</div>
         <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || t("fallbackTitle")}</div>
-        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-4">
           <div>
             <div className="text-xs text-white/70">{t("chargeFonciere")}</div>
             <div className="text-lg font-bold">{formatEUR(results.chargeFonciere)}</div>
@@ -159,12 +133,12 @@ function BilanPromoteurView({ payload, title }: { payload: BilanPromoteurPayload
           <dl className="mt-3 divide-y divide-card-border/50 text-sm">
             <div className="flex justify-between py-1.5"><dt className="text-muted">{t("type")}</dt><dd className="font-medium text-navy">{String(inputs.typeOperation ?? "—")}</dd></div>
             <div className="flex justify-between py-1.5"><dt className="text-muted">{t("surfaceVendable")}</dt><dd className="font-medium text-navy">{String(inputs.surfaceVendable ?? "—")} m²</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("prixVente")}</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.prixVenteM2))} /m²</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("parkings")}</dt><dd className="font-medium text-navy">{String(inputs.nbParkings ?? 0)} × {formatEUR(Number(inputs.prixParking))}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("prixVente")}</dt><dd className="font-medium text-navy">{formatEUR(inputs.prixVenteM2)} /m²</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("parkings")}</dt><dd className="font-medium text-navy">{String(inputs.nbParkings ?? "—")} × {formatEUR(inputs.prixParking)}</dd></div>
             <div className="flex justify-between py-1.5"><dt className="text-muted">{t("surfaceTerrain")}</dt><dd className="font-medium text-navy">{String(inputs.surfaceTerrain ?? "—")} m²</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("coutConstruction")}</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.coutConstructionM2))} /m²</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("margePromoteurCible")}</dt><dd className="font-medium text-navy">{Number(inputs.margePromoteur ?? 0)} {t("pctCa")}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("preCommercialisation")}</dt><dd className="font-medium text-navy">{Number(inputs.tauxPreCommercialisation ?? 0)} %</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("coutConstruction")}</dt><dd className="font-medium text-navy">{formatEUR(inputs.coutConstructionM2)} /m²</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("margePromoteurCible")}</dt><dd className="font-medium text-navy">{String(inputs.margePromoteur ?? "—")} {t("pctCa")}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("preCommercialisation")}</dt><dd className="font-medium text-navy">{String(inputs.tauxPreCommercialisation ?? "—")} %</dd></div>
           </dl>
         </div>
 
@@ -202,31 +176,8 @@ function BilanPromoteurView({ payload, title }: { payload: BilanPromoteurPayload
   );
 }
 
-interface HotelValorisationPayload {
-  inputs: Record<string, unknown>;
-  results: {
-    valeurCentrale: number;
-    fourchetteBasse: number;
-    fourchetteHaute: number;
-    valeurDCF: number;
-    valeurMultipleParChambre: number;
-    multipleEbitda: number;
-    revPAR: number;
-    revenuRoomsAnnuel: number;
-    revenuTotalAnnuel: number;
-    breakdown: { fb: number; autres: number };
-    charges: { staff: number; energy: number; other: number; total: number };
-    gop: number;
-    gopMargin: number;
-    ffe: number;
-    ebitda: number;
-    ebitdaMargin: number;
-    capRateUsed: number;
-    pricePerKeyUsed: number;
-  };
-}
-
 function HotelValorisationView({ payload, title }: { payload: HotelValorisationPayload; title: string | null | undefined }) {
+  const { formatEUR, formatPct } = useSharedFormatters();
   const t = useTranslations("partage.views.hotelVal");
   const { results, inputs } = payload;
   return (
@@ -235,7 +186,7 @@ function HotelValorisationView({ payload, title }: { payload: HotelValorisationP
         <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">{t("badge")}</div>
         <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || t("fallbackTitle")}</div>
         <div className="mt-3 text-sm text-white/70">{t("valeurMarche")}</div>
-        <div className="mt-1 text-3xl sm:text-4xl font-bold">{formatEUR(results.valeurCentrale)}</div>
+        <div className="mt-1 text-2xl sm:text-4xl font-bold">{formatEUR(results.valeurCentrale)}</div>
         <div className="mt-2 text-sm text-white/80">
           {t("fourchette")} : {formatEUR(results.fourchetteBasse)} – {formatEUR(results.fourchetteHaute)}
         </div>
@@ -252,7 +203,7 @@ function HotelValorisationView({ payload, title }: { payload: HotelValorisationP
           <dl className="mt-3 divide-y divide-card-border/50 text-sm">
             <div className="flex justify-between py-1.5"><dt className="text-muted">{t("chambres")}</dt><dd className="font-medium text-navy">{String(inputs.nbChambres ?? "—")}</dd></div>
             <div className="flex justify-between py-1.5"><dt className="text-muted">{t("categorie")}</dt><dd className="font-medium text-navy">{String(inputs.category ?? "—")}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("adr")}</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.adr))} {t("parNuit")}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("adr")}</dt><dd className="font-medium text-navy">{formatEUR(inputs.adr)} {t("parNuit")}</dd></div>
             <div className="flex justify-between py-1.5"><dt className="text-muted">{t("occupation")}</dt><dd className="font-medium text-navy">{Math.round(Number(inputs.occupancy ?? 0) * 100)} %</dd></div>
             <div className="flex justify-between py-1.5"><dt className="text-muted">{t("revpar")}</dt><dd className="font-medium text-navy">{formatEUR(results.revPAR)} {t("parNuitChambre")}</dd></div>
           </dl>
@@ -284,26 +235,8 @@ function HotelValorisationView({ payload, title }: { payload: HotelValorisationP
   );
 }
 
-interface HotelDscrPayload {
-  inputs: Record<string, unknown>;
-  results: {
-    dscrCentral: number;
-    dscrStressOccupation: number;
-    dscrStressADR: number;
-    dscrStressDouble: number;
-    diagnostic: string;
-    diagnosticLabel: string;
-    montantDette: number;
-    ltv: number;
-    mensualite: number;
-    serviceDetteAnnuel: number;
-    maxEmpruntable: number;
-    totalInterets: number;
-    coutTotalCredit: number;
-  };
-}
-
 function HotelDscrView({ payload, title }: { payload: HotelDscrPayload; title: string | null | undefined }) {
+  const { formatEUR, formatPct } = useSharedFormatters();
   const t = useTranslations("partage.views.hotelDscr");
   const { results, inputs } = payload;
   const diagColors: Record<string, string> = {
@@ -338,8 +271,8 @@ function HotelDscrView({ payload, title }: { payload: HotelDscrPayload; title: s
         <div className="rounded-xl border border-card-border bg-card p-5">
           <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("structureFinancement")}</h3>
           <dl className="mt-3 divide-y divide-card-border/50 text-sm">
-            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("totalProjet")}</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.prixAcquisition ?? 0) + Number(inputs.travaux ?? 0))}</dd></div>
-            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("apport")}</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.apport))}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("totalProjet")}</dt><dd className="font-medium text-navy">{formatEUR((typeof inputs.prixAcquisition === "number" && typeof inputs.travaux === "number" ? inputs.prixAcquisition + inputs.travaux : undefined))}</dd></div>
+            <div className="flex justify-between py-1.5"><dt className="text-muted">{t("apport")}</dt><dd className="font-medium text-navy">{formatEUR(inputs.apport)}</dd></div>
             <div className="flex justify-between py-1.5 font-semibold"><dt className="text-navy">{t("dette")}</dt><dd className="text-navy">{formatEUR(results.montantDette)}</dd></div>
             <div className="flex justify-between py-1.5"><dt className="text-muted">{t("ltv")}</dt><dd className={`font-medium ${results.ltv > 0.75 ? "text-rose-700" : "text-navy"}`}>{formatPct(results.ltv, 1)}</dd></div>
             <div className="flex justify-between py-1.5"><dt className="text-muted">{t("mensualite")}</dt><dd className="font-medium text-navy">{formatEUR(results.mensualite)}</dd></div>
@@ -351,7 +284,7 @@ function HotelDscrView({ payload, title }: { payload: HotelDscrPayload; title: s
       <div className="rounded-xl border border-card-border bg-card p-5">
         <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("capaciteEmprunt")}</h3>
         <div className="mt-3 grid gap-2 sm:grid-cols-2 text-sm">
-          <div className="flex justify-between py-1"><span className="text-muted">{t("maxEmpruntable", { cible: Number(inputs.dscrCible ?? 0).toFixed(2) })}</span><span className="font-semibold text-navy">{formatEUR(results.maxEmpruntable)}</span></div>
+          <div className="flex justify-between py-1"><span className="text-muted">{t("maxEmpruntable", { cible: (typeof inputs.dscrCible === "number" ? inputs.dscrCible.toFixed(2) : "—") })}</span><span className="font-semibold text-navy">{formatEUR(results.maxEmpruntable)}</span></div>
           <div className="flex justify-between py-1"><span className="text-muted">{t("capitalEmprunte")}</span><span className="font-medium text-navy">{formatEUR(results.montantDette)}</span></div>
           <div className="flex justify-between py-1"><span className="text-muted">{t("totalInterets")}</span><span className="font-medium text-navy">{formatEUR(results.totalInterets)}</span></div>
           <div className="flex justify-between py-1"><span className="text-muted">{t("coutTotalCredit")}</span><span className="font-semibold text-navy">{formatEUR(results.coutTotalCredit)}</span></div>
@@ -361,19 +294,8 @@ function HotelDscrView({ payload, title }: { payload: HotelDscrPayload; title: s
   );
 }
 
-interface EstimationPayload {
-  inputs: Record<string, unknown>;
-  results: {
-    estimationBasse: number;
-    estimationCentrale: number;
-    estimationHaute: number;
-    prixM2Ajuste: number;
-    confiance: string;
-    ajustements: Array<{ label: string; pct: number }>;
-  };
-}
-
 function EstimationView({ payload, title }: { payload: EstimationPayload; title: string | null | undefined }) {
+  const { formatEUR } = useSharedFormatters();
   const t = useTranslations("partage.views.estimation");
   const { results, inputs } = payload;
   const confBg: Record<string, string> = {
@@ -387,7 +309,7 @@ function EstimationView({ payload, title }: { payload: EstimationPayload; title:
         <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">{t("badge")}</div>
         <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || t("fallbackTitle")}</div>
         <div className="mt-4 text-sm text-white/80">{t("estimationCentrale")}</div>
-        <div className="mt-1 text-4xl font-bold">{formatEUR(results.estimationCentrale)}</div>
+        <div className="mt-1 text-2xl sm:text-4xl font-bold">{formatEUR(results.estimationCentrale)}</div>
         <div className="mt-2 text-sm text-white/90">
           {t("fourchette")} : {formatEUR(results.estimationBasse)} – {formatEUR(results.estimationHaute)}
         </div>
@@ -433,28 +355,8 @@ function EstimationView({ payload, title }: { payload: EstimationPayload; title:
   );
 }
 
-interface DcfMultiPayload {
-  inputs: Record<string, unknown>;
-  results: {
-    valeurDCF: number;
-    irr: number;
-    wault: number;
-    loyerTotalAnnuel: number;
-    surfaceTotale: number;
-    loyerMoyenM2: number;
-    ervMoyenM2: number;
-    tauxOccupation: number;
-    potentielReversion: number;
-    totalNOIActualise: number;
-    noiStabilise: number;
-    valeurTerminaleBrute: number;
-    valeurTerminaleActualisee: number;
-    fraisCession: number;
-    leaseDetails: Array<{ locataire: string; surface: number; loyerM2: number; ervM2: number; ecartERV: number; dureeRestante: number; pctLoyer: number }>;
-  };
-}
-
 function DcfMultiView({ payload, title }: { payload: DcfMultiPayload; title: string | null | undefined }) {
+  const { formatEUR, formatPct } = useSharedFormatters();
   const t = useTranslations("partage.views.dcf");
   const { results } = payload;
   return (
@@ -462,7 +364,7 @@ function DcfMultiView({ payload, title }: { payload: DcfMultiPayload; title: str
       <div className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-950 p-6 text-white shadow-lg">
         <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">{t("badge")}</div>
         <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || t("fallbackTitle")}</div>
-        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-4">
           <div>
             <div className="text-xs text-white/70">{t("valeurDCF")}</div>
             <div className="text-lg font-bold">{formatEUR(results.valeurDCF)}</div>
@@ -540,17 +442,8 @@ function DcfMultiView({ payload, title }: { payload: DcfMultiPayload; title: str
   );
 }
 
-interface ValorisationPayload {
-  inputs: Record<string, unknown>;
-  results: {
-    valeurComparaison?: number;
-    valeurCapitalisation?: number;
-    valeurDCF?: number;
-    valeurRetenue?: number;
-  };
-}
-
 function ValorisationView({ payload, title }: { payload: ValorisationPayload; title: string | null | undefined }) {
+  const { formatEUR } = useSharedFormatters();
   const t = useTranslations("partage.views.valo");
   const { results, inputs } = payload;
   return (
@@ -558,10 +451,10 @@ function ValorisationView({ payload, title }: { payload: ValorisationPayload; ti
       <div className="rounded-2xl bg-gradient-to-br from-gold to-amber-700 p-6 text-white shadow-lg">
         <div className="text-xs uppercase tracking-wider text-white/80 font-semibold">{t("badge")}</div>
         <div className="mt-2 text-2xl sm:text-3xl font-bold">{title || t("fallbackTitle")}</div>
-        {results.valeurRetenue ? (
+        {results.valeurRetenue !== undefined ? (
           <>
             <div className="mt-4 text-sm text-white/80">{t("valeurRetenue")}</div>
-            <div className="mt-1 text-4xl font-bold">{formatEUR(results.valeurRetenue)}</div>
+            <div className="mt-1 text-2xl sm:text-4xl font-bold">{formatEUR(results.valeurRetenue)}</div>
           </>
         ) : null}
       </div>
@@ -573,26 +466,26 @@ function ValorisationView({ payload, title }: { payload: ValorisationPayload; ti
           <div className="flex justify-between py-1.5"><dt className="text-muted">{t("typeActif")}</dt><dd className="font-medium text-navy">{String(inputs.assetType ?? "—")}</dd></div>
           <div className="flex justify-between py-1.5"><dt className="text-muted">{t("typeValeurEVS")}</dt><dd className="font-medium text-navy">{String(inputs.evsType ?? "—")}</dd></div>
           <div className="flex justify-between py-1.5"><dt className="text-muted">{t("surface")}</dt><dd className="font-medium text-navy">{String(inputs.surface ?? "—")} m²</dd></div>
-          {inputs.prixM2Commune ? <div className="flex justify-between py-1.5"><dt className="text-muted">{t("prixM2CommuneRef")}</dt><dd className="font-medium text-navy">{formatEUR(Number(inputs.prixM2Commune))}</dd></div> : null}
+          {inputs.prixM2Commune ? <div className="flex justify-between py-1.5"><dt className="text-muted">{t("prixM2CommuneRef")}</dt><dd className="font-medium text-navy">{formatEUR(inputs.prixM2Commune)}</dd></div> : null}
         </dl>
       </div>
 
       <div className="rounded-xl border border-card-border bg-card p-5">
         <h3 className="text-sm font-semibold text-navy uppercase tracking-wider">{t("approches")}</h3>
         <div className="mt-3 grid gap-3 sm:grid-cols-3">
-          {results.valeurComparaison ? (
+          {results.valeurComparaison !== undefined ? (
             <div className="rounded-lg border border-card-border bg-background p-4">
               <div className="text-xs uppercase text-muted">{t("comparaison")}</div>
               <div className="mt-1 text-lg font-bold text-navy">{formatEUR(results.valeurComparaison)}</div>
             </div>
           ) : null}
-          {results.valeurCapitalisation ? (
+          {results.valeurCapitalisation !== undefined ? (
             <div className="rounded-lg border border-card-border bg-background p-4">
               <div className="text-xs uppercase text-muted">{t("capitalisation")}</div>
               <div className="mt-1 text-lg font-bold text-navy">{formatEUR(results.valeurCapitalisation)}</div>
             </div>
           ) : null}
-          {results.valeurDCF ? (
+          {results.valeurDCF !== undefined ? (
             <div className="rounded-lg border border-card-border bg-background p-4">
               <div className="text-xs uppercase text-muted">{t("dcf")}</div>
               <div className="mt-1 text-lg font-bold text-navy">{formatEUR(results.valeurDCF)}</div>
@@ -602,6 +495,17 @@ function ValorisationView({ payload, title }: { payload: ValorisationPayload; ti
       </div>
     </div>
   );
+}
+
+function MonthlyDcfView({ payload }: { payload: MonthlyDcfPayload }) {
+  const t = useTranslations('partage');
+  const { formatEUR } = useSharedFormatters();
+  return <section className="space-y-4 rounded-xl border border-card-border bg-card p-5">
+    <h2 className="font-semibold">{t('dcfValue')}</h2><p className="text-3xl font-bold">{formatEUR(payload.results.valeurDCF)}</p>
+    <p>{t('terminalFlow')}: {formatEUR(payload.results.fluxTerminal)}</p>
+    <div className="overflow-x-auto"><table className="w-full text-sm"><thead><tr>{['year','netRent','noi','fitOut','capex','netFlow','discountedFlow'].map(key => <th key={key} className="p-2 text-left">{t(key)}</th>)}</tr></thead>
+    <tbody>{payload.results.cashFlows.map(row => <tr key={row.annee} className="border-t border-card-border"><td className="p-2">{row.annee}</td>{[row.loyerBrutEffectif,row.noi,row.fitOut,row.capex,row.fluxNet,row.fluxActualise].map((value,index) => <td key={index} className="p-2 whitespace-nowrap">{formatEUR(value)}</td>)}</tr>)}</tbody></table></div>
+  </section>;
 }
 
 function GenericPayloadView({ payload }: { payload: Record<string, unknown> }) {
@@ -618,26 +522,28 @@ function GenericPayloadView({ payload }: { payload: Record<string, unknown> }) {
 
 export default function SharedPage() {
   const params = useParams();
+  const token = typeof params?.token === 'string' ? params.token : '';
+  return <SharedPageForToken key={token} token={token} />;
+}
+
+function SharedPageForToken({ token }: { token: string }) {
   const locale = useLocale();
   const t = useTranslations("partage");
   const lp = locale === "fr" ? "" : `/${locale}`;
-  const dateLocale = locale === "fr" ? "fr-FR" : locale === "en" ? "en-GB" : locale === "de" ? "de-DE" : locale === "pt" ? "pt-PT" : "fr-FR";
-  const token = String(params?.token ?? "");
-
+  const dateLocale = locale === 'en' ? 'en-GB' : locale === 'lb' ? 'de-LU' : locale;
   const [data, setData] = useState<SharedLinkPublic | null>(null);
-  const [loading, setLoading] = useState(true);
-
+  const [attempt, setAttempt] = useState(0);
+  // The RPC increments views. Reuse the same request during StrictMode effect replay.
+  const request = useRef<{ attempt: number; promise: Promise<SharedLinkPublic> } | null>(null);
   useEffect(() => {
-    if (!token || !isSupabaseConfigured) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setLoading(false);
-      return;
+    let active = true;
+    if (!request.current || request.current.attempt !== attempt) {
+      request.current = { attempt, promise: fetchSharedLinkByToken(token) };
     }
-    fetchSharedLinkByToken(token).then((res) => {
-      setData(res);
-      setLoading(false);
-    });
-  }, [token]);
+    request.current.promise.catch((): SharedLinkPublic => ({ success: false, error: 'unavailable' })).then(res => { if (active) setData(res); });
+    return () => { active = false; };
+  }, [token, attempt]);
+  const loading = data === null;
 
   if (loading) {
     return <div className="mx-auto max-w-2xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
@@ -660,23 +566,27 @@ export default function SharedPage() {
           {data?.error === "expired" && t("errorExpired")}
           {data?.error === "view_limit_reached" && t("errorViewLimit")}
           {data?.error === "not_found" && t("errorNotFound")}
-          {!data?.error && t("errorInvalid")}
+          {data?.error === "unavailable" && t("errorUnavailable")}
+          {data?.error === "invalid_response" && t("errorResponse")}
+          {(!data?.error || data.error === "invalid_token") && t("errorInvalid")}
+          {data?.error === "no_service" && t("noService")}
         </div>
+        {data?.error === 'unavailable' && <div className="mt-4"><p className="text-sm text-muted">{t('retryScope')}</p><button className="mt-2 rounded-lg border border-card-border px-4 py-2" onClick={() => { setData(null); setAttempt(value => value + 1); }}>{t('retry')}</button></div>}
         <Link href={`${lp}/`} className="mt-4 inline-flex text-sm text-navy hover:underline">{t("backHome")}</Link>
       </div>
     );
   }
 
-  const viewCount = data.view_count ?? 0;
+  const viewCount = data.view_count;
   const viewsLabel = viewCount > 1 ? t("viewsMany", { count: viewCount }) : t("viewsOne", { count: viewCount });
   const expiresLabel = data.expires_at
     ? t("expiresOn", { date: new Date(data.expires_at).toLocaleDateString(dateLocale) })
     : t("expiresOn", { date: "—" });
 
   return (
-    <div className="bg-background min-h-screen">
+    <div className="bg-background min-h-screen break-words [overflow-wrap:anywhere] [&_dl>div]:gap-3 [&_dd]:min-w-0 [&_dd]:text-right">
       <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="mb-6 flex items-start justify-between print:hidden">
+        <div className="mb-6 flex flex-wrap gap-4 items-start justify-between print:hidden">
           <div>
             <Link href={`${lp}/`} className="text-xs text-muted hover:text-navy">← tevaxia.lu</Link>
             <h1 className="mt-2 text-2xl font-bold text-navy">{t("publicShare")} : {data.title || t("defaultTitle")}</h1>
@@ -696,28 +606,31 @@ export default function SharedPage() {
           </button>
         </div>
 
-        {data.tool_type === "bilan-promoteur" && data.payload ? (
-          <BilanPromoteurView payload={data.payload as unknown as BilanPromoteurPayload} title={data.title} />
-        ) : data.tool_type === "hotel-valorisation" && data.payload ? (
-          <HotelValorisationView payload={data.payload as unknown as HotelValorisationPayload} title={data.title} />
-        ) : data.tool_type === "hotel-dscr" && data.payload ? (
-          <HotelDscrView payload={data.payload as unknown as HotelDscrPayload} title={data.title} />
-        ) : data.tool_type === "estimation" && data.payload ? (
-          <EstimationView payload={data.payload as unknown as EstimationPayload} title={data.title} />
-        ) : data.tool_type === "dcf-multi" && data.payload ? (
-          <DcfMultiView payload={data.payload as unknown as DcfMultiPayload} title={data.title} />
-        ) : data.tool_type === "valorisation" && data.payload ? (
-          <ValorisationView payload={data.payload as unknown as ValorisationPayload} title={data.title} />
+        <p className="mb-5 rounded-lg border border-card-border p-4 text-sm">{t('snapshotScope')}</p>
+        {data.tool_type === 'dcf-multi' && isMonthlyDcfPayload(data.payload) ? <MonthlyDcfView payload={data.payload} /> : data.tool_type === "bilan-promoteur" && isBilanPromoteurPayload(data.payload) ? (
+          <BilanPromoteurView payload={data.payload} title={data.title} />
+        ) : data.tool_type === "hotel-valorisation" && isHotelValorisationPayload(data.payload) ? (
+          <HotelValorisationView payload={data.payload} title={data.title} />
+        ) : data.tool_type === "hotel-dscr" && isHotelDscrPayload(data.payload) ? (
+          <HotelDscrView payload={data.payload} title={data.title} />
+        ) : data.tool_type === "estimation" && isEstimationPayload(data.payload) ? (
+          <EstimationView payload={data.payload} title={data.title} />
+        ) : data.tool_type === "dcf-multi" && isDcfMultiPayload(data.payload) ? (
+          <DcfMultiView payload={data.payload} title={data.title} />
+        ) : data.tool_type === "valorisation" && isValorisationPayload(data.payload) ? (
+          <ValorisationView payload={data.payload} title={data.title} />
         ) : (
-          <GenericPayloadView payload={data.payload ?? {}} />
+          <p role="status" className="rounded-lg border border-amber-200 bg-amber-50 p-4">{t("unsupportedSnapshot")}</p>
         )}
+
+        <details className="mt-6 min-w-0"><summary className="cursor-pointer font-medium">{t('snapshotDetails')}</summary><GenericPayloadView payload={data.payload} /></details>
 
         <div className="mt-10 rounded-xl border border-blue-200 bg-blue-50 p-5 text-sm text-blue-900 print:mt-6">
           <strong>{t("disclaimerStrong")}</strong> · {t("disclaimerBody")}{" "}
-          <Link href={`${lp}/bilan-promoteur`} className="underline hover:no-underline">{t("openCalculator")}</Link>.
+          <Link href={`${lp}${sharedCalculatorPath(data.tool_type)}`} className="underline hover:no-underline">{t("openCalculator")}</Link>.
         </div>
 
-        <CommentForm token={token} />
+        <CommentForm key={token} token={token} />
       </div>
     </div>
   );
