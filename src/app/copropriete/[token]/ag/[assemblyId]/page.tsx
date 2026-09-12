@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState, use, useCallback } from "react";
+import { useEffect, useState, useRef, use, useCallback } from "react";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import {
   portalListAssemblyResolutions, portalCastVote,
   type PortalAssemblyData, type VoteValue, type MajorityType,
@@ -37,8 +37,14 @@ const VOTE_SELECTED: Record<VoteValue, string> = {
 };
 
 export default function PortalVotePage(props: { params: Promise<{ token: string; assemblyId: string }> }) {
-  const t = useTranslations("coproAg");
   const { token, assemblyId } = use(props.params);
+  return <OwnedVote key={token + ':' + assemblyId} token={token} assemblyId={assemblyId} />;
+}
+function OwnedVote({ token, assemblyId }: { token: string; assemblyId: string }) {
+  const t = useTranslations("coproAg"), locale = useLocale();
+  const prefix = locale === 'fr' ? '' : '/' + locale;
+  const alive = useRef(true), busy = useRef(false), generation = useRef(0);
+  useEffect(() => { alive.current = true; return () => { alive.current = false; }; }, []);
   const [data, setData] = useState<PortalAssemblyData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -46,34 +52,30 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
   const [flash, setFlash] = useState<string | null>(null);
 
   const reload = useCallback(async () => {
-    if (!token || !assemblyId) return;
+    const id = ++generation.current;
     setLoading(true);
     try {
       const d = await portalListAssemblyResolutions(token, assemblyId);
-      setData(d);
-    } catch (e) {
-      setError((e as Error).message ?? t("errGeneric"));
-    }
-    setLoading(false);
+      if (alive.current && id === generation.current) setData(d);
+    } catch {
+      if (alive.current && id === generation.current) { setData(null); setError(t('errGeneric')); }
+    } finally { if (alive.current && id === generation.current) setLoading(false); }
   }, [token, assemblyId, t]);
-
-  // eslint-disable-next-line react-hooks/set-state-in-effect -- mount/dep-driven sync with external source (URL, localStorage, Supabase)
   useEffect(() => { void reload(); }, [reload]);
-
   const cast = async (resolutionId: string, vote: VoteValue) => {
-    setSaving(resolutionId);
+    if (busy.current) return;
+    busy.current = true; setSaving(resolutionId); setError(null);
     try {
       const r = await portalCastVote(token, resolutionId, vote);
-      if (r.error) setError(r.error);
+      if (!alive.current) return;
+      if (r.error || !r.ok) setError(t('errGeneric'));
       else {
-        setFlash(t("flashVoteSaved", { label: t(VOTE_KEY[vote]) }));
-        setTimeout(() => setFlash(null), 3000);
+        setFlash(t('flashVoteSaved', { label: t(VOTE_KEY[vote]) }));
+        setTimeout(() => { if (alive.current) setFlash(null); }, 3000);
       }
       await reload();
-    } catch (e) {
-      setError((e as Error).message ?? t("errGeneric"));
-    }
-    setSaving(null);
+    } catch { if (alive.current) setError(t('errGeneric')); }
+    finally { busy.current = false; if (alive.current) setSaving(null); }
   };
 
   if (loading) return <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
@@ -91,12 +93,13 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
   }
 
   const a = data.assembly;
+  const virtualUrl = a.virtual_url && /^https?:\/\//i.test(a.virtual_url) ? a.virtual_url : null;
   const canVote = a.status === "convened" || a.status === "in_progress";
 
   return (
     <div className="bg-background min-h-screen py-8">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <Link href={`/copropriete/${token}`} className="text-xs text-muted hover:text-navy">{t("backLink")}</Link>
+        <Link href={`${prefix}/copropriete/${token}`} className="text-xs text-muted hover:text-navy">{t("backLink")}</Link>
 
         <div className="mt-3 rounded-2xl bg-gradient-to-br from-navy to-navy-light p-6 text-white">
           <div className="text-xs uppercase tracking-wider text-white/60">
@@ -104,11 +107,11 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
           </div>
           <h1 className="mt-1 text-2xl sm:text-3xl font-bold">{a.title}</h1>
           <p className="mt-1 text-sm text-white/80">
-            {new Date(a.scheduled_at).toLocaleString("fr-FR", { dateStyle: "full", timeStyle: "short" })}
+            {new Date(a.scheduled_at).toLocaleString(locale === "lb" ? "de-LU" : locale, { dateStyle: "full", timeStyle: "short" })}
           </p>
           {a.location && <p className="text-xs text-white/70">{a.location}</p>}
-          {a.virtual_url && (
-            <a href={a.virtual_url} target="_blank" rel="noopener noreferrer"
+          {virtualUrl && (
+            <a href={virtualUrl} target="_blank" rel="noopener noreferrer"
               className="mt-3 inline-block rounded-lg bg-white/20 px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/30">
               {t("btnJoinVideo")}
             </a>
@@ -160,7 +163,7 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
                 {r.my_vote && r.my_vote !== "absent" && (
                   <div className="mt-4 rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-xs text-emerald-900">
                     <span dangerouslySetInnerHTML={{ __html: t("voteSaved", { vote: t(VOTE_KEY[r.my_vote]) }) }} />
-                    {r.my_voted_at && t("voteSavedAt", { date: new Date(r.my_voted_at).toLocaleString("fr-FR") })}
+                    {r.my_voted_at && t("voteSavedAt", { date: new Date(r.my_voted_at).toLocaleString(locale === "lb" ? "de-LU" : locale) })}
                   </div>
                 )}
 
@@ -168,7 +171,7 @@ export default function PortalVotePage(props: { params: Promise<{ token: string;
                   <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
                     {(["yes", "no", "abstain", "absent"] as VoteValue[]).map((v) => (
                       <button key={v} onClick={() => cast(r.id, v)}
-                        disabled={saving === r.id}
+                        disabled={saving !== null}
                         className={`rounded-lg px-4 py-3 text-sm font-bold transition-colors disabled:opacity-50 ${
                           r.my_vote === v ? VOTE_SELECTED[v] : VOTE_COLORS[v]
                         }`}>

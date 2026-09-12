@@ -14107,7 +14107,11 @@
     "statusCancelled": "Annulée",
     "worksFundTitle": "Fonds de travaux de l'immeuble",
     "worksFundExplain": "Réserves capitalisées pour gros travaux à venir (ravalement, toiture, ascenseur…).",
-    "footer": "Accès en lecture seule, pour toute modification, contactez votre syndic. Ce lien est personnel et ne doit pas être partagé."
+    "footer": "Accès en lecture seule, pour toute modification, contactez votre syndic. Ce lien est personnel et ne doit pas être partagé.",
+    "loadFailed": "Chargement indisponible. Réessayez.",
+    "retry": "Réessayer",
+    "recentCallsTitle": "Six derniers appels de fonds",
+    "recentAmountPending": "À régler sur ces appels : {amount}"
   },
   "conseilSyndical": {
     "loading": "Chargement…",
@@ -14129,7 +14133,8 @@
     "agHistoryTitle": "Historique AG (5 dernières)",
     "agOrdinary": "AG ordinaire",
     "agExtraordinary": "AG extraordinaire",
-    "footer": "Accès conseil syndical en lecture seule, rôle d'audit et de contrôle (art. 18 loi 16.05.1975). Le syndic reste responsable de la gestion opérationnelle."
+    "footer": "Accès conseil syndical en lecture seule, rôle d'audit et de contrôle (art. 18 loi 16.05.1975). Le syndic reste responsable de la gestion opérationnelle.",
+    "financialScope": "Les montants concernent les six derniers appels du lot lié. Un lien général ne fournit pas les soldes des lots."
   },
   "esgHub": {
     "metaTitle": "ESG immobilier Luxembourg",
@@ -16894,7 +16899,12 @@
     "footerNotice": "<strong>Mon espace copropriétaire :</strong> ces informations proviennent directement de la comptabilité tenue par votre syndic. Pour toute question sur un appel de fonds ou une relance, contactez-le via les coordonnées de la page d'accueil.",
     "palierLabel1": "Rappel amiable",
     "palierLabel2": "Mise en demeure",
-    "palierLabel3": "Dernière mise en demeure"
+    "palierLabel3": "Dernière mise en demeure",
+    "loadFailed": "Chargement indisponible. Réessayez.",
+    "retry": "Réessayer",
+    "pdfScopeTitle": "Détail des appels non soldés",
+    "pdfScopeNote": "Ce document porte sur les appels non soldés. Les montants rappelés dans les relances ne sont pas ajoutés au solde.",
+    "pdfFailed": "Le document n’a pas pu être généré. Réessayez."
   },
   "coproAg": {
     "loading": "Chargement…",

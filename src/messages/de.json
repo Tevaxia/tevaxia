@@ -14107,7 +14107,11 @@
     "statusCancelled": "Abgesagt",
     "worksFundTitle": "Instandhaltungsrücklage des Gebäudes",
     "worksFundExplain": "Kapitalisierte Rücklagen für anstehende Großarbeiten (Fassade, Dach, Aufzug…).",
-    "footer": "Nur-Lesezugriff. Für Änderungen wenden Sie sich an Ihren Verwalter. Dieser Link ist persönlich und darf nicht weitergegeben werden."
+    "footer": "Nur-Lesezugriff. Für Änderungen wenden Sie sich an Ihren Verwalter. Dieser Link ist persönlich und darf nicht weitergegeben werden.",
+    "loadFailed": "Laden nicht möglich. Bitte erneut versuchen.",
+    "retry": "Erneut versuchen",
+    "recentCallsTitle": "Die sechs letzten Zahlungsanforderungen",
+    "recentAmountPending": "Offen für diese Anforderungen: {amount}"
   },
   "conseilSyndical": {
     "loading": "Lädt…",
@@ -14129,7 +14133,8 @@
     "agHistoryTitle": "EV-Historie (letzte 5)",
     "agOrdinary": "Ordentliche EV",
     "agExtraordinary": "Außerordentliche EV",
-    "footer": "Verwaltungsbeirat-Nur-Lesezugriff, Prüf- und Kontrollfunktion (Art. 18 Gesetz 16.05.1975). Der Verwalter bleibt für die operative Verwaltung verantwortlich."
+    "footer": "Verwaltungsbeirat-Nur-Lesezugriff, Prüf- und Kontrollfunktion (Art. 18 Gesetz 16.05.1975). Der Verwalter bleibt für die operative Verwaltung verantwortlich.",
+    "financialScope": "Die Beträge betreffen die sechs letzten Zahlungsanforderungen der verknüpften Einheit. Ein allgemeiner Link liefert keine Einheitensalden."
   },
   "esgHub": {
     "metaTitle": "ESG-Immobilien Luxemburg",
@@ -16894,7 +16899,12 @@
     "footerNotice": "<strong>Mein Eigentümerbereich:</strong> diese Informationen stammen direkt aus der Buchhaltung Ihres Verwalters. Für Fragen zu einer Forderung oder Mahnung kontaktieren Sie ihn über die Kontaktdaten auf der Startseite.",
     "palierLabel1": "Freundliche Erinnerung",
     "palierLabel2": "Mahnung",
-    "palierLabel3": "Letzte Mahnung"
+    "palierLabel3": "Letzte Mahnung",
+    "loadFailed": "Laden nicht möglich. Bitte erneut versuchen.",
+    "retry": "Erneut versuchen",
+    "pdfScopeTitle": "Details der offenen Zahlungsanforderungen",
+    "pdfScopeNote": "Dieses Dokument umfasst offene Zahlungsanforderungen. In Mahnungen wiederholte Beträge werden nicht zum Saldo addiert.",
+    "pdfFailed": "Das Dokument konnte nicht erstellt werden. Bitte erneut versuchen."
   },
   "coproAg": {
     "loading": "Laden…",

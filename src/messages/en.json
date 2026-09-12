@@ -14107,7 +14107,11 @@
     "statusCancelled": "Cancelled",
     "worksFundTitle": "Building works fund",
     "worksFundExplain": "Capitalised reserves for upcoming major works (facade, roof, elevator…).",
-    "footer": "Read-only access. For any change, contact your syndic. This link is personal and must not be shared."
+    "footer": "Read-only access. For any change, contact your syndic. This link is personal and must not be shared.",
+    "loadFailed": "Unable to load. Please retry.",
+    "retry": "Retry",
+    "recentCallsTitle": "Six most recent fund calls",
+    "recentAmountPending": "Outstanding on these calls: {amount}"
   },
   "conseilSyndical": {
     "loading": "Loading…",
@@ -14129,7 +14133,8 @@
     "agHistoryTitle": "AGM history (last 5)",
     "agOrdinary": "Ordinary AGM",
     "agExtraordinary": "Extraordinary AGM",
-    "footer": "Co-ownership council read-only access, audit and oversight role (art. 18 law 16.05.1975). The syndic remains responsible for operational management."
+    "footer": "Co-ownership council read-only access, audit and oversight role (art. 18 law 16.05.1975). The syndic remains responsible for operational management.",
+    "financialScope": "Amounts cover the six latest fund calls for the linked unit. A general link does not provide unit balances."
   },
   "esgHub": {
     "metaTitle": "Luxembourg real estate ESG",
@@ -16894,7 +16899,12 @@
     "footerNotice": "<strong>My co-owner space:</strong> this information comes directly from the accounts kept by your property manager. For any question about a call or reminder, contact them via the contact details on the home page.",
     "palierLabel1": "Friendly reminder",
     "palierLabel2": "Formal notice",
-    "palierLabel3": "Final formal notice"
+    "palierLabel3": "Final formal notice",
+    "loadFailed": "Unable to load. Please retry.",
+    "retry": "Retry",
+    "pdfScopeTitle": "Outstanding fund call details",
+    "pdfScopeNote": "This document covers outstanding fund calls. Amounts repeated in reminders are not added to the balance.",
+    "pdfFailed": "The document could not be generated. Please retry."
   },
   "coproAg": {
     "loading": "Loading…",

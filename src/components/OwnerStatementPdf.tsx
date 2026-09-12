@@ -3,6 +3,8 @@
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 
 interface Props {
+  title?: string;
+  scopeNote?: string;
   coownership: {
     name: string;
     address?: string | null;
@@ -105,7 +107,7 @@ const TYPE_LABELS: Record<Props["items"][number]["type"], string> = {
   adjustment: "Régularisation",
 };
 
-export default function OwnerStatementPdf({ coownership, syndic, owner, period, items, summary }: Props) {
+export default function OwnerStatementPdf({ coownership, syndic, owner, period, items, summary, title, scopeNote }: Props) {
   const balanceStyle = summary.balance > 0 ? s.balanceDue : s.balanceOk;
 
   return (
@@ -129,7 +131,8 @@ export default function OwnerStatementPdf({ coownership, syndic, owner, period, 
           </View>
         </View>
 
-        <Text style={s.title}>Relevé de compte copropriétaire</Text>
+        <Text style={s.title}>{title ?? "Relevé de compte copropriétaire"}</Text>
+        {scopeNote && <Text style={s.subtitle}>{scopeNote}</Text>}
         <Text style={s.subtitle}>
           Période : {fmtDate(period.from)} au {fmtDate(period.to)}
         </Text>

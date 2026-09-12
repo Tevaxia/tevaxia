@@ -14107,7 +14107,11 @@
     "statusCancelled": "Anulada",
     "worksFundTitle": "Fundo de obras do edifício",
     "worksFundExplain": "Reservas capitalizadas para grandes obras futuras (fachada, cobertura, elevador…).",
-    "footer": "Acesso apenas de leitura. Para qualquer alteração, contacte o seu administrador. Esta ligação é pessoal e não deve ser partilhada."
+    "footer": "Acesso apenas de leitura. Para qualquer alteração, contacte o seu administrador. Esta ligação é pessoal e não deve ser partilhada.",
+    "loadFailed": "Não foi possível carregar. Tente novamente.",
+    "retry": "Tentar novamente",
+    "recentCallsTitle": "Seis chamadas de fundos mais recentes",
+    "recentAmountPending": "Por pagar nestas chamadas: {amount}"
   },
   "conseilSyndical": {
     "loading": "A carregar…",
@@ -14129,7 +14133,8 @@
     "agHistoryTitle": "Histórico AG (últimas 5)",
     "agOrdinary": "AG ordinária",
     "agExtraordinary": "AG extraordinária",
-    "footer": "Acesso apenas de leitura do conselho fiscal, função de auditoria e fiscalização (art. 18 lei 16.05.1975). O administrador continua responsável pela gestão operacional."
+    "footer": "Acesso apenas de leitura do conselho fiscal, função de auditoria e fiscalização (art. 18 lei 16.05.1975). O administrador continua responsável pela gestão operacional.",
+    "financialScope": "Os montantes abrangem as seis chamadas mais recentes da fração associada. Uma ligação geral não fornece saldos das frações."
   },
   "esgHub": {
     "metaTitle": "ESG imobiliário Luxemburgo",
@@ -16894,7 +16899,12 @@
     "footerNotice": "<strong>Meu espaço condómino:</strong> estas informações provêm diretamente da contabilidade mantida pelo seu administrador. Para qualquer questão sobre uma chamada ou aviso, contacte-o através dos contactos da página inicial.",
     "palierLabel1": "Aviso amigável",
     "palierLabel2": "Notificação",
-    "palierLabel3": "Última notificação"
+    "palierLabel3": "Última notificação",
+    "loadFailed": "Não foi possível carregar. Tente novamente.",
+    "retry": "Tentar novamente",
+    "pdfScopeTitle": "Detalhe das chamadas de fundos por liquidar",
+    "pdfScopeNote": "Este documento abrange chamadas de fundos por liquidar. Os montantes repetidos nos avisos não são adicionados ao saldo.",
+    "pdfFailed": "Não foi possível gerar o documento. Tente novamente."
   },
   "coproAg": {
     "loading": "A carregar…",

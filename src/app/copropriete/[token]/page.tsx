@@ -4,16 +4,23 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { getPortalData, type PortalData } from "@/lib/coownership-portal";
-import { formatEUR } from "@/lib/calculations";
+import { remainingPortalCharge } from "@/lib/portal-finance";
 
 export default function CoproprieteurPortal() {
   const params = useParams();
+  const token = String(params?.token ?? "");
+  return <OwnedPortal key={token} token={token} />;
+}
+function OwnedPortal({ token }: { token: string }) {
   const locale = useLocale();
   const t = useTranslations("copropPortal");
-  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
-  const token = String(params?.token ?? "");
+  const dateLocale = locale === 'lb' ? 'de-LU' : locale;
+  const formatEUR = (amount: number) => new Intl.NumberFormat(dateLocale, { style: 'currency', currency: 'EUR' }).format(amount);
+  const prefix = locale === 'fr' ? '' : '/' + locale;
+  const [attempt, setAttempt] = useState(0);
+  const [failed, setFailed] = useState(false);
   const [data, setData] = useState<PortalData | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!!token);
 
   const STATUS_LABELS: Record<string, string> = {
     draft: t("statusDraft"),
@@ -40,12 +47,15 @@ export default function CoproprieteurPortal() {
   };
 
   useEffect(() => {
+    let active = true;
     if (!token) return;
-    getPortalData(token)
-      .then((d) => setData(d))
-      .catch((e) => setData({ error: e?.message ?? t("errGeneric") } as PortalData))
-      .finally(() => setLoading(false));
-  }, [token, t]);
+    getPortalData(token).then(d => {
+      if (d && !d.error) { if (!Array.isArray(d.fund_calls) || !Array.isArray(d.assemblies)) throw new Error('Invalid response'); d.fund_calls.forEach(remainingPortalCharge); }
+      if (active) setData(d);
+    }).catch(() => { if (active) setFailed(true); }).finally(() => { if (active) setLoading(false); });
+    return () => { active = false; };
+  }, [token, attempt]);
+  if (failed) return <div role="alert" className="mx-auto max-w-2xl px-4 py-16"><p>{t('loadFailed')}</p><button className="mt-3 underline" onClick={() => { setFailed(false); setLoading(true); setAttempt(n => n + 1); }}>{t('retry')}</button></div>;
 
   if (loading) {
     return <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
@@ -62,7 +72,7 @@ export default function CoproprieteurPortal() {
 
   const { coownership: coown, unit, assemblies, fund_calls } = data;
   const unpaidCalls = fund_calls.filter((c) => !c.paid);
-  const totalUnpaid = unpaidCalls.reduce((sum, c) => sum + c.amount, 0);
+  const totalUnpaid = unpaidCalls.reduce((sum, c) => sum + Math.round(remainingPortalCharge(c) * 100), 0) / 100;
 
   return (
     <div className="bg-background min-h-screen py-8 sm:py-12">
@@ -77,17 +87,17 @@ export default function CoproprieteurPortal() {
             {coown.year_built && <span className="rounded-full bg-white/10 px-3 py-1">{t("builtIn", { year: coown.year_built })}</span>}
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
-            <a href={`/copropriete/${token}/mon-compte`}
+            <a href={`${prefix}/copropriete/${token}/mon-compte`}
               className="rounded-lg bg-white/20 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur hover:bg-white/30">
               {t("myAccount")}
             </a>
             {assemblies.filter((a) => ["convened", "in_progress"].includes(a.status)).length > 0 && (
-              <a href={`/copropriete/${token}/ag/${assemblies.find((a) => ["convened", "in_progress"].includes(a.status))?.id}`}
+              <a href={`${prefix}/copropriete/${token}/ag/${assemblies.find((a) => ["convened", "in_progress"].includes(a.status))?.id}`}
                 className="rounded-lg bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur hover:bg-amber-600">
                 {t("voteAtAg")}
               </a>
             )}
-            <a href={`/copropriete/${token}/assistant`}
+            <a href={`${prefix}/copropriete/${token}/assistant`}
               className="rounded-lg bg-white/20 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur hover:bg-white/30">
               {t("iaAssistant")}
             </a>
@@ -112,11 +122,11 @@ export default function CoproprieteurPortal() {
         {/* Situation financière */}
         {fund_calls.length > 0 && (
           <div className="mt-6 rounded-xl border border-card-border bg-card p-6 shadow-sm">
-            <div className="flex items-start justify-between gap-3">
-              <h2 className="text-base font-semibold text-navy">{t("fundCallsTitle")}</h2>
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <h2 className="text-base font-semibold text-navy">{t("recentCallsTitle")}</h2>
               {totalUnpaid > 0 && (
                 <span className="rounded-full bg-rose-100 text-rose-800 px-2.5 py-1 text-xs font-bold">
-                  {t("amountPending", { amount: formatEUR(totalUnpaid) })}
+                  {t("recentAmountPending", { amount: formatEUR(totalUnpaid) })}
                 </span>
               )}
             </div>
@@ -128,7 +138,7 @@ export default function CoproprieteurPortal() {
                     <div className="text-xs text-muted">{t("dueDate", { date: new Date(fc.due_date).toLocaleDateString(dateLocale) })}</div>
                   </div>
                   <div className="text-right">
-                    <div className="font-mono font-bold text-navy">{formatEUR(fc.amount)}</div>
+                    <div className="font-mono font-bold text-navy">{formatEUR(fc.amount_due)}</div>
                     <div className={`text-xs font-semibold ${fc.paid ? "text-emerald-700" : "text-rose-700"}`}>
                       {fc.paid ? t("fundPaid") : t("fundDue")}
                     </div>

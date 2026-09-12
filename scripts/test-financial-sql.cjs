@@ -147,4 +147,36 @@ const {PGlite}=require(process.env.PGLITE_MODULE||'@electric-sql/pglite');
  await admin.query('RESET ROLE');
 
 
+ await admin.query('RESET ROLE; CREATE PUBLICATION supabase_realtime; ALTER TABLE coownerships ADD COLUMN IF NOT EXISTS works_fund_balance numeric DEFAULT 0;');
+ for(const name of ['025_coownership_portal_tokens.sql','029_coownership_messaging.sql','052_syndic_portal_extended.sql','053_syndic_portal_voting.sql'])await admin.query(fs.readFileSync(m+name,'utf8'));
+ const sql070=fs.readFileSync(m+'070_coproprietor_portal_guards.sql','utf8');await admin.query(sql070);await admin.query(sql070);
+ const tok='ptk_'+'a'.repeat(48),groupToken='ptk_'+'c'.repeat(48),foreignToken='ptk_'+'b'.repeat(48);
+ const foreignUnit=(await scalar("INSERT INTO coownership_units(coownership_id,lot_number,owner_name,tantiemes) VALUES($1,'B1','PRIVATE B',10) RETURNING id",[b])).id;
+ await admin.query('INSERT INTO coownership_portal_tokens(coownership_id,unit_id,token) VALUES($1,$2,$3),($1,null,$4),($1,$5,$6)',[a,unit,tok,groupToken,foreignUnit,foreignToken]);
+ const ag=(await scalar("INSERT INTO coownership_assemblies(coownership_id,title,scheduled_at,status) VALUES($1,'QA public','2027-01-01','convened') RETURNING id",[a])).id;
+ const draft=(await scalar("INSERT INTO coownership_assemblies(coownership_id,title,scheduled_at,status) VALUES($1,'PRIVATE DRAFT','2027-01-01','draft') RETURNING id",[a])).id;
+ const resolution=(await scalar("INSERT INTO assembly_resolutions(assembly_id,number,title) VALUES($1,1,'QA vote') RETURNING id",[ag])).id;
+ const draftResolution=(await scalar("INSERT INTO assembly_resolutions(assembly_id,number,title) VALUES($1,1,'PRIVATE DRAFT') RETURNING id",[draft])).id;
+ await admin.query('SET ROLE anon');
+ await assert.rejects(admin.query('SELECT lock_portal_token($1)',[tok]),/permission denied/);
+ const portal=(await scalar('SELECT get_portal_data($1) result',[tok])).result;
+ assert.equal(portal.assemblies.length,1);assert.equal(portal.assemblies[0].id,ag);assert.equal(portal.fund_calls.length,4);
+ assert.ok(portal.fund_calls.every(c=>c.amount_due<1000));
+ assert.equal((await scalar('SELECT get_portal_account($1) result',[groupToken])).result.balance.outstanding,0);
+ assert.equal((await scalar('SELECT get_portal_data($1) result',[foreignToken])).result.error,'invalid_token');
+ assert.equal((await scalar('SELECT portal_list_assembly_resolutions($1,$2) result',[tok,draft])).result.error,'assembly_not_found');
+ assert.equal((await scalar("SELECT portal_cast_vote($1,$2,'yes') result",[tok,draftResolution])).result.error,'assembly_not_votable');
+ assert.equal((await scalar('SELECT portal_cast_vote($1,$2,null) result',[tok,resolution])).result.error,'invalid_vote_value');
+ assert.equal((await scalar("SELECT portal_cast_vote($1,$2,'yes') result",[tok,resolution])).result.ok,true);
+ assert.equal((await scalar("SELECT post_portal_message($1,'Hello','QA') result",[groupToken])).result.error,'token_not_unit_specific');
+ assert.equal((await scalar('SELECT post_portal_message($1,$2,$3) result',[tok,'x'.repeat(4001),'QA'])).result.error,'invalid_message');
+ assert.ok((await scalar("SELECT post_portal_message($1,'Hello','QA') result",[tok])).result.thread_id);
+ assert.equal((await scalar("SELECT post_portal_message($1,'Duplicate','QA') result",[tok])).result.error,'rate_limited');
+ await admin.query('RESET ROLE');
+ await admin.query('UPDATE coownership_portal_tokens SET view_count=2147483647 WHERE token=$1',[tok]);
+ await admin.query('SET ROLE anon');assert.ok((await scalar('SELECT get_portal_data($1) result',[tok])).result.coownership);
+ await admin.query('RESET ROLE');await admin.query('UPDATE coownership_portal_tokens SET revoked_at=clock_timestamp() WHERE token=$1',[tok]);
+ await admin.query('SET ROLE anon');assert.equal((await scalar('SELECT get_portal_data($1) result',[tok])).result.error,'invalid_token');await admin.query('RESET ROLE');
+ console.log('PASS 070 portal: foreign-unit token rejected, drafts hidden, amounts scoped, group account works, votes gated, messages bounded/rate-limited, saturated counter and revocation');
+
 }finally{await db.close()}})().catch(e=>{console.error(e);process.exit(1)});

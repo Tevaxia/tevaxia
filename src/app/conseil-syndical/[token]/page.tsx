@@ -8,19 +8,23 @@ import { formatEUR } from "@/lib/calculations";
 
 export default function ConseilSyndicalDashboard() {
   const params = useParams();
-  const locale = useLocale();
-  const t = useTranslations("conseilSyndical");
-  const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
   const token = String(params?.token ?? "");
+  return <OwnedCouncil key={token} token={token} />;
+}
+function OwnedCouncil({ token }: { token: string }) {
+  const locale = useLocale(), t = useTranslations("conseilSyndical");
+  const dateLocale = locale === 'lb' ? 'de-LU' : locale;
   const [data, setData] = useState<PortalData | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!!token);
 
   useEffect(() => {
+    let active = true;
     if (!token) return;
     getPortalData(token)
-      .then((d) => setData(d))
-      .catch(() => setData({ error: t("errGeneric") } as PortalData))
-      .finally(() => setLoading(false));
+      .then((d) => { if (active) setData(d); })
+      .catch(() => { if (active) setData({ error: t("errGeneric") } as PortalData); })
+      .finally(() => { if (active) setLoading(false); });
+    return () => { active = false; };
   }, [token, t]);
 
   if (loading) return <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
@@ -34,15 +38,11 @@ export default function ConseilSyndicalDashboard() {
   }
 
   const { coownership, assemblies, fund_calls } = data;
-  const totalCalls = fund_calls.reduce((s, c) => s + c.amount, 0);
-  const paidCalls = fund_calls.filter((c) => c.paid).reduce((s, c) => s + c.amount, 0);
+  const totalCalls = fund_calls.reduce((s, c) => s + Math.round(c.amount_due * 100), 0) / 100;
+  const paidCalls = fund_calls.reduce((s, c) => s + Math.round(c.amount_paid * 100), 0) / 100;
   const unpaidCalls = totalCalls - paidCalls;
 
   const anomalies: string[] = [];
-  if (unpaidCalls > totalCalls * 0.2) anomalies.push(t("anomalyImpaye", { pct: ((unpaidCalls / totalCalls) * 100).toFixed(1) }));
-  if (coownership.works_fund_balance !== null && coownership.nb_lots > 5 && coownership.works_fund_balance < 10000) {
-    anomalies.push(t("anomalyFundLow"));
-  }
   const recentAG = assemblies.find((a) => new Date(a.scheduled_at).getFullYear() >= new Date().getFullYear() - 1);
   if (!recentAG) anomalies.push(t("anomalyNoAg"));
 
@@ -78,16 +78,16 @@ export default function ConseilSyndicalDashboard() {
         <div className="mt-6 grid gap-3 sm:grid-cols-3">
           <div className="rounded-xl border border-card-border bg-card p-5">
             <div className="text-xs uppercase tracking-wider text-muted">{t("kpiAppelsCumules")}</div>
-            <div className="mt-1 text-2xl font-bold text-navy">{formatEUR(totalCalls)}</div>
+            <div className="mt-1 text-2xl font-bold text-navy">{data.unit ? formatEUR(totalCalls) : "—"}</div>
           </div>
           <div className="rounded-xl border border-card-border bg-card p-5">
             <div className="text-xs uppercase tracking-wider text-muted">{t("kpiEncaisse")}</div>
-            <div className="mt-1 text-2xl font-bold text-emerald-700">{formatEUR(paidCalls)}</div>
+            <div className="mt-1 text-2xl font-bold text-emerald-700">{data.unit ? formatEUR(paidCalls) : "—"}</div>
             <div className="text-xs text-muted">{totalCalls > 0 ? `${((paidCalls / totalCalls) * 100).toFixed(1)}%` : "—"}</div>
           </div>
           <div className="rounded-xl border border-card-border bg-card p-5">
             <div className="text-xs uppercase tracking-wider text-muted">{t("kpiImpayes")}</div>
-            <div className="mt-1 text-2xl font-bold text-rose-700">{formatEUR(unpaidCalls)}</div>
+            <div className="mt-1 text-2xl font-bold text-rose-700">{data.unit ? formatEUR(unpaidCalls) : "—"}</div>
           </div>
         </div>
 
@@ -99,6 +99,7 @@ export default function ConseilSyndicalDashboard() {
           </div>
         )}
 
+        <p className="mt-3 text-xs text-muted">{t("financialScope")}</p>
         {/* Historique AG */}
         {assemblies.length > 0 && (
           <div className="mt-6 rounded-xl border border-card-border bg-card p-6 shadow-sm">

@@ -14107,7 +14107,11 @@
     "statusCancelled": "Annuléiert",
     "worksFundTitle": "Aarbechts-Fong vum Gebai",
     "worksFundExplain": "Kapitaliséiert Reserven fir grouss Aarbechten (Fassad, Daach, Asseur…).",
-    "footer": "Nëmme-Lies-Accès. Fir all Ännerung kontaktéiert Äre Syndic. Dësen Link ass perséinlech an däerf net gedeelt ginn."
+    "footer": "Nëmme-Lies-Accès. Fir all Ännerung kontaktéiert Äre Syndic. Dësen Link ass perséinlech an däerf net gedeelt ginn.",
+    "loadFailed": "D’Donnéeë konnten net geluede ginn. Probéiert nach eng Kéier.",
+    "retry": "Nach eng Kéier probéieren",
+    "recentCallsTitle": "Déi sechs lescht Bezuelungsufuerderungen",
+    "recentAmountPending": "Fir dës Ufuerderungen nach op: {amount}"
   },
   "conseilSyndical": {
     "loading": "Lueden…",
@@ -14129,7 +14133,8 @@
     "agHistoryTitle": "AG-Historik (lescht 5)",
     "agOrdinary": "Ordinär AG",
     "agExtraordinary": "Extraordinär AG",
-    "footer": "Syndikatsrot nëmme-Liesen Accès, Auditrol a Kontrollfunktioun (Art. 18 Gesetz 16.05.1975). De Syndic bleift responsabel fir d'operativ Gestioun."
+    "footer": "Syndikatsrot nëmme-Liesen Accès, Auditrol a Kontrollfunktioun (Art. 18 Gesetz 16.05.1975). De Syndic bleift responsabel fir d'operativ Gestioun.",
+    "financialScope": "D’Beträg betreffen déi sechs lescht Bezuelungsufuerderunge vum verbonnene Lot. En allgemenge Link weist keng Salde vun de Loten."
   },
   "esgHub": {
     "metaTitle": "ESG-Immobilien Lëtzebuerg",
@@ -16894,7 +16899,12 @@
     "footerNotice": "<strong>Mäin Coproprietär-Espace:</strong> dës Informatiounen kommen direkt aus der Buchhaltung vun Ärem Syndic. Fir all Fro iwwer eng Demande oder Reactivéierung, kontaktéiert hien iwwer d'Kontakter op der Haaptsäit.",
     "palierLabel1": "Frëndlech Erënnerung",
     "palierLabel2": "Mise en demeure",
-    "palierLabel3": "Lescht Mise en demeure"
+    "palierLabel3": "Lescht Mise en demeure",
+    "loadFailed": "D’Donnéeë konnten net geluede ginn. Probéiert nach eng Kéier.",
+    "retry": "Nach eng Kéier probéieren",
+    "pdfScopeTitle": "Detailer vun den oppene Bezuelungsufuerderungen",
+    "pdfScopeNote": "Dëst Dokument weist oppe Bezuelungsufuerderungen. Beträg, déi a Mahnunge widderholl ginn, ginn net zum Saldo bäigerechent.",
+    "pdfFailed": "D’Dokument konnt net erstallt ginn. Probéiert nach eng Kéier."
   },
   "coproAg": {
     "loading": "Gelueden…",

@@ -46,7 +46,8 @@ export interface PortalData {
   fund_calls: Array<{
     id: string;
     period: string;
-    amount: number;
+    amount_due: number;
+    amount_paid: number;
     paid: boolean;
     due_date: string;
   }>;
@@ -168,5 +169,8 @@ export async function getPortalAccount(token: string): Promise<PortalAccountData
   const client = ensureClient();
   const { data, error } = await client.rpc("get_portal_account", { p_token: token });
   if (error) throw error;
-  return (data ?? {}) as PortalAccountData;
+  if (data?.error) return data as PortalAccountData;
+  if (!data?.balance || !Array.isArray(data.unpaid) || !Array.isArray(data.reminders) || !Array.isArray(data.years)
+    || ['total_due', 'total_paid', 'outstanding', 'nb_unpaid'].some(key => !Number.isFinite(data.balance[key]))) throw new Error('Portal account unavailable');
+  return data as PortalAccountData;
 }

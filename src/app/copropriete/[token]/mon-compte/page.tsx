@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState, use } from "react";
+import { useEffect, useState, useRef, use } from "react";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
-import { pdf } from "@react-pdf/renderer";
+import { useLocale, useTranslations } from "next-intl";
+import { portalOutstandingStatement } from "@/lib/portal-finance";
 import { getPortalAccount, type PortalAccountData } from "@/lib/coownership-portal";
-import OwnerStatementPdf from "@/components/OwnerStatementPdf";
-import { formatEUR } from "@/lib/calculations";
+
+
 
 const PALIER_KEY: Record<number, string> = {
   1: "palierLabel1",
@@ -21,20 +21,32 @@ const PALIER_COLORS: Record<number, string> = {
 };
 
 export default function MyAccountPage(props: { params: Promise<{ token: string }> }) {
-  const t = useTranslations("coproAccount");
   const { token } = use(props.params);
+  return <OwnedAccount key={token} token={token} />;
+}
+function OwnedAccount({ token }: { token: string }) {
+  const t = useTranslations("coproAccount"), locale = useLocale();
+  const prefix = locale === 'fr' ? '' : '/' + locale;
+  const formatEUR = (amount: number) => new Intl.NumberFormat(locale === 'lb' ? 'de-LU' : locale, { style: 'currency', currency: 'EUR' }).format(amount);
+  const [attempt, setAttempt] = useState(0);
+  const alive = useRef(true), busy = useRef(false);
+  const [pdfBusy, setPdfBusy] = useState(false), [actionError, setActionError] = useState(false);
+  useEffect(() => { alive.current = true; return () => { alive.current = false; }; }, []);
   const [data, setData] = useState<PortalAccountData | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!!token);
 
   useEffect(() => {
+    let active = true;
     if (!token) return;
     getPortalAccount(token)
-      .then((d) => setData(d))
-      .catch((e) => setData({ error: (e as Error).message }))
-      .finally(() => setLoading(false));
-  }, [token]);
+      .then((d) => { if (active) setData(d); })
+      .catch(() => { if (active) setData({ error: "unavailable" }); })
+      .finally(() => { if (active) setLoading(false); });
+    return () => { active = false; };
+  }, [token, attempt]);
 
   if (loading) return <div className="mx-auto max-w-4xl px-4 py-16 text-center text-muted">{t("loading")}</div>;
+  if (data?.error === 'unavailable') return <div role="alert" className="mx-auto max-w-2xl px-4 py-16"><p>{t('loadFailed')}</p><button className="mt-3 underline" onClick={() => { setData(null); setLoading(true); setAttempt(n => n + 1); }}>{t('retry')}</button></div>;
   if (!data || data.error) {
     return (
       <div className="mx-auto max-w-2xl px-4 py-16 text-center">
@@ -47,53 +59,27 @@ export default function MyAccountPage(props: { params: Promise<{ token: string }
   const hasOutstanding = (data.balance?.outstanding ?? 0) > 0;
 
   const downloadStatementPdf = async () => {
-    if (!data.unpaid && !data.reminders) return;
-    const items: Array<{
-      date: string; type: "call" | "payment" | "interest" | "penalty" | "adjustment";
-      label: string; debit: number; credit: number;
-    }> = [];
-    for (const u of data.unpaid ?? []) {
-      items.push({
-        date: u.due_date, type: "call",
-        label: u.call_label,
-        debit: u.amount_due, credit: u.amount_paid,
-      });
-    }
-    for (const r of data.reminders ?? []) {
-      if (r.late_interest > 0) {
-        items.push({
-          date: r.sent_at.slice(0, 10),
-          type: "interest",
-          label: t("interestLabel", { palier: r.palier }),
-          debit: r.late_interest, credit: 0,
-        });
-      }
-      if (r.penalty > 0) {
-        items.push({
-          date: r.sent_at.slice(0, 10),
-          type: "penalty",
-          label: t("penaltyLabel", { palier: r.palier }),
-          debit: r.penalty, credit: 0,
-        });
-      }
-    }
-    items.sort((a, b) => a.date.localeCompare(b.date));
-
+    if (busy.current) return;
+    busy.current = true; setPdfBusy(true); setActionError(false);
+    try {
+    const current = await getPortalAccount(token);
+    if (!alive.current) return;
+    if (!current || current.error) throw new Error('Portal unavailable');
+    const { items, totalDebit, totalCredit, balance } = portalOutstandingStatement(current);
+    const [{ pdf }, { default: OwnerStatementPdf }] = await Promise.all([import('@react-pdf/renderer'), import('@/components/OwnerStatementPdf')]);
     const now = new Date();
     const periodFrom = items.length > 0 ? items[0].date : now.toISOString().slice(0, 10);
     const periodTo = now.toISOString().slice(0, 10);
-    const totalDebit = items.reduce((s, i) => s + i.debit, 0);
-    const totalCredit = items.reduce((s, i) => s + i.credit, 0);
-    const balance = totalDebit - totalCredit;
 
     const blob = await pdf(
       <OwnerStatementPdf
-        coownership={{ name: data.coownership_name ?? t("coownershipDefault") }}
+        title={t("pdfScopeTitle")} scopeNote={t("pdfScopeNote")}
+        coownership={{ name: current.coownership_name ?? t("coownershipDefault") }}
         syndic={{ name: t("syndicDefault") }}
         owner={{
-          lot_number: data.lot_number ?? "?",
-          owner_name: data.owner_name ?? null,
-          tantiemes: data.tantiemes ?? 0,
+          lot_number: current.lot_number ?? "?",
+          owner_name: current.owner_name ?? null,
+          tantiemes: current.tantiemes ?? 0,
         }}
         period={{ from: periodFrom, to: periodTo }}
         items={items}
@@ -101,31 +87,35 @@ export default function MyAccountPage(props: { params: Promise<{ token: string }
           total_debit: totalDebit,
           total_credit: totalCredit,
           balance,
-          nb_unpaid: data.balance?.nb_unpaid ?? 0,
-          oldest_unpaid_date: data.unpaid?.sort((a, b) => a.due_date.localeCompare(b.due_date))[0]?.due_date ?? null,
+          nb_unpaid: current.balance?.nb_unpaid ?? 0,
+          oldest_unpaid_date: current.unpaid?.slice().sort((a, b) => a.due_date.localeCompare(b.due_date))[0]?.due_date ?? null,
         }}
       />
     ).toBlob();
 
+    if (!alive.current) return;
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = t("fileName", { lot: data.lot_number ?? "?", date: periodTo });
+    a.download = t("fileName", { lot: current.lot_number ?? "?", date: periodTo });
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url), 60_000);
+    } catch { if (alive.current) setActionError(true); }
+    finally { busy.current = false; if (alive.current) setPdfBusy(false); }
   };
 
   return (
     <div className="bg-background min-h-screen py-8">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-2">
-          <Link href={`/copropriete/${token}`} className="text-xs text-muted hover:text-navy">{t("backLink")}</Link>
-          <button onClick={downloadStatementPdf}
+          <Link href={`${prefix}/copropriete/${token}`} className="text-xs text-muted hover:text-navy">{t("backLink")}</Link>
+          <button disabled={pdfBusy} onClick={downloadStatementPdf}
             className="rounded-lg border border-navy bg-white px-3 py-1.5 text-xs font-semibold text-navy hover:bg-navy/5">
             {t("btnDownloadPdf")}
           </button>
         </div>
 
+        {actionError && <p role="alert" className="mt-3 text-sm text-rose-700">{t("pdfFailed")}</p>}
         <div className={`mt-3 rounded-2xl p-6 ${hasOutstanding ? "bg-rose-50 border border-rose-200" : "bg-gradient-to-br from-emerald-500 to-emerald-700 text-white"}`}>
           <div className={`text-xs uppercase tracking-wider ${hasOutstanding ? "text-rose-700" : "text-white/70"}`}>
             {t("balanceLabel")}
@@ -172,7 +162,7 @@ export default function MyAccountPage(props: { params: Promise<{ token: string }
                   <tr key={u.charge_id} className={u.days_late > 30 ? "bg-rose-50/50" : ""}>
                     <td className="px-2 py-1.5 font-medium">{u.call_label}</td>
                     <td className="px-2 py-1.5 text-xs">
-                      {new Date(u.due_date).toLocaleDateString("fr-FR")}
+                      {new Date(u.due_date).toLocaleDateString(locale === "lb" ? "de-LU" : locale)}
                       {u.days_late > 0 && (
                         <span className="ml-1 text-[10px] text-rose-700 font-semibold">
                           {t("daysLate", { n: u.days_late })}
@@ -209,7 +199,7 @@ export default function MyAccountPage(props: { params: Promise<{ token: string }
                       {t("palier", { n: r.palier, label: t(PALIER_KEY[r.palier]) })}
                     </span>
                     <span className="text-xs text-muted">
-                      {new Date(r.sent_at).toLocaleDateString("fr-FR")}
+                      {new Date(r.sent_at).toLocaleDateString(locale === "lb" ? "de-LU" : locale)}
                     </span>
                     <span className="text-[10px] text-muted">via {r.channel}</span>
                   </div>
@@ -239,7 +229,7 @@ export default function MyAccountPage(props: { params: Promise<{ token: string }
                   <div>
                     <div className="font-semibold text-navy">{t("yearLabel", { year: y.year })}</div>
                     <div className="text-[10px] text-muted">
-                      {t("yearClosedOn", { date: y.closed_at ? new Date(y.closed_at).toLocaleDateString("fr-FR") : t("dash") })}
+                      {t("yearClosedOn", { date: y.closed_at ? new Date(y.closed_at).toLocaleDateString(locale === "lb" ? "de-LU" : locale) : t("dash") })}
                     </div>
                   </div>
                   <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] text-slate-600">
