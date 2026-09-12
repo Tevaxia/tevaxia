@@ -14,6 +14,7 @@
  *   - CRM agences (contacts, tasks, interactions, mandates)
  */
 
+import { supabase } from "@/lib/supabase";
 import { unzipSync, strFromU8 } from "fflate";
 import type { BackupManifest, BackupModule } from "./types";
 import { upsertRows, parseJsonArray, RestoreAccumulator } from "./restore-helpers";
@@ -232,6 +233,12 @@ async function applySyndic(
   skipExisting: boolean,
   result: RestoreResult,
 ): Promise<void> {
+  // Refuse legacy incomplete journals before importing any rows.
+  const years = parseJsonArray(files, 'accounting_years.json');
+  const entries = parseJsonArray(files, 'entries.json');
+  const lines = parseJsonArray(files, 'entry_lines.json');
+  if (entries.length && !files['entry_lines.json']) throw new Error('Sauvegarde comptable incomplète : lignes des écritures manquantes.');
+  if (entries.some(entry => !years.some(year => year.id === entry.year_id)) || lines.some(line => !entries.some(entry => entry.id === line.entry_id))) throw new Error('Sauvegarde comptable incohérente.');
   const mappings: TableMapping[] = [
     { file: "coownerships.json", table: "coownerships" },
     { file: "units.json", table: "coownership_units" },
@@ -241,18 +248,31 @@ async function applySyndic(
     { file: "allocation_keys.json", table: "coownership_allocation_keys" },
     { file: "unit_allocations.json", table: "coownership_unit_allocations" },
     { file: "budgets.json", table: "coownership_budgets" },
+    { file: "accounts.json", table: "accounting_accounts" },
     { file: "budget_lines.json", table: "coownership_budget_lines" },
     { file: "calls.json", table: "coownership_calls" },
     { file: "charges.json", table: "coownership_unit_charges" },
-    { file: "accounting_years.json", table: "coownership_accounting_years" },
-    { file: "accounts.json", table: "accounting_accounts" },
-    { file: "entries.json", table: "accounting_entries" },
     { file: "reminders.json", table: "coownership_reminders" },
   ];
   const out = await applyOrderedTables(files, skipExisting, mappings);
   Object.assign(result.imported, out.imported);
   Object.assign(result.skipped, out.skipped);
   result.errors.push(...out.errors);
+  if (out.errors.length) return;
+  if (!supabase && years.length) throw new Error('Supabase non configuré');
+  for (const year of years) {
+    const yearEntries = entries.filter(entry => entry.year_id === year.id);
+    const ids = new Set(yearEntries.map(entry => entry.id));
+    const { data, error } = await supabase!.rpc('restore_accounting_year', {
+      p_year: year, p_entries: yearEntries, p_lines: lines.filter(line => ids.has(line.entry_id)), p_skip_existing: skipExisting,
+    });
+    if (error || !data) { result.errors.push('Restauration comptable non confirmée : ' + (error?.message ?? 'réponse vide')); continue; }
+    for (const [table, key] of [['accounting_entries', 'entries'], ['accounting_entry_lines', 'lines'], ['coownership_accounting_years', 'year']]) {
+      result.imported[table] = (result.imported[table] ?? 0) + Number(data[key + '_imported'] ?? 0);
+      result.skipped[table] = (result.skipped[table] ?? 0) + Number(data[key + '_skipped'] ?? 0);
+    }
+  }
+
 }
 
 async function applyPms(

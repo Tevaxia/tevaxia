@@ -5119,7 +5119,11 @@
       "statusPaid": "Bezahlt",
       "statusOpen": "Fällig",
       "view": "Anzeigen",
-      "legalNote": "10 Jahre für Buchhaltung aufbewahren."
+      "legalNote": "10 Jahre für Buchhaltung aufbewahren.",
+      "loadFailed": "Der Rechnungsverlauf ist nicht verfügbar. Bitte erneut versuchen.",
+      "retry": "Erneut versuchen",
+      "recentLimit": "Die 24 neuesten Rechnungen werden angezeigt.",
+      "testMode": "Stripe-Testumgebung."
     },
     "profileStorageError": "Laden oder Änderung konnte nicht bestätigt werden. Die angezeigten Daten können eine lokale Kopie sein. Versuchen Sie es erneut, bevor Sie sich darauf verlassen.",
     "profileRetry": "Erneut versuchen",

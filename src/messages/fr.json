@@ -5119,7 +5119,11 @@
       "statusPaid": "Payée",
       "statusOpen": "Due",
       "view": "Voir",
-      "legalNote": "Les PDF sont générés par Stripe et conformes aux mentions légales LU (art. 61-63 loi TVA 12/02/1979, RGD 24/03/2023). Conservez-les 10 ans pour votre comptabilité."
+      "legalNote": "Les PDF sont générés par Stripe et conformes aux mentions légales LU (art. 61-63 loi TVA 12/02/1979, RGD 24/03/2023). Conservez-les 10 ans pour votre comptabilité.",
+      "loadFailed": "Historique des factures indisponible. Réessayez.",
+      "retry": "Réessayer",
+      "recentLimit": "Les 24 factures les plus récentes sont affichées.",
+      "testMode": "Environnement de test Stripe."
     },
     "profileStorageError": "Impossible de confirmer le chargement ou la modification. Les données affichées peuvent être une copie locale. Réessayez avant de vous y fier.",
     "profileRetry": "Réessayer",

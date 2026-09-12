@@ -5119,7 +5119,11 @@
       "statusPaid": "Paga",
       "statusOpen": "Devida",
       "view": "Ver",
-      "legalNote": "Conservar 10 anos para contabilidade."
+      "legalNote": "Conservar 10 anos para contabilidade.",
+      "loadFailed": "O histórico de faturas está indisponível. Tente novamente.",
+      "retry": "Tentar novamente",
+      "recentLimit": "São apresentadas as 24 faturas mais recentes.",
+      "testMode": "Ambiente de teste Stripe."
     },
     "profileStorageError": "Não foi possível confirmar o carregamento ou a alteração. Os dados apresentados podem ser uma cópia local. Tente novamente antes de os utilizar.",
     "profileRetry": "Tentar novamente",

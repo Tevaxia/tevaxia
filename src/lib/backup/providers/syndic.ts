@@ -14,7 +14,7 @@ import { listAssemblies, listResolutions, listVotes } from "@/lib/coownership-as
 import { listBudgets, listCalls, listCharges } from "@/lib/coownership-finance";
 import { listBudgetLines } from "@/lib/coownership-budgets";
 import { listAllocationKeys, listUnitAllocations } from "@/lib/coownership-allocations";
-import { listYears, listAccounts, listEntries } from "@/lib/coownership-accounting";
+import { listYears, listAccounts, listEntries, listLines } from "@/lib/coownership-accounting";
 import { listRemindersSent, listUnpaidCharges } from "@/lib/coownership-reminders";
 import { getProfile } from "@/lib/profile";
 
@@ -42,6 +42,7 @@ async function collect(ctx: ExportContext): Promise<BackupBundle> {
   const accountingYearsAll: unknown[] = [];
   const accountsAll: unknown[] = [];
   const entriesAll: unknown[] = [];
+  const entryLinesAll: unknown[] = [];
   const remindersAll: unknown[] = [];
   const unpaidAll: unknown[] = [];
 
@@ -201,11 +202,8 @@ async function collect(ctx: ExportContext): Promise<BackupBundle> {
       const entries = await listEntries(year.id);
       entriesAll.push(...entries);
 
-      const distinctYears = new Set(budgets.map((b) => b.year));
-      distinctYears.forEach(async (y) => {
-        const lines = await listBudgetLines(copro.id, y);
-        budgetLinesAll.push(...lines);
-      });
+      for (const entry of entries) entryLinesAll.push(...await listLines(entry.id));
+
     }
 
     // Budget lines (standalone)
@@ -233,6 +231,7 @@ async function collect(ctx: ExportContext): Promise<BackupBundle> {
     "accounting_years.json": toJson(accountingYearsAll),
     "accounts.json": toJson(accountsAll),
     "entries.json": toJson(entriesAll),
+    "entry_lines.json": toJson(entryLinesAll),
     "reminders.json": toJson(remindersAll),
     "unpaid_charges.json": toJson(unpaidAll),
   };
@@ -252,6 +251,7 @@ async function collect(ctx: ExportContext): Promise<BackupBundle> {
     accounting_years: accountingYearsAll.length,
     accounts: accountsAll.length,
     entries: entriesAll.length,
+    entry_lines: entryLinesAll.length,
     reminders: remindersAll.length,
     unpaid_charges: unpaidAll.length,
   };

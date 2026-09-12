@@ -191,45 +191,14 @@ export async function createEntryWithLines(input: {
 }): Promise<Entry> {
   const client = ensureClient();
 
-  const totalDebit = input.lines.reduce((s, l) => s + (Number(l.debit) || 0), 0);
-  const totalCredit = input.lines.reduce((s, l) => s + (Number(l.credit) || 0), 0);
-  if (Math.abs(totalDebit - totalCredit) > 0.01) {
-    throw new Error(`Écriture non équilibrée : débit ${totalDebit.toFixed(2)} ≠ crédit ${totalCredit.toFixed(2)}`);
-  }
-  if (totalDebit === 0) {
-    throw new Error("L'écriture doit contenir au moins un débit et un crédit non nuls.");
-  }
-
-  const { data: { user } } = await client.auth.getUser();
-
-  const { data: entry, error: entryErr } = await client
-    .from("accounting_entries")
-    .insert({
-      coownership_id: input.coownership_id,
-      year_id: input.year_id,
-      entry_date: input.entry_date,
-      reference: input.reference ?? null,
-      label: input.label,
-      journal_code: input.journal_code ?? "OD",
-      created_by: user?.id ?? null,
-    })
-    .select("*")
-    .single();
-
-  if (entryErr) throw entryErr;
-
-  const linesPayload = input.lines
-    .filter((l) => (Number(l.debit) || 0) + (Number(l.credit) || 0) > 0)
-    .map((l) => ({
-      entry_id: (entry as Entry).id,
-      account_id: l.account_id,
-      debit: Number(l.debit) || 0,
-      credit: Number(l.credit) || 0,
-      line_label: l.line_label ?? null,
-    }));
-
-  const { error: linesErr } = await client.from("accounting_entry_lines").insert(linesPayload);
-  if (linesErr) throw linesErr;
+  // The RPC validates cents, ownership, year status and all lines in one transaction.
+  const { lines, ...entryInput } = input;
+  const { data: entry, error } = await client.rpc("create_accounting_entry", {
+    p_entry: entryInput,
+    p_lines: lines.filter(line => line.debit !== 0 || line.credit !== 0),
+  });
+  if (error) throw error;
+  if (!entry) throw new Error("L'écriture n'a pas été enregistrée.");
 
   return entry as Entry;
 }

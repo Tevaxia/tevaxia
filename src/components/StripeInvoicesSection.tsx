@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/components/AuthProvider";
-import { errMsg } from "@/lib/errors";
+import { captureMfaSession } from "@/lib/owned-mfa";
 
 interface StripeInvoice {
   id: string;
@@ -20,46 +20,40 @@ interface StripeInvoice {
 }
 
 export default function StripeInvoicesSection() {
-  const t = useTranslations("profil.invoices");
   const { user } = useAuth();
+  return user ? <OwnedStripeInvoices key={user.id} owner={user.id} /> : null;
+}
+function OwnedStripeInvoices({ owner }: { owner: string }) {
+  const t = useTranslations("profil.invoices"), locale = useLocale();
   const [invoices, setInvoices] = useState<StripeInvoice[] | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
+  const [loading, setLoading] = useState(true), [attempt, setAttempt] = useState(0);
+  const [error, setError] = useState(false), [hasMore, setHasMore] = useState(false), [testMode, setTestMode] = useState(false);
   useEffect(() => {
-    if (!user || !supabase) return;
-    setLoading(true);
+    let active = true; const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 30000);
     void (async () => {
       try {
-        const { data: { session } } = await supabase!.auth.getSession();
-        const token = session?.access_token;
-        if (!token) throw new Error(t("authRequired"));
-        const res = await fetch("/api/stripe/invoices", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        if (!res.ok) {
-          if (res.status === 501) { setInvoices([]); return; }
-          throw new Error(`HTTP ${res.status}`);
-        }
+        if (!supabase) throw new Error('Unavailable');
+        const snapshot = await captureMfaSession(owner);
+        const res = await fetch('/api/stripe/invoices', { headers: { Authorization: `Bearer ${snapshot.session.access_token}` }, cache: 'no-store', signal: controller.signal });
+        if (!res.ok) throw new Error('Unavailable');
         const data = await res.json();
-        setInvoices(data.invoices ?? []);
-      } catch (e) {
-        setError(errMsg(e, String(e)));
-      } finally {
-        setLoading(false);
-      }
+        if (!Array.isArray(data.invoices) || data.invoices.some((inv: StripeInvoice) => !inv || typeof inv.id !== 'string' || typeof inv.currency !== 'string' || !/^[A-Z]{3}$/.test(inv.currency) || !Number.isFinite(inv.amount))) throw new Error('Invalid response');
+        await captureMfaSession(owner, snapshot.identity);
+        if (active) { setInvoices(data.invoices); setHasMore(data.hasMore === true); setTestMode(data.testMode === true); }
+      } catch { if (active) setError(true); }
+      finally { clearTimeout(timer); if (active) setLoading(false); }
     })();
-  }, [user, t]);
-
-  if (!user) return null;
-
+    return () => { active = false; clearTimeout(timer); controller.abort(); };
+  }, [owner, attempt]);
   return (
     <div className="rounded-xl border border-card-border bg-card p-5 shadow-sm">
       <h3 className="text-sm font-semibold text-navy mb-1">{t("title")}</h3>
       <p className="text-xs text-muted mb-3">{t("description")}</p>
 
       {loading && <p className="text-xs text-muted">{t("loading")}</p>}
-      {error && <p className="text-xs text-rose-700">{error}</p>}
+      {error && <div className="text-xs"><p role="alert" className="text-rose-700">{t('loadFailed')}</p><button className="mt-2 underline" onClick={() => { setError(false); setLoading(true); setAttempt(n => n + 1); }}>{t('retry')}</button></div>}
+      {hasMore && <p className="mb-3 text-xs" role="status">{t('recentLimit')}</p>}
 
       {invoices && invoices.length === 0 && (
         <p className="rounded-lg border border-dashed border-card-border bg-background p-4 text-center text-xs text-muted">
@@ -85,7 +79,7 @@ export default function StripeInvoicesSection() {
                   <td className="px-3 py-2 font-mono">{inv.number ?? inv.id.slice(-8)}</td>
                   <td className="px-3 py-2">{inv.date ?? "—"}</td>
                   <td className="px-3 py-2 text-right font-mono tabular-nums">
-                    {new Intl.NumberFormat("fr-FR", { style: "currency", currency: inv.currency }).format(inv.amount)}
+                    {new Intl.NumberFormat(locale, { style: "currency", currency: inv.currency }).format(inv.amount)}
                   </td>
                   <td className="px-3 py-2 text-center">
                     <span className={`inline-flex rounded-full px-2 py-0.5 text-[10px] font-semibold ${
@@ -120,9 +114,7 @@ export default function StripeInvoicesSection() {
       <p className="mt-3 text-[10px] text-muted">
         {t("legalNote")}
       </p>
-      <p className="mt-1 text-[10px] text-amber-700">
-        Mode démo : factures de test, pas de TVA ni de numérotation fiscale. Activation prod = enregistrement société.
-      </p>
+      {testMode && <p className="mt-1 text-[10px] text-amber-700">{t('testMode')}</p>}
     </div>
   );
 }

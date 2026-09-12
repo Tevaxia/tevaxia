@@ -62,17 +62,21 @@ export async function POST(req: Request) {
       case "customer.subscription.created":
       case "customer.subscription.updated":
       case "customer.subscription.deleted": {
-        const sub = event.data.object as Stripe.Subscription;
+        // Delivery order is not guaranteed: reconcile from the current Stripe object.
+        const incoming = event.data.object as Stripe.Subscription;
+        const sub = await stripe.subscriptions.retrieve(incoming.id);
         const customerId = typeof sub.customer === "string" ? sub.customer : sub.customer.id;
 
         // Retrouver user_id via la ligne existante ou les métadonnées
         let userId: string = sub.metadata?.user_id ?? "";
         if (!userId) {
-          const { data: existing } = await admin
+          const { data: existing, error: lookupError } = await admin
             .from("stripe_subscriptions")
             .select("user_id")
             .eq("stripe_customer_id", customerId)
+            .limit(1)
             .maybeSingle();
+          if (lookupError) throw new Error('Subscription owner lookup failed');
           userId = (existing?.user_id as string | undefined) ?? "";
         }
         if (!userId) break;
@@ -121,5 +125,7 @@ async function upsertSubscription(
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  await (admin.from("stripe_subscriptions") as any).upsert(row, { onConflict: "stripe_subscription_id" });
+  const { error } = await (admin.from("stripe_subscriptions") as any).upsert(row, { onConflict: "stripe_subscription_id" });
+  // A 2xx acknowledges the event permanently. Return 500 so Stripe retries failed writes.
+  if (error) throw new Error('Subscription persistence failed');
 }

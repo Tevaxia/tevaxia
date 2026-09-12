@@ -5119,7 +5119,11 @@
       "statusPaid": "Bezuelt",
       "statusOpen": "Schëlleg",
       "view": "Kucken",
-      "legalNote": "10 Joer konservéieren."
+      "legalNote": "10 Joer konservéieren.",
+      "loadFailed": "D’Rechnungshistorik ass net disponibel. Probéiert nach eng Kéier.",
+      "retry": "Nach eng Kéier probéieren",
+      "recentLimit": "Déi 24 lescht Rechnunge ginn ugewisen.",
+      "testMode": "Stripe-Testëmfeld."
     },
     "profileStorageError": "D’Luede oder d’Ännerung konnt net bestätegt ginn. Déi ugewisen Donnéeë kënnen eng lokal Kopie sinn. Probéiert nach eng Kéier, ier Dir Iech drop verlooss.",
     "profileRetry": "Nach eng Kéier probéieren",
