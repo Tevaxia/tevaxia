@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import type Stripe from "stripe";
@@ -44,6 +45,13 @@ export async function POST(req: Request) {
   }
   const admin = createClient(supabaseUrl, serviceRoleKey);
 
+  const leaseId = randomUUID();
+  let leasedSubscription: string | null = null;
+  const acquire = async (subscriptionId: string) => {
+    const { data, error } = await admin.rpc("acquire_stripe_reconciliation", { p_subscription_id: subscriptionId, p_lease_id: leaseId });
+    if (error || data !== true) throw new Error("Subscription reconciliation busy");
+    leasedSubscription = subscriptionId;
+  };
   try {
     switch (event.type) {
       case "checkout.session.completed": {
@@ -54,8 +62,9 @@ export async function POST(req: Request) {
         const subId = typeof session.subscription === "string" ? session.subscription : session.subscription.id;
         const customerId = typeof session.customer === "string" ? session.customer : session.customer?.id ?? null;
 
-        const sub = await stripe.subscriptions.retrieve(subId);
-        await upsertSubscription(admin, userId, customerId, sub);
+        await acquire(subId);
+        const sub = await stripe.subscriptions.retrieve(subId, {}, { timeout: 15000, maxNetworkRetries: 0 });
+        await upsertSubscription(admin, userId, customerId, sub, leaseId);
         break;
       }
 
@@ -64,7 +73,8 @@ export async function POST(req: Request) {
       case "customer.subscription.deleted": {
         // Delivery order is not guaranteed: reconcile from the current Stripe object.
         const incoming = event.data.object as Stripe.Subscription;
-        const sub = await stripe.subscriptions.retrieve(incoming.id);
+        await acquire(incoming.id);
+        const sub = await stripe.subscriptions.retrieve(incoming.id, {}, { timeout: 15000, maxNetworkRetries: 0 });
         const customerId = typeof sub.customer === "string" ? sub.customer : sub.customer.id;
 
         // Retrouver user_id via la ligne existante ou les métadonnées
@@ -81,7 +91,7 @@ export async function POST(req: Request) {
         }
         if (!userId) break;
 
-        await upsertSubscription(admin, userId, customerId, sub);
+        await upsertSubscription(admin, userId, customerId, sub, leaseId);
         break;
       }
 
@@ -92,6 +102,11 @@ export async function POST(req: Request) {
   } catch (e) {
     console.error("Stripe webhook handler error:", e);
     return NextResponse.json({ error: "Handler failed" }, { status: 500 });
+  } finally {
+    if (leasedSubscription) {
+      try { await admin.rpc("release_stripe_reconciliation", { p_subscription_id: leasedSubscription, p_lease_id: leaseId }); }
+      catch { /* An interrupted lease expires automatically; Stripe retries the event. */ }
+    }
   }
 
   return NextResponse.json({ received: true });
@@ -101,7 +116,8 @@ async function upsertSubscription(
   admin: AdminClient,
   userId: string,
   customerId: string | null,
-  sub: Stripe.Subscription
+  sub: Stripe.Subscription,
+  leaseId: string
 ) {
   const item = sub.items.data[0];
   const priceId = item?.price.id ?? null;
@@ -124,8 +140,7 @@ async function upsertSubscription(
     canceled_at: sub.canceled_at ? new Date(sub.canceled_at * 1000).toISOString() : null,
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { error } = await (admin.from("stripe_subscriptions") as any).upsert(row, { onConflict: "stripe_subscription_id" });
+  const { error } = await admin.rpc("finish_stripe_reconciliation", { p_subscription: row, p_lease_id: leaseId });
   // A 2xx acknowledges the event permanently. Return 500 so Stripe retries failed writes.
   if (error) throw new Error('Subscription persistence failed');
 }

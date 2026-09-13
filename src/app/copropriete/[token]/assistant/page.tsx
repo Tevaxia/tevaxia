@@ -3,15 +3,25 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { useAuth } from "@/components/AuthProvider";
 import { supabase } from "@/lib/supabase";
 
 interface ChatMessage { role: "user" | "assistant"; content: string; }
 
 export default function CoproChatbot() {
-  const t = useTranslations("coproAssistant");
   const params = useParams();
+  const { user } = useAuth();
   const token = String(params?.token ?? "");
+  return <OwnedChat key={token + ":" + (user?.id ?? "")} token={token} ownerId={user?.id ?? null} />;
+}
+function OwnedChat({ token, ownerId }: { token: string; ownerId: string | null }) {
+  const t = useTranslations("coproAssistant");
+  const locale = useLocale();
+  const alive = useRef(true);
+  const busy = useRef(false);
+  const controller = useRef<AbortController | null>(null);
+  useEffect(() => { alive.current = true; return () => { alive.current = false; controller.current?.abort(); }; }, []);
   const welcome: ChatMessage = { role: "assistant", content: t("welcome") };
   const [messages, setMessages] = useState<ChatMessage[]>([welcome]);
   const [input, setInput] = useState("");
@@ -25,7 +35,11 @@ export default function CoproChatbot() {
 
   const send = async () => {
     const trimmed = input.trim();
-    if (!trimmed || loading) return;
+    if (!trimmed || busy.current) return;
+    busy.current = true;
+    const abort = new AbortController();
+    controller.current = abort;
+    const timer = setTimeout(() => abort.abort(), 30000);
     const next: ChatMessage[] = [...messages, { role: "user", content: trimmed }];
     setMessages(next);
     setInput("");
@@ -35,29 +49,31 @@ export default function CoproChatbot() {
       let authToken: string | null = null;
       if (supabase) {
         const { data: { session } } = await supabase.auth.getSession();
-        authToken = session?.access_token ?? null;
+        authToken = session?.user.id === ownerId ? session.access_token : null;
       }
+      if (!alive.current) return;
       if (!authToken) {
         setError(t("authRequired"));
         setLoading(false);
         return;
       }
-      const system = t("systemPrompt", { token: token.slice(0, 12) });
       const res = await fetch("/api/v1/ai/chat", {
-        method: "POST",
+        method: "POST", signal: abort.signal, cache: "no-store",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${authToken}` },
         body: JSON.stringify({
-          messages: next.slice(1).map((m) => ({ role: m.role, content: m.content })),
-          systemPrompt: system,
+          messages: next.slice(1).slice(-19).map((m) => ({ role: m.role, content: m.content })),
         }),
       });
       const data = await res.json();
-      if (!res.ok) { setError(data.error ?? t("errStatus", { status: res.status })); return; }
+      const { data: current } = await supabase!.auth.getSession();
+      if (!alive.current || current.session?.access_token !== authToken) return;
+      if (!res.ok || typeof data.text !== "string") { setError(t("errGeneric")); return; }
       setMessages((prev) => [...prev, { role: "assistant", content: data.text }]);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : t("errGeneric"));
+    } catch {
+      if (alive.current) setError(t("errGeneric"));
     } finally {
-      setLoading(false);
+      clearTimeout(timer); busy.current = false;
+      if (alive.current) setLoading(false);
     }
   };
 
@@ -68,7 +84,7 @@ export default function CoproChatbot() {
   return (
     <div className="bg-background min-h-screen py-8 sm:py-12">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <Link href={`/copropriete/${token}`} className="text-xs text-muted hover:text-navy">{t("backLink")}</Link>
+        <Link href={`${locale === "fr" ? "" : "/" + locale}/copropriete/${token}`} className="text-xs text-muted hover:text-navy">{t("backLink")}</Link>
         <div className="mt-2 mb-4">
           <h1 className="text-2xl font-bold text-navy">{t("title")}</h1>
           <p className="text-sm text-muted">{t("subtitle")}</p>
@@ -81,7 +97,7 @@ export default function CoproChatbot() {
                 className={`rounded-xl px-3 py-2 text-sm leading-relaxed max-w-[85%] ${
                   m.role === "user" ? "ml-auto bg-purple-600 text-white" : "mr-auto bg-background text-foreground border border-card-border"
                 }`}>
-                <div className="whitespace-pre-wrap">{m.content}</div>
+                <div className="whitespace-pre-wrap break-words">{m.content}</div>
               </div>
             ))}
             {loading && (
@@ -99,7 +115,7 @@ export default function CoproChatbot() {
             <div className="flex items-end gap-2">
               <textarea value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={onKeyDown}
                 placeholder={t("inputPlaceholder")}
-                rows={2} disabled={loading}
+                rows={2} maxLength={4000} disabled={loading}
                 className="flex-1 resize-none rounded-lg border border-input-border bg-card px-3 py-2 text-sm" />
               <button onClick={() => void send()} disabled={loading || !input.trim()}
                 className="rounded-lg bg-purple-600 px-4 py-2 text-sm font-semibold text-white hover:bg-purple-700 disabled:opacity-40">

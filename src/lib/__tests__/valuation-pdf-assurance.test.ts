@@ -1,0 +1,14 @@
+import { beforeEach, afterEach, it, expect, vi } from 'vitest';
+const qa=vi.hoisted(()=>({allowed:false,render:vi.fn(),assure:vi.fn()}));
+vi.mock('@/lib/mfa-assurance',()=>({getAssuredUser:qa.assure}));
+vi.mock('@supabase/supabase-js',()=>({createClient:()=>({})}));
+vi.mock('@react-pdf/renderer',()=>({renderToBuffer:qa.render}));
+vi.mock('@/components/ValuationReport',()=>({ReportDocument:()=>null}));
+import { POST } from '@/app/api/valorisation/pdf/route';
+const req=(body:unknown,auth=true)=>new Request('https://tevaxia.lu/api/valorisation/pdf',{method:'POST',headers:auth?{authorization:'Bearer exact-jwt'}:{},body:JSON.stringify(body)});
+beforeEach(()=>{vi.stubEnv('NEXT_PUBLIC_SUPABASE_URL','https://qa.supabase.co');vi.stubEnv('NEXT_PUBLIC_SUPABASE_ANON_KEY','public');qa.allowed=false;qa.render.mockReset().mockResolvedValue(Buffer.from('%PDF-QA'));qa.assure.mockReset().mockImplementation(async()=>({data:{user:qa.allowed?{id:'owner'}:null}}));});
+afterEach(()=>vi.unstubAllEnvs());
+it('refuses missing authentication before rendering',async()=>{expect((await POST(req({dateRapport:'2026-09-13'},false))).status).toBe(401);expect(qa.assure).not.toHaveBeenCalled();expect(qa.render).not.toHaveBeenCalled()});
+it('requires assurance on the exact bearer before PDF generation',async()=>{expect((await POST(req({dateRapport:'2026-09-13'}))).status).toBe(401);expect(qa.assure).toHaveBeenCalledWith({},'exact-jwt');expect(qa.render).not.toHaveBeenCalled()});
+it('refuses an unsafe filename date before rendering',async()=>{qa.allowed=true;expect((await POST(req({dateRapport:'2026-09-13"\r\nX-Other: bad'}))).status).toBe(400);expect(qa.render).not.toHaveBeenCalled()});
+it('returns an assured private PDF with its digest',async()=>{qa.allowed=true;const res=await POST(req({dateRapport:'2026-09-13'}));expect(res.status).toBe(200);expect(res.headers.get('cache-control')).toBe('private, no-store');expect(res.headers.get('x-pdf-sha256')).toMatch(/^[a-f0-9]{64}$/)});

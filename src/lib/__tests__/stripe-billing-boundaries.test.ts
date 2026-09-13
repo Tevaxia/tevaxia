@@ -1,7 +1,7 @@
 import { beforeEach, afterEach, it, expect, vi } from 'vitest';
-const qa=vi.hoisted(()=>({upsert:vi.fn(),lookup:vi.fn(),create:vi.fn(),retrieve:vi.fn(),event:{} as {type?:string;data?:{object:unknown}},auth:true}));
+const qa=vi.hoisted(()=>({rpc:vi.fn(),upsert:vi.fn(),lookup:vi.fn(),create:vi.fn(),retrieve:vi.fn(),event:{} as {type?:string;data?:{object:unknown}},auth:true}));
 vi.mock('@/lib/stripe',()=>({isStripeConfigured:true,STRIPE_PRICE_PRO:'price_pro',stripe:{checkout:{sessions:{create:qa.create}},subscriptions:{retrieve:qa.retrieve},webhooks:{constructEvent:()=>qa.event}}}));
-vi.mock('@supabase/supabase-js',()=>({createClient:()=>({from:()=>{const q={select:()=>q,eq:()=>q,in:()=>q,limit:()=>q,maybeSingle:qa.lookup,upsert:qa.upsert,then:(resolve:(v:unknown)=>unknown)=>qa.lookup().then(resolve)};return q}})}));
+vi.mock('@supabase/supabase-js',()=>({createClient:()=>({rpc:qa.rpc,from:()=>{const q={select:()=>q,eq:()=>q,in:()=>q,limit:()=>q,maybeSingle:qa.lookup,upsert:qa.upsert,then:(resolve:(v:unknown)=>unknown)=>qa.lookup().then(resolve)};return q}})}));
 vi.mock('@/lib/mfa-assurance',()=>({getAssuredUser:async()=>({data:{user:qa.auth?{id:'owner',email:'owner@example.test'}:null},error:null})}));
 import { POST as checkout } from '@/app/api/stripe/checkout/route';
 import { POST as webhook } from '@/app/api/stripe/webhook/route';
@@ -9,6 +9,7 @@ const request=(body:unknown={})=>new Request('https://tevaxia.lu/api/stripe/chec
 const sub={id:'sub_one',customer:'cus_one',status:'active',metadata:{user_id:'owner'},items:{data:[{price:{id:'price_pro'},current_period_start:1700000000,current_period_end:1800000000}]}};
 beforeEach(()=>{
  vi.stubEnv('NEXT_PUBLIC_SUPABASE_URL','https://qa.supabase.co');vi.stubEnv('NEXT_PUBLIC_SUPABASE_ANON_KEY','key');vi.stubEnv('SUPABASE_SERVICE_ROLE_KEY','service');vi.stubEnv('STRIPE_WEBHOOK_SECRET','secret');vi.stubEnv('NEXT_PUBLIC_BASE_URL','https://tevaxia.lu');
+ qa.rpc.mockReset().mockImplementation(async(name:string,args:Record<string,unknown>)=> name==='acquire_stripe_reconciliation'?{data:true,error:null}:name==='finish_stripe_reconciliation'?qa.upsert(args.p_subscription):{error:null});
  qa.auth=true;qa.lookup.mockReset().mockResolvedValue({data:[],error:null});qa.upsert.mockReset().mockResolvedValue({error:null});qa.create.mockReset().mockResolvedValue({url:'https://checkout.stripe.com/one'});qa.retrieve.mockReset().mockResolvedValue(sub);
  qa.event={type:'checkout.session.completed',data:{object:{client_reference_id:'owner',subscription:'sub_one',customer:'cus_one'}}};
  vi.spyOn(console,'error').mockImplementation(()=>{});
@@ -29,8 +30,16 @@ it('returns a retryable failure when subscription persistence fails',async()=>{
  qa.upsert.mockResolvedValue({error:{message:'DATABASE_SECRET'}});const res=await webhook(request());expect(res.status).toBe(500);expect(await res.text()).not.toContain('DATABASE_SECRET');
 });
 it('reconciles delayed subscription events from the current Stripe state',async()=>{
- qa.event={type:'customer.subscription.updated',data:{object:{...sub,status:'past_due'}}};expect((await webhook(request())).status).toBe(200);expect(qa.retrieve).toHaveBeenCalledWith('sub_one');expect(qa.upsert.mock.calls[0][0].status).toBe('active');
+ qa.event={type:'customer.subscription.updated',data:{object:{...sub,status:'past_due'}}};expect((await webhook(request())).status).toBe(200);expect(qa.retrieve).toHaveBeenCalledWith('sub_one',{},expect.objectContaining({timeout:15000}));expect(qa.upsert.mock.calls[0][0].status).toBe('active');
 });
 it('does not acknowledge a failed owner lookup as success',async()=>{
  qa.event={type:'customer.subscription.updated',data:{object:sub}};qa.retrieve.mockResolvedValue({...sub,metadata:{}});qa.lookup.mockResolvedValue({data:null,error:{message:'offline'}});expect((await webhook(request())).status).toBe(500);expect(qa.upsert).not.toHaveBeenCalled();
+});
+
+it('does not retrieve Stripe until it owns the distributed lease',async()=>{
+ qa.rpc.mockResolvedValueOnce({data:false,error:null});expect((await webhook(request())).status).toBe(500);expect(qa.retrieve).not.toHaveBeenCalled();expect(qa.upsert).not.toHaveBeenCalled();
+});
+it('releases the lease after a provider failure and returns a retryable response',async()=>{
+ qa.retrieve.mockRejectedValueOnce(new Error('provider unavailable'));expect((await webhook(request())).status).toBe(500);
+ expect(qa.rpc).toHaveBeenLastCalledWith('release_stripe_reconciliation',expect.objectContaining({p_subscription_id:'sub_one'}));
 });

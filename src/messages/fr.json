@@ -10454,13 +10454,13 @@
           [
             "Résident couple, résidence principale",
             "42 000 €",
-            "−42 000 €",
+            "−41 900 EUR",
             "≈ 11 700 €"
           ],
           [
             "Non-résident couple s'installant au LU",
             "42 000 €",
-            "−42 000 €",
+            "−41 900 EUR",
             "≈ 12 500 €"
           ],
           [
@@ -10476,10 +10476,10 @@
             "≈ 12 500 €"
           ]
         ],
-        "footnote": "Émoluments légèrement supérieurs pour non-résident en raison de procurations supplémentaires éventuelles. Pour le locatif pur, prévoir aussi taxe foncière et coût annuel de gestion (10-12 % des loyers)."
+        "footnote": "Émoluments légèrement supérieurs pour non-résident en raison de procurations supplémentaires éventuelles. Pour le locatif pur, prévoir aussi taxe foncière et coût annuel de gestion (10-12 % des loyers). Minimum de droits conservé : 100 EUR."
       },
       "callout3Title": "Cas concret : couple français achetant à 600 000 €",
-      "callout3Body": "Couple résidant en France, achète un appartement neuf VEFA à Luxembourg-Ville à 600 000 € pour s'y installer (mutation professionnelle). Bëllegen Akt couple appliqué (engagement d'occupation). TVA logement à 3 % sur la part construction (économie ~50 000 €). Droits restants après Bëllegen Akt ≈ 0 €. Émoluments notaire ≈ 5 200 €. Acte hypothécaire pour 450 000 € ≈ 5 800 €. Débours ≈ 1 500 €. Total à débourser : ≈ 12 500 €.",
+      "callout3Body": "Exemple fictif : acquisition à 600 000 EUR, droits ordinaires de 42 000 EUR. Deux acquéreurs éligibles disposant d’un crédit suffisant conservent 100 EUR de droits à payer, hors autres frais.",
       "inlineCalc": {
         "title": "Simulez votre acquisition non-résident",
         "description": "Notre calculateur de frais d'acquisition gère le statut résident/non-résident, l'éligibilité au Bëllegen Akt selon votre projet d'occupation, la TVA logement et le coût hypothécaire ajusté à votre LTV.",
@@ -10559,7 +10559,8 @@
           "org": "Legilux",
           "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
         }
-      ]
+      ],
+      "section4P1": "Pour un même bien acquis en résidence principale ou en investissement locatif (prix 600 000 €), voici le comparatif des coûts à l'acquisition selon le profil."
     },
     "tva3Pourcent": {
       "title": "TVA logement 3 % Luxembourg : conditions et démarche AED 2026",

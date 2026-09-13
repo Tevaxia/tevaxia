@@ -10332,13 +10332,13 @@
           [
             "Resident-Koppel, Haaptwunnsëtz",
             "42.000 €",
-            "−42.000 €",
+            "−41 900 EUR",
             "≈ 11.700 €"
           ],
           [
             "Net-Resident-Koppel zitt op LU",
             "42.000 €",
-            "−42.000 €",
+            "−41 900 EUR",
             "≈ 12.500 €"
           ],
           [
@@ -10354,10 +10354,10 @@
             "≈ 12.500 €"
           ]
         ],
-        "footnote": "Notairsgebühren liicht méi héich fir Net-Residenten wéinst méiglechen zousätzlechen Vollmaachten. Bei renger Locatioun och Grondsteier a jährlech Verwaltungskäschten (10-12 % vun de Loyere) aplanzen."
+        "footnote": "Notairsgebühren liicht méi héich fir Net-Residenten wéinst méiglechen zousätzlechen Vollmaachten. Bei renger Locatioun och Grondsteier a jährlech Verwaltungskäschten (10-12 % vun de Loyere) aplanzen. Verbleiwend Mindesttaxen: 100 EUR."
       },
       "callout3Title": "Konkreete Fall: Franséisch Koppel keeft fir 600.000 €",
-      "callout3Body": "Koppel mat Wunnsëtz a Frankräich, keeft VEFA-Neibau-Appartement zu Lëtzebuerg-Stad fir 600.000 €, fir do anzezéien (Aarbechtsversetzung). Bëllegen Akt Koppel applizéiert (Bezugsverpflichtung). Wunn-TVA 3 % op Bauundeel (~50.000 € Erspuernis). Verbleiwend Gebühre nom Bëllegen Akt ≈ 0 €. Notairsgebühren ≈ 5.200 €. Hypothéikeakt fir 450.000 € ≈ 5.800 €. Auslagen ≈ 1.500 €. Ze bezuelen: ≈ 12.500 €.",
+      "callout3Body": "Fiktiivt Beispill: Kaf fir 600.000 EUR, normal Taxe vu 42.000 EUR. Zwee berechtegt Keefer mat genuch Reschtkredit bezuelen nach 100 EUR Taxen, ouni aner Käschten.",
       "inlineCalc": {
         "title": "Simuléiert Är Net-Resident-Acquisitioun",
         "description": "Eise Erwierbskäschte-Rechner verwalt den Resident-/Net-Resident-Status, d'Bëllegen-Akt-Eligibilitéit no Ärem Bezugsplang, d'Wunn-TVA an d'LTV-ugepasst Hypothéikekosten.",
@@ -10437,7 +10437,8 @@
           "org": "Legilux",
           "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
         }
-      ]
+      ],
+      "section4P1": "Fir déiselwecht Immobilie als Haaptwunnsëtz oder Locatioun erkaaft (Präis 600.000 €), hei de Käschtevergläich no Profil."
     },
     "tva3Pourcent": {
       "title": "3 %-Wunnengs-MwSt Lëtzebuerg: Konditiounen an AED-Verfahren 2026",

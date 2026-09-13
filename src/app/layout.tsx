@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
@@ -30,6 +30,8 @@ const geistMono = Geist_Mono({
 });
 
 const BASE = "https://tevaxia.lu";
+
+export const viewport: Viewport = { themeColor: "#0f172a" };
 
 export async function generateMetadata(): Promise<Metadata> {
   const h = await headers();
@@ -82,7 +84,6 @@ export async function generateMetadata(): Promise<Metadata> {
       images: ["https://tevaxia.lu/og-image.png"],
     },
     manifest: "/manifest.json",
-    themeColor: "#0f172a",
     appleWebApp: {
       capable: true,
       title: "Tevaxia",

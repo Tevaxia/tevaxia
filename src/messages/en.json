@@ -10454,13 +10454,13 @@
           [
             "Resident couple, primary residence",
             "€42,000",
-            "−€42,000",
+            "−41 900 EUR",
             "≈ €11,700"
           ],
           [
             "Non-resident couple moving to LU",
             "€42,000",
-            "−€42,000",
+            "−41 900 EUR",
             "≈ €12,500"
           ],
           [
@@ -10476,10 +10476,10 @@
             "≈ €12,500"
           ]
         ],
-        "footnote": "Emoluments slightly higher for non-residents due to possible additional powers of attorney. For pure buy-to-let, also budget property tax and annual management cost (10-12% of rents)."
+        "footnote": "Emoluments slightly higher for non-residents due to possible additional powers of attorney. For pure buy-to-let, also budget property tax and annual management cost (10-12% of rents). Minimum duties retained: EUR 100."
       },
       "callout3Title": "Concrete case: French couple buying at €600,000",
-      "callout3Body": "Couple residing in France, buying a new VEFA apartment in Luxembourg City for €600,000 to move in (job transfer). Couple Bëllegen Akt applied (occupancy commitment). 3% housing VAT on construction share (~€50,000 saving). Duties remaining after Bëllegen Akt ≈ €0. Notary emoluments ≈ €5,200. Mortgage deed for €450,000 ≈ €5,800. Disbursements ≈ €1,500. Total to pay: ≈ €12,500.",
+      "callout3Body": "Illustrative purchase at EUR 600,000: ordinary duties of EUR 42,000. Two eligible buyers with sufficient available credit still pay EUR 100 in duties, excluding other costs.",
       "inlineCalc": {
         "title": "Simulate your non-resident acquisition",
         "description": "Our acquisition costs calculator handles the resident/non-resident status, Bëllegen Akt eligibility based on your occupancy plan, housing VAT and mortgage cost adjusted to your LTV.",
@@ -10559,7 +10559,8 @@
           "org": "Legilux",
           "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
         }
-      ]
+      ],
+      "section4P1": "For the same property bought as primary residence or buy-to-let (price €600,000), here is the comparison of acquisition costs by profile."
     },
     "tva3Pourcent": {
       "title": "Luxembourg 3 % housing VAT: conditions and AED procedure 2026",

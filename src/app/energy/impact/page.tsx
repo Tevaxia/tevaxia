@@ -12,7 +12,7 @@ export default function ImpactPage() {
   const [hypotheses, setHypotheses] = useState({ ...EXAMPLE_ENERGY_HYPOTHESES });
   let result = null;
   try { result = calculateEnergyImpactScenario(value, current, hypotheses); } catch { /* Invalid inputs hide results and export. */ }
-  const euro = (n: number) => new Intl.NumberFormat(locale, { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
+  const euro = (n: number) => new Intl.NumberFormat(locale === "lb" ? "de-LU" : locale, { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
   const inputClass = "mt-2 w-full rounded-lg border border-input-border bg-input-bg px-3 py-2.5 text-foreground";
   return <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
     <h1 className="text-2xl font-bold sm:text-3xl">{t("title")}</h1>
@@ -35,6 +35,6 @@ export default function ImpactPage() {
       <p className="mt-3 text-sm text-muted">* {t("current")}</p>
       <div className="mt-4"><PdfButton label={t("pdf")} filename="tevaxia-impact-scenario.pdf" generateBlob={async () => (await import("@/components/energy/EnergyPdf")).generateImpactPdfBlob(result, current, value)} /></div>
     </section>}
-    <section className="mt-6 space-y-3 rounded-2xl border border-card-border p-5 sm:p-6"><h2 className="font-semibold">{t("methodTitle")}</h2><p className="text-sm text-muted">{t("formula")}</p><p className="text-sm text-muted">{t("limits")}</p><a className="inline-block text-energy underline" href={"/" + locale + "/energy/renovation"}>{t("renovation")}</a></section>
+    <section className="mt-6 space-y-3 rounded-2xl border border-card-border p-5 sm:p-6"><h2 className="font-semibold">{t("methodTitle")}</h2><p className="text-sm text-muted">{t("formula")}</p><p className="text-sm text-muted">{t("limits")}</p><a className="inline-block text-energy underline" href={(locale === "fr" ? "" : "/" + locale) + "/energy/renovation"}>{t("renovation")}</a></section>
   </div>;
 }

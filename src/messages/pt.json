@@ -10332,13 +10332,13 @@
           [
             "Casal residente, residência principal",
             "42 000 €",
-            "−42 000 €",
+            "−41 900 EUR",
             "≈ 11 700 €"
           ],
           [
             "Casal não residente a mudar para LU",
             "42 000 €",
-            "−42 000 €",
+            "−41 900 EUR",
             "≈ 12 500 €"
           ],
           [
@@ -10354,10 +10354,10 @@
             "≈ 12 500 €"
           ]
         ],
-        "footnote": "Emolumentos ligeiramente superiores para não residentes devido a possíveis procurações suplementares. Para arrendamento puro, prever também imposto predial e custo anual de gestão (10-12% das rendas)."
+        "footnote": "Emolumentos ligeiramente superiores para não residentes devido a possíveis procurações suplementares. Para arrendamento puro, prever também imposto predial e custo anual de gestão (10-12% das rendas). Direitos mínimos mantidos: 100 EUR."
       },
       "callout3Title": "Caso concreto: casal francês a comprar a 600 000 €",
-      "callout3Body": "Casal residente em França, compra apartamento novo VEFA em Luxemburgo-Cidade por 600 000 € para se instalar (transferência profissional). Bëllegen Akt casal aplicado (compromisso de ocupação). IVA habitação a 3% sobre a parte construção (~50 000 € de poupança). Direitos restantes após Bëllegen Akt ≈ 0 €. Emolumentos notariais ≈ 5 200 €. Escritura hipotecária para 450 000 € ≈ 5 800 €. Despesas ≈ 1 500 €. Total a desembolsar: ≈ 12 500 €.",
+      "callout3Body": "Exemplo fictício: compra por 600 000 EUR, com direitos normais de 42 000 EUR. Dois compradores elegíveis com crédito suficiente ainda pagam 100 EUR de direitos, sem outros custos.",
       "inlineCalc": {
         "title": "Simule a sua aquisição como não residente",
         "description": "A nossa calculadora de custos de aquisição gere o estatuto residente/não residente, a elegibilidade ao Bëllegen Akt segundo o seu projeto de ocupação, o IVA habitação e o custo hipotecário ajustado ao seu LTV.",
@@ -10437,7 +10437,8 @@
           "org": "Legilux",
           "url": "https://legilux.public.lu/eli/etat/leg/loi/1967/12/04/n1/jo"
         }
-      ]
+      ],
+      "section4P1": "Para o mesmo imóvel adquirido como residência principal ou como investimento locativo (preço 600 000 €), eis o comparativo dos custos de aquisição por perfil."
     },
     "tva3Pourcent": {
       "title": "IVA habitação 3 % Luxemburgo: condições e procedimento AED 2026",
