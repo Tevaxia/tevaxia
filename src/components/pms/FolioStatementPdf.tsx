@@ -15,7 +15,7 @@ const clean = (v: string) => v.replace(/[\u2011\u2013\u2014]/g, "-").replace(/[\
 export default function FolioStatementPdf({ report, property, reservation, stay, status, generatedAt, labels, categories, locale }: { report: FolioStatement; property: string; reservation: string; stay: string; status: string; generatedAt: string; labels: Record<string, string>; categories: Record<string, string>; locale: string }) {
   const t = (k: string) => clean(labels[k] ?? k);
   const nf = new Intl.NumberFormat(locale === "lb" ? "de-LU" : locale, { maximumFractionDigits: 2 });
-  const mf = new Intl.NumberFormat(locale === "lb" ? "de-LU" : locale, { style: "currency", currency: "EUR", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const mf = new Intl.NumberFormat(locale === "lb" ? "de-LU" : locale, { style: "currency", currency: report.currency, minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const money = (v: number) => clean(mf.format(v));
   const footer = <Text fixed style={s.footer}>{t("title")} · {clean(reservation)} · UTC</Text>;
   return <Document title={`${t("title")} - ${clean(reservation)}`} language={locale}>

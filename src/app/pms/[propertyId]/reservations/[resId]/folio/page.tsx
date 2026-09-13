@@ -63,7 +63,7 @@ function FolioScreen(props: { params: Promise<{ propertyId: string; resId: strin
   const te = useTranslations("pmsChargeEntry");
   const ts = useTranslations("pmsStatement");
   const locale = useLocale();
-  const formatEUR = (n: number) => new Intl.NumberFormat(locale === "lb" ? "de-LU" : locale, { style: "currency", currency: "EUR", minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
+  const formatEUR = (n: number) => new Intl.NumberFormat(locale === "lb" ? "de-LU" : locale, { style: "currency", currency: folio?.currency ?? reservation?.currency ?? property?.currency ?? "EUR", minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
   const dateLocale = locale === "fr" ? "fr-FR" : locale === "de" ? "de-LU" : locale === "pt" ? "pt-PT" : locale === "lb" ? "de-LU" : "en-GB";
 
   const fmtDateTime = useCallback((s: string | null | undefined): string => {
@@ -254,11 +254,11 @@ function FolioScreen(props: { params: Promise<{ propertyId: string; resId: strin
         <>
           {/* KPIs ventilation TVA */}
           <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-5">
-            <KpiCard label={t("kpiAccommodation")} ht={breakdown.hebergement.ht} ttc={breakdown.hebergement.ttc} t={t} />
-            <KpiCard label={t("kpiFb")} ht={breakdown.fb.ht} ttc={breakdown.fb.ttc} t={t} />
-            <KpiCard label={t("kpiOther")} ht={breakdown.other.ht} ttc={breakdown.other.ttc} t={t} />
-            <KpiCard label={t("kpiTouristTax")} ht={breakdown.taxe_sejour} ttc={breakdown.taxe_sejour} sub={t("kpiTouristTaxSub")} t={t} />
-            <KpiCard label={t("kpiTotalDue")} ht={Number(folio.total_ttc)} ttc={Number(folio.balance_due)}
+            <KpiCard currency={folio.currency} label={t("kpiAccommodation")} ht={breakdown.hebergement.ht} ttc={breakdown.hebergement.ttc} t={t} />
+            <KpiCard currency={folio.currency} label={t("kpiFb")} ht={breakdown.fb.ht} ttc={breakdown.fb.ttc} t={t} />
+            <KpiCard currency={folio.currency} label={t("kpiOther")} ht={breakdown.other.ht} ttc={breakdown.other.ttc} t={t} />
+            <KpiCard currency={folio.currency} label={t("kpiTouristTax")} ht={breakdown.taxe_sejour} ttc={breakdown.taxe_sejour} sub={t("kpiTouristTaxSub")} t={t} />
+            <KpiCard currency={folio.currency} label={t("kpiTotalDue")} ht={Number(folio.total_ttc)} ttc={Number(folio.balance_due)}
               highlight sub={folio.balance_due > 0 ? t("kpiBalanceRemaining") : t("kpiSettled")} t={t} />
           </div>
 
@@ -377,12 +377,12 @@ function FolioScreen(props: { params: Promise<{ propertyId: string; resId: strin
   );
 }
 
-function KpiCard({ label, ht, ttc, sub, highlight = false, t }: {
-  label: string; ht: number; ttc: number; sub?: string; highlight?: boolean;
+function KpiCard({ label, ht, ttc, sub, highlight = false, t, currency }: {
+  currency: string; label: string; ht: number; ttc: number; sub?: string; highlight?: boolean;
   t: (key: string, values?: Record<string, string | number>) => string;
 }) {
   const locale = useLocale();
-  const formatEUR = (n: number) => new Intl.NumberFormat(locale === "lb" ? "de-LU" : locale, { style: "currency", currency: "EUR", minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
+  const formatEUR = (n: number) => new Intl.NumberFormat(locale === "lb" ? "de-LU" : locale, { style: "currency", currency, minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
   return (
     <div className={`rounded-xl border p-3 ${highlight ? "border-navy bg-navy text-white" : "border-card-border bg-card"}`}>
       <div className={`text-[10px] uppercase tracking-wider ${highlight ? "text-white/70" : "text-muted"}`}>{label}</div>

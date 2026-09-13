@@ -59,12 +59,12 @@ export async function getFolioByReservation(reservationId: string): Promise<PmsF
 
 export async function openFolio(propertyId: string, reservationId: string): Promise<PmsFolio> {
   const client = ensureClient();
-  const reservation = await client.from("pms_reservations").select("id").eq("id", reservationId).eq("property_id", propertyId).single();
+  const reservation = await client.from("pms_reservations").select("id,currency").eq("id", reservationId).eq("property_id", propertyId).single();
   if (reservation.error || !reservation.data) throw new Error("Reservation unavailable");
   const { data, error } = await client
     .from("pms_folios")
     .upsert(
-      { property_id: propertyId, reservation_id: reservationId, status: "open" },
+      { property_id: propertyId, reservation_id: reservationId, status: "open", currency: reservation.data.currency },
       { onConflict: "reservation_id", ignoreDuplicates: true },
     )
     .select("*")

@@ -280,25 +280,35 @@ async function applyPms(
   skipExisting: boolean,
   result: RestoreResult,
 ): Promise<void> {
+  const folios = parseJsonArray(files, 'folios.json'), charges = parseJsonArray(files, 'folio_charges.json');
+  if (charges.some(charge => !folios.some(folio => folio.id === charge.folio_id))) throw new Error('Sauvegarde des folios incohérente.');
   const mappings: TableMapping[] = [
     { file: "properties.json", table: "pms_properties" },
     { file: "room_types.json", table: "pms_room_types" },
     { file: "rooms.json", table: "pms_rooms" },
     { file: "rate_plans.json", table: "pms_rate_plans" },
     { file: "seasonal_rates.json", table: "pms_seasonal_rates" },
-    { file: "groups.json", table: "pms_groups" },
+    { file: "groups.json", table: "pms_groups", omit: ["nb_nights", "rooms_booked"] },
     { file: "guests.json", table: "pms_guests" },
-    { file: "reservations.json", table: "pms_reservations" },
+    { file: "reservations.json", table: "pms_reservations", omit: ["nb_nights", "amount_paid"] },
     { file: "reservation_lines.json", table: "pms_reservation_rooms" },
     { file: "payments.json", table: "pms_payments" },
-    { file: "folios.json", table: "pms_folios" },
-    { file: "folio_charges.json", table: "pms_folio_charges" },
     { file: "invoices.json", table: "pms_invoices" },
   ];
   const out = await applyOrderedTables(files, skipExisting, mappings);
   Object.assign(result.imported, out.imported);
   Object.assign(result.skipped, out.skipped);
   result.errors.push(...out.errors);
+  if (out.errors.length) return;
+  if (!supabase && folios.length) throw new Error('Supabase non configuré');
+  for (const folio of folios) {
+    const { data, error } = await supabase!.rpc('restore_pms_folio', { p_folio: folio, p_charges: charges.filter(charge => charge.folio_id === folio.id), p_skip_existing: skipExisting });
+    if (error || !data) { result.errors.push('Restauration du folio non confirmée : ' + (error?.message ?? 'réponse vide')); continue; }
+    result.imported.pms_folios = (result.imported.pms_folios ?? 0) + Number(data.imported);
+    result.skipped.pms_folios = (result.skipped.pms_folios ?? 0) + Number(data.skipped);
+    result.imported.pms_folio_charges = (result.imported.pms_folio_charges ?? 0) + Number(data.charges_imported);
+  }
+
 }
 
 async function applyCrm(

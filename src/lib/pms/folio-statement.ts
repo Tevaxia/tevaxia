@@ -11,7 +11,7 @@ const euros = (n: bigint) => {
 };
 /** Copies recorded amounts without reconstructing an invoice or inferring a VAT treatment. */
 export function prepareFolioStatement(folio: PmsFolio, charges: PmsFolioCharge[]) {
-  if (!folio.id || folio.currency !== "EUR") throw new Error("Unsupported folio");
+  if (!folio.id || !/^[A-Z]{3}$/.test(folio.currency)) throw new Error("Unsupported folio");
   const seen = new Set<string>();
   let ht = 0n, vat = 0n, gross = 0n;
   const lines: PmsFolioCharge[] = [];
@@ -25,6 +25,6 @@ export function prepareFolioStatement(folio: PmsFolio, charges: PmsFolioCharge[]
     ht += h; vat += v; gross += g; lines.push({ ...c });
   }
   if (ht !== cents(folio.subtotal_ht) || vat !== cents(folio.total_tva) || gross !== cents(folio.total_ttc)) throw new Error("Folio changed or incomplete");
-  return { folioId: folio.id, lines, ht: euros(ht), vat: euros(vat), gross: euros(gross), balance: euros(cents(folio.balance_due)) };
+  return { currency: folio.currency, folioId: folio.id, lines, ht: euros(ht), vat: euros(vat), gross: euros(gross), balance: euros(cents(folio.balance_due)) };
 }
 export type FolioStatement = ReturnType<typeof prepareFolioStatement>;

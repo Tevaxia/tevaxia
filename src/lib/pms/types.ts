@@ -222,14 +222,15 @@ export interface PmsInvoice {
   customer_name: string;
   customer_address: string | null;
   customer_vat_number: string | null;
+  tax_breakdown?: Array<{ category: string; rate: number; base: number; vat: number; gross: number }>;
   hebergement_ht: number;
-  hebergement_tva_rate: number;
+  hebergement_tva_rate: number | null;
   hebergement_tva: number;
   fb_ht: number;
-  fb_tva_rate: number;
+  fb_tva_rate: number | null;
   fb_tva: number;
   other_ht: number;
-  other_tva_rate: number;
+  other_tva_rate: number | null;
   other_tva: number;
   taxe_sejour: number;
   total_ht: number;
@@ -337,6 +338,7 @@ export interface PmsFolio {
 }
 
 export interface PmsFolioCharge {
+  agreed_ttc?: number | null;
   id: string;
   folio_id: string;
   category: PmsChargeCategory;
