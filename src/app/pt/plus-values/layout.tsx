@@ -1,12 +1,6 @@
-import type { Metadata } from "next";
-import { localizedAlternates } from "@/lib/seo";
+import { translatedPageMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Luxembourg Real Estate Capital Gains Tax Calculator",
-  description:
-    "Calculate capital gains tax on real estate in Luxembourg. Speculation vs long-term disposal, STATEC revaluation coefficients, ten-year allowance, primary residence exemption.",
-  alternates: localizedAlternates("/plus-values", "pt"),
-};
+export const generateMetadata = () => translatedPageMetadata("pt", "/plus-values", "plusValuesAudit.title", "plusValuesAudit.scope");
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return children;

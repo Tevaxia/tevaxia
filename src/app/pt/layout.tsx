@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
+import { SEO_BRANDING } from "@/lib/seo-branding";
 
+const copy = SEO_BRANDING.pt;
 export const metadata: Metadata = {
-  title: {
-    default: "tevaxia.lu — Luxembourg Real Estate Tools",
-    template: "%s",
-  },
-  description:
-    "The reference platform for Luxembourg real estate. Rent cap calculators, acquisition fees, capital gains, state subsidies, EVS 2025 valuation, banking tools.",
+  title: { default: copy.title, template: "%s" },
+  description: copy.description,
 };
 
-export default function EnLayout({ children }: { children: React.ReactNode }) {
-  return children;
-}
+export default function LocaleLayout({ children }: { children: React.ReactNode }) { return children; }

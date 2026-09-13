@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
+import { getLocale } from "next-intl/server";
+import { buildLocaleUrl, localizedAlternates, type Locale } from "@/lib/seo";
+import { SEO_BRANDING } from "@/lib/seo-branding";
 import { getAllCommunes, getCommuneBySlug, slugifyCommune } from "@/lib/market-data";
 import { COMMUNE_COORDS } from "@/lib/communes-coords";
 import CommunePageClient from "./CommunePageClient";
 
 const BASE = "https://tevaxia.lu";
-const LOCALES = ["fr", "en", "de", "pt", "lb"] as const;
-
-function buildLocaleUrl(page: string, locale: string): string {
-  if (locale === "fr") return `${BASE}${page}`;
-  return `${BASE}/${locale}${page}`;
-}
-
 /* ------------------------------------------------------------------ */
 /*  generateStaticParams — pre-render all known commune pages         */
 /* ------------------------------------------------------------------ */
@@ -36,54 +32,23 @@ export async function generateMetadata({
     };
   }
 
-  const normSlug = slugifyCommune(commune.commune);
-
-  const prixStr = commune.prixM2Existant
-    ? `${commune.prixM2Existant.toLocaleString("fr-FR")} EUR/m2`
-    : "";
-
-  const title = `Immobilier ${commune.commune} — Prix m², tendances, estimation`;
-
-  const description = prixStr
-    ? `Prix immobilier à ${commune.commune} (canton ${commune.canton}) : ${prixStr} en moyenne (${commune.periode}). Tendances, loyers, rendement et outils d'estimation sur tevaxia.lu.`
-    : `Marché immobilier à ${commune.commune} (canton ${commune.canton}). Tendances, loyers, rendement et outils d'estimation sur tevaxia.lu.`;
-
-  const pagePath = `/commune/${normSlug}`;
-  const canonical = `${BASE}${pagePath}`;
-
-  const languages: Record<string, string> = {};
-  for (const loc of LOCALES) languages[loc] = buildLocaleUrl(pagePath, loc);
-  languages["x-default"] = canonical;
-
+  const locale = await getLocale() as Locale;
+  const name = commune.commune;
+  const canton = commune.canton;
+  const copy = {
+    fr: { title: `Immobilier ${name} — Prix m², tendances, estimation`, description: `Marché immobilier à ${name} (canton ${canton}, Luxembourg) : données de prix publiées, tendances, loyers et outils d’estimation.` },
+    en: { title: `Property in ${name} — Prices per m² and valuation`, description: `Property market in ${name} (canton of ${canton}, Luxembourg): published price data, trends, rents and valuation tools.` },
+    de: { title: `Immobilien in ${name} — Quadratmeterpreise und Bewertung`, description: `Immobilienmarkt in ${name} (Kanton ${canton}, Luxemburg): veröffentlichte Preisdaten, Entwicklungen, Mieten und Bewertungsrechner.` },
+    pt: { title: `Imóveis em ${name} — Preços por m² e avaliação`, description: `Mercado imobiliário em ${name} (cantão de ${canton}, Luxemburgo): dados de preços publicados, tendências, rendas e ferramentas de avaliação.` },
+    lb: { title: `Immobilien zu ${name} — Quadratmeterpräisser a Bewäertung`, description: `Immobiliemaart zu ${name} (Kanton ${canton}, Lëtzebuerg): publizéiert Präisdonnéeën, Entwécklungen, Loyeren a Bewäertungsrechner.` },
+  }[locale];
+  const pagePath = `/commune/${slugifyCommune(name)}`;
+  const canonical = buildLocaleUrl(pagePath, locale);
   return {
-    title,
-    description,
-    alternates: {
-      canonical,
-      languages,
-    },
-    openGraph: {
-      title,
-      description,
-      url: canonical,
-      siteName: "tevaxia.lu",
-      locale: "fr_LU",
-      type: "website",
-      images: [
-        {
-          url: "https://tevaxia.lu/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: `Immobilier ${commune.commune} — tevaxia.lu`,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `Immobilier ${commune.commune}`,
-      description,
-      images: ["https://tevaxia.lu/og-image.png"],
-    },
+    ...copy,
+    alternates: localizedAlternates(pagePath, locale),
+    openGraph: { ...copy, url: canonical, siteName: "tevaxia.lu", locale: SEO_BRANDING[locale].ogLocale, type: "website", images: ["https://tevaxia.lu/og-image.png"] },
+    twitter: { ...copy, card: "summary_large_image", images: ["https://tevaxia.lu/og-image.png"] },
   };
 }
 

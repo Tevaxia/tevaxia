@@ -1,1 +1,1 @@
-export { default } from "@/app/guide/bail-commercial-luxembourg/page";
+export { default, generateMetadata } from "@/app/guide/bail-commercial-luxembourg/page";

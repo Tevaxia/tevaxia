@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { getAllCommunes, slugifyCommune } from "@/lib/market-data";
+import { GUIDES } from "@/lib/guides";
+import { buildLocaleUrl } from "@/lib/seo";
 
-const BASE = "https://tevaxia.lu";
 const LOCALES = ["fr", "en", "de", "pt", "lb"] as const;
 
 // Pages classées par priorité SEO
@@ -30,7 +31,7 @@ const LOW_PRIORITY = [
 
 const ENERGY_PAGES = [
   "", "/impact", "/renovation", "/communaute",
-  "/epbd", "/estimateur-cpe", "/lenoz", "/portfolio", "/hvac",
+  "/epbd", "/estimateur-cpe", "/lenoz", "/audit", "/hvac",
 ];
 
 // Landing pages persona-spécifiques pour paid traffic (Google/Bing Ads).
@@ -43,6 +44,8 @@ const SOLUTIONS_PAGES = [
   "/solutions/expert-evaluateur",
   "/solutions/investisseur",
   "/solutions/particulier",
+  "/solutions/banque",
+  "/solutions/promoteur",
 ];
 
 // Portails publics end-user (copropriétaire, conseil syndical, locataire).
@@ -54,21 +57,19 @@ const PORTAL_LANDINGS = [
 ];
 
 function localeUrl(page: string, locale: string) {
-  if (locale === "fr") return `${BASE}${page}`;
-  return `${BASE}/${locale}${page}`;
+  return buildLocaleUrl(page, locale);
 }
 
 function alternates(page: string) {
   const langs: Record<string, string> = {};
   for (const loc of LOCALES) langs[loc] = localeUrl(page, loc);
-  langs["x-default"] = `${BASE}${page}`;
+  langs["x-default"] = localeUrl(page, "fr");
   return { languages: langs };
 }
 
 function addPages(
   entries: MetadataRoute.Sitemap,
   pages: string[],
-  now: string,
   basePriority: number,
   changeFreq: "daily" | "weekly" | "monthly"
 ) {
@@ -76,7 +77,6 @@ function addPages(
     for (const locale of LOCALES) {
       entries.push({
         url: localeUrl(page, locale),
-        lastModified: now,
         changeFrequency: changeFreq,
         priority: locale === "fr" ? basePriority : basePriority - 0.1,
         alternates: alternates(page),
@@ -86,27 +86,31 @@ function addPages(
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date().toISOString();
+  // Omit lastModified until a reliable editorial update date is available.
   const entries: MetadataRoute.Sitemap = [];
 
   // Pages principales — haute priorité (outils les plus recherchés)
-  addPages(entries, HIGH_PRIORITY, now, 1.0, "weekly");
+  addPages(entries, HIGH_PRIORITY, 1.0, "weekly");
 
   // Pages outils — priorité moyenne
-  addPages(entries, MEDIUM_PRIORITY, now, 0.8, "monthly");
+  addPages(entries, MEDIUM_PRIORITY, 0.8, "monthly");
 
   // Landings persona-spécifiques — priorité élevée (conversion pages)
-  addPages(entries, SOLUTIONS_PAGES, now, 0.9, "weekly");
+  addPages(entries, SOLUTIONS_PAGES, 0.9, "weekly");
 
   // Portails publics end-user — priorité moyenne-haute (mots-clés SEO LU)
-  addPages(entries, PORTAL_LANDINGS, now, 0.8, "monthly");
+  addPages(entries, PORTAL_LANDINGS, 0.8, "monthly");
 
   // Pages utilitaires — priorité basse
-  addPages(entries, LOW_PRIORITY, now, 0.6, "monthly");
+  addPages(entries, LOW_PRIORITY, 0.6, "monthly");
 
   // Pages energy
   const energyPaths = ENERGY_PAGES.map((p) => `/energy${p}`);
-  addPages(entries, energyPaths, now, 0.8, "monthly");
+  addPages(entries, energyPaths, 0.8, "monthly");
+
+  // Public articles follow the same registry as the guide hub and related links.
+  addPages(entries, ["/guide", ...GUIDES.map(guide => `/guide/${guide.slug}`)], 0.8, "monthly");
+  addPages(entries, ["/gestion-locative", "/str", "/facturation", "/bail-commercial", "/esg", "/esg/crrem-pathways", "/esg/taxonomy", "/transparence"], 0.8, "monthly");
 
   // Pages communes — très bon pour la longue traîne SEO
   const communes = getAllCommunes();
@@ -116,7 +120,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const locale of LOCALES) {
       entries.push({
         url: localeUrl(page, locale),
-        lastModified: now,
         changeFrequency: "monthly",
         priority: locale === "fr" ? 0.7 : 0.5,
         alternates: alternates(page),

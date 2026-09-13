@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Legal Notice",
-  description:
-    "Legal notice for tevaxia.lu — Luxembourg real estate tools.",
+  title: "Avisos legais — Tevaxia",
+  description: "Informações sobre o editor, contactos, alojamento e condições de utilização da plataforma imobiliária Tevaxia.",
   alternates: localizedAlternates("/mentions-legales", "pt"),
 };
 

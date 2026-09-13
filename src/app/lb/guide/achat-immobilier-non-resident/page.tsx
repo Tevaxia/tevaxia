@@ -1,1 +1,1 @@
-export { default } from "@/app/guide/achat-immobilier-non-resident/page";
+export { default, generateMetadata } from "@/app/guide/achat-immobilier-non-resident/page";

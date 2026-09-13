@@ -1,1 +1,1 @@
-export { default } from "@/app/guide/copropriete-luxembourg/page";
+export { default, generateMetadata } from "@/app/guide/copropriete-luxembourg/page";

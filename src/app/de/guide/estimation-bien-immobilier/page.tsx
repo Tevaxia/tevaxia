@@ -1,1 +1,1 @@
-export { default } from "@/app/guide/estimation-bien-immobilier/page";
+export { default, generateMetadata } from "@/app/guide/estimation-bien-immobilier/page";

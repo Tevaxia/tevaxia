@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import { SEO_BRANDING } from "@/lib/seo-branding";
+import { type Locale } from "@/lib/seo";
 import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
@@ -42,13 +44,17 @@ export async function generateMetadata(): Promise<Metadata> {
   const buildUrl = (loc: string) => loc === "fr" ? `${BASE}${pathWithoutLocale}` : `${BASE}/${loc}${pathWithoutLocale === "/" ? "" : pathWithoutLocale}`;
   const canonical = buildUrl(detectedLocale || "fr");
 
+  const copy = SEO_BRANDING[(detectedLocale || "fr") as Locale];
+  // Crawlers must be able to read noindex; robots.txt is not access control.
+  const accountPath = pathWithoutLocale.replace(/^\/energy(?=\/)/, "");
+  const noindex = ["/connexion", "/profil", "/mes-evaluations"].some(path => accountPath === path || accountPath.startsWith(`${path}/`)) || pathWithoutLocale === "/energy/portfolio";
   return {
+    ...(noindex ? { robots: { index: false, follow: true } } : {}),
     title: {
-      default: "tevaxia.lu — Outils Immobiliers Luxembourg",
+      default: copy.title,
       template: "%s",
     },
-    description:
-      "Plateforme de référence pour l'immobilier au Luxembourg. Calculateurs de loyer, frais d'acquisition, plus-values, aides étatiques, outils bancaires.",
+    description: copy.description,
     authors: [{ name: "Tevaxia", url: "https://tevaxia.lu" }],
     creator: "Tevaxia",
     publisher: "Tevaxia",
@@ -64,11 +70,11 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: "tevaxia.lu — Outils Immobiliers Luxembourg",
-      description: "Outils de calcul immobilier pour le Luxembourg. Estimation, frais, plus-values, aides, valorisation EVS 2025, DCF, MLV/CRR.",
+      title: copy.title,
+      description: copy.description,
       url: canonical,
       siteName: "tevaxia.lu",
-      locale: detectedLocale === "en" ? "en_GB" : detectedLocale === "de" ? "de_LU" : detectedLocale === "pt" ? "pt_PT" : "fr_LU",
+      locale: copy.ogLocale,
       type: "website",
       images: [{
         url: "https://tevaxia.lu/og-image.png",
@@ -79,8 +85,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: "tevaxia.lu — Outils Immobiliers Luxembourg",
-      description: "Outils de calcul immobilier pour le Luxembourg.",
+      title: copy.title,
+      description: copy.description,
       images: ["https://tevaxia.lu/og-image.png"],
     },
     manifest: "/manifest.json",

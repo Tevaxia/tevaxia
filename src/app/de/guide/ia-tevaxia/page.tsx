@@ -1,1 +1,1 @@
-export { default } from "@/app/guide/ia-tevaxia/page";
+export { default, generateMetadata } from "@/app/guide/ia-tevaxia/page";

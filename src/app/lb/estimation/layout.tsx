@@ -1,12 +1,6 @@
-import type { Metadata } from "next";
-import { localizedAlternates } from "@/lib/seo";
+import { translatedPageMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Luxembourg Property Valuation — Price per m² by Municipality",
-  description:
-    "Estimate the value of your property in Luxembourg. Price per m² by municipality and neighbourhood, statistical adjustments, Observatoire de l'Habitat data.",
-  alternates: localizedAlternates("/estimation", "lb"),
-};
+export const generateMetadata = () => translatedPageMetadata("lb", "/estimation", "estimation.title", "estimation.subtitle");
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return children;

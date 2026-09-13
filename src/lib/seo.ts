@@ -15,7 +15,7 @@ export type Locale = (typeof LOCALES)[number];
 
 export function buildLocaleUrl(pagePath: string, locale: string): string {
   const path = pagePath.startsWith("/") ? pagePath : `/${pagePath}`;
-  return locale === "fr" ? `${BASE}${path}` : `${BASE}/${locale}${path}`;
+  return locale === "fr" ? `${BASE}${path}` : `${BASE}/${locale}${path === "/" ? "" : path}`;
 }
 
 /**

@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — GDPR",
-  description:
-    "Privacy policy and personal data protection for tevaxia.lu. Compliant with the GDPR and Luxembourg law of 1 August 2018.",
+  title: "Datenschutzerklärung — Tevaxia",
+  description: "Informationen zur Verarbeitung personenbezogener Daten, zu Cookies und zu Ihren Datenschutzrechten bei Tevaxia.",
   alternates: localizedAlternates("/confidentialite", "de"),
 };
 
