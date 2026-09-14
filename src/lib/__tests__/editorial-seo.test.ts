@@ -45,4 +45,9 @@ describe("editorial page metadata", () => {
     expect(buildEditorialMetadata("fr", "/tableau-bord", true).robots).toEqual({ index: false, follow: true });
     expect(buildEditorialMetadata("en", "/gestion-locative").robots).toBeUndefined();
   });
+
+  it("keeps the public status page indexable despite its utility layout", async () => {
+    const { generateMetadata } = await import("@/app/status/page");
+    expect((await generateMetadata()).robots).toEqual({ index: true, follow: true });
+  });
 });

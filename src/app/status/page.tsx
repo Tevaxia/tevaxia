@@ -128,4 +128,8 @@ function StatusDot({ status }: { status: Check["status"] }) {
   return <span className={`inline-block h-2.5 w-2.5 rounded-full ${color}`} aria-hidden />;
 }
 
-export const generateMetadata = () => editorialPageMetadata("/status");
+export const generateMetadata = async () => ({
+  ...await editorialPageMetadata("/status"),
+  // This public status page intentionally overrides the utility layout's noindex.
+  robots: { index: true, follow: true },
+});
