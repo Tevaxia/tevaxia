@@ -1,0 +1,234 @@
+{
+  "/actions-prioritaires": {
+    "title": "Prioritätsaktionen | Tevaxia",
+    "description": "Konsolidierte Ansicht der heute erforderlichen modulübergreifenden Aktionen: auslaufende Mandate, ausstehende Unterschriften, Zahlungsverzug, AG ohne Tagesordnung, zu verbuchende No-Shows."
+  },
+  "/aml-kyc": {
+    "title": "AML und KYC für Immobilien in Luxemburg | Tevaxia",
+    "description": "Anti-Geldwäsche-Checkliste für Immobilientransaktionen in Luxemburg — Gesetz vom 12. November 2004 in geänderter Fassung"
+  },
+  "/aml-kyc/archives": {
+    "title": "KYC-Archivierung, 5 Jahre Aufbewahrung | Tevaxia",
+    "description": "Finden Sie archivierte Immobilien-KYC-Akten und verfolgen Sie deren Aufbewahrung in Ihrem Tevaxia-Arbeitsbereich in Luxemburg."
+  },
+  "/bail-commercial": {
+    "title": "Gewerbemiete: Indexierung und Kosten in Luxemburg | Tevaxia",
+    "description": "Berechnen Sie Mietindexierung, Abstandszahlung und Vertragskosten einer Gewerbemiete in Luxemburg anhand Ihrer Vertragsdaten."
+  },
+  "/bilan-promoteur": {
+    "title": "Dokumentierte Projektkalkulation | Tevaxia",
+    "description": "Erfassen Sie Erlöse, Kosten und Zielgewinn des Projekts. Eurobeträge ohne erstattungsfähige und einschließlich nicht erstattungsfähiger Mehrwertsteuer."
+  },
+  "/calculateur-loyer/observatoire": {
+    "title": "Luxemburger Mietspiegel-Observatorium | Tevaxia",
+    "description": "Beobachtete Medianmieten nach Gemeinde, Zone und Typologie im Q4 2025. Aggregierte Quellen: Athome Pro, Wohnungsobservatorium, tevaxia-Panel."
+  },
+  "/cgu": {
+    "title": "Allgemeine Nutzungsbedingungen | Tevaxia",
+    "description": "Diese Allgemeinen Nutzungsbedingungen (AGB) regeln die Nutzung der Plattform tevaxia.lu und ihrer Dienste."
+  },
+  "/docs": {
+    "title": "Praktische Leitfäden nach Profil | Tevaxia",
+    "description": "9 dedizierte Pfade, um das Beste aus tevaxia je nach Ihrer Rolle zu holen: empfohlene Tools, Schlüsselschritte, gezielte FAQ."
+  },
+  "/facturation/emission": {
+    "title": "Rechnung und zugehörige Unterlagen vorbereiten | Tevaxia",
+    "description": "Erfassen Sie Beteiligte, Leistungen und Beträge und prüfen Sie die Unterlagen vor Ausstellung und Versand."
+  },
+  "/facturation/historique": {
+    "title": "Meine Rechnungsunterlagen | Tevaxia",
+    "description": "Finden Sie gespeicherte Rechnungsunterlagen und verwenden Sie deren Daten für einen erneuten Download in Ihrem Tevaxia-Bereich."
+  },
+  "/frais-acquisition": {
+    "title": "Erwerbskostensimulator | Tevaxia",
+    "description": "Registrierungsabgaben, Bëllegen Akt, MwSt., Notargebühren, Hypothekenkosten"
+  },
+  "/gestion-locative": {
+    "title": "Mietverwaltung in Luxemburg | Tevaxia",
+    "description": "Verfolgen Sie Ihr Portfolio mit Luxemburger Besonderheiten: 5-%-Regel, Energieauswirkung (Klimabonus) und Warnungen bei Mieten über der gesetzlichen Obergrenze."
+  },
+  "/gestion-locative/ais": {
+    "title": "Soziale Mietverwaltung: jahresbezogener Vergleich | Tevaxia",
+    "description": "Vergleichen Sie zwei Annahmen zum Nettomietertrag. Die Teilbefreiung betrifft Einkünfte von zugelassenen Organisationen und gilt nicht automatisch für jede als sozial bezeichnete Vermietung."
+  },
+  "/gestion-locative/assurance-impayes": {
+    "title": "Mietausfallversicherung: eigene Angebote vergleichen | Tevaxia",
+    "description": "Geben Sie die Jahresprämien erhaltener Angebote ein, um deren Kosten zu vergleichen."
+  },
+  "/gestion-locative/portefeuille": {
+    "title": "Mein Mietportfolio | Tevaxia",
+    "description": "Lot-Überwachung, gesetzliche Miete, Konformität und Energie-Diagnose."
+  },
+  "/gestion-locative/reconciliation": {
+    "title": "Bankabstimmung | Tevaxia",
+    "description": "Importieren Sie Ihren Kontoauszug (CAMT.053 XML EU-Standard oder CSV-Export Spuerkeess/BGL/BIL/ING), um automatisch eingegangene Mieten zu erkennen und als bezahlt zu markieren."
+  },
+  "/gestion-locative/reconciliation/psd2": {
+    "title": "PSD2-Bankverbindung für Mietzahlungen | Tevaxia",
+    "description": "Automatischer Abruf Ihrer Transaktionen über Enable Banking, SCA-konforme PSD2-API. 180 Tage Zugriff max. (Art. 10 PSD2-RTS), verlängerbar."
+  },
+  "/gestion-locative/relances": {
+    "title": "Mahnungen, automatische Stufen | Tevaxia",
+    "description": "3 eingestellte Stufen: freundliche Mahnung T+15 → Mahnung T+30 → Zahlungsbefehl T+60. PDF-Konformität mit Gesetz 21.09.2006, per Einschreiben mit Rückschein zu versenden (Papier oder eIDAS)."
+  },
+  "/hotellerie": {
+    "title": "Hotellerie-Lösungen | Tevaxia",
+    "description": "Bewertung, Schuldendienstdeckung, Betrieb und Unterlagen: mit eigenen Zahlen, Quellen und ausdrücklichen Annahmen arbeiten."
+  },
+  "/hotellerie/alerts": {
+    "title": "Gespeicherte Hotelschwellen | Tevaxia",
+    "description": "Diese Seite speichert Regeln. Sie wertet keine Kennzahlen aus und versendet keine Benachrichtigungen."
+  },
+  "/hotellerie/benchmark": {
+    "title": "Hotel-Benchmark-Vergleich | Tevaxia",
+    "description": "Vergleichen Sie erfasste Kennzahlen für genau übereinstimmende Anfangs- und Enddaten."
+  },
+  "/hotellerie/capex": {
+    "title": "Dokumentierter CAPEX- und Finanzierungsplan | Tevaxia",
+    "description": "Planen Sie Investitionsausgaben und Finanzierung für 1 bis 30 aufeinanderfolgende Jahre."
+  },
+  "/hotellerie/certifications-esg": {
+    "title": "Green-Key-Nachweise vorbereiten | Tevaxia",
+    "description": "Internes Dokumentenregister ohne Punktzahl oder Eignungsentscheidung. Ein Nachweisverweis belegt keine Konformität."
+  },
+  "/hotellerie/due-diligence": {
+    "title": "Hotel-Due-Diligence: Dokumentenakte | Tevaxia",
+    "description": "50 nicht abschließende Vorbereitungspunkte, an Betrieb und Transaktion anzupassen."
+  },
+  "/hotellerie/forecast": {
+    "title": "Hotelprojektion | Tevaxia",
+    "description": "Indikative Hotelprojektion: Belegung, ADR und RevPAR anhand aufeinanderfolgender erfasster Tage."
+  },
+  "/hotellerie/groupe": {
+    "title": "Hotelgruppe Dashboard | Tevaxia",
+    "description": "Greifen Sie auf die Betriebe Ihrer Hotelgruppe zu und organisieren Sie deren Betreuung im Tevaxia-Bereich für mehrere Standorte."
+  },
+  "/hotellerie/housekeeping": {
+    "title": "Täglicher Housekeeping-Plan | Tevaxia",
+    "description": "Tagesaufwand anhand tatsächlich geplanter Abreise- und Bleibezimmerreinigung berechnen."
+  },
+  "/hotellerie/impayes": {
+    "title": "Dokumentierte Verzugszinsen | Tevaxia",
+    "description": "Eine Rechnung, unveränderte Hauptforderung, keine Teilzahlungen oder Zinseszinsen."
+  },
+  "/hotellerie/mice": {
+    "title": "Dokumentiertes MICE-Budget | Tevaxia",
+    "description": "Szenario für 1 bis 366 Tage. Tragen Sie erwartete Mengen, Preise und Kosten auf derselben steuerlichen Basis ein."
+  },
+  "/hotellerie/motel": {
+    "title": "Motel und Aparthotel: Untersuchung vorbereiten | Tevaxia",
+    "description": "Erstellen Sie Betriebsrechnung, Bewertung und Finanzierung mit eigenen Daten."
+  },
+  "/hotellerie/renovation": {
+    "title": "Hotelsanierung: Budget und Energieeinsparungen | Tevaxia",
+    "description": "Vergleichen Sie Sanierungskosten eines Hotels, bestätigte Zuschüsse und Energieeinsparungen anhand Ihrer Angebote und dokumentierten Annahmen."
+  },
+  "/inspection": {
+    "title": "TEGOVA Vor-Ort-Inspektion | Tevaxia",
+    "description": "Bereiten Sie eine Immobilienbesichtigung mit Checkliste, Beobachtungen und Fotos vor und erstellen Sie Ihren Tevaxia-Besichtigungsbericht."
+  },
+  "/marche": {
+    "title": "Beobachtungen zum Immobilienmarkt | Tevaxia",
+    "description": "Immobilienmarktdaten in Luxemburg — Wohnen, Büro, Einzelhandel, Logistik, Grundstücke und Makroindikatoren."
+  },
+  "/marche/forecast": {
+    "title": "Immobilienpreisszenarien | Tevaxia",
+    "description": "Berechnen Sie, wie sich Ihre Annahmen zur jährlichen Veränderung auf einen Ausgangspreis auswirken."
+  },
+  "/mentions-legales": {
+    "title": "Impressum und Herausgeber | Tevaxia",
+    "description": "Lesen Sie die rechtlichen Angaben zu Tevaxia: Herausgeber, Hosting, technische Dienstleister, geistiges Eigentum und Datenquellen."
+  },
+  "/onboarding": {
+    "title": "Schnelle Einrichtung (3 Minuten) | Tevaxia",
+    "description": "In 3 Schritten haben Sie Ihre Organisation und Ihr erstes Dossier erstellt."
+  },
+  "/pro-agences/commissions": {
+    "title": "Immobilienprovisionen verfolgen | Tevaxia",
+    "description": "Sehen Sie die jährliche Übersicht der erzielten Immobilienprovisionen und die Vertriebspipeline Ihrer Agentur in Tevaxia ein."
+  },
+  "/pro-agences/fiche-bien": {
+    "title": "Objektblatt, vollständige PDF-Präsentation | Tevaxia",
+    "description": "Verkaufsunterlage auf Grundlage Ihrer Angaben. Die Anfangszahlen sind zu ersetzende Beispiele; hier wird keine unabhängige Bewertung berechnet."
+  },
+  "/pro-agences/performance": {
+    "title": "Maklerleistung | Tevaxia",
+    "description": "Vergleichen Sie Provisionen, Abschlussquoten und Verkaufszyklen der Makler Ihrer Organisation im Tevaxia-Leistungsdashboard."
+  },
+  "/recherche": {
+    "title": "Globale Suche | Tevaxia",
+    "description": "Suche über alle tevaxia-Entitäten: Mandate, CRM-Kontakte, WEGs, Hotelobjekte und Reservierungen."
+  },
+  "/solutions/hotel": {
+    "title": "Werkzeuge für Hoteliers und Anleger in Luxemburg | Tevaxia",
+    "description": "Wählen Sie Werkzeuge für Ihr Hotelprojekt: Bewertung, DSCR, Betriebsanalyse und Unterlagenvorbereitung auf Basis Ihrer eigenen Daten."
+  },
+  "/status": {
+    "title": "Dienststatus und Verfügbarkeit | Tevaxia",
+    "description": "HTTP-Erreichbarkeit der geprüften Endpunkte: Website, API-Dokumentation, Authentifizierungseinstellungen und data.public.lu."
+  },
+  "/str/arbitrage": {
+    "title": "Langzeit- vs Kurzzeitvermietung-Arbitrage | Tevaxia",
+    "description": "Vergleichen Sie 3 quantifizierte Szenarien: Langzeitvermietung (5%-Regel), reines STR (Airbnb/Booking), oder gemischt (saisonales STR + LT Rest)."
+  },
+  "/str/compliance": {
+    "title": "STR Luxemburg Compliance | Tevaxia",
+    "description": "Prüfen Sie Ihre rechtlichen Verpflichtungen vor dem Start einer Kurzzeitvermietung in Luxemburg. 3-Monats-Schwelle, Beherbergungslizenz, Gemeindeverordnungen, Einkommensteuer, EU Regulation 2024/1028."
+  },
+  "/str/compliance-eu": {
+    "title": "EU STR-Register 2024/1028 | Tevaxia",
+    "description": "Vorbereitung des Registrierungsdossiers im einheitlichen europäischen Kurzzeitvermietungs-Register."
+  },
+  "/str/observatoire": {
+    "title": "STR Luxemburg Observatorium | Tevaxia",
+    "description": "Aggregierte Airbnb/Booking/Vrbo-Daten nach Gemeinde und Zone. Median ADR, P25-P75 Perzentile, Auslastung, verfügbare Übernachtungen, aktive Listings."
+  },
+  "/str/portefeuille": {
+    "title": "Portfolio für Kurzzeitvermietungen | Tevaxia",
+    "description": "Multi-Objekt-Dashboard für STR-Concierge oder Investor (10-50 Einheiten)."
+  },
+  "/str/pricing": {
+    "title": "STR Luxemburg Dynamic Pricing | Tevaxia",
+    "description": "Monatliche ADR-Preisempfehlung nach LU-spezifischer Saisonalität (Wetter, Events, Messen), mit Wochenend- und Last-Minute-Regeln."
+  },
+  "/str/rentabilite": {
+    "title": "STR-Rendite (Airbnb / Booking / Vrbo) | Tevaxia",
+    "description": "Berechnen Sie das jährliche Nettoeinkommen Ihrer Kurzzeitvermietung in Luxemburg, alle Kosten und Steuern inkl."
+  },
+  "/syndic/benchmark": {
+    "title": "Kennzahlen von Eigentümergemeinschaften vergleichen | Tevaxia",
+    "description": "Vergleichen Sie KPIs über alle von Ihrer Verwaltung betreuten WEGs. Perzentile werden innerhalb Ihres Portfolios berechnet — grün = Top 25 %, gelb = Mitte, rot = untere 25 %."
+  },
+  "/syndic/lettres-types": {
+    "title": "Verwalter-Briefvorlagen-Bibliothek | Tevaxia",
+    "description": "Erstellen Sie Verwalterschreiben mit bearbeitbaren Vorlagen, passen Sie den Inhalt an und exportieren Sie die Dokumente aus Tevaxia."
+  },
+  "/syndic/portefeuille": {
+    "title": "Verwalter-Portfolio | Tevaxia",
+    "description": "Konsolidierte Sicht auf die verwalteten Miteigentümer. Priorisiert nach abnehmenden Zahlungsrückständen für gezielte Beitreibungsmaßnahmen."
+  },
+  "/syndic/procuration": {
+    "title": "EV-Vollmacht, PDF-Generator | Tevaxia",
+    "description": "Erzeugen Sie eine Vollmacht zur Vertretung bei einer Miteigentums-Eigentümerversammlung konform mit dem Luxemburger Gesetz vom 16. Mai 1975 (Artikel 7 und 11)."
+  },
+  "/tableau-bord": {
+    "title": "Persönliches Dashboard | Tevaxia",
+    "description": "Konsolidierte Ansicht Ihrer gesamten tevaxia.lu-Aktivität: Bewertungen, Mietportfolio, Mandate, Freigabelinks."
+  },
+  "/transparence": {
+    "title": "Daten und Grenzen der Schätzung | Tevaxia",
+    "description": "Informieren Sie sich über Preisquellen, Annahmen und Grenzen des indikativen Immobilienbewertungsmodells von Tevaxia für Luxemburg."
+  },
+  "/vefa": {
+    "title": "Neubaukauf in Luxemburg: Kosten und Zahlungsplan | Tevaxia",
+    "description": "Kauf vom Plan — Zahlungsplan, MwSt., Registrierungsgebühren, Fertigstellungsgarantie"
+  },
+  "/verify": {
+    "title": "Verifikation eines signierten Berichts | Tevaxia",
+    "description": "Prüfen Sie die Authentizität eines über tevaxia.lu signierten Bewertungsberichts."
+  },
+  "/wizard-particulier": {
+    "title": "Privatpersonen-Wizard — Ihr Projekt in 4 Schritten | Tevaxia",
+    "description": "Schätzung → Kaufgebühren → staatliche Beihilfen → legale Mietregel. Alles in einem geführten Pfad."
+  }
+}

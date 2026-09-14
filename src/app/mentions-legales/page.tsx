@@ -1,3 +1,4 @@
+import { editorialPageMetadata } from "@/lib/editorial-seo";
 import { getTranslations } from "next-intl/server";
 
 export default async function MentionsLegales() {
@@ -85,3 +86,5 @@ export default async function MentionsLegales() {
     </div>
   );
 }
+
+export const generateMetadata = () => editorialPageMetadata("/mentions-legales");

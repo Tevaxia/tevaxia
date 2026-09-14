@@ -1,12 +1,9 @@
-import type { Metadata } from "next";
-import { TransparenceClient } from "./client";
+import { editorialPageMetadata } from "@/lib/editorial-seo";
 
-export const metadata: Metadata = {
-  title: "Transparence du modèle d'estimation tevaxia",
-  description:
-    "Sources officielles des prix immobiliers, hypothèses de calcul et limites de l’estimation indicative tevaxia.",
-};
+import { TransparenceClient } from "./client";
 
 export default function TransparencePage() {
   return <TransparenceClient />;
 }
+
+export const generateMetadata = () => editorialPageMetadata("/transparence");
