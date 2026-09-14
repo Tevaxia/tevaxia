@@ -1,12 +1,8 @@
-import type { Metadata } from "next";
+import { editorialPageMetadata } from "@/lib/editorial-seo";
+
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
-import { localizedAlternates } from "@/lib/seo";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const [t, locale] = await Promise.all([getTranslations("hotelMarketing"), getLocale()]);
-  return { title: t("title"), description: t("description"), alternates: localizedAlternates("/solutions/hotel", locale) };
-}
 export default async function HotelSolutionPage() {
   const [t, locale] = await Promise.all([getTranslations("hotelMarketing"), getLocale()]);
   const prefix = locale === "fr" ? "" : `/${locale}`;
@@ -33,3 +29,5 @@ export default async function HotelSolutionPage() {
     </section>
   </div>;
 }
+
+export const generateMetadata = () => editorialPageMetadata("/solutions/hotel");

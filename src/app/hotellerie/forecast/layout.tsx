@@ -1,10 +1,4 @@
-import type { Metadata } from "next";
-import { NOINDEX_METADATA } from "@/lib/seo";
-
-export const metadata: Metadata = {
-  title: "Forecast hôtelier",
-  ...NOINDEX_METADATA,
-};
+import { editorialPageMetadata } from "@/lib/editorial-seo";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -14,3 +8,5 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     </>
   );
 }
+
+export const generateMetadata = () => editorialPageMetadata("/hotellerie/forecast", true);

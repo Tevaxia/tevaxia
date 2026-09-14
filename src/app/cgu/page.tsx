@@ -1,3 +1,4 @@
+import { editorialPageMetadata } from "@/lib/editorial-seo";
 import { getTranslations } from "next-intl/server";
 
 export default async function CguPage() {
@@ -81,3 +82,5 @@ export default async function CguPage() {
     </div>
   );
 }
+
+export const generateMetadata = () => editorialPageMetadata("/cgu");

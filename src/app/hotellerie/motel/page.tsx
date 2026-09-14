@@ -1,3 +1,4 @@
+import { editorialPageMetadata } from "@/lib/editorial-seo";
 import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 export default async function MotelPage() {
@@ -10,3 +11,5 @@ export default async function MotelPage() {
  <section className="mt-6 rounded-xl border p-5"><h2 className="text-lg font-semibold">{t("recordsTitle")}</h2><p className="mt-3 text-sm">{t("recordsBody")}</p></section><p className="mt-5 text-sm">{t("independent")}</p>
  </div>;
 }
+
+export const generateMetadata = () => editorialPageMetadata("/hotellerie/motel");

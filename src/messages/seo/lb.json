@@ -1,0 +1,234 @@
+{
+  "/actions-prioritaires": {
+    "title": "Prioritéitsaktiounen | Tevaxia",
+    "description": "Consolidéiert Vue vun de Modul-iwwergräifenden Aktiounen, déi haut erfuerdert sinn: ofleefend Mandater, ausstoend Ënnerschrëften, Zuelungsverzuch, AG ouni Tagesuerdnung, ze verrechnend No-Shows."
+  },
+  "/aml-kyc": {
+    "title": "AML a KYC fir Immobilien zu Lëtzebuerg | Tevaxia",
+    "description": "Anti-Geldwäsche-Checklëscht fir Immobilientransaktiounen zu Lëtzebuerg — Gesetz vum 12. November 2004 an geännerter Fassung"
+  },
+  "/aml-kyc/archives": {
+    "title": "KYC-Archivéierung, 5 Joer Opbewarung | Tevaxia",
+    "description": "Fannt Är archivéiert KYC-Immobiliendossieren a verfollegt hir Opbewahrung an Ärem Tevaxia-Aarbechtsberäich zu Lëtzebuerg."
+  },
+  "/bail-commercial": {
+    "title": "Geschäftslocatioun: Indexéierung a Käschten zu Lëtzebuerg | Tevaxia",
+    "description": "Berechent d’Indexéierung vum Geschäftsloyer, d’Agangszuelung an d’Locatiounskäschten zu Lëtzebuerg mat Äre Kontraktdonnéeën."
+  },
+  "/bilan-promoteur": {
+    "title": "Dokumentéierte Promoteursbilan | Tevaxia",
+    "description": "Gitt Recetten, Käschten an Zilgewënn vum Projet an. Beträg an Euro, ouni recuperabel TVA a mat net recuperabeler TVA."
+  },
+  "/calculateur-loyer/observatoire": {
+    "title": "Observatoire vu Loyeren am Lëtzebuerg (Mietspiegel-like) | Tevaxia",
+    "description": "Median-Loyeren observéiert no Gemeng, Zon an Typologie am Q4 2025. Aggregéiert Quellen: Athome Pro, Observatoire de l'Habitat, tevaxia-Panel."
+  },
+  "/cgu": {
+    "title": "Allgemeng Notzungsbedingungen | Tevaxia",
+    "description": "Dës Allgemeng Notzungsbedingungen (AGB) reegelen d'Notzung vun der Plattform tevaxia.lu a hiren Déngschter."
+  },
+  "/docs": {
+    "title": "Praktesch Guiden no Profil | Tevaxia",
+    "description": "9 dedizéiert Wee fir dat Bescht aus tevaxia ze kréien: empfohlene Tools, Schlëssel-Etappen, gezillte FAQ."
+  },
+  "/facturation/emission": {
+    "title": "Eng Rechnung an hir Dokumenter virbereeden | Tevaxia",
+    "description": "Gitt d’Parteien, d’Leeschtungen an d’Zommen an a kontrolléiert d’Dokumenter virum Ausstellen a Verschécken."
+  },
+  "/facturation/historique": {
+    "title": "Meng Rechnungsdokumenter | Tevaxia",
+    "description": "Fannt Är gespäichert Rechnungsdokumenter a benotzt hir Donnéeën, fir en neien Download an Ärem Tevaxia-Beräich virzebereeden."
+  },
+  "/frais-acquisition": {
+    "title": "Erwerbskäschtesimulator | Tevaxia",
+    "description": "Registréierungsofgaben, Bëllegen Akt, TVA, Notarkäschten, Hypothéikskäschten"
+  },
+  "/gestion-locative": {
+    "title": "Locatiouns-Gestioun zu Lëtzebuerg | Tevaxia",
+    "description": "Verfollegt Är Portfolio mat de Lëtzebuerger Spezifizitéiten: Reegel 5 %, Energie-Impakt (Klimabonus) an Alerten op Mieten iwwer dem Plafong."
+  },
+  "/gestion-locative/ais": {
+    "title": "Sozial Locatiounsgestioun: Verglach no Joer | Tevaxia",
+    "description": "Vergläicht zwou Hypotheese vum Nettoloyersakommes. Déi deelweis Exoneratioun betrëfft Recette vu konventionéierten Organisatiounen, net automatesch all sougenannte sozial Locatioun."
+  },
+  "/gestion-locative/assurance-impayes": {
+    "title": "Assurance géint Loyersausfall: Är Offere vergläichen | Tevaxia",
+    "description": "Gitt d’Joresprime vun erhalenen Offeren an, fir d’Käschten ze vergläichen."
+  },
+  "/gestion-locative/portefeuille": {
+    "title": "Mäi Locatiouns-Portfolio | Tevaxia",
+    "description": "Iwwerwaachung vun de Lots, legale Miet, Konformitéit an Energie-Diagnos."
+  },
+  "/gestion-locative/reconciliation": {
+    "title": "Bank-Reconciliatioun | Tevaxia",
+    "description": "Importéiert Äre Bankauszuch (CAMT.053 XML EU-Standard oder CSV-Export Spuerkeess/BGL/BIL/ING) fir automatesch empfaangene Mieten ze erkennen a se als bezuelt ze markéieren."
+  },
+  "/gestion-locative/reconciliation/psd2": {
+    "title": "PSD2-Bankverbindung fir Loyerbezuelungen | Tevaxia",
+    "description": "Automatescht Ofruffen vun Äre Transaktiounen iwwer Enable Banking, SCA-konform PSD2-API."
+  },
+  "/gestion-locative/relances": {
+    "title": "Mahnungen, automatesch Stufen | Tevaxia",
+    "description": "3 konfiguréiert Niveauen: frëndlech Mahnung D+15 → Mise en demeure D+30 → Befeel D+60. PDF konform mam Gesetz 21.09.2006, per Einschreiwen mat Réckschein ze schécken (Pabeier oder eIDAS)."
+  },
+  "/hotellerie": {
+    "title": "Hotellerie-Léisungen | Tevaxia",
+    "description": "Bewäertung, Scholdendeckung, Betrib an Dossieren: mat Ären Zuelen, Quellen an explizitten Hypotheese schaffen."
+  },
+  "/hotellerie/alerts": {
+    "title": "Gespäichert Hotelsschwellwäerter | Tevaxia",
+    "description": "Dësen Ecran späichert Reegelen. Hie bewäert keng Kennzuelen a schéckt keng Notifikatiounen."
+  },
+  "/hotellerie/benchmark": {
+    "title": "Inter-Hotel-Benchmark | Tevaxia",
+    "description": "Vergläicht erfaasst Kennzuele fir genee déiselwecht Ufanks- an Enndatumer."
+  },
+  "/hotellerie/capex": {
+    "title": "Dokumentéierte CAPEX- a Finanzéierungsplang | Tevaxia",
+    "description": "Plangt Investitiounsausgaben a Finanzéierung iwwer 1 bis 30 konsekutiv Joren."
+  },
+  "/hotellerie/certifications-esg": {
+    "title": "Green-Key-Beleger virbereeden | Tevaxia",
+    "description": "Intern Dokumenteregister ouni Score oder Entscheedung iwwer Eligibilitéit."
+  },
+  "/hotellerie/due-diligence": {
+    "title": "Hotel-Due-Diligence: Dokumentendossier | Tevaxia",
+    "description": "50 net ofschléissend Virbereedungspunkten, un de Betrib an d’Transaktioun unzepassen."
+  },
+  "/hotellerie/forecast": {
+    "title": "Hotelprojektioun | Tevaxia",
+    "description": "Indikativ Hotelprojektioun: Besetzung, ADR a RevPAR aus konsekutive registréierten Deeg."
+  },
+  "/hotellerie/groupe": {
+    "title": "Hotelgrupp Dashboard | Tevaxia",
+    "description": "Gitt op d’Etablissementer vun Ärem Hotelgrupp a organiséiert hire Suivi am Tevaxia-Beräich fir méi Standuerter."
+  },
+  "/hotellerie/housekeeping": {
+    "title": "Deeglechen Housekeeping-Plang | Tevaxia",
+    "description": "D’Aarbecht vun engem Dag aus de wierklech geplangte Botzaufgabe bei Depart a Recouche berechnen."
+  },
+  "/hotellerie/impayes": {
+    "title": "Dokumentéiert Verzuchszënsen | Tevaxia",
+    "description": "Eng Rechnung, onverännert Haaptfuerderung, keng Deelbezuelungen oder Zënseszënsen."
+  },
+  "/hotellerie/mice": {
+    "title": "Dokumentéierte MICE-Budget | Tevaxia",
+    "description": "Szenario fir 1 bis 366 Deeg. Gitt erwaart Quantitéiten, Präisser a Käschten op därselwechter steierlecher Basis an."
+  },
+  "/hotellerie/motel": {
+    "title": "Motel an Aparthotel: Är Etüd virbereeden | Tevaxia",
+    "description": "Erstellt Betribsrechnung, Bewäertung a Finanzéierung mat Ären Donnéeën."
+  },
+  "/hotellerie/renovation": {
+    "title": "Hotelrenovatioun: Budget an Energiespueren | Tevaxia",
+    "description": "Vergläicht de Renovatiounsbudget vun engem Hotel, bestätegt Bäihëllefen an Energiespuere mat Ären Devisen an dokumentéierten Hypotheesen."
+  },
+  "/inspection": {
+    "title": "TEGOVA Terrain-Inspektioun | Tevaxia",
+    "description": "Bereet eng Immobiliebesichtegung mat Checklëscht, Observatiounen a Fotoe vir a stellt Ären Tevaxia-Besichtegungsrapport zesummen."
+  },
+  "/marche": {
+    "title": "Observatiounen um Immobiliemaart | Tevaxia",
+    "description": "Immobiliënmarchédaten zu Lëtzebuerg — Wunnen, Büro, Handel, Logistik, Terrain a Makroindikatoren."
+  },
+  "/marche/forecast": {
+    "title": "Immobiliepräisszenarien | Tevaxia",
+    "description": "Berechent den Effet vun Ären Hypotheesen zur jäerlecher Verännerung op en Ausgangspräis."
+  },
+  "/mentions-legales": {
+    "title": "Rechtlech Informatiounen an Editeur | Tevaxia",
+    "description": "Liest déi rechtlech Informatiounen iwwer Tevaxia: Editeur, Hosting, technesch Déngschtleeschter, geeschtegt Eegentum an Datequellen."
+  },
+  "/onboarding": {
+    "title": "Séier Konfiguratioun (3 Minutten) | Tevaxia",
+    "description": "An 3 Etappen hutt Dir Är Organisatioun an Ären éischten Dossier ugeluecht."
+  },
+  "/pro-agences/commissions": {
+    "title": "Immobiliekommissioune verfollegen | Tevaxia",
+    "description": "Kuckt de Joresiwwerbléck vun de verdéngten Immobiliekommissiounen an d’Verkafspipeline vun Ärer Agence an Tevaxia."
+  },
+  "/pro-agences/fiche-bien": {
+    "title": "Bien-Fiche, komplett PDF-Presentatioun | Tevaxia",
+    "description": "Verkafsfich op Basis vun Ären Informatiounen. Déi initial Zuele si Beispiller fir ze ersetzen; hei gëtt keng onofhängeg Bewäertung berechent."
+  },
+  "/pro-agences/performance": {
+    "title": "Maklerleeschtung | Tevaxia",
+    "description": "Vergläicht Kommissiounen, Ofschlossquoten a Verkafszyklen vun den Agente vun Ärer Organisatioun am Tevaxia-Leeschtungsdashboard."
+  },
+  "/recherche": {
+    "title": "Global Sich | Tevaxia",
+    "description": "Sicht an all den tevaxia-Entitéiten: Mandater, CRM-Kontakter, Coproprietéiten, Hotelobjeten a Reservatiounen."
+  },
+  "/solutions/hotel": {
+    "title": "Instrumenter fir Hotellieren an Investisseuren | Tevaxia",
+    "description": "Wielt Instrumenter fir Ären Hotelprojet: Bewäertung, DSCR, Betribsanalyse an Dokumentvirbereedung op Basis vun Ären eegenen Donnéeën."
+  },
+  "/status": {
+    "title": "Zoustand an Disponibilitéit vun den Déngschter | Tevaxia",
+    "description": "HTTP-Erreechbarkeet vun de gepréiften Endpunkten: Site, API-Dokumentatioun, Authentifikatiounsastellungen an data.public.lu."
+  },
+  "/str/arbitrage": {
+    "title": "Arbitrage Laangzäit vs Kuerzzäit | Tevaxia",
+    "description": "Vergläicht 3 quantifizéiert Szenarioen: Laangzäitvermietung (5%-Regel), pure STR (Airbnb/Booking), oder gemëscht (saisonal STR + LT Rescht)."
+  },
+  "/str/compliance": {
+    "title": "STR Lëtzebuerg Conformitéit | Tevaxia",
+    "description": "Iwwerpréift Är legal Verflichtungen virum Lancement vun enger Kuerzzäitvermietung zu Lëtzebuerg. 3-Méint-Schwell, Hébergement-Lizenz, Gemengereglementer, Akommessteier, EU Regulation 2024/1028."
+  },
+  "/str/compliance-eu": {
+    "title": "EU STR-Registre 2024/1028 | Tevaxia",
+    "description": "Virbereedung vum Registréierungsdossier am eenzegen europäesche Kuerzzäitvermietungs-Registre."
+  },
+  "/str/observatoire": {
+    "title": "STR Lëtzebuerg Observatoire | Tevaxia",
+    "description": "Aggregéiert Airbnb/Booking/Vrbo-Donnéeë no Gemeng an Zone. Median ADR, P25-P75 Percentilen, Belegung, verfügbar Nuechten, aktiv Listings."
+  },
+  "/str/portefeuille": {
+    "title": "Portefeuille vu Kuerzzäitlocatiounen | Tevaxia",
+    "description": "Multi-Objet-Dashboard fir STR-Conciergerie oder Investisseur (10-50 Unitéiten)."
+  },
+  "/str/pricing": {
+    "title": "STR Lëtzebuerg Dynamic Pricing | Tevaxia",
+    "description": "Méintlech ADR-Präisempfehlung no LU-spezifescher Saisonalitéit (Wieder, Eventer, Salonen), mat Weekend- a Last-Minute-Regelen."
+  },
+  "/str/rentabilite": {
+    "title": "STR-Rendement (Airbnb / Booking / Vrbo) | Tevaxia",
+    "description": "Berechent d'jäerlecht Nettoakommes vun Ärer Kuerzzäitvermietung zu Lëtzebuerg, all Käschten a Steier abegraff."
+  },
+  "/syndic/benchmark": {
+    "title": "Kennzuele vu Matbesëtzgemeinschaften vergläichen | Tevaxia",
+    "description": "Vergläicht d'KPIs vun all de Matproprietéiten, déi Äert Cabinet verwalt."
+  },
+  "/syndic/lettres-types": {
+    "title": "Bibliothéik Syndic-Brief-Schablounen | Tevaxia",
+    "description": "Bereet Är Syndic-Bréiwer mat verännerbare Virlage vir, passt den Inhalt un an exportéiert d’Dokumenter aus Tevaxia."
+  },
+  "/syndic/portefeuille": {
+    "title": "Syndic-Portfolio | Tevaxia",
+    "description": "Konsolidéiert Vue vun de verwalten Kopropriétéiten. Priorisatioun no erofgoangenen Onbezuelt-Beträg fir gezielt Recouvrement-Aktiounen."
+  },
+  "/syndic/procuration": {
+    "title": "AG-Procuratioun, PDF-Generator | Tevaxia",
+    "description": "Generéiert eng Procuratioun fir d'Representatioun op enger AG vun enger Kopropriétéit konform mam Gesetz vum 16. Mee 1975 (Artikelen 7 an 11)."
+  },
+  "/tableau-bord": {
+    "title": "Perséinleche Tableau de bord | Tevaxia",
+    "description": "Konsolidéiert Vue vun Ärer ganzer tevaxia.lu-Aktivitéit: Bewäertungen, Locatiounsportfolio, Mandater, Deelungslinks."
+  },
+  "/transparence": {
+    "title": "Donnéeën a Grenze vun der Schätzung | Tevaxia",
+    "description": "Léiert d’Immobiliepräisquellen, Hypotheesen a Grenze vum indicative Bewäertungsmodell vun Tevaxia fir Lëtzebuerg kennen."
+  },
+  "/vefa": {
+    "title": "VEFA-Kaf zu Lëtzebuerg: Käschten a Bezuelungen | Tevaxia",
+    "description": "Verkaf am zukünftegen Zoustand vun der Fäerdegstellung — Zahlungsopriffreihen, TVA, Aschreiwungsgebühren, Fäerdegstellungsgarantie"
+  },
+  "/verify": {
+    "title": "Verifikatioun vun engem ënnerschriwwene Bericht | Tevaxia",
+    "description": "Iwwerpréift d'Authentizitéit vun engem Valorisatiouns-Bericht, deen iwwer tevaxia.lu ënnerschriwwe gouf."
+  },
+  "/wizard-particulier": {
+    "title": "Privatperson-Wizard — Äre Projet a 4 Schrëtt | Tevaxia",
+    "description": "Schätzung → Akafsgebühren → staatlech Hëllefen → legal Loyer-Regel. Alles an engem guidéierten Wee."
+  }
+}

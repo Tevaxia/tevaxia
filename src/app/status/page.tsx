@@ -1,16 +1,8 @@
-import type { Metadata } from "next";
+import { editorialPageMetadata } from "@/lib/editorial-seo";
+
 import Link from "next/link";
 import { probeService as probe, aggregateStatus, type ServiceCheck as Check } from "@/lib/service-status";
 import { getTranslations, getLocale } from "next-intl/server";
-
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("statusPage");
-  return {
-    title: t("metaTitle"),
-    description: t("metaDescription"),
-    robots: { index: true, follow: true },
-  };
-}
 
 export const revalidate = 60;
 
@@ -135,3 +127,5 @@ function StatusDot({ status }: { status: Check["status"] }) {
     : "bg-slate-400";
   return <span className={`inline-block h-2.5 w-2.5 rounded-full ${color}`} aria-hidden />;
 }
+
+export const generateMetadata = () => editorialPageMetadata("/status");

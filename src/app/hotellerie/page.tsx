@@ -1,12 +1,8 @@
-import type { Metadata } from "next";
+import { editorialPageMetadata } from "@/lib/editorial-seo";
+
 import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 import SEOContent from "@/components/SEOContent";
-
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("hotellerieHub");
-  return { title: t("title"), description: t("description") };
-}
 
 interface HotelTool {
   href: string;
@@ -239,7 +235,6 @@ export default async function HotellerieHub() {
         </div>
       </section>
 
-
       {/* Tools grid */}
       <section className="py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -369,3 +364,5 @@ export default async function HotellerieHub() {
     </div>
   );
 }
+
+export const generateMetadata = () => editorialPageMetadata("/hotellerie");

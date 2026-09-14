@@ -1,14 +1,9 @@
-import type { Metadata } from "next";
+import { editorialPageMetadata } from "@/lib/editorial-seo";
+
 import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 import { PERSONA_GUIDES } from "@/lib/persona-docs";
 import { PROFILE_TYPES } from "@/lib/profile-types";
-
-export const metadata: Metadata = {
-  title: "Guides pratiques par profil — tevaxia.lu",
-  description:
-    "9 guides dédiés selon votre profil : particulier, évaluateur, syndic, hôtelier, investisseur, agence, promoteur, intégrateur API, opérateur STR. Outils recommandés, parcours type, FAQ ciblée.",
-};
 
 export default async function DocsHub() {
   const [locale, t, tp] = await Promise.all([
@@ -85,3 +80,5 @@ export default async function DocsHub() {
     </div>
   );
 }
+
+export const generateMetadata = () => editorialPageMetadata("/docs");
