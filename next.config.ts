@@ -42,9 +42,11 @@ const nextConfig: NextConfig = {
     }
     return [
       {
-        source: "/:path*",
+        // Keep API clients, OAuth callbacks and build assets on their original
+        // host. Only public page URLs need the canonical-host redirect.
+        source: "/:path((?!api(?:/|$)|auth(?:/|$)|_next(?:/|$)).*)",
         has: [{ type: "host" as const, value: "www.tevaxia.lu" }],
-        destination: "https://tevaxia.lu/:path*",
+        destination: "https://tevaxia.lu/:path",
         permanent: true,
       },
       ...redirects,
