@@ -40,7 +40,15 @@ const nextConfig: NextConfig = {
         redirects.push({ source: `/${loc}${r.from}`, destination: `/${loc}${r.to}`, permanent: true });
       }
     }
-    return redirects;
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host" as const, value: "www.tevaxia.lu" }],
+        destination: "https://tevaxia.lu/:path*",
+        permanent: true,
+      },
+      ...redirects,
+    ];
   },
   async headers() {
     return [
