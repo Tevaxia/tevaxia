@@ -1,3 +1,4 @@
+import ArticleAuthor from "@/components/guide/ArticleAuthor";
 import { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import { BAREME_NOTAIRE } from "@/lib/constants";
@@ -70,6 +71,8 @@ export default async function GuideFraisNotaire() {
           readingMinutes={6}
           updatedAt="2026-09-09"
         />
+
+        <ArticleAuthor />
 
         <KeyTakeaways items={essentiel} />
 

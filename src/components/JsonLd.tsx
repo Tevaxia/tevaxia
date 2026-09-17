@@ -5,14 +5,12 @@
 /** Erwan Bargain Person schema — reusable reference */
 const PERSON_ERWAN = {
   "@type": "Person" as const,
+  "@id": "https://tevaxia.lu/#erwan-bargain",
   "name": "Erwan Bargain",
   "jobTitle": "Expert en évaluation immobilière",
   "hasCredential": "REV TEGOVA (Recognised European Valuer)",
-  "url": "https://bargain-expertise.fr",
-  "sameAs": [
-    "https://www.linkedin.com/in/erwanbargain",
-    "https://tevaxia.lu"
-  ],
+  "url": "https://bargain-expertise.fr/a-propos/",
+  "sameAs": ["https://www.linkedin.com/in/erwanbargain/"],
 };
 
 /**
@@ -43,11 +41,7 @@ export function OrganizationJsonLd() {
       "logo": "https://tevaxia.lu/logo-tevaxia-512.svg",
       "description": "Plateforme d'outils immobiliers pour le Luxembourg. Valorisation, simulation énergétique, données de marché, calculateurs.",
       "foundingDate": "2025",
-      "founder": {
-        "@type": "Person",
-        "name": "Erwan Bargain",
-        "url": "https://bargain-expertise.fr",
-      },
+      "founder": PERSON_ERWAN,
       "areaServed": {
         "@type": "Country",
         "name": "Luxembourg",
@@ -150,11 +144,7 @@ export function ArticleJsonLd({ headline, datePublished, dateModified }: {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": headline,
-      "author": {
-        "@type": "Person",
-        "name": "Erwan Bargain",
-        "url": "https://bargain-expertise.fr",
-      },
+      "author": PERSON_ERWAN,
       "publisher": {
         "@type": "Organization",
         "name": "tevaxia.lu",
