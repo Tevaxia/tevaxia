@@ -1,3 +1,4 @@
+import ArticleAuthor from "@/components/guide/ArticleAuthor";
 import { getTranslations } from "next-intl/server";
 import { ArticleJsonLd } from "@/components/JsonLd";
 import RelatedGuides from "@/components/RelatedGuides";
@@ -73,6 +74,8 @@ export default async function GuideTemplate({
           readingMinutes={readingMinutes}
           updatedAt={updatedAt}
         />
+
+        <ArticleAuthor />
 
         <KeyTakeaways items={essentiel} />
 
