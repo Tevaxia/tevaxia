@@ -100,8 +100,8 @@ const nextConfig: NextConfig = {
 // téléversement. Une construction locale ne doit pas échouer faute d'un jeton
 // qui ne la concerne pas.
 export default withSentryConfig(withBundleAnalyzer(withNextIntl(nextConfig)), {
-  org: process.env.SENTRY_ORG,
-  project: process.env.SENTRY_PROJECT,
+  org: process.env.SENTRY_ORG ?? 'tevaxia',
+  project: process.env.SENTRY_PROJECT ?? 'javascript-nextjs',
   authToken: process.env.SENTRY_AUTH_TOKEN,
   silent: !process.env.CI,
   // Étend le téléversement aux fichiers servis depuis des sous-dossiers, sans
