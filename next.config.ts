@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 import bundleAnalyzer from "@next/bundle-analyzer";
-import { withSentryConfig } from "@sentry/nextjs";
+import { withSentryConfig } from "@sentry/nextjs/config";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const withBundleAnalyzer = bundleAnalyzer({
@@ -12,7 +12,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
-  productionBrowserSourceMaps: false,
+  // Generate browser maps for Sentry. deleteSourcemapsAfterUpload below removes
+  // them before deployment, so they are never served as public assets.
+  productionBrowserSourceMaps: true,
   compiler: {
     // Strip console.* calls in production builds (keep error/warn for Sentry).
     removeConsole: { exclude: ["error", "warn"] },
