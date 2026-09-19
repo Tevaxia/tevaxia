@@ -2,19 +2,36 @@ import type { ErrorEvent, EventHint, StackFrame } from '@sentry/nextjs';
 
 const ERROR_TYPES = new Set(['Error', 'TypeError', 'RangeError', 'ReferenceError', 'SyntaxError', 'URIError', 'EvalError', 'AggregateError']);
 const DEBUG_ID = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
+const HEX_CHUNK = /^[a-zA-Z0-9_.-]*[a-f0-9]{8,64}(?:[._-][a-zA-Z0-9_-]+)?\.js$/;
+// Turbopack uses 13-character browser hashes and 7-character server hashes,
+// including letters beyond f, underscores and hyphens (Next.js 16.3).
+const TURBOPACK_CLIENT_CHUNK = /^(?:turbopack-)?[a-z0-9_-]{13}\.js$/;
+const TURBOPACK_SERVER_CHUNK = /^[a-zA-Z0-9_@.()[\]-]*_[a-z0-9_-]{7}(?:\._)?\.js$/;
 
 /** Only generated code files; never a document URL, tenant route or uploaded filename. */
 export function diagnosticCodeFile(value: unknown): string | undefined {
   if (typeof value !== 'string') return undefined;
   const path = value.split(/[?#]/, 1)[0].replaceAll('\\', '/');
-  const match = path.match(/(?:\/_next\/static\/chunks\/|\/\.next\/server\/chunks\/)(?:[^?#]*\/)?([a-zA-Z0-9_.-]*[a-f0-9]{8,64}(?:[._-][a-zA-Z0-9_-]+)?\.js)$/);
-  if (!match) return undefined;
-  return (path.includes('/_next/static/') ? 'https://tevaxia.lu/_next/static/chunks/' : 'app:///.next/server/chunks/') + match[1];
+  const client = path.match(/\/_next\/static\/chunks\/([^/]+)$/);
+  if (client && (HEX_CHUNK.test(client[1]) || TURBOPACK_CLIENT_CHUNK.test(client[1]))) {
+    return 'https://tevaxia.lu/_next/static/chunks/' + client[1];
+  }
+  const server = path.match(/\/\.next\/server\/(edge\/)?chunks\/(ssr\/)?([^/]+)$/);
+  if (server && (HEX_CHUNK.test(server[3]) || TURBOPACK_SERVER_CHUNK.test(server[3]))) {
+    return 'app:///.next/server/' + (server[1] ?? '') + 'chunks/' + (server[2] ?? '') + server[3];
+  }
+  // Keep compatibility with legacy webpack subdirectories, without retaining
+  // arbitrary directory names in the diagnostic event.
+  const legacy = path.match(/(\/_next\/static\/chunks\/|\/\.next\/server\/chunks\/)(?:[^?#]*\/)?([^/]+)$/);
+  if (legacy && HEX_CHUNK.test(legacy[2])) {
+    return (legacy[1].startsWith('/_next/') ? 'https://tevaxia.lu/_next/static/chunks/' : 'app:///.next/server/chunks/') + legacy[2];
+  }
+  return undefined;
 }
 
 function safeFrame(frame: StackFrame): StackFrame {
   return {
-    filename: diagnosticCodeFile(frame.filename ?? frame.abs_path),
+    filename: diagnosticCodeFile(frame.filename) ?? diagnosticCodeFile(frame.abs_path),
     lineno: Number.isSafeInteger(frame.lineno) && frame.lineno! > 0 ? frame.lineno : undefined,
     colno: Number.isSafeInteger(frame.colno) && frame.colno! > 0 ? frame.colno : undefined,
     in_app: frame.in_app === true,
