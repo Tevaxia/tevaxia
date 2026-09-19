@@ -2,6 +2,7 @@ import { expect, it } from 'vitest';
 import type { ErrorEvent, EventHint } from '@sentry/nextjs';
 import { diagnosticCodeFile, sanitizeDiagnosticEvent, DIAGNOSTIC_PRIVACY_OPTIONS } from '../diagnostic-privacy';
 it.each([
+ ['https://tevaxia.lu/_next/static/immutable/chunks/408xcgw0l02-0.js?token=SECRET', 'https://tevaxia.lu/_next/static/immutable/chunks/408xcgw0l02-0.js'],
  ['https://private.example/_next/static/chunks/3tdt25a4xdico.js?token=SECRET#SECRET', 'https://tevaxia.lu/_next/static/chunks/3tdt25a4xdico.js'],
  ['https://tevaxia.lu/_next/static/chunks/1-fm6_-t8yrnh.js', 'https://tevaxia.lu/_next/static/chunks/1-fm6_-t8yrnh.js'],
  ['https://tevaxia.lu/_next/static/chunks/turbopack-17h_gthdpoyap.js', 'https://tevaxia.lu/_next/static/chunks/turbopack-17h_gthdpoyap.js'],
@@ -23,8 +24,8 @@ it.each([
 ])('does not treat arbitrary paths as Turbopack code: %s', input => {
  expect(diagnosticCodeFile(input)).toBeUndefined();
 });
-it('keeps Turbopack frames and debug IDs aligned while excluding private context', () => {
- const codeFile = 'https://private.example/_next/static/chunks/3tdt25a4xdico.js?token=SECRET';
+it.each(['chunks', 'immutable/chunks'])('keeps Turbopack frames and debug IDs aligned for %s while excluding private context', (directory) => {
+ const codeFile = `https://private.example/_next/static/${directory}/3tdt25a4xdico.js?token=SECRET`;
  const debugId = '12345678-1234-1234-1234-123456789abc';
  const event: ErrorEvent = {
   type: undefined,
@@ -35,7 +36,7 @@ it('keeps Turbopack frames and debug IDs aligned while excluding private context
  };
  const result = sanitizeDiagnosticEvent(event, {});
  const frame = result.exception!.values![0].stacktrace!.frames![0];
- expect(frame).toMatchObject({ filename: 'https://tevaxia.lu/_next/static/chunks/3tdt25a4xdico.js', lineno: 1, colno: 123 });
+ expect(frame).toMatchObject({ filename: `https://tevaxia.lu/_next/static/${directory}/3tdt25a4xdico.js`, lineno: 1, colno: 123 });
  expect(result.debug_meta!.images).toEqual([{ type: 'sourcemap', code_file: frame.filename, debug_id: debugId }]);
  expect(result.exception!.values![0].mechanism!.handled).toBe(false);
  expect(JSON.stringify(result)).not.toContain('SECRET');

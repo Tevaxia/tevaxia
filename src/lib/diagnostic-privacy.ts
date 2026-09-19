@@ -12,9 +12,9 @@ const TURBOPACK_SERVER_CHUNK = /^[a-zA-Z0-9_@.()[\]-]*_[a-z0-9_-]{7}(?:\._)?\.js
 export function diagnosticCodeFile(value: unknown): string | undefined {
   if (typeof value !== 'string') return undefined;
   const path = value.split(/[?#]/, 1)[0].replaceAll('\\', '/');
-  const client = path.match(/\/_next\/static\/chunks\/([^/]+)$/);
-  if (client && (HEX_CHUNK.test(client[1]) || TURBOPACK_CLIENT_CHUNK.test(client[1]))) {
-    return 'https://tevaxia.lu/_next/static/chunks/' + client[1];
+  const client = path.match(/\/_next\/static\/(immutable\/)?chunks\/([^/]+)$/);
+  if (client && (HEX_CHUNK.test(client[2]) || TURBOPACK_CLIENT_CHUNK.test(client[2]))) {
+    return 'https://tevaxia.lu/_next/static/' + (client[1] ?? '') + 'chunks/' + client[2];
   }
   const server = path.match(/\/\.next\/server\/(edge\/)?chunks\/(ssr\/)?([^/]+)$/);
   if (server && (HEX_CHUNK.test(server[3]) || TURBOPACK_SERVER_CHUNK.test(server[3]))) {
@@ -22,9 +22,9 @@ export function diagnosticCodeFile(value: unknown): string | undefined {
   }
   // Keep compatibility with legacy webpack subdirectories, without retaining
   // arbitrary directory names in the diagnostic event.
-  const legacy = path.match(/(\/_next\/static\/chunks\/|\/\.next\/server\/chunks\/)(?:[^?#]*\/)?([^/]+)$/);
+  const legacy = path.match(/(\/_next\/static\/(?:immutable\/)?chunks\/|\/\.next\/server\/chunks\/)(?:[^?#]*\/)?([^/]+)$/);
   if (legacy && HEX_CHUNK.test(legacy[2])) {
-    return (legacy[1].startsWith('/_next/') ? 'https://tevaxia.lu/_next/static/chunks/' : 'app:///.next/server/chunks/') + legacy[2];
+    return (legacy[1].startsWith('/_next/') ? 'https://tevaxia.lu' + legacy[1] : 'app:///.next/server/chunks/') + legacy[2];
   }
   return undefined;
 }
