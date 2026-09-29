@@ -13,7 +13,7 @@
 | [Plus-values](https://tevaxia.lu/plus-values) | Fiscalité des plus-values, spéculation, cession, exonérations |
 | [Simulateur d'aides](https://tevaxia.lu/simulateur-aides) | Bëllegen Akt, primes, Klimabonus, Klimaprêt, garantie de l'État |
 | [Acheter ou louer](https://tevaxia.lu/achat-vs-location) | Comparaison TCO acquisition vs location sur 10-30 ans |
-| [Valorisation EVS 2025](https://tevaxia.lu/valorisation) | Comparaison, capitalisation, DCF, MLV, terme/réversion — conforme TEGOVA |
+| [Analyse de valeur et scénarios](https://tevaxia.lu/valorisation) | Comparaison, capitalisation, DCF et scénarios documentés — résultats indicatifs à vérifier |
 | [Valorisation hédonique](https://tevaxia.lu/hedonique) | Modèle multi-critères (surface, étage, état, énergie, parking) |
 | [DCF multi-locataires](https://tevaxia.lu/dcf-multi) | Analyse bail par bail, IRR, sensibilité |
 | [Outils bancaires](https://tevaxia.lu/outils-bancaires) | LTV, capacité d'emprunt, amortissement, DSCR, impact CPE |

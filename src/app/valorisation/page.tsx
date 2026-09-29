@@ -95,6 +95,8 @@ export default function Valorisation() {
   const { user: valuationUser } = useAuth();
   const { user } = useAuth();
   const t = useTranslations("valorisation"), sessionText=useTranslations("valuationSession"), scopeText=useTranslations("valuationScope");
+  const expertText = useTranslations("expertGuidance");
+  const expertGuidance = { limits: expertText("limits"), contact: expertText("contact") };
   const [viewMode, setViewMode] = useState<"calculateur" | "rapport">("calculateur");
   const [activeTab, setActiveTab] = useState<ActiveTab>("comparaison");
   const [visitedTabs,setVisitedTabs]=useState<ActiveTab[]>(['comparaison']);
@@ -307,6 +309,7 @@ export default function Valorisation() {
                 generateBlob={() => {
                   const prof = getProfile(user?.id ?? null);
                   return _lazy_generateReportBlob({
+                    expertGuidance,
                     dateRapport: new Date().toISOString().split("T")[0],
                     commune: selectedCommune?.commune,
                     assetType: t(assetConfig.labelKey),
@@ -348,6 +351,7 @@ export default function Valorisation() {
               />
               <button
                 onClick={() => downloadDocxReport({
+                  expertGuidance,
                   dateRapport: new Date().toISOString().split("T")[0],
                   commune: selectedCommune?.commune,
                   assetType: t(assetConfig.labelKey),

@@ -15,7 +15,7 @@ The platform serves independent real estate experts, property managers (syndic),
 
 | Module | What it does |
 |--------|--------------|
-| [Valuation (EVS 2025)](https://tevaxia.lu/valorisation) | 8 methods, 9 asset types, 11-section TEGOVA-compliant PDF report |
+| [Value analysis and scenarios](https://tevaxia.lu/valorisation) | 8 methods, 9 asset types, 11-section working dossier for professional review |
 | [E-invoicing (Factur-X)](https://tevaxia.lu/facturation) | EN 16931 CII XML embedded in PDF/A-3, hooks for syndic and PMS |
 | [Syndic / Co-ownership](https://tevaxia.lu/syndic) | Units, AGMs with weighted voting, fund calls, LU accounting, PSD2 reconciliation |
 | [Hotel PMS](https://tevaxia.lu/pms) | Rooms, reservations, folios with auto-posting, USALI reporting, iCal OTA channels |
@@ -27,7 +27,7 @@ The platform serves independent real estate experts, property managers (syndic),
 ## Standards implemented
 
 - **EN 16931-1:2017** — invoice semantic model + Factur-X CII D22B syntax
-- **TEGOVA EVS 2025** (10th ed.) + Charte de l'expertise 5th ed. — valuation reports
+- **TEGoVA standards** — educational reference for professional valuation; software output is not certified
 - **CRREM Pathways v2.03** — building-level stranding year calculation
 - **EU Taxonomy Article 7.7** — screening criteria for buildings (SFDR)
 - **PSD2 AIS** — bank account aggregation via Enable Banking (BCEE, BIL, Raiffeisen, Post Finance)

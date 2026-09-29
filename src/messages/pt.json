@@ -2,7 +2,7 @@
   "nav": {
     "estimation": "Estimativa instantânea",
     "carte": "Mapa de preços",
-    "valorisation": "Avaliação EVS 2025",
+    "valorisation": "Análise de valor e cenários",
     "loyer": "Capital investido & Renda",
     "frais": "Custos de aquisição",
     "plusValues": "Mais-valias",
@@ -119,7 +119,8 @@
     "signedOutAll": "As sessões desta conta já não podem ser renovadas. Os tokens de acesso emitidos continuam válidos até expirarem.",
     "signOutFailed": "Não foi possível terminar a sessão neste navegador. Tente novamente.",
     "signOutRemoteUnconfirmed": "A sessão terminou neste navegador. Não foi possível confirmar a revogação no servidor.",
-    "signOutSyncUnconfirmed": "A sessão terminou neste navegador, mas não foi possível confirmar a sincronização com outros separadores."
+    "signOutSyncUnconfirmed": "A sessão terminou neste navegador, mas não foi possível confirmar a sincronização com outros separadores.",
+    "lpviContact": "Contactar o LPVI para orientação na procura de um perito"
   },
   "home": {
     "heroTitle": "Análise imobiliária do Luxemburgo,",
@@ -129,8 +130,8 @@
     "exploreAllToolsHint": "Já sabe o que procura? Aceda à lista completa.",
     "trust": {
       "heading": "Fundações sólidas",
-      "tegova": "No espírito dos padrões EVS",
-      "tegovaDesc": "Metodologia inspirada nos padrões europeus de avaliação (TEGOVA)",
+      "tegova": "Pressupostos explícitos",
+      "tegovaDesc": "Cálculos documentados para preparar a conversa com um perito",
       "data": "Dados públicos LU",
       "dataDesc": "data.public.lu, STATEC",
       "rgpd": "RGPD conforme",
@@ -151,7 +152,7 @@
     "jsonLdDescription": "Ferramentas imobiliárias Luxemburgo",
     "tags": {
       "habitat": "Observatoire de l'Habitat",
-      "tegova": "Padrões EVS",
+      "tegova": "Apoio à análise",
       "epbd": "Diretiva EPBD 2024",
       "lir": "Código fiscal LU (LIR)",
       "bail": "Lei arrendamento 21/09/2006",
@@ -224,9 +225,9 @@
         "tag": "EPC / EPBD / Klimabonus"
       },
       "valorisation": {
-        "title": "Avaliação EVS 2025",
-        "description": "Comparação, capitalização direta, DCF, Mortgage Lending Value, reconciliação. Estrutura inspirada nos European Valuation Standards (TEGOVA).",
-        "tag": "Padrões EVS"
+        "title": "Análise de valor e cenários",
+        "description": "Compare vendas documentadas, capitalize rendimentos ou atualize fluxos de caixa. Escolha e fundamente os métodos e parâmetros em função do imóvel e da missão; os resultados são cenários a analisar com um profissional.",
+        "tag": "Apoio à análise"
       },
       "bancaire": {
         "title": "Ferramentas Bancárias",
@@ -294,9 +295,9 @@
         "tag": "CSSF / 4.ª diretiva"
       },
       "inspection": {
-        "title": "Inspeção TEGOVA",
-        "description": "Grelha de inspeção no terreno de 120 pontos conforme EVS 2025. Scoring por secção, fotos, exportação PDF.",
-        "tag": "EVS 2025 terreno"
+        "title": "Lista de verificação da visita ao imóvel",
+        "description": "Registe observações, pontos a verificar e notas da visita. A lista ajuda a preparar o dossier; não certifica o estado do imóvel nem a conformidade com normas profissionais.",
+        "tag": "Notas da visita"
       },
       "terresAgricoles": {
         "title": "Terrenos Agrícolas",
@@ -343,7 +344,7 @@
     },
     "contact": {
       "tevaxiaTitle": "tevaxia.lu — 40+ ferramentas",
-      "tevaxiaLine1": "Estimativa, mapa de preços, avaliação EVS 2025",
+      "tevaxiaLine1": "Estimativa, mapa de preços, análise de valor",
       "tevaxiaLine2": "DCF multi-inquilinos, balanço promotor, ferramentas bancárias",
       "tevaxiaLine3": "Custos, mais-valias, apoios, VEFA, compra vs arrendamento",
       "tevaxiaLine4": "PAG/PAP, terrenos agrícolas, AML/KYC",
@@ -479,7 +480,7 @@
       "explainSource1": "Observatoire de l&apos;Habitat du Luxembourg — Análise dos preços de venda por classe energética (2023-2025)",
       "explainSource2": "BCE — Climate risk and real estate: emerging evidence on pricing (2024)",
       "explainSource3": "Diretiva EPBD recast 2024/1275 — Objetivo parque zero emissões 2050",
-      "explainSource4": "TEGOVA EVS 2025 — ESG & Sustainability in Property Valuation (EVS 5)",
+      "explainSource4": "TEGoVA — European Valuation Standards: enquadramento profissional da avaliação",
       "fourchette": "Intervalo",
       "fourchetteTip": "As variações dependem da localização, tipo de imóvel e condições de mercado",
       "sourceData": "Fonte",
@@ -1170,11 +1171,11 @@
       "contextTitle": "O mercado imobiliário luxemburguês em 2026",
       "contextContent": "<p>O mercado imobiliário do Grão-Ducado do Luxemburgo atravessa uma fase de <strong>correção pós-pico</strong> iniciada no final de 2022, após mais de uma década de crescimento quase ininterrupto. Segundo o Observatório da Habitação e o STATEC, os preços residenciais recuaram cerca de 14 % entre o pico do T3-2022 e o T4-2024, antes de se estabilizarem no primeiro semestre de 2025.</p><p>Esta correção explica-se principalmente pelo <strong>aperto monetário do BCE</strong> (taxa diretora de 0 % para 4,50 % em 18 meses), que reduziu a capacidade de endividamento das famílias. No entanto, os fundamentos estruturais permanecem sólidos: crescimento demográfico de +1,5 %/ano, 12.000 residentes adicionais em 2024, um mercado de trabalho dinâmico (taxa de desemprego ~5,6 %) e uma oferta estruturalmente deficitária estimada em 3.000 habitações por ano pela Fundação IDEA.</p>",
       "methodeTitle": "Métodos de avaliação: hedónico, comparáveis e DCF",
-      "methodeContent": "<p>No Luxemburgo, três grandes famílias de métodos coexistem para estimar o valor de um imóvel:</p><ul><li><strong>O método hedónico</strong>: utilizado pelo STATEC e pelo Observatório da Habitação, decompõe o preço com base em características objetivas (área, localização, idade, desempenho energético, andar, estacionamento, etc.) através de um modelo de regressão.</li><li><strong>O método dos comparáveis</strong>: clássico na avaliação imobiliária (norma EVS/TEGoVA), consiste em ajustar os preços de transações recentes de imóveis semelhantes.</li><li><strong>O método DCF (Discounted Cash Flow)</strong>: utilizado principalmente para imóveis de rendimento, atualiza os fluxos de caixa líquidos futuros.</li></ul>",
+      "methodeContent": "Compare vendas documentadas, capitalize rendimentos ou atualize fluxos de caixa. Escolha e fundamente os métodos e parâmetros em função do imóvel e da missão; os resultados são cenários a analisar com um profissional.",
       "facteursTitle": "Fatores que influenciam o valor de um imóvel no Luxemburgo",
       "facteursContent": "<p>Numerosos fatores afetam o valor imobiliário no Grão-Ducado:</p><ul><li><strong>Localização e município</strong>: é o fator principal. A Cidade do Luxemburgo (Belair, Limpertsberg, Kirchberg) apresenta preços médios por m² de 10.000-14.000 €, contra 5.000-7.000 € no Norte (Clervaux, Wiltz).</li><li><strong>Área e disposição</strong>: a área habitável líquida (segundo o regulamento grão-ducal de 25 de fevereiro de 1979) permanece o critério quantitativo dominante.</li><li><strong>Desempenho energético (CPE)</strong>: desde a reforma do passaporte energético em 2010, a classe energética influencia os preços de forma mensurável. Um imóvel classe A é negociado 15-30 % acima de um classe G-I.</li><li><strong>Estado e renovações</strong>: cozinha equipada, casa de banho moderna, vidros triplos, VMC de duplo fluxo e bomba de calor são elementos valorizadores.</li></ul>",
       "exempleTitle": "Exemplo concreto: avaliação de um apartamento em Esch-sur-Alzette",
-      "exempleContent": "<p>Tomemos um apartamento de <strong>85 m² em Esch-sur-Alzette</strong>, bairro Belvaux, construído em 2012, classe energética C, com 1 lugar de estacionamento interior e 1 cave:</p><ul><li>Preço médio por m² no município (T1-2025): ~6.200 € (fonte: Observatório da Habitação)</li><li>Ajuste classe C (referência D): +5 % → 6.510 €/m²</li><li>Ajuste idade (2012 vs mediana 2005): +3 % → 6.705 €/m²</li><li>Estacionamento interior: +25.000 € (forfait de mercado)</li><li>Estimativa bruta: 85 × 6.705 + 25.000 = <strong>594.925 €</strong></li></ul>",
+      "exempleContent": "A Tevaxia ajuda a preparar dados e a explorar cenários indicativos. O software não substitui a verificação do imóvel, o juízo profissional nem o relatório de um perito. Não certifica a conformidade com as EVS ou a TEGoVA.",
       "faq1q": "Qual é a precisão de uma avaliação imobiliária online?",
       "faq1a": "Os estimadores online alcançam tipicamente uma precisão de ±10-15 % em relação ao preço de venda final. A nossa ferramenta, calibrada com dados do Observatório da Habitação, visa uma margem de ±10 %.",
       "faq2q": "Como o CPE influencia o preço no Luxemburgo?",
@@ -1184,7 +1185,7 @@
       "faq4q": "Devo fazer uma avaliação antes de vender no Luxemburgo?",
       "faq4a": "Sim, uma avaliação prévia é recomendada para definir um preço de venda realista. Um preço demasiado elevado prolonga o tempo de venda (mediana 90-120 dias no Luxemburgo).",
       "faq5q": "Qual a diferença entre valor de mercado e preço de venda?",
-      "faq5a": "O valor de mercado é o preço teórico que um comprador informado pagaria em condições normais de mercado (definição EVS). O preço de venda real pode divergir consoante a urgência do vendedor e as condições de financiamento do comprador."
+      "faq5a": "Um valor estimado depende de uma data, de pressupostos e de informação definida. O preço de venda pode diferir em função das características do imóvel, da negociação e das condições da transação."
     },
     "addToHistory": "Adicionar ao meu histórico",
     "addressPlaceholder": "Morada (opcional) — para acompanhar este imóvel ao longo do tempo",
@@ -2205,7 +2206,7 @@
     "prudentValueIntro": "Os bancos luxemburgueses utilizam a <strong>Mortgage Lending Value (MLV)</strong> nos termos do art. 4(1)(74) CRR e das orientações EBA/GL/2020/06.",
     "prudentValueMethod": "A MLV aplica <strong>descontos prudenciais</strong> (conjuntural, comercialização, específico) ao valor de mercado para obter um valor sustentável.",
     "prudentValueLegal": "A CSSF exige que o rácio LTV seja calculado sobre a <strong>MLV</strong>, e não sobre o valor de mercado.",
-    "prudentValueCalculate": "Calcule a MLV do seu imóvel com a nossa <link>ferramenta de avaliação EVS 2025</link>.",
+    "prudentValueCalculate": "Prepare cenários com a <link>ferramenta de análise de valor</link>.",
     "incomeAndCharges": "Rendimentos & encargos",
     "netMonthlyIncome": "Rendimento líquido mensal",
     "existingMonthlyCharges": "Encargos mensais existentes",
@@ -2677,8 +2678,8 @@
     "forecastLink": "Cenários de preços →"
   },
   "valorisation": {
-    "pageTitle": "Avaliação Imobiliária EVS 2025",
-    "pageSubtitle": "Avalie um imóvel segundo as normas TEGOVA EVS 2025: comparação, capitalização, term & reversion, DCF, ESG, energia, MLV, reconciliação.",
+    "pageTitle": "Análise de valor e cenários",
+    "pageSubtitle": "Compare vendas documentadas, capitalize rendimentos ou atualize fluxos de caixa. Escolha e fundamente os métodos e parâmetros em função do imóvel e da missão; os resultados são cenários a analisar com um profissional.",
     "tabComparaison": "Comparação",
     "tabCapitalisation": "Capitalização",
     "tabTermeReversion": "Term & Reversion",
@@ -2699,7 +2700,7 @@
     "metriquesCles": "Key metrics",
     "commune": "Municipality",
     "reinitialiser": "Reiniciar",
-    "conformiteEVS": "Conformidade EVS",
+    "conformiteEVS": "Verificações do dossier",
     "aCompleter": "to be completed",
     "refMarcheParCommune": "Market references by municipality",
     "refMarcheSource": "Fontes: Cadastro, STATEC, Observatoire de l'Habitat, anúncios",
@@ -2868,7 +2869,7 @@
     "esgRisquesIdentifies": "Identified risks",
     "esgPointsPositifs": "Positive points",
     "esgRecommandations": "Recommendations",
-    "esgEVSNote": "Avaliação ESG conforme EVS 5 (TEGOVA EVS 2025) — Sustainability in Property Valuation.",
+    "esgEVSNote": "Os fatores ambientais e energéticos devem ser analisados em função do imóvel e da missão. O registo não constitui uma avaliação ESG completa nem uma certificação profissional.",
     "classeA": "Classe A — Excelente",
     "classeB": "Class B — Very good",
     "classeC": "Class C — Good",
@@ -2911,14 +2912,14 @@
     "enCoutNetApresAides": "Custo líquido após apoios",
     "enValeurResiduelle": "Valor residual",
     "enDecoteEnergetique": "Desconto energético",
-    "enMethodeEVSTitle": "Método EVS — Valor residual energético",
+    "enMethodeEVSTitle": "Sensibilidade aos custos de renovação",
     "enPrincipe": "Principle",
     "enPrincipeText": "O valor residual após renovação energética corresponde ao valor melhorado do imóvel menos o custo líquido das obras e uma margem prudencial.",
     "enFormule": "Valor após renovação − Custos líquidos − Margem prudencial",
     "enArt208EBA": "Art. 208 CRR / EBA",
     "enArt208EBAText": "Para empréstimo hipotecário, o valor hipotecário (MLV) deve refletir o valor sustentável do imóvel.",
     "mlvValeurMarche": "Valor de mercado (MV)",
-    "mlvValeurMarcheEVS1": "Valor de mercado segundo EVS 1 (TEGOVA). Derivado da reconciliação dos métodos de avaliação.",
+    "mlvValeurMarcheEVS1": "Valor inicial introduzido para o cenário, a fundamentar pelo autor.",
     "mlvIssueReconciliation": "O valor de mercado é retomado automaticamente do separador Reconciliação.",
     "mlvDecotesPrudentielles": "Prudential discounts",
     "mlvDecoteConjoncturelle": "Desconto cíclico",
@@ -2957,7 +2958,7 @@
     "recScenarioBasCol": "Low (−{pct}%)",
     "recScenarioCentralCol": "Central",
     "recScenarioHautCol": "Alto (+{pct} %)",
-    "recScenariosNote": "Os cenários alto e baixo apresentam um intervalo de valores alinhado com as boas práticas TEGOVA EVS 2025.",
+    "recScenariosNote": "Os cenários ilustram o efeito dos pressupostos; não medem a precisão estatística nem a conformidade profissional.",
     "sensTitle": "Sensitivity analysis",
     "sensSubtitle": "Impacto no valor reconciliado ({base})",
     "sensERV": "ERV (market rent)",
@@ -2971,7 +2972,7 @@
     "sensFootnote": "Single-factor sensitivity analysis (ceteris paribus).",
     "recAnalyseNarrative": "Narrative analysis",
     "modeCalculateur": "Modo calculadora",
-    "modeRapportEVS": "Modo relatório EVS",
+    "modeRapportEVS": "Rascunho do dossier",
     "rptSec1Title": "Missão",
     "rptSec2Title": "Localização geográfica",
     "rptSec3Title": "Situação jurídica",
@@ -2982,7 +2983,7 @@
     "rptSec8Title": "Análise SWOT",
     "rptSec9Title": "Avaliação",
     "rptSec10Title": "Conclusões",
-    "rptSec11Title": "Certificação do perito",
+    "rptSec11Title": "Declarações do autor",
     "rptProgress": "Progresso do relatório",
     "rptSectionsRemplies": "secções preenchidas",
     "rptRempli": "preenchido",
@@ -2995,7 +2996,7 @@
     "rptIndependance": "Independência",
     "rptIndependanceText": "O avaliador declara não ter qualquer relação de dependência, interesse financeiro ou conflito de interesses relativamente ao imóvel avaliado, ao cliente ou a qualquer parte envolvida na transação.",
     "rptCompetence": "Competência",
-    "rptCompetenceText": "O avaliador possui as qualificações, a experiência e o conhecimento do mercado local necessários para realizar esta missão em conformidade com as normas TEGOVA EVS 2025.",
+    "rptCompetenceText": "Qualificações, experiência e conhecimento do mercado a declarar e documentar pelo autor para esta missão.",
     "rptCanton": "Cantão",
     "rptNbTransactions": "Transações recentes",
     "rptAutoPopulated": "Dados preenchidos automaticamente a partir do separador Comparação.",
@@ -3025,7 +3026,7 @@
     "rptCondMoyen": "Médio",
     "rptCondARenover": "A renovar",
     "rptESGArt208": "ESG & Art. 208 EBA",
-    "rptESGArt208Text": "Os fatores ambientais, sociais e de governação (ESG) devem ser tidos em conta em conformidade com a EVS 5 (Sustainability). O Art. 208 CRR exige que o valor sustentável reflita o risco climático e o desempenho energético.",
+    "rptESGArt208Text": "Os fatores ambientais e energéticos devem ser analisados em função do imóvel e da missão. O registo não constitui uma avaliação ESG completa nem uma certificação profissional.",
     "rptAutoFromTabs": "Dados obtidos automaticamente a partir dos separadores de cálculo.",
     "rptFillCapOrDCF": "Preencha o separador Capitalização ou DCF para alimentar esta secção.",
     "rptFillAtLeastOneMethod": "Complete pelo menos um método de avaliação (Comparação, Capitalização ou DCF).",
@@ -3040,8 +3041,8 @@
     "rptExpertName": "Nome do avaliador",
     "rptExpertQualif": "Qualificação",
     "rptExpertAgree": "Perito imobiliário certificado",
-    "rptCertificationText": "Certificação de conformidade",
-    "rptCertificationBody": "Certifico que esta avaliação foi realizada em conformidade com as normas TEGOVA EVS 2025 (10.ª edição), com total independência e imparcialidade, e que as conclusões refletem a minha análise profissional do mercado e do imóvel avaliado.",
+    "rptCertificationText": "Declarações do autor",
+    "rptCertificationBody": "O autor deve verificar o referencial aplicável, documentar as diligências realizadas e formular a sua própria declaração. A Tevaxia não atesta automaticamente qualquer conformidade.",
     "rptSecATitle": "Anexos",
     "rpt1_1_title": "Identidade do cliente / mandante",
     "rpt1_1_nom": "Nome do cliente",
@@ -3064,16 +3065,16 @@
     "rpt1_3_lots": "Frações de copropriedade",
     "rpt1_3_lotsHint": "Número(s) de fração, tantièmes",
     "rpt1_4_title": "Referenciais",
-    "rpt1_4_auto": "Charte de l'expertise en évaluation immobilière, 5.ª ed. + TEGOVA EVS 2025, 10.ª ed.",
+    "rpt1_4_auto": "Referencial a especificar e fundamentar pelo autor.",
     "rpt1_5_title": "Tipo de valor e hipóteses",
-    "rpt1_5_venale": "Valor venal (de mercado) — EVS 1",
-    "rpt1_5_locative": "Valor locativo de mercado (ERV) — EVS 2",
-    "rpt1_5_crr": "Valor hipotecário (CRR) — EVS 3",
+    "rpt1_5_venale": "Valor de mercado",
+    "rpt1_5_locative": "Valor locativo de mercado",
+    "rpt1_5_crr": "Valor prudencial — referencial a especificar",
     "rpt1_5_ltv": "Rácio empréstimo/valor (LTV)",
     "rpt1_5_hypotheses": "Hipóteses retidas",
     "rpt1_5_hypothesesHint": "Hipóteses de vacância, indexação, obras, etc.",
     "rpt1_5b_title": "Hipóteses especiais",
-    "rpt1_5b_hint": "Hipóteses especiais na aceção da EVS 5: venda forçada, going concern, etc.",
+    "rpt1_5b_hint": "Indique os pressupostos que diferem dos factos conhecidos e justifique a sua utilização.",
     "rpt1_6_title": "Independência e conflitos de interesses",
     "rpt1_6_hint": "Informações complementares sobre a independência, se aplicável",
     "rpt1_7_title": "Competência do perito",
@@ -3217,15 +3218,15 @@
     "rpt10_2_impactESGHint": "Green premium, brown discount, custos de transição, riscos físicos...",
     "rpt10_3_title": "Reservas",
     "rpt10_3_hint": "Reservas sobre as conclusões, condições suspensivas...",
-    "rpt10_3b_title": "Incerteza de avaliação (EVS 2025 — Material Uncertainty)",
+    "rpt10_3b_title": "Incertezas da análise",
     "rpt10_3b_hint": "Nível de incerteza, fatores de volatilidade, sensibilidade às hipóteses-chave...",
-    "rpt11_certStatements": "Declarações de certificação",
+    "rpt11_certStatements": "Declarações do autor",
     "rpt11_cert1": "Realizei esta avaliação com total independência e imparcialidade.",
     "rpt11_cert2": "Os factos apresentados neste relatório são exatos segundo o meu conhecimento.",
     "rpt11_cert3": "As análises e conclusões estão limitadas às hipóteses e condições enunciadas.",
     "rpt11_cert4": "Não tenho qualquer interesse financeiro, presente ou futuro, no imóvel avaliado.",
     "rpt11_cert5": "A minha remuneração não está ligada ao resultado da avaliação.",
-    "rpt11_cert6": "Esta avaliação é conforme às normas TEGOVA EVS 2025 (10.ª ed.) e à Charte de l'expertise (5.ª ed.).",
+    "rpt11_cert6": "O autor deve verificar o referencial aplicável, documentar as diligências realizadas e formular a sua própria declaração. A Tevaxia não atesta automaticamente qualquer conformidade.",
     "rpt11_dateSignature": "Data de assinatura",
     "rptA_description": "Selecione os anexos a incluir na geração do relatório em PDF.",
     "rptA_1_plans": "A1 — Plantas",
@@ -3309,7 +3310,7 @@
     "notesImmeubleRapport": "O edifício de rendimento é avaliado principalmente pelo rendimento. Analisar cada fração: renda atual vs ERV, duração restante do contrato, potencial de reversão.",
     "notesBureaux": "Luxemburgo-Cidade: mercado de escritórios maduro com segmentação CBD / Kirchberg / Cloche d'Or / Gare. Rendas prime ~50-55 €/m²/mês no Kirchberg. Vacância estrutural ~5-7%.",
     "notesCommerces": "Distinguir high street (Grand-Rue, avenue de la Gare) de retail parks e centros comerciais. A renda em Zona A é a referência. Risco estrutural e-commerce. Analisar taxa de esforço do inquilino.",
-    "notesHotellerie": "A hotelaria é avaliada pela capacidade de gerar lucros (EBITDA estabilizado), não pela renda. Luxemburgo: mercado institucional/negócios, ocupação ~70-75%. ADR em alta.",
+    "notesHotellerie": "Distinga o imóvel, a exploração e os direitos avaliados. Analise receitas, encargos, contratos e obras documentados; escolha os métodos de acordo com o âmbito da missão.",
     "notesLogistique": "Luxemburgo: stock logístico limitado, concentrado em Eurohub Sul (Bettembourg/Dudelange). Rendas ~6-9 €/m²/mês. Contratos longos (6-9 anos firmes). ESG cada vez mais importante.",
     "notesTerrain": "No Luxemburgo, existe uma relação de 1 para 6 entre os preços dos terrenos na cidade do Luxemburgo e no norte. Verificar PAG/PAP: zona construtível, COS, servidões. O método residual deduz o valor do terreno do preço de venda.",
     "esgNiveauExcellent": "Excelente",
@@ -3336,7 +3337,7 @@
     "checkCommune": "Município / localização identificada",
     "checkSurface": "Área do imóvel indicada",
     "checkAssetType": "Tipo de ativo selecionado",
-    "checkEvsType": "Base de valor definida (EVS1-6)",
+    "checkEvsType": "Base de valor declarada",
     "checkMin2Methodes": "Mínimo 2 métodos utilizados",
     "checkComparaison": "Método de comparação realizado",
     "checkNbComparables": "Pelo menos 3 comparáveis (recomendado)",
@@ -3415,7 +3416,7 @@
     "sauvegarde": "Guardado!",
     "narrCommuneDe": "município de {commune}",
     "narrLocNonPrecisee": "localização não especificada",
-    "narrIntroduction": "O imóvel objeto da presente análise é um {assetType} com uma área de {surface} m², situado em {localisation}. A avaliação é realizada com base no {evsType} em conformidade com os European Valuation Standards 2025 (TEGOVA, 10.ª edição).",
+    "narrIntroduction": "O imóvel é do tipo {assetType}, com {surface} m², situado em {localisation}. Base declarada: {evsType}. Este cenário depende de dados e pressupostos a verificar pelo autor.",
     "narrContexteMarche": "O preço médio observado no município é de {prix}/m² para apartamentos existentes (fonte: Observatório da Habitação, escrituras notariais).",
     "narrMarcheVolumeSignificatif": "O mercado local apresenta um volume significativo de transações ({nb} transações no último período), o que confere boa fiabilidade aos dados de referência.",
     "narrMarcheVolumeLimite": "O mercado local apresenta um volume limitado de transações ({nb} transações), o que apela à prudência na interpretação dos comparáveis.",
@@ -3442,7 +3443,7 @@
     "narrESGBon": "O perfil ESG do imóvel é favorável (score {score}/100, nível {niveau}), o que constitui uma vantagem no contexto regulatório atual.",
     "narrESGMoyen": "O perfil ESG é médio (score {score}/100, nível {niveau}). Obras de renovação energética poderiam melhorar a avaliação.",
     "narrESGInsuffisant": "O perfil ESG é insuficiente (score {score}/100, nível {niveau}). O desconto energético estimado é de {impact}%. A renovação é recomendada.",
-    "narrReserves": "A presente análise é realizada a título indicativo com base em dados públicos disponíveis e parâmetros introduzidos pelo utilizador. Não constitui uma avaliação imobiliária no sentido das EVS 2025. Para uma avaliação oficial, consulte um avaliador certificado TEGOVA (REV/TRV).",
+    "narrReserves": "A Tevaxia ajuda a preparar dados e a explorar cenários indicativos. O software não substitui a verificação do imóvel, o juízo profissional nem o relatório de um perito. Não certifica a conformidade com as EVS ou a TEGoVA.",
     "estAjustEtage": "Andar: {etage}",
     "estAjustEtat": "Estado: {etat}",
     "estAjustExterieur": "Exterior: {exterieur}",
@@ -3453,16 +3454,16 @@
     "seo": {
       "faqTitle": "Perguntas frequentes sobre avaliação imobiliária",
       "relatedTitle": "Ferramentas complementares",
-      "evs2025Title": "Avaliação imobiliária conforme EVS 2025 no Luxemburgo",
-      "evs2025Content": "<p>As <strong>European Valuation Standards (EVS) 2025</strong>, publicadas pela TEGoVA, constituem o quadro de referência para toda a avaliação imobiliária profissional no Luxemburgo. A CSSF, na sua circular 21/773, exige que os estabelecimentos de crédito recorram a avaliações conformes aos padrões europeus para imóveis aceites como garantia.</p><p>No Luxemburgo, o valor de mercado é definido como o preço mais provável a que um imóvel seria vendido, na data da avaliação, após uma comercialização adequada, entre um vendedor e um comprador consentientes, agindo de forma independente.</p><p>O avaliador deve documentar a <strong>data de valor</strong>, o <strong>objetivo da avaliação</strong>, as <strong>hipóteses especiais</strong> e as fontes de dados utilizadas.</p>",
+      "evs2025Title": "Compreender o enquadramento profissional da avaliação",
+      "evs2025Content": "As European Valuation Standards (EVS), publicadas pela TEGoVA, oferecem um quadro para a avaliação profissional: missão definida, fontes analisadas, métodos fundamentados e pressupostos e limitações explícitos. Esta abordagem torna a análise mais transparente e documentada; uma fórmula, por si só, não constitui uma avaliação pericial.",
       "methodesTitle": "Os 5 métodos de avaliação reconhecidos",
       "methodesContent": "<p>A nossa ferramenta de avaliação integra as cinco abordagens reconhecidas pelos padrões internacionais:</p><ul><li><strong>Método comparativo</strong>: abordagem direta baseada em transações recentes de imóveis semelhantes. No Luxemburgo, utilizamos a base da AED.</li><li><strong>Método de capitalização</strong>: o rendimento locativo líquido é capitalizado à taxa de rendimento observada na zona.</li><li><strong>Método DCF</strong>: projeção dos fluxos líquidos a 10 anos com valor terminal.</li><li><strong>Mortgage Lending Value (MLV)</strong>: valor prudente exigido pelo regulamento CRR (artigo 229) com um desconto de 10 a 20% face ao valor de mercado.</li><li><strong>Método term and reversion</strong>: distinção entre rendimento contratual (term) e rendimento de mercado esperado após expiração do contrato (reversion).</li></ul>",
       "reconciliationTitle": "Reconciliação e ponderação dos métodos",
       "reconciliationContent": "<p>Um avaliador profissional nunca se baseia num único método. A <strong>reconciliação</strong> consiste em atribuir um peso a cada abordagem:</p><ul><li>Para um <strong>apartamento standard</strong> em zona urbana, a comparação recebe peso predominante (60-70%).</li><li>Para um <strong>imóvel de rendimento</strong>, a capitalização e o DCF são privilegiados (peso cumulado de 70-80%).</li><li>Para um <strong>imóvel atípico</strong>, o avaliador apoia-se mais no método residual.</li></ul><p>O nosso algoritmo de reconciliação utiliza um modelo de ponderação bayesiano.</p>",
       "rapportTitle": "Estrutura do relatório de avaliação",
-      "rapportContent": "<p>Um relatório de avaliação conforme EVS 2025 compreende:</p><ul><li><strong>Identificação do imóvel</strong>: morada, referências cadastrais, descrição física, servidões e direitos reais.</li><li><strong>Contexto jurídico</strong>: regime de propriedade horizontal, enfiteuse, direito de superfície, conformidade urbanística.</li><li><strong>Análise do mercado local</strong>: tendências de preços, volumes de transações, oferta e procura.</li><li><strong>Aplicação dos métodos</strong>: detalhe dos cálculos, fontes, justificação dos parâmetros.</li><li><strong>Reconciliação e conclusão</strong>: valor retido, intervalo de confiança, reservas.</li></ul>",
+      "rapportContent": "Organize documentos, fontes, cálculos, pressupostos e reservas num dossier de trabalho. O profissional verifica a informação, define as diligências necessárias e assume as suas conclusões. A exportação ou assinatura técnica do ficheiro não certifica a conformidade profissional.",
       "faq1Q": "Quem pode realizar uma avaliação imobiliária no Luxemburgo?",
-      "faq1A": "No Luxemburgo, o título de perito imobiliário não é legalmente protegido. Contudo, os bancos exigem geralmente um avaliador com qualificação REV (Recognised European Valuer) da TEGoVA. A CSSF recomenda que as avaliações para garantias hipotecárias sejam realizadas por profissionais independentes do processo de concessão de crédito.",
+      "faq1A": "As qualificações REV e REV-Resi dizem respeito aos profissionais, não ao software. A escolha do perito e os requisitos do relatório dependem da missão e do destinatário. O LPVI apresenta os percursos e as condições de acesso às licenças no seu site.",
       "faq2Q": "Que método de avaliação usar conforme o tipo de imóvel?",
       "faq2A": "Para um apartamento ou moradia, o método comparativo é geralmente o mais fiável. Para um imóvel de escritórios ou comercial arrendado, privilegia-se a capitalização ou o DCF. Para um terreno, o método residual é indispensável. O avaliador profissional utiliza sempre pelo menos dois métodos e procede à reconciliação.",
       "faq3Q": "Qual a diferença entre valor de mercado e Mortgage Lending Value (MLV)?",
@@ -3470,7 +3471,7 @@
       "faq4Q": "Com que frequência se deve reavaliar um imóvel?",
       "faq4A": "Para imóveis em garantia hipotecária, a CSSF exige reavaliação no mínimo a cada 3 anos para imóveis residenciais e anualmente para imóveis comerciais. Em contabilidade IFRS (IAS 40), os imóveis de investimento devem ser reavaliados em cada fecho de contas.",
       "faq5Q": "Quanto custa uma perícia imobiliária no Luxemburgo?",
-      "faq5A": "Os honorários variam conforme a complexidade. Para um apartamento standard, conte com 1.500 a 3.000 EUR para um relatório conforme EVS. Para um imóvel de rendimento, entre 3.000 e 8.000 EUR. A ferramenta tevaxia oferece uma pré-avaliação instantânea."
+      "faq5A": "Peça um orçamento adequado ao imóvel, às verificações necessárias e à finalidade do relatório. Contacte o LPVI para orientação na procura de um perito. Os cálculos da Tevaxia ajudam a preparar essa conversa e não constituem um orçamento de avaliação."
     },
     "reportTemplateLabel": "Modelo relatório:",
     "templateStandard": "Padrão (completo)",
@@ -3508,14 +3509,14 @@
     },
     "investisseur": {
       "title": "Investidor",
-      "description": "Avaliação EVS 2025, DCF por contrato, limite de renda Art. 102 LIR, seguimento multi-imóveis",
+      "description": "Análise de valor, DCF por contrato e acompanhamento de imóveis",
       "linkGestion": "★ Gestão locativa LU (regra 5%, Klimabonus)",
-      "link1": "Avaliação EVS",
+      "link1": "Análise de valor e cenários",
       "link2": "DCF multi-inquilinos",
       "link3": "Portfólio",
       "link4": "Calculador cashflow (FR/BE/LU)",
       "link5": "Comparar dois imóveis",
-      "linkInspection": "Inspeção TEGOVA",
+      "linkInspection": "Lista de verificação da visita ao imóvel",
       "linkTransparence": "Transparência fiscal"
     },
     "promoteur": {
@@ -3549,11 +3550,11 @@
     },
     "banque": {
       "title": "Banco / Finanças",
-      "description": "API REST de estimativa, MLV TEGOVA, AML/KYC, relatório assinado SHA-256 verificável publicamente",
+      "description": "Estimativas indicativas por API, cenários de valor, ferramentas de crédito e dossiers documentados",
       "link1": "API estimativa (bancos)",
       "link2": "Ferramentas bancárias",
       "link3": "AML / KYC",
-      "link4": "Avaliação EVS / MLV"
+      "link4": "Análise de valor e cenários"
     },
     "hotellerie": {
       "title": "Hotelaria",
@@ -3580,7 +3581,7 @@
   },
   "pricing": {
     "title": "Preços",
-    "subtitle": "40+ ferramentas imobiliárias, 13 simuladores energia & ESG, 20+ páginas hotelaria, STR Airbnb, faturação Factur-X e CRM agências. Resultados instantâneos, export PDF, relatórios conformes.",
+    "subtitle": "Ferramentas imobiliárias, simuladores de energia, gestão e preparação de dossiers. Cálculos indicativos, pressupostos explícitos e exportações a verificar.",
     "contact": "Questões ou sugestões?",
     "free": {
       "name": "Gratuito",
@@ -3588,7 +3589,7 @@
       "priceNote": "Gratuito para sempre",
       "description": "Todas as calculadoras, resultados em direto",
       "cta": "Começar",
-      "f1": "40+ ferramentas imobiliárias (estimativa, custos, mais-valias, renda, apoios, avaliação EVS, DCF, arrendamento comercial, VEFA, inspeção TEGOVA, wizard particular, etc.)",
+      "f1": "Ferramentas imobiliárias: estimativas, custos, rendas, apoios, análise de valor, DCF e preparação de visitas",
       "f2": "13 simuladores energia & ESG (impacto CPE, renovação ROI, comunidade de energia, EPBD, LENOZ, HVAC, portfólio, CRREM pathways, Taxonomia UE 7.7)",
       "f3": "Ferramentas hoteleiras: avaliação documentada, cobertura da dívida, operação, preparação E-2, previsões com histórico fornecido, comparações com fontes, MICE, CAPEX e transações publicadas.",
       "f4": "8 ferramentas STR / Airbnb (rentabilidade, forecast, pricing, arbitragem, compliance LU, compliance UE 2024/1028, observatório)",
@@ -3615,7 +3616,7 @@
       "f7": "Perfil personalizado nos relatórios (nome, logo, contactos, menção legal)",
       "f8": "Alertas de mercado + comparador de cenários + partilha de ligação apenas leitura",
       "f9": "2FA (TOTP) + eliminação de conta RGPD + consentimentos",
-      "f10": "Inspeção TEGOVA no terreno (41 pontos, offline)",
+      "f10": "Lista de verificação da visita ao imóvel",
       "f11": "Início de sessão Google / LinkedIn / Email"
     },
     "pro": {
@@ -3626,7 +3627,7 @@
       "cta": "Aceder gratuitamente",
       "badge": "Oferecido",
       "inherited": "Tudo do tier Conta, mais:",
-      "f1": "Relatório de peritagem em formato EVS 2025: 11 secções + anexos, alinhado com os padrões EVS e a Carta 5.ª ed.",
+      "f1": "Dossiers estruturados: fontes, cálculos, pressupostos e reservas a verificar pelo profissional.",
       "f2": "Síndico completo: copropriedades, chamadas de fundos (Factur-X em lote), AG virtual com procuração, modelos de cartas editáveis (DOCX/PDF/Drive), benchmark",
       "f3": "Grupo hoteleiro: fichas e períodos guardados, relatórios PDF de dados declarados, comparação de períodos e limiares. A monitorização automática de alertas não está confirmada.",
       "f4": "CRM agências B2B: pipeline de mandatos, contactos, tarefas, ficha de imóvel PDF co-marca",
@@ -3647,9 +3648,9 @@
       "q3": "Os meus dados estao seguros?",
       "a3": "Os seus dados estao alojados na Europa em servidores seguros (Supabase). Nao vendemos nem partilhamos as suas informacoes. Sem conta, nada sai do seu navegador.",
       "q4": "Quando estara disponivel o tier Pro?",
-      "a4": "O tier Pro esta em desenvolvimento. Contacte-nos em contact@tevaxia.lu para ser informado no lancamento ou para discutir as suas necessidades especificas.",
-      "q5": "Posso usar o tevaxia para relatorios de avaliacao oficiais?",
-      "a5": "As ferramentas fornecem calculos indicativos. O tier Pro incluira relatorios personalizaveis em conformidade com EVS 2025. Para um relatorio de avaliacao certificado, um avaliador qualificado continua a ser necessario."
+      "a4": "Organize documentos, fontes, cálculos, pressupostos e reservas num dossier de trabalho. O profissional verifica a informação, define as diligências necessárias e assume as suas conclusões. A exportação ou assinatura técnica do ficheiro não certifica a conformidade profissional.",
+      "q5": "O dossier adapta-se aos diferentes tipos de imóveis?",
+      "a5": "O módulo disponibiliza vários tipos de imóveis e métodos. O profissional seleciona os adequados, ajusta os pressupostos e documenta as limitações; selecionar um tipo de imóvel não valida a análise."
     },
     "launchBanner": "Fase de lançamento — o plano Pro é oferecido gratuitamente"
   },
@@ -3712,7 +3713,7 @@
     "intro": "Os presentes Termos e Condicoes de Utilizacao (TCU) regem a utilizacao da plataforma tevaxia.lu e dos seus servicos. Ao aceder ao site ou criar uma conta, o utilizador aceita sem reservas os presentes TCU.",
     "article1": {
       "title": "1. Objeto",
-      "p1": "tevaxia.lu e uma plataforma luxemburguesa que reune: (a) ferramentas gratuitas publicas (calculadoras, simuladores, estimador hedonico, mapa de precos), (b) um modulo de avaliacao imobiliaria profissional estruturado segundo os padroes EVS (TEGOVA), e (c) software profissional para agencias imobiliarias (CRM), administradores de condominios e hoteleiros (PMS).",
+      "p1": "A Tevaxia.lu reúne calculadoras e simuladores imobiliários, um módulo de preparação de dossiers e cenários de valor e software de gestão para agências, administradores de condomínios e hotéis. As ferramentas de análise prestam apoio indicativo e não substituem uma avaliação pericial.",
       "p2": "Os servicos profissionais estao disponiveis por subscricao, apos criacao de conta e organizacao."
     },
     "article2": {
@@ -3977,7 +3978,7 @@
       "faqTitle": "Perguntas frequentes sobre comparação de imóveis",
       "relatedTitle": "Ferramentas complementares",
       "methodeTitle": "O método dos comparáveis no imobiliário luxemburguês",
-      "methodeContent": "<p>O <strong>método dos comparáveis</strong> é a técnica de avaliação mais intuitiva e utilizada nas transações residenciais no Luxemburgo. Baseia-se em <strong>preços de transações recentes</strong> de imóveis semelhantes. A norma EVS recomenda no mínimo 3 comparáveis, idealmente 5-10.</p>",
+      "methodeContent": "Compare vendas documentadas, capitalize rendimentos ou atualize fluxos de caixa. Escolha e fundamente os métodos e parâmetros em função do imóvel e da missão; os resultados são cenários a analisar com um profissional.",
       "criteresTitle": "Critérios de seleção dos comparáveis",
       "criteresContent": "<p>A escolha de comparáveis relevantes baseia-se em:</p><ul><li><strong>Localização</strong>: mesmo município, idealmente mesmo bairro</li><li><strong>Tipo de imóvel</strong>: apartamento vs. moradia, área habitável</li><li><strong>Antiguidade</strong>: mesma faixa etária</li><li><strong>Desempenho energético</strong>: mesma classe CPE ou adjacente</li></ul>",
       "ajustementsTitle": "Ajustamentos e ponderação dos comparáveis",
@@ -3985,7 +3986,7 @@
       "decisionTitle": "Utilizar comparáveis para decisões informadas",
       "decisionContent": "<p>A comparação de imóveis é essencial para fixação de preços, negociações e due diligence. A nossa ferramenta permite comparar até 4 imóveis simultaneamente.</p>",
       "faq1q": "Quantos comparáveis são necessários para uma avaliação fiável?",
-      "faq1a": "A norma EVS recomenda no mínimo 3 comparáveis relevantes, idealmente 5-10.",
+      "faq1a": "Privilegie referências pertinentes, verificáveis e suficientemente comparáveis. O número útil depende do mercado e do imóvel; nenhuma quantidade de referências garante, por si só, a qualidade de uma avaliação.",
       "faq2q": "Qual é a fonte dos dados de transações?",
       "faq2a": "Os dados provêm da AED, agregados pelo Observatório da Habitação. São preços de escrituras reais, não preços anunciados.",
       "faq3q": "Como ajustar para o desempenho energético?",
@@ -4775,7 +4776,7 @@
     },
     "links": {
       "estimation": "Estimativa imobiliária",
-      "valorisation": "Avaliação EVS 2025",
+      "valorisation": "Análise de valor e cenários",
       "carte": "Mapa interativo de preços",
       "frais": "Custos de aquisição",
       "loyer": "Capital & Renda",
@@ -4786,7 +4787,7 @@
       "comparer": "Comparar dois imóveis",
       "vefa": "Calculadora VEFA",
       "wizardParticulier": "Assistente particular",
-      "inspection": "Inspeção (TEGOVA)",
+      "inspection": "Lista de verificação da visita ao imóvel",
       "portfolio": "Portfólio imobiliário",
       "dcfMulti": "DCF multi-inquilinos",
       "bilanPromoteur": "P&L promotor",
@@ -4974,7 +4975,7 @@
     "fullNameHint": "Tal como aparecerá nos relatórios",
     "company": "Empresa / Escritório",
     "qualifications": "Qualificações",
-    "qualificationsHint": "Ex.: REV, TRV, MRICS, Perito TEGOVA",
+    "qualificationsHint": "Indique apenas as suas qualificações profissionais válidas.",
     "contactDetails": "Dados de contacto",
     "email": "Email",
     "phone": "Telefone",
@@ -5147,7 +5148,7 @@
     "storageTitle": "Armazenamento local:",
     "storageNote": "Até 500 cálculos ativos por espaço. As contas ligadas utilizam a cloud e uma cópia local. A reciclagem deste navegador permite recuperar dados durante sete dias.",
     "typeEstimation": "Estimativa",
-    "typeValorisationEVS": "Avaliação EVS",
+    "typeValorisationEVS": "Análise de valor e cenários",
     "typeCapitalisation": "Capitalização",
     "typeDCF": "DCF",
     "typeDCFMulti": "DCF Multi-inquilinos",
@@ -5399,7 +5400,7 @@
       "faq1Q": "Qual é o R² do modelo hedónico para o Luxemburgo?",
       "faq1A": "O R² do nosso modelo é de aproximadamente 0,75, comparável aos resultados do Observatório da Habitação.",
       "faq2Q": "Qual a diferença entre modelo hedónico e perícia imobiliária?",
-      "faq2A": "O modelo hedónico fornece uma estimação estatística sem visita física. A perícia (conforme EVS) inclui inspeção no local, análise jurídica e julgamento profissional.",
+      "faq2A": "A Tevaxia ajuda a preparar dados e a explorar cenários indicativos. O software não substitui a verificação do imóvel, o juízo profissional nem o relatório de um perito. Não certifica a conformidade com as EVS ou a TEGoVA.",
       "faq3Q": "O modelo hedónico aplica-se ao imobiliário comercial?",
       "faq3A": "O nosso modelo está calibrado principalmente para o mercado residencial. Para imobiliário comercial, os métodos baseados no rendimento (capitalização, DCF) são mais apropriados.",
       "faq4Q": "Qual a precisão do modelo por município?",
@@ -6568,14 +6569,14 @@
     },
     "expert-evaluateur": {
       "meta": {
-        "title": "Software de avaliador TEGOVA EVS 2025, Luxemburgo",
-        "description": "Relatório de avaliação conforme EVS 2025 em 20 min: 8 métodos, 9 tipos de ativos, dados pré-preenchidos (98 comunas + 12 séries macro), assinatura SHA-256."
+        "title": "Ferramentas para peritos em avaliação imobiliária — Luxemburgo",
+        "description": "Prepare dossiers de avaliação: fontes, cálculos, pressupostos e reservas. Ferramentas indicativas a verificar pelo profissional."
       },
       "hero": {
-        "badge": "Alinhado com os padrões EVS e a Carta 5.ª ed.",
-        "title": "Relatório em formato EVS 2025 em",
-        "titleAccent": "20 minutos em vez de 4 horas",
-        "subtitle": "Módulo de avaliação com 11 secções + anexos, estruturado segundo os European Valuation Standards (TEGOVA) e a Carta do perito 5.ª edição. 8 métodos, 9 tipos de ativos, dados de 98 comunas luxemburguesas pré-preenchidos. Concebido para peritos REV, TRV e avaliadores independentes.",
+        "badge": "Dossier a verificar pelo profissional",
+        "title": "Prepare o seu dossier",
+        "titleAccent": "com pressupostos documentados",
+        "subtitle": "Organize documentos, fontes, cálculos, pressupostos e reservas num dossier de trabalho. O profissional verifica a informação, define as diligências necessárias e assume as suas conclusões. A exportação ou assinatura técnica do ficheiro não certifica a conformidade profissional.",
         "cta": "Começar gratuitamente",
         "ctaSecondary": "Ver como funciona",
         "kpis": [
@@ -6599,7 +6600,7 @@
         "items": [
           {
             "title": "4 horas por relatório em média",
-            "desc": "Um relatório EVS 2025 completo demora tipicamente entre 3 e 5 horas, entre recolha de dados e formatação final conforme a Carta.",
+            "desc": "A recolha de documentos, a análise e a redação exigem trabalho adaptado a cada missão.",
             "stat": "~4 h por relatório"
           },
           {
@@ -6608,8 +6609,8 @@
             "stat": "~10 fontes por relatório"
           },
           {
-            "title": "Risco de não conformidade com a Carta",
-            "desc": "As 11 secções obrigatórias, os pressupostos especiais EVS 5, a menção de incerteza material: uma omissão e o relatório torna-se contestável.",
+            "title": "Verificações e reservas a documentar",
+            "desc": "Documente o âmbito, os pressupostos especiais, as incertezas e as verificações necessárias. Cabe ao profissional avaliar o seu alcance e impacto na conclusão.",
             "stat": "0 % de margem de erro aceitável"
           }
         ]
@@ -6631,17 +6632,17 @@
           {
             "number": "3",
             "title": "Relatório PDF assinado",
-            "desc": "Geração server-side do relatório com 11 secções, assinatura SHA-256, logótipo e qualificações REV."
+            "desc": "Organize documentos, fontes, cálculos, pressupostos e reservas num dossier de trabalho. O profissional verifica a informação, define as diligências necessárias e assume as suas conclusões. A exportação ou assinatura técnica do ficheiro não certifica a conformidade profissional."
           }
         ]
       },
       "features": {
         "title": "Concebido para avaliadores independentes e gabinetes",
-        "intro": "Cada funcionalidade responde a uma restrição real da atividade de avaliador no Luxemburgo: conformidade TEGOVA, rastreabilidade, dados públicos, assinatura comprovável.",
+        "intro": "Organize documentos, fontes, cálculos, pressupostos e reservas num dossier de trabalho. O profissional verifica a informação, define as diligências necessárias e assume as suas conclusões. A exportação ou assinatura técnica do ficheiro não certifica a conformidade profissional.",
         "items": [
           {
-            "title": "11 secções EVS 2025",
-            "desc": "Mandato, localização, jurídico, urbanismo, descrição, arrendamento, mercado, SWOT, avaliação, conclusões, certificação."
+            "title": "Dossier organizado em 11 secções",
+            "desc": "Missão, descrição do imóvel, documentos, mercado, cálculos, pressupostos, reservas e conclusões do autor."
           },
           {
             "title": "8 métodos de avaliação",
@@ -6664,8 +6665,8 @@
             "desc": "Sugestões por comuna, tipo, área, ano de construção. Ajustamentos explicáveis."
           },
           {
-            "title": "Pressupostos especiais EVS 5",
-            "desc": "Pressupostos vinculativos e incerteza material conforme EVS 5 e Red Book."
+            "title": "Pressupostos especiais",
+            "desc": "Registe os pressupostos e explique o seu impacto nos cenários."
           },
           {
             "title": "PDF assinado server-side",
@@ -6676,8 +6677,8 @@
             "desc": "Pontuação de confiança baseada no número de comparáveis, dispersão, idade dos dados."
           },
           {
-            "title": "Inspeção no terreno TEGOVA",
-            "desc": "Checklist de 41 pontos EVS 2025. Offline no telemóvel, sincronização ao regressar, importação para o relatório."
+            "title": "Lista de verificação da visita ao imóvel",
+            "desc": "Registe observações, pontos a verificar e notas da visita. A lista ajuda a preparar o dossier; não certifica o estado do imóvel nem a conformidade com normas profissionais."
           },
           {
             "title": "Modelo hedónico",
@@ -6696,19 +6697,19 @@
         "customTitle": "Desenvolvimento à medida possível",
         "customDesc": "Adaptações específicas, integrações dedicadas: desenvolvimento em 1 a 3 semanas.",
         "supportTitle": "Suporte em menos de 24 h",
-        "supportDesc": "E-mail para contact@tevaxia.lu. Resposta média em menos de 6 horas nos dias úteis."
+        "supportDesc": "Dúvidas sobre as ferramentas? Contacte contact@tevaxia.lu."
       },
       "pricing": {
         "title": "Incluído na sua subscrição tevaxia",
         "subtitle": "Sem faturação por relatório, sem quota mensal. Todo o módulo de avaliação está incluído na subscrição geral.",
         "features": [
-          "Relatórios EVS 2025 ilimitados",
+          "Dossiers e cenários de valor",
           "8 métodos de avaliação",
           "9 tipos de ativos suportados",
           "Dados macro e comunais pré-preenchidos",
           "Comparáveis automáticos por proximidade",
           "Assinatura SHA-256 + logótipo do perito",
-          "Inspeção TEGOVA 41 pontos (offline)",
+          "Lista de verificação da visita ao imóvel",
           "Modelo hedónico com MAPE/R² público"
         ],
         "ctaPlatform": "Ver planos tevaxia",
@@ -6718,8 +6719,8 @@
         "title": "Perguntas frequentes",
         "items": [
           {
-            "q": "O relatório está conforme à Carta 5.ª ed.?",
-            "a": "Sim, as 11 secções obrigatórias seguem a estrutura TEGOVA/Carta. Pressupostos especiais EVS 5 e incerteza material incluídos."
+            "q": "O software certifica a conformidade do meu relatório?",
+            "a": "Organize documentos, fontes, cálculos, pressupostos e reservas num dossier de trabalho. O profissional verifica a informação, define as diligências necessárias e assume as suas conclusões. A exportação ou assinatura técnica do ficheiro não certifica a conformidade profissional."
           },
           {
             "q": "Posso escolher apenas os métodos relevantes para o meu imóvel?",
@@ -6738,14 +6739,14 @@
             "a": "A assinatura SHA-256 garante a integridade do documento. Não substitui uma assinatura eIDAS juridicamente qualificada, mas fornece prova criptográfica de que o relatório não foi alterado."
           },
           {
-            "q": "Como são tratados os pressupostos especiais EVS 5?",
-            "a": "Secção dedicada: lista os pressupostos vinculativos, a ferramenta apresenta o aviso obrigatório EVS 5 e ajusta o valor com base nos inputs."
+            "q": "Como documentar os pressupostos especiais?",
+            "a": "Documente o âmbito, os pressupostos especiais, as incertezas e as verificações necessárias. Cabe ao profissional avaliar o seu alcance e impacto na conclusão."
           }
         ]
       },
       "finalCta": {
         "title": "Pronto para poupar 3 horas por relatório",
-        "desc": "Criar uma conta, personalizar o perfil, gerar o primeiro relatório EVS 2025 em 20 minutos. Zero compromisso.",
+        "desc": "Crie a sua conta e prepare um dossier a completar e verificar de acordo com a missão.",
         "cta": "Começar gratuitamente",
         "ctaSecondary": "Ver o módulo de avaliação"
       }
@@ -7052,7 +7053,7 @@
             "desc": "Fluxo em 4 passos: avaliação + encargos + apoios + arrendamento legal num só percurso."
           },
           {
-            "title": "Inspeção no terreno TEGOVA",
+            "title": "Lista de verificação da visita ao imóvel",
             "desc": "Checklist de 41 pontos para visita de imóvel."
           }
         ]
@@ -7306,18 +7307,18 @@
     "banque": {
       "meta": {
         "title": "Avaliação imobiliária para bancos Luxemburgo — CRR, LTV, DSCR",
-        "description": "Avaliação EVS 2025 conforme CRR, stress test +2 %, ferramentas LTV/DSCR, AML/KYC, portefólio energético CRREM. Para analistas de crédito e risk managers LU."
+        "description": "A Tevaxia ajuda a preparar dados e a explorar cenários indicativos. O software não substitui a verificação do imóvel, o juízo profissional nem o relatório de um perito. Não certifica a conformidade com as EVS ou a TEGoVA."
       },
       "hero": {
         "badge": "Para bancos e analistas de crédito LU",
         "title": "Análise de crédito imobiliário,",
-        "titleAccent": "CRR + EVS 2025 numa só ferramenta",
-        "subtitle": "Avaliação EVS 2025 com valor de garantia CRR (haircut energético), LTV / DSCR / capacidade de endividamento por perfil CSSF, AML/KYC com verificação de sanções UE, portefólio energético CRREM stranding. Concebido para analistas de crédito, risk managers e compliance officers luxemburgueses.",
+        "titleAccent": "Cenários documentados",
+        "subtitle": "A Tevaxia ajuda a preparar dados e a explorar cenários indicativos. O software não substitui a verificação do imóvel, o juízo profissional nem o relatório de um perito. Não certifica a conformidade com as EVS ou a TEGoVA.",
         "cta": "Começar gratuitamente",
         "ctaSecondary": "Ver como funciona",
         "kpis": [
           {
-            "value": "CRR + EVS 2025",
+            "value": "Cenários documentados",
             "label": "dupla conformidade"
           },
           {
@@ -7363,7 +7364,7 @@
           {
             "number": "2",
             "title": "Avaliação + CRR + LTV/DSCR",
-            "desc": "Valor de mercado EVS 2025 (8 métodos), valor de garantia CRR com haircut CRREM, LTV por perfil CSSF, DSCR alvo 1,25, stress test taxa +2 % e desemprego."
+            "desc": "Compare vendas documentadas, capitalize rendimentos ou atualize fluxos de caixa. Escolha e fundamente os métodos e parâmetros em função do imóvel e da missão; os resultados são cenários a analisar com um profissional."
           },
           {
             "number": "3",
@@ -7377,8 +7378,8 @@
         "intro": "Conforme ao Regulamento UE 575/2013 (CRR), requisitos CSSF, EN 16931, RGPD e diretrizes EBA sobre garantias imobiliárias.",
         "items": [
           {
-            "title": "Avaliação EVS 2025",
-            "desc": "8 métodos TEGOVA, 9 tipos de ativos, dados 98 comunas LU, sensibilidade automática. Conforme Carta 5.ª ed."
+            "title": "Análise de valor e cenários",
+            "desc": "Compare vendas documentadas, capitalize rendimentos ou atualize fluxos de caixa. Escolha e fundamente os métodos e parâmetros em função do imóvel e da missão; os resultados são cenários a analisar com um profissional."
           },
           {
             "title": "Valor de garantia CRR",
@@ -7433,13 +7434,13 @@
         "customTitle": "Desenvolvimento à medida possível",
         "customDesc": "Adaptações específicas, integrações dedicadas: desenvolvimento em 1 a 3 semanas.",
         "supportTitle": "Suporte em menos de 24 h",
-        "supportDesc": "E-mail para contact@tevaxia.lu. Resposta média em menos de 6 horas nos dias úteis."
+        "supportDesc": "Dúvidas sobre as ferramentas? Contacte contact@tevaxia.lu."
       },
       "pricing": {
         "title": "Incluído na sua subscrição tevaxia",
         "subtitle": "Sem faturação por processo. Todas as ferramentas bancárias estão incluídas na subscrição geral.",
         "features": [
-          "Avaliações EVS 2025 ilimitadas",
+          "Dossiers e cenários de valor",
           "Valor de garantia CRR com haircut CRREM",
           "LTV / DSCR / capacidade de endividamento",
           "Stress test +2 % e desemprego",
@@ -7457,7 +7458,7 @@
         "items": [
           {
             "q": "Como é calculado o valor de garantia CRR?",
-            "a": "Valor de mercado EVS 2025 menos haircut energético baseado na classe energética do imóvel e na trajetória CRREM. Um ativo stranded antes de 2030 recebe um haircut de 20-30 %."
+            "a": "A Tevaxia ajuda a preparar dados e a explorar cenários indicativos. O software não substitui a verificação do imóvel, o juízo profissional nem o relatório de um perito. Não certifica a conformidade com as EVS ou a TEGoVA."
           },
           {
             "q": "O AML/KYC cobre os requisitos CSSF?",
@@ -7724,8 +7725,8 @@
       "faq4a": "GOP = resultado departamental − despesas gerais. EBITDA = GOP − honorários de gestão + rendimentos não operacionais − gastos não operacionais. A reserva é deduzida depois. Esta conta simplificada não é certificação USALI, benchmark ou lucro líquido após financiamento e impostos.",
       "faq5q": "As ferramentas funcionam para um hotel em França, Bélgica ou Alemanha?",
       "faq5a": "Os resultados dependem dos dados e do âmbito de cada ferramenta. Relatórios e dossiers não certificam conformidade USALI, fiscal, bancária nem elegibilidade administrativa. Introduza quartos e parâmetros. Verifique tarifas, tratamento fiscal e eventuais taxas locais antes de utilizar; não se garante um prazo de configuração.",
-      "faq6q": "É preciso um perito TEGOVA para um banco?",
-      "faq6a": "Confirme com o banco o âmbito, a data de avaliação, os métodos e as qualificações exigidos para o seu processo. Não se garante aqui um limiar universal de crédito nem a aceitação bancária. Uma impressão SHA-256 verifica a integridade do ficheiro; por si só não constitui uma assinatura eletrónica nem uma avaliação profissional.",
+      "faq6q": "Como preparar uma avaliação para financiamento?",
+      "faq6a": "As qualificações REV e REV-Resi dizem respeito aos profissionais, não ao software. A escolha do perito e os requisitos do relatório dependem da missão e do destinatário. O LPVI apresenta os percursos e as condições de acesso às licenças no seu site.",
       "faqTitle": "Perguntas frequentes",
       "relatedTitle": "Saber mais"
     },
@@ -8186,7 +8187,7 @@
   "apiBanques": {
     "badge": "API em pré-lançamento",
     "title": "API de avaliação LU para bancos",
-    "description": "Integre a avaliação imobiliária luxemburguesa no seu CRM de crédito, fluxo MLV/CRR ou app móvel. 100 municípios, método TEGOVA EVS 2025, resposta abaixo dos 200 ms.",
+    "description": "Integre estimativas indicativas nas suas ferramentas. Analise os dados, pressupostos e limitações antes de qualquer utilização profissional.",
     "ctaAccess": "Pedir acesso",
     "useCasesTitle": "Casos de uso",
     "uc1Title": "Concessão de crédito hipotecário",
@@ -8199,7 +8200,7 @@
     "endpointSubtitle": "Arquitetura REST + JSON, autenticação por chave API (header), CORS configurável.",
     "complianceTitle": "Conformidade & governança",
     "methodTitle": "Metodologia",
-    "method1": "TEGOVA European Valuation Standards 2025",
+    "method1": "Referências e parâmetros explícitos",
     "method2": "Carta de avaliação imobiliária (5.ª ed.)",
     "method3": "CRR art. 208 (MLV) e EBA/GL/2020/06",
     "method4": "Método hedónico + comparáveis + capitalização",
@@ -8215,12 +8216,12 @@
     "seo": {
       "usageTitle": "Utilizações típicas por bancos luxemburgueses",
       "usageContent": "Três casos principais: (1) pré-qualificação de crédito — integrar estimativa instantânea no pedido online, (2) avaliação automática de carteiras hipotecárias para LTV prudencial CRR, (3) avaliação automática de garantia para empréstimo não hipotecário.",
-      "tegovaTitle": "Conformidade TEGOVA EVS 2025",
-      "tegovaContent": "A API devolve uma estimativa de Valor de Mercado no sentido da EVS 1 (European Valuation Standards 2025). Métodos combinados — comparação, capitalização, hedónico — reconhecidos pelo referencial TEGOVA.",
+      "tegovaTitle": "Compreender o enquadramento profissional da avaliação",
+      "tegovaContent": "A Tevaxia ajuda a preparar dados e a explorar cenários indicativos. O software não substitui a verificação do imóvel, o juízo profissional nem o relatório de um perito. Não certifica a conformidade com as EVS ou a TEGoVA.",
       "mlvTitle": "MLV e rácio prudencial CRR",
       "mlvContent": "Para carteiras hipotecárias sujeitas ao CRR, a API fornece também um Mortgage Lending Value calculado segundo as orientações EBA. Desconto prudencial ao Valor de Mercado sobre a duração do empréstimo.",
-      "faq1q": "A API é coerente com uma avaliação TEGOVA de perito?",
-      "faq1a": "A API fornece uma estimativa indicativa TEGOVA-conforme. Para um relatório vinculativo, um relatório assinado por avaliador qualificado continua necessário. O desvio é tipicamente inferior a 8 %.",
+      "faq1q": "A API substitui uma avaliação pericial imobiliária?",
+      "faq1a": "A Tevaxia ajuda a preparar dados e a explorar cenários indicativos. O software não substitui a verificação do imóvel, o juízo profissional nem o relatório de um perito. Não certifica a conformidade com as EVS ou a TEGoVA.",
       "faq2q": "Os dados são armazenados?",
       "faq2a": "Nenhum dado de cliente é armazenado no lado tevaxia, salvo pedido explícito no contrato. Apenas logs técnicos são mantidos 90 dias.",
       "faq3q": "Qual a frequência de atualização dos dados de mercado?",
@@ -8240,7 +8241,7 @@
       "avantagesTitle": "Porquê um percurso em vez de quatro ferramentas separadas",
       "avantagesContent": "O preço negociado é propagado automaticamente para os encargos e apoios. Selecionar residência principal ou construção nova na etapa 2 altera os plafonds de apoios na etapa 3. O resumo final calcula o custo líquido estimado (preço + encargos − apoios em dinheiro).",
       "limitesTitle": "O que o percurso não substitui",
-      "limitesContent": "Este percurso fornece uma estimativa indicativa baseada em dados públicos do Observatoire de l'Habitat, do STATEC e nas tabelas fiscais luxemburguesas. Não substitui uma simulação de crédito personalizada junto de um banco, nem um relatório de avaliação formal TEGOVA EVS 2025.",
+      "limitesContent": "A Tevaxia ajuda a preparar dados e a explorar cenários indicativos. O software não substitui a verificação do imóvel, o juízo profissional nem o relatório de um perito. Não certifica a conformidade com as EVS ou a TEGoVA.",
       "faq1q": "Preciso de uma conta para usar o percurso?",
       "faq1a": "Não. O percurso corre totalmente no seu navegador. Nenhuns dados são enviados para os nossos servidores sem gravação explícita numa conta ligada.",
       "faq2q": "A avaliação tem em conta a classe energética?",
@@ -9040,17 +9041,17 @@
       "gestion-locative": "Gestão locativa — lotes, contratos, pagamentos",
       "pms": "PMS hotel — propriedades, reservas, guests, folios",
       "crm-agences": "CRM agências — mandatos, contactos, tarefas",
-      "evaluations": "As minhas avaliações EVS 2025",
+      "evaluations": "Dossiers, cenários e histórico de análises",
       "facturation": "Histórico Factur-X 12 meses",
-      "inspection": "Inspeções TEGOVA no terreno",
+      "inspection": "Lista de verificação da visita ao imóvel",
       "profil": "Perfil & organização"
     },
     "rgpdNote": "Os seus exports contêm dados pessoais (coproprietários, inquilinos, contactos). Guarde-os em local seguro. O ZIP é encriptado pelo seu sistema de ficheiros / pelo Drive. A Tevaxia não armazena nem transmite qualquer cópia."
   },
   "inspectionTegova": {
     "backLink": "← tevaxia.lu",
-    "pageTitle": "Inspeção de campo TEGOVA",
-    "pageDescription": "Checklist em formato EVS 2025. Gravação local automática, funciona offline.",
+    "pageTitle": "Lista de verificação da visita ao imóvel",
+    "pageDescription": "Registe observações, pontos a verificar e notas da visita. A lista ajuda a preparar o dossier; não certifica o estado do imóvel nem a conformidade com normas profissionais.",
     "labelAdresse": "Morada do imóvel",
     "labelInspecteur": "Inspetor",
     "labelDate": "Data",
@@ -9065,7 +9066,7 @@
     "ncLabel": "Não conforme",
     "enAttente": "pendente",
     "confirmReset": "Apagar a inspeção em curso e recomeçar?",
-    "exportHeader": "RELATÓRIO DE INSPEÇÃO DE CAMPO — TEGOVA EVS 2025",
+    "exportHeader": "Lista de verificação da visita ao imóvel",
     "exportReference": "Referência",
     "exportAdresse": "Morada",
     "exportInspecteur": "Inspetor",
@@ -9082,11 +9083,11 @@
     "btnExportTxt": "Exportar (TXT)",
     "btnExportPdf": "Exportar (PDF)",
     "btnExportDocx": "Exportar (DOCX)",
-    "exportSubtitle": "Relatório de inspeção conforme normas TEGOVA EVS 2025",
+    "exportSubtitle": "Observações registadas — documento de trabalho a verificar, sem certificação profissional.",
     "exportTimeRange": "Horários",
     "exportSignatureInspector": "Assinatura inspetor",
     "exportSignatureClient": "Assinatura cliente",
-    "exportFooter": "Documento indicativo, não assinado. Para valor oficial, assinatura qualificada necessária.",
+    "exportFooter": "Documento de trabalho sem certificação profissional. Para orientação na procura de um perito: https://www.lpvi.lu/",
     "btnExportJson": "Exportar dados (JSON)",
     "btnNouvelle": "Nova inspeção",
     "legalTitle": "Uso offline:",
@@ -9208,7 +9209,7 @@
     "limite2": "Os imóveis atípicos (castelos, prédios de rendimento, casas de arquiteto) não são abrangidos por este modelo.",
     "limite3": "O efeito de micromercado (vista, perturbações, orientação) não é modelado por falta de dados estruturados.",
     "limite4": "Os preços de referência refletem os atos T-4; num mercado muito dinâmico, pode existir um desfasamento de 3-6 meses.",
-    "limite5": "Este modelo não substitui uma peritagem TEGOVA/RICS com visita física — fornece uma ordem de grandeza rápida.",
+    "limite5": "A Tevaxia ajuda a preparar dados e a explorar cenários indicativos. O software não substitui a verificação do imóvel, o juízo profissional nem o relatório de um perito. Não certifica a conformidade com as EVS ou a TEGoVA.",
     "engagementTitle": "Compromisso de transparência:",
     "engagementText": "esta página será atualizada a cada recalibração (trimestral, alinhada com as publicações do Observatório). Os utilizadores profissionais (bancos, agências) podem verificar a fiabilidade do modelo antes de o integrar no seu workflow."
   },
@@ -9246,7 +9247,7 @@
     "aboutP1": "Este guia foi escrito por Erwan Bargain, avaliador imobiliário certificado TEGOVA (REV), e é atualizado com dados do Observatoire de l'Habitat, STATEC e legislação luxemburguesa em vigor.",
     "aboutP2": "Última atualização: abril 2026. Fontes: lei de 21.09.2006 (arrendamento), lei de 16.05.1975 (condomínio), lei de 03.02.2018 (arrendamento comercial), LIR, STATEC.",
     "iaTevaxiaTitle": "IA no tevaxia",
-    "iaTevaxiaDesc": "Análise IA dos cálculos, redação de relatórios EVS, extração de PDF e assistente conversacional especializado em imobiliário LU."
+    "iaTevaxiaDesc": "Assistente de IA: análise indicativa, rascunhos a rever e apoio à preparação de dossiers imobiliários."
   },
   "guide": {
     "fraisNotaire": {
@@ -10177,22 +10178,22 @@
       ]
     },
     "estimation": {
-      "title": "Avaliação imobiliária Luxemburgo: métodos TEGOVA EVS 2025",
-      "metaDescription": "Avaliação imobiliária LU: 3 abordagens TEGOVA (comparação, capitalização, DCF), fontes Observatório/STATEC/AED, modelo hedónico LISER, impacto CPE 3 a 8%/classe, REV/TRV.",
+      "title": "Estimativa imobiliária no Luxemburgo: métodos e papel do perito",
+      "metaDescription": "Compreenda os métodos de avaliação, a utilidade das normas TEGoVA e os limites dos cálculos online. Contacte o LPVI para orientação na procura de um perito.",
       "subtitle": "Como avaliar corretamente um imóvel no Luxemburgo: métodos profissionais, dados disponíveis e fatores de valorização 2026.",
-      "category": "Avaliação & TEGOVA",
+      "category": "Avaliação imobiliária",
       "essentiel": [
-        "3 abordagens TEGOVA EVS 2025: comparação direta (residencial), capitalização de rendimentos (arrendamento), DCF (comercial / hoteleiro).",
+        "Compare vendas documentadas, capitalize rendimentos ou atualize fluxos de caixa. Escolha e fundamente os métodos e parâmetros em função do imóvel e da missão; os resultados são cenários a analisar com um profissional.",
         "Dados LU: Observatório da Habitação LISER, STATEC IPIR, registo predial AED (preços reais), portais imobiliários, relatórios de consultoras (JLL, CBRE, C&W).",
         "Fatores-chave: localização (spread x2-x4 LU-Cidade vs rural), área, estado, CPE (3-8% valor/classe), espaços exteriores e estacionamento.",
-        "Bases de valor reconhecidas: Market Value, Investment Value, Fair Value (IFRS 13). O relatório TEGOVA expõe pressupostos e condições.",
-        "Perícia profissional: REV (Recognised European Valuer) ou TRV (TEGOVA Residential Valuer), garantia de independência e método."
+        "Especifique a base de valor, a data, o objetivo da missão e os pressupostos.",
+        "As qualificações REV e REV-Resi dizem respeito aos profissionais, não ao software. A escolha do perito e os requisitos do relatório dependem da missão e do destinatário. O LPVI apresenta os percursos e as condições de acesso às licenças no seu site."
       ],
-      "section1Title": "As 3 abordagens TEGOVA",
+      "section1Title": "Comparação, capitalização e DCF",
       "section1P1": "A comparação direta (Sales Comparison) é a mais utilizada para o residencial: análise de transações recentes em imóveis semelhantes na mesma zona, ajustada para diferenças (área, andar, estado, orientação, estacionamento, CPE). Método fiável quando o mercado oferece referências comparáveis. No Luxemburgo, o LISER alimenta esta abordagem via modelos hedónicos que isolam o contributo de cada característica para o preço.",
-      "section1P2": "A capitalização (Income Capitalisation) divide o rendimento locativo líquido anual estabilizado por uma taxa de capitalização que reflete risco e rendimento de mercado. Taxas de capitalização residenciais LU: 3 a 5% consoante a localização e a classe de ativo. A abordagem DCF (Discounted Cash Flow) projeta os cash-flows num horizonte de 10-15 anos e atualiza-os a uma taxa WACC adaptada (típica 5-9%), com valor terminal; obrigatória para ativos comerciais e hoteleiros conforme EVS 2025.",
+      "section1P2": "Compare vendas documentadas, capitalize rendimentos ou atualize fluxos de caixa. Escolha e fundamente os métodos e parâmetros em função do imóvel e da missão; os resultados são cenários a analisar com um profissional.",
       "callout1Title": "Cruzar pelo menos dois métodos",
-      "callout1Body": "As normas TEGOVA EVS 2025 impõem ao avaliador justificar o método e, sempre que possível, cruzar com uma abordagem secundária. Na prática, num imóvel residencial de arrendamento, combinam-se comparação direta (referência de preço) e capitalização (coerência de rentabilidade). Se ambos convergirem em ±5%, o valor é robusto.",
+      "callout1Body": "A escolha dos métodos depende do imóvel, da missão e dos dados disponíveis. Confrontar os resultados ajuda a analisar os pressupostos; a convergência, por si só, não comprova a fiabilidade de um valor.",
       "section2Title": "Fontes de dados disponíveis",
       "section2P1": "O mercado LU dispõe de fontes públicas de qualidade: Observatório da Habitação (observatoire.liser.lu) — preços de transação por município e tipo, índice de rendas, monitorização mensal; STATEC — IPIR (Índice de Preços do Imobiliário Residencial), índice de preços de construção, demografia; data.public.lu — dados geoportal, cadastro, planos PAG/PAP; registo predial AED — escrituras de venda notariais (preços reais publicados trimestralmente).",
       "section2P2": "Para o terciário (escritórios, comércio, hotéis): relatórios trimestrais das firmas internacionais JLL, CBRE, Cushman & Wakefield, Inowai (rendas prime, taxas de vacância, rentabilidades observadas). Para a avaliação locativa regulada: a calculadora de renda legal tevaxia automatiza a regra dos 5% com coeficientes STATEC. Para hotéis: observatório STATEC de dormidas, RevPAR por categoria.",
@@ -10201,11 +10202,11 @@
       "section3P2": "Estado geral e qualidade dos acabamentos: um imóvel renovado valoriza-se 10-20% acima de um equivalente a renovar. O desempenho energético tem impacto crescente: estudos do LISER cifram em 3-8% por classe CPE o spread de valor (um salto F→C pode valorizar 10 a 25%). Espaços exteriores (jardim, terraço, varanda) e estacionamento acrescentam tipicamente 10-15% de valor. A orientação, o sossego e o andar (com elevador) também contam.",
       "callout2Title": "O impacto CPE vai acentuar-se",
       "callout2Body": "Com a diretiva europeia EPBD revista e as obrigações de renovação a chegar (classes G/F proibidas para arrendamento a partir de 2030 em alguns países), o impacto do CPE no valor vai amplificar-se. Antecipe integrando a renovação energética no plano de negócios de investimento, sobretudo para imóveis de classes E-G.",
-      "section4Title": "Quadro normativo TEGOVA EVS 2025",
-      "section4P1": "As European Valuation Standards 2025 (TEGOVA) definem as bases de valor internacionalmente reconhecidas: Market Value (transação hipotética em dinheiro à data da avaliação), Investment Value (valor para um investidor específico segundo os seus critérios), Fair Value (justo valor IFRS 13 para contas auditadas), Mortgage Lending Value (valor hipotecário prudente para bancos).",
-      "section4P2": "Todo o relatório profissional TEGOVA precisa: a base de valor adotada, o(s) método(s) aplicado(s), as fontes de dados, os pressupostos-chave e as condições particulares (sob condição resolutória, renovação a concluir, etc.). No Luxemburgo, os peritos REV ou TRV certificados pelo INREV garantem o respeito destas normas e empenham a sua responsabilidade profissional.",
+      "section4Title": "A utilidade das normas TEGoVA e o papel do LPVI",
+      "section4P1": "As European Valuation Standards (EVS), publicadas pela TEGoVA, oferecem um quadro para a avaliação profissional: missão definida, fontes analisadas, métodos fundamentados e pressupostos e limitações explícitos. Esta abordagem torna a análise mais transparente e documentada; uma fórmula, por si só, não constitui uma avaliação pericial.",
+      "section4P2": "No Luxemburgo, o Luxembourg Property Valuation Institute (LPVI) é a associação profissional membro da TEGoVA e o ponto de contacto nacional para as licenças TEGoVA. Contacte a associação para conhecer o processo ou pedir orientação para encontrar um perito.",
       "callout3Title": "Quando solicitar uma perícia REV?",
-      "callout3Body": "Uma perícia REV/TRV é necessária para: um dossier bancário de financiamento complexo, uma sucessão ou doação com partilha, uma expropriação, um divórcio com partilha de património, um litígio judicial. Para uma simples venda entre particulares, a estimativa por 2-3 mediadores ou uma ferramenta hedónica (como tevaxia) costuma ser suficiente.",
+      "callout3Body": "As qualificações REV e REV-Resi dizem respeito aos profissionais, não ao software. A escolha do perito e os requisitos do relatório dependem da missão e do destinatário. O LPVI apresenta os percursos e as condições de acesso às licenças no seu site.",
       "inlineCalc": {
         "title": "Estime o seu imóvel instantaneamente",
         "description": "O nosso estimador tevaxia aplica um modelo hedónico calibrado nos dados do Observatório da Habitação e do STATEC. Indique município, área, estado, CPE e características para obter uma faixa de preço com nível de confiança.",
@@ -10236,7 +10237,7 @@
       "faq": [
         {
           "q": "Qual é o método mais fiável para avaliar um imóvel no Luxemburgo?",
-          "a": "Para o residencial, a comparação direta combinada com um modelo hedónico é o mais fiável. Para o arrendamento, a capitalização de rendimentos é privilegiada. Para comercial/hoteleiro, o DCF é padrão. As normas TEGOVA EVS 2025 recomendam cruzar pelo menos dois métodos para reforçar a fiabilidade."
+          "a": "Compare vendas documentadas, capitalize rendimentos ou atualize fluxos de caixa. Escolha e fundamente os métodos e parâmetros em função do imóvel e da missão; os resultados são cenários a analisar com um profissional."
         },
         {
           "q": "O CPE influencia o preço de um imóvel no Luxemburgo?",
@@ -10244,7 +10245,7 @@
         },
         {
           "q": "Quanto custa uma perícia REV/TRV no Luxemburgo?",
-          "a": "Para um imóvel residencial, conte com 800 a 2 500 € consoante a complexidade. Para um ativo comercial ou hoteleiro, 3 000 a 15 000 € conforme valor e complexidade. Honorários livres, baseados em tempo gasto e responsabilidade assumida. O relatório TEGOVA tem força perante bancos e tribunais."
+          "a": "Peça um orçamento adequado ao imóvel, às verificações necessárias e à finalidade do relatório. Contacte o LPVI para orientação na procura de um perito. Os cálculos da Tevaxia ajudam a preparar essa conversa e não constituem um orçamento de avaliação."
         },
         {
           "q": "Onde encontrar preços reais de venda no Luxemburgo?",
@@ -10256,7 +10257,7 @@
         },
         {
           "q": "É preciso ter em conta o IVA na avaliação?",
-          "a": "Para o novo em VEFA, o valor é geralmente apresentado sem IVA e depois convertido para TTC à taxa aplicável (IVA habitação 3% com teto de 50 000 €). Para o usado (entre particulares), não há IVA mas direitos de registo a pagar pelo comprador. Os relatórios TEGOVA distinguem sempre valor sem/com IVA."
+          "a": "Especifique se os montantes incluem IVA e custos de transação, de acordo com o imóvel e o objetivo da análise. O profissional deve explicitar estas convenções no relatório."
         }
       ],
       "sources": [
@@ -10816,14 +10817,14 @@
     },
     "iaTevaxia": {
       "title": "Como usar a IA em tevaxia.lu: guia completo 2026",
-      "metaDescription": "Assistente IA tevaxia.lu: análise de resultados, redação EVS 2025, extração de PDF, chat imobiliário luxemburguês. 5 análises gratuitas/dia via Google Gemini, ilimitado com chave BYOK (Anthropic, OpenAI, Groq).",
+      "metaDescription": "Assistente de IA: análise indicativa, rascunhos a rever e apoio à preparação de dossiers imobiliários.",
       "subtitle": "Todas as funcionalidades de IA da tevaxia.lu e como tirar partido delas para ganhar tempo no imobiliário luxemburguês.",
       "category": "Produto & IA",
       "essentiel": [
         "5 análises gratuitas por dia por conta autenticada, via Google Gemini (3.6 Flash), sem cartão de crédito.",
         "Modo BYOK (Bring Your Own Key): adicione a sua chave Anthropic, OpenAI, Groq ou Google Gemini em /profil para uso ilimitado.",
-        "4 casos de uso-chave: análise inline de resultados, redação de relatório EVS 2025, extração de PDF (visão), chat imobiliário LU multi-turno.",
-        "Competências especializadas LU: LIR, TEGOVA EVS 2025, VEFA, copropriedade, USALI hotelaria, AML/KYC, Bëllegen Akt, regra dos 5%.",
+        "Análise de resultados, apoio à redação, extração de documentos e diálogo com o assistente.",
+        "O assistente Tevaxia ajuda a compreender as ferramentas imobiliárias e a preparar informação. As respostas devem ser verificadas e não constituem uma avaliação pericial.",
         "API pública B2B: 3 endpoints (analyze / chat / extract) acessíveis com chave tevaxia, documentação em /api-docs."
       ],
       "section1Title": "Análise automática dos resultados",
@@ -10831,9 +10832,9 @@
       "section1P2": "Verifique dados, unidades, datas das referências e limites do cálculo antes de usar comentários IA num dossier. O comentário não substitui documentos nem revisão profissional.",
       "callout1Title": "Modelo predefinido: Google Gemini 3.6 Flash",
       "callout1Body": "O tier gratuito usa Google Gemini 3.6 Flash (rápido, gratuito, alojado fora da UE). Atenção: no tier gratuito da API Gemini, a Google pode usar os prompts e as respostas para melhorar os seus produtos — reserve-o para análises não sensíveis. Para análises confidenciais (AML/KYC, dados nominativos), use a sua própria chave Anthropic ou OpenAI com contrato empresarial e opção no-training, ou uma chave Gemini paga, excluída do treino.",
-      "section2Title": "Redação do relatório EVS 2025",
-      "section2P1": "O modo Relatório EVS da página /valorisation integra 8 botões 'Redigir com a IA' colocados junto aos campos narrativos (localização, envolvente, acessibilidade, justificação dos métodos, regime fiscal, impacto ESG, reservas, incerteza). Cada botão gera um parágrafo formal injetado diretamente no campo, conforme às normas TEGOVA e à Carta 5.ª edição, com referências legais (art. 102bis LIR, IVS 103, pathway CRREM).",
-      "section2P2": "O modo Challenger EVS, no separador Reconciliação, atua como auditor crítico: assinala os dados em falta, as incoerências, os rácios anormais e os riscos de não conformidade antes da assinatura, com os prefixos [BLOQUEANTE], [GRAVE] ou [MENOR]. O relatório gerado permanece sob responsabilidade do perito TEGOVA REV/TRV que o relê, corrige e assina.",
+      "section2Title": "Apoio à redação do dossier",
+      "section2P1": "A IA propõe rascunhos e ajuda a identificar informação em falta. Verifique cada facto, fonte e cálculo antes de os utilizar. Não é um avaliador qualificado nem pode atestar a conformidade de uma avaliação; as verificações e conclusões cabem ao profissional.",
+      "section2P2": "A IA propõe rascunhos e ajuda a identificar informação em falta. Verifique cada facto, fonte e cálculo antes de os utilizar. Não é um avaliador qualificado nem pode atestar a conformidade de uma avaliação; as verificações e conclusões cabem ao profissional.",
       "section3Title": "Extração a partir de PDF (BYOK obrigatório)",
       "section3P1": "Para pré-preencher um formulário a partir de um documento existente (balanço previsional de promotor, escritura notarial de mais-valia, certificado CPE), um botão 'Pré-preencher a partir de PDF' lança uma extração por visão através da sua chave BYOK: Anthropic (para PDF nativos) ou OpenAI (para imagens digitalizadas). O modelo devolve um JSON estruturado que alimenta diretamente os campos do formulário.",
       "section3P2": "Esta funcionalidade exige uma chave API BYOK Gemini, OpenAI ou Anthropic: os modelos Groq e Cerebras não tratam visão. Gemini e Anthropic aceitam PDF nativamente; OpenAI exige uma imagem (JPG/PNG). Limite de 8 MB por ficheiro. Disponível atualmente em /plus-values; os outros esquemas (CPE, arrendamentos comerciais) são suportados pela API B2B mediante pedido. Páginas tevaxia que tratem de PDF podem ser estendidas mediante pedido.",
@@ -10843,7 +10844,7 @@
       "section4P1": "Um widget de chat flutuante no canto inferior direito abre uma conversa livre com o assistente imobiliário luxemburguês. Pode colocar-lhe questões transversais que não cabem numa ferramenta específica: 'que IVA aplicar à renovação de um imóvel misto?', 'que maioria para votar a reparação do telhado em copropriedade?', 'como se calcula o Bëllegen Akt para um casal não residente?'. O assistente mantém o contexto ao longo de várias interações.",
       "section4P2": "Para integradores B2B, três endpoints estão acessíveis com chave API tevaxia (cabeçalho X-API-Key) no tier rate-limit padrão: `/api/v1/ai/analyze` (análise inline), `/api/v1/ai/chat` (multi-turno), `/api/v1/ai/extract` (extração de PDF). Documentação completa, exemplos cURL e SDK JS/Python em /api-docs. Para volumes elevados ou SLA específico, contacte-nos para um tier empresarial.",
       "callout3Title": "Limites e boas práticas",
-      "callout3Body": "A IA acelera a redação e a análise, mas não substitui um perito certificado. Para um relatório EVS destinado a um banco ou tribunal, o perito TEGOVA REV/TRV mantém-se responsável pelo valor retido e deve relê-lo, corrigi-lo e assiná-lo. Para dados AML/KYC sensíveis, prefira uma chave BYOK com opção no-training. Nunca envie documentos de identificação ou IBAN em entrada livre.",
+      "callout3Body": "A IA propõe rascunhos e ajuda a identificar informação em falta. Verifique cada facto, fonte e cálculo antes de os utilizar. Não é um avaliador qualificado nem pode atestar a conformidade de uma avaliação; as verificações e conclusões cabem ao profissional.",
       "inlineCalc": {
         "title": "Ative a sua chave de IA (BYOK) em 2 minutos",
         "description": "Configure o seu fornecedor de IA (Google Gemini gratuito, Anthropic, OpenAI, Groq) no seu perfil tevaxia para desbloquear o uso ilimitado, a extração de PDF e a API.",
@@ -10862,8 +10863,8 @@
         },
         {
           "href": "/valorisation",
-          "title": "Relatório EVS 2025",
-          "description": "Modo IA Redator + Challenger para os seus relatórios TEGOVA."
+          "title": "Rascunho do dossier",
+          "description": "A IA propõe rascunhos e ajuda a identificar informação em falta. Verifique cada facto, fonte e cálculo antes de os utilizar. Não é um avaliador qualificado nem pode atestar a conformidade de uma avaliação; as verificações e conclusões cabem ao profissional."
         },
         {
           "href": "/bilan-promoteur",
@@ -10881,12 +10882,12 @@
           "a": "Sim, os pedidos passam pelo fornecedor de IA configurado (Google Gemini por omissão, ou a sua chave BYOK). Os contextos enviados contêm apenas as entradas e resultados do cálculo em curso, nunca dados pessoais fora desse âmbito. Importante: no tier gratuito da API Gemini, a Google pode usar os prompts e as respostas para melhorar os seus produtos; não o use para dados confidenciais. Para confidencialidade forte, prefira Anthropic ou OpenAI com contrato empresarial no-training, ou uma chave Gemini paga (excluída do treino)."
         },
         {
-          "q": "A IA pode substituir um perito certificado TEGOVA?",
-          "a": "Não. A IA fornece apoio à redação e à análise, não um parecer pericial vinculativo. Para um relatório EVS destinado a banco ou tribunal, o perito TEGOVA REV/TRV mantém-se responsável pelo valor retido e deve reler, corrigir e assinar. A IA acelera a produção, mas não substitui nem a perícia humana nem a visita ao imóvel."
+          "q": "A IA pode substituir um perito em avaliação?",
+          "a": "A IA propõe rascunhos e ajuda a identificar informação em falta. Verifique cada facto, fonte e cálculo antes de os utilizar. Não é um avaliador qualificado nem pode atestar a conformidade de uma avaliação; as verificações e conclusões cabem ao profissional."
         },
         {
           "q": "Que modelos são suportados em BYOK?",
-          "a": "Anthropic (Claude 4.x — recomendado para visão PDF e redação EVS), OpenAI (GPT-4o, GPT-4 Turbo — bom em visão), Groq (Llama 3.x rápido), Google Gemini (3.6 Flash — gratuito, predefinido). Configuração em 2 cliques em /profil. Custos unitários exibidos em tempo real."
+          "a": "Os fornecedores disponíveis são apresentados no seu perfil. Verifique os modelos, as condições de tratamento de dados e os custos junto do fornecedor escolhido."
         },
         {
           "q": "Como aceder à API pública tevaxia?",
@@ -10988,7 +10989,7 @@
     "filteredOn": "Filtrado em {count} perfil(s)",
     "emptyState": "Nenhum espaço corresponde aos perfis selecionados. Ajuste a sua seleção acima.",
     "evaluationsTitle": "As minhas avaliações",
-    "evaluationsDesc": "Histórico, relatórios PDF e acompanhamento TEGOVA EVS 2025",
+    "evaluationsDesc": "Dossiers, cenários e histórico de análises",
     "portfolioTitle": "O meu portefólio",
     "portfolioDesc": "Acompanhamento de valor, rendimento e performance global",
     "esgTitle": "Energia & ESG",
@@ -11018,7 +11019,7 @@
     },
     "expert": {
       "label": "Perito / Avaliador",
-      "description": "Avaliador certificado TEGOVA, notário, fiscalista"
+      "description": "Avaliador imobiliário, notário, consultor fiscal"
     },
     "syndic": {
       "label": "Administrador",
@@ -11136,7 +11137,7 @@
     }
   },
   "aiChat": {
-    "welcome": "Olá! Sou o assistente tevaxia, especializado em imobiliário luxemburguês (fiscalidade, EVS/TEGOVA, VEFA, condomínio, hotelaria, KYC). Coloque a sua questão.",
+    "welcome": "O assistente Tevaxia ajuda a compreender as ferramentas imobiliárias e a preparar informação. As respostas devem ser verificadas e não constituem uma avaliação pericial.",
     "openLabel": "Abrir o assistente IA",
     "closeLabel": "Fechar",
     "sendLabel": "Enviar",
@@ -11415,8 +11416,8 @@
         "desc": "Gradiente 0-15k €/m² por comuna, alternar rendimento."
       },
       "valorisation": {
-        "title": "Avaliação EVS 2025",
-        "desc": "Relatório TEGOVA assinável SHA-256, DCF + comparáveis, MLV."
+        "title": "Análise de valor e cenários",
+        "desc": "Organize documentos, fontes, cálculos, pressupostos e reservas num dossier de trabalho. O profissional verifica a informação, define as diligências necessárias e assume as suas conclusões. A exportação ou assinatura técnica do ficheiro não certifica a conformidade profissional."
       },
       "hedonique": {
         "title": "Modelo hedónico",
@@ -11590,7 +11591,7 @@
       "parcoursTitle": "Percurso típico",
       "parcoursIntro": "Três etapas antes de assinar.",
       "parcoursStep1Title": "Estimar o imóvel",
-      "parcoursStep1Desc": "Introduza morada, área e classe energética em /estimation. Valor indicativo em 30 s.",
+      "parcoursStep1Desc": "Introduza as características do imóvel para obter um primeiro cenário indicativo. Prepare os documentos e peça a um profissional que analise as particularidades do imóvel.",
       "parcoursStep2Title": "Calcular custo total",
       "parcoursStep2Desc": "/frais-acquisition dá notário + registo + Bëllegen Akt + IVA. Combine com /simulateur-aides.",
       "parcoursStep3Title": "Decidir: comprar ou arrendar?",
@@ -11614,7 +11615,7 @@
     },
     "expert": {
       "title": "Guia avaliador",
-      "intro": "TEGOVA REV/TRV, notário, fiscalista: tevaxia oferece ferramentas de avaliação EVS 2025, modelo hedónico público calibrado, relatório assinável SHA-256.",
+      "intro": "Organize documentos, fontes, cálculos, pressupostos e reservas num dossier de trabalho. O profissional verifica a informação, define as diligências necessárias e assume as suas conclusões. A exportação ou assinatura técnica do ficheiro não certifica a conformidade profissional.",
       "backToHub": "Todos os guias",
       "parcoursTitle": "Percurso típico",
       "parcoursIntro": "Do pedido de missão à entrega do relatório assinado.",
@@ -11623,9 +11624,9 @@
       "parcoursStep2Title": "Cruzar abordagens",
       "parcoursStep2Desc": "Compare valor hedónico + DCF multi-inquilinos + comparáveis ACT. Reconciliação com ponderação configurável.",
       "parcoursStep3Title": "Entregar relatório assinado",
-      "parcoursStep3Desc": "Export PDF EVS 2025 com bloco SHA-256 + URL /verify. Cliente verifica integridade publicamente.",
+      "parcoursStep3Desc": "A exportação PDF pode incluir uma impressão digital SHA-256 verificável em /verify. Esta verificação de integridade não valida os cálculos, as qualificações do autor nem a conformidade profissional do relatório.",
       "toolsTitle": "Ferramentas recomendadas",
-      "toolsIntro": "Módulos TEGOVA-alinhados + transparência modelo hedónico.",
+      "toolsIntro": "Ferramentas de cálculo e documentação dos pressupostos",
       "faqTitle": "Perguntas frequentes",
       "faq1q": "O método hedónico é publicado?",
       "faq1a": "Estas percentagens são hipóteses de trabalho, não coeficientes oficiais do Observatório. Não foi demonstrada MAPE, R², significância ou precisão em vendas reais.",
@@ -11809,7 +11810,7 @@
       "faq2q": "Existe SDK TypeScript / Python?",
       "faq2a": "Não oficial ainda. API REST standard. OpenAPI importável em Postman/Insomnia.",
       "faq3q": "As respostas são assinadas?",
-      "faq3a": "Relatórios PDF incluem assinatura SHA-256 verificável em /verify. Respostas JSON não assinadas por defeito.",
+      "faq3a": "A exportação PDF pode incluir uma impressão digital SHA-256 verificável em /verify. Esta verificação de integridade não valida os cálculos, as qualificações do autor nem a conformidade profissional do relatório.",
       "faq4q": "A metodologia é open-source?",
       "faq4a": "Estas percentagens são hipóteses de trabalho, não coeficientes oficiais do Observatório. Não foi demonstrada MAPE, R², significância ou precisão em vendas reais.",
       "relatedTitle": "Saber mais",
@@ -12587,7 +12588,7 @@
       },
       "expert": {
         "title": "Perito / avaliador",
-        "desc": "Honorarios com repartição por missao TEGOVA (REV/TRV), despesas deslocacao, relatorio EVS 2025 em referencia."
+        "desc": "Honorários por missão, despesas de deslocação e referência do dossier."
       },
       "generic": {
         "title": "Generico",
@@ -12929,7 +12930,7 @@
     },
     "shortcuts": {
       "estimation": "Estimacao",
-      "valorisation": "Avaliacao EVS",
+      "valorisation": "Análise de valor e cenários",
       "gestionLocative": "Gestao locativa",
       "dcfMulti": "DCF multi",
       "syndic": "Syndic / Condo",
@@ -13308,7 +13309,7 @@
       "btnShareTitle": "Copiar um URL pré-preenchido (modo agente/consultor)",
       "btnShareCopied": "URL copiado ✓",
       "btnShare": "Partilhar este cenário (ligação)",
-      "disclaimer": "Estimativas indicativas baseadas em dados públicos do Observatório da Habitação / data.public.lu e nas tabelas fiscais luxemburguesas. Para um parecer formal (banco, sucessão, peritagem judicial), solicite um relatório TEGOVA EVS 2025 a um avaliador certificado."
+      "disclaimer": "A Tevaxia ajuda a preparar dados e a explorar cenários indicativos. O software não substitui a verificação do imóvel, o juízo profissional nem o relatório de um perito. Não certifica a conformidade com as EVS ou a TEGoVA."
     }
   },
   "strRentabilite": {
@@ -13578,7 +13579,7 @@
       },
       "expert-evaluateur": {
         "title": "Avaliador / Perito",
-        "desc": "Relatório em formato EVS 2025 em 20 min, 8 métodos, 9 tipos de ativos, dados pré-preenchidos (98 comunas + 12 séries macro)."
+        "desc": "Dossiers estruturados: fontes, cálculos, pressupostos e reservas a verificar pelo profissional."
       },
       "investisseur": {
         "title": "Investidor",
@@ -13614,8 +13615,8 @@
         },
         "expert-evaluateur": {
           "daily": "Avaliações imobiliárias, relatórios, inspeções no terreno",
-          "compliance": "TEGOVA EVS 2025, Carta 5.ª ed.",
-          "standards": "EVS 2025, Red Book, RICS"
+          "compliance": "Dossier a verificar pelo profissional",
+          "standards": "Referencial a definir para a missão"
         },
         "investisseur": {
           "daily": "Rentabilidade, DCF, simulações de financiamento, portefólio",
@@ -13663,7 +13664,7 @@
         },
         {
           "q": "A tevaxia pode ser utilizada fora do Luxemburgo?",
-          "a": "A plataforma está principalmente calibrada para o enquadramento legal luxemburguês (IVA 3 %, Bëllegen Akt, regra dos 5 %, TEGOVA). Alguns módulos funcionam também para França e Bélgica (Factur-X, DCF, comparador comprar/arrendar)."
+          "a": "A plataforma destina-se principalmente a usos imobiliários no Luxemburgo. Verifique a pertinência dos dados e das regras para cada dossier e qualquer utilização transfronteiriça."
         }
       ]
     },
@@ -13838,13 +13839,13 @@
         "dureeRestante": "Duração restante"
       },
       "valo": {
-        "badge": "Valorização TEGOVA",
+        "badge": "Análise de valor e cenários",
         "fallbackTitle": "Relatório de valorização",
         "valeurRetenue": "Valor retido",
         "parametres": "Parâmetros",
         "commune": "Concelho",
         "typeActif": "Tipo de ativo",
-        "typeValeurEVS": "Tipo de valor (EVS)",
+        "typeValeurEVS": "Base de valor declarada",
         "surface": "Área",
         "prixM2CommuneRef": "Preço /m² concelho (ref.)",
         "approches": "Abordagens de valor",
@@ -14162,7 +14163,7 @@
     "forWho2Title": "Bancos & mutuantes",
     "forWho2Desc": "Due diligence CRR/EBA Pillar 3 ESG, stress test de climate risk, qualificação Taxonomia para green loans / green bonds. Ficha Taxonomia anexável ao dossier de crédito.",
     "forWho3Title": "Avaliadores & asset managers",
-    "forWho3Desc": "Integração do stranding risk no reporting TEGOVA EVS 2025 (secção 6.3 Risks), quantificação do brown discount / green premium consoante alinhamento pathway.",
+    "forWho3Desc": "Documentar os riscos ambientais e os pressupostos energéticos para análise pelo profissional.",
     "methoTitle": "Metodologia & fontes",
     "methoItem1": "CRREM v3.0 (2024) Global Pathways Report, crrem.eu/pathways",
     "methoItem2": "Regulamento (UE) 2020/852 (Taxonomia) + Climate Delegated Act 2021/2139",
@@ -20316,5 +20317,14 @@
     "loading": "A carregar…",
     "codeLabel": "Código de 6 dígitos",
     "verify": "Verificar"
+  },
+  "expertGuidance": {
+    "title": "Do cálculo à avaliação pericial",
+    "standards": "As European Valuation Standards (EVS), publicadas pela TEGoVA, oferecem um quadro para a avaliação profissional: missão definida, fontes analisadas, métodos fundamentados e pressupostos e limitações explícitos. Esta abordagem torna a análise mais transparente e documentada; uma fórmula, por si só, não constitui uma avaliação pericial.",
+    "limits": "A Tevaxia ajuda a preparar dados e a explorar cenários indicativos. O software não substitui a verificação do imóvel, o juízo profissional nem o relatório de um perito. Não certifica a conformidade com as EVS ou a TEGoVA.",
+    "association": "No Luxemburgo, o Luxembourg Property Valuation Institute (LPVI) é a associação profissional membro da TEGoVA e o ponto de contacto nacional para as licenças TEGoVA. Contacte a associação para conhecer o processo ou pedir orientação para encontrar um perito.",
+    "contact": "Contactar o LPVI para orientação na procura de um perito",
+    "qualifications": "Conhecer as licenças TEGoVA com o LPVI",
+    "destination": "Ligações para o site do LPVI, em francês. Contacto pelo formulário ou por info@lpvi.lu."
   }
 }

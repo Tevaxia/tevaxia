@@ -4,6 +4,7 @@ const formatEUR = (n: number) => new Intl.NumberFormat("fr-FR", {style:"currency
 import { getProfile } from "@/lib/profile";
 
 interface DocxReportData {
+  expertGuidance?: { limits: string; contact: string };
   dateRapport: string;
   adresse?: string;
   commune?: string;
@@ -115,6 +116,8 @@ export async function downloadDocxReport(data: DocxReportData, userId: string | 
   }
 
   // Disclaimer
+  const guidance = data.expertGuidance ? `${data.expertGuidance.limits} ${data.expertGuidance.contact} : https://www.lpvi.lu/ — info@lpvi.lu.` : "Dossier de travail à vérifier par un professionnel. Pour une orientation vers un expert au Luxembourg : https://www.lpvi.lu/ — info@lpvi.lu. L’export ne certifie aucune conformité professionnelle.";
+  sections.push(new Paragraph({ spacing: { before: 240 }, children: [new TextRun({ text: guidance, size: 18, color: "334155" })] }));
   sections.push(new Paragraph({ spacing: { before: 400 }, children: [new TextRun({ text: profile.mentionLegale || "Ce rapport est fourni à titre indicatif.", size: 16, color: "9CA3AF", italics: true })] }));
 
   // Signature

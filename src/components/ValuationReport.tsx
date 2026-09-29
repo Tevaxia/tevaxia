@@ -191,6 +191,7 @@ const s = StyleSheet.create({
 // ReportData interface
 // ============================================================
 export interface ReportData {
+  expertGuidance?: { limits: string; contact: string };
   // Identification
   dateRapport: string;
   adresse?: string;
@@ -376,7 +377,7 @@ function IdentificationPage({ data, reference }: { data: ReportData; reference: 
       {data.adresse && <Row label="Adresse" value={data.adresse} />}
       {data.commune && <Row label="Commune" value={data.commune} />}
       <Row label="Type d'actif" value={data.assetType} />
-      <Row label="Base de valeur (EVS 2025)" value={data.evsType} />
+      <Row label="Base de valeur déclarée" value={data.evsType} />
       <Row label="Surface" value={`${fmtNum(data.surface)} m2`} />
       <Row label="Date du rapport" value={data.dateRapport} />
 
@@ -855,7 +856,7 @@ function CertificationPage({ data, reference }: { data: ReportData; reference: s
     "L’indépendance, les conflits d’intérêts, les qualifications et l’étendue des diligences doivent faire l’objet de déclarations expresses du rédacteur ; ils ne sont pas attestés automatiquement.",
     "Les valeurs indiquees sont exprimees en euros et s'entendent hors droits d'enregistrement, TVA et frais de mutation, sauf mention contraire.",
     "Ce rapport est destiné exclusivement a l'usage du mandant et ne peut etre communiqué à des tiers sans l'accord préalable de l'évaluateur.",
-    "Les résultats de cette simulation indicative ne sauraient se substituer à une expertise certifiée par un évaluateur REV/TEGOVA.",
+    data.expertGuidance ? `${data.expertGuidance.limits} ${data.expertGuidance.contact} : https://www.lpvi.lu/` : "Ces scénarios ne remplacent pas une expertise professionnelle. Pour une orientation vers un expert au Luxembourg, contactez l’association LPVI : https://www.lpvi.lu/.",
   ];
 
   return (
@@ -936,13 +937,12 @@ function ValuationDisclaimerPage({ data, reference }: { data: ReportData; refere
       </Text>
 
       <Text style={{ fontSize: 9, color: SLATE, lineHeight: 1.6, marginTop: 12 }}>
-        Pour toute decision engageante, consultez un professionnel agree : évaluateur REV/TEGOVA,
-        notaire, conseiller financier ou conseiller en energie.
+        {data.expertGuidance?.contact || "Contacter LPVI pour une orientation vers un expert"} : https://www.lpvi.lu/ — info@lpvi.lu.
       </Text>
 
       <Text style={{ fontSize: 9, color: MUTED, lineHeight: 1.6, marginTop: 30 }}>
         tevaxia.lu — Plateforme immobiliere Luxembourg{"\n"}
-        European Valuation Standards 2025 (TEGOVA, 10e edition){"\n"}
+        Dossier de travail — hypothèses et conclusions à vérifier{"\n"}
         Rapport genere le {today()} | Ref. {reference}
       </Text>
 

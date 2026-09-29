@@ -124,8 +124,8 @@
     "description": "Compare o orçamento de renovação de um hotel, os apoios confirmados e a poupança energética com os seus orçamentos e pressupostos documentados."
   },
   "/inspection": {
-    "title": "Inspeção de campo TEGOVA | Tevaxia",
-    "description": "Prepare uma inspeção imobiliária com uma lista de verificação, observações e fotografias e organize o relatório de visita Tevaxia."
+    "title": "Lista de verificação da visita ao imóvel | Tevaxia",
+    "description": "Prepare uma visita ao imóvel: observações, pontos a verificar e notas exportáveis. Documento de trabalho sem certificação profissional."
   },
   "/marche": {
     "title": "Observações do mercado imobiliário | Tevaxia",

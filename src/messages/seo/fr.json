@@ -124,8 +124,8 @@
     "description": "Comparez le budget de rénovation d’un hôtel, les aides confirmées et les économies d’énergie selon vos devis et hypothèses documentées."
   },
   "/inspection": {
-    "title": "Inspection terrain TEGOVA | Tevaxia",
-    "description": "Préparez une inspection immobilière avec une checklist, des observations et des photos, puis constituez votre rapport de visite Tevaxia."
+    "title": "Grille de visite immobilière | Tevaxia",
+    "description": "Préparez une visite immobilière : observations, points à vérifier et notes exportables. Document de travail sans certification professionnelle."
   },
   "/marche": {
     "title": "Observations du marché immobilier | Tevaxia",

@@ -58,6 +58,7 @@ export default async function Footer() {
               contact@tevaxia.lu
             </a>
             <p className="mt-3 text-sm text-white/75">{tc("suggestionText")}</p>
+            <a href="https://www.lpvi.lu/" className="mt-4 inline-block text-sm text-gold hover:text-gold-light">{tc("lpviContact")}</a>
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Rapport d'inspection PDF conforme standards TEGOVA EVS 2025.
+ * Notes de visite PDF : observations déclarées, sans certification professionnelle.
  * Structure : header référence + identité + status progression + sections
  * checklist avec statut OK/NC/NA par item + notes générales + page de
  * signature.
@@ -13,7 +13,7 @@ import type { InspectionData, CheckSection } from "@/app/inspection/client";
 const styles = StyleSheet.create({
   page: { padding: 40, fontSize: 10, fontFamily: "Helvetica", color: "#1f2937" },
   header: { flexDirection: "row", justifyContent: "space-between", marginBottom: 20, borderBottom: "2 solid #1e3a5f", paddingBottom: 12 },
-  title: { fontSize: 18, fontWeight: "bold", color: "#1e3a5f" },
+  title: { fontSize: 16, fontWeight: "bold", color: "#1e3a5f" },
   subtitle: { fontSize: 9, color: "#6b7280", marginTop: 2 },
   meta: { textAlign: "right", fontSize: 9 },
   metaLabel: { color: "#6b7280", textTransform: "uppercase", letterSpacing: 0.5, fontSize: 7 },
@@ -102,7 +102,7 @@ export function InspectionDocument({ data, checklist, translations: t }: Inspect
       <Page size="A4" style={styles.page}>
         {/* Header */}
         <View style={styles.header}>
-          <View>
+          <View style={{ flex: 1, paddingRight: 12 }}>
             <Text style={styles.title}>{t.title}</Text>
             <Text style={styles.subtitle}>{t.subtitle}</Text>
           </View>
@@ -199,7 +199,7 @@ export function InspectionDocument({ data, checklist, translations: t }: Inspect
 
         {/* Footer */}
         <View style={styles.footer} fixed>
-          <Text>{t.footer} · Réf. {data.id} · Généré par tevaxia.lu</Text>
+          <Text>{t.footer} · {t.reference} {data.id} · tevaxia.lu</Text>
         </View>
       </Page>
     </Document>

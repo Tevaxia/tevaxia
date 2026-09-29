@@ -179,6 +179,7 @@ export default function ReportModeEVS({
   valeurMarchePourMLV,
 }: ReportModeProps) {
   const t = useTranslations("valorisation"),draftText=useTranslations("reportDraftAudit"),scopeText=useTranslations("valuationScope"),locale=useLocale(),draftRef=useRef<HTMLDivElement>(null);
+  const expertText = useTranslations("expertGuidance");
   const formatEUR=(n:number)=>Number.isFinite(n)?new Intl.NumberFormat(locale==='lb'?'de-DE':locale,{style:'currency',currency:'EUR'}).format(n):draftText("empty");
   const today = new Date().toISOString().split("T")[0];
 
@@ -1223,6 +1224,7 @@ export default function ReportModeEVS({
           options={[
             {value:"",label:draftText("empty")},
             { value: "REV (TEGOVA)", label: "REV (TEGOVA)" },
+            { value: "REV-Resi (TEGOVA)", label: "REV-Resi (TEGOVA)" },
             { value: "TRV (TEGOVA)", label: "TRV (TEGOVA)" },
             { value: "MRICS", label: "MRICS" },
             { value: "FRICS", label: "FRICS" },
@@ -1297,6 +1299,8 @@ export default function ReportModeEVS({
     <div id="report-draft" ref={draftRef} className="space-y-4 [overflow-wrap:anywhere]">
       <div data-export-omit className="rounded-xl border border-card-border bg-card p-4 space-y-3"><p>{draftText("scope")}</p><button id="report-draft-export" className="rounded-lg bg-navy px-4 py-2 text-white" onClick={()=>draftRef.current&&downloadReportDraft(draftRef.current,{title:draftText("title"),empty:draftText("empty"),checked:draftText("checked"),unchecked:draftText("unchecked"),locale})}>{draftText("export")}</button></div>
       <p className="text-sm text-muted">{draftText("review")}</p>
+      <p className="text-sm text-muted">{expertText("limits")}</p>
+      <p className="text-sm"><a href="https://www.lpvi.lu/" className="underline">{expertText("contact")}</a> — https://www.lpvi.lu/</p>
       {/* Sections */}
       {SECTIONS.map((section) => {
         const isExpanded = expanded[section.num] ?? false;
