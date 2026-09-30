@@ -6019,7 +6019,7 @@
       "description": "Syndic, agency, hotel, valuer, investor, individual: find the tevaxia.lu solution built for your role. LU compliance, public data, 5 languages."
     },
     "hero": {
-      "badge": "6 solutions built per role",
+      "badge": "8 solutions built per role",
       "title": "Find the solution built for your role",
       "subtitle": "Each profile has its own legal obligations, workflows and source data specific to the Luxembourg market. Rather than searching across 40+ tools, start with your role."
     },
@@ -6091,7 +6091,7 @@
       }
     },
     "faq": {
-      "title": "Questions common to all 6 profiles",
+      "title": "Questions common to all 8 profiles",
       "intro": "About the pricing model, custom work, support, security and migration.",
       "items": [
         {
