@@ -195,9 +195,15 @@ export async function generateInspectionDocxBlob(input: InspectionReportInput): 
 
   const doc = new Document({
     creator: "tevaxia.lu",
-    title: `Rapport d'inspection ${data.id}`,
+    title: `${t.title} ${data.id}`,
     description: t.subtitle,
-    sections: [{ children }],
+    sections: [{ children: [
+      ...children,
+      new Paragraph({
+        children: [new TextRun({ text: t.footer, size: 18, color: "6B7280" })],
+        spacing: { before: 300 },
+      }),
+    ] }],
   });
 
   return await Packer.toBlob(doc);
