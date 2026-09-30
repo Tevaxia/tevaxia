@@ -6019,7 +6019,7 @@
       "description": "Syndic, agence, hôtellerie, expert évaluateur, investisseur, particulier : trouvez la solution tevaxia.lu adaptée à votre métier. Conformité LU, données publiques, 5 langues."
     },
     "hero": {
-      "badge": "6 solutions pensées par métier",
+      "badge": "8 solutions pensées par métier",
       "title": "Trouvez la solution adaptée à votre métier",
       "subtitle": "Chaque profil a ses obligations légales, ses workflows et ses données sources spécifiques au marché luxembourgeois. Plutôt que de chercher dans 40+ outils, commencez par votre métier."
     },
@@ -6091,7 +6091,7 @@
       }
     },
     "faq": {
-      "title": "Questions communes aux 6 profils",
+      "title": "Questions communes aux 8 profils",
       "intro": "Sur le modèle tarifaire, le sur-mesure, le support, la sécurité et la migration.",
       "items": [
         {

@@ -99,9 +99,10 @@ function PersonaIcon({ slug, className }: { slug: string; className?: string }) 
 }
 
 export default async function SolutionsHub() {
-  const [t, locale] = await Promise.all([
+  const [t, locale, solutions] = await Promise.all([
     getTranslations("solutionsHub"),
     getLocale(),
+    getTranslations("solutions"),
   ]);
   const lp = locale === "fr" ? "" : `/${locale}`;
 
@@ -147,6 +148,24 @@ export default async function SolutionsHub() {
                     </span>
                   ))}
                 </div>
+                <div className="mt-4 text-xs font-semibold text-gold-dark">
+                  {t("personas.cta")} →
+                </div>
+              </Link>
+            ))}
+            {(["banque", "promoteur"] as const).map((slug) => (
+              <Link
+                key={slug}
+                href={`${lp}/solutions/${slug}`}
+                prefetch={false}
+                className="group rounded-xl border border-card-border bg-card p-6 hover:border-navy hover:shadow-lg transition-all"
+              >
+                <h2 className="text-base font-bold text-navy group-hover:text-navy-light">
+                  {solutions(`${slug}.hero.badge`)}
+                </h2>
+                <p className="mt-2 text-sm text-slate leading-relaxed">
+                  {solutions(`${slug}.hero.subtitle`)}
+                </p>
                 <div className="mt-4 text-xs font-semibold text-gold-dark">
                   {t("personas.cta")} →
                 </div>
