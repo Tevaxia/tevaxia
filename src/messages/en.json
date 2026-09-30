@@ -3488,7 +3488,8 @@
     "capAuditInvalid": "Enter non-negative amounts and valid rates (0–100%, with a strictly positive capitalisation rate). This method requires positive net income. Negative income calls for a different analysis; it does not automatically imply zero or negative market value.",
     "capAuditErvRatio": "Market rent after vacancy / value, before expenses",
     "capAuditGap": "Market rent difference from passing rent",
-    "capAuditErvOptional": "Optional: leave blank if undocumented. Zero means zero market rent and differs from missing information."
+    "capAuditErvOptional": "Optional: leave blank if undocumented. Zero means zero market rent and differs from missing information.",
+    "rptPrefilled": "Prefilled content to review"
   },
   "onboarding": {
     "heading": "Find the tools calibrated to your profession",

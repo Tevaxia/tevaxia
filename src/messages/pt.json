@@ -3488,7 +3488,8 @@
     "capAuditInvalid": "Introduza montantes não negativos e taxas válidas (0–100%, com capitalização estritamente positiva). Esta metodologia exige rendimento líquido positivo. Um défice requer outra análise; não implica automaticamente valor de mercado nulo ou negativo.",
     "capAuditErvRatio": "Renda de mercado após desocupação / valor, antes de despesas",
     "capAuditGap": "Diferença da renda de mercado face à renda atual",
-    "capAuditErvOptional": "Opcional: deixe vazio se não estiver documentado. Zero significa renda de mercado nula e é distinto de informação ausente."
+    "capAuditErvOptional": "Opcional: deixe vazio se não estiver documentado. Zero significa renda de mercado nula e é distinto de informação ausente.",
+    "rptPrefilled": "Conteúdo pré-preenchido a verificar"
   },
   "onboarding": {
     "heading": "Encontre as ferramentas calibradas para a sua profissão",

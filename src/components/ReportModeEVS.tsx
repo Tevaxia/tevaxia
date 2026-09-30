@@ -48,10 +48,11 @@ const SECTIONS: SectionDef[] = [
 
 /** Highlight wrapper for auto-populated data */
 function AutoData({ children }: { children: React.ReactNode }) {
+  const t = useTranslations("valorisation");
   return (
     <div className="rounded-lg bg-blue-50 border border-blue-200 p-4">
       {children}
-      <p className="mt-2 text-[10px] font-medium text-blue-500 uppercase tracking-wider">Auto-populé</p>
+      <p className="mt-2 text-[10px] font-medium text-blue-500 uppercase tracking-wider">{t("rptPrefilled")}</p>
     </div>
   );
 }

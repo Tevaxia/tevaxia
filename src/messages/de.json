@@ -3488,7 +3488,8 @@
     "capAuditInvalid": "Geben Sie nicht negative Beträge und gültige Sätze ein (0–100 %, Kapitalisierung strikt positiv). Die Methode verlangt einen positiven Nettoertrag. Bei Verlusten ist eine andere Analyse erforderlich; daraus folgt nicht automatisch ein Marktwert von null oder darunter.",
     "capAuditErvRatio": "Marktmiete nach Leerstand / Wert, vor Kosten",
     "capAuditGap": "Abweichung der Marktmiete von der Vertragsmiete",
-    "capAuditErvOptional": "Optional: Ohne Beleg leer lassen. Null bedeutet eine Marktmiete von null und unterscheidet sich von einer fehlenden Angabe."
+    "capAuditErvOptional": "Optional: Ohne Beleg leer lassen. Null bedeutet eine Marktmiete von null und unterscheidet sich von einer fehlenden Angabe.",
+    "rptPrefilled": "Vorausgefüllte Inhalte prüfen"
   },
   "onboarding": {
     "heading": "Finden Sie die auf Ihren Beruf zugeschnittenen Tools",

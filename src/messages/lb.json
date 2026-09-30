@@ -3488,7 +3488,8 @@
     "capAuditInvalid": "Gitt net negativ Montanten a gëlteg Tauxen an (0–100 %, Kapitaliséierung strikt positiv). D’Method erfuerdert positivt Nettoakommes. E Verloscht erfuerdert eng aner Analys; dat bedeit net automatesch e Maartwäert vun null oder manner.",
     "capAuditErvRatio": "Maartloyer nom Leerstand / Wäert, viru Käschten",
     "capAuditGap": "Differenz vum Maartloyer zum aktuelle Loyer",
-    "capAuditErvOptional": "Fakultativ: Ouni Dokumentatioun eidel loossen. Null bedeit e Maartloyer vun null an ass net datselwecht wéi eng feelend Informatioun."
+    "capAuditErvOptional": "Fakultativ: Ouni Dokumentatioun eidel loossen. Null bedeit e Maartloyer vun null an ass net datselwecht wéi eng feelend Informatioun.",
+    "rptPrefilled": "Virausgefëllten Inhalt kontrolléieren"
   },
   "onboarding": {
     "heading": "Fannt d'Tools, déi op Äre Beruff zougeschnidde sinn",

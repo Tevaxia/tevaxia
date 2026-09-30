@@ -127,7 +127,7 @@ export function InspectionDocument({ data, checklist, translations: t }: Inspect
           <View style={styles.row}>
             <Text style={styles.rowLabel}>{t.timeRange}</Text>
             <Text style={styles.rowValue}>
-              {data.startTime || "—"} → {data.endTime || "—"}
+              {data.startTime || "—"} - {data.endTime || "—"}
             </Text>
           </View>
         </View>

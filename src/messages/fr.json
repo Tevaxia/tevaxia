@@ -3488,7 +3488,8 @@
     "capAuditInvalid": "Saisissez des montants non négatifs et des taux valides (0 à 100 %, capitalisation strictement positive). Le revenu net doit être positif pour cette méthode. Un revenu déficitaire nécessite une autre analyse ; il ne donne pas automatiquement une valeur de marché nulle ou négative.",
     "capAuditErvRatio": "Loyer de marché après vacance / valeur, avant charges",
     "capAuditGap": "Écart du loyer de marché au loyer en place",
-    "capAuditErvOptional": "Facultatif : laissez vide si non documenté. Zéro signifie un loyer de marché nul ; il est distinct d’une information absente."
+    "capAuditErvOptional": "Facultatif : laissez vide si non documenté. Zéro signifie un loyer de marché nul ; il est distinct d’une information absente.",
+    "rptPrefilled": "Contenu prérempli à vérifier"
   },
   "onboarding": {
     "heading": "Trouvez les outils calibrés pour votre métier",
