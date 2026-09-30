@@ -2,7 +2,7 @@
   "nav": {
     "estimation": "Direkt Schätzung",
     "carte": "Präiskaart",
-    "valorisation": "Bewäertung EVS 2025",
+    "valorisation": "Wäertanalys a Szenarien",
     "loyer": "Investéiert Kapital & Loyer",
     "frais": "Akquisitiounskäschten",
     "plusValues": "Wäertzouwuess",
@@ -119,7 +119,8 @@
     "signedOutAll": "Sessioune vun dësem Kont kënnen net méi erneiert ginn. Schonn ausgestallten Zougrëffstoken bleiwe bis zu hirem Oflaf valabel.",
     "signOutFailed": "D’Ofmeldung vun dësem Browser konnt net ofgeschloss ginn. Probéiert nach eng Kéier.",
     "signOutRemoteUnconfirmed": "Dëse Browser ass ofgemellt. De Widderruff um Server konnt net bestätegt ginn.",
-    "signOutSyncUnconfirmed": "Dëse Browser ass ofgemellt, mee d’Synchroniséierung mat aneren Tabs konnt net bestätegt ginn."
+    "signOutSyncUnconfirmed": "Dëse Browser ass ofgemellt, mee d’Synchroniséierung mat aneren Tabs konnt net bestätegt ginn.",
+    "lpviContact": "LPVI no engem passenden Expert froen"
   },
   "home": {
     "heroTitle": "D'Immobilien-Analyse vu Lëtzebuerg,",
@@ -129,8 +130,8 @@
     "exploreAllToolsHint": "Wësst Dir scho wat Dir sicht? Gitt op déi ganz Lëscht.",
     "trust": {
       "heading": "Solid Grondlagen",
-      "tegova": "Am Geescht vun den EVS-Standarden",
-      "tegovaDesc": "Methodologie inspiréiert vun den europäesche Bewäertungsstandarden (TEGOVA)",
+      "tegova": "Ausdrécklech Hypotheesen",
+      "tegovaDesc": "Dokumentéiert Berechnunge fir d’Gespréich mat engem Expert ze preparéieren",
       "data": "Ëffentlech Donnéeën LU",
       "dataDesc": "data.public.lu, STATEC",
       "rgpd": "DSGVO-konform",
@@ -151,7 +152,7 @@
     "jsonLdDescription": "Immobilientools Lëtzebuerg",
     "tags": {
       "habitat": "Observatoire de l'Habitat",
-      "tegova": "EVS-Standarden",
+      "tegova": "Hëllef bei der Analys",
       "epbd": "EPBD Direktiv 2024",
       "lir": "LU Steiergesetz (LIR)",
       "bail": "Loyersgesetz 21/09/2006",
@@ -224,9 +225,9 @@
         "tag": "EPC / EPBD / Klimabonus"
       },
       "valorisation": {
-        "title": "Bewäertung EVS 2025",
-        "description": "Vergläich, direkt Kapitaliséierung, DCF, Beleihungswäert, Abstëmmung. Struktur inspiréiert vun den European Valuation Standards (TEGOVA).",
-        "tag": "EVS-Standarden"
+        "title": "Wäertanalys a Szenarien",
+        "description": "Vergläicht dokumentéiert Verkafspräisser, kapitaliséiert Erträg oder diskontéiert Cashflows. Wielt a begrënnt d’Methoden an d’Parameteren no der Immobilie an dem Optrag; d’Szenarie solle mat engem Fachmann iwwerpréift ginn.",
+        "tag": "Hëllef bei der Analys"
       },
       "bancaire": {
         "title": "Bankinstrumenter",
@@ -294,9 +295,9 @@
         "tag": "CSSF / 4. Richtlin"
       },
       "inspection": {
-        "title": "TEGOVA-Inspektioun",
-        "description": "120-Punkten Terrain-Inspektiounsraster konform EVS 2025. Bewäertung pro Sektioun, Fotoen, PDF-Export.",
-        "tag": "EVS 2025 Terrain"
+        "title": "Checklëscht fir d’Immobiliebesichtegung",
+        "description": "Notéiert Observatiounen, Punkten déi ze kontrolléiere sinn an Notize vun der Besichtegung. D’Checklëscht hëlleft beim Preparéiere vum Dossier; si bescheinegt weder den Zoustand vun der Immobilie nach d’Anhale vu beruffleche Standarden.",
+        "tag": "Besichtegungsnotizen"
       },
       "terresAgricoles": {
         "title": "Landwirtschaftlech Flächen",
@@ -343,7 +344,7 @@
     },
     "contact": {
       "tevaxiaTitle": "tevaxia.lu — 40+ Tools",
-      "tevaxiaLine1": "Schätzung, Präiskaart, Bewäertung EVS 2025",
+      "tevaxiaLine1": "Schätzung, Präiskaart, Wäertanalys",
       "tevaxiaLine2": "DCF Multi-Locatairen, Promoteur-Bilanz, Bankinstrumenter",
       "tevaxiaLine3": "Käschten, Wäertzouwuess, Hëllefen, VEFA, Kaf vs Loyer",
       "tevaxiaLine4": "PAG/PAP, landwirtschaftlech Flächen, AML/KYC",
@@ -479,7 +480,7 @@
       "explainSource1": "Observatoire de l'Habitat du Luxembourg — Analyse vun de Verkafspräisser no Energieklass (2023-2025)",
       "explainSource2": "EZB — Climate risk and real estate: emerging evidence on pricing (2024)",
       "explainSource3": "Directive EPBD recast 2024/1275 — Zil Nullemissiounspark 2050",
-      "explainSource4": "TEGOVA EVS 2025 — ESG & Sustainability in Property Valuation (EVS 5)",
+      "explainSource4": "TEGoVA — European Valuation Standards: professionelle Bewäertungskader",
       "fourchette": "Spannwäit",
       "fourchetteTip": "D'Ofwäichunge sinn ofhängeg vun der Lag, dem Immobilientyp an de Maartbedéngungen",
       "sourceData": "Quell",
@@ -1170,11 +1171,11 @@
       "contextTitle": "De Lëtzebuerger Immobiliëmaart 2026",
       "contextContent": "<p>Den Immobiliëmaart vum Groussherzogtum Lëtzebuerg geet duerch eng Phase vun <strong>Korrektur nom Héichpunkt</strong>, déi Enn 2022 ugefaangen huet, no méi wéi engem Joerzéngt vu bal onënnerbrachenem Wuesstem. Laut dem Wunnengsobservatoire an dem STATEC sinn d'Residenzpräisser tëschent dem Héichstand Q3-2022 an Q4-2024 ëm ongeféier 14 % gefall, ier se sech am éischten Hallefjoer 2025 stabiliséiert hunn.</p><p>Dës Korrektur erkläert sech haaptsächlech duerch d'<strong>geldpolitesch Verschärfung vun der EZB</strong> (Leetzëns vun 0 % op 4,50 % an 18 Méint), déi d'Kreditkapazitéit vun de Stéit reduzéiert huet.</p>",
       "methodeTitle": "Bewäertungsmethoden: hedonesch, Vergläichswäerter an DCF",
-      "methodeContent": "<p>Zu Lëtzebuerg existéieren dräi grouss Famillje vu Methoden fir den Immobiliëwäert ze schätzen:</p><ul><li><strong>Déi hedonesch Method</strong>: vum STATEC an dem Wunnengsobservatoire benotzt, zerléit si de Präis op Basis vun objektive Kritäre (Fläch, Lag, Alter, Energieeffizienz, Stack, Parking, asw.) iwwer e Regressiounsmodell.</li><li><strong>D'Vergläichswäertmethod</strong>: e Klassiker an der Immobiliëbewäertung (EVS/TEGoVA-Standard).</li><li><strong>D'DCF-Method (Discounted Cash Flow)</strong>: haaptsächlech fir Rendite-Immobilie benotzt.</li></ul>",
+      "methodeContent": "Vergläicht dokumentéiert Verkafspräisser, kapitaliséiert Erträg oder diskontéiert Cashflows. Wielt a begrënnt d’Methoden an d’Parameteren no der Immobilie an dem Optrag; d’Szenarie solle mat engem Fachmann iwwerpréift ginn.",
       "facteursTitle": "Faktoren déi den Immobiliëwäert zu Lëtzebuerg beaflossen",
       "facteursContent": "<p>Vill Faktore beaflossen den Immobiliëwäert am Groussherzogtum:</p><ul><li><strong>Lag a Gemeng</strong>: dat ass dee wichtegste Faktor. D'Stad Lëtzebuerg (Belair, Limpertsberg, Kierchbierg) weist Duerchschnëttpräisser pro m² vun 10.000-14.000 € op, am Géigesaz zu 5.000-7.000 € am Norden (Clierf, Wolz).</li><li><strong>Fläch an Opstellung</strong>: d'Nettowunnfläch (laut groussherzoglecher Verordnung vum 25. Februar 1979) bleift dat dominéierendt quantitativt Kritär.</li><li><strong>Energieeffizienz (CPE)</strong>: zanter der Reform vum Energiepass am 2010 beaflosst d'Energieklass d'Präisser moossbar.</li></ul>",
       "exempleTitle": "Konkret Beispill: Bewäertung vun enger Wunneng zu Esch-Uelzecht",
-      "exempleContent": "<p>Huelt eng Wunneng vun <strong>85 m² zu Esch-Uelzecht</strong>, Quartier Belvaux, gebaut 2012, Energieklass C, mat 1 Tiefgarageplaz an 1 Keller:</p><ul><li>Duerchschnëttpräis pro m² an der Gemeng (Q1-2025): ~6.200 € (Quell: Wunnengsobservatoire)</li><li>Ajustement Klass C: +5 % → 6.510 €/m²</li><li>Altersajustement: +3 % → 6.705 €/m²</li><li>Tiefgarage: +25.000 €</li><li>Bruttobewäertung: 85 × 6.705 + 25.000 = <strong>594.925 €</strong></li></ul>",
+      "exempleContent": "Tevaxia hëlleft, Donnéeën ze preparéieren an indikativ Szenarien ze ënnersichen. D’Software ersetzt weder d’Kontroll vun der Immobilie nach dat fachlecht Uerteel oder de Rapport vun engem Expert. Si bescheinegt keng Konformitéit mat den EVS oder TEGoVA.",
       "faq1q": "Wéi genee ass eng Online-Immobiliëbewäertung?",
       "faq1a": "Online-Schätzer erreechen typesch eng Genauegkeet vun ±10-15 % am Vergläich zum endgültege Verkafspräis. Eisen Tool zielt op eng Spann vun ±10 %. Fir eng zertifizéiert Bewäertung (Ierfschaft, Hypothéik) wennt Iech un en zougeloosse Sachverständegen.",
       "faq2q": "Wéi beaflosst den Energieausweis de Präis zu Lëtzebuerg?",
@@ -1184,7 +1185,7 @@
       "faq4q": "Soll een virum Verkaf zu Lëtzebuerg eng Bewäertung maachen?",
       "faq4a": "Jo, eng Virbewäertung gëtt recommandéiert fir e realisteschen Ubiddungspräis festzeleeën. En ze héije Präis verlängert d'Verkafszeit (Median 90-120 Deeg zu Lëtzebuerg).",
       "faq5q": "Wat ass den Ënnerscheed tëschent Verkéierswäert a Verkafspräis?",
-      "faq5a": "De Verkéierswäert ass den theoreeteschen Präis deen en informéierten Keefer ënner normale Maartkonditiounen bezuele géif (EVS-Definitioun). Den tatsächleche Verkafspräis kann ofwäichen."
+      "faq5a": "E geschätzte Wäert hänkt vun engem Datum, Hypotheesen a bestëmmten Informatiounen of. De Verkafspräis kann duerch d’Eegenschafte vun der Immobilie, d’Verhandlungen an d’Transaktiounsbedéngungen ofwäichen."
     },
     "addToHistory": "Zu mengem Historique derbäi",
     "addressPlaceholder": "Adress (optional) — fir dës Immobilie iwwer d'Zäit ze verfollegen",
@@ -2205,7 +2206,7 @@
     "prudentValueIntro": "Lëtzebuerger Banke benotzen de <strong>Mortgage Lending Value (MLV)</strong> no Art. 4(1)(74) CRR an EBA/GL/2020/06 Richtlinnen.",
     "prudentValueMethod": "De MLV applizéiert <strong>virsiichteg Ofschléi</strong> (konjunkturell, Vermarktung, spezifesch) op de Marchéwäert fir en nohaltege Wäert z'erreechen.",
     "prudentValueLegal": "D'CSSF verlaangt, dass den LTV op der <strong>MLV</strong> berechent gëtt, net op dem Marchéwäert.",
-    "prudentValueCalculate": "Berechent de MLV vun Ärer Immobilie mat eisem <link>EVS 2025 Bewäertungstool</link>.",
+    "prudentValueCalculate": "Preparéiert Szenarie mam <link>Instrument fir Wäertanalys</link>.",
     "incomeAndCharges": "Akommes & Belaaschtungen",
     "netMonthlyIncome": "Monatlechen Nettoacommes",
     "existingMonthlyCharges": "Bestehend monatleche Belaaschtungen",
@@ -2677,8 +2678,8 @@
     "forecastLink": "Präisszenarien →"
   },
   "valorisation": {
-    "pageTitle": "Immobiliëbewäertung EVS 2025",
-    "pageSubtitle": "Bewäert eng Immobilie no TEGOVA EVS 2025 Normen: Vergläich, Kapitaliséierung, Term & Reversion, DCF, ESG, Energie, MLV, Ofstëmmung.",
+    "pageTitle": "Wäertanalys a Szenarien",
+    "pageSubtitle": "Vergläicht dokumentéiert Verkafspräisser, kapitaliséiert Erträg oder diskontéiert Cashflows. Wielt a begrënnt d’Methoden an d’Parameteren no der Immobilie an dem Optrag; d’Szenarie solle mat engem Fachmann iwwerpréift ginn.",
     "tabComparaison": "Vergläich",
     "tabCapitalisation": "Kapitaliséierung",
     "tabTermeReversion": "Term & Reversion",
@@ -2699,7 +2700,7 @@
     "metriquesCles": "Key metrics",
     "commune": "Municipality",
     "reinitialiser": "Zrécksetzen",
-    "conformiteEVS": "EVS-Konformitéit",
+    "conformiteEVS": "Kontrolle vum Dossier",
     "aCompleter": "to be completed",
     "refMarcheParCommune": "Market references by municipality",
     "refMarcheSource": "Quellen: Kadaster, STATEC, Observatoire de l'Habitat, Annoncen",
@@ -2868,7 +2869,7 @@
     "esgRisquesIdentifies": "Identified risks",
     "esgPointsPositifs": "Positive points",
     "esgRecommandations": "Recommendations",
-    "esgEVSNote": "ESG-Bewäertung konform mat EVS 5 (TEGOVA EVS 2025) — Sustainability in Property Valuation.",
+    "esgEVSNote": "Ëmwelt- an Energiefacteure musse fir d’Immobilie an den Optrag iwwerpréift ginn. D’Opstellung ass weder eng komplett ESG-Bewäertung nach eng fachlech Zertifizéierung.",
     "classeA": "Klass A — Exzellent",
     "classeB": "Class B — Very good",
     "classeC": "Class C — Good",
@@ -2911,14 +2912,14 @@
     "enCoutNetApresAides": "Nettokäschten no den Hëllefen",
     "enValeurResiduelle": "Restwäert",
     "enDecoteEnergetique": "Energie-Ofschlag",
-    "enMethodeEVSTitle": "EVS-Method — Energeteschen Restwäert",
+    "enMethodeEVSTitle": "Sensibilitéit fir Renovatiounskäschten",
     "enPrincipe": "Principle",
     "enPrincipeText": "De Restwäert no der energetescher Sanéierung ass de verbesserten Immobiliewäert minus de Nettoaarbechtskäschten an enger Sécherheetsmarge.",
     "enFormule": "Wäert no Sanéierung − Nettokäschten − Sécherheetsmarge",
     "enArt208EBA": "Art. 208 CRR / EBA",
     "enArt208EBAText": "Fir d'Hypothéikerverleenung muss de Beleihungswäert (MLV) den nohaltege Wäert vun der Immobilie reflektéieren.",
     "mlvValeurMarche": "Maartwäert (MV)",
-    "mlvValeurMarcheEVS1": "Maartwäert no EVS 1 (TEGOVA). Ofgeleet aus der Ofstëmmung vun de Bewäertungsmethoden.",
+    "mlvValeurMarcheEVS1": "Ausgangswäert fir de Szenario, dee vum Verfaasser ze begrënnen ass.",
     "mlvIssueReconciliation": "De Maartwäert gëtt automatesch aus dem Tab Reconciliation iwwerholl.",
     "mlvDecotesPrudentielles": "Prudential discounts",
     "mlvDecoteConjoncturelle": "Zyklesche Ofschlag",
@@ -2957,7 +2958,7 @@
     "recScenarioBasCol": "Low (−{pct}%)",
     "recScenarioCentralCol": "Central",
     "recScenarioHautCol": "Héich (+{pct} %)",
-    "recScenariosNote": "Héich- an Niddreg-Szenarien presentéieren eng Wäertbandbreet konform mat de TEGOVA EVS 2025 Bescht-Praktiken.",
+    "recScenariosNote": "Szenarie weisen den Effet vun Hypotheesen; si moosse weder statistesch Genauegkeet nach fachlech Konformitéit.",
     "sensTitle": "Sensitivity analysis",
     "sensSubtitle": "Impakt op de ofgestëmmte Wäert ({base})",
     "sensERV": "ERV (market rent)",
@@ -2971,7 +2972,7 @@
     "sensFootnote": "Single-factor sensitivity analysis (ceteris paribus).",
     "recAnalyseNarrative": "Narrative analysis",
     "modeCalculateur": "Rechner-Modus",
-    "modeRapportEVS": "EVS-Berichts-Modus",
+    "modeRapportEVS": "Entworf vum Dossier",
     "rptSec1Title": "Missioun",
     "rptSec2Title": "Geographesch Lag",
     "rptSec3Title": "Juristesch Situatioun",
@@ -2982,7 +2983,7 @@
     "rptSec8Title": "SWOT-Analyse",
     "rptSec9Title": "Bewäertung",
     "rptSec10Title": "Conclusiounen",
-    "rptSec11Title": "Zertifizéierung vum Expert",
+    "rptSec11Title": "Erklärunge vum Verfaasser",
     "rptProgress": "Fortschrëtt vum Bericht",
     "rptSectionsRemplies": "Sektiounen ausgefëllt",
     "rptRempli": "ausgefëllt",
@@ -2995,7 +2996,7 @@
     "rptIndependance": "Onofhängegkeet",
     "rptIndependanceText": "Den Expert erkläert, dass hien keng Ofhängegkeet, finanziellt Interesse oder Interessekonflikt a Bezuch op d'Immobilie, de Client oder eng Partei déi an der Transaktioun bedeelegt ass, huet.",
     "rptCompetence": "Kompetenz",
-    "rptCompetenceText": "Den Expert verfüügt iwwer d'Qualifikatiounen, d'Erfarung an d'Kenntnis vum lokale Marché, déi fir dës Missioun am Aklang mat den TEGOVA EVS 2025 Standarden erfuerderlech sinn.",
+    "rptCompetenceText": "Qualifikatiounen, Erfarung a Maartkenntnesser si vum Verfaasser fir dësen Optrag unzeginn an ze dokumentéieren.",
     "rptCanton": "Kanton",
     "rptNbTransactions": "Rezent Transaktiounen",
     "rptAutoPopulated": "Donnéeën automatesch vum Vergläichs-Tab iwwerholl.",
@@ -3025,7 +3026,7 @@
     "rptCondMoyen": "Duerchschnëttlech",
     "rptCondARenover": "Ze renovéieren",
     "rptESGArt208": "ESG & Art. 208 EBA",
-    "rptESGArt208Text": "Ëmwelt-, Sozial- a Gouvernance-Faktoren (ESG) musse laut EVS 5 (Sustainability) berécksiichtegt ginn. Den Art. 208 CRR verlaangt, dass den nohaltege Wäert de Klimarisiko an d'Energieleeschtung widderweist.",
+    "rptESGArt208Text": "Ëmwelt- an Energiefacteure musse fir d’Immobilie an den Optrag iwwerpréift ginn. D’Opstellung ass weder eng komplett ESG-Bewäertung nach eng fachlech Zertifizéierung.",
     "rptAutoFromTabs": "Donnéeën automatesch vun de Berechnung-Tabs iwwerholl.",
     "rptFillCapOrDCF": "Fëllt den Tab Kapitaliséierung oder DCF aus fir dës Sektioun ze fëllen.",
     "rptFillAtLeastOneMethod": "Fëllt op d'mannst eng Bewäertungsmethod aus (Vergläich, Kapitaliséierung oder DCF).",
@@ -3040,8 +3041,8 @@
     "rptExpertName": "Numm vum Expert",
     "rptExpertQualif": "Qualifikatioun",
     "rptExpertAgree": "Zougeloossenen Immobilienexpert",
-    "rptCertificationText": "Konformitéitszertifizéierung",
-    "rptCertificationBody": "Ech zertifizéieren, dass dës Bewäertung am Aklang mat den TEGOVA EVS 2025 Standarden (10. Editioun) a voller Onofhängegkeet an Onparteilechkeet duerchgefouert gouf an dass d'Conclusiounen meng professionell Analyse vum Marché an vum bewäerten Immobilie widderweisen.",
+    "rptCertificationText": "Erklärunge vum Verfaasser",
+    "rptCertificationBody": "De Verfaasser muss de gültege Kader kontrolléieren, seng Ënnersichungen dokumentéieren an eng eegen Erklärung ofginn. Tevaxia bestätegt keng Konformitéit automatesch.",
     "rptSecATitle": "Annexen",
     "rpt1_1_title": "Identitéit vum Client / Optragsgeber",
     "rpt1_1_nom": "Numm vum Client",
@@ -3064,16 +3065,16 @@
     "rpt1_3_lots": "Mateegentumsloten",
     "rpt1_3_lotsHint": "Lotnummer(en), Mateegentumsuandeeler",
     "rpt1_4_title": "Referenzstandarden",
-    "rpt1_4_auto": "Charte de l'expertise en évaluation immobilière, 5. Ausg. + TEGOVA EVS 2025, 10. Ausg.",
+    "rpt1_4_auto": "Kader, dee vum Verfaasser unzeginn an ze begrënnen ass.",
     "rpt1_5_title": "Wäerttyp an Hypotheesen",
-    "rpt1_5_venale": "Marchéwäert (Verkéierswäert) — EVS 1",
-    "rpt1_5_locative": "Marchélocatiounswäert (ERV) — EVS 2",
-    "rpt1_5_crr": "Beleihungswäert (CRR) — EVS 3",
+    "rpt1_5_venale": "Maartwäert",
+    "rpt1_5_locative": "Maartlocatiounswäert",
+    "rpt1_5_crr": "Prudentielle Wäert — Kader unzeginn",
     "rpt1_5_ltv": "Loan-to-Value (LTV)",
     "rpt1_5_hypotheses": "Hypotheesen",
     "rpt1_5_hypothesesHint": "Hypotheesen zu Leierstand, Indexéierung, Aarbechten, etc.",
     "rpt1_5b_title": "Speziell Hypotheesen",
-    "rpt1_5b_hint": "Speziell Hypotheesen am Sënn vun EVS 5: Zwangsverkaf, going concern, etc.",
+    "rpt1_5b_hint": "Gitt Hypotheesen un, déi vu bekannte Fakten ofwäichen, a begrënnt hire Gebrauch.",
     "rpt1_6_title": "Onofhängegkeet an Interessekonflikter",
     "rpt1_6_hint": "Zousätzlech Informatioune iwwer d'Onofhängegkeet, wann zoutrëffend",
     "rpt1_7_title": "Kompetenz vum Expert",
@@ -3217,15 +3218,15 @@
     "rpt10_2_impactESGHint": "Green Premium, Brown Discount, Transitiounskäschten, physesch Risiken...",
     "rpt10_3_title": "Reserven",
     "rpt10_3_hint": "Reserven iwwert d'Conclusiounen, opschiwend Bedéngungen...",
-    "rpt10_3b_title": "Bewäertungsonsécherheet (EVS 2025 — Material Uncertainty)",
+    "rpt10_3b_title": "Onsécherheete vun der Analys",
     "rpt10_3b_hint": "Onsécherheetsniveau, Volatilitéitsfaktoren, Sensitivitéit géintiwwer Schlësselhypotheesen...",
-    "rpt11_certStatements": "Zertifizéierungserkläerungen",
+    "rpt11_certStatements": "Erklärunge vum Verfaasser",
     "rpt11_cert1": "Ech hunn dës Bewäertung a voller Onofhängegkeet an Onparteilechkeet duerchgefouert.",
     "rpt11_cert2": "D'Fakten an dësem Bericht si korrekt no mengem beschte Wëssen.",
     "rpt11_cert3": "D'Analysen a Conclusiounen si limitéiert op déi genannten Hypotheesen a Bedéngungen.",
     "rpt11_cert4": "Ech hunn keen finanziellt Interesse, aktuellt oder zukünftegt, um bewäerten Immobilie.",
     "rpt11_cert5": "Meng Vergütung ass net un d'Resultat vun der Bewäertung gebonnen.",
-    "rpt11_cert6": "Dës Bewäertung entsprécht den TEGOVA EVS 2025 Standarden (10. Ausg.) an der Charte de l'expertise (5. Ausg.).",
+    "rpt11_cert6": "De Verfaasser muss de gültege Kader kontrolléieren, seng Ënnersichungen dokumentéieren an eng eegen Erklärung ofginn. Tevaxia bestätegt keng Konformitéit automatesch.",
     "rpt11_dateSignature": "Datum vun der Ënnerschrëft",
     "rptA_description": "Wielt d'Annexen aus, déi an d'PDF-Berichterstellung solle mat abegraff ginn.",
     "rptA_1_plans": "A1 — Pläng",
@@ -3309,7 +3310,7 @@
     "notesImmeubleRapport": "D'Renditsgebai gëtt haaptsächlech nom Rendement bewäert. All Lot analyséieren: aktuellen Loyer vs ERV, Reschtzäit vum Bail, Reversionspotenzial.",
     "notesBureaux": "Lëtzebuerg-Stad: reife Büromarché mat Segmentéierung CBD / Kierchbierg / Cloche d'Or / Gare. Spëtzeloyer ~50-55 €/m²/Mount um Kierchbierg. Strukturelle Leerstand ~5-7%.",
     "notesCommerces": "High Street (Grand-Rue, avenue de la Gare) vu Retail Parks a Shoppingzentren ënnerscheeden. Zone-A-Loyer als Referenz. Strukturellt E-Commerce-Risiko.",
-    "notesHotellerie": "D'Hotellerie gëtt no der Ertragskraaft (stabiliséierten EBITDA) bewäert, net nom Loyer. Lëtzebuerg: institutionellen/Geschäftsmarché, Besetung ~70-75%.",
+    "notesHotellerie": "Ënnerscheet d’Immobilie, de Betrib an déi bewäert Rechter. Kontrolléiert dokumentéiert Recetten, Käschten, Kontrakter an Aarbechten; wielt d’Methoden no dem Ëmfang vum Optrag.",
     "notesLogistique": "Lëtzebuerg: limitéierte Logistikbestand, konzentréiert op Eurohub Süd (Beetebuerg/Diddeleng). Loyer ~6-9 €/m²/Mount. Laang Baux (6-9 Joer fest). ESG ëmmer méi wichteg.",
     "notesTerrain": "Am Lëtzebuerg besteet e Präisverhältnis vun 1 zu 6 tëscht Terraine a Lëtzebuerg-Stad an am Norden. PAG/PAP kontrolléieren: Bauzon, COS, Servituten.",
     "esgNiveauExcellent": "Exzellent",
@@ -3336,7 +3337,7 @@
     "checkCommune": "Gemeng / Standuert identifizéiert",
     "checkSurface": "Fläch vum Immobilie ugi",
     "checkAssetType": "Immobilientyp ausgewielt",
-    "checkEvsType": "Wäertbasis definéiert (EVS1-6)",
+    "checkEvsType": "Uginne Wäertbasis",
     "checkMin2Methodes": "Mindestens 2 Methoden benotzt",
     "checkComparaison": "Vergläichsmethod gemaach",
     "checkNbComparables": "Mindestens 3 Vergläichsobjeten (empfohlen)",
@@ -3415,7 +3416,7 @@
     "sauvegarde": "Gespäichert!",
     "narrCommuneDe": "Gemeng {commune}",
     "narrLocNonPrecisee": "Standuert net uginn",
-    "narrIntroduction": "De Sujet vun dëser Analyse ass en {assetType} mat enger Fläch vun {surface} m², geleeën zu {localisation}. D'Bewäertung gëtt op der Basis vum {evsType} no den European Valuation Standards 2025 (TEGOVA, 10. Editioun) duerchgefouert.",
+    "narrIntroduction": "D’Immobilie ass vum Typ {assetType}, mat {surface} m², zu {localisation}. Uginne Basis: {evsType}. Dëse Szenario hänkt vun Donnéeën an Hypotheesen of, déi de Verfaasser kontrolléiere muss.",
     "narrContexteMarche": "Den duerchschnëttleche beobachte Präis an der Gemeng ass {prix}/m² fir existent Appartementer (Quell: Observatoire de l'Habitat, notariell Akten).",
     "narrMarcheVolumeSignificatif": "De lokale Marché weist e signifikante Transaktiounsvolumen op ({nb} Transaktiounen am leschte Zäitraum), wat eng gutt Zouverlässegkeet vun de Referenzdonnéeën garantéiert.",
     "narrMarcheVolumeLimite": "De lokale Marché weist e limitéierten Transaktiounsvolumen op ({nb} Transaktiounen), wat Vorsicht bei der Interpretatioun vun de Vergläichsobjeten erfuerdert.",
@@ -3442,7 +3443,7 @@
     "narrESGBon": "D'ESG-Profil ass guënschteg (Score {score}/100, Niveau {niveau}), wat am aktuelle regulatoresche Kontext e Virdeel ass.",
     "narrESGMoyen": "D'ESG-Profil ass duerchschnëttlech (Score {score}/100, Niveau {niveau}). Energeetesch Sanéierungsaarbechte kéinten d'Bewäertung verbesseren.",
     "narrESGInsuffisant": "D'ESG-Profil ass onzureichend (Score {score}/100, Niveau {niveau}). Den geschaten Energieofschlag ass {impact}%. Eng Sanéierung gëtt empfohlen.",
-    "narrReserves": "Dës Analyse gëtt nëmme fir informativen Zweck op Basis vu verfügbaren ëffentlechen Donnéeën an ageene Parameteren duerchgefouert. Si stellt keng Immobiliebewäertung am Sënn vun den EVS 2025 duer. Fir eng offiziell Bewäertung, kontaktéiert w.e.g. en TEGOVA-zertifizéierten Bewäerter (REV/TRV).",
+    "narrReserves": "Tevaxia hëlleft, Donnéeën ze preparéieren an indikativ Szenarien ze ënnersichen. D’Software ersetzt weder d’Kontroll vun der Immobilie nach dat fachlecht Uerteel oder de Rapport vun engem Expert. Si bescheinegt keng Konformitéit mat den EVS oder TEGoVA.",
     "estAjustEtage": "Stack: {etage}",
     "estAjustEtat": "Zoustand: {etat}",
     "estAjustExterieur": "Baussebäirag: {exterieur}",
@@ -3453,16 +3454,16 @@
     "seo": {
       "faqTitle": "Heefeg Froen zur Immobiliebewäertung",
       "relatedTitle": "Ergänzend Tools",
-      "evs2025Title": "EVS 2025-konform Immobiliebewäertung zu Lëtzebuerg",
-      "evs2025Content": "<p>D'<strong>European Valuation Standards (EVS) 2025</strong>, publizéiert vun TEGoVA, bilden de Referenzrahmen fir all professionell Immobiliebewäertung zu Lëtzebuerg. D'CSSF verlaangt an hirem Rundschreiwen 21/773, datt Kreditinstituter EVS-konform Bewäertunge fir als Sécherheet akzeptéiert Immobilien benotzen.</p><p>Zu Lëtzebuerg gëtt de Maartwäert als de wahrscheinlechste Präis definéiert, zu deem eng Immobilie um Bewäertungsstéchdaag verkaaft géif ginn.</p>",
+      "evs2025Title": "De professionelle Bewäertungskader verstoen",
+      "evs2025Content": "D’European Valuation Standards (EVS), déi vun TEGoVA publizéiert ginn, bidden e Kader fir déi professionell Bewäertung: e kloeren Optrag, iwwerpréift Quellen, begrënnte Methoden an ausdrécklech Hypotheesen a Grenzen. Dat mécht d’Analys méi transparent an novollzéibar; eng Formel eleng ass keng Expertise.",
       "methodesTitle": "Déi 5 unerkannte Bewäertungsmethoden",
       "methodesContent": "<p>Eise Bewäertungstool integréiert déi fënnef vun internationalen Standards unerkannte Bewäertungsansätz:</p><ul><li><strong>Vergläichswäertmethod</strong>: direkten Ansaz baséierend op rezenten Transaktiounen.</li><li><strong>Ertragswäertmethod</strong>: D'Nettomieteinnahme gi mat der beobachter Rendite kapitaliséiert.</li><li><strong>DCF-Method</strong>: Projektioun vun den Nettoflëss iwwer 10 Joer mat Endwäert.</li><li><strong>Mortgage Lending Value (MLV)</strong>: Virsiichtege Wäert mat engem Ofschlag vu 10 bis 20 %.</li><li><strong>Term-and-Reversion-Method</strong>: Ënnerscheedung tëschent vertragelechem Akommes an erwaartem Maartakommes.</li></ul>",
       "reconciliationTitle": "Ofgläich a Methodengewiichtung",
       "reconciliationContent": "<p>E professionelle Bewäerter stëtzt sech ni op eng eenzeg Method. Den <strong>Ofgläich</strong> bestéit doran, all Method e Gewiicht zouzewéisen:</p><ul><li>Fir eng <strong>Standardwunneng</strong> kréiss de Vergläichswäertmethod d'héichst Gewiicht (60-70 %).</li><li>Fir eng <strong>Anlagimmobilie</strong> ginn Ertragswäert an DCF bevorzuugt (70-80 %).</li><li>Fir eng <strong>atypresch Immobilie</strong> stëtzt sech de Bewäerter méi op d'Residualmethod.</li></ul>",
       "rapportTitle": "Struktur vum Bewäertungsbericht",
-      "rapportContent": "<p>E Bewäertungsbericht konform mat den EVS 2025 ëmfaasst:</p><ul><li><strong>Objektidentifikatioun</strong>: Adress, Katasterreferenzen, physesch Beschreiwung.</li><li><strong>Rechtleche Kontext</strong>: Wunnengseigentumsregime, Planungskonformitéit.</li><li><strong>Lokal Maartanalyse</strong>: Präistrends, Transaktiounsvolumen.</li><li><strong>Methodenuwendung</strong>: Berechnungsdetailer, Datenquellen.</li><li><strong>Ofgläich a Conclusioun</strong>: ermëttelten Wäert, Konfidenzintervall.</li></ul>",
+      "rapportContent": "Organiséiert Beleger, Quellen, Berechnungen, Hypotheesen a Reserven an engem Aarbechtsdossier. Den Expert kontrolléiert d’Informatiounen, bestëmmt déi néideg Ënnersichungen an iwwerhëlt d’Verantwortung fir seng Conclusiounen. Den Export oder d’technesch Ënnerschrëft vum Fichier bescheinegt keng fachlech Konformitéit.",
       "faq1Q": "Wien dierf zu Lëtzebuerg eng Immobiliebewäertung maachen?",
-      "faq1A": "Zu Lëtzebuerg ass den Titel vum Immobilieexpert net gesetzlech geschëtzt. D'Banke verlaangen awer normalerweis e Bewäerter mat REV-Qualifikatioun (Recognised European Valuer) vun TEGoVA.",
+      "faq1A": "D’Qualifikatioune REV a REV-Resi betreffen d’Fachleit, net d’Software. D’Wiel vum Expert an d’Ufuerderungen un de Rapport hänke vum Optrag a vum Empfänger of. LPVI erkläert d’Ausbildungsweeër an d’Lizenzbedéngungen op sengem Site.",
       "faq2Q": "Wéi eng Bewäertungsmethod fir wéi en Immobilientyp?",
       "faq2A": "Fir eng Wunneng oder en Haus ass de Vergläichswäertmethod normalerweis am zuverlässegsten. Fir e vermiddelt Büro- oder Geschäftsgebai ginn Ertragswäert oder DCF bevorzuugt. Fir Bauland ass d'Residualmethod onerléisslech.",
       "faq3Q": "Wat ass den Ënnerscheed tëschent Maartwäert a MLV?",
@@ -3470,7 +3471,7 @@
       "faq4Q": "Wéi dacks soll eng Immobilie nei bewäert ginn?",
       "faq4A": "D'CSSF verlaangt eng Neibewäertung mindestens all 3 Joer fir Wunnimmobilien an all Joer fir Gewerbeimmobilien.",
       "faq5Q": "Wat kascht en Immobiliëgutachten zu Lëtzebuerg?",
-      "faq5A": "D'Honorare variéieren jo no Komplexitéit. Fir eng Standardwunneng rechent mat 1.500 bis 3.000 EUR. Fir en Anlageobjekt 3.000 bis 8.000 EUR."
+      "faq5A": "Frot en Devis un, dee bei d’Immobilie, déi néideg Kontrollen an den Zweck vum Rapport passt. LPVI kann Iech bei der Sich no engem Expert orientéieren. D’Tevaxia-Berechnungen hëllefen, dat Gespréich ze preparéieren, a si keen Devis fir eng Expertise."
     },
     "reportTemplateLabel": "Rapport-Template:",
     "templateStandard": "Standard (komplett)",
@@ -3487,7 +3488,8 @@
     "capAuditInvalid": "Gitt net negativ Montanten a gëlteg Tauxen an (0–100 %, Kapitaliséierung strikt positiv). D’Method erfuerdert positivt Nettoakommes. E Verloscht erfuerdert eng aner Analys; dat bedeit net automatesch e Maartwäert vun null oder manner.",
     "capAuditErvRatio": "Maartloyer nom Leerstand / Wäert, viru Käschten",
     "capAuditGap": "Differenz vum Maartloyer zum aktuelle Loyer",
-    "capAuditErvOptional": "Fakultativ: Ouni Dokumentatioun eidel loossen. Null bedeit e Maartloyer vun null an ass net datselwecht wéi eng feelend Informatioun."
+    "capAuditErvOptional": "Fakultativ: Ouni Dokumentatioun eidel loossen. Null bedeit e Maartloyer vun null an ass net datselwecht wéi eng feelend Informatioun.",
+    "rptPrefilled": "Virausgefëllten Inhalt kontrolléieren"
   },
   "onboarding": {
     "heading": "Fannt d'Tools, déi op Äre Beruff zougeschnidde sinn",
@@ -3508,14 +3510,14 @@
     },
     "investisseur": {
       "title": "Investisseur",
-      "description": "EVS 2025 Bewäertung, DCF pro Locataire, Loyerdach Art. 102 LIR, Multi-Biens-Suivi",
+      "description": "Wäertanalys, DCF pro Mietvertrag an Iwwersiicht iwwer méi Immobilien",
       "linkGestion": "★ LU Lounungsverwaltung (5%-Regel, Klimabonus)",
-      "link1": "EVS Bewäertung",
+      "link1": "Wäertanalys a Szenarien",
       "link2": "DCF Multi-Locatairen",
       "link3": "Portfolio",
       "link4": "Cashflow-Rechner (FR/BE/LU)",
       "link5": "Zwou Immobilien vergläichen",
-      "linkInspection": "TEGOVA-Inspektioun",
+      "linkInspection": "Checklëscht fir d’Immobiliebesichtegung",
       "linkTransparence": "Steierlich Transparenz"
     },
     "promoteur": {
@@ -3549,11 +3551,11 @@
     },
     "banque": {
       "title": "Bank / Finanzwiesen",
-      "description": "REST API Schätzung, TEGOVA MLV, AML/KYC, SHA-256 ënnerschriwwen Bericht ëffentlech verifizéierbar",
+      "description": "Indikativ API-Schätzungen, Wäertszenarien, Kreditinstrumenter an dokumentéiert Dossieren",
       "link1": "Schätzungs-API (Banken)",
       "link2": "Bankinstrumenter",
       "link3": "AML / KYC",
-      "link4": "EVS / MLV Bewäertung"
+      "link4": "Wäertanalys a Szenarien"
     },
     "hotellerie": {
       "title": "Hotellerie",
@@ -3580,7 +3582,7 @@
   },
   "pricing": {
     "title": "Tariffer",
-    "subtitle": "40+ Immobilien-Tools, 13 Energie- & ESG-Simulatoren, 20+ Hotellerie-Säiten, STR Airbnb, Factur-X-Rechnungsstellung an Agence-CRM. Direkt Resultater, PDF-Export, konform Rapporten.",
+    "subtitle": "Immobilieninstrumenter, Energiesimulatoren, Verwaltung a Virbereedung vun Dossieren. Indikativ Berechnungen, ausdrécklech Hypotheesen an Exporter fir ze kontrolléieren.",
     "contact": "Froen oder Virschléi?",
     "free": {
       "name": "Gratis",
@@ -3588,7 +3590,7 @@
       "priceNote": "Fir ëmmer gratis",
       "description": "All Rechner, Resultater a Richtung",
       "cta": "Ufänken",
-      "f1": "40+ Immobilientools (Schätzung, Käschten, Wäertzouwuess, Loyer, Hëllefen, EVS-Bewäertung, DCF, kommerziell Bail, VEFA, TEGOVA-Inspektioun, Privat-Wizard, asw.)",
+      "f1": "Immobilieninstrumenter: Schätzungen, Käschten, Loyeren, Hëllefen, Wäertanalys, DCF a Virbereedung vu Besichtegungen",
       "f2": "13 Energie- & ESG-Simulatoren (CPE-Impakt, Renovatioun ROI, Energiegemeinschaft, EPBD, LENOZ, HVAC, Portfolio, CRREM-Pathways, EU-Taxonomie 7.7)",
       "f3": "Hotelstools: dokumentéiert Bewäertung, Scholdendeckung, Betrib, E-2-Virbereedung, Prognosen aus geliwwerter Historie, belegte Vergläicher, MICE, CAPEX a publizéiert Transaktiounen.",
       "f4": "8 STR / Airbnb-Tools (Rentabilitéit, Forecast, Pricing, Arbitrage, LU-Compliance, EU-Compliance 2024/1028, Observatoire)",
@@ -3615,7 +3617,7 @@
       "f7": "Personaliséiert Profil op de Berichter (Numm, Logo, Kontaktdaten, rechtlech Erwähnung)",
       "f8": "Maartalarmer + Szenarienvergleich + View-only Link-Sharing",
       "f9": "2FA (TOTP) + DSGVO-Kontolöschung + Astëmmungen",
-      "f10": "TEGOVA-Feldinspektioun (41 Punkten, offline)",
+      "f10": "Checklëscht fir d’Immobiliebesichtegung",
       "f11": "Umeldung mat Google / LinkedIn / E-Mail"
     },
     "pro": {
@@ -3626,7 +3628,7 @@
       "cta": "Gratis Zougang",
       "badge": "Ugebueden",
       "inherited": "Alles vum Kont Tier, plus:",
-      "f1": "Expertise am EVS-2025-Format: 11 Sektiounen + Annexen, un den EVS-Standarden an der Charte 5. Ed. ausgeriicht.",
+      "f1": "Strukturéiert Dossieren: Quellen, Berechnungen, Hypotheesen a Reserven fir fachlech Kontroll.",
       "f2": "Komplett Syndic: Kopropriétéiten, Fongerufer (Factur-X-Batch), virtuell AG mat Prokur, editierbar Bréiwervirlaagen (DOCX/PDF/Drive), Benchmark",
       "f3": "Hotelsgrupp: gespäichert Fichen a Perioden, PDF-Rapporte vun deklaréierten Donnéeën, Periodeverglach a Schwellwäerter. Automatesch Iwwerwaachung vun Alerten ass net bestätegt.",
       "f4": "B2B-Agence-CRM: Mandatspipeline, Kontakter, Aufgaben, Co-Brand-Fiche-PDF",
@@ -3647,9 +3649,9 @@
       "q3": "Sinn meng Donnéeë sécher?",
       "a3": "Är Donnéeë sinn an Europa op sécheren Serveren (Supabase) gehost. Mir verkafen oder deelen Är Informatiounen net. Ouni Kont verléisst näischt Äre Browser.",
       "q4": "Wéini ass de Pro-Tier disponibel?",
-      "a4": "De Pro-Tier ass a Entwécklung. Kontaktéiert eis op contact@tevaxia.lu fir beim Start informéiert ze ginn oder fir Är spezifesch Besoinen ze beschwätzen.",
-      "q5": "Kann ech tevaxia fir offiziell Bewäertungsberichter benotzen?",
-      "a5": "D'Tools liwweren indikativ Berechnungen. De Pro-Tier wäert personaliséierbar EVS-2025-konform Berichter enthalen. Fir en zertifizéierte Bewäertungsbericht ass e qualifizéierten Expert nach ëmmer néideg."
+      "a4": "Organiséiert Beleger, Quellen, Berechnungen, Hypotheesen a Reserven an engem Aarbechtsdossier. Den Expert kontrolléiert d’Informatiounen, bestëmmt déi néideg Ënnersichungen an iwwerhëlt d’Verantwortung fir seng Conclusiounen. Den Export oder d’technesch Ënnerschrëft vum Fichier bescheinegt keng fachlech Konformitéit.",
+      "q5": "Kann den Dossier un ënnerschiddlech Immobilientypen ugepasst ginn?",
+      "a5": "De Modul bitt verschidden Immobilientypen a Methoden. De Fachmann wielt déi passend aus, passt d’Hypotheesen un an dokumentéiert d’Grenzen; d’Auswiel vun engem Immobilientyp validéiert d’Analys net."
     },
     "launchBanner": "Startphas — de Pro-Paket gëtt gratis ugebueden"
   },
@@ -3712,7 +3714,7 @@
     "intro": "Dës Allgemeng Notzungsbedingungen (AGB) reegelen d'Notzung vun der Plattform tevaxia.lu a hiren Déngschter. Andeems de Benotzer de Site opruft oder e Kont erstellt, akzeptéiert hien dës AGB ouni Virbehalt.",
     "article1": {
       "title": "1. Géigestand",
-      "p1": "tevaxia.lu ass eng lëtzebuerger Plattform, déi ubitt: (a) gratis ëffentlech Tools (Rechner, Simulatoren, hedoneschen Estimator, Präiskaart), (b) e Modul fir professionell Immobiliebewertung no den EVS-Standarden (TEGOVA), an (c) Profi-Software fir Immobilienagencen (CRM), Syndicsgestionnairen an Hôteliers (PMS).",
+      "p1": "Tevaxia.lu bitt Immobilienrechner a Simulatoren, e Modul fir Dossieren a Wäertszenarien ze preparéieren a Branchesoftware fir Agencen, Verwaltungen an Hoteller. D’Analysinstrumenter bidden indikativ Hëllef an ersetzen keng professionell Expertise.",
       "p2": "Déi professionell Déngschter si verfügbar mat engem Abonnement, no der Erstellung vun engem Kont an enger Organisatioun."
     },
     "article2": {
@@ -3977,7 +3979,7 @@
       "faqTitle": "Dacks gestallt Froen zum Immobiliëvergläich",
       "relatedTitle": "Ergänzend Tools",
       "methodeTitle": "D'Vergläichswäertmethod am Lëtzebuerger Immobiliëmaart",
-      "methodeContent": "<p>D'<strong>Vergläichswäertmethod</strong> ass déi intuitivst an am meeschte benotzt Bewäertungstechnik fir Wunntransaktiounen zu Lëtzebuerg. Si baséiert op <strong>aktuellen Transaktiounspräisser</strong> vu vergläichbaren Immobilien.</p>",
+      "methodeContent": "Vergläicht dokumentéiert Verkafspräisser, kapitaliséiert Erträg oder diskontéiert Cashflows. Wielt a begrënnt d’Methoden an d’Parameteren no der Immobilie an dem Optrag; d’Szenarie solle mat engem Fachmann iwwerpréift ginn.",
       "criteresTitle": "Auswielkritäre fir Vergläichsobjeten",
       "criteresContent": "<p>D'Auswiel vu relevante Vergläichsobjete baséiert op:</p><ul><li><strong>Lag</strong>: selwecht Gemeng, idealerweis selwecht Quartier</li><li><strong>Immobilientyp</strong>: Wunneng vs. Haus, Wunnfläch</li><li><strong>Alter</strong>: selwecht Altersstuuf</li></ul>",
       "ajustementsTitle": "Ajustementer a Gewiichtung vun de Vergläichsobjeten",
@@ -3985,7 +3987,7 @@
       "decisionTitle": "Vergläichswäerter fir fundéiert Decisiounen notzen",
       "decisionContent": "<p>Den Immobiliëvergläich ass essentiel fir Präisfestleeung, Verhandlungen an Due Diligence. Eisen Tool erlaabt de Vergläich vun bis zu 4 Immobilien gläichzäiteg.</p>",
       "faq1q": "Wéi vill Vergläichsobjete brauch een fir eng zouverlässeg Bewäertung?",
-      "faq1a": "D'EVS-Norm empfiehlt mindestens 3 relevant Vergläichsobjeten, idealerweis 5-10.",
+      "faq1a": "Benotzt relevant, iwwerpréifbar a genuch vergläichbar Referenzen. Déi sënnvoll Zuel hänkt vum Maart an der Immobilie of; keng Unzuel eleng garantéiert d’Qualitéit vun enger Expertise.",
       "faq2q": "Wou kommen d'Transaktiounsdaten hier?",
       "faq2a": "D'Donnéeë kommen vun der AED, aggregéiert vum Wunnengsobservatoire.",
       "faq3q": "Wéi passt een fir d'Energieeffizienz un?",
@@ -4775,7 +4777,7 @@
     },
     "links": {
       "estimation": "Immobilieschätzung",
-      "valorisation": "EVS 2025 Bewäertung",
+      "valorisation": "Wäertanalys a Szenarien",
       "carte": "Interaktiv Präiskaart",
       "frais": "Akafskäschten",
       "loyer": "Kapital & Loyer",
@@ -4786,7 +4788,7 @@
       "comparer": "Zwee Immobilien vergläichen",
       "vefa": "VEFA Rechner",
       "wizardParticulier": "Privatpersoun-Assistent",
-      "inspection": "Inspektioun (TEGOVA)",
+      "inspection": "Checklëscht fir d’Immobiliebesichtegung",
       "portfolio": "Immobilieportfolio",
       "dcfMulti": "DCF Multi-Locatairen",
       "bilanPromoteur": "Promoteur-Bilanz",
@@ -4974,7 +4976,7 @@
     "fullNameHint": "Sou wéi en op de Berichter erschéngt",
     "company": "Firma / Kanzlei",
     "qualifications": "Qualifikatiounen",
-    "qualificationsHint": "Bsp.: REV, TRV, MRICS, TEGOVA Expert",
+    "qualificationsHint": "Gitt nëmmen Är eege gülteg berufflech Qualifikatiounen un.",
     "contactDetails": "Kontaktdaten",
     "email": "Email",
     "phone": "Telefon",
@@ -5147,7 +5149,7 @@
     "storageTitle": "Lokale Späicher:",
     "storageNote": "Bis zu 500 aktiv Berechnunge pro Beräich. Agelogte Konte benotzen d’Cloud an e lokale Cache. De Pabeierkuerf vun dësem Browser erlaabt eng Recuperatioun wärend siwen Deeg.",
     "typeEstimation": "Schätzung",
-    "typeValorisationEVS": "EVS-Bewäertung",
+    "typeValorisationEVS": "Wäertanalys a Szenarien",
     "typeCapitalisation": "Kapitaliséierung",
     "typeDCF": "DCF",
     "typeDCFMulti": "DCF Multi-Locatairen",
@@ -5399,7 +5401,7 @@
       "faq1Q": "Wéi héich ass de R² vum hedonesche Modell fir Lëtzebuerg?",
       "faq1A": "Den R² ass ronn 0,75 — 75 % vun der Transaktiouspräisvarianz gëtt erkläert.",
       "faq2Q": "Wat ass den Ënnerscheed tëschent hedonesche Modell an Immobiliëgutachten?",
-      "faq2A": "D'hedonesch Modell liwwert eng statistesch Schätzung ouni Besiichtegung. En Gutachten (EVS-konform) beinhalt eng Visite, juristesch Analyse a professionnellt Urteel.",
+      "faq2A": "Tevaxia hëlleft, Donnéeën ze preparéieren an indikativ Szenarien ze ënnersichen. D’Software ersetzt weder d’Kontroll vun der Immobilie nach dat fachlecht Uerteel oder de Rapport vun engem Expert. Si bescheinegt keng Konformitéit mat den EVS oder TEGoVA.",
       "faq3Q": "Ass d'hedonesch Modell op Gewerbeimmobilie uwend bar?",
       "faq3A": "Eise Modell ass haaptsächlech op de lëtzebuergsche Wunnungsmaart kalibréiert. Fir Gewerbeimmobilie sinn Ertragswäertmethoden (DCF) geeeegenter.",
       "faq4Q": "Wéi genee ass d'Modell pro Gemeng?",
@@ -6568,14 +6570,14 @@
     },
     "expert-evaluateur": {
       "meta": {
-        "title": "Schätzer-Software TEGOVA EVS 2025 fir Lëtzebuerg",
-        "description": "EVS-2025-konforme Bewäertungsrapport an 20 min: 8 Methoden, 9 Asset-Typen, automatesch ausgefëllt Daten (98 Gemengen + 12 Makro-Serien), SHA-256-Ënnerschrëft."
+        "title": "Instrumenter fir Immobiliebewäerter — Lëtzebuerg",
+        "description": "Bewäertungsdossiere preparéieren: Quellen, Berechnungen, Hypotheesen a Reserven. Indikativ Instrumenter fir fachlech Kontroll."
       },
       "hero": {
-        "badge": "Un den EVS-Standarden an der Charte 5e éd. ausgeriicht",
-        "title": "Rapport am EVS-2025-Format an",
-        "titleAccent": "20 Minutten amplaz vun 4 Stonnen",
-        "subtitle": "Bewäertungsmodul mat 11 Sektiounen + Annexe, strukturéiert no den European Valuation Standards (TEGOVA) an der Charte de l'expertise 5e éd. 8 Methoden, 9 Asset-Typen, Daten fir 98 Lëtzebuerger Gemengen automatesch ausgefëllt. Gebaut fir REV, TRV an onofhängeg Schätzer.",
+        "badge": "Dossier fir fachlech Kontroll",
+        "title": "Preparéiert Ären Dossier",
+        "titleAccent": "mat dokumentéierten Hypotheesen",
+        "subtitle": "Organiséiert Beleger, Quellen, Berechnungen, Hypotheesen a Reserven an engem Aarbechtsdossier. Den Expert kontrolléiert d’Informatiounen, bestëmmt déi néideg Ënnersichungen an iwwerhëlt d’Verantwortung fir seng Conclusiounen. Den Export oder d’technesch Ënnerschrëft vum Fichier bescheinegt keng fachlech Konformitéit.",
         "cta": "Gratis ufänken",
         "ctaSecondary": "Kuckt wéi et funktionéiert",
         "kpis": [
@@ -6599,7 +6601,7 @@
         "items": [
           {
             "title": "4 Stonne pro Rapport am Schnëtt",
-            "desc": "E komplette EVS-2025-Rapport dauert typesch 3 bis 5 Stonnen tëscht Datensammelen an der finaler Formatéierung no der Charte.",
+            "desc": "D’Sammle vu Beleger, d’Analys an d’Redaktioun verlaangen Aarbecht, déi un all Optrag ugepasst ass.",
             "stat": "~4 St pro Rapport"
           },
           {
@@ -6608,8 +6610,8 @@
             "stat": "~10 Quelle pro Rapport"
           },
           {
-            "title": "Non-Conformitéits-Risiko Charte",
-            "desc": "Déi 11 obligatoresch Sektiounen, EVS 5 Spezialhypothesen, wesentlech Onsécherheetsangab: eng Ausloossung an de Rapport ass ufechtbar.",
+            "title": "Kontrollen a Reserven ze dokumentéieren",
+            "desc": "Dokumentéiert den Ëmfang, besonnesch Hypotheesen, Onsécherheeten an néideg Kontrollen. Hir Bedeitung an hiren Afloss op d’Conclusioun muss de Fachmann bewäerten.",
             "stat": "0 % akzeptabel Feelermarge"
           }
         ]
@@ -6631,17 +6633,17 @@
           {
             "number": "3",
             "title": "Ënnerschriwwene PDF-Rapport",
-            "desc": "Server-side Generatioun vum 11-Sektiounen-Rapport, SHA-256-Ënnerschrëft, REV-Logo a Qualifikatiounen."
+            "desc": "Organiséiert Beleger, Quellen, Berechnungen, Hypotheesen a Reserven an engem Aarbechtsdossier. Den Expert kontrolléiert d’Informatiounen, bestëmmt déi néideg Ënnersichungen an iwwerhëlt d’Verantwortung fir seng Conclusiounen. Den Export oder d’technesch Ënnerschrëft vum Fichier bescheinegt keng fachlech Konformitéit."
           }
         ]
       },
       "features": {
         "title": "Gebaut fir onofhängeg Schätzer a Kanzleien",
-        "intro": "All Funktioun beäntwert eng richteg Aschränkung vun der Schätzertätegkeet zu Lëtzebuerg: TEGOVA-Konformitéit, Réckverfollegbarkeet, ëffentlech Daten, beweisbar Ënnerschrëft.",
+        "intro": "Organiséiert Beleger, Quellen, Berechnungen, Hypotheesen a Reserven an engem Aarbechtsdossier. Den Expert kontrolléiert d’Informatiounen, bestëmmt déi néideg Ënnersichungen an iwwerhëlt d’Verantwortung fir seng Conclusiounen. Den Export oder d’technesch Ënnerschrëft vum Fichier bescheinegt keng fachlech Konformitéit.",
         "items": [
           {
-            "title": "11 EVS-2025-Sektiounen",
-            "desc": "Missioun, Standuert, Recht, Urbanismus, Beschreiwung, Loyer, Maart, SWOT, Bewäertung, Konklusiounen, Zertifizéierung."
+            "title": "Dossier mat 11 Sektiounen",
+            "desc": "Optrag, Beschreiwung vun der Immobilie, Dokumenter, Maart, Berechnungen, Hypotheesen, Reserven a Conclusioune vum Verfaasser."
           },
           {
             "title": "8 Bewäertungsmethoden",
@@ -6664,8 +6666,8 @@
             "desc": "Virschléi no Gemeng, Typ, Fläch, Baujoer. Erklärbar Ajustementer."
           },
           {
-            "title": "EVS 5 Spezialhypothesen",
-            "desc": "Verbindlech Hypothesen a wesentlech Onsécherheet no EVS 5 a Red Book."
+            "title": "Besonnesch Hypotheesen",
+            "desc": "Notéiert Är Hypotheesen an erkläert hiren Afloss op d’Szenarien."
           },
           {
             "title": "Server-side ënnerschriwwe PDF",
@@ -6676,8 +6678,8 @@
             "desc": "Konfidenzscore op Basis vun der Zuel vu Vergläicher, Sträiung, Datenalter."
           },
           {
-            "title": "TEGOVA-Feldinspektioun",
-            "desc": "EVS-2025 41-Punkte-Checklëscht. Offline um Handy, Sync beim Zréckkommen, Import an de Rapport."
+            "title": "Checklëscht fir d’Immobiliebesichtegung",
+            "desc": "Notéiert Observatiounen, Punkten déi ze kontrolléiere sinn an Notize vun der Besichtegung. D’Checklëscht hëlleft beim Preparéiere vum Dossier; si bescheinegt weder den Zoustand vun der Immobilie nach d’Anhale vu beruffleche Standarden."
           },
           {
             "title": "Hedonescht Modell",
@@ -6696,19 +6698,19 @@
         "customTitle": "Individuell Entwécklung méiglech",
         "customDesc": "Spezifesch Upassungen, dedizéiert Integratiounen: Entwécklung an 1 bis 3 Wochen.",
         "supportTitle": "Support ënner 24 St",
-        "supportDesc": "E-Mail un contact@tevaxia.lu. Duerchschnëttsäntwert ënner 6 Stonnen op Schaffdeeg."
+        "supportDesc": "Froen zu den Instrumenter? Schreift un contact@tevaxia.lu."
       },
       "pricing": {
         "title": "An Ärem tevaxia-Abonnement abegraff",
         "subtitle": "Keng Facturatioun pro Rapport, kee Méintquota. Dat ganzt Bewäertungsmodul ass am allgemengen Abonnement abegraff.",
         "features": [
-          "Onlimitéiert EVS-2025-Rapporten",
+          "Dossieren a Wäertszenarien",
           "8 Bewäertungsmethoden",
           "9 ënnerstëtzt Asset-Typen",
           "Automatesch ausgefëllt Makro- a Gemengen-Daten",
           "Automatesch Vergläichsobjet no Nopeschaft",
           "SHA-256-Ënnerschrëft + Schätzer-Logo",
-          "TEGOVA 41-Punkte-Inspektioun (offline)",
+          "Checklëscht fir d’Immobiliebesichtegung",
           "Hedonescht Modell mat ëffentlechem MAPE/R²"
         ],
         "ctaPlatform": "tevaxia-Päck kucken",
@@ -6718,8 +6720,8 @@
         "title": "Dacks gestallten Froen",
         "items": [
           {
-            "q": "Ass de Rapport Charte 5e éd. konform?",
-            "a": "Jo, déi 11 obligatoresch Sektiounen follegen der TEGOVA/Charte-Struktur. EVS-5-Spezialhypothesen a wesentlech Onsécherheet abegraff."
+            "q": "Bescheinegt d’Software d’Konformitéit vu mengem Rapport?",
+            "a": "Organiséiert Beleger, Quellen, Berechnungen, Hypotheesen a Reserven an engem Aarbechtsdossier. Den Expert kontrolléiert d’Informatiounen, bestëmmt déi néideg Ënnersichungen an iwwerhëlt d’Verantwortung fir seng Conclusiounen. Den Export oder d’technesch Ënnerschrëft vum Fichier bescheinegt keng fachlech Konformitéit."
           },
           {
             "q": "Kann ech nëmmen déi relevant Methoden fir meng Immobilie wielen?",
@@ -6738,14 +6740,14 @@
             "a": "D'SHA-256-Ënnerschrëft garantéiert d'Integritéit vum Dokument. Si ersetzt keng rechtlech qualifizéiert eIDAS-Ënnerschrëft, gëtt awer kryptografesche Beweis datt de Rapport net geännert gouf."
           },
           {
-            "q": "Wéi ginn EVS-5-Spezialhypothesen behandelt?",
-            "a": "Dedizéiert Sektioun: Dir lëscht d'verbindlech Hypothesen, den Outil weist d'obligatoresch EVS-5-Warnung a passt de Wäert op Basis vun den Inputen un."
+            "q": "Wéi kënne besonnesch Hypotheesen dokumentéiert ginn?",
+            "a": "Dokumentéiert den Ëmfang, besonnesch Hypotheesen, Onsécherheeten an néideg Kontrollen. Hir Bedeitung an hiren Afloss op d’Conclusioun muss de Fachmann bewäerten."
           }
         ]
       },
       "finalCta": {
         "title": "Prett fir 3 Stonne pro Rapport ze spueren",
-        "desc": "Kont erstellen, Profil personaliséieren, éischten EVS-2025-Rapport an 20 Minutte generéieren. Null Engagement.",
+        "desc": "Maacht e Kont op a preparéiert en Dossier, deen Dir fir Ären Optrag ergänzt a kontrolléiert.",
         "cta": "Gratis ufänken",
         "ctaSecondary": "Bewäertungsmodul kucken"
       }
@@ -7052,7 +7054,7 @@
             "desc": "4-Schrëtt-Flow: Schätzung + Käschten + Aiden + legale Loyer an engem Wee."
           },
           {
-            "title": "TEGOVA-Feldinspektioun",
+            "title": "Checklëscht fir d’Immobiliebesichtegung",
             "desc": "41-Punkte-Checklëscht fir Immobilie-Besichtegung."
           }
         ]
@@ -7306,18 +7308,18 @@
     "banque": {
       "meta": {
         "title": "Immobilienevaluatioun fir Banken Lëtzebuerg — CRR, LTV, DSCR",
-        "description": "CRR-konform EVS-2025-Bewäertung, +2 %-Stresstest, LTV/DSCR-Outillen, AML/KYC, CRREM-Energie-Portfolio. Fir LU Kredit-Analysten a Risk Managers."
+        "description": "Tevaxia hëlleft, Donnéeën ze preparéieren an indikativ Szenarien ze ënnersichen. D’Software ersetzt weder d’Kontroll vun der Immobilie nach dat fachlecht Uerteel oder de Rapport vun engem Expert. Si bescheinegt keng Konformitéit mat den EVS oder TEGoVA."
       },
       "hero": {
         "badge": "Fir LU Banken a Kredit-Analysten",
         "title": "Immobilie-Kredit-Analyse,",
-        "titleAccent": "CRR + EVS 2025 an engem Outil",
-        "subtitle": "EVS-2025-Bewäertung mat CRR-Bélégowäert (Energie-Haircut), LTV / DSCR / Kreditkapazitéit pro CSSF-Profil, AML/KYC mat EU-Sanktiounspréiwung, CRREM-Stranding-Energie-Portfolio. Gebaut fir Lëtzebuerger Kredit-Analysten, Risk Managers a Compliance Officers.",
+        "titleAccent": "Dokumentéiert Szenarien",
+        "subtitle": "Tevaxia hëlleft, Donnéeën ze preparéieren an indikativ Szenarien ze ënnersichen. D’Software ersetzt weder d’Kontroll vun der Immobilie nach dat fachlecht Uerteel oder de Rapport vun engem Expert. Si bescheinegt keng Konformitéit mat den EVS oder TEGoVA.",
         "cta": "Gratis ufänken",
         "ctaSecondary": "Kuckt wéi et funktionéiert",
         "kpis": [
           {
-            "value": "CRR + EVS 2025",
+            "value": "Dokumentéiert Szenarien",
             "label": "dual Konformitéit"
           },
           {
@@ -7363,7 +7365,7 @@
           {
             "number": "2",
             "title": "Bewäertung + CRR + LTV/DSCR",
-            "desc": "EVS-2025-Maartwäert (8 Methoden), CRR-Bélégowäert mat CRREM-Haircut, LTV pro CSSF-Profil, DSCR-Zil 1,25, +2 %-Zëns- a Chômage-Stresstest."
+            "desc": "Vergläicht dokumentéiert Verkafspräisser, kapitaliséiert Erträg oder diskontéiert Cashflows. Wielt a begrënnt d’Methoden an d’Parameteren no der Immobilie an dem Optrag; d’Szenarie solle mat engem Fachmann iwwerpréift ginn."
           },
           {
             "number": "3",
@@ -7377,8 +7379,8 @@
         "intro": "Konform mat der EU-Verordnung 575/2013 (CRR), CSSF-Ufuerderungen, EN 16931, RGPD an EBA-Guidelines zu Immobilien-Sécherheeten.",
         "items": [
           {
-            "title": "EVS-2025-Bewäertung",
-            "desc": "8 TEGOVA-Methoden, 9 Asset-Typen, 98 LU-Gemengen-Daten, automatesch Sensibilitéit. Un der Charte 5e éd. ausgeriicht."
+            "title": "Wäertanalys a Szenarien",
+            "desc": "Vergläicht dokumentéiert Verkafspräisser, kapitaliséiert Erträg oder diskontéiert Cashflows. Wielt a begrënnt d’Methoden an d’Parameteren no der Immobilie an dem Optrag; d’Szenarie solle mat engem Fachmann iwwerpréift ginn."
           },
           {
             "title": "CRR-Bélégowäert",
@@ -7433,13 +7435,13 @@
         "customTitle": "Individuell Entwécklung méiglech",
         "customDesc": "Spezifesch Upassungen, dedizéiert Integratiounen: Entwécklung an 1 bis 3 Wochen.",
         "supportTitle": "Support ënner 24 St",
-        "supportDesc": "E-Mail un contact@tevaxia.lu. Duerchschnëttsäntwert ënner 6 Stonnen op Schaffdeeg."
+        "supportDesc": "Froen zu den Instrumenter? Schreift un contact@tevaxia.lu."
       },
       "pricing": {
         "title": "An Ärem tevaxia-Abonnement abegraff",
         "subtitle": "Keng Facturatioun pro Akt. All Bank-Outillen sinn am allgemengen Abonnement abegraff.",
         "features": [
-          "Onlimitéiert EVS-2025-Bewäertungen",
+          "Dossieren a Wäertszenarien",
           "CRR-Bélégowäert mat CRREM-Haircut",
           "LTV / DSCR / Kreditkapazitéit",
           "+2 %- a Chômage-Stresstest",
@@ -7457,7 +7459,7 @@
         "items": [
           {
             "q": "Wéi gëtt de CRR-Bélégowäert ausgerechent?",
-            "a": "EVS-2025-Maartwäert minus Energie-Haircut op Basis vun der Immobilie-Energieklass an der CRREM-Trajectoire. Een Asset dat virum 2030 gestrandet ass kritt 20-30 % Haircut."
+            "a": "Tevaxia hëlleft, Donnéeën ze preparéieren an indikativ Szenarien ze ënnersichen. D’Software ersetzt weder d’Kontroll vun der Immobilie nach dat fachlecht Uerteel oder de Rapport vun engem Expert. Si bescheinegt keng Konformitéit mat den EVS oder TEGoVA."
           },
           {
             "q": "Deckt AML/KYC d'CSSF-Ufuerderungen of?",
@@ -7724,8 +7726,8 @@
       "faq4a": "GOP = Departementsresultat − allgemeng Käschten. EBITDA = GOP − Gestiounshonorairen + net operationell Recetten − net operationell Käschten. D’Reserve gëtt duerno ofgezunn. Dës vereinfacht Rechnung ass keng USALI-Zertifizéierung, kee Benchmark a keen Nettogewënn no Finanzéierung a Steieren.",
       "faq5q": "Funktionnéieren d'Tools fir en Hotel a Frankräich, Belsch oder Däitschland?",
       "faq5a": "Resultater hänke vun den Donnéeën an dem Ëmfang vum Tool of. Rapporte bestätege keng USALI-, Steier- oder Bankkonformitéit a keng administrativ Eligibilitéit. Zëmmeren an Astellungen aginn. Tariffer, Steierbehandlung an eventuell lokal Taxe virum Gebrauch iwwerpréiwen; keng Installatiounsdauer gëtt garantéiert.",
-      "faq6q": "Brauch een en TEGOVA-Expert fir eng Bank?",
-      "faq6a": "Kläert mat der Bank den Ëmfang, de Bewäertungsdatum, d’Methoden an déi néideg Qualifikatioune fir Ären Dossier. Hei gëtt weder eng allgemeng Kredittschwell nach eng Akzeptanz vun der Bank garantéiert. E SHA-256-Hash préift d’Dateiintegritéit; eleng ass en weder eng elektronesch Ënnerschrëft nach eng professionell Expertise.",
+      "faq6q": "Wéi preparéieren ech eng Expertise fir eng Finanzéierung?",
+      "faq6a": "D’Qualifikatioune REV a REV-Resi betreffen d’Fachleit, net d’Software. D’Wiel vum Expert an d’Ufuerderungen un de Rapport hänke vum Optrag a vum Empfänger of. LPVI erkläert d’Ausbildungsweeër an d’Lizenzbedéngungen op sengem Site.",
       "faqTitle": "Heefeg gestallte Froen",
       "relatedTitle": "Méi erausfannen"
     },
@@ -8186,7 +8188,7 @@
   "apiBanques": {
     "badge": "API am Pre-Launch",
     "title": "LU-Schätzungs-API fir Banken",
-    "description": "Integréiert d'lëtzebuergesch Immobilieschätzung an Äert Kredit-CRM, Äere MLV/CRR-Workflow oder Är Mobile-App. 100 Gemengen, TEGOVA EVS 2025, Äntwert ënner 200 ms.",
+    "description": "Integréiert indikativ Schätzungen an Är Instrumenter. Kontrolléiert d’Donnéeën, d’Hypotheesen an d’Grenze virum professionelle Gebrauch.",
     "ctaAccess": "Zougang ufroen",
     "useCasesTitle": "Uwendungsfäll",
     "uc1Title": "Hypothekkredit-Vergaab",
@@ -8199,7 +8201,7 @@
     "endpointSubtitle": "REST + JSON-Architektur, API-Key-Authentifizéierung (Header), konfigurierbart CORS.",
     "complianceTitle": "Compliance & Gouvernance",
     "methodTitle": "Methodologie",
-    "method1": "TEGOVA European Valuation Standards 2025",
+    "method1": "Ausdrécklech Referenzen a Parameteren",
     "method2": "Charta fir Immobilieexpertise (5. Editioun)",
     "method3": "CRR Art. 208 (MLV) an EBA/GL/2020/06",
     "method4": "Hedonesch + Vergleicher + Kapitaliséierung",
@@ -8215,12 +8217,12 @@
     "seo": {
       "usageTitle": "Typesch Notzung duerch lëtzebuergesch Banken",
       "usageContent": "Dräi Haapt-Usage-Fäll: (1) Kredit-Virqualifikatioun — integréiert eng Sofort-Schätzung an den Online-Antrag, (2) automatesch Bewäertung vu bestehenden Hypothéikportefeuilen fir prudentiell LTV nom CRR, (3) automatesch Bewäertung vun enger Garantie fir en net-hypothéikesche Kredit.",
-      "tegovaTitle": "TEGOVA-EVS-2025-Konformitéit",
-      "tegovaContent": "D'API liwwert eng Marktwäert-Schätzung am Sënn vun EVS 1 (European Valuation Standards 2025). D'kombinéiert Methoden — Vergläich, Kapitaliséierung, hedonesch — sinn am TEGOVA-Kader unerkannt.",
+      "tegovaTitle": "De professionelle Bewäertungskader verstoen",
+      "tegovaContent": "Tevaxia hëlleft, Donnéeën ze preparéieren an indikativ Szenarien ze ënnersichen. D’Software ersetzt weder d’Kontroll vun der Immobilie nach dat fachlecht Uerteel oder de Rapport vun engem Expert. Si bescheinegt keng Konformitéit mat den EVS oder TEGoVA.",
       "mlvTitle": "MLV a prudentiellt CRR-Ratio",
       "mlvContent": "Fir CRR-reguléiert Hypothéikportefeuile liwwert d'API och e Mortgage Lending Value nom EBA-Guidelines. Prudentiellen Ofschlag vum Maartwäert mat Respekt vum Prinzip vun nohaltege Wäert.",
-      "faq1q": "Ass d'API kohärent mat engem TEGOVA-Gutachten?",
-      "faq1a": "D'API liwwert eng TEGOVA-konform indikativ Schätzung. Fir e verbindleche Bericht bleift en vu qualifizéierten Gutachter ënnerschriwwene Bericht néideg. D'Ofwäichung läit typesch ënner 8 %.",
+      "faq1q": "Ersetzt d’API eng Immobilieexpertise?",
+      "faq1a": "Tevaxia hëlleft, Donnéeën ze preparéieren an indikativ Szenarien ze ënnersichen. D’Software ersetzt weder d’Kontroll vun der Immobilie nach dat fachlecht Uerteel oder de Rapport vun engem Expert. Si bescheinegt keng Konformitéit mat den EVS oder TEGoVA.",
       "faq2q": "Ginn d'Donnéeë gespäichert?",
       "faq2a": "Keng Clientdonnéeë ginn op tevaxia-Säit gespäichert, ausser am Kontrakt gefrot. Nëmme technesch Logs gi 90 Deeg opbewahrt.",
       "faq3q": "Wéi dacks ginn Maartdonnéeën aktualiséiert?",
@@ -8240,7 +8242,7 @@
       "avantagesTitle": "Firwat e Parcours statt véier separat Tools",
       "avantagesContent": "De verhandelten Präis fléisst automatesch an d'Käschten an d'Hëllefen. D'Hauptwunnsëtz- oder Neibau-Optioun an Etapp 2 ännert d'Hëllefsgrenzen an Etapp 3. De Finalrécap berechent déi geschätzten Nettokäschten (Präis + Käschten − Bar-Hëllefen).",
       "limitesTitle": "Wat de Parcours net ersetzt",
-      "limitesContent": "Dëse Parcours gëtt eng indikativ Schätzung op Basis ëffentlecher Donnéeën vum Observatoire de l'Habitat, vum STATEC an de lëtzebuergesche Steier-Baremer. Hien ersetzt keng perséinlech Kreditsimulatioun vun enger Bank, a keen formelle TEGOVA-EVS-2025-Bewertungsbericht.",
+      "limitesContent": "Tevaxia hëlleft, Donnéeën ze preparéieren an indikativ Szenarien ze ënnersichen. D’Software ersetzt weder d’Kontroll vun der Immobilie nach dat fachlecht Uerteel oder de Rapport vun engem Expert. Si bescheinegt keng Konformitéit mat den EVS oder TEGoVA.",
       "faq1q": "Brauch ech e Kont fir de Parcours ze benotzen?",
       "faq1a": "Nee. De Parcours leeft komplett am Browser. Ouni explizit ze späicheren gi keng Donnéeën un eis Serveren geschéckt.",
       "faq2q": "Rechent d'Schätzung mat der Energieklass?",
@@ -9040,17 +9042,17 @@
       "gestion-locative": "Locatiounsgestioun — Louten, Baile, Bezuelungen",
       "pms": "Hotel-PMS — Objeten, Reservatiounen, Clienten, Folios",
       "crm-agences": "Agence-CRM — Mandater, Kontakter, Aufgaben",
-      "evaluations": "Meng EVS 2025-Bewäertungen",
+      "evaluations": "Dossieren, Szenarien an Historique vun den Analysen",
       "facturation": "12-Méint Factur-X Historik",
-      "inspection": "TEGOVA-Feldinspektiounen",
+      "inspection": "Checklëscht fir d’Immobiliebesichtegung",
       "profil": "Profil & Organisatioun"
     },
     "rgpdNote": "Är Exporten enthalen perséinlech Donnéeën (Kopropriétären, Locatairen, Kontakter). Haalt se séier op. D'ZIP gëtt vun ärem Dateisystem / vum Drive verschlësselt. Tevaxia späichert oder übermittelt keng Kopie."
   },
   "inspectionTegova": {
     "backLink": "← tevaxia.lu",
-    "pageTitle": "TEGOVA Terrain-Inspektioun",
-    "pageDescription": "Checklist am EVS-2025-Format. Automatesch lokal Späicherung, fonctionnéiert offline.",
+    "pageTitle": "Checklëscht fir d’Immobiliebesichtegung",
+    "pageDescription": "Notéiert Observatiounen, Punkten déi ze kontrolléiere sinn an Notize vun der Besichtegung. D’Checklëscht hëlleft beim Preparéiere vum Dossier; si bescheinegt weder den Zoustand vun der Immobilie nach d’Anhale vu beruffleche Standarden.",
     "labelAdresse": "Adress vun der Immobilie",
     "labelInspecteur": "Inspekteur",
     "labelDate": "Datum",
@@ -9065,7 +9067,7 @@
     "ncLabel": "Net konform",
     "enAttente": "ausstänneg",
     "confirmReset": "Aktuell Inspektioun läschen an nei ufänken?",
-    "exportHeader": "TERRAIN-INSPEKTIOUNSBERICHT — TEGOVA EVS 2025",
+    "exportHeader": "Checklëscht fir d’Immobiliebesichtegung",
     "exportReference": "Referenz",
     "exportAdresse": "Adress",
     "exportInspecteur": "Inspekteur",
@@ -9082,11 +9084,11 @@
     "btnExportTxt": "Export (TXT)",
     "btnExportPdf": "Export (PDF)",
     "btnExportDocx": "Export (DOCX)",
-    "exportSubtitle": "Inspektiounsbericht konform TEGOVA EVS 2025",
+    "exportSubtitle": "Notéiert Observatiounen — Aarbechtsdokument fir ze kontrolléieren, ouni fachlech Zertifizéierung.",
     "exportTimeRange": "Zäiten",
     "exportSignatureInspector": "Inspekter-Ënnerschrëft",
     "exportSignatureClient": "Client-Ënnerschrëft",
-    "exportFooter": "Indikativ Dokument, net ënnerschriwwen. Fir offiziellen Wäert qualifizéiert Signatur néideg.",
+    "exportFooter": "Aarbechtsdokument ouni fachlech Zertifizéierung. Fir Hëllef bei der Sich no engem Expert: https://www.lpvi.lu/",
     "btnExportJson": "Daten exportéieren (JSON)",
     "btnNouvelle": "Nei Inspektioun",
     "legalTitle": "Offline-Notzung:",
@@ -9208,7 +9210,7 @@
     "limite2": "Atypesch Immobilien (Schläss, Renteobjekter, Architektenhäiser) falen net ënner dëse Modell.",
     "limite3": "Mikromaarteffekter (Aussicht, Belaaschtungen, Orientéierung) ginn net modelléiert well strukturéiert Daten feelen.",
     "limite4": "D'Referenzpräisser reflektéieren T-4 Akten; an engem ganz dynamesche Maart kann eng Verzögerung vu 3-6 Méint bestoen.",
-    "limite5": "Dëse Modell ersetzt keng TEGOVA/RICS-Bewertung mat physescher Besichtigung — en liwwert eng séier Gréissenordnung.",
+    "limite5": "Tevaxia hëlleft, Donnéeën ze preparéieren an indikativ Szenarien ze ënnersichen. D’Software ersetzt weder d’Kontroll vun der Immobilie nach dat fachlecht Uerteel oder de Rapport vun engem Expert. Si bescheinegt keng Konformitéit mat den EVS oder TEGoVA.",
     "engagementTitle": "Transparenzverpflichtung:",
     "engagementText": "dës Säit gëtt bei all Rekalibrierung aktualiséiert (véierteljäerlech, ofgestëmmt op d'Veröffentlechungen vum Observatoire). Professionell Benotzer (Banken, Agenturen) kënnen d'Zouverlässegkeet vum Modell iwwerpréiwen ier se en an hire Workflow integréieren."
   },
@@ -9246,7 +9248,7 @@
     "aboutP1": "Dëse Guide gouf vum Erwan Bargain, TEGOVA-zertifizéierten Immobiliebewäerter (REV), geschriwwen an gëtt mat Donnéeën vum Observatoire de l'Habitat, STATEC an der aktueller Lëtzebuerger Gesetzgebung aktualiséiert.",
     "aboutP2": "Lescht Aktualiséierung: Abrëll 2026. Quellen: Gesetz vum 21.09.2006, Gesetz vum 16.05.1975, Gesetz vum 03.02.2018, LIR, STATEC.",
     "iaTevaxiaTitle": "KI op tevaxia",
-    "iaTevaxiaDesc": "KI-Analyse vu Berechnungen, EVS-Rapport-Entworf, PDF-Extraktioun an Konversatiounsassistent spezialiséiert op d'lëtzebuerger Immobilien."
+    "iaTevaxiaDesc": "KI-Assistent: indikativ Analys, Entwërf fir ze iwwerpréiwen an Hëllef bei Immobiliendossieren."
   },
   "guide": {
     "fraisNotaire": {
@@ -10177,22 +10179,22 @@
       ]
     },
     "estimation": {
-      "title": "Immobilienevaluatioun Lëtzebuerg: TEGOVA EVS 2025 Methoden",
-      "metaDescription": "Immobiliebewäertung LU: 3 TEGOVA-Approchen (Vergläich, Kapitaliséierung, DCF), Datenquellen Observatoire/STATEC/AED, hedonescht LISER-Modell, CPE-Impact 3 bis 8%/Klass, REV/TRV.",
+      "title": "Immobilieschätzung zu Lëtzebuerg: Methoden an d’Roll vum Expert",
+      "metaDescription": "Bewäertungsmethoden, de Sënn vun den TEGoVA-Standarden an d’Grenze vun Onlineberechnunge verstoen. LPVI als Kontaktstell fir d’Sich no engem Expert.",
       "subtitle": "Wéi een eng Immobilie zu Lëtzebuerg richteg bewäert: professionnell Methoden, verfügbar Donnéeën an Bewäertungsdriver 2026.",
-      "category": "Bewäertung & TEGOVA",
+      "category": "Immobiliebewäertung",
       "essentiel": [
-        "3 TEGOVA EVS 2025 Approchen: direkten Vergläich (Wunnen), Ertragswäertkapitaliséierung (Locatioun), DCF (Gewerbe / Hotel).",
+        "Vergläicht dokumentéiert Verkafspräisser, kapitaliséiert Erträg oder diskontéiert Cashflows. Wielt a begrënnt d’Methoden an d’Parameteren no der Immobilie an dem Optrag; d’Szenarie solle mat engem Fachmann iwwerpréift ginn.",
         "LU-Donnéeën: LISER-Wunnungsobservatoire, STATEC IPIR, AED-Grondbuch (real Präisser), Immobilieportaler, Berodungsfirmberichter (JLL, CBRE, C&W).",
         "Schlësseldriver: Lag (Spread x2-x4 LU-Stad vs Land), Fläch, Zoustand, CPE (3-8% Wäert/Klass), Bausseberäicher a Parking.",
-        "Unerkannt Wäertgrondlagen: Marchéwäert, Investitiounswäert, Fair Value (IFRS 13). TEGOVA-Bericht setzt Annahmen a Bedingungen un.",
-        "Professionnell Expertise: REV (Recognised European Valuer) oder TRV (TEGOVA Residential Valuer), Garantie fir Onofhängegkeet a Method."
+        "Gitt d’Wäertbasis, den Datum, den Zweck vum Optrag an d’Hypotheesen un.",
+        "D’Qualifikatioune REV a REV-Resi betreffen d’Fachleit, net d’Software. D’Wiel vum Expert an d’Ufuerderungen un de Rapport hänke vum Optrag a vum Empfänger of. LPVI erkläert d’Ausbildungsweeër an d’Lizenzbedéngungen op sengem Site."
       ],
-      "section1Title": "Déi 3 TEGOVA-Bewäertungsapprochen",
+      "section1Title": "Verglach, Kapitaliséierung an DCF",
       "section1P1": "Den direkten Vergläich (Sales Comparison) gëtt am heefegsten fir Wunnimmobilie benotzt: Analys vun rezenten Transaktiounen op ähnleche Biller am selwechte Gebitt, ugepasst fir Ënnerscheeder (Fläch, Stack, Zoustand, Ausriichtung, Parking, CPE). Zouverlässeg Method wann de Marché Vergläichsreferenze bitt. Zu Lëtzebuerg späist LISER dësen Ansaz iwwer hedonesch Modeller déi den Bäitrag vu jidder Eegenschaft zum Präis isoléieren.",
-      "section1P2": "D'Ertragswäertkapitaliséierung (Income Capitalisation) deelt déi stabiliséiert jährlech Nettomietakommes duerch e Kapitaliséierungssaz dee Marktrisiko a Rendit reflektéiert. LU-Wunnen-Cap-Rates: 3 bis 5% no Lag a Klass. Den DCF-Ansaz (Discounted Cash Flow) projizéiert Cashflows iwwer 10-15 Joer an diskontéiert se zu engem ugepassten WACC (typesch 5-9%), mat engem Endwäert; obligatoresch fir Gewerbe- an Hotelimmobilien laut EVS 2025.",
+      "section1P2": "Vergläicht dokumentéiert Verkafspräisser, kapitaliséiert Erträg oder diskontéiert Cashflows. Wielt a begrënnt d’Methoden an d’Parameteren no der Immobilie an dem Optrag; d’Szenarie solle mat engem Fachmann iwwerpréift ginn.",
       "callout1Title": "Op mannst zwou Methoden ofgläichen",
-      "callout1Body": "D'TEGOVA EVS 2025 Standarden verlaangen, datt den Gutachter d'Method begrënnt an, no Méiglechkeet, mat enger sekundärer Approche ofgläicht. An der Praxis kombinéiert een bei enger Wunnen-Mietimmobilie direkten Vergläich (Präisreferenz) a Kapitaliséierung (Renditkonsistenz). Konvergéieren béid op ±5%, ass de Wäert robust.",
+      "callout1Body": "D’Wiel vun de Methoden hänkt vun der Immobilie, dem Optrag an de verfügbaren Donnéeën of. Resultater ze vergläichen hëlleft, Hypotheesen ze iwwerpréiwen; hir Iwwereestëmmung eleng beweist net d’Zouverlässegkeet vun engem Wäert.",
       "section2Title": "Verfügbar Datenquellen",
       "section2P1": "De LU-Marché huet ëffentlech Quelle vu héijer Qualitéit: Wunnungsobservatoire (observatoire.liser.lu) — Transaktiounspräisser je Gemeng an Typ, Loyer-Index, monatlech Verfollegung; STATEC — IPIR (Wunnimmobiliepräisindex), Baukosteindex, Demographie; data.public.lu — Geoportaldonnéeën, Kataster, PAG/PAP-Pläng; AED-Grondbuch — notariell Kafakten (real Präisser véierjählech publizéiert).",
       "section2P2": "Fir den Tertiärsecteur (Bürorraim, Geschäfter, Hoteler): Quartalsberichter vun internationale Firmen JLL, CBRE, Cushman & Wakefield, Inowai (Prime-Loyeren, Leerstands-Taux, beobachtete Renditen). Fir d'gereegelt Mietbewäertung: Den tevaxia gesetzleche Loyer-Rechner automatiséiert d'5%-Regel mat STATEC-Koeffizienten. Fir Hoteler: STATEC-Iwwernuechtungsobservatoire, RevPAR no Kategorie.",
@@ -10201,11 +10203,11 @@
       "section3P2": "Allgemenge Zoustand an Ausstattungsqualitéit: Eng renovéiert Immobilie gëtt 10-20% iwwer enger äquivalent renovéierungsbedürfteger bewäert. D'Energieeffizienz huet wuessenden Impakt: LISER-Etüde béiffren de Wäertspread pro CPE-Klass op 3-8% (en F→C-Sprong kann 10-25% Méierwäert bréngen). Bausseberäicher (Gaart, Terrasse, Balcon) a Parking ginn typesch 10-15% Wäert dobäi. Ausriichtung, Rou a Stack (mat Lift) spille och eng Roll.",
       "callout2Title": "Den CPE-Impakt wäert sech verstäerken",
       "callout2Body": "Mat der iwwerschaffter EU EPBD-Direktiv an de kommenden Renovéierungsflichten (Klassen G/F a verschiddene Länner ab 2030 vun der Vermietung ausgeschloss) wäert den CPE-Impakt op de Wäert verstäerkt ginn. Antizipéiert duerch Integratioun vun der energeetescher Sanéierung an de Investitions-Businessplang, besonnesch fir E-G-Klass-Immobilien.",
-      "section4Title": "TEGOVA EVS 2025 Normenrahmen",
-      "section4P1": "D'European Valuation Standards 2025 (TEGOVA) definéieren international unerkannt Wäertgrondlagen: Market Value (hypothetesch Bartransaktioun zum Bewäertungsdatum), Investment Value (Wäert fir e spezifeschen Investisseur no senge Kritären), Fair Value (IFRS 13 Fair Value fir geprüft Konten), Mortgage Lending Value (virsiichtege Hypothéikewäert fir Banken).",
-      "section4P2": "All professionnellen TEGOVA-Bewäertungsbericht setzt fest: d'Wäertgrondlag, déi applizéiert Method(en), d'Datenquellen, d'Schlësselunahmen a speziell Bedingungen (ënner opschiebender Bedingung, ofzeschléissend Renovéierung, etc.). Zu Lëtzebuerg garantéieren vum INREV zertifizéiert REV- oder TRV-Experten d'Anhale vun dësen Standarden a haften beruflech.",
+      "section4Title": "De Sënn vun den TEGoVA-Standarden an d’Roll vu LPVI",
+      "section4P1": "D’European Valuation Standards (EVS), déi vun TEGoVA publizéiert ginn, bidden e Kader fir déi professionell Bewäertung: e kloeren Optrag, iwwerpréift Quellen, begrënnte Methoden an ausdrécklech Hypotheesen a Grenzen. Dat mécht d’Analys méi transparent an novollzéibar; eng Formel eleng ass keng Expertise.",
+      "section4P2": "Zu Lëtzebuerg ass de Luxembourg Property Valuation Institute (LPVI) de Beruffsverband, dee Member vun TEGoVA ass, an déi national Kontaktstell fir TEGoVA-Lizenzen. Kontaktéiert d’Associatioun, fir Iech iwwer d’Demarche z’informéieren oder no engem passenden Expert ze froen.",
       "callout3Title": "Wéini eng REV-Expertise beoptraen?",
-      "callout3Body": "Eng REV/TRV-Expertise ass néideg fir: e komplext Bankfinanzéierungsdossier, en Nachloss oder eng Schenkung mat Deelung, eng Enteignung, eng Scheedung mat Vermögensdeelung, e Geriichtsstreit. Fir e einfache Verkaf tëschent Privaten geet meeschtens eng Schätzung vun 2-3 Maklere oder en hedonescht Tool (wéi tevaxia).",
+      "callout3Body": "D’Qualifikatioune REV a REV-Resi betreffen d’Fachleit, net d’Software. D’Wiel vum Expert an d’Ufuerderungen un de Rapport hänke vum Optrag a vum Empfänger of. LPVI erkläert d’Ausbildungsweeër an d’Lizenzbedéngungen op sengem Site.",
       "inlineCalc": {
         "title": "Schätzt Är Immobilie direkt",
         "description": "Eise tevaxia-Schätzer appliquéiert en hedonescht Modell op Basis vun den Donnéeën vum Wunnungsobservatoire a STATEC. Gitt Gemeng, Fläch, Zoustand, CPE an Eegenschaften an, fir eng Präisspann mat Konfidenzniveau ze kréien.",
@@ -10236,7 +10238,7 @@
       "faq": [
         {
           "q": "Wéi eng Method ass déi zouverlässegst fir eng Immobiliebewäertung zu Lëtzebuerg?",
-          "a": "Fir d'Wunnen ass den direkten Vergläich kombinéiert mat engem hedoneschen Modell am zouverlässegsten. Fir d'Locatioun gëtt d'Ertragswäertkapitaliséierung bevorzugt. Fir Gewerbe/Hotel ass DCF Standard. TEGOVA EVS 2025 empfeelen op mannst zwou Methoden ofzegläichen fir d'Zouverlässegkeet ze stäerken."
+          "a": "Vergläicht dokumentéiert Verkafspräisser, kapitaliséiert Erträg oder diskontéiert Cashflows. Wielt a begrënnt d’Methoden an d’Parameteren no der Immobilie an dem Optrag; d’Szenarie solle mat engem Fachmann iwwerpréift ginn."
         },
         {
           "q": "Beaflosst den Energieausweis den Immobiliepräis zu Lëtzebuerg?",
@@ -10244,7 +10246,7 @@
         },
         {
           "q": "Wat kascht eng REV/TRV-Expertise zu Lëtzebuerg?",
-          "a": "Fir eng Wunnimmobilie 800 bis 2.500 € no Komplexitéit. Fir e Gewerbe- oder Hotelobjet 3.000 bis 15.000 € no Wäert a Komplexitéit. Honoréier ass fräi, baséiert op Aufwand a Verantwortung. Den TEGOVA-Bericht ass bei Banken a Geriichter unerkannt."
+          "a": "Frot en Devis un, dee bei d’Immobilie, déi néideg Kontrollen an den Zweck vum Rapport passt. LPVI kann Iech bei der Sich no engem Expert orientéieren. D’Tevaxia-Berechnungen hëllefen, dat Gespréich ze preparéieren, a si keen Devis fir eng Expertise."
         },
         {
           "q": "Wou fënnt een real Verkafspräisser zu Lëtzebuerg?",
@@ -10256,7 +10258,7 @@
         },
         {
           "q": "Muss d'TVA an der Schätzung berücksichtegt ginn?",
-          "a": "Bei VEFA-Neibau gëtt de Wäert üblech netto presentéiert an dann zum applikabele Saz op TTC ëmgerechent (3% Wunn-TVA mat 50.000 € Plafong). Bei Bestand (tëschent Privaten) keng TVA, mä vum Keefer ze bezuelend Aschreiwungsgebühren. TEGOVA-Berichter ënnerscheeden ëmmer netto/brutto."
+          "a": "Gitt jee no Immobilie an Zweck vun der Analys un, ob d’Montanten TVA an Transaktiounskäschten enthalen. De Fachmann muss dës Konventiounen am Rapport erklären."
         }
       ],
       "sources": [
@@ -10816,14 +10818,14 @@
     },
     "iaTevaxia": {
       "title": "Wéi d'KI op tevaxia.lu notzen: komplette Guide 2026",
-      "metaDescription": "tevaxia.lu KI-Assistent: Resultat-Analys, EVS-2025-Bericht, PDF-Extraktioun, Lëtzebuerger Immobilien-Chat. 5 gratis Analysen/Dag via Google Gemini, onlimitéiert mat BYOK-Schlëssel (Anthropic, OpenAI, Groq).",
+      "metaDescription": "KI-Assistent: indikativ Analys, Entwërf fir ze iwwerpréiwen an Hëllef bei Immobiliendossieren.",
       "subtitle": "All KI-Funktiounen vun tevaxia.lu a wéi se ze notzen, fir Zäit op Lëtzebuerger Immobilien ze spueren.",
       "category": "Produkt & KI",
       "essentiel": [
         "5 gratis Analysen pro Dag pro ageloggte Konto, via Google Gemini (3.6 Flash), keng Kreditkaart erfuerderlech.",
         "BYOK-Modus (Bring Your Own Key): Setzt Ären Anthropic-, OpenAI-, Groq- oder Gemini-Schlëssel an /profil fir onlimitéiert Notzung.",
-        "4 Schlësselusage-Cases: Inline-Resultat-Analys, EVS-2025-Bericht-Redaktioun, PDF-Extraktioun (Visioun), Multi-tour LU-Immobilien-Chat.",
-        "LU spezialiséiert Skills: LIR, TEGOVA EVS 2025, VEFA, Kopropriétéit, USALI Hotellerie, AML/KYC, Bëllegen Akt, 5%-Regel.",
+        "Resultatanalys, Schreifhëllef, Dokumentextraktioun a Gespréich mam Assistent.",
+        "Den Tevaxia-Assistent hëlleft, Immobilieninstrumenter ze verstoen an Informatiounen ze preparéieren. Seng Äntwerte mussen iwwerpréift ginn a si keng professionell Expertise.",
         "Ëffentlech B2B-API: 3 Endpoints (analyze / chat / extract) mat tevaxia-Schlëssel zougänglech, Dokumentatioun op /api-docs."
       ],
       "section1Title": "Automatesch Analys vun de Resultater",
@@ -10831,9 +10833,9 @@
       "section1P2": "Préift Donnéeën, Eenheeten, Referenzdatumen a Berechnungsgrenzen, ier Dir KI-Kommentaren an engem Dossier benotzt. De Kommentar ersetzt keng Beleger oder professionell Iwwerpréiwung.",
       "callout1Title": "Standardmodell: Google Gemini 3.6 Flash",
       "callout1Body": "De gratis Tier notzt Google Gemini 3.6 Flash (séier, gratis, ausserhalb der EU gehost). Opgepasst: am gratis Tier vun der Gemini-API kann Google d'Prompts an d'Äntwerten notzen fir seng Produiten ze verbesseren — notzt en nëmme fir net-sensibel Analysen. Fir vertraulech Analysen (AML/KYC, nominell Donnéeën) notzt Ären eegenen Anthropic- oder OpenAI-Schlëssel mat Entreprisevertrag a No-Training-Optioun, oder e bezuelte Gemini-Schlëssel, deen aus dem Training ausgeschloss ass.",
-      "section2Title": "EVS-2025-Bericht-Redaktioun",
-      "section2P1": "De Modus EVS-Bericht op der Säit /valorisation integréiert 8 Knäppercher 'Mat der KI schreiwen' nieft den narrative Felder (Lag, Ëmfeld, Ubannung, Justifikatioun vun de Methoden, Steierregime, ESG-Impakt, Reserven, Onsécherheet). All Knäppche generéiert e formellen Abschnitt, deen direkt an d'Feld geschriwwe gëtt, konform mat den TEGOVA-Normen an der Chart 5. Editioun, mat legalen Referenzen (Art. 102bis LIR, IVS 103, CRREM-Pfad).",
-      "section2P2": "De Modus EVS-Challenger, op der Ongletbar Reconciliatioun, handelt als kritesche Verifizéierer: hie markéiert déi feelend Donnéeën, d'Inkohärenzen, déi anormal Ratioen an d'Risike vu Net-Konformitéit virun der Ënnerschrëft, mam Präfix [BLOCKÉIEREND], [GROUSS] oder [KLENG]. De generéierte Bericht bleift ënner der Verantwortung vum TEGOVA REV/TRV-Expert, dee den Bericht nokontrolléiert, korrigéiert an ënnerschreift.",
+      "section2Title": "Hëllef beim Verfaasse vum Dossier",
+      "section2P1": "D’KI proposéiert Entwërf an hëlleft, feelend Informatiounen z’erkennen. Kontrolléiert all Fakt, Quell a Berechnung virum Gebrauch. Si ass kee qualifizéierten Expert a kann d’Konformitéit vun enger Expertise net bestätegen; d’Kontrollen an d’Conclusioune leie beim Fachmann.",
+      "section2P2": "D’KI proposéiert Entwërf an hëlleft, feelend Informatiounen z’erkennen. Kontrolléiert all Fakt, Quell a Berechnung virum Gebrauch. Si ass kee qualifizéierten Expert a kann d’Konformitéit vun enger Expertise net bestätegen; d’Kontrollen an d’Conclusioune leie beim Fachmann.",
       "section3Title": "PDF-Extraktioun (BYOK gefrot)",
       "section3P1": "Fir e Formulaire virauszefëllen op Basis vun engem existéierenden Dokument (Promoter-Budget, notariellen Akt fir Plus-value, CPE-Zertifikat) lancéiert e Knäppchen 'Virfëllen aus PDF' eng Visiouns-Extraktioun iwwer Äre BYOK-Schlëssel: Anthropic (fir nativ PDF) oder OpenAI (fir gescannte Biller). De Modell gëtt e strukturéierte JSON zréck, deen d'Felder direkt fëllt.",
       "section3P2": "Dës Funktioun brauch e BYOK-API-Schlëssel vu Gemini, OpenAI oder Anthropic: d'Modeller vu Groq a Cerebras traitéieren keng Visioun. Gemini an Anthropic huelen PDF nativ un; OpenAI brauch e Bild (JPG/PNG). Limit vun 8 MB pro Datei. Aktuell verfügbar op /plus-values; déi aner Schemaen (CPE, Geschäftsmieten) ginn op Demande iwwer d'B2B-API ënnerstëtzt. tevaxia-Säiten déi PDF traitéieren kënnen op Demande erweidert ginn.",
@@ -10843,7 +10845,7 @@
       "section4P1": "E schwiewende Chat-Widget ënnen riets opent e fräie Gespréich mam Lëtzebuerger Immobilien-Assistent. Dir kënnt him transversal Froe stellen déi net an ee spezifescht Tool passen: 'wéi eng TVA op d'Renovatioun vun engem gemëschte Gebai uwenden?', 'wéi eng Majoritéit ass néideg fir d'Dachreparatur an der Kopropriétéit ze stëmmen?', 'wéi gëtt de Bëllegen Akt fir e net-residentent Koppel berechent?'. Den Assistent behält de Kontext iwwer méi Ronnen.",
       "section4P2": "Fir B2B-Integrateuren sinn dräi Endpoints zougänglech mat engem tevaxia-API-Schlëssel (Header X-API-Key) am Standard-Rate-Limit-Tarif: `/api/v1/ai/analyze` (Inline-Analys), `/api/v1/ai/chat` (Multi-tour), `/api/v1/ai/extract` (PDF-Extraktioun). Komplett Dokumentatioun, cURL-Beispiller a JS/Python-SDK op /api-docs. Fir héich Volumen oder spezifesch SLA, kontaktéiert eis fir en Enterprise-Tarif.",
       "callout3Title": "Limiten a Best Practices",
-      "callout3Body": "D'KI beschleunegt d'Schreiwen an d'Analys, ersetzt awer kee zertifizéierten Expert. Fir en EVS-Bericht fir eng Bank oder e Geriicht bleift den TEGOVA REV/TRV-Expert responsabel fir de gehalene Wäert a muss kontrolléieren, korrigéieren an ënnerschreiwen. Fir sensibel AML/KYC-Donnéeën, bevorzugt e BYOK-Schlëssel mat No-Training-Optioun. Schéckt ni Identitéitsdokumenter oder Bankdaten an der fräier Andréchnung.",
+      "callout3Body": "D’KI proposéiert Entwërf an hëlleft, feelend Informatiounen z’erkennen. Kontrolléiert all Fakt, Quell a Berechnung virum Gebrauch. Si ass kee qualifizéierten Expert a kann d’Konformitéit vun enger Expertise net bestätegen; d’Kontrollen an d’Conclusioune leie beim Fachmann.",
       "inlineCalc": {
         "title": "Aktivéiert Ären KI-Schlëssel (BYOK) an 2 Minutten",
         "description": "Konfiguréiert Ären KI-Fournisseur (gratis Google Gemini, Anthropic, OpenAI, Groq) an Ärem tevaxia-Profil fir d'onlimitéiert Notzung, d'PDF-Extraktioun an d'API z'aktivéieren.",
@@ -10862,8 +10864,8 @@
         },
         {
           "href": "/valorisation",
-          "title": "EVS-2025-Bericht",
-          "description": "KI-Modus Verfasser + Challenger fir Är TEGOVA-Berichter."
+          "title": "Entworf vum Dossier",
+          "description": "D’KI proposéiert Entwërf an hëlleft, feelend Informatiounen z’erkennen. Kontrolléiert all Fakt, Quell a Berechnung virum Gebrauch. Si ass kee qualifizéierten Expert a kann d’Konformitéit vun enger Expertise net bestätegen; d’Kontrollen an d’Conclusioune leie beim Fachmann."
         },
         {
           "href": "/bilan-promoteur",
@@ -10881,12 +10883,12 @@
           "a": "Jo, d'Ufroe ginn iwwer de konfiguréierte KI-Fournisseur (Google Gemini par défaut, oder Äre BYOK-Schlëssel). Déi geschéckte Kontexter enthalen nëmmen d'Inputs an d'Resultater vum aktuelle Kalkul, ni perséinlech Donnéeën dobausse dovun. Wichteg: am gratis Tier vun der Gemini-API kann Google d'Prompts an d'Äntwerten notzen fir seng Produiten ze verbesseren; notzt en net fir vertraulech Donnéeën. Fir héich Vertraulechkeet, bevorzugt Anthropic oder OpenAI mat Entreprise-No-Training-Vertrag, oder e bezuelte Gemini-Schlëssel (aus dem Training ausgeschloss)."
         },
         {
-          "q": "Kann d'KI en TEGOVA-zertifizéierten Expert ersetzen?",
-          "a": "Nee. D'KI gëtt Hëllef bei der Redaktioun an der Analys, kee verbindlecht Expertegutachten. Fir en EVS-Bericht fir eng Bank oder e Geriicht bleift den TEGOVA REV/TRV-Expert responsabel fir de gehalene Wäert a muss kontrolléieren, korrigéieren an ënnerschreiwen. D'KI beschleunegt d'Produktioun, ersetzt awer weder déi mënschlech Expertise nach de Besuch um Terrain."
+          "q": "Kann d’KI en Expert an der Bewäertung ersetzen?",
+          "a": "D’KI proposéiert Entwërf an hëlleft, feelend Informatiounen z’erkennen. Kontrolléiert all Fakt, Quell a Berechnung virum Gebrauch. Si ass kee qualifizéierten Expert a kann d’Konformitéit vun enger Expertise net bestätegen; d’Kontrollen an d’Conclusioune leie beim Fachmann."
         },
         {
           "q": "Wéi eng Modeller ginn am BYOK ënnerstëtzt?",
-          "a": "Anthropic (Claude 4.x — empfuelen fir PDF-Visioun an EVS-Redaktioun), OpenAI (GPT-4o, GPT-4 Turbo — gutt an Visioun), Groq (séier Llama 3.x), Google Gemini (3.6 Flash — gratis, Standard). 2-Klick-Setup an /profil. Stéckkäschten an Echtzäit ugewisen."
+          "a": "Déi verfügbar Ubidder stinn an Ärem Profil. Kontrolléiert d’Modeller, d’Bedéngunge fir d’Dateveraarbechtung an d’Käschte beim gewielten Ubidder."
         },
         {
           "q": "Wéi gräifen ech op déi ëffentlech tevaxia-API zou?",
@@ -10988,7 +10990,7 @@
     "filteredOn": "Gefiltert op {count} Profil(er)",
     "emptyState": "Kee Beräich entsprécht Ären ausgewielte Profiler. Passt Är Auswiel uewen un.",
     "evaluationsTitle": "Meng Bewäertungen",
-    "evaluationsDesc": "Historique, PDF-Rapporten an TEGOVA EVS 2025 Tracking",
+    "evaluationsDesc": "Dossieren, Szenarien an Historique vun den Analysen",
     "portfolioTitle": "Mäi Portefeuille",
     "portfolioDesc": "Wäert-, Rendement- a Gesamtperformance-Iwwerwaachung",
     "esgTitle": "Energie & ESG",
@@ -11018,7 +11020,7 @@
     },
     "expert": {
       "label": "Expert / Evaluateur",
-      "description": "TEGOVA-zertifizéierte Evaluateur, Notaire, Steierberoder"
+      "description": "Immobiliebewäerter, Notaire, Steierberoder"
     },
     "syndic": {
       "label": "Syndic",
@@ -11136,7 +11138,7 @@
     }
   },
   "aiChat": {
-    "welcome": "Moien! Ech sinn den tevaxia-Assistent, spezialiséiert op Lëtzebuerger Immobilien (Steieren, EVS/TEGOVA, VEFA, Matproprietéit, Hotellerie, KYC). Stellt Är Fro.",
+    "welcome": "Den Tevaxia-Assistent hëlleft, Immobilieninstrumenter ze verstoen an Informatiounen ze preparéieren. Seng Äntwerte mussen iwwerpréift ginn a si keng professionell Expertise.",
     "openLabel": "KI-Assistent opmaachen",
     "closeLabel": "Zoumaachen",
     "sendLabel": "Schécken",
@@ -11415,8 +11417,8 @@
         "desc": "Gradient 0-15k €/m² pro Gemeng."
       },
       "valorisation": {
-        "title": "EVS 2025 Bewäertung",
-        "desc": "Ënnerschrëftbare TEGOVA-Bericht, SHA-256, DCF + Vergleicher."
+        "title": "Wäertanalys a Szenarien",
+        "desc": "Organiséiert Beleger, Quellen, Berechnungen, Hypotheesen a Reserven an engem Aarbechtsdossier. Den Expert kontrolléiert d’Informatiounen, bestëmmt déi néideg Ënnersichungen an iwwerhëlt d’Verantwortung fir seng Conclusiounen. Den Export oder d’technesch Ënnerschrëft vum Fichier bescheinegt keng fachlech Konformitéit."
       },
       "hedonique": {
         "title": "Hedonescht Modell",
@@ -11590,7 +11592,7 @@
       "parcoursTitle": "Typesche Wee",
       "parcoursIntro": "Dräi Etappen virun der Ënnerschrëft.",
       "parcoursStep1Title": "De Bien schätzen",
-      "parcoursStep1Desc": "Gëtt Adress, Fläch an Energieklass op /estimation. Richtwäert an 30 s.",
+      "parcoursStep1Desc": "Gitt d’Eegenschafte vun der Immobilie fir en éischten indikative Szenario an. Preparéiert d’Dokumenter a loosst d’Besonneschheete vun engem Fachmann iwwerpréiwen.",
       "parcoursStep2Title": "Totalkäschte berechnen",
       "parcoursStep2Desc": "/frais-acquisition gëtt Notar + Registréierung + Bëllegen Akt + MwSt. Kombinéiert mat /simulateur-aides.",
       "parcoursStep3Title": "Entscheeden: kafen oder lounen?",
@@ -11614,7 +11616,7 @@
     },
     "expert": {
       "title": "Gutachter-Guide",
-      "intro": "TEGOVA REV/TRV, Notar, Fiscalist: tevaxia bitt EVS 2025-Tools, kalibréiert hedonescht Modell, SHA-256-signéierbaren Bericht.",
+      "intro": "Organiséiert Beleger, Quellen, Berechnungen, Hypotheesen a Reserven an engem Aarbechtsdossier. Den Expert kontrolléiert d’Informatiounen, bestëmmt déi néideg Ënnersichungen an iwwerhëlt d’Verantwortung fir seng Conclusiounen. Den Export oder d’technesch Ënnerschrëft vum Fichier bescheinegt keng fachlech Konformitéit.",
       "backToHub": "All Guiden",
       "parcoursTitle": "Typesche Wee",
       "parcoursIntro": "Vum Missiounsufro zum Bericht.",
@@ -11623,9 +11625,9 @@
       "parcoursStep2Title": "Ukonzepter kräizen",
       "parcoursStep2Desc": "Hedonesche Wäert + DCF + ACT-Vergleicher. Reconciliatioun konfiguréierbar.",
       "parcoursStep3Title": "Signéierte Bericht liwweren",
-      "parcoursStep3Desc": "PDF EVS 2025 mat SHA-256-Block + /verify-URL. Client kann Intégritéit ëffentlech verifizéieren.",
+      "parcoursStep3Desc": "De PDF-Export kann e SHA-256-Fangerofdrock enthalen, deen op /verify kontrolléiert ka ginn. Dës Integritéitskontroll validéiert weder Berechnungen nach d’Qualifikatioune vum Verfaasser oder d’fachlech Konformitéit vum Rapport.",
       "toolsTitle": "Empfohle Tools",
-      "toolsIntro": "TEGOVA-ausgeriicht Moduler + Modell-Transparenz.",
+      "toolsIntro": "Berechnungsinstrumenter an dokumentéiert Hypotheesen",
       "faqTitle": "Heefeg Froen",
       "faq1q": "Ass déi hedonesch Method publizéiert?",
       "faq1a": "Dës Prozenter sinn Aarbechtshypotheesen, keng offiziell Koeffiziente vum Observatoire. MAPE, R², Signifikanz oder Genauegkeet op reelle Verkafsdonnéeë sinn net nogewisen.",
@@ -11809,7 +11811,7 @@
       "faq2q": "Gëtt et en TypeScript / Python SDK?",
       "faq2a": "Nach keen offiziell SDK. API ass Standard-REST. OpenAPI an Postman/Insomnia importéierbar.",
       "faq3q": "Sinn d'Äntwerten ënnerschriwwen?",
-      "faq3a": "PDF-Berichter enthalen SHA-256-Signatur. JSON-Äntwerten standardméisseg net ënnerschriwwen.",
+      "faq3a": "De PDF-Export kann e SHA-256-Fangerofdrock enthalen, deen op /verify kontrolléiert ka ginn. Dës Integritéitskontroll validéiert weder Berechnungen nach d’Qualifikatioune vum Verfaasser oder d’fachlech Konformitéit vum Rapport.",
       "faq4q": "Ass d'Methodologie open-source?",
       "faq4a": "Dës Prozenter sinn Aarbechtshypotheesen, keng offiziell Koeffiziente vum Observatoire. MAPE, R², Signifikanz oder Genauegkeet op reelle Verkafsdonnéeë sinn net nogewisen.",
       "relatedTitle": "Méi erausfannen",
@@ -12587,7 +12589,7 @@
       },
       "expert": {
         "title": "Evaluateur / Expert",
-        "desc": "Honoraren mat Opdeelung pro TEGOVA-Missioun (REV/TRV), Reesonkäschten, EVS 2025-Bericht Referenz."
+        "desc": "Honorairë pro Optrag, Reeskäschten a Referenz vum Dossier."
       },
       "generic": {
         "title": "Generesch",
@@ -12929,7 +12931,7 @@
     },
     "shortcuts": {
       "estimation": "Schätzung",
-      "valorisation": "EVS-Bewäertung",
+      "valorisation": "Wäertanalys a Szenarien",
       "gestionLocative": "Locatiounsgestioun",
       "dcfMulti": "DCF Multi",
       "syndic": "Syndic / Coprop",
@@ -13308,7 +13310,7 @@
       "btnShareTitle": "Eng virgefëllten URL kopéieren (Makler-/Beroder-Modus)",
       "btnShareCopied": "URL kopéiert ✓",
       "btnShare": "Dëst Szenario deelen (Link)",
-      "disclaimer": "Indikativ Schätzungen op Basis vun ëffentlechen Donnéeën vum Observatoire de l'Habitat / data.public.lu an de Lëtzebuerger Steiertabellen. Fir e formellen Avis (Bank, Successioun, Expertise judiciaire), bestallt e Rapport TEGOVA EVS 2025 vun engem zertifizéierte Bewerter."
+      "disclaimer": "Tevaxia hëlleft, Donnéeën ze preparéieren an indikativ Szenarien ze ënnersichen. D’Software ersetzt weder d’Kontroll vun der Immobilie nach dat fachlecht Uerteel oder de Rapport vun engem Expert. Si bescheinegt keng Konformitéit mat den EVS oder TEGoVA."
     }
   },
   "strRentabilite": {
@@ -13578,7 +13580,7 @@
       },
       "expert-evaluateur": {
         "title": "Schätzer / Expert",
-        "desc": "Rapport am EVS-2025-Format an 20 min, 8 Methoden, 9 Asset-Typen, automatesch ausgefëllt Daten (98 Gemengen + 12 Makro-Serien)."
+        "desc": "Strukturéiert Dossieren: Quellen, Berechnungen, Hypotheesen a Reserven fir fachlech Kontroll."
       },
       "investisseur": {
         "title": "Investisseur",
@@ -13614,8 +13616,8 @@
         },
         "expert-evaluateur": {
           "daily": "Immobilie-Bewäertungen, Rapporten, Feldinspektiounen",
-          "compliance": "TEGOVA EVS 2025, Charte 5e éd.",
-          "standards": "EVS 2025, Red Book, RICS"
+          "compliance": "Dossier fir fachlech Kontroll",
+          "standards": "Kader, dee fir den Optrag ze bestëmmen ass"
         },
         "investisseur": {
           "daily": "Rendement, DCF, Finanzéierungssimulatiounen, Portfolio",
@@ -13663,7 +13665,7 @@
         },
         {
           "q": "Kann een tevaxia ausserhalb vu Lëtzebuerg benotzen?",
-          "a": "D'Plattform ass haaptsächlech fir de Lëtzebuerger Rechtsrahmen kalibréiert (3 % TVA, Bëllegen Akt, 5 %-Reegel, TEGOVA). E puer Moduler funktionéieren och fir Frankräich a Belsch (Factur-X, DCF, Kaaf/Locatioun-Komparator)."
+          "a": "D’Plattform ass virun allem fir Immobilien zu Lëtzebuerg geduecht. D’Relevanz vun Donnéeën a Reegele muss fir all Dossier an all grenziwwerschreidend Notzung kontrolléiert ginn."
         }
       ]
     },
@@ -13838,13 +13840,13 @@
         "dureeRestante": "Reschtlaafzäit"
       },
       "valo": {
-        "badge": "TEGOVA-Valorisatioun",
+        "badge": "Wäertanalys a Szenarien",
         "fallbackTitle": "Valorisatiouns-Bericht",
         "valeurRetenue": "Ugeholte Wäert",
         "parametres": "Parameter",
         "commune": "Gemeng",
         "typeActif": "Asset-Typ",
-        "typeValeurEVS": "Wäert-Typ (EVS)",
+        "typeValeurEVS": "Uginne Wäertbasis",
         "surface": "Fläch",
         "prixM2CommuneRef": "Präis /m² Gemeng (Ref.)",
         "approches": "Bewertungs-Approche",
@@ -14162,7 +14164,7 @@
     "forWho2Title": "Banken & Prêteuren",
     "forWho2Desc": "CRR/EBA-Pillar-3-ESG-Due-Diligence, Klima-Risiko-Stresstest, Taxonomie-Qualifizéierung fir Green Loans / Green Bonds. Taxonomie-Fiche, ubruechbar um Kredit-Dossier.",
     "forWho3Title": "Bewerter & Asset Manager",
-    "forWho3Desc": "Integratioun vum Stranding-Risiko an d'TEGOVA-EVS-2025-Reporting (Sektioun 6.3 Risks), Bezifferung vum Brown Discount / Green Premium no Pathway-Alignment.",
+    "forWho3Desc": "Ëmweltrisiken an Energiehypotheese fir d’fachlech Kontroll dokumentéieren.",
     "methoTitle": "Methodologie & Quellen",
     "methoItem1": "CRREM v3.0 (2024) Global Pathways Report, crrem.eu/pathways",
     "methoItem2": "Règlement (UE) 2020/852 (Taxonomie) + Climate Delegated Act 2021/2139",
@@ -20316,5 +20318,14 @@
     "loading": "Lued…",
     "codeLabel": "6-zifferegen Code",
     "verify": "Verifizéieren"
+  },
+  "expertGuidance": {
+    "title": "Vun der Berechnung zur Immobilieexpertise",
+    "standards": "D’European Valuation Standards (EVS), déi vun TEGoVA publizéiert ginn, bidden e Kader fir déi professionell Bewäertung: e kloeren Optrag, iwwerpréift Quellen, begrënnte Methoden an ausdrécklech Hypotheesen a Grenzen. Dat mécht d’Analys méi transparent an novollzéibar; eng Formel eleng ass keng Expertise.",
+    "limits": "Tevaxia hëlleft, Donnéeën ze preparéieren an indikativ Szenarien ze ënnersichen. D’Software ersetzt weder d’Kontroll vun der Immobilie nach dat fachlecht Uerteel oder de Rapport vun engem Expert. Si bescheinegt keng Konformitéit mat den EVS oder TEGoVA.",
+    "association": "Zu Lëtzebuerg ass de Luxembourg Property Valuation Institute (LPVI) de Beruffsverband, dee Member vun TEGoVA ass, an déi national Kontaktstell fir TEGoVA-Lizenzen. Kontaktéiert d’Associatioun, fir Iech iwwer d’Demarche z’informéieren oder no engem passenden Expert ze froen.",
+    "contact": "LPVI no engem passenden Expert froen",
+    "qualifications": "TEGoVA-Lizenze bei LPVI kenneléieren",
+    "destination": "Linken op de franséischsproochege Site vu LPVI. Kontakt iwwer de Formulaire oder info@lpvi.lu."
   }
 }

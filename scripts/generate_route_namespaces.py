@@ -32,6 +32,7 @@ LOCALE_PREFIXES = {"en", "de", "lb", "pt"}
 LAYOUT_TREE_FILES = [
     SRC / "components" / "Header.tsx",
     SRC / "components" / "Footer.tsx",
+    SRC / "components" / "ExpertGuidance.tsx",
     SRC / "components" / "CookieBanner.tsx",
     SRC / "components" / "AuthProvider.tsx",
     SRC / "components" / "PostHogProvider.tsx",

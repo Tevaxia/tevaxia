@@ -1,6 +1,7 @@
 import { getAssuredUser } from "@/lib/mfa-assurance";
 import { reserveAiUsage } from "@/lib/ai-quota";
 import { NextResponse } from "next/server";
+import { AI_VALUATION_SCOPE } from "@/lib/ai-valuation-scope";
 import { createClient } from "@supabase/supabase-js";
 import { authenticateApiRequestAsync, logApiCall, type ApiKeyRecord } from "@/lib/api-auth";
 
@@ -13,8 +14,9 @@ import { authenticateApiRequestAsync, logApiCall, type ApiKeyRecord } from "@/li
 // Providers : Groq (défaut gratuit), OpenAI, Anthropic (BYOK).
 
 const SYSTEM_PROMPT =
+  AI_VALUATION_SCOPE +
   "Tu es l'assistant immobilier tevaxia.lu, spécialisé sur le marché luxembourgeois. " +
-  "Expertise : évaluation EVS 2025 / TEGOVA, fiscalité LIR (art. 102bis, 98bis, bail emphytéotique), " +
+  "Sujets : préparation de scénarios immobiliers, fiscalité LIR (art. 102bis, 98bis, bail emphytéotique), " +
   "VEFA et droits d'enregistrement (Bëllegen Akt), copropriété (loi 16 mai 1975), AML/KYC (loi 12 novembre 2004), " +
   "hôtellerie USALI/HVS, promotion immobilière, marché locatif et vente LU. " +
   "Réponds de façon concise, factuelle, référencée. Cite les sources (Observatoire de l'Habitat, STATEC, Legilux). " +

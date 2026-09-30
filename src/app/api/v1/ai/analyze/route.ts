@@ -1,6 +1,7 @@
 import { getAssuredUser } from "@/lib/mfa-assurance";
 import { reserveAiUsage } from "@/lib/ai-quota";
 import { NextResponse } from "next/server";
+import { AI_VALUATION_SCOPE } from "@/lib/ai-valuation-scope";
 import { createClient } from "@supabase/supabase-js";
 import { authenticateApiRequestAsync, logApiCall, type ApiKeyRecord } from "@/lib/api-auth";
 
@@ -12,7 +13,7 @@ import { authenticateApiRequestAsync, logApiCall, type ApiKeyRecord } from "@/li
 // Providers : Groq (défaut gratuit), OpenAI, Anthropic (BYOK).
 
 const SYSTEM_PROMPT =
-  "Tu es un expert immobilier luxembourgeois certifié TEGOVA EVS 2025. " +
+  AI_VALUATION_SCOPE +
   "Tu analyses des résultats de calcul immobilier et fournis des commentaires professionnels, concis et factuels. " +
   "Cite les sources pertinentes (Observatoire de l'Habitat, STATEC, législation LU). " +
   "Réponds dans la langue de l'utilisateur.";

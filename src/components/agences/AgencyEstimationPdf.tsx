@@ -271,7 +271,7 @@ export function AgencyEstimationPdf({ payload }: { payload: AgencyPdfPayload }) 
         {/* Footer */}
         <View style={s.footer} fixed>
           <Text>
-            {payload.branding.legal_mention || "Estimation indicative basée sur les données publiques luxembourgeoises (Observatoire de l'Habitat, STATEC). Ne constitue ni un engagement ni une expertise certifiée TEGOVA."}
+            {payload.branding.legal_mention || "Estimation indicative basée sur les données publiques luxembourgeoises (Observatoire de l'Habitat, STATEC). Ne remplace pas une expertise professionnelle. Pour une orientation vers un expert : https://www.lpvi.lu/."}
           </Text>
           {payload.branding.vat_number && <Text style={{ marginTop: 2 }}>TVA : {payload.branding.vat_number}</Text>}
           <Text style={{ marginTop: 2 }}>Généré via tevaxia.lu</Text>

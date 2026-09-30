@@ -230,7 +230,7 @@ paths:
       summary: Conversation multi-tour avec l'assistant immobilier LU
       description: |
         Endpoint conversationnel spécialisé immobilier Luxembourg
-        (fiscalité LIR, EVS/TEGOVA, VEFA, copropriété, hôtellerie, KYC).
+        (fiscalité LIR, préparation de scénarios indicatifs, VEFA, copropriété, hôtellerie, KYC).
         Accepte jusqu'à 20 messages par requête.
       requestBody:
         required: true

@@ -41,7 +41,7 @@ export const LINK_TERMS: LinkTerm[] = [
   { term: "DCF multi-locataires", href: "/dcf-multi" },
   { term: "carte des prix", href: "/carte" },
   { term: "valorisation hédonique", href: "/hedonique" },
-  { term: "valorisation EVS", href: "/valorisation" },
+  { term: "analyse de valeur", href: "/valorisation" },
   { term: "simulateur d'aides", href: "/simulateur-aides" },
   { term: "Base de données marché", href: "/marche" },
   { term: "PMS hôtelier", href: "/pms" },

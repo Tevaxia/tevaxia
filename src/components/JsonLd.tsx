@@ -52,7 +52,6 @@ export function OrganizationJsonLd() {
         "Property investment",
         "Energy performance certificates",
         "Luxembourg housing market",
-        "TEGOVA EVS 2025",
         "EPBD directive"
       ],
       "sameAs": [

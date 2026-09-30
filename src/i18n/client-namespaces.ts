@@ -58,6 +58,7 @@ export const CLIENT_NAMESPACES = [
   "estimateurConstruction",
   "estimation",
   "estimationAudit",
+  "expertGuidance",
   "facturation",
   "fraisAcquisition",
   "gestionLocative",

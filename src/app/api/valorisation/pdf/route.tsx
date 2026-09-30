@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 /**
  * POST /api/valorisation/pdf
  *
- * Génère le rapport EVS 2025 côté serveur à partir des données JSON, signe
+ * Génère le dossier de travail côté serveur à partir des données JSON, signe
  * le PDF (SHA-256) et retourne le binaire avec le hash dans le header
  * X-Pdf-Sha256 pour vérification publique sur /verify.
  *

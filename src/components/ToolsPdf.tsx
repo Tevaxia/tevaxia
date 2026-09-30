@@ -88,8 +88,8 @@ function DisclaimerPage({ reference }: { reference: string }) {
         integrees dans les modeles. Ils peuvent differer significativement de la realite du marche.
       </Text>
       <Text style={{ fontSize: 9, color: "#334155", lineHeight: 1.6, marginTop: 12 }}>
-        Pour toute decision engageante, consultez un professionnel agree : evaluateur REV/TEGOVA,
-        notaire ou conseiller financier.
+        Pour une expertise immobilière, contactez l’association LPVI pour une orientation vers un
+        professionnel : https://www.lpvi.lu/ — info@lpvi.lu.
       </Text>
       <Text style={{ fontSize: 9, color: "#6B7280", lineHeight: 1.6, marginTop: 24 }}>
         tevaxia.lu — Plateforme immobiliere Luxembourg{"\n"}

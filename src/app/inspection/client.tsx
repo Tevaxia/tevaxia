@@ -9,7 +9,7 @@ import { generateInspectionDocxBlob } from "@/lib/inspection-docx";
 import SaveToGoogleDrive from "@/components/SaveToGoogleDrive";
 
 // ============================================================
-// TEGOVA EVS 2025 — Checklist d'inspection terrain
+// Checklist de visite — observations à vérifier par le professionnel
 // ============================================================
 // Section → items avec statut OK/NC/NA, notes et horodatage.
 // Sauvegardé en localStorage pour usage offline.
@@ -254,6 +254,8 @@ export function InspectionClient() {
       text += `\n${t("exportNotesGenerales")}\n${"-".repeat(50)}\n${data.generalNotes}\n`;
     }
 
+    text += `\n${t("exportFooter")}\n`;
+
     const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -322,7 +324,14 @@ export function InspectionClient() {
     URL.revokeObjectURL(url);
   };
 
-  if (!loaded) return null;
+  if (!loaded) return (
+    <div className="bg-background min-h-screen py-6 sm:py-10">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6">
+        <h1 className="mt-2 text-xl font-bold text-navy sm:text-2xl">{t("pageTitle")}</h1>
+        <p className="mt-1 text-xs text-muted">{t("pageDescription")}</p>
+      </div>
+    </div>
+  );
 
   const allItems = CHECKLIST.flatMap((s) => s.items);
   const completed = allItems.filter((i) => data.items[i.id]?.status !== "pending").length;
@@ -437,7 +446,7 @@ export function InspectionClient() {
           <div className="mt-2">
             <AiDraftButton
               context={[
-                `Inspection terrain — TEGOVA EVS 2025`,
+                t("exportHeader"),
                 `Adresse: ${data.address || "—"}`,
                 `Inspecteur: ${data.inspector || "—"}`,
                 `Date: ${data.date}`,
@@ -454,7 +463,7 @@ export function InspectionClient() {
                 }),
                 data.generalNotes ? `\nNotes manuelles existantes:\n${data.generalNotes}` : "",
               ].join("\n")}
-              prompt="Rédige un rapport d'inspection terrain structuré conforme TEGOVA EVS 2025 à partir de cette checklist. Structure : (1) synthèse exécutive (3-4 phrases) sur l'état général du bien et les points clés ; (2) observations par grande section (identification, environnement, extérieur, intérieur, énergétique, juridique) avec mise en évidence des non-conformités et leur gravité ; (3) recommandations hiérarchisées (travaux urgents, à prévoir, cosmétiques) ; (4) limites de l'inspection (items en attente, accès non effectué, expertise technique complémentaire). Ton professionnel, factuel, prêt à l'intégration dans un rapport EVS. Pas de markdown lourd."
+              prompt={`Rédige un brouillon de notes de visite dans la langue ${locale}, uniquement à partir des observations renseignées. Distingue les faits déclarés, les points restant à vérifier et les limites de la visite. Ne suppose aucune visite ou vérification non documentée, aucun diagnostic technique et aucune conformité professionnelle. Les conclusions doivent être revues par le professionnel. Pas de markdown lourd.`}
               onResult={(text) => update({ generalNotes: text })}
             />
           </div>

@@ -1,5 +1,5 @@
 /**
- * Provider: inspection TEGOVA — checklists terrain stockées en localStorage.
+ * Provider: notes de visite — checklists terrain stockées en localStorage.
  */
 
 import type { ExportProvider, ExportContext, BackupBundle } from "../types";

@@ -1,5 +1,5 @@
 /**
- * Provider: évaluations perso — valorisations EVS 2025 + estimations sauvegardées.
+ * Provider: évaluations perso — scénarios de valeur + estimations sauvegardées.
  * Lit depuis localStorage + Supabase (cloud sync).
  */
 

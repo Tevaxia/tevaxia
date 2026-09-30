@@ -10,6 +10,7 @@ import FullMessagesProvider from "@/components/FullMessagesProvider";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ExpertGuidance from "@/components/ExpertGuidance";
 import CookieBanner from "@/components/CookieBanner";
 import AuthProvider from "@/components/AuthProvider";
 import PostHogProvider from "@/components/PostHogProvider";
@@ -139,6 +140,7 @@ export default async function RootLayout({
               <DeferredContextBars />
               <main className="flex-1">
                 <FullMessagesProvider locale={locale}>{children}</FullMessagesProvider>
+                <ExpertGuidance />
               </main>
               <Footer />
               <CookieBanner />

@@ -124,8 +124,8 @@
     "description": "Compare a hotel renovation budget, confirmed grants and energy savings using your quotations and documented assumptions."
   },
   "/inspection": {
-    "title": "TEGOVA field inspection | Tevaxia",
-    "description": "Prepare a property inspection with a checklist, observations and photographs, then assemble your Tevaxia site visit report."
+    "title": "Property visit checklist | Tevaxia",
+    "description": "Prepare a property visit: observations, points to check and exportable notes. Working document without professional certification."
   },
   "/marche": {
     "title": "Property market observations | Tevaxia",
