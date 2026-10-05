@@ -38,6 +38,52 @@ function safeFrame(frame: StackFrame): StackFrame {
   };
 }
 
+const HYDRATION_ERRORS: Record<string, string> = {
+  '418': 'React hydration mismatch (418)',
+  '419': 'React Suspense hydration incomplete (419)',
+  '422': 'React hydration recovered at Suspense boundary (422)',
+  '423': 'React hydration recovered at root (423)',
+  '424': 'React root updated before hydration (424)',
+};
+
+/** Classify in memory; return only fixed labels, never message text, URLs or decoder arguments. */
+function diagnosticExceptionValue(value: unknown, type: unknown): string {
+  if (type === 'ChunkLoadError') return 'Client chunk load failed';
+  const message = typeof value === 'string' ? value : '';
+  if (message === 'Locale message bundle failed to load') return 'Locale message bundle failed to load';
+  const reactCode = /^Minified React error #(418|419|422|423|424);(?: |$)/.exec(message);
+  if (reactCode) return HYDRATION_ERRORS[reactCode[1]];
+  if (/^Hydration failed because the server rendered (?:text|HTML) didn't match the client\./.test(message)) {
+    return HYDRATION_ERRORS['418'];
+  }
+  if (message === 'The server could not finish this Suspense boundary, likely due to an error during server rendering. Switched to client rendering.') return HYDRATION_ERRORS['419'];
+  if (message === 'There was an error while hydrating but React was able to recover by instead client rendering from the nearest Suspense boundary.') return HYDRATION_ERRORS['422'];
+  if (message === 'There was an error while hydrating but React was able to recover by instead client rendering the entire root.') return HYDRATION_ERRORS['423'];
+  if (message === 'This root received an early update, before anything was able hydrate. Switched the entire root to client rendering.') return HYDRATION_ERRORS['424'];
+
+  // Browser-specific missing DOM references. Every retained capture has a finite allowlist.
+  const chromium = /^Cannot read properties of (null|undefined) \(reading '(parentNode|nextSibling|removeChild)'\)$/.exec(message);
+  const legacy = /^Cannot read property '(parentNode|nextSibling|removeChild)' of (null|undefined)$/.exec(message);
+  const firefox = /^can't access property "(parentNode|nextSibling|removeChild)", [^\r\n]+ is (null|undefined)$/.exec(message);
+  const safari = /^(null|undefined) is not an object \(evaluating '[^'\r\n]+\.(parentNode|nextSibling|removeChild)(?:\([^'\r\n]*\))?'\)$/.exec(message);
+  const reference = chromium ?? safari;
+  const reversedReference = legacy ?? firefox;
+  if (reference) return `DOM ${reference[1]} reference (${reference[2]})`;
+  if (reversedReference) return `DOM ${reversedReference[2]} reference (${reversedReference[1]})`;
+
+  if (/^(?:Failed to execute 'removeChild' on 'Node': |Node\.removeChild: )The node to be removed is not a child of this node\.?$/.test(message)) {
+    return 'DOM removeChild node is not a child';
+  }
+  if (message === "Failed to execute 'removeChild' on 'Node': parameter 1 is not of type 'Node'."
+    || message === 'Node.removeChild: Argument 1 is not an object.') return 'DOM removeChild invalid node';
+  if (/^Loading (?:CSS )?chunk \S+ failed\./.test(message)
+    || /^Failed to load chunk /.test(message)
+    || /^Failed to fetch dynamically imported module: /.test(message)
+    || /^error loading dynamically imported module: /.test(message)
+    || message === 'Importing a module script failed.') return 'Client chunk load failed';
+  return 'Private details omitted';
+}
+
 /** Last error-event filter shared by browser, Node and Edge. */
 export function sanitizeDiagnosticEvent(event: ErrorEvent, hint: EventHint): ErrorEvent {
   hint.attachments = [];
@@ -58,7 +104,7 @@ export function sanitizeDiagnosticEvent(event: ErrorEvent, hint: EventHint): Err
     message: 'Application error (private details omitted)',
     exception: event.exception ? { values: event.exception.values?.slice(-5).map(value => ({
       type: ERROR_TYPES.has(value.type ?? '') ? value.type : 'Error',
-      value: 'Private details omitted',
+      value: diagnosticExceptionValue(value.value, value.type),
       stacktrace: value.stacktrace ? { frames: value.stacktrace.frames?.slice(-50).map(safeFrame) } : undefined,
       mechanism: { type: 'generic', handled: value.mechanism?.handled !== false },
     })) } : undefined,

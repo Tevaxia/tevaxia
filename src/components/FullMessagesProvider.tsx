@@ -1,27 +1,9 @@
 "use client";
 
-import { NextIntlClientProvider } from "next-intl";
-import { useEffect, useState } from "react";
-
-type Messages = Record<string, unknown>;
-
-// Dynamic import keeps each locale in its own chunk (only the active one loads),
-// and because the JSON is imported from a client module it ships as a single
-// cached JS chunk — NOT re-inlined into every page's HTML.
-async function loadMessages(locale: string): Promise<Messages> {
-  switch (locale) {
-    case "en":
-      return (await import("@/messages/en.json")).default as Messages;
-    case "de":
-      return (await import("@/messages/de.json")).default as Messages;
-    case "pt":
-      return (await import("@/messages/pt.json")).default as Messages;
-    case "lb":
-      return (await import("@/messages/lb.json")).default as Messages;
-    default:
-      return (await import("@/messages/fr.json")).default as Messages;
-  }
-}
+import { NextIntlClientProvider, useMessages } from "next-intl";
+import { startTransition, useEffect, useState } from "react";
+import { loadMessages, type Messages } from "@/i18n/load-messages";
+import { captureError } from "@/lib/analytics";
 
 /**
  * Loads the COMPLETE message bundle for the active locale on the client, once,
@@ -33,10 +15,10 @@ async function loadMessages(locale: string): Promise<Messages> {
  * (e.g.) home -> /vefa kept the home namespace set and showed raw keys
  * (vefa.title, …). See src/app/layout.tsx.
  *
- * Until the bundle resolves we render children unchanged, so they fall back to
- * the per-route messages the server already inlined — the directly loaded page
- * is therefore always correct with zero flash. The extra bundle is fetched
- * lazily (non render-blocking) and cached across every subsequent navigation.
+ * Keep the same provider from SSR onwards, initially using the inherited
+ * per-route messages. Inserting a provider only after the import resolves
+ * remounts the entire page, losing form state and tearing down its boundaries.
+ * The extra bundle is fetched lazily and cached across subsequent navigation.
  */
 export default function FullMessagesProvider({
   locale,
@@ -45,22 +27,30 @@ export default function FullMessagesProvider({
   locale: string;
   children: React.ReactNode;
 }) {
-  const [messages, setMessages] = useState<Messages | null>(null);
+  const inheritedMessages = useMessages();
+  const [loaded, setLoaded] = useState<{ locale: string; messages: Messages } | null>(null);
 
   useEffect(() => {
     let active = true;
-    loadMessages(locale).then((m) => {
-      if (active) setMessages(m);
-    });
+    loadMessages(locale).then(
+      (messages) => {
+        if (active) startTransition(() => setLoaded({ locale, messages }));
+      },
+      () => {
+        // Keep the current page usable; never log the import's URL or payload.
+        if (active) captureError(new Error("Locale message bundle failed to load"));
+      },
+    );
     return () => {
       active = false;
     };
   }, [locale]);
 
-  if (!messages) return <>{children}</>;
-
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
+    <NextIntlClientProvider
+      locale={locale}
+      messages={loaded?.locale === locale ? loaded.messages : inheritedMessages}
+    >
       {children}
     </NextIntlClientProvider>
   );

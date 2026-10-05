@@ -66,3 +66,86 @@ it('preserves only generated source-map IDs and sanitized code filenames',()=>{
  const result=sanitizeDiagnosticEvent({type:undefined,debug_meta:{images:[{type:'sourcemap',code_file:'https://tevaxia.lu/_next/static/chunks/app-abcd1234.js?token=SECRET',debug_id:id},{type:'sourcemap',code_file:'/locataire/SECRET',debug_id:id},{type:'sourcemap',code_file:'https://tevaxia.lu/_next/static/chunks/app-abcd1234.js',debug_id:'SECRET'}]}},{});
  expect(result.debug_meta?.images).toEqual([{type:'sourcemap',code_file:'https://tevaxia.lu/_next/static/chunks/app-abcd1234.js',debug_id:id}]);
 });
+
+it.each([
+ ["Cannot read properties of null (reading 'parentNode')", 'DOM null reference (parentNode)'],
+ ["Cannot read properties of undefined (reading 'nextSibling')", 'DOM undefined reference (nextSibling)'],
+ ["Cannot read properties of null (reading 'removeChild')", 'DOM null reference (removeChild)'],
+ ["Cannot read property 'parentNode' of null", 'DOM null reference (parentNode)'],
+ ['can\'t access property "nextSibling", SECRET is undefined', 'DOM undefined reference (nextSibling)'],
+ ["null is not an object (evaluating 'SECRET.parentNode')", 'DOM null reference (parentNode)'],
+ ["undefined is not an object (evaluating 'SECRET.removeChild(SECRET)')", 'DOM undefined reference (removeChild)'],
+ ["Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.", 'DOM removeChild node is not a child'],
+ ['Node.removeChild: The node to be removed is not a child of this node', 'DOM removeChild node is not a child'],
+ ["Failed to execute 'removeChild' on 'Node': parameter 1 is not of type 'Node'.", 'DOM removeChild invalid node'],
+ ['Node.removeChild: Argument 1 is not an object.', 'DOM removeChild invalid node'],
+ ['Minified React error #418; visit https://react.dev/errors/418?args[]=SECRET for the full message.', 'React hydration mismatch (418)'],
+ ['Minified React error #419; visit https://react.dev/errors/419?args[]=SECRET', 'React Suspense hydration incomplete (419)'],
+ ['Minified React error #422; visit https://react.dev/errors/422?args[]=SECRET', 'React hydration recovered at Suspense boundary (422)'],
+ ['Minified React error #423; visit https://react.dev/errors/423?args[]=SECRET', 'React hydration recovered at root (423)'],
+ ['Minified React error #424; visit https://react.dev/errors/424?args[]=SECRET', 'React root updated before hydration (424)'],
+ ["Hydration failed because the server rendered HTML didn't match the client.\n+SECRET\n-SECRET", 'React hydration mismatch (418)'],
+ ["Hydration failed because the server rendered text didn't match the client.\nSECRET", 'React hydration mismatch (418)'],
+ ['The server could not finish this Suspense boundary, likely due to an error during server rendering. Switched to client rendering.', 'React Suspense hydration incomplete (419)'],
+ ['There was an error while hydrating but React was able to recover by instead client rendering from the nearest Suspense boundary.', 'React hydration recovered at Suspense boundary (422)'],
+ ['There was an error while hydrating but React was able to recover by instead client rendering the entire root.', 'React hydration recovered at root (423)'],
+ ['This root received an early update, before anything was able hydrate. Switched the entire root to client rendering.', 'React root updated before hydration (424)'],
+ ['Loading chunk SECRET failed.\n(error: https://private.example/SECRET.js?token=SECRET)', 'Client chunk load failed'],
+ ['Loading CSS chunk SECRET failed.\nhttps://private.example/SECRET.css', 'Client chunk load failed'],
+ ['Failed to load chunk /_next/static/chunks/SECRET.js from module SECRET', 'Client chunk load failed'],
+ ['Failed to fetch dynamically imported module: https://private.example/SECRET.js', 'Client chunk load failed'],
+ ['error loading dynamically imported module: https://private.example/SECRET.js', 'Client chunk load failed'],
+ ['Importing a module script failed.', 'Client chunk load failed'],
+ ['Locale message bundle failed to load', 'Locale message bundle failed to load'],
+])('keeps only an allowlisted technical classification for %s', (value, expected) => {
+ const result = sanitizeDiagnosticEvent({type: undefined, message: 'SECRET', exception: {values: [{type: 'TypeError', value}]}}, {});
+ expect(result.exception?.values?.[0].value).toBe(expected);
+ expect(JSON.stringify(result)).not.toContain('SECRET');
+ expect(result.message).toBe('Application error (private details omitted)');
+ expect(result.tags).toBeUndefined();
+ expect(result.contexts).toBeUndefined();
+});
+
+it('classifies a named chunk failure without preserving its arbitrary message or custom error type', () => {
+ const result = sanitizeDiagnosticEvent({type: undefined, exception: {values: [{type: 'ChunkLoadError', value: 'SECRET'}]}}, {});
+ expect(result.exception?.values?.[0]).toMatchObject({type: 'Error', value: 'Client chunk load failed'});
+ expect(JSON.stringify(result)).not.toContain('SECRET');
+});
+
+it.each([
+ undefined,
+ 'SECRET',
+ "Cannot read properties of null (reading 'SECRET')",
+ "Cannot read properties of SECRET (reading 'parentNode')",
+ "Cannot read properties of null (reading 'parentNode') SECRET",
+ "SECRET Cannot read properties of null (reading 'parentNode')",
+ 'Minified React error #4180; SECRET',
+ 'Minified React error #999; SECRET',
+ 'Minified React error #418SECRET; SECRET',
+ 'Minified React error #418;SECRET',
+ 'Hydration failed SECRET',
+ "Hydration failed because the server rendered SECRET didn't match the client.",
+ 'Loading SECRET failed.',
+ 'Locale message bundle failed to load: SECRET',
+])('continues censoring unknown or malformed diagnostics: %s', value => {
+ const result = sanitizeDiagnosticEvent({type: undefined, exception: {values: [{type: 'Error', value}]}}, {});
+ expect(result.exception?.values?.[0].value).toBe('Private details omitted');
+ expect(JSON.stringify(result)).not.toContain('SECRET');
+});
+
+it('classifies each chained exception without adding any session, route or replay context', () => {
+ const result = sanitizeDiagnosticEvent({type: undefined, user: {id: 'SECRET'}, tags: {route: '/locataire/SECRET'}, contexts: {browser: {name: 'SECRET', version: 'SECRET'}}, breadcrumbs: [{message: 'SECRET'}], exception: {values: [
+  {type: 'Error', value: 'Minified React error #423; SECRET'},
+  {type: 'TypeError', value: "Cannot read properties of null (reading 'parentNode')"},
+  {type: 'Error', value: 'SECRET'},
+ ]}}, {});
+ expect(result.exception?.values?.map(value => value.value)).toEqual(['React hydration recovered at root (423)', 'DOM null reference (parentNode)', 'Private details omitted']);
+ expect(JSON.stringify(result)).not.toContain('SECRET');
+ expect(result.user).toBeUndefined();
+ expect(result.tags).toBeUndefined();
+ expect(result.contexts).toBeUndefined();
+ expect(result.breadcrumbs).toBeUndefined();
+ expect(DIAGNOSTIC_PRIVACY_OPTIONS.replaysSessionSampleRate).toBe(0);
+ expect(DIAGNOSTIC_PRIVACY_OPTIONS.replaysOnErrorSampleRate).toBe(0);
+ expect(DIAGNOSTIC_PRIVACY_OPTIONS.sendDefaultPii).toBe(false);
+});
