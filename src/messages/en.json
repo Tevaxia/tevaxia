@@ -82,7 +82,7 @@
     "copyLink": "Copy link",
     "linkCopied": "Link copied!",
     "home": "Home",
-    "authorByline": "By Erwan Bargain, REV TEGOVA",
+    "authorByline": "By Erwan Bargain",
     "authorBylineDate": "Updated: April 2026",
     "relatedToolsTitle": "Related tools",
     "relatedToolsSubtitle": "Complete your analysis with these other tevaxia tools.",
@@ -3657,15 +3657,18 @@
   },
   "mentionsLegales": {
     "title": "Legal Notice",
-    "lastUpdate": "Last updated: April 2026",
+    "lastUpdate": "Last updated: 12 October 2026",
     "editeur": {
       "title": "1. Site Publisher",
-      "name": "tevaxia.lu",
-      "auteur": "Erwan Bargain — Real estate valuation expert, REV TEGOVA certified",
-      "linkedin": "LinkedIn",
-      "linkedinUrl": "linkedin.com/in/erwanbargain",
-      "expertise": "Real estate expertise firm",
-      "expertiseUrl": "bargain-expertise.fr",
+      "name": "NOTARIA PRIME",
+      "forme": "French simplified joint-stock company (SAS) with share capital of €500",
+      "siege": "Registered office: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, France",
+      "siren": "SIREN : 941 646 341",
+      "siret": "SIRET : 941 646 341 00011",
+      "rcs": "RCS Quimper : 941 646 341",
+      "tva": "EU VAT number: FR81941646341",
+      "representant": "Legal representative: Erwan Bargain, President of NOTARIA PRIME",
+      "website": "Company website",
       "contact": "Contact",
       "langues": "The site is available in five languages: French, English, German, Portuguese and Luxembourgish."
     },
@@ -3710,8 +3713,8 @@
   },
   "cgu": {
     "title": "Terms of Service",
-    "lastUpdate": "Last updated: April 2026",
-    "intro": "These Terms of Service (TOS) govern the use of the tevaxia.lu platform and its services. By accessing the site or creating an account, the user accepts these TOS without reservation.",
+    "lastUpdate": "Last updated: 12 October 2026",
+    "intro": "These Terms of Service (TOS) govern the use of the tevaxia.lu platform and its services. By accessing the site or creating an account, the user accepts these TOS without reservation. The platform is published by NOTARIA PRIME, a French simplified joint-stock company (SAS) with share capital of €500, registered with the Quimper Trade and Companies Register under number 941 646 341.",
     "article1": {
       "title": "1. Purpose",
       "p1": "Tevaxia.lu offers property calculators and simulators, a module for preparing dossiers and value scenarios, and business software for agencies, property managers and hotels. Analysis tools provide indicative support and do not replace a professional valuation.",
@@ -3769,10 +3772,10 @@
   },
   "confidentialite": {
     "title": "Privacy Policy",
-    "lastUpdate": "Last updated: 10 September 2026",
+    "lastUpdate": "Last updated: 12 October 2026",
     "responsable": {
       "title": "1. Data Controller",
-      "name": "tevaxia.lu",
+      "name": "NOTARIA PRIME — Registered office: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, France",
       "contact": "Contact"
     },
     "donnees": {
@@ -9367,7 +9370,7 @@
     "introP1": "Luxembourg real estate follows specific rules that often differ from neighboring countries: the 5% rent cap, the Bëllegen Akt tax credit, 7% registration fees, the 3% super-reduced VAT on housing, and the Klimabonus for energy renovation. These 12 guides summarize the essentials with references to applicable legislation (law of 21.09.2006, law of 16.05.1975, law of 03.02.2018, art. 99bis/99ter/102bis LIR).",
     "introP2": "Each guide links to a tevaxia calculator that lets you apply the described rule in practice — estimation, fee simulation, rent cap calculation, scenario comparison. Guides are available in 5 languages for residents, cross-border workers and international investors.",
     "aboutTitle": "About this guide",
-    "aboutP1": "This guide is written by Erwan Bargain, TEGOVA-certified property valuer (REV), and kept up to date with data from the Observatoire de l'Habitat, STATEC and current Luxembourg legislation. It does not constitute legal advice — consult a notary or lawyer for any individual situation.",
+    "aboutP1": "This guide is written by Erwan Bargain, property valuer, and kept up to date with data from the Observatoire de l'Habitat, STATEC and current Luxembourg legislation. It does not constitute legal advice — consult a notary or lawyer for any individual situation.",
     "aboutP2": "Last updated: April 2026. Sources: amended law of 21 September 2006 (residential lease), law of 16 May 1975 (co-ownership), law of 3 February 2018 (commercial lease), Income Tax Code (LIR), STATEC grand-ducal regulations, Observatoire de l'Habitat / data.public.lu publications.",
     "iaTevaxiaTitle": "AI on tevaxia",
     "iaTevaxiaDesc": "AI assistant: indicative analysis, drafts to review and property dossier preparation support."

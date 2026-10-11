@@ -16,16 +16,18 @@ export default async function MentionsLegales() {
             <h2 className="text-lg font-semibold text-navy">{t("editeur.title")}</h2>
             <p>
               {t("editeur.name")}<br />
-              {t("editeur.auteur")}
+              {t("editeur.forme")}
             </p>
             <ul className="list-none pl-0 space-y-1 mt-2">
+              <li>{t("editeur.siege")}</li>
+              <li>{t("editeur.siren")}</li>
+              <li>{t("editeur.siret")}</li>
+              <li>{t("editeur.rcs")}</li>
+              <li>{t("editeur.tva")}</li>
+              <li>{t("editeur.representant")}</li>
               <li>
-                {t("editeur.linkedin")} :{" "}
-                <a href="https://www.linkedin.com/in/erwanbargain" target="_blank" rel="noopener noreferrer" className="text-navy hover:underline">{t("editeur.linkedinUrl")}</a>
-              </li>
-              <li>
-                {t("editeur.expertise")} :{" "}
-                <a href="https://bargain-expertise.fr" target="_blank" rel="noopener noreferrer" className="text-navy hover:underline">{t("editeur.expertiseUrl")}</a>
+                {t("editeur.website")} :{" "}
+                <a href="https://notariaprime.fr" target="_blank" rel="noopener noreferrer" className="text-navy hover:underline">notariaprime.fr</a>
               </li>
               <li>
                 {t("editeur.contact")} :{" "}

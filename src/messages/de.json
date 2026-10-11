@@ -82,7 +82,7 @@
     "copyLink": "Link kopieren",
     "linkCopied": "Link kopiert!",
     "home": "Startseite",
-    "authorByline": "Von Erwan Bargain, REV TEGOVA",
+    "authorByline": "Von Erwan Bargain",
     "authorBylineDate": "Aktualisiert: April 2026",
     "relatedToolsTitle": "Verwandte Werkzeuge",
     "relatedToolsSubtitle": "Ergänzen Sie Ihre Analyse mit diesen anderen tevaxia-Tools.",
@@ -3657,15 +3657,18 @@
   },
   "mentionsLegales": {
     "title": "Impressum",
-    "lastUpdate": "Letzte Aktualisierung: April 2026",
+    "lastUpdate": "Zuletzt aktualisiert: 12. Oktober 2026",
     "editeur": {
       "title": "1. Herausgeber der Website",
-      "name": "tevaxia.lu",
-      "auteur": "Erwan Bargain — Immobiliensachverständiger, REV TEGOVA zertifiziert",
-      "linkedin": "LinkedIn",
-      "linkedinUrl": "linkedin.com/in/erwanbargain",
-      "expertise": "Immobiliengutachterbüro",
-      "expertiseUrl": "bargain-expertise.fr",
+      "name": "NOTARIA PRIME",
+      "forme": "Französische vereinfachte Aktiengesellschaft (SAS) mit einem Kapital von 500 €",
+      "siege": "Sitz: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, Frankreich",
+      "siren": "SIREN : 941 646 341",
+      "siret": "SIRET : 941 646 341 00011",
+      "rcs": "RCS Quimper : 941 646 341",
+      "tva": "Umsatzsteuer-Identifikationsnummer: FR81941646341",
+      "representant": "Gesetzlicher Vertreter: Erwan Bargain, Präsident von NOTARIA PRIME",
+      "website": "Website des Unternehmens",
       "contact": "Kontakt",
       "langues": "Die Website ist in fünf Sprachen verfügbar: Französisch, Englisch, Deutsch, Portugiesisch und Luxemburgisch."
     },
@@ -3710,8 +3713,8 @@
   },
   "cgu": {
     "title": "Allgemeine Nutzungsbedingungen",
-    "lastUpdate": "Letzte Aktualisierung: April 2026",
-    "intro": "Diese Allgemeinen Nutzungsbedingungen (AGB) regeln die Nutzung der Plattform tevaxia.lu und ihrer Dienste. Durch den Zugriff auf die Website oder die Erstellung eines Kontos akzeptiert der Nutzer diese AGB vorbehaltlos.",
+    "lastUpdate": "Zuletzt aktualisiert: 12. Oktober 2026",
+    "intro": "Diese Allgemeinen Nutzungsbedingungen (AGB) regeln die Nutzung der Plattform tevaxia.lu und ihrer Dienste. Durch den Zugriff auf die Website oder die Erstellung eines Kontos akzeptiert der Nutzer diese AGB vorbehaltlos. Die Plattform wird von NOTARIA PRIME herausgegeben, einer französischen vereinfachten Aktiengesellschaft (SAS) mit einem Kapital von 500 €, eingetragen im Handels- und Gesellschaftsregister Quimper unter der Nummer 941 646 341.",
     "article1": {
       "title": "1. Gegenstand",
       "p1": "Tevaxia.lu bietet Immobilienrechner und Simulatoren, ein Modul zur Vorbereitung von Unterlagen und Wertszenarien sowie Branchensoftware für Makler, Verwalter und Hotels. Die Analysewerkzeuge liefern unverbindliche Unterstützung und ersetzen kein professionelles Gutachten.",
@@ -3769,10 +3772,10 @@
   },
   "confidentialite": {
     "title": "Datenschutzerklärung",
-    "lastUpdate": "Letzte Aktualisierung: 10. September 2026",
+    "lastUpdate": "Zuletzt aktualisiert: 12. Oktober 2026",
     "responsable": {
       "title": "1. Verantwortlicher für die Datenverarbeitung",
-      "name": "tevaxia.lu",
+      "name": "NOTARIA PRIME — Sitz: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, Frankreich",
       "contact": "Kontakt"
     },
     "donnees": {
@@ -9245,7 +9248,7 @@
     "introP1": "Luxemburger Immobilienrecht weist spezifische Regeln auf, die sich von den Nachbarländern unterscheiden: die 5 %-Mietobergrenze, der Bëllegen Akt, 7 % Registrierungsgebühren, der 3 %-Superermäßigte-MwSt.-Satz und der Klimabonus für energetische Sanierung. Diese 12 Leitfäden fassen das Wesentliche zusammen mit Verweisen auf die geltende Gesetzgebung.",
     "introP2": "Jeder Leitfaden verlinkt auf ein tevaxia-Berechnungstool zur praktischen Anwendung der beschriebenen Regel. Verfügbar in 5 Sprachen für Ansässige, Grenzgänger und internationale Investoren.",
     "aboutTitle": "Über diesen Leitfaden",
-    "aboutP1": "Dieser Leitfaden wurde von Erwan Bargain, TEGOVA-zertifizierter Immobilienbewerter (REV), verfasst und wird mit Daten des Observatoire de l'Habitat, STATEC und der aktuellen luxemburgischen Gesetzgebung aktualisiert.",
+    "aboutP1": "Dieser Leitfaden wurde von Erwan Bargain, Immobilienbewerter, verfasst und wird mit Daten des Observatoire de l'Habitat, STATEC und der aktuellen luxemburgischen Gesetzgebung aktualisiert.",
     "aboutP2": "Letzte Aktualisierung: April 2026. Quellen: Gesetz vom 21.09.2006 (Wohnungsmietvertrag), Gesetz vom 16.05.1975 (Miteigentum), Gesetz vom 03.02.2018 (Gewerbemietvertrag), LIR, STATEC.",
     "iaTevaxiaTitle": "KI auf tevaxia",
     "iaTevaxiaDesc": "KI-Assistent: unverbindliche Analyse, zu prüfende Entwürfe und Hilfe bei Immobilienunterlagen."

@@ -82,7 +82,7 @@
     "copyLink": "Copier le lien",
     "linkCopied": "Lien copié !",
     "home": "Accueil",
-    "authorByline": "Par Erwan Bargain, REV TEGOVA",
+    "authorByline": "Par Erwan Bargain",
     "authorBylineDate": "Mis à jour : avril 2026",
     "relatedToolsTitle": "Outils associés",
     "relatedToolsSubtitle": "Complétez votre analyse avec ces autres outils tevaxia.",
@@ -3657,15 +3657,18 @@
   },
   "mentionsLegales": {
     "title": "Mentions légales",
-    "lastUpdate": "Dernière mise à jour : avril 2026",
+    "lastUpdate": "Dernière mise à jour : 12 octobre 2026",
     "editeur": {
       "title": "1. Éditeur du site",
-      "name": "tevaxia.lu",
-      "auteur": "Erwan Bargain — Expert en évaluation immobilière, certifié REV TEGOVA",
-      "linkedin": "LinkedIn",
-      "linkedinUrl": "linkedin.com/in/erwanbargain",
-      "expertise": "Cabinet d'expertise immobilière",
-      "expertiseUrl": "bargain-expertise.fr",
+      "name": "NOTARIA PRIME",
+      "forme": "Société par actions simplifiée (SAS) au capital de 500 €",
+      "siege": "Siège social : 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, France",
+      "siren": "SIREN : 941 646 341",
+      "siret": "SIRET : 941 646 341 00011",
+      "rcs": "RCS Quimper : 941 646 341",
+      "tva": "TVA intracommunautaire : FR81941646341",
+      "representant": "Représentant légal : Erwan Bargain, président de NOTARIA PRIME",
+      "website": "Site de la société",
       "contact": "Contact",
       "langues": "Le site est disponible en cinq langues : français, anglais, allemand, portugais et luxembourgeois."
     },
@@ -3710,8 +3713,8 @@
   },
   "cgu": {
     "title": "Conditions Générales d'Utilisation",
-    "lastUpdate": "Dernière mise à jour : avril 2026",
-    "intro": "Les présentes Conditions Générales d'Utilisation (CGU) régissent l'utilisation de la plateforme tevaxia.lu et de ses services. En accédant au site ou en créant un compte, l'utilisateur accepte sans réserve les présentes CGU.",
+    "lastUpdate": "Dernière mise à jour : 12 octobre 2026",
+    "intro": "Les présentes Conditions Générales d'Utilisation (CGU) régissent l'utilisation de la plateforme tevaxia.lu et de ses services. En accédant au site ou en créant un compte, l'utilisateur accepte sans réserve les présentes CGU. La plateforme est éditée par NOTARIA PRIME, SAS au capital de 500 €, immatriculée au RCS de Quimper sous le numéro 941 646 341.",
     "article1": {
       "title": "1. Objet",
       "p1": "Tevaxia.lu réunit des calculateurs et simulateurs immobiliers, un module de préparation de dossiers et de scénarios de valeur, ainsi que des logiciels métiers pour agences, syndics et hôteliers. Les outils d’analyse fournissent une aide indicative et ne remplacent pas une expertise professionnelle.",
@@ -3769,10 +3772,10 @@
   },
   "confidentialite": {
     "title": "Politique de confidentialité",
-    "lastUpdate": "Dernière mise à jour : 10 septembre 2026",
+    "lastUpdate": "Dernière mise à jour : 12 octobre 2026",
     "responsable": {
       "title": "1. Responsable du traitement",
-      "name": "tevaxia.lu",
+      "name": "NOTARIA PRIME — Siège social : 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, France",
       "contact": "Contact"
     },
     "donnees": {
@@ -9367,7 +9370,7 @@
     "introP1": "L'immobilier au Luxembourg obéit à des règles spécifiques qui diffèrent souvent des pays voisins : la règle des 5 % pour les loyers, le Bëllegen Akt, les droits d'enregistrement à 7 %, la TVA super-réduite à 3 % sur le logement, ou encore le Klimabonus pour la rénovation énergétique. Ces 12 guides résument l'essentiel en citant les textes de loi applicables (loi du 21.09.2006, loi du 16.05.1975, loi du 03.02.2018, art. 99bis/99ter/102bis LIR).",
     "introP2": "Chaque guide renvoie vers un outil de calcul tevaxia qui permet d'appliquer concrètement la règle décrite — estimation, simulation de frais, calcul de loyer plafond, comparaison de scénarios. Les guides sont disponibles en 5 langues pour les résidents, frontaliers et investisseurs internationaux.",
     "aboutTitle": "À propos de ce guide",
-    "aboutP1": "Ce guide est rédigé par Erwan Bargain, évaluateur immobilier certifié TEGOVA (REV), et maintenu à jour avec les données de l'Observatoire de l'Habitat, du STATEC et de la législation luxembourgeoise en vigueur. Il ne constitue pas un avis juridique — consultez un notaire ou un avocat pour toute situation individuelle.",
+    "aboutP1": "Ce guide est rédigé par Erwan Bargain, évaluateur immobilier, et maintenu à jour avec les données de l'Observatoire de l'Habitat, du STATEC et de la législation luxembourgeoise en vigueur. Il ne constitue pas un avis juridique — consultez un notaire ou un avocat pour toute situation individuelle.",
     "aboutP2": "Dernière mise à jour : avril 2026. Sources : loi modifiée du 21 septembre 2006 (bail à loyer), loi du 16 mai 1975 (copropriété), loi du 3 février 2018 (bail commercial), Code des impôts sur le revenu (LIR), règlements grand-ducaux STATEC, publications Observatoire de l'Habitat / data.public.lu.",
     "iaTevaxiaTitle": "L'IA sur tevaxia",
     "iaTevaxiaDesc": "Assistant IA : analyse indicative, brouillons à relire et aide à la préparation des dossiers immobiliers."
