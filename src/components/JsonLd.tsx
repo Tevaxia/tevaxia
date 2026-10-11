@@ -8,13 +8,12 @@ const PERSON_ERWAN = {
   "@id": "https://tevaxia.lu/#erwan-bargain",
   "name": "Erwan Bargain",
   "jobTitle": "Expert en évaluation immobilière",
-  "hasCredential": "REV TEGOVA (Recognised European Valuer)",
   "url": "https://bargain-expertise.fr/a-propos/",
   "sameAs": ["https://www.linkedin.com/in/erwanbargain/"],
 };
 
 /**
- * Person — Erwan Bargain, fondateur et expert REV TEGOVA
+ * Person — Erwan Bargain, fondateur et expert en évaluation immobilière
  * Placé dans le root layout pour E-E-A-T.
  */
 export function PersonJsonLd() {
@@ -36,7 +35,16 @@ export function OrganizationJsonLd() {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Tevaxia",
-      "legalName": "Tevaxia",
+      "legalName": "NOTARIA PRIME",
+      "taxID": "941646341",
+      "vatID": "FR81941646341",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1 impasse de Ménez Bijigou",
+        "postalCode": "29120",
+        "addressLocality": "Pont-l'Abbé",
+        "addressCountry": "FR"
+      },
       "url": "https://tevaxia.lu",
       "logo": "https://tevaxia.lu/logo-tevaxia-512.svg",
       "description": "Plateforme d'outils immobiliers pour le Luxembourg. Valorisation, simulation énergétique, données de marché, calculateurs.",
@@ -83,6 +91,7 @@ export function WebSiteJsonLd() {
       "publisher": {
         "@type": "Organization",
         "name": "Tevaxia",
+        "legalName": "NOTARIA PRIME",
         "url": "https://tevaxia.lu"
       },
       "potentialAction": {
@@ -147,6 +156,7 @@ export function ArticleJsonLd({ headline, datePublished, dateModified }: {
       "publisher": {
         "@type": "Organization",
         "name": "tevaxia.lu",
+        "legalName": "NOTARIA PRIME",
         "url": "https://tevaxia.lu",
       },
       "datePublished": datePublished ?? "2026-04-16",

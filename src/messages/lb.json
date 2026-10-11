@@ -82,7 +82,7 @@
     "copyLink": "Link kopéieren",
     "linkCopied": "Link kopéiert!",
     "home": "Haaptsäit",
-    "authorByline": "Vum Erwan Bargain, REV TEGOVA",
+    "authorByline": "Vum Erwan Bargain",
     "authorBylineDate": "Aktualiséiert: Abrëll 2026",
     "relatedToolsTitle": "Verbonne Tools",
     "relatedToolsSubtitle": "Vervollstänegt Är Analys mat deenen anere tevaxia-Tools.",
@@ -3657,15 +3657,17 @@
   },
   "mentionsLegales": {
     "title": "Impressum",
-    "lastUpdate": "Lescht Aktualiséierung: Abrëll 2026",
+    "lastUpdate": "Lescht Aktualiséierung: 12. Oktober 2026",
     "editeur": {
       "title": "1. Erausgeber vum Site",
-      "name": "tevaxia.lu",
-      "auteur": "Erwan Bargain — Immobilienexpert, REV TEGOVA zertifizéiert",
-      "linkedin": "LinkedIn",
-      "linkedinUrl": "linkedin.com/in/erwanbargain",
-      "expertise": "Immobiliengutachterbüro",
-      "expertiseUrl": "bargain-expertise.fr",
+      "name": "NOTARIA PRIME",
+      "forme": "Franséisch vereinfacht Aktiegesellschaft (SAS) mat engem Kapital vu 500 €",
+      "siege": "Sëtz: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, Frankräich",
+      "siren": "SIREN : 941 646 341",
+      "siret": "SIRET : 941 646 341 00011",
+      "rcs": "RCS Quimper : 941 646 341",
+      "tva": "EU-TVA-Nummer: FR81941646341",
+      "representant": "Gesetzleche Vertrieder: Erwan Bargain, President vun NOTARIA PRIME",
       "contact": "Kontakt",
       "langues": "De Site ass a fënnef Sproochen disponibel: Franséisch, Englesch, Däitsch, Portugisesch a Lëtzebuergesch."
     },
@@ -3710,8 +3712,8 @@
   },
   "cgu": {
     "title": "Allgemeng Notzungsbedingungen",
-    "lastUpdate": "Lescht Aktualiséierung: Abrëll 2026",
-    "intro": "Dës Allgemeng Notzungsbedingungen (AGB) reegelen d'Notzung vun der Plattform tevaxia.lu a hiren Déngschter. Andeems de Benotzer de Site opruft oder e Kont erstellt, akzeptéiert hien dës AGB ouni Virbehalt.",
+    "lastUpdate": "Lescht Aktualiséierung: 12. Oktober 2026",
+    "intro": "Dës Allgemeng Notzungsbedingungen (AGB) reegelen d'Notzung vun der Plattform tevaxia.lu a hiren Déngschter. Andeems de Benotzer de Site opruft oder e Kont erstellt, akzeptéiert hien dës AGB ouni Virbehalt. D’Plattform gëtt vun NOTARIA PRIME erausginn, enger franséischer vereinfachter Aktiegesellschaft (SAS) mat engem Kapital vu 500 €, ageschriwwen am Handels- a Gesellschaftsregister vu Quimper ënner der Nummer 941 646 341.",
     "article1": {
       "title": "1. Géigestand",
       "p1": "Tevaxia.lu bitt Immobilienrechner a Simulatoren, e Modul fir Dossieren a Wäertszenarien ze preparéieren a Branchesoftware fir Agencen, Verwaltungen an Hoteller. D’Analysinstrumenter bidden indikativ Hëllef an ersetzen keng professionell Expertise.",
@@ -3769,10 +3771,10 @@
   },
   "confidentialite": {
     "title": "Dateschutzrichtlinn",
-    "lastUpdate": "Lescht Aktualiséierung: 10. September 2026",
+    "lastUpdate": "Lescht Aktualiséierung: 12. Oktober 2026",
     "responsable": {
       "title": "1. Responsabele fir d'Dateveraarbechtung",
-      "name": "tevaxia.lu",
+      "name": "NOTARIA PRIME — Sëtz: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, Frankräich",
       "contact": "Kontakt"
     },
     "donnees": {
@@ -9245,7 +9247,7 @@
     "introP1": "Lëtzebuerger Immobilienrecht huet spezifesch Regelen, déi sech vun den Nopeschlänner ënnerscheeden: d'5 %-Loyersregel, de Bëllegen Akt, 7 % Aschreiwungsgebühren, den 3 %-TVA-Saz an de Klimabonus fir energeetesch Renovéierung. Dës 12 Guiden fassen d'Essentiellt zesummen mat Verwäiser op d'gëltend Gesetzgebung.",
     "introP2": "All Guide verlinkt op en tevaxia-Berechnungstool fir d'beschriwwen Regel konkret ëmzesetzen. Disponibel an 5 Sproochen fir Awunner, Grenzgänger an international Investisseuren.",
     "aboutTitle": "Iwwer dëse Guide",
-    "aboutP1": "Dëse Guide gouf vum Erwan Bargain, TEGOVA-zertifizéierten Immobiliebewäerter (REV), geschriwwen an gëtt mat Donnéeën vum Observatoire de l'Habitat, STATEC an der aktueller Lëtzebuerger Gesetzgebung aktualiséiert.",
+    "aboutP1": "Dëse Guide gouf vum Erwan Bargain, Immobiliebewäerter, geschriwwen an gëtt mat Donnéeën vum Observatoire de l'Habitat, STATEC an der aktueller Lëtzebuerger Gesetzgebung aktualiséiert.",
     "aboutP2": "Lescht Aktualiséierung: Abrëll 2026. Quellen: Gesetz vum 21.09.2006, Gesetz vum 16.05.1975, Gesetz vum 03.02.2018, LIR, STATEC.",
     "iaTevaxiaTitle": "KI op tevaxia",
     "iaTevaxiaDesc": "KI-Assistent: indikativ Analys, Entwërf fir ze iwwerpréiwen an Hëllef bei Immobiliendossieren."

@@ -82,7 +82,7 @@
     "copyLink": "Copiar ligação",
     "linkCopied": "Ligação copiada!",
     "home": "Início",
-    "authorByline": "Por Erwan Bargain, REV TEGOVA",
+    "authorByline": "Por Erwan Bargain",
     "authorBylineDate": "Atualizado: abril de 2026",
     "relatedToolsTitle": "Ferramentas relacionadas",
     "relatedToolsSubtitle": "Complete a sua análise com estas outras ferramentas tevaxia.",
@@ -3657,15 +3657,17 @@
   },
   "mentionsLegales": {
     "title": "Avisos legais",
-    "lastUpdate": "Ultima atualizacao: abril de 2026",
+    "lastUpdate": "Última atualização: 12 de outubro de 2026",
     "editeur": {
       "title": "1. Editor do site",
-      "name": "tevaxia.lu",
-      "auteur": "Erwan Bargain — Perito imobiliário, certificado REV TEGOVA",
-      "linkedin": "LinkedIn",
-      "linkedinUrl": "linkedin.com/in/erwanbargain",
-      "expertise": "Gabinete de peritagem imobiliária",
-      "expertiseUrl": "bargain-expertise.fr",
+      "name": "NOTARIA PRIME",
+      "forme": "Sociedade por ações simplificada francesa (SAS) com capital social de 500 €",
+      "siege": "Sede social: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, França",
+      "siren": "SIREN : 941 646 341",
+      "siret": "SIRET : 941 646 341 00011",
+      "rcs": "RCS Quimper : 941 646 341",
+      "tva": "Número de IVA intracomunitário: FR81941646341",
+      "representant": "Representante legal: Erwan Bargain, presidente da NOTARIA PRIME",
       "contact": "Contacto",
       "langues": "O site esta disponivel em cinco linguas: frances, ingles, alemao, portugues e luxemburgues."
     },
@@ -3710,8 +3712,8 @@
   },
   "cgu": {
     "title": "Termos e Condicoes de Utilizacao",
-    "lastUpdate": "Ultima atualizacao: abril de 2026",
-    "intro": "Os presentes Termos e Condicoes de Utilizacao (TCU) regem a utilizacao da plataforma tevaxia.lu e dos seus servicos. Ao aceder ao site ou criar uma conta, o utilizador aceita sem reservas os presentes TCU.",
+    "lastUpdate": "Última atualização: 12 de outubro de 2026",
+    "intro": "Os presentes Termos e Condicoes de Utilizacao (TCU) regem a utilizacao da plataforma tevaxia.lu e dos seus servicos. Ao aceder ao site ou criar uma conta, o utilizador aceita sem reservas os presentes TCU. A plataforma é editada pela NOTARIA PRIME, sociedade por ações simplificada francesa (SAS) com capital social de 500 €, inscrita no Registo do Comércio e das Sociedades de Quimper sob o número 941 646 341.",
     "article1": {
       "title": "1. Objeto",
       "p1": "A Tevaxia.lu reúne calculadoras e simuladores imobiliários, um módulo de preparação de dossiers e cenários de valor e software de gestão para agências, administradores de condomínios e hotéis. As ferramentas de análise prestam apoio indicativo e não substituem uma avaliação pericial.",
@@ -3769,10 +3771,10 @@
   },
   "confidentialite": {
     "title": "Politica de privacidade",
-    "lastUpdate": "Última atualização: 10 de setembro de 2026",
+    "lastUpdate": "Última atualização: 12 de outubro de 2026",
     "responsable": {
       "title": "1. Responsavel pelo tratamento",
-      "name": "tevaxia.lu",
+      "name": "NOTARIA PRIME — Sede social: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, França",
       "contact": "Contacto"
     },
     "donnees": {
@@ -9245,7 +9247,7 @@
     "introP1": "O imobiliário no Luxemburgo segue regras específicas diferentes dos países vizinhos: a regra dos 5 % para rendas, o Bëllegen Akt, taxas de registo de 7 %, o IVA super-reduzido de 3 % e o Klimabonus para renovação energética. Estes 12 guias resumem o essencial com referências à legislação aplicável.",
     "introP2": "Cada guia liga a uma ferramenta de cálculo tevaxia para aplicar na prática a regra descrita. Disponível em 5 línguas para residentes, fronteiriços e investidores internacionais.",
     "aboutTitle": "Sobre este guia",
-    "aboutP1": "Este guia foi escrito por Erwan Bargain, avaliador imobiliário certificado TEGOVA (REV), e é atualizado com dados do Observatoire de l'Habitat, STATEC e legislação luxemburguesa em vigor.",
+    "aboutP1": "Este guia foi escrito por Erwan Bargain, avaliador imobiliário, e é atualizado com dados do Observatoire de l'Habitat, STATEC e legislação luxemburguesa em vigor.",
     "aboutP2": "Última atualização: abril 2026. Fontes: lei de 21.09.2006 (arrendamento), lei de 16.05.1975 (condomínio), lei de 03.02.2018 (arrendamento comercial), LIR, STATEC.",
     "iaTevaxiaTitle": "IA no tevaxia",
     "iaTevaxiaDesc": "Assistente de IA: análise indicativa, rascunhos a rever e apoio à preparação de dossiers imobiliários."
