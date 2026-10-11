@@ -26,6 +26,10 @@ export default async function MentionsLegales() {
               <li>{t("editeur.tva")}</li>
               <li>{t("editeur.representant")}</li>
               <li>
+                {t("editeur.website")} :{" "}
+                <a href="https://notariaprime.fr" target="_blank" rel="noopener noreferrer" className="text-navy hover:underline">notariaprime.fr</a>
+              </li>
+              <li>
                 {t("editeur.contact")} :{" "}
                 <a href="mailto:contact@tevaxia.lu" className="text-navy hover:underline">contact@tevaxia.lu</a>
               </li>
