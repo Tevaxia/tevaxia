@@ -27,6 +27,8 @@ const LOW_PRIORITY = [
   "/hotellerie/valorisation", "/hotellerie/dscr",
   "/hotellerie/exploitation", "/hotellerie/renovation",
   "/hotellerie/compset", "/hotellerie/score-e2",
+  "/docs", "/str/rentabilite", "/str/arbitrage",
+  "/calculateur-loyer/observatoire", "/gestion-locative/ais",
 ];
 
 const ENERGY_PAGES = [

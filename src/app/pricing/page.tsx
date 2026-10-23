@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { getTranslations } from "next-intl/server";
 
 function CheckIcon({ className = "text-navy/60" }: { className?: string }) {

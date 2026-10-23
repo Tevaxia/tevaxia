@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { useLocale, useTranslations } from "next-intl";
 import { pdf, Document, Page, Text, StyleSheet } from "@react-pdf/renderer";
 import { useAuth } from "@/components/AuthProvider";

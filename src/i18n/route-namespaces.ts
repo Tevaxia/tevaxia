@@ -31,6 +31,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "expertGuidance",
     "hotellerieContextBar",
     "nav",
+    "numberInput",
     "pdfActions",
     "pmsContextBar",
     "saveButton",
@@ -315,6 +316,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "expertGuidance",
     "hotellerieContextBar",
     "nav",
+    "numberInput",
     "pdfActions",
     "pmsContextBar",
     "syndicContextBar"
@@ -854,6 +856,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "expertGuidance",
     "glLotEdit",
     "hotellerieContextBar",
+    "leaseDraft",
     "nav",
     "pmsContextBar",
     "syndicContextBar"
@@ -1614,6 +1617,19 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "pmsContextBar",
     "syndicContextBar"
   ],
+  "/offline": [
+    "aiChat",
+    "authMfa",
+    "backup",
+    "common",
+    "cookie",
+    "crmContextBar",
+    "expertGuidance",
+    "hotellerieContextBar",
+    "nav",
+    "pmsContextBar",
+    "syndicContextBar"
+  ],
   "/onboarding": [
     "aiChat",
     "authMfa",
@@ -2350,6 +2366,7 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "aiChat",
     "authMfa",
     "backup",
+    "calendarSync",
     "common",
     "cookie",
     "crmContextBar",

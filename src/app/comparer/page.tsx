@@ -589,7 +589,11 @@ function SavedComparator({ t }: { t: ReturnType<typeof useTranslations> }) {
 
 export default function Comparer() {
   const { user, loading } = useAuth();
-  if(loading)return null;
+  const t = useTranslations("comparer");
+  if (loading) return <div aria-busy="true" className="mx-auto max-w-7xl px-4 py-8 sm:py-12">
+    <h1 className="text-2xl font-bold text-navy sm:text-3xl">{t("title")}</h1>
+    <p className="mt-2 text-muted">{t("subtitle")}</p>
+  </div>;
   return <ComparerContent key={user?.id ?? "guest"}/>;
 }
 

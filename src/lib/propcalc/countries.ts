@@ -42,6 +42,10 @@ export function getAllCountries() {
     currency: c.currency,
     currencySymbol: c.currencySymbol,
     flag: c.flag,
+    maxDurationYears: c.borrowing.maxDurationYears,
+    rentalTaxSupported: !['be', 'nl'].includes(c.code),
+    acquisitionRequiredInputs: c.code === 'pt' ? ['region', 'portugueseResident', 'portugueseTaxValue'] : [],
+    acquisitionRegions: (c.acquisitionFees.regions ?? []).map((region: { code: string; name: string }) => ({ code: region.code, name: region.name })),
   }));
 }
 

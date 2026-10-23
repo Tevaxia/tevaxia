@@ -123,6 +123,11 @@ export function calculateNetYield(params) {
  * @returns {Object} { taxableIncome, incomeTax, socialCharges, totalTax, netAfterTax, netNetYield }
  */
 export function calculateTaxImpact(params) {
+  if (params.countryCode === 'be' || params.countryCode === 'nl') {
+    throw new RangeError(params.countryCode === 'be'
+      ? 'Belgian rental taxation is not supported: cadastral income, tenant use and household details are required; no tax estimate is returned'
+      : 'Dutch Box 3 is not supported: assets, debts, exemptions and the applicable return method are required; no tax estimate is returned');
+  }
   if (params.countryCode === 'fr') return calculateFrenchRentalTax(params);
   if (params.countryCode === 'it') return calculateItalianRentalTax(params);
   if (params.countryCode === 'pt') return calculatePortugueseRentalTax(params);

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, use, useCallback } from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { useTranslations, useLocale } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { getContact, updateContact, deleteContact, contactDisplayName, type CrmContact, type CrmContactKind, type CrmInteraction, type CrmInteractionType, type CrmTask } from "@/lib/crm";

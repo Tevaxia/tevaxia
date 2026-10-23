@@ -1,4 +1,5 @@
 "use client";
+import LocaleLink from "@/components/LocaleLink";
 
 import { useState, useEffect, useRef } from "react";
 import InputField from "@/components/InputField";
@@ -296,7 +297,7 @@ function ProfileContent() {
                       <h2 className="text-base font-semibold text-navy">Sauvegardes</h2>
                       <p className="mt-1 text-xs text-muted max-w-xl">Exportez ZIP complet de vos données (syndic, CRM, PMS, évaluations…) vers votre disque ou votre Google Drive — droit RGPD Article 20.</p>
                     </div>
-                    <a href="/profil/sauvegardes" className="shrink-0 rounded-lg border border-navy bg-white px-3 py-1.5 text-xs font-medium text-navy hover:bg-navy/5">Gérer →</a>
+                    <LocaleLink href="/profil/sauvegardes" className="shrink-0 rounded-lg border border-navy bg-white px-3 py-1.5 text-xs font-medium text-navy hover:bg-navy/5">Gérer →</LocaleLink>
                   </div>
                 </div>
                 <MarketAlertsSection user={user} />

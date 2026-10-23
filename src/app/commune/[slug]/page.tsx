@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
+import { notFound, permanentRedirect } from "next/navigation";
+import { resolveCommuneRoute } from "@/lib/commune-routes";
 import { buildLocaleUrl, localizedAlternates, type Locale } from "@/lib/seo";
 import { SEO_BRANDING } from "@/lib/seo-branding";
 import { getAllCommunes, getCommuneBySlug, slugifyCommune } from "@/lib/market-data";
@@ -26,10 +28,7 @@ export async function generateMetadata({
   const commune = getCommuneBySlug(slug);
 
   if (!commune) {
-    return {
-      title: "Commune non trouvée",
-      description: "Cette commune n'a pas été trouvée dans notre base de données immobilières au Luxembourg.",
-    };
+    notFound();
   }
 
   const locale = await getLocale() as Locale;
@@ -153,7 +152,13 @@ export default async function CommunePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const canonicalSlug = resolveCommuneRoute(slug);
+  if (!canonicalSlug) notFound();
+  if (canonicalSlug !== slug) {
+    permanentRedirect(buildLocaleUrl(`/commune/${canonicalSlug}`, await getLocale()));
+  }
   const commune = getCommuneBySlug(slug);
+  if (!commune) notFound();
   const communeName = commune?.commune ?? slug;
   const jsonLd = buildJsonLd(slug);
   const breadcrumbJsonLd = buildBreadcrumbJsonLd(slug, communeName);

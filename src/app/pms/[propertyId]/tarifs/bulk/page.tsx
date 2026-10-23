@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, use, useCallback } from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";

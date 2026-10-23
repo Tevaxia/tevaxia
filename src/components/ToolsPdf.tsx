@@ -420,6 +420,7 @@ export interface AchatLocationPdfParams {
   dureeAns: number; tauxCredit: number;
   patrimoineAchat: number; patrimoineLocation: number;
   crossoverYear?: number; economieAchat?: number;
+  hypotheses?: string;
 }
 
 function AchatLocationDoc({ p }: { p: AchatLocationPdfParams }) {
@@ -434,7 +435,8 @@ function AchatLocationDoc({ p }: { p: AchatLocationPdfParams }) {
         reference={ref}
       />
       <Page size="A4" style={s.page}>
-        <PageHeader title="Achat vs Location" reference={ref} />
+          <PageHeader title="Achat vs Location" reference={ref} />
+          {p.hypotheses && <Text style={s.note}>{p.hypotheses}</Text>}
 
         <KpiGrid items={[
           { label: "Verdict", value: p.verdict, highlight: true },

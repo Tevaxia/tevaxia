@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, use, useMemo } from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { getProperty } from "@/lib/pms/properties";

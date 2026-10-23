@@ -4,8 +4,7 @@ import { Document, Page, Text, View, StyleSheet, Image } from "@react-pdf/render
 import type { RentalLot } from "@/lib/gestion-locative";
 
 // ============================================================
-// Template de bail LU conforme loi du 21 septembre 2006 modifiée
-// par la loi du 1er août 2022 relative au bail à usage d'habitation
+// Draft only: entered declarations are not a legal compliance assessment.
 // ============================================================
 
 interface LeasePdfProps {
@@ -27,13 +26,16 @@ interface LeasePdfProps {
   leaseStart: string; // YYYY-MM-DD
   leaseEndOrDuration: string; // ex. "2029-12-31" ou "3 ans"
   deposit: number; // €
-  indexationReference: string; // ex. "Indice des prix à la consommation (STATEC)"
+  conclusionDate: string;
+  cadastralReference: string;
+  premisesDescription: string;
+  furnitureSupplement: number; // Included in lot.loyerMensuelActuel, not added twice.
+  chargesType: "advance" | "fixed";
+  rentConfirmed: boolean;
   /** PNG base64 data URL de la signature du bailleur (optionnel) */
   signatureLandlord?: string | null;
   /** PNG base64 data URL de la signature du locataire (optionnel) */
   signatureTenant?: string | null;
-  /** SHA-256 du PDF (calculé après rendu initial, ré-injecté au 2e rendu) */
-  pdfHash?: string | null;
   /** Date/heure de signature bailleur (ISO) */
   signedAtLandlord?: string | null;
   /** Date/heure de signature locataire (ISO) */
@@ -56,19 +58,20 @@ const s = StyleSheet.create({
 });
 
 function formatEUR(n: number): string {
-  return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
+  return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
 }
 
 export default function LeasePdf({
-  lot, landlord, tenant, leaseStart, leaseEndOrDuration, deposit, indexationReference,
-  signatureLandlord, signatureTenant, pdfHash, signedAtLandlord, signedAtTenant,
+  lot, landlord, tenant, leaseStart, leaseEndOrDuration, deposit, conclusionDate,
+  cadastralReference, premisesDescription, furnitureSupplement, chargesType, rentConfirmed,
+  signatureLandlord, signatureTenant, signedAtLandlord, signedAtTenant,
 }: LeasePdfProps) {
   return (
     <Document>
       <Page size="A4" style={s.page}>
-        <Text style={s.title}>Contrat de bail à usage d&apos;habitation</Text>
+        <Text style={s.title}>Projet de bail à usage d&apos;habitation</Text>
         <Text style={s.legalNote}>
-          Conforme à la loi modifiée du 21 septembre 2006 sur le bail à usage d&apos;habitation (Mémorial A - N° 175)
+          Document de travail à vérifier avant conclusion. Nouveau bail de résidence principale au Luxembourg ; date de conclusion prévue : {conclusionDate}. Aucune certification de conformité par Tevaxia.
         </Text>
 
         {/* 1. Parties */}
@@ -94,6 +97,8 @@ export default function LeasePdf({
             principale du locataire et des membres de son foyer.
           </Text>
           <View style={s.row}><Text style={s.label}>Désignation</Text><Text style={s.value}>{lot.name}</Text></View>
+          <View style={s.row}><Text style={s.label}>Référence cadastrale</Text><Text style={s.value}>{cadastralReference}</Text></View>
+          <Text style={s.p}>Pièces, parties d’immeuble et annexes louées : {premisesDescription}</Text>
           {lot.address ? <View style={s.row}><Text style={s.label}>Adresse</Text><Text style={s.value}>{lot.address}</Text></View> : null}
           {lot.commune ? <View style={s.row}><Text style={s.label}>Commune</Text><Text style={s.value}>{lot.commune}</Text></View> : null}
           <View style={s.row}><Text style={s.label}>Surface habitable</Text><Text style={s.value}>{lot.surface} m²</Text></View>
@@ -117,24 +122,27 @@ export default function LeasePdf({
         {/* 4. Loyer */}
         <View style={s.section}>
           <Text style={s.h2}>4. Loyer et charges</Text>
-          <View style={s.row}><Text style={s.label}>Loyer mensuel (hors charges)</Text><Text style={s.value}>{formatEUR(lot.loyerMensuelActuel)}</Text></View>
-          <View style={s.row}><Text style={s.label}>Charges mensuelles forfaitaires</Text><Text style={s.value}>{formatEUR(lot.chargesMensuelles)}</Text></View>
+          <View style={s.row}><Text style={s.label}>Loyer principal mensuel</Text><Text style={s.value}>{formatEUR(lot.loyerMensuelActuel - furnitureSupplement)}</Text></View>
+          {lot.estMeuble && <View style={s.row}><Text style={s.label}>Supplément mobilier mensuel</Text><Text style={s.value}>{formatEUR(furnitureSupplement)}</Text></View>}
+          <View style={s.row}><Text style={s.label}>Total loyer hors charges</Text><Text style={s.value}>{formatEUR(lot.loyerMensuelActuel)}</Text></View>
+          <View style={s.row}><Text style={s.label}>{chargesType === "advance" ? "Acomptes mensuels sur charges" : "Forfait mensuel de charges"}</Text><Text style={s.value}>{formatEUR(lot.chargesMensuelles)}</Text></View>
           <View style={s.row}><Text style={s.label}>Total mensuel</Text><Text style={s.value}>{formatEUR(lot.loyerMensuelActuel + lot.chargesMensuelles)}</Text></View>
           <Text style={{ ...s.p, marginTop: 4 }}>
             Le loyer est payable d&apos;avance, au plus tard le 5 de chaque mois, par virement sur le compte du bailleur.
           </Text>
           <Text style={s.p}>
-            <Text style={{ fontWeight: "bold" }}>Règle du 5 % :</Text> le loyer convenu respecte le plafond de 5 % du capital investi
-            réévalué (loi précitée, art. 3). Le capital investi est détaillé en annexe.
+            {rentConfirmed ? "Déclaration saisie par le bailleur : le loyer demandé respecte le plafond légal du loyer annuel ; les justificatifs de cette déclaration doivent être conservés et communiqués selon les règles applicables." : "À compléter avant conclusion : le bailleur doit vérifier et déclarer le respect du plafond légal du loyer annuel, sur la base du capital investi réévalué et décoté applicable au logement."}
+            {" "}Tevaxia ne calcule ni ne vérifie ce plafond dans ce générateur et ne joint aucune annexe de calcul.
           </Text>
+          {lot.estMeuble && <Text style={s.p}>Le supplément mobilier doit être justifié séparément par l’inventaire et les factures éligibles : au maximum 1,5 % par mois du montant des factures de moins de dix ans des meubles garnissant le logement. Joindre les pièces nécessaires ; elles ne sont pas générées ici.</Text>}
+          <Text style={s.p}>{chargesType === "advance" ? "Les acomptes font l’objet d’un décompte annuel sur justificatifs des charges récupérables." : "Le forfait convenu doit correspondre aux consommations et charges normales du locataire ; sa composition doit être précisée entre les parties."}</Text>
         </View>
 
         {/* 5. Indexation */}
         <View style={s.section}>
-          <Text style={s.h2}>5. Indexation</Text>
+          <Text style={s.h2}>5. Adaptation du loyer et contestation</Text>
           <Text style={s.p}>
-            Le loyer peut être revu au maximum tous les deux ans selon l&apos;évolution de l&apos;
-            {indexationReference}. Aucune indexation rétroactive ne peut être appliquée.
+            Aucune indexation automatique n’est prévue par ce projet. Toute adaptation doit respecter les conditions légales, notamment l’intervalle de deux ans et la limite d’augmentation de 10 %, sous réserve des cas prévus par la loi. Les parties peuvent saisir la commission des loyers en cas de litige sur la fixation du loyer.
           </Text>
         </View>
 
@@ -143,9 +151,8 @@ export default function LeasePdf({
           <Text style={s.h2}>6. Garantie locative</Text>
           <Text style={s.p}>
             Le locataire verse une garantie locative d&apos;un montant de <Text style={{ fontWeight: "bold" }}>{formatEUR(deposit)}</Text>,
-            soit {Math.round(deposit / (lot.loyerMensuelActuel || 1))} mois de loyer (maximum légal : 3 mois).
-            Cette garantie est consignée sur un compte bancaire bloqué au nom du locataire,
-            conformément à l&apos;article 5-1 de la loi précitée. Les intérêts produits appartiennent au locataire.
+            soit {(deposit / lot.loyerMensuelActuel).toLocaleString("fr-FR", { maximumFractionDigits: 2 })} mois de loyer hors charges (maximum pour ce nouveau bail : 2 mois).
+            La forme de la garantie doit être convenue entre les parties et documentée séparément. En présence d’une garantie, l’état des lieux d’entrée doit être signé au plus tard lors de l’entrée dans les lieux. La restitution suit les conditions et délais légaux.
           </Text>
         </View>
 
@@ -153,8 +160,7 @@ export default function LeasePdf({
         <View style={s.section}>
           <Text style={s.h2}>7. État des lieux</Text>
           <Text style={s.p}>
-            Un état des lieux contradictoire est dressé à l&apos;entrée et à la sortie du locataire. À défaut,
-            le locataire est présumé avoir reçu le bien en bon état.
+            Un état des lieux contradictoire est préparé à l’entrée et à la sortie. Prévoir également la remise du certificat de performance énergétique et, pour un logement meublé, l’inventaire du mobilier. Ces pièces ne sont pas jointes automatiquement au projet.
           </Text>
         </View>
 
@@ -171,9 +177,7 @@ export default function LeasePdf({
         <View style={s.section}>
           <Text style={s.h2}>9. Résiliation</Text>
           <Text style={s.p}>
-            Le locataire peut résilier le bail à tout moment moyennant un préavis de 3 mois.
-            Le bailleur ne peut résilier un bail à durée indéterminée que pour les motifs légaux
-            (occupation personnelle, non-paiement, manquement grave) et selon les procédures prévues.
+            La résiliation et le renouvellement dépendent notamment de la durée convenue et des motifs légaux. Les parties doivent préciser les modalités de préavis adaptées au présent bail avant sa conclusion, sans déroger aux dispositions impératives. Ce projet ne confère pas un droit général de résilier un bail à durée déterminée à tout moment.
           </Text>
         </View>
 
@@ -187,7 +191,7 @@ export default function LeasePdf({
                 <Text style={{ fontSize: 8 }}>Le bailleur — {landlord.name}</Text>
                 {signedAtLandlord && (
                   <Text style={{ color: "#6B7280", fontSize: 7, marginTop: 2 }}>
-                    Signé le {new Date(signedAtLandlord).toLocaleString("fr-FR", { dateStyle: "medium", timeStyle: "short" })}
+                    Tracé saisi le {new Date(signedAtLandlord).toLocaleString("fr-FR", { dateStyle: "medium", timeStyle: "short" })} (horloge locale non certifiée)
                   </Text>
                 )}
               </>
@@ -209,7 +213,7 @@ export default function LeasePdf({
                 <Text style={{ fontSize: 8 }}>Le locataire — {tenant.name}</Text>
                 {signedAtTenant && (
                   <Text style={{ color: "#6B7280", fontSize: 7, marginTop: 2 }}>
-                    Signé le {new Date(signedAtTenant).toLocaleString("fr-FR", { dateStyle: "medium", timeStyle: "short" })}
+                    Tracé saisi le {new Date(signedAtTenant).toLocaleString("fr-FR", { dateStyle: "medium", timeStyle: "short" })} (horloge locale non certifiée)
                   </Text>
                 )}
               </>
@@ -225,24 +229,19 @@ export default function LeasePdf({
           </View>
         </View>
 
-        {pdfHash && (
+        {(signatureLandlord || signatureTenant) && (
           <View style={{ marginTop: 20, padding: 8, backgroundColor: "#F8FAFC", borderRadius: 4 }}>
             <Text style={{ fontSize: 7, color: "#334155", fontWeight: "bold", marginBottom: 2 }}>
-              Signature électronique simple (eIDAS art. 25 §1)
-            </Text>
-            <Text style={{ fontSize: 6, color: "#6B7280", fontFamily: "Courier" }}>
-              Empreinte SHA-256 : {pdfHash}
+              Images de tracés de signature
             </Text>
             <Text style={{ fontSize: 6, color: "#6B7280" }}>
-              Document émis via tevaxia.lu — toute modification ultérieure invalide l&apos;empreinte.
+              Les images ci-dessus ne certifient ni l’identité des personnes ni leur accord. L’empreinte SHA-256 proposée séparément porte sur les octets du PDF final ; elle permet une comparaison de fichiers, sans authentification ni horodatage certifié.
             </Text>
           </View>
         )}
 
         <Text style={s.warning}>
-          ⚠ Ce modèle de bail est fourni à titre indicatif par tevaxia.lu. Il ne se substitue pas au conseil d&apos;un
-          avocat ou d&apos;un notaire pour les cas spécifiques (bail commercial, colocation, meublé touristique).
-          Vérifiez que le capital investi et le loyer respectent la règle des 5 % à la date de signature.
+          PROJET À VÉRIFIER : identité et capacité des parties, plafond du loyer, mobilier, charges, préavis, annexes et conditions particulières. Modèle limité à un nouveau bail de résidence principale ; il ne couvre pas les baux commerciaux, la colocation ni l’hébergement touristique. Prévoir un exemplaire par partie et faire vérifier les clauses avant signature.
         </Text>
       </Page>
     </Document>

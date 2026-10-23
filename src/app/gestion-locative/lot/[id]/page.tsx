@@ -3,7 +3,7 @@
 import { useAuth } from "@/components/AuthProvider";
 
 import { useEffect, useMemo, useState, useRef } from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { useParams, useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
@@ -242,7 +242,7 @@ function LotEditPageContent() {
                 {" · "}{t("gapLabel")}{" "}
                 <span className="font-semibold">{analysis.ecartLegalPct > 0 ? "+" : ""}{(analysis.ecartLegalPct * 100).toFixed(1)} %</span>
               </div>
-              {!analysis.plafondComplet && <p className="mt-3 text-xs">{tl("donneesIncompletes")} <a className="underline" href="/calculateur-loyer">{tl("title")}</a></p>}
+              {!analysis.plafondComplet && <p className="mt-3 text-xs">{tl("donneesIncompletes")} <Link className="underline" href="/calculateur-loyer">{tl("title")}</Link></p>}
               {analysis.depasseLegal && (
                 <div className="mt-3 rounded-lg bg-white/15 p-2 text-xs">
                   {t("warnOffLimit")}

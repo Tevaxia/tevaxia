@@ -26,81 +26,163 @@
     "imtBands": {
       "primaryResidence": [
         {
-          "upTo": 104261,
+          "upTo": 106346,
           "rate": 0,
           "deduction": 0
         },
         {
-          "upTo": 142670,
+          "upTo": 145470,
           "rate": 0.02,
-          "deduction": 2085.22
+          "deduction": 2126.92
         },
         {
-          "upTo": 194196,
+          "upTo": 198347,
           "rate": 0.05,
-          "deduction": 6365.23
+          "deduction": 6491.02
         },
         {
-          "upTo": 324058,
+          "upTo": 330539,
           "rate": 0.07,
-          "deduction": 10248.15
+          "deduction": 10457.96
         },
         {
-          "upTo": 648116,
+          "upTo": 660982,
           "rate": 0.08,
-          "deduction": 13489.73
+          "deduction": 13763.35
+        },
+        {
+          "upTo": 1150853,
+          "rate": 0.06,
+          "deduction": 0
         },
         {
           "upTo": null,
-          "rate": 0.06,
-          "flat": true
+          "rate": 0.075,
+          "deduction": 0
         }
       ],
-      "investment": {
-        "bands": [
-          {
-            "min": 0,
-            "max": 104261,
-            "rate": 0.01
-          },
-          {
-            "min": 104261,
-            "max": 143133,
-            "rate": 0.02
-          },
-          {
-            "min": 143133,
-            "max": 194130,
-            "rate": 0.05
-          },
-          {
-            "min": 194130,
-            "max": 324218,
-            "rate": 0.07
-          },
-          {
-            "min": 324218,
-            "max": 648116,
-            "rate": 0.08
-          },
-          {
-            "min": 648116,
-            "max": null,
-            "rate": 0.06,
-            "flat": true
-          }
-        ],
-        "notes": "IMT investissement : barème progressif, pas d'exemption primo"
-      },
+      "investment": [
+        {
+          "upTo": 106346,
+          "rate": 0.01,
+          "deduction": 0
+        },
+        {
+          "upTo": 145470,
+          "rate": 0.02,
+          "deduction": 1063.46
+        },
+        {
+          "upTo": 198347,
+          "rate": 0.05,
+          "deduction": 5427.56
+        },
+        {
+          "upTo": 330539,
+          "rate": 0.07,
+          "deduction": 9394.5
+        },
+        {
+          "upTo": 633931,
+          "rate": 0.08,
+          "deduction": 12699.89
+        },
+        {
+          "upTo": 1150853,
+          "rate": 0.06,
+          "deduction": 0
+        },
+        {
+          "upTo": null,
+          "rate": 0.075,
+          "deduction": 0
+        }
+      ],
+      "islandsPrimaryResidence": [
+        {
+          "upTo": 132933,
+          "rate": 0,
+          "deduction": 0
+        },
+        {
+          "upTo": 181838,
+          "rate": 0.02,
+          "deduction": 2658.66
+        },
+        {
+          "upTo": 247934,
+          "rate": 0.05,
+          "deduction": 8113.8
+        },
+        {
+          "upTo": 413174,
+          "rate": 0.07,
+          "deduction": 13072.48
+        },
+        {
+          "upTo": 826228,
+          "rate": 0.08,
+          "deduction": 17204.22
+        },
+        {
+          "upTo": 1438566,
+          "rate": 0.06,
+          "deduction": 0
+        },
+        {
+          "upTo": null,
+          "rate": 0.075,
+          "deduction": 0
+        }
+      ],
+      "islandsInvestment": [
+        {
+          "upTo": 132933,
+          "rate": 0.01,
+          "deduction": 0
+        },
+        {
+          "upTo": 181838,
+          "rate": 0.02,
+          "deduction": 1329.33
+        },
+        {
+          "upTo": 247934,
+          "rate": 0.05,
+          "deduction": 6784.47
+        },
+        {
+          "upTo": 413174,
+          "rate": 0.07,
+          "deduction": 11743.15
+        },
+        {
+          "upTo": 792414,
+          "rate": 0.08,
+          "deduction": 15874.89
+        },
+        {
+          "upTo": 1438566,
+          "rate": 0.06,
+          "deduction": 0
+        },
+        {
+          "upTo": null,
+          "rate": 0.075,
+          "deduction": 0
+        }
+      ],
       "youngFirstTimeBuyer": {
         "maxAge": 35,
-        "maxPrice": 324058,
-        "rate": 0,
-        "notes": "Exemption IMT + IS pour primo < 35 ans si bien < 324 058 EUR (depuis août 2024)"
+        "maxPrice": 330539,
+        "partialLimit": 660982,
+        "islandsMaxPrice": 413174,
+        "islandsPartialLimit": 826228,
+        "notes": "Age <= 35; first permanent home, not an IRS dependent, no residential ownership/right now or in previous three years. Individual eligibility must apply to all buyers in this simplified full-property scenario."
       },
       "nonResident": {
         "flatRate": 0.075,
-        "notes": "7.5% flat pour non-résidents (depuis 2026), sauf si deviennent résidents sous 2 ans"
+        "notes": "CIMT art.17(10), snapshot 2026-10-23: 7.5% payable upfront for non-residents; subsequent refund/exceptions require separate review."
       }
     },
     "impostoSelo": 0.008,
@@ -115,7 +197,9 @@
         "IMT s'applique toujours sur le neuf"
       ]
     },
-    "regions": []
+    "regions": [],
+    "source": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/legislacao/instrucoes_administrativas/Documents/Oficio_circulado_40129_2026.pdf",
+    "rateSnapshot": "2026-10-23"
   },
   "rentalTax": {
     "regimes": [

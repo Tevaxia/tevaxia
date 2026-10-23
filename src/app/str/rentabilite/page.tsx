@@ -49,7 +49,7 @@ export default function RentabiliteStr() {
   const TAX_BRACKETS = [
     { value: "0.11", label: t("tax.low") },
     { value: "0.22", label: t("tax.mid") },
-    { value: "0.30", label: t("tax.avg") },
+    { value: "0.3", label: t("tax.avg") },
     { value: "0.39", label: t("tax.high") },
     { value: "0.4578", label: t("tax.max") },
   ];
@@ -75,7 +75,7 @@ export default function RentabiliteStr() {
   }), [commune, surface, capacity, adr, occupancyPct, nightsPerYear, otaChannel, cleaningPerStay, avgStayLengthDays, pnoAnnual, internetTv, utilities, furnitureAmort, subscriptions, acquisitionPrice, marginalTaxRate, vacancyDaysBetween]);
 
   const ltAnnualGross = acquisitionPrice > 0 ? Math.round(acquisitionPrice * 0.05) : 0;
-  const ltNetEstimate = Math.max(0, ltAnnualGross - 2000 - Math.round(ltAnnualGross * marginalTaxRate));
+  const ltNetEstimate = Math.max(0, ltAnnualGross - 2000 - Math.round(Math.max(0, ltAnnualGross - 2000) * marginalTaxRate));
   const strVsLtDelta = result.netAfterTax - ltNetEstimate;
 
   return (
@@ -93,32 +93,32 @@ export default function RentabiliteStr() {
               <h2 className="mb-4 text-base font-semibold text-navy">{t("sections.property")}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 <InputField label={t("form.commune")} type="text" value={commune} onChange={(v) => setCommune(String(v))} />
-                <InputField label={t("form.surface")} value={surface} onChange={(v) => setSurface(Number(v))} suffix="m²" />
-                <InputField label={t("form.capacity")} value={capacity} onChange={(v) => setCapacity(Number(v))} />
-                <InputField label={t("form.acqPrice")} value={acquisitionPrice} onChange={(v) => setAcquisitionPrice(Number(v))} suffix="€" hint={t("form.acqPriceHint")} />
+                <InputField label={t("form.surface")} value={surface} onChange={(v) => setSurface(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="m²" />
+                <InputField label={t("form.capacity")} value={capacity} onChange={(v) => setCapacity(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} />
+                <InputField label={t("form.acqPrice")} value={acquisitionPrice} onChange={(v) => setAcquisitionPrice(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="€" hint={t("form.acqPriceHint")} />
               </div>
             </div>
 
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
               <h2 className="mb-4 text-base font-semibold text-navy">{t("sections.commercial")}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
-                <InputField label={t("form.adr")} value={adr} onChange={(v) => setAdr(Number(v))} suffix="€" hint={t("form.adrHint")} />
-                <InputField label={t("form.occupancy")} value={occupancyPct} onChange={(v) => setOccupancyPct(Number(v))} suffix="%" hint={t("form.occupancyHint", { n: nightsPerYear })} min={0} max={95} />
+                <InputField label={t("form.adr")} value={adr} onChange={(v) => setAdr(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="€" hint={t("form.adrHint")} />
+                <InputField label={t("form.occupancy")} value={occupancyPct} onChange={(v) => setOccupancyPct(Math.min(100, Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0))))} suffix="%" hint={t("form.occupancyHint", { n: nightsPerYear })} min={0} max={95} />
                 <InputField label={t("form.channel")} type="select" value={otaChannel} onChange={(v) => setOtaChannel(v as "airbnb" | "booking" | "vrbo" | "direct")} options={OTA_OPTIONS} />
-                <InputField label={t("form.stayLength")} value={avgStayLengthDays} onChange={(v) => setAvgStayLengthDays(Number(v))} suffix={t("form.nightsSuffix")} hint={t("form.stayLengthHint")} />
+                <InputField label={t("form.stayLength")} min={1} value={avgStayLengthDays} onChange={(v) => setAvgStayLengthDays(Math.max(1, (Number.isFinite(Number(v)) ? Number(v) : 1)))} suffix={t("form.nightsSuffix")} hint={t("form.stayLengthHint")} />
               </div>
             </div>
 
             <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
               <h2 className="mb-4 text-base font-semibold text-navy">{t("sections.costs")}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
-                <InputField label={t("form.cleaning")} value={cleaningPerStay} onChange={(v) => setCleaningPerStay(Number(v))} suffix="€" hint={t("form.cleaningHint")} />
-                <InputField label={t("form.vacancy")} value={vacancyDaysBetween} onChange={(v) => setVacancyDaysBetween(Number(v))} suffix={t("form.daysSuffix")} />
-                <InputField label={t("form.pno")} value={pnoAnnual} onChange={(v) => setPnoAnnual(Number(v))} suffix="€" hint={t("form.pnoHint")} />
-                <InputField label={t("form.internetTv")} value={internetTv} onChange={(v) => setInternetTv(Number(v))} suffix="€" />
-                <InputField label={t("form.utilities")} value={utilities} onChange={(v) => setUtilities(Number(v))} suffix="€" hint={t("form.utilitiesHint")} />
-                <InputField label={t("form.furnitureAmort")} value={furnitureAmort} onChange={(v) => setFurnitureAmort(Number(v))} suffix="€/an" />
-                <InputField label={t("form.subscriptions")} value={subscriptions} onChange={(v) => setSubscriptions(Number(v))} suffix="€/an" />
+                <InputField label={t("form.cleaning")} value={cleaningPerStay} onChange={(v) => setCleaningPerStay(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="€" hint={t("form.cleaningHint")} />
+                <InputField label={t("form.vacancy")} value={vacancyDaysBetween} onChange={(v) => setVacancyDaysBetween(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix={t("form.daysSuffix")} />
+                <InputField label={t("form.pno")} value={pnoAnnual} onChange={(v) => setPnoAnnual(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="€" hint={t("form.pnoHint")} />
+                <InputField label={t("form.internetTv")} value={internetTv} onChange={(v) => setInternetTv(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="€" />
+                <InputField label={t("form.utilities")} value={utilities} onChange={(v) => setUtilities(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="€" hint={t("form.utilitiesHint")} />
+                <InputField label={t("form.furnitureAmort")} value={furnitureAmort} onChange={(v) => setFurnitureAmort(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="€/an" />
+                <InputField label={t("form.subscriptions")} value={subscriptions} onChange={(v) => setSubscriptions(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="€/an" />
               </div>
             </div>
 
@@ -128,7 +128,7 @@ export default function RentabiliteStr() {
                 label={t("form.marginalRate")}
                 type="select"
                 value={String(marginalTaxRate)}
-                onChange={(v) => setMarginalTaxRate(Number(v))}
+                onChange={(v) => setMarginalTaxRate(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))}
                 options={TAX_BRACKETS}
                 hint={t("form.marginalRateHint")}
               />
@@ -166,11 +166,12 @@ export default function RentabiliteStr() {
               ]}
             />
 
+            {result.calendarLimited && <p role="status" className="rounded-lg bg-amber-50 p-3 text-sm text-amber-900">{t("calendarLimited", { requested: nightsPerYear, effective: result.effectiveNights })}</p>}
             <ResultPanel
               title={t("result.metrics")}
               lines={[
                 { label: t("metrics.stays"), value: String(result.numberOfStays) },
-                { label: t("metrics.nightsRented"), value: `${nightsPerYear} / 365` },
+                { label: t("metrics.nightsRented"), value: `${result.effectiveNights} / 365` },
                 { label: t("metrics.revpar"), value: `${result.revPAR.toFixed(0)} €` },
                 { label: t("metrics.adrEffective"), value: `${result.adrEffective.toFixed(0)} €` },
                 { label: t("metrics.costRatio"), value: formatPct(result.costRatioPct / 100), warning: result.costRatioPct > 50 },
@@ -211,7 +212,7 @@ export default function RentabiliteStr() {
                 `Simulation rentabilité Airbnb/Booking au Luxembourg`,
                 `Bien: ${surface} m² à ${commune}, capacité ${capacity} voyageurs`,
                 `Prix acquisition: ${acquisitionPrice > 0 ? formatEUR(acquisitionPrice) : "non renseigné"}`,
-                `ADR cible: ${adr} €/nuit, occupation ${occupancyPct}% (${nightsPerYear} nuits/an)`,
+                `ADR cible: ${adr} €/nuit, occupation ${occupancyPct}% (${result.effectiveNights} nuits réalisables/an)`,
                 `Canal: ${otaChannel} (commission ${((OTA_COMMISSION[otaChannel] || 0) * 100).toFixed(0)}%)`,
                 `Taux marginal IR: ${(marginalTaxRate * 100).toFixed(0)}%`,
                 ``,

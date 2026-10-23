@@ -64,7 +64,11 @@
     "hotelE2Evidence": "E‑2-Dossier",
     "hotelAcquisition": "Hotelkaf",
     "hotelCoverage": "Scholdendéngschtdeckung",
-    "hotelOperating": "Betribsrechnung"
+    "hotelOperating": "Betribsrechnung",
+    "skipToContent": "Zum Inhalt sprangen",
+    "mainNavigation": "Haaptnavigatioun",
+    "menu": "Menü",
+    "language": "Sprooch"
   },
   "common": {
     "language": "Sprooch",
@@ -321,7 +325,7 @@
       },
       "str": {
         "title": "Kuerzzäitvermietung (STR)",
-        "description": "7 Tools fir Airbnb / Booking / Vrbo Hosten zu LU: Nettorendement no Steier, 90-Deeg-Schwell + EU Reg 2024/1028 Conformitéit, Laang- vs Kuerzzäit-Arbitrage, dynamescht Pricing.",
+        "description": "Tools fir Kuerzzäitverlounen zu Lëtzebuerg: ekonomesch Simulatiounen, Flichten ze préiwen a Verglach mam Laangzäitverlounen.",
         "tag": "Airbnb / Booking"
       },
       "esg": {
@@ -331,7 +335,7 @@
       },
       "proAgences": {
         "title": "CRM fir Immobilienagencen",
-        "description": "7-Etappe-Mandatspipeline, Akeefer-CRM + Nurturing, eIDAS-Ënnerschrëft, co-branded Objetsblat, OpenImmo-XML-Export, jäerlech Provisiounen.",
+        "description": "Mandater, Kontakter, Aufgaben an Agencedokumenter mat engem Ënnerschrëftsprozess, deem seng Eegnung fir all Akt ze iwwerpréiwen ass.",
         "tag": "B2B LU-Agencen"
       }
     },
@@ -1550,7 +1554,12 @@
     "erreurSaisie": "Beträg a Jore kontrolléieren: Bau ≤ Kaf ≤ Mietvertrag; Vertragsjore 2015–2026.",
     "donneesIncompletes": "Deelschätzung: Dekote oder Gebai-/Miwweldaten nach kontrolléieren. D’Resultat bestätegt keng gesetzlech Konformitéit vum Loyer.",
     "estimationPartielle": "Onvollstänneg Schätzung",
-    "champApplication": "Fir fäerdeg Wunnengen, déi entgeltlech kaaft goufen an dem private Wunnengslocatiounsrecht ënnerleien. Eege Bau, Schenkungen, Geschäftslokaler, Zweetwunnengen a speziell Regimmer erfuerderen eng separat Analyse. Eng berechent Plafong erlaabt keng automatesch Loyererhéijung; Fristen a Limitte bleiwen uwennbar. Miwwele ginn nëmme fir 2025–2026 berechent."
+    "champApplication": "Fir fäerdeg Wunnengen, déi entgeltlech kaaft goufen an dem private Wunnengslocatiounsrecht ënnerleien. Eege Bau, Schenkungen, Geschäftslokaler, Zweetwunnengen a speziell Regimmer erfuerderen eng separat Analyse. Eng berechent Plafong erlaabt keng automatesch Loyererhéijung; Fristen a Limitte bleiwen uwennbar. Miwwele ginn nëmme fir 2025–2026 berechent.",
+    "perMonth": "€/Mount",
+    "perYear": "€/Joer",
+    "observatoryIntro": "Vergläicht Är gesetzlech Loyerslimitt mat de observéierte Loyeren zu Lëtzebuerg no Gemeng an Immobilientyp.",
+    "observatoryLink": "Loyersobservatoire Lëtzebuerg",
+    "observatoryTitle": "De Locatiounsmaart entdecken"
   },
   "achatLocation": {
     "title": "Kafen oder Lounen zu Lëtzebuerg",
@@ -1571,21 +1580,21 @@
     "chargesCopro": "Käschte Copropriétéit",
     "suffixEuroMois": "€/Mount",
     "impotFoncier": "Grondsteier",
-    "impotFoncierHint": "Grundsteuer — ganz niddreg zu Lëtzebuerg (100–300 €/Joer)",
+    "impotFoncierHint": "Jäerleche Montant fir déi konkret Immobilie aginn.",
     "suffixEuroAn": "€/Joer",
     "entretienAnnuel": "Jäerlech Ënnerhalt",
     "suffixPctPrix": "% vum Präis",
-    "entretienAnnuelHint": "Jäerleche Budget fir Ënnerhalt (1 % vum Präis ass eng Standard-Schätzung)",
+    "entretienAnnuelHint": "Budget un den Zoustand an déi geplangten Aarbechten upassen.",
     "appreciationAnnuelle": "Jäerlech Wäertsteigerung",
     "appreciationAnnuelleHint": "Geschate jäerlech Wäertsteigerung vun der Immobilie",
     "sectionAssuranceSRD": "Restscholdversécherung",
     "tauxAssuranceSRD": "Versécherungssaz",
     "suffixPctCapital": "% Kapital",
-    "tauxAssuranceSRDHint": "Obligatoresch zu Lëtzebuerg. Saz tëscht 0,15 % an 0,40 % vum geléinte Kapital.",
+    "tauxAssuranceSRDHint": "Periodesch Prime op d'Ufankskapital bis zum Prêt-Enn ugeholl. Kontrakt préiwen; eemoleg oder ofhuelend Primme ginn net modelléiert.",
     "coutMensuelLabel": "Monatskäschten:",
     "sectionDeductionInterets": "Ofzuch vun den Zënse",
-    "deductionInteretsDescription": "Art. 98bis LIR: Hypothéikenzënse sinn vum steierpflichtegen Akommes ofsetzbar (Plafond pro Persoun a pro Staffel).",
-    "nbPersonnes": "Zuel vu Persounen",
+    "deductionInteretsDescription": "ACD-Reegelen zënter 2024: berechtegt Zënsen ouni Plafong am Joer vun der Disponibilitéit an am Joer duerno; duerno pro Persoun 4 000 €, 3 000 € oder 2 000 € no Alter vun der Disponibilitéit. Zënshëllefe reduzéieren déi ofzuchsberechtegt Käschten. D'Steiererspuernis ass eng ze préiwend Hypothees.",
+    "nbPersonnes": "Steierlech berechtegt Persounen (Kanner abegraff)",
     "suffixPers": "Pers.",
     "tauxMarginal": "Marginalsteiersaz",
     "tauxMarginalHint": "Marginalsteiersaz. Klass 1/1a: bis 42 %, Klass 2: gemeinsam Veranlagung.",
@@ -1594,16 +1603,16 @@
     "perAn": "Joer",
     "sectionLocationDetails": "Detailer vum Lounen",
     "indexationLoyer": "Jäerlech Loyersindexéierung",
-    "indexationLoyerHint": "Geschate jäerlech Loyerserhéijung (LU Gesondheetsindex)",
+    "indexationLoyerHint": "Hypothees iwwer d'Loyerentwécklung; keng Bestätegung vun enger Indexklausel oder engem Recht op Erhéijung.",
     "rendementPlacement": "Rendement vun der Alternativanlag",
-    "rendementPlacementHint": "Wann Dir louent, gëtt d'Kapital ugeluecht. Erwaart Joersrendement.",
+    "rendementPlacementHint": "Ugehollene Joresrendement no de Käschten a Steieren, déi Dir berücksichtegt. Keng Garantie.",
     "verdictAchat": "Iwwer {horizon} Joer ass de Kaf méi virdeelhaft",
     "verdictLocation": "Iwwer {horizon} Joer ass d'Lounen méi virdeelhaft",
     "patrimoineAchat": "Nettovermögen (Kaf)",
     "capitalLocation": "Ugespaart Kapital (Lounen)",
-    "croisementMessage": "De Kaf gëtt méi virdeelhaft ab Joer {annee}",
+    "croisementMessage": "Éischt observéiert Joer zugonschte vum Kaf: {annee}. D’Resultat kann sech duerno ëmdréinen.",
     "chartTitle": "Vermögensentwécklung",
-    "chartDescription": "Nettovermögen Kaf (Wäert vun der Immobilie − Restschold) vs ugespaart Kapital bei Lounen.",
+    "chartDescription": "Kaf: Immobiliëwäert minus Schold plus Erspuernisser, wann de Kaf manner kascht. Locatioun: behalen Ufankskapital a Kafkäschte plus Erspuernisser, wann d'Locatioun manner kascht.",
     "axisAnnee": "Joer",
     "legendeAchat": "Vermögen Kaf",
     "legendeLocation": "Kapital Lounen",
@@ -1639,38 +1648,52 @@
     "location": "Lounen +",
     "hypothesesTitle": "Hypotheesen:",
     "monteCarloTitle": "Monte-Carlo-Simulatioun (1 000 Szenarien)",
-    "monteCarloSubtitle": "Tester d'Robustheet vun der Entscheedung andeems Immobilienopwäertung (±2 PP), Anlagerendement (±3 PP) a Loyersindexéierung (±1 PP) zoufälleg mat Normalverdeelung variéiert ginn.",
+    "monteCarloSubtitle": "1 000 Szenarie mat ugehollene Standardofwäichunge vun 2 Prozentpunkte fir Immobiliepräisser, 3 fir Anlagen an 1 fir Loyeren. Keng Maartwarscheinlechkeeten.",
     "monteCarloRun": "Simulatioun starten",
     "monteCarloRunning": "Leeft…",
-    "monteCarloProbAchat": "Wahrscheinlechkeet Keef > Locatioun",
+    "monteCarloProbAchat": "Undeel vun de Szenarie fir de Kaf",
     "monteCarloMedianDiff": "Median Vermeigen Keef − Locatioun",
-    "monteCarloIC90": "90 %-KI Differenz",
+    "monteCarloIC90": "5.–95. Perzentil vun de Szenarien",
     "monteCarloHistogramLabel": "Verdeelung vun (Vermeigen Keef − Vermeigen Locatioun) um Enn vum Horizont",
     "monteCarloHelp": "Klickt fir d'Monte-Carlo-Simulatioun ze starten. Lokal Berechnung, ~2 Sekonnen.",
-    "monteCarloNote": "Fest Parameteren (Kredittaux, Dauer, Käschten) bleiwen identesch. Nëmmen d'Onsécherheetsvariabelen (Maart, Anlag, Loyer) ginn aboftéilt. Monte-Carlo weist d'Robustheet vun der Entscheedung géintiwwer makroekonomescher Onsécherheet.",
+    "monteCarloNote": "Selwechte monatleche Modell a Steierhypotheese wéi an der Tabell. All gezunnene Parameter bleift pro Verlaf konstant. D'Resultater hänke vun de gewielte Verdeelungen of a soe keng Maartentwécklung viraus.",
     "hypothesesText": "Wäertsteigerung: {appreciation} %/J. Rendement Anlag: {rendement} %/J. Plafond Zënsofzuch: {plafond}/J. ({nbPersonnes} Pers.). Restscholdvers.: {tauxSRD} % vum Kapital.",
     "seo": {
       "faqTitle": "Dacks gestallt Froen iwwer kafen vs. lounen",
       "relatedTitle": "Ergänzend Tools",
       "dilemmeTitle": "Kafen oder lounen zu Lëtzebuerg: den éiwege Dilemma",
-      "dilemmeContent": "<p>D'Fro '<strong>soll ech kafen oder lounen?</strong>' ass zu Lëtzebuerg besonnesch akut, wou de Medianpräis vun enger Wunneng 2025 iwwer 600.000 € läit.</p>",
+      "dilemmeContent": "<p>Kaf a Locatioun vergläichen erfuerdert Hypotheesen iwwer d'Immobilie, d'Finanzéierung an d'Wunndauer. Ufankswäerter sinn ännerbar Beispiller, keng Maartreferenzen. Verglach gëtt d'Verméige virun engem Verkaf.</p>",
       "tcoTitle": "Gesamtkäschte vum Eegentum vs. Gesamtkäschte vun der Locatioun",
-      "tcoContent": "<p>Eisen Simulator berechent d'<strong>kumuléiert Gesamtkäschten</strong> vu béiden Optiounen. De <strong>Kräizungspunkt</strong> läit zu Lëtzebuerg typesch tëschent 7 an 15 Joer.</p>",
+      "tcoContent": "<p>De Kaf enthält Eegekapital, aginne Kafkäschten, Mountsraten, Prêtversécherung an uginn Ausgaben. Beim Loye bleiwen Eegekapital a Kafkäschten ugeluecht. Mat gläichem Budget investéiert all Säit hir monatlech Erspuernisser. Verkafskäschten a Steieren, Mietkautioun a Wunnengsversécherung sinn ausgeschloss.</p>",
       "levierTitle": "Den Hebeleffekt vum Immobiliëkredit",
-      "levierContent": "<p>En wichtegt Argument fir de Kaf ass den <strong>Hebeleffekt</strong> vum Hypothéikeprêt. Mat engem Eegekapital vun 20 % profitéiert de Keefer vun der Wäertsteigerung op 100 % vum Immobiliëwäert.</p>",
+      "levierContent": "<p>E Prêt erméiglecht e Kaf mat manner Eegekapital wéi dem Präis. E verstäerkt Gewënner a Verloschter um Eegekapital a schaaft Remboursementsflichten. Zënsen, Konditiounen a Präisentwécklunge musse fir de Projet begrënnt ginn.</p>",
       "seuilTitle": "Rentabilitéitsschwelle a Faktoren fir d'Decisioun",
-      "seuilContent": "<p>D'Rentabilitéitsschwelle hänkt vu ville Faktore of:</p><ul><li><strong>Geplangt Dauer</strong>: ënner 5-7 Joer ass Lounen bal ëmmer méi virdeelhaft</li><li><strong>Zënsniveau</strong>: niddereg Zënsen favorisieren de Kaf</li></ul>",
+      "seuilContent": "<p>De Schnëttpunkt hänkt vu Präis, Loyer, Dauer, Käschten a Rendement of. Keng allgemeng Dauer garantéiert e Kafvirdeel. Mobilitéit, Liquiditéit a Risikotragfäegkeet si separat ze préiwen.</p>",
       "faq1q": "Wéi laang muss ech eng Immobilie halen, fir datt sech de Kaf rentéiert?",
-      "faq1a": "Zu Lëtzebuerg läit d'Schwelle typesch tëschent 7 an 15 Joer. Mam Bëllegen Akt kann se op 5-7 Joer erofgoen.",
+      "faq1a": "Dat hänkt vum Szenario of. De Schnëttpunkt vergläicht Verméige viru Verkafskäschten a Steieren a garantéiert keng Rentabilitéit.",
       "faq2q": "Ginn d'Akafskäschten an de Vergläich integréiert?",
-      "faq2a": "Jo, eisen Tool integréiert Enregistréierungs-, Transkriptiounsdroits, Notargebühren an Hypothéikekäschten.",
+      "faq2a": "D'Käschte ginn als Prozentsaz aginn. Fir detailléiert Rechter, Kreditter an Notaireskäschten den Acquisitiounsrechner benotzen an de passende Gesamtmontant iwwerhuelen.",
       "faq3q": "Wéi eng alternativ Rendite fir d'Spueren benotzen?",
-      "faq3a": "D'alternativ Rendite representéiert dat, wat Dir mat Ärem Eegekapital verdénge géift. 4-6 % ass raisonnabel fir en diversifizéiert Portfolio.",
+      "faq3a": "E Rendement wielen, dee mat Ären Anlagen begrënnt ass, an och niddreg oder negativ Hypotheesen testen. Riskant Anlagen hu keng Rendementsgarantie.",
       "faq4q": "Ass Kafen zu Lëtzebuerg ëmmer besser?",
-      "faq4a": "Net onbedéngt. Bei kuerzer Dauer (< 5 Joer) oder héije Zënsen kann Lounen virdeelhafter sinn.",
+      "faq4a": "Nee. D'Resultat hänkt vun Hypotheesen a perséinlechen Ëmstänn of. Verschidde Szenarien an ausgeschlosse Käschte vergläichen.",
       "faq5q": "Wéi gëtt den Steierofzuch fir Hypothéikenzënsen integréiert?",
-      "faq5a": "Zu Lëtzebuerg sinn Hypothéikenzënsen fir den Haaptwunnsëtz steierlech ofsetzbar (Plafond 1.500-3.000 €)."
-    }
+      "faq5a": "Den Ofzuch no der Kontroll vun der Berechtegung aktivéieren. Disponibilitéitsjoer, berechtegt Persounen, Zënshëllefen a marginale Steiersaz aginn. D'Reegelen zënter 2024 ginn op tatsächlech amortiséiert Zënsen applizéiert; keng Steiererklärung gëtt ersat."
+    },
+    "simulationYear": "Éischt Simulatiounsjoer",
+    "availabilityYear": "Joer, an deem d'Wunneng fir d'éischt disponibel war",
+    "availabilityHint": "Joer vun der Festleeung vum Mietwäert fir déi eege Wunneng; et ka virum simuléierte Prêt leien.",
+    "deductionEligibility": "Ech bestätegen, datt d'Zënse vun dëser Haaptwunneng an déi uginn Persoune fir de Lëtzebuerger Zënsenofzuch berechtegt sinn.",
+    "interestSubsidy": "Jäerlech Zënssubventiounen",
+    "deductionDisabled": "Net applizéiert",
+    "deductionUncapped": "Berechtegt Zënsen ouni Plafong",
+    "invalidScenario": "Kontrolléiert d'Donnéeën: Eegekapital tëscht null an dem Präis, positiv Lafzäit bis 50 Joer, passend Joren, ganz Persounenzuel a valabel Montanten. Fir dës Donnéeë gëtt kee Resultat berechent.",
+    "modelScope": "Szenario ab {annee}, Wunneng disponibel zënter {disponibilite}, {personnes} steierlech berechtegt Persoune wa bestätegt. Ofzuch am éischte Joer: {deduction}, mam aginnene marginale Steiersaz vun {taux} %. D'Reegelen zënter 2024 gi fir spéider Joren onverännert ugeholl. Selwechte Mountsbudget: déi méi bëlleg Optioun investéiert den Ënnerscheed um Enn vum Mount. Versécherung op d'Ufankskapital bis zum Prêt-Enn; Steiervirdeeler an Hëllefen iwwer d'Joer verdeelt. Kafkäschte pauschal aginn. Verkafskäschten a Steieren, Besteierung vun Anlagen, Mietkautioun a Wunnengsversécherung ausgeschloss. Keng Maartprognos oder Steierfestsetzung.",
+    "save": "Späicheren",
+    "saved": "Gespäichert",
+    "pdfFrench": "PDF (Franséisch)",
+    "scenarioCount": "{count} Szenarien",
+    "interestSubsidyMonthly": "Monatlechen Zënszouschoss (Joer 1)"
   },
   "simulateurAides": {
     "title": "Simulator vun den Hëllefen",
@@ -2353,7 +2376,7 @@
       "ltvTitle": "LTV-Verhältnis a CSSF-Schwellewäerter",
       "ltvContent": "<p>D'<strong>Loan-to-Value-Verhältnis (LTV)</strong> ass d'Verhältnis tëschent dem Darlehensbétrag an dem Immobilienwäert. D'CSSF an de CRS hunn differenzéiert LTV-Uewergrenzen empfohlen:</p><ul><li><strong>Éischtkeeferinnen (Haaptwunnsitz)</strong>: empfohlene maximalen LTV vun 100 % (Vollfinanzéierung ënner Bedingunge méiglech).</li><li><strong>Net-Éischtkeeferinnen (Haaptwunnsitz)</strong>: empfohlene maximalen LTV vun 90 %, also 10 % Eegekaptial.</li><li><strong>Kapitalanlag</strong>: LTV begrenzt op 80 %, mindestens 20 % Eegekaptial néideg.</li><li><strong>Buy-to-let</strong>: besonnesch Bedingunge gëllen, deelweis mat 70 % LTV-Schwellen.</li></ul><p>Wichteg: Den LTV gëtt op Basis vum <strong>Schätzwäert</strong> vun der Immobilie berechent, net vum Kafspräis.</p>",
       "capaciteTitle": "Kreditkapazitéit an d'40-%-Reegel",
-      "capaciteContent": "<p>D'Kreditkapazitéit gëtt duerch d'<strong>Schold endéngschtquot</strong> bestëmmt, déi zu Lëtzebuerg normalerweis <strong>40 % vum Nettoak ommes</strong> vum Ménage net iwwerschräide soll. Dëse Schwellewäert ass méi generéis wéi an e puer Nopeschlänner (35 % a Frankräich, 33 % a Belsch).</p><ul><li><strong>Berücksichtegt Akommes</strong>: Nettogehalt, Mieteinnahmen (normalerweis zu 70-80 % ugerechent), Akommes aus selbststänneger Tätegkeet, Pensiounen.</li><li><strong>Ofgezunn Belaaschtungen</strong>: laafen Kreditter, Ënnerhaltszuelungen.</li><li><strong>Verbleiwend Akommes</strong>: Lëtzebuergsch Banken préiwen en Mindest-Restakommes (ca. 1.200 EUR/Mount fir Eenzelpéiersounen, 2.000 EUR fir Koppelen).</li></ul>",
+      "capaciteContent": "<p>D'Kreditkapazitéit gëtt duerch d'<strong>Scholdendéngschtquot</strong> bestëmmt, déi zu Lëtzebuerg normalerweis <strong>40 % vum Nettoakommes</strong> vum Ménage net iwwerschräide soll. Dëse Schwellewäert ass méi generéis wéi an e puer Nopeschlänner (35 % a Frankräich, 33 % a Belsch).</p><ul><li><strong>Berücksichtegt Akommes</strong>: Nettogehalt, Mieteinnahmen (normalerweis zu 70-80 % ugerechent), Akommes aus selbststänneger Tätegkeet, Pensiounen.</li><li><strong>Ofgezunn Belaaschtungen</strong>: laafen Kreditter, Ënnerhaltszuelungen.</li><li><strong>Verbleiwend Akommes</strong>: Lëtzebuergsch Banken préiwen en Mindest-Restakommes (ca. 1.200 EUR/Mount fir Eenzelpéiersounen, 2.000 EUR fir Koppelen).</li></ul>",
       "amortissementTitle": "Tilgung: konstant vs. progressiv",
       "amortissementContent": "<p>Lëtzebuergsch Banke bidden haaptsächlech zwou Tilgungsaarten un:</p><ul><li><strong>Konstant Tilgung (fest Annuitéiten)</strong>: D'Monatsrat bleift während der ganzer Laufzäit gläich. Den Zënsdeel sënkt progressiv, während den Tilgungsdeel klammt.</li><li><strong>Linear Tilgung (konstante Kapitalbétrag)</strong>: D'Kapitalréckzuelung ass all Mount gläich, wat zu sinkende Monatsrate féiert.</li><li><strong>Endfälleg (tilgungsfräi)</strong>: Während der Laafzäit gi just Zënsen bezuelt, d'Kapital gëtt um Enn an enger Somm zeréckbezuelt.</li></ul>",
       "dscrTitle": "DSCR fir Kapitalanlagimmobilien",
@@ -3613,7 +3636,7 @@
       "f3": "Locatiounsgestioun: Louten, Bezuelungen, Quittungen PDF (Gesetz 21.09.2006), AIS, Fiscal Annex 190, Erënnerungen & Dunning, Uassurance impayés",
       "f4": "PSD2-Bankofgläich (Enable Banking — BCEE, BIL, Banque Raiffeisen, Post Finance)",
       "f5": "Cloud-Späicherung (500 Elementer, 180 Deeg) — komplett Historie, Multi-Apparat",
-      "f6": "Digitalen Bail mat eIDAS-einfacher elektronescher Ënnerschrëft + Zoustandsprotokoll",
+      "f6": "Franséische Mietvertragsentworf, optional Ënnerschrëftszeechnungen an extern PDF-Prüfsumm + Zoustandsprotokoll",
       "f7": "Personaliséiert Profil op de Berichter (Numm, Logo, Kontaktdaten, rechtlech Erwähnung)",
       "f8": "Maartalarmer + Szenarienvergleich + View-only Link-Sharing",
       "f9": "2FA (TOTP) + DSGVO-Kontolöschung + Astëmmungen",
@@ -3636,7 +3659,7 @@
       "f6": "B2B-REST-API: Schätzung, Batch (1.000 Objekter), PMS-Webhook, Factur-X-Rechnungsstellung, OpenAPI 3.1",
       "f7": "DCF Multi-Locataire (Break Options, Step Rents, CAPEX, Equity IRR) + Promoteur-Bilan",
       "f8": "Modelltransparenz: ëffentlech MAPE + R², 29 beleeg Koeffizienten + hedonescht Modell",
-      "f9": "Erweidert Cloud-Späicherung (10.000 Elementer) + komplett DSGVO-Export + LU-Makrodaten-Historie (98 Gemengen mat Demografie)",
+      "f9": "Erweiderte Cloud-Späicher (10.000 Elementer) + partiellen JSON-Export mat dokumentéiertem Ëmfang + historesch LU-Makrodaten (98 Gemenge mat Demografie)",
       "priceStriked": "29 €/Mount",
       "f10": "Prioritär E-Mail-Support — contact@tevaxia.lu"
     },
@@ -3647,7 +3670,7 @@
       "q2": "Firwat e Kont erstellen, wann et scho gratis ass?",
       "a2": "E Kont erlaabt Iech, Är Simulatiounen an der Cloud ze späicheren (vun all Apparat zougänglech), professionell PDF-Berichter z'exportéieren an Äre Profil op generéierten Dokumenter unzepassen.",
       "q3": "Sinn meng Donnéeë sécher?",
-      "a3": "Är Donnéeë sinn an Europa op sécheren Serveren (Supabase) gehost. Mir verkafen oder deelen Är Informatiounen net. Ouni Kont verléisst näischt Äre Browser.",
+      "a3": "Konto- a Simulatiounsdate ginn op Supabase an Europa gehost. Verbindunge benotzen HTTPS an den Zougang hänkt vun de Kontrechter of. Verschidde Funktioune lafe lokal am Browser, anerer benotzen eis Serveren oder en Ubidder, notamment Verbindungen, déi Dir aktivéiert. Technesch Date kënnen och fir Diagnos an, mat Ärer Zoustëmmung, fir d’Moossung vun ëffentleche Säite geschéckt ginn. Empfänger an Detailer stinn an der Dateschutzpolitik.",
       "q4": "Wéini ass de Pro-Tier disponibel?",
       "a4": "Organiséiert Beleger, Quellen, Berechnungen, Hypotheesen a Reserven an engem Aarbechtsdossier. Den Expert kontrolléiert d’Informatiounen, bestëmmt déi néideg Ënnersichungen an iwwerhëlt d’Verantwortung fir seng Conclusiounen. Den Export oder d’technesch Ënnerschrëft vum Fichier bescheinegt keng fachlech Konformitéit.",
       "q5": "Kann den Dossier un ënnerschiddlech Immobilientypen ugepasst ginn?",
@@ -3657,7 +3680,7 @@
   },
   "mentionsLegales": {
     "title": "Impressum",
-    "lastUpdate": "Lescht Aktualiséierung: 12. Oktober 2026",
+    "lastUpdate": "Lescht Aktualiséierung: 23. Oktober 2026",
     "editeur": {
       "title": "1. Erausgeber vum Site",
       "name": "NOTARIA PRIME",
@@ -3708,12 +3731,12 @@
     },
     "droit": {
       "title": "6. Applizéierbar Recht",
-      "p1": "Dëse Site ënnerläit dem lëtzebuerger Recht. All Sträit am Zesummenhang mat der Notzung vum Site fällt an déi exklusiv Kompetenz vun de Geriichter vum Groussherzogtum Lëtzebuerg."
+      "p1": "Et gëllt lëtzebuergescht Recht, ënner Virbehalt vun den uwendbaren zwéngende Bestëmmungen, besonnesch fir de Verbraucherschutz am Land vum gewéinlechen Openthalt. Déi zoustänneg Geriichter ginn no de gesetzleche Reegele bestëmmt. Eng Rechts- oder Geriichtswiel hëlt engem Verbraucher keng zwéngend Rechter ewech, besonnesch no den Artikele 17 bis 19 vum Reglement (EU) Nr. 1215/2012. Eng frëndschaftlech Léisung kann ugebuede ginn, ouni den Zougang zum zoustännege Geriicht anzeschränken."
     }
   },
   "cgu": {
     "title": "Allgemeng Notzungsbedingungen",
-    "lastUpdate": "Lescht Aktualiséierung: 12. Oktober 2026",
+    "lastUpdate": "Lescht Aktualiséierung: 23. Oktober 2026",
     "intro": "Dës Allgemeng Notzungsbedingungen (AGB) reegelen d'Notzung vun der Plattform tevaxia.lu a hiren Déngschter. Andeems de Benotzer de Site opruft oder e Kont erstellt, akzeptéiert hien dës AGB ouni Virbehalt. D’Plattform gëtt vun NOTARIA PRIME erausginn, enger franséischer vereinfachter Aktiegesellschaft (SAS) mat engem Kapital vu 500 €, ageschriwwen am Handels- a Gesellschaftsregister vu Quimper ënner der Nummer 941 646 341.",
     "article1": {
       "title": "1. Géigestand",
@@ -3767,12 +3790,12 @@
     },
     "article10": {
       "title": "10. Applizéierbar Recht",
-      "p1": "Dës AGB ënnerleien dem lëtzebuerger Recht. Streiter falen no probéierter gütleger Unerkennung an déi exklusiv Kompetenz vun de Geriichter vum Groussherzogtum Lëtzebuerg."
+      "p1": "Et gëllt lëtzebuergescht Recht, ënner Virbehalt vun den uwendbaren zwéngende Bestëmmungen, besonnesch fir de Verbraucherschutz am Land vum gewéinlechen Openthalt. Déi zoustänneg Geriichter ginn no de gesetzleche Reegele bestëmmt. Eng Rechts- oder Geriichtswiel hëlt engem Verbraucher keng zwéngend Rechter ewech, besonnesch no den Artikele 17 bis 19 vum Reglement (EU) Nr. 1215/2012. Eng frëndschaftlech Léisung kann ugebuede ginn, ouni den Zougang zum zoustännege Geriicht anzeschränken."
     }
   },
   "confidentialite": {
     "title": "Dateschutzrichtlinn",
-    "lastUpdate": "Lescht Aktualiséierung: 12. Oktober 2026",
+    "lastUpdate": "Lescht Aktualiséierung: 23. Oktober 2026",
     "responsable": {
       "title": "1. Responsabele fir d'Dateveraarbechtung",
       "name": "NOTARIA PRIME — Sëtz: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, Frankräich",
@@ -3790,7 +3813,7 @@
       },
       "oauth": {
         "label": "OAuth-Umeldung (Google, LinkedIn):",
-        "text": "Nëmmen Är E-Mail-Adress an Ären Numm ginn vun dëse Servicer iwwerdroe. Mir kréien weder Ärt Passwuert nach Är Kontakter nach soss Donnéeë vun Ärem Drëttubidder-Konto. D'Authentifikatioun gëtt vum Supabase Auth iwwer den OAuth 2.0 / OpenID Connect-Protokoll geréiert."
+        "text": "Fir d’Umeldung kritt Supabase déi vum Ubidder autoriséiert Identitéitsdaten, besonnesch d’Kennung, d’E-Mail-Adress an den Numm. Tevaxia kritt kee Passwuert vum Ubidder. Zousätzlech Rechter fir e Kalenner oder Google Drive si getrennt a ginn hei ënnendrënner beschriwwen."
       },
       "simulations": {
         "label": "Simulatiounsdonnéeën:",
@@ -3806,7 +3829,7 @@
       },
       "bancaire": {
         "label": "PSD2-Bankdonnéeën (Enable Banking Verbindung):",
-        "text": "Wann Dir e Bankskont iwwer de PSD2-Déngscht Enable Banking (AIS — Account Information Service) fir automatesche Rapprochement verbënnt, ginn déi recuperéiert Transaktiounen (Bezeechnung, Betrag, Datum, Referenz) am Speicher behandelt während dem Rapprochement, an net iwwer d'Sessioun eraus op eise Servere gespäichert. De PSD2-Link huet eng maximal Dauer vun 90 Deeg, virgeschriwwe vum EU-Réglement 2015/2366, erneierbar iwwer Är Bank duerch SCA. De JWT-Privatschlëssel, fir d'Ufroe z'ënnerschreiwen, bleift um tevaxia-Server, ni dem Browser ausgesat."
+        "text": "Wann Dir eng Bank iwwer Enable Banking verbënnt, ginn déi ofgeruff Transaktioune fir den ugefroten Ofgläich benotzt. Tevaxia späichert Sessiouns- a Kontokennungen an de Gültegkeetsdatum vum Ubidder. Et ginn 180 Deeg Gültegkeet ugefrot, ënner de Konditioune vun der Bank; eng nei Authentifikatioun kann néideg sinn. Dat ass keng allgemeng Dauer fir Zoustëmmung oder Späicherung a muss vum disponibelen Transaktiounshistorique ënnerscheet ginn. De private Schlëssel fir Enable-Banking-Ufroe bleift um Server."
       },
       "ocr": {
         "label": "Rechnungs-OCR & Dokumenter — lokal Verschaffung:",
@@ -3819,6 +3842,12 @@
       "diagnostic": {
         "label": "Technesch Feelerdiagnos:",
         "text": "Wann Sentry konfiguréiert ass, kann de Site en technesche Rapport mat Feelerzort a Positiounen am generéierte Code schécken. Variabel Messagen, Dossier-URLen, Ufroen, Headeren, Kontidentitéiten, Geschäftskontexter a Fichieren als Uschlëss ginn aus dem Rapport ewechgeholl. Performance-Tracing a Sessiounsopzeechnunge sinn deaktivéiert. Den Ubidder kritt déi néideg Netzwierkinformatioune fir d’Verbindung."
+      },
+      "integrations": {
+        "label": "Optional Verbindunge mat Kalenneren a Google Drive:",
+        "calendar": "Op Är Ufro kann eng Verbindung mat Google Calendar oder Microsoft Outlook Lies- a Schreifrechter fir Evenementer an Offline-Zougang ufroen. Extern Kontokennungen, E-Mail, Rechter, Zougangs- an Erneierungstoken an hir Oflafdate ginn dofir a Supabase gespäichert. D’Autorisatioun bedeit net, datt all Synchronisatiounsfunktioune verfügbar sinn. Eng Kalenner-Abonnements-URL kann och publizéiert Aufgaben a Visitten un Äre Kalennerdéngscht weiderginn: jiddereen, deen dës URL huet, kann hiren Inhalt liesen.",
+        "drive": "Beim Export op Google Drive ginn déi gewielte Datei an hiren Numm no Ärer Aktioun un Google geschéckt. D’Recht drive.file betrëfft Dateie vun der Applikatioun, net Äre ganze Drive. Déi néideg Token vum Ubidder sinn an der Umeldungssessioun zougänglech. Exportéiert Dateie bleiwen an Ärem Drive, bis se no Äre Google-Astellunge geläscht ginn.",
+        "revoke": "Dir kënnt d’Rechter an den Astellunge vun Ärem Google- oder Microsoft-Kont zeréckzéien. Fir d’Läschung vun de Verbindungsdate bei Tevaxia unzefroen, kontaktéiert contact@tevaxia.lu. De Réckzuch läscht net automatesch Dateien oder Evenementer, déi schonn un den Ubidder geschéckt goufen. Revokéiert och Abonnementslinken, déi Dir net méi deele wëllt."
       }
     },
     "finalites": {
@@ -3836,7 +3865,7 @@
       },
       "contrat": {
         "label": "Vertragserfëllung (Art. 6 Abs. 1 lit. b DSGVO):",
-        "text": "Erstelle a Gestioun vun Ärem Konto, Späichere vun Äre Simulatiounen."
+        "text": "Äre Kont erstellen a verwalten, Simulatioune späicheren an optional Verbindunge fir déi Funktiounen, déi Dir ufrot."
       },
       "interet": {
         "label": "Berechtegte Interêt (Art. 6 Abs. 1 lit. f DSGVO):",
@@ -3855,7 +3884,7 @@
       "vercelLoc": "Vereenegt Staaten (Standardvertragsklauselen)",
       "render": "energy-api API-Hosting",
       "renderLoc": "Vereenegt Staaten",
-      "google": "OAuth-Authentifikatioun",
+      "google": "Umeldung, Kalenneren an Drive-Dateiexport op Är Ufro",
       "googleLoc": "Vereenegt Staaten (EU-US Data Privacy Framework)",
       "linkedin": "OAuth-Authentifikatioun",
       "linkedinLoc": "Vereenegt Staaten (Standardvertragsklauselen)",
@@ -3866,17 +3895,20 @@
       "posthog": "Miessung vun ëffentleche Säite mat Zoustëmmung",
       "posthogLoc": "PostHog EU",
       "sentry": "Technesch Feelerdiagnos",
-      "sentryLoc": "Jee no Projetskonfiguratioun"
+      "sentryLoc": "Jee no Projetskonfiguratioun",
+      "microsoftCalendar": "Optional Verbindung mam Outlook-Kalenner",
+      "microsoftCalendarLoc": "Microsoft — Standuert hänkt vun Ärem Kont an de Konditioune vum Ubidder of"
     },
     "duree": {
       "title": "6. Dauer vun der Opbewahrung",
       "compte": "Kontodonnéeën: opbehalen bis zum Läschen vum Kont duerch de Benotzer.",
       "simulations": "Simulatiounsdonnéeën (gespäichert Bewäertungen, Vermietungslotss): 180 Deeg vun der leschter Ännerung, Plafong 500 Elementer pro gratis Kont (10 000 fir e Pro-Plang). Automatesch deeglech Bereinigung ëm 03:00 UTC doriwwer eraus. Lokal Donnéeën (localStorage) bleiwen disponibel, soulaang de Browser net geläscht gëtt.",
-      "cookies": "Cookien: maximal 13 Méint.",
+      "cookies": "Choix fir d’Publikumsmoossung: Zoustëmmung a Refus gi mam Datum an der Versioun 180 Deeg am Browser gespäichert an duerno nei ugefrot. Dat ass eng Entscheedung vum Déngscht, keng allgemeng gesetzlech Frist. Umeldungssessioune follegen hirem Oflaf an hirer Erneierung; lokal Kopië bleiwen, bis de Benotzer oder de Browser se läscht.",
       "liensPartages": "Ëffentlech Deelungs-Linken: 90 Deeg par défaut, Dauer konfiguréierbar (1 bis 365 Deeg) bei der Erstellung, mat optionalem Viewcap.",
       "metier": "B2B-Betriebsdonnéeën (Co-Proprietären, Hotelsclienten, CRM-Kontakter): opbehalen fir d'Dauer vum Déngschtkontrakt mam berufflechen Benotzer. Spezifesch LU-Opbewahrungsflichten gëllen (Comptabilitéit a Rechnungen 10 Joer Art. L.16-2 Commerce-Code, AG-Protokoller 10 Joer, AML/KYC-Donnéeën 5 Joer).",
-      "bancaire": "PSD2 Enable Banking-Donnéeën: Banktransaktiounen am Speicher ofgefrot, iwwer d'Sessioun eraus net persistéiert. PSD2-Link: maximal 90 Deeg (erneierbar via SCA).",
-      "ocrFichiers": "Rechnungs-OCR: Eropgelueden PDFs/Biller ginn ni op eise Servere gespäichert — 100% Browser-Verschaffung. Nëmme vum Benotzer validéiert strukturéiert Donnéeë ginn gespäichert."
+      "bancaire": "Bankverbindung: Et gëllt den Datum, deen d’Bank oder den Ubidder zeréckgëtt. Den Oflaf blockéiert den Zougang, läscht awer d’Metadate vun der Verbindung net automatesch. Dir kënnt hir Läschung bei contact@tevaxia.lu ufroen. Daten, déi an Ofgläichdokumenter iwwerholl goufen, follegen der Späicherung vun dësen Dokumenter.",
+      "ocrFichiers": "Rechnungs-OCR: Eropgelueden PDFs/Biller ginn ni op eise Servere gespäichert — 100% Browser-Verschaffung. Nëmme vum Benotzer validéiert strukturéiert Donnéeë ginn gespäichert.",
+      "integrations": "Kalenneren: Verbindungsinformatiounen an Token bleiwen gespäichert, soulaang d’Integratioun besteet; den Oflaf vun engem Token läscht säin Dossier net. D’Läschung kann iwwer de Kontakt hei ënnendrënner ugefrot ginn. Kopië bei Google, Microsoft oder engem anere Kalenner an exportéiert Drive-Dateie follegen den Astellunge vun Ärem Kont beim Ubidder."
     },
     "droits": {
       "title": "7. Är Rechter",
@@ -3884,9 +3916,10 @@
       "acces": "Recht op Auskunft iwwer Är perséinlech Donnéeën",
       "rectification": "Recht op Berichtegung",
       "effacement": "Recht op Läschung („Recht op Vergiessenwierdung“)",
-      "portabilite": "Recht op Datenportabilitéit — e Knäppchen « All meng Donnéeën exportéieren (JSON) » ass am Beräich « Donnéeën & Plang » vun Ärem Profil verfügbar",
+      "portabilite": "Recht op Dateportabilitéit ënner de Konditioune vum RGPD. Den JSON-Export am Profil enthält nëmmen d’Kategorien aus sengem Manifest: et ass kee komplett Kontarchiv a verschidde Fachmoduler, Dokumenter a Protokoller sinn ausgeschloss. Fir Rechter op net enthalen Daten auszeüben, kontaktéiert eis.",
       "opposition": "Widdersprocherecht géint d'Veraarbechtung",
-      "exercer": "Fir dës Rechter auszeüben, kontaktéiert eis ënnert"
+      "exercer": "Fir dës Rechter auszeüben, kontaktéiert eis ënnert",
+      "limitation": "Recht op Aschränkung vun der Veraarbechtung ënner de Konditioune vum RGPD"
     },
     "cookies": {
       "title": "8. Cookies",
@@ -4105,7 +4138,7 @@
       "ponderationTitle": "Gewiichtung vun den Nieweflächen: Keller, Balkonen, Terrassen, Garagen",
       "ponderationContent": "<p>An der lëtzebuergsch Immobiliepraxis gi Nieweflächen net zu 100 % ugere chent:</p><ul><li><strong>Keller</strong>: Koeffizient vu 0,25 bis 0,50.</li><li><strong>Balkonen</strong>: Koeffizient vu 0,30 bis 0,50.</li><li><strong>Terrassen</strong>: Koeffizient vu 0,25 bis 0,50.</li><li><strong>Privat Gäert</strong>: Koeffizient vu 0,10 bis 0,20.</li><li><strong>Garagen a Stellplätz</strong>: ginn an der Wunnfläch net gewiicht, awer separat bewäert.</li></ul>",
       "circulaireTitle": "Steierleen ëber Handelsflächen",
-      "circulaireContent": "<p>D'<strong>Steierverwaltu ng (ACD)</strong> an d'<strong>Registréierungsverwaltung (AED)</strong> benotzen spezifesch Flächendefinitioune fir steierleč Berechnungen.</p>",
+      "circulaireContent": "<p>D'<strong>Steierverwaltung (ACD)</strong> an d'<strong>Registréierungsverwaltung (AED)</strong> benotzen spezifesch Flächendefinitioune fir steierlech Berechnungen.</p>",
       "faq1Q": "Wéi eng Fläch gëtt fir de Quadratmeterpräis benotzt?",
       "faq1A": "Zu Lëtzebuerg gëtt et keen eenheetleche gesetzleche Standard fir de m²-Präis. An der Praxis benotzen Agenturen d'Wunnfläch oder d'Notzfläch.",
       "faq2Q": "Gëtt et d'Carrez-Fläch zu Lëtzebuerg?",
@@ -5621,7 +5654,7 @@
       "obligationsTitle": "Anti-Geldwäscheflichten am Immobiliesekteur zu Lëtzebuerg",
       "obligationsContent": "<p>D'<strong>Bekämpfung vun der Geldwäsch</strong> (AML) ass eng wesentlech Flicht fir all Immobilieprofien zu Lëtzebuerg. Den Immobiliesekteur gëtt vum GAFI als besonnesch riskant identifizéiert wéinst héije Béträg a komplexen Eegentums strukturen.</p><p>Zu Lëtzebuerg ënnerleien d'Immobilieprofien (Maa kler, Promoteur, Verwalter, Gutachter) den Sorgfaltsflichten zanter der Ëmsetzung vun der 4. EU-Geldwäscherichtlinn.</p><p>D'Sanctiounen si schwéier: Geldstrofen bis zu 5 Milliounen Euro, strafrechtlech Sanctiounen (1 bis 5 Joer Fräiheetsstrof), Berufsverbuet a Reputatiounsschäden.</p>",
       "loi2004Title": "D'geännert Gesetz vum 12. November 2004",
-      "loi2004Content": "<p>D'<strong>Gesetz vum 12. November 2004</strong> géint Geldwäsch a Terrorismusfinanzéierung billt de rechtleche Referenzrahmen:</p><ul><li><strong>Uwendungsbereich</strong>: all Persoun, déi berufflech un Immobilientransaktiounen deelhuelen.</li><li><strong>Hauptflichten</strong>: Identifizéierung a Verifizéierung vum Client an dem wirtschaftlech Berechtigte, Risikobewäertung, Dokumentenopbewaarung, Mataarbechterformatioun, Verdachtsmeldu ng.</li><li><strong>Risikobaséierten Ansaz</strong>: verstäerkt Sorgfaltsflichten fir Hochrisikoclienten.</li><li><strong>Register vun de wirtschaftlech Berechtigte (RBE)</strong>: Gäsellschaften mat Immobiliebesëtz musse sech am RBE registréieren.</li></ul>",
+      "loi2004Content": "<p>D'<strong>Gesetz vum 12. November 2004</strong> géint Geldwäsch a Terrorismusfinanzéierung billt de rechtleche Referenzrahmen:</p><ul><li><strong>Uwendungsbereich</strong>: all Persoun, déi berufflech un Immobilientransaktiounen deelhuelen.</li><li><strong>Hauptflichten</strong>: Identifizéierung a Verifizéierung vum Client an dem wirtschaftlech Berechtigte, Risikobewäertung, Dokumentenopbewaarung, Mataarbechterformatioun, Verdachtsmeldung.</li><li><strong>Risikobaséierten Ansaz</strong>: verstäerkt Sorgfaltsflichten fir Hochrisikoclienten.</li><li><strong>Register vun de wirtschaftlech Berechtigte (RBE)</strong>: Gäsellschaften mat Immobiliebesëtz musse sech am RBE registréieren.</li></ul>",
       "identificationTitle": "Clientidentifizéierung a verstäerkt Sorgfaltsflichten",
       "identificationContent": "<p>D'Identifizéierungs- a Sorgfaltsmoo ssname (KYC) am lëtzebuergsche Immobiliesekteur ëmfaassen:</p><ul><li><strong>Standardidentifizéierung</strong>: Identitéitspréifung, Adresspréifung an Herkonft vun de Mëttelen.</li><li><strong>Verstäerkt Sorgfalt (EDD)</strong>: obligatoresch fir PEPs, Clienten aus Hochrisikolänner a komplex Transaktiounen.</li><li><strong>Vereinfacht Sorgfalt</strong>: méiglech fir Clienten, déi vun engem anere Verpflichten virgestallt ginn.</li><li><strong>Laafen Iwwerwaachung</strong>: D'Sorgfaltsflicht beschränkt sech net op den Ufank vun der Geschäftsrelatioun.</li></ul>",
       "declarationTitle": "Verdachtsmeldung a Sanctiounen",
@@ -6205,13 +6238,13 @@
     "agence": {
       "meta": {
         "title": "Immobilienagence-CRM Lëtzebuerg — Pipeline an OpenImmo",
-        "description": "Zentraliséiert Mandater, Kontakter an Tâchen an engem CRM gebaut fir LU Agencen. Automatescht Keefer-Matching, Co-Branding Immobilie-PDFs, eIDAS-Ënnerschrëft."
+        "description": "Mandater, Kontakter, Aufgaben an Agencedokumenter mat engem Ënnerschrëftsprozess, deem seng Eegnung fir all Akt ze iwwerpréiwen ass."
       },
       "hero": {
         "badge": "Immobilien-CRM fir LU Agencen",
         "title": "Är Mandatspipeline an",
         "titleAccent": "engem Outil, net véier",
-        "subtitle": "Mandatsverwaltung am OpenImmo-Format, Kontakt-CRM mat automatescht Keefer-Matching, Kanban Drag-Drop, Co-Branding Immobilie-PDFs an eIDAS elektronesch Ënnerschrëft. Gebaut fir Lëtzebuerger Immobilienagencen, déi genuch hunn tëscht verschiddenen Outillen ze jongléieren.",
+        "subtitle": "Mandater, Kontakter, Aufgaben an Agencedokumenter mat engem Ënnerschrëftsprozess, deem seng Eegnung fir all Akt ze iwwerpréiwen ass.",
         "cta": "Gratis ufänken",
         "ctaSecondary": "Kuckt wéi et funktionéiert",
         "kpis": [
@@ -6297,11 +6330,11 @@
           },
           {
             "title": "Besichtegungszedelen PDFs",
-            "desc": "Mat Timeline-Log an elektronescher Ënnerschrëft. Rechtsgëlteg."
+            "desc": "Online-Ënnerschrëftsprozess mat techneschen Donnéeën ze iwwerpréiwen; d’Plattform zertifizéiert keen avancéierten oder qualifizéierten Niveau."
           },
           {
-            "title": "eIDAS Mandatsënnerschrëft",
-            "desc": "Fortgeschratt elektronesch Ënnerschrëft (eIDAS), rechtsverbindlech zu Lëtzebuerg."
+            "title": "Online-Ënnerschrëftsprozess",
+            "desc": "Online-Ënnerschrëftsprozess mat techneschen Donnéeën ze iwwerpréiwen; d’Plattform zertifizéiert keen avancéierten oder qualifizéierten Niveau."
           },
           {
             "title": "Nurturing-Sequenzen",
@@ -6343,7 +6376,7 @@
           "Automatescht /100 Keefer-Matching",
           "Drag-Drop Kanban-Pipeline",
           "Co-Branding Immobilie-PDFs",
-          "Besichtegungszedelen an eIDAS-Ënnerschrëft",
+          "Online-Ënnerschrëftsprozess mat techneschen Donnéeën ze iwwerpréiwen; d’Plattform zertifizéiert keen avancéierten oder qualifizéierten Niveau.",
           "Automatiséiert Nurturing-Sequenzen",
           "Agent-Kommissiounen a Performance",
           "10 editéierbar E-Mail-Schablounen"
@@ -6371,12 +6404,12 @@
             "a": "Jo, Multi-Entity-Organisatioune mat Rollen (Admin, Agent, Assistent). All Agent gesäit nëmmen déi Mandater a Kontakter, déi him zougedeelt sinn."
           },
           {
-            "q": "Ass d'eIDAS-Ënnerschrëft rechtsgëlteg?",
-            "a": "Jo, déi fortgeschratt eIDAS elektronesch Ënnerschrëft (EU-Verordnung 910/2014) huet rechtlech Gëltegkeet gläichwäerteg mat der handgeschriwwener Ënnerschrëft."
+            "q": "Wat ass d’Bedeitung vum Ënnerschrëftsprozess?",
+            "a": "Dëse Prozess liwwert keng qualifizéiert elektronesch Ënnerschrëft a zertifizéiert keen avancéierten Niveau. Artikel 25 eIDAS schützt d’Zoulässegkeet vun elektroneschen Ënnerschrëften; déi ausdrécklech Gläichstellung mat enger handgeschriwwener Ënnerschrëft betrëfft qualifizéiert Ënnerschrëften. D’Gültegkeet hänkt och vun Inhalt, Identitéit, Vollmuecht a Formalitéiten of. Iwwerpréift d’Ufuerderunge virun der Ënnerschrëft."
           },
           {
             "q": "Sinn d'Kontakt-Donnéeë RGPD-sécher?",
-            "a": "Donnéeën op Supabase (AWS eu-central-1 Frankfurt), user-baséiert Row Level Security, HTTPS. Komplette Datenexport als ZIP zu all Moment."
+            "a": "Den JSON-Profilexport ass partiell a nennt abegraff an ausgeschlosse Kategorien. Et ass kee komplette ZIP vun alle Kontakter, Dokumenter oder Fachdaten. Fir Rechter op net enthalen Daten, kontaktéiert contact@tevaxia.lu. D’Dateschutzpolitik beschreift Veraarbechtung an Empfänger."
           }
         ]
       },
@@ -6560,7 +6593,7 @@
           },
           {
             "q": "Sinn meng Donnéeën an der EU gehost?",
-            "a": "Supabase (AWS eu-central-1, Frankfurt). Row Level Security, HTTPS. Komplette Gaascht-Datenexport als ZIP zu all Moment."
+            "a": "Den JSON-Profilexport ass partiell a nennt abegraff an ausgeschlosse Kategorien. Et ass kee komplette ZIP vun alle Kontakter, Dokumenter oder Fachdaten. Fir Rechter op net enthalen Daten, kontaktéiert contact@tevaxia.lu. D’Dateschutzpolitik beschreift Veraarbechtung an Empfänger."
           }
         ]
       },
@@ -6740,7 +6773,7 @@
           },
           {
             "q": "Huet d'SHA-256-Ënnerschrëft rechtlecht Gewiicht?",
-            "a": "D'SHA-256-Ënnerschrëft garantéiert d'Integritéit vum Dokument. Si ersetzt keng rechtlech qualifizéiert eIDAS-Ënnerschrëft, gëtt awer kryptografesche Beweis datt de Rapport net geännert gouf."
+            "a": "Eng Prüfsumm vergläicht Inhalt mat enger gespäicherter Referenz. Eleng zertifizéiert se keng Identitéit, Zoustëmmung, Datum oder juristesch Gültegkeet. Haalt Dokument a Kontrolldaten; eng Prüfsumm eleng ass keng qualifizéiert Ënnerschrëft."
           },
           {
             "q": "Wéi kënne besonnesch Hypotheesen dokumentéiert ginn?",
@@ -7771,7 +7804,7 @@
   "proAgences": {
     "badge": "CRM fir Immobilien-Agencen",
     "title": "De CRM fir Immobilien zu Lëtzebuerg",
-    "description": "Kanban-Mandater-Pipeline, automatesch Käfer-Matching, eIDAS-E-Signaturen, 1-Klick-Verdeelung op athome.lu an OpenImmo, berechent LU-Akafskäschten (Bëllegen Akt + 3 % TVA) a co-gebrand Schätzungs-/Hëllefebericht. Alles fir eng Agence déi zu Lëtzebuerg schafft.",
+    "description": "Mandater, Kontakter, Aufgaben an Agencedokumenter mat engem Ënnerschrëftsprozess, deem seng Eegnung fir all Akt ze iwwerpréiwen ass.",
     "ctaDemo": "Op de CRM zougräifen",
     "ctaSeeFeatures": "Funktiounen ukucken",
     "kpi1Value": "9",
@@ -7790,8 +7823,8 @@
     "feature2Desc": "Hauseegen Algorithmus mat 6 gewichtte Krittären (Budget, Radius, Typ, Fläch, Energieklass, Projet). Score op 100 mat Opschlësselung pro Krittär fir all Match.",
     "feature3Title": "1-Klick-Verdeelung op Portaler",
     "feature3Desc": "OpenImmo 1.2.8-Export (athome.lu, immotop.lu, wort.lu, immoscout24.de, idealista.it/pt) + CSV fir zousätzlech Portaler. Inkrementell Feed-Aktualiséierung bei jider Ännerung.",
-    "feature4Title": "eIDAS-E-Signaturen",
-    "feature4Desc": "Verkafsmandater an Visit-Bonen elektronesch signéiert, juristesch handschrëftlech gleichgestallt (EU-Reglement 910/2014). Zäitstempel, Verfolgbarkeet, Integritéit garantéiert.",
+    "feature4Title": "Online-Ënnerschrëftsprozess",
+    "feature4Desc": "Dëse Prozess liwwert keng qualifizéiert elektronesch Ënnerschrëft a zertifizéiert keen avancéierten Niveau. Artikel 25 eIDAS schützt d’Zoulässegkeet vun elektroneschen Ënnerschrëften; déi ausdrécklech Gläichstellung mat enger handgeschriwwener Ënnerschrëft betrëfft qualifizéiert Ënnerschrëften. D’Gültegkeet hänkt och vun Inhalt, Identitéit, Vollmuecht a Formalitéiten of. Iwwerpréift d’Ufuerderunge virun der Ënnerschrëft.",
     "feature5Title": "Provisiounen & Performance-Tracking",
     "feature5Desc": "Erwaart vs erhalen Provisiounen pro Joer, Quartalsdiagramm, Negociateur-Ranking (Konversiounsrate, Ënnerschrëfts-/Ofschlosszäit, Top-Performer).",
     "feature6Title": "Co-gebrand PDF Schätzung + Käschten + Hëllefen",
@@ -8391,19 +8424,19 @@
   "bailCommercial": {
     "seo": {
       "contextTitle": "Firwat e spezifescht Reegelwierk?",
-      "contextContent": "Gewerbebail zu Lëtzebuerg gëtt vum Gesetz vum 3. Februar 2018 an dem Code civil reglementéiert. Am Géigesaz zum Wunnbailler gëtt d'Miet bei der Ënnerschreift fräi vereenegt — d'5 %-Regel gëllt net. Déi 9-Joer Minimumsdauer an d'Erneierungsrecht bidden engem Mieter staarke Schutz.",
-      "indexationTitle": "Indexéierung no STATEC-VPI",
-      "indexationContent": "Lëtzebuerg huet keng spezifesch Gewerbeindex. D'Parteie referéieren üblecherweis op de Verbraucherpräisindex (VPI) vum STATEC. D'Indexéierung gëtt dacks op 15-25 % vun der Ufankssmiet begrenzt.",
-      "dureeTitle": "Minimumsdauer 9 Joer",
-      "dureeContent": "D'Gesetz vum 03.02.2018 setzt eng Minimumsdauer vun 9 Joer fest. De Mieter kann zu all Dräi-Joer-Period (3, 6, 9 Joer) mat 6 Méint Préavis kënnegen.",
+      "contextContent": "De lëtzebuergesche Geschäftsloyer ënnerläit dem Code civil an dem Gesetz vum 3. Februar 2018. Den Ufanksloyer gëtt verhandelt; déi 5-%-Limitt fir Wunnengen gëllt net. Dauer, Erneierung a Kënnegung hänke vun de Klauselen a Reegelen of; et gëtt hei keng gesetzlech Mindestdauer vun néng Joer.",
+      "indexationTitle": "Indexéierung no der Klausel vum Bail",
+      "indexationContent": "Formel, Index, Datumen an eventuell Limitte mussen aus dem Kontrakt ervirgoen. Bei enger proportioneller Klausel: Ufanksloyer × Upassungsindex / Referenzindex. Benotzt vergläichbar Indicen aus där selwechter Serie a Basis. En übleche Prozentsaz schaaft keng gesetzlech Limitt.",
+      "dureeTitle": "Vereinbart Dauer a Kënnegung",
+      "dureeContent": "De Bail ka befrist oder onbefrist sinn (Art. 1762-4 vum Code civil). E Schema 3–6–9 ka verhandelt ginn, gëllt awer net automatesch. Periodesch Austrëttsméiglechkeeten hänke vun der Klausel of. De Regimm gesäit op d’mannst sechs Méint Kënnegungsfrist vir; iwwerpréift och Formalitéiten an Erneierungsreegelen.",
       "faq1q": "Gëllt d'5 %-Regel fir Gewerbe?",
       "faq1a": "Nee. Se gëllt nëmme fir Wunnbailler. Bei Gewerbe gëtt d'Miet fräi tëscht Vermieter a Mieter ausverhandelt.",
       "faq2q": "Wéi gëtt d'Gewerbemiet zu LU indexéiert?",
-      "faq2a": "Iwwer de vom STATEC verëffentlechte VPI, no der am Kontrakt vereenbarter Formel. Üblech: indexéiert Miet = Ufankssmiet × (VPI Joer N / VPI Ënnerschreifungsjoer), dacks op +15-20 % begrenzt.",
+      "faq2a": "Formel, Index, Datumen an eventuell Limitte mussen aus dem Kontrakt ervirgoen. Bei enger proportioneller Klausel: Ufanksloyer × Upassungsindex / Referenzindex. Benotzt vergläichbar Indicen aus där selwechter Serie a Basis. En übleche Prozentsaz schaaft keng gesetzlech Limitt.",
       "faq3q": "Wéi eng Minimumsdauer?",
-      "faq3a": "9 Joer (Gesetz vum 03.02.2018). Mieter kann zu all Dräi-Joer-Period mat 6 Méint Préavis kënnegen.",
-      "faq4q": "Wat ass de « pas-de-porte » ?",
-      "faq4a": "Eng Zomm, déi de erakommende Mieter dem Vermieter als Géigeleeschtung fir d'Belegungsrecht bezilt. Kann e puer Méint oder Joer Miet betreffen. Net erstattbar.",
+      "faq3a": "De Bail ka befrist oder onbefrist sinn (Art. 1762-4 vum Code civil). E Schema 3–6–9 ka verhandelt ginn, gëllt awer net automatesch. Periodesch Austrëttsméiglechkeeten hänke vun der Klausel of. De Regimm gesäit op d’mannst sechs Méint Kënnegungsfrist vir; iwwerpréift och Formalitéiten an Erneierungsreegelen.",
+      "faq4q": "Kann e Pas-de-porte verlaangt ginn?",
+      "faq4a": "En Zousaz un de Proprietär oder en Intermediaire fir den Ofschloss vum Bail, Pas-de-porte genannt, ass no Artikel 1762-5 verbueden. En ass vun Agencekäschten oder dem Präis vun enger Geschäftsiwwerdroung ze ënnerscheeden, déi getrennt ze analyséiere sinn. D’Garantie ass op sechs Méint Loyer limitéiert.",
       "faqTitle": "Heefeg gestallte Froen",
       "relatedTitle": "Méi erausfannen"
     }
@@ -8470,9 +8503,9 @@
     "pasDePt": "Ablöse (Antrëttsgebühr)",
     "depot": "Kautioun",
     "charges": "Jäerlech Niewekäschten (Virausbezuelung)",
-    "hintPlafond": "Üblech: 15-25 %. Doriwwer eraus kann de Locataire eng geriichtlech Iwwerpréiwung ufroen.",
-    "hintPasDePt": "Eemol-Bezuelung bei Ënnerschrëft, net zréckzéibar.",
-    "hintDepot": "Üblech: 3-12 Méint. Zréckbezuelt um Enn vum Bail (ausser bei Schied)."
+    "hintPlafond": "Nëmme wann eng Klausel et virgesäit; en übleche Seuil ass keng gesetzlech Reegel.",
+    "hintPasDePt": "E Pas-de-porte un de Proprietär fir den Ofschloss vum Bail ass verbueden.",
+    "hintDepot": "Garantie: maximal sechs Méint Loyer an dësem Regimm (Art. 1762-5). Hei op Basis vum Ufanksloyer berechent."
   },
   "syndicCoproprietes": {
     "error": "Feeler",
@@ -8913,13 +8946,13 @@
   "bailCommercialPage": {
     "backLink": "← tevaxia.lu",
     "pageTitle": "Gewierflech Bail LU — Indexéierung & Dauer",
-    "pageDescription": "Berechnung vun der Loyerindexéierung no dem Lëtzebuerger VPI (STATEC) an Erënnerung un d'Reegelen fir Gewierflech Bailen (Gesetz vum 3. Februar 2018).",
+    "pageDescription": "Indexéierungsszenario mat den Indicen, déi Dir agitt, an de vereinbarte Klauselen. D’Resultater validéieren de Kontrakt net a soe keng zukünfteg Indice viraus.",
     "warningImportant": "Wichteg:",
     "warningText": "am Géigesaz zum Wunnengsbail gëllt d'5%-Regel (gesetzlech Loyerobergrenz) net fir Gewierflech Bailen. De Loyer gëtt bei der Ënnerschrëft fräi vereinbaart an dann duerch d'Indexéierungsklauselen tëschent de Parteien gereegelt.",
     "sectionLoyerInitial": "Ufanksloyer & Datumen",
     "sectionClausesBail": "Bailklauselen",
     "sectionCoutsComplementaires": "Zousätzlech Käschten",
-    "duree9": "9 Joer (gesetzlech Mindestdauer LU)",
+    "duree9": "9 Joer (kontraktuell Dauer)",
     "duree12": "12 Joer",
     "duree15": "15 Joer",
     "duree18": "18 Joer",
@@ -8940,34 +8973,34 @@
     "indexPlafonneClause": "mee Är Klausel limitéiert op",
     "duLoyerInitial": "vum Ufanksloyer.",
     "resultTitle": "Regulatoresch Erënnerungen — Gewierflech Bail LU",
-    "regDureeMin": "Gesetzlech Mindestdauer",
-    "regDureeMinVal": "9 Joer (Gesetz vum 03.02.2018)",
-    "regTriennale": "Dräijoerperiod",
-    "regTriennaleVal": "Kënnegung all 3 Joer méiglech (6 Méint Frist)",
-    "regRenouvellement": "Automatesch Verlängerung",
-    "regRenouvellementVal": "Ausser Kënnegung 6 Méint virum Enn",
+    "regDureeMin": "Dauer",
+    "regDureeMinVal": "Befrist oder onbefrist (Art. 1762-4)",
+    "regTriennale": "Periodesch Kënnegung",
+    "regTriennaleVal": "No de Klauselen a Reegelen; keen automatescht Recht all dräi Joer",
+    "regRenouvellement": "Erneierung / Verlängerung",
+    "regRenouvellementVal": "Kontrakt, Notifikatiounen a gesetzlech Reegelen iwwerpréiwen",
     "regIndice": "LU-Indexéierungsindex",
     "regIndiceVal": "VPI STATEC (keen ILC/ILAT-Äquivalent zu LU)",
     "regRegle5": "5%-Regel",
     "regRegle5Val": "Gëllt NET fir Gewierflech Bailen",
     "regForme": "Form",
-    "regFormeVal": "Schrëftlech obligatoresch wann > 9 Joer (Art. 1715 Code civil)",
-    "coutTotalBail": "Gesamtkäschte vum Bail",
+    "regFormeVal": "Schrëftlech festhalen; Formalitéiten no Dauer an Akt iwwerpréiwen",
+    "coutTotalBail": "Projektioun mat konstantem Loyer",
     "ansLabel": "Joer",
-    "loyersCumules": "Kumuléiert Loyeren (indexéiert)",
+    "loyersCumules": "Loyeren am Szenario",
     "chargesCumulees": "Kumuléiert Niewekäschten",
     "pasDePtLabel": "Ablöse",
     "depotGarantieImmob": "Kautioun (hinterluegt)",
     "coutTotalOccupation": "Gesamtbelegungskäschten",
     "soitMoyenne": "D.h.",
     "anMoyenne": "/Joer duerchschnëttlech",
-    "periodesTriennales": "Dräijoerperioden",
+    "periodesTriennales": "Jore vun de kontraktuelle Méiglechkeeten",
     "finDuBail": "Enn vum Bail",
     "periodeTriennaleN": "Dräijoerperiod Nr.",
     "resiliationPossible": "(Kënnegung méiglech)",
-    "preavisTriennale": "6 Méint Frist per Ageschriwwenen virun all Dräijoersenn.",
+    "preavisTriennale": "Indikativ Joren nëmmen no der uginner Klausel. De Regimm gesäit op d’mannst sechs Méint Kënnegungsfrist vir; iwwerpréift genee Datumen, Grënn, Formen an Erneierungsreegele mam Kontrakt.",
     "clausesTitle": "Heefeg Klauselen ze préiwen:",
-    "clausesText": "Ablöse, Kautioun (3-12 Méint), ofsetzbar Niewekäschten, Bestëmmung vun de Räimlechkeeten, Verlängerungsrecht, Räumungsentschädegung bei Net-Verlängerung.",
+    "clausesText": "Iwwerpréift Notzung, Dauer, Austrëttsméiglechkeeten, Indexformel, Käschten, Garantie (maximal sechs Méint), Erneierung an Entschiedegung. De Calcul validéiert keng vun dëse Klauselen.",
     "tableTitle": "VPI-Indexéierungstabell — Joer fir Joer",
     "tableSubtitle": "Entwécklung vum indexéierte Loyer vun",
     "tableTo": "bis",
@@ -8983,7 +9016,24 @@
     "thEvolVsInitial": "Ännerung vs Ufank",
     "refBadge": "(Ref.)",
     "cibleBadge": "(Zil)",
-    "plafBadge": "(ged.)"
+    "plafBadge": "(ged.)",
+    "referenceIndexInput": "Referenzindex vum Kontrakt",
+    "targetIndexInput": "Index um Upassungsdatum",
+    "indexInputHelp": "100 an 100 si Beispillwäerter. Gitt publizéiert Indicen an, déi zur Klausel passen, op där selwechter Basis a mat där selwechter Periodizitéit. Feelend oder zukünfteg Joresindice ginn net erfonnt.",
+    "officialIndexSource": "Déi vum STATEC publizéiert Indicen ukucken",
+    "capConfirmed": "De Kontrakt gesäit eng Gesamtlimitt fir d’Indexéierung vir",
+    "indefiniteTerm": "Onbefristete Mietvertrag",
+    "analysisHorizon": "Horizont vum Szenario",
+    "termHelp": "Dëse Regimm verlaangt keng gesetzlech Mindestdauer vun néng Joer. D’Instrument akzeptéiert ganz Jore vun 1 bis 99; bei engem onbefristete Bail ass dat nëmmen e Rechenhorizont, keen Enn vum Kontrakt.",
+    "breakConfirmed": "Eng Klausel am Kontrakt gesäit periodesch Kënnegungsméiglechkeete vir",
+    "breakInterval": "Intervall no der Klausel",
+    "noKeyMoney": "E Pas-de-porte un de Proprietär fir den Ofschloss vum Bail ass verbueden a gëtt net als normale Käschtepunkt ugebueden. Agencekäschten an d’Iwwerdroe vun engem Geschäft musse getrennt iwwerpréift ginn.",
+    "invalidInputs": "Iwwerpréift de positive Loyer an d’Indicen, ganz Joren an eng Garantie tëscht 0 a 6 Méint.",
+    "indexScenarioTitle": "Indexéierung no Ären Donnéeën",
+    "annualIndexedRent": "Indexéierte Joresloyer",
+    "monthlyIndexedRent": "Indexéierte Mountsloyer",
+    "constantScenario": "Den indexéierte Loyer an déi jäerlech Käschte bleiwen iwwer de ganzen Horizont konstant. Dat ass weder en Historique nach eng Inflatiounsprognos. Déi gebonne Garantie steet getrennt a gëllt net als definitiv Ausgab.",
+    "noBreakInHorizon": "Keng Zwëscheméiglechkeet an dësem Horizont."
   },
   "drive": {
     "saveToDrive": "Am Drive späicheren",
@@ -9868,37 +9918,37 @@
     },
     "bailHabitation": {
       "title": "Wunnengsmietkontrakt Lëtzebuerg: Gesetz 21.09.2006, Rechter 2026",
-      "metaDescription": "Wunnengsmietvertrag LU: onbestëmmten Dauer, Kënnegungsfrist 3/6 Méint, Kautioun max 3 Méint, Loyer-Plafong 5 % vum opgewäerten Kapital, recuperabel Nieftekosten (RGD 16.06.2015), kommunal Loyerskommissioun.",
+      "metaDescription": "Wunnbail zu Lëtzebuerg: nei Zweeméintlimitt fir d’Garantie, Dauer, schrëftlech Angaben, Loyerupassung a Recours.",
       "subtitle": "Alles wat Vermieter a Locataire wësse mussen virum Ofschloss vun engem Wunnengsmietvertrag zu Lëtzebuerg.",
       "category": "Locatioun a Bail",
       "essentiel": [
-        "Rechtsrahmen: geännert Gesetz vum 21. September 2006 iwwer d'Wunnraumvermietung, ergänzt duerch de Code civil an de RGD vum 16. Juni 2015 zu Käschten.",
-        "Standarddauer: onbestëmmt. Locataire-Kënnegung 3 Méint, Vermieter-Kënnegung 6 Méint an nëmmen aus berechtegtem Grond (Eegenbedarf, schwéieren Verstouss, Aarbechten).",
-        "Loyer gedeckelt op 5 % pro Joer vum opgewäerten investéierte Kapital (Art. 3 Gesetz 2006). Kuckt den dedizéierten Guide zur 5 %-Regel.",
-        "Mietkautioun: max 3 Méint Loyer ouni Nieftekosten, op engem gespaarten Konto op Numm vum Locataire. Zinse gehéieren dem Locataire.",
-        "Gratis virgeriichtlecht Rechtsmëttel: kommunal Loyerskommissioun virun all Klage."
+        "En neie Kontrakt am aktuelle Regimm muss schrëftlech Parteien, Wunneng, Kadasterreferenz, Raim, Dauer, Loyer, Chargen, eventuell Miwwelzousaz a Garantie nennen. En nennt d’Loyerkommissioun fir Sträit iwwer d’Festleeë vum Loyer. Iwwerpréift besonnesch Reegelen an Ausnamen no der Notzung.",
+        "D’Dauer ka befrist oder onbefrist sinn. Kënnegung, Fristen an Erneierung hänke vun der Dauer, dem Kontrakt an de gesetzleche Grënn of. Et gëtt keen allgemengt Mieterrecht, all befristete Bail zu all Moment mat dräi Méint Frist opzehalen. Loosst déi passend Reegelen an Notifikatiounen iwwerpréiwen.",
+        "Déi geltend Limitt ergëtt sech aus investéiertem Kapital, Upassungen an Ofschléi; e Miwwelzousaz ass getrennt ze begrënnen. Upassunge follegen de gesetzleche Konditiounen, notamment zwee Joer Ofstand an 10-%-Erhéijungslimitt mat Ausnamen. Eng Wäertklausel kann no enger recommandéierter Reklamatioun vum Mieter hir Wierkung verléieren; den IPC gëtt keen automatescht Erhéijungsrecht.",
+        "Bei engem neie Wunnbail zanter dem 1. August 2024 ass d’Garantie op zwee Méint Loyer ouni Chargë limitéiert. Bei ale Kontrakter kann déi fréier Dräiméintlimitt gëllen. Verschidde Garantieforme si méiglech; e blockéierte Kont ass net déi eenzeg. Iwwerpréift gesetzlech Konditiounen a Friste fir d’Restitutioun no Zoustandsprotokoll, Scholden an Ofrechnungen.",
+        "De Recours hänkt vum Sträit of. D’Loyerkommissioun handelt an hirer Kompetenz, notamment bei der Loyersfestleeung; si ass keng allgemeng Virphas fir all Sträit. Garantierestitutioun oder Kënnegung kënnen zum Friddensgeriicht gehéieren. Haalt Beleeger an iwwerpréift passend Schrëtt, Fristen a Konditiounen."
       ],
       "section1Title": "Rechtsrahmen a Vertragstyp",
-      "section1P1": "D'Wunnraumvermietung zu Lëtzebuerg gëtt vum geänneren Gesetz vum 21. September 2006 erfaasst, dat fir all Locatioun vun enger als Haaptwunnsëtz benotzter Wunneng applikabel ass (Artikel 1). Ausgeschloss: kuerzfristeg méibléiert touristesch Locatiounen, Pachtverträg a Geschäftsmieten (duerch aner Gesetzer gereegelt). De Vertrag muss schrëftlech sinn; ouni Schrëft erkennt d'Gesetz de Mietvertrag awer un, wann et Bezuelung an Belegung gëtt, awer mat schwéierer Bewäisslast.",
-      "section1P2": "Standardméisseg gëtt de Mietvertrag op onbestëmmten Zäit ofgeschloss. Befrist Mietverträg si méiglech, awer wandelen sech am Enn automatesch a onbestëmmten ëm wann de Locataire ouni Widderspréch vum Vermieter wunne bleift (stilléiwer Verlängerung). De Vertrag muss d'Parteien, d'Wunnengsbeschreiwung, de Loyer ouni Nieftekosten, den Nieftekostebetrag a seng Berechnung, den Kautiounsbetrag an d'Anzuchsdatum nennen.",
+      "section1P1": "En neie Kontrakt am aktuelle Regimm muss schrëftlech Parteien, Wunneng, Kadasterreferenz, Raim, Dauer, Loyer, Chargen, eventuell Miwwelzousaz a Garantie nennen. En nennt d’Loyerkommissioun fir Sträit iwwer d’Festleeë vum Loyer. Iwwerpréift besonnesch Reegelen an Ausnamen no der Notzung.",
+      "section1P2": "En neie Kontrakt am aktuelle Regimm muss schrëftlech Parteien, Wunneng, Kadasterreferenz, Raim, Dauer, Loyer, Chargen, eventuell Miwwelzousaz a Garantie nennen. En nennt d’Loyerkommissioun fir Sträit iwwer d’Festleeë vum Loyer. Iwwerpréift besonnesch Reegelen an Ausnamen no der Notzung.",
       "callout1Title": "Form an net erlaabt Klauselen",
-      "callout1Body": "Nichteg sinn: all Kautioun iwwer 3 Méint Loyer, all onbegrenzt Solidaritéit vun engem Mat-Locataire no sengem Auszuch, all Kënnegungsstrof ausserhalb der gesetzlecher Frist an all Klausel déi de Vermieter vu senger Pflicht zur Iwwergab vun enger mënschewërdeger Wunneng befreit (Art. 1719 Code civil).",
+      "callout1Body": "En neie Kontrakt am aktuelle Regimm muss schrëftlech Parteien, Wunneng, Kadasterreferenz, Raim, Dauer, Loyer, Chargen, eventuell Miwwelzousaz a Garantie nennen. En nennt d’Loyerkommissioun fir Sträit iwwer d’Festleeë vum Loyer. Iwwerpréift besonnesch Reegelen an Ausnamen no der Notzung.",
       "section2Title": "Loyer, Indexéierung a Kautioun",
-      "section2P1": "Den Ufanksloyer ass fräi, däerf awer 5 % vum opgewäerten investéierte Kapital net iwwerschreiden (Art. 3 Gesetz 21.09.2006). De Loyer kann nëmmen eemol all zwee Joer an nëmmen no uewen no der STATEC-Verbraucherpräisindexentwécklung ugepasst ginn, oder wann Verbesserungsaarbechten eng Neibewäertung vum investéierten Kapital rechtfäerdegen. D'Upassung muss per Recommandé mat engem Méint Virkënnegung matgedeelt ginn.",
-      "section2P2": "D'Kautioun ass op 3 Méint Loyer ouni Nieftekosten limitéiert (Art. 5 Gesetz 2006). Si muss op e gespaarten Konto op den Numm vum Locataire bei enger Lëtzebuerger Bank deposéiert ginn; d'Zinse gehéieren dem Locataire. D'Réckgab muss bannent raisonnabeler Frist nom Bail-Enn geschéien (typesch 1 bis 3 Méint), ofgezunn eventuell am Auszugsprotokoll festgestallt Schied. Eng staatlech Mietkautioun ass fir berechtegt Locataire iwwer de Wunnengsbau-Ministère verfügbar.",
+      "section2P1": "Déi geltend Limitt ergëtt sech aus investéiertem Kapital, Upassungen an Ofschléi; e Miwwelzousaz ass getrennt ze begrënnen. Upassunge follegen de gesetzleche Konditiounen, notamment zwee Joer Ofstand an 10-%-Erhéijungslimitt mat Ausnamen. Eng Wäertklausel kann no enger recommandéierter Reklamatioun vum Mieter hir Wierkung verléieren; den IPC gëtt keen automatescht Erhéijungsrecht.",
+      "section2P2": "Bei engem neie Wunnbail zanter dem 1. August 2024 ass d’Garantie op zwee Méint Loyer ouni Chargë limitéiert. Bei ale Kontrakter kann déi fréier Dräiméintlimitt gëllen. Verschidde Garantieforme si méiglech; e blockéierte Kont ass net déi eenzeg. Iwwerpréift gesetzlech Konditiounen a Friste fir d’Restitutioun no Zoustandsprotokoll, Scholden an Ofrechnungen.",
       "section3Title": "Flichten vu Vermieter a Locataire",
-      "section3P1": "De Vermieter muss d'Wunneng a guddem Zoustand iwwerginn (Art. 1719 Code civil), déi onbehënnert Notzung garantéieren, gréisser Reparaturen ausféieren (Daach, Fassade, Struktur, gréisser elektresch Konformitéit) an d'kontradiktoresch Übergabeprotokoller beim An- an Auszuch erstellen. Hie kann vum Locataire nëmmen déi am RGD vum 16. Juni 2015 ofschléissend opgelëscht Nieftekosten verlaangen: Waasser/Stroum/Gas vun de Gemeinschaftsflächen, Zentralheizung, Ënnerhalt vun de Gemeinschaftsberäicher, Lift, kommunal Dreckstax, Gebaiiversécherung.",
-      "section3P2": "De Locataire muss de Loyer pünktlech bezuelen, d'Wunneng respektvoll notzen, kleng Locataire-Reparaturen ausféieren (Dichtungen, Glühbiren, kleng Fixéierungen), eng eventuell Hausuerdnung respektéieren an dem Vermieter Zougang fir Inspektioune oder Aarbechten ginn. De Bezuelungsausfall vu méi wéi zwee Méint Loyer setzt de Locataire enger geriichtlecher Vertragsopléisung wéinst schwéierer Verletzung mat méiglecher Räumung aus, no enger fruchtloser Mahnung.",
+      "section3P1": "Ënnerscheet Loyer vu recuperabele Käschte fir Notzung, Verbrauch an Ënnerhalt. Acompte ginn no Beleeger ofgerechent; e Forfait ass ënner gesetzleche Konditioune méiglech. Proprietéitskäschten a grouss Reparature ginn net eleng duerch eng Vertragsklausel recuperabel. Iwwerpréift all Posten.",
+      "section3P2": "D’Dauer ka befrist oder onbefrist sinn. Kënnegung, Fristen an Erneierung hänke vun der Dauer, dem Kontrakt an de gesetzleche Grënn of. Et gëtt keen allgemengt Mieterrecht, all befristete Bail zu all Moment mat dräi Méint Frist opzehalen. Loosst déi passend Reegelen an Notifikatiounen iwwerpréiwen.",
       "callout2Title": "Net erlaabt Käschten",
-      "callout2Body": "De Vermieter däerf dem Locataire net weidergi: Verwaltungs- oder Syndiksgebühren iwwer den Locataire-Undeel eraus, gréisser Ersatzaarbechten (Heizungs, Daach, Fassade), Grondsteier, Wunngebaiiversécherung anescht wéi Gebaiiversécherung, oder Verbesserungs-/Moderniséierungskäschten.",
+      "callout2Body": "Ënnerscheet Loyer vu recuperabele Käschte fir Notzung, Verbrauch an Ënnerhalt. Acompte ginn no Beleeger ofgerechent; e Forfait ass ënner gesetzleche Konditioune méiglech. Proprietéitskäschten a grouss Reparature ginn net eleng duerch eng Vertragsklausel recuperabel. Iwwerpréift all Posten.",
       "section4Title": "Mietenn a Rechtsmëttel",
-      "section4P1": "De Locataire kann zu all Moment per Recommandé mat 3 Méint Frist kënnegen (Art. 12 Gesetz 2006). De Vermieter kann nëmme mat 6 Méint Frist an ausschliisslech aus dräi berechtegte Grënn kënnegen: Eegenbedarf fir sech selwer, Conjoint, Elteren oder Kanner; schwéieren Vertragsverstouss vum Locataire; Ofrass- oder Ëmbauaarbechten déi d'Belegung onméiglech maachen. D'Kënnegung muss schrëftlech begrënnt ginn, soss ass se nichteg.",
-      "section4P2": "Bei Streidegkeeten (iwwerhéicht Loyer, contestéiert Käschten, net zréckgegeben Kautioun, contestéiert Protokoll) kann de Locataire oder Vermieter d'kommunal Loyerskommissioun vun der Wunngemeng gratis uruffen (Art. 7 Gesetz 2006). D'Kommissioun gëtt eng net bindend Stellungnahm of, der Riichter awer dacks follegt. Gëtt d'Stellungnahm ignoréiert, kann de Fall virum Friddensriichter bruecht ginn, oder bei héije Loyer virum Bezierksgeriicht.",
+      "section4P1": "D’Dauer ka befrist oder onbefrist sinn. Kënnegung, Fristen an Erneierung hänke vun der Dauer, dem Kontrakt an de gesetzleche Grënn of. Et gëtt keen allgemengt Mieterrecht, all befristete Bail zu all Moment mat dräi Méint Frist opzehalen. Loosst déi passend Reegelen an Notifikatiounen iwwerpréiwen.",
+      "section4P2": "De Recours hänkt vum Sträit of. D’Loyerkommissioun handelt an hirer Kompetenz, notamment bei der Loyersfestleeung; si ass keng allgemeng Virphas fir all Sträit. Garantierestitutioun oder Kënnegung kënnen zum Friddensgeriicht gehéieren. Haalt Beleeger an iwwerpréift passend Schrëtt, Fristen a Konditiounen.",
       "callout3Title": "Solidaritéit tëschent Mat-Locataire",
-      "callout3Body": "Wann méi Locataire zesummen ënnerschreiwen (WG, Cohabitatioun), kann eng Solidarklausel jiddereen fir de gesamten net bezuelten Loyer haftbar maachen. Nom Auszuch vun engem Mat-Locataire kann seng Solidaritéit net iwwer eng raisonnabel Frist (allgemeng 6 Méint) ouni ausdrécklech Zoustëmmung opgehale ginn — anerlautend Klauselen sinn nichteg.",
+      "callout3Body": "Eng Wunngemeinschaft ka besonnesche Pakt- an Austrëttsreegelen ënnerleien. Solidaritéit, Ersatz an hiert Enn sinn no Regimm a Kontrakt ze iwwerpréiwen; hei gëtt keng allgemeng Dauer vu sechs Méint behaapt.",
       "inlineCalc": {
         "title": "Préift d'Rechtmäissegkeet vun Ärem Loyer",
-        "description": "Hält de gefuerdert Loyer d'5 %-Regel op dat opgewäert investéiert Kapital? Eise Rechner appliquéiert den STATEC-Index an den Veraltungsrabatt fir Iech d'genau gesetzlech Plafong ze ginn.",
+        "description": "Schätzt d’Limitt no aginn Zommen a Beleeger. Iwwerpréift d’Resultat; et zertifizéiert d’Legalitéit vum Loyer net.",
         "cta": "Maximalloyer berechnen"
       },
       "tools": [
@@ -9926,61 +9976,40 @@
       "faq": [
         {
           "q": "Wéi laang ass d'Kënnegungsfrist fir en Auszuch zu Lëtzebuerg?",
-          "a": "De Locataire gëtt eng Kënnegungsfrist vu 3 Méint per Recommandé (Art. 12 Gesetz 2006). De Vermieter gëtt 6 Méint Frist a kann nëmmen aus berechtegte Grënn kënnegen (Eegenbedarf, schwéieren Verstouss, gréisser Aarbechten)."
+          "a": "D’Dauer ka befrist oder onbefrist sinn. Kënnegung, Fristen an Erneierung hänke vun der Dauer, dem Kontrakt an de gesetzleche Grënn of. Et gëtt keen allgemengt Mieterrecht, all befristete Bail zu all Moment mat dräi Méint Frist opzehalen. Loosst déi passend Reegelen an Notifikatiounen iwwerpréiwen."
         },
         {
           "q": "Wéi héich ass déi maximal Mietkautioun zu Lëtzebuerg?",
-          "a": "D'Kautioun ass op 3 Méint Loyer ouni Nieftekosten gedeckelt (Art. 5 Gesetz 2006). Si muss op e Spaarkonto op Numm vum Locataire deposéiert ginn an d'Zinse gehéieren dem Locataire. All Klausel mat héijer Kautioun ass nichteg."
+          "a": "Bei engem neie Wunnbail zanter dem 1. August 2024 ass d’Garantie op zwee Méint Loyer ouni Chargë limitéiert. Bei ale Kontrakter kann déi fréier Dräiméintlimitt gëllen. Verschidde Garantieforme si méiglech; e blockéierte Kont ass net déi eenzeg. Iwwerpréift gesetzlech Konditiounen a Friste fir d’Restitutioun no Zoustandsprotokoll, Scholden an Ofrechnungen."
         },
         {
           "q": "Kann de Vermieter de Loyer während dem Mietvertrag erhéijen?",
-          "a": "Eng Upassung ass nëmme méiglech eemol all zwee Joer, gedeckelt op den STATEC-Verbraucherpräisindex, oder wann Verbesserungsaarbechten eng Neibewäertung vum investéierten Kapital rechtfäerdegen (mat Neibewäertung vum 5 %-Plafong). Erhéichunge sinn per Recommandé mat engem Méint Virkënnegung matzedeelen."
+          "a": "Déi geltend Limitt ergëtt sech aus investéiertem Kapital, Upassungen an Ofschléi; e Miwwelzousaz ass getrennt ze begrënnen. Upassunge follegen de gesetzleche Konditiounen, notamment zwee Joer Ofstand an 10-%-Erhéijungslimitt mat Ausnamen. Eng Wäertklausel kann no enger recommandéierter Reklamatioun vum Mieter hir Wierkung verléieren; den IPC gëtt keen automatescht Erhéijungsrecht."
         },
         {
           "q": "Wéi eng Käschten dierfen zousätzlech zum Loyer berechent ginn?",
-          "a": "Nëmmen déi am RGD vum 16. Juni 2015 opgelëscht: Waasser, Stroum a Gas vun de Gemeinschaftsflächen, Zentralheizung, laufend Ënnerhalt vun de Gemeinschaftsberäicher (Botzen, Gaardenaarbecht, Lift), kommunal Dreckstax an Gebaiiversécherung. Alles anescht (gréisser Aarbechten, Syndik, Grondsteier) dréit de Vermieter."
+          "a": "Ënnerscheet Loyer vu recuperabele Käschte fir Notzung, Verbrauch an Ënnerhalt. Acompte ginn no Beleeger ofgerechent; e Forfait ass ënner gesetzleche Konditioune méiglech. Proprietéitskäschten a grouss Reparature ginn net eleng duerch eng Vertragsklausel recuperabel. Iwwerpréift all Posten."
         },
         {
           "q": "Wéi kann en iwwerhéicht Loyer ugefocht ginn?",
-          "a": "Wendt Iech gratis un d'Loyerskommissioun vun Ärer Gemeng. Si préift d'Berechnung vum opgewäerten investéierte Kapital a gëtt eng Stellungnahm of. Wann de Vermieter net nogëtt, kënnt Dir de Fall virum Friddensriichter bréngen, deen eng réckwierkend Loyer-Reduktioun ka uerdnen."
+          "a": "De Recours hänkt vum Sträit of. D’Loyerkommissioun handelt an hirer Kompetenz, notamment bei der Loyersfestleeung; si ass keng allgemeng Virphas fir all Sträit. Garantierestitutioun oder Kënnegung kënnen zum Friddensgeriicht gehéieren. Haalt Beleeger an iwwerpréift passend Schrëtt, Fristen a Konditiounen."
         },
         {
           "q": "Wat maachen, wann de Vermieter d'Kautioun net zréckgëtt?",
-          "a": "Schéckt fir d'éischt eng Mahnung per Recommandé. Ouni Äntwert bannent 30 Deeg wendt Iech un d'Loyerskommissioun oder direkt un de Friddensriichter. De Riichter ka d'Réckgab plus Zinsen a Schuedenersaz uerdnen. Bewahrt den Auszuchsprotokoll als Beweis op."
+          "a": "De Recours hänkt vum Sträit of. D’Loyerkommissioun handelt an hirer Kompetenz, notamment bei der Loyersfestleeung; si ass keng allgemeng Virphas fir all Sträit. Garantierestitutioun oder Kënnegung kënnen zum Friddensgeriicht gehéieren. Haalt Beleeger an iwwerpréift passend Schrëtt, Fristen a Konditiounen."
         }
       ],
       "sources": [
         {
-          "title": "Geännert Gesetz vum 21. September 2006 iwwer d'Wunnraumvermietung",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo",
-          "year": 2006
-        },
-        {
-          "title": "Groussherzoglecht Reglement vum 16. Juni 2015 — recuperabel Nieftekosten",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo",
-          "year": 2015
-        },
-        {
-          "title": "Wunnengsmietvertrag — komplett Guide",
+          "title": "Conclure un contrat de bail à usage d’habitation",
           "org": "Guichet.lu",
-          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html"
+          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-litige/conclure-contrat-bail-location.html"
         },
         {
-          "title": "Loyerskommissioun — Prozedur",
-          "org": "Logement.lu — Wunnengsbau-Ministère",
-          "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html"
-        },
-        {
-          "title": "Mietkautioun — staatlech Ënnerstëtzung",
-          "org": "Logement.lu",
-          "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html"
-        },
-        {
-          "title": "Code civil — Pflichte vum Vermieter (Art. 1719 ff.)",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+          "title": "Révision du bail à loyer et règles transitoires",
+          "org": "Ministère du Logement",
+          "url": "https://logement.public.lu/fr/actualites/2024/07/10-revisonbailaloyer.html",
+          "year": 2024
         }
       ]
     },
@@ -10592,45 +10621,45 @@
       "section4P1": "Fiktiiv Beispiller: Déi ganz Nettobasis ass eligibel, d’Notzung erfëllt d’Konditiounen an déi voll 50.000 EUR si verfügbar. Terrain, Honorairen an ausgeschloss Aarbechte sinn net abegraff. D’Tabell bestëmmt keng Eligibilitéit."
     },
     "bailCommercial": {
-      "title": "Geschäftsmietkontrakt Lëtzebuerg: Gesetz 03.02.2018, 9 Joer",
-      "metaDescription": "LU-Geschäftsmietvertrag: Gesetz 03.02.2018, 9 Joer Mindestlafzäit, dräijährlech Kënnegung mat 6 Méint Frist, STATEC-VPI-Indexéierung, fräi Schlësselgeld, Erneierungsrecht.",
-      "subtitle": "De komplette Rechtsrahme fir Geschäftsmietverträg zu Lëtzebuerg: Lafzäit, Kënnegung, Loyer, Indexéierung an Erneierungsrecht.",
+      "title": "Geschäftsloyer zu Lëtzebuerg: Dauer, Loyer a Klauselen",
+      "metaDescription": "De Regimm kënnt aus den Artikelen 1762-3 a follgend vum Code civil, notamment dem Gesetz vum 3. Februar 2018. D’Uwendung hänkt vum Kontrakt an der tatsächlecher Aktivitéit of. Ausnamen, Formalitéiten a besonnesch Klausele sinn am Eenzelfall ze iwwerpréiwen; dëse Guide validéiert kee Bail.",
+      "subtitle": "De Regimm kënnt aus den Artikelen 1762-3 a follgend vum Code civil, notamment dem Gesetz vum 3. Februar 2018. D’Uwendung hänkt vum Kontrakt an der tatsächlecher Aktivitéit of. Ausnamen, Formalitéiten a besonnesch Klausele sinn am Eenzelfall ze iwwerpréiwen; dëse Guide validéiert kee Bail.",
       "category": "Locatioun a Bail",
       "essentiel": [
-        "Rechtsrahmen: Gesetz vum 3. Februar 2018 iwwer Geschäftsmietverträg (a Kraaft zënter 1. Abrëll 2018), Moderniséierung vum bisherege Code-civil-Regime.",
-        "Mindestlafzäit 9 Joer (Art. 2). Dräijährlech Kënnegung duerch Locataire (3, 6, 9 Joer) mat 6 Méint Frist.",
-        "Fräi Loyer (keng 5%-Regel), STATEC-VPI-Indexéierung bei expliziter Klausel, dräijährlech Iwwerpréifung méiglech.",
-        "Schlësselgeld (pas-de-porte) erlaabt an net reguléiert: fräi verhandelbar tëschent Vermieter a Locataire.",
-        "Erneierungsrecht beim Oflaaf; Verweigerung ouni berechtegte Grond = Räumungsentschädegung (Clientèle-, Ëmzugs-, Geschäftsverlust)."
+        "De Regimm kënnt aus den Artikelen 1762-3 a follgend vum Code civil, notamment dem Gesetz vum 3. Februar 2018. D’Uwendung hänkt vum Kontrakt an der tatsächlecher Aktivitéit of. Ausnamen, Formalitéiten a besonnesch Klausele sinn am Eenzelfall ze iwwerpréiwen; dëse Guide validéiert kee Bail.",
+        "De Kontrakt ka befrist oder onbefrist sinn (Art. 1762-4 vum Code civil). Et gëtt keng allgemeng gesetzlech Mindestdauer vun néng Joer. Periodesch Kënnegungsméiglechkeeten hänke vum Kontrakt of; e Schema 3–6–9 gëllt net automatesch. Iwwerpréift d’Kënnegungsfrist, déi an dësem Regimm net ënner sechs Méint leie kann, an d’Notifikatiounsform.",
+        "Den Ufanksloyer gëtt verhandelt; déi 5-%-Limitt fir Wunnengen gëllt net. D’Indexéierung follegt der Formel, Indexserie, Basis an den Datume vum Kontrakt. De Rechner benotzt déi aginn Indicen, ouni Historique oder Prognosen ze erfannen oder en allgemengt Recht op Upassung all dräi Joer unzehuelen.",
+        "En Zousaz un de Proprietär oder en Intermediaire fir den Ofschloss vum Bail, Pas-de-porte genannt, ass verbueden (Art. 1762-5). Agencekäschten an de Präis vun enger Geschäftsiwwerdroung musse getrennt iwwerpréift ginn. D’Garantie ass an dësem Regimm op sechs Méint Loyer limitéiert.",
+        "Erneierung, Refus an eventuell Entschiedegung hänke vun de gesetzleche Konditiounen, Grënn, Dauer an Notifikatiounen of. Eng automatesch Entschiedegung oder bedéngungslos Erneierung däerf net ugeholl ginn. Loosst Kontrakt a Friste virun enger Notifikatioun iwwerpréiwen."
       ],
       "section1Title": "Rechtsrahme a Vertragstyp",
-      "section1P1": "De Geschäftsmietvertrag zu Lëtzebuerg gëtt zënter dem 1. Abrëll 2018 vum Gesetz vum 3. Februar 2018 erfaasst. Dëst Gesetz huet d'alleinegt Uwendung vum Code civil ersat an de Rahme déifgräifend moderniséiert: gesetzlech Mindestlafzäit, Erneierungsrecht, Räumungsentschädegung, gereegelt Indexéierung. Et gëllt fir Mietverträg iwwer Räimlechkeeten déi fir eng professionnell ausgeüübt gewerblech, handwierklech oder industriell Tätegkeet benotzt ginn.",
-      "section1P2": "Vum Anwendungsberäich ausgeschloss: Wunnmietverträg (Gesetz 21.09.2006), Pachtverträg (spezielles Regime), Mietverträg iwwer immateriell Gidder (Geschäftswäert ouni Räim) a Kuerzzeitvermietungen (< 6 Méint fir saisonal Tätegkeeten). De Mietvertrag muss schrëftlech sinn (vorzugsweis, awer net zwingend); soss beweisen Belegung an Zuelung de Mietvertrag, awer mat erhéichter Bewäislast bei Streit.",
+      "section1P1": "De Regimm kënnt aus den Artikelen 1762-3 a follgend vum Code civil, notamment dem Gesetz vum 3. Februar 2018. D’Uwendung hänkt vum Kontrakt an der tatsächlecher Aktivitéit of. Ausnamen, Formalitéiten a besonnesch Klausele sinn am Eenzelfall ze iwwerpréiwen; dëse Guide validéiert kee Bail.",
+      "section1P2": "De Regimm kënnt aus den Artikelen 1762-3 a follgend vum Code civil, notamment dem Gesetz vum 3. Februar 2018. D’Uwendung hänkt vum Kontrakt an der tatsächlecher Aktivitéit of. Ausnamen, Formalitéiten a besonnesch Klausele sinn am Eenzelfall ze iwwerpréiwen; dëse Guide validéiert kee Bail.",
       "callout1Title": "Ofgedeckte Tätegkeet = effektiv Ausübung",
-      "callout1Body": "D'Gesetz vu 2018 schützt nëmme Mietverträg, an deenen de Locataire tatsächlech eng gewerblech Tätegkeet un der gemittenter Adress ausüübt (Handelsregister, Beschilderung, Clientèle). Eng bloss Domiziléierung oder Bürobenotzung ouni Clientèle reicht net aus, fir de Geschäftsmietsschutz an Usproch ze huelen.",
-      "section2Title": "Lafzäit an dräijährlech Kënnegung",
-      "section2P1": "Déi gesetzlech Mindestlafzäit ass 9 Joer (Art. 2). D'Parteien kënnen eng méi laang Lafzäit vereinbaren (z.B. 12, 15 oder 25 Joer fir grouss Ausbau-Investitiounen), awer ni méi kuerz. Gesäit de Vertrag manner wéi 9 Joer vir, gëtt d'Lafzäit gesetzlech automatesch op 9 Joer erhéicht.",
-      "section2P2": "De Locataire huet en dräijährlecht Kënnegungsrecht: hie kann de Mietvertrag um Enn vun all Dräijoresperiod (3, 6, 9 Joer) mat 6 Méint Frist per Gerichtsvollzéierakt oder Recommandé kënnegen (Art. 4). De Vermieter däerf wärend dem Mietvertrag nëmmen aus limitativ opgelëschten Grënn kënnegen: schwéiere Locataire-Verstouss, perséinleche Geschäftsbedarf, oder total Ofrass-/Neiaufbauaarbechten.",
+      "callout1Body": "De Regimm kënnt aus den Artikelen 1762-3 a follgend vum Code civil, notamment dem Gesetz vum 3. Februar 2018. D’Uwendung hänkt vum Kontrakt an der tatsächlecher Aktivitéit of. Ausnamen, Formalitéiten a besonnesch Klausele sinn am Eenzelfall ze iwwerpréiwen; dëse Guide validéiert kee Bail.",
+      "section2Title": "Dauer a Kënnegungsméiglechkeeten",
+      "section2P1": "De Kontrakt ka befrist oder onbefrist sinn (Art. 1762-4 vum Code civil). Et gëtt keng allgemeng gesetzlech Mindestdauer vun néng Joer. Periodesch Kënnegungsméiglechkeeten hänke vum Kontrakt of; e Schema 3–6–9 gëllt net automatesch. Iwwerpréift d’Kënnegungsfrist, déi an dësem Regimm net ënner sechs Méint leie kann, an d’Notifikatiounsform.",
+      "section2P2": "De Kontrakt ka befrist oder onbefrist sinn (Art. 1762-4 vum Code civil). Et gëtt keng allgemeng gesetzlech Mindestdauer vun néng Joer. Periodesch Kënnegungsméiglechkeeten hänke vum Kontrakt of; e Schema 3–6–9 gëllt net automatesch. Iwwerpréift d’Kënnegungsfrist, déi an dësem Regimm net ënner sechs Méint leie kann, an d’Notifikatiounsform.",
       "section3Title": "Loyer, Indexéierung a Schlësselgeld",
-      "section3P1": "De Geschäftsloyer ass NET duerch d'5%-Regel gedeckelt (déi nëmme fir Wunnmieten gëllt). Hie gëtt fräi tëschent de Parteien no Maartkonditiounen an dem Mietwäert vun de Räim festgesat. Fir LU-Geschäftsraim leien Prime-Loyere LU-Stad typesch tëschent 80 an 250 €/m²/Mount no Lag a Notzung.",
-      "section3P2": "D'Indexéierung ass un de Verbraucherpräisindex (VPI) vum STATEC gekoppelt. D'Indexéierungsklausel muss ausdrécklech am Mietvertrag virgesi sinn; soss bleift de Loyer fest während der ganzer Lafzäit. Eng Loyer-Iwwerpréifung kann vun all Partei um Enn vun all Dräijoresperiod ugefrot ginn, wann de Loyer net méi dem tatsächleche Mietwäert entsprécht (Art. 7). Schlësselgeld (pas-de-porte) ass zu Lëtzebuerg erlaabt, als Géigeleeschtung fir d'Geschäftsvirdeeler vun der Lag, a fräi verhandelbar.",
-      "callout2Title": "Lëtzebuerger Besonderheet: keen ILC",
-      "callout2Body": "Am Géigesaz zu Frankräich, dat e spezifeschen Geschäftsloyerindex (ILC) huet, benotzt Lëtzebuerg de allgemenge VPI. Dat kann de Geschäftsloyer vun den tatsächleche Maartbedingungen entkoppelen. Antizipéiert, andeems Dir eventuell e jährleche Indexéierungs-Cap an der Vertragsredaktioun ausverhandelt.",
+      "section3P1": "Den Ufanksloyer gëtt verhandelt; déi 5-%-Limitt fir Wunnengen gëllt net. D’Indexéierung follegt der Formel, Indexserie, Basis an den Datume vum Kontrakt. De Rechner benotzt déi aginn Indicen, ouni Historique oder Prognosen ze erfannen oder en allgemengt Recht op Upassung all dräi Joer unzehuelen.",
+      "section3P2": "En Zousaz un de Proprietär oder en Intermediaire fir den Ofschloss vum Bail, Pas-de-porte genannt, ass verbueden (Art. 1762-5). Agencekäschten an de Präis vun enger Geschäftsiwwerdroung musse getrennt iwwerpréift ginn. D’Garantie ass an dësem Regimm op sechs Méint Loyer limitéiert.",
+      "callout2Title": "Klausel an Indice wielen",
+      "callout2Body": "Den Ufanksloyer gëtt verhandelt; déi 5-%-Limitt fir Wunnengen gëllt net. D’Indexéierung follegt der Formel, Indexserie, Basis an den Datume vum Kontrakt. De Rechner benotzt déi aginn Indicen, ouni Historique oder Prognosen ze erfannen oder en allgemengt Recht op Upassung all dräi Joer unzehuelen.",
       "section4Title": "Erneierungsrecht a Räumungsentschädegung",
-      "section4P1": "De Geschäftslocataire huet beim Vertragsoflaaf en Erneierungsrecht (Art. 5). Et gëtt duerch Benoriichtegung vum Vermieter op mannst 6 Méint virum Termin ausgeüübt. E Vermieter, deen d'Erneierung ouni berechtegte Grond oflehnt, muss dem Locataire eng Räumungsentschädegung bezuelen, déi de Verloscht deckt: Clientèle-Verloscht, Ëmzugs- an Neianrichtungskäschten, Entschädegung fir Geschäftswäert-Verloscht.",
-      "section4P2": "De Vermieter kann d'Erneierung nëmmen aus schwéierwigende Grënn ouni Entschädegung oflehnen: vertraglecher oder gesetzleche Verstouss vum Locataire, Bauzoustand deen total Ofrass an Neiaufbau erfuerdert, oder perséinleche Geschäftsbedarf (de Vermieter muss d'Raim dann an der selwechter oder verwandter Tätegkeet op mannst 2 Joer notzen). D'Zessioun vum Geschäftsmietvertrag ass méiglech sou wäit net anescht vereinbart, allgemeng un d'Zessioun vum Geschäftswäert gekoppelt; de Vermieter muss informéiert ginn.",
+      "section4P1": "Erneierung, Refus an eventuell Entschiedegung hänke vun de gesetzleche Konditiounen, Grënn, Dauer an Notifikatiounen of. Eng automatesch Entschiedegung oder bedéngungslos Erneierung däerf net ugeholl ginn. Loosst Kontrakt a Friste virun enger Notifikatioun iwwerpréiwen.",
+      "section4P2": "Erneierung, Refus an eventuell Entschiedegung hänke vun de gesetzleche Konditiounen, Grënn, Dauer an Notifikatiounen of. Eng automatesch Entschiedegung oder bedéngungslos Erneierung däerf net ugeholl ginn. Loosst Kontrakt a Friste virun enger Notifikatioun iwwerpréiwen.",
       "callout3Title": "Zessioun a Sublocatioun",
-      "callout3Body": "D'Zessioun vum Geschäftsmietvertrag un en Drëtten (insbesondesch beim Geschäftswäerts-Verkaaf) ass fräi sou wäit net ausdrécklech am Vertrag verbueden. D'Deelsublocatioun ass méi reglementéiert an erfuerdert allgemeng d'schrëftlech Zoustëmmung vum Vermieter. All Zessioun muss him matgedeelt ginn. Wann de Vertrag d'Zessioun verbitt, gesitt en Ausstiegsklausel beim Geschäftswäerts-Verkaaf vir.",
+      "callout3Body": "Oftrieden an Ënnerverloune follege besonnesche Reegelen, notamment bei enger Geschäftsiwwerdroung. Aus enger Klausel eleng däerf weder allgemeng Fräiheet nach en absolut Verbuet ofgeleet ginn. Iwwerpréift d’gesetzlech Konditiounen an néideg Notifikatiounen.",
       "inlineCalc": {
         "title": "Bewäert d'Rentabilitéit vun engem Geschäftsraum",
-        "description": "Eis Geschäftsmiet-Tool integréiert d'fräi Loyerfestleeung, dat amortiséierbart Schlësselgeld, d'VPI-Indexéierung, d'Ausbau-Amortisatioun an d'Berechnung vun der Nettorenditéit fir Vermieter a Locataire.",
+        "description": "Indexéierungsszenario mat aginn Indicen, fräi gewielter Dauer, konstante Käschten a getrennter Garantie.",
         "cta": "Analyse starten"
       },
       "tools": [
         {
           "href": "/bail-commercial",
           "title": "Geschäftsmiet-Tool",
-          "description": "Loyer, Schlësselgeld, VPI-Indexéierung, Vermieter-/Locataire-Renditéit."
+          "description": "Indexéierungsszenario mat aginn Indicen, fräi gewielter Dauer, konstante Käschten a getrennter Garantie."
         },
         {
           "href": "/dcf-multi",
@@ -10651,55 +10680,46 @@
       "faq": [
         {
           "q": "Wéi laang ass d'Mindestlafzäit vun engem Geschäftsmietvertrag zu Lëtzebuerg?",
-          "a": "9 Joer (Art. 2 Gesetz vum 3. Februar 2018). De Locataire kann zu all Dräijoresperiod (3, 6, 9 Joer) mat 6 Méint Frist kënnegen. De Vermieter däerf nëmme bei schwéiere Verstouss, perséinlechem Geschäftsbedarf oder Ofrass/Neiaufbau kënnegen."
+          "a": "De Kontrakt ka befrist oder onbefrist sinn (Art. 1762-4 vum Code civil). Et gëtt keng allgemeng gesetzlech Mindestdauer vun néng Joer. Periodesch Kënnegungsméiglechkeeten hänke vum Kontrakt of; e Schema 3–6–9 gëllt net automatesch. Iwwerpréift d’Kënnegungsfrist, déi an dësem Regimm net ënner sechs Méint leie kann, an d’Notifikatiounsform."
         },
         {
           "q": "Ass de Geschäftsloyer zu Lëtzebuerg gedeckelt?",
-          "a": "Nee, am Géigesaz zu Wunnmietverträg (5%-Plafong op investéiert Kapital) gëtt de Geschäftsloyer fräi tëschent de Parteien festgesat. Indexéierung iwwer den STATEC-VPI bei ausdrécklecher Klausel."
+          "a": "Den Ufanksloyer gëtt verhandelt; déi 5-%-Limitt fir Wunnengen gëllt net. D’Indexéierung follegt der Formel, Indexserie, Basis an den Datume vum Kontrakt. De Rechner benotzt déi aginn Indicen, ouni Historique oder Prognosen ze erfannen oder en allgemengt Recht op Upassung all dräi Joer unzehuelen."
         },
         {
-          "q": "Wat ass Schlësselgeld a wéi verhandelt een et?",
-          "a": "Schlësselgeld (pas-de-porte) ass eng Ufankszuelung vum Locataire un de Vermieter als Géigeleeschtung fir d'Geschäftsvirdeeler vun der Lag. An LU erlaabt, net reguléiert, fräi verhandelbar (typesch 1 bis 6 Mountsmieten fir eng Standardlag, bis zu méi Joren fir Prime). Vum Locataire iwwer d'Vertragslafzäit amortiséierbar."
+          "q": "Kann e Pas-de-porte verlaangt ginn?",
+          "a": "En Zousaz un de Proprietär oder en Intermediaire fir den Ofschloss vum Bail, Pas-de-porte genannt, ass verbueden (Art. 1762-5). Agencekäschten an de Präis vun enger Geschäftsiwwerdroung musse getrennt iwwerpréift ginn. D’Garantie ass an dësem Regimm op sechs Méint Loyer limitéiert."
         },
         {
           "q": "Wéi funktionéiert d'Erneierungsrecht?",
-          "a": "De Locataire notifizéiert eng Erneierungsdemande op mannst 6 Méint virum Vertragsoflaaf. E Vermieter deen ouni berechtegte Grond (Verstouss, Ofrass, Eegebedarf) oflehnt, muss eng Räumungsentschädegung fir Clientèle-, Ëmzugs- a Geschäftswäerts-Verloscht bezuelen. De Betrag gëtt eenverneemlesch oder geriichtlech festgesat."
+          "a": "Erneierung, Refus an eventuell Entschiedegung hänke vun de gesetzleche Konditiounen, Grënn, Dauer an Notifikatiounen of. Eng automatesch Entschiedegung oder bedéngungslos Erneierung däerf net ugeholl ginn. Loosst Kontrakt a Friste virun enger Notifikatioun iwwerpréiwen."
         },
         {
           "q": "Kann de Vermieter d'Vertragszessioun un en Iwwerhuelmer blockéieren?",
-          "a": "Nee, sou wäit keng Géigenklausel am Vertrag. D'Geschäftsmietzessioun ass fräi, allgemeng un d'Geschäftswäerts-Zessioun gekoppelt. De Vermieter muss informéiert ginn, kann awer net widerspriechen sou wäit d'Vertragsbedingungen (Loyer, Notzung) vum Iwwerhuelmer respektéiert ginn. Eng Genehmegungsklausel virsinn, falls de Vermieter Opsiicht wëll."
+          "a": "Oftrieden an Ënnerverloune follege besonnesche Reegelen, notamment bei enger Geschäftsiwwerdroung. Aus enger Klausel eleng däerf weder allgemeng Fräiheet nach en absolut Verbuet ofgeleet ginn. Iwwerpréift d’gesetzlech Konditiounen an néideg Notifikatiounen."
         },
         {
           "q": "Wat maachen bei schwéierem Locataire-Verstouss?",
-          "a": "De Vermieter schéckt eng Mahnung per Recommandé mat Beschreiwung vum Verstouss (net bezuelten Loyer > 2 Méint, verbueden Sublocatioun, Notzungsännerung, gréisser Schied). Ouni Heelung bannent 30 Deeg kann de Vermieter de Fall virum Geriicht zu geriichtlecher Opléisung mat Räumungsdemande a Forderunge fir Réckstänn/Schuedenersaz bréngen."
+          "a": "Dokumentéiert Fakten an Austausch. Kënnegung an eventuell Evakuatioun follegen de geltende Konditiounen a Prozeduren; dëse Guide setzt kee Seuil vun zwee Méint Retard a keng allgemeng Frist vun drësseg Deeg fest. Frot Rot virun enger Prozedur."
         }
       ],
       "sources": [
         {
-          "title": "Gesetz vum 3. Februar 2018 iwwer Geschäftsmietverträg",
+          "title": "Loi du 3 février 2018 portant sur le bail commercial",
           "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a110/jo",
           "year": 2018
         },
         {
-          "title": "Geschäftsmietvertrag — praktesche Guide",
-          "org": "Guichet.lu",
-          "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html"
+          "title": "Réforme du bail commercial : adoption et pas-de-porte",
+          "org": "Ministère de l’Économie",
+          "url": "https://meco.gouvernement.lu/fr/actualites.gouvernement2024%2Bfr%2Bactualites%2Btoutes_actualites%2Bcommuniques%2B2018%2B01-janvier%2B17-bail.html",
+          "year": 2018
         },
         {
-          "title": "Verbraucherpräisindex (VPI)",
+          "title": "Indice des prix à la consommation et inflation",
           "org": "STATEC",
-          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
-        },
-        {
-          "title": "Code civil — Artikelen 1709 ff.",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
-        },
-        {
-          "title": "Handelskammer — Entrepreneur-Begleedung",
-          "org": "Lëtzebuerger Handelskammer",
-          "url": "https://www.cc.lu/"
+          "url": "https://statistiques.public.lu/fr/donnees/themes/economie-finances/dossier-indice-prix-inflation.html"
         }
       ]
     },
@@ -11635,7 +11655,7 @@
       "faq1q": "Ass déi hedonesch Method publizéiert?",
       "faq1a": "Dës Prozenter sinn Aarbechtshypotheesen, keng offiziell Koeffiziente vum Observatoire. MAPE, R², Signifikanz oder Genauegkeet op reelle Verkafsdonnéeë sinn net nogewisen.",
       "faq2q": "Wéi funktionéiert d'SHA-256-Signatur?",
-      "faq2a": "Bei Emissioun gëtt PDF gehasht, Hash gespäichert (onverännerbar). Client setzt URL op /verify.",
+      "faq2a": "Eng Prüfsumm vergläicht Inhalt mat enger gespäicherter Referenz. Eleng zertifizéiert se keng Identitéit, Zoustëmmung, Datum oder juristesch Gültegkeet. Haalt Dokument a Kontrolldaten; eng Prüfsumm eleng ass keng qualifizéiert Ënnerschrëft.",
       "faq3q": "Multi-Gutachter: wéi deelen?",
       "faq3a": "/profil/organisation erlaabt Cabinet-Erstellung, Membere invitéieren, Bewäertungen deelen.",
       "faq4q": "Kann ech op DOCX exportéieren?",
@@ -11803,7 +11823,7 @@
       "parcoursStep1Title": "API-Schlëssel erstellen",
       "parcoursStep1Desc": "/profil/api: Schlëssel mat Scope, monatlechen Quota, IP-Allowlist erstellen.",
       "parcoursStep2Title": "Endpoints testen",
-      "parcoursStep2Desc": "/api-docs: OpenAPI 3.1 mat Try-it-out, cURL-Beispiller.",
+      "parcoursStep2Desc": "/api-docs: OpenAPI-Dokumentatioun, cURL-Beispiller an Ufro-/Äntwertschemaen. PropCalc-Endpunkten: yield, cashflow, mortgage a fees. Kontrolléiert déi néideg Donnéeën an den Ëmfang vun all Berechnung an der Dokumentatioun.",
       "parcoursStep3Title": "Webhooks + Produktioun",
       "parcoursStep3Desc": "Webhook konfiguréieren mat HMAC-SHA256-Signatur.",
       "toolsTitle": "Empfohle Tools",
@@ -11825,30 +11845,30 @@
     },
     "str_operator": {
       "title": "Kuerzzäit-Locatioun-Guide",
-      "intro": "Airbnb, Booking, STR-Concierge-Betreiber: LU-Rentabilitéitsrechner, EU 2024/1028-Konformitéit, 3-Méint/Joer LU-Limit.",
+      "intro": "Fir Airbnb- a Booking-Hosten a Verwalter: Rentabilitéitsszenarien, Verglach vu kuerzer a laanger Locatioun a lëtzebuergesch an europäesch Flichte fir Är Aktivitéit ze préiwen.",
       "backToHub": "All Guiden",
       "parcoursTitle": "Typesche Wee",
-      "parcoursIntro": "Vun der STR-Analys zur EU 2024/1028-Konformitéit.",
+      "parcoursIntro": "Vun ekonomesche Szenarie bis bei d’Flichte fir Är Aktivitéit.",
       "parcoursStep1Title": "Rentabilitéit analyséieren",
       "parcoursStep1Desc": "/str/forecast: 12-Méint-Prévisioun, LU-Saisonalitéit.",
       "parcoursStep2Title": "Laang vs kuerz Dauer",
       "parcoursStep2Desc": "/str: vergläicht STR-Rendement vs klassesch Locatioun.",
-      "parcoursStep3Title": "EU 2024/1028 + LU-Konformitéit",
-      "parcoursStep3Desc": "/str/compliance: europäescht Register. An LU: 3-Méint/Joer Limit fir Ënnerkënschtlizenz.",
+      "parcoursStep3Title": "STR-Flichten zu Lëtzebuerg an an der EU",
+      "parcoursStep3Desc": "/str/compliance hëlleft beim Préife vun de Flichten: 90 kumuléiert Nuechte pro Bedreiwer, Geneemegung, Formatioun, Gemengeregelen a lokal Aschreiwungsprozeduren. De PDF ass en internt Virbereedungsdokument; et gëtt näischt agereecht a keng Geneemegung ausgestallt.",
       "toolsTitle": "Empfohle Tools",
       "toolsIntro": "Analys + Konformitéit + Portfolio.",
       "faqTitle": "Heefeg Froen",
-      "faq1q": "Wat verlaangt EU-Reglement 2024/1028?",
-      "faq1a": "Obligatoresch Registréierung am EU-Register, automatesch Datenübertragung, visibel Nummer. Mëttel 2026 a Kraaft.",
+      "faq1q": "Wéi eng Flichte vum Reglement (EU) 2024/1028 muss ech préiwen?",
+      "faq1a": "D’Reglement (EU) 2024/1028 gëllt zënter dem 20. Mee 2026. D’Flichte hänke vun den Aschreiwungsprozedure fir déi betraffen Eenheet of. Et schaaft keen eenheetlechen europäesche Register. D’Informatioune vum Host sinn vun den Dateniwwerdroungen duerch d’Plattformen ze ënnerscheeden.",
       "faq2q": "Muss ech STR-Akommes deklaréieren?",
       "faq2a": "Jo, als BIC-Akommes. MwSt: Franchise < 35k €/Joer. Kurtaxe: vun 1 Nuecht un.",
-      "faq3q": "Wat passéiert beim Iwwerschreiden vum 3-Méint-Limit?",
-      "faq3a": "Kommerziell Ënnerkënschtlizenz erfuerderlech iwwer 90 Deeg/Joer.",
+      "faq3q": "Wat ass vun 90 kumuléierten Nuechte pro Bedreiwer un ze préiwen?",
+      "faq3a": "Zu Lëtzebuerg läit d’Schwell vun der kommerzieller Beherbergungsaktivitéit bei 90 Nuechten oder méi, zesummegerechent iwwer all Unitéite vum selwechte Bedreiwer am Referenzjoer, gerechent ab der leschter Locatioun. Préift d’Néierloossungsgeneemegung an déi néideg Qualifikatiounen oder Formatiounen. Och ënner dëser Schwell bleiwen aner Flichten ze préiwen.",
       "faq4q": "Dynamesch Pricing wéi PriceLabs integréiert?",
       "faq4a": "Nach net. Statesch saisonal Prévisioun. Fir dynamesch: Drëttubidder PriceLabs/Wheelhouse.",
       "relatedTitle": "Méi erausfannen",
       "ctaTitle": "Start STR-Analys",
-      "ctaDesc": "Gratis 12-Méint-Prévisioun + EU 2024/1028-Konformitéit.",
+      "ctaDesc": "Rentabilitéitsszenarien, Verglach vu kuerzer a laanger Locatioun an eng Lëscht vu Flichten ze préiwen.",
       "ctaPrimary": "STR-Hub opmaachen",
       "ctaSecondary": "All Guiden"
     }
@@ -12953,12 +12973,12 @@
   "strHub": {
     "meta": {
       "title": "Kuerzzäitvermietung Lëtzebuerg — Airbnb, Booking, Vrbo | tevaxia.lu",
-      "description": "7 STR-Rechner fir Airbnb/Booking-Hosten zu Lëtzebuerg: Nettorendement no Steier, Conformitéit (3-Méint-Schwell, Lizenz, EU Reg 2026), Laang- vs Kuerzzäit-Arbitrage, dynamescht Pricing."
+      "description": "Tools fir Kuerzzäitverlounen zu Lëtzebuerg: ekonomesch Simulatiounen, Flichten ze préiwen a Verglach mam Laangzäitverlounen."
     },
     "hero": {
       "title": "Kuerzzäitvermietung zu Lëtzebuerg",
       "subtitle": "7 gratis Tools fir Airbnb-, Booking-, Vrbo- a Saisonhosten zu Lëtzebuerg. Realistesch Rendement, legal Conformitéit 2026, Arbitrage zwëschen Laang- a Kuerzzäitvermietung.",
-      "tag1": "3-Méint-Schwell / Joer",
+      "tag1": "90 kumuléiert Nuechte pro Bedreiwer",
       "tag2": "LU-Akommessteier",
       "tag3": "EU Regulation 2024/1028",
       "tag4": "Airbnb / Booking / Vrbo"
@@ -12970,7 +12990,7 @@
       },
       "compliance": {
         "title": "STR Lëtzebuerg Conformitéit",
-        "desc": "Legal Checklist: 3-Méint-Schwell, Hébergement-Lizenz, Gemengereglementer, EU Regulation 2024/1028."
+        "desc": "Ze préiwen: 90 kumuléiert Nuechte pro Bedreiwer, Geneemegung, Formatioun, Gemengeregelen an applicabel Aschreiwungsprozeduren."
       },
       "arbitrage": {
         "title": "LT vs ST vs Mix Arbitrage",
@@ -12985,8 +13005,8 @@
         "desc": "Median ADR, Percentilen, Belegung a RevPAR pro Zone. 4.200 LU-Listings Q4 2025. Gratis lokal Alternativ zu AirDNA."
       },
       "complianceEu": {
-        "title": "EU STR Registre 2024/1028",
-        "desc": "Verpflicht Enregistrement um europäesche Kuerzzäitvermietungs-Registre (Mëtt 2026). Dossier-Generéierung + Identifikatiounsnummer."
+        "title": "STR-Virbereedungsdossier",
+        "desc": "Sammelt nëtzlech Informatiounen éier Dir Är Flichte préift. Dëst Tool mécht keng Aschreiwung a stellt keng offiziell Nummer aus."
       },
       "forecast": {
         "title": "12-Méint Prognose",
@@ -12997,15 +13017,15 @@
       "title": "Firwat eng dediziéiert Lëtzebuerg-STR-Vertikal?",
       "rules": {
         "title": "LU-spezifesch Regelen",
-        "body": "Iwwer 90 kumuléiert Deeg pro Joer muss de Bailleur eng Hébergement-Lizenz kréien (Art. 6 Gesetz 17.07.2020). Lëtzebuerg-Stad leet zousätzlech kommunal Restriktiounen op."
+        "body": "Zu Lëtzebuerg läit d’Schwell vun der kommerzieller Beherbergungsaktivitéit bei 90 Nuechten oder méi, zesummegerechent iwwer all Unitéite vum selwechte Bedreiwer am Referenzjoer, gerechent ab der leschter Locatioun. Préift d’Néierloossungsgeneemegung an déi néideg Qualifikatiounen oder Formatiounen. Och ënner dëser Schwell bleiwen aner Flichten ze préiwen."
       },
       "eu": {
         "title": "EU Regulation 2024/1028",
-        "body": "Inkraafttriede Mëtt 2026: eenzegen europäesche Registre, verpflicht Iwwermëttlung vun den Nuechten un d'Gemengen. All Airbnb/Booking-Hosten betraff."
+        "body": "D’Reglement (EU) 2024/1028 gëllt zënter dem 20. Mee 2026. D’Flichte hänke vun den Aschreiwungsprozedure fir déi betraffen Eenheet of. Et schaaft keen eenheetlechen europäesche Register. D’Informatioune vum Host sinn vun den Dateniwwerdroungen duerch d’Plattformen ze ënnerscheeden."
       },
       "tax": {
         "title": "Akommessteier 2026",
-        "body": "Akommes > 600 €/Joer → obligatoresch IR-Erklärung. Marginaler Saz bis 45,78 % (IR 42 % × Beschäftegungsbäitrag 1,09). Offsetzbar: Zënsen, PNO, Botzung, OTA 15-18 %."
+        "body": "D’Flicht hänkt vum Stot, den Nettorecetten an dem Aktivitéitsstatut of. D’600-Euro-Schwell vu verschiddene Steiersituatiounen ass keng allgemeng Befreiung vu Loyersrecetten."
       },
       "arbitrage": {
         "title": "LT vs ST Arbitrage",
@@ -13116,16 +13136,16 @@
   "strCompliance": {
     "back": "Kuerzzäitvermietung",
     "title": "STR Lëtzebuerg Conformitéit",
-    "subtitle": "Iwwerpréift Är legal Verflichtungen virum Lancement vun enger Kuerzzäitvermietung zu Lëtzebuerg. 3-Méint-Schwell, Hébergement-Lizenz, Gemengereglementer, Akommessteier, EU Regulation 2024/1028.",
+    "subtitle": "Identifizéiert Kontrollen zu Aktivitéitsschwellen, Gemengeregelen, Steieren an Aschreiwung. Dëst Tool zertifizéiert keng Konformitéit.",
     "form": {
       "title": "Äert STR-Projet",
-      "nights": "Geplange Nuechten iwwer 12 Méint",
+      "nights": "Kumuléiert Nuechten iwwer all Är Unitéiten",
       "nightsSuffix": "Nuechten",
-      "nightsHint": "Legal Schwell: {threshold} Nuechten/Joer (driwwer, Lizenz obligatoresch)",
+      "nightsHint": "Schwell: {threshold} Nuechten oder méi iwwer all Unitéite vun engem Bedreiwer, an engem Joer ab der leschter Locatioun.",
       "commune": "Gemeng",
       "ownerType": "Proprietär-Typ",
       "revenue": "Geschätzt jäerlecht STR-Akommes",
-      "revenueHint": "IR-Erklärungsschwell: {threshold}/Joer",
+      "revenueHint": "Recetten eleng bestëmmen Är Steiererklärungspflicht net.",
       "primaryResidence": "D'Immobilie ass meng Haaptwunneng (geleeëntlech Vermietung wärend Reesen)"
     },
     "ownerTypes": {
@@ -13134,19 +13154,20 @@
       "nonResident": "Net-steierlech residenzéiert zu LU"
     },
     "status": {
-      "label": "Regulatoresche Status",
-      "licenseRequired": "Hébergement-Lizenz erfuerderlech",
-      "noLicense": "Keng Lizenz erfuerderlech",
-      "exceeded": "Dir iwwerschreit d'Schwell vun {threshold} Nuechten/Joer vun {over} Nuechten. Ufro muss virun all Vermietung agereecht ginn.",
-      "remaining": "Iech bleiwen {nights} Nuechte bis zum Erreeche vun der Lizenzschwell."
+      "label": "Schwell vun der Beherbergungsaktivitéit",
+      "licenseRequired": "Geneemegungsschwell erreecht",
+      "noLicense": "Schwell vun 90 Nuechten net erreecht",
+      "exceeded": "D’Schwell vun {threshold} Nuechten ass erreecht oder ëm {over} Nuechten iwwerschratt. Geneemegung an néideg Formatioun préiwen.",
+      "remaining": "D’Schwell wier no {nights} weideren Nuechten erreecht. Aner Flichte bleiwen ze préiwen."
     },
     "risk": {
-      "title": "Kommunaalt regulatorescht Risiko",
+      "title": "Gemengeregelen",
       "high": "héich",
       "medium": "mëttel",
       "low": "niddereg",
       "body": "Gemeng « {commune} »: Risiko {level}.",
-      "highNote": "Lëtzebuerg-Stad virun allem leet streng Restriktiounen op säit 2024: Prüft dat aktuellt Gemengereglement."
+      "highNote": "Lëtzebuerg-Stad virun allem leet streng Restriktiounen op säit 2024: Prüft dat aktuellt Gemengereglement.",
+      "unverified": "{commune}: lokal Regelen net verifizéiert. Kontaktéiert d’Gemeng; aus hirem Numm gëtt kee Risiko ofgeleet."
     },
     "tax": {
       "title": "LU-Akommessteier",
@@ -13155,22 +13176,37 @@
       "required": "Obligatoresch Erklärung?",
       "yes": "JO (Formulaire 100)",
       "no": "Nee",
-      "note": "Max marginaler Saz LU: 45,78% (IR 42% × Beschäftegungsbäitrag 1,09). Offsetzbar: Prêt-Zënsen, PNO, Botzung, Miwwelen-Depreciatioun, OTA-Provisiounen (15-18%)."
+      "note": "D’Flicht hänkt vum Stot, den Nettorecetten an dem Aktivitéitsstatut of. D’600-Euro-Schwell vu verschiddene Steiersituatiounen ass keng allgemeng Befreiung vu Loyersrecetten.",
+      "toCheck": "Ze klären"
     },
     "eu": {
       "title": "EU Regulation 2024/1028 iwwer STR",
-      "inForce": "Inkrafttriede Mëtt 2026.",
-      "obligations": "Verflichtungen:",
-      "item1": "Registréierung am eenzegen europäesche Registre vu Kuerzzäitvermietungen",
-      "item2": "Iwwermëttlung vun den Nuechten un d'Gemengen (Airbnb/Booking-Plattforme këmmere sech ëm d'Reporting)",
-      "item3": "Identifikatiounsnummer obligatoresch op Listings ze weisen"
+      "inForce": "Gëllt zënter dem 20. Mee 2026.",
+      "obligations": "D’Flichte hänke vun den Aschreiwungsprozedure vun de zoustännegen Autoritéiten of.",
+      "item1": "Préift ob eng lokal Aschreiwungsprozedur Är Eenheet betrëfft.",
+      "item2": "Ënnerscheet Informatioune vum Host vun Dateniwwerdroungen duerch d’Plattform.",
+      "item3": "Weist d’Aschreiwungsnummer wann déi applicabel Prozedur dat verlaangt; d’Reglement schaaft keen eenheetlechen EU-Register."
     },
     "actions": {
       "title": "Ze ergräifend Aktiounen"
     },
     "disclaimer": {
       "label": "Warnung:",
-      "body": "dës Analyse ass indikativ. D'LU-STR-Reguléierung evoluéiert séier (EU 2024/1028-Iwwerschaffung, Gemengereglementer). Validéiert ëmmer mat engem spezialiséierten Affekot oder LU-Steierberoder virun all Vermietung. Wäerter entspriechen dem Stand Abrëll 2026."
+      "body": "Referenzen den 23. Oktober 2026 gepréift. Dëse Questionnaire validéiert keng Gemengeregelen oder Är individuell Steiersituatioun."
+    },
+    "actionItems": {
+      "license": "Geneemegung a Formatioun bei de zoustännegen Autoritéite préiwen.",
+      "operatorTotal": "Nuechte vun allen Unitéiten am Referenzzäitraum zesummenzielen.",
+      "localRules": "Erlaabte Gebrauch, Regelen a Formalitéite mat der Gemeng préiwen.",
+      "tax": "Akommeskategorie, Ofzich an Erklärungspflichte mat der Steierverwaltung oder enger Fachpersoun klären.",
+      "registration": "Aschreiwungsprozeduren an d’Flichte vun der Plattform préiwen.",
+      "insurance": "Préift ob Versécherung a Kontrakter déi proposéiert Openthalter erlaben.",
+      "vat": "TVA a Sozialcotisatiounen no der tatsächlecher Aktivitéit klären."
+    },
+    "sources": {
+      "license": "Néierloossungsgeneemegung",
+      "tax": "Steierveranlagung",
+      "eu": "EU-Reglement 2024/1028"
     }
   },
   "wizardParticulierPage": {
@@ -13319,7 +13355,7 @@
   "strRentabilite": {
     "back": "Kuerzzäitvermietung",
     "title": "STR-Rendement (Airbnb / Booking / Vrbo)",
-    "subtitle": "Berechent d'jäerlecht Nettoakommes vun Ärer Kuerzzäitvermietung zu Lëtzebuerg, all Käschten a Steier abegraff.",
+    "subtitle": "Schätzt d’Joresresultat mat Äre Käschten an engem konstante marginale Steiersaz. Ouni Prêtremboursement, TVA, Sozialcotisatiounen a komplett Steierberechnung.",
     "save": "Späicheren",
     "saved": "Gespäichert!",
     "sections": {
@@ -13367,7 +13403,7 @@
     },
     "result": {
       "netLabel": "Jäerlecht Nettoakommes no Steier",
-      "perMonth": "also {n}/Mount no allem (Käschten, OTA, IR)",
+      "perMonth": "{n}/Mount mat dësen Hypotheesen",
       "netYield": "Nettorendement",
       "breakdown": "Opdeelung",
       "grossRevenue": "Bruttoëmsaz",
@@ -13393,25 +13429,26 @@
       "netYield": "Nettorendement"
     },
     "ltCompare": {
-      "title": "Vs Laangzäitvermietung (5%-Regel indikativ)",
+      "title": "LT-Beispill: ugeholl Bruttorendement vu 5 % vum Präis, kee gesetzleche Loyerplafong",
       "strNet": "STR netto/Joer",
       "ltNet": "LT netto/Joer (5%-Regel)",
       "delta": "Ënnerscheed STR vs LT",
       "favorStr": "zugonschten vum STR",
       "favorLt": "zugonschten vum LT",
-      "warn": "Warnung: iwwer 90 STR-Deeg/Joer ass eng Hébergement-Lizenz zu LU obligatoresch. Kuckt",
+      "warn": "Vun 90 kumuléierten Nuechte pro Bedreiwer un ass d’Néierloossungsgeneemegung ze préiwen. Kuckt",
       "complianceLink": "dat Conformitéits-Tool"
-    }
+    },
+    "calendarLimited": "D’Zil vun {requested} Nuechte gëtt op {effective} limitéiert: Openthalter a Leerstand mussen an 365 Deeg passen."
   },
   "strArbitrage": {
     "back": "Kuerzzäitvermietung",
     "title": "Arbitrage Laangzäit vs Kuerzzäit",
-    "subtitle": "Vergläicht 3 quantifizéiert Szenarioen: Laangzäitvermietung (5%-Regel), pure STR (Airbnb/Booking), oder gemëscht (saisonal STR + LT Rescht). Netto-Berechnung no Steier op Basis vun Ärem LU-Steierprofil.",
+    "subtitle": "Vergläicht jäerlech ekonomesch Szenarie mam aginnene marginale Steiersaz. Finanzéierung, TVA, Sozialcotisatiounen a komplett Besteierung sinn net modelléiert.",
     "tax": {
       "max": "LU max (~45,78%)"
     },
     "scenarios": {
-      "lt": "Laangzäit (5%-Regel)",
+      "lt": "Laangzäitverlounen",
       "str": "Pure STR (Airbnb/Booking)",
       "mixed": "Gemëscht (STR + LT)"
     },
@@ -13428,24 +13465,25 @@
       "cleaning": "Botzung / Séjour",
       "fixedCosts": "Fix STR-Käschten / Joer",
       "fixedCostsHint": "PNO + Internet + Utilities + Miwwel-Amortisatioun",
-      "note": "OTA-Provisioun 15% Airbnb virun applizéiert. Bei > 90 Nuechten/Joer, Hébergement-Lizenz obligatoresch."
+      "note": "Ugeholl Airbnb-Kommissioun: 15 %. Geneemegung ab 90 kumuléierten Nuechten iwwer all Unitéite vum Bedreiwer préiwen."
     },
     "lt": {
-      "title": "Laangzäit-Szenario (5%-Regel)",
+      "title": "Laangzäitverlounen",
       "monthlyRent": "LT Mountsloyer",
       "monthlyRentHint": "LU legal Plafong = 5%/12 × nei evaluéiert investéiert Kapital",
-      "deductible": "Offsetzbar Käschten / Joer",
-      "deductibleHint": "Prêt-Zënsen + Coprop-Käschten + Ënnerhalt + PNO"
+      "deductible": "Jäerlech bezuelt an ofsetzbar Käschten",
+      "deductibleHint": "Ouni net ausbezuelten Amortissement a Prêtkapital. Déi aginnene Käschte ginn och am gemëschte Szenario ganz verrechent."
     },
     "mixed": {
       "title": "Gemëscht Szenario (Deel-STR + Deel-LT)",
-      "strDays": "STR-Deeg / Joer",
-      "strDaysHint": "Max 90 Deeg fir Lizenz ze vermeiden",
+      "strDays": "Deeg fir Kuerzzäitverlounen disponibel",
+      "strDaysHint": "Mat Openthalter a Leerstand; dat ass keng gesetzlech Befreiungsgrenz.",
       "ltMonths": "LT-Méint / Joer",
-      "ltMonthsHint": "Typesch: 3 Summermëntercher Airbnb + 9 Méint LT",
+      "ltMonthsHint": "De gemeinsame Kalenner däerf ee Joer net iwwerschreiden (Duerchschnëttsmount = 365/12 Deeg).",
       "daysSuffix": "Deeg",
       "monthsSuffix": "Méint",
-      "note": "Klassesche LU-Modus: Saisonbail (Summer/Kongressbesucher) + Habitatiounsbail fir de Rescht."
+      "note": "Beleeung an Openthalter ginn nei berechent. All aktive Modus behält seng ganz jäerlech fix Käschten: gemeinsam Käschten net duebel aginn. Kontrakter op Kompatibilitéit préiwen.",
+      "effectiveNights": "Méiglech Kuerzzäitnuechten: {n}."
     },
     "result": {
       "bestLabel": "Rentabelst Szenario",
@@ -13453,7 +13491,7 @@
       "comparison": "3-Szenarioen-Verglach (netto no Steier)"
     },
     "detail": {
-      "lt": "LT-Detail (5%-Regel)",
+      "lt": "Laangzäitverlounen",
       "mixed": "Gemëscht-Detail (STR + LT)",
       "annualGross": "Jäerleche Bruttoloyer",
       "taxEstimated": "Geschätzt IR",
@@ -13465,11 +13503,11 @@
   },
   "strComplianceEu": {
     "back": "Kuerzzäitvermietung",
-    "title": "EU STR-Registre 2024/1028",
-    "subtitle": "Virbereedung vum Registréierungsdossier am eenzegen europäesche Kuerzzäitvermietungs-Registre. Verordnung (EU) 2024/1028 — Inkrafttriede Mëtt 2026. Verflichtungen: obligatoresch Identifikatiounsnummer op all Listings, Iwwermëttlung vun den Nuechten un d'Gemengen.",
+    "title": "STR-Virbereedungsdossier",
+    "subtitle": "Sammelt nëtzlech Informatiounen éier Dir Är Flichte préift. Dëst Tool mécht keng Aschreiwung a stellt keng offiziell Nummer aus.",
     "regNumber": {
-      "label": "Virausgefëllt Identifikatiounsnummer",
-      "note": "Indikativt Format — bei offizieller Ofgab vun Ärer Gemeng ze validéieren. Endgültegt Format vum Tourismusministère virginn."
+      "label": "Interne Virbereedungsdossier",
+      "note": "Dëst Dokument ass keng Aschreiwung, Geneemegung oder Konformitéitsbestätegung. Et gëtt keng offiziell Nummer ausgestallt."
     },
     "section1": "1. Proprietär-Identitéit",
     "section2": "2. D'vermiete Wunneng",
@@ -13487,25 +13525,32 @@
       "maxCapacity": "Max. Kapacitéit",
       "primaryResidence": "D'Immobilie ass meng Haaptwunneng",
       "platforms": "Genotzt Plattformen",
-      "nightsPlanned": "Geplangte Nuechten iwwer 12 Méint"
+      "nightsPlanned": "Kumuléiert Nuechten iwwer all Är Unitéiten am Referenzjoer",
+      "propertyType": "Typ vun der Ënnerkonft"
     },
     "propertyTypes": {
       "apartment": "Ganzt Appartement",
       "house": "Ganzt Haus",
       "room": "Privatchamber"
     },
-    "warnLicense": "Méi wéi 90 Deeg/Joer = LU-Hébergement-Lizenz erfuerderlech.",
+    "warnLicense": "Zu Lëtzebuerg läit d’Schwell vun der kommerzieller Beherbergungsaktivitéit bei 90 Nuechten oder méi, zesummegerechent iwwer all Unitéite vum selwechte Bedreiwer am Referenzjoer, gerechent ab der leschter Locatioun. Préift d’Néierloossungsgeneemegung an déi néideg Qualifikatiounen oder Formatiounen. Och ënner dëser Schwell bleiwen aner Flichten ze préiwen.",
     "seeCompliance": "Kuckt /str/compliance",
     "timing": {
-      "label": "Timing EU-Verordnung 2024/1028:",
-      "body": "Inkrafttriede Mëtt 2026. All Memberstaat muss säin nationale Registre opbauen. Fir Lëtzebuerg wäert de Tourismusministère wahrscheinlech zoustänneg sinn (am Mémorial A ze bestätegen). Plattformen (Airbnb, Booking) mussen den Autoritéiten d'Nuechte pro identifizéiertem Objet iwwermëttelen."
+      "label": "Reglement (EU) 2024/1028:",
+      "body": "D’Reglement (EU) 2024/1028 gëllt zënter dem 20. Mee 2026. D’Flichte hänke vun den Aschreiwungsprozedure fir déi betraffen Eenheet of. Et schaaft keen eenheetlechen europäesche Register. D’Informatioune vum Host sinn vun den Dateniwwerdroungen duerch d’Plattformen ze ënnerscheeden."
     },
-    "downloadPdf": "PDF-Dossier erofluedelen"
+    "downloadPdf": "Virbereedungsdossier als PDF eroflueden",
+    "reviewTitle": "Punkte fir perséinlech ze préiwen",
+    "reviewBody": "Préift déi applicabel Prozedure bei den zoustännegen Autoritéiten, souwéi Gemengeregelen, Versécherung a Steieren. Dësen Dossier reecht keng Demande an a bestätegt keng Äntwert.",
+    "pdfFooter": "Interne Virbereedungsdossier. Keng Demande agereecht; keng Geneemegung oder Konformitéitsbestätegung.",
+    "yes": "Jo",
+    "no": "Nee",
+    "pdfFailed": "De PDF konnt net erstallt ginn. Probéiert nach eng Kéier."
   },
   "strPortefeuille": {
     "back": "Kuerzzäitvermietung",
     "title": "STR-Portfolio",
-    "subtitle": "Multi-Objet-Dashboard fir STR-Conciergerie oder Investisseur (10-50 Unitéiten). Aggregéiert ADR/Belegung/Ëmsaz, LU-Lizenzstatus (90-Deeg-Schwell), EU 2024/1028-Registréierung.",
+    "subtitle": "Verfollegt d’ekonomesch Donnéeë vu méi Wunnengen an déi vun Iech aginnene Prozeduren. D’Aktivitéitsschwell ëmfaasst all Unitéite vum selwechte Bedreiwer; dësen Tableau bestätegt keng Konformitéit.",
     "signIn": "Mellt Iech un fir Äert STR-Portfolio ze verwalten.",
     "loading": "Lueden…",
     "cancel": "Ofbriechen",
@@ -13520,7 +13565,7 @@
       "avgOccupancy": "Duerschnëttsbelegung"
     },
     "licenses": {
-      "summary": "Lizenzen: {obtained} kritt · {pending} an Aarbecht · {eu}/{total} EU-registréiert"
+      "summary": "Uginn Geneemegungen: {obtained} kritt · {pending} an der Prozedur · {eu}/{total} Aschreiwungen erfaasst"
     },
     "types": {
       "apartment": "Appartement",
@@ -13530,7 +13575,7 @@
       "villa": "Villa"
     },
     "license": {
-      "notRequired": "Net erfuerderlech (< 90D)",
+      "notRequired": "Flicht nach ze préiwen",
       "pending": "An Aarbecht",
       "obtained": "Kritt",
       "expired": "Ofgelaf"
@@ -13575,7 +13620,7 @@
       },
       "agence": {
         "title": "Immobilienagence",
-        "desc": "OpenImmo Mandatspipeline, Kontakt-CRM mat /100 Keefer-Matching, Drag-Drop Kanban, Co-Branding Immobilie-PDFs, eIDAS-Ënnerschrëft."
+        "desc": "Mandater, Kontakter, Aufgaben an Agencedokumenter mat engem Ënnerschrëftsprozess, deem seng Eegnung fir all Akt ze iwwerpréiwen ass."
       },
       "hotel": {
         "title": "Hotellerie",
@@ -13609,8 +13654,8 @@
         },
         "agence": {
           "daily": "Mandater, Kontakter, Portalverdeelung, Keefer-Matching",
-          "compliance": "eIDAS UE 910/2014, RGPD Zoustëmmung",
-          "standards": "OpenImmo 1.2.8, eIDAS"
+          "compliance": "Online-Ënnerschrëftsprozess mat techneschen Donnéeën ze iwwerpréiwen; d’Plattform zertifizéiert keen avancéierten oder qualifizéierten Niveau.",
+          "standards": "OpenImmo-Export; Ënnerschrëftsufuerderungen ze iwwerpréiwen"
         },
         "hotel": {
           "daily": "Reservatiounen, Folios, Rechnung, Revenue Management",
@@ -13900,7 +13945,7 @@
     "dtType": "Typ",
     "dtEvaluator": "Bewerter",
     "limitsStrong": "Limitten vum Déngscht:",
-    "limitsBody": "dëse Mechanismus bitt e zäitgestempelt Audit-Spuer, huet awer net de Wäert vun enger qualifizéierter elektronescher eIDAS-Ënnerschrëft (LuxTrust, QTSP). Fir eng méi staark rechtlech Opposabilitéit, benotzt en akkreditéierten QTSP. Den Hash beweist nëmmen, datt d'Donnéeën zanter dem hei registréierten Moment vun der Ënnerschrëft net geännert goufen."
+    "limitsBody": "Eng Prüfsumm vergläicht Inhalt mat enger gespäicherter Referenz. Eleng zertifizéiert se keng Identitéit, Zoustëmmung, Datum oder juristesch Gültegkeet. Haalt Dokument a Kontrolldaten; eng Prüfsumm eleng ass keng qualifizéiert Ënnerschrëft."
   },
   "invitation": {
     "title": "Invitatioun fir op eng Agence bäizetrieden",
@@ -13989,7 +14034,7 @@
     "agencyStep1": "D'Beschreiwung a Fotoen an der Iwwersiicht vum Mandat bäifügen",
     "agencyStep2": "D'Diffusioun op athome / Immotop / Immoweb konfiguréieren",
     "agencyStep3": "Den automatesche Matching mat Äre CRM-Kontakter lancéieren",
-    "agencyStep4": "De Mandat vun Ärem Client ënnerschreiwe loossen (eIDAS)",
+    "agencyStep4": "Online-Ënnerschrëftsprozess mat techneschen Donnéeën ze iwwerpréiwen; d’Plattform zertifizéiert keen avancéierten oder qualifizéierten Niveau.",
     "hotelStep1": "Zëmmer-Typen a physesch Zëmmere bäifügen",
     "hotelStep2": "Rate Plans definéieren (BAR, net-erstatbar, etc.)",
     "hotelStep3": "iCal-Channels konfiguréieren (Airbnb, Booking)",
@@ -14008,16 +14053,16 @@
     "errGeneric": "Feeler",
     "errContactSender": "Kontaktéiert den Emetteur vum Dokument fir en neien Link ze kréien.",
     "backSite": "Zréck op tevaxia.lu",
-    "eidasKicker": "Elektronesch eIDAS-Ënnerschrëft",
+    "eidasKicker": "Online-Ënnerschrëftsprozess",
     "docToSign": "{type} z'ënnerschreiwen",
     "expiresOn": "Leeft of de {date}",
     "signedTitle": "Dokument elektronesch ënnerschriwwen",
-    "signedBody": "Är Ënnerschrëft gouf mat Zäitstempel registréiert. Den Emetteur vum Dokument gouf benoriichtegt.",
+    "signedBody": "Är Zoustëmmung gouf an dësem Prozess erfaasst. Haalt eng Dokumentkopie an iwwerpréift de Status mam Ofsender.",
     "signedOn": "Ënnerschriwwen de {date}",
     "declinedTitle": "Refus registréiert",
-    "declinedBody": "Äre Refus gouf un den Emetteur vum Dokument iwwermëttelt.",
+    "declinedBody": "Äre Refus gouf erfaasst. Kontaktéiert den Ofsender, wann e weideren Austausch néideg ass.",
     "hashLabel": "SHA-256-Hash vum Dokument:",
-    "hashExplain": "All Ännerung um Dokument invalidéiert dësen Hash an domat d'Ënnerschrëft. Dësen kryptografesche Fangerofdrock garantéiert d'Integritéit vum Text, deen Dir ënnerschreift.",
+    "hashExplain": "Eng Prüfsumm vergläicht Inhalt mat enger gespäicherter Referenz. Eleng zertifizéiert se keng Identitéit, Zoustëmmung, Datum oder juristesch Gültegkeet. Haalt Dokument a Kontrolldaten; eng Prüfsumm eleng ass keng qualifizéiert Ënnerschrëft.",
     "alreadyProcessed": "Dës Ufro gouf scho bearbeit (Status: {status}). Keng weider Aktioun méiglech.",
     "signing": "Ënnerschreiwen…",
     "signBtn": "✍️ Elektronesch ënnerschreiwen",
@@ -14027,7 +14072,7 @@
     "confirmDeclineBtn": "Refus bestätegen",
     "cancelBtn": "Ofbriechen",
     "aboutTitle": "Iwwer d'elektronesch Ënnerschrëft",
-    "aboutBody": "Dës Ënnerschrëft entsprécht dem europäesche Règlement eIDAS (UE 910/2014), um Niveau „einfach elektronesch Ënnerschrëft“, valabel fir kommerziell Verträg. Si registréiert Är IP-Adress, Äre Browser an den Zäitstempel als Beweis. Fir notariell Akten oder Verkafsvirverträg bleift eng qualifizéiert Ënnerschrëft (LuxTrust) obligatoresch.",
+    "aboutBody": "Dëse Prozess liwwert keng qualifizéiert elektronesch Ënnerschrëft a zertifizéiert keen avancéierten Niveau. Artikel 25 eIDAS schützt d’Zoulässegkeet vun elektroneschen Ënnerschrëften; déi ausdrécklech Gläichstellung mat enger handgeschriwwener Ënnerschrëft betrëfft qualifizéiert Ënnerschrëften. D’Gültegkeet hänkt och vun Inhalt, Identitéit, Vollmuecht a Formalitéiten of. Iwwerpréift d’Ufuerderunge virun der Ënnerschrëft.",
     "platformLabel": "Plattform tevaxia.lu",
     "linkPrivacy": "Vertraulechkeet",
     "linkLegal": "Legal Mentiounen"
@@ -14580,7 +14625,7 @@
     "thLegal": "Juristesche Schutz",
     "thVacancy": "Vakanz",
     "legalStrong": "Wichteg:",
-    "legalBody": "déi uewe genannt Primen sinn indikativ (Q4 2025). Kontaktéiert direkt de Versécherer fir en perséinleche Devis. Bestëmmt Offere verlaangen eng virausgängeg Filterung vum Locatair (zertifizéiert Recetten 3× Miet, CDI, Kautioun, etc.). Zu LU bleift déi legal Locatiouns-Kautioun (max 3 Méint, Art. 5 Gesetz 21.09.2006) d'Standardoptioun. D'GLI-Prime ass an real Käschten absetzbar (Art. 105 LIR)."
+    "legalBody": "D’Primmë sinn indikativ: frot en Devis a kontrolléiert Deckung, Ausnamen a Konditiounen. Bei engem neie Wunnbail zanter dem 1. August 2024 ass d’Garantie op zwee Méint Loyer ouni Chargë limitéiert; al Kontrakter si getrennt ze iwwerpréiwen. D’Ofsetzbarkeet hänkt vun Ärer Steiersituatioun of."
   },
   "glReconciliation": {
     "backHub": "← Locatiouns-Gestioun",
@@ -14600,7 +14645,7 @@
     "statusManual": "Manuell",
     "psd2Strong": "Automatesch PSD2-Bankverbindung:",
     "psd2Body": "vermeit den manuellen Import iwwer",
-    "psd2Suffix": "(PSD2-SCA-konform API, 180-Deeg-Accès). Ënnerstëtzt Spuerkeess, BGL, BIL, ING LU, Raiffeisen, Post.",
+    "psd2Suffix": "(iwwer Enable Banking; Gültegkeet vum Zougang an Authentifikatioun hänke vun der Bank of). Kuckt d’Lëscht vun de verfügbare Banke beim Verbannen.",
     "defaultLabel": "Bankbewegung"
   },
   "glPortefeuille": {
@@ -14649,7 +14694,7 @@
   "glRelances": {
     "backHub": "← Locatiouns-Gestioun",
     "pageTitle": "Mahnungen, automatesch Stufen",
-    "pageSubtitle": "3 konfiguréiert Niveauen: frëndlech Mahnung D+15 → Mise en demeure D+30 → Befeel D+60. PDF konform mam Gesetz 21.09.2006, per Einschreiwen mat Réckschein ze schécken (Pabeier oder eIDAS).",
+    "pageSubtitle": "Erënnerungsmodeller no agestalltem Zäitplang. Softwaredatumen ersetzen keng gesetzlech Fristen oder Prozedurakten; iwwerpréift de Bréif virum Verschécken.",
     "loading": "Lueden…",
     "kpiTotalUnpaid": "Total onbezuelt",
     "kpiCount": "Unzuel Rate",
@@ -14685,7 +14730,7 @@
     "pdfLevel2Body": "Duerch dës Mise en demeure fuerdere mir Iech op, de Betrag vun {amount} € ze bezuelen, deen der Miet vun der Period {period} entsprécht, net bezuelt zanter méi wéi 30 Deeg. Falls d'Bezuelung net bannent 15 Deeg no Empfang vum présente gemaach gëtt, behalen mir eis d'Recht vir, déi zoustänneg Geriicht unzeruffen.",
     "pdfLevel3Body": "Befeel ze bezuelen: falls keng Bezuelung bannent 8 Deeg, wäerte mir déi zoustänneg Geriicht uruffen, fir Är Veruerteelung zur Bezuelung vum Betrag vun {amount} € (Miet {period}) ze kréien, dobäi de legalen Zënsen, de Prozeduren-Käschten an, falls applikabel, der Kënnegung vum Bail. Dir hutt och nach Zäit fir de Sozialservice vun der Gemeng ze kontaktéieren, wann Dir Schwieregkeeten hutt.",
     "legalStrong": "LU-Prozedur:",
-    "legalBody": "no 60 Deeg vun Onbezuelten kënnt Dir d'Friddensriichter uruffen fir eng konditionell Bezuelungs-Uerder ze kréien (Art. 12 Gesetz 21.09.2006), duerno eng Prozedur fir d'Kënnegung vum Bail, falls keng Reegelung erfollegt. De Befeel ze bezuelen kann vun engem Huissier ausgestallt ginn (300-500 €). Fir eng zertifizéiert eIDAS-Versioun ass eng Partnerschaft mat Yousign/LuxTrust virgesinn."
+    "legalBody": "Retarde verlaangen eng Iwwerpréiwung vu Kontrakt, Scholden a Schrëtt. E Modell oder PDF ass weder en Akt vum Huissier nach eng juristesch Zertifizéierung. Softwareseuile schafe keen automatescht Kënnegungs- oder Evakuatiounsrecht. Iwwerpréift Prozedur an Notifikatiounsformen."
   },
   "glFiscal": {
     "backHub": "← Locatiouns-Gestioun",
@@ -14815,7 +14860,7 @@
   "glPsd2": {
     "backRec": "← Reconciliatioun",
     "pageTitle": "PSD2-Bankverbindung",
-    "pageSubtitle": "Automatescht Ofruffen vun Äre Transaktiounen iwwer Enable Banking, SCA-konform PSD2-API. Max. 180 Deeg Accès (Art. 10 RTS PSD2), erneierbar.",
+    "pageSubtitle": "Rufft Transaktiounen iwwer Enable Banking no der Bankautorisatioun of. Et ginn 180 Deeg Gültegkeet ugefrot; et gëllt den Datum, deen d’Bank oder den Ubidder zeréckgëtt. Eng nei Authentifikatioun kann néideg sinn.",
     "configStrong": "Integratioun z'aktivéieren.",
     "configBody": "Enable Banking ass code-säitig prett, mee d'Schlësselen sinn nach net um Server definéiert.",
     "configStep1": "Eng App op enablebanking.com/dashboard erstellen, den RSA-Privatschlëssel (PEM) eroflueden",
@@ -15477,7 +15522,7 @@
     "expireSoon": "leeft of an {n}D",
     "btnDownload": "Erofluede",
     "legalTitle": "Gesetzlech Konformitéit:",
-    "legalBody": "d'Archiven ginn 10 Joer opbewahrt konform dem geännerte Gesetz vum 16. Mee 1975 iwwer d'Matbesëtzerschaft (Art. 13bis). All Datei huet eng SHA-256 Checksum fir d'Integritéit ze garantéieren. D'Dateie sinn am Rou verschlësselt (AES-256). D'Tabell ass onverännerbar op DB-Säit (Trigger 'archive_is_immutable'), keng Ännerung nach Läschung méiglech virum Oflaf."
+    "legalBody": "Iwwerpréift d’Späicherfrist jee Dokumentkategorie an déi effektiv Archivastellungen. Eng SHA-256-Prüfsumm hëlleft beim Verglach mat enger Referenz, ass eleng awer kee qualifizéierten Hierkonfts- oder Datumsbeweis. Ännerungs- a Läschschutz hänke vun den effektiv applizéierte Rechter a Reegelen of."
   },
   "syndicOcr": {
     "loading": "Gelueden…",
@@ -15838,7 +15883,7 @@
     "csvHint": "CSV-Export aus dem LU-Web-Banking.",
     "btnChooseCsv": "En CSV-Fichier wielen",
     "psdTitle": "PSD2-Bank-Connexioun",
-    "psdHint": "Huelt d'Transaktiounen live iwwer d'Enable-Banking-API. Bank-SCA (LuxTrust / App) erfuerderlech. Verbindung 90 Deeg.",
+    "psdHint": "Kuckt Transaktiounen iwwer Enable Banking no der Bankauthentifikatioun. D’Gültegkeet vun der Verbindung gëtt vun der Bank oder dem Ubidder uginn; eng nei Authentifikatioun kann néideg sinn.",
     "psdConnect": "Eng Bank verbannen",
     "psdNotConfigured": "PSD2 net konfiguréiert op der Server-Säit. Kontaktéiert den Administrateur.",
     "psdLoading": "Banke ginn gelueden…",
@@ -16667,7 +16712,7 @@
     "crumbMandates": "Mandater",
     "crumbSignatures": "Ënnerschrëften",
     "pageTitle": "Elektronesch Ënnerschrëften",
-    "pageDesc": "Online Ënnerschrëft-Workflow konform mat der EU-Verordnung 910/2014 (eIDAS). Niveau «einfach elektronesch Signatur» — gëlteg fir kommerziell Mandater. Fir notariell Aktien ass eng qualifizéiert LuxTrust-Signatur néideg (Roadmap Q5).",
+    "pageDesc": "Dëse Prozess liwwert keng qualifizéiert elektronesch Ënnerschrëft a zertifizéiert keen avancéierten Niveau. Artikel 25 eIDAS schützt d’Zoulässegkeet vun elektroneschen Ënnerschrëften; déi ausdrécklech Gläichstellung mat enger handgeschriwwener Ënnerschrëft betrëfft qualifizéiert Ënnerschrëften. D’Gültegkeet hänkt och vun Inhalt, Identitéit, Vollmuecht a Formalitéiten of. Iwwerpréift d’Ufuerderunge virun der Ënnerschrëft.",
     "loading": "Gelueden…",
     "loginPrompt": "Umellen",
     "notFound": "Mandat net fonnt.",
@@ -16694,12 +16739,12 @@
     "rowViewed": "Gekuckt: {date}",
     "rowSigned": "Ënnerschriwwen: {date}",
     "rowExpires": "Verfält: {date}",
-    "rowProof": "🔒 Beweis: IP {ip} · {ua}",
+    "rowProof": "Technesch Donnéeën: IP {ip} · {ua}",
     "rowDeclineReason": "Refus-Grond: {reason}",
     "btnCopyLink": "📋 Link kopéieren",
     "btnEmail": "📧 E-Mail",
     "btnOpen": "Opmaachen",
-    "eidasNotice": "<strong>eIDAS-Beweis konservéiert:</strong> beim Ënnerschreiwen registréiert d'Plattform d'IP-Adress, de Browser, d'Zäitzon an de Server-Zäitstempel, alles duerch en DB-Trigger ouni Verännerung. D'Dokument gëtt vu sengem SHA-256-Hash identifizéiert — all spéider Ännerung mécht d'Signatur ongëlteg an déclenchéiert en Alarm.",
+    "eidasNotice": "Technesch Donnéeë sinn eng Inhaltsprüfsumm, Serverdatum, IP-Adress, Browser an Zäitzon, wa verfügbar. Dat ass kee qualifizéierten Zertifikat a keng onofhängeg Identitéitskontroll. Iwwerpréift d’Späicherung an haalt eng Dokumentkopie; keng automatesch Ännerungswarnung gëtt garantéiert.",
     "defaultMandateTitle": "Verkaaf-Mandat",
     "mandateTitleFmt": "Mandat {type} — {address}",
     "statusDraft": "Brouillon",
@@ -16716,14 +16761,14 @@
     "docTypeRapportEstimation": "Schätzungs-Rapport",
     "docTypeAutre": "Anert Dokument",
     "mailSubject": "Ënnerschrëft gefrot: {title}",
-    "mailBody": "Bonjour {name},\n\nDir sidd invitéiert dat folgend Dokument elektronesch z'ënnerschreiwen:\n\n{title}\n\nSécheren Ënnerschrëft-Link (gëlteg bis den {expires}):\n{url}\n\nD'einfach elektronesch Signatur ass juristesch gëlteg laut der EU-Verordnung 910/2014 (eIDAS).\n\nMat frëndleche Gréiss",
+    "mailBody": "Moien {name},\n\nDir sidd invitéiert, dëst Dokument ze liesen an z’ënnerschreiwen:\n\n{title}\n\nLink gülteg bis {expires}:\n{url}\n\nDëse Prozess liwwert keng qualifizéiert Ënnerschrëft. Iwwerpréift Dokument a Formalitéiten, ier Dir averstane sidd.\n\nMat beschte Gréiss",
     "mandateBody": "VERKAFS-MANDAT {type}\n\nTëschent den Ënnerschreiwenden:\nDe MANDANT: {client}\nvertruede vu sech selwer.\n\nA:\nDe MANDATAIRE: Immobilien-Agence\nhandelend duerch en diploméierten an enregistréierten Immobilien-Agent\nkonform mam Gesetz vum 28. Dezember 1988 zur Reglementéierung vun den\nImmobilien-Beruffer.\n\nEt gouf folgend ofgemaach:\n\nArtikel 1 — OBJEKT VUM MANDAT\nDe Mandant gëtt dem Mandataire de Mandat {mandateType} fir den\nImmobilienbien ze verkafen, gelagert:\n{address}\n{commune}\nTyp: {propertyType}\nSurface: {surface} m²\n\nArtikel 2 — VERKAFSPRÄIS\nDen netto Verkeefer-Präis ass op {price} festgesat.\n\nArtikel 3 — KOMISSIOUN\nD'Komissioun vum Mandataire ass op {commissionPct}% vum Verkafspräis\nTTC festgesat, op d'Käschte vum Acquéreur, ze bezuelen bei der\nËnnerschrëft vum authenteschen Akt virum Notaire.\n\nArtikel 4 — DAUER\nDee aktuelle Mandat ass fir eng Dauer vu {duration} ofgeschloss.\n{exclusiveClause}\n\nArtikel 5 — OBLIGATIOUNEN VUM MANDATAIRE\nDe Mandataire engagéiert sech:\n- de Bien op de passenden kommerzielle Supporten ze diffuséieren\n- regelméisseg dem Mandant Bericht ze erstaten\n- d'Konfidentialitéit vun den iwwerdroene Informatiounen z'erhalen\n- déi eege Fongen vum Mandant net mat sengen ze vermëschen\n\nArtikel 6 — UNWENDBART RECHT\nDee aktuelle Mandat ass duerch d'Lëtzebuerger Recht regéiert. All\nKontestatioun fält exklusiv ënnert d'Geriichter vu Lëtzebuerg-Stad.\n\nGemaach zu Lëtzebuerg, den {today}.",
     "mandateClientPlaceholder": "[Numm vum Mandant]",
     "mandatePropertyTypeMissing": "net präziséiert",
     "mandatePriceTbd": "[ze definéieren]",
     "mandateDurationUntil": "bis den {date}",
     "mandateDurationTbd": "[Dauer ze definéieren]",
-    "mandateExclusiveClause": "Bei engem Exklusiv-Mandat ass d'Mindestdauer 3 Méint laut Gesetz.",
+    "mandateExclusiveClause": "Ëmfang an Dauer vun der Exklusivitéit musse kloer vereinbart a virun der Ënnerschrëft iwwerpréift ginn.",
     "dash": "—"
   },
   "proaCrmContactDetail": {
@@ -17727,7 +17772,10 @@
     "frenchRentalInputs": "Franséisch Mietbesteierung (/yield): taxYear ass 2025 oder 2026 (Standard 2026). Standard ass reel_foncier, eng vereinfacht onmiwweléiert Locatioun mat reelle Käschten. Mikroregimer verlaange frenchMicroEligible=true fir d’Berechtegung an déi gesammelt Stot-/Aktivitéitsrecetten ze bestätegen, inklusiv Virjoerskonditioune fir micro-BIC. Miwweléiert Locatioun verlaangt frenchNonProfessional=true. micro_bic ass laangfristeg, micro_bic_tourism klasséiert an micro_bic_tourism_unclassified net klasséiert Tourismuslocatioun. annualTaxReceipts enthält gesammelt steierbar Recetten inklusiv steierbare Niewekäschten; soss gëllt de simuléierte Loyer nom Leerstand. frenchSocialRegime=solidarity_only setzt eng berechtegend Sozialversécherung viraus; standard ass de Standard. Keng komplett Stotsteierberechnung; Aktivitéitscotisatiounen, Verloschtvirträg a Spezialregimer sinn ausgeschloss.",
     "ukFeesInputs": "Vereenegt Kinnekräich (/fees, country=uk): region akzeptéiert ENG, NIR, SCT oder WLS; ouni Angab gëtt ENG explizitt ugeholl. ukAdditionalProperty bestätegt erhéicht Sätz onofhängeg vun isPrimary; ukNonResident bestätegt den SDLT-Netresidentenzouschlag an England/Nordirland. Béid si standardméisseg false. Éischtkeefererliichterung verlaangt isFirstTime an isPrimary an d’Berechtegung vun alle Keefer; Wales huet keng speziell Erliichterung. Nëmmen ordinär Wunnimmobilienakaf vu Privatpersounen, ouni Iwwergangsreegelen, Gesellschaften, verbonne Virgänger oder nei Bail-Loyeren. acquisitionCoverage weist Deelsumm an ausgeschlosse Käschten. /cashflow hëlt en zousätzlechen Akaf an England ouni Netresidentenzouschlag un.",
     "italianRentalInputs": "Italien (/yield): Berechent gëtt nëmmen cedolare_secca mat 21 % fir en normale Wunnmietvertrag mat fräi festgeluechtem Loyer. italianCedolareEligible=true bestätegt eng berechtegt Privatpersoun ausserhalb vun enger geschäftlecher oder berufflecher Aktivitéit an eng valabel Wiel vun dësem Regimm. italianAnnualContractRent ass obligatoresch: de vertragleche Bruttoloyer fir den Eegentumsundeel an d’Locatiounsperiod, ouni Käschtenofzuch. Simuléierte Leerstand reduzéiert d’wirtschaftlech Recetten, ännert awer net automatesch dës Steierbasis. En negatiivt Locatiounsresultat annuléiert d’Steier net. IRPEF, Kuerzzäitlocatioun, Verträg mat reduzéiertem Taux, onbezuelte Loyeren a speziell Katasterfäll brauchen eng separat Bewäertung.",
-    "portugueseRentalInputs": "Portugal (/yield): portugueseCategoryFConfirmed=true bestätegt eng normal Locatioun an der Kategorie F a steierlech zougeloossen, bezuelten Ausgaben. portugueseRentalUse ass housing oder other. portugueseAnnualTaxReceipts a portugueseDeductibleExpenses sinn och bei null obligatoresch; simuléiert wirtschaftlech Käschte sinn net automatesch steierlech ofsetzbar. Zënsen, Ofschreiwung, Miwwelen, Apparater, Dekoratioun an AIMI sinn ausgeschloss. taxYear ass 2025 oder 2026. Autonom Tauxen: Wunnraum 25 %, aner Locatioun 28 %, fir Residenten an Netresidenten. Fir housing am Joer 2026 muss portugueseModerateRentEligible ausdrécklech true oder false sinn: true bestätegt all Konditiounen a monatlech Loyersgrenzen no EBF Artikel 45-C / DL 97/2026 Artikel 2 fir 10 %. D’Berechtegung gëtt net aus dem Joresloyer nom Leerstand ofgeleet. Méi gënschteg Laangzäittauxen, Befreiungen a Spezialfäll brauchen eng separat Bewäertung. progressive_resident benotzt den aginnene marginale Steiertaux ouni automatesche Verglach oder Berechnung vun der Stotsteier."
+    "portugueseRentalInputs": "Portugal (/yield): portugueseCategoryFConfirmed=true bestätegt eng normal Locatioun an der Kategorie F a steierlech zougeloossen, bezuelten Ausgaben. portugueseRentalUse ass housing oder other. portugueseAnnualTaxReceipts a portugueseDeductibleExpenses sinn och bei null obligatoresch; simuléiert wirtschaftlech Käschte sinn net automatesch steierlech ofsetzbar. Zënsen, Ofschreiwung, Miwwelen, Apparater, Dekoratioun an AIMI sinn ausgeschloss. taxYear ass 2025 oder 2026. Autonom Tauxen: Wunnraum 25 %, aner Locatioun 28 %, fir Residenten an Netresidenten. Fir housing am Joer 2026 muss portugueseModerateRentEligible ausdrécklech true oder false sinn: true bestätegt all Konditiounen a monatlech Loyersgrenzen no EBF Artikel 45-C / DL 97/2026 Artikel 2 fir 10 %. D’Berechtegung gëtt net aus dem Joresloyer nom Leerstand ofgeleet. Méi gënschteg Laangzäittauxen, Befreiungen a Spezialfäll brauchen eng separat Bewäertung. progressive_resident benotzt den aginnene marginale Steiertaux ouni automatesche Verglach oder Berechnung vun der Stotsteier.",
+    "unsupportedRentalTax": "/yield refuséiert belsch an hollännesch Regimer soulaang déi néideg Steierbasisse feelen. /cashflow bleift en explizitte Szenario mat konstantem marginale Steiersaz, keng Kadaster- oder Box-3-Berechnung.",
+    "auditFeesInputs": "Käschten: Portugal verlaangt region (mainland/azores/madeira), portugueseResident a portugueseTaxValue (VPT). Basis max(Präis,VPT), Tabellen 2026; Netresidenten: 7,5 % virun engem getrennt gepréifte Remboursement. portugueseYoungEligible bestätegt all Konditioune fir all Keefer: maximal 35 Joer, éischt permanent Wunneng, kee Wunnbesëtz elo oder an de leschten dräi Joer, keen Ofhängegkeetsstatut beim IRS. NL: nlStarterEligible bestätegt eng onbenotzte Befreiung an all Konditioune fir dat ganzt Haus; Eegenotzung ass néideg. LU: luBellegenEligible a luCreditRemaining si fir de Kredit néideg; ee Keefer, bestoend Wunneng. Italien: italianPrimaCasaEligible bestätegt spezifesch Konditiounen; italianPrezzoValore an italianCadastralIncome benotzen déi net revaloriséiert rendita, soss gëllt den deklaréierte Präis mat mindestens 1.000 Euro Droits. TVA-Verkeef verlaangen italianVatSale an italianVatRate (Präis ouni TVA). Gemëschte Berechtegung a Spezialfäll ausgeschloss.",
+    "widgetScope": "Den agebonnene Widget benotzt d’Online-API: Kafkäschte fir Investitiounen a bestoend Wunnengen ouni perséinlech Befreiungen, Prêtkapazitéit, Rendement a Cashflow. Kafen/Loune féiert op de spezialiséierte Verglach. Steierregimer mat weideren Donnéeë si fir déi dokumentéiert API reservéiert oder net ënnerstëtzt; keen ersate Steierresultat gëtt gewisen. Den externe WordPress-Plugin huet seng eege Versioun a Funktiounen."
   },
   "statusPage": {
     "metaTitle": "Service-Status, tevaxia.lu",
@@ -19166,7 +19214,8 @@
     "unavailableTitle": "Keng iwwerpréift Zuel fir dëse Perimeter ugewisen",
     "logisticsScope": "Hei ass keng Loyers- oder Bestandsserie pro Zon mat iwwerpréifter Quell a Period disponibel. Fir e Logistikobjet benotzt dokumentéiert Vergläichsobjeten a seng Mietvertragsdaten.",
     "macroScope": "Beim Zënsverglach kontrolléiert d’Period, de Vertragstyp an déi observéiert Populatioun. D’Linke féieren op d’Serië vun den zoustännegen Institutiounen a si keng Finanzéierungsoffer.",
-    "valuation": "Mat eegenen Date bewäerten"
+    "valuation": "Mat eegenen Date bewäerten",
+    "indicesLink": "Immobilienindicen"
   },
   "constructionBudget": {
     "title": "Dokumentéierte Baubudget",
@@ -19223,7 +19272,8 @@
     "signInTitle": "Umelle fir PDF-Rapporten",
     "signInScope": "Mellt Iech un oder erstellt e Kont, fir Är Rapporte virzekucken an erofzelueden.",
     "signIn": "Umellen / Kont erstellen",
-    "cancel": "Ofbriechen"
+    "cancel": "Ofbriechen",
+    "documentLanguage": "Sprooch vum Dokument: {language}"
   },
   "developmentAppraisal": {
     "title": "Dokumentéierte Promoteursbilan",
@@ -20330,5 +20380,66 @@
     "contact": "LPVI no engem passenden Expert froen",
     "qualifications": "TEGoVA-Lizenze bei LPVI kenneléieren",
     "destination": "Linken op de franséischsproochege Site vu LPVI. Kontakt iwwer de Formulaire oder info@lpvi.lu."
+  },
+  "numberInput": {
+    "edit": "{label} änneren: {value}",
+    "editHint": "Klickt fir e Wäert anzeginn",
+    "formatHint": "Zueleformat: {example}. Escape fir ofzebriechen.",
+    "format": "Gitt eng komplett Zuel am ugewisene Format an.",
+    "range": "Gitt e Wäert tëschent {min} an {max} an. De viregte Wäert bleift erhalen.",
+    "step": "Benotzt Schrëtt vun {step} ab {min}. Et gëtt net automatesch gerënnt."
+  },
+  "calendarSync": {
+    "backProfile": "Mäi Profil",
+    "pageTitle": "Kalenner-Synchronisatioun",
+    "pageIntro": "Weist Är CRM-Aufgaben a geplangte Visitten iwwer eng Abonnements-URL a Google Calendar, Outlook oder Apple Calendar un.",
+    "connected": "{provider}-Kont verbonnen. D’Verbindung eleng garantéiert keng Synchronisatioun a béid Richtungen.",
+    "connectionFailed": "D’Verbindung mat {provider} ass feelgeschloen. Probéiert nach eng Kéier.",
+    "howTitle": "Esou funktionéiert et",
+    "stepCreate": "Erstellt eng Abonnements-URL mat engem eenzegaartegen zoufällegen Token.",
+    "stepCopy": "Kopéiert déi erstallten HTTPS-URL.",
+    "stepGoogle": "Google Calendar: Benotzt de Knäppchen oder Kalenner derbäisetzen → Vun enger URL.",
+    "stepOutlook": "Outlook: Kalenner derbäisetzen → Vum Web abonnéieren, da setzt d’HTTPS-URL an.",
+    "stepApple": "Apple Calendar: Benotzt de webcal://-Link oder Datei → Neit Kalennerabonnement.",
+    "eventsTitle": "Enthalen Evenementer",
+    "eventsTasks": "CRM-Aufgabe mat engem Termin a Status oppen oder an der Veraarbechtung.",
+    "eventsVisits": "Geplangte Visitten an der Zukunft.",
+    "eventsWindow": "Zäitraum: 7 Deeg an der Vergaangenheet bis 180 Deeg an der Zukunft.",
+    "eventsPrivacy": "De Feed enthält Är Titelen a Beschreiwungen, déi perséinlech Donnéeë kënnen enthalen. Halt seng URL vertraulech.",
+    "securityTitle": "Sécherheet",
+    "securityToken": "De zoufällegen 128-Bit-Token erlaabt Zougrëff op de Feed. Deelt d’URL nëmme mat Ärer Kalennerapplikatioun.",
+    "securityRevoke": "Deaktivéiert oder läscht en Abonnement fir nei Zougrëffer ze stoppen. Schonn importéiert Kopië kënnen am externe Kalenner bleiwen.",
+    "securityAccess": "De leschten Zougrëff an d’Zuel vun den Ufroe ginn uewen ugewisen.",
+    "sectionTitle": "Mäi Kalenner synchroniséieren",
+    "sectionIntro": "Erstellt e Liesabonnement fir Är Aufgaben a Visitten. D’Aktualiséierungsfrequenz hänkt vun Ärer Kalennerapplikatioun of.",
+    "signIn": "Mellt Iech un, fir e Kalenner-Abonnementslink ze erstellen.",
+    "defaultLabel": "Tevaxia-Kalenner",
+    "revokeConfirm": "Dëst Abonnement läschen an nei Zougrëffer stoppen?",
+    "loading": "Lueden…",
+    "empty": "Keng Abonnementer.",
+    "create": "Abonnements-URL erstellen",
+    "created": "Erstallt den {date}",
+    "lastAccess": "Leschten Zougrëff: {date} ({count} Ufroen)",
+    "neverAccessed": "Nach ni ofgeruff",
+    "inactive": "Inaktiv",
+    "deactivate": "Deaktivéieren",
+    "reactivate": "Reaktivéieren",
+    "delete": "Läschen",
+    "copied": "Kopéiert",
+    "copy": "URL kopéieren",
+    "copyFailed": "Kopéiere feelgeschloen. Wielt a kopéiert d’URL manuell.",
+    "openApple": "An Apple Calendar opmaachen",
+    "openGoogle": "A Google Calendar derbäisetzen",
+    "createAnother": "En anert Abonnement erstellen",
+    "oauthTitle": "Google-/Microsoft-Verbindungen",
+    "oauthScope": "D’Synchronisatioun a béid Richtungen hänkt vun der Aktivéierung vum Déngscht of. En ICS-Abonnement bleift nëmme fir ze liesen.",
+    "connectGoogle": "Google Calendar verbannen",
+    "connectOutlook": "Outlook verbannen"
+  },
+  "leaseDraft": {
+    "title": "E Mietvertragsentworf virbereeden",
+    "notice": "Formular a PDF op Franséisch fir en neie Mietvertrag vun enger Haaptwunneng zu Lëtzebuerg, ofgeschloss zanter dem 1. August 2024. Loosst den Entworf a seng Annexë virun der Ënnerschrëft iwwerpréiwen.",
+    "open": "Opmaachen",
+    "close": "Zoumaachen"
   }
 }

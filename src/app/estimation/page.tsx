@@ -1,4 +1,5 @@
 "use client";
+import LocaleLink from "@/components/LocaleLink";
 import { useAuth } from "@/components/AuthProvider";
 
 import { useState, useMemo, useEffect } from "react";
@@ -10,7 +11,7 @@ import { estimer } from "@/lib/estimation";
 import { rechercherCommune, type SearchResult } from "@/lib/market-data";
 import { AJUST_ETAGE, AJUST_ETAT, AJUST_EXTERIEUR } from "@/lib/adjustments";
 import { formatEUR } from "@/lib/calculations";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { calculerDecoteEmphyteose } from "@/lib/emphyteose";
 import { readUrlHash } from "@/lib/url-state";
 import { sauvegarderEvaluation } from "@/lib/storage";
@@ -607,7 +608,7 @@ export default function Estimation() {
                   label={t("sauvegarder")}
                   successLabel={t("evaluationSauvegardee")}
                 />
-                <PdfButton
+                <PdfButton documentLocale="fr"
                   label="PDF"
                   filename={`estimation-${(selectedResult?.commune.commune || communeSearch).toLowerCase()}-${new Date().toLocaleDateString("fr-FR")}.pdf`}
                   generateBlob={() =>
@@ -658,7 +659,7 @@ export default function Estimation() {
               {/* Disclaimer */}
               <p className="text-xs text-muted text-center leading-relaxed">
                 {t("disclaimer")}{" "}
-                <a href="/valorisation" className="text-navy font-medium hover:underline">{t("disclaimerLink")}</a>.
+                <LocaleLink href="/valorisation" className="text-navy font-medium hover:underline">{t("disclaimerLink")}</LocaleLink>.
               </p>
             </div>
           )}

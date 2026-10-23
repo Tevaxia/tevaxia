@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import SEOContent from "@/components/SEOContent";

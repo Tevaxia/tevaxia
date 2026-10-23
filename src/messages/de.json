@@ -64,7 +64,11 @@
     "hotelE2Evidence": "E‑2-Unterlagen",
     "hotelAcquisition": "Hotelankauf",
     "hotelCoverage": "Schuldendienstdeckung",
-    "hotelOperating": "Betriebsrechnung"
+    "hotelOperating": "Betriebsrechnung",
+    "skipToContent": "Zum Inhalt springen",
+    "mainNavigation": "Hauptnavigation",
+    "menu": "Menü",
+    "language": "Sprache"
   },
   "common": {
     "language": "Sprache",
@@ -321,7 +325,7 @@
       },
       "str": {
         "title": "Kurzzeitvermietung (STR)",
-        "description": "7 Tools für Airbnb / Booking / Vrbo Gastgeber in LU: Nettorendite nach Steuer, 90-Tage-Schwelle + EU Reg 2024/1028 Compliance, Lang- vs Kurzzeit-Arbitrage, dynamisches Pricing.",
+        "description": "Werkzeuge zur Kurzzeitvermietung in Luxemburg: wirtschaftliche Simulationen, zu prüfende Pflichten und Vergleich mit Langzeitvermietung.",
         "tag": "Airbnb / Booking"
       },
       "esg": {
@@ -331,7 +335,7 @@
       },
       "proAgences": {
         "title": "CRM für Immobilienagenturen",
-        "description": "7-Stufen-Mandatspipeline, Käufer-CRM + Nurturing, eIDAS-Signatur, co-gebrandetes Objektblatt, OpenImmo-XML-Export, jährliche Provisionen.",
+        "description": "Maklermandate, Kontakte, Aufgaben und Dokumente mit einem Signaturablauf, dessen Eignung für den jeweiligen Vorgang zu prüfen ist.",
         "tag": "B2B LU-Agenturen"
       }
     },
@@ -1550,7 +1554,12 @@
     "erreurSaisie": "Beträge und Jahre prüfen: Bau ≤ Kauf ≤ Mietvertrag; Mietvertragsjahre 2015–2026.",
     "donneesIncompletes": "Vorläufige Schätzung: Altersabschlag oder Gebäude-/Möbeldaten noch prüfen. Das Ergebnis bestätigt keine rechtliche Konformität der Miete.",
     "estimationPartielle": "Unvollständige Schätzung",
-    "champApplication": "Für entgeltlich erworbene, fertiggestellte Wohnungen im privaten Wohnraummietrecht. Eigenbau, Schenkungen, Gewerberäume, Zweitwohnungen und Sonderregime erfordern eine gesonderte Prüfung. Die berechnete Obergrenze erlaubt keine automatische Mieterhöhung; Anpassungsfristen und Grenzen gelten weiterhin. Möbel werden nur für 2025–2026 berechnet."
+    "champApplication": "Für entgeltlich erworbene, fertiggestellte Wohnungen im privaten Wohnraummietrecht. Eigenbau, Schenkungen, Gewerberäume, Zweitwohnungen und Sonderregime erfordern eine gesonderte Prüfung. Die berechnete Obergrenze erlaubt keine automatische Mieterhöhung; Anpassungsfristen und Grenzen gelten weiterhin. Möbel werden nur für 2025–2026 berechnet.",
+    "perMonth": "€/Monat",
+    "perYear": "€/Jahr",
+    "observatoryIntro": "Vergleichen Sie Ihre gesetzliche Mietobergrenze mit beobachteten Mieten in Luxemburg nach Gemeinde und Immobilientyp.",
+    "observatoryLink": "Mietbeobachtung Luxemburg",
+    "observatoryTitle": "Den Mietmarkt erkunden"
   },
   "achatLocation": {
     "title": "Kaufen oder Mieten in Luxemburg",
@@ -1571,21 +1580,21 @@
     "chargesCopro": "Nebenkosten Eigentümergemeinschaft",
     "suffixEuroMois": "€/Monat",
     "impotFoncier": "Grundsteuer",
-    "impotFoncierHint": "Grundsteuer — sehr niedrig in Luxemburg (100–300 €/Jahr)",
+    "impotFoncierHint": "Jährlichen Betrag für die konkrete Immobilie eingeben.",
     "suffixEuroAn": "€/Jahr",
     "entretienAnnuel": "Jährliche Instandhaltung",
     "suffixPctPrix": "% des Preises",
-    "entretienAnnuelHint": "Jährliches Instandhaltungsbudget (1 % des Preises ist Standardschätzung)",
+    "entretienAnnuelHint": "Budget an Zustand und geplante Arbeiten anpassen.",
     "appreciationAnnuelle": "Jährliche Wertsteigerung",
     "appreciationAnnuelleHint": "Geschätzte jährliche Wertsteigerung der Immobilie",
     "sectionAssuranceSRD": "Restschuldversicherung",
     "tauxAssuranceSRD": "Versicherungssatz",
     "suffixPctCapital": "% Kapital",
-    "tauxAssuranceSRDHint": "In Luxemburg Pflicht. Satz zwischen 0,15 % und 0,40 % des Darlehensbetrags.",
+    "tauxAssuranceSRDHint": "Periodische Prämie auf das Anfangskapital bis Kreditende angenommen. Vertrag prüfen; Einmalprämien und fallende Prämien sind nicht modelliert.",
     "coutMensuelLabel": "Monatliche Kosten:",
     "sectionDeductionInterets": "Abzug der Schuldzinsen",
-    "deductionInteretsDescription": "Art. 98bis LIR: Hypothekenzinsen sind vom steuerpflichtigen Einkommen absetzbar (Obergrenze pro Person und Stufe).",
-    "nbPersonnes": "Anzahl Personen",
+    "deductionInteretsDescription": "ACD-Regeln seit 2024: berechtigte Zinsen im Verfügbarkeitsjahr und Folgejahr ohne Höchstbetrag; danach je Person 4.000 €, 3.000 € oder 2.000 € nach Zeitablauf. Zinsbeihilfen mindern den abzugsfähigen Aufwand. Die Steuerersparnis ist eine zu prüfende Annahme.",
+    "nbPersonnes": "Steuerlich berechtigte Personen (einschließlich Kinder)",
     "suffixPers": "Pers.",
     "tauxMarginal": "Grenzsteuersatz",
     "tauxMarginalHint": "Grenzsteuersatz. Klasse 1/1a: bis 42 %, Klasse 2: gemeinsame Veranlagung.",
@@ -1594,16 +1603,16 @@
     "perAn": "Jahr",
     "sectionLocationDetails": "Mietdetails",
     "indexationLoyer": "Jährliche Mietindexierung",
-    "indexationLoyerHint": "Geschätzte jährliche Mietsteigerung (LU Gesundheitsindex)",
+    "indexationLoyerHint": "Annahme zur Mietentwicklung; keine Bestätigung einer Indexklausel oder eines Mieterhöhungsrechts.",
     "rendementPlacement": "Rendite der Alternativanlage",
-    "rendementPlacementHint": "Bei Miete wird das Eigenkapital angelegt. Erwartete Jahresrendite.",
+    "rendementPlacementHint": "Angenommene Jahresrendite nach den von Ihnen berücksichtigten Kosten und Steuern. Keine Garantie.",
     "verdictAchat": "Über {horizon} Jahre ist der Kauf vorteilhafter",
     "verdictLocation": "Über {horizon} Jahre ist die Miete vorteilhafter",
     "patrimoineAchat": "Nettovermögen (Kauf)",
     "capitalLocation": "Angespartes Kapital (Miete)",
-    "croisementMessage": "Der Kauf wird ab Jahr {annee} vorteilhafter",
+    "croisementMessage": "Erstes beobachtetes Jahr zugunsten des Kaufs: {annee}. Das Ergebnis kann sich später umkehren.",
     "chartTitle": "Vermögensentwicklung",
-    "chartDescription": "Nettovermögen Kauf (Immobilienwert − Restschuld) vs angespartes Kapital bei Miete (Anlage Eigenkapital + Kostendifferenzen).",
+    "chartDescription": "Kauf: Immobilienwert abzüglich Schulden plus Ersparnisse bei günstigeren Kaufkosten. Miete: behaltenes Anfangskapital und Kaufkosten plus Ersparnisse bei günstigeren Mietkosten.",
     "axisAnnee": "Jahr",
     "legendeAchat": "Vermögen Kauf",
     "legendeLocation": "Kapital Miete",
@@ -1639,38 +1648,52 @@
     "location": "Miete +",
     "hypothesesTitle": "Annahmen:",
     "monteCarloTitle": "Monte-Carlo-Simulation (1 000 Szenarien)",
-    "monteCarloSubtitle": "Testet die Robustheit der Entscheidung durch zufällige Variation von Immobilienaufwertung (±2 PP), Anlagerendite (±3 PP) und Mietindexierung (±1 PP) mit Normalverteilung.",
+    "monteCarloSubtitle": "1.000 Szenarien mit angenommenen Standardabweichungen von 2 Prozentpunkten für Immobilienwerte, 3 für Anlagen und 1 für Mieten. Keine Marktwahrscheinlichkeiten.",
     "monteCarloRun": "Simulation starten",
     "monteCarloRunning": "Läuft…",
-    "monteCarloProbAchat": "Wahrscheinlichkeit Kauf > Miete",
+    "monteCarloProbAchat": "Anteil der Szenarien zugunsten des Kaufs",
     "monteCarloMedianDiff": "Median Vermögen Kauf − Miete",
-    "monteCarloIC90": "90 %-KI Differenz",
+    "monteCarloIC90": "5.–95. Perzentil der Szenarien",
     "monteCarloHistogramLabel": "Verteilung von (Vermögen Kauf − Vermögen Miete) am Horizontende",
     "monteCarloHelp": "Klicken Sie, um die Monte-Carlo-Simulation zu starten. Lokale Berechnung, ca. 2 Sekunden.",
-    "monteCarloNote": "Feste Parameter (Kreditzins, Laufzeit, Gebühren) bleiben identisch. Nur die Unsicherheitsvariablen (Markt, Anlage, Miete) werden abgetastet. Monte-Carlo zeigt die Robustheit der Entscheidung gegenüber Makro-Unsicherheit.",
+    "monteCarloNote": "Dasselbe Monatsmodell und dieselben Steuerannahmen wie in der Tabelle. Gezogene Parameter bleiben im jeweiligen Verlauf konstant. Ergebnisse hängen von den gewählten Verteilungen ab und sagen den Markt nicht voraus.",
     "hypothesesText": "Wertsteigerung: {appreciation} %/J. Anlagerendite: {rendement} %/J. Zinsabzugsobergrenze: {plafond}/J. ({nbPersonnes} Pers.). Restschuldvers.: {tauxSRD} % des Kapitals.",
     "seo": {
       "faqTitle": "Häufig gestellte Fragen zu Kaufen vs. Mieten",
       "relatedTitle": "Ergänzende Tools",
       "dilemmeTitle": "Kaufen oder mieten in Luxemburg: das ewige Dilemma",
-      "dilemmeContent": "<p>Die Frage '<strong>soll ich kaufen oder mieten?</strong>' ist in Luxemburg besonders akut, wo der Medianpreis einer Wohnung 2025 über 600.000 € liegt. Die Gesamtbetriebskosten (TCO) umfassen nicht nur die Kreditraten sondern auch Erwerbskosten (7-10 %), Instandhaltung, Versicherungen und Opportunitätskosten.</p>",
+      "dilemmeContent": "<p>Kauf oder Miete erfordert Annahmen zum Objekt, zur Finanzierung und zur Wohndauer. Ausgangswerte sind veränderbare Beispiele, keine Marktwerte. Verglichen wird das Vermögen vor einem Verkauf.</p>",
       "tcoTitle": "Gesamtkosten des Eigentums vs. Gesamtkosten der Miete",
-      "tcoContent": "<p>Unser Tool berechnet die <strong>kumulierten Gesamtkosten</strong> beider Optionen über einen anpassbaren Zeitraum. Der <strong>Kreuzungspunkt</strong> liegt in Luxemburg typischerweise zwischen 7 und 15 Jahren.</p>",
+      "tcoContent": "<p>Der Kauf umfasst Eigenkapital, eingegebene Kaufkosten, Monatsraten, Kreditversicherung und angegebene Ausgaben. Beim Mieten bleiben Eigenkapital und Kaufkosten angelegt. Bei gleichem Budget spart jede Seite die monatliche Differenz. Verkaufskosten und -steuern, Mietkaution und Hausratversicherung sind ausgeschlossen.</p>",
       "levierTitle": "Der Hebel-Effekt des Immobilienkredits",
-      "levierContent": "<p>Ein wichtiges Argument für den Kauf ist der <strong>Hebel-Effekt</strong> des Hypothekendarlehens. Mit einer Eigenkapitalquote von 20 % profitiert der Käufer von der Wertsteigerung auf 100 % des Immobilienwerts.</p>",
+      "levierContent": "<p>Ein Kredit ermöglicht den Kauf mit weniger Eigenkapital als dem Kaufpreis. Er verstärkt Gewinne und Verluste auf das Eigenkapital und verpflichtet zur Rückzahlung. Zinssätze, Finanzierung und Preisentwicklung müssen zum Projekt passen.</p>",
       "seuilTitle": "Rentabilitätsschwelle und Entscheidungsfaktoren",
-      "seuilContent": "<p>Die Rentabilitätsschwelle hängt von vielen Faktoren ab:</p><ul><li><strong>Geplante Aufenthaltsdauer</strong>: unter 5-7 Jahren ist Mieten fast immer günstiger</li><li><strong>Zinsniveau</strong>: niedrige Zinsen favorisieren den Kauf</li><li><strong>Preisentwicklung</strong>: Wertsteigerung > 2 %/Jahr verkürzt den Kreuzungspunkt erheblich</li></ul>",
+      "seuilContent": "<p>Der Vermögensschnittpunkt hängt von Preis, Miete, Dauer, Kosten und Rendite ab. Keine feste Haltedauer garantiert einen Kaufvorteil. Mobilität, Liquidität und Risikotragfähigkeit sind gesondert zu prüfen.</p>",
       "faq1q": "Wie lange muss ich eine Immobilie halten, damit sich der Kauf lohnt?",
-      "faq1a": "In Luxemburg liegt die Schwelle typischerweise zwischen 7 und 15 Jahren. Mit dem Bellegen Akt kann sie auf 5-7 Jahre sinken.",
+      "faq1a": "Das hängt vom Szenario ab. Der Schnittpunkt vergleicht Vermögen vor Verkaufskosten und -steuern und garantiert keine Rentabilität.",
       "faq2q": "Werden die Erwerbskosten im Vergleich berücksichtigt?",
-      "faq2a": "Ja, unser Tool berücksichtigt Einregistrierungs-, Transkriptions-, Notar- und Hypothekenkosten (7-10 % des Preises).",
+      "faq2a": "Die Kosten werden als Prozentsatz eingegeben. Für detaillierte Abgaben, Gutschriften und Notarkosten den Erwerbskostenrechner nutzen und den passenden Gesamtbetrag übertragen.",
       "faq3q": "Welche Alternativrendite für die Ersparnisse verwenden?",
-      "faq3a": "Die Alternativrendite repräsentiert das, was Sie mit Ihrer Eigenkapitalanlage verdienen würden. 4-6 % ist angemessen für ein diversifiziertes Langzeitportfolio.",
+      "faq3a": "Eine durch Ihre Anlagen begründete Rendite verwenden und auch geringe oder negative Ergebnisse testen. Riskante Anlagen garantieren keine Rendite.",
       "faq4q": "Ist Kaufen in Luxemburg immer besser?",
-      "faq4a": "Nicht unbedingt. Bei kurzer Aufenthaltsdauer (< 5 Jahre) oder hohen Zinsen kann Mieten vorteilhafter sein.",
+      "faq4a": "Nein. Annahmen und persönliche Umstände bestimmen das Ergebnis. Mehrere Szenarien und nicht enthaltene Kosten vergleichen.",
       "faq5q": "Wie wird der Steuerabzug für Hypothekenzinsen berücksichtigt?",
-      "faq5a": "In Luxemburg sind Hypothekenzinsen für den Hauptwohnsitz steuerlich absetzbar (Plafond 1.500-3.000 € je nach Darlehensdauer)."
-    }
+      "faq5a": "Abzug erst nach Prüfung der Berechtigung aktivieren. Verfügbarkeitsjahr, berechtigte Personen, Zinsbeihilfen und Grenzsteuersatz eingeben. Die Regeln seit 2024 werden auf tatsächlich amortisierte Zinsen angewendet; keine Steuererklärung wird ersetzt."
+    },
+    "simulationYear": "Erstes Simulationsjahr",
+    "availabilityYear": "Jahr der erstmaligen Verfügbarkeit der Wohnung",
+    "availabilityHint": "Jahr der Festsetzung des Mietwerts für die eigene Wohnung; es kann vor dem simulierten Kreditbeginn liegen.",
+    "deductionEligibility": "Ich bestätige, dass die Zinsen dieser Hauptwohnung und die angegebenen Personen für den luxemburgischen Zinsabzug berechtigt sind.",
+    "interestSubsidy": "Jährliche Zinsbeihilfen",
+    "deductionDisabled": "Nicht angewendet",
+    "deductionUncapped": "Berechtigte Zinsen ohne Höchstbetrag",
+    "invalidScenario": "Eingaben prüfen: Eigenkapital zwischen null und Kaufpreis, positive Kreditdauer bis 50 Jahre, passende Jahresangaben, ganze Personenzahl und gültige Beträge. Für diese Eingaben wird kein Ergebnis berechnet.",
+    "modelScope": "Szenario ab {annee}, Wohnung seit {disponibilite} verfügbar, bei Bestätigung {personnes} steuerlich berechtigte Personen. Abzug im ersten Jahr: {deduction}, bei eingegebenem Grenzsteuersatz {taux} %. Die seit 2024 geltenden Regeln werden für Folgejahre unverändert angenommen. Gleiches Monatsbudget: Die günstigere Variante legt den Unterschied am Monatsende an. Versicherung auf das Anfangskapital bis Kreditende; Steuervorteile und Beihilfen über das Jahr verteilt. Kaufkosten pauschal eingegeben. Verkaufskosten und -steuern, Besteuerung der Anlagen, Mietkaution und Hausratversicherung ausgeschlossen. Keine Marktprognose oder Steuerfestsetzung.",
+    "save": "Speichern",
+    "saved": "Gespeichert",
+    "pdfFrench": "PDF (Französisch)",
+    "scenarioCount": "{count} Szenarien",
+    "interestSubsidyMonthly": "Monatlicher Zinszuschuss (Jahr 1)"
   },
   "simulateurAides": {
     "title": "Fördermittel-Simulator",
@@ -3613,7 +3636,7 @@
       "f3": "Mietverwaltung: Einheiten, Zahlungen, Mietquittungen PDF (Gesetz 21.09.2006), AIS, Steuer Anhang 190, Mahnwesen, Mietausfallversicherung",
       "f4": "PSD2-Bankabgleich (Enable Banking — BCEE, BIL, Banque Raiffeisen, Post Finance)",
       "f5": "Cloud-Speicher (500 Einträge, 180 Tage) — vollständige Historie, Multi-Gerät",
-      "f6": "Digitaler Mietvertrag mit eIDAS-einfacher elektronischer Signatur + Zustandsprotokoll",
+      "f6": "Französischer Mietvertragsentwurf, optionale Unterschriftszeichnungen und externe PDF-Prüfsumme + Übergabeprotokoll",
       "f7": "Personalisiertes Profil auf Berichten (Name, Logo, Kontakt, Rechtshinweis)",
       "f8": "Marktbenachrichtigungen + Szenarienvergleich + View-only Link-Sharing",
       "f9": "2FA (TOTP) + DSGVO-Kontolöschung + Einwilligungen",
@@ -3636,7 +3659,7 @@
       "f6": "B2B-REST-API: Bewertung, Batch (1.000 Objekte), PMS-Webhook, Factur-X-Rechnungsstellung, OpenAPI 3.1",
       "f7": "DCF Multi-Mieter (Break-Optionen, Step-Rents, CAPEX, Equity IRR) + Promotor-Bilanz",
       "f8": "Modelltransparenz: öffentliche MAPE + R², 29 belegte Koeffizienten + hedonisches Modell",
-      "f9": "Erweiterter Cloud-Speicher (10.000 Einträge) + vollständiger DSGVO-Export + LU-Makrodaten-Historie (98 Gemeinden mit Demografie)",
+      "f9": "Erweiterter Cloud-Speicher (10.000 Elemente) + teilweiser JSON-Export mit dokumentiertem Umfang + historische LU-Makrodaten (98 Gemeinden mit Demografie)",
       "priceStriked": "29 €/Monat",
       "f10": "Prioritärer E-Mail-Support — contact@tevaxia.lu"
     },
@@ -3647,7 +3670,7 @@
       "q2": "Warum ein Konto erstellen, wenn es bereits kostenlos ist?",
       "a2": "Ein Konto ermöglicht Ihnen, Ihre Simulationen in der Cloud zu speichern (von jedem Gerät zugänglich), professionelle PDF-Berichte zu exportieren und Ihr Profil auf erstellten Dokumenten anzupassen.",
       "q3": "Sind meine Daten sicher?",
-      "a3": "Ihre Daten werden in Europa auf sicheren Servern (Supabase) gehostet. Wir verkaufen oder teilen Ihre Informationen nicht. Ohne Konto verlässt nichts Ihren Browser.",
+      "a3": "Konto- und Simulationsdaten werden bei Supabase in Europa gehostet. Verbindungen verwenden HTTPS, der Zugriff richtet sich nach den Kontoberechtigungen. Manche Funktionen arbeiten lokal im Browser, andere nutzen unsere Server oder einen Anbieter, etwa von Ihnen aktivierte Verbindungen. Technische Daten können auch zur Diagnose und mit Ihrer Zustimmung zur Messung öffentlicher Seiten übertragen werden. Empfänger und Einzelheiten beschreibt die Datenschutzerklärung.",
       "q4": "Wann wird das Pro-Angebot verfügbar sein?",
       "a4": "Ordnen Sie Belege, Quellen, Berechnungen, Annahmen und Vorbehalte in Arbeitsunterlagen. Der Sachverständige prüft die Informationen, bestimmt die erforderlichen Untersuchungen und verantwortet seine Schlussfolgerungen. Export oder technische Signatur bescheinigen keine fachliche Konformität.",
       "q5": "Lassen sich die Unterlagen an verschiedene Immobilienarten anpassen?",
@@ -3657,7 +3680,7 @@
   },
   "mentionsLegales": {
     "title": "Impressum",
-    "lastUpdate": "Zuletzt aktualisiert: 12. Oktober 2026",
+    "lastUpdate": "Letzte Aktualisierung: 23. Oktober 2026",
     "editeur": {
       "title": "1. Herausgeber der Website",
       "name": "NOTARIA PRIME",
@@ -3708,12 +3731,12 @@
     },
     "droit": {
       "title": "6. Anwendbares Recht",
-      "p1": "Diese Website unterliegt luxemburgischem Recht. Alle Streitigkeiten im Zusammenhang mit der Nutzung der Website fallen in die ausschließliche Zuständigkeit der Gerichte des Großherzogtums Luxemburg."
+      "p1": "Es gilt luxemburgisches Recht unter Vorbehalt der anwendbaren zwingenden Vorschriften, insbesondere zum Verbraucherschutz im Land des gewöhnlichen Aufenthalts. Die Zuständigkeit der Gerichte richtet sich nach den geltenden gesetzlichen Regeln. Eine Rechts- oder Gerichtsstandswahl entzieht Verbrauchern keine zwingenden Rechte, insbesondere nach Artikeln 17 bis 19 der Verordnung (EU) Nr. 1215/2012. Eine gütliche Einigung kann vorgeschlagen werden, ohne den Zugang zum zuständigen Gericht einzuschränken."
     }
   },
   "cgu": {
     "title": "Allgemeine Nutzungsbedingungen",
-    "lastUpdate": "Zuletzt aktualisiert: 12. Oktober 2026",
+    "lastUpdate": "Letzte Aktualisierung: 23. Oktober 2026",
     "intro": "Diese Allgemeinen Nutzungsbedingungen (AGB) regeln die Nutzung der Plattform tevaxia.lu und ihrer Dienste. Durch den Zugriff auf die Website oder die Erstellung eines Kontos akzeptiert der Nutzer diese AGB vorbehaltlos. Die Plattform wird von NOTARIA PRIME herausgegeben, einer französischen vereinfachten Aktiengesellschaft (SAS) mit einem Kapital von 500 €, eingetragen im Handels- und Gesellschaftsregister Quimper unter der Nummer 941 646 341.",
     "article1": {
       "title": "1. Gegenstand",
@@ -3767,12 +3790,12 @@
     },
     "article10": {
       "title": "10. Anwendbares Recht",
-      "p1": "Diese AGB unterliegen luxemburgischem Recht. Streitigkeiten fallen nach gütlicher Einigungsversuch in die ausschließliche Zuständigkeit der Gerichte des Großherzogtums Luxemburg."
+      "p1": "Es gilt luxemburgisches Recht unter Vorbehalt der anwendbaren zwingenden Vorschriften, insbesondere zum Verbraucherschutz im Land des gewöhnlichen Aufenthalts. Die Zuständigkeit der Gerichte richtet sich nach den geltenden gesetzlichen Regeln. Eine Rechts- oder Gerichtsstandswahl entzieht Verbrauchern keine zwingenden Rechte, insbesondere nach Artikeln 17 bis 19 der Verordnung (EU) Nr. 1215/2012. Eine gütliche Einigung kann vorgeschlagen werden, ohne den Zugang zum zuständigen Gericht einzuschränken."
     }
   },
   "confidentialite": {
     "title": "Datenschutzerklärung",
-    "lastUpdate": "Zuletzt aktualisiert: 12. Oktober 2026",
+    "lastUpdate": "Letzte Aktualisierung: 23. Oktober 2026",
     "responsable": {
       "title": "1. Verantwortlicher für die Datenverarbeitung",
       "name": "NOTARIA PRIME — Sitz: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, Frankreich",
@@ -3790,7 +3813,7 @@
       },
       "oauth": {
         "label": "OAuth-Anmeldung (Google, LinkedIn):",
-        "text": "Nur Ihre E-Mail-Adresse und Ihr Name werden von diesen Diensten übermittelt. Wir erhalten weder Ihr Passwort noch Ihre Kontakte oder sonstige Daten Ihres Drittanbieterkontos. Die Authentifizierung wird von Supabase Auth über das OAuth 2.0 / OpenID Connect-Protokoll verwaltet."
+        "text": "Bei der Kontoanmeldung erhält Supabase die vom Anbieter freigegebenen Identitätsdaten, insbesondere Kennung, E-Mail-Adresse und Namen. Tevaxia erhält kein Passwort des Anbieters. Zusätzliche Berechtigungen für einen Kalender oder Google Drive sind davon getrennt und werden nachfolgend beschrieben."
       },
       "simulations": {
         "label": "Simulationsdaten:",
@@ -3806,7 +3829,7 @@
       },
       "bancaire": {
         "label": "PSD2-Bankdaten (Enable Banking-Verbindung):",
-        "text": "Wenn Sie ein Bankkonto über den PSD2-Dienst Enable Banking (AIS — Account Information Service) für den automatischen Abgleich verbinden, werden die abgerufenen Transaktionen (Bezeichnung, Betrag, Datum, Referenz) während des Abgleichs im Arbeitsspeicher verarbeitet und nicht über die Sitzung hinaus auf unseren Servern gespeichert. Die PSD2-Verbindung hat eine maximale Dauer von 90 Tagen, vorgeschrieben durch die EU-Verordnung 2015/2366, erneuerbar durch Ihre Bank via SCA. Der JWT-Privatschlüssel zum Signieren der Anfragen bleibt auf dem tevaxia-Server, nie dem Browser ausgesetzt."
+        "text": "Wenn Sie eine Bank über Enable Banking verbinden, dienen die abgerufenen Umsätze dem angeforderten Abgleich. Tevaxia speichert Sitzungs- und Kontokennungen sowie das vom Anbieter übermittelte Gültigkeitsdatum. Vorbehaltlich der Bankbedingungen werden 180 Tage Gültigkeit angefragt; eine erneute Authentifizierung kann erforderlich sein. Dies ist keine allgemeine Einwilligungs- oder Aufbewahrungsfrist und ist nicht mit dem Umfang der Umsatzhistorie gleichzusetzen. Der private Schlüssel für Enable-Banking-Anfragen verbleibt auf dem Server."
       },
       "ocr": {
         "label": "Rechnungs-OCR & Dokumente — lokale Verarbeitung:",
@@ -3819,6 +3842,12 @@
       "diagnostic": {
         "label": "Technische Fehlerdiagnose:",
         "text": "Wenn Sentry konfiguriert ist, kann die Website einen technischen Bericht mit Fehlertyp und Positionen im generierten Code senden. Variable Meldungen, Datensatz-URLs, Anfragen, Header, Kontoidentitäten, fachliche Kontexte und Anhänge werden aus dem Bericht entfernt. Leistungstracing und Sitzungsaufzeichnung sind deaktiviert. Der Anbieter erhält die für die Verbindung erforderlichen Netzwerkinformationen."
+      },
+      "integrations": {
+        "label": "Optionale Kalender- und Google-Drive-Verbindungen:",
+        "calendar": "Auf Ihren Wunsch kann eine Google-Calendar- oder Microsoft-Outlook-Verbindung Lese- und Schreibrechte für Termine sowie Offline-Zugriff anfordern. Externe Kontokennungen, E-Mail, Berechtigungen, Zugriffs- und Aktualisierungstoken sowie Ablaufdaten werden dafür in Supabase gespeichert. Die Autorisierung bedeutet nicht, dass alle Synchronisationsfunktionen verfügbar sind. Eine Kalender-Abonnement-URL kann veröffentlichte Aufgaben und Besichtigungen an Ihren Kalenderdienst übermitteln; jeder mit dieser URL kann deren Inhalt lesen.",
+        "drive": "Beim Export nach Google Drive werden die gewählte Datei und ihr Name nach Ihrer Aktion an Google übertragen. Die Berechtigung drive.file betrifft mit der Anwendung erstellte oder geöffnete Dateien, nicht Ihr gesamtes Drive. Die benötigten Anbietertoken sind in der Authentifizierungssitzung zugänglich. Exportierte Dateien verbleiben bis zur Löschung gemäß Ihren Google-Einstellungen in Ihrem Drive.",
+        "revoke": "Berechtigungen können Sie in Ihren Google- oder Microsoft-Kontoeinstellungen widerrufen. Die Löschung der bei Tevaxia gespeicherten Verbindungsdaten können Sie unter contact@tevaxia.lu anfordern. Ein Widerruf löscht bereits übermittelte Dateien oder Termine nicht automatisch beim Anbieter. Widerrufen Sie auch nicht mehr gewünschte Abonnementlinks."
       }
     },
     "finalites": {
@@ -3836,7 +3865,7 @@
       },
       "contrat": {
         "label": "Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO):",
-        "text": "Erstellung und Verwaltung Ihres Kontos, Speicherung Ihrer Simulationen."
+        "text": "Erstellung und Verwaltung Ihres Kontos, Speichern von Simulationen und optionale Verbindungen für die von Ihnen angeforderten Funktionen."
       },
       "interet": {
         "label": "Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO):",
@@ -3855,7 +3884,7 @@
       "vercelLoc": "Vereinigte Staaten (Standardvertragsklauseln)",
       "render": "energy-api API-Hosting",
       "renderLoc": "Vereinigte Staaten",
-      "google": "OAuth-Authentifizierung",
+      "google": "Authentifizierung, Kalender und Drive-Dateiexporte auf Ihren Wunsch",
       "googleLoc": "Vereinigte Staaten (EU-US Data Privacy Framework)",
       "linkedin": "OAuth-Authentifizierung",
       "linkedinLoc": "Vereinigte Staaten (Standardvertragsklauseln)",
@@ -3866,17 +3895,20 @@
       "posthog": "Messung öffentlicher Seiten mit Zustimmung",
       "posthogLoc": "PostHog EU",
       "sentry": "Technische Fehlerdiagnose",
-      "sentryLoc": "Je nach Projektkonfiguration"
+      "sentryLoc": "Je nach Projektkonfiguration",
+      "microsoftCalendar": "Optionale Outlook-Kalenderverbindung",
+      "microsoftCalendarLoc": "Microsoft — Standort abhängig von Ihrem Konto und den Anbieterbedingungen"
     },
     "duree": {
       "title": "6. Aufbewahrungsdauer",
       "compte": "Kontodaten: bis zur Kontolöschung durch den Nutzer aufbewahrt.",
       "simulations": "Simulationsdaten (gespeicherte Bewertungen, Mietobjekte): 180 Tage ab letzter Änderung, Obergrenze 500 Einträge pro kostenlosem Konto (10 000 für Pro-Plan). Automatische tägliche Bereinigung um 03:00 UTC darüber hinaus. Lokale Daten (localStorage) bleiben verfügbar, solange der Browser nicht geleert wird.",
-      "cookies": "Cookies: maximal 13 Monate.",
+      "cookies": "Entscheidung zur Reichweitenmessung: Zustimmung und Ablehnung werden mit Datum und Version 180 Tage im Browser gespeichert und danach erneut abgefragt. Dies ist eine Festlegung des Dienstes, keine allgemeine gesetzliche Frist. Authentifizierungssitzungen folgen ihrem Ablauf und ihrer Erneuerung; lokale Sicherungen bleiben bis zur Löschung durch Nutzer oder Browser erhalten.",
       "liensPartages": "Öffentliche Freigabelinks: standardmäßig 90 Tage, Dauer vom Nutzer konfigurierbar (1-365 Tage) bei der Erstellung, mit optionaler Ansichtenbegrenzung.",
       "metier": "B2B-Betriebsdaten (Miteigentümer, Hotelgäste, CRM-Kontakte): aufbewahrt für die Dauer des Dienstleistungsvertrags mit dem professionellen Nutzer. Spezifische LU-Aufbewahrungspflichten gelten (Buchhaltung und Rechnungen 10 Jahre Art. L.16-2 Handelsgesetzbuch, Hauptversammlungsprotokolle 10 Jahre, AML/KYC-Daten 5 Jahre).",
-      "bancaire": "PSD2 Enable Banking-Daten: Banktransaktionen im Arbeitsspeicher abgerufen, über die Sitzung hinaus nicht persistiert. PSD2-Verbindung: maximal 90 Tage (erneuerbar via SCA).",
-      "ocrFichiers": "Rechnungs-OCR: Hochgeladene PDFs/Bilder werden niemals auf unseren Servern gespeichert — 100% Browser-Verarbeitung. Nur vom Nutzer validierte strukturierte Daten werden gespeichert."
+      "bancaire": "Bankverbindung: Maßgeblich ist das von der Bank oder dem Anbieter übermittelte Gültigkeitsdatum. Der Ablauf sperrt den Zugriff, löscht aber nicht automatisch die Verbindungsmetadaten. Die Löschung können Sie unter contact@tevaxia.lu anfordern. In Abgleichdokumente übernommene Daten unterliegen deren Aufbewahrung.",
+      "ocrFichiers": "Rechnungs-OCR: Hochgeladene PDFs/Bilder werden niemals auf unseren Servern gespeichert — 100% Browser-Verarbeitung. Nur vom Nutzer validierte strukturierte Daten werden gespeichert.",
+      "integrations": "Kalender: Verbindungsinformationen und Token bleiben gespeichert, solange die Integration besteht; ein Tokenablauf löscht den Datensatz nicht. Die Löschung kann über den unten genannten Kontakt angefordert werden. Bereits bei Google, Microsoft oder einem anderen Kalender vorhandene Kopien sowie exportierte Drive-Dateien unterliegen Ihren dortigen Kontoeinstellungen."
     },
     "droits": {
       "title": "7. Ihre Rechte",
@@ -3884,9 +3916,10 @@
       "acces": "Recht auf Auskunft über Ihre personenbezogenen Daten",
       "rectification": "Recht auf Berichtigung",
       "effacement": "Recht auf Löschung („Recht auf Vergessenwerden“)",
-      "portabilite": "Recht auf Datenübertragbarkeit — Schaltfläche « Alle meine Daten exportieren (JSON) » verfügbar im Bereich « Daten & Plan » Ihres Profils",
+      "portabilite": "Recht auf Datenübertragbarkeit unter den Voraussetzungen der DSGVO. Der JSON-Export im Profil umfasst nur die im Manifest genannten Kategorien: Er ist kein vollständiges Kontoarchiv und schließt insbesondere mehrere Fachmodule, Dokumente und Protokolle aus. Für nicht enthaltene Daten können Sie Ihre Rechte über unseren Kontakt ausüben.",
       "opposition": "Widerspruchsrecht gegen die Verarbeitung",
-      "exercer": "Um diese Rechte auszuüben, kontaktieren Sie uns unter"
+      "exercer": "Um diese Rechte auszuüben, kontaktieren Sie uns unter",
+      "limitation": "Recht auf Einschränkung der Verarbeitung unter den Voraussetzungen der DSGVO"
     },
     "cookies": {
       "title": "8. Cookies",
@@ -6205,13 +6238,13 @@
     "agence": {
       "meta": {
         "title": "Immobilienmakler-CRM Luxemburg — Pipeline und OpenImmo",
-        "description": "Zentralisieren Sie Mandate, Kontakte und Aufgaben in einem CRM, das für LU-Makler gebaut ist. Automatisches Käufer-Matching, Co-Branding-Objekt-PDFs, eIDAS-Signatur."
+        "description": "Maklermandate, Kontakte, Aufgaben und Dokumente mit einem Signaturablauf, dessen Eignung für den jeweiligen Vorgang zu prüfen ist."
       },
       "hero": {
         "badge": "Immobilien-CRM für LU-Makler",
         "title": "Ihre Mandatspipeline in",
         "titleAccent": "einem Werkzeug, nicht vier",
-        "subtitle": "OpenImmo-Format-Mandatsverwaltung, Kontakt-CRM mit automatischem Käufer-Matching, Drag-Drop-Kanban, Co-Branding-Objekt-PDFs und eIDAS-elektronische Signatur. Gebaut für luxemburgische Immobilienmakler, die genug haben, mehrere Werkzeuge zu jonglieren.",
+        "subtitle": "Maklermandate, Kontakte, Aufgaben und Dokumente mit einem Signaturablauf, dessen Eignung für den jeweiligen Vorgang zu prüfen ist.",
         "cta": "Kostenlos starten",
         "ctaSecondary": "Funktionsweise ansehen",
         "kpis": [
@@ -6297,11 +6330,11 @@
           },
           {
             "title": "Besichtigungsschein-PDFs",
-            "desc": "Mit Timeline-Log und elektronischer Signatur. Rechtsgültig."
+            "desc": "Online-Signaturablauf mit zu prüfenden technischen Daten; die Plattform zertifiziert weder ein fortgeschrittenes noch ein qualifiziertes Niveau."
           },
           {
-            "title": "eIDAS-Mandatssignatur",
-            "desc": "Fortgeschrittene elektronische Signatur (eIDAS), rechtsverbindlich in Luxemburg."
+            "title": "Online-Signaturablauf",
+            "desc": "Online-Signaturablauf mit zu prüfenden technischen Daten; die Plattform zertifiziert weder ein fortgeschrittenes noch ein qualifiziertes Niveau."
           },
           {
             "title": "Nurturing-Sequenzen",
@@ -6343,7 +6376,7 @@
           "Automatisches /100 Käufer-Matching",
           "Drag-Drop-Kanban-Pipeline",
           "Co-Branding-Objekt-PDFs",
-          "Besichtigungsscheine und eIDAS-Signatur",
+          "Online-Signaturablauf mit zu prüfenden technischen Daten; die Plattform zertifiziert weder ein fortgeschrittenes noch ein qualifiziertes Niveau.",
           "Automatisierte Nurturing-Sequenzen",
           "Agenten-Provisionen und -Performance",
           "10 bearbeitbare E-Mail-Vorlagen"
@@ -6371,12 +6404,12 @@
             "a": "Ja, Multi-Entity-Organisationen mit Rollen (Admin, Agent, Assistent). Jeder Agent sieht nur Mandate und Kontakte, die ihm zugewiesen sind."
           },
           {
-            "q": "Ist eIDAS-Signatur rechtsgültig?",
-            "a": "Ja, die fortgeschrittene eIDAS elektronische Signatur (EU-Verordnung 910/2014) hat rechtliche Gültigkeit gleichwertig mit handschriftlicher Unterschrift."
+            "q": "Welche Aussagekraft hat der Signaturablauf?",
+            "a": "Dieser Ablauf liefert keine qualifizierte elektronische Signatur und zertifiziert kein fortgeschrittenes Niveau. Artikel 25 eIDAS schützt die Zulässigkeit elektronischer Signaturen; die ausdrücklich vorgesehene Gleichstellung mit einer handschriftlichen Unterschrift betrifft qualifizierte Signaturen. Die Wirksamkeit hängt auch von Inhalt, Identität, Vertretungsmacht und Formvorschriften ab. Anforderungen vor der Unterschrift prüfen."
           },
           {
             "q": "Sind Kontaktdaten DSGVO-sicher?",
-            "a": "Daten auf Supabase (AWS eu-central-1 Frankfurt), nutzerbasierte Row Level Security, HTTPS. Vollständiger Datenexport als ZIP jederzeit."
+            "a": "Der JSON-Profilexport ist teilweise und nennt ein- und ausgeschlossene Kategorien. Er ist kein vollständiges ZIP aller Kontakte, Dokumente oder Fachdaten. Für Rechte bezüglich nicht enthaltener Daten wenden Sie sich an contact@tevaxia.lu. Die Datenschutzerklärung beschreibt Verarbeitung und Empfänger."
           }
         ]
       },
@@ -6560,7 +6593,7 @@
           },
           {
             "q": "Sind meine Daten in der EU gehostet?",
-            "a": "Supabase (AWS eu-central-1, Frankfurt). Row Level Security, HTTPS. Vollständiger Gastdaten-Export als ZIP jederzeit."
+            "a": "Der JSON-Profilexport ist teilweise und nennt ein- und ausgeschlossene Kategorien. Er ist kein vollständiges ZIP aller Kontakte, Dokumente oder Fachdaten. Für Rechte bezüglich nicht enthaltener Daten wenden Sie sich an contact@tevaxia.lu. Die Datenschutzerklärung beschreibt Verarbeitung und Empfänger."
           }
         ]
       },
@@ -6740,7 +6773,7 @@
           },
           {
             "q": "Hat die SHA-256-Signatur rechtliches Gewicht?",
-            "a": "Die SHA-256-Signatur garantiert Dokumentintegrität. Sie ersetzt keine rechtlich qualifizierte eIDAS-Signatur, bietet aber kryptografischen Beweis, dass der Bericht nicht verändert wurde."
+            "a": "Eine Prüfsumme vergleicht Inhalte mit einer gespeicherten Referenz. Allein zertifiziert sie weder Identität, Zustimmung, Datum noch rechtliche Wirksamkeit. Dokument und Prüfdaten aufbewahren; eine Prüfsumme allein ist keine qualifizierte Signatur."
           },
           {
             "q": "Wie lassen sich besondere Annahmen dokumentieren?",
@@ -7771,7 +7804,7 @@
   "proAgences": {
     "badge": "CRM für Immobilienmakler",
     "title": "Das Immobilien-CRM für Luxemburg",
-    "description": "Kanban-Mandatspipeline, automatisches Käufer-Matching, eIDAS-E-Signaturen, 1-Klick-Verteilung an athome.lu und OpenImmo, berechnete LU-Erwerbskosten (Bëllegen Akt + 3 % MwSt.) und co-gebrandeter Schätzungs-/Förderbericht. Alles für ein in Luxemburg tätiges Maklerbüro.",
+    "description": "Maklermandate, Kontakte, Aufgaben und Dokumente mit einem Signaturablauf, dessen Eignung für den jeweiligen Vorgang zu prüfen ist.",
     "ctaDemo": "Zum CRM",
     "ctaSeeFeatures": "Funktionen ansehen",
     "kpi1Value": "9",
@@ -7790,8 +7823,8 @@
     "feature2Desc": "Hauseigener Algorithmus mit 6 gewichteten Kriterien (Budget, Radius, Typ, Fläche, Energieklasse, Projekt). Score von 100 mit Aufschlüsselung pro Kriterium für jeden Match.",
     "feature3Title": "1-Klick-Verteilung an Portale",
     "feature3Desc": "OpenImmo 1.2.8-Export (athome.lu, immotop.lu, wort.lu, immoscout24.de, idealista.it/pt) + CSV für zusätzliche Portale. Inkrementelles Feed-Update bei jeder Änderung.",
-    "feature4Title": "eIDAS-E-Signaturen",
-    "feature4Desc": "Verkaufsmandate und Besichtigungsbescheinigungen elektronisch signiert, juristisch handschriftlich gleichgestellt (EU-Verordnung 910/2014). Zeitstempel, Nachverfolgbarkeit, Integrität gewährleistet.",
+    "feature4Title": "Online-Signaturablauf",
+    "feature4Desc": "Dieser Ablauf liefert keine qualifizierte elektronische Signatur und zertifiziert kein fortgeschrittenes Niveau. Artikel 25 eIDAS schützt die Zulässigkeit elektronischer Signaturen; die ausdrücklich vorgesehene Gleichstellung mit einer handschriftlichen Unterschrift betrifft qualifizierte Signaturen. Die Wirksamkeit hängt auch von Inhalt, Identität, Vertretungsmacht und Formvorschriften ab. Anforderungen vor der Unterschrift prüfen.",
     "feature5Title": "Provision & Performance-Tracking",
     "feature5Desc": "Erwartete vs erhaltene Provisionen pro Jahr, Quartalsdiagramm, Berater-Ranking (Konversionsrate, Unterzeichnungs-/Abschlusszeit, Top-Performer).",
     "feature6Title": "Co-gebrandetes PDF Schätzung + Kosten + Förderungen",
@@ -8391,19 +8424,19 @@
   "bailCommercial": {
     "seo": {
       "contextTitle": "Warum ein spezifisches Regime?",
-      "contextContent": "Gewerbemietverträge in Luxemburg werden durch das Gesetz vom 3. Februar 2018 und den Code civil geregelt. Im Gegensatz zum Wohnraummietvertrag wird die Miete bei Unterzeichnung frei vereinbart — die 5 %-Regel gilt nicht. Die Mindestdauer von 9 Jahren und das Erneuerungsrecht bieten starken Mieterschutz.",
-      "indexationTitle": "Indexierung nach STATEC-VPI",
-      "indexationContent": "In Luxemburg existiert kein spezifischer Gewerbemieteindex. Die Parteien beziehen sich üblicherweise auf den Verbraucherpreisindex (VPI) des STATEC. Klauseln begrenzen die Indexierung oft auf 15-25 % der Anfangsmiete.",
-      "dureeTitle": "Mindestdauer 9 Jahre",
-      "dureeContent": "Das Gesetz vom 03.02.2018 setzt eine Mindestdauer von 9 Jahren fest. Der Mieter kann zu jeder Dreijahresperiode (3, 6, 9 Jahre) mit 6 Monaten Kündigungsfrist kündigen. Ohne Kündigung 6 Monate vor Ende verlängert sich der Vertrag stillschweigend.",
+      "contextContent": "Luxemburgische Gewerbemietverträge unterliegen dem Zivilgesetzbuch und dem Gesetz vom 3. Februar 2018. Die Anfangsmiete wird ausgehandelt; die 5-%-Wohnraummietgrenze gilt nicht. Laufzeit, Verlängerung und Kündigung richten sich nach Klauseln und geltenden Vorschriften; eine gesetzliche Mindestdauer von neun Jahren besteht hier nicht.",
+      "indexationTitle": "Indexierung nach der Mietklausel",
+      "indexationContent": "Formel, Index, Termine und etwaige Obergrenzen müssen dem Vertrag entsprechen. Bei proportionaler Klausel: Anfangsmiete × Anpassungsindex / Referenzindex. Vergleichbare Indizes derselben Reihe und Basis verwenden. Ein üblicher Prozentsatz begründet keine gesetzliche Obergrenze.",
+      "dureeTitle": "Vereinbarte Laufzeit und Kündigung",
+      "dureeContent": "Ein Vertrag kann befristet oder unbefristet sein (Art. 1762-4 des Zivilgesetzbuchs). Ein 3–6–9-Modell kann vereinbart werden, gilt aber nicht automatisch. Periodische Ausstiegsoptionen hängen von der Klausel ab. Der Regelungsbereich sieht mindestens sechs Monate Kündigungsfrist vor; Form- und Verlängerungsregeln ebenfalls prüfen.",
       "faq1q": "Gilt die 5 %-Regel für Gewerbe?",
       "faq1a": "Nein. Sie gilt nur für Wohnraummietverträge. Bei Gewerbe wird die Miete frei zwischen Vermieter und Mieter verhandelt.",
       "faq2q": "Wie wird die Gewerbemiete in LU indexiert?",
-      "faq2a": "Über den vom STATEC veröffentlichten Verbraucherpreisindex (VPI) gemäß der im Vertrag vereinbarten Formel. Üblich: indexierte Miete = Anfangsmiete × (VPI Jahr N / VPI Unterzeichnungsjahr), oft auf +15-20 % der Anfangsmiete begrenzt.",
+      "faq2a": "Formel, Index, Termine und etwaige Obergrenzen müssen dem Vertrag entsprechen. Bei proportionaler Klausel: Anfangsmiete × Anpassungsindex / Referenzindex. Vergleichbare Indizes derselben Reihe und Basis verwenden. Ein üblicher Prozentsatz begründet keine gesetzliche Obergrenze.",
       "faq3q": "Welche Mindestdauer?",
-      "faq3a": "9 Jahre (Gesetz vom 03.02.2018). Mieterausstieg bei jeder Dreijahresperiode mit 6-Monats-Kündigung. Vermieter kann nur zum 9-Jahres-Ablauf kündigen, sonst schuldet er eine Ausziehentschädigung.",
-      "faq4q": "Was ist der « pas-de-porte »?",
-      "faq4a": "Eine Summe, die der einziehende Mieter dem Vermieter als Gegenleistung für das Belegungsrecht zahlt. Kann mehrere Monate oder Jahre Miete betragen. Nicht erstattungsfähig und unterschiedlich von der Kaution (üblich 3-12 Monate).",
+      "faq3a": "Ein Vertrag kann befristet oder unbefristet sein (Art. 1762-4 des Zivilgesetzbuchs). Ein 3–6–9-Modell kann vereinbart werden, gilt aber nicht automatisch. Periodische Ausstiegsoptionen hängen von der Klausel ab. Der Regelungsbereich sieht mindestens sechs Monate Kündigungsfrist vor; Form- und Verlängerungsregeln ebenfalls prüfen.",
+      "faq4q": "Darf Eintrittsgeld verlangt werden?",
+      "faq4a": "Ein für den Vertragsabschluss an Vermieter oder Vermittler gezahlter Zuschlag, sogenanntes Eintrittsgeld, ist nach Artikel 1762-5 verboten. Maklergebühren oder der Preis einer Geschäftsübertragung sind gesondert zu beurteilen. Die Gewerbemietsicherheit ist auf sechs Monatsmieten begrenzt.",
       "faqTitle": "Häufig gestellte Fragen",
       "relatedTitle": "Weiterführend"
     }
@@ -8470,9 +8503,9 @@
     "pasDePt": "Ablöse (Eintrittsgebühr)",
     "depot": "Kaution",
     "charges": "Jährliche Nebenkosten (Vorauszahlung)",
-    "hintPlafond": "Üblich: 15-25 %. Darüber hinaus kann der Mieter eine gerichtliche Überprüfung beantragen (Art. 1757-4 BGB).",
-    "hintPasDePt": "Einmalzahlung bei Vertragsunterzeichnung, nicht erstattungsfähig.",
-    "hintDepot": "Üblich: 3-12 Monate. Rückerstattung bei Mietende (außer bei Schäden)."
+    "hintPlafond": "Nur bei entsprechender Klausel; ein üblicher Schwellenwert ist keine gesetzliche Regel.",
+    "hintPasDePt": "Eintrittsgeld an den Vermieter für den Vertragsabschluss ist verboten.",
+    "hintDepot": "Mietsicherheit: höchstens sechs Monatsmieten in diesem Regelungsbereich (Art. 1762-5). Hier auf Basis der Anfangsmiete berechnet."
   },
   "syndicCoproprietes": {
     "error": "Fehler",
@@ -8913,13 +8946,13 @@
   "bailCommercialPage": {
     "backLink": "← tevaxia.lu",
     "pageTitle": "Gewerbemietvertrag LU — Indexierung & Laufzeit",
-    "pageDescription": "Berechnung der Mietindexierung nach dem luxemburgischen VPI (STATEC) und Erinnerung an die Regeln für Gewerbemietverträge (Gesetz vom 3. Februar 2018).",
+    "pageDescription": "Indexierungsszenario anhand Ihrer eingegebenen Indizes und vereinbarten Klauseln. Ergebnisse prüfen weder den Vertrag noch prognostizieren sie künftige Indizes.",
     "warningImportant": "Wichtig:",
     "warningText": "im Gegensatz zum Wohnungsmietvertrag gilt die 5%-Regel (gesetzliche Mietobergrenze) nicht für Gewerbemietverträge. Die Miete wird bei Vertragsunterzeichnung frei vereinbart und dann durch die zwischen den Parteien ausgehandelten Indexierungsklauseln geregelt.",
     "sectionLoyerInitial": "Anfangsmiete & Daten",
     "sectionClausesBail": "Mietvertragsklauseln",
     "sectionCoutsComplementaires": "Zusätzliche Kosten",
-    "duree9": "9 Jahre (gesetzl. Mindestdauer LU)",
+    "duree9": "9 Jahre (vertragliche Laufzeit)",
     "duree12": "12 Jahre",
     "duree15": "15 Jahre",
     "duree18": "18 Jahre",
@@ -8940,34 +8973,34 @@
     "indexPlafonneClause": "aber Ihre Klausel begrenzt auf",
     "duLoyerInitial": "der Anfangsmiete.",
     "resultTitle": "Regulatorische Hinweise — Gewerbemietvertrag LU",
-    "regDureeMin": "Gesetzliche Mindestdauer",
-    "regDureeMinVal": "9 Jahre (Gesetz vom 03.02.2018)",
-    "regTriennale": "Dreijahresperiode",
-    "regTriennaleVal": "Kündigung alle 3 Jahre möglich (6 Monate Frist)",
-    "regRenouvellement": "Automatische Verlängerung",
-    "regRenouvellementVal": "Sofern nicht 6 Monate vor Ablauf gekündigt",
+    "regDureeMin": "Laufzeit",
+    "regDureeMinVal": "Befristet oder unbefristet (Art. 1762-4)",
+    "regTriennale": "Periodische Kündigung",
+    "regTriennaleVal": "Nach geltenden Klauseln und Regeln; kein automatisches Dreijahresrecht",
+    "regRenouvellement": "Verlängerung / Fortsetzung",
+    "regRenouvellementVal": "Vertrag, Mitteilungen und gesetzliche Regeln prüfen",
     "regIndice": "LU-Indexierungsindex",
     "regIndiceVal": "VPI STATEC (kein ILC/ILAT-Äquivalent in LU)",
     "regRegle5": "5%-Regel",
     "regRegle5Val": "Gilt NICHT für Gewerbemietverträge",
     "regForme": "Form",
-    "regFormeVal": "Schriftform erforderlich wenn > 9 Jahre (Art. 1715 BGB)",
-    "coutTotalBail": "Gesamtkosten des Mietvertrags",
+    "regFormeVal": "Schriftlich festhalten; Formvorschriften nach Laufzeit und Urkunde prüfen",
+    "coutTotalBail": "Projektion bei konstanter Miete",
     "ansLabel": "Jahre",
-    "loyersCumules": "Kumulierte Mieten (indexiert)",
+    "loyersCumules": "Mietsumme des Szenarios",
     "chargesCumulees": "Kumulierte Nebenkosten",
     "pasDePtLabel": "Ablöse",
     "depotGarantieImmob": "Kaution (hinterlegt)",
     "coutTotalOccupation": "Gesamtbelegungskosten",
     "soitMoyenne": "D.h.",
     "anMoyenne": "/Jahr durchschnittlich",
-    "periodesTriennales": "Dreijahresperioden",
+    "periodesTriennales": "Jahre der vertraglichen Optionen",
     "finDuBail": "Mietvertragsende",
     "periodeTriennaleN": "Dreijahresperiode Nr.",
     "resiliationPossible": "(Kündigung möglich)",
-    "preavisTriennale": "6 Monate Kündigungsfrist per Einschreiben vor jedem Dreijahresende.",
+    "preavisTriennale": "Unverbindliche Jahre nur nach der angegebenen Klausel. Der Regelungsbereich sieht mindestens sechs Monate Kündigungsfrist vor; genaue Termine, Gründe, Formen und Verlängerungsregeln anhand des Vertrags prüfen.",
     "clausesTitle": "Häufige Klauseln zu prüfen:",
-    "clausesText": "Ablöse, Kaution (3-12 Monate), absetzbare Nebenkosten, Nutzungszweck, Verlängerungsrecht, Räumungsentschädigung bei Nichtverlängerung.",
+    "clausesText": "Prüfen Sie Nutzungszweck, Laufzeit, Ausstiegsoptionen, Indexformel, Nebenkosten, Sicherheit (höchstens sechs Monate), Verlängerung und Entschädigungsbedingungen. Die Berechnung validiert keine dieser Klauseln.",
     "tableTitle": "VPI-Indexierungstabelle — Jahr für Jahr",
     "tableSubtitle": "Entwicklung der indexierten Miete von",
     "tableTo": "bis",
@@ -8983,7 +9016,24 @@
     "thEvolVsInitial": "Änderung vs Anfang",
     "refBadge": "(Ref.)",
     "cibleBadge": "(Ziel)",
-    "plafBadge": "(ged.)"
+    "plafBadge": "(ged.)",
+    "referenceIndexInput": "Vertraglicher Referenzindex",
+    "targetIndexInput": "Index zum Anpassungstermin",
+    "indexInputHelp": "100 und 100 sind Beispielwerte. Geben Sie veröffentlichte, zur Klausel passende Indizes mit gleicher Basis und Periodizität ein. Fehlende oder künftige jährliche Verbraucherpreisindizes werden nicht erfunden.",
+    "officialIndexSource": "Von STATEC veröffentlichte Indizes ansehen",
+    "capConfirmed": "Der Vertrag enthält eine Gesamtobergrenze für die Indexierung",
+    "indefiniteTerm": "Unbefristeter Mietvertrag",
+    "analysisHorizon": "Szenariohorizont",
+    "termHelp": "Dieser Regelungsbereich schreibt keine gesetzliche Mindestdauer von neun Jahren vor. Das Werkzeug akzeptiert volle Jahre von 1 bis 99; bei unbefristeten Verträgen ist dies nur ein Rechenhorizont, kein Vertragsende.",
+    "breakConfirmed": "Eine Vertragsklausel sieht periodische Kündigungsoptionen vor",
+    "breakInterval": "In der Klausel vorgesehener Abstand",
+    "noKeyMoney": "Ein an den Vermieter für den Vertragsabschluss gezahltes Eintrittsgeld ist verboten und wird nicht als normale Kostenposition angeboten. Maklergebühren und Geschäftsübertragungen sind davon zu unterscheiden und gesondert zu prüfen.",
+    "invalidInputs": "Prüfen Sie positive Miete und Indizes, volle Jahre und eine Sicherheit zwischen 0 und 6 Monatsmieten.",
+    "indexScenarioTitle": "Indexierung anhand Ihrer Eingaben",
+    "annualIndexedRent": "Indexierte Jahresmiete",
+    "monthlyIndexedRent": "Indexierte Monatsmiete",
+    "constantScenario": "Die oben berechnete indexierte Miete und die jährlichen Nebenkosten bleiben über den gesamten Horizont konstant. Dies sind weder historische Daten noch eine Inflationsprognose. Die gebundene Sicherheit wird separat ausgewiesen und nicht als endgültige Ausgabe gezählt.",
+    "noBreakInHorizon": "Keine Zwischenoption in diesem Horizont."
   },
   "drive": {
     "saveToDrive": "In Drive speichern",
@@ -9868,37 +9918,37 @@
     },
     "bailHabitation": {
       "title": "Wohnungsmietvertrag Luxemburg: Gesetz 21.09.2006, Rechte 2026",
-      "metaDescription": "Wohnungsmietvertrag LU: unbestimmte Dauer, Kündigungsfrist 3/6 Monate, Kaution max 3 Monate, Mietzinsobergrenze 5 % des aufgewerteten Kapitals, umlegbare Nebenkosten (RGD 16.06.2015), kommunale Mietkommission.",
+      "metaDescription": "Wohnraummiete in Luxemburg: neue Zweimonatsgrenze der Sicherheit, Laufzeit, Schriftangaben, Mietanpassung und Rechtswege.",
       "subtitle": "Alles, was Vermieter und Mieter vor Abschluss eines Wohnungsmietvertrags in Luxemburg wissen müssen.",
       "category": "Mieten & Mietvertrag",
       "essentiel": [
-        "Rechtsrahmen: geändertes Gesetz vom 21. September 2006 über die Wohnraummiete, ergänzt durch das Zivilgesetzbuch und das GH-Reglement vom 16. Juni 2015 zu Nebenkosten.",
-        "Standarddauer: unbestimmt. Mieterkündigung 3 Monate, Vermieterkündigung 6 Monate und nur aus berechtigtem Grund (Eigenbedarf, schwerer Verstoß, Bauarbeiten).",
-        "Miete gedeckelt auf 5 % pro Jahr des aufgewerteten investierten Kapitals (Art. 3 Gesetz 2006). Siehe spezieller Leitfaden zur 5 %-Regel.",
-        "Mietkaution: max 3 Monatsmieten ohne Nebenkosten, auf Sperrkonto auf Namen des Mieters. Zinsen gehören dem Mieter.",
-        "Kostenloses vorgerichtliches Rechtsmittel: kommunale Mietkommission vor jeder Klage."
+        "Neue Verträge im aktuellen Regelungsbereich müssen schriftlich Parteien, Wohnung, Katasterreferenz, vermietete Räume, Dauer, Miete, Kosten, etwaigen Möblierungszuschlag und Sicherheit nennen. Auf die Mietkommission für Mietfestsetzungsstreitigkeiten ist hinzuweisen. Besondere Regeln und Nutzungsausnahmen prüfen.",
+        "Die Laufzeit kann befristet oder unbefristet sein. Kündigung, Fristen und Verlängerung hängen davon, vom Vertrag und von gesetzlichen Gründen ab. Es besteht kein allgemeines Mieterrecht, jeden befristeten Vertrag jederzeit mit drei Monaten Frist zu beenden. Passende Regeln und Mitteilungen prüfen lassen.",
+        "Die geltende Obergrenze ist aus investiertem Kapital, Aufwertungen und Abschlägen zu bestimmen; Möblierungszuschläge separat begründen. Anpassungen folgen gesetzlichen Bedingungen, insbesondere Zweijahresabstand und 10-%-Erhöhungsgrenze samt Ausnahmen. Eine Wertklausel kann nach Einschreiben des Mieters unwirksam werden; der Verbraucherpreisindex schafft kein automatisches Erhöhungsrecht.",
+        "Bei neuen Wohnraummietverträgen ab 1. August 2024 beträgt die Sicherheit höchstens zwei Monatsmieten ohne Nebenkosten. Für ältere Verträge kann die frühere Dreimonatsgrenze gelten. Mehrere Sicherungsformen sind möglich; ein Sperrkonto ist nicht die einzige zulässige Form. Rückzahlungsbedingungen und Fristen anhand von Übergabeprotokoll, Forderungen und Abrechnungen prüfen.",
+        "Der Rechtsweg hängt vom Streitgegenstand ab. Die Mietkommission handelt in ihrem Zuständigkeitsbereich, insbesondere bei Mietfestsetzung; sie ist keine allgemeine Vorstufe jedes Streits. Sicherheitsrückzahlung oder Kündigung können zum Friedensgericht gehören. Belege aufbewahren und passende Schritte, Fristen und Bedingungen prüfen."
       ],
       "section1Title": "Rechtsrahmen und Vertragstyp",
-      "section1P1": "Die Wohnraummiete in Luxemburg wird vom geänderten Gesetz vom 21. September 2006 erfasst, das auf jede Vermietung einer als Hauptwohnung dienenden Wohnung anwendbar ist (Artikel 1). Ausgeschlossen: kurzfristige möblierte touristische Vermietungen, Landpachtverträge und Gewerbemieten (durch andere Gesetze geregelt). Der Vertrag muss schriftlich sein; ohne Schrift erkennt das Gesetz dennoch den Mietvertrag bei Zahlung und Belegung an, jedoch mit höherer Beweislast.",
-      "section1P2": "Standardmäßig wird der Mietvertrag auf unbestimmte Dauer geschlossen. Befristete Mietverträge sind möglich, wandeln sich aber am Ende automatisch in unbefristete um, wenn der Mieter ohne Widerspruch des Vermieters wohnen bleibt (stillschweigende Verlängerung). Der Vertrag muss die Parteien, die Wohnungsbeschreibung, die Miete ohne Nebenkosten, den Nebenkostenbetrag und dessen Berechnung, den Kautionsbetrag und das Einzugsdatum nennen.",
+      "section1P1": "Neue Verträge im aktuellen Regelungsbereich müssen schriftlich Parteien, Wohnung, Katasterreferenz, vermietete Räume, Dauer, Miete, Kosten, etwaigen Möblierungszuschlag und Sicherheit nennen. Auf die Mietkommission für Mietfestsetzungsstreitigkeiten ist hinzuweisen. Besondere Regeln und Nutzungsausnahmen prüfen.",
+      "section1P2": "Neue Verträge im aktuellen Regelungsbereich müssen schriftlich Parteien, Wohnung, Katasterreferenz, vermietete Räume, Dauer, Miete, Kosten, etwaigen Möblierungszuschlag und Sicherheit nennen. Auf die Mietkommission für Mietfestsetzungsstreitigkeiten ist hinzuweisen. Besondere Regeln und Nutzungsausnahmen prüfen.",
       "callout1Title": "Form und unzulässige Klauseln",
-      "callout1Body": "Nichtig sind: jede Kaution über 3 Monatsmieten, jede unbegrenzte Solidarhaftung eines Mitmieters nach dessen Auszug, jede Kündigungsstrafe außerhalb der gesetzlichen Frist und jede Klausel, die den Vermieter von seiner Pflicht zur Übergabe einer menschenwürdigen Wohnung befreit (Art. 1719 Zivilgesetzbuch).",
+      "callout1Body": "Neue Verträge im aktuellen Regelungsbereich müssen schriftlich Parteien, Wohnung, Katasterreferenz, vermietete Räume, Dauer, Miete, Kosten, etwaigen Möblierungszuschlag und Sicherheit nennen. Auf die Mietkommission für Mietfestsetzungsstreitigkeiten ist hinzuweisen. Besondere Regeln und Nutzungsausnahmen prüfen.",
       "section2Title": "Miete, Indexierung und Kaution",
-      "section2P1": "Die Anfangsmiete ist frei, darf aber 5 % des aufgewerteten investierten Kapitals nicht überschreiten (Art. 3 Gesetz 21.09.2006). Die Miete kann nur einmal alle zwei Jahre und nur nach oben gemäß der Entwicklung des STATEC-Verbraucherpreisindex angepasst werden, oder wenn Verbesserungsarbeiten eine Neubewertung des investierten Kapitals rechtfertigen. Die Anpassung muss per Einschreiben mit einmonatiger Vorankündigung mitgeteilt werden.",
-      "section2P2": "Die Kaution ist auf 3 Monatsmieten ohne Nebenkosten begrenzt (Art. 5 Gesetz 2006). Sie muss auf ein Sperrkonto auf den Namen des Mieters bei einer luxemburgischen Bank eingezahlt werden; die Zinsen gehören dem Mieter. Die Rückgabe muss innerhalb angemessener Frist nach Mietende erfolgen (typisch 1 bis 3 Monate), abzüglich eventueller im Auszugsprotokoll festgestellter Schäden. Eine staatliche Mietkaution ist für berechtigte Mieter über das Wohnungsbauministerium erhältlich.",
+      "section2P1": "Die geltende Obergrenze ist aus investiertem Kapital, Aufwertungen und Abschlägen zu bestimmen; Möblierungszuschläge separat begründen. Anpassungen folgen gesetzlichen Bedingungen, insbesondere Zweijahresabstand und 10-%-Erhöhungsgrenze samt Ausnahmen. Eine Wertklausel kann nach Einschreiben des Mieters unwirksam werden; der Verbraucherpreisindex schafft kein automatisches Erhöhungsrecht.",
+      "section2P2": "Bei neuen Wohnraummietverträgen ab 1. August 2024 beträgt die Sicherheit höchstens zwei Monatsmieten ohne Nebenkosten. Für ältere Verträge kann die frühere Dreimonatsgrenze gelten. Mehrere Sicherungsformen sind möglich; ein Sperrkonto ist nicht die einzige zulässige Form. Rückzahlungsbedingungen und Fristen anhand von Übergabeprotokoll, Forderungen und Abrechnungen prüfen.",
       "section3Title": "Pflichten von Vermieter und Mieter",
-      "section3P1": "Der Vermieter muss die Wohnung in gutem Zustand übergeben (Art. 1719 ZGB), die ungestörte Nutzung gewährleisten, größere Reparaturen durchführen (Dach, Fassade, Struktur, größere elektrische Konformität) und die kontradiktorischen Übergabeprotokolle bei Ein- und Auszug erstellen. Er kann vom Mieter nur die im GH-Reglement vom 16. Juni 2015 abschließend aufgelisteten Nebenkosten verlangen: Wasser/Strom/Gas der Gemeinschaftsflächen, Zentralheizung, Wartung der Gemeinschaftsbereiche, Aufzug, kommunale Müllabgabe, Gebäudehaftpflichtversicherung.",
-      "section3P2": "Der Mieter muss die Miete pünktlich zahlen, die Wohnung pfleglich nutzen, kleine Mieterreparaturen ausführen (Dichtungen, Glühbirnen, kleine Befestigungen), eine etwaige Hausordnung respektieren und dem Vermieter Zugang für Inspektionen oder Arbeiten gewähren. Der Zahlungsausfall von mehr als zwei Mietmonaten setzt den Mieter einer gerichtlichen Vertragsauflösung wegen schwerer Verletzung mit möglicher Räumung aus, nach erfolgloser Mahnung.",
+      "section3P1": "Miete von umlagefähigen Nutzungs-, Verbrauchs- und laufenden Wartungskosten trennen. Vorauszahlungen werden nach Belegen abgerechnet; eine Pauschale kann unter gesetzlichen Bedingungen vereinbart werden. Eigentumskosten und Großreparaturen werden nicht allein durch eine Vertragsklausel umlagefähig. Jeden Posten prüfen.",
+      "section3P2": "Die Laufzeit kann befristet oder unbefristet sein. Kündigung, Fristen und Verlängerung hängen davon, vom Vertrag und von gesetzlichen Gründen ab. Es besteht kein allgemeines Mieterrecht, jeden befristeten Vertrag jederzeit mit drei Monaten Frist zu beenden. Passende Regeln und Mitteilungen prüfen lassen.",
       "callout2Title": "Unzulässige Nebenkosten",
-      "callout2Body": "Der Vermieter darf dem Mieter Folgendes nicht weitergeben: Verwaltungs- oder Syndikusgebühren über den Mieteranteil hinaus, größere Ersatzarbeiten (Heizkessel, Dach, Fassade), Grundsteuer, Wohngebäudeversicherung außer Gebäudehaftpflicht oder Verbesserungs-/Modernisierungskosten.",
+      "callout2Body": "Miete von umlagefähigen Nutzungs-, Verbrauchs- und laufenden Wartungskosten trennen. Vorauszahlungen werden nach Belegen abgerechnet; eine Pauschale kann unter gesetzlichen Bedingungen vereinbart werden. Eigentumskosten und Großreparaturen werden nicht allein durch eine Vertragsklausel umlagefähig. Jeden Posten prüfen.",
       "section4Title": "Mietende und Rechtsmittel",
-      "section4P1": "Der Mieter kann jederzeit per Einschreiben mit 3 Monaten Frist kündigen (Art. 12 Gesetz 2006). Der Vermieter kann nur mit 6 Monaten Frist und ausschließlich aus drei berechtigten Gründen kündigen: Eigenbedarf für sich selbst, Ehepartner, Vor- oder Nachfahren; schwerer Vertragsverstoß durch den Mieter; Abriss- oder Umbauarbeiten, die die Belegung unmöglich machen. Die Kündigung muss schriftlich begründet werden, andernfalls ist sie nichtig.",
-      "section4P2": "Bei Streitigkeiten (überhöhte Miete, beanstandete Nebenkosten, nicht zurückgegebene Kaution, beanstandetes Protokoll) kann der Mieter oder Vermieter die kommunale Mietkommission der Wohngemeinde kostenlos anrufen (Art. 7 Gesetz 2006). Die Kommission gibt eine nicht bindende Stellungnahme ab, der Richter aber oft folgen. Wird die Stellungnahme ignoriert, kann der Fall vor den Friedensrichter gebracht werden, oder bei hohen Mieten vor das Bezirksgericht.",
+      "section4P1": "Die Laufzeit kann befristet oder unbefristet sein. Kündigung, Fristen und Verlängerung hängen davon, vom Vertrag und von gesetzlichen Gründen ab. Es besteht kein allgemeines Mieterrecht, jeden befristeten Vertrag jederzeit mit drei Monaten Frist zu beenden. Passende Regeln und Mitteilungen prüfen lassen.",
+      "section4P2": "Der Rechtsweg hängt vom Streitgegenstand ab. Die Mietkommission handelt in ihrem Zuständigkeitsbereich, insbesondere bei Mietfestsetzung; sie ist keine allgemeine Vorstufe jedes Streits. Sicherheitsrückzahlung oder Kündigung können zum Friedensgericht gehören. Belege aufbewahren und passende Schritte, Fristen und Bedingungen prüfen.",
       "callout3Title": "Solidarität zwischen Mitmietern",
-      "callout3Body": "Wenn mehrere Mieter zusammen unterschreiben (WG, Wohngemeinschaft), kann eine Solidarklausel jeden für die gesamte unbezahlte Miete haftbar machen. Nach Auszug eines Mitmieters kann seine Solidarität nicht über eine angemessene Frist (allgemein 6 Monate) ohne ausdrückliche Zustimmung aufrechterhalten werden — anderslautende Klauseln sind nichtig.",
+      "callout3Body": "Wohngemeinschaften können besonderen Vertrags- und Austrittsregeln unterliegen. Gesamtschuld, Ersatz und deren Ende nach diesem Regime prüfen; eine allgemeine Sechsmonatsdauer wird hier nicht behauptet.",
       "inlineCalc": {
         "title": "Prüfen Sie die Rechtmäßigkeit Ihrer Miete",
-        "description": "Hält die geforderte Miete die 5 %-Regel auf das aufgewertete investierte Kapital ein? Unser Rechner wendet den STATEC-Index und den Abnutzungsabschlag an, um Ihnen die genaue gesetzliche Obergrenze zu geben.",
+        "description": "Obergrenze anhand eingegebener Beträge und Belege schätzen. Ergebnis prüfen; es zertifiziert nicht die Rechtmäßigkeit der Miete.",
         "cta": "Höchstmiete berechnen"
       },
       "tools": [
@@ -9926,61 +9976,40 @@
       "faq": [
         {
           "q": "Wie lang ist die Kündigungsfrist für einen Auszug in Luxemburg?",
-          "a": "Der Mieter gibt eine Kündigungsfrist von 3 Monaten per Einschreiben (Art. 12 Gesetz 2006). Der Vermieter gibt 6 Monate Frist und kann nur aus berechtigten Gründen kündigen (Eigenbedarf, schwerer Verstoß, größere Arbeiten)."
+          "a": "Die Laufzeit kann befristet oder unbefristet sein. Kündigung, Fristen und Verlängerung hängen davon, vom Vertrag und von gesetzlichen Gründen ab. Es besteht kein allgemeines Mieterrecht, jeden befristeten Vertrag jederzeit mit drei Monaten Frist zu beenden. Passende Regeln und Mitteilungen prüfen lassen."
         },
         {
           "q": "Wie hoch ist die maximale Mietkaution in Luxemburg?",
-          "a": "Die Kaution ist auf 3 Monatsmieten ohne Nebenkosten gedeckelt (Art. 5 Gesetz 2006). Sie muss auf ein Sperrkonto auf Namen des Mieters eingezahlt werden und die Zinsen gehören dem Mieter. Jede Klausel mit höherer Kaution ist nichtig."
+          "a": "Bei neuen Wohnraummietverträgen ab 1. August 2024 beträgt die Sicherheit höchstens zwei Monatsmieten ohne Nebenkosten. Für ältere Verträge kann die frühere Dreimonatsgrenze gelten. Mehrere Sicherungsformen sind möglich; ein Sperrkonto ist nicht die einzige zulässige Form. Rückzahlungsbedingungen und Fristen anhand von Übergabeprotokoll, Forderungen und Abrechnungen prüfen."
         },
         {
           "q": "Kann der Vermieter die Miete während des Mietvertrags erhöhen?",
-          "a": "Eine Anpassung ist nur einmal alle zwei Jahre möglich, gedeckelt auf den STATEC-Verbraucherpreisindex, oder wenn Verbesserungsarbeiten eine Neubewertung des investierten Kapitals rechtfertigen (mit Neubewertung der 5 %-Obergrenze). Erhöhungen sind per Einschreiben mit einmonatiger Vorankündigung mitzuteilen."
+          "a": "Die geltende Obergrenze ist aus investiertem Kapital, Aufwertungen und Abschlägen zu bestimmen; Möblierungszuschläge separat begründen. Anpassungen folgen gesetzlichen Bedingungen, insbesondere Zweijahresabstand und 10-%-Erhöhungsgrenze samt Ausnahmen. Eine Wertklausel kann nach Einschreiben des Mieters unwirksam werden; der Verbraucherpreisindex schafft kein automatisches Erhöhungsrecht."
         },
         {
           "q": "Welche Nebenkosten dürfen zusätzlich zur Miete berechnet werden?",
-          "a": "Nur die im GH-Reglement vom 16. Juni 2015 aufgelisteten: Wasser, Strom und Gas der Gemeinschaftsflächen, Zentralheizung, laufende Wartung der Gemeinschaftsbereiche (Reinigung, Gartenpflege, Aufzug), kommunale Müllabgabe und Gebäudehaftpflichtversicherung. Alles andere (größere Arbeiten, Syndikus, Grundsteuer) trägt der Vermieter."
+          "a": "Miete von umlagefähigen Nutzungs-, Verbrauchs- und laufenden Wartungskosten trennen. Vorauszahlungen werden nach Belegen abgerechnet; eine Pauschale kann unter gesetzlichen Bedingungen vereinbart werden. Eigentumskosten und Großreparaturen werden nicht allein durch eine Vertragsklausel umlagefähig. Jeden Posten prüfen."
         },
         {
           "q": "Wie kann eine überhöhte Miete angefochten werden?",
-          "a": "Wenden Sie sich kostenlos an die Mietkommission Ihrer Gemeinde. Sie prüft die Berechnung des aufgewerteten investierten Kapitals und gibt eine Stellungnahme ab. Wenn der Vermieter nicht nachgibt, können Sie den Fall vor den Friedensrichter bringen, der eine rückwirkende Mietreduktion anordnen kann."
+          "a": "Der Rechtsweg hängt vom Streitgegenstand ab. Die Mietkommission handelt in ihrem Zuständigkeitsbereich, insbesondere bei Mietfestsetzung; sie ist keine allgemeine Vorstufe jedes Streits. Sicherheitsrückzahlung oder Kündigung können zum Friedensgericht gehören. Belege aufbewahren und passende Schritte, Fristen und Bedingungen prüfen."
         },
         {
           "q": "Was tun, wenn der Vermieter die Kaution nicht zurückgibt?",
-          "a": "Schicken Sie zuerst eine Mahnung per Einschreiben. Ohne Antwort innerhalb von 30 Tagen wenden Sie sich an die Mietkommission oder direkt an den Friedensrichter. Der Richter kann die Rückgabe zuzüglich Zinsen und Schadensersatz anordnen. Bewahren Sie das Auszugsprotokoll als Beweis auf."
+          "a": "Der Rechtsweg hängt vom Streitgegenstand ab. Die Mietkommission handelt in ihrem Zuständigkeitsbereich, insbesondere bei Mietfestsetzung; sie ist keine allgemeine Vorstufe jedes Streits. Sicherheitsrückzahlung oder Kündigung können zum Friedensgericht gehören. Belege aufbewahren und passende Schritte, Fristen und Bedingungen prüfen."
         }
       ],
       "sources": [
         {
-          "title": "Geändertes Gesetz vom 21. September 2006 über die Wohnraummiete",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo",
-          "year": 2006
-        },
-        {
-          "title": "Großherzogliches Reglement vom 16. Juni 2015 — umlegbare Nebenkosten",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo",
-          "year": 2015
-        },
-        {
-          "title": "Wohnungsmietvertrag — vollständiger Leitfaden",
+          "title": "Conclure un contrat de bail à usage d’habitation",
           "org": "Guichet.lu",
-          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html"
+          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-litige/conclure-contrat-bail-location.html"
         },
         {
-          "title": "Mietkommission — Verfahren",
-          "org": "Logement.lu — Wohnungsbauministerium",
-          "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html"
-        },
-        {
-          "title": "Mietkaution — staatliche Unterstützung",
-          "org": "Logement.lu",
-          "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html"
-        },
-        {
-          "title": "Zivilgesetzbuch — Pflichten des Vermieters (Art. 1719 ff.)",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+          "title": "Révision du bail à loyer et règles transitoires",
+          "org": "Ministère du Logement",
+          "url": "https://logement.public.lu/fr/actualites/2024/07/10-revisonbailaloyer.html",
+          "year": 2024
         }
       ]
     },
@@ -10592,45 +10621,45 @@
       "section4P1": "Fiktive Beispiele: Die gesamte Nettobasis ist begünstigt, die Nutzung erfüllt die Bedingungen und volle 50.000 EUR sind verfügbar. Grundstück, Honorare und ausgeschlossene Arbeiten sind nicht enthalten. Die Tabelle belegt keine Förderfähigkeit."
     },
     "bailCommercial": {
-      "title": "Gewerbemietvertrag Luxemburg: Gesetz 03.02.2018, 9 Jahre",
-      "metaDescription": "LU-Geschäftsmietvertrag: Gesetz 03.02.2018, 9 Jahre Mindestlaufzeit, dreijährliche Kündigung mit 6 Monaten Frist, STATEC-VPI-Indexierung, freies Schlüsselgeld, Erneuerungsrecht.",
-      "subtitle": "Der vollständige Rechtsrahmen für Geschäftsmietverträge in Luxemburg: Laufzeit, Kündigung, Miete, Indexierung und Erneuerungsrecht.",
+      "title": "Gewerbemiete in Luxemburg: Laufzeit, Miete und Klauseln",
+      "metaDescription": "Der Gewerbemietbereich richtet sich nach Artikeln 1762-3 ff. des Zivilgesetzbuchs, insbesondere aus dem Gesetz vom 3. Februar 2018. Die Anwendung hängt vom Vertrag und der tatsächlichen Tätigkeit ab. Ausschlüsse, Formvorschriften und Sonderklauseln sind im Einzelfall zu prüfen; dieser Leitfaden validiert keinen Vertrag.",
+      "subtitle": "Der Gewerbemietbereich richtet sich nach Artikeln 1762-3 ff. des Zivilgesetzbuchs, insbesondere aus dem Gesetz vom 3. Februar 2018. Die Anwendung hängt vom Vertrag und der tatsächlichen Tätigkeit ab. Ausschlüsse, Formvorschriften und Sonderklauseln sind im Einzelfall zu prüfen; dieser Leitfaden validiert keinen Vertrag.",
       "category": "Mieten & Mietvertrag",
       "essentiel": [
-        "Rechtsrahmen: Gesetz vom 3. Februar 2018 über Geschäftsmietverträge (in Kraft seit 1. April 2018), Modernisierung des bisherigen Zivilgesetzbuch-Regimes.",
-        "Mindestlaufzeit 9 Jahre (Art. 2). Dreijährliche Kündigung durch Mieter (3, 6, 9 Jahre) mit 6 Monaten Frist.",
-        "Freie Miete (keine 5%-Regel), STATEC-VPI-Indexierung bei expliziter Klausel, dreijährliche Überprüfung möglich.",
-        "Schlüsselgeld (pas-de-porte) zulässig und unreguliert: frei verhandelbar zwischen Vermieter und Mieter.",
-        "Erneuerungsrecht bei Ablauf; Verweigerung ohne berechtigten Grund = Räumungsentschädigung (Kundschafts-, Umzugs-, Geschäftsverlust)."
+        "Der Gewerbemietbereich richtet sich nach Artikeln 1762-3 ff. des Zivilgesetzbuchs, insbesondere aus dem Gesetz vom 3. Februar 2018. Die Anwendung hängt vom Vertrag und der tatsächlichen Tätigkeit ab. Ausschlüsse, Formvorschriften und Sonderklauseln sind im Einzelfall zu prüfen; dieser Leitfaden validiert keinen Vertrag.",
+        "Der Vertrag kann befristet oder unbefristet sein (Art. 1762-4 des Zivilgesetzbuchs). Eine allgemeine gesetzliche Mindestdauer von neun Jahren besteht nicht. Periodische Kündigungsoptionen hängen vom Vertrag ab; ein 3–6–9-Modell gilt nicht automatisch. Kündigungsfrist und Zustellungsform prüfen; die Frist darf in diesem Regelungsbereich sechs Monate nicht unterschreiten.",
+        "Die anfängliche Gewerbemiete wird ausgehandelt; die 5-%-Wohnraummietgrenze gilt nicht. Die Indexierung folgt der vertraglichen Formel, Indexreihe, Basis und den Terminen. Der Rechner verwendet eingegebene Indizes, ohne historische Werte oder Prognosen zu erfinden oder ein allgemeines dreijähriges Anpassungsrecht anzunehmen.",
+        "Ein für den Vertragsabschluss an Vermieter oder Vermittler gezahlter Zuschlag, sogenanntes Eintrittsgeld, ist verboten (Art. 1762-5). Maklergebühren und der Preis einer Geschäftsübertragung sind gesondert zu prüfen. Die Mietsicherheit ist in diesem Regelungsbereich auf sechs Monatsmieten begrenzt.",
+        "Verlängerung, Ablehnung und mögliche Entschädigung hängen von gesetzlichen Bedingungen, Gründen, Dauer der Beziehung und Mitteilungen ab. Automatische Entschädigung oder bedingungslose Verlängerung nicht voraussetzen. Vertrag und Fristen vor einer Mitteilung prüfen lassen."
       ],
       "section1Title": "Rechtsrahmen und Vertragstyp",
-      "section1P1": "Der Geschäftsmietvertrag in Luxemburg wird seit dem 1. April 2018 vom Gesetz vom 3. Februar 2018 erfasst. Dieses Gesetz hat die alleinige Anwendung des Zivilgesetzbuchs ersetzt und den Rahmen tiefgreifend modernisiert: gesetzliche Mindestlaufzeit, Erneuerungsrecht, Räumungsentschädigung, geregelte Indexierung. Es gilt für Mietverträge über Räumlichkeiten, die für eine professionell ausgeübte gewerbliche, handwerkliche oder industrielle Tätigkeit genutzt werden.",
-      "section1P2": "Vom Anwendungsbereich ausgeschlossen: Wohnmietverträge (Gesetz 21.09.2006), Pachtverträge (spezielles Regime), Mietverträge über immaterielle Güter (Geschäftswert ohne Räume) und Kurzzeitvermietungen (< 6 Monate für saisonale Tätigkeiten). Der Mietvertrag muss schriftlich sein (vorzugsweise, aber nicht zwingend); andernfalls beweisen Belegung und Zahlung den Mietvertrag, jedoch mit erhöhter Beweislast bei Streit.",
+      "section1P1": "Der Gewerbemietbereich richtet sich nach Artikeln 1762-3 ff. des Zivilgesetzbuchs, insbesondere aus dem Gesetz vom 3. Februar 2018. Die Anwendung hängt vom Vertrag und der tatsächlichen Tätigkeit ab. Ausschlüsse, Formvorschriften und Sonderklauseln sind im Einzelfall zu prüfen; dieser Leitfaden validiert keinen Vertrag.",
+      "section1P2": "Der Gewerbemietbereich richtet sich nach Artikeln 1762-3 ff. des Zivilgesetzbuchs, insbesondere aus dem Gesetz vom 3. Februar 2018. Die Anwendung hängt vom Vertrag und der tatsächlichen Tätigkeit ab. Ausschlüsse, Formvorschriften und Sonderklauseln sind im Einzelfall zu prüfen; dieser Leitfaden validiert keinen Vertrag.",
       "callout1Title": "Abgedeckte Tätigkeit = effektive Ausübung",
-      "callout1Body": "Das Gesetz von 2018 schützt nur Mietverträge, in denen der Mieter tatsächlich eine gewerbliche Tätigkeit unter der gemieteten Adresse ausübt (Handelsregister, Beschilderung, Kundschaft). Eine bloße Domizilierung oder Büronutzung ohne Kundschaft reicht nicht aus, um den Geschäftsmietschutz in Anspruch zu nehmen.",
-      "section2Title": "Laufzeit und dreijährliche Kündigung",
-      "section2P1": "Die gesetzliche Mindestlaufzeit beträgt 9 Jahre (Art. 2). Die Parteien können eine längere Laufzeit vereinbaren (z.B. 12, 15 oder 25 Jahre für große Ausbau-Investitionen), aber niemals kürzer. Sieht der Vertrag weniger als 9 Jahre vor, wird die Laufzeit gesetzlich automatisch auf 9 Jahre erhöht.",
-      "section2P2": "Der Mieter hat ein dreijährliches Kündigungsrecht: Er kann den Mietvertrag am Ende jeder Dreijahresperiode (3, 6, 9 Jahre) mit 6 Monaten Frist per Gerichtsvollzieherakt oder Einschreiben kündigen (Art. 4). Der Vermieter darf während des Mietvertrags nur aus limitativ aufgezählten Gründen kündigen: schwerer Mietersverstoß, persönlicher Geschäftsbedarf oder totale Abriss-/Wiederaufbauarbeiten.",
+      "callout1Body": "Der Gewerbemietbereich richtet sich nach Artikeln 1762-3 ff. des Zivilgesetzbuchs, insbesondere aus dem Gesetz vom 3. Februar 2018. Die Anwendung hängt vom Vertrag und der tatsächlichen Tätigkeit ab. Ausschlüsse, Formvorschriften und Sonderklauseln sind im Einzelfall zu prüfen; dieser Leitfaden validiert keinen Vertrag.",
+      "section2Title": "Laufzeit und Kündigungsmöglichkeiten",
+      "section2P1": "Der Vertrag kann befristet oder unbefristet sein (Art. 1762-4 des Zivilgesetzbuchs). Eine allgemeine gesetzliche Mindestdauer von neun Jahren besteht nicht. Periodische Kündigungsoptionen hängen vom Vertrag ab; ein 3–6–9-Modell gilt nicht automatisch. Kündigungsfrist und Zustellungsform prüfen; die Frist darf in diesem Regelungsbereich sechs Monate nicht unterschreiten.",
+      "section2P2": "Der Vertrag kann befristet oder unbefristet sein (Art. 1762-4 des Zivilgesetzbuchs). Eine allgemeine gesetzliche Mindestdauer von neun Jahren besteht nicht. Periodische Kündigungsoptionen hängen vom Vertrag ab; ein 3–6–9-Modell gilt nicht automatisch. Kündigungsfrist und Zustellungsform prüfen; die Frist darf in diesem Regelungsbereich sechs Monate nicht unterschreiten.",
       "section3Title": "Miete, Indexierung und Schlüsselgeld",
-      "section3P1": "Die Geschäftsmiete ist NICHT durch die 5%-Regel des investierten Kapitals gedeckelt (die nur für Wohnmieten gilt). Sie wird frei zwischen den Parteien nach Marktbedingungen und dem Mietwert der Räume festgelegt. Für LU-Geschäftsräume liegen Prime-Mieten LU-Stadt typisch zwischen 80 und 250 €/m²/Monat je nach Lage und Nutzung.",
-      "section3P2": "Die Indexierung ist an den Verbraucherpreisindex (VPI) des STATEC gekoppelt. Die Indexierungsklausel muss ausdrücklich im Mietvertrag vorgesehen sein; andernfalls bleibt die Miete während der gesamten Laufzeit fest. Eine Mietüberprüfung kann von jeder Partei am Ende jeder Dreijahresperiode verlangt werden, wenn die Miete nicht mehr dem tatsächlichen Mietwert entspricht (Art. 7). Schlüsselgeld (pas-de-porte) ist zulässig, als Gegenleistung für die Geschäftsvorteile der Lage, und frei verhandelbar.",
-      "callout2Title": "Luxemburger Besonderheit: kein ILC",
-      "callout2Body": "Anders als Frankreich, das einen spezifischen Geschäftsmietindex (ILC) hat, verwendet Luxemburg den allgemeinen VPI. Das kann die Geschäftsmiete von den tatsächlichen Marktbedingungen entkoppeln. Antizipieren Sie, indem Sie eventuell einen jährlichen Indexierungs-Cap im Mietvertrag aushandeln.",
+      "section3P1": "Die anfängliche Gewerbemiete wird ausgehandelt; die 5-%-Wohnraummietgrenze gilt nicht. Die Indexierung folgt der vertraglichen Formel, Indexreihe, Basis und den Terminen. Der Rechner verwendet eingegebene Indizes, ohne historische Werte oder Prognosen zu erfinden oder ein allgemeines dreijähriges Anpassungsrecht anzunehmen.",
+      "section3P2": "Ein für den Vertragsabschluss an Vermieter oder Vermittler gezahlter Zuschlag, sogenanntes Eintrittsgeld, ist verboten (Art. 1762-5). Maklergebühren und der Preis einer Geschäftsübertragung sind gesondert zu prüfen. Die Mietsicherheit ist in diesem Regelungsbereich auf sechs Monatsmieten begrenzt.",
+      "callout2Title": "Klausel und Indizes wählen",
+      "callout2Body": "Die anfängliche Gewerbemiete wird ausgehandelt; die 5-%-Wohnraummietgrenze gilt nicht. Die Indexierung folgt der vertraglichen Formel, Indexreihe, Basis und den Terminen. Der Rechner verwendet eingegebene Indizes, ohne historische Werte oder Prognosen zu erfinden oder ein allgemeines dreijähriges Anpassungsrecht anzunehmen.",
       "section4Title": "Erneuerungsrecht und Räumungsentschädigung",
-      "section4P1": "Der Geschäftsmieter hat bei Vertragsablauf ein Erneuerungsrecht (Art. 5). Es wird durch Benachrichtigung des Vermieters mindestens 6 Monate vor dem Termin ausgeübt. Ein Vermieter, der die Erneuerung ohne berechtigten Grund ablehnt, muss dem Mieter eine Räumungsentschädigung zahlen, die den Verlust deckt: Kundschaftsverlust, Umzugs- und Neueinrichtungskosten, Entschädigung für Geschäftsverlust.",
-      "section4P2": "Der Vermieter kann die Erneuerung nur aus schwerwiegenden Gründen ohne Entschädigung ablehnen: vertraglicher oder gesetzlicher Verstoß des Mieters, baulicher Zustand, der vollständigen Abriss und Wiederaufbau erfordert, oder persönlicher Geschäftsbedarf (der Vermieter muss die Räume dann in derselben oder verwandter Tätigkeit mindestens 2 Jahre nutzen). Die Abtretung des Geschäftsmietvertrags ist möglich, sofern nicht anders vereinbart, in der Regel an die Geschäftswertsabtretung gekoppelt; der Vermieter muss informiert werden.",
+      "section4P1": "Verlängerung, Ablehnung und mögliche Entschädigung hängen von gesetzlichen Bedingungen, Gründen, Dauer der Beziehung und Mitteilungen ab. Automatische Entschädigung oder bedingungslose Verlängerung nicht voraussetzen. Vertrag und Fristen vor einer Mitteilung prüfen lassen.",
+      "section4P2": "Verlängerung, Ablehnung und mögliche Entschädigung hängen von gesetzlichen Bedingungen, Gründen, Dauer der Beziehung und Mitteilungen ab. Automatische Entschädigung oder bedingungslose Verlängerung nicht voraussetzen. Vertrag und Fristen vor einer Mitteilung prüfen lassen.",
       "callout3Title": "Abtretung und Untervermietung",
-      "callout3Body": "Die Abtretung des Geschäftsmietvertrags an einen Dritten (insbesondere bei Geschäftswertsverkauf) ist frei, sofern nicht ausdrücklich im Vertrag verboten. Die Teiluntervermietung ist stärker reglementiert und erfordert in der Regel die schriftliche Zustimmung des Vermieters. Jede Abtretung muss ihm mitgeteilt werden. Wenn der Vertrag die Abtretung verbietet, sehen Sie eine Ausstiegsklausel beim Geschäftswertsverkauf vor.",
+      "callout3Body": "Abtretung und Untervermietung unterliegen besonderen Regeln, insbesondere bei Geschäftsübertragungen. Aus einer Klausel allein weder uneingeschränkte Freiheit noch ein absolutes Verbot ableiten. Gesetzliche Bedingungen und notwendige Mitteilungen vorab prüfen.",
       "inlineCalc": {
         "title": "Bewerten Sie die Rentabilität eines Geschäftsraums",
-        "description": "Unser Geschäftsmiet-Tool integriert die freie Mietfestsetzung, das amortisierbare Schlüsselgeld, die VPI-Indexierung, die Ausbauamortisation und die Berechnung der Nettorendite für Vermieter und Mieter.",
+        "description": "Indexierungsszenario mit eingegebenen Indizes, frei gewählter Laufzeit, konstanten Kosten und separater Sicherheit.",
         "cta": "Analyse starten"
       },
       "tools": [
         {
           "href": "/bail-commercial",
           "title": "Geschäftsmiet-Tool",
-          "description": "Miete, Schlüsselgeld, VPI-Indexierung, Vermieter-/Mieter-Rendite."
+          "description": "Indexierungsszenario mit eingegebenen Indizes, frei gewählter Laufzeit, konstanten Kosten und separater Sicherheit."
         },
         {
           "href": "/dcf-multi",
@@ -10651,55 +10680,46 @@
       "faq": [
         {
           "q": "Welche Mindestlaufzeit hat ein Geschäftsmietvertrag in Luxemburg?",
-          "a": "9 Jahre (Art. 2 Gesetz vom 3. Februar 2018). Der Mieter kann zu jeder Dreijahresperiode (3, 6, 9 Jahre) mit 6 Monaten Frist kündigen. Der Vermieter darf nur bei schwerem Verstoß, persönlichem Geschäftsbedarf oder Abriss/Wiederaufbau kündigen."
+          "a": "Der Vertrag kann befristet oder unbefristet sein (Art. 1762-4 des Zivilgesetzbuchs). Eine allgemeine gesetzliche Mindestdauer von neun Jahren besteht nicht. Periodische Kündigungsoptionen hängen vom Vertrag ab; ein 3–6–9-Modell gilt nicht automatisch. Kündigungsfrist und Zustellungsform prüfen; die Frist darf in diesem Regelungsbereich sechs Monate nicht unterschreiten."
         },
         {
           "q": "Ist die Geschäftsmiete in Luxemburg gedeckelt?",
-          "a": "Nein, anders als bei Wohnmietverträgen (5%-Obergrenze auf investiertes Kapital) wird die Geschäftsmiete frei zwischen den Parteien festgelegt. Indexierung über den STATEC-VPI bei ausdrücklicher Klausel."
+          "a": "Die anfängliche Gewerbemiete wird ausgehandelt; die 5-%-Wohnraummietgrenze gilt nicht. Die Indexierung folgt der vertraglichen Formel, Indexreihe, Basis und den Terminen. Der Rechner verwendet eingegebene Indizes, ohne historische Werte oder Prognosen zu erfinden oder ein allgemeines dreijähriges Anpassungsrecht anzunehmen."
         },
         {
-          "q": "Was ist Schlüsselgeld und wie verhandelt man es?",
-          "a": "Schlüsselgeld (pas-de-porte) ist eine Anfangszahlung des Mieters an den Vermieter als Gegenleistung für die Geschäftsvorteile der Lage. In LU zulässig, unreguliert, frei verhandelbar (typisch 1 bis 6 Monatsmieten für eine Standardlage, bis zu mehreren Jahren für Prime). Vom Mieter über die Vertragslaufzeit amortisierbar."
+          "q": "Darf Eintrittsgeld verlangt werden?",
+          "a": "Ein für den Vertragsabschluss an Vermieter oder Vermittler gezahlter Zuschlag, sogenanntes Eintrittsgeld, ist verboten (Art. 1762-5). Maklergebühren und der Preis einer Geschäftsübertragung sind gesondert zu prüfen. Die Mietsicherheit ist in diesem Regelungsbereich auf sechs Monatsmieten begrenzt."
         },
         {
           "q": "Wie funktioniert das Erneuerungsrecht?",
-          "a": "Der Mieter notifiziert eine Erneuerungsanfrage mindestens 6 Monate vor dem Vertragsablauf. Ein Vermieter, der ohne berechtigten Grund (Verstoß, Abriss, Eigenbedarf) ablehnt, muss eine Räumungsentschädigung für Kundschafts-, Umzugs- und Geschäftswertsverlust zahlen. Der Betrag wird einvernehmlich oder gerichtlich festgesetzt."
+          "a": "Verlängerung, Ablehnung und mögliche Entschädigung hängen von gesetzlichen Bedingungen, Gründen, Dauer der Beziehung und Mitteilungen ab. Automatische Entschädigung oder bedingungslose Verlängerung nicht voraussetzen. Vertrag und Fristen vor einer Mitteilung prüfen lassen."
         },
         {
           "q": "Kann der Vermieter die Vertragsabtretung an einen Übernehmer blockieren?",
-          "a": "Nein, sofern keine Gegenklausel im Vertrag. Die Geschäftsmietabtretung ist frei, in der Regel an die Geschäftswertsabtretung gekoppelt. Der Vermieter muss informiert werden, kann aber nicht widersprechen, sofern die Vertragsbedingungen (Miete, Nutzung) vom Übernehmer eingehalten werden. Eine Genehmigungsklausel vorsehen, falls der Vermieter Aufsicht wünscht."
+          "a": "Abtretung und Untervermietung unterliegen besonderen Regeln, insbesondere bei Geschäftsübertragungen. Aus einer Klausel allein weder uneingeschränkte Freiheit noch ein absolutes Verbot ableiten. Gesetzliche Bedingungen und notwendige Mitteilungen vorab prüfen."
         },
         {
           "q": "Was tun bei schwerem Mietersverstoß?",
-          "a": "Der Vermieter sendet eine Mahnung per Einschreiben unter Angabe des Verstoßes (unbezahlte Miete > 2 Monate, verbotene Untervermietung, Nutzungsänderung, größere Schäden). Ohne Heilung innerhalb von 30 Tagen kann der Vermieter den Fall vor Gericht zur gerichtlichen Auflösung mit Räumungsantrag und Forderungen für Rückstände/Schadensersatz bringen."
+          "a": "Dokumentieren Sie Tatsachen und Korrespondenz. Kündigung und mögliche Räumung folgen den geltenden Bedingungen und Verfahren; dieser Leitfaden begründet weder eine automatische Zweimonatsschwelle noch eine allgemeine Dreißigtagesfrist. Vor Verfahrensbeginn beraten lassen."
         }
       ],
       "sources": [
         {
-          "title": "Gesetz vom 3. Februar 2018 über Geschäftsmietverträge",
+          "title": "Loi du 3 février 2018 portant sur le bail commercial",
           "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a110/jo",
           "year": 2018
         },
         {
-          "title": "Geschäftsmietvertrag — praktischer Leitfaden",
-          "org": "Guichet.lu",
-          "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html"
+          "title": "Réforme du bail commercial : adoption et pas-de-porte",
+          "org": "Ministère de l’Économie",
+          "url": "https://meco.gouvernement.lu/fr/actualites.gouvernement2024%2Bfr%2Bactualites%2Btoutes_actualites%2Bcommuniques%2B2018%2B01-janvier%2B17-bail.html",
+          "year": 2018
         },
         {
-          "title": "Verbraucherpreisindex (VPI)",
+          "title": "Indice des prix à la consommation et inflation",
           "org": "STATEC",
-          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
-        },
-        {
-          "title": "Zivilgesetzbuch — Artikel 1709 ff.",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
-        },
-        {
-          "title": "Handelskammer — Unternehmerunterstützung",
-          "org": "Luxemburger Handelskammer",
-          "url": "https://www.cc.lu/"
+          "url": "https://statistiques.public.lu/fr/donnees/themes/economie-finances/dossier-indice-prix-inflation.html"
         }
       ]
     },
@@ -11635,7 +11655,7 @@
       "faq1q": "Ist die hedonische Methode veröffentlicht?",
       "faq1a": "Diese Prozentsätze sind Arbeitsannahmen, keine amtlichen Koeffizienten des Observatoriums. MAPE, R², Signifikanz oder Genauigkeit an realen Verkäufen sind nicht nachgewiesen.",
       "faq2q": "Wie funktioniert die SHA-256-Signatur?",
-      "faq2a": "Bei Ausstellung wird das PDF gehasht und der Hash in der DB gespeichert (unveränderbar per Trigger). Der Kunde fügt die URL auf /verify ein, die neu hasht und vergleicht.",
+      "faq2a": "Eine Prüfsumme vergleicht Inhalte mit einer gespeicherten Referenz. Allein zertifiziert sie weder Identität, Zustimmung, Datum noch rechtliche Wirksamkeit. Dokument und Prüfdaten aufbewahren; eine Prüfsumme allein ist keine qualifizierte Signatur.",
       "faq3q": "Multi-Gutachter: wie teilen?",
       "faq3a": "/profil/organisation erlaubt Kanzlei-Erstellung, Mitglieder einladen (Rollen admin/member/viewer), Bewertungen teilen. Admin-Stats, VIES-Lookup bei Erstellung.",
       "faq4q": "Kann ich nach DOCX exportieren?",
@@ -11803,7 +11823,7 @@
       "parcoursStep1Title": "API-Schlüssel erstellen",
       "parcoursStep1Desc": "/profil/api: Schlüssel mit Scope, monatlichem Kontingent, IP-Allowlist erstellen.",
       "parcoursStep2Title": "Endpoints testen",
-      "parcoursStep2Desc": "/api-docs: OpenAPI 3.1 mit Try-it-out, cURL-Beispielen.",
+      "parcoursStep2Desc": "/api-docs: OpenAPI-Dokumentation, cURL-Beispiele und Anfrage-/Antwortschemata. PropCalc-Endpunkte: yield, cashflow, mortgage und fees. Prüfen Sie die erforderlichen Eingaben und den Umfang jeder Berechnung in der Dokumentation.",
       "parcoursStep3Title": "Webhooks + Produktion",
       "parcoursStep3Desc": "Webhook konfigurieren mit HMAC-SHA256-Signatur. Test-Endpoint /api/v1/webhooks/test.",
       "toolsTitle": "Empfohlene Tools",
@@ -11825,30 +11845,30 @@
     },
     "str_operator": {
       "title": "Kurzzeitvermietung-Leitfaden",
-      "intro": "Airbnb, Booking, STR-Concierge-Betreiber: LU-Rentabilitätsrechner, EU-Verordnung 2024/1028-Konformität, 3-Monate/Jahr LU-Lizenzschwelle, Lang- vs Kurzzeit-Arbitrage.",
+      "intro": "Für Airbnb- und Booking-Gastgeber sowie Verwalter: Rentabilitätsszenarien, Vergleich von Langzeit- und Kurzzeitvermietung sowie zu prüfende luxemburgische und europäische Pflichten.",
       "backToHub": "Alle Leitfäden",
       "parcoursTitle": "Typischer Pfad",
-      "parcoursIntro": "Von der STR-Analyse zur EU 2024/1028-Konformität.",
+      "parcoursIntro": "Von wirtschaftlichen Szenarien zu den für Ihre Tätigkeit geltenden Pflichten.",
       "parcoursStep1Title": "Rentabilität analysieren",
       "parcoursStep1Desc": "/str/forecast: 12-Monats-Prognose, LU-Saisonalität, Belegung-Sensitivität.",
       "parcoursStep2Title": "Lang- vs Kurzzeit-Arbitrage",
       "parcoursStep2Desc": "/str: vergleicht STR-Rendite vs klassische Miete mit Nettokosten.",
-      "parcoursStep3Title": "EU 2024/1028 + LU-Konformität",
-      "parcoursStep3Desc": "/str/compliance: europäisches Register, 3-Monate/Jahr LU-Schwelle.",
+      "parcoursStep3Title": "STR-Pflichten in Luxemburg und der EU",
+      "parcoursStep3Desc": "/str/compliance hilft bei der Prüfung: 90 Übernachtungen insgesamt je Betreiber, Niederlassungsgenehmigung, Schulung, Gemeinderegeln und lokale Registrierungsverfahren. Das PDF dient der internen Vorbereitung; es ist weder Antragseinreichung noch Genehmigung.",
       "toolsTitle": "Empfohlene Tools",
       "toolsIntro": "Analyse + Konformität + Portfolio.",
       "faqTitle": "Häufige Fragen",
-      "faq1q": "Was verlangt EU-Verordnung 2024/1028?",
-      "faq1a": "Pflichtregistrierung in EU-Register, automatische Datenübertragung, sichtbare Registrierungsnummer. Mitte 2026 in Kraft.",
+      "faq1q": "Welche Pflichten der Verordnung (EU) 2024/1028 muss ich prüfen?",
+      "faq1a": "Die Verordnung (EU) 2024/1028 gilt seit dem 20. Mai 2026. Die Pflichten hängen von den für die Einheit geltenden Registrierungsverfahren ab. Sie schafft kein einheitliches europäisches Register. Angaben der Gastgeber sind von den Datenmeldungen der Plattformen zu unterscheiden.",
       "faq2q": "Muss ich STR-Einkommen deklarieren?",
       "faq2a": "Ja, als BIC-Einkommen. MwSt: Franchise < 35k €/Jahr. Kurtaxe: ab 1 Nacht fällig.",
-      "faq3q": "Was bei Überschreiten der 3-Monats-Schwelle?",
-      "faq3a": "Gewerbliche Beherbergungslizenz erforderlich bei > 90 Tagen/Jahr Kurzzeitvermietung einer Nicht-Hauptwohnsitz-Immobilie.",
+      "faq3q": "Was ist ab insgesamt 90 Übernachtungen je Betreiber zu prüfen?",
+      "faq3a": "In Luxemburg liegt die Schwelle für die gewerbliche Beherbergung bei mindestens 90 Übernachtungen, zusammengerechnet über alle Einheiten eines Betreibers im Referenzjahr, gerechnet ab der letzten Vermietung. Prüfen Sie die Niederlassungsgenehmigung und die erforderlichen Qualifikationen oder Schulungen. Auch unterhalb dieser Schwelle sind weitere Pflichten zu prüfen.",
       "faq4q": "Dynamisches Pricing wie PriceLabs integriert?",
       "faq4a": "Noch nicht. Statische saisonale Prognose. Für Echtzeit-Dynamic-Pricing Drittanbieter PriceLabs/Wheelhouse.",
       "relatedTitle": "Weiterführend",
       "ctaTitle": "STR-Analyse starten",
-      "ctaDesc": "Kostenlose 12-Monats-Prognose + EU 2024/1028-Konformität.",
+      "ctaDesc": "Rentabilitätsszenarien, Vergleich von Langzeit- und Kurzzeitvermietung und Checkliste der zu prüfenden Pflichten.",
       "ctaPrimary": "STR-Hub öffnen",
       "ctaSecondary": "Alle Leitfäden"
     }
@@ -12953,12 +12973,12 @@
   "strHub": {
     "meta": {
       "title": "Kurzzeitvermietung Luxemburg — Airbnb, Booking, Vrbo | tevaxia.lu",
-      "description": "7 STR-Rechner für Airbnb/Booking-Gastgeber in Luxemburg: Nettorendite nach Steuer, Compliance (3-Monats-Schwelle, Lizenz, EU Reg 2026), Lang- vs Kurzzeit-Arbitrage, dynamisches Pricing."
+      "description": "Werkzeuge zur Kurzzeitvermietung in Luxemburg: wirtschaftliche Simulationen, zu prüfende Pflichten und Vergleich mit Langzeitvermietung."
     },
     "hero": {
       "title": "Kurzzeitvermietung in Luxemburg",
       "subtitle": "7 kostenlose Tools für Airbnb-, Booking-, Vrbo- und Saisongastgeber in Luxemburg. Realistische Rendite, gesetzliche Compliance 2026, Arbitrage zwischen Lang- und Kurzzeitvermietung.",
-      "tag1": "3-Monats-Schwelle / Jahr",
+      "tag1": "90 Übernachtungen insgesamt je Betreiber",
       "tag2": "LU-Einkommensteuer",
       "tag3": "EU Regulation 2024/1028",
       "tag4": "Airbnb / Booking / Vrbo"
@@ -12970,7 +12990,7 @@
       },
       "compliance": {
         "title": "STR Luxemburg Compliance",
-        "desc": "Rechtliche Checkliste: 3-Monats-Schwelle, Beherbergungslizenz, Gemeindeverordnungen, EU Regulation 2024/1028."
+        "desc": "Zu prüfen: insgesamt 90 Übernachtungen je Betreiber, Genehmigung, Schulung, Gemeinderegeln und geltende Registrierungsverfahren."
       },
       "arbitrage": {
         "title": "LT vs ST vs Mix Arbitrage",
@@ -12985,8 +13005,8 @@
         "desc": "Median ADR, Perzentile, Auslastung und RevPAR pro Zone. 4.200 LU-Listings Q4 2025. Kostenlose lokale Alternative zu AirDNA."
       },
       "complianceEu": {
-        "title": "EU STR-Register 2024/1028",
-        "desc": "Pflichtregistrierung im europäischen Kurzzeitvermietungs-Register (Mitte 2026). Dossier-Generierung + Identifikationsnummer."
+        "title": "STR-Vorbereitungsunterlagen",
+        "desc": "Sammeln Sie wichtige Angaben vor der Prüfung Ihrer Pflichten. Dieses Werkzeug nimmt keine Registrierung vor und vergibt keine amtliche Nummer."
       },
       "forecast": {
         "title": "12-Monats-Prognose",
@@ -12997,15 +13017,15 @@
       "title": "Warum eine eigene Luxemburg-STR-Vertikale?",
       "rules": {
         "title": "LU-spezifische Regeln",
-        "body": "Über 90 kumulierte Tage pro Jahr muss der Vermieter eine Beherbergungslizenz erhalten (Art. 6 Gesetz 17.07.2020). Luxemburg-Stadt setzt zusätzliche kommunale Beschränkungen durch."
+        "body": "In Luxemburg liegt die Schwelle für die gewerbliche Beherbergung bei mindestens 90 Übernachtungen, zusammengerechnet über alle Einheiten eines Betreibers im Referenzjahr, gerechnet ab der letzten Vermietung. Prüfen Sie die Niederlassungsgenehmigung und die erforderlichen Qualifikationen oder Schulungen. Auch unterhalb dieser Schwelle sind weitere Pflichten zu prüfen."
       },
       "eu": {
         "title": "EU Regulation 2024/1028",
-        "body": "Inkrafttreten Mitte 2026: einheitliches europäisches Register, verpflichtende Übermittlung der Übernachtungen an Gemeinden. Alle Airbnb/Booking-Gastgeber betroffen."
+        "body": "Die Verordnung (EU) 2024/1028 gilt seit dem 20. Mai 2026. Die Pflichten hängen von den für die Einheit geltenden Registrierungsverfahren ab. Sie schafft kein einheitliches europäisches Register. Angaben der Gastgeber sind von den Datenmeldungen der Plattformen zu unterscheiden."
       },
       "tax": {
         "title": "Einkommensteuer 2026",
-        "body": "Einkommen > 600 €/Jahr → verpflichtende IR-Erklärung. Grenzsteuersatz bis zu 45,78 % (IR 42 % × Beschäftigungsbeitrag 1,09). Abzugsfähig: Zinsen, PNO, Reinigung, OTA 15-18 %."
+        "body": "Die Pflicht hängt unter anderem vom Haushalt, den Nettoeinkünften und dem Tätigkeitsstatus ab. Die 600-Euro-Grenze bestimmter Steuersituationen ist kein allgemeiner Freibetrag für Mieteinnahmen."
       },
       "arbitrage": {
         "title": "LT vs ST Arbitrage",
@@ -13116,16 +13136,16 @@
   "strCompliance": {
     "back": "Kurzzeitvermietung",
     "title": "STR Luxemburg Compliance",
-    "subtitle": "Prüfen Sie Ihre rechtlichen Verpflichtungen vor dem Start einer Kurzzeitvermietung in Luxemburg. 3-Monats-Schwelle, Beherbergungslizenz, Gemeindeverordnungen, Einkommensteuer, EU Regulation 2024/1028.",
+    "subtitle": "Ermitteln Sie Prüfungen zu Tätigkeitsschwellen, kommunalen Regeln, Steuern und Registrierung. Dieses Tool bescheinigt keine Rechtskonformität.",
     "form": {
       "title": "Ihr STR-Projekt",
-      "nights": "Geplante Übernachtungen über 12 Monate",
+      "nights": "Kumulierte Nächte aller Ihrer Einheiten",
       "nightsSuffix": "Nächte",
-      "nightsHint": "Gesetzliche Schwelle: {threshold} Nächte/Jahr (darüber, Lizenz verpflichtend)",
+      "nightsHint": "Schwelle: mindestens {threshold} Nächte aller Einheiten eines Betreibers in einem Jahr ab der letzten Vermietung.",
       "commune": "Gemeinde",
       "ownerType": "Eigentümertyp",
       "revenue": "Geschätzter jährlicher STR-Umsatz",
-      "revenueHint": "IR-Erklärungsschwelle: {threshold}/Jahr",
+      "revenueHint": "Einnahmen allein bestimmen nicht Ihre Steuererklärungspflicht.",
       "primaryResidence": "Die Immobilie ist mein Hauptwohnsitz (gelegentliche Vermietung während Reisen)"
     },
     "ownerTypes": {
@@ -13134,19 +13154,20 @@
       "nonResident": "Nicht-steuerlich ansässig in LU"
     },
     "status": {
-      "label": "Regulatorischer Status",
-      "licenseRequired": "Beherbergungslizenz erforderlich",
-      "noLicense": "Keine Lizenz erforderlich",
-      "exceeded": "Sie überschreiten die Schwelle von {threshold} Nächten/Jahr um {over} Nächte. Antrag muss vor jeder Vermietung eingereicht werden.",
-      "remaining": "Es bleiben {nights} Nächte bis zum Erreichen der Lizenzschwelle."
+      "label": "Schwelle der Beherbergungstätigkeit",
+      "licenseRequired": "Genehmigungsschwelle erreicht",
+      "noLicense": "Schwelle von 90 Nächten nicht erreicht",
+      "exceeded": "Die Schwelle von {threshold} Nächten ist erreicht oder um {over} Nächte überschritten. Niederlassungsgenehmigung und Schulung prüfen.",
+      "remaining": "Die Schwelle wäre nach weiteren {nights} Nächten erreicht. Andere Pflichten bleiben zu prüfen."
     },
     "risk": {
-      "title": "Kommunales regulatorisches Risiko",
+      "title": "Kommunale Vorschriften",
       "high": "hoch",
       "medium": "mittel",
       "low": "niedrig",
       "body": "Gemeinde « {commune} »: Risiko {level}.",
-      "highNote": "Luxemburg-Stadt insbesondere setzt strenge Beschränkungen seit 2024: Prüfen Sie die aktuelle Gemeindeverordnung."
+      "highNote": "Luxemburg-Stadt insbesondere setzt strenge Beschränkungen seit 2024: Prüfen Sie die aktuelle Gemeindeverordnung.",
+      "unverified": "{commune}: örtliche Vorschriften nicht geprüft. Kontaktieren Sie die Gemeinde; aus ihrem Namen wird kein Risiko abgeleitet."
     },
     "tax": {
       "title": "LU-Einkommensteuer",
@@ -13155,22 +13176,37 @@
       "required": "Pflichterklärung?",
       "yes": "JA (Formular 100)",
       "no": "Nein",
-      "note": "Max. Grenzsteuersatz LU: 45,78% (IR 42% × Beschäftigungsbeitrag 1,09). Abzugsfähig: Darlehenszinsen, PNO, Reinigung, Möbelabschreibung, OTA-Provisionen (15-18%)."
+      "note": "Die Pflicht hängt unter anderem vom Haushalt, den Nettoeinkünften und dem Tätigkeitsstatus ab. Die 600-Euro-Grenze bestimmter Steuersituationen ist kein allgemeiner Freibetrag für Mieteinnahmen.",
+      "toCheck": "Zu klären"
     },
     "eu": {
       "title": "EU Regulation 2024/1028 zu STR",
-      "inForce": "Inkrafttreten Mitte 2026.",
-      "obligations": "Verpflichtungen:",
-      "item1": "Registrierung im einheitlichen europäischen Register der Kurzzeitvermietungen",
-      "item2": "Übermittlung der Übernachtungen an Gemeinden (Airbnb/Booking-Plattformen übernehmen das Reporting)",
-      "item3": "Identifikationsnummer obligatorisch auf Listings anzuzeigen"
+      "inForce": "Anwendbar seit dem 20. Mai 2026.",
+      "obligations": "Pflichten hängen von den Registrierungsverfahren der zuständigen Behörden ab.",
+      "item1": "Prüfen, ob ein örtliches Registrierungsverfahren Ihre Einheit erfasst.",
+      "item2": "Angaben des Gastgebers von Datenübermittlungspflichten der Plattform unterscheiden.",
+      "item3": "Registrierungsnummer angeben, wenn das anwendbare Verfahren dies vorsieht; die Verordnung schafft kein einheitliches EU-Register."
     },
     "actions": {
       "title": "Zu ergreifende Maßnahmen"
     },
     "disclaimer": {
       "label": "Warnung:",
-      "body": "Diese Analyse ist indikativ. Die LU-STR-Regulierung entwickelt sich schnell (EU 2024/1028-Überarbeitung, Gemeindeverordnungen). Validieren Sie immer mit einem spezialisierten Anwalt oder LU-Steuerberater vor jeder Vermietung. Werte entsprechen Stand April 2026."
+      "body": "Hinweise geprüft am 23. Oktober 2026. Dieser Fragebogen bestätigt weder kommunale Regeln noch Ihre individuelle Steuersituation."
+    },
+    "actionItems": {
+      "license": "Niederlassungsgenehmigung und Schulung bei den zuständigen Behörden prüfen.",
+      "operatorTotal": "Nächte aller Einheiten im Referenzzeitraum zusammenzählen.",
+      "localRules": "Zulässige Nutzung, Regeln und Formalitäten mit der Gemeinde prüfen.",
+      "tax": "Einkunftsart, Abzüge und Erklärungspflichten mit Steuerbehörde oder Fachperson klären.",
+      "registration": "Registrierungsverfahren und Pflichten der Plattform prüfen.",
+      "insurance": "Prüfen, ob Versicherung und Verträge die angebotenen Aufenthalte erlauben.",
+      "vat": "Umsatzsteuer und Sozialbeiträge anhand der tatsächlichen Tätigkeit klären."
+    },
+    "sources": {
+      "license": "Niederlassungsgenehmigung",
+      "tax": "Steuerveranlagung",
+      "eu": "EU-Verordnung 2024/1028"
     }
   },
   "wizardParticulierPage": {
@@ -13319,7 +13355,7 @@
   "strRentabilite": {
     "back": "Kurzzeitvermietung",
     "title": "STR-Rendite (Airbnb / Booking / Vrbo)",
-    "subtitle": "Berechnen Sie das jährliche Nettoeinkommen Ihrer Kurzzeitvermietung in Luxemburg, alle Kosten und Steuern inkl.",
+    "subtitle": "Schätzen Sie das Jahresergebnis mit Ihren Kosten und einem konstanten Grenzsteuersatz. Ohne Kreditraten, Umsatzsteuer, Sozialbeiträge und Steuerveranlagung des Haushalts.",
     "save": "Speichern",
     "saved": "Gespeichert!",
     "sections": {
@@ -13367,7 +13403,7 @@
     },
     "result": {
       "netLabel": "Jährliches Nettoeinkommen nach Steuer",
-      "perMonth": "d.h. {n}/Monat nach allem (Kosten, OTA, IR)",
+      "perMonth": "{n}/Monat unter diesen Annahmen",
       "netYield": "Nettorendite",
       "breakdown": "Aufschlüsselung",
       "grossRevenue": "Bruttoumsatz",
@@ -13393,25 +13429,26 @@
       "netYield": "Nettorendite"
     },
     "ltCompare": {
-      "title": "Vs Langzeitvermietung (5%-Regel indikativ)",
+      "title": "LT-Beispiel: angenommene Bruttorendite von 5 % des Preises, keine gesetzliche Mietobergrenze",
       "strNet": "STR netto/Jahr",
       "ltNet": "LT netto/Jahr (5%-Regel)",
       "delta": "Differenz STR vs LT",
       "favorStr": "zugunsten STR",
       "favorLt": "zugunsten LT",
-      "warn": "Warnung: über 90 STR-Tage/Jahr ist eine Beherbergungslizenz in LU verpflichtend. Siehe",
+      "warn": "Ab 90 kumulierten Nächten aller Einheiten eines Betreibers ist die Niederlassungsgenehmigung zu prüfen. Siehe",
       "complianceLink": "das Compliance-Tool"
-    }
+    },
+    "calendarLimited": "Das Ziel von {requested} Nächten wird auf {effective} begrenzt: Aufenthalte und Leerstand müssen in 365 Tage passen."
   },
   "strArbitrage": {
     "back": "Kurzzeitvermietung",
     "title": "Langzeit- vs Kurzzeitvermietung-Arbitrage",
-    "subtitle": "Vergleichen Sie 3 quantifizierte Szenarien: Langzeitvermietung (5%-Regel), reines STR (Airbnb/Booking), oder gemischt (saisonales STR + LT Rest). Netto-Berechnung nach Steuer basierend auf Ihrem LU-Steuerprofil.",
+    "subtitle": "Vergleichen Sie jährliche Szenarien zum eingegebenen Grenzsteuersatz. Finanzierung, Umsatzsteuer, Sozialbeiträge und vollständige Haushaltsbesteuerung sind nicht modelliert.",
     "tax": {
       "max": "LU max (~45,78%)"
     },
     "scenarios": {
-      "lt": "Langzeit (5%-Regel)",
+      "lt": "Langzeitvermietung",
       "str": "Reines STR (Airbnb/Booking)",
       "mixed": "Gemischt (STR + LT)"
     },
@@ -13428,24 +13465,25 @@
       "cleaning": "Reinigung / Aufenthalt",
       "fixedCosts": "Fixe STR-Kosten / Jahr",
       "fixedCostsHint": "PNO + Internet + Utilities + Möbelabschreibung",
-      "note": "OTA-Provision 15% Airbnb vorab angewendet. Bei > 90 Nächten/Jahr, Beherbergungslizenz verpflichtend."
+      "note": "Angenommene Airbnb-Provision: 15 %. Genehmigung ab 90 kumulierten Nächten über alle Einheiten des Betreibers prüfen."
     },
     "lt": {
-      "title": "Langzeit-Szenario (5%-Regel)",
+      "title": "Langzeitvermietung",
       "monthlyRent": "LT Monatsmiete",
       "monthlyRentHint": "LU gesetzliche Obergrenze = 5%/12 × neubewertetes investiertes Kapital",
-      "deductible": "Abzugsfähige Kosten / Jahr",
-      "deductibleHint": "Darlehenszinsen + WEG-Gebühren + Instandhaltung + PNO"
+      "deductible": "Jährliche bezahlte abzugsfähige Kosten",
+      "deductibleHint": "Ohne nicht zahlungswirksame Abschreibungen und Kredittilgung. Eingegebene Kosten fallen auch im Mischszenario vollständig an."
     },
     "mixed": {
       "title": "Gemischtes Szenario (Teil-STR + Teil-LT)",
-      "strDays": "STR-Tage / Jahr",
-      "strDaysHint": "Max 90 Tage um Lizenz zu vermeiden",
+      "strDays": "Für Kurzzeitvermietung verfügbare Tage",
+      "strDaysHint": "Einschließlich Aufenthalten und Leerstand; keine gesetzliche Befreiungsgrenze.",
       "ltMonths": "LT-Monate / Jahr",
-      "ltMonthsHint": "Typisch: 3 Sommermonate Airbnb + 9 Monate LT",
+      "ltMonthsHint": "Der gemeinsame Kalender darf ein Jahr nicht überschreiten (Durchschnittsmonat = 365/12 Tage).",
       "daysSuffix": "Tage",
       "monthsSuffix": "Monate",
-      "note": "Klassischer LU-Modus: Saisonmietvertrag (Sommer/Kongressbesucher) + Wohnmietvertrag für den Rest."
+      "note": "Belegung und Aufenthalte werden neu berechnet. Jeder aktive Modus behält seine vollen jährlichen Fixkosten: gemeinsame Kosten nicht doppelt erfassen. Vertragsvereinbarkeit prüfen.",
+      "effectiveNights": "Realisierbare Kurzzeitnächte: {n}."
     },
     "result": {
       "bestLabel": "Rentabelstes Szenario",
@@ -13453,7 +13491,7 @@
       "comparison": "3-Szenarien-Vergleich (netto nach Steuer)"
     },
     "detail": {
-      "lt": "LT-Detail (5%-Regel)",
+      "lt": "Langzeitvermietung",
       "mixed": "Gemischt-Detail (STR + LT)",
       "annualGross": "Jährliche Bruttomiete",
       "taxEstimated": "Geschätzte IR",
@@ -13465,11 +13503,11 @@
   },
   "strComplianceEu": {
     "back": "Kurzzeitvermietung",
-    "title": "EU STR-Register 2024/1028",
-    "subtitle": "Vorbereitung des Registrierungsdossiers im einheitlichen europäischen Kurzzeitvermietungs-Register. Verordnung (EU) 2024/1028 — Inkrafttreten Mitte 2026. Verpflichtungen: Pflichtidentifikationsnummer auf allen Listings, Übermittlung der Übernachtungen an Gemeinden.",
+    "title": "STR-Vorbereitungsunterlagen",
+    "subtitle": "Sammeln Sie wichtige Angaben vor der Prüfung Ihrer Pflichten. Dieses Werkzeug nimmt keine Registrierung vor und vergibt keine amtliche Nummer.",
     "regNumber": {
-      "label": "Vorausgefüllte Identifikationsnummer",
-      "note": "Indikatives Format — bei offizieller Einreichung von Ihrer Gemeinde zu validieren. Endgültiges Format vom Tourismusministerium vorgegeben."
+      "label": "Interne Vorbereitungsunterlagen",
+      "note": "Dieses Dokument ist weder Registrierung noch Genehmigung oder Konformitätsnachweis. Es wird keine amtliche Nummer vergeben."
     },
     "section1": "1. Eigentümer-Identität",
     "section2": "2. Die vermietete Unterkunft",
@@ -13487,25 +13525,32 @@
       "maxCapacity": "Max. Kapazität",
       "primaryResidence": "Die Immobilie ist mein Hauptwohnsitz",
       "platforms": "Genutzte Plattformen",
-      "nightsPlanned": "Geplante Übernachtungen über 12 Monate"
+      "nightsPlanned": "Übernachtungen insgesamt über alle Ihre Einheiten im Referenzjahr",
+      "propertyType": "Unterkunftsart"
     },
     "propertyTypes": {
       "apartment": "Gesamte Wohnung",
       "house": "Gesamtes Haus",
       "room": "Privatzimmer"
     },
-    "warnLicense": "Mehr als 90 Tage/Jahr = LU-Beherbergungslizenz erforderlich.",
+    "warnLicense": "In Luxemburg liegt die Schwelle für die gewerbliche Beherbergung bei mindestens 90 Übernachtungen, zusammengerechnet über alle Einheiten eines Betreibers im Referenzjahr, gerechnet ab der letzten Vermietung. Prüfen Sie die Niederlassungsgenehmigung und die erforderlichen Qualifikationen oder Schulungen. Auch unterhalb dieser Schwelle sind weitere Pflichten zu prüfen.",
     "seeCompliance": "Siehe /str/compliance",
     "timing": {
-      "label": "Timing EU-Verordnung 2024/1028:",
-      "body": "Inkrafttreten Mitte 2026. Jeder Mitgliedstaat muss sein nationales Register einrichten. Für Luxemburg wird das Tourismusministerium wahrscheinlich die zuständige Behörde sein (im Mémorial A zu bestätigen). Plattformen (Airbnb, Booking) müssen den Behörden die Übernachtungen pro identifiziertem Objekt übermitteln."
+      "label": "Verordnung (EU) 2024/1028:",
+      "body": "Die Verordnung (EU) 2024/1028 gilt seit dem 20. Mai 2026. Die Pflichten hängen von den für die Einheit geltenden Registrierungsverfahren ab. Sie schafft kein einheitliches europäisches Register. Angaben der Gastgeber sind von den Datenmeldungen der Plattformen zu unterscheiden."
     },
-    "downloadPdf": "PDF-Dossier herunterladen"
+    "downloadPdf": "Vorbereitungsunterlagen als PDF herunterladen",
+    "reviewTitle": "Persönlich zu prüfende Punkte",
+    "reviewBody": "Prüfen Sie die geltenden Verfahren bei den zuständigen Behörden sowie Gemeinderegeln, Versicherung und Besteuerung. Dieses Dokument reicht keinen Antrag ein und bestätigt keine Antwort.",
+    "pdfFooter": "Interne Vorbereitungsunterlagen. Kein Antrag eingereicht; weder Genehmigung noch Konformitätsnachweis.",
+    "yes": "Ja",
+    "no": "Nein",
+    "pdfFailed": "Das PDF konnte nicht erstellt werden. Bitte erneut versuchen."
   },
   "strPortefeuille": {
     "back": "Kurzzeitvermietung",
     "title": "STR-Portfolio",
-    "subtitle": "Multi-Objekt-Dashboard für STR-Concierge oder Investor (10-50 Einheiten). Aggregierte ADR/Auslastung/Umsatz, LU-Lizenzstatus (90-Tage-Schwelle), EU 2024/1028-Registrierung.",
+    "subtitle": "Verfolgen Sie die Wirtschaftsdaten mehrerer Objekte und die von Ihnen erfassten Verfahren. Die Tätigkeitsschwelle umfasst alle Einheiten eines Betreibers; diese Übersicht bestätigt keine Konformität.",
     "signIn": "Melden Sie sich an, um Ihr STR-Portfolio zu verwalten.",
     "loading": "Laden…",
     "cancel": "Abbrechen",
@@ -13520,7 +13565,7 @@
       "avgOccupancy": "Durchschnittliche Auslastung"
     },
     "licenses": {
-      "summary": "Lizenzen: {obtained} erhalten · {pending} in Bearbeitung · {eu}/{total} EU-registriert"
+      "summary": "Angegebene Genehmigungen: {obtained} erteilt · {pending} in Bearbeitung · {eu}/{total} Registrierungen erfasst"
     },
     "types": {
       "apartment": "Wohnung",
@@ -13530,7 +13575,7 @@
       "villa": "Villa"
     },
     "license": {
-      "notRequired": "Nicht erforderlich (< 90T)",
+      "notRequired": "Pflicht noch zu prüfen",
       "pending": "In Bearbeitung",
       "obtained": "Erhalten",
       "expired": "Abgelaufen"
@@ -13575,7 +13620,7 @@
       },
       "agence": {
         "title": "Immobilienmakler",
-        "desc": "OpenImmo-Mandatspipeline, Kontakt-CRM mit /100 Käufer-Matching, Drag-Drop-Kanban, Co-Branding-Objekt-PDFs, eIDAS-Signatur."
+        "desc": "Maklermandate, Kontakte, Aufgaben und Dokumente mit einem Signaturablauf, dessen Eignung für den jeweiligen Vorgang zu prüfen ist."
       },
       "hotel": {
         "title": "Hotellerie",
@@ -13609,8 +13654,8 @@
         },
         "agence": {
           "daily": "Mandate, Kontakte, Portalverteilung, Käufer-Matching",
-          "compliance": "eIDAS EU 910/2014, DSGVO-Einwilligung",
-          "standards": "OpenImmo 1.2.8, eIDAS"
+          "compliance": "Online-Signaturablauf mit zu prüfenden technischen Daten; die Plattform zertifiziert weder ein fortgeschrittenes noch ein qualifiziertes Niveau.",
+          "standards": "OpenImmo-Export; Signaturanforderungen prüfen"
         },
         "hotel": {
           "daily": "Buchungen, Folios, Rechnungen, Revenue Management",
@@ -13900,7 +13945,7 @@
     "dtType": "Typ",
     "dtEvaluator": "Sachverständiger",
     "limitsStrong": "Dienstgrenzen:",
-    "limitsBody": "dieser Mechanismus bietet eine zeitgestempelte Prüfpfad, aber nicht den Wert einer qualifizierten elektronischen eIDAS-Signatur (LuxTrust, QTSP). Für eine stärkere rechtliche Durchsetzbarkeit nutzen Sie einen akkreditierten QTSP. Der Hash beweist nur, dass die Daten seit dem hier aufgezeichneten Signaturzeitpunkt nicht geändert wurden."
+    "limitsBody": "Eine Prüfsumme vergleicht Inhalte mit einer gespeicherten Referenz. Allein zertifiziert sie weder Identität, Zustimmung, Datum noch rechtliche Wirksamkeit. Dokument und Prüfdaten aufbewahren; eine Prüfsumme allein ist keine qualifizierte Signatur."
   },
   "invitation": {
     "title": "Einladung, einer Agentur beizutreten",
@@ -13989,7 +14034,7 @@
     "agencyStep1": "Beschreibung und Fotos in der Auftragsübersicht hinzufügen",
     "agencyStep2": "Verteilung auf athome / Immotop / Immoweb konfigurieren",
     "agencyStep3": "Automatisches Matching mit CRM-Kontakten starten",
-    "agencyStep4": "Auftrag vom Kunden unterzeichnen lassen (eIDAS)",
+    "agencyStep4": "Online-Signaturablauf mit zu prüfenden technischen Daten; die Plattform zertifiziert weder ein fortgeschrittenes noch ein qualifiziertes Niveau.",
     "hotelStep1": "Zimmertypen und physische Zimmer hinzufügen",
     "hotelStep2": "Rate Plans definieren (BAR, nicht erstattungsfähig usw.)",
     "hotelStep3": "iCal-Channels konfigurieren (Airbnb, Booking)",
@@ -14008,16 +14053,16 @@
     "errGeneric": "Fehler",
     "errContactSender": "Kontaktieren Sie den Absender des Dokuments, um einen neuen Link zu erhalten.",
     "backSite": "Zurück zu tevaxia.lu",
-    "eidasKicker": "Elektronische eIDAS-Signatur",
+    "eidasKicker": "Online-Signaturablauf",
     "docToSign": "{type} zu signieren",
     "expiresOn": "Läuft ab am {date}",
     "signedTitle": "Dokument elektronisch signiert",
-    "signedBody": "Ihre Signatur wurde mit Zeitstempel erfasst. Der Absender des Dokuments wurde benachrichtigt.",
+    "signedBody": "Ihre Zustimmung wurde in diesem Ablauf erfasst. Bewahren Sie eine Dokumentkopie auf und prüfen Sie den Status beim Absender.",
     "signedOn": "Signiert am {date}",
     "declinedTitle": "Ablehnung erfasst",
-    "declinedBody": "Ihre Ablehnung wurde an den Absender des Dokuments weitergeleitet.",
+    "declinedBody": "Ihre Ablehnung wurde erfasst. Kontaktieren Sie den Absender bei weiterem Klärungsbedarf.",
     "hashLabel": "SHA-256-Hash des Dokuments:",
-    "hashExplain": "Jede Änderung am Dokument macht diesen Hash und damit die Signatur ungültig. Dieser kryptografische Fingerabdruck garantiert die Integrität des Textes, den Sie signieren.",
+    "hashExplain": "Eine Prüfsumme vergleicht Inhalte mit einer gespeicherten Referenz. Allein zertifiziert sie weder Identität, Zustimmung, Datum noch rechtliche Wirksamkeit. Dokument und Prüfdaten aufbewahren; eine Prüfsumme allein ist keine qualifizierte Signatur.",
     "alreadyProcessed": "Diese Anfrage wurde bereits bearbeitet (Status: {status}). Keine weitere Aktion möglich.",
     "signing": "Signatur läuft…",
     "signBtn": "✍️ Elektronisch signieren",
@@ -14027,7 +14072,7 @@
     "confirmDeclineBtn": "Ablehnung bestätigen",
     "cancelBtn": "Abbrechen",
     "aboutTitle": "Über die elektronische Signatur",
-    "aboutBody": "Diese Signatur entspricht der europäischen eIDAS-Verordnung (EU 910/2014) auf der Ebene „einfache elektronische Signatur“, gültig für Handelsverträge. Sie erfasst Ihre IP-Adresse, Ihren Browser und den Zeitstempel als Beweis. Für notarielle Urkunden oder Kaufvorverträge bleibt eine qualifizierte Signatur (LuxTrust) erforderlich.",
+    "aboutBody": "Dieser Ablauf liefert keine qualifizierte elektronische Signatur und zertifiziert kein fortgeschrittenes Niveau. Artikel 25 eIDAS schützt die Zulässigkeit elektronischer Signaturen; die ausdrücklich vorgesehene Gleichstellung mit einer handschriftlichen Unterschrift betrifft qualifizierte Signaturen. Die Wirksamkeit hängt auch von Inhalt, Identität, Vertretungsmacht und Formvorschriften ab. Anforderungen vor der Unterschrift prüfen.",
     "platformLabel": "tevaxia.lu-Plattform",
     "linkPrivacy": "Datenschutz",
     "linkLegal": "Impressum"
@@ -14580,7 +14625,7 @@
     "thLegal": "Rechtsschutz",
     "thVacancy": "Leerstand",
     "legalStrong": "Wichtig:",
-    "legalBody": "die oben genannten Prämien sind indikativ (Q4 2025). Kontaktieren Sie den Versicherer direkt für ein individuelles Angebot. Einige Angebote verlangen eine vorherige Mieterprüfung (bestätigtes Einkommen 3× Miete, unbefristet, Kaution usw.). In LU bleibt die gesetzliche Mietkaution (max. 3 Monate, Art. 5 Gesetz 21.09.2006) die Standardoption. Die GLI-Prämie ist nach Art. 105 LIR als reale Ausgabe absetzbar."
+    "legalBody": "Angezeigte Prämien sind unverbindlich: Angebot, Deckung, Ausschlüsse und Voraussetzungen prüfen. Bei neuen Wohnraummietverträgen ab 1. August 2024 beträgt die Sicherheit höchstens zwei Monatsmieten ohne Nebenkosten; ältere Verträge gesondert prüfen. Die steuerliche Abzugsfähigkeit hängt vom Einzelfall ab."
   },
   "glReconciliation": {
     "backHub": "← Mietverwaltung",
@@ -14600,7 +14645,7 @@
     "statusManual": "Manuell",
     "psd2Strong": "Automatische PSD2-Bankverbindung:",
     "psd2Body": "vermeiden Sie den manuellen Import über",
-    "psd2Suffix": "(PSD2-SCA-konforme API, 180-Tage-Zugriff). Unterstützt Spuerkeess, BGL, BIL, ING LU, Raiffeisen, Post.",
+    "psd2Suffix": "(über Enable Banking; Zugriffsdauer und Authentifizierung richten sich nach der Bank). Die verfügbaren Banken werden beim Verbinden angezeigt.",
     "defaultLabel": "Bankbewegung"
   },
   "glPortefeuille": {
@@ -14649,7 +14694,7 @@
   "glRelances": {
     "backHub": "← Mietverwaltung",
     "pageTitle": "Mahnungen, automatische Stufen",
-    "pageSubtitle": "3 eingestellte Stufen: freundliche Mahnung T+15 → Mahnung T+30 → Zahlungsbefehl T+60. PDF-Konformität mit Gesetz 21.09.2006, per Einschreiben mit Rückschein zu versenden (Papier oder eIDAS).",
+    "pageSubtitle": "Mahnungsvorlagen nach eingestelltem Zeitplan. Softwaretermine ersetzen keine gesetzlichen Fristen oder Verfahrensakte; Schreiben vor Versand prüfen.",
     "loading": "Lädt…",
     "kpiTotalUnpaid": "Gesamt offen",
     "kpiCount": "Anzahl Raten",
@@ -14685,7 +14730,7 @@
     "pdfLevel2Body": "Mit der vorliegenden Mahnung fordern wir Sie auf, den Betrag von {amount} €, entsprechend der Miete der Periode {period}, seit mehr als 30 Tagen unbezahlt, zu begleichen. Bei Ausbleiben der Zahlung innerhalb von 15 Tagen nach Empfang dieses Schreibens behalten wir uns vor, das zuständige Gericht anzurufen.",
     "pdfLevel3Body": "Zahlungsbefehl: bei Ausbleiben der Zahlung innerhalb von 8 Tagen werden wir das zuständige Gericht anrufen, um Ihre Verurteilung zur Zahlung des Betrags von {amount} € (Miete {period}) zu erwirken, zuzüglich gesetzlicher Zinsen, Verfahrenskosten und ggf. Vertragskündigung. Sie haben auch noch Zeit, den Sozialdienst der Gemeinde zu kontaktieren, falls Sie Schwierigkeiten haben.",
     "legalStrong": "LU-Verfahren:",
-    "legalBody": "nach 60 Tagen Zahlungsverzug können Sie das Friedensgericht anrufen, um einen bedingten Zahlungsbescheid zu erhalten (Art. 12 Gesetz 21.09.2006), dann ein Kündigungsverfahren einleiten, falls keine Regulierung erfolgt. Der Zahlungsbefehl kann von einem Gerichtsvollzieher ausgestellt werden (300-500 €). Eine eIDAS-zertifizierte Version über Yousign/LuxTrust-Partnerschaft ist geplant."
+    "legalBody": "Rückstände erfordern Prüfung von Vertrag, Forderungen und bisherigen Schritten. Vorlage oder PDF-Export sind weder Gerichtsvollzieherakt noch Rechtszertifizierung. Mahnschwellen schaffen kein automatisches Kündigungs- oder Räumungsrecht. Erforderliche Verfahren und Zustellungsformen prüfen."
   },
   "glFiscal": {
     "backHub": "← Mietverwaltung",
@@ -14815,7 +14860,7 @@
   "glPsd2": {
     "backRec": "← Abstimmung",
     "pageTitle": "PSD2-Bankverbindung",
-    "pageSubtitle": "Automatischer Abruf Ihrer Transaktionen über Enable Banking, SCA-konforme PSD2-API. 180 Tage Zugriff max. (Art. 10 PSD2-RTS), verlängerbar.",
+    "pageSubtitle": "Rufen Sie Transaktionen nach Bankfreigabe über Enable Banking ab. Es werden 180 Tage Gültigkeit angefragt; maßgeblich ist das von Bank oder Anbieter übermittelte Datum. Eine erneute Authentifizierung kann erforderlich sein.",
     "configStrong": "Integration zu aktivieren.",
     "configBody": "Enable Banking ist code-seitig bereit, aber die Schlüssel sind noch nicht auf dem Server definiert.",
     "configStep1": "App auf enablebanking.com/dashboard erstellen, RSA-Privatschlüssel (PEM) herunterladen",
@@ -15477,7 +15522,7 @@
     "expireSoon": "läuft in {n}T ab",
     "btnDownload": "Herunterladen",
     "legalTitle": "Rechtliche Konformität:",
-    "legalBody": "die Archive werden 10 Jahre gemäß dem geänderten Gesetz vom 16. Mai 1975 über das Miteigentum (Art. 13bis) aufbewahrt. Jede Datei hat eine SHA-256-Prüfsumme zur Integritätssicherung. Dateien sind im Ruhezustand verschlüsselt (AES-256). Die Tabelle ist auf DB-Ebene unveränderlich (Trigger 'archive_is_immutable'), vor Ablauf ist keine Änderung oder Löschung möglich."
+    "legalBody": "Aufbewahrungsfristen je Dokumentart und tatsächliche Archiveinstellungen prüfen. Eine SHA-256-Prüfsumme hilft beim Vergleich mit einer Referenz, ist allein aber kein qualifizierter Herkunfts- oder Datumsnachweis. Änderungs- und Löschschutz hängen von tatsächlich angewandten Speicherrechten und Regeln ab."
   },
   "syndicOcr": {
     "loading": "Laden…",
@@ -15838,7 +15883,7 @@
     "csvHint": "CSV-Export aus dem LU-Online-Banking.",
     "btnChooseCsv": "CSV-Datei auswählen",
     "psdTitle": "PSD2-Bankverbindung",
-    "psdHint": "Transaktionen live per Enable-Banking-API abrufen. Bank-SCA (LuxTrust / App) nötig. Verknüpfung 90 Tage.",
+    "psdHint": "Transaktionen über Enable Banking nach Bankauthentifizierung einsehen. Die Bank oder der Anbieter legt die Gültigkeit der Verbindung fest; eine erneute Authentifizierung kann nötig sein.",
     "psdConnect": "Bank verbinden",
     "psdNotConfigured": "PSD2 serverseitig nicht konfiguriert. Bitte Administrator kontaktieren.",
     "psdLoading": "Banken werden geladen…",
@@ -16667,7 +16712,7 @@
     "crumbMandates": "Aufträge",
     "crumbSignatures": "Unterschriften",
     "pageTitle": "Elektronische Unterschriften",
-    "pageDesc": "Online-Unterschriftsworkflow gemäß EU-Verordnung 910/2014 (eIDAS). Niveau «einfache elektronische Signatur» — gültig für kommerzielle Aufträge. Für notarielle Urkunden ist eine qualifizierte LuxTrust-Signatur erforderlich (Roadmap Q5).",
+    "pageDesc": "Dieser Ablauf liefert keine qualifizierte elektronische Signatur und zertifiziert kein fortgeschrittenes Niveau. Artikel 25 eIDAS schützt die Zulässigkeit elektronischer Signaturen; die ausdrücklich vorgesehene Gleichstellung mit einer handschriftlichen Unterschrift betrifft qualifizierte Signaturen. Die Wirksamkeit hängt auch von Inhalt, Identität, Vertretungsmacht und Formvorschriften ab. Anforderungen vor der Unterschrift prüfen.",
     "loading": "Laden…",
     "loginPrompt": "Anmelden",
     "notFound": "Auftrag nicht gefunden.",
@@ -16694,12 +16739,12 @@
     "rowViewed": "Angesehen: {date}",
     "rowSigned": "Unterzeichnet: {date}",
     "rowExpires": "Läuft ab: {date}",
-    "rowProof": "🔒 Beweis: IP {ip} · {ua}",
+    "rowProof": "Technische Daten: IP {ip} · {ua}",
     "rowDeclineReason": "Ablehnungsgrund: {reason}",
     "btnCopyLink": "📋 Link kopieren",
     "btnEmail": "📧 E-Mail",
     "btnOpen": "Öffnen",
-    "eidasNotice": "<strong>eIDAS-Beweis aufbewahrt:</strong> Bei der Unterzeichnung erfasst die Plattform die IP-Adresse, den Browser, die Zeitzone und den Server-Zeitstempel, alles über einen DB-Trigger unveränderbar gemacht. Das Dokument wird durch seinen SHA-256-Hash identifiziert — jede spätere Änderung macht die Signatur ungültig und löst einen Alarm aus.",
+    "eidasNotice": "Technische Daten umfassen Inhaltsprüfsumme, Serverdatum, IP-Adresse, Browser und Zeitzone, soweit verfügbar. Sie sind kein qualifiziertes Zertifikat und keine unabhängige Identitätsprüfung. Speicherung prüfen und eine Dokumentkopie aufbewahren; eine automatische Änderungswarnung wird nicht garantiert.",
     "defaultMandateTitle": "Verkaufsauftrag",
     "mandateTitleFmt": "Auftrag {type} — {address}",
     "statusDraft": "Entwurf",
@@ -16716,14 +16761,14 @@
     "docTypeRapportEstimation": "Wertgutachten",
     "docTypeAutre": "Anderes Dokument",
     "mailSubject": "Unterschrift angefragt: {title}",
-    "mailBody": "Hallo {name},\n\nSie sind eingeladen, das folgende Dokument elektronisch zu unterzeichnen:\n\n{title}\n\nSicherer Unterschriftslink (gültig bis {expires}):\n{url}\n\nDie einfache elektronische Signatur ist nach EU-Verordnung 910/2014 (eIDAS) rechtsgültig.\n\nMit freundlichen Grüßen",
+    "mailBody": "Guten Tag {name},\n\nBitte prüfen und unterzeichnen Sie folgendes Dokument:\n\n{title}\n\nLink gültig bis {expires}:\n{url}\n\nDieser Ablauf bietet keine qualifizierte Signatur. Prüfen Sie Dokument und erforderliche Formalitäten vor Ihrer Zustimmung.\n\nMit freundlichen Grüßen",
     "mandateBody": "VERKAUFSAUFTRAG {type}\n\nZwischen den Unterzeichnenden:\nDer AUFTRAGGEBER: {client}\nvertreten durch sich selbst.\n\nUnd:\nDer AUFTRAGNEHMER: Immobilienagentur\nhandelnd durch einen diplomierten und gemäß dem Gesetz vom 28. Dezember\n1988 zur Regelung der Immobilienberufe registrierten Immobilienmakler.\n\nEs wurde Folgendes vereinbart und beschlossen:\n\nArtikel 1 — ZWECK DES AUFTRAGS\nDer Auftraggeber erteilt dem Auftragnehmer den {mandateType} Auftrag, das\nfolgende Immobilienobjekt zu verkaufen:\n{address}\n{commune}\nTyp: {propertyType}\nFläche: {surface} m²\n\nArtikel 2 — VERKAUFSPREIS\nDer Nettoverkaufspreis wird auf {price} festgelegt.\n\nArtikel 3 — PROVISION\nDie Provision des Auftragnehmers wird auf {commissionPct}% des Verkaufspreises\ninkl. MwSt. festgelegt, zu Lasten des Käufers, fällig bei der Unterzeichnung\nder notariellen Urkunde.\n\nArtikel 4 — LAUFZEIT\nDieser Auftrag wird für einen Zeitraum von {duration} abgeschlossen.\n{exclusiveClause}\n\nArtikel 5 — VERPFLICHTUNGEN DES AUFTRAGNEHMERS\nDer Auftragnehmer verpflichtet sich:\n- das Objekt auf den geeigneten kommerziellen Kanälen zu inserieren\n- regelmäßig dem Auftraggeber zu berichten\n- die Vertraulichkeit der übermittelten Informationen zu wahren\n- die Eigenmittel des Auftraggebers nicht mit den eigenen zu vermischen\n\nArtikel 6 — ANWENDBARES RECHT\nDieser Auftrag unterliegt luxemburgischem Recht. Jegliche Streitigkeiten\nfallen ausschließlich in die Zuständigkeit der Gerichte von Luxemburg-Stadt.\n\nGeschehen zu Luxemburg, am {today}.",
     "mandateClientPlaceholder": "[Name des Auftraggebers]",
     "mandatePropertyTypeMissing": "nicht angegeben",
     "mandatePriceTbd": "[zu bestimmen]",
     "mandateDurationUntil": "bis zum {date}",
     "mandateDurationTbd": "[Laufzeit zu bestimmen]",
-    "mandateExclusiveClause": "Bei einem Exklusivauftrag beträgt die Mindestlaufzeit 3 Monate gemäß Gesetz.",
+    "mandateExclusiveClause": "Umfang und Dauer der Exklusivität sind ausdrücklich zu vereinbaren und vor Unterzeichnung zu prüfen.",
     "dash": "—"
   },
   "proaCrmContactDetail": {
@@ -17727,7 +17772,10 @@
     "frenchRentalInputs": "Französische Mietbesteuerung (/yield): taxYear ist 2025 oder 2026 (Standard 2026). Standard ist reel_foncier, eine vereinfachte unmöblierte Vermietung mit tatsächlichen Kosten. Mikroregime verlangen frenchMicroEligible=true als Bestätigung der Berechtigung und der gesamten Haushalts-/Betriebseinnahmen, einschließlich der Vorjahresbedingungen für micro-BIC. Möblierte Vermietung verlangt frenchNonProfessional=true. micro_bic bezeichnet Langzeitvermietung, micro_bic_tourism klassifizierte und micro_bic_tourism_unclassified nicht klassifizierte Ferienvermietung. annualTaxReceipts enthält die gesamten steuerpflichtigen Einnahmen einschließlich steuerpflichtiger Nebenkosten; sonst gilt die simulierte Miete nach Leerstand. frenchSocialRegime=solidarity_only setzt eine berechtigende Sozialversicherung voraus; Standard ist standard. Keine vollständige Haushaltssteuerberechnung; Erwerbsbeiträge, Verlustvorträge und Sonderregime sind ausgeschlossen.",
     "ukFeesInputs": "Vereinigtes Königreich (/fees, country=uk): region akzeptiert ENG, NIR, SCT oder WLS; ohne Angabe wird ENG ausdrücklich angenommen. ukAdditionalProperty bestätigt erhöhte Steuersätze unabhängig von isPrimary; ukNonResident bestätigt den SDLT-Auslandsaufschlag in England/Nordirland. Beide sind standardmäßig false. Ersterwerberentlastung verlangt isFirstTime und isPrimary sowie die Berechtigung aller Käufer; Wales hat keine besondere Entlastung. Nur gewöhnliche Wohnimmobilienkäufe durch Privatpersonen, ohne Übergangsregeln, Gesellschaften, verbundene Vorgänge oder neue Pachtmieten. acquisitionCoverage nennt Teilsumme und ausgeschlossene Kosten. /cashflow nimmt einen zusätzlichen Kauf in England ohne Auslandsaufschlag an.",
     "italianRentalInputs": "Italien (/yield): Berechnet wird nur cedolare_secca mit 21 % für einen gewöhnlichen Wohnraummietvertrag mit frei vereinbarter Miete. italianCedolareEligible=true bestätigt eine berechtigte natürliche Person außerhalb einer gewerblichen oder beruflichen Tätigkeit und eine wirksame Wahl dieses Regimes. italianAnnualContractRent ist erforderlich: vertragliche Bruttomiete für den Eigentumsanteil und Mietzeitraum, ohne Kostenabzug. Simulierter Leerstand senkt die wirtschaftlichen Einnahmen, ändert aber nicht automatisch diese Steuerbasis. Ein negativer Mietertrag hebt die Steuer nicht auf. IRPEF, Kurzzeitvermietung, ermäßigte Verträge, Mietausfälle und besondere Katasterfälle erfordern eine gesonderte Prüfung.",
-    "portugueseRentalInputs": "Portugal (/yield): portugueseCategoryFConfirmed=true bestätigt eine gewöhnliche Vermietung der Kategorie F und steuerlich zulässige bezahlte Ausgaben. portugueseRentalUse ist housing oder other. portugueseAnnualTaxReceipts und portugueseDeductibleExpenses sind auch bei null erforderlich; simulierte wirtschaftliche Kosten sind nicht automatisch steuerlich abziehbar. Zinsen, Abschreibung, Möbel, Geräte, Dekoration und AIMI sind ausgeschlossen. taxYear ist 2025 oder 2026. Autonome Steuersätze: Wohnraum 25 %, andere Vermietung 28 %, für Ansässige und Nichtansässige. Bei housing 2026 muss portugueseModerateRentEligible ausdrücklich true oder false sein: true bestätigt alle Bedingungen und monatlichen Mietgrenzen nach EBF Artikel 45-C / DL 97/2026 Artikel 2 für 10 %. Die Berechtigung ergibt sich nicht aus der Jahresmiete nach Leerstand. Günstigere Langzeitsätze, Befreiungen und Sonderfälle brauchen eine separate Prüfung. progressive_resident nutzt den eingegebenen Grenzsteuersatz ohne automatische Vergleichs- oder Haushaltssteuerberechnung."
+    "portugueseRentalInputs": "Portugal (/yield): portugueseCategoryFConfirmed=true bestätigt eine gewöhnliche Vermietung der Kategorie F und steuerlich zulässige bezahlte Ausgaben. portugueseRentalUse ist housing oder other. portugueseAnnualTaxReceipts und portugueseDeductibleExpenses sind auch bei null erforderlich; simulierte wirtschaftliche Kosten sind nicht automatisch steuerlich abziehbar. Zinsen, Abschreibung, Möbel, Geräte, Dekoration und AIMI sind ausgeschlossen. taxYear ist 2025 oder 2026. Autonome Steuersätze: Wohnraum 25 %, andere Vermietung 28 %, für Ansässige und Nichtansässige. Bei housing 2026 muss portugueseModerateRentEligible ausdrücklich true oder false sein: true bestätigt alle Bedingungen und monatlichen Mietgrenzen nach EBF Artikel 45-C / DL 97/2026 Artikel 2 für 10 %. Die Berechtigung ergibt sich nicht aus der Jahresmiete nach Leerstand. Günstigere Langzeitsätze, Befreiungen und Sonderfälle brauchen eine separate Prüfung. progressive_resident nutzt den eingegebenen Grenzsteuersatz ohne automatische Vergleichs- oder Haushaltssteuerberechnung.",
+    "unsupportedRentalTax": "/yield lehnt belgische und niederländische Steuerregime ab, solange die nötigen Bemessungsgrundlagen fehlen. /cashflow bleibt ein ausdrückliches Szenario zum konstanten Grenzsteuersatz, keine Kataster- oder Box-3-Berechnung.",
+    "auditFeesInputs": "Gebühren: Portugal benötigt region (mainland/azores/madeira), portugueseResident und portugueseTaxValue (VPT). Basis ist max(Preis,VPT), Tabellen 2026; Nichtansässige zahlen 7,5 % vor einer gesondert geprüften Erstattung. portugueseYoungEligible bestätigt alle Bedingungen für jeden Käufer: höchstens 35 Jahre, erste dauerhafte Wohnung, kein Wohneigentum aktuell oder in den letzten drei Jahren, kein IRS-Unterhaltsstatus. NL: nlStarterEligible bestätigt eine ungenutzte Befreiung und alle Bedingungen für die ganze Immobilie; Eigennutzung bleibt erforderlich. LU: luBellegenEligible und luCreditRemaining sind für die Gutschrift erforderlich; ein Käufer, Bestandswohnung. Italien: italianPrimaCasaEligible bestätigt die besonderen Bedingungen; italianPrezzoValore und italianCadastralIncome verwenden die unaufgewertete rendita, sonst gilt der erklärte Preis mit mindestens 1.000 Euro Registersteuer. Umsatzsteuerpflichtige Verkäufe erfordern italianVatSale und italianVatRate (Nettopreis). Gemischte Berechtigung und Sonderfälle ausgeschlossen.",
+    "widgetScope": "Das eingebettete Widget nutzt die Online-API: Erwerbskosten einer bestehenden Wohnimmobilie als Anlage ohne persönliche Vergünstigungen, Kreditkapazität, Rendite und Cashflow. Kaufen/Mieten verweist auf den gesonderten Vergleich. Steuerregime mit zusätzlichen Daten sind der dokumentierten API vorbehalten oder nicht unterstützt; es wird kein Ersatz-Steuerergebnis angezeigt. Das externe WordPress-Plugin hat eine eigene Version und Funktionen."
   },
   "statusPage": {
     "metaTitle": "Service-Status, tevaxia.lu",
@@ -19166,7 +19214,8 @@
     "unavailableTitle": "Keine überprüfte Zahl für diese Abgrenzung angezeigt",
     "logisticsScope": "Hier ist keine Miet- oder Bestandsreihe je Gebiet mit überprüfter Quelle und Zeitraum verfügbar. Verwenden Sie für ein Logistikobjekt dokumentierte Vergleichsobjekte und seine Mietvertragsdaten.",
     "macroScope": "Prüfen Sie beim Zinsvergleich Zeitraum, Vertragsart und beobachtete Grundgesamtheit. Die Links führen zu den Zeitreihen der zuständigen Institutionen und stellen kein Finanzierungsangebot dar.",
-    "valuation": "Mit eigenen Daten bewerten"
+    "valuation": "Mit eigenen Daten bewerten",
+    "indicesLink": "Immobilienindizes"
   },
   "constructionBudget": {
     "title": "Dokumentiertes Baubudget",
@@ -19223,7 +19272,8 @@
     "signInTitle": "Anmelden für PDF-Berichte",
     "signInScope": "Melden Sie sich an oder erstellen Sie ein Konto, um Berichte anzusehen und herunterzuladen.",
     "signIn": "Anmelden / Konto erstellen",
-    "cancel": "Abbrechen"
+    "cancel": "Abbrechen",
+    "documentLanguage": "Dokumentsprache: {language}"
   },
   "developmentAppraisal": {
     "title": "Dokumentierte Projektkalkulation",
@@ -20330,5 +20380,66 @@
     "contact": "LPVI nach einem geeigneten Sachverständigen fragen",
     "qualifications": "TEGoVA-Lizenzen bei LPVI kennenlernen",
     "destination": "Links zur französischsprachigen LPVI-Website. Kontakt über das Formular oder info@lpvi.lu."
+  },
+  "numberInput": {
+    "edit": "{label} bearbeiten: {value}",
+    "editHint": "Klicken, um einen Wert einzugeben",
+    "formatHint": "Zahlenformat: {example}. Mit Escape abbrechen.",
+    "format": "Geben Sie eine vollständige Zahl im angezeigten Format ein.",
+    "range": "Geben Sie einen Wert zwischen {min} und {max} ein. Der bisherige Wert bleibt erhalten.",
+    "step": "Verwenden Sie Schritte von {step} ab {min}. Es wird nicht automatisch gerundet."
+  },
+  "calendarSync": {
+    "backProfile": "Mein Profil",
+    "pageTitle": "Kalendersynchronisierung",
+    "pageIntro": "Zeigen Sie CRM-Aufgaben und geplante Besichtigungen über eine Abonnement-URL in Google Calendar, Outlook oder Apple Calendar an.",
+    "connected": "{provider}-Konto verbunden. Die Verbindung allein garantiert keine beidseitige Synchronisierung.",
+    "connectionFailed": "Verbindung mit {provider} fehlgeschlagen. Bitte erneut versuchen.",
+    "howTitle": "So funktioniert es",
+    "stepCreate": "Erstellen Sie eine Abonnement-URL mit einem eindeutigen zufälligen Token.",
+    "stepCopy": "Kopieren Sie die erstellte HTTPS-URL.",
+    "stepGoogle": "Google Calendar: Schaltfläche nutzen oder Kalender hinzufügen → Per URL.",
+    "stepOutlook": "Outlook: Kalender hinzufügen → Aus dem Web abonnieren, dann die HTTPS-URL einfügen.",
+    "stepApple": "Apple Calendar: webcal://-Link nutzen oder Ablage → Neues Kalenderabonnement.",
+    "eventsTitle": "Enthaltene Termine",
+    "eventsTasks": "CRM-Aufgaben mit Fälligkeitsdatum und Status offen oder in Bearbeitung.",
+    "eventsVisits": "Geplante zukünftige Besichtigungen.",
+    "eventsWindow": "Zeitraum: 7 Tage in der Vergangenheit bis 180 Tage in der Zukunft.",
+    "eventsPrivacy": "Der Feed enthält Ihre Titel und Beschreibungen, möglicherweise mit personenbezogenen Daten. Halten Sie die URL vertraulich.",
+    "securityTitle": "Sicherheit",
+    "securityToken": "Der zufällige 128-Bit-Token gewährt Zugriff auf den Feed. Teilen Sie die URL nur mit Ihrer Kalenderanwendung.",
+    "securityRevoke": "Deaktivieren oder löschen Sie ein Abonnement, um neue Zugriffe zu stoppen. Bereits importierte Kopien können im externen Kalender bleiben.",
+    "securityAccess": "Letzter Zugriff und Anzahl der Aufrufe werden oben angezeigt.",
+    "sectionTitle": "Meinen Kalender synchronisieren",
+    "sectionIntro": "Erstellen Sie ein schreibgeschütztes Abonnement für Aufgaben und Besichtigungen. Das Aktualisierungsintervall hängt von Ihrer Kalenderanwendung ab.",
+    "signIn": "Melden Sie sich an, um einen Kalender-Abonnementlink zu erstellen.",
+    "defaultLabel": "Tevaxia-Kalender",
+    "revokeConfirm": "Dieses Abonnement löschen und neue Zugriffe stoppen?",
+    "loading": "Laden…",
+    "empty": "Keine Abonnements.",
+    "create": "Abonnement-URL erstellen",
+    "created": "Erstellt am {date}",
+    "lastAccess": "Letzter Zugriff: {date} ({count} Aufrufe)",
+    "neverAccessed": "Noch nie abgerufen",
+    "inactive": "Inaktiv",
+    "deactivate": "Deaktivieren",
+    "reactivate": "Reaktivieren",
+    "delete": "Löschen",
+    "copied": "Kopiert",
+    "copy": "URL kopieren",
+    "copyFailed": "Kopieren fehlgeschlagen. Wählen und kopieren Sie die URL manuell.",
+    "openApple": "In Apple Calendar öffnen",
+    "openGoogle": "Zu Google Calendar hinzufügen",
+    "createAnother": "Weiteres Abonnement erstellen",
+    "oauthTitle": "Google-/Microsoft-Verbindungen",
+    "oauthScope": "Die beidseitige Synchronisierung hängt von der Aktivierung des Dienstes ab. Ein ICS-Abonnement bleibt schreibgeschützt.",
+    "connectGoogle": "Google Calendar verbinden",
+    "connectOutlook": "Outlook verbinden"
+  },
+  "leaseDraft": {
+    "title": "Mietvertragsentwurf vorbereiten",
+    "notice": "Formular und PDF auf Französisch für einen neuen Hauptwohnsitz-Mietvertrag in Luxemburg, abgeschlossen ab 1. August 2024. Entwurf und Anlagen vor der Unterschrift prüfen lassen.",
+    "open": "Öffnen",
+    "close": "Schließen"
   }
 }

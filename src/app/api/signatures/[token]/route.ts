@@ -35,7 +35,7 @@ export async function GET(
   }
 
   // Expired ?
-  if (new Date(request.expires_at) < new Date() && request.status !== "signed") {
+  if (new Date(request.expires_at) <= new Date() && ["draft", "sent", "viewed"].includes(request.status)) {
     await supabase
       .from("agency_signature_requests")
       .update({ status: "expired" })
@@ -98,29 +98,46 @@ export async function POST(
   }
   const supabase = createClient(url, serviceKey);
 
-  const body = (await req.json()) as {
+  let body: {
     action: "sign" | "decline";
     consent_text?: string;
     declined_reason?: string;
     timezone?: string;
   };
+  try {
+    body = await req.json();
+    if (!body || !["sign", "decline"].includes(body.action) ||
+        (body.consent_text !== undefined && (typeof body.consent_text !== "string" || body.consent_text.length > 10000)) ||
+        (body.declined_reason !== undefined && (typeof body.declined_reason !== "string" || body.declined_reason.length > 2000)) ||
+        (body.timezone !== undefined && (typeof body.timezone !== "string" || body.timezone.length > 100))) {
+      return NextResponse.json({ error: "Invalid action or input" }, { status: 400 });
+    }
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+  }
 
-  const { data: request } = await supabase
+  const { data: request, error: readError } = await supabase
     .from("agency_signature_requests")
     .select("*")
     .eq("token", token)
     .maybeSingle();
+  if (readError) return NextResponse.json({ error: "Unable to load signature request" }, { status: 503 });
   if (!request) return NextResponse.json({ error: "Request not found" }, { status: 404 });
 
-  if (["signed", "declined", "expired", "cancelled"].includes(request.status)) {
+  if (!["sent", "viewed"].includes(request.status)) {
     return NextResponse.json({ error: `Cannot ${body.action} — already ${request.status}` }, { status: 409 });
+  }
+
+  const recordedAt = new Date().toISOString();
+  if (!Number.isFinite(Date.parse(request.expires_at)) || Date.parse(request.expires_at) <= Date.parse(recordedAt)) {
+    return NextResponse.json({ error: "Request expired" }, { status: 410 });
   }
 
   const ip = req.headers.get("x-forwarded-for") ?? req.headers.get("x-real-ip") ?? null;
   const ua = req.headers.get("user-agent") ?? null;
 
   if (body.action === "sign") {
-    if (!body.consent_text) {
+    if (!body.consent_text?.trim()) {
       return NextResponse.json({ error: "consent_text required" }, { status: 400 });
     }
     // Re-verify hash n'a pas changé (aucun tampering entre view et sign)
@@ -129,40 +146,55 @@ export async function POST(
       return NextResponse.json({ error: "Document integrity check failed" }, { status: 400 });
     }
 
-    await supabase
+    const { data: saved, error: saveError } = await supabase
       .from("agency_signature_requests")
       .update({
         status: "signed",
-        signed_at: new Date().toISOString(),
+        signed_at: recordedAt,
         signer_ip: ip,
         signer_user_agent: ua,
         signer_timezone: body.timezone ?? null,
         consent_text: body.consent_text,
       })
-      .eq("id", request.id);
-    await supabase.from("agency_signature_events").insert({
+      .eq("id", request.id)
+      .eq("status", request.status)
+      .eq("document_hash", currentHash)
+      .gt("expires_at", recordedAt)
+      .select("status, signed_at")
+      .maybeSingle();
+    if (saveError) return NextResponse.json({ error: "Signature could not be saved" }, { status: 503 });
+    if (!saved) return NextResponse.json({ error: "Request changed or expired; reload before continuing" }, { status: 409 });
+    const { error: auditError } = await supabase.from("agency_signature_events").insert({
       request_id: request.id, event_type: "signed",
       actor_ip: ip, actor_user_agent: ua,
       metadata: { timezone: body.timezone ?? null },
     });
-    return NextResponse.json({ ok: true, status: "signed", signed_at: new Date().toISOString() });
+    if (auditError) return NextResponse.json({ error: "Signature status saved, but audit event could not be saved. Contact the sender before relying on this record.", status: saved.status, signed_at: saved.signed_at, audit_incomplete: true }, { status: 503 });
+    return NextResponse.json({ ok: true, status: saved.status, signed_at: saved.signed_at });
   }
 
   if (body.action === "decline") {
-    await supabase
+    const { data: saved, error: saveError } = await supabase
       .from("agency_signature_requests")
       .update({
         status: "declined",
-        declined_at: new Date().toISOString(),
+        declined_at: recordedAt,
         declined_reason: body.declined_reason ?? null,
       })
-      .eq("id", request.id);
-    await supabase.from("agency_signature_events").insert({
+      .eq("id", request.id)
+      .eq("status", request.status)
+      .gt("expires_at", recordedAt)
+      .select("status")
+      .maybeSingle();
+    if (saveError) return NextResponse.json({ error: "Decline could not be saved" }, { status: 503 });
+    if (!saved) return NextResponse.json({ error: "Request changed or expired; reload before continuing" }, { status: 409 });
+    const { error: auditError } = await supabase.from("agency_signature_events").insert({
       request_id: request.id, event_type: "declined",
       actor_ip: ip, actor_user_agent: ua,
       metadata: { reason: body.declined_reason ?? null },
     });
-    return NextResponse.json({ ok: true, status: "declined" });
+    if (auditError) return NextResponse.json({ error: "Decline status saved, but audit event could not be saved. Contact the sender.", status: saved.status, audit_incomplete: true }, { status: 503 });
+    return NextResponse.json({ ok: true, status: saved.status });
   }
 
   return NextResponse.json({ error: "Unknown action" }, { status: 400 });

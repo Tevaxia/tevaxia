@@ -36,6 +36,12 @@ export default async function Confidentialite() {
               {t("donnees.oauth.text")}
             </p>
             <p>
+              <strong>{t("donnees.integrations.label")}</strong><br />
+              {t("donnees.integrations.calendar")}
+            </p>
+            <p>{t("donnees.integrations.drive")}</p>
+            <p>{t("donnees.integrations.revoke")}</p>
+            <p>
               <strong>{t("donnees.simulations.label")}</strong><br />
               {t("donnees.simulations.text")}
             </p>
@@ -126,6 +132,11 @@ export default async function Confidentialite() {
                     <td className="py-2">{t("soustraitants.linkedinLoc")}</td>
                   </tr>
                   <tr>
+                    <td className="py-2 pr-4">Microsoft (Outlook)</td>
+                    <td className="py-2 pr-4">{t("soustraitants.microsoftCalendar")}</td>
+                    <td className="py-2">{t("soustraitants.microsoftCalendarLoc")}</td>
+                  </tr>
+                  <tr>
                     <td className="py-2 pr-4">Stripe Payments Europe Ltd</td>
                     <td className="py-2 pr-4">{t("soustraitants.stripe")}</td>
                     <td className="py-2">{t("soustraitants.stripeLoc")}</td>
@@ -151,6 +162,7 @@ export default async function Confidentialite() {
               <li>{t("duree.metier")}</li>
               <li>{t("duree.bancaire")}</li>
               <li>{t("duree.ocrFichiers")}</li>
+              <li>{t("duree.integrations")}</li>
             </ul>
           </section>
 
@@ -164,6 +176,7 @@ export default async function Confidentialite() {
               <li>{t("droits.effacement")}</li>
               <li>{t("droits.portabilite")}</li>
               <li>{t("droits.opposition")}</li>
+              <li>{t("droits.limitation")}</li>
             </ul>
             <p className="mt-2">
               {t("droits.exercer")}{" "}

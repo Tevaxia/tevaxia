@@ -91,8 +91,9 @@ describe("calculateBorrowingCapacity", () => {
     expect(r.dtiRatio).toBeLessThanOrEqual(LU_RULES.maxDSTI + 0.01);
   });
 
-  it("zero down payment still works if income is high enough", () => {
+  it("zero deposit cannot fund acquisition fees, even with high income", () => {
     const r = calculateBorrowingCapacity({ ...BASE, monthlyIncome: 12_000, downPayment: 0 });
-    expect(r.maxLoanAmount).toBeGreaterThan(0);
+    expect(r.maxLoanAmount).toBe(0);
+    expect(r.maxPropertyPrice).toBe(0);
   });
 });

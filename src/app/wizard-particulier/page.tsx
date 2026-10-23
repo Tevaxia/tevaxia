@@ -1,7 +1,8 @@
 "use client";
+import LocaleLink from "@/components/LocaleLink";
 
 import { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { useLocale, useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import SEOContent from "@/components/SEOContent";
@@ -474,7 +475,7 @@ export default function WizardParticulier() {
             </div>
 
             <p className="text-sm text-muted">{estNeuf ? acquisitionAudit("vefaScope") : acquisitionAudit("creditHint")}</p>
-            <a className="text-sm underline" href="/frais-acquisition">{acquisitionAudit("openDetailed")}</a>
+            <LocaleLink className="text-sm underline" href="/frais-acquisition">{acquisitionAudit("openDetailed")}</LocaleLink>
             {frais && (
               <div className="rounded-xl border border-card-border bg-card p-6">
                 <div className="text-xs uppercase tracking-wider text-muted font-semibold">{t("step2.totalFrais")}</div>
@@ -618,7 +619,7 @@ export default function WizardParticulier() {
             {loyer && envisageLocatif && (
               <div className="rounded-xl border border-card-border bg-card p-6">
                 <div className="text-xs uppercase tracking-wider text-muted font-semibold">{tl("estimationPartielle")}</div>
-                <p className="my-2 text-xs text-amber-800">{tl("donneesIncompletes")} <a className="underline" href="/calculateur-loyer">{tl("title")}</a></p>
+                <p className="my-2 text-xs text-amber-800">{tl("donneesIncompletes")} <LocaleLink className="underline" href="/calculateur-loyer">{tl("title")}</LocaleLink></p>
                 <div className="mt-1 text-3xl font-bold text-navy">{formatEUR(loyer.loyerMensuelMax)} <span className="text-sm text-muted">{t("step4.parMois")}</span></div>
                 <div className="mt-1 text-sm text-muted">
                   {t("step4.detailLoyer", { m2: formatEUR(loyer.loyerM2Mensuel), annuel: formatEUR(loyer.loyerAnnuelMax) })}

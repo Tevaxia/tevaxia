@@ -393,7 +393,7 @@ export default function Carte() {
                       </Link>
                     </div>
                     <div className="mt-3 flex justify-end">
-                      <PdfButton
+                      <PdfButton documentLocale="fr"
                         label="PDF"
                         filename={`carte-prix-${selectedCommune.commune.toLowerCase()}-${new Date().toLocaleDateString("fr-FR")}.pdf`}
                         generateBlob={() =>

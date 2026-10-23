@@ -2,12 +2,12 @@
 import { useAuth } from "@/components/AuthProvider";
 
 import { useState, useMemo } from "react";
-import Link from "next/link";
-import { useTranslations } from "next-intl";
+import Link from "@/components/LocaleLink";
+import { useLocale, useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import ToggleField from "@/components/ToggleField";
 import ResultPanel from "@/components/ResultPanel";
-import { calculerCapitalInvesti, formatEUR, formatEUR2 } from "@/lib/calculations";
+import { calculerCapitalInvesti } from "@/lib/calculations";
 import { TABLES_REEVALUATION } from "@/lib/coefficients-reevaluation";
 import { sauvegarderEvaluation } from "@/lib/storage";
 import SaveButton from "@/components/SaveButton";
@@ -19,7 +19,9 @@ const _lazy_generateLoyerPdfBlob = async (...args: Parameters<typeof import("@/c
 
 export default function CalculateurLoyer() {
   const { user: valuationUser } = useAuth();
-  const t = useTranslations("calculLoyer");
+  const t = useTranslations("calculLoyer"), locale = useLocale();
+  const formatEUR = (value: number) => new Intl.NumberFormat(locale, { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(value);
+  const formatEUR2 = (value: number) => new Intl.NumberFormat(locale, { style: "currency", currency: "EUR", minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
   const [prixAcquisition, setPrixAcquisition] = useState(500000);
   const [anneeAcquisition, setAnneeAcquisition] = useState(2010);
   const [travauxMontant, setTravauxMontant] = useState(0);
@@ -225,19 +227,19 @@ export default function CalculateurLoyer() {
                       <div className="mt-2 grid gap-2 sm:grid-cols-3 text-xs">
                         <div className="rounded bg-white p-2 border border-sky-200">
                           <div className="text-[10px] uppercase text-muted">{t("postTravauxLoyerAvant")}</div>
-                          <div className="font-mono font-bold text-slate">{Math.round(result.loyerMensuelMax).toLocaleString("fr-FR")} €/mois</div>
+                          <div className="font-mono font-bold text-slate">{Math.round(result.loyerMensuelMax).toLocaleString(locale)} {t("perMonth")}</div>
                         </div>
                         <div className="rounded bg-white p-2 border border-emerald-200">
                           <div className="text-[10px] uppercase text-emerald-700">{t("postTravauxLoyerApres")}</div>
-                          <div className="font-mono font-bold text-emerald-900">{Math.round(resultPostTravaux.loyerMensuelMax).toLocaleString("fr-FR")} €/mois</div>
+                          <div className="font-mono font-bold text-emerald-900">{Math.round(resultPostTravaux.loyerMensuelMax).toLocaleString(locale)} {t("perMonth")}</div>
                         </div>
                         <div className="rounded bg-navy p-2 border border-navy">
                           <div className="text-[10px] uppercase text-white/70">{t("postTravauxGain")}</div>
                           <div className="font-mono font-bold text-white">
-                            + {Math.round(resultPostTravaux.loyerMensuelMax - result.loyerMensuelMax).toLocaleString("fr-FR")} €/mois
+                            + {Math.round(resultPostTravaux.loyerMensuelMax - result.loyerMensuelMax).toLocaleString(locale)} {t("perMonth")}
                           </div>
                           <div className="text-[10px] text-white/80">
-                            ({Math.round((resultPostTravaux.loyerMensuelMax - result.loyerMensuelMax) * 12).toLocaleString("fr-FR")} €/an)
+                            ({Math.round((resultPostTravaux.loyerMensuelMax - result.loyerMensuelMax) * 12).toLocaleString(locale)} {t("perYear")})
                           </div>
                         </div>
                       </div>
@@ -526,7 +528,7 @@ export default function CalculateurLoyer() {
                 label={t("saveButton")}
                 successLabel={t("saveToast")}
               />
-              <PdfButton
+              <PdfButton documentLocale="fr"
                 label="PDF"
                 filename={`loyer-plafond-${new Date().toLocaleDateString("fr-FR")}.pdf`}
                 generateBlob={() =>
@@ -548,13 +550,13 @@ export default function CalculateurLoyer() {
             <RelatedTools keys={["estimation", "carte", "achatLocation"]} />
 
             <div className="mt-4 rounded-xl border border-navy/20 bg-navy/5 p-4 text-center">
-              <h3 className="text-sm font-semibold text-navy">Observer le marché</h3>
+              <h3 className="text-sm font-semibold text-navy">{t("observatoryTitle")}</h3>
               <p className="mt-1 text-xs text-muted">
-                Comparez votre plafond légal aux loyers réellement observés au Luxembourg par commune et typologie.
+                {t("observatoryIntro")}
               </p>
               <Link href="/calculateur-loyer/observatoire"
                 className="mt-3 inline-block rounded-lg bg-navy px-4 py-2 text-xs font-semibold text-white hover:bg-navy-light">
-                Observatoire des loyers LU →
+                {t("observatoryLink")} →
               </Link>
             </div>
           </div>}

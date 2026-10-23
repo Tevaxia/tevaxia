@@ -305,7 +305,7 @@ export default function Valorisation() {
                 label={t("sauvegarder")}
                 successLabel={t("sauvegarde")}
               />
-              <PdfButton
+              <PdfButton documentLocale="fr"
                 generateBlob={() => {
                   const prof = getProfile(user?.id ?? null);
                   return _lazy_generateReportBlob({
