@@ -102,6 +102,7 @@ export default async function PropCalcDevelopersPage() {
           <p className="text-muted text-center max-w-xl mx-auto mb-12">
             {t("widgetIntro")}
           </p>
+          <p className="mb-8 text-sm text-muted">{t("widgetScope")}</p>
 
           <div className="rounded-xl border border-card-border bg-navy p-6 mb-8 overflow-x-auto">
             <pre className="text-sm font-mono text-white/80 leading-relaxed"><code>{`<link rel="stylesheet"
@@ -173,6 +174,8 @@ export default async function PropCalcDevelopersPage() {
           </div>
 
           <p className="mb-8 text-sm text-muted [overflow-wrap:anywhere]">{t("frenchFeesInputs")}</p>
+          <p className="mb-8 text-sm text-muted [overflow-wrap:anywhere]">{t("auditFeesInputs")}</p>
+          <p className="mb-8 text-sm text-muted [overflow-wrap:anywhere]">{t("unsupportedRentalTax")}</p>
 
           <p className="mb-8 text-sm text-muted [overflow-wrap:anywhere]">{t("frenchRentalInputs")}</p>
           <p className="mb-8 text-sm text-muted [overflow-wrap:anywhere]">{t("italianRentalInputs")}</p>

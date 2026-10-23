@@ -94,28 +94,9 @@ const MENU_GROUPS: MenuGroup[] = [
 ];
 
 function DropdownMenu({ group, t, onClose }: { group: MenuGroup; t: (key: string) => string; onClose: () => void }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) onClose();
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, [onClose]);
-
   return (
-    <div ref={ref} className="absolute top-full left-0 mt-1 w-56 rounded-lg border border-white/10 bg-navy-dark shadow-xl py-1 z-50">
-      {group.items.map((item) => (
-        <LocaleLink
-          key={item.href}
-          href={item.href}
-          className="block px-4 py-2 text-sm text-white/70 hover:bg-white/10 hover:text-white transition-colors"
-          onClick={onClose}
-        >
-          {t(item.key)}
-        </LocaleLink>
-      ))}
+    <div id={`nav-panel-${group.key}`} aria-labelledby={`nav-trigger-${group.key}`} className="absolute top-full left-0 mt-1 w-56 rounded-lg border border-white/10 bg-navy-dark shadow-xl py-1 z-50">
+      {group.items.map(item => <LocaleLink key={item.href} href={item.href} className="block px-4 py-2 text-sm text-white/70 hover:bg-white/10 hover:text-white transition-colors" onClick={onClose}>{t(item.key)}</LocaleLink>)}
     </div>
   );
 }
@@ -127,9 +108,25 @@ export default function Header() {
   const { user } = useAuth();
   const pathname = usePathname();
   const isEnergy = pathname.includes("/energy");
+  const headerRef = useRef<HTMLElement>(null), mobileTrigger = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const closeOutside = (event: PointerEvent) => {
+      if (!headerRef.current?.contains(event.target as Node)) { setOpenDropdown(null); setMenuOpen(false); }
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    return () => document.removeEventListener("pointerdown", closeOutside);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-navy text-white shadow-lg">
+    <header ref={headerRef} className="sticky top-0 z-50 bg-navy text-white shadow-lg" onKeyDown={event => {
+      if (event.key === "Escape" && (openDropdown || menuOpen)) {
+        event.preventDefault();
+        if (openDropdown) document.getElementById(`nav-trigger-${openDropdown}`)?.focus();
+        else mobileTrigger.current?.focus();
+        setOpenDropdown(null); setMenuOpen(false);
+      }
+    }}>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-3 focus:text-navy">{t("skipToContent")}</a>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex min-h-16 flex-wrap gap-2 py-2 items-center justify-between">
           <LocaleLink href={isEnergy ? "/energy" : "/"} className="flex items-center gap-2">
@@ -150,10 +147,12 @@ export default function Header() {
             )}
           </LocaleLink>
 
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav aria-label={t("mainNavigation")} className="hidden lg:flex items-center gap-1">
             {MENU_GROUPS.map((group) => (
-              <div key={group.key} className="relative">
-                <button
+              <div key={group.key} className="relative" onBlur={event => {
+                if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setOpenDropdown(null);
+              }}>
+                <button type="button" id={`nav-trigger-${group.key}`} aria-expanded={openDropdown === group.key} aria-controls={`nav-panel-${group.key}`}
                   onClick={() => setOpenDropdown(openDropdown === group.key ? null : group.key)}
                   className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white"
                 >
@@ -189,10 +188,10 @@ export default function Header() {
             )}
             <LanguageSwitcher />
 
-            <button
+            <button type="button" ref={mobileTrigger} aria-expanded={menuOpen} aria-controls="mobile-navigation"
               onClick={() => setMenuOpen(!menuOpen)}
               className="lg:hidden rounded-lg p-2 text-white/80 hover:bg-white/10 hover:text-white"
-              aria-label="Menu"
+              aria-label={t("menu")}
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 {menuOpen ? (
@@ -206,7 +205,7 @@ export default function Header() {
         </div>
 
         {menuOpen && (
-          <nav className="lg:hidden border-t border-white/10 py-3 space-y-3">
+          <nav id="mobile-navigation" aria-label={t("mainNavigation")} className="lg:hidden border-t border-white/10 py-3 space-y-3">
             {MENU_GROUPS.map((group) => (
               <div key={group.key}>
                 <div className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white/40">{t(group.key)}</div>

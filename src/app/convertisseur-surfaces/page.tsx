@@ -1,11 +1,10 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import SliderField from "@/components/SliderField";
 import ResultPanel from "@/components/ResultPanel";
-import { formatEUR } from "@/lib/calculations";
 import { PdfButton } from "@/components/PdfButton";
 const _lazy_generateSurfacesPdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generateSurfacesPdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generateSurfacesPdfBlob(...args);
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -40,12 +39,14 @@ function effectiveCoeff(surface: number, coeff: typeof ACT_COEFFICIENTS[keyof ty
 /* ------------------------------------------------------------------ */
 /*  Formatting helpers                                                */
 /* ------------------------------------------------------------------ */
-function fmtM2(v: number): string {
-  return `${v.toLocaleString("fr-FR", { maximumFractionDigits: 1 })} m²`;
-}
-
-function fmtPct(v: number): string {
-  return `${(v * 100).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} %`;
+function useSurfaceFormatting() {
+  const locale = useLocale();
+  return {
+    fmtM2: (value: number) => `${value.toLocaleString(locale, { maximumFractionDigits: 1 })} m²`,
+    fmtPct: (value: number) => `${(value * 100).toLocaleString(locale, { maximumFractionDigits: 1 })} %`,
+    fmtCoeff: (value: number) => value.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
+    formatEUR: (value: number) => new Intl.NumberFormat(locale, { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(value),
+  };
 }
 
 /* ------------------------------------------------------------------ */
@@ -116,6 +117,7 @@ function computeTerrain(params: {
 
 function TerrainSection() {
   const t = useTranslations("convertisseurSurfaces");
+  const { fmtM2 } = useSurfaceFormatting();
   const [surfaceCadastrale, setSurfaceCadastrale] = useState(800);
   const [retraitVoirie, setRetraitVoirie] = useState(0);
   const [espaceVertPct, setEspaceVertPct] = useState(0);
@@ -277,6 +279,7 @@ function TerrainSection() {
 /* ------------------------------------------------------------------ */
 export default function ConvertisseurSurfaces() {
   const t = useTranslations("convertisseurSurfaces");
+  const { fmtM2, fmtPct, fmtCoeff, formatEUR } = useSurfaceFormatting();
 
   // --- Surface de référence ---
   const [surfaceReference, setSurfaceReference] = useState(2500);
@@ -640,7 +643,7 @@ export default function ConvertisseurSurfaces() {
               </div>
             </div>
 
-            <PdfButton
+            <PdfButton documentLocale="fr"
               label="PDF"
               filename={`convertisseur-surfaces-${new Date().toLocaleDateString("fr-FR")}.pdf`}
               generateBlob={() => _lazy_generateSurfacesPdfBlob({
@@ -719,37 +722,37 @@ export default function ConvertisseurSurfaces() {
               lines={[
                 ...(surfaceBalcons > 0
                   ? [{
-                      label: `${t("balcons")} : ${fmtM2(surfaceBalcons)} × ${effectiveCoeff(surfaceBalcons, ACT_COEFFICIENTS.balcons).toFixed(2)}`,
+                      label: `${t("balcons")} : ${fmtM2(surfaceBalcons)} × ${fmtCoeff(effectiveCoeff(surfaceBalcons, ACT_COEFFICIENTS.balcons))}`,
                       value: fmtM2(result.wBalcons),
                     }]
                   : []),
                 ...(surfaceTerrasses > 0
                   ? [{
-                      label: `${t("terrasses")} : ${fmtM2(surfaceTerrasses)} × ${effectiveCoeff(surfaceTerrasses, ACT_COEFFICIENTS.terrasses).toFixed(2)}`,
+                      label: `${t("terrasses")} : ${fmtM2(surfaceTerrasses)} × ${fmtCoeff(effectiveCoeff(surfaceTerrasses, ACT_COEFFICIENTS.terrasses))}`,
                       value: fmtM2(result.wTerrasses),
                     }]
                   : []),
                 ...(surfaceTerrassesVerdure > 0
                   ? [{
-                      label: `${t("terrassesVerdure")} : ${fmtM2(surfaceTerrassesVerdure)} × ${effectiveCoeff(surfaceTerrassesVerdure, ACT_COEFFICIENTS.terrassesVerdure).toFixed(2)}`,
+                      label: `${t("terrassesVerdure")} : ${fmtM2(surfaceTerrassesVerdure)} × ${fmtCoeff(effectiveCoeff(surfaceTerrassesVerdure, ACT_COEFFICIENTS.terrassesVerdure))}`,
                       value: fmtM2(result.wTerrassesVerdure),
                     }]
                   : []),
                 ...(surfaceCaves > 0
                   ? [{
-                      label: `${t("caves")} : ${fmtM2(surfaceCaves)} × 0,50`,
+                      label: `${t("caves")} : ${fmtM2(surfaceCaves)} × ${fmtCoeff(0.5)}`,
                       value: fmtM2(result.wCaves),
                     }]
                   : []),
                 ...(surfaceGarages > 0
                   ? [{
-                      label: `${t("garages")} : ${fmtM2(surfaceGarages)} × 0,50`,
+                      label: `${t("garages")} : ${fmtM2(surfaceGarages)} × ${fmtCoeff(0.5)}`,
                       value: fmtM2(result.wGarages),
                     }]
                   : []),
                 ...(surfaceLoggias > 0
                   ? [{
-                      label: `${t("loggias")} : ${fmtM2(surfaceLoggias)} × 0,50`,
+                      label: `${t("loggias")} : ${fmtM2(surfaceLoggias)} × ${fmtCoeff(0.5)}`,
                       value: fmtM2(result.wLoggias),
                     }]
                   : []),

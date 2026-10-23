@@ -64,7 +64,11 @@
     "hotelE2Evidence": "Dossier E‑2",
     "hotelAcquisition": "Aquisição",
     "hotelCoverage": "Cobertura da dívida",
-    "hotelOperating": "Conta de exploração"
+    "hotelOperating": "Conta de exploração",
+    "skipToContent": "Saltar para o conteúdo",
+    "mainNavigation": "Navegação principal",
+    "menu": "Menu",
+    "language": "Idioma"
   },
   "common": {
     "language": "Língua",
@@ -321,7 +325,7 @@
       },
       "str": {
         "title": "Alojamento curto (STR)",
-        "description": "7 ferramentas para anfitriões Airbnb / Booking / Vrbo em LU: rentabilidade líquida após imposto, conformidade limite 90d + Regulamento UE 2024/1028, arbitragem longo vs curto prazo, pricing dinâmico.",
+        "description": "Ferramentas de arrendamento de curta duração no Luxemburgo: simulações económicas, obrigações a verificar e comparação com o arrendamento de longa duração.",
         "tag": "Airbnb / Booking"
       },
       "esg": {
@@ -331,7 +335,7 @@
       },
       "proAgences": {
         "title": "CRM Agências imobiliárias",
-        "description": "Pipeline mandatos 7 etapas, CRM compradores + nurturing, assinatura eIDAS, ficha imóvel co-branded, exportação OpenImmo XML, comissões anuais.",
+        "description": "Mandatos, contactos, tarefas e documentos de agência, com fluxo de assinatura cuja adequação deve ser verificada para cada ato.",
         "tag": "B2B agências LU"
       }
     },
@@ -1550,7 +1554,12 @@
     "erreurSaisie": "Verifique valores e anos: construção ≤ compra ≤ contrato; anos do contrato de 2015 a 2026.",
     "donneesIncompletes": "Estimativa parcial: depreciação ou dados do edifício/mobiliário por verificar. O resultado não confirma a conformidade legal da renda.",
     "estimationPartielle": "Estimativa incompleta",
-    "champApplication": "Para habitação concluída adquirida a título oneroso, sujeita ao arrendamento habitacional privado. Construção pelo proprietário, doações, instalações comerciais, residências secundárias e regimes especiais exigem análise separada. O teto calculado não autoriza um aumento automático: continuam a aplicar-se os prazos e limites de atualização da renda. O mobiliário é calculado apenas para 2025–2026."
+    "champApplication": "Para habitação concluída adquirida a título oneroso, sujeita ao arrendamento habitacional privado. Construção pelo proprietário, doações, instalações comerciais, residências secundárias e regimes especiais exigem análise separada. O teto calculado não autoriza um aumento automático: continuam a aplicar-se os prazos e limites de atualização da renda. O mobiliário é calculado apenas para 2025–2026.",
+    "perMonth": "€/mês",
+    "perYear": "€/ano",
+    "observatoryIntro": "Compare o limite legal da renda com as rendas observadas no Luxemburgo por município e tipo de imóvel.",
+    "observatoryLink": "Observatório de rendas do Luxemburgo",
+    "observatoryTitle": "Explorar o mercado de arrendamento"
   },
   "achatLocation": {
     "title": "Comprar ou Arrendar no Luxemburgo",
@@ -1571,21 +1580,21 @@
     "chargesCopro": "Encargos de condomínio",
     "suffixEuroMois": "€/mês",
     "impotFoncier": "Imposto predial",
-    "impotFoncierHint": "Grundsteuer — muito baixo no Luxemburgo (100–300 €/ano)",
+    "impotFoncierHint": "Indique o montante anual aplicável ao imóvel.",
     "suffixEuroAn": "€/ano",
     "entretienAnnuel": "Manutenção anual",
     "suffixPctPrix": "% do preço",
-    "entretienAnnuelHint": "Orçamento anual de manutenção (1 % do preço é uma estimativa padrão)",
+    "entretienAnnuelHint": "Adapte o orçamento ao estado do imóvel e às obras previstas.",
     "appreciationAnnuelle": "Valorização anual",
     "appreciationAnnuelleHint": "Valorização anual estimada do imóvel",
     "sectionAssuranceSRD": "Seguro de saldo devedor",
     "tauxAssuranceSRD": "Taxa do seguro",
     "suffixPctCapital": "% capital",
-    "tauxAssuranceSRDHint": "Obrigatório no Luxemburgo. Taxa entre 0,15 % e 0,40 % do capital emprestado.",
+    "tauxAssuranceSRDHint": "Prémio periódico sobre o capital inicial até ao vencimento. Verifique o contrato; prémios únicos ou decrescentes não são modelizados.",
     "coutMensuelLabel": "Custo mensal:",
     "sectionDeductionInterets": "Dedução de juros hipotecários",
-    "deductionInteretsDescription": "Art. 98bis LIR: os juros hipotecários são dedutíveis do rendimento tributável (limite por pessoa e por escalão).",
-    "nbPersonnes": "Número de pessoas",
+    "deductionInteretsDescription": "Regras ACD desde 2024: juros elegíveis sem limite no ano de disponibilidade e no seguinte; depois limites por pessoa de 4 000 €, 3 000 € e 2 000 € conforme os anos decorridos. Subsídios de juros reduzem o encargo dedutível. A poupança fiscal é uma hipótese a confirmar.",
+    "nbPersonnes": "Pessoas fiscalmente elegíveis (incluindo filhos)",
     "suffixPers": "pes.",
     "tauxMarginal": "Taxa marginal de imposto",
     "tauxMarginalHint": "Escalão marginal IRS. Classe 1/1a: até 42 %, classe 2: tabela conjunta.",
@@ -1594,16 +1603,16 @@
     "perAn": "ano",
     "sectionLocationDetails": "Detalhes do arrendamento",
     "indexationLoyer": "Indexação anual da renda",
-    "indexationLoyerHint": "Aumento anual estimado da renda (índice de saúde LU)",
+    "indexationLoyerHint": "Hipótese de evolução da renda; não valida uma cláusula de indexação nem o direito a aumentar a renda.",
     "rendementPlacement": "Rendimento do investimento alternativo",
-    "rendementPlacementHint": "Se arrendar, a entrada é investida. Rendimento anual esperado.",
+    "rendementPlacementHint": "Rendimento anual hipotético, líquido dos custos e impostos que considerar. Sem rendimento garantido.",
     "verdictAchat": "Em {horizon} anos, a compra é mais vantajosa",
     "verdictLocation": "Em {horizon} anos, o arrendamento é mais vantajoso",
     "patrimoineAchat": "Património líquido (compra)",
     "capitalLocation": "Capital acumulado (arrendamento)",
-    "croisementMessage": "A compra torna-se mais vantajosa a partir do ano {annee}",
+    "croisementMessage": "Primeiro ano observado favorável à compra: {annee}. O resultado pode inverter-se depois.",
     "chartTitle": "Evolução do património líquido",
-    "chartDescription": "Património líquido compra (valor do imóvel − capital em dívida) vs capital acumulado arrendamento (investimento da entrada + diferenças de custos).",
+    "chartDescription": "Compra: valor do imóvel menos dívida, mais poupança quando comprar custa menos. Arrendamento: entrada e custos iniciais conservados, mais poupança quando arrendar custa menos.",
     "axisAnnee": "Ano",
     "legendeAchat": "Património compra",
     "legendeLocation": "Capital arrendamento",
@@ -1639,38 +1648,52 @@
     "location": "Arrendamento +",
     "hypothesesTitle": "Pressupostos:",
     "monteCarloTitle": "Simulação Monte-Carlo (1 000 cenários)",
-    "monteCarloSubtitle": "Testa a robustez da decisão variando aleatoriamente valorização imobiliária (±2 pp), rendimento do investimento (±3 pp) e indexação da renda (±1 pp) com distribuição normal.",
+    "monteCarloSubtitle": "1 000 cenários com desvios-padrão hipotéticos de 2 pontos percentuais para imóveis, 3 para investimentos e 1 para rendas. Não são probabilidades de mercado.",
     "monteCarloRun": "Lançar simulação",
     "monteCarloRunning": "A correr…",
-    "monteCarloProbAchat": "Probabilidade comprar > arrendar",
+    "monteCarloProbAchat": "Proporção de cenários favoráveis à compra",
     "monteCarloMedianDiff": "Mediana património compra − arrendamento",
-    "monteCarloIC90": "IC 90 % diferença",
+    "monteCarloIC90": "Percentis 5–95 dos cenários",
     "monteCarloHistogramLabel": "Distribuição de (património compra − património arrendamento) ao fim do horizonte",
     "monteCarloHelp": "Clique para executar a simulação Monte-Carlo. Cálculo local, ~2 segundos.",
-    "monteCarloNote": "Parâmetros fixos (taxa crédito, duração, despesas) ficam idênticos. Apenas as variáveis de incerteza (mercado, investimento, renda) são amostradas. O Monte-Carlo mostra a robustez da decisão face à incerteza macro.",
+    "monteCarloNote": "Mesmo motor mensal e hipóteses fiscais da tabela. Cada parâmetro sorteado mantém-se constante na trajetória. Os resultados dependem das distribuições escolhidas e não preveem o mercado.",
     "hypothesesText": "Valorização do imóvel: {appreciation} %/ano. Rendimento investimento: {rendement} %/ano. Limite dedução juros: {plafond}/ano ({nbPersonnes} pes.). Seguro saldo devedor: {tauxSRD} % do capital.",
     "seo": {
       "faqTitle": "Perguntas frequentes sobre comprar vs. arrendar",
       "relatedTitle": "Ferramentas complementares",
       "dilemmeTitle": "Comprar ou arrendar no Luxemburgo: o dilema eterno",
-      "dilemmeContent": "<p>A questão '<strong>devo comprar ou arrendar?</strong>' é particularmente aguda no Luxemburgo, onde o preço mediano de um apartamento ultrapassa 600.000 € em 2025. O custo total de propriedade inclui não apenas as prestações mas também custos de aquisição (7-10 %), manutenção, seguros e custo de oportunidade do capital.</p>",
+      "dilemmeContent": "<p>Comparar compra e arrendamento exige hipóteses adequadas ao imóvel, financiamento e permanência. Os valores iniciais são exemplos editáveis, não referências de mercado. Compara-se o património antes de uma venda.</p>",
       "tcoTitle": "Custo total de propriedade vs. custo total de arrendamento",
-      "tcoContent": "<p>O nosso simulador calcula o <strong>custo total acumulado</strong> de ambas as opções. O <strong>ponto de cruzamento</strong> situa-se tipicamente entre 7 e 15 anos no Luxemburgo.</p>",
+      "tcoContent": "<p>A compra inclui entrada, custos indicados, prestações mensais, seguro do crédito e despesas informadas. O arrendatário conserva a entrada e os custos iniciais. Com orçamentos iguais, cada opção investe a poupança mensal. Excluem-se custos e impostos de venda, caução e seguro da habitação.</p>",
       "levierTitle": "O efeito de alavancagem do crédito imobiliário",
-      "levierContent": "<p>Um argumento importante para comprar é o <strong>efeito de alavancagem</strong> do crédito hipotecário. Com uma entrada de 20 %, o comprador beneficia da valorização sobre 100 % do valor do imóvel.</p>",
+      "levierContent": "<p>O crédito permite comprar com uma entrada inferior ao preço. Amplifica ganhos e perdas sobre capitais próprios e cria obrigações de pagamento. Taxas, condições e variações de preço devem ser justificadas para o projeto.</p>",
       "seuilTitle": "Limiar de rentabilidade e fatores de decisão",
-      "seuilContent": "<p>O limiar depende de muitos fatores:</p><ul><li><strong>Duração de estadia prevista</strong>: abaixo de 5-7 anos, o arrendamento é quase sempre mais vantajoso</li><li><strong>Taxas de juro</strong>: taxas baixas favorecem a compra</li></ul>",
+      "seuilContent": "<p>O cruzamento patrimonial depende do preço, renda, duração, custos e rendimentos. Nenhum prazo universal garante a vantagem da compra. Mobilidade, liquidez e capacidade para suportar riscos exigem análise separada.</p>",
       "faq1q": "Quanto tempo devo manter um imóvel para que a compra compense?",
-      "faq1a": "No Luxemburgo, o limiar situa-se tipicamente entre 7 e 15 anos. Com o Bellegen Akt pode descer para 5-7 anos.",
+      "faq1a": "Depende do cenário. O cruzamento compara patrimónios antes dos custos e impostos de venda, sem garantir rentabilidade.",
       "faq2q": "Os custos de aquisição estão incluídos na comparação?",
-      "faq2a": "Sim, a ferramenta inclui direitos de registo, transcrição, honorários notariais e custos hipotecários.",
+      "faq2a": "Os custos são uma percentagem indicada pelo utilizador. Use o calculador de aquisição para detalhar impostos, créditos e notário e transfira o total adequado.",
       "faq3q": "Que rendimento alternativo usar para a poupança?",
-      "faq3a": "O rendimento alternativo representa o que ganharia investindo a sua entrada. 4-6 % é razoável para uma carteira diversificada a longo prazo.",
+      "faq3a": "Escolha um rendimento fundamentado nos seus investimentos e teste hipóteses baixas ou negativas. Investimentos de risco não garantem rendimentos.",
       "faq4q": "Comprar é sempre melhor no Luxemburgo?",
-      "faq4a": "Não necessariamente. Se planeia ficar menos de 5 anos ou as taxas são elevadas, o arrendamento pode ser mais rentável.",
+      "faq4a": "Não. O resultado depende das hipóteses e circunstâncias pessoais. Compare cenários e custos excluídos antes de decidir.",
       "faq5q": "Como é integrada a dedução fiscal dos juros hipotecários?",
-      "faq5a": "No Luxemburgo, os juros hipotecários são dedutíveis do rendimento tributável para a residência principal (limite de 1.500-3.000 €)."
-    }
+      "faq5a": "Ative a dedução após verificar a elegibilidade. Indique o ano de disponibilidade, pessoas elegíveis, subsídios de juros e taxa marginal hipotética. Aplicam-se as regras desde 2024 aos juros efetivamente amortizados; não substitui a declaração fiscal."
+    },
+    "simulationYear": "Primeiro ano da simulação",
+    "availabilityYear": "Ano em que a habitação ficou disponível",
+    "availabilityHint": "Ano de fixação do valor locativo da habitação própria; pode ser anterior ao empréstimo simulado.",
+    "deductionEligibility": "Confirmo a elegibilidade dos juros desta residência principal e das pessoas indicadas para a dedução luxemburguesa.",
+    "interestSubsidy": "Subsídios anuais de juros",
+    "deductionDisabled": "Não aplicada",
+    "deductionUncapped": "Juros elegíveis sem limite",
+    "invalidScenario": "Verifique os dados: entrada entre zero e o preço, prazo positivo até 50 anos, anos coerentes, número inteiro de pessoas e montantes válidos. Não é calculado um resultado para estes dados.",
+    "modelScope": "Cenário desde {annee}, habitação disponível em {disponibilite}, {personnes} pessoas fiscalmente elegíveis se confirmado. Dedução no primeiro ano: {deduction}, à taxa marginal indicada de {taux} %. As regras desde 2024 são mantidas por hipótese nos anos futuros. Orçamento mensal igual: a opção menos dispendiosa investe a diferença no fim do mês. Seguro sobre capital inicial até ao fim do empréstimo; benefícios fiscais e subsídios distribuídos pelo ano. Custos de compra indicados globalmente. Excluem-se custos e impostos de venda, tributação dos investimentos, caução e seguro da habitação. Não é previsão de mercado nem liquidação fiscal.",
+    "save": "Guardar",
+    "saved": "Guardado",
+    "pdfFrench": "PDF (francês)",
+    "scenarioCount": "{count} cenários",
+    "interestSubsidyMonthly": "Subsídio mensal de juros (ano 1)"
   },
   "simulateurAides": {
     "title": "Simulador de apoios à aquisição",
@@ -3613,7 +3636,7 @@
       "f3": "Gestão locativa: lotes, pagamentos, recibos PDF (lei 21.09.2006), AIS, fiscal anexo 190, lembretes & dunning, seguro de rendas não pagas",
       "f4": "Reconciliação bancária PSD2 (Enable Banking — BCEE, BIL, Banque Raiffeisen, Post Finance)",
       "f5": "Armazenamento cloud (500 itens, 180 dias) — histórico completo, multi-dispositivo",
-      "f6": "Arrendamento digital com assinatura eletrónica eIDAS simples + estado de conservação",
+      "f6": "Projeto de contrato de arrendamento em francês, traços de assinatura opcionais e checksum externo do PDF + auto de vistoria",
       "f7": "Perfil personalizado nos relatórios (nome, logo, contactos, menção legal)",
       "f8": "Alertas de mercado + comparador de cenários + partilha de ligação apenas leitura",
       "f9": "2FA (TOTP) + eliminação de conta RGPD + consentimentos",
@@ -3636,7 +3659,7 @@
       "f6": "API REST B2B: estimação, batch (1.000 imóveis), webhook PMS, faturação Factur-X, OpenAPI 3.1",
       "f7": "DCF multi-inquilinos (break options, step rents, CAPEX, IRR equity) + balanço promotor",
       "f8": "Transparência do modelo: MAPE + R² públicos, 29 coeficientes referenciados + modelo hedónico",
-      "f9": "Armazenamento cloud alargado (10.000 itens) + exportação RGPD completa + dados macro LU históricos (98 municípios com demografia)",
+      "f9": "Armazenamento cloud alargado (10 000 itens) + exportação JSON parcial com âmbito documentado + dados macro LU históricos (98 comunas com demografia)",
       "priceStriked": "29 €/mês",
       "f10": "Suporte prioritário por email — contact@tevaxia.lu"
     },
@@ -3647,7 +3670,7 @@
       "q2": "Porque criar uma conta se ja e gratuito?",
       "a2": "A conta permite guardar as suas simulacoes na cloud (acessiveis a partir de qualquer dispositivo), exportar relatorios PDF profissionais e personalizar o seu perfil nos documentos gerados.",
       "q3": "Os meus dados estao seguros?",
-      "a3": "Os seus dados estao alojados na Europa em servidores seguros (Supabase). Nao vendemos nem partilhamos as suas informacoes. Sem conta, nada sai do seu navegador.",
+      "a3": "Os dados de conta e de simulação são alojados no Supabase na Europa. As ligações usam HTTPS e o acesso depende das permissões da conta. Algumas funções trabalham localmente no navegador; outras usam os nossos servidores ou fornecedores, incluindo ligações que ativa. Também podem ser transmitidos dados técnicos para diagnóstico e, com a sua autorização, medição das páginas públicas. Os destinatários e detalhes constam da política de privacidade.",
       "q4": "Quando estara disponivel o tier Pro?",
       "a4": "Organize documentos, fontes, cálculos, pressupostos e reservas num dossier de trabalho. O profissional verifica a informação, define as diligências necessárias e assume as suas conclusões. A exportação ou assinatura técnica do ficheiro não certifica a conformidade profissional.",
       "q5": "O dossier adapta-se aos diferentes tipos de imóveis?",
@@ -3657,7 +3680,7 @@
   },
   "mentionsLegales": {
     "title": "Avisos legais",
-    "lastUpdate": "Última atualização: 12 de outubro de 2026",
+    "lastUpdate": "Última atualização: 23 de outubro de 2026",
     "editeur": {
       "title": "1. Editor do site",
       "name": "NOTARIA PRIME",
@@ -3708,12 +3731,12 @@
     },
     "droit": {
       "title": "6. Direito aplicavel",
-      "p1": "O presente site esta sujeito ao direito luxemburgues. Qualquer litigio relativo a utilizacao do site sera da competencia exclusiva dos tribunais do Grao-Ducado do Luxemburgo."
+      "p1": "Aplica-se o direito luxemburguês, sem prejuízo das disposições imperativas aplicáveis, nomeadamente as que protegem os consumidores no país da sua residência habitual. A competência dos tribunais é determinada pelas regras legais aplicáveis. Nenhuma escolha de lei ou de tribunal priva o consumidor dos seus direitos imperativos, incluindo os previstos nos artigos 17.º a 19.º do Regulamento (UE) n.º 1215/2012. Pode ser proposta uma solução amigável sem limitar o acesso ao tribunal competente."
     }
   },
   "cgu": {
     "title": "Termos e Condicoes de Utilizacao",
-    "lastUpdate": "Última atualização: 12 de outubro de 2026",
+    "lastUpdate": "Última atualização: 23 de outubro de 2026",
     "intro": "Os presentes Termos e Condicoes de Utilizacao (TCU) regem a utilizacao da plataforma tevaxia.lu e dos seus servicos. Ao aceder ao site ou criar uma conta, o utilizador aceita sem reservas os presentes TCU. A plataforma é editada pela NOTARIA PRIME, sociedade por ações simplificada francesa (SAS) com capital social de 500 €, inscrita no Registo do Comércio e das Sociedades de Quimper sob o número 941 646 341.",
     "article1": {
       "title": "1. Objeto",
@@ -3767,12 +3790,12 @@
     },
     "article10": {
       "title": "10. Direito aplicavel",
-      "p1": "Os presentes TCU sao regidos pelo direito luxemburgues. Qualquer litigio relativo a sua interpretacao ou execucao sera da competencia exclusiva dos tribunais do Grao-Ducado do Luxemburgo, apos tentativa de resolucao amigavel."
+      "p1": "Aplica-se o direito luxemburguês, sem prejuízo das disposições imperativas aplicáveis, nomeadamente as que protegem os consumidores no país da sua residência habitual. A competência dos tribunais é determinada pelas regras legais aplicáveis. Nenhuma escolha de lei ou de tribunal priva o consumidor dos seus direitos imperativos, incluindo os previstos nos artigos 17.º a 19.º do Regulamento (UE) n.º 1215/2012. Pode ser proposta uma solução amigável sem limitar o acesso ao tribunal competente."
     }
   },
   "confidentialite": {
     "title": "Politica de privacidade",
-    "lastUpdate": "Última atualização: 12 de outubro de 2026",
+    "lastUpdate": "Última atualização: 23 de outubro de 2026",
     "responsable": {
       "title": "1. Responsavel pelo tratamento",
       "name": "NOTARIA PRIME — Sede social: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, França",
@@ -3790,7 +3813,7 @@
       },
       "oauth": {
         "label": "Ligacao OAuth (Google, LinkedIn):",
-        "text": "Apenas o seu endereco de email e o seu nome sao transmitidos por estes servicos. Nao recebemos a sua palavra-passe, os seus contactos, nem quaisquer outros dados da sua conta de terceiros. A autenticacao e gerida pelo Supabase Auth atraves do protocolo OAuth 2.0 / OpenID Connect."
+        "text": "Para iniciar sessão, o Supabase recebe os dados de identidade autorizados pelo fornecedor, nomeadamente o identificador, email e nome. A Tevaxia não recebe a palavra-passe do fornecedor. As permissões adicionais para um calendário ou Google Drive são distintas e descritas abaixo."
       },
       "simulations": {
         "label": "Dados de simulacao:",
@@ -3806,7 +3829,7 @@
       },
       "bancaire": {
         "label": "Dados bancarios PSD2 (ligacao Enable Banking):",
-        "text": "Se ligar uma conta bancaria via o servico PSD2 Enable Banking (AIS — Account Information Service) para reconciliacao automatica, as transacoes obtidas (descricao, montante, data, referencia) sao tratadas em memoria durante a reconciliacao e nao armazenadas nos nossos servidores para alem da sessao. A ligacao PSD2 tem duracao maxima de 90 dias imposta pelo regulamento UE 2015/2366, renovavel pelo seu banco via SCA. A chave privada JWT usada para assinar os pedidos permanece no servidor tevaxia, nunca exposta ao navegador."
+        "text": "Se ligar um banco através da Enable Banking, as operações consultadas são usadas na reconciliação solicitada. A Tevaxia guarda os identificadores de sessão e de contas e a validade devolvida pelo fornecedor. É solicitada uma validade de 180 dias, sujeita às condições do banco; pode ser exigida nova autenticação. Este prazo não é uma duração universal de consentimento ou conservação, nem se confunde com a profundidade do histórico de operações. A chave privada utilizada nos pedidos à Enable Banking permanece no servidor."
       },
       "ocr": {
         "label": "OCR faturas & documentos — tratamento local:",
@@ -3819,6 +3842,12 @@
       "diagnostic": {
         "label": "Diagnóstico técnico de erros:",
         "text": "Quando o Sentry está configurado, o site pode enviar um relatório técnico limitado ao tipo de erro e às posições no código gerado. Mensagens variáveis, URLs de registos, pedidos, cabeçalhos, identidades de contas, contexto de negócio e anexos são removidos do relatório. O rastreio de desempenho e a gravação de sessões estão desativados. O prestador recebe informações de rede necessárias à ligação."
+      },
+      "integrations": {
+        "label": "Ligações opcionais a calendários e ao Google Drive:",
+        "calendar": "A seu pedido, uma ligação ao Google Calendar ou Microsoft Outlook pode solicitar permissões de leitura e escrita de eventos e acesso offline. Os identificadores da conta externa, email, permissões, tokens de acesso e renovação e datas de validade são guardados no Supabase para esta ligação. A autorização não significa que todas as funções de sincronização estejam disponíveis. Um URL de subscrição de calendário também pode transmitir tarefas e visitas publicadas ao serviço escolhido: qualquer pessoa com esse URL pode ler o seu conteúdo.",
+        "drive": "A exportação para o Google Drive transmite o ficheiro escolhido e o seu nome à Google após a sua ação. A permissão drive.file abrange ficheiros criados ou abertos com a aplicação, não todo o seu Drive. Os tokens necessários do fornecedor estão acessíveis na sessão de autenticação. O ficheiro exportado permanece no seu Drive até ser eliminado segundo as suas definições Google.",
+        "revoke": "Pode retirar as permissões nas definições da sua conta Google ou Microsoft. Para solicitar a eliminação dos dados de ligação conservados pela Tevaxia, contacte contact@tevaxia.lu. Retirar uma permissão não elimina automaticamente ficheiros ou eventos já enviados ao fornecedor. Revogue também os links de subscrição que já não pretende partilhar."
       }
     },
     "finalites": {
@@ -3836,7 +3865,7 @@
       },
       "contrat": {
         "label": "Execucao do contrato (art. 6.1.b RGPD):",
-        "text": "criacao e gestao da sua conta, salvaguarda das suas simulacoes."
+        "text": "criação e gestão da conta, gravação de simulações e ligações opcionais necessárias às funcionalidades solicitadas."
       },
       "interet": {
         "label": "Interesse legitimo (art. 6.1.f RGPD):",
@@ -3855,7 +3884,7 @@
       "vercelLoc": "Estados Unidos (clausulas contratuais tipo)",
       "render": "Alojamento API energy-api",
       "renderLoc": "Estados Unidos",
-      "google": "Autenticação OAuth",
+      "google": "Autenticação, calendários e exportação de ficheiros Drive a seu pedido",
       "googleLoc": "Estados Unidos (EU-US Data Privacy Framework)",
       "linkedin": "Autenticacao OAuth",
       "linkedinLoc": "Estados Unidos (clausulas contratuais tipo)",
@@ -3866,17 +3895,20 @@
       "posthog": "Medição de páginas públicas com consentimento",
       "posthogLoc": "PostHog EU",
       "sentry": "Diagnóstico técnico de erros",
-      "sentryLoc": "Conforme a configuração do projeto"
+      "sentryLoc": "Conforme a configuração do projeto",
+      "microsoftCalendar": "Ligação opcional ao calendário Outlook",
+      "microsoftCalendarLoc": "Microsoft — localização conforme a conta e as condições do fornecedor"
     },
     "duree": {
       "title": "6. Duracao de conservacao",
       "compte": "Dados de conta: conservados até à eliminação da conta pelo utilizador.",
       "simulations": "Dados de simulação (avaliações guardadas, lotes locativos): 180 dias desde a última modificação, teto de 500 itens por conta gratuita (10 000 no plano Pro). Purga automática diária às 03:00 UTC das linhas acima destes limites. Os dados locais (localStorage) permanecem disponíveis enquanto o navegador não for limpo.",
-      "cookies": "Cookies: duração máxima de 13 meses.",
+      "cookies": "Escolha sobre medição de audiência: a aceitação e a recusa são ambas guardadas no navegador durante 180 dias, com data e versão, e depois solicitadas novamente. É uma política do serviço, não uma regra legal universal. As sessões seguem a sua validade e renovação; as cópias locais permanecem até serem eliminadas pelo utilizador ou navegador.",
       "liensPartages": "Links públicos de partilha: 90 dias por defeito, duração configurável (1 a 365 dias) na criação, com limite de visualizações opcional.",
       "metier": "Dados operacionais B2B (condominos, clientes de hotel, contactos CRM): conservados durante a vigencia do contrato de servico com o utilizador profissional. Obrigacoes legais de conservacao especificas LU aplicam-se (contabilidade e faturas 10 anos art. L.16-2 Codigo Comercial, atas de AG 10 anos, dados AML/KYC 5 anos).",
-      "bancaire": "Dados PSD2 Enable Banking: transacoes bancarias consultadas em memoria, nao persistidas alem da sessao. Ligacao PSD2: 90 dias no maximo (renovavel via SCA).",
-      "ocrFichiers": "OCR faturas: PDF/imagens carregados nunca sao armazenados nos nossos servidores — tratamento 100% navegador. Apenas os dados estruturados validados pelo utilizador sao guardados."
+      "bancaire": "Ligação bancária: vale a data de validade devolvida pelo banco ou fornecedor. O fim da validade bloqueia o acesso, mas não significa a eliminação automática dos metadados da ligação. Pode solicitar a eliminação em contact@tevaxia.lu. Os dados incluídos nos seus documentos de reconciliação seguem a conservação desses documentos.",
+      "ocrFichiers": "OCR faturas: PDF/imagens carregados nunca sao armazenados nos nossos servidores — tratamento 100% navegador. Apenas os dados estruturados validados pelo utilizador sao guardados.",
+      "integrations": "Calendários: os dados e tokens de ligação continuam guardados enquanto a integração existir; a expiração de um token não elimina o seu registo. Pode pedir a eliminação através do contacto abaixo. Cópias já existentes na Google, Microsoft ou noutro calendário, e ficheiros exportados para o Drive, seguem as definições da sua conta nesse fornecedor."
     },
     "droits": {
       "title": "7. Os seus direitos",
@@ -3884,9 +3916,10 @@
       "acces": "Direito de acesso aos seus dados pessoais",
       "rectification": "Direito de retificacao",
       "effacement": "Direito ao apagamento (\"direito ao esquecimento\")",
-      "portabilite": "Direito de portabilidade de dados — está disponível um botão « Exportar todos os meus dados (JSON) » na secção « Dados & plano » do seu perfil",
+      "portabilite": "Direito à portabilidade nas condições do RGPD. A exportação JSON do perfil abrange apenas as categorias indicadas no manifesto: não é um arquivo completo da conta e exclui vários módulos profissionais, documentos e registos. Contacte-nos para exercer os seus direitos sobre dados não incluídos.",
       "opposition": "Direito de oposicao ao tratamento",
-      "exercer": "Para exercer estes direitos, contacte-nos em"
+      "exercer": "Para exercer estes direitos, contacte-nos em",
+      "limitation": "Direito à limitação do tratamento nas condições previstas no RGPD"
     },
     "cookies": {
       "title": "8. Cookies",
@@ -6205,13 +6238,13 @@
     "agence": {
       "meta": {
         "title": "CRM agência imobiliária Luxemburgo — pipeline e OpenImmo",
-        "description": "Centralize mandatos, contactos e tarefas num CRM concebido para agências LU. Matching automático de compradores, PDFs de imóvel em co-branding, assinatura eIDAS."
+        "description": "Mandatos, contactos, tarefas e documentos de agência, com fluxo de assinatura cuja adequação deve ser verificada para cada ato."
       },
       "hero": {
         "badge": "CRM imobiliário para agências LU",
         "title": "A sua pipeline de mandatos numa",
         "titleAccent": "só ferramenta, não em quatro",
-        "subtitle": "Gestão de mandatos em formato OpenImmo, CRM de contactos com matching automático de compradores, kanban drag and drop, PDFs de imóvel em co-branding e assinatura eletrónica eIDAS. Concebido para agentes imobiliários luxemburgueses cansados de fazer malabarismo com várias ferramentas.",
+        "subtitle": "Mandatos, contactos, tarefas e documentos de agência, com fluxo de assinatura cuja adequação deve ser verificada para cada ato.",
         "cta": "Começar gratuitamente",
         "ctaSecondary": "Ver como funciona",
         "kpis": [
@@ -6297,11 +6330,11 @@
           },
           {
             "title": "Guias de visita em PDF",
-            "desc": "Com registo cronológico e assinatura eletrónica. Validade jurídica."
+            "desc": "Fluxo de assinatura online com elementos técnicos a verificar; a plataforma não certifica nível avançado ou qualificado."
           },
           {
-            "title": "Assinatura eIDAS de mandatos",
-            "desc": "Assinatura eletrónica avançada (eIDAS), juridicamente vinculativa no Luxemburgo."
+            "title": "Fluxo de assinatura online",
+            "desc": "Fluxo de assinatura online com elementos técnicos a verificar; a plataforma não certifica nível avançado ou qualificado."
           },
           {
             "title": "Sequências de nurturing",
@@ -6343,7 +6376,7 @@
           "Matching automático de compradores /100",
           "Pipeline kanban drag and drop",
           "PDFs de imóvel em co-branding",
-          "Guias de visita e assinatura eIDAS",
+          "Fluxo de assinatura online com elementos técnicos a verificar; a plataforma não certifica nível avançado ou qualificado.",
           "Sequências de nurturing automatizadas",
           "Comissões e desempenho dos agentes",
           "10 modelos de e-mail editáveis"
@@ -6371,12 +6404,12 @@
             "a": "Sim, organizações multi-entidade com papéis (Admin, Agente, Assistente). Cada agente só vê os mandatos e contactos que lhe estão atribuídos."
           },
           {
-            "q": "A assinatura eIDAS tem valor jurídico?",
-            "a": "Sim, a assinatura eletrónica avançada eIDAS (Regulamento UE 910/2014) tem validade jurídica equivalente à assinatura manuscrita."
+            "q": "Qual é o alcance do fluxo de assinatura?",
+            "a": "Este fluxo não fornece assinatura eletrónica qualificada nem certifica o nível avançado. O artigo 25.º eIDAS protege a admissibilidade de assinaturas eletrónicas; a equivalência expressa à assinatura manuscrita refere-se às qualificadas. A validade depende também do conteúdo, identidade, poderes das partes e formalidades. Verifique os requisitos antes de assinar."
           },
           {
             "q": "Os dados dos contactos estão seguros em matéria de RGPD?",
-            "a": "Dados no Supabase (AWS eu-central-1 Frankfurt), Row Level Security por utilizador, HTTPS. Exportação completa dos dados em ZIP a qualquer momento."
+            "a": "A exportação JSON do perfil é parcial e indica categorias incluídas e excluídas. Não é um ZIP completo de contactos, documentos ou dados profissionais. Para exercer direitos sobre dados não incluídos, contacte contact@tevaxia.lu. A política de privacidade descreve tratamentos e destinatários."
           }
         ]
       },
@@ -6560,7 +6593,7 @@
           },
           {
             "q": "Os meus dados estão alojados na UE?",
-            "a": "Supabase (AWS eu-central-1, Frankfurt). Row Level Security, HTTPS. Exportação completa dos dados dos hóspedes em ZIP a qualquer momento."
+            "a": "A exportação JSON do perfil é parcial e indica categorias incluídas e excluídas. Não é um ZIP completo de contactos, documentos ou dados profissionais. Para exercer direitos sobre dados não incluídos, contacte contact@tevaxia.lu. A política de privacidade descreve tratamentos e destinatários."
           }
         ]
       },
@@ -6740,7 +6773,7 @@
           },
           {
             "q": "A assinatura SHA-256 tem peso legal?",
-            "a": "A assinatura SHA-256 garante a integridade do documento. Não substitui uma assinatura eIDAS juridicamente qualificada, mas fornece prova criptográfica de que o relatório não foi alterado."
+            "a": "Um checksum compara o conteúdo com uma referência conservada. Por si só, não certifica identidade, acordo, data ou validade jurídica. Conserve o documento e os elementos de verificação; um checksum não é uma assinatura qualificada."
           },
           {
             "q": "Como documentar os pressupostos especiais?",
@@ -7771,7 +7804,7 @@
   "proAgences": {
     "badge": "CRM agências imobiliárias",
     "title": "O CRM imobiliário pensado para o Luxemburgo",
-    "description": "Pipeline Kanban de mandatos, matching automático de compradores, e-assinaturas eIDAS, distribuição em 1 clique para athome.lu e OpenImmo, custos de aquisição LU calculados (Bëllegen Akt + IVA 3%) e relatório co-branded avaliação+apoios. Tudo para uma agência imobiliária a operar no Luxemburgo.",
+    "description": "Mandatos, contactos, tarefas e documentos de agência, com fluxo de assinatura cuja adequação deve ser verificada para cada ato.",
     "ctaDemo": "Aceder ao CRM",
     "ctaSeeFeatures": "Ver as funcionalidades",
     "kpi1Value": "9",
@@ -7790,8 +7823,8 @@
     "feature2Desc": "Algoritmo proprietário com 6 critérios ponderados (orçamento, raio, tipologia, área, classe energética, projeto). Score em 100 com decomposição por critério para cada match.",
     "feature3Title": "Distribuição portais 1 clique",
     "feature3Desc": "Exportação OpenImmo 1.2.8 (athome.lu, immotop.lu, wort.lu, immoscout24.de, idealista.it/pt) + CSV para portais adicionais. Atualização incremental do feed a cada alteração.",
-    "feature4Title": "E-assinaturas eIDAS",
-    "feature4Desc": "Mandatos de venda e bilhetes de visita assinados eletronicamente, valor jurídico equivalente ao manuscrito (regulamento UE 910/2014). Selo temporal, rastreabilidade, integridade garantida.",
+    "feature4Title": "Fluxo de assinatura online",
+    "feature4Desc": "Este fluxo não fornece assinatura eletrónica qualificada nem certifica o nível avançado. O artigo 25.º eIDAS protege a admissibilidade de assinaturas eletrónicas; a equivalência expressa à assinatura manuscrita refere-se às qualificadas. A validade depende também do conteúdo, identidade, poderes das partes e formalidades. Verifique os requisitos antes de assinar.",
     "feature5Title": "Acompanhamento de comissões e desempenho",
     "feature5Desc": "Comissões previstas vs recebidas por ano, gráfico trimestral, ranking de agentes (taxa de conversão, prazos de assinatura/fecho, top performers).",
     "feature6Title": "PDF co-branded avaliação + custos + apoios",
@@ -8391,19 +8424,19 @@
   "bailCommercial": {
     "seo": {
       "contextTitle": "Porquê um regime específico?",
-      "contextContent": "Os contratos de arrendamento comercial no Luxemburgo são regulados pela lei de 3 de fevereiro de 2018 e pelo Código Civil. Ao contrário do arrendamento habitacional, a renda é livremente acordada na assinatura — a regra dos 5 % não se aplica. A duração mínima de 9 anos e o direito à renovação oferecem forte proteção ao arrendatário.",
-      "indexationTitle": "Indexação pelo IPC STATEC",
-      "indexationContent": "No Luxemburgo não existe um índice específico para arrendamento comercial. As partes referem-se habitualmente ao Índice de Preços no Consumidor (IPC) publicado pelo STATEC. As cláusulas limitam frequentemente a indexação a 15-25 % da renda inicial.",
-      "dureeTitle": "Duração mínima de 9 anos",
-      "dureeContent": "A lei de 03.02.2018 fixa uma duração mínima de 9 anos. O arrendatário pode rescindir em cada período trienal (3, 6, 9 anos) com aviso prévio de 6 meses. Sem aviso 6 meses antes do termo, o contrato renova-se tacitamente.",
+      "contextContent": "O arrendamento comercial luxemburguês rege-se pelo Código Civil e pela lei de 3 de fevereiro de 2018. A renda inicial é negociada; o limite residencial de 5% não se aplica. Duração, renovação e rescisão seguem as cláusulas e regras aplicáveis: este regime não impõe uma duração mínima legal de nove anos.",
+      "indexationTitle": "Indexação segundo a cláusula do contrato",
+      "indexationContent": "A fórmula, índice, datas e eventuais limites devem resultar do contrato. Numa cláusula proporcional: renda inicial × índice de revisão / índice de referência. Use índices comparáveis da mesma série e base. Uma percentagem dita usual não cria um limite legal.",
+      "dureeTitle": "Duração acordada e rescisão",
+      "dureeContent": "O contrato pode ter duração determinada ou indeterminada (art. 1762-4 do Código Civil). Um modelo 3–6–9 pode ser negociado, mas não é automático. As opções periódicas de saída dependem da cláusula acordada. O regime prevê pelo menos seis meses de pré-aviso de rescisão; verifique também formalidades e regras de renovação.",
       "faq1q": "A regra dos 5 % aplica-se ao comércio?",
       "faq1a": "Não. Aplica-se apenas aos arrendamentos habitacionais. No comércio, a renda é livremente negociada entre senhorio e arrendatário.",
       "faq2q": "Como é indexada a renda comercial no LU?",
-      "faq2a": "Através do IPC publicado pelo STATEC, segundo a fórmula negociada no contrato. Usual: renda indexada = renda inicial × (IPC ano N / IPC ano assinatura), frequentemente limitada a +15-20 % da renda inicial.",
+      "faq2a": "A fórmula, índice, datas e eventuais limites devem resultar do contrato. Numa cláusula proporcional: renda inicial × índice de revisão / índice de referência. Use índices comparáveis da mesma série e base. Uma percentagem dita usual não cria um limite legal.",
       "faq3q": "Qual a duração mínima?",
-      "faq3a": "9 anos (lei de 03.02.2018). O arrendatário pode sair em cada período trienal com 6 meses de aviso. O senhorio só pode rescindir no termo dos 9 anos, caso contrário deve uma indemnização de despejo.",
-      "faq4q": "O que é o « pas-de-porte »?",
-      "faq4a": "Uma soma paga pelo arrendatário de entrada ao senhorio em contrapartida do direito de ocupação. Pode equivaler a vários meses ou anos de renda. Não é reembolsável.",
+      "faq3a": "O contrato pode ter duração determinada ou indeterminada (art. 1762-4 do Código Civil). Um modelo 3–6–9 pode ser negociado, mas não é automático. As opções periódicas de saída dependem da cláusula acordada. O regime prevê pelo menos seis meses de pré-aviso de rescisão; verifique também formalidades e regras de renovação.",
+      "faq4q": "Pode ser exigido um direito de entrada?",
+      "faq4a": "O suplemento pago ao senhorio ou intermediário pela celebração do contrato, designado direito de entrada, é proibido pelo artigo 1762-5. Distinga-o de honorários de agência ou do preço de transmissão de um estabelecimento, a analisar separadamente. A garantia do arrendamento comercial está limitada a seis meses de renda.",
       "faqTitle": "Perguntas frequentes",
       "relatedTitle": "Saber mais"
     }
@@ -8470,9 +8503,9 @@
     "pasDePt": "Luvas (direito de entrada)",
     "depot": "Depósito garantia",
     "charges": "Encargos anuais (provisões)",
-    "hintPlafond": "Usual: 15-25%. Acima, o inquilino pode pedir revisão judicial (art. 1757-4 Código Civil).",
-    "hintPasDePt": "Pagamento único na assinatura, não reembolsável.",
-    "hintDepot": "Usual: 3-12 meses. Restituído no fim do contrato (salvo danos)."
+    "hintPlafond": "Apenas se previsto numa cláusula; nenhum limite usual equivale a regra legal.",
+    "hintPasDePt": "O direito de entrada ao senhorio pela celebração do arrendamento é proibido.",
+    "hintDepot": "Garantia: máximo de seis meses de renda neste regime (art. 1762-5). Calculada aqui sobre a renda inicial."
   },
   "syndicCoproprietes": {
     "error": "Erro",
@@ -8913,13 +8946,13 @@
   "bailCommercialPage": {
     "backLink": "← tevaxia.lu",
     "pageTitle": "Arrendamento comercial LU — indexação & duração",
-    "pageDescription": "Cálculo da indexação da renda segundo o IPC luxemburguês (STATEC) e lembrete das regras aplicáveis ao arrendamento comercial (lei de 3 de fevereiro de 2018).",
+    "pageDescription": "Cenário de indexação com os índices que introduz e as cláusulas acordadas. Os resultados não validam o contrato nem preveem índices futuros.",
     "warningImportant": "Importante:",
     "warningText": "ao contrário do arrendamento habitacional, a regra dos 5% (teto legal de renda) não se aplica ao arrendamento comercial. A renda é livremente acordada na assinatura, depois regulada pelas cláusulas de indexação negociadas entre as partes.",
     "sectionLoyerInitial": "Renda inicial & datas",
     "sectionClausesBail": "Cláusulas do contrato",
     "sectionCoutsComplementaires": "Custos complementares",
-    "duree9": "9 anos (duração mínima legal LU)",
+    "duree9": "9 anos (duração contratual)",
     "duree12": "12 anos",
     "duree15": "15 anos",
     "duree18": "18 anos",
@@ -8940,34 +8973,34 @@
     "indexPlafonneClause": "mas a sua cláusula limita a",
     "duLoyerInitial": "da renda inicial.",
     "resultTitle": "Lembretes regulamentares — arrendamento comercial LU",
-    "regDureeMin": "Duração mínima legal",
-    "regDureeMinVal": "9 anos (lei de 03.02.2018)",
-    "regTriennale": "Período trienal",
-    "regTriennaleVal": "Rescisão possível a cada 3 anos (aviso prévio 6 meses)",
-    "regRenouvellement": "Renovação automática",
-    "regRenouvellementVal": "Salvo aviso dado 6 meses antes do termo",
+    "regDureeMin": "Duração",
+    "regDureeMinVal": "Determinada ou indeterminada (art. 1762-4)",
+    "regTriennale": "Rescisão periódica",
+    "regTriennaleVal": "Segundo as cláusulas e regras aplicáveis; sem direito trienal automático",
+    "regRenouvellement": "Renovação / prorrogação",
+    "regRenouvellementVal": "Verificar contrato, notificações e regras legais",
     "regIndice": "Índice de indexação LU",
     "regIndiceVal": "IPC STATEC (sem ILC/ILAT equivalente em LU)",
     "regRegle5": "Regra dos 5%",
     "regRegle5Val": "NÃO se aplica a arrendamentos comerciais",
     "regForme": "Forma",
-    "regFormeVal": "Escrito obrigatório se > 9 anos (art. 1715 Código Civil)",
-    "coutTotalBail": "Custo total do arrendamento",
+    "regFormeVal": "Formalizar por escrito; verificar formalidades conforme a duração e o ato",
+    "coutTotalBail": "Projeção com renda constante",
     "ansLabel": "anos",
-    "loyersCumules": "Rendas acumuladas (indexadas)",
+    "loyersCumules": "Total de rendas do cenário",
     "chargesCumulees": "Encargos acumulados",
     "pasDePtLabel": "Luvas",
     "depotGarantieImmob": "Depósito de garantia (retido)",
     "coutTotalOccupation": "Custo total de ocupação",
     "soitMoyenne": "Ou seja",
     "anMoyenne": "/ano em média",
-    "periodesTriennales": "Períodos trienais",
+    "periodesTriennales": "Anos das opções contratuais",
     "finDuBail": "Fim do contrato",
     "periodeTriennaleN": "Período trienal n.º",
     "resiliationPossible": "(rescisão possível)",
-    "preavisTriennale": "Aviso prévio de 6 meses por carta registada antes de cada prazo trienal.",
+    "preavisTriennale": "Anos indicativos calculados apenas segundo a cláusula declarada. O regime prevê pré-aviso de rescisão de pelo menos seis meses; verifique datas exatas, motivos, formalidades e regras de renovação no contrato.",
     "clausesTitle": "Cláusulas frequentes a verificar:",
-    "clausesText": "luvas, depósito de garantia (3-12 meses), encargos dedutíveis, destino do local, direito à renovação, indemnização de despejo em caso de não renovação.",
+    "clausesText": "Verifique a finalidade, duração, opções de saída, fórmula de indexação, encargos, garantia (máximo seis meses), renovação e indemnizações. O cálculo não valida nenhuma destas cláusulas.",
     "tableTitle": "Tabela de indexação IPC — ano a ano",
     "tableSubtitle": "Evolução da renda indexada de",
     "tableTo": "a",
@@ -8983,7 +9016,24 @@
     "thEvolVsInitial": "Evol. vs inicial",
     "refBadge": "(ref.)",
     "cibleBadge": "(alvo)",
-    "plafBadge": "(lim.)"
+    "plafBadge": "(lim.)",
+    "referenceIndexInput": "Índice de referência do contrato",
+    "targetIndexInput": "Índice na data de revisão",
+    "indexInputHelp": "100 e 100 são exemplos. Introduza os índices publicados que correspondem à cláusula, com a mesma base e periodicidade. Não são inventados valores anuais do IPC em falta ou futuros.",
+    "officialIndexSource": "Consultar os índices publicados pelo STATEC",
+    "capConfirmed": "O contrato prevê um limite total de indexação",
+    "indefiniteTerm": "Arrendamento por tempo indeterminado",
+    "analysisHorizon": "Horizonte do cenário",
+    "termHelp": "Este regime não impõe um mínimo legal de nove anos. A ferramenta aceita anos inteiros de 1 a 99; num arrendamento indeterminado, o valor é apenas um horizonte de cálculo, não o termo do contrato.",
+    "breakConfirmed": "Uma cláusula do contrato prevê opções periódicas de rescisão",
+    "breakInterval": "Intervalo previsto na cláusula",
+    "noKeyMoney": "O pagamento de um direito de entrada ao senhorio pela celebração do arrendamento é proibido e não é apresentado como custo normal. Honorários de agência e transmissão de estabelecimento devem ser distinguidos e verificados separadamente.",
+    "invalidInputs": "Verifique a renda e os índices positivos, os anos inteiros e a garantia entre 0 e 6 meses.",
+    "indexScenarioTitle": "Indexação segundo os dados introduzidos",
+    "annualIndexedRent": "Renda anual indexada",
+    "monthlyIndexedRent": "Renda mensal indexada",
+    "constantScenario": "A renda indexada acima e os encargos anuais são mantidos constantes durante todo o horizonte. Não é um histórico nem uma previsão de inflação. A garantia imobilizada é apresentada separadamente e não é uma despesa definitiva.",
+    "noBreakInHorizon": "Sem opção intermédia neste horizonte."
   },
   "drive": {
     "saveToDrive": "Guardar no Drive",
@@ -9868,37 +9918,37 @@
     },
     "bailHabitation": {
       "title": "Arrendamento habitacional Luxemburgo: lei 21.09.2006, direitos 2026",
-      "metaDescription": "Arrendamento habitacional LU: duração indeterminada, pré-aviso 3/6 meses, caução máx 3 meses, renda limitada a 5% do capital reavaliado, encargos recuperáveis (RGD 16.06.2015), Comissão de Rendas municipal.",
+      "metaDescription": "Arrendamento residencial no Luxemburgo: novo limite de garantia de dois meses, duração, forma escrita, renda e recursos.",
       "subtitle": "Tudo o que senhorio e inquilino devem saber antes de assinar um contrato de arrendamento habitacional no Luxemburgo.",
       "category": "Arrendamento e contrato",
       "essentiel": [
-        "Quadro legal: lei modificada de 21 de setembro de 2006 sobre arrendamento habitacional, complementada pelo Código Civil e pelo RGD de 16 de junho de 2015 sobre encargos.",
-        "Duração por defeito: indeterminada. Pré-aviso do inquilino 3 meses, do senhorio 6 meses e apenas por motivo legítimo (necessidade pessoal, incumprimento grave, obras).",
-        "Renda limitada a 5% por ano do capital investido reavaliado (art. 3 lei 2006). Ver guia dedicado à regra dos 5%.",
-        "Caução: máximo 3 meses de renda sem encargos, em conta bloqueada em nome do inquilino. Juros para o inquilino.",
-        "Recurso pré-judicial gratuito: Comissão de Rendas do município antes de qualquer ação judicial."
+        "Num novo contrato abrangido pelo regime atual, o arrendamento deve ser escrito e identificar partes, imóvel, referência cadastral, divisões, duração, renda, encargos, eventual suplemento de mobiliário e garantia. Deve mencionar a comissão de rendas para litígios sobre a fixação da renda. Verifique regras específicas e exclusões conforme o uso.",
+        "A duração pode ser determinada ou indeterminada. Rescisão, pré-aviso e renovação dependem da duração, contrato e motivos legais. Não existe um direito geral de terminar qualquer contrato de prazo fixo a todo o momento com três meses de pré-aviso. Verifique as regras e notificações aplicáveis.",
+        "Determine o limite aplicável pelo capital investido, reavaliações e depreciações; justifique separadamente o suplemento de mobiliário. Alterações seguem condições legais, incluindo intervalo de dois anos e limite de aumento de 10%, com as exceções previstas. Uma cláusula de valor pode perder efeito após reclamação registada do inquilino: o IPC não cria direito automático a aumentar.",
+        "Num novo arrendamento residencial celebrado desde 1 de agosto de 2024, a garantia limita-se a duas rendas mensais sem encargos. Contratos anteriores podem seguir o antigo limite de três meses. Existem várias formas de garantia; uma conta bloqueada não é a única. Verifique condições e prazos legais de restituição conforme a vistoria, montantes devidos e contas de encargos.",
+        "O recurso depende do litígio. A comissão de rendas atua na sua competência, nomeadamente a fixação da renda; não é uma etapa universal. Pedidos de restituição da garantia ou rescisão podem competir ao juiz de paz. Conserve documentos e verifique diligências, prazos e condições adequados."
       ],
       "section1Title": "Quadro legal e tipo de contrato",
-      "section1P1": "O arrendamento habitacional no Luxemburgo é enquadrado pela lei modificada de 21 de setembro de 2006, que se aplica a qualquer arrendamento de uma habitação que sirva de residência principal (artigo 1). Excluídos: arrendamentos turísticos mobilados de curta duração, arrendamentos rurais e arrendamentos comerciais (regidos por outras leis). O contrato deve ser escrito; sem escrito, a lei reconhece o arrendamento desde que haja pagamento e ocupação, mas com encargo da prova mais pesado.",
-      "section1P2": "Por defeito, o contrato é celebrado por duração indeterminada. Contratos a prazo são possíveis mas, no termo, convertem-se automaticamente em contratos de duração indeterminada se o inquilino permanecer no local sem oposição do senhorio (renovação tácita). O contrato deve mencionar as partes, a descrição da habitação, a renda sem encargos, o montante de encargos e o seu cálculo, o montante da caução e a data de entrada.",
+      "section1P1": "Num novo contrato abrangido pelo regime atual, o arrendamento deve ser escrito e identificar partes, imóvel, referência cadastral, divisões, duração, renda, encargos, eventual suplemento de mobiliário e garantia. Deve mencionar a comissão de rendas para litígios sobre a fixação da renda. Verifique regras específicas e exclusões conforme o uso.",
+      "section1P2": "Num novo contrato abrangido pelo regime atual, o arrendamento deve ser escrito e identificar partes, imóvel, referência cadastral, divisões, duração, renda, encargos, eventual suplemento de mobiliário e garantia. Deve mencionar a comissão de rendas para litígios sobre a fixação da renda. Verifique regras específicas e exclusões conforme o uso.",
       "callout1Title": "Forma e cláusulas proibidas",
-      "callout1Body": "São nulas: qualquer caução superior a 3 meses de renda, qualquer cláusula de solidariedade ilimitada de um co-inquilino após a sua saída, qualquer penalização de rescisão fora do pré-aviso legal, e qualquer cláusula que exonere o senhorio da obrigação de entregar uma habitação digna (art. 1719 Código Civil).",
+      "callout1Body": "Num novo contrato abrangido pelo regime atual, o arrendamento deve ser escrito e identificar partes, imóvel, referência cadastral, divisões, duração, renda, encargos, eventual suplemento de mobiliário e garantia. Deve mencionar a comissão de rendas para litígios sobre a fixação da renda. Verifique regras específicas e exclusões conforme o uso.",
       "section2Title": "Renda, indexação e caução",
-      "section2P1": "A renda inicial é livre mas não pode exceder 5% do capital investido reavaliado (art. 3 lei 21.09.2006). A renda só pode ser revista uma vez de dois em dois anos, e apenas em alta correspondente à evolução do índice STATEC de preços ao consumidor, ou se obras de melhoria justificarem uma reavaliação do capital investido. A revisão deve ser notificada por carta registada com pré-aviso de um mês.",
-      "section2P2": "A caução está limitada a 3 meses de renda sem encargos (art. 5 lei 2006). Deve ser depositada numa conta bloqueada em nome do inquilino num banco luxemburguês; os juros pertencem ao inquilino. A restituição deve ocorrer num prazo razoável após o fim do contrato (tipicamente 1 a 3 meses), deduzidos eventuais danos verificados no inventário de saída. Uma caução do Estado está disponível para inquilinos elegíveis através do Ministério da Habitação.",
+      "section2P1": "Determine o limite aplicável pelo capital investido, reavaliações e depreciações; justifique separadamente o suplemento de mobiliário. Alterações seguem condições legais, incluindo intervalo de dois anos e limite de aumento de 10%, com as exceções previstas. Uma cláusula de valor pode perder efeito após reclamação registada do inquilino: o IPC não cria direito automático a aumentar.",
+      "section2P2": "Num novo arrendamento residencial celebrado desde 1 de agosto de 2024, a garantia limita-se a duas rendas mensais sem encargos. Contratos anteriores podem seguir o antigo limite de três meses. Existem várias formas de garantia; uma conta bloqueada não é a única. Verifique condições e prazos legais de restituição conforme a vistoria, montantes devidos e contas de encargos.",
       "section3Title": "Obrigações de senhorio e inquilino",
-      "section3P1": "O senhorio deve entregar a habitação em bom estado de uso (art. 1719 Código Civil), garantir a fruição pacífica, efetuar as grandes reparações (telhado, fachada, estrutura, conformidade elétrica importante) e elaborar os inventários contraditórios de entrada e saída. Só pode recuperar do inquilino os encargos taxativamente enumerados no RGD de 16 de junho de 2015: água/eletricidade/gás das partes comuns, aquecimento coletivo, manutenção das partes comuns, elevador, taxa municipal de resíduos, seguro de responsabilidade civil do edifício.",
-      "section3P2": "O inquilino deve pagar a renda nas datas previstas, usar a habitação com cuidado, efetuar as pequenas reparações locativas (juntas, lâmpadas, pequenas fixações), respeitar o regulamento condominial se existir e permitir o acesso ao senhorio para inspeções ou obras. O incumprimento de pagamento de mais de dois meses de renda expõe a uma rescisão judicial por incumprimento grave com possível despejo, após interpelação que tenha permanecido sem resposta.",
+      "section3P1": "Distinga renda de encargos recuperáveis de utilização, consumo e manutenção corrente. Adiantamentos são regularizados com comprovativos; pode acordar-se um valor fixo nas condições legais. Custos de propriedade e grandes reparações não se tornam recuperáveis só por constarem do contrato. Verifique cada rubrica.",
+      "section3P2": "A duração pode ser determinada ou indeterminada. Rescisão, pré-aviso e renovação dependem da duração, contrato e motivos legais. Não existe um direito geral de terminar qualquer contrato de prazo fixo a todo o momento com três meses de pré-aviso. Verifique as regras e notificações aplicáveis.",
       "callout2Title": "Encargos proibidos",
-      "callout2Body": "O senhorio não pode repercutir no inquilino: taxas de gestão ou síndico profissional além da quota-parte do inquilino, grandes obras de substituição (caldeira, telhado, fachada), imposto predial, seguro de habitação além da responsabilidade civil do edifício, ou despesas de melhoria/modernização do imóvel.",
+      "callout2Body": "Distinga renda de encargos recuperáveis de utilização, consumo e manutenção corrente. Adiantamentos são regularizados com comprovativos; pode acordar-se um valor fixo nas condições legais. Custos de propriedade e grandes reparações não se tornam recuperáveis só por constarem do contrato. Verifique cada rubrica.",
       "section4Title": "Fim do contrato e recursos",
-      "section4P1": "O inquilino pode rescindir a qualquer momento por carta registada com pré-aviso de 3 meses (art. 12 lei 2006). O senhorio só pode rescindir com pré-aviso de 6 meses e apenas por três motivos legítimos: necessidade pessoal de ocupação para si, cônjuge, ascendentes ou descendentes; incumprimento grave do inquilino; obras de demolição ou reconstrução que tornem a ocupação impossível. A rescisão deve ser fundamentada por escrito, sob pena de nulidade.",
-      "section4P2": "Em caso de litígio (renda excessiva, encargos contestados, caução não restituída, inventário contestado), o inquilino ou senhorio pode recorrer gratuitamente à Comissão de Rendas do município onde se situa a habitação (art. 7 lei 2006). A Comissão emite um parecer não vinculativo mas frequentemente seguido pelos juízes. Se o parecer não for cumprido, o caso pode ser levado ao juiz de paz, ou ao tribunal de comarca para rendas elevadas.",
+      "section4P1": "A duração pode ser determinada ou indeterminada. Rescisão, pré-aviso e renovação dependem da duração, contrato e motivos legais. Não existe um direito geral de terminar qualquer contrato de prazo fixo a todo o momento com três meses de pré-aviso. Verifique as regras e notificações aplicáveis.",
+      "section4P2": "O recurso depende do litígio. A comissão de rendas atua na sua competência, nomeadamente a fixação da renda; não é uma etapa universal. Pedidos de restituição da garantia ou rescisão podem competir ao juiz de paz. Conserve documentos e verifique diligências, prazos e condições adequados.",
       "callout3Title": "Solidariedade entre co-inquilinos",
-      "callout3Body": "Se vários inquilinos assinarem juntos (coabitação, partilha de casa), uma cláusula de solidariedade torna cada um responsável pelo total da renda em dívida. Após a saída de um co-inquilino, a sua solidariedade não pode ser mantida além de um prazo razoável (geralmente 6 meses) sem o seu consentimento explícito — qualquer cláusula em contrário é nula.",
+      "callout3Body": "A coabitação pode seguir um regime específico com pacto e regras de saída. Verifique solidariedade, substituição e cessação segundo o regime e contrato; não se afirma aqui um prazo geral de seis meses.",
       "inlineCalc": {
         "title": "Verifique a legalidade da sua renda",
-        "description": "A renda exigida respeita a regra dos 5% sobre o capital investido reavaliado? A nossa calculadora aplica o índice STATEC e o desconto de vetustez para lhe dar o limite legal exato.",
+        "description": "Estime o limite pelos montantes e documentos introduzidos. Verifique o resultado; não certifica a legalidade da renda.",
         "cta": "Calcular a renda máxima"
       },
       "tools": [
@@ -9926,61 +9976,40 @@
       "faq": [
         {
           "q": "Qual é o pré-aviso para sair de uma habitação no Luxemburgo?",
-          "a": "O inquilino dá um pré-aviso de 3 meses por carta registada (art. 12 lei 2006). O senhorio dá um pré-aviso de 6 meses e só pode rescindir por motivos legítimos (necessidade pessoal, incumprimento grave, obras importantes)."
+          "a": "A duração pode ser determinada ou indeterminada. Rescisão, pré-aviso e renovação dependem da duração, contrato e motivos legais. Não existe um direito geral de terminar qualquer contrato de prazo fixo a todo o momento com três meses de pré-aviso. Verifique as regras e notificações aplicáveis."
         },
         {
           "q": "Qual é o montante máximo da caução no Luxemburgo?",
-          "a": "A caução está limitada a 3 meses de renda sem encargos (art. 5 lei 2006). Deve ser depositada em conta bloqueada em nome do inquilino e os juros pertencem ao inquilino. Qualquer cláusula que excede este limite é nula."
+          "a": "Num novo arrendamento residencial celebrado desde 1 de agosto de 2024, a garantia limita-se a duas rendas mensais sem encargos. Contratos anteriores podem seguir o antigo limite de três meses. Existem várias formas de garantia; uma conta bloqueada não é a única. Verifique condições e prazos legais de restituição conforme a vistoria, montantes devidos e contas de encargos."
         },
         {
           "q": "O senhorio pode aumentar a renda durante o contrato?",
-          "a": "A revisão é permitida apenas uma vez de dois em dois anos, limitada à evolução do índice STATEC de preços ao consumidor, ou se obras de melhoria justificarem uma reavaliação do capital investido (com reavaliação do limite de 5%). Os aumentos devem ser notificados por carta registada com pré-aviso de um mês."
+          "a": "Determine o limite aplicável pelo capital investido, reavaliações e depreciações; justifique separadamente o suplemento de mobiliário. Alterações seguem condições legais, incluindo intervalo de dois anos e limite de aumento de 10%, com as exceções previstas. Uma cláusula de valor pode perder efeito após reclamação registada do inquilino: o IPC não cria direito automático a aumentar."
         },
         {
           "q": "Que encargos podem ser cobrados além da renda?",
-          "a": "Apenas os listados no RGD de 16 de junho de 2015: água, eletricidade e gás das partes comuns, aquecimento coletivo, manutenção corrente das partes comuns (limpeza, jardinagem, elevador), taxa municipal de resíduos e seguro de responsabilidade civil do edifício. Tudo o resto (grandes obras, síndico, imposto predial) é suportado pelo senhorio."
+          "a": "Distinga renda de encargos recuperáveis de utilização, consumo e manutenção corrente. Adiantamentos são regularizados com comprovativos; pode acordar-se um valor fixo nas condições legais. Custos de propriedade e grandes reparações não se tornam recuperáveis só por constarem do contrato. Verifique cada rubrica."
         },
         {
           "q": "Como contestar uma renda excessiva?",
-          "a": "Recorra gratuitamente à Comissão de Rendas do seu município. Verifica o cálculo do capital investido reavaliado e emite um parecer. Se o senhorio não cumprir, pode levar o caso ao juiz de paz, que pode ordenar uma redução retroativa da renda."
+          "a": "O recurso depende do litígio. A comissão de rendas atua na sua competência, nomeadamente a fixação da renda; não é uma etapa universal. Pedidos de restituição da garantia ou rescisão podem competir ao juiz de paz. Conserve documentos e verifique diligências, prazos e condições adequados."
         },
         {
           "q": "O que fazer se o senhorio não restituir a caução?",
-          "a": "Envie primeiro uma interpelação por carta registada. Sem resposta em 30 dias, recorra à Comissão de Rendas ou diretamente ao juiz de paz. O juiz pode ordenar a restituição acrescida de juros e indemnização. Conserve o inventário de saída como prova."
+          "a": "O recurso depende do litígio. A comissão de rendas atua na sua competência, nomeadamente a fixação da renda; não é uma etapa universal. Pedidos de restituição da garantia ou rescisão podem competir ao juiz de paz. Conserve documentos e verifique diligências, prazos e condições adequados."
         }
       ],
       "sources": [
         {
-          "title": "Lei modificada de 21 de setembro de 2006 sobre arrendamento habitacional",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo",
-          "year": 2006
-        },
-        {
-          "title": "Regulamento Grão-Ducal de 16 de junho de 2015 — encargos recuperáveis",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo",
-          "year": 2015
-        },
-        {
-          "title": "Arrendamento habitacional — guia completo",
+          "title": "Conclure un contrat de bail à usage d’habitation",
           "org": "Guichet.lu",
-          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html"
+          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-litige/conclure-contrat-bail-location.html"
         },
         {
-          "title": "Comissão de Rendas — procedimento",
-          "org": "Logement.lu — Ministério da Habitação",
-          "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html"
-        },
-        {
-          "title": "Caução de arrendamento — apoio do Estado",
-          "org": "Logement.lu",
-          "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html"
-        },
-        {
-          "title": "Código Civil — obrigações do senhorio (art. 1719 e seg.)",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+          "title": "Révision du bail à loyer et règles transitoires",
+          "org": "Ministère du Logement",
+          "url": "https://logement.public.lu/fr/actualites/2024/07/10-revisonbailaloyer.html",
+          "year": 2024
         }
       ]
     },
@@ -10592,45 +10621,45 @@
       "section4P1": "Exemplos fictícios: toda a base sem IVA é elegível, a utilização cumpre as condições e o benefício de 50 000 EUR está integralmente disponível. Não se incluem terreno, honorários ou obras excluídas. A tabela não determina elegibilidade."
     },
     "bailCommercial": {
-      "title": "Arrendamento comercial Luxemburgo: lei 03.02.2018, 9 anos",
-      "metaDescription": "Arrendamento comercial LU: lei 03.02.2018, prazo mínimo 9 anos, rescisão trienal com 6 meses de pré-aviso, indexação IPC STATEC, trespasse livre, direito à renovação, indemnização de despejo.",
-      "subtitle": "O quadro legal completo para arrendamento comercial no Luxemburgo: prazo, rescisão, renda, indexação e direito à renovação.",
+      "title": "Arrendamento comercial no Luxemburgo: duração, renda e cláusulas",
+      "metaDescription": "O regime decorre dos artigos 1762-3 e seguintes do Código Civil, nomeadamente da lei de 3 de fevereiro de 2018. A aplicação depende do contrato e da atividade efetiva. Exclusões, formalidades e cláusulas específicas exigem análise individual; este guia não valida um arrendamento.",
+      "subtitle": "O regime decorre dos artigos 1762-3 e seguintes do Código Civil, nomeadamente da lei de 3 de fevereiro de 2018. A aplicação depende do contrato e da atividade efetiva. Exclusões, formalidades e cláusulas específicas exigem análise individual; este guia não valida um arrendamento.",
       "category": "Arrendamento e contrato",
       "essentiel": [
-        "Quadro legal: lei de 3 de fevereiro de 2018 sobre arrendamento comercial (em vigor desde 1 de abril de 2018), modernização do anterior regime apenas no Código Civil.",
-        "Prazo mínimo 9 anos (art. 2). Rescisão trienal pelo inquilino (3, 6, 9 anos) com pré-aviso de 6 meses.",
-        "Renda livre (sem regra dos 5%), indexação IPC STATEC se cláusula explícita, revisão trienal possível em caso de desvio do valor locativo.",
-        "Trespasse (pas-de-porte) lícito e não regulamentado: livremente negociado entre senhorio e inquilino.",
-        "Direito à renovação no termo; recusa sem motivo legítimo = indemnização de despejo (perda de clientela, mudança, fundo de comércio)."
+        "O regime decorre dos artigos 1762-3 e seguintes do Código Civil, nomeadamente da lei de 3 de fevereiro de 2018. A aplicação depende do contrato e da atividade efetiva. Exclusões, formalidades e cláusulas específicas exigem análise individual; este guia não valida um arrendamento.",
+        "O contrato pode ter duração determinada ou indeterminada (art. 1762-4 do Código Civil). Não existe um mínimo legal geral de nove anos. As opções periódicas de rescisão dependem do contrato; um modelo 3–6–9 não é automático. Verifique o pré-aviso aplicável, não inferior a seis meses neste regime, e as formalidades de notificação.",
+        "A renda comercial inicial é negociada; o limite residencial de 5% não se aplica. A indexação segue a fórmula, série, base e datas previstas no contrato. A calculadora usa os índices introduzidos, sem inventar histórico ou previsões nem presumir um direito geral de revisão trienal.",
+        "O suplemento pago ao senhorio ou intermediário pela celebração do arrendamento, designado direito de entrada, é proibido (art. 1762-5). Honorários de agência e preço de transmissão de estabelecimento devem ser distinguidos e analisados separadamente. A garantia está limitada a seis meses de renda neste regime.",
+        "Renovação, recusa e eventual indemnização dependem das condições legais, motivos, duração da relação e notificações. Não presuma indemnização automática nem renovação incondicional. Verifique o contrato e os prazos antes de notificar uma decisão."
       ],
       "section1Title": "Quadro legal e tipo de contrato",
-      "section1P1": "O arrendamento comercial no Luxemburgo é regido desde 1 de abril de 2018 pela lei de 3 de fevereiro de 2018. Esta lei substituiu a aplicação isolada do Código Civil e modernizou em profundidade o quadro: prazo mínimo legal, direito à renovação, indemnização de despejo, indexação enquadrada. Aplica-se aos arrendamentos de imóveis destinados a uma atividade comercial, artesanal ou industrial exercida profissionalmente.",
-      "section1P2": "Excluídos do âmbito: arrendamentos habitacionais (lei 21.09.2006), arrendamentos rurais (regime específico), arrendamentos sobre bens incorpóreos (fundo de comércio sem local) e arrendamentos de curta duração (< 6 meses para atividades sazonais). O contrato deve ser escrito (preferível mas não obrigatório); na ausência de escrito, as provas de ocupação e pagamento valem como existência do contrato mas com encargo de prova mais pesado em caso de litígio.",
+      "section1P1": "O regime decorre dos artigos 1762-3 e seguintes do Código Civil, nomeadamente da lei de 3 de fevereiro de 2018. A aplicação depende do contrato e da atividade efetiva. Exclusões, formalidades e cláusulas específicas exigem análise individual; este guia não valida um arrendamento.",
+      "section1P2": "O regime decorre dos artigos 1762-3 e seguintes do Código Civil, nomeadamente da lei de 3 de fevereiro de 2018. A aplicação depende do contrato e da atividade efetiva. Exclusões, formalidades e cláusulas específicas exigem análise individual; este guia não valida um arrendamento.",
       "callout1Title": "Atividade coberta = exploração efetiva",
-      "callout1Body": "A lei de 2018 protege apenas os arrendamentos onde o inquilino explora efetivamente uma atividade comercial no endereço arrendado (registo comercial, sinalética, clientela). Uma simples domiciliação ou utilização como escritório sem clientela não basta para invocar a proteção do arrendamento comercial.",
-      "section2Title": "Prazo e rescisão trienal",
-      "section2P1": "O prazo mínimo legal é de 9 anos (art. 2). As partes podem acordar um prazo mais longo (por ex. 12, 15 ou 25 anos para grandes investimentos em equipamentos), mas nunca inferior. Se o contrato prevê menos de 9 anos, o prazo é automaticamente prolongado para 9 anos por lei.",
-      "section2P2": "O inquilino tem um direito de rescisão trienal: pode pôr fim ao contrato no termo de cada período trienal (3, 6, 9 anos) mediante pré-aviso de 6 meses notificado por ato extrajudicial ou carta registada (art. 4). O senhorio, por seu lado, só pode rescindir durante a vigência por motivos taxativamente enumerados: incumprimento grave do inquilino, necessidade pessoal de exploração, ou obras de demolição/reconstrução integral.",
+      "callout1Body": "O regime decorre dos artigos 1762-3 e seguintes do Código Civil, nomeadamente da lei de 3 de fevereiro de 2018. A aplicação depende do contrato e da atividade efetiva. Exclusões, formalidades e cláusulas específicas exigem análise individual; este guia não valida um arrendamento.",
+      "section2Title": "Duração e opções de rescisão",
+      "section2P1": "O contrato pode ter duração determinada ou indeterminada (art. 1762-4 do Código Civil). Não existe um mínimo legal geral de nove anos. As opções periódicas de rescisão dependem do contrato; um modelo 3–6–9 não é automático. Verifique o pré-aviso aplicável, não inferior a seis meses neste regime, e as formalidades de notificação.",
+      "section2P2": "O contrato pode ter duração determinada ou indeterminada (art. 1762-4 do Código Civil). Não existe um mínimo legal geral de nove anos. As opções periódicas de rescisão dependem do contrato; um modelo 3–6–9 não é automático. Verifique o pré-aviso aplicável, não inferior a seis meses neste regime, e as formalidades de notificação.",
       "section3Title": "Renda, indexação e trespasse",
-      "section3P1": "A renda comercial NÃO é limitada pela regra dos 5% do capital investido (que se aplica apenas ao arrendamento habitacional). É fixada livremente entre as partes consoante as condições de mercado e o valor locativo do imóvel. Para imóveis comerciais LU, as rendas prime LU-Cidade variam tipicamente de 80 a 250 €/m²/mês conforme localização e destino.",
-      "section3P2": "A indexação está ligada ao Índice de Preços no Consumidor (IPC) publicado pelo STATEC. A cláusula de indexação deve estar expressamente prevista no contrato; caso contrário, a renda permanece fixa durante toda a vigência. A revisão da renda pode ser pedida por cada parte no termo de cada período trienal se a renda já não corresponder ao valor locativo real (art. 7). O trespasse (pas-de-porte) é lícito no Luxemburgo, em contrapartida das vantagens comerciais ligadas à localização, e é livremente negociado.",
-      "callout2Title": "Especificidade luxemburguesa: sem ILC",
-      "callout2Body": "Ao contrário da França, que dispõe de um Índice de Rendas Comerciais (ILC) específico, o Luxemburgo utiliza o IPC geral. Isto pode descorrelacionar a renda comercial das condições reais do mercado comercial. Antecipe pedindo eventualmente um teto (cap) sobre a indexação anual na redação do contrato.",
+      "section3P1": "A renda comercial inicial é negociada; o limite residencial de 5% não se aplica. A indexação segue a fórmula, série, base e datas previstas no contrato. A calculadora usa os índices introduzidos, sem inventar histórico ou previsões nem presumir um direito geral de revisão trienal.",
+      "section3P2": "O suplemento pago ao senhorio ou intermediário pela celebração do arrendamento, designado direito de entrada, é proibido (art. 1762-5). Honorários de agência e preço de transmissão de estabelecimento devem ser distinguidos e analisados separadamente. A garantia está limitada a seis meses de renda neste regime.",
+      "callout2Title": "Escolher a cláusula e os índices",
+      "callout2Body": "A renda comercial inicial é negociada; o limite residencial de 5% não se aplica. A indexação segue a fórmula, série, base e datas previstas no contrato. A calculadora usa os índices introduzidos, sem inventar histórico ou previsões nem presumir um direito geral de revisão trienal.",
       "section4Title": "Direito à renovação e indemnização de despejo",
-      "section4P1": "O inquilino comercial tem direito à renovação do seu contrato no termo (art. 5). Este direito exerce-se notificando o senhorio de um pedido de renovação pelo menos 6 meses antes do prazo. O senhorio que recuse a renovação sem motivo legítimo deve pagar ao inquilino uma indemnização de despejo cobrindo o prejuízo: perda de clientela, custos de mudança e reinstalação, indemnização por perda de fundo de comércio.",
-      "section4P2": "O senhorio pode recusar a renovação sem indemnização apenas por motivos graves: incumprimento contratual ou legal pelo inquilino, estado do imóvel que necessita demolição e reconstrução integral, ou necessidade de exploração pessoal (o senhorio deve então explorar os locais na mesma atividade ou afim durante pelo menos 2 anos). A cessão do arrendamento comercial é possível salvo cláusula em contrário, geralmente ligada à cessão do fundo de comércio; o senhorio deve ser informado.",
+      "section4P1": "Renovação, recusa e eventual indemnização dependem das condições legais, motivos, duração da relação e notificações. Não presuma indemnização automática nem renovação incondicional. Verifique o contrato e os prazos antes de notificar uma decisão.",
+      "section4P2": "Renovação, recusa e eventual indemnização dependem das condições legais, motivos, duração da relação e notificações. Não presuma indemnização automática nem renovação incondicional. Verifique o contrato e os prazos antes de notificar uma decisão.",
       "callout3Title": "Cessão e subarrendamento",
-      "callout3Body": "A cessão do arrendamento comercial a um terceiro (nomeadamente aquando da venda do fundo de comércio) é livre salvo proibição expressa no contrato. O subarrendamento parcial é mais enquadrado e exige geralmente o acordo escrito do senhorio. Qualquer cessão deve ser-lhe notificada. Se o contrato proíbe a cessão, preveja uma cláusula de saída em caso de revenda do fundo.",
+      "callout3Body": "A cessão e sublocação seguem regras específicas, sobretudo quando acompanham a transmissão do estabelecimento. Não deduza liberdade geral nem proibição absoluta apenas de uma cláusula. Verifique condições legais e notificações antes da operação.",
       "inlineCalc": {
         "title": "Avalie a rentabilidade de um espaço comercial",
-        "description": "A nossa ferramenta de arrendamento comercial integra a fixação livre da renda, o trespasse amortizável, a indexação IPC, a amortização das obras e o cálculo da rentabilidade líquida para senhorio e inquilino.",
+        "description": "Cenário de indexação com índices introduzidos, duração escolhida, encargos constantes e garantia separada.",
         "cta": "Iniciar a análise"
       },
       "tools": [
         {
           "href": "/bail-commercial",
           "title": "Ferramenta arrendamento comercial",
-          "description": "Renda, trespasse, indexação IPC, rentabilidade senhorio/inquilino."
+          "description": "Cenário de indexação com índices introduzidos, duração escolhida, encargos constantes e garantia separada."
         },
         {
           "href": "/dcf-multi",
@@ -10651,55 +10680,46 @@
       "faq": [
         {
           "q": "Qual é a duração mínima de um arrendamento comercial no Luxemburgo?",
-          "a": "9 anos (art. 2 lei de 3 de fevereiro de 2018). O inquilino pode rescindir em cada período trienal (3, 6, 9 anos) com pré-aviso de 6 meses. O senhorio só pode rescindir por incumprimento grave, necessidade pessoal de exploração ou demolição/reconstrução."
+          "a": "O contrato pode ter duração determinada ou indeterminada (art. 1762-4 do Código Civil). Não existe um mínimo legal geral de nove anos. As opções periódicas de rescisão dependem do contrato; um modelo 3–6–9 não é automático. Verifique o pré-aviso aplicável, não inferior a seis meses neste regime, e as formalidades de notificação."
         },
         {
           "q": "A renda comercial é limitada no Luxemburgo?",
-          "a": "Não, ao contrário do arrendamento habitacional (limite de 5% do capital investido), a renda comercial é fixada livremente entre as partes. A indexação é feita sobre o IPC STATEC se uma cláusula expressa o previr no contrato."
+          "a": "A renda comercial inicial é negociada; o limite residencial de 5% não se aplica. A indexação segue a fórmula, série, base e datas previstas no contrato. A calculadora usa os índices introduzidos, sem inventar histórico ou previsões nem presumir um direito geral de revisão trienal."
         },
         {
-          "q": "O que é o trespasse e como negociá-lo?",
-          "a": "O trespasse (ou direito de entrada) é um pagamento inicial do inquilino ao senhorio em contrapartida das vantagens comerciais da localização. É lícito no LU, não regulamentado e livremente negociado (tipicamente 1 a 6 meses de renda para uma localização corrente, até vários anos para uma localização prime). Pode ser amortizado contabilisticamente pelo inquilino durante a vigência do contrato."
+          "q": "Pode ser exigido um direito de entrada?",
+          "a": "O suplemento pago ao senhorio ou intermediário pela celebração do arrendamento, designado direito de entrada, é proibido (art. 1762-5). Honorários de agência e preço de transmissão de estabelecimento devem ser distinguidos e analisados separadamente. A garantia está limitada a seis meses de renda neste regime."
         },
         {
           "q": "Como funciona o direito à renovação?",
-          "a": "O inquilino notifica um pedido de renovação pelo menos 6 meses antes do termo do contrato. O senhorio que recuse sem motivo legítimo (incumprimento, demolição, exploração pessoal) deve pagar uma indemnização de despejo cobrindo a perda de clientela, mudança e perda de fundo de comércio. O montante é fixado amigavelmente ou pelo juiz."
+          "a": "Renovação, recusa e eventual indemnização dependem das condições legais, motivos, duração da relação e notificações. Não presuma indemnização automática nem renovação incondicional. Verifique o contrato e os prazos antes de notificar uma decisão."
         },
         {
           "q": "O senhorio pode bloquear a cessão do contrato a um sucessor?",
-          "a": "Não, salvo cláusula em contrário no contrato. A cessão do arrendamento comercial é livre, geralmente ligada à cessão do fundo de comércio. O senhorio deve ser informado mas não pode opor-se se as condições do contrato (renda, uso) forem respeitadas pelo sucessor. Prever uma cláusula de aprovação se o senhorio quiser direito de fiscalização."
+          "a": "A cessão e sublocação seguem regras específicas, sobretudo quando acompanham a transmissão do estabelecimento. Não deduza liberdade geral nem proibição absoluta apenas de uma cláusula. Verifique condições legais e notificações antes da operação."
         },
         {
           "q": "O que fazer em caso de incumprimento grave do inquilino?",
-          "a": "O senhorio dirige uma interpelação por carta registada precisando o incumprimento (renda em dívida > 2 meses, subarrendamento proibido, alteração de destino, danos importantes). Sem regularização em 30 dias, o senhorio pode submeter o caso ao juiz para rescisão judicial com pedido de despejo e pagamento dos atrasados e indemnização."
+          "a": "Documente factos e comunicações. A rescisão e eventual despejo seguem condições e procedimentos aplicáveis; este guia não estabelece um limiar automático de dois meses de atraso nem um prazo universal de trinta dias. Procure aconselhamento antes de agir."
         }
       ],
       "sources": [
         {
-          "title": "Lei de 3 de fevereiro de 2018 sobre o arrendamento comercial",
+          "title": "Loi du 3 février 2018 portant sur le bail commercial",
           "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a110/jo",
           "year": 2018
         },
         {
-          "title": "Arrendamento comercial — guia prático",
-          "org": "Guichet.lu",
-          "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html"
+          "title": "Réforme du bail commercial : adoption et pas-de-porte",
+          "org": "Ministère de l’Économie",
+          "url": "https://meco.gouvernement.lu/fr/actualites.gouvernement2024%2Bfr%2Bactualites%2Btoutes_actualites%2Bcommuniques%2B2018%2B01-janvier%2B17-bail.html",
+          "year": 2018
         },
         {
-          "title": "Índice de Preços no Consumidor (IPC)",
+          "title": "Indice des prix à la consommation et inflation",
           "org": "STATEC",
-          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
-        },
-        {
-          "title": "Código Civil — artigos 1709 e seguintes",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
-        },
-        {
-          "title": "Câmara de Comércio — apoio aos empresários",
-          "org": "Câmara de Comércio do Luxemburgo",
-          "url": "https://www.cc.lu/"
+          "url": "https://statistiques.public.lu/fr/donnees/themes/economie-finances/dossier-indice-prix-inflation.html"
         }
       ]
     },
@@ -11635,7 +11655,7 @@
       "faq1q": "O método hedónico é publicado?",
       "faq1a": "Estas percentagens são hipóteses de trabalho, não coeficientes oficiais do Observatório. Não foi demonstrada MAPE, R², significância ou precisão em vendas reais.",
       "faq2q": "Como funciona a assinatura SHA-256?",
-      "faq2a": "Na emissão, PDF é hashed e hash armazenado em DB (imutável). Cliente cola URL em /verify que re-hash e compara.",
+      "faq2a": "Um checksum compara o conteúdo com uma referência conservada. Por si só, não certifica identidade, acordo, data ou validade jurídica. Conserve o documento e os elementos de verificação; um checksum não é uma assinatura qualificada.",
       "faq3q": "Multi-avaliadores: como partilhar?",
       "faq3a": "/profil/organisation permite criar gabinete, convidar membros, partilhar avaliações. Estatísticas admin, lookup VIES.",
       "faq4q": "Posso exportar em DOCX?",
@@ -11803,7 +11823,7 @@
       "parcoursStep1Title": "Criar chave API",
       "parcoursStep1Desc": "/profil/api: criar chave com scope, quota mensal, IP allowlist. Logs completos.",
       "parcoursStep2Title": "Testar endpoints",
-      "parcoursStep2Desc": "/api-docs: OpenAPI 3.1 com Try-it-out, exemplos cURL.",
+      "parcoursStep2Desc": "/api-docs: documentação OpenAPI, exemplos cURL e esquemas de pedido/resposta. Endpoints PropCalc: yield, cashflow, mortgage e fees. Consulte os parâmetros obrigatórios e o âmbito de cada cálculo na documentação.",
       "parcoursStep3Title": "Webhooks + produção",
       "parcoursStep3Desc": "Configurar webhook com assinatura HMAC-SHA256. Endpoint teste /api/v1/webhooks/test.",
       "toolsTitle": "Ferramentas recomendadas",
@@ -11825,30 +11845,30 @@
     },
     "str_operator": {
       "title": "Guia locação curta duração",
-      "intro": "Airbnb, Booking, operador concierge STR: calculadores rentabilidade LU, compliance regulamento EU 2024/1028, limiar 3 meses/ano LU.",
+      "intro": "Para anfitriões Airbnb e Booking e gestores: cenários de rentabilidade, comparação entre curta e longa duração e obrigações luxemburguesas e europeias a verificar para a sua atividade.",
       "backToHub": "Todos os guias",
       "parcoursTitle": "Percurso típico",
-      "parcoursIntro": "Da análise STR à conformidade EU 2024/1028.",
+      "parcoursIntro": "Da simulação económica às obrigações aplicáveis à sua atividade.",
       "parcoursStep1Title": "Analisar rentabilidade",
       "parcoursStep1Desc": "/str/forecast: previsional 12 m, sazonalidade LU, sensibilidade ocupação ±10 pp.",
       "parcoursStep2Title": "Arbitragem longo vs curto prazo",
       "parcoursStep2Desc": "/str: compara rendimento STR vs arrendamento clássico com encargos líquidos.",
-      "parcoursStep3Title": "Compliance EU 2024/1028 + LU",
-      "parcoursStep3Desc": "/str/compliance: registo único europeu. Em LU: limiar 3 meses/ano para licença alojamento.",
+      "parcoursStep3Title": "Obrigações STR no Luxemburgo e na UE",
+      "parcoursStep3Desc": "/str/compliance ajuda a verificar as obrigações: 90 dormidas acumuladas por operador, autorização de estabelecimento, formação, regras municipais e procedimentos locais de registo. O PDF é um documento preparatório interno; não constitui apresentação de pedido nem autorização.",
       "toolsTitle": "Ferramentas recomendadas",
       "toolsIntro": "Análise + compliance + portfolio.",
       "faqTitle": "Perguntas frequentes",
-      "faq1q": "O regulamento EU 2024/1028 impõe o quê?",
-      "faq1a": "Registo obrigatório no registo europeu, transmissão automática dados, número visível. Em vigor meados 2026.",
+      "faq1q": "Que obrigações do Regulamento (UE) 2024/1028 devo verificar?",
+      "faq1a": "O Regulamento (UE) 2024/1028 é aplicável desde 20 de maio de 2026. As obrigações dependem dos procedimentos de registo aplicáveis à unidade. Não cria um registo europeu único. As informações prestadas pelo anfitrião distinguem-se da transmissão de dados pelas plataformas.",
       "faq2q": "Devo declarar receitas STR à fiscalidade?",
       "faq2a": "Sim, em receitas BIC. IVA: franquia < 35k€/ano. Taxa turística: devida desde 1 noite.",
-      "faq3q": "Exceder limiar 3 meses: o que acontece?",
-      "faq3a": "Licença alojamento comercial requerida acima de 90 dias/ano. ICC + IRC + IVA 3 % + taxa turística.",
+      "faq3q": "O que verificar a partir de 90 dormidas acumuladas por operador?",
+      "faq3a": "No Luxemburgo, o limiar da atividade comercial de alojamento é de 90 dormidas ou mais, somadas em todas as unidades do mesmo operador durante o ano de referência, contado a partir do último arrendamento. Verifique a autorização de estabelecimento e as qualificações ou formações exigidas. Abaixo deste limiar, continuam a existir outras obrigações a verificar.",
       "faq4q": "Pricing dinâmico como PriceLabs integrado?",
       "faq4a": "Ainda não. /str/forecast faz previsional sazonal estático. Para dinâmico: soluções terceiras PriceLabs/Wheelhouse.",
       "relatedTitle": "Saber mais",
       "ctaTitle": "Inicie análise STR",
-      "ctaDesc": "Previsional 12 m + compliance EU 2024/1028 grátis.",
+      "ctaDesc": "Cenários de rentabilidade, comparação entre curta e longa duração e lista de obrigações a verificar.",
       "ctaPrimary": "Aceder ao hub STR",
       "ctaSecondary": "Ver todos os guias"
     }
@@ -12953,12 +12973,12 @@
   "strHub": {
     "meta": {
       "title": "Alojamento curto Luxemburgo — Airbnb, Booking, Vrbo | tevaxia.lu",
-      "description": "7 calculadoras STR para anfitrioes Airbnb/Booking no Luxemburgo: rentabilidade liquida apos imposto, conformidade (limite 3 meses, licenca, Reg UE 2026), arbitragem longo vs curto prazo, pricing dinamico."
+      "description": "Ferramentas de arrendamento de curta duração no Luxemburgo: simulações económicas, obrigações a verificar e comparação com o arrendamento de longa duração."
     },
     "hero": {
       "title": "Alojamento curto no Luxemburgo",
       "subtitle": "7 ferramentas gratuitas para anfitrioes Airbnb, Booking, Vrbo e sazonais no Luxemburgo. Rentabilidade realista, conformidade legal 2026, arbitragem entre longa e curta duracao.",
-      "tag1": "Limite 3 meses / ano",
+      "tag1": "90 dormidas acumuladas por operador",
       "tag2": "IRS LU",
       "tag3": "Regulamento UE 2024/1028",
       "tag4": "Airbnb / Booking / Vrbo"
@@ -12970,7 +12990,7 @@
       },
       "compliance": {
         "title": "Conformidade STR Luxemburgo",
-        "desc": "Checklist legal: limite 3 meses, licenca alojamento, regulamentos municipais, Regulamento UE 2024/1028."
+        "desc": "A verificar: 90 dormidas acumuladas por operador, autorização, formação, regras municipais e procedimentos de registo aplicáveis."
       },
       "arbitrage": {
         "title": "Arbitragem LT vs CT vs Mix",
@@ -12985,8 +13005,8 @@
         "desc": "ADR mediano, percentis, ocupacao e RevPAR por zona. 4 200 listagens LU Q4 2025. Alternativa local gratuita ao AirDNA."
       },
       "complianceEu": {
-        "title": "Registo UE STR 2024/1028",
-        "desc": "Registo obrigatorio no registo europeu das locacoes curto prazo (meados 2026). Geracao do dossier + numero identificacao."
+        "title": "Dossier preparatório STR",
+        "desc": "Reúna informações úteis antes de verificar as suas obrigações. Esta ferramenta não efetua registos nem emite números oficiais."
       },
       "forecast": {
         "title": "Previsao 12 meses",
@@ -12997,15 +13017,15 @@
       "title": "Porque um vertical STR dedicado ao Luxemburgo?",
       "rules": {
         "title": "Regras LU especificas",
-        "body": "Para alem de 90 dias cumulativos por ano, o senhorio tem de obter uma licenca de alojamento (art. 6 lei 17.07.2020). Luxemburgo-Cidade impoe restricoes municipais adicionais."
+        "body": "No Luxemburgo, o limiar da atividade comercial de alojamento é de 90 dormidas ou mais, somadas em todas as unidades do mesmo operador durante o ano de referência, contado a partir do último arrendamento. Verifique a autorização de estabelecimento e as qualificações ou formações exigidas. Abaixo deste limiar, continuam a existir outras obrigações a verificar."
       },
       "eu": {
         "title": "Regulamento UE 2024/1028",
-        "body": "Entrada em vigor meados 2026: registo unico europeu, transmissao obrigatoria das noites aos municipios. Todos os anfitrioes Airbnb/Booking afetados."
+        "body": "O Regulamento (UE) 2024/1028 é aplicável desde 20 de maio de 2026. As obrigações dependem dos procedimentos de registo aplicáveis à unidade. Não cria um registo europeu único. As informações prestadas pelo anfitrião distinguem-se da transmissão de dados pelas plataformas."
       },
       "tax": {
         "title": "IRS 2026",
-        "body": "Rendimentos > 600 €/ano → declaracao IRS obrigatoria. Taxa marginal ate 45,78 % (IR 42 % × contribuicao emprego 1,09). Dedutiveis: juros, PNO, limpeza, OTA 15-18 %."
+        "body": "A obrigação depende do agregado, dos rendimentos líquidos e do estatuto da atividade. O limiar de 600 € em certas situações fiscais não é uma isenção universal de receitas de arrendamento."
       },
       "arbitrage": {
         "title": "Arbitragem LT vs CT",
@@ -13116,16 +13136,16 @@
   "strCompliance": {
     "back": "Alojamento curto",
     "title": "Conformidade STR no Luxemburgo",
-    "subtitle": "Verifique as suas obrigacoes legais antes de lancar um alojamento curto no Luxemburgo. Limite 3 meses, licenca alojamento, regulamentos municipais, IRS, Regulamento UE 2024/1028.",
+    "subtitle": "Identifique verificações sobre limiares de atividade, regras municipais, fiscalidade e registo. Esta ferramenta não certifica a conformidade.",
     "form": {
       "title": "O seu projeto STR",
-      "nights": "Noites previstas em 12 meses",
+      "nights": "Dormidas acumuladas em todas as suas unidades",
       "nightsSuffix": "noites",
-      "nightsHint": "Limite legal: {threshold} noites/ano (acima, licenca obrigatoria)",
+      "nightsHint": "Limiar: {threshold} dormidas ou mais em todas as unidades do operador, num ano contado desde a última locação.",
       "commune": "Municipio",
       "ownerType": "Tipo de proprietario",
       "revenue": "Receita STR anual estimada",
-      "revenueHint": "Limite declaracao IRS: {threshold}/ano",
+      "revenueHint": "As receitas, por si só, não determinam a obrigação declarativa.",
       "primaryResidence": "O imovel e a minha residencia principal (locacao ocasional durante deslocacoes)"
     },
     "ownerTypes": {
@@ -13134,19 +13154,20 @@
       "nonResident": "Nao residente fiscal LU"
     },
     "status": {
-      "label": "Estatuto regulatorio",
-      "licenseRequired": "Licenca alojamento exigida",
-      "noLicense": "Sem licenca exigida",
-      "exceeded": "Voce ultrapassa o limite de {threshold} noites/ano em {over} noites. Pedido a submeter antes de qualquer locacao.",
-      "remaining": "Restam-lhe {nights} noites antes de atingir o limite de licenca."
+      "label": "Limiar da atividade de alojamento",
+      "licenseRequired": "Limiar de autorização atingido",
+      "noLicense": "Limiar de 90 dormidas não atingido",
+      "exceeded": "O limiar de {threshold} dormidas foi atingido ou excedido em {over}. Verifique a autorização e a formação exigida.",
+      "remaining": "O limiar seria atingido após mais {nights} dormidas. As outras obrigações continuam por verificar."
     },
     "risk": {
-      "title": "Risco regulatorio municipal",
+      "title": "Regras municipais",
       "high": "elevado",
       "medium": "medio",
       "low": "baixo",
       "body": "Municipio « {commune} »: risco {level}.",
-      "highNote": "Luxemburgo-Cidade nomeadamente impoe restricoes estritas desde 2024: verifique o regulamento municipal em vigor."
+      "highNote": "Luxemburgo-Cidade nomeadamente impoe restricoes estritas desde 2024: verifique o regulamento municipal em vigor.",
+      "unverified": "{commune}: regras locais não verificadas. Contacte o município; não é atribuído um risco com base no nome."
     },
     "tax": {
       "title": "IRS Luxemburgo",
@@ -13155,22 +13176,37 @@
       "required": "Declaracao obrigatoria?",
       "yes": "SIM (formulario 100)",
       "no": "Nao",
-      "note": "Taxa marginal max LU: 45,78% (IR 42% × contribuicao emprego 1,09). Dedutiveis: juros emprestimo, PNO, limpeza, amortizacao mobiliario, comissoes OTA (15-18%)."
+      "note": "A obrigação depende do agregado, dos rendimentos líquidos e do estatuto da atividade. O limiar de 600 € em certas situações fiscais não é uma isenção universal de receitas de arrendamento.",
+      "toCheck": "Por determinar"
     },
     "eu": {
       "title": "Regulamento UE 2024/1028 sobre STR",
-      "inForce": "Entrada em vigor meados 2026.",
-      "obligations": "Obrigacoes:",
-      "item1": "Registo no registo unico europeu de alojamentos curto prazo",
-      "item2": "Transmissao das noites aos municipios (plataformas Airbnb/Booking tratam do reporting)",
-      "item3": "Numero identificacao a exibir obrigatoriamente nas listagens"
+      "inForce": "Aplicável desde 20 de maio de 2026.",
+      "obligations": "As obrigações dependem dos procedimentos de registo instituídos pelas autoridades competentes.",
+      "item1": "Verificar se um procedimento local de registo abrange a sua unidade.",
+      "item2": "Distinguir informações prestadas pelo anfitrião das transmissões da plataforma.",
+      "item3": "Exibir o número de registo quando o procedimento aplicável o exigir; o regulamento não cria um registo europeu único."
     },
     "actions": {
       "title": "Acoes a realizar"
     },
     "disclaimer": {
       "label": "Aviso:",
-      "body": "esta analise e indicativa. A regulamentacao STR LU evolui rapidamente (revisao UE 2024/1028, regulamentos municipais). Valide sempre com advogado especializado ou contabilista LU antes de qualquer locacao. Valores em vigor em abril 2026."
+      "body": "Referências verificadas em 23 de outubro de 2026. Este questionário não valida regras municipais nem a sua situação fiscal individual."
+    },
+    "actionItems": {
+      "license": "Verificar a autorização e a formação junto das autoridades competentes.",
+      "operatorTotal": "Somar as dormidas de todas as unidades no período de referência.",
+      "localRules": "Verificar uso permitido, regras e formalidades junto do município.",
+      "tax": "Determinar a categoria de rendimento, deduções e obrigações declarativas com a autoridade fiscal ou um profissional.",
+      "registration": "Verificar procedimentos de registo e obrigações da plataforma.",
+      "insurance": "Verificar se o seguro e os contratos permitem as estadias propostas.",
+      "vat": "Determinar o IVA e as contribuições sociais segundo a atividade efetiva."
+    },
+    "sources": {
+      "license": "Autorização de estabelecimento",
+      "tax": "Liquidação de imposto",
+      "eu": "Regulamento UE 2024/1028"
     }
   },
   "wizardParticulierPage": {
@@ -13319,7 +13355,7 @@
   "strRentabilite": {
     "back": "Alojamento curto",
     "title": "Rentabilidade STR (Airbnb / Booking / Vrbo)",
-    "subtitle": "Calcule o rendimento liquido anual do seu imovel em alojamento curto no Luxemburgo, todos custos e impostos incluidos.",
+    "subtitle": "Estime o resultado anual com os seus custos e uma taxa marginal constante. Exclui prestações do crédito, IVA, contribuições sociais e liquidação fiscal do agregado.",
     "save": "Guardar",
     "saved": "Guardado!",
     "sections": {
@@ -13367,7 +13403,7 @@
     },
     "result": {
       "netLabel": "Rendimento liquido anual apos imposto",
-      "perMonth": "ou seja {n}/mes apos tudo (custos, OTA, IRS)",
+      "perMonth": "{n}/mês segundo estes pressupostos",
       "netYield": "Yield liquido",
       "breakdown": "Decomposicao",
       "grossRevenue": "Receita bruta",
@@ -13393,25 +13429,26 @@
       "netYield": "Yield liquido"
     },
     "ltCompare": {
-      "title": "Vs arrendamento longa duracao (regra 5% indicativa)",
+      "title": "Exemplo de longo prazo: rendimento bruto assumido de 5% do preço, sem calcular o limite legal",
       "strNet": "STR liquido/ano",
       "ltNet": "LT liquido/ano (regra 5%)",
       "delta": "Desvio STR vs LT",
       "favorStr": "a favor do STR",
       "favorLt": "a favor do LT",
-      "warn": "Atencao: alem de 90 dias STR/ano, licenca alojamento obrigatoria em LU. Ver",
+      "warn": "A partir de 90 dormidas acumuladas por operador, verifique a autorização de estabelecimento. Consulte",
       "complianceLink": "a ferramenta conformidade"
-    }
+    },
+    "calendarLimited": "O objetivo de {requested} noites fica limitado a {effective}: estadias e intervalos devem caber em 365 dias."
   },
   "strArbitrage": {
     "back": "Alojamento curto",
     "title": "Arbitragem longa vs curta duracao",
-    "subtitle": "Compare 3 cenarios quantificados: arrendamento longa duracao (regra 5%), STR puro (Airbnb/Booking), ou misto (STR sazonal + LT resto). Calculo liquido apos imposto segundo o seu perfil fiscal Luxemburgo.",
+    "subtitle": "Compare cenários económicos anuais à taxa marginal indicada. Financiamento, IVA, contribuições sociais e tributação completa do agregado não são modelados.",
     "tax": {
       "max": "Max LU (~45,78%)"
     },
     "scenarios": {
-      "lt": "Longa duracao (regra 5%)",
+      "lt": "Arrendamento de longa duração",
       "str": "STR puro (Airbnb/Booking)",
       "mixed": "Misto (STR + LT)"
     },
@@ -13428,24 +13465,25 @@
       "cleaning": "Limpeza / estadia",
       "fixedCosts": "Custos fixos STR / ano",
       "fixedCostsHint": "PNO + internet + utilities + amortizacao mobiliario",
-      "note": "Comissao OTA 15% Airbnb pre-aplicada. Se > 90 noites/ano, licenca alojamento obrigatoria."
+      "note": "Comissão Airbnb assumida: 15%. Verifique a autorização a partir de 90 dormidas acumuladas em todas as unidades do operador."
     },
     "lt": {
-      "title": "Cenario longa duracao (regra 5%)",
+      "title": "Arrendamento de longa duração",
       "monthlyRent": "Renda mensal LT",
       "monthlyRentHint": "Tecto legal LU = 5%/12 × capital investido reavaliado",
-      "deductible": "Custos dedutiveis / ano",
-      "deductibleHint": "Juros emprestimo + encargos condominio + manutencao + PNO"
+      "deductible": "Custos anuais pagos e dedutíveis",
+      "deductibleHint": "Exclua amortizações sem saída de caixa e capital do crédito. Os custos indicados são pagos integralmente também no cenário misto."
     },
     "mixed": {
       "title": "Cenario misto (STR parcial + LT parcial)",
-      "strDays": "Dias STR / ano",
-      "strDaysHint": "Max 90 dias para evitar licenca",
+      "strDays": "Dias disponíveis para curta duração",
+      "strDaysHint": "Inclui estadias e intervalos; não constitui um limiar de isenção legal.",
       "ltMonths": "Meses LT / ano",
-      "ltMonthsHint": "Tipico: 3 meses verao Airbnb + 9 meses LT",
+      "ltMonthsHint": "O calendário comum não pode exceder um ano (mês médio = 365/12 dias).",
       "daysSuffix": "dias",
       "monthsSuffix": "meses",
-      "note": "Modo LU classico: contrato sazonal (verao/cacadores congresso) + contrato habitacao para o resto."
+      "note": "Ocupação e estadias são recalculadas. Cada modalidade ativa mantém os custos fixos anuais completos: não duplique custos comuns. Verifique a compatibilidade dos contratos.",
+      "effectiveNights": "Dormidas viáveis de curta duração: {n}."
     },
     "result": {
       "bestLabel": "Cenario mais rentavel",
@@ -13453,7 +13491,7 @@
       "comparison": "Comparacao 3 cenarios (liquido apos imposto)"
     },
     "detail": {
-      "lt": "Detalhe LT (regra 5%)",
+      "lt": "Arrendamento de longa duração",
       "mixed": "Detalhe misto (STR + LT)",
       "annualGross": "Renda anual bruta",
       "taxEstimated": "IRS estimado",
@@ -13465,11 +13503,11 @@
   },
   "strComplianceEu": {
     "back": "Alojamento curto",
-    "title": "Registo UE STR 2024/1028",
-    "subtitle": "Preparacao do dossier de registo no registo unico europeu dos alojamentos curto prazo. Regulamento (UE) 2024/1028 — entrada em vigor meados 2026. Obrigacoes: numero identificacao obrigatorio em todos anuncios, transmissao das noites aos municipios.",
+    "title": "Dossier preparatório STR",
+    "subtitle": "Reúna informações úteis antes de verificar as suas obrigações. Esta ferramenta não efetua registos nem emite números oficiais.",
     "regNumber": {
-      "label": "Numero identificacao pre-preenchido",
-      "note": "Formato indicativo — a validar pelo seu municipio no deposito oficial. Formato final imposto pelo Ministerio do Turismo."
+      "label": "Dossier preparatório interno",
+      "note": "Este documento não constitui registo, autorização ou prova de conformidade. Não é emitido qualquer número oficial."
     },
     "section1": "1. Identidade proprietario",
     "section2": "2. O alojamento locado",
@@ -13487,25 +13525,32 @@
       "maxCapacity": "Capacidade max",
       "primaryResidence": "O imovel e a minha residencia principal",
       "platforms": "Plataformas usadas",
-      "nightsPlanned": "Noites previstas em 12 meses"
+      "nightsPlanned": "Dormidas acumuladas em todas as suas unidades durante o ano de referência",
+      "propertyType": "Tipo de alojamento"
     },
     "propertyTypes": {
       "apartment": "Apartamento inteiro",
       "house": "Casa inteira",
       "room": "Quarto privado"
     },
-    "warnLicense": "Mais de 90 dias/ano = licenca alojamento LU obrigatoria.",
+    "warnLicense": "No Luxemburgo, o limiar da atividade comercial de alojamento é de 90 dormidas ou mais, somadas em todas as unidades do mesmo operador durante o ano de referência, contado a partir do último arrendamento. Verifique a autorização de estabelecimento e as qualificações ou formações exigidas. Abaixo deste limiar, continuam a existir outras obrigações a verificar.",
     "seeCompliance": "Ver /str/compliance",
     "timing": {
-      "label": "Timing Regulamento UE 2024/1028:",
-      "body": "entrada em vigor meados 2026. Cada Estado-membro deve montar o seu registo nacional. Para o Luxemburgo, o Ministerio do Turismo sera provavelmente a autoridade competente (a confirmar no Mémorial A). As plataformas (Airbnb, Booking) terao de transmitir as noites por imovel identificado as autoridades."
+      "label": "Regulamento (UE) 2024/1028:",
+      "body": "O Regulamento (UE) 2024/1028 é aplicável desde 20 de maio de 2026. As obrigações dependem dos procedimentos de registo aplicáveis à unidade. Não cria um registo europeu único. As informações prestadas pelo anfitrião distinguem-se da transmissão de dados pelas plataformas."
     },
-    "downloadPdf": "Descarregar dossier PDF"
+    "downloadPdf": "Descarregar o dossier preparatório em PDF",
+    "reviewTitle": "Pontos a verificar pessoalmente",
+    "reviewBody": "Verifique os procedimentos aplicáveis junto das autoridades competentes, bem como as regras municipais, o seguro e a fiscalidade. Este dossier não apresenta qualquer pedido nem certifica qualquer resposta.",
+    "pdfFooter": "Dossier preparatório interno. Nenhum pedido apresentado; não constitui autorização nem prova de conformidade.",
+    "yes": "Sim",
+    "no": "Não",
+    "pdfFailed": "Não foi possível gerar o PDF. Tente novamente."
   },
   "strPortefeuille": {
     "back": "Alojamento curto",
     "title": "Portfolio STR",
-    "subtitle": "Painel multi-imoveis para concierge ou investidor STR (10-50 unidades). ADR/ocupacao/receita agregados, estado licenca LU (limite 90d), registo UE 2024/1028.",
+    "subtitle": "Acompanhe os dados económicos de vários imóveis e os procedimentos que registou. O limiar da atividade abrange todas as unidades do mesmo operador; este painel não certifica a conformidade.",
     "signIn": "Inicie sessao para gerir o seu portfolio STR.",
     "loading": "A carregar…",
     "cancel": "Cancelar",
@@ -13520,7 +13565,7 @@
       "avgOccupancy": "Ocupacao media"
     },
     "licenses": {
-      "summary": "Licencas: {obtained} obtidas · {pending} em curso · {eu}/{total} registados UE"
+      "summary": "Autorizações indicadas: {obtained} obtidas · {pending} em curso · {eu}/{total} registos indicados"
     },
     "types": {
       "apartment": "Apartamento",
@@ -13530,7 +13575,7 @@
       "villa": "Moradia"
     },
     "license": {
-      "notRequired": "Nao requerida (< 90d)",
+      "notRequired": "Obrigação a verificar",
       "pending": "Em curso",
       "obtained": "Obtida",
       "expired": "Caducada"
@@ -13575,7 +13620,7 @@
       },
       "agence": {
         "title": "Agência imobiliária",
-        "desc": "Pipeline de mandatos OpenImmo, CRM de contactos com matching de compradores /100, kanban drag and drop, PDFs de imóvel em co-branding, assinatura eIDAS."
+        "desc": "Mandatos, contactos, tarefas e documentos de agência, com fluxo de assinatura cuja adequação deve ser verificada para cada ato."
       },
       "hotel": {
         "title": "Hotelaria",
@@ -13609,8 +13654,8 @@
         },
         "agence": {
           "daily": "Mandatos, contactos, difusão em portais, matching de compradores",
-          "compliance": "eIDAS UE 910/2014, consentimento RGPD",
-          "standards": "OpenImmo 1.2.8, eIDAS"
+          "compliance": "Fluxo de assinatura online com elementos técnicos a verificar; a plataforma não certifica nível avançado ou qualificado.",
+          "standards": "Exportação OpenImmo; requisitos de assinatura a verificar"
         },
         "hotel": {
           "daily": "Reservas, folios, faturação, revenue management",
@@ -13900,7 +13945,7 @@
     "dtType": "Tipo",
     "dtEvaluator": "Avaliador",
     "limitsStrong": "Limites do serviço:",
-    "limitsBody": "este mecanismo oferece um registo de auditoria com carimbo temporal, mas não tem o valor de uma assinatura eletrónica qualificada eIDAS (LuxTrust, QTSP). Para uma oposição jurídica reforçada, utilize um QTSP acreditado. O hash prova apenas que os dados não foram modificados desde o momento da assinatura registada aqui."
+    "limitsBody": "Um checksum compara o conteúdo com uma referência conservada. Por si só, não certifica identidade, acordo, data ou validade jurídica. Conserve o documento e os elementos de verificação; um checksum não é uma assinatura qualificada."
   },
   "invitation": {
     "title": "Convite para se juntar a uma agência",
@@ -13989,7 +14034,7 @@
     "agencyStep1": "Adicionar o descritivo e fotos na visão geral do mandato",
     "agencyStep2": "Configurar a distribuição em athome / Immotop / Immoweb",
     "agencyStep3": "Lançar o matching automático com os seus contactos CRM",
-    "agencyStep4": "Fazer o cliente assinar o mandato (eIDAS)",
+    "agencyStep4": "Fluxo de assinatura online com elementos técnicos a verificar; a plataforma não certifica nível avançado ou qualificado.",
     "hotelStep1": "Adicionar tipos de quartos e quartos físicos",
     "hotelStep2": "Definir os rate plans (BAR, não reembolsável, etc.)",
     "hotelStep3": "Configurar os channels iCal (Airbnb, Booking)",
@@ -14008,16 +14053,16 @@
     "errGeneric": "Erro",
     "errContactSender": "Contacte o emissor do documento para obter uma nova ligação.",
     "backSite": "Voltar ao tevaxia.lu",
-    "eidasKicker": "Assinatura eletrónica eIDAS",
+    "eidasKicker": "Fluxo de assinatura online",
     "docToSign": "{type} para assinar",
     "expiresOn": "Expira a {date}",
     "signedTitle": "Documento assinado eletronicamente",
-    "signedBody": "A sua assinatura foi registada com carimbo temporal. O emissor do documento foi notificado.",
+    "signedBody": "O seu acordo foi registado neste fluxo. Conserve uma cópia do documento e verifique o estado com o remetente.",
     "signedOn": "Assinado a {date}",
     "declinedTitle": "Recusa registada",
-    "declinedBody": "A sua recusa foi transmitida ao emissor do documento.",
+    "declinedBody": "A sua recusa foi registada. Contacte o remetente se precisar de esclarecimentos adicionais.",
     "hashLabel": "Hash SHA-256 do documento:",
-    "hashExplain": "Qualquer modificação do documento invalida este hash e, portanto, a assinatura. Esta impressão criptográfica garante a integridade do texto que está a assinar.",
+    "hashExplain": "Um checksum compara o conteúdo com uma referência conservada. Por si só, não certifica identidade, acordo, data ou validade jurídica. Conserve o documento e os elementos de verificação; um checksum não é uma assinatura qualificada.",
     "alreadyProcessed": "Este pedido já foi tratado (estado: {status}). Não é possível nenhuma ação adicional.",
     "signing": "A assinar…",
     "signBtn": "✍️ Assinar eletronicamente",
@@ -14027,7 +14072,7 @@
     "confirmDeclineBtn": "Confirmar recusa",
     "cancelBtn": "Cancelar",
     "aboutTitle": "Sobre a assinatura eletrónica",
-    "aboutBody": "Esta assinatura está em conformidade com o regulamento europeu eIDAS (UE 910/2014), nível «assinatura eletrónica simples», válida para contratos comerciais. Regista o seu endereço IP, o seu navegador e o carimbo temporal como prova. Para escrituras notariais ou contratos-promessa, uma assinatura qualificada (LuxTrust) continua a ser obrigatória.",
+    "aboutBody": "Este fluxo não fornece assinatura eletrónica qualificada nem certifica o nível avançado. O artigo 25.º eIDAS protege a admissibilidade de assinaturas eletrónicas; a equivalência expressa à assinatura manuscrita refere-se às qualificadas. A validade depende também do conteúdo, identidade, poderes das partes e formalidades. Verifique os requisitos antes de assinar.",
     "platformLabel": "Plataforma tevaxia.lu",
     "linkPrivacy": "Privacidade",
     "linkLegal": "Menções legais"
@@ -14580,7 +14625,7 @@
     "thLegal": "Proteção jurídica",
     "thVacancy": "Vacância",
     "legalStrong": "Importante:",
-    "legalBody": "os prémios acima são indicativos (Q4 2025). Contacte diretamente a seguradora para obter um orçamento personalizado. Algumas ofertas exigem a filtragem prévia do inquilino (rendimentos certificados 3× renda, CDI, caução, etc.). No LU, a caução de arrendamento legal (máx 3 meses, art. 5 lei 21.09.2006) continua a ser a opção por omissão. O prémio GLI é dedutível em encargos reais (art. 105 LIR)."
+    "legalBody": "Os prémios são indicativos: peça uma proposta e verifique coberturas, exclusões e condições. Num novo arrendamento residencial celebrado desde 1 de agosto de 2024, a garantia está limitada a duas rendas mensais sem encargos; verifique contratos anteriores. A dedutibilidade depende da sua situação fiscal."
   },
   "glReconciliation": {
     "backHub": "← Gestão de arrendamento",
@@ -14600,7 +14645,7 @@
     "statusManual": "Manual",
     "psd2Strong": "Conexão bancária automática (PSD2):",
     "psd2Body": "evite a importação manual via",
-    "psd2Suffix": "(API PSD2 SCA conforme, acesso 180 dias). Suporta Spuerkeess, BGL, BIL, ING LU, Raiffeisen, Post.",
+    "psd2Suffix": "(via Enable Banking; validade do acesso e autenticação segundo o banco). Consulte os bancos disponíveis ao estabelecer a ligação.",
     "defaultLabel": "Movimento bancário"
   },
   "glPortefeuille": {
@@ -14649,7 +14694,7 @@
   "glRelances": {
     "backHub": "← Gestão de arrendamento",
     "pageTitle": "Avisos de incumprimento, escalões automáticos",
-    "pageSubtitle": "3 níveis configurados: aviso amigável D+15 → notificação formal D+30 → injunção D+60. PDF conforme à lei 21.09.2006, a enviar por carta registada (papel ou eIDAS).",
+    "pageSubtitle": "Modelos de lembrete num calendário configurado. As datas do programa não substituem prazos e atos processuais aplicáveis; verifique a carta antes de enviar.",
     "loading": "A carregar…",
     "kpiTotalUnpaid": "Total em atraso",
     "kpiCount": "Número de prestações",
@@ -14685,7 +14730,7 @@
     "pdfLevel2Body": "Pela presente notificação formal, instamos-o a pagar a quantia de {amount} € correspondente à renda do período {period}, em atraso há mais de 30 dias. Não havendo pagamento no prazo de 15 dias após a receção da presente, reservamo-nos o direito de recorrer ao tribunal competente.",
     "pdfLevel3Body": "Injunção de pagamento: não havendo pagamento no prazo de 8 dias, recorreremos ao tribunal competente para obter a sua condenação ao pagamento da quantia de {amount} € (renda {period}), acrescida dos juros legais, dos encargos de processo e, se for caso disso, da rescisão do contrato. Dispõe ainda de tempo para contactar o Serviço social da comuna se tiver dificuldades.",
     "legalStrong": "Procedimento LU:",
-    "legalBody": "após 60 dias de incumprimento, pode recorrer à Justiça de paz para obter uma ordem condicional de pagamento (art. 12 lei 21.09.2006), em seguida intentar ação de rescisão do contrato se não houver regularização. A injunção de pagamento pode ser emitida por oficial de justiça (300-500 €). Para uma versão certificada eIDAS, parceria Yousign/LuxTrust prevista."
+    "legalBody": "O incumprimento exige analisar contrato, valores devidos e diligências. Um modelo ou PDF não é ato de oficial de justiça nem certificação jurídica. Os limiares do programa não criam direito automático a rescisão ou despejo. Verifique procedimento e formas de notificação."
   },
   "glFiscal": {
     "backHub": "← Gestão de arrendamento",
@@ -14815,7 +14860,7 @@
   "glPsd2": {
     "backRec": "← Reconciliação",
     "pageTitle": "Conexão bancária PSD2",
-    "pageSubtitle": "Recuperação automática das suas transações via Enable Banking, API PSD2 conforme SCA. Acesso máximo 180 dias (art. 10 RTS PSD2), renovável.",
+    "pageSubtitle": "Obtenha transações através da Enable Banking após autorização bancária. É solicitada uma validade de 180 dias; vale a data devolvida pelo banco ou fornecedor. Pode ser exigida nova autenticação.",
     "configStrong": "Integração a ativar.",
     "configBody": "Enable Banking está pronta do lado do código, mas as chaves ainda não estão definidas no servidor.",
     "configStep1": "Criar uma app em enablebanking.com/dashboard, descarregar a chave privada RSA (PEM)",
@@ -15477,7 +15522,7 @@
     "expireSoon": "expira em {n}d",
     "btnDownload": "Descarregar",
     "legalTitle": "Conformidade legal:",
-    "legalBody": "os arquivos são conservados 10 anos em conformidade com a lei alterada de 16 de maio de 1975 sobre a copropriedade (art. 13bis). Cada ficheiro tem um checksum SHA-256 para garantir a integridade. Os ficheiros são cifrados em repouso (AES-256). A tabela é imutável ao nível da BD (trigger 'archive_is_immutable'), não é possível qualquer alteração ou eliminação antes da expiração."
+    "legalBody": "Verifique a conservação por categoria e as definições efetivas do arquivo. Um checksum SHA-256 ajuda a comparar ficheiros com uma referência, mas não é prova qualificada de origem ou data. Proteção contra alterações e eliminação dependem dos direitos e regras efetivamente aplicados."
   },
   "syndicOcr": {
     "loading": "A carregar…",
@@ -15838,7 +15883,7 @@
     "csvHint": "Exportação CSV do web banking LU.",
     "btnChooseCsv": "Escolher um ficheiro CSV",
     "psdTitle": "Ligação bancária PSD2",
-    "psdHint": "Obtém as transações em direto via API Enable Banking. SCA bancária (LuxTrust / app móvel) necessária. Ligação 90 dias.",
+    "psdHint": "Consulte transações através da Enable Banking após autenticação bancária. A validade da ligação é indicada pelo banco ou fornecedor; pode ser necessária nova autenticação.",
     "psdConnect": "Ligar um banco",
     "psdNotConfigured": "PSD2 não configurado do lado do servidor. Contacte o administrador.",
     "psdLoading": "A carregar bancos…",
@@ -16667,7 +16712,7 @@
     "crumbMandates": "Mandatos",
     "crumbSignatures": "Assinaturas",
     "pageTitle": "Assinaturas eletrónicas",
-    "pageDesc": "Fluxo de assinatura online conforme regulamento UE 910/2014 (eIDAS). Nível «assinatura eletrónica simples» — válido para mandatos comerciais. Para atos notariais, é exigida assinatura qualificada LuxTrust (roadmap Q5).",
+    "pageDesc": "Este fluxo não fornece assinatura eletrónica qualificada nem certifica o nível avançado. O artigo 25.º eIDAS protege a admissibilidade de assinaturas eletrónicas; a equivalência expressa à assinatura manuscrita refere-se às qualificadas. A validade depende também do conteúdo, identidade, poderes das partes e formalidades. Verifique os requisitos antes de assinar.",
     "loading": "A carregar…",
     "loginPrompt": "Iniciar sessão",
     "notFound": "Mandato não encontrado.",
@@ -16694,12 +16739,12 @@
     "rowViewed": "Visto: {date}",
     "rowSigned": "Assinado: {date}",
     "rowExpires": "Expira: {date}",
-    "rowProof": "🔒 Prova: IP {ip} · {ua}",
+    "rowProof": "Dados técnicos: IP {ip} · {ua}",
     "rowDeclineReason": "Motivo recusa: {reason}",
     "btnCopyLink": "📋 Copiar link",
     "btnEmail": "📧 Email",
     "btnOpen": "Abrir",
-    "eidasNotice": "<strong>Prova eIDAS guardada:</strong> ao assinar, a plataforma regista o endereço IP, o navegador, o fuso horário e o registo de tempo do servidor, tudo tornado imutável por um trigger DB. O documento é identificado pelo seu hash SHA-256 — qualquer modificação posterior invalida a assinatura e desencadeia um alerta.",
+    "eidasNotice": "Os elementos técnicos incluem checksum do conteúdo, data do servidor, IP, navegador e fuso horário quando disponíveis. Não são um certificado qualificado nem uma verificação independente de identidade. Verifique o registo e conserve uma cópia; não é garantido alerta automático de alteração.",
     "defaultMandateTitle": "Mandato de venda",
     "mandateTitleFmt": "Mandato {type} — {address}",
     "statusDraft": "Rascunho",
@@ -16716,14 +16761,14 @@
     "docTypeRapportEstimation": "Relatório de avaliação",
     "docTypeAutre": "Outro documento",
     "mailSubject": "Assinatura solicitada: {title}",
-    "mailBody": "Olá {name},\n\nÉ convidado(a) a assinar eletronicamente o seguinte documento:\n\n{title}\n\nLink de assinatura seguro (válido até {expires}):\n{url}\n\nA assinatura eletrónica simples é juridicamente válida nos termos do regulamento UE 910/2014 (eIDAS).\n\nCom os melhores cumprimentos",
+    "mailBody": "Olá {name},\n\nConvidamos a consultar e assinar o seguinte documento:\n\n{title}\n\nLink válido até {expires}:\n{url}\n\nEste fluxo não fornece assinatura qualificada. Verifique o documento e as formalidades antes de confirmar o seu acordo.\n\nCom os melhores cumprimentos",
     "mandateBody": "MANDATO DE VENDA {type}\n\nEntre os abaixo assinados:\nO MANDANTE: {client}\nrepresentado por si próprio.\n\nE:\nO MANDATÁRIO: Agência imobiliária\natuando por intermédio de um agente imobiliário diplomado e registado\nnos termos da lei de 28 de dezembro de 1988 que regulamenta as profissões\nimobiliárias.\n\nFoi acordado e estipulado o seguinte:\n\nArtigo 1 — OBJETO DO MANDATO\nO mandante confere ao mandatário o mandato {mandateType} para vender\no imóvel situado em:\n{address}\n{commune}\nTipo: {propertyType}\nÁrea: {surface} m²\n\nArtigo 2 — PREÇO DE VENDA\nO preço líquido vendedor é fixado em {price}.\n\nArtigo 3 — COMISSÃO\nA comissão do mandatário é fixada em {commissionPct}% do preço de venda\ncom IVA incluído, a cargo do comprador, pagável na assinatura da escritura\nautêntica perante notário.\n\nArtigo 4 — DURAÇÃO\nO presente mandato é celebrado por um período de {duration}.\n{exclusiveClause}\n\nArtigo 5 — OBRIGAÇÕES DO MANDATÁRIO\nO mandatário compromete-se a:\n- divulgar o imóvel nos suportes comerciais adequados\n- prestar contas regularmente ao mandante\n- respeitar a confidencialidade das informações transmitidas\n- não misturar os fundos próprios do mandante com os seus\n\nArtigo 6 — LEI APLICÁVEL\nO presente mandato rege-se pelo direito luxemburguês. Qualquer litígio\né da competência exclusiva dos tribunais da Cidade do Luxemburgo.\n\nFeito no Luxemburgo, em {today}.",
     "mandateClientPlaceholder": "[Nome do mandante]",
     "mandatePropertyTypeMissing": "não especificado",
     "mandatePriceTbd": "[a definir]",
     "mandateDurationUntil": "até {date}",
     "mandateDurationTbd": "[duração a definir]",
-    "mandateExclusiveClause": "Em mandato exclusivo, a duração mínima é de 3 meses nos termos da lei.",
+    "mandateExclusiveClause": "O âmbito e duração da exclusividade devem ser expressamente acordados e verificados antes de assinar.",
     "dash": "—"
   },
   "proaCrmContactDetail": {
@@ -17727,7 +17772,10 @@
     "frenchRentalInputs": "Fiscalidade locativa francesa (/yield): taxYear é 2025 ou 2026 (padrão 2026). O padrão reel_foncier simula arrendamento não mobilado com despesas reais. Regimes micro exigem frenchMicroEligible=true para confirmar elegibilidade e receitas agregadas do agregado/atividade, incluindo condições de anos anteriores do micro-BIC. Arrendamento mobilado exige frenchNonProfessional=true. micro_bic é longa duração, micro_bic_tourism turismo classificado e micro_bic_tourism_unclassified turismo não classificado. annualTaxReceipts indica receitas fiscais agregadas, incluindo encargos tributáveis; sem indicação usa-se a renda simulada após vacância. frenchSocialRegime=solidarity_only exige filiação social elegível; standard é o padrão. O cálculo à taxa marginal não liquida o imposto do agregado. Exclui contribuições de atividade, perdas reportadas e regimes especiais.",
     "ukFeesInputs": "Reino Unido (/fees, country=uk): region aceita ENG, NIR, SCT ou WLS; sem indicação assume-se ENG explicitamente. ukAdditionalProperty confirma taxas majoradas independentemente de isPrimary; ukNonResident confirma a sobretaxa SDLT de não residente em Inglaterra/Irlanda do Norte. Ambos são false por padrão. O benefício de primeira compra exige isFirstTime e isPrimary e elegibilidade de todos; o País de Gales não tem benefício específico. Apenas compras residenciais ordinárias por particulares, sem regras transitórias, empresas, transações ligadas ou rendas de novos contratos. acquisitionCoverage indica subtotal e custos excluídos. /cashflow assume compra adicional em Inglaterra sem sobretaxa de não residente.",
     "italianRentalInputs": "Itália (/yield): calcula-se apenas cedolare_secca a 21% para um contrato habitacional normal com renda livre. italianCedolareEligible=true confirma um senhorio pessoa singular elegível fora de atividade empresarial/profissional e uma opção válida por este regime. italianAnnualContractRent é obrigatório: renda contratual bruta correspondente à quota de propriedade e ao período arrendado, sem deduzir despesas. A vacância simulada reduz as receitas económicas mas não altera automaticamente esta base fiscal. Um resultado locativo negativo não elimina o imposto. IRPEF, arrendamento de curta duração, contratos com taxa reduzida, rendas em falta e situações cadastrais especiais exigem avaliação separada.",
-    "portugueseRentalInputs": "Portugal (/yield): portugueseCategoryFConfirmed=true confirma arrendamento normal da categoria F e despesas pagas fiscalmente admissíveis. portugueseRentalUse é housing ou other. portugueseAnnualTaxReceipts e portugueseDeductibleExpenses são obrigatórios, mesmo a zero; despesas económicas simuladas não são automaticamente dedutíveis. Juros, depreciações, mobiliário, eletrodomésticos, decoração e AIMI não são dedutíveis. taxYear é 2025 ou 2026. Taxas autónomas: habitação 25%, outro arrendamento 28%, para residentes e não residentes. Para housing em 2026, portugueseModerateRentEligible deve ser explicitamente true ou false: true confirma todas as condições e limites de renda mensal do artigo 45.º-C do EBF / artigo 2.º do DL 97/2026 para aplicar 10%. Não inferir elegibilidade da renda anual após vacância. Taxas mais favoráveis de longa duração, isenções e regimes especiais exigem avaliação separada. progressive_resident usa a taxa marginal indicada, sem comparação automática ou liquidação do imposto do agregado."
+    "portugueseRentalInputs": "Portugal (/yield): portugueseCategoryFConfirmed=true confirma arrendamento normal da categoria F e despesas pagas fiscalmente admissíveis. portugueseRentalUse é housing ou other. portugueseAnnualTaxReceipts e portugueseDeductibleExpenses são obrigatórios, mesmo a zero; despesas económicas simuladas não são automaticamente dedutíveis. Juros, depreciações, mobiliário, eletrodomésticos, decoração e AIMI não são dedutíveis. taxYear é 2025 ou 2026. Taxas autónomas: habitação 25%, outro arrendamento 28%, para residentes e não residentes. Para housing em 2026, portugueseModerateRentEligible deve ser explicitamente true ou false: true confirma todas as condições e limites de renda mensal do artigo 45.º-C do EBF / artigo 2.º do DL 97/2026 para aplicar 10%. Não inferir elegibilidade da renda anual após vacância. Taxas mais favoráveis de longa duração, isenções e regimes especiais exigem avaliação separada. progressive_resident usa a taxa marginal indicada, sem comparação automática ou liquidação do imposto do agregado.",
+    "unsupportedRentalTax": "/yield rejeita os regimes belgas e neerlandeses enquanto as bases necessárias não forem suportadas. /cashflow continua a ser um cenário explícito à taxa marginal constante, sem calcular o regime cadastral ou Box 3.",
+    "auditFeesInputs": "Custos: Portugal exige region (mainland/azores/madeira), portugueseResident e portugueseTaxValue (VPT). Base max(preço,VPT), tabelas 2026; não residentes pagam 7,5% antes de eventual reembolso separado. portugueseYoungEligible confirma todas as condições IMT Jovem para cada adquirente: até 35 anos inclusive, primeira habitação permanente, sem propriedade habitacional atual ou nos três anos anteriores, não dependente em IRS. NL: nlStarterEligible confirma isenção nunca utilizada e todas as condições relativas ao imóvel inteiro; habitação pessoal indispensável. LU: luBellegenEligible e luCreditRemaining são necessários para o crédito; um adquirente, imóvel existente. Itália: italianPrimaCasaEligible confirma as condições específicas; italianPrezzoValore e italianCadastralIncome usam a rendita não reavaliada, caso contrário usa-se o preço declarado com imposto mínimo de 1.000 €. Vendas sujeitas a IVA exigem italianVatSale e italianVatRate (preço sem IVA). Excluem-se elegibilidade mista e operações especiais.",
+    "widgetScope": "O widget incorporado usa a API online: custos de investimento em habitação existente sem benefícios pessoais, capacidade de crédito, rentabilidade e fluxo de caixa. Comprar/arrendar remete para o comparador dedicado. Regimes fiscais com dados adicionais ficam reservados à API documentada ou não são suportados; não se apresenta um resultado fiscal substituto. O plugin WordPress externo tem a sua própria versão e funcionalidades."
   },
   "statusPage": {
     "metaTitle": "Estado dos serviços, tevaxia.lu",
@@ -19166,7 +19214,8 @@
     "unavailableTitle": "Sem valor verificado apresentado para este âmbito",
     "logisticsScope": "Não está disponível aqui uma série de rendas ou stock por zona com fonte e período verificados. Para um ativo logístico, utilize comparáveis documentados e os dados dos seus contratos de arrendamento.",
     "macroScope": "Ao comparar taxas de crédito, verifique o período, o tipo de contrato e a população observada. As ligações dão acesso às séries das instituições produtoras; não constituem uma oferta de financiamento.",
-    "valuation": "Avaliar com os seus próprios dados"
+    "valuation": "Avaliar com os seus próprios dados",
+    "indicesLink": "Índices imobiliários"
   },
   "constructionBudget": {
     "title": "Orçamento de construção documentado",
@@ -19223,7 +19272,8 @@
     "signInTitle": "Iniciar sessão para relatórios PDF",
     "signInScope": "Inicie sessão ou crie uma conta para pré-visualizar e descarregar os relatórios.",
     "signIn": "Iniciar sessão / criar conta",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "documentLanguage": "Idioma do documento: {language}"
   },
   "developmentAppraisal": {
     "title": "Balanço documentado do promotor",
@@ -20330,5 +20380,66 @@
     "contact": "Contactar o LPVI para orientação na procura de um perito",
     "qualifications": "Conhecer as licenças TEGoVA com o LPVI",
     "destination": "Ligações para o site do LPVI, em francês. Contacto pelo formulário ou por info@lpvi.lu."
+  },
+  "numberInput": {
+    "edit": "Editar {label}: {value}",
+    "editHint": "Clique para introduzir um valor",
+    "formatHint": "Formato numérico: {example}. Escape para cancelar.",
+    "format": "Introduza um número completo no formato indicado.",
+    "range": "Introduza um valor entre {min} e {max}. O valor anterior é mantido.",
+    "step": "Use incrementos de {step} a partir de {min}. Não há arredondamento automático."
+  },
+  "calendarSync": {
+    "backProfile": "O meu perfil",
+    "pageTitle": "Sincronização de calendário",
+    "pageIntro": "Veja as tarefas CRM e visitas agendadas no Google Calendar, Outlook ou Apple Calendar através de um URL de subscrição.",
+    "connected": "Conta {provider} ligada. A ligação, por si só, não garante sincronização bidirecional.",
+    "connectionFailed": "A ligação a {provider} falhou. Tente novamente.",
+    "howTitle": "Como funciona",
+    "stepCreate": "Gere um URL de subscrição com um token aleatório único.",
+    "stepCopy": "Copie o URL HTTPS gerado.",
+    "stepGoogle": "Google Calendar: use o botão ou Adicionar calendário → A partir do URL.",
+    "stepOutlook": "Outlook: Adicionar calendário → Subscrever a partir da Web e cole o URL HTTPS.",
+    "stepApple": "Apple Calendar: use a ligação webcal:// ou Ficheiro → Nova assinatura de calendário.",
+    "eventsTitle": "Eventos incluídos",
+    "eventsTasks": "Tarefas CRM com prazo e estado pendente ou em curso.",
+    "eventsVisits": "Visitas futuras agendadas.",
+    "eventsWindow": "Período: dos 7 dias anteriores aos 180 dias seguintes.",
+    "eventsPrivacy": "O feed inclui os seus títulos e descrições, que podem conter dados pessoais. Mantenha o URL confidencial.",
+    "securityTitle": "Segurança",
+    "securityToken": "O token aleatório de 128 bits dá acesso ao feed. Partilhe o URL apenas com a aplicação de calendário.",
+    "securityRevoke": "Desative ou elimine a subscrição para impedir novos acessos. As cópias já importadas podem permanecer no calendário externo.",
+    "securityAccess": "A data do último acesso e o número de pedidos são apresentados acima.",
+    "sectionTitle": "Sincronizar o meu calendário",
+    "sectionIntro": "Crie uma subscrição só de leitura para tarefas e visitas. A frequência de atualização depende da aplicação de calendário.",
+    "signIn": "Inicie sessão para gerar uma ligação de subscrição de calendário.",
+    "defaultLabel": "Calendário Tevaxia",
+    "revokeConfirm": "Eliminar esta subscrição e impedir novos acessos?",
+    "loading": "A carregar…",
+    "empty": "Sem subscrições.",
+    "create": "Gerar URL de subscrição",
+    "created": "Criado em {date}",
+    "lastAccess": "Último acesso: {date} ({count} pedidos)",
+    "neverAccessed": "Nunca acedido",
+    "inactive": "Inativo",
+    "deactivate": "Desativar",
+    "reactivate": "Reativar",
+    "delete": "Eliminar",
+    "copied": "Copiado",
+    "copy": "Copiar URL",
+    "copyFailed": "Não foi possível copiar. Selecione e copie o URL manualmente.",
+    "openApple": "Abrir no Apple Calendar",
+    "openGoogle": "Adicionar ao Google Calendar",
+    "createAnother": "Criar outra subscrição",
+    "oauthTitle": "Ligações Google / Microsoft",
+    "oauthScope": "A sincronização bidirecional depende da ativação do serviço. Uma subscrição ICS continua a ser só de leitura.",
+    "connectGoogle": "Ligar Google Calendar",
+    "connectOutlook": "Ligar Outlook"
+  },
+  "leaseDraft": {
+    "title": "Preparar um projeto de arrendamento",
+    "notice": "Formulário e PDF em francês para um novo arrendamento de residência principal no Luxemburgo celebrado desde 1 de agosto de 2024. Verifique o projeto e os anexos antes de assinar.",
+    "open": "Abrir",
+    "close": "Fechar"
   }
 }

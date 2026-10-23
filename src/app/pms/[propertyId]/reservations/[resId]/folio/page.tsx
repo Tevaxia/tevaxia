@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, use, useCallback, useRef } from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";

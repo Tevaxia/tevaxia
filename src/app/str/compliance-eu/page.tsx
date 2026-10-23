@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { pdf, Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
@@ -30,89 +30,57 @@ interface EuRegistryForm {
   surface: number;
   isPrimaryResidence: boolean;
   platforms: string[]; // Airbnb, Booking, Vrbo, direct
-  expectedNightsPerYear: number;
+  operatorNightsPerYear: number; // All units of this operator, in the annual reference period.
   businessRegistrationLU: string; // Numéro RCSL si société
 }
 
-function EuRegistryPdf({ form, registrationNumber }: { form: EuRegistryForm; registrationNumber: string }) {
+function EuRegistryPdf({ form, t }: { form: EuRegistryForm; t: (key: string) => string }) {
   return (
     <Document>
       <Page size="A4" style={pdfStyles.page}>
-        <Text style={pdfStyles.title}>Déclaration d&apos;enregistrement — Registre EU Locations Courte Durée</Text>
-        <Text style={pdfStyles.subtitle}>
-          Règlement (UE) 2024/1028 du Parlement européen et du Conseil concernant la collecte et le partage de données
-          relatives aux services de location de logements de courte durée. Entrée en vigueur : mi-2026.
-        </Text>
+        <Text style={pdfStyles.title}>{t("title")}</Text>
+        <Text style={pdfStyles.subtitle}>{t("subtitle")}</Text>
 
         <View style={pdfStyles.box}>
-          <Text style={{ fontSize: 11, fontWeight: "bold" }}>Numéro d&apos;identification pré-rempli : {registrationNumber}</Text>
-          <Text style={{ fontSize: 9, marginTop: 2 }}>
-            Ce numéro devra être affiché sur toutes vos annonces (Airbnb, Booking, Vrbo). À valider par votre commune lors du dépôt.
-          </Text>
+          <Text style={{ fontSize: 11, fontWeight: "bold" }}>{t("regNumber.label")}</Text>
+          <Text style={{ fontSize: 9, marginTop: 2 }}>{t("regNumber.note")}</Text>
         </View>
 
-        <Text style={pdfStyles.h2}>1. Identité du propriétaire/exploitant</Text>
-        <View style={pdfStyles.row}><Text style={pdfStyles.label}>Nom complet</Text><Text style={pdfStyles.value}>{form.hostName}</Text></View>
-        <View style={pdfStyles.row}><Text style={pdfStyles.label}>Adresse</Text><Text style={pdfStyles.value}>{form.hostAddress}</Text></View>
-        <View style={pdfStyles.row}><Text style={pdfStyles.label}>Email</Text><Text style={pdfStyles.value}>{form.hostEmail}</Text></View>
-        <View style={pdfStyles.row}><Text style={pdfStyles.label}>Téléphone</Text><Text style={pdfStyles.value}>{form.hostPhone}</Text></View>
-        <View style={pdfStyles.row}><Text style={pdfStyles.label}>N° fiscal LU</Text><Text style={pdfStyles.value}>{form.hostTaxId}</Text></View>
+        <Text style={pdfStyles.h2}>{t("section1")}</Text>
+        <View style={pdfStyles.row}><Text style={pdfStyles.label}>{t("fields.hostName")}</Text><Text style={pdfStyles.value}>{form.hostName}</Text></View>
+        <View style={pdfStyles.row}><Text style={pdfStyles.label}>{t("fields.hostAddress")}</Text><Text style={pdfStyles.value}>{form.hostAddress}</Text></View>
+        <View style={pdfStyles.row}><Text style={pdfStyles.label}>{t("fields.hostEmail")}</Text><Text style={pdfStyles.value}>{form.hostEmail}</Text></View>
+        <View style={pdfStyles.row}><Text style={pdfStyles.label}>{t("fields.hostPhone")}</Text><Text style={pdfStyles.value}>{form.hostPhone}</Text></View>
+        <View style={pdfStyles.row}><Text style={pdfStyles.label}>{t("fields.hostTaxId")}</Text><Text style={pdfStyles.value}>{form.hostTaxId}</Text></View>
         {form.businessRegistrationLU && (
-          <View style={pdfStyles.row}><Text style={pdfStyles.label}>RCSL (si société)</Text><Text style={pdfStyles.value}>{form.businessRegistrationLU}</Text></View>
+          <View style={pdfStyles.row}><Text style={pdfStyles.label}>{t("fields.rcsl")}</Text><Text style={pdfStyles.value}>{form.businessRegistrationLU}</Text></View>
         )}
 
-        <Text style={pdfStyles.h2}>2. Le logement</Text>
-        <View style={pdfStyles.row}><Text style={pdfStyles.label}>Adresse</Text><Text style={pdfStyles.value}>{form.propertyAddress}</Text></View>
-        <View style={pdfStyles.row}><Text style={pdfStyles.label}>Commune</Text><Text style={pdfStyles.value}>{form.propertyCommune}</Text></View>
-        <View style={pdfStyles.row}><Text style={pdfStyles.label}>Type</Text><Text style={pdfStyles.value}>{form.propertyType}</Text></View>
-        <View style={pdfStyles.row}><Text style={pdfStyles.label}>Surface</Text><Text style={pdfStyles.value}>{form.surface} m²</Text></View>
-        <View style={pdfStyles.row}><Text style={pdfStyles.label}>Capacité max</Text><Text style={pdfStyles.value}>{form.maxCapacity} voyageurs</Text></View>
-        <View style={pdfStyles.row}><Text style={pdfStyles.label}>Résidence principale</Text><Text style={pdfStyles.value}>{form.isPrimaryResidence ? "Oui" : "Non"}</Text></View>
+        <Text style={pdfStyles.h2}>{t("section2")}</Text>
+        <View style={pdfStyles.row}><Text style={pdfStyles.label}>{t("fields.propertyAddress")}</Text><Text style={pdfStyles.value}>{form.propertyAddress}</Text></View>
+        <View style={pdfStyles.row}><Text style={pdfStyles.label}>{t("fields.propertyCommune")}</Text><Text style={pdfStyles.value}>{form.propertyCommune}</Text></View>
+        <View style={pdfStyles.row}><Text style={pdfStyles.label}>{t("fields.propertyType")}</Text><Text style={pdfStyles.value}>{t(`propertyTypes.${form.propertyType}`)}</Text></View>
+        <View style={pdfStyles.row}><Text style={pdfStyles.label}>{t("fields.surface")}</Text><Text style={pdfStyles.value}>{form.surface}</Text></View>
+        <View style={pdfStyles.row}><Text style={pdfStyles.label}>{t("fields.maxCapacity")}</Text><Text style={pdfStyles.value}>{form.maxCapacity}</Text></View>
+        <View style={pdfStyles.row}><Text style={pdfStyles.label}>{t("fields.primaryResidence")}</Text><Text style={pdfStyles.value}>{t(form.isPrimaryResidence ? "yes" : "no")}</Text></View>
 
-        <Text style={pdfStyles.h2}>3. Exploitation</Text>
-        <View style={pdfStyles.row}><Text style={pdfStyles.label}>Plateformes de distribution</Text><Text style={pdfStyles.value}>{form.platforms.join(", ") || "—"}</Text></View>
-        <View style={pdfStyles.row}><Text style={pdfStyles.label}>Nuitées prévues/an</Text><Text style={pdfStyles.value}>{form.expectedNightsPerYear}</Text></View>
-        {form.expectedNightsPerYear > 90 && (
+        <Text style={pdfStyles.h2}>{t("section3")}</Text>
+        <View style={pdfStyles.row}><Text style={pdfStyles.label}>{t("fields.platforms")}</Text><Text style={pdfStyles.value}>{form.platforms.join(", ") || "—"}</Text></View>
+        <View style={pdfStyles.row}><Text style={pdfStyles.label}>{t("fields.nightsPlanned")}</Text><Text style={pdfStyles.value}>{form.operatorNightsPerYear}</Text></View>
+        {form.operatorNightsPerYear >= 90 && (
           <View style={pdfStyles.box}>
-            <Text style={{ color: "#B91C1C", fontWeight: "bold" }}>⚠ Dépassement 90 jours — licence d&apos;hébergement LU obligatoire</Text>
-            <Text style={{ fontSize: 9 }}>Voir /str/compliance pour la procédure de demande auprès du Ministère du Tourisme.</Text>
+            <Text style={{ color: "#B91C1C", fontWeight: "bold" }}>{t("warnLicense")}</Text>
           </View>
         )}
 
-        <Text style={pdfStyles.h2}>4. Déclaration et conformité</Text>
-        <Text style={{ fontSize: 9 }}>
-          Je certifie que les informations fournies sont exactes. Je m&apos;engage à tenir à jour ces données, à afficher
-          le numéro d&apos;identification sur toutes mes annonces, et à autoriser la transmission des nuitées aux autorités
-          compétentes conformément au Règlement (UE) 2024/1028.
-        </Text>
-
-        <View style={{ marginTop: 20, flexDirection: "row", justifyContent: "space-between" }}>
-          <View style={{ width: "45%", borderTop: "1 solid #334155", paddingTop: 4 }}>
-            <Text style={{ fontSize: 9 }}>Date et signature</Text>
-          </View>
-        </View>
-
-        <Text style={pdfStyles.footer}>
-          Document généré par tevaxia.lu — À soumettre à votre commune pour obtention du numéro d&apos;enregistrement officiel
-        </Text>
+        <Text style={pdfStyles.h2}>{t("reviewTitle")}</Text>
+        <Text style={{ fontSize: 9 }}>{t("reviewBody")}</Text>
+        <Text style={pdfStyles.h2}>{t("timing.label")}</Text>
+        <Text style={{ fontSize: 9 }}>{t("timing.body")}</Text>
+        <Text style={pdfStyles.footer}>{t("pdfFooter")}</Text>
       </Page>
     </Document>
   );
-}
-
-function generateRegistrationNumber(form: EuRegistryForm): string {
-  // Format : LU-[CommuneCode]-[YYMM]-[Hash]
-  const year = new Date().getFullYear().toString().slice(-2);
-  const month = (new Date().getMonth() + 1).toString().padStart(2, "0");
-  const communeCode = form.propertyCommune.slice(0, 3).toUpperCase();
-  const rawKey = `${form.hostName}${form.propertyAddress}`;
-  let hash = 0;
-  for (let i = 0; i < rawKey.length; i++) {
-    hash = ((hash << 5) - hash) + rawKey.charCodeAt(i);
-    hash |= 0;
-  }
-  const hashStr = Math.abs(hash).toString(36).toUpperCase().slice(0, 6);
-  return `LU-${communeCode}-${year}${month}-${hashStr}`;
 }
 
 const PLATFORMS = ["Airbnb", "Booking.com", "Vrbo", "Expedia", "Direct"];
@@ -135,11 +103,16 @@ export default function EuRegistryPage() {
     surface: 50,
     isPrimaryResidence: false,
     platforms: ["Airbnb"],
-    expectedNightsPerYear: 60,
+    operatorNightsPerYear: 60,
     businessRegistrationLU: "",
   });
 
-  const registrationNumber = useMemo(() => generateRegistrationNumber(form), [form]);
+  const [pdfError, setPdfError] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const valid = form.hostName.trim() && form.propertyAddress.trim()
+    && Number.isFinite(form.surface) && form.surface > 0
+    && Number.isInteger(form.maxCapacity) && form.maxCapacity > 0
+    && Number.isInteger(form.operatorNightsPerYear) && form.operatorNightsPerYear >= 0;
 
   const togglePlatform = (p: string) => {
     setForm((f) => ({
@@ -149,13 +122,18 @@ export default function EuRegistryPage() {
   };
 
   const downloadPdf = async () => {
-    const blob = await pdf(<EuRegistryPdf form={form} registrationNumber={registrationNumber} />).toBlob();
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `registre-eu-str-${registrationNumber}.pdf`;
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    if (!valid || busy) return;
+    setBusy(true); setPdfError(false);
+    try {
+      const blob = await pdf(<EuRegistryPdf form={form} t={key => t(key)} />).toBlob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "tevaxia-str-dossier-preparatoire.pdf";
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch { setPdfError(true); }
+    finally { setBusy(false); }
   };
 
   return (
@@ -169,7 +147,6 @@ export default function EuRegistryPage() {
 
         <div className="rounded-xl border-2 border-blue-200 bg-blue-50 p-5 mb-6">
           <div className="text-xs uppercase tracking-wider text-blue-700">{t("regNumber.label")}</div>
-          <div className="mt-1 text-2xl font-bold font-mono text-blue-900">{registrationNumber}</div>
           <p className="mt-1 text-xs text-blue-800">{t("regNumber.note")}</p>
         </div>
 
@@ -205,9 +182,9 @@ export default function EuRegistryPage() {
                 <option value="house">{t("propertyTypes.house")}</option>
                 <option value="room">{t("propertyTypes.room")}</option>
               </select>
-              <input type="number" value={form.surface} onChange={(e) => setForm({ ...form, surface: Number(e.target.value) })}
+              <input type="number" min="0" value={form.surface} onChange={(e) => setForm({ ...form, surface: Number(e.target.value) })}
                 placeholder={t("fields.surface")} className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
-              <input type="number" value={form.maxCapacity} onChange={(e) => setForm({ ...form, maxCapacity: Number(e.target.value) })}
+              <input type="number" min="1" step="1" value={form.maxCapacity} onChange={(e) => setForm({ ...form, maxCapacity: Number(e.target.value) })}
                 placeholder={t("fields.maxCapacity")} className="rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
               <label className="flex items-center gap-2 text-sm sm:col-span-2">
                 <input type="checkbox" checked={form.isPrimaryResidence}
@@ -231,12 +208,12 @@ export default function EuRegistryPage() {
               </div>
             </div>
             <div className="mt-4">
-              <label className="block text-sm font-medium text-slate mb-1">{t("fields.nightsPlanned")}</label>
-              <input type="number" value={form.expectedNightsPerYear}
-                onChange={(e) => setForm({ ...form, expectedNightsPerYear: Number(e.target.value) })}
+              <label htmlFor="operator-nights" className="block text-sm font-medium text-slate mb-1">{t("fields.nightsPlanned")}</label>
+              <input id="operator-nights" type="number" min="0" step="1" value={form.operatorNightsPerYear}
+                onChange={(e) => setForm({ ...form, operatorNightsPerYear: Number(e.target.value) })}
                 className="w-full sm:w-48 rounded-lg border border-input-border bg-input-bg px-3 py-2 text-sm" />
-              {form.expectedNightsPerYear > 90 && (
-                <p className="mt-2 text-xs text-rose-700">
+              {form.operatorNightsPerYear >= 90 && (
+                <p role="status" className="mt-2 text-xs text-rose-700">
                   ⚠ {t("warnLicense")}{" "}
                   <Link href={`${lp}/str/compliance`} className="underline">{t("seeCompliance")}</Link>
                 </p>
@@ -250,11 +227,12 @@ export default function EuRegistryPage() {
 
           <div className="flex gap-2">
             <button onClick={downloadPdf}
-              disabled={!form.hostName || !form.propertyAddress}
+              disabled={!valid || busy} aria-busy={busy}
               className="rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-40">
               📄 {t("downloadPdf")}
             </button>
           </div>
+          {pdfError && <p role="alert" className="text-sm text-rose-700">{t("pdfFailed")}</p>}
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
 import {useEffect,useId,useRef,useState} from 'react';
 import {useLocale,useTranslations} from 'next-intl';
 import {useAuth} from '@/components/AuthProvider';
-export function PdfButton({onClick,label,generateBlob,filename}:{onClick?:()=>void|Promise<void>;label:string;generateBlob?:()=>Promise<Blob>;filename?:string}){
+export function PdfButton({onClick,label,generateBlob,filename,documentLocale}:{onClick?:()=>void|Promise<void>;label:string;generateBlob?:()=>Promise<Blob>;filename?:string;documentLocale?:string}){
  const {user,loading}=useAuth(),t=useTranslations('pdfActions'),locale=useLocale(),titleId=useId(),dialog=useRef<HTMLDialogElement>(null),running=useRef(false);
  const [showGate,setShowGate]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState<string|null>(null);
  useEffect(()=>{const el=dialog.current;if(!el)return;if(showGate&&!user){if(!el.open)el.showModal()}else if(el.open)el.close()},[showGate,user]);
@@ -29,6 +29,7 @@ export function PdfButton({onClick,label,generateBlob,filename}:{onClick?:()=>vo
     {generateBlob&&<button type="button" disabled={disabled} onClick={()=>void run(true)} className="border-r border-card-border bg-white px-3 py-2 text-sm font-medium text-navy hover:bg-gray-50 disabled:cursor-wait disabled:opacity-60">{t('preview')}</button>}
     <button type="button" disabled={disabled} onClick={()=>void run(false)} className="bg-navy px-3 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:cursor-wait disabled:opacity-60">{label}</button>
    </span>
+   {documentLocale&&documentLocale!==locale&&<span className="text-xs text-muted">{t('documentLanguage',{language:new Intl.DisplayNames([locale],{type:'language'}).of(documentLocale)||documentLocale})}</span>}
    {busy&&<span role="status" className="text-xs text-muted">{t('generating')}</span>}
    {error&&<span role="alert" className="max-w-sm text-sm text-rose-700 [overflow-wrap:anywhere]">{error}</span>}
   </span>

@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
 import { formatEUR } from "@/lib/calculations";
-import { calculerRentabiliteSTR, calculerArbitrageSTR, STR_DEFAULT_COSTS } from "@/lib/str-calc";
+import { calculerArbitrageSTR, STR_DEFAULT_COSTS, type StrRentabiliteInputs } from "@/lib/str-calc";
 
 export default function StrArbitrage() {
   const t = useTranslations("strArbitrage");
@@ -28,12 +28,12 @@ export default function StrArbitrage() {
   const TAX_BRACKETS = [
     { value: "0.11", label: "~11%" },
     { value: "0.22", label: "~22%" },
-    { value: "0.30", label: "~30%" },
+    { value: "0.3", label: "~30%" },
     { value: "0.39", label: "~39%" },
     { value: "0.4578", label: t("tax.max") },
   ];
 
-  const strResult = useMemo(() => calculerRentabiliteSTR({
+  const strInputs = useMemo<StrRentabiliteInputs>(() => ({
     commune, surface: 60, capacity: 4, adr, occupancyPct,
     nightsPerYear: Math.round(365 * occupancyPct / 100),
     otaChannel: "airbnb",
@@ -45,13 +45,13 @@ export default function StrArbitrage() {
   }), [commune, adr, occupancyPct, cleaningPerStay, fixedCostsAnnual, acquisitionPrice, marginalTaxRate]);
 
   const arbitrage = useMemo(() => calculerArbitrageSTR({
-    strNet: strResult.netAfterTax,
+    strInputs,
     ltMonthlyRent,
     ltMarginalTaxRate: marginalTaxRate,
     ltDeductibleChargesAnnual: ltDeductibleAnnual,
     mixedStrDays,
     mixedLtMonths,
-  }), [strResult.netAfterTax, ltMonthlyRent, marginalTaxRate, ltDeductibleAnnual, mixedStrDays, mixedLtMonths]);
+  }), [strInputs, ltMonthlyRent, marginalTaxRate, ltDeductibleAnnual, mixedStrDays, mixedLtMonths]);
 
   const scenarios = [
     { key: "lt", label: t("scenarios.lt"), net: arbitrage.scenarioLT.netAnnual, color: "indigo" as const },
@@ -76,18 +76,18 @@ export default function StrArbitrage() {
               <h2 className="mb-4 text-base font-semibold text-navy">{t("property.title")}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 <InputField label={t("property.commune")} type="text" value={commune} onChange={(v) => setCommune(String(v))} />
-                <InputField label={t("property.acqPrice")} value={acquisitionPrice} onChange={(v) => setAcquisitionPrice(Number(v))} suffix="€" />
-                <InputField label={t("property.marginalRate")} type="select" value={String(marginalTaxRate)} onChange={(v) => setMarginalTaxRate(Number(v))} options={TAX_BRACKETS} />
+                <InputField label={t("property.acqPrice")} value={acquisitionPrice} onChange={(v) => setAcquisitionPrice(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="€" />
+                <InputField label={t("property.marginalRate")} type="select" value={String(marginalTaxRate)} onChange={(v) => setMarginalTaxRate(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} options={TAX_BRACKETS} />
               </div>
             </div>
 
             <div className="rounded-xl border border-rose-200 bg-rose-50/40 p-6 shadow-sm">
               <h2 className="mb-4 text-base font-semibold text-rose-900">{t("strPure.title")}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
-                <InputField label={t("strPure.adr")} value={adr} onChange={(v) => setAdr(Number(v))} suffix="€" />
-                <InputField label={t("strPure.occupancy")} value={occupancyPct} onChange={(v) => setOccupancyPct(Number(v))} suffix="%" />
-                <InputField label={t("strPure.cleaning")} value={cleaningPerStay} onChange={(v) => setCleaningPerStay(Number(v))} suffix="€" />
-                <InputField label={t("strPure.fixedCosts")} value={fixedCostsAnnual} onChange={(v) => setFixedCostsAnnual(Number(v))} suffix="€" hint={t("strPure.fixedCostsHint")} />
+                <InputField label={t("strPure.adr")} value={adr} onChange={(v) => setAdr(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="€" />
+                <InputField label={t("strPure.occupancy")} value={occupancyPct} onChange={(v) => setOccupancyPct(Math.min(100, Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0))))} suffix="%" />
+                <InputField label={t("strPure.cleaning")} value={cleaningPerStay} onChange={(v) => setCleaningPerStay(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="€" />
+                <InputField label={t("strPure.fixedCosts")} value={fixedCostsAnnual} onChange={(v) => setFixedCostsAnnual(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="€" hint={t("strPure.fixedCostsHint")} />
               </div>
               <p className="mt-3 text-xs text-rose-800">{t("strPure.note")}</p>
             </div>
@@ -95,8 +95,8 @@ export default function StrArbitrage() {
             <div className="rounded-xl border border-indigo-200 bg-indigo-50/40 p-6 shadow-sm">
               <h2 className="mb-4 text-base font-semibold text-indigo-900">{t("lt.title")}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
-                <InputField label={t("lt.monthlyRent")} value={ltMonthlyRent} onChange={(v) => setLtMonthlyRent(Number(v))} suffix="€" hint={t("lt.monthlyRentHint")} />
-                <InputField label={t("lt.deductible")} value={ltDeductibleAnnual} onChange={(v) => setLtDeductibleAnnual(Number(v))} suffix="€" hint={t("lt.deductibleHint")} />
+                <InputField label={t("lt.monthlyRent")} value={ltMonthlyRent} onChange={(v) => setLtMonthlyRent(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="€" hint={t("lt.monthlyRentHint")} />
+                <InputField label={t("lt.deductible")} value={ltDeductibleAnnual} onChange={(v) => setLtDeductibleAnnual(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))} suffix="€" hint={t("lt.deductibleHint")} />
               </div>
             </div>
 
@@ -106,21 +106,22 @@ export default function StrArbitrage() {
                 <InputField
                   label={t("mixed.strDays")}
                   value={mixedStrDays}
-                  onChange={(v) => setMixedStrDays(Number(v))}
+                  onChange={(v) => setMixedStrDays(Math.min(Math.floor(365 - mixedLtMonths * 365 / 12), Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0))))}
                   suffix={t("mixed.daysSuffix")}
-                  max={90}
+                  max={Math.floor(365 - mixedLtMonths * 365 / 12)}
                   hint={t("mixed.strDaysHint")}
                 />
                 <InputField
                   label={t("mixed.ltMonths")}
                   value={mixedLtMonths}
-                  onChange={(v) => setMixedLtMonths(Number(v))}
+                  onChange={(v) => setMixedLtMonths(Math.min(Math.floor((365 - mixedStrDays) * 12 / 365), Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0))))}
                   suffix={t("mixed.monthsSuffix")}
-                  max={12}
+                  max={Math.floor((365 - mixedStrDays) * 12 / 365)}
                   hint={t("mixed.ltMonthsHint")}
                 />
               </div>
               <p className="mt-3 text-xs text-emerald-800">{t("mixed.note")}</p>
+              <p className="mt-2 text-xs text-emerald-800">{t("mixed.effectiveNights", { n: arbitrage.scenarioMixed.effectiveStrNights })}</p>
             </div>
           </div>
 
@@ -167,6 +168,7 @@ export default function StrArbitrage() {
               <h3 className="text-base font-semibold text-navy mb-3">{t("detail.lt")}</h3>
               <div className="space-y-1 text-sm">
                 <div className="flex justify-between"><span className="text-muted">{t("detail.annualGross")}</span><span className="font-mono">{formatEUR(arbitrage.scenarioLT.grossAnnual)}</span></div>
+                <div className="flex justify-between"><span className="text-muted">{t("lt.deductible")}</span><span className="font-mono">- {formatEUR(arbitrage.scenarioLT.charges)}</span></div>
                 <div className="flex justify-between"><span className="text-muted">{t("detail.taxEstimated")}</span><span className="font-mono text-rose-700">- {formatEUR(arbitrage.scenarioLT.tax)}</span></div>
                 <div className="flex justify-between font-semibold pt-1 border-t border-card-border"><span>{t("detail.annualNet")}</span><span className="font-mono text-indigo-700">{formatEUR(arbitrage.scenarioLT.netAnnual)}</span></div>
               </div>

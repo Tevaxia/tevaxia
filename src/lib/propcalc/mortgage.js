@@ -104,35 +104,13 @@ export function calculateBorrowingCapacity(params) {
   const maxDTI = countryRules.maxDSTI;
   const ltvApplied = getLTV(countryRules, residencyStatus);
   const insuranceIncludedInDSTI = countryRules.insuranceIncludedInDSTI ?? false;
+  if ([monthlyIncome, existingDebts, annualRate, durationYears, downPayment, insuranceRate, maxDTI, ltvApplied].some(value => !Number.isFinite(value) || value < 0)
+    || durationYears <= 0 || annualRate > 1 || maxDTI > 1 || ltvApplied > 2) throw new RangeError('Invalid borrowing scenario');
 
   // Maximum total monthly obligations allowed by the DTI rule
-  const maxAllowedMonthly = monthlyIncome * maxDTI - existingDebts;
+  const maxAllowedMonthly = Math.max(0, monthlyIncome * maxDTI - existingDebts);
 
-  if (maxAllowedMonthly <= 0) {
-    return {
-      maxLoanAmount: 0,
-      maxPropertyPrice: 0,
-      monthlyPayment: 0,
-      monthlyInsurance: 0,
-      totalMonthly: 0,
-      dtiRatio: existingDebts / monthlyIncome,
-      maxDTI,
-      ltvApplied,
-      estimatedFees: 0,
-    };
-  }
-
-  // Iteratively solve for the max property price.
-  // We need to account for:
-  //   - The loan payment + insurance must satisfy the DTI constraint
-  //   - The loan is capped by LTV * propertyPrice
-  //   - Fees (~8% of property price) must be funded from the down payment or loan
-  //
-  // Approach: iterate to converge on a stable property price.
-
-  const feeRate = 0.08; // approximate acquisition fees as 8% of property price
-  const maxIterations = 50;
-  const tolerance = 1; // converge within 1 currency unit
+  const feeRate = 0.08; // explicitly approximate, not a national tax calculation
 
   // Step 1: Determine the maximum loan purely from affordability (DTI)
   // If insurance is included in DTI (France), we need to solve simultaneously
@@ -161,47 +139,12 @@ export function calculateBorrowingCapacity(params) {
     maxLoanDTI = maxLoanFromPayment(maxAllowedMonthly, annualRate, durationMonths);
   }
 
-  if (maxLoanDTI <= 0) {
-    return {
-      maxLoanAmount: 0,
-      maxPropertyPrice: 0,
-      monthlyPayment: 0,
-      monthlyInsurance: 0,
-      totalMonthly: 0,
-      dtiRatio: existingDebts / monthlyIncome,
-      maxDTI,
-      ltvApplied,
-      estimatedFees: 0,
-    };
-  }
-
-  // Step 2: Iterate to find the max property price
-  // propertyPrice = (maxLoan + downPayment) / (1 + feeRate)
-  // but maxLoan is also capped by LTV * propertyPrice
-  // So we iterate until stable.
-
-  let prevPropertyPrice = 0;
-  let maxLoan = maxLoanDTI;
-  let propertyPrice = (maxLoan + downPayment) / (1 + feeRate);
-
-  for (let i = 0; i < maxIterations; i++) {
-    // Apply LTV cap
-    const ltvCappedLoan = propertyPrice * ltvApplied;
-    maxLoan = Math.min(maxLoanDTI, ltvCappedLoan);
-
-    // Recompute property price: price + fees = loan + downPayment
-    // fees = feeRate * price
-    // price * (1 + feeRate) = loan + downPayment
-    propertyPrice = (maxLoan + downPayment) / (1 + feeRate);
-
-    if (Math.abs(propertyPrice - prevPropertyPrice) < tolerance) {
-      break;
-    }
-    prevPropertyPrice = propertyPrice;
-  }
-
-  // Ensure loan does not exceed LTV after convergence
-  maxLoan = Math.min(maxLoan, propertyPrice * ltvApplied);
+  // P + fees = loan + deposit, loan <= DTI capacity and <= LTV * P.
+  const affordabilityPrice = (maxLoanDTI + downPayment) / (1 + feeRate);
+  const requiredEquityRatio = 1 + feeRate - ltvApplied;
+  const equityPrice = requiredEquityRatio > 0 ? downPayment / requiredEquityRatio : Infinity;
+  const propertyPrice = Math.max(0, Math.min(affordabilityPrice, equityPrice));
+  const maxLoan = Math.max(0, propertyPrice * (1 + feeRate) - downPayment);
 
   // Final calculations
   const monthlyPayment = calculateMonthlyPayment(maxLoan, annualRate, durationMonths);

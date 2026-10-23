@@ -255,7 +255,7 @@ export function mailtoLink(req: SignatureRequest, origin?: string, labels?: Mail
     `{title}\n\n` +
     `Lien de signature sécurisé (valable jusqu'au {expires}) :\n` +
     `{url}\n\n` +
-    `La signature électronique simple est juridiquement valable selon le règlement UE 910/2014 (eIDAS).\n\n` +
+    `Ce parcours enregistre une acceptation électronique. Il ne fournit pas de signature avancée ou qualifiée certifiée ; les exigences et la valeur probante dépendent du document et des circonstances.\n\n` +
     `Cordialement`
   );
   const subject = encodeURIComponent(fmt(subjTpl, { title: req.document_title }));

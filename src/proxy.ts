@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { resolveCommuneRoute } from "@/lib/commune-routes";
 
 const LOCALES = ["en", "de", "pt", "lb"];
 
@@ -9,14 +10,6 @@ function getHost(request: NextRequest): string {
     request.nextUrl.hostname ||
     ""
   ).replace(/:\d+$/, "");
-}
-
-function asciiSlug(s: string): string {
-  return s
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/['']/g, "")
-    .toLowerCase();
 }
 
 /**
@@ -58,9 +51,16 @@ export function proxy(request: NextRequest) {
   const communeMatch = pathname.match(/^(\/(?:en|de|pt|lb))?\/commune\/(.+?)\/?$/);
   if (communeMatch) {
     const [, localePrefix = "", rawSlug] = communeMatch;
-    const decoded = decodeURIComponent(rawSlug);
-    const normalized = asciiSlug(decoded);
-    if (normalized !== decoded) {
+    const normalized = resolveCommuneRoute(rawSlug);
+    if (!normalized) {
+      // Set status before the root loading boundary starts streaming a 200.
+      // This destination is deliberately unmatched and uses Next's 404 UI.
+      const url = request.nextUrl.clone();
+      url.pathname = `${localePrefix}/commune-introuvable`;
+      url.search = "";
+      return NextResponse.rewrite(url, { status: 404, headers: { "X-Robots-Tag": "noindex, follow" } });
+    }
+    if (normalized !== rawSlug || pathname.endsWith("/")) {
       const url = request.nextUrl.clone();
       url.pathname = `${localePrefix}/commune/${normalized}`;
       return NextResponse.redirect(url, 301);

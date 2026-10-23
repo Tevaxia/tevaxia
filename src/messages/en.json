@@ -64,7 +64,11 @@
     "hotelE2Evidence": "E‑2 evidence file",
     "hotelAcquisition": "Acquisition",
     "hotelCoverage": "Debt coverage",
-    "hotelOperating": "Operating statement"
+    "hotelOperating": "Operating statement",
+    "skipToContent": "Skip to content",
+    "mainNavigation": "Main navigation",
+    "menu": "Menu",
+    "language": "Language"
   },
   "common": {
     "language": "Language",
@@ -321,7 +325,7 @@
       },
       "str": {
         "title": "Short-term rentals (STR)",
-        "description": "7 tools for Airbnb / Booking / Vrbo hosts in LU: net yield after tax, 90-day threshold + EU Reg 2024/1028 compliance, long vs short-term arbitrage, dynamic pricing.",
+        "description": "Short-term rental tools for Luxembourg: economic simulations, requirements to check and comparison with long-term rental.",
         "tag": "Airbnb / Booking"
       },
       "esg": {
@@ -331,7 +335,7 @@
       },
       "proAgences": {
         "title": "Real estate agency CRM",
-        "description": "7-stage mandate pipeline, buyer CRM + nurturing, eIDAS signature, co-branded property sheet, OpenImmo XML export, annual commissions.",
+        "description": "Agency mandates, contacts, tasks and documents, with a signing workflow whose suitability must be checked for each instrument.",
         "tag": "B2B LU agencies"
       }
     },
@@ -1550,7 +1554,12 @@
     "erreurSaisie": "Check amounts and dates: construction ≤ purchase ≤ lease; lease years 2015–2026.",
     "donneesIncompletes": "Partial estimate: depreciation or building/furniture data still need checking. This result does not confirm rent compliance.",
     "estimationPartielle": "Incomplete estimate",
-    "champApplication": "For a completed home purchased for consideration and subject to private residential tenancy law. Owner construction, gifts, business premises, second homes and special regimes require separate analysis. A calculated ceiling does not authorise a rent increase: tenancy adjustment periods and limits still apply. Furniture is calculated only for 2025–2026."
+    "champApplication": "For a completed home purchased for consideration and subject to private residential tenancy law. Owner construction, gifts, business premises, second homes and special regimes require separate analysis. A calculated ceiling does not authorise a rent increase: tenancy adjustment periods and limits still apply. Furniture is calculated only for 2025–2026.",
+    "perMonth": "€/month",
+    "perYear": "€/year",
+    "observatoryIntro": "Compare your legal rent ceiling with observed rents in Luxembourg by municipality and property type.",
+    "observatoryLink": "Luxembourg rent observatory",
+    "observatoryTitle": "Explore the rental market"
   },
   "achatLocation": {
     "title": "Buy or Rent in Luxembourg",
@@ -1571,21 +1580,21 @@
     "chargesCopro": "Co-ownership charges",
     "suffixEuroMois": "€/month",
     "impotFoncier": "Property tax",
-    "impotFoncierHint": "Grundsteuer — very low in Luxembourg (€100–300/year)",
+    "impotFoncierHint": "Enter the annual amount applicable to the property.",
     "suffixEuroAn": "€/year",
     "entretienAnnuel": "Annual maintenance",
     "suffixPctPrix": "% of price",
-    "entretienAnnuelHint": "Annual maintenance budget (1% of price is a standard estimate)",
+    "entretienAnnuelHint": "Adapt this budget to the property's condition and planned work.",
     "appreciationAnnuelle": "Annual appreciation",
     "appreciationAnnuelleHint": "Estimated annual property value increase",
     "sectionAssuranceSRD": "Outstanding balance insurance",
     "tauxAssuranceSRD": "Insurance rate",
     "suffixPctCapital": "% of capital",
-    "tauxAssuranceSRDHint": "Mandatory in Luxembourg. Rate between 0.15% and 0.40% of borrowed capital.",
+    "tauxAssuranceSRDHint": "Assumes periodic premiums on initial principal until maturity. Check your contract; lump-sum or declining premiums are not modelled.",
     "coutMensuelLabel": "Monthly cost:",
     "sectionDeductionInterets": "Mortgage interest deduction",
-    "deductionInteretsDescription": "Art. 98bis LIR: mortgage interest is deductible from taxable income (ceiling per person and per bracket).",
-    "nbPersonnes": "Number of persons",
+    "deductionInteretsDescription": "ACD rules since 2024: eligible interest is uncapped in the availability year and the next; subsequent per-person caps are €4,000, €3,000 and €2,000 according to elapsed years. Interest subsidies reduce deductible costs. The marginal tax saving remains an assumption to verify.",
+    "nbPersonnes": "Tax-eligible persons (including children)",
     "suffixPers": "pers.",
     "tauxMarginal": "Marginal tax rate",
     "tauxMarginalHint": "Marginal income tax bracket. Class 1/1a: up to 42%, class 2: joint schedule.",
@@ -1594,16 +1603,16 @@
     "perAn": "year",
     "sectionLocationDetails": "Rental details",
     "indexationLoyer": "Annual rent indexation",
-    "indexationLoyerHint": "Estimated annual rent increase (LU health index)",
+    "indexationLoyerHint": "Rent growth assumption; this does not validate an indexation clause or a legal right to raise rent.",
     "rendementPlacement": "Alternative investment return",
-    "rendementPlacementHint": "If you rent, the down payment is invested. Expected annual return.",
+    "rendementPlacementHint": "Annual scenario return, net of the costs and taxes you choose to include. No guaranteed return.",
     "verdictAchat": "Over {horizon} years, buying is more advantageous",
     "verdictLocation": "Over {horizon} years, renting is more advantageous",
     "patrimoineAchat": "Net wealth (purchase)",
     "capitalLocation": "Accumulated capital (rental)",
-    "croisementMessage": "Buying becomes more advantageous from year {annee}",
+    "croisementMessage": "First observed year favouring buying: {annee}. The result can reverse later.",
     "chartTitle": "Net wealth evolution",
-    "chartDescription": "Net wealth from purchase (property value − outstanding capital) vs accumulated capital from renting (investment of down payment + cost differences).",
+    "chartDescription": "Buying: property value minus debt plus savings when buying costs less. Renting: initial deposit and purchase costs retained, plus savings when renting costs less.",
     "axisAnnee": "Year",
     "legendeAchat": "Purchase wealth",
     "legendeLocation": "Rental capital",
@@ -1639,38 +1648,52 @@
     "location": "Rent +",
     "hypothesesTitle": "Assumptions:",
     "monteCarloTitle": "Monte-Carlo simulation (1,000 scenarios)",
-    "monteCarloSubtitle": "Tests decision robustness by randomly varying real estate appreciation (±2 pp), investment return (±3 pp) and rent indexation (±1 pp) with a normal distribution.",
+    "monteCarloSubtitle": "1,000 scenarios with assumed standard deviations of 2 percentage points for property values, 3 for investments and 1 for rent. These distributions are assumptions, not market probabilities.",
     "monteCarloRun": "Run simulation",
     "monteCarloRunning": "Running…",
-    "monteCarloProbAchat": "Probability buy > rent",
+    "monteCarloProbAchat": "Share of scenarios favouring buying",
     "monteCarloMedianDiff": "Median wealth buy − rent",
-    "monteCarloIC90": "90% CI difference",
+    "monteCarloIC90": "5th–95th scenario percentiles",
     "monteCarloHistogramLabel": "Distribution of (buy wealth − rent wealth) at end of horizon",
     "monteCarloHelp": "Click to run the Monte-Carlo simulation. Local compute, ~2 seconds.",
-    "monteCarloNote": "Fixed parameters (loan rate, duration, fees) stay identical. Only uncertainty variables (market, investment, rent) are sampled. Monte-Carlo shows decision robustness against macro uncertainty.",
+    "monteCarloNote": "Uses the same monthly engine and tax assumptions as the table. Each sampled parameter stays constant within its path. Results depend on chosen distributions and do not predict markets.",
     "hypothesesText": "Property appreciation: {appreciation}%/yr. Investment return: {rendement}%/yr. Interest deduction ceiling: {plafond}/yr ({nbPersonnes} pers.). Balance insurance: {tauxSRD}% of capital.",
     "seo": {
       "faqTitle": "Frequently asked questions about buying vs renting",
       "relatedTitle": "Related tools",
       "dilemmeTitle": "Buying or renting in Luxembourg: the eternal dilemma",
-      "dilemmeContent": "<p>The question '<strong>should I buy or rent?</strong>' is particularly acute in Luxembourg, where the median apartment price exceeds EUR 620,000 in 2026. The total cost of ownership (TCO) includes not just loan repayments but also acquisition costs (7-10%), maintenance (1-2% of price/year), insurance, property tax and opportunity cost of capital.</p><p>Renting, meanwhile, is regulated by the 5% cap on invested capital (law of 21 September 2006). Our simulator compares both scenarios over a customisable horizon.</p>",
+      "dilemmeContent": "<p>Buying versus renting requires assumptions suited to the property, financing and intended stay. Initial values are editable examples, not market benchmarks. The model compares wealth before any sale.</p>",
       "tcoTitle": "Total cost of ownership vs. total cost of renting",
-      "tcoContent": "<p>For an objective comparison, our tool calculates the <strong>cumulative total cost</strong> of both options:</p><ul><li><strong>Purchase</strong>: deposit, acquisition costs, loan payments, insurance, maintenance, property tax, less net capital gain at resale</li><li><strong>Rental</strong>: cumulative rents (indexed to inflation), initial deposit, insurance, plus investment return on savings</li></ul><p>The <strong>crossover point</strong> in Luxembourg typically falls between 7 and 15 years.</p>",
+      "tcoContent": "<p>Buying includes the deposit, entered purchase allowance, monthly repayments, loan insurance and specified expenses. Renting retains the initial deposit and purchase costs. With equal budgets, each side invests monthly savings. Sale costs and taxes, rental deposit and home insurance are excluded.</p>",
       "levierTitle": "The mortgage leverage effect",
-      "levierContent": "<p>A major argument for buying is the <strong>leverage effect</strong> of a mortgage. With a 20% deposit on a EUR 600,000 property, the buyer benefits from capital appreciation on 100% of the property value. Banks in Luxembourg typically finance up to 80-100% (LTV ratio).</p>",
+      "levierContent": "<p>Borrowing enables a purchase with a deposit below the price. It magnifies gains and losses on equity while creating repayment obligations. Rates, financing terms and price changes require evidence specific to your project.</p>",
       "seuilTitle": "Break-even point and decision factors",
-      "seuilContent": "<p>The break-even point depends on many factors:</p><ul><li><strong>Expected stay duration</strong>: below 5-7 years, renting is almost always cheaper due to high acquisition costs</li><li><strong>Interest rates</strong>: low rates (< 3%) favour buying; high rates (> 5%) favour renting</li><li><strong>Price evolution</strong>: appreciation > 2%/year significantly shortens the crossover point</li></ul>",
+      "seuilContent": "<p>The wealth crossover depends on price, rent, holding period, costs and return assumptions. No universal period guarantees buying is better. Mobility, liquidity and ability to absorb shocks require separate consideration.</p>",
       "faq1q": "How long must I hold a property for buying to be worthwhile?",
-      "faq1a": "In Luxembourg, the break-even typically falls between 7 and 15 years. With the Bellegen Akt (reducing costs to ~3%), this can drop to 5-7 years.",
+      "faq1a": "It depends on your scenario. The displayed crossover compares simulated wealth before sale costs and taxes and does not guarantee profitability.",
       "faq2q": "Are acquisition costs included in the comparison?",
-      "faq2a": "Yes, our tool includes registration duties, transcription, notary fees and mortgage costs (7-10% of price).",
+      "faq2a": "Costs are a user-entered percentage allowance. Use the acquisition-cost calculator for detailed duties, credits and notary fees, then enter the appropriate total here.",
       "faq3q": "What alternative return should I use for savings?",
-      "faq3a": "The alternative return represents what you would earn investing your deposit. A 4-6% return is reasonable for a diversified long-term portfolio.",
+      "faq3a": "Use a return justified by your investments and test alternatives, including low or negative outcomes. Risky investments do not guarantee a return.",
       "faq4q": "Is buying always better in Luxembourg?",
-      "faq4a": "Not necessarily. If you plan to stay less than 5 years, rates are high, or you can get a very favourable rent, renting may be more cost-effective.",
+      "faq4a": "No. Results depend on assumptions and personal constraints. Compare multiple scenarios and excluded costs before deciding.",
       "faq5q": "How is the mortgage interest tax deduction integrated?",
-      "faq5a": "In Luxembourg, mortgage interest is deductible from taxable income for primary residences (cap of EUR 1,500-3,000 depending on loan duration). Our simulator integrates this in the net purchase cost calculation."
-    }
+      "faq5a": "Enable deduction only after checking eligibility. Enter availability year, eligible persons, interest subsidies and an assumed marginal tax rate. The model applies rules effective since 2024 to actual amortised interest; it does not replace a tax return."
+    },
+    "simulationYear": "First simulation year",
+    "availabilityYear": "Year the home first became available",
+    "availabilityHint": "Year the rental value was fixed for your personal home; it can precede the simulated loan.",
+    "deductionEligibility": "I confirm that the interest on this primary home and the persons counted qualify for Luxembourg interest deduction.",
+    "interestSubsidy": "Annual interest subsidies",
+    "deductionDisabled": "Not applied",
+    "deductionUncapped": "Eligible interest without a cap",
+    "invalidScenario": "Check the inputs: deposit between zero and the price, positive loan term up to 50 years, consistent dates, whole persons and valid amounts. No result is calculated for these inputs.",
+    "modelScope": "Scenario starts in {annee}; home available in {disponibilite}; {personnes} eligible persons if confirmed. Year-one deduction: {deduction}, at the entered marginal rate of {taux}%. Tax rules effective since 2024 are assumed unchanged in future years. Equal monthly budget: the cheaper option invests the difference at month end. Insurance on initial principal until loan maturity; tax benefits and subsidies spread over the year. Purchase costs are a user-entered allowance. Sale costs and taxes, investment taxation, rental deposit and home insurance excluded. Neither a market forecast nor a tax assessment.",
+    "save": "Save",
+    "saved": "Saved",
+    "pdfFrench": "PDF (French)",
+    "scenarioCount": "{count} scenarios",
+    "interestSubsidyMonthly": "Monthly interest subsidy (year 1)"
   },
   "simulateurAides": {
     "title": "Housing Assistance Simulator",
@@ -3613,7 +3636,7 @@
       "f3": "Rental management: units, payments, rent receipts PDF (law 21.09.2006), AIS, tax annex 190, reminders & dunning, unpaid insurance",
       "f4": "PSD2 bank reconciliation (Enable Banking — BCEE, BIL, Banque Raiffeisen, Post Finance)",
       "f5": "Cloud storage (500 items, 180 days) — full history, multi-device access",
-      "f6": "Digital lease with eIDAS simple electronic signature + inventory of fixtures",
+      "f6": "French lease draft, optional signature drawings and external PDF checksum + property inventory",
       "f7": "Custom profile on reports (name, logo, contact details, legal notice)",
       "f8": "Market alerts + scenario comparison + view-only link sharing",
       "f9": "2FA (TOTP) + GDPR account deletion + consents",
@@ -3636,7 +3659,7 @@
       "f6": "B2B REST API: estimation, batch (1,000 properties), PMS webhook, Factur-X invoicing, OpenAPI 3.1",
       "f7": "DCF multi-tenant (break options, step rents, CAPEX, equity IRR) + developer P&L",
       "f8": "Model transparency: public MAPE + R², 29 sourced coefficients + hedonic model",
-      "f9": "Extended cloud storage (10,000 items) + full GDPR export + historical LU macro data (98 municipalities with demographics)",
+      "f9": "Extended cloud storage (10,000 items) + partial JSON export with documented scope + historical LU macro data (98 communes with demographics)",
       "priceStriked": "€29/month",
       "f10": "Priority email support — contact@tevaxia.lu"
     },
@@ -3647,7 +3670,7 @@
       "q2": "Why create an account if it's already free?",
       "a2": "An account lets you save your simulations in the cloud (accessible from any device), export professional PDF reports and customise your profile on generated documents.",
       "q3": "Is my data secure?",
-      "a3": "Your data is hosted in Europe on secure servers (Supabase). We do not sell or share your information. Without an account, nothing leaves your browser.",
+      "a3": "Account and simulation data are hosted on Supabase in Europe. Connections use HTTPS and access is limited by account permissions. Some features work locally in the browser; others use our servers or a provider, including connected features you enable. Technical data may also be transmitted for diagnostics and, with your permission, public-page measurement. Recipients and details are described in the privacy policy.",
       "q4": "When will the Pro tier be available?",
       "a4": "Organise evidence, sources, calculations, assumptions and limitations in a working dossier. The professional checks the information, determines the necessary investigations and takes responsibility for their conclusions. Exporting or technically signing the file does not certify professional compliance.",
       "q5": "Can the dossier be adapted to different property types?",
@@ -3657,7 +3680,7 @@
   },
   "mentionsLegales": {
     "title": "Legal Notice",
-    "lastUpdate": "Last updated: 12 October 2026",
+    "lastUpdate": "Last updated: 23 October 2026",
     "editeur": {
       "title": "1. Site Publisher",
       "name": "NOTARIA PRIME",
@@ -3708,12 +3731,12 @@
     },
     "droit": {
       "title": "6. Applicable Law",
-      "p1": "This site is governed by Luxembourg law. Any dispute relating to the use of the site shall fall under the exclusive jurisdiction of the courts of the Grand Duchy of Luxembourg."
+      "p1": "Luxembourg law applies subject to applicable mandatory provisions, including those protecting consumers in their country of habitual residence. Jurisdiction is determined by the applicable legal rules. No choice of law or court deprives a consumer of mandatory rights, including those under Articles 17 to 19 of Regulation (EU) No 1215/2012. An amicable resolution may be proposed without restricting access to the competent court."
     }
   },
   "cgu": {
     "title": "Terms of Service",
-    "lastUpdate": "Last updated: 12 October 2026",
+    "lastUpdate": "Last updated: 23 October 2026",
     "intro": "These Terms of Service (TOS) govern the use of the tevaxia.lu platform and its services. By accessing the site or creating an account, the user accepts these TOS without reservation. The platform is published by NOTARIA PRIME, a French simplified joint-stock company (SAS) with share capital of €500, registered with the Quimper Trade and Companies Register under number 941 646 341.",
     "article1": {
       "title": "1. Purpose",
@@ -3767,12 +3790,12 @@
     },
     "article10": {
       "title": "10. Applicable law and jurisdiction",
-      "p1": "These TOS are governed by Luxembourg law. Any dispute relating to their interpretation or execution shall fall under the exclusive jurisdiction of the courts of the Grand Duchy of Luxembourg, after prior attempt at amicable resolution."
+      "p1": "Luxembourg law applies subject to applicable mandatory provisions, including those protecting consumers in their country of habitual residence. Jurisdiction is determined by the applicable legal rules. No choice of law or court deprives a consumer of mandatory rights, including those under Articles 17 to 19 of Regulation (EU) No 1215/2012. An amicable resolution may be proposed without restricting access to the competent court."
     }
   },
   "confidentialite": {
     "title": "Privacy Policy",
-    "lastUpdate": "Last updated: 12 October 2026",
+    "lastUpdate": "Last updated: 23 October 2026",
     "responsable": {
       "title": "1. Data Controller",
       "name": "NOTARIA PRIME — Registered office: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, France",
@@ -3790,7 +3813,7 @@
       },
       "oauth": {
         "label": "OAuth login (Google, LinkedIn):",
-        "text": "Only your email address and name are transmitted by these services. We do not receive your password, contacts, or any other data from your third-party account. Authentication is managed by Supabase Auth via the OAuth 2.0 / OpenID Connect protocol."
+        "text": "For account sign-in, Supabase receives identity information authorised by the provider, including the identifier, email address and name. Tevaxia does not receive the provider password. Additional permissions requested for a calendar or Google Drive are separate and described below."
       },
       "simulations": {
         "label": "Simulation data:",
@@ -3806,7 +3829,7 @@
       },
       "bancaire": {
         "label": "PSD2 banking data (Enable Banking connection):",
-        "text": "If you connect a bank account via the Enable Banking PSD2 service (AIS — Account Information Service) for automatic reconciliation, retrieved transactions (label, amount, date, reference) are processed in memory during reconciliation and not stored on our servers beyond the session. The PSD2 link has a maximum duration of 90 days imposed by EU regulation 2015/2366, renewable by your bank via SCA. The JWT private key used to sign requests remains on the tevaxia server, never exposed to the browser."
+        "text": "If you connect a bank through Enable Banking, retrieved transactions are used for the reconciliation you request. Tevaxia stores session and account identifiers and the validity date returned by the provider. A validity period of 180 days is requested, subject to the bank’s conditions; renewed authentication may be required. This is not a universal consent or retention period and must not be confused with the available transaction history. The private key used for Enable Banking requests remains on the server."
       },
       "ocr": {
         "label": "Invoice OCR & documents — local processing:",
@@ -3819,6 +3842,12 @@
       "diagnostic": {
         "label": "Technical error diagnostics:",
         "text": "When Sentry is configured, the site may send a technical report limited to the error type and generated-code locations. Variable messages, record URLs, requests, headers, account identities, business context and attachments are removed from the report. Performance tracing and session recording are disabled. The provider receives network information needed for the connection."
+      },
+      "integrations": {
+        "label": "Optional calendar and Google Drive connections:",
+        "calendar": "At your request, a Google Calendar or Microsoft Outlook connection may request event read/write permissions and offline access. The external account identifiers, email, permissions, access and refresh tokens and expiry dates are stored in Supabase for this connection. Authorisation does not mean that all synchronisation features are available. A calendar subscription URL can also share published tasks and viewings with your chosen calendar service: anyone holding this URL can read its contents.",
+        "drive": "Exporting to Google Drive sends the selected file and its name to Google after your action. The drive.file permission covers files created or opened with the application, not your entire Drive. Provider tokens needed for this action are accessible in the authentication session. Exported files remain in your Drive until deleted under your Google settings.",
+        "revoke": "You can withdraw permissions in your Google or Microsoft account settings. To request deletion of connection data held by Tevaxia, contact contact@tevaxia.lu. Withdrawing permission does not automatically delete files or events already sent to the provider. Also revoke subscription links you no longer want to share."
       }
     },
     "finalites": {
@@ -3836,7 +3865,7 @@
       },
       "contrat": {
         "label": "Performance of a contract (Art. 6.1.b GDPR):",
-        "text": "creation and management of your account, saving your simulations."
+        "text": "creating and managing your account, saving simulations and optional connections needed for the features you request."
       },
       "interet": {
         "label": "Legitimate interest (Art. 6.1.f GDPR):",
@@ -3855,7 +3884,7 @@
       "vercelLoc": "United States (standard contractual clauses)",
       "render": "energy-api API hosting",
       "renderLoc": "United States",
-      "google": "OAuth authentication",
+      "google": "Authentication, calendars and Drive file exports at your request",
       "googleLoc": "United States (EU-US Data Privacy Framework)",
       "linkedin": "OAuth authentication",
       "linkedinLoc": "United States (standard contractual clauses)",
@@ -3866,17 +3895,20 @@
       "posthog": "Public-page measurement with consent",
       "posthogLoc": "PostHog EU",
       "sentry": "Technical error diagnostics",
-      "sentryLoc": "Depends on project configuration"
+      "sentryLoc": "Depends on project configuration",
+      "microsoftCalendar": "Optional Outlook calendar connection",
+      "microsoftCalendarLoc": "Microsoft — location depends on your account and the provider terms"
     },
     "duree": {
       "title": "6. Data Retention",
       "compte": "Account data: kept until the user deletes their account.",
       "simulations": "Simulation data (saved valuations, rental lots): 180 days from last modification, 500-item cap per free account (10,000 for a Pro plan). Automatic daily purge at 03:00 UTC for rows exceeding these thresholds. Local data (localStorage) remain available as long as the browser is not cleared.",
-      "cookies": "Cookies: maximum 13 months.",
+      "cookies": "Audience measurement choice: acceptance and refusal are both stored in the browser for 180 days, with the decision date and version, then requested again. This is a service policy, not a universal legal rule. Authentication sessions follow their expiry and renewal; local backups remain until removed by the user or browser.",
       "liensPartages": "Public share links: 90 days by default, duration configurable by the user (1 to 365 days) at creation, with optional view cap.",
       "metier": "B2B operational data (co-owners, hotel guests, CRM contacts): retained for the duration of the service contract with the professional user. Specific LU legal retention obligations apply (accounting and invoices 10 years under art. L.16-2 Commercial Code, general meeting minutes 10 years, AML/KYC data 5 years).",
-      "bancaire": "PSD2 Enable Banking data: bank transactions accessed in memory, not persisted beyond the session. PSD2 link: 90 days maximum (renewable via SCA).",
-      "ocrFichiers": "Invoice OCR: PDFs/images uploaded are never stored on our servers — 100% browser processing. Only structured data validated by the user is saved."
+      "bancaire": "Bank connection: validity ends on the date returned by the bank or provider. Expiry blocks access but does not mean connection metadata is automatically erased. You can request deletion at contact@tevaxia.lu. Data incorporated into your reconciliation documents follows the retention of those documents.",
+      "ocrFichiers": "Invoice OCR: PDFs/images uploaded are never stored on our servers — 100% browser processing. Only structured data validated by the user is saved.",
+      "integrations": "Calendars: connection information and tokens remain stored while the integration exists; token expiry does not delete its record. Deletion can be requested using the contact below. Copies already held by Google, Microsoft or another calendar, and exported Drive files, remain subject to your account settings with that provider."
     },
     "droits": {
       "title": "7. Your Rights",
@@ -3884,9 +3916,10 @@
       "acces": "Right of access to your personal data",
       "rectification": "Right to rectification",
       "effacement": "Right to erasure ('right to be forgotten')",
-      "portabilite": "Right to data portability — a button « Export all my data (JSON) » is available in the « Data & plan » section of your profile",
+      "portabilite": "Right to data portability under the GDPR conditions. The profile JSON export covers only the categories listed in its manifest: it is not a complete account archive and excludes several business modules, documents and logs. Contact us to exercise your rights for data not included.",
       "opposition": "Right to object to processing",
-      "exercer": "To exercise these rights, contact us at"
+      "exercer": "To exercise these rights, contact us at",
+      "limitation": "Right to restriction of processing under the conditions of the GDPR"
     },
     "cookies": {
       "title": "8. Cookies",
@@ -6034,7 +6067,7 @@
       },
       "agence": {
         "title": "Real estate agency",
-        "desc": "OpenImmo mandate pipeline, contact CRM with /100 buyer matching, drag-drop Kanban, co-branded property PDFs, eIDAS signature."
+        "desc": "Agency mandates, contacts, tasks and documents, with a signing workflow whose suitability must be checked for each instrument."
       },
       "hotel": {
         "title": "Hospitality",
@@ -6068,8 +6101,8 @@
         },
         "agence": {
           "daily": "Mandates, contacts, portal distribution, buyer matching",
-          "compliance": "eIDAS EU 910/2014, GDPR consent",
-          "standards": "OpenImmo 1.2.8, eIDAS"
+          "compliance": "Online signing workflow with technical records to verify; the platform certifies no advanced or qualified level.",
+          "standards": "OpenImmo export; signature requirements to verify"
         },
         "hotel": {
           "daily": "Reservations, folios, invoicing, revenue management",
@@ -6142,13 +6175,13 @@
     "agence": {
       "meta": {
         "title": "Luxembourg real estate agency CRM — pipeline and OpenImmo",
-        "description": "Centralise mandates, contacts and tasks in one CRM built for LU agencies. Automatic buyer matching, co-branded property PDFs, eIDAS signature."
+        "description": "Agency mandates, contacts, tasks and documents, with a signing workflow whose suitability must be checked for each instrument."
       },
       "hero": {
         "badge": "Real estate CRM for LU agencies",
         "title": "Your mandate pipeline in",
         "titleAccent": "one tool, not four",
-        "subtitle": "OpenImmo-format mandate management, contact CRM with automatic buyer matching, drag-drop Kanban, co-branded property PDFs and eIDAS electronic signature. Built for Luxembourg real estate agencies tired of juggling multiple tools.",
+        "subtitle": "Agency mandates, contacts, tasks and documents, with a signing workflow whose suitability must be checked for each instrument.",
         "cta": "Start for free",
         "ctaSecondary": "See how it works",
         "kpis": [
@@ -6234,11 +6267,11 @@
           },
           {
             "title": "Visit slip PDFs",
-            "desc": "With timeline log and electronic signature. Legally valid."
+            "desc": "Online signing workflow with technical records to verify; the platform certifies no advanced or qualified level."
           },
           {
-            "title": "eIDAS mandate signature",
-            "desc": "Advanced electronic signature (eIDAS), legally binding in Luxembourg."
+            "title": "Online signing workflow",
+            "desc": "Online signing workflow with technical records to verify; the platform certifies no advanced or qualified level."
           },
           {
             "title": "Nurturing sequences",
@@ -6280,7 +6313,7 @@
           "Automatic /100 buyer matching",
           "Drag-drop Kanban pipeline",
           "Co-branded property PDFs",
-          "Visit slips and eIDAS signature",
+          "Online signing workflow with technical records to verify; the platform certifies no advanced or qualified level.",
           "Automated nurturing sequences",
           "Agent commissions and performance",
           "10 editable email templates"
@@ -6308,12 +6341,12 @@
             "a": "Yes, the module supports multi-entity organisations with roles (admin, agent, assistant). Each agent only sees mandates and contacts assigned to them."
           },
           {
-            "q": "Is eIDAS signature legally valid?",
-            "a": "Yes, the advanced eIDAS electronic signature (EU regulation 910/2014) has legal value equivalent to a handwritten signature in Luxembourg and throughout the EU."
+            "q": "What does the signing workflow establish?",
+            "a": "This workflow does not provide a qualified electronic signature or certify the advanced level. eIDAS Article 25 protects admissibility of electronic signatures; its express handwritten-signature equivalence concerns qualified signatures. An instrument’s validity also depends on its content, identity, parties’ authority and applicable formalities. Check the requirements before signing."
           },
           {
             "q": "Is contact data GDPR-secure?",
-            "a": "Data stored on Supabase (AWS eu-central-1 Frankfurt), user-level Row Level Security, HTTPS in transit. Full data export to ZIP at any time (GDPR article 20)."
+            "a": "The profile JSON export is partial and lists included and excluded categories. It is not a complete ZIP of all contacts, documents or business data. To exercise rights for data not included, contact contact@tevaxia.lu. The privacy policy describes processing and recipients."
           }
         ]
       },
@@ -6497,7 +6530,7 @@
           },
           {
             "q": "Is my data hosted in the EU?",
-            "a": "Supabase (AWS eu-central-1, Frankfurt). Row Level Security, HTTPS in transit. Full guest data export to ZIP at any time."
+            "a": "The profile JSON export is partial and lists included and excluded categories. It is not a complete ZIP of all contacts, documents or business data. To exercise rights for data not included, contact contact@tevaxia.lu. The privacy policy describes processing and recipients."
           }
         ]
       },
@@ -6677,7 +6710,7 @@
           },
           {
             "q": "Does the SHA-256 signature have legal weight?",
-            "a": "The SHA-256 signature guarantees document integrity. It does not replace a legally qualified eIDAS signature, but provides cryptographic proof that the report was not altered after issuance."
+            "a": "A checksum compares content against a retained reference. On its own it does not certify identity, agreement, date or legal validity. Keep the document and verification records; a checksum alone is not a qualified signature."
           },
           {
             "q": "How can special assumptions be documented?",
@@ -7893,7 +7926,7 @@
   "proAgences": {
     "badge": "Real estate agency CRM",
     "title": "The real estate CRM built for Luxembourg",
-    "description": "Kanban mandate pipeline, automated buyer matching, eIDAS e-signatures, one-click distribution to athome.lu and OpenImmo, computed LU acquisition fees (Bëllegen Akt + 3% VAT) and co-branded estimation+aids report. Everything for an agency operating in Luxembourg.",
+    "description": "Agency mandates, contacts, tasks and documents, with a signing workflow whose suitability must be checked for each instrument.",
     "ctaDemo": "Open the CRM",
     "ctaSeeFeatures": "See the features",
     "kpi1Value": "9",
@@ -7912,8 +7945,8 @@
     "feature2Desc": "Proprietary algorithm with 6 weighted criteria (budget, radius, type, area, energy class, project). Score out of 100 with breakdown per criterion for each match.",
     "feature3Title": "One-click portal distribution",
     "feature3Desc": "OpenImmo 1.2.8 export (athome.lu, immotop.lu, wort.lu, immoscout24.de, idealista.it/pt) + CSV for additional portals. Incremental feed update on every change.",
-    "feature4Title": "eIDAS e-signatures",
-    "feature4Desc": "Sale mandates and visit slips signed electronically, legally equivalent to handwritten (EU regulation 910/2014). Timestamping, traceability, integrity guaranteed.",
+    "feature4Title": "Online signing workflow",
+    "feature4Desc": "This workflow does not provide a qualified electronic signature or certify the advanced level. eIDAS Article 25 protects admissibility of electronic signatures; its express handwritten-signature equivalence concerns qualified signatures. An instrument’s validity also depends on its content, identity, parties’ authority and applicable formalities. Check the requirements before signing.",
     "feature5Title": "Commission & performance tracking",
     "feature5Desc": "Estimated vs received commissions per year, quarterly chart, agent ranking (conversion rate, signing/closing time, top performers).",
     "feature6Title": "Co-branded PDF estimation + fees + aids",
@@ -8513,19 +8546,19 @@
   "bailCommercial": {
     "seo": {
       "contextTitle": "Why a specific regime?",
-      "contextContent": "Commercial leases in Luxembourg are governed by the law of 3 February 2018 and the Civil Code. Unlike residential leases, the rent is freely agreed at signing — the 5% rule capping rent does not apply. Instead, the 9-year minimum duration and the right to renewal provide strong tenant protection.",
-      "indexationTitle": "Indexation per STATEC CPI",
-      "indexationContent": "Luxembourg has no specific commercial-lease index (no French ILC/ILAT equivalent). Parties usually reference the Consumer Price Index (CPI) published by STATEC. Clauses often cap indexation at 15-25% of the initial rent to limit drifts in high-inflation periods.",
-      "dureeTitle": "9-year minimum duration",
-      "dureeContent": "The 3 February 2018 law sets a 9-year minimum for commercial leases. The tenant may terminate at each triennial period (3, 6, 9 years) with 6-month notice. Absent 6-month notice before term, the lease renews tacitly.",
+      "contextContent": "Luxembourg commercial leases are governed by the Civil Code and the Act of 3 February 2018. Initial rent is negotiated; the residential 5% ceiling does not apply. Term, renewal and termination depend on the applicable clauses and rules: this regime imposes no statutory nine-year minimum.",
+      "indexationTitle": "Indexation under the lease clause",
+      "indexationContent": "The formula, index, dates and any cap must follow the contract. For a proportional clause: initial rent × review index / reference index. Use comparable indices from the same series and base. A percentage described as customary creates no legal cap.",
+      "dureeTitle": "Agreed term and termination",
+      "dureeContent": "A lease may be fixed-term or open-ended (Civil Code Art. 1762-4). A 3–6–9 arrangement can be negotiated but is not automatic. Periodic exit options depend on the agreed clause. The regime provides at least six months’ termination notice; also check formalities and renewal rules.",
       "faq1q": "Does the 5% rule apply to commerce?",
       "faq1a": "No. The 5% rule (legal rent cap based on reassessed invested capital) is specific to residential leases. For commercial leases, the initial rent is freely negotiated between landlord and tenant.",
       "faq2q": "How is commercial rent indexed in LU?",
-      "faq2a": "Through the Consumer Price Index (CPI) published by STATEC, per the formula negotiated in the lease. Usual formula: indexed rent = initial rent × (CPI year N / CPI year of signature), often capped at +15% or +20% of the initial rent.",
+      "faq2a": "The formula, index, dates and any cap must follow the contract. For a proportional clause: initial rent × review index / reference index. Use comparable indices from the same series and base. A percentage described as customary creates no legal cap.",
       "faq3q": "What is the minimum duration?",
-      "faq3a": "9 years (law of 3 February 2018). Tenant may exit at each triennial period with 6-month notice. Landlord may only terminate at the 9-year term for personal use or major works, otherwise an eviction indemnity is owed.",
-      "faq4q": "What is the « pas-de-porte »?",
-      "faq4a": "A sum paid by the incoming tenant to the landlord in exchange for the right to occupy. May equal several months or years of rent. Not refundable and distinct from the security deposit (usually 3-12 months).",
+      "faq3a": "A lease may be fixed-term or open-ended (Civil Code Art. 1762-4). A 3–6–9 arrangement can be negotiated but is not automatic. Periodic exit options depend on the agreed clause. The regime provides at least six months’ termination notice; also check formalities and renewal rules.",
+      "faq4q": "Can key money be required?",
+      "faq4a": "A supplement paid to the landlord or an intermediary for concluding the lease, known as key money, is prohibited by Article 1762-5. Distinguish it from agency fees or the price of a business transfer, which require separate analysis. Commercial lease security is capped at six months’ rent.",
       "faqTitle": "Frequently asked questions",
       "relatedTitle": "Go further"
     }
@@ -8592,9 +8625,9 @@
     "pasDePt": "Key money (entry fee)",
     "depot": "Security deposit",
     "charges": "Annual charges (provisions)",
-    "hintPlafond": "Usual: 15-25%. Beyond, the tenant may request judicial review (art. 1757-4 Civil Code).",
-    "hintPasDePt": "One-time payment at signing, non-refundable.",
-    "hintDepot": "Usual: 3-12 months. Refunded at end of lease (unless damages)."
+    "hintPlafond": "Only if specified in a clause; no customary threshold is a legal rule.",
+    "hintPasDePt": "Key money to the landlord for concluding the lease is prohibited.",
+    "hintDepot": "Security: maximum six months’ rent under this regime (Art. 1762-5). Calculated here on the initial rent."
   },
   "syndicCoproprietes": {
     "error": "Error",
@@ -9035,13 +9068,13 @@
   "bailCommercialPage": {
     "backLink": "← tevaxia.lu",
     "pageTitle": "Commercial lease LU — indexation & duration",
-    "pageDescription": "Rent indexation calculation based on the Luxembourg CPI (STATEC) and reminder of rules applicable to commercial leases (law of 3 February 2018).",
+    "pageDescription": "Indexation scenario using the indices you enter and the agreed clauses. Results do not validate the contract or predict future indices.",
     "warningImportant": "Important:",
     "warningText": "unlike residential leases, the 5% rule (legal rent cap) does not apply to commercial leases. The rent is freely agreed upon at signing, then governed by the indexation clauses negotiated between the parties.",
     "sectionLoyerInitial": "Initial rent & dates",
     "sectionClausesBail": "Lease clauses",
     "sectionCoutsComplementaires": "Additional costs",
-    "duree9": "9 years (LU legal minimum)",
+    "duree9": "9 years (contractual term)",
     "duree12": "12 years",
     "duree15": "15 years",
     "duree18": "18 years",
@@ -9062,34 +9095,34 @@
     "indexPlafonneClause": "but your clause limits to",
     "duLoyerInitial": "of initial rent.",
     "resultTitle": "Regulatory reminders — commercial lease LU",
-    "regDureeMin": "Legal minimum duration",
-    "regDureeMinVal": "9 years (law of 03.02.2018)",
-    "regTriennale": "Triennial period",
-    "regTriennaleVal": "Termination possible every 3 years (6 months' notice)",
-    "regRenouvellement": "Automatic renewal",
-    "regRenouvellementVal": "Unless notice given 6 months before expiry",
+    "regDureeMin": "Term",
+    "regDureeMinVal": "Fixed or open-ended (Art. 1762-4)",
+    "regTriennale": "Periodic termination",
+    "regTriennaleVal": "Subject to applicable clauses and rules; no automatic three-year right",
+    "regRenouvellement": "Renewal / continuation",
+    "regRenouvellementVal": "Check the contract, notices and legal rules",
     "regIndice": "LU indexation index",
     "regIndiceVal": "CPI STATEC (no equivalent ILC/ILAT in LU)",
     "regRegle5": "5% rule",
     "regRegle5Val": "Does NOT apply to commercial leases",
     "regForme": "Form",
-    "regFormeVal": "Written form required if > 9 years (art. 1715 Civil Code)",
-    "coutTotalBail": "Total lease cost",
+    "regFormeVal": "Record in writing; check formalities for the term and instrument",
+    "coutTotalBail": "Constant-rent projection",
     "ansLabel": "years",
-    "loyersCumules": "Cumulative rent (indexed)",
+    "loyersCumules": "Scenario rent total",
     "chargesCumulees": "Cumulative charges",
     "pasDePtLabel": "Key money",
     "depotGarantieImmob": "Security deposit (held)",
     "coutTotalOccupation": "Total occupation cost",
     "soitMoyenne": "i.e.",
     "anMoyenne": "/yr average",
-    "periodesTriennales": "Triennial periods",
+    "periodesTriennales": "Years of contractual options",
     "finDuBail": "End of lease",
     "periodeTriennaleN": "Triennial period #",
     "resiliationPossible": "(termination possible)",
-    "preavisTriennale": "6 months' notice by registered letter before each triennial deadline.",
+    "preavisTriennale": "Indicative years calculated only from the declared clause. The regime provides for at least six months’ termination notice; check exact dates, grounds, formalities and renewal rules against the contract.",
     "clausesTitle": "Common clauses to check:",
-    "clausesText": "key money, security deposit (3-12 months), deductible charges, premises designation, renewal rights, eviction compensation in case of non-renewal.",
+    "clausesText": "Check permitted use, term, exit options, indexation formula, charges, security (maximum six months), renewal and compensation conditions. The calculation validates none of these clauses.",
     "tableTitle": "CPI indexation table — year by year",
     "tableSubtitle": "Indexed rent evolution from",
     "tableTo": "to",
@@ -9105,7 +9138,24 @@
     "thEvolVsInitial": "Change vs initial",
     "refBadge": "(ref.)",
     "cibleBadge": "(target)",
-    "plafBadge": "(cap.)"
+    "plafBadge": "(cap.)",
+    "referenceIndexInput": "Contract reference index",
+    "targetIndexInput": "Index at the review date",
+    "indexInputHelp": "100 and 100 are example values. Enter published indices matching the clause, on the same base and frequency. Missing or future annual CPI values are not fabricated.",
+    "officialIndexSource": "View indices published by STATEC",
+    "capConfirmed": "The contract provides an overall indexation cap",
+    "indefiniteTerm": "Open-ended lease",
+    "analysisHorizon": "Scenario horizon",
+    "termHelp": "This regime imposes no statutory nine-year minimum. The tool accepts whole years from 1 to 99; for an open-ended lease this is only an analysis horizon, not a contractual end date.",
+    "breakConfirmed": "The contract contains periodic termination options",
+    "breakInterval": "Interval specified by the clause",
+    "noKeyMoney": "Key money paid to the landlord for concluding the lease is prohibited and is not offered as a normal cost. Agency fees and a business transfer must be distinguished and checked separately.",
+    "invalidInputs": "Check positive rent and indices, whole years, and a security deposit between 0 and 6 months.",
+    "indexScenarioTitle": "Indexation using your inputs",
+    "annualIndexedRent": "Indexed annual rent",
+    "monthlyIndexedRent": "Indexed monthly rent",
+    "constantScenario": "The indexed rent above and annual charges are held constant over the entire horizon. This is neither historical data nor an inflation forecast. The tied-up security deposit is shown separately and is not treated as a final expense.",
+    "noBreakInHorizon": "No intermediate option within this horizon."
   },
   "drive": {
     "saveToDrive": "Save to Drive",
@@ -9990,37 +10040,37 @@
     },
     "bailHabitation": {
       "title": "Luxembourg housing lease: law 21.09.2006, 2026 rights",
-      "metaDescription": "LU residential lease: indefinite duration, 3/6-month notice, max 3-month deposit, rent capped at 5% of revalued capital, recoverable charges (RGD 16.06.2015), municipal Rent Commission.",
+      "metaDescription": "Residential leases in Luxembourg: new two-month security ceiling, term, written particulars, rent changes and remedies.",
       "subtitle": "Everything landlord and tenant need to know before signing a residential lease in Luxembourg.",
       "category": "Renting & lease",
       "essentiel": [
-        "Legal framework: modified law of 21 September 2006 on residential tenancy, complemented by the Civil Code and the Grand Ducal Regulation of 16 June 2015 on charges.",
-        "Default duration: indefinite. Tenant notice 3 months, landlord notice 6 months and only for legitimate reason (personal need, serious breach, works).",
-        "Rent capped at 5% per year of revalued invested capital (Art. 3 of the 2006 law). See the dedicated guide on the 5% rule.",
-        "Rental deposit: maximum 3 months' rent excluding charges, on a blocked account in the tenant's name. Interest belongs to the tenant.",
-        "Free pre-judicial remedy: municipal Rent Commission before any court action."
+        "For a new contract under the current regime, the lease must be written and identify the parties, property, cadastral reference, rented rooms, term, rent, charges, any furniture supplement and security. It mentions access to the rent commission for rent-setting disputes. Check specific rules and exclusions according to the property use.",
+        "The term may be fixed or open-ended. Termination, notice and renewal depend on that term, the contract and statutory grounds. There is no general tenant right to end every fixed-term lease at any time on three months’ notice. Check the rules and notices applicable to your situation.",
+        "Determine the applicable ceiling from invested capital and relevant revaluations and depreciation; justify any furniture supplement separately. Rent changes follow statutory conditions, including the two-year interval and 10% increase limit, with applicable exceptions. An index-linked clause can lose effect after the tenant’s registered objection: CPI creates no automatic right to increase rent.",
+        "For a new residential lease concluded from 1 August 2024, security is limited to two months’ rent excluding charges. An earlier contract may fall under the former three-month ceiling. Several forms of security are possible; a blocked account is not the only authorised form. Check statutory repayment conditions and deadlines according to the inventory, amounts due and charge statements.",
+        "The remedy depends on the dispute. The rent commission acts within its remit, notably rent setting; it is not a universal step for every dispute. Security repayment or termination claims may fall to the justice of the peace. Keep records and check the appropriate steps, deadlines and conditions."
       ],
       "section1Title": "Legal framework and contract type",
-      "section1P1": "Residential leases in Luxembourg are framed by the modified law of 21 September 2006, which applies to any rental of a dwelling used as a primary residence (article 1). Excluded: short-term furnished holiday rentals, agricultural leases and commercial leases (governed by other laws). The contract must be in writing; without writing, the law still recognises the lease as soon as there is payment and occupation, but with a heavier burden of proof.",
-      "section1P2": "The lease is concluded for an indefinite duration by default. Fixed-term leases are possible but, at expiry, automatically convert into indefinite leases if the tenant remains in occupation without the landlord's opposition (tacit renewal). The contract must mention the parties, dwelling description, rent excluding charges, charge amount and calculation basis, deposit amount and entry date.",
+      "section1P1": "For a new contract under the current regime, the lease must be written and identify the parties, property, cadastral reference, rented rooms, term, rent, charges, any furniture supplement and security. It mentions access to the rent commission for rent-setting disputes. Check specific rules and exclusions according to the property use.",
+      "section1P2": "For a new contract under the current regime, the lease must be written and identify the parties, property, cadastral reference, rented rooms, term, rent, charges, any furniture supplement and security. It mentions access to the rent commission for rent-setting disputes. Check specific rules and exclusions according to the property use.",
       "callout1Title": "Form and prohibited clauses",
-      "callout1Body": "Void clauses include: any deposit greater than 3 months' rent, any unlimited solidarity of a co-tenant after their departure, any termination penalty outside the legal notice, and any clause exempting the landlord from delivering a decent dwelling (Art. 1719 Civil Code).",
+      "callout1Body": "For a new contract under the current regime, the lease must be written and identify the parties, property, cadastral reference, rented rooms, term, rent, charges, any furniture supplement and security. It mentions access to the rent commission for rent-setting disputes. Check specific rules and exclusions according to the property use.",
       "section2Title": "Rent, indexation and deposit",
-      "section2P1": "The initial rent is free but cannot exceed 5% of revalued invested capital (Art. 3 of the 2006 law). Rent can only be revised once every two years, and only upwards in line with the STATEC consumer price index, or if improvement works justify a re-evaluation of the invested capital. Revision must be notified by registered letter with one month's notice.",
-      "section2P2": "The deposit is limited to 3 months' rent excluding charges (Art. 5 of the 2006 law). It must be paid into a blocked account in the tenant's name at a Luxembourg bank; interest earned belongs to the tenant. Restitution must occur within a reasonable time after the lease ends (typically 1 to 3 months), minus any damages noted at the exit inventory. A State rental guarantee is available for eligible tenants via the Ministry of Housing.",
+      "section2P1": "Determine the applicable ceiling from invested capital and relevant revaluations and depreciation; justify any furniture supplement separately. Rent changes follow statutory conditions, including the two-year interval and 10% increase limit, with applicable exceptions. An index-linked clause can lose effect after the tenant’s registered objection: CPI creates no automatic right to increase rent.",
+      "section2P2": "For a new residential lease concluded from 1 August 2024, security is limited to two months’ rent excluding charges. An earlier contract may fall under the former three-month ceiling. Several forms of security are possible; a blocked account is not the only authorised form. Check statutory repayment conditions and deadlines according to the inventory, amounts due and charge statements.",
       "section3Title": "Landlord and tenant obligations",
-      "section3P1": "The landlord must deliver the dwelling in good condition (Art. 1719 Civil Code), guarantee peaceful enjoyment, carry out major repairs (roof, facade, structure, major electrical compliance) and produce joint entry and exit inventories. The landlord may only recover from the tenant the charges exhaustively listed in the Grand Ducal Regulation of 16 June 2015: water/electricity/gas of common areas, collective heating, common area maintenance, elevator, municipal waste tax, building liability insurance.",
-      "section3P2": "The tenant must pay rent on time, use the dwelling responsibly, perform minor tenant repairs (seals, light bulbs, small fixings), comply with the building's regulations if any, and grant the landlord access for inspections or works. Failure to pay more than two months' rent exposes the tenant to judicial termination for serious breach with possible eviction, after a formal notice that remained unheeded.",
+      "section3P1": "Distinguish rent from recoverable charges for use, consumption and routine maintenance. Advances are reconciled against supporting records; a fixed amount may be agreed under the legal conditions. Ownership costs and major repairs do not become recoverable merely by being listed in the contract. Check each item.",
+      "section3P2": "The term may be fixed or open-ended. Termination, notice and renewal depend on that term, the contract and statutory grounds. There is no general tenant right to end every fixed-term lease at any time on three months’ notice. Check the rules and notices applicable to your situation.",
       "callout2Title": "Prohibited charges",
-      "callout2Body": "The landlord cannot pass on to the tenant: management or professional syndic fees beyond the tenant's share, major replacement works (boiler, roof, facade), property tax, home insurance other than building liability, or improvement/modernisation expenses.",
+      "callout2Body": "Distinguish rent from recoverable charges for use, consumption and routine maintenance. Advances are reconciled against supporting records; a fixed amount may be agreed under the legal conditions. Ownership costs and major repairs do not become recoverable merely by being listed in the contract. Check each item.",
       "section4Title": "End of lease and remedies",
-      "section4P1": "The tenant may terminate at any time by registered letter with 3 months' notice (Art. 12 of the 2006 law). The landlord may only terminate with 6 months' notice and only for three legitimate reasons: personal occupancy need for themselves, spouse, ascendants or descendants; serious breach of contractual obligations by the tenant; demolition or reconstruction works making occupation impossible. Termination must be motivated in writing, on penalty of nullity.",
-      "section4P2": "In case of dispute (excessive rent, contested charges, unreturned deposit, contested inventory), the tenant or landlord may refer free of charge to the municipal Rent Commission of the dwelling's location (Art. 7 of the 2006 law). The Commission issues a non-binding opinion often followed by judges. If the opinion is ignored, the matter may be brought before the justice of the peace, or the district court for high rents.",
+      "section4P1": "The term may be fixed or open-ended. Termination, notice and renewal depend on that term, the contract and statutory grounds. There is no general tenant right to end every fixed-term lease at any time on three months’ notice. Check the rules and notices applicable to your situation.",
+      "section4P2": "The remedy depends on the dispute. The rent commission acts within its remit, notably rent setting; it is not a universal step for every dispute. Security repayment or termination claims may fall to the justice of the peace. Keep records and check the appropriate steps, deadlines and conditions.",
       "callout3Title": "Solidarity between co-tenants",
-      "callout3Body": "If several tenants sign together (cohabitation, flat-sharing), a solidarity clause makes each one potentially liable for the entire unpaid rent. After a co-tenant's departure, their solidarity cannot be maintained beyond a reasonable period (generally 6 months) without explicit consent — any clause to the contrary is void.",
+      "callout3Body": "Shared tenancies may follow a specific regime with an agreement and departure rules. Check joint liability, replacement and its end under that regime and contract; no general six-month period is asserted here.",
       "inlineCalc": {
         "title": "Check the legality of your rent",
-        "description": "Does the rent comply with the 5% rule on revalued invested capital? Our calculator applies the STATEC index and the wear-and-tear discount to give you the exact legal cap.",
+        "description": "Estimate the ceiling from entered amounts and supporting records. Verify the result; it does not certify the rent’s legality.",
         "cta": "Compute the maximum rent"
       },
       "tools": [
@@ -10048,61 +10098,40 @@
       "faq": [
         {
           "q": "What is the notice period to leave a rental in Luxembourg?",
-          "a": "The tenant gives 3 months' notice by registered letter (Art. 12 of the 2006 law). The landlord gives 6 months' notice and may only terminate for legitimate reasons (personal need, serious breach, major works)."
+          "a": "The term may be fixed or open-ended. Termination, notice and renewal depend on that term, the contract and statutory grounds. There is no general tenant right to end every fixed-term lease at any time on three months’ notice. Check the rules and notices applicable to your situation."
         },
         {
           "q": "What is the maximum rental deposit in Luxembourg?",
-          "a": "The deposit is capped at 3 months' rent excluding charges (Art. 5 of the 2006 law). It must be placed in a blocked account in the tenant's name and interest belongs to the tenant. Any clause exceeding this is void."
+          "a": "For a new residential lease concluded from 1 August 2024, security is limited to two months’ rent excluding charges. An earlier contract may fall under the former three-month ceiling. Several forms of security are possible; a blocked account is not the only authorised form. Check statutory repayment conditions and deadlines according to the inventory, amounts due and charge statements."
         },
         {
           "q": "Can the landlord raise the rent during the lease?",
-          "a": "Revision is allowed only once every two years, capped by the STATEC consumer price index, or if improvement works justify a re-evaluation of the invested capital (with re-evaluation of the 5% cap). Increases must be notified by registered letter with one month's notice."
+          "a": "Determine the applicable ceiling from invested capital and relevant revaluations and depreciation; justify any furniture supplement separately. Rent changes follow statutory conditions, including the two-year interval and 10% increase limit, with applicable exceptions. An index-linked clause can lose effect after the tenant’s registered objection: CPI creates no automatic right to increase rent."
         },
         {
           "q": "What charges can be billed in addition to rent?",
-          "a": "Only those listed in the Grand Ducal Regulation of 16 June 2015: water, electricity and gas of common areas, collective heating, routine common area maintenance (cleaning, gardening, elevator), municipal waste tax and building liability insurance. Everything else (major works, syndic, property tax) is borne by the landlord."
+          "a": "Distinguish rent from recoverable charges for use, consumption and routine maintenance. Advances are reconciled against supporting records; a fixed amount may be agreed under the legal conditions. Ownership costs and major repairs do not become recoverable merely by being listed in the contract. Check each item."
         },
         {
           "q": "How to challenge an excessive rent?",
-          "a": "Refer free of charge to your municipality's Rent Commission. It checks the revalued invested capital calculation and issues an opinion. If the landlord refuses to comply, you can bring the case before the justice of the peace, who can order a retroactive rent reduction."
+          "a": "The remedy depends on the dispute. The rent commission acts within its remit, notably rent setting; it is not a universal step for every dispute. Security repayment or termination claims may fall to the justice of the peace. Keep records and check the appropriate steps, deadlines and conditions."
         },
         {
           "q": "What if the landlord does not return the deposit?",
-          "a": "Send a formal notice by registered letter first. Without reply within 30 days, refer to the Rent Commission or directly to the justice of the peace. The judge may order restitution plus interest and damages. Keep the exit inventory as evidence."
+          "a": "The remedy depends on the dispute. The rent commission acts within its remit, notably rent setting; it is not a universal step for every dispute. Security repayment or termination claims may fall to the justice of the peace. Keep records and check the appropriate steps, deadlines and conditions."
         }
       ],
       "sources": [
         {
-          "title": "Modified law of 21 September 2006 on residential tenancy",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo",
-          "year": 2006
-        },
-        {
-          "title": "Grand Ducal Regulation of 16 June 2015 — recoverable charges",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo",
-          "year": 2015
-        },
-        {
-          "title": "Residential lease — full guide",
+          "title": "Conclure un contrat de bail à usage d’habitation",
           "org": "Guichet.lu",
-          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html"
+          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-litige/conclure-contrat-bail-location.html"
         },
         {
-          "title": "Rent Commission — procedure",
-          "org": "Logement.lu — Ministry of Housing",
-          "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html"
-        },
-        {
-          "title": "Rental guarantee — State support",
-          "org": "Logement.lu",
-          "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html"
-        },
-        {
-          "title": "Civil Code — landlord obligations (Art. 1719 et seq.)",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+          "title": "Révision du bail à loyer et règles transitoires",
+          "org": "Ministère du Logement",
+          "url": "https://logement.public.lu/fr/actualites/2024/07/10-revisonbailaloyer.html",
+          "year": 2024
         }
       ]
     },
@@ -10714,45 +10743,45 @@
       "section4P1": "Fictional examples: the entire net base is eligible, use meets the conditions and the full EUR 50,000 allowance remains available. No land, professional fees or excluded works are included. The table does not establish eligibility."
     },
     "bailCommercial": {
-      "title": "Luxembourg commercial lease: law 03.02.2018, 9-year term",
-      "metaDescription": "LU commercial lease: law 03.02.2018, 9-year minimum term, triennial termination 6-month notice, STATEC CPI indexation, free key money, renewal right, eviction compensation.",
-      "subtitle": "The complete legal framework for commercial leases in Luxembourg: term, termination, rent, indexation and renewal right.",
+      "title": "Commercial leases in Luxembourg: term, rent and clauses",
+      "metaDescription": "The commercial lease regime follows Civil Code Articles 1762-3 onwards, notably introduced by the Act of 3 February 2018. Its application depends on the contract and actual activity. Exclusions, formalities and particular clauses require case-by-case review; this guide does not validate a lease.",
+      "subtitle": "The commercial lease regime follows Civil Code Articles 1762-3 onwards, notably introduced by the Act of 3 February 2018. Its application depends on the contract and actual activity. Exclusions, formalities and particular clauses require case-by-case review; this guide does not validate a lease.",
       "category": "Renting & lease",
       "essentiel": [
-        "Legal framework: law of 3 February 2018 on commercial leases (in force since 1 April 2018), modernising the prior Civil-Code-only regime.",
-        "Minimum 9-year term (Art. 2). Triennial termination by tenant (3, 6, 9 years) with 6 months' notice.",
-        "Free rent (no 5% rule), STATEC CPI indexation if explicit clause, triennial review possible if rent diverges from rental value.",
-        "Key money (pas-de-porte) lawful and unregulated: freely negotiated between landlord and tenant.",
-        "Renewal right at term; refusal without legitimate grounds = eviction compensation (loss of clientele, moving costs, business goodwill)."
+        "The commercial lease regime follows Civil Code Articles 1762-3 onwards, notably introduced by the Act of 3 February 2018. Its application depends on the contract and actual activity. Exclusions, formalities and particular clauses require case-by-case review; this guide does not validate a lease.",
+        "The contract may be fixed-term or open-ended (Civil Code Art. 1762-4). There is no general statutory nine-year minimum. Periodic termination options depend on the contract; a 3–6–9 arrangement is not automatic. Check the applicable notice period, which cannot be shorter than six months under this regime, and notification formalities.",
+        "Initial commercial rent is negotiated; the residential 5% ceiling does not apply. Indexation must follow the formula, index series, base and dates specified in the contract. The calculator uses entered indices without inventing history or forecasts or assuming a general three-year rent review right.",
+        "A supplement paid to the landlord or intermediary for concluding the lease, known as key money, is prohibited (Art. 1762-5). Agency fees and the price of a business transfer must be distinguished and examined separately. Security is capped at six months’ rent under this regime.",
+        "Renewal, refusal and possible compensation depend on the legal conditions, grounds, duration of the relationship and notices. Do not assume automatic compensation or unconditional renewal. Have the contract and deadlines checked before giving notice."
       ],
       "section1Title": "Legal framework and contract type",
-      "section1P1": "Commercial leases in Luxembourg have been governed since 1 April 2018 by the law of 3 February 2018 on commercial leases. This law replaced the application of the Civil Code alone and modernised the framework: minimum legal term, renewal right, eviction compensation, regulated indexation. It applies to leases of premises used for a commercial, craft or industrial activity carried out professionally.",
-      "section1P2": "Excluded: residential leases (law of 21.09.2006), agricultural leases (specific regime), leases of intangible assets (business goodwill without premises), and short-term leases (< 6 months for seasonal activities). The lease must be in writing (preferable but not mandatory); without writing, evidence of occupation and payment proves the lease's existence but with a heavier burden of proof in case of dispute.",
+      "section1P1": "The commercial lease regime follows Civil Code Articles 1762-3 onwards, notably introduced by the Act of 3 February 2018. Its application depends on the contract and actual activity. Exclusions, formalities and particular clauses require case-by-case review; this guide does not validate a lease.",
+      "section1P2": "The commercial lease regime follows Civil Code Articles 1762-3 onwards, notably introduced by the Act of 3 February 2018. Its application depends on the contract and actual activity. Exclusions, formalities and particular clauses require case-by-case review; this guide does not validate a lease.",
       "callout1Title": "Activity covered = effective operation",
-      "callout1Body": "The 2018 law only protects leases where the tenant effectively operates a commercial activity at the leased address (trade register, signage, clientele). A simple domiciliation or office use without clientele does not suffice to invoke the commercial lease protection.",
-      "section2Title": "Term and triennial termination",
-      "section2P1": "The legal minimum term is 9 years (Art. 2). Parties may agree a longer term (e.g., 12, 15 or 25 years for major fit-out investments), but never shorter. If the lease provides less than 9 years, the term is automatically extended to 9 years by law.",
-      "section2P2": "The tenant has a triennial termination right: they may end the lease at the expiry of each 3-year period (3, 6, 9 years) with 6 months' notice served by extrajudicial act or registered letter (Art. 4). The landlord, however, may only terminate during the lease for limitatively listed reasons: serious tenant breach, personal business need, or full demolition/reconstruction works.",
+      "callout1Body": "The commercial lease regime follows Civil Code Articles 1762-3 onwards, notably introduced by the Act of 3 February 2018. Its application depends on the contract and actual activity. Exclusions, formalities and particular clauses require case-by-case review; this guide does not validate a lease.",
+      "section2Title": "Term and termination options",
+      "section2P1": "The contract may be fixed-term or open-ended (Civil Code Art. 1762-4). There is no general statutory nine-year minimum. Periodic termination options depend on the contract; a 3–6–9 arrangement is not automatic. Check the applicable notice period, which cannot be shorter than six months under this regime, and notification formalities.",
+      "section2P2": "The contract may be fixed-term or open-ended (Civil Code Art. 1762-4). There is no general statutory nine-year minimum. Periodic termination options depend on the contract; a 3–6–9 arrangement is not automatic. Check the applicable notice period, which cannot be shorter than six months under this regime, and notification formalities.",
       "section3Title": "Rent, indexation and key money",
-      "section3P1": "Commercial rent is NOT capped by the 5% rule (which applies only to residential leases). It is freely set between parties according to market conditions and the premises' rental value. For LU commercial premises, prime LU City rents typically range from €80 to €250/sqm/month depending on location and use.",
-      "section3P2": "Indexation is linked to the Consumer Price Index (CPI) published by STATEC. The indexation clause must be expressly provided in the lease; otherwise, rent remains fixed throughout. Rent review may be requested by either party at the end of each 3-year period if the rent no longer corresponds to actual rental value (Art. 7). Key money (pas-de-porte) is lawful in Luxembourg, in exchange for the location's commercial advantages, and is freely negotiated.",
-      "callout2Title": "Luxembourg specificity: no ILC",
-      "callout2Body": "Unlike France, which has a specific Commercial Rent Index (ILC), Luxembourg uses the general CPI. This may decorrelate commercial rent from actual market conditions. Anticipate by possibly requesting an annual indexation cap in the lease drafting.",
+      "section3P1": "Initial commercial rent is negotiated; the residential 5% ceiling does not apply. Indexation must follow the formula, index series, base and dates specified in the contract. The calculator uses entered indices without inventing history or forecasts or assuming a general three-year rent review right.",
+      "section3P2": "A supplement paid to the landlord or intermediary for concluding the lease, known as key money, is prohibited (Art. 1762-5). Agency fees and the price of a business transfer must be distinguished and examined separately. Security is capped at six months’ rent under this regime.",
+      "callout2Title": "Choosing the clause and indices",
+      "callout2Body": "Initial commercial rent is negotiated; the residential 5% ceiling does not apply. Indexation must follow the formula, index series, base and dates specified in the contract. The calculator uses entered indices without inventing history or forecasts or assuming a general three-year rent review right.",
       "section4Title": "Renewal right and eviction compensation",
-      "section4P1": "The commercial tenant has a lease renewal right at term (Art. 5). It is exercised by notifying the landlord of a renewal request at least 6 months before the term. A landlord refusing renewal without legitimate grounds must pay the tenant eviction compensation covering the loss: clientele loss, moving and reinstallation costs, business goodwill loss compensation.",
-      "section4P2": "The landlord may refuse renewal without compensation only for serious grounds: tenant's contractual or legal breach, building condition requiring full demolition and reconstruction, or personal business need (the landlord must then operate the premises in the same or related activity for at least 2 years). Assignment of the commercial lease is possible unless otherwise stipulated, generally tied to the goodwill assignment; the landlord must be informed.",
+      "section4P1": "Renewal, refusal and possible compensation depend on the legal conditions, grounds, duration of the relationship and notices. Do not assume automatic compensation or unconditional renewal. Have the contract and deadlines checked before giving notice.",
+      "section4P2": "Renewal, refusal and possible compensation depend on the legal conditions, grounds, duration of the relationship and notices. Do not assume automatic compensation or unconditional renewal. Have the contract and deadlines checked before giving notice.",
       "callout3Title": "Assignment and sublet",
-      "callout3Body": "Assigning the commercial lease to a third party (notably on goodwill sale) is free unless expressly forbidden by the lease. Partial subletting is more constrained and generally requires the landlord's written consent. Any assignment must be notified to them. If the lease bans assignment, foresee an exit clause for goodwill resale.",
+      "callout3Body": "Assignment and subletting follow specific rules, particularly alongside a business transfer. Do not infer unrestricted freedom or an absolute prohibition solely from a clause. Check the legal conditions and required notices before the transaction.",
       "inlineCalc": {
         "title": "Assess a commercial premises' profitability",
-        "description": "Our commercial lease tool integrates free rent setting, amortisable key money, CPI indexation, fit-out amortisation and net yield computation for landlord and tenant.",
+        "description": "Indexation scenario with entered indices, freely chosen term, constant charges and separate security.",
         "cta": "Run the analysis"
       },
       "tools": [
         {
           "href": "/bail-commercial",
           "title": "Commercial lease tool",
-          "description": "Rent, key money, CPI indexation, landlord/tenant yield."
+          "description": "Indexation scenario with entered indices, freely chosen term, constant charges and separate security."
         },
         {
           "href": "/dcf-multi",
@@ -10773,55 +10802,46 @@
       "faq": [
         {
           "q": "What is the minimum term of a commercial lease in Luxembourg?",
-          "a": "9 years (Art. 2 of the law of 3 February 2018). The tenant may terminate at each triennial period (3, 6, 9 years) with 6 months' notice. The landlord may only terminate for serious breach, personal business need or demolition/reconstruction."
+          "a": "The contract may be fixed-term or open-ended (Civil Code Art. 1762-4). There is no general statutory nine-year minimum. Periodic termination options depend on the contract; a 3–6–9 arrangement is not automatic. Check the applicable notice period, which cannot be shorter than six months under this regime, and notification formalities."
         },
         {
           "q": "Is commercial rent capped in Luxembourg?",
-          "a": "No, unlike residential leases (5% cap on invested capital), commercial rent is freely set between parties. Indexation uses STATEC CPI if an express clause provides for it."
+          "a": "Initial commercial rent is negotiated; the residential 5% ceiling does not apply. Indexation must follow the formula, index series, base and dates specified in the contract. The calculator uses entered indices without inventing history or forecasts or assuming a general three-year rent review right."
         },
         {
-          "q": "What is key money and how to negotiate it?",
-          "a": "Key money (pas-de-porte) is an initial payment by the tenant to the landlord in exchange for the location's commercial advantages. Lawful in LU, unregulated, freely negotiated (typically 1 to 6 months' rent for an average location, up to several years for prime). Can be amortised by the tenant over the lease term."
+          "q": "Can key money be required?",
+          "a": "A supplement paid to the landlord or intermediary for concluding the lease, known as key money, is prohibited (Art. 1762-5). Agency fees and the price of a business transfer must be distinguished and examined separately. Security is capped at six months’ rent under this regime."
         },
         {
           "q": "How does the renewal right work?",
-          "a": "The tenant notifies a renewal request at least 6 months before the lease term. A landlord refusing without legitimate grounds (breach, demolition, personal business need) must pay eviction compensation covering clientele loss, moving and goodwill loss. The amount is set amicably or by a judge."
+          "a": "Renewal, refusal and possible compensation depend on the legal conditions, grounds, duration of the relationship and notices. Do not assume automatic compensation or unconditional renewal. Have the contract and deadlines checked before giving notice."
         },
         {
           "q": "Can the landlord block the lease assignment to a buyer?",
-          "a": "No, unless an opposite clause in the lease. Commercial lease assignment is free, generally tied to the goodwill assignment. The landlord must be informed but cannot oppose if the lease conditions (rent, use) are respected by the buyer. Provide an approval clause if the landlord wants oversight."
+          "a": "Assignment and subletting follow specific rules, particularly alongside a business transfer. Do not infer unrestricted freedom or an absolute prohibition solely from a clause. Check the legal conditions and required notices before the transaction."
         },
         {
           "q": "What to do in case of serious tenant breach?",
-          "a": "The landlord sends a formal notice by registered letter specifying the breach (unpaid rent > 2 months, prohibited subletting, change of use, major damage). Without remedy within 30 days, the landlord can refer the matter to court for judicial termination with eviction and arrears/damages claim."
+          "a": "Document the facts and communications. Termination and possible eviction follow applicable conditions and procedures; this guide does not establish an automatic two-month arrears threshold or universal thirty-day period. Seek advice before starting proceedings."
         }
       ],
       "sources": [
         {
-          "title": "Law of 3 February 2018 on commercial leases",
+          "title": "Loi du 3 février 2018 portant sur le bail commercial",
           "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a110/jo",
           "year": 2018
         },
         {
-          "title": "Commercial lease — practical guide",
-          "org": "Guichet.lu",
-          "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html"
+          "title": "Réforme du bail commercial : adoption et pas-de-porte",
+          "org": "Ministère de l’Économie",
+          "url": "https://meco.gouvernement.lu/fr/actualites.gouvernement2024%2Bfr%2Bactualites%2Btoutes_actualites%2Bcommuniques%2B2018%2B01-janvier%2B17-bail.html",
+          "year": 2018
         },
         {
-          "title": "Consumer Price Index (CPI)",
+          "title": "Indice des prix à la consommation et inflation",
           "org": "STATEC",
-          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
-        },
-        {
-          "title": "Civil Code — articles 1709 et seq.",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
-        },
-        {
-          "title": "Chamber of Commerce — entrepreneurs support",
-          "org": "Luxembourg Chamber of Commerce",
-          "url": "https://www.cc.lu/"
+          "url": "https://statistiques.public.lu/fr/donnees/themes/economie-finances/dossier-indice-prix-inflation.html"
         }
       ]
     },
@@ -11757,7 +11777,7 @@
       "faq1q": "Is the hedonic method published?",
       "faq1a": "These percentages are working assumptions, not official Observatory coefficients. No MAPE, R², significance or accuracy on real sales has been demonstrated.",
       "faq2q": "How does SHA-256 signature work?",
-      "faq2a": "On issuance, the PDF is hashed and the hash stored in DB (immutable via trigger). The signature block contains hash + /verify URL + timestamp. Client pastes URL on /verify which re-hashes and compares — if matches, integrity guaranteed. No costly PKI needed.",
+      "faq2a": "A checksum compares content against a retained reference. On its own it does not certify identity, agreement, date or legal validity. Keep the document and verification records; a checksum alone is not a qualified signature.",
       "faq3q": "Multi-valuer: how to share?",
       "faq3a": "/profil/organisation lets you create a firm, invite members (admin/member/viewer roles), share valuations. Admin stats via OrgAgencyStats: top valuers, API calls, conversion. VIES lookup on creation to pre-fill from VAT number.",
       "faq4q": "Can I export to DOCX for my firm template?",
@@ -11925,7 +11945,7 @@
       "parcoursStep1Title": "Create an API key",
       "parcoursStep1Desc": "/profil/api: create a key with scope (estimation, mlv, dcf, fees), monthly quota, IP allowlist. Manual rotation, instant revocation. Full logs (call, latency, error) visible in real-time.",
       "parcoursStep2Title": "Test endpoints",
-      "parcoursStep2Desc": "/api-docs: OpenAPI 3.1 with Try-it-out, cURL examples, request/response schemas. Available endpoints: POST /api/v1/estimation, /api/v1/mlv, /api/v1/propcalc/{yield,cashflow,mortgage,fees}, /api/v1/ai/analyze, batch /api/v1/estimation/batch.",
+      "parcoursStep2Desc": "/api-docs: OpenAPI documentation, cURL examples and request/response schemas. PropCalc endpoints: yield, cashflow, mortgage and fees. Check the documentation for required inputs and the scope of each calculation.",
       "parcoursStep3Title": "Webhooks + production",
       "parcoursStep3Desc": "Configure a webhook to receive events (estimation complete, report signed) with HMAC-SHA256 signature in X-Tevaxia-Signature. Test endpoint: /api/v1/webhooks/test.",
       "toolsTitle": "Recommended tools",
@@ -11947,30 +11967,30 @@
     },
     "str_operator": {
       "title": "Short-term rental guide",
-      "intro": "Airbnb, Booking, STR concierge operator: LU profitability calculators, EU 2024/1028 regulation compliance, 3-month/year LU licensing threshold, long vs short-term arbitrage.",
+      "intro": "For Airbnb and Booking hosts and property managers: profitability scenarios, long/short-term comparison and Luxembourg and EU requirements to check for your activity.",
       "backToHub": "All guides",
       "parcoursTitle": "Typical path",
-      "parcoursIntro": "From analysing an STR property to EU 2024/1028 compliance.",
+      "parcoursIntro": "From economic scenarios to the requirements applicable to your activity.",
       "parcoursStep1Title": "Analyse profitability",
       "parcoursStep1Desc": "/str/forecast: 12-month forecast (nights rented × ADR × occupancy rate), LU seasonality (low winter / August Schueberfouer / MICE Sept-June). Occupancy ±10pp sensitivity. LU Hotel Observatory benchmarks.",
       "parcoursStep2Title": "Long vs short-term arbitrage",
       "parcoursStep2Desc": "/str: compares STR yield (Airbnb) vs classical lease with net charges (concierge ~20%, cleaning fees, furniture depreciation, vacancy). For Luxembourg-City: break-even occupancy often > 55% to beat a €1200/month lease.",
-      "parcoursStep3Title": "EU 2024/1028 + LU compliance",
-      "parcoursStep3Desc": "/str/compliance: EU unified Airbnb/Booking registry (in force mid-2026, mandatory commune data transmission). In LU: 3-month/year threshold beyond which lodging licence required. Exportable PDF dossier for tax authority.",
+      "parcoursStep3Title": "STR requirements in Luxembourg and the EU",
+      "parcoursStep3Desc": "/str/compliance helps you check requirements: 90 nights combined per operator, business permit, training, municipal rules and local registration procedures. The PDF is an internal preparation document; it is neither a submission nor a permit.",
       "toolsTitle": "Recommended tools",
       "toolsIntro": "Analysis + compliance + portfolio.",
       "faqTitle": "Frequently asked questions",
-      "faq1q": "What does EU regulation 2024/1028 require?",
-      "faq1a": "Mandatory registration in a unified European register (member state-issued registration number), automatic transmission of rental data to authorities (nights, amount), visible registration number on Airbnb/Booking. Progressive entry into force mid-2026. /str/compliance tracks LU transposition.",
+      "faq1q": "Which requirements of Regulation (EU) 2024/1028 should I check?",
+      "faq1a": "Regulation (EU) 2024/1028 applies from 20 May 2026. Obligations depend on the registration procedures applicable to the unit. It does not create a single European register. Information supplied by hosts is distinct from data reporting by platforms.",
       "faq2q": "Must I declare STR income to IRL?",
       "faq2a": "Yes, as BIC income (accessory commercial activity if < €23k/year gross, professional above). VAT: franchise < €35k/year. Commune tourist tax: due from 1 night. For non-resident expats, LU-France/BE/DE tax treaty with anti-abuse provision. /plus-values handles sale of an STR property per art. 102bis LIR.",
-      "faq3q": "Exceeding 3-month threshold: what happens?",
-      "faq3a": "Beyond 90 cumulative days/year of short-term rental of a non-primary-residence property in Luxembourg-City, commercial lodging licence required (law 03.11.1998 + commune regulation). Chamber of commerce registration, ICC + IRC + 3% lodging VAT + tourist tax + commune GM. /str/compliance alerts at 80% of threshold.",
+      "faq3q": "What should I check at 90 combined nights per operator?",
+      "faq3a": "In Luxembourg, the commercial accommodation threshold is 90 nights or more, combined across all units operated by the same operator during the reference year, counted from the last rental. Check the business permit and required qualifications or training. Other obligations still need checking below this threshold.",
       "faq4q": "Dynamic pricing like PriceLabs / Wheelhouse integrated?",
       "faq4a": "Not yet. /str/forecast does static seasonal forecast. For real-time dynamic pricing with market competition, third-party solutions PriceLabs ($19.99/listing), Wheelhouse, Beyond Pricing. Our roadmap includes a 'smart pricing' module based on STATEC Observatory + STR EMEA for 2027.",
       "relatedTitle": "Go further",
       "ctaTitle": "Start your STR analysis",
-      "ctaDesc": "Free 12-month forecast + EU 2024/1028 compliance + LU benchmark.",
+      "ctaDesc": "Profitability scenarios, long/short-term comparison and a checklist of requirements.",
       "ctaPrimary": "Access STR hub",
       "ctaSecondary": "See all guides"
     }
@@ -13075,12 +13095,12 @@
   "strHub": {
     "meta": {
       "title": "Short-term rentals Luxembourg — Airbnb, Booking, Vrbo | tevaxia.lu",
-      "description": "7 STR calculators for Airbnb/Booking hosts in Luxembourg: net yield after tax, compliance (3-month threshold, license, EU Reg 2026), long vs short-term arbitrage, dynamic pricing."
+      "description": "Short-term rental tools for Luxembourg: economic simulations, requirements to check and comparison with long-term rental."
     },
     "hero": {
       "title": "Short-term rentals in Luxembourg",
       "subtitle": "7 free tools for Airbnb, Booking, Vrbo and seasonal hosts in Luxembourg. Realistic yield, 2026 legal compliance, arbitrage between long and short-term rental.",
-      "tag1": "3-month / year threshold",
+      "tag1": "90 combined nights per operator",
       "tag2": "LU income tax",
       "tag3": "EU Regulation 2024/1028",
       "tag4": "Airbnb / Booking / Vrbo"
@@ -13092,7 +13112,7 @@
       },
       "compliance": {
         "title": "STR Luxembourg compliance",
-        "desc": "Legal checklist: 3-month threshold, accommodation license, municipal rules, EU Regulation 2024/1028."
+        "desc": "Check: 90 nights combined per operator, business permit, training, municipal rules and applicable registration procedures."
       },
       "arbitrage": {
         "title": "LT vs ST vs Mix arbitrage",
@@ -13107,8 +13127,8 @@
         "desc": "Median ADR, percentiles, occupancy and RevPAR by zone. 4,200 LU listings Q4 2025. Free local alternative to AirDNA."
       },
       "complianceEu": {
-        "title": "EU STR Register 2024/1028",
-        "desc": "Mandatory registration to the European short-term rental register (mid-2026). File generation + identification number."
+        "title": "STR preparation document",
+        "desc": "Collect useful information before checking your requirements. This tool does not register your property or issue an official number."
       },
       "forecast": {
         "title": "12-month forecast",
@@ -13119,15 +13139,15 @@
       "title": "Why a dedicated Luxembourg STR vertical?",
       "rules": {
         "title": "LU-specific rules",
-        "body": "Beyond 90 cumulative days per year, the landlord must obtain an accommodation license (art. 6 law 17.07.2020). Luxembourg-City imposes additional municipal restrictions."
+        "body": "In Luxembourg, the commercial accommodation threshold is 90 nights or more, combined across all units operated by the same operator during the reference year, counted from the last rental. Check the business permit and required qualifications or training. Other obligations still need checking below this threshold."
       },
       "eu": {
         "title": "EU Regulation 2024/1028",
-        "body": "Entry into force mid-2026: single European register, mandatory nights transmission to municipalities. All Airbnb/Booking hosts concerned."
+        "body": "Regulation (EU) 2024/1028 applies from 20 May 2026. Obligations depend on the registration procedures applicable to the unit. It does not create a single European register. Information supplied by hosts is distinct from data reporting by platforms."
       },
       "tax": {
         "title": "2026 income tax",
-        "body": "Income > €600/year → mandatory tax declaration. Marginal rate up to 45.78% (IR 42% × employment contribution 1.09). Deductible: interest, PNO, cleaning, OTA 15-18%."
+        "body": "The obligation depends on the household, net income and activity status. The €600 threshold in some tax situations is not a universal rental-receipts allowance."
       },
       "arbitrage": {
         "title": "LT vs ST arbitrage",
@@ -13238,16 +13258,16 @@
   "strCompliance": {
     "back": "Short-term rentals",
     "title": "STR Luxembourg compliance",
-    "subtitle": "Check your legal obligations before launching a short-term rental in Luxembourg. 3-month threshold, accommodation license, municipal rules, income tax, EU Regulation 2024/1028.",
+    "subtitle": "Identify checks for activity thresholds, local rules, taxation and registration procedures. This tool does not certify compliance.",
     "form": {
       "title": "Your STR project",
-      "nights": "Nights planned over 12 months",
+      "nights": "Cumulative nights across all your units",
       "nightsSuffix": "nights",
-      "nightsHint": "Legal threshold: {threshold} nights/year (above, license mandatory)",
+      "nightsHint": "Threshold: {threshold} nights or more across an operator’s units, over one year from the last rental.",
       "commune": "Municipality",
       "ownerType": "Owner type",
       "revenue": "Estimated annual STR revenue",
-      "revenueHint": "Tax declaration threshold: {threshold}/year",
+      "revenueHint": "Receipts alone do not determine your tax filing obligation.",
       "primaryResidence": "The property is my primary residence (occasional rental during my travels)"
     },
     "ownerTypes": {
@@ -13256,19 +13276,20 @@
       "nonResident": "LU non-resident for tax"
     },
     "status": {
-      "label": "Regulatory status",
-      "licenseRequired": "Accommodation license required",
-      "noLicense": "No license required",
-      "exceeded": "You exceed the {threshold} nights/year threshold by {over} nights. Request must be filed before any rental.",
-      "remaining": "You have {nights} nights left before reaching the license threshold."
+      "label": "Accommodation activity threshold",
+      "licenseRequired": "Authorisation threshold reached",
+      "noLicense": "90-night threshold not reached",
+      "exceeded": "The {threshold}-night threshold is reached or exceeded by {over} nights. Check establishment authorisation and required training.",
+      "remaining": "The threshold would be reached after {nights} more nights. Other obligations still need checking."
     },
     "risk": {
-      "title": "Municipal regulatory risk",
+      "title": "Municipal rules",
       "high": "high",
       "medium": "medium",
       "low": "low",
       "body": "Municipality « {commune} »: risk {level}.",
-      "highNote": "Luxembourg-City notably imposes strict restrictions since 2024: check the current municipal regulation."
+      "highNote": "Luxembourg-City notably imposes strict restrictions since 2024: check the current municipal regulation.",
+      "unverified": "{commune}: local rules have not been verified. Contact the municipality; no risk level is inferred from its name."
     },
     "tax": {
       "title": "LU income tax",
@@ -13277,22 +13298,37 @@
       "required": "Mandatory declaration?",
       "yes": "YES (form 100)",
       "no": "No",
-      "note": "Max marginal rate LU: 45.78% (IR 42% × employment contribution 1.09). Deductibles: loan interest, PNO, cleaning, furniture depreciation, OTA commissions (15-18%)."
+      "note": "The obligation depends on the household, net income and activity status. The €600 threshold in some tax situations is not a universal rental-receipts allowance.",
+      "toCheck": "To be determined"
     },
     "eu": {
       "title": "EU Regulation 2024/1028 on STR",
-      "inForce": "Entry into force mid-2026.",
-      "obligations": "Obligations:",
-      "item1": "Registration in the single European register of short-term rentals",
-      "item2": "Transmission of nights to municipalities (Airbnb/Booking platforms handle reporting)",
-      "item3": "Identification number to be displayed mandatorily on listings"
+      "inForce": "Applicable from 20 May 2026.",
+      "obligations": "Obligations depend on registration procedures established by the competent authorities.",
+      "item1": "Check whether a local registration procedure covers your unit.",
+      "item2": "Distinguish information supplied by hosts from data transmitted by platforms.",
+      "item3": "Display a registration number when the applicable procedure requires it; the regulation does not create a single EU register."
     },
     "actions": {
       "title": "Actions to take"
     },
     "disclaimer": {
       "label": "Warning:",
-      "body": "this analysis is indicative. LU STR regulation evolves rapidly (EU 2024/1028 overhaul, municipal rules). Always validate with a specialized lawyer or LU accountant before any rental. Values are those in force as of April 2026."
+      "body": "Guidance checked on 23 October 2026. This questionnaire does not validate local rules or your individual tax position."
+    },
+    "actionItems": {
+      "license": "Check establishment authorisation and training with the competent authorities.",
+      "operatorTotal": "Add nights across all units over the reference period.",
+      "localRules": "Check permitted use, rules and formalities with the municipality.",
+      "tax": "Determine income classification, deductions and filing obligations with the tax authority or a professional.",
+      "registration": "Check registration procedures and obligations applicable to your platform.",
+      "insurance": "Check that insurance and contracts permit the proposed stays.",
+      "vat": "Determine VAT and social contributions based on the actual activity."
+    },
+    "sources": {
+      "license": "Establishment authorisation",
+      "tax": "Tax assessment",
+      "eu": "EU Regulation 2024/1028"
     }
   },
   "wizardParticulierPage": {
@@ -13441,7 +13477,7 @@
   "strRentabilite": {
     "back": "Short-term rentals",
     "title": "STR yield (Airbnb / Booking / Vrbo)",
-    "subtitle": "Calculate the annual net income of your short-term rental property in Luxembourg, all costs and taxes included.",
+    "subtitle": "Estimate the annual result with your costs and a constant marginal tax rate. Excludes mortgage payments, VAT, social contributions and a household tax assessment.",
     "save": "Save",
     "saved": "Saved!",
     "sections": {
@@ -13489,7 +13525,7 @@
     },
     "result": {
       "netLabel": "Annual net income after tax",
-      "perMonth": "i.e. {n}/month after everything (costs, OTA, IR)",
+      "perMonth": "{n}/month under these assumptions",
       "netYield": "Net yield",
       "breakdown": "Breakdown",
       "grossRevenue": "Gross revenue",
@@ -13515,25 +13551,26 @@
       "netYield": "Net yield"
     },
     "ltCompare": {
-      "title": "Vs long-term rental (5% rule indicative)",
+      "title": "LT illustration: assumed gross yield of 5% of price, not a legal rent ceiling",
       "strNet": "STR net/year",
       "ltNet": "LT net/year (5% rule)",
       "delta": "STR vs LT delta",
       "favorStr": "in favor of STR",
       "favorLt": "in favor of LT",
-      "warn": "Warning: beyond 90 STR days/year, accommodation license mandatory in LU. See",
+      "warn": "At 90 cumulative nights across an operator’s units, check establishment authorisation. See",
       "complianceLink": "the compliance tool"
-    }
+    },
+    "calendarLimited": "The target of {requested} nights is limited to {effective}: stays and vacancy gaps must fit within 365 days."
   },
   "strArbitrage": {
     "back": "Short-term rentals",
     "title": "Long-term vs short-term arbitrage",
-    "subtitle": "Compare 3 quantified scenarios: long-term rental (5% rule), pure STR (Airbnb/Booking), or mixed (seasonal STR + LT rest). Net-after-tax calculation based on your Luxembourg tax profile.",
+    "subtitle": "Compare annual economic scenarios using the entered marginal rate. Financing, VAT, social contributions and full household taxation are not modeled.",
     "tax": {
       "max": "LU max (~45.78%)"
     },
     "scenarios": {
-      "lt": "Long-term (5% rule)",
+      "lt": "Long-term rental",
       "str": "Pure STR (Airbnb/Booking)",
       "mixed": "Mixed (STR + LT)"
     },
@@ -13550,24 +13587,25 @@
       "cleaning": "Cleaning / stay",
       "fixedCosts": "Fixed STR costs / year",
       "fixedCostsHint": "PNO + internet + utilities + furniture amort.",
-      "note": "OTA commission 15% Airbnb pre-applied. If > 90 nights/year, accommodation license mandatory."
+      "note": "Assumed Airbnb commission: 15%. Check authorisation from 90 cumulative nights across all the operator’s units."
     },
     "lt": {
-      "title": "Long-term scenario (5% rule)",
+      "title": "Long-term rental",
       "monthlyRent": "LT monthly rent",
       "monthlyRentHint": "LU legal cap = 5%/12 × revalued invested capital",
-      "deductible": "Deductible charges / year",
-      "deductibleHint": "Loan interest + condo fees + maintenance + PNO"
+      "deductible": "Annual paid deductible costs",
+      "deductibleHint": "Exclude non-cash depreciation and loan principal. Entered costs are paid in full in the mixed scenario too."
     },
     "mixed": {
       "title": "Mixed scenario (partial STR + partial LT)",
-      "strDays": "STR days / year",
-      "strDaysHint": "Max 90 days to avoid license",
+      "strDays": "Days available for short stays",
+      "strDaysHint": "Includes stays and vacancies; this is not a legal exemption threshold.",
       "ltMonths": "LT months / year",
-      "ltMonthsHint": "Typical: 3 summer months Airbnb + 9 months LT",
+      "ltMonthsHint": "The shared calendar cannot exceed one year (average month = 365/12 days).",
       "daysSuffix": "days",
       "monthsSuffix": "months",
-      "note": "Classic LU mode: seasonal lease (summer/conference hunters) + residential lease for the rest."
+      "note": "Occupancy and stays are recalculated. Each active mode retains its full annual fixed costs: do not enter a shared cost twice. Check contract compatibility.",
+      "effectiveNights": "Feasible short-stay nights: {n}."
     },
     "result": {
       "bestLabel": "Most profitable scenario",
@@ -13575,7 +13613,7 @@
       "comparison": "3-scenario comparison (net after tax)"
     },
     "detail": {
-      "lt": "LT detail (5% rule)",
+      "lt": "Long-term rental",
       "mixed": "Mixed detail (STR + LT)",
       "annualGross": "Annual gross rent",
       "taxEstimated": "Estimated IR",
@@ -13587,11 +13625,11 @@
   },
   "strComplianceEu": {
     "back": "Short-term rentals",
-    "title": "EU STR Register 2024/1028",
-    "subtitle": "Preparation of the registration file for the single European short-term rental register. Regulation (EU) 2024/1028 — entry into force mid-2026. Obligations: mandatory identification number on all listings, transmission of nights to municipalities.",
+    "title": "STR preparation document",
+    "subtitle": "Collect useful information before checking your requirements. This tool does not register your property or issue an official number.",
     "regNumber": {
-      "label": "Pre-filled identification number",
-      "note": "Indicative format — to be validated by your municipality upon official submission. Final format imposed by the Ministry of Tourism."
+      "label": "Internal preparation document",
+      "note": "This document is not a registration, permit or proof of compliance. No official number is issued."
     },
     "section1": "1. Owner identity",
     "section2": "2. The rented property",
@@ -13609,25 +13647,32 @@
       "maxCapacity": "Max capacity",
       "primaryResidence": "The property is my primary residence",
       "platforms": "Platforms used",
-      "nightsPlanned": "Nights planned over 12 months"
+      "nightsPlanned": "Combined nights across all your units during the reference year",
+      "propertyType": "Accommodation type"
     },
     "propertyTypes": {
       "apartment": "Entire apartment",
       "house": "Entire house",
       "room": "Private room"
     },
-    "warnLicense": "More than 90 days/year = LU accommodation license required.",
+    "warnLicense": "In Luxembourg, the commercial accommodation threshold is 90 nights or more, combined across all units operated by the same operator during the reference year, counted from the last rental. Check the business permit and required qualifications or training. Other obligations still need checking below this threshold.",
     "seeCompliance": "See /str/compliance",
     "timing": {
-      "label": "EU Regulation 2024/1028 timing:",
-      "body": "entry into force mid-2026. Each member state must set up its national register. For Luxembourg, the Ministry of Tourism will likely be the competent authority (to be confirmed in Mémorial A). Platforms (Airbnb, Booking) will have to transmit per-property nights to authorities."
+      "label": "Regulation (EU) 2024/1028:",
+      "body": "Regulation (EU) 2024/1028 applies from 20 May 2026. Obligations depend on the registration procedures applicable to the unit. It does not create a single European register. Information supplied by hosts is distinct from data reporting by platforms."
     },
-    "downloadPdf": "Download PDF file"
+    "downloadPdf": "Download the preparation PDF",
+    "reviewTitle": "Items to check personally",
+    "reviewBody": "Check applicable requirements with the competent authorities, as well as municipal rules, insurance and taxation. This document does not submit an application or certify any answer.",
+    "pdfFooter": "Internal preparation document. No application submitted; not a permit or proof of compliance.",
+    "yes": "Yes",
+    "no": "No",
+    "pdfFailed": "The PDF could not be generated. Please try again."
   },
   "strPortefeuille": {
     "back": "Short-term rentals",
     "title": "STR portfolio",
-    "subtitle": "Multi-property dashboard for STR concierge or investor (10-50 units). Aggregated ADR/occupancy/revenue, LU license status (90-day threshold), EU 2024/1028 registration.",
+    "subtitle": "Track economic data for several properties and the procedures you have recorded. The activity threshold combines all units operated by the same operator; this dashboard does not certify compliance.",
     "signIn": "Sign in to manage your STR portfolio.",
     "loading": "Loading…",
     "cancel": "Cancel",
@@ -13642,7 +13687,7 @@
       "avgOccupancy": "Average occupancy"
     },
     "licenses": {
-      "summary": "Licenses: {obtained} obtained · {pending} in progress · {eu}/{total} EU-registered"
+      "summary": "Reported permits: {obtained} obtained · {pending} pending · {eu}/{total} registrations recorded"
     },
     "types": {
       "apartment": "Apartment",
@@ -13652,7 +13697,7 @@
       "villa": "Villa"
     },
     "license": {
-      "notRequired": "Not required (< 90d)",
+      "notRequired": "Requirement to be checked",
       "pending": "In progress",
       "obtained": "Obtained",
       "expired": "Expired"
@@ -13900,7 +13945,7 @@
     "dtType": "Type",
     "dtEvaluator": "Valuer",
     "limitsStrong": "Service limits:",
-    "limitsBody": "this mechanism offers a time-stamped audit trail but does not have the value of a qualified eIDAS electronic signature (LuxTrust, QTSP). For stronger legal enforceability, use an accredited QTSP. The hash only proves that the data has not been modified since the moment of the signature recorded here."
+    "limitsBody": "A checksum compares content against a retained reference. On its own it does not certify identity, agreement, date or legal validity. Keep the document and verification records; a checksum alone is not a qualified signature."
   },
   "invitation": {
     "title": "Invitation to join an agency",
@@ -13989,7 +14034,7 @@
     "agencyStep1": "Add the description + photos in the mandate overview",
     "agencyStep2": "Configure distribution on athome / Immotop / Immoweb",
     "agencyStep3": "Launch automatic matching with your CRM contacts",
-    "agencyStep4": "Have your client sign the mandate (eIDAS)",
+    "agencyStep4": "Online signing workflow with technical records to verify; the platform certifies no advanced or qualified level.",
     "hotelStep1": "Add room types + physical rooms",
     "hotelStep2": "Define rate plans (BAR, non-refundable, etc.)",
     "hotelStep3": "Configure iCal channels (Airbnb, Booking)",
@@ -14008,16 +14053,16 @@
     "errGeneric": "Error",
     "errContactSender": "Contact the document sender to obtain a new link.",
     "backSite": "Back to tevaxia.lu",
-    "eidasKicker": "eIDAS electronic signature",
+    "eidasKicker": "Online signing workflow",
     "docToSign": "{type} to sign",
     "expiresOn": "Expires on {date}",
     "signedTitle": "Document electronically signed",
-    "signedBody": "Your signature has been recorded with time-stamping. The document sender has been notified.",
+    "signedBody": "Your agreement has been recorded in this workflow. Keep a copy of the document and check its status with the sender.",
     "signedOn": "Signed on {date}",
     "declinedTitle": "Refusal recorded",
-    "declinedBody": "Your refusal has been forwarded to the document sender.",
+    "declinedBody": "Your refusal has been recorded. Contact the sender if further discussion is needed.",
     "hashLabel": "SHA-256 hash of the document:",
-    "hashExplain": "Any modification of the document invalidates this hash and therefore the signature. This cryptographic fingerprint guarantees the integrity of the text you are signing.",
+    "hashExplain": "A checksum compares content against a retained reference. On its own it does not certify identity, agreement, date or legal validity. Keep the document and verification records; a checksum alone is not a qualified signature.",
     "alreadyProcessed": "This request has already been processed (status: {status}). No further action is possible.",
     "signing": "Signing…",
     "signBtn": "✍️ Sign electronically",
@@ -14027,7 +14072,7 @@
     "confirmDeclineBtn": "Confirm refusal",
     "cancelBtn": "Cancel",
     "aboutTitle": "About the electronic signature",
-    "aboutBody": "This signature complies with the European eIDAS regulation (EU 910/2014), at the 'simple electronic signature' level, valid for commercial contracts. It records your IP address, browser, and time-stamp as evidence. For notarial deeds or preliminary sales agreements, a qualified signature (LuxTrust) remains required.",
+    "aboutBody": "This workflow does not provide a qualified electronic signature or certify the advanced level. eIDAS Article 25 protects admissibility of electronic signatures; its express handwritten-signature equivalence concerns qualified signatures. An instrument’s validity also depends on its content, identity, parties’ authority and applicable formalities. Check the requirements before signing.",
     "platformLabel": "tevaxia.lu platform",
     "linkPrivacy": "Privacy",
     "linkLegal": "Legal notice"
@@ -14580,7 +14625,7 @@
     "thLegal": "Legal protection",
     "thVacancy": "Vacancy",
     "legalStrong": "Important:",
-    "legalBody": "the premiums above are indicative (Q4 2025). Contact the insurer directly for a personalised quote. Some offers require prior tenant screening (certified income 3× rent, CDI, deposit, etc.). In LU, the legal rental deposit (max 3 months, art. 5 law 21.09.2006) remains the default option. The GLI premium is deductible under art. 105 LIR as a real expense."
+    "legalBody": "Displayed premiums are indicative: request a quote and check cover, exclusions and eligibility. For a new residential lease concluded from 1 August 2024, security is limited to two months’ rent excluding charges; check the regime for earlier contracts. Premium deductibility depends on your tax situation."
   },
   "glReconciliation": {
     "backHub": "← Rental management",
@@ -14600,7 +14645,7 @@
     "statusManual": "Manual",
     "psd2Strong": "Automatic PSD2 bank connection:",
     "psd2Body": "avoid manual import via",
-    "psd2Suffix": "(PSD2 SCA compliant API, 180-day access). Supports Spuerkeess, BGL, BIL, ING LU, Raiffeisen, Post.",
+    "psd2Suffix": "(via Enable Banking; access validity and authentication depend on the bank). Check the available banks when connecting.",
     "defaultLabel": "Bank movement"
   },
   "glPortefeuille": {
@@ -14649,7 +14694,7 @@
   "glRelances": {
     "backHub": "← Rental management",
     "pageTitle": "Unpaid rent reminders, automatic stages",
-    "pageSubtitle": "3 configured levels: friendly reminder D+15 → formal demand D+30 → payment order D+60. PDF compliant with law 21.09.2006, to be sent by registered mail (paper or eIDAS).",
+    "pageSubtitle": "Reminder templates on a configured schedule. Software dates do not replace applicable procedural deadlines and instruments; review the letter before sending.",
     "loading": "Loading…",
     "kpiTotalUnpaid": "Total unpaid",
     "kpiCount": "Number of instalments",
@@ -14685,7 +14730,7 @@
     "pdfLevel2Body": "By way of this formal demand, we require you to pay the sum of {amount} € corresponding to the rent of period {period}, unpaid for more than 30 days. Failing payment within 15 days from receipt of this letter, we reserve the right to seize the competent court.",
     "pdfLevel3Body": "Payment order: failing payment within 8 days, we will seize the competent court to obtain your conviction to pay the sum of {amount} € (rent {period}), increased by legal interest, procedure costs and, where applicable, lease termination. You also have time to contact the municipality's Social Service if you are facing difficulties.",
     "legalStrong": "LU procedure:",
-    "legalBody": "after 60 days of non-payment, you can seize the Justice of the Peace to obtain a conditional payment order (art. 12 law 21.09.2006), then engage lease termination proceedings if no regularisation. The payment order can be issued by a bailiff (300-500€). An eIDAS-certified version is planned via Yousign/LuxTrust partnership."
+    "legalBody": "Arrears require review of the lease, amounts due and steps already taken. A template or PDF export is neither a bailiff’s instrument nor legal certification. Reminder thresholds create no automatic right to termination or eviction. Check the required procedure and notification forms."
   },
   "glFiscal": {
     "backHub": "← Rental management",
@@ -14815,7 +14860,7 @@
   "glPsd2": {
     "backRec": "← Reconciliation",
     "pageTitle": "PSD2 bank connection",
-    "pageSubtitle": "Automatic retrieval of your transactions via Enable Banking, SCA-compliant PSD2 API. 180-day max access (art. 10 PSD2 RTS), renewable.",
+    "pageSubtitle": "Retrieve transactions through Enable Banking after bank authorisation. A validity period of 180 days is requested; the effective date is returned by the bank or provider. Renewed authentication may be required.",
     "configStrong": "Integration to activate.",
     "configBody": "Enable Banking is ready code-side but the keys are not yet defined on the server.",
     "configStep1": "Create an app on enablebanking.com/dashboard, download the RSA private key (PEM)",
@@ -15477,7 +15522,7 @@
     "expireSoon": "expires in {n}d",
     "btnDownload": "Download",
     "legalTitle": "Legal compliance:",
-    "legalBody": "archives are kept for 10 years in accordance with the amended law of 16 May 1975 on condominiums (art. 13bis). Each file has a SHA-256 checksum to guarantee integrity. Files are encrypted at rest (AES-256). The table is immutable at the DB level (trigger 'archive_is_immutable'), no modification or deletion is possible before expiry."
+    "legalBody": "Check the retention period for each document category and actual archive settings. A SHA-256 checksum helps compare a file against a retained reference but is not, by itself, qualified proof of origin or date. Modification protection and deletion depend on the rights and rules actually applied to storage."
   },
   "syndicOcr": {
     "loading": "Loading…",
@@ -15838,7 +15883,7 @@
     "csvHint": "CSV export from LU web banking.",
     "btnChooseCsv": "Choose a CSV file",
     "psdTitle": "PSD2 bank connection",
-    "psdHint": "Fetch transactions live via the Enable Banking API. Bank SCA (LuxTrust / mobile app) required. 90-day link.",
+    "psdHint": "View transactions through Enable Banking after bank authentication. Connection validity is specified by the bank or provider; renewed authentication may be needed.",
     "psdConnect": "Connect a bank",
     "psdNotConfigured": "PSD2 not configured on the server side. Contact the administrator.",
     "psdLoading": "Loading banks…",
@@ -16667,7 +16712,7 @@
     "crumbMandates": "Mandates",
     "crumbSignatures": "Signatures",
     "pageTitle": "Electronic signatures",
-    "pageDesc": "Online signature workflow compliant with EU regulation 910/2014 (eIDAS). \"Simple electronic signature\" level — valid for commercial mandates. For notarial deeds, qualified LuxTrust signature is required (roadmap Q5).",
+    "pageDesc": "This workflow does not provide a qualified electronic signature or certify the advanced level. eIDAS Article 25 protects admissibility of electronic signatures; its express handwritten-signature equivalence concerns qualified signatures. An instrument’s validity also depends on its content, identity, parties’ authority and applicable formalities. Check the requirements before signing.",
     "loading": "Loading…",
     "loginPrompt": "Sign in",
     "notFound": "Mandate not found.",
@@ -16694,12 +16739,12 @@
     "rowViewed": "Viewed: {date}",
     "rowSigned": "Signed: {date}",
     "rowExpires": "Expires: {date}",
-    "rowProof": "🔒 Proof: IP {ip} · {ua}",
+    "rowProof": "Technical records: IP {ip} · {ua}",
     "rowDeclineReason": "Decline reason: {reason}",
     "btnCopyLink": "📋 Copy link",
     "btnEmail": "📧 Email",
     "btnOpen": "Open",
-    "eidasNotice": "<strong>eIDAS proof retained:</strong> upon signing, the platform records the IP address, browser, timezone and server timestamp, all made immutable via a DB trigger. The document is identified by its SHA-256 hash — any subsequent modification invalidates the signature and triggers an alert.",
+    "eidasNotice": "Workflow records include a content checksum, server date, IP address, browser and time zone where available. These are not a qualified certificate or independent identity check. Verify their recording and keep a copy of the document; no automatic alteration alert is guaranteed.",
     "defaultMandateTitle": "Sale mandate",
     "mandateTitleFmt": "{type} mandate — {address}",
     "statusDraft": "Draft",
@@ -16716,14 +16761,14 @@
     "docTypeRapportEstimation": "Valuation report",
     "docTypeAutre": "Other document",
     "mailSubject": "Signature requested: {title}",
-    "mailBody": "Hello {name},\n\nYou are invited to electronically sign the following document:\n\n{title}\n\nSecure signing link (valid until {expires}):\n{url}\n\nThe simple electronic signature is legally valid under EU regulation 910/2014 (eIDAS).\n\nKind regards",
+    "mailBody": "Hello {name},\n\nYou are invited to review and sign the following document:\n\n{title}\n\nLink valid until {expires}:\n{url}\n\nThis workflow does not provide a qualified signature. Check the document and necessary formalities before confirming your agreement.\n\nKind regards",
     "mandateBody": "{type} SALE MANDATE\n\nBetween the undersigned:\nThe PRINCIPAL: {client}\nrepresented by themselves.\n\nAnd:\nThe AGENT: Real-estate agency\nacting through a qualified and registered real-estate agent\nin accordance with the law of 28 December 1988 regulating real-estate\nprofessions.\n\nIt has been agreed as follows:\n\nArticle 1 — PURPOSE OF THE MANDATE\nThe principal grants the agent a {mandateType} mandate to sell\nthe property located at:\n{address}\n{commune}\nType: {propertyType}\nArea: {surface} m²\n\nArticle 2 — SALE PRICE\nThe net seller price is set at {price}.\n\nArticle 3 — COMMISSION\nThe agent's commission is set at {commissionPct}% of the sale price\nincluding tax, payable by the buyer, due upon signing of the\nauthentic deed before a notary.\n\nArticle 4 — DURATION\nThis mandate is concluded for a period of {duration}.\n{exclusiveClause}\n\nArticle 5 — AGENT'S OBLIGATIONS\nThe agent undertakes to:\n- list the property on appropriate commercial channels\n- regularly report to the principal\n- respect the confidentiality of transmitted information\n- not mix the principal's funds with their own\n\nArticle 6 — APPLICABLE LAW\nThis mandate is governed by Luxembourg law. Any dispute falls\nexclusively under the jurisdiction of the Luxembourg City courts.\n\nDone in Luxembourg, on {today}.",
     "mandateClientPlaceholder": "[Principal's name]",
     "mandatePropertyTypeMissing": "unspecified",
     "mandatePriceTbd": "[to be defined]",
     "mandateDurationUntil": "until {date}",
     "mandateDurationTbd": "[duration to be defined]",
-    "mandateExclusiveClause": "For an exclusive mandate, the minimum duration is 3 months in accordance with the law.",
+    "mandateExclusiveClause": "The scope and duration of exclusivity must be expressly agreed and checked before signing.",
     "dash": "—"
   },
   "proaCrmContactDetail": {
@@ -17727,7 +17772,10 @@
     "frenchRentalInputs": "French rental taxation (/yield): taxYear is 2025 or 2026 (default 2026). The default is reel_foncier, a simplified unfurnished actual-expense scenario. Micro regimes require frenchMicroEligible=true to confirm eligibility and aggregate household/activity receipts, including prior-year micro-BIC conditions. Furnished rental requires frenchNonProfessional=true. micro_bic means long-term rental, micro_bic_tourism classified tourism, and micro_bic_tourism_unclassified unclassified tourism. annualTaxReceipts supplies aggregate taxable receipts, including taxable tenant charges; otherwise modeled rent after vacancy is used. frenchSocialRegime=solidarity_only requires qualifying social-insurance affiliation; standard is the default. The marginal-rate calculation is not a household tax assessment. Activity contributions, loss carryovers and special regimes are excluded.",
     "ukFeesInputs": "UK (/fees, country=uk): region accepts ENG, NIR, SCT or WLS; omitted means an explicit ENG assumption. ukAdditionalProperty confirms higher-rate liability independently of isPrimary; ukNonResident qualifies the non-resident SDLT surcharge in England/Northern Ireland. Both default to false. First-buyer relief requires isFirstTime and isPrimary, with every buyer eligible; Wales has no specific first-buyer relief. Only ordinary residential purchases by individuals are modeled, excluding transitional rules, companies, linked transactions and new lease rents. acquisitionCoverage describes the subtotal and excluded fees. /cashflow assumes an additional purchase in England without the non-resident surcharge.",
     "italianRentalInputs": "Italy (/yield): only 21% cedolare_secca for an ordinary residential free-market lease is calculated. italianCedolareEligible=true confirms an eligible individual landlord outside business/professional activity and a valid election for this regime. italianAnnualContractRent is required: gross contractual rent for the ownership share and rental period, without expense deductions. Modeled vacancy reduces economic receipts but does not automatically change this tax base. Negative rental cash income does not cancel the tax. IRPEF, short lets, reduced-rate contracts, unpaid rent and special cadastral cases require a separate assessment.",
-    "portugueseRentalInputs": "Portugal (/yield): portugueseCategoryFConfirmed=true confirms ordinary category F rental and tax-eligible paid expenses. portugueseRentalUse is housing or other. portugueseAnnualTaxReceipts and portugueseDeductibleExpenses are required, including zero: modeled economic expenses are not automatically tax deductions. Interest, depreciation, furniture, appliances, decor and AIMI are excluded from deductions. taxYear is 2025 or 2026. Autonomous rates: housing 25%, other rental 28%, for residents and non-residents. For housing in 2026, portugueseModerateRentEligible must explicitly be true or false: true confirms all conditions and monthly-rent limits under EBF article 45-C / DL 97/2026 article 2 to apply 10%. Do not infer eligibility from annual rent after vacancy. More favourable long-duration rates, exemptions and special regimes need a separate assessment. progressive_resident uses the supplied marginal rate, without automatic comparison or household tax assessment."
+    "portugueseRentalInputs": "Portugal (/yield): portugueseCategoryFConfirmed=true confirms ordinary category F rental and tax-eligible paid expenses. portugueseRentalUse is housing or other. portugueseAnnualTaxReceipts and portugueseDeductibleExpenses are required, including zero: modeled economic expenses are not automatically tax deductions. Interest, depreciation, furniture, appliances, decor and AIMI are excluded from deductions. taxYear is 2025 or 2026. Autonomous rates: housing 25%, other rental 28%, for residents and non-residents. For housing in 2026, portugueseModerateRentEligible must explicitly be true or false: true confirms all conditions and monthly-rent limits under EBF article 45-C / DL 97/2026 article 2 to apply 10%. Do not infer eligibility from annual rent after vacancy. More favourable long-duration rates, exemptions and special regimes need a separate assessment. progressive_resident uses the supplied marginal rate, without automatic comparison or household tax assessment.",
+    "unsupportedRentalTax": "/yield rejects Belgian and Dutch regimes until the required tax bases are supported. /cashflow remains an explicit constant marginal-rate scenario, not a cadastral or Box 3 calculation.",
+    "auditFeesInputs": "Fees: Portugal requires region (mainland/azores/madeira), portugueseResident and portugueseTaxValue (VPT). Taxes use max(price,VPT), 2026 tables; non-residents pay 7.5% before a separately assessed refund. portugueseYoungEligible confirms all IMT Jovem conditions for every buyer: age 35 inclusive, first permanent home, no residential ownership now or in the previous three years, not an IRS dependent. NL: nlStarterEligible confirms an unused exemption and all whole-property conditions; personal occupation is essential. LU: luBellegenEligible and luCreditRemaining are required for the credit; one buyer, existing property. Italy: italianPrimaCasaEligible confirms its specific conditions; italianPrezzoValore and italianCadastralIncome use unrevalued rendita, otherwise declared price is used with minimum registration duty of €1,000. VAT sales require italianVatSale and italianVatRate (price excluding VAT). Mixed eligibility and special transactions excluded.",
+    "widgetScope": "The embedded widget uses the online API: existing residential investment fees without personal relief, borrowing capacity, yield and a cash-flow scenario. Buy/rent links to the dedicated comparison. Tax regimes requiring more data are reserved for the documented API or unsupported; no substitute tax result is shown. The external WordPress plugin has its own version and feature set."
   },
   "statusPage": {
     "metaTitle": "Service status, tevaxia.lu",
@@ -19166,7 +19214,8 @@
     "unavailableTitle": "No verified figure displayed for this scope",
     "logisticsScope": "No rent or stock series by area is available here with a verified source and period. For a logistics asset, use documented comparables and its lease data.",
     "macroScope": "When comparing lending rates, check the period, contract type and observed population. The links below provide access to the producing institutions’ series; they do not constitute a financing offer.",
-    "valuation": "Value using your own data"
+    "valuation": "Value using your own data",
+    "indicesLink": "Property indices"
   },
   "constructionBudget": {
     "title": "Documented construction budget",
@@ -19223,7 +19272,8 @@
     "signInTitle": "Sign in for PDF reports",
     "signInScope": "Sign in or create an account to preview and download your reports.",
     "signIn": "Sign in / create an account",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "documentLanguage": "Document language: {language}"
   },
   "developmentAppraisal": {
     "title": "Documented development appraisal",
@@ -20330,5 +20380,66 @@
     "contact": "Contact LPVI for guidance towards an expert",
     "qualifications": "Understand TEGoVA licences with LPVI",
     "destination": "Links to LPVI’s website, in French. Contact via its form or at info@lpvi.lu."
+  },
+  "numberInput": {
+    "edit": "Edit {label}: {value}",
+    "editHint": "Click to enter a value",
+    "formatHint": "Number format: {example}. Escape to cancel.",
+    "format": "Enter a complete number using the displayed format.",
+    "range": "Enter a value from {min} to {max}. The previous value is unchanged.",
+    "step": "Use increments of {step} from {min}. Values are not rounded automatically."
+  },
+  "calendarSync": {
+    "backProfile": "My profile",
+    "pageTitle": "Calendar sync",
+    "pageIntro": "View your CRM tasks and scheduled visits in Google Calendar, Outlook or Apple Calendar with a subscription URL.",
+    "connected": "{provider} account connected. Connecting alone does not guarantee two-way synchronization.",
+    "connectionFailed": "Connection to {provider} failed. Please try again.",
+    "howTitle": "How it works",
+    "stepCreate": "Generate a subscription URL to create a unique random token.",
+    "stepCopy": "Copy the generated HTTPS URL.",
+    "stepGoogle": "Google Calendar: use the button or Add calendar → From URL.",
+    "stepOutlook": "Outlook: Add calendar → Subscribe from web, then paste the HTTPS URL.",
+    "stepApple": "Apple Calendar: use the webcal:// link or File → New Calendar Subscription.",
+    "eventsTitle": "Included events",
+    "eventsTasks": "CRM tasks with a due date and pending or in-progress status.",
+    "eventsVisits": "Upcoming scheduled visits.",
+    "eventsWindow": "Period: 7 days in the past to 180 days in the future.",
+    "eventsPrivacy": "The feed includes your titles and descriptions, which may contain personal data. Keep its URL private.",
+    "securityTitle": "Security",
+    "securityToken": "The random 128-bit token grants access to the feed. Share the URL only with your calendar application.",
+    "securityRevoke": "Disable or delete a subscription to stop new access. Previously imported copies may remain in the external calendar.",
+    "securityAccess": "The last access date and request count are shown above.",
+    "sectionTitle": "Sync my calendar",
+    "sectionIntro": "Create a read-only subscription for your tasks and visits. Refresh frequency depends on your calendar application.",
+    "signIn": "Sign in to generate a calendar subscription link.",
+    "defaultLabel": "Tevaxia calendar",
+    "revokeConfirm": "Delete this subscription and stop new access?",
+    "loading": "Loading…",
+    "empty": "No subscriptions.",
+    "create": "Generate a subscription URL",
+    "created": "Created on {date}",
+    "lastAccess": "Last access: {date} ({count} requests)",
+    "neverAccessed": "Never accessed",
+    "inactive": "Inactive",
+    "deactivate": "Deactivate",
+    "reactivate": "Reactivate",
+    "delete": "Delete",
+    "copied": "Copied",
+    "copy": "Copy URL",
+    "copyFailed": "Could not copy. Select and copy the URL manually.",
+    "openApple": "Open in Apple Calendar",
+    "openGoogle": "Add to Google Calendar",
+    "createAnother": "Create another subscription",
+    "oauthTitle": "Google / Microsoft connections",
+    "oauthScope": "Two-way synchronization depends on service activation. An ICS subscription remains read-only.",
+    "connectGoogle": "Connect Google Calendar",
+    "connectOutlook": "Connect Outlook"
+  },
+  "leaseDraft": {
+    "title": "Prepare a lease draft",
+    "notice": "French-language form and PDF for a new principal-residence lease in Luxembourg concluded from 1 August 2024. Have the draft and its annexes reviewed before signing.",
+    "open": "Open",
+    "close": "Close"
   }
 }

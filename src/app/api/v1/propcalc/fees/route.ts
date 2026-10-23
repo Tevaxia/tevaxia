@@ -58,6 +58,10 @@ export async function POST(request: Request) {
       buyerAge: buyerAge ?? 0,
       countryData,
       frenchVatOnFullPrice, frenchVatRate, loanGuaranteeCost, ukAdditionalProperty, ukNonResident,
+      luBellegenEligible: body.luBellegenEligible, luCreditRemaining: body.luCreditRemaining,
+      portugueseTaxValue: body.portugueseTaxValue, portugueseResident: body.portugueseResident, portugueseYoungEligible: body.portugueseYoungEligible,
+      nlStarterEligible: body.nlStarterEligible,
+      italianPrimaCasaEligible: body.italianPrimaCasaEligible, italianPrezzoValore: body.italianPrezzoValore, italianCadastralIncome: body.italianCadastralIncome, italianVatSale: body.italianVatSale, italianVatRate: body.italianVatRate,
     });
 
     assertFinitePropcalcResult(result);

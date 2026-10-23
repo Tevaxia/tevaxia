@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { getLocalePrefix, localePath } from "../locale-path";
+import { getLocalePrefix, localePath, localizePath, switchLocalePath } from "../locale-path";
 
 function mockPathname(pathname: string) {
   vi.stubGlobal("window", { location: { pathname } });
@@ -88,5 +88,24 @@ describe("localePath", () => {
   it("handles root path /", () => {
     mockPathname("/en/home");
     expect(localePath("/")).toBe("/en/");
+  });
+});
+
+describe("locale-aware URLs", () => {
+  it.each(["fr", "en", "de", "pt", "lb"])("preserves encoded query and hash switching to %s", locale => {
+    const suffix = "/estimation?c=Luxembourg&s=80&token=a%2Bb#resultats";
+    expect(switchLocalePath("/en" + suffix, locale)).toBe((locale === "fr" ? "" : "/" + locale) + suffix);
+  });
+  it("preserves root-page query and fragment", () => {
+    expect(switchLocalePath("/en?ref=abc#tools", "de")).toBe("/de?ref=abc#tools");
+    expect(switchLocalePath("/en?ref=abc#tools", "fr")).toBe("/?ref=abc#tools");
+  });
+  it("matches complete locale segments, including the energy path", () => {
+    expect(localizePath("/energy/impact", "en")).toBe("/en/energy/impact");
+    expect(localizePath("/enfants", "en")).toBe("/en/enfants");
+    expect(localizePath("/de/estimation", "en")).toBe("/de/estimation");
+  });
+  it.each(["https://example.com/foo", "//example.com/foo", "#result", "mailto:test@example.com", "/api/data?q=1", "/auth/callback", "/_next/static/test.js", "/download.pdf?x=1"])("does not localize endpoints or external targets: %s", href => {
+    expect(localizePath(href, "en")).toBe(href);
   });
 });

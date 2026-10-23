@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { useTranslations } from "next-intl";
 import { LOYERS_LU_Q4_2025, type LoyerObservation } from "@/lib/loyer-observatoire";
 import { formatEUR } from "@/lib/calculations";

@@ -170,8 +170,8 @@ def main() -> None:
         rel_parts = page.relative_to(APP).parts
         if rel_parts[0] in LOCALE_PREFIXES:
             continue
-        # skip api/offline
-        if rel_parts[0] in {"api", "offline"}:
+        # Skip API handlers; offline still needs its small, explicit namespace set.
+        if rel_parts[0] == "api":
             continue
         route = page_to_route(page)
         if route is None:

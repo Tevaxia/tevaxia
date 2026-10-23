@@ -51,6 +51,12 @@ const nextConfig: NextConfig = {
         destination: "https://tevaxia.lu/:path",
         permanent: true,
       },
+      {
+        source: "/:path((?!api(?:/|$)|auth(?:/|$)|_next(?:/|$)).*)",
+        has: [{ type: "host" as const, value: "tevaxia.vercel.app" }],
+        destination: "https://tevaxia.lu/:path",
+        permanent: true,
+      },
       ...redirects,
     ];
   },

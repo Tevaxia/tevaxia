@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useCallback } from "react";
 import { useTranslations } from "next-intl";
+import Link from "@/components/LocaleLink";
 import InputField from "@/components/InputField";
 import ToggleField from "@/components/ToggleField";
 import ResultPanel from "@/components/ResultPanel";
@@ -228,7 +229,7 @@ export default function VefaCalculator() {
   // ── Render ──────────────────────────────────────────────────
   return (
     <>
-      <div className="mx-auto max-w-7xl px-4 py-4 text-sm text-muted space-y-2"><p>{a("vefaScope")}</p><p>{a("creditHint")}</p><p>{a("mortgageScope")}</p><a className="underline" href="/frais-acquisition">{a("openDetailed")}</a></div>
+      <div className="mx-auto max-w-7xl px-4 py-4 text-sm text-muted space-y-2"><p>{a("vefaScope")}</p><p>{a("creditHint")}</p><p>{a("mortgageScope")}</p><Link className="underline" href="/frais-acquisition">{a("openDetailed")}</Link></div>
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">

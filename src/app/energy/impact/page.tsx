@@ -33,7 +33,7 @@ export default function ImpactPage() {
       <p className="mt-2 text-sm text-muted">{t("base")}: {euro(result.valeurBase)}</p>
       <div className="mt-4 overflow-x-auto"><table className="w-full text-sm"><thead><tr>{["class", "coefficient", "target", "delta"].map(k => <th key={k} className="px-3 py-3 text-left">{t(k)}</th>)}</tr></thead><tbody>{result.classes.map(row => <tr key={row.classe} className={"border-t border-card-border " + (row.classe === current ? "bg-energy/10" : "")}><th className="px-3 py-3 text-left">{row.classe}{row.classe === current ? " *" : ""}</th><td className="px-3 py-3">{row.ajustementPct}%</td><td className="whitespace-nowrap px-3 py-3">{euro(row.valeurAjustee)}</td><td className="whitespace-nowrap px-3 py-3">{euro(row.delta)}</td></tr>)}</tbody></table></div>
       <p className="mt-3 text-sm text-muted">* {t("current")}</p>
-      <div className="mt-4"><PdfButton label={t("pdf")} filename="tevaxia-impact-scenario.pdf" generateBlob={async () => (await import("@/components/energy/EnergyPdf")).generateImpactPdfBlob(result, current, value)} /></div>
+      <div className="mt-4"><PdfButton documentLocale="fr" label={t("pdf")} filename="tevaxia-impact-scenario.pdf" generateBlob={async () => (await import("@/components/energy/EnergyPdf")).generateImpactPdfBlob(result, current, value)} /></div>
     </section>}
     <section className="mt-6 space-y-3 rounded-2xl border border-card-border p-5 sm:p-6"><h2 className="font-semibold">{t("methodTitle")}</h2><p className="text-sm text-muted">{t("formula")}</p><p className="text-sm text-muted">{t("limits")}</p><a className="inline-block text-energy underline" href={(locale === "fr" ? "" : "/" + locale) + "/energy/renovation"}>{t("renovation")}</a></section>
   </div>;

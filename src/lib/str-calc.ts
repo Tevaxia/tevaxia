@@ -4,8 +4,9 @@
  */
 
 // ── Seuils réglementaires LU ───────────────────────────────────
-export const STR_LICENSE_THRESHOLD_DAYS = 90; // > 3 mois cumulés/an = licence hébergement requise (art. 6 loi 17.07.2020)
-export const STR_TAX_THRESHOLD_EUR = 600; // revenu > 600 €/an = déclaration IR
+// Guichet.lu, exploitant d'un établissement d'hébergement, checked 2026-10-23:
+// at least 90 nights, across ALL units of an operator, over one year from the last rental.
+export const STR_LICENSE_THRESHOLD_DAYS = 90;
 export const STR_MAX_MARGINAL_TAX_RATE = 0.4578; // 42% IR × 1,09 contribution emploi
 
 // ── Commission OTA standard ───────────────────────────────────
@@ -55,6 +56,7 @@ export interface StrRentabiliteInputs {
   acquisitionPrice?: number; // si connu, calcule le yield
   userMarginalTaxRate: number; // taux marginal d'IR 0-0.4578
   vacancyDaysBetween: number; // nb jours vides entre 2 séjours
+  availableDays?: number; // STR calendar allocation, including vacancies; defaults to 365
 }
 
 export interface StrRentabiliteResult {
@@ -79,22 +81,36 @@ export interface StrRentabiliteResult {
   costRatioPct: number;
   // Métriques opérationnelles
   numberOfStays: number;
+  effectiveNights: number;
+  calendarDaysUsed: number;
+  calendarLimited: boolean;
   revPAR: number; // revenu/jour disponible (365j)
   adrEffective: number; // ADR net après commissions OTA
 }
 
 export function calculerRentabiliteSTR(i: StrRentabiliteInputs): StrRentabiliteResult {
-  const nights = Math.min(i.nightsPerYear, 365);
+  const availableDays = i.availableDays ?? 365;
+  for (const value of [i.adr, i.nightsPerYear, i.vacancyDaysBetween, availableDays,
+    ...Object.values(i.variable), ...Object.values(i.fixed)]) {
+    if (!Number.isFinite(value) || value < 0) throw new RangeError("STR inputs must be finite and non-negative");
+  }
+  if (i.variable.avgStayLengthDays <= 0 || availableDays > 365) throw new RangeError("Invalid STR stay length or calendar");
+  const otaRate = i.otaCommissionOverride ?? OTA_COMMISSION[i.otaChannel];
+  for (const rate of [otaRate, i.userMarginalTaxRate]) {
+    if (!Number.isFinite(rate) || rate < 0 || rate > 1) throw new RangeError("Invalid STR rate");
+  }
+  if (i.acquisitionPrice !== undefined && (!Number.isFinite(i.acquisitionPrice) || i.acquisitionPrice < 0)) throw new RangeError("Invalid acquisition price");
+  // Requested nights are a demand target. Cap it to a feasible schedule, retaining
+  // the final partial stay and no artificial vacancy after the last stay.
+  let nights = Math.floor(Math.min(i.nightsPerYear, availableDays));
+  const calendarDays = (n: number) => n + Math.max(0, Math.ceil(n / i.variable.avgStayLengthDays) - 1) * i.vacancyDaysBetween;
+  while (nights > 0 && calendarDays(nights) > availableDays) nights--;
+  const numberOfStays = Math.ceil(nights / i.variable.avgStayLengthDays);
   const grossRevenue = Math.round(i.adr * nights);
 
   // Commission OTA
-  const otaRate = i.otaCommissionOverride ?? OTA_COMMISSION[i.otaChannel] ?? 0;
   const otaCommission = Math.round(grossRevenue * otaRate);
   const revenueAfterOta = grossRevenue - otaCommission;
-
-  // Nombre de séjours (estimation)
-  const totalCycleDays = i.variable.avgStayLengthDays + Math.max(0, i.vacancyDaysBetween);
-  const numberOfStays = totalCycleDays > 0 ? Math.ceil(nights / i.variable.avgStayLengthDays) : 0;
 
   // Charges variables
   const cleaningTotal = Math.round(i.variable.cleaningPerStay * numberOfStays);
@@ -145,6 +161,9 @@ export function calculerRentabiliteSTR(i: StrRentabiliteInputs): StrRentabiliteR
     netYieldPct,
     costRatioPct,
     numberOfStays,
+    effectiveNights: nights,
+    calendarDaysUsed: calendarDays(nights),
+    calendarLimited: nights < i.nightsPerYear,
     revPAR,
     adrEffective,
   };
@@ -152,35 +171,48 @@ export function calculerRentabiliteSTR(i: StrRentabiliteInputs): StrRentabiliteR
 
 // ── Arbitrage long terme vs STR ────────────────────────────────
 export interface StrArbitrageInputs {
-  strNet: number; // net après impôt STR
+  strInputs: StrRentabiliteInputs;
   ltMonthlyRent: number; // loyer mensuel long terme
   ltMarginalTaxRate: number;
   ltDeductibleChargesAnnual: number; // intérêts emprunt, assurance, charges copro, taxe foncière, entretien
-  mixedStrDays: number; // nb jours STR dans scénario mixte (0-90)
+  mixedStrDays: number; // days AVAILABLE for STR, including vacant nights
   mixedLtMonths: number; // nb mois LT dans scénario mixte
 }
 
 export interface StrArbitrageResult {
-  scenarioLT: { grossAnnual: number; tax: number; netAnnual: number };
+  scenarioLT: { grossAnnual: number; charges: number; tax: number; netAnnual: number };
   scenarioSTR: { netAnnual: number };
-  scenarioMixed: { strNet: number; ltNet: number; totalNet: number };
+  scenarioMixed: { strNet: number; ltNet: number; totalNet: number; effectiveStrNights: number };
   recommendation: "lt" | "str" | "mixed";
   deltaBestVsWorst: number;
 }
 
 export function calculerArbitrageSTR(i: StrArbitrageInputs): StrArbitrageResult {
+  for (const value of [i.ltMonthlyRent, i.ltDeductibleChargesAnnual, i.mixedStrDays, i.mixedLtMonths, i.ltMarginalTaxRate]) {
+    if (!Number.isFinite(value) || value < 0) throw new RangeError("Invalid STR arbitrage input");
+  }
+  if (i.ltMarginalTaxRate > 1 || i.mixedStrDays + i.mixedLtMonths * 365 / 12 > 365 + 1e-8) throw new RangeError("Mixed allocations exceed one year");
+  if (!Number.isFinite(i.strInputs.occupancyPct) || i.strInputs.occupancyPct < 0 || i.strInputs.occupancyPct > 100) throw new RangeError("Invalid occupancy rate");
   // LT pur (12 mois)
   const ltGross = i.ltMonthlyRent * 12;
   const ltTaxable = Math.max(0, ltGross - i.ltDeductibleChargesAnnual);
   const ltTax = Math.round(ltTaxable * i.ltMarginalTaxRate);
-  const ltNet = ltGross - ltTax;
+  const ltNet = ltGross - i.ltDeductibleChargesAnnual - ltTax;
 
   // STR pur (réutilise le net déjà calculé en amont)
-  const strNet = i.strNet;
+  const strNet = calculerRentabiliteSTR({ ...i.strInputs, availableDays: 365 }).netAfterTax;
 
   // Mixte (STR partiel + LT partiel)
-  const strPortion = i.mixedStrDays > 0 ? Math.round(strNet * (i.mixedStrDays / 365)) : 0;
-  const ltPortion = i.mixedLtMonths > 0 ? Math.round(ltNet * (i.mixedLtMonths / 12)) : 0;
+  // Recompute nights, turnovers and taxes. Annual fixed costs are kept in full
+  // for every active letting mode; callers must avoid entering a shared cost twice.
+  const mixedStr = i.mixedStrDays > 0 ? calculerRentabiliteSTR({ ...i.strInputs,
+    availableDays: i.mixedStrDays,
+    nightsPerYear: Math.floor(i.mixedStrDays * i.strInputs.occupancyPct / 100),
+  }) : null;
+  const strPortion = mixedStr?.netAfterTax ?? 0;
+  const mixedLtGross = i.ltMonthlyRent * i.mixedLtMonths;
+  const mixedLtBeforeTax = mixedLtGross - (i.mixedLtMonths > 0 ? i.ltDeductibleChargesAnnual : 0);
+  const ltPortion = Math.round(mixedLtBeforeTax - Math.max(0, mixedLtBeforeTax * i.ltMarginalTaxRate));
   const mixedTotal = strPortion + ltPortion;
 
   // Recommandation = scénario max
@@ -190,9 +222,9 @@ export function calculerArbitrageSTR(i: StrArbitrageInputs): StrArbitrageResult 
     = best === ltNet ? "lt" : best === strNet ? "str" : "mixed";
 
   return {
-    scenarioLT: { grossAnnual: ltGross, tax: ltTax, netAnnual: ltNet },
+    scenarioLT: { grossAnnual: ltGross, charges: i.ltDeductibleChargesAnnual, tax: ltTax, netAnnual: ltNet },
     scenarioSTR: { netAnnual: strNet },
-    scenarioMixed: { strNet: strPortion, ltNet: ltPortion, totalNet: mixedTotal },
+    scenarioMixed: { strNet: strPortion, ltNet: ltPortion, totalNet: mixedTotal, effectiveStrNights: mixedStr?.effectiveNights ?? 0 },
     recommendation,
     deltaBestVsWorst: best - worst,
   };
@@ -209,56 +241,36 @@ export interface StrComplianceInputs {
 
 export interface StrComplianceResult {
   requiresLicense: boolean;
-  licenseThresholdMargin: number; // jours avant seuil 90
-  requiresTaxDeclaration: boolean;
-  communeRegulationRisk: "low" | "medium" | "high";
+  licenseThresholdMargin: number;
+  requiresTaxDeclaration: null; // cannot infer household filing obligations from gross receipts
+  communeRegulationRisk: "unverified";
   euRegulationCompliance: {
-    registrationRequired: boolean;
-    dataTransmissionRequired: boolean;
+    registrationRequired: null; // depends on a competent authority's registration procedure
+    dataTransmissionRequired: null;
     effectiveDate: string;
   };
-  actions: string[];
+  actions: string[]; // translation keys in strCompliance.actionItems
 }
 
-// Communes avec restrictions connues ou supposées (à raffiner avec règlements communaux réels)
-const HIGH_REGULATION_COMMUNES = ["luxembourg", "esch-sur-alzette", "differdange", "dudelange"];
-const MEDIUM_REGULATION_COMMUNES = ["strassen", "bertrange", "mamer", "sandweiler"];
-
 export function checkSTRCompliance(i: StrComplianceInputs): StrComplianceResult {
-  const communeNorm = i.commune.toLowerCase().trim();
-  const requiresLicense = i.nightsPlannedPerYear > STR_LICENSE_THRESHOLD_DAYS;
-  const licenseThresholdMargin = STR_LICENSE_THRESHOLD_DAYS - i.nightsPlannedPerYear;
-
-  const communeRegulationRisk: "low" | "medium" | "high" =
-    HIGH_REGULATION_COMMUNES.includes(communeNorm) ? "high"
-    : MEDIUM_REGULATION_COMMUNES.includes(communeNorm) ? "medium"
-    : "low";
-
-  const actions: string[] = [];
-  if (requiresLicense) {
-    actions.push("Demander une licence d'hébergement (Ministère du Tourisme / commune)");
+  if (!Number.isFinite(i.nightsPlannedPerYear) || i.nightsPlannedPerYear < 0
+    || !Number.isFinite(i.annualRevenueEstimated) || i.annualRevenueEstimated < 0) {
+    throw new RangeError("Invalid STR compliance input");
   }
-  if (i.annualRevenueEstimated > STR_TAX_THRESHOLD_EUR) {
-    actions.push("Déclarer le revenu au titre de l'impôt sur le revenu (IR, formulaire 100)");
-  }
-  if (communeRegulationRisk === "high") {
-    actions.push("Vérifier règlement communal (Luxembourg-Ville notamment impose des restrictions)");
-  }
-  actions.push("S'enregistrer au registre EU des locations de courte durée (obligation EU Regulation 2024/1028, mi-2026)");
-  actions.push("Souscrire une assurance PNO courte durée (RC locative + dommages voyageurs)");
-  if (i.ownerType === "societe") {
-    actions.push("Vérifier TVA (exonérée si logement meublé touristique ? à valider avec expert-comptable LU)");
-  }
-
+  // The form requests operator-wide totals, not a single property's annual occupancy.
+  const requiresLicense = i.nightsPlannedPerYear >= STR_LICENSE_THRESHOLD_DAYS;
+  const actions = ["operatorTotal", "localRules", "tax", "registration", "insurance"];
+  if (requiresLicense) actions.unshift("license");
+  if (i.ownerType === "societe") actions.push("vat");
   return {
     requiresLicense,
-    licenseThresholdMargin,
-    requiresTaxDeclaration: i.annualRevenueEstimated > STR_TAX_THRESHOLD_EUR,
-    communeRegulationRisk,
+    licenseThresholdMargin: STR_LICENSE_THRESHOLD_DAYS - i.nightsPlannedPerYear,
+    requiresTaxDeclaration: null,
+    communeRegulationRisk: "unverified",
     euRegulationCompliance: {
-      registrationRequired: true,
-      dataTransmissionRequired: true,
-      effectiveDate: "mi-2026",
+      registrationRequired: null,
+      dataTransmissionRequired: null,
+      effectiveDate: "2026-05-20",
     },
     actions,
   };

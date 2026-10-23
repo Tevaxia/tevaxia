@@ -2,7 +2,8 @@
 import { useAuth } from "@/components/AuthProvider";
 
 import { useState, useMemo } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useFormatter } from "next-intl";
+import { calculerAchatLocation, plafondInteretsHabitation, type AchatLocationInput } from "@/lib/achat-location";
 import {
   LineChart,
   Line,
@@ -18,7 +19,6 @@ import {
 import InputField from "@/components/InputField";
 import SliderField from "@/components/SliderField";
 import ResultPanel from "@/components/ResultPanel";
-import { formatEUR, formatEUR2 } from "@/lib/calculations";
 import { PdfButton } from "@/components/PdfButton";
 const _lazy_generateAchatLocationPdfBlob = async (...args: Parameters<typeof import("@/components/ToolsPdf")["generateAchatLocationPdfBlob"]>): Promise<Blob> => (await import("@/components/ToolsPdf")).generateAchatLocationPdfBlob(...args);
 import { sauvegarderEvaluation } from "@/lib/storage";
@@ -35,27 +35,12 @@ function sampleNormal(mean: number, sd: number): number {
   return mean + sd * z0;
 }
 
-interface MonteCarloProps {
-  baselineAppreciation: number;
-  baselineRendement: number;
-  baselineIndexation: number;
-  horizon: number;
-  prixBien: number;
-  apport: number;
-  fraisAcquisitionPct: number;
-  mensualiteCredit: number;
-  capitalCredit: number;
-  tauxCredit: number;
-  dureeCredit: number;
-  loyerMensuel: number;
-  chargesCoproMensuel: number;
-  taxeFonciereAn: number;
-  entretienAnPct: number;
-  assuranceSRDMensuel: number;
-}
+interface MonteCarloProps { scenario: AchatLocationInput }
 
 function MonteCarloSection(props: MonteCarloProps) {
   const t = useTranslations("achatLocation");
+  const formatter = useFormatter();
+  const formatEUR = (value: number) => formatter.number(value, { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
   const [running, setRunning] = useState(false);
   const [results, setResults] = useState<{
     pctAchat: number;
@@ -79,43 +64,19 @@ function MonteCarloSection(props: MonteCarloProps) {
 
       for (let i = 0; i < N; i++) {
         // Échantillonner les paramètres clés
-        const apprec = sampleNormal(props.baselineAppreciation, 2) / 100;
-        const rendement = sampleNormal(props.baselineRendement, 3) / 100;
-        const indexation = Math.max(0, sampleNormal(props.baselineIndexation, 1)) / 100;
-
-        // Simulation simplifiée sur l'horizon : recalcul identique à l'engine
-        const fraisAcquisition = props.prixBien * (props.fraisAcquisitionPct / 100);
-        let capitalRestant = props.capitalCredit;
-        let placementCapital = props.apport + fraisAcquisition;
-        let loyerAnnuel = props.loyerMensuel * 12;
-
-        for (let a = 1; a <= props.horizon; a++) {
-          const valeurBien = props.prixBien * Math.pow(1 + apprec, a);
-          const interetsAnnuels = capitalRestant * (props.tauxCredit / 100);
-          const capitalAnnuel = Math.min(props.mensualiteCredit * 12 - interetsAnnuels, capitalRestant);
-          capitalRestant = Math.max(0, capitalRestant - capitalAnnuel);
-
-          const coutAchatMensuel =
-            props.mensualiteCredit +
-            props.chargesCoproMensuel +
-            props.taxeFonciereAn / 12 +
-            (props.prixBien * (props.entretienAnPct / 100)) / 12 +
-            props.assuranceSRDMensuel;
-          const loyerMensuelA = loyerAnnuel / 12;
-          const economieMensuelle = coutAchatMensuel - loyerMensuelA;
-          if (economieMensuelle > 0) placementCapital += economieMensuelle * 12;
-          placementCapital *= 1 + rendement;
-          loyerAnnuel *= 1 + indexation;
-
-          if (a === props.horizon) {
-            const patrimoineAchat = valeurBien - capitalRestant;
-            const patrimoineLoc = placementCapital;
-            achatVals.push(patrimoineAchat);
-            locVals.push(patrimoineLoc);
-            diffs.push(patrimoineAchat - patrimoineLoc);
-            if (patrimoineAchat > patrimoineLoc) achatWins++;
-          }
-        }
+        const scenario = props.scenario;
+        const simulation = calculerAchatLocation({
+          ...scenario,
+          appreciationAn: Math.max(-99, Math.min(100, sampleNormal(scenario.appreciationAn, 2))),
+          rendementPlacement: Math.max(-99, Math.min(100, sampleNormal(scenario.rendementPlacement, 3))),
+          indexationLoyer: Math.max(0, Math.min(100, sampleNormal(scenario.indexationLoyer, 1))),
+        });
+        const patrimoineAchat = simulation.derniere.patrimoineNetAchat;
+        const patrimoineLoc = simulation.derniere.patrimoineNetLocation;
+        achatVals.push(patrimoineAchat);
+        locVals.push(patrimoineLoc);
+        diffs.push(patrimoineAchat - patrimoineLoc);
+        if (patrimoineAchat > patrimoineLoc) achatWins++;
       }
 
       diffs.sort((a, b) => a - b);
@@ -129,7 +90,7 @@ function MonteCarloSection(props: MonteCarloProps) {
       const min = diffs[0];
       const max = diffs[N - 1];
       const nbBuckets = 20;
-      const bucketSize = (max - min) / nbBuckets;
+      const bucketSize = (max - min) / nbBuckets || 1;
       const buckets: number[] = Array(nbBuckets).fill(0);
       for (const d of diffs) {
         const idx = Math.min(nbBuckets - 1, Math.floor((d - min) / bucketSize));
@@ -175,7 +136,7 @@ function MonteCarloSection(props: MonteCarloProps) {
             <div className={`rounded-lg p-3 text-center ${results.pctAchat >= 50 ? "bg-emerald-50 border border-emerald-200" : "bg-rose-50 border border-rose-200"}`}>
               <div className="text-[10px] uppercase tracking-wider text-muted">{t("monteCarloProbAchat")}</div>
               <div className={`mt-1 text-3xl font-bold ${results.pctAchat >= 50 ? "text-emerald-900" : "text-rose-900"}`}>
-                {results.pctAchat.toFixed(1)} %
+                {formatter.number(results.pctAchat, { maximumFractionDigits: 1 })} %
               </div>
             </div>
             <div className="rounded-lg p-3 border border-card-border bg-background text-center">
@@ -187,7 +148,7 @@ function MonteCarloSection(props: MonteCarloProps) {
             <div className="rounded-lg p-3 border border-card-border bg-background text-center">
               <div className="text-[10px] uppercase tracking-wider text-muted">{t("monteCarloIC90")}</div>
               <div className="mt-1 text-xs font-mono text-slate">
-                {formatEUR(results.p5Diff)} à {formatEUR(results.p95Diff)}
+                {formatEUR(results.p5Diff)} – {formatEUR(results.p95Diff)}
               </div>
             </div>
           </div>
@@ -198,7 +159,7 @@ function MonteCarloSection(props: MonteCarloProps) {
               <XAxis dataKey="bucket" tick={{ fontSize: 9 }} interval={2} />
               <YAxis tick={{ fontSize: 10 }} />
               <Tooltip
-                formatter={(v: unknown) => (typeof v === "number" ? `${v} scénarios` : "—")}
+                formatter={(v: unknown) => (typeof v === "number" ? t("scenarioCount", { count: v }) : "—")}
                 contentStyle={{ fontSize: 12, borderRadius: 8 }}
               />
               <Bar dataKey="count" fill="#1e3a5f" />
@@ -217,29 +178,12 @@ function MonteCarloSection(props: MonteCarloProps) {
   );
 }
 
-/**
- * Luxembourg "déduction des intérêts débiteurs" (art. 98bis LIR).
- * Maximum deductible interest per person per year:
- *   - Years 1-5  (première occupation): 2 000 €
- *   - Years 6-10:                       1 500 €
- *   - Year 11+:                         1 000 €
- * Multiply by nbPersonnes (1 or 2 for a couple).
- */
-function deductionInteretsMax(annee: number, nbPersonnes: number): number {
-  let plafond: number;
-  if (annee <= 5) {
-    plafond = 2000;
-  } else if (annee <= 10) {
-    plafond = 1500;
-  } else {
-    plafond = 1000;
-  }
-  return plafond * nbPersonnes;
-}
-
 export default function AchatVsLocation() {
   const { user: valuationUser } = useAuth();
   const t = useTranslations("achatLocation");
+  const formatter = useFormatter();
+  const formatEUR = (value: number) => formatter.number(value, { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+  const formatEUR2 = (value: number) => formatter.number(value, { style: "currency", currency: "EUR", minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const [viewMode, setViewMode] = useState<"quick" | "full">("quick");
 
   // Achat
@@ -259,6 +203,10 @@ export default function AchatVsLocation() {
   // Déduction intérêts débiteurs
   const [nbPersonnes, setNbPersonnes] = useState(2);
   const [tauxMarginalIR, setTauxMarginalIR] = useState(39);
+  const [anneeSimulation, setAnneeSimulation] = useState(2026);
+  const [anneeDisponibilite, setAnneeDisponibilite] = useState(2026);
+  const [deductionEligible, setDeductionEligible] = useState(false);
+  const [subventionInteretsAn, setSubventionInteretsAn] = useState(0);
 
   // Location
   const [loyerMensuel, setLoyerMensuel] = useState(2000);
@@ -270,162 +218,26 @@ export default function AchatVsLocation() {
   // Horizon
   const [horizon, setHorizon] = useState(15);
 
-  const result = useMemo(() => {
-    const montantCredit = prixBien - apport;
-    const fraisAcquisition = prixBien * (fraisAcquisitionPct / 100);
-    const tauxMensuel = tauxCredit / 100 / 12;
-    const nbMois = dureeCredit * 12;
-
-    // Mensualité crédit
-    const mensualiteCredit = tauxMensuel > 0
-      ? montantCredit * (tauxMensuel * Math.pow(1 + tauxMensuel, nbMois)) / (Math.pow(1 + tauxMensuel, nbMois) - 1)
-      : montantCredit / nbMois;
-
-    // Assurance SRD mensuelle (on the initial capital)
-    const assuranceSRDMensuel = montantCredit * (tauxAssuranceSRD / 100) / 12;
-
-    // Tableaux année par année
-    const annees: {
-      annee: number;
-      // Achat
-      coutAchatCumule: number;
-      capitalRembourse: number;
-      capitalRestant: number;
-      valeurBien: number;
-      patrimoineNetAchat: number;
-      deductionInterets: number;
-      economieFiscaleCumul: number;
-      assuranceSRDAnnuel: number;
-      // Location
-      coutLocationCumule: number;
-      placementCapital: number;
-      patrimoineNetLocation: number;
-    }[] = [];
-
-    let coutAchatCumule = apport + fraisAcquisition;
-    let capitalRestant = montantCredit;
-    let coutLocationCumule = 0;
-    let placementCapital = apport + fraisAcquisition; // Si on loue, on garde l'apport + frais
-    let loyerAnnuel = loyerMensuel * 12;
-    let economieFiscaleCumul = 0;
-
-    for (let a = 1; a <= horizon; a++) {
-      // ACHAT
-      const valeurBien = prixBien * Math.pow(1 + appreciationAn / 100, a);
-      const interetsAnnuels = capitalRestant * (tauxCredit / 100);
-      const capitalAnnuel = Math.min(mensualiteCredit * 12 - interetsAnnuels, capitalRestant);
-      capitalRestant = Math.max(0, capitalRestant - capitalAnnuel);
-
-      // Luxembourg interest deduction
-      const plafondDeduction = deductionInteretsMax(a, nbPersonnes);
-      const deductionInterets = Math.min(interetsAnnuels, plafondDeduction);
-      const economieFiscaleAnnuelle = deductionInterets * (tauxMarginalIR / 100);
-      economieFiscaleCumul += economieFiscaleAnnuelle;
-
-      // Assurance SRD (annual cost)
-      const assuranceSRDAnnuel = assuranceSRDMensuel * 12;
-
-      const coutAchatAnnuel =
-        mensualiteCredit * 12 +
-        chargesCoproMensuel * 12 +
-        taxeFonciereAn +
-        prixBien * (entretienAnPct / 100) +
-        assuranceSRDAnnuel -
-        economieFiscaleAnnuelle; // Interest deduction reduces effective cost
-
-      coutAchatCumule += coutAchatAnnuel;
-
-      const patrimoineNetAchat = valeurBien - capitalRestant;
-
-      // LOCATION
-      coutLocationCumule += loyerAnnuel;
-      const coutMensuelAchatPourComparaison =
-        mensualiteCredit +
-        chargesCoproMensuel +
-        taxeFonciereAn / 12 +
-        prixBien * (entretienAnPct / 100) / 12 +
-        assuranceSRDMensuel -
-        economieFiscaleAnnuelle / 12;
-
-      const economieMensuelle =
-        coutMensuelAchatPourComparaison -
-        loyerMensuel * Math.pow(1 + indexationLoyer / 100, a - 1);
-
-      if (economieMensuelle > 0) {
-        placementCapital += economieMensuelle * 12;
-      }
-      placementCapital *= (1 + rendementPlacement / 100);
-      loyerAnnuel *= (1 + indexationLoyer / 100);
-
-      annees.push({
-        annee: a,
-        coutAchatCumule,
-        capitalRembourse: montantCredit - capitalRestant,
-        capitalRestant,
-        valeurBien,
-        patrimoineNetAchat,
-        deductionInterets,
-        economieFiscaleCumul,
-        assuranceSRDAnnuel,
-        coutLocationCumule,
-        placementCapital,
-        patrimoineNetLocation: placementCapital,
-      });
-    }
-
-    // Point de croisement : quand achat devient plus avantageux
-    const croisement = annees.find((a) => a.patrimoineNetAchat > a.patrimoineNetLocation);
-
-    // Exact crossover year (fractional) for chart annotation
-    let crossoverYear: number | null = null;
-    for (let i = 1; i < annees.length; i++) {
-      const prev = annees[i - 1];
-      const curr = annees[i];
-      const diffPrev = prev.patrimoineNetAchat - prev.patrimoineNetLocation;
-      const diffCurr = curr.patrimoineNetAchat - curr.patrimoineNetLocation;
-      if (diffPrev <= 0 && diffCurr > 0) {
-        // Linear interpolation
-        crossoverYear = prev.annee + (-diffPrev) / (diffCurr - diffPrev);
-        break;
-      }
-    }
-
-    // Chart data
-    const chartData = annees.map((a) => ({
-      annee: a.annee,
-      achat: Math.round(a.patrimoineNetAchat),
-      location: Math.round(a.patrimoineNetLocation),
-    }));
-
-    return {
-      mensualiteCredit,
-      fraisAcquisition,
-      montantCredit,
-      assuranceSRDMensuel,
-      annees,
-      croisement,
-      crossoverYear,
-      chartData,
-      derniere: annees[annees.length - 1],
-    };
-  }, [
+  const scenario = useMemo<AchatLocationInput>(() => ({
     prixBien, apport, tauxCredit, dureeCredit, fraisAcquisitionPct,
     chargesCoproMensuel, taxeFonciereAn, entretienAnPct, appreciationAn,
-    tauxAssuranceSRD, nbPersonnes, tauxMarginalIR,
-    loyerMensuel, indexationLoyer, rendementPlacement, horizon,
-  ]);
-
-  const coutMensuelTotal =
-    result.mensualiteCredit +
-    chargesCoproMensuel +
-    taxeFonciereAn / 12 +
-    prixBien * (entretienAnPct / 100) / 12 +
-    result.assuranceSRDMensuel;
-
-  // First year fiscal saving (for display)
-  const deductionAn1 = result.annees.length > 0 ? result.annees[0].deductionInterets : 0;
-  const economieFiscaleMensuelleAn1 = (deductionAn1 * (tauxMarginalIR / 100)) / 12;
-  const coutMensuelNetAchat = coutMensuelTotal - economieFiscaleMensuelleAn1;
+    tauxAssuranceSRD, nbPersonnes, tauxMarginalIR, anneeSimulation, anneeDisponibilite,
+    deductionEligible, subventionInteretsAn, loyerMensuel, indexationLoyer, rendementPlacement, horizon,
+  }), [prixBien, apport, tauxCredit, dureeCredit, fraisAcquisitionPct,
+    chargesCoproMensuel, taxeFonciereAn, entretienAnPct, appreciationAn,
+    tauxAssuranceSRD, nbPersonnes, tauxMarginalIR, anneeSimulation, anneeDisponibilite,
+    deductionEligible, subventionInteretsAn, loyerMensuel, indexationLoyer, rendementPlacement, horizon]);
+  const result = useMemo(() => {
+    try { return calculerAchatLocation(scenario); }
+    catch { return null; }
+  }, [scenario]);
+  const plafondAn1 = result ? plafondInteretsHabitation(anneeSimulation, anneeDisponibilite, nbPersonnes) : 0;
+  const plafondLabel = !deductionEligible ? t("deductionDisabled") : Number.isFinite(plafondAn1) ? formatEUR(plafondAn1) : t("deductionUncapped");
+  const economieFiscaleMensuelleAn1 = (result?.annees[0].deductionInterets ?? 0) * tauxMarginalIR / 100 / 12;
+  const coutMensuelNetAchat = (result?.annees[0].coutAchatAnnuel ?? 0) / 12;
+  const subventionMensuelleAn1 = (result?.annees[0].subvention ?? 0) / 12;
+  const coutMensuelTotal = coutMensuelNetAchat + economieFiscaleMensuelleAn1 + subventionMensuelleAn1;
+  const hypotheses = t("modelScope", { annee: anneeSimulation, disponibilite: anneeDisponibilite, personnes: nbPersonnes, taux: tauxMarginalIR, deduction: plafondLabel });
 
   return (
     <>
@@ -466,7 +278,7 @@ export default function AchatVsLocation() {
               <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionEssentials")}</h2>
               <div className="space-y-5">
                 <SliderField label={t("prixBien")} value={prixBien} onChange={setPrixBien} min={100000} max={2000000} step={10000} suffix="€" />
-                <SliderField label={t("apport")} value={apport} onChange={setApport} min={0} max={500000} step={5000} suffix="€" />
+                <SliderField label={t("apport")} value={apport} onChange={setApport} min={0} max={Math.min(500000, prixBien)} step={5000} suffix="€" />
                 <SliderField label={t("tauxCredit")} value={tauxCredit} onChange={setTauxCredit} min={1} max={6} step={0.1} suffix="%" />
                 <SliderField label={t("loyerMensuel")} value={loyerMensuel} onChange={setLoyerMensuel} min={500} max={5000} step={50} suffix="€" />
                 <SliderField label={t("dureeComparaison")} value={horizon} onChange={setHorizon} min={5} max={40} step={1} suffix={t("suffixAns")} />
@@ -479,7 +291,7 @@ export default function AchatVsLocation() {
                 <div className="rounded-xl border border-card-border bg-card p-6 shadow-sm">
                   <h2 className="mb-4 text-base font-semibold text-navy">{t("sectionAchatDetails")}</h2>
                   <div className="space-y-4">
-                    <InputField label={t("dureeCredit")} value={dureeCredit} onChange={(v) => setDureeCredit(Number(v))} suffix={t("suffixAns")} />
+                    <InputField label={t("dureeCredit")} value={dureeCredit} onChange={(v) => setDureeCredit(Number(v))} min={1} max={50} suffix={t("suffixAns")} />
                     <InputField label={t("fraisAcquisition")} value={fraisAcquisitionPct} onChange={(v) => setFraisAcquisitionPct(Number(v))} suffix="%" hint={t("fraisAcquisitionHint")} />
                     <InputField label={t("chargesCopro")} value={chargesCoproMensuel} onChange={(v) => setChargesCoproMensuel(Number(v))} suffix={t("suffixEuroMois")} />
                     <InputField label={t("impotFoncier")} value={taxeFonciereAn} onChange={(v) => setTaxeFonciereAn(Number(v))} suffix={t("suffixEuroAn")} hint={t("impotFoncierHint")} />
@@ -500,7 +312,7 @@ export default function AchatVsLocation() {
                       hint={t("tauxAssuranceSRDHint")}
                     />
                     <div className="text-xs text-muted">
-                      {t("coutMensuelLabel")} <span className="font-semibold text-foreground">{formatEUR2(result.assuranceSRDMensuel)}</span>
+                      {t("coutMensuelLabel")} <span className="font-semibold text-foreground">{formatEUR2(result?.assuranceSRDMensuel ?? 0)}</span>
                     </div>
                   </div>
                 </div>
@@ -511,13 +323,20 @@ export default function AchatVsLocation() {
                     {t("deductionInteretsDescription")}
                   </p>
                   <div className="space-y-4">
+                    <InputField label={t("simulationYear")} value={anneeSimulation} onChange={v => setAnneeSimulation(Number(v))} min={2024} max={2100} />
+                    <InputField label={t("availabilityYear")} value={anneeDisponibilite} onChange={v => setAnneeDisponibilite(Number(v))} min={1900} max={anneeSimulation} hint={t("availabilityHint")} />
+                    <label className="flex items-start gap-2 text-sm">
+                      <input type="checkbox" checked={deductionEligible} onChange={e => setDeductionEligible(e.target.checked)} />
+                      <span>{t("deductionEligibility")}</span>
+                    </label>
+                    <InputField label={t("interestSubsidy")} value={subventionInteretsAn} onChange={v => setSubventionInteretsAn(Number(v))} min={0} suffix={t("suffixEuroAn")} />
                     <InputField
                       label={t("nbPersonnes")}
                       value={nbPersonnes}
-                      onChange={(v) => setNbPersonnes(Math.max(1, Math.min(2, Number(v))))}
+                      onChange={(v) => setNbPersonnes(Number(v))}
                       suffix={t("suffixPers")}
                       min={1}
-                      max={2}
+                      max={20}
                     />
                     <InputField
                       label={t("tauxMarginal")}
@@ -528,7 +347,7 @@ export default function AchatVsLocation() {
                       hint={t("tauxMarginalHint")}
                     />
                     <div className="text-xs text-muted">
-                      {t("plafondDeductionAn1")} <span className="font-semibold text-foreground">{formatEUR(deductionInteretsMax(1, nbPersonnes))}</span>
+                      {t("plafondDeductionAn1")} <span className="font-semibold text-foreground">{plafondLabel}</span>
                       {" — "}{t("economieFiscaleAn1")} <span className="font-semibold text-foreground">{formatEUR2(economieFiscaleMensuelleAn1 * 12)}/{t("perAn")}</span>
                     </div>
                   </div>
@@ -547,6 +366,8 @@ export default function AchatVsLocation() {
 
           {/* Résultats */}
           <div className="lg:col-span-2 space-y-6">
+            {!result ? <p role="alert" className="rounded-xl border border-red-200 bg-red-50 p-4 text-red-900">{t("invalidScenario")}</p> : <>
+            <p className="rounded-lg border border-card-border bg-card p-3 text-xs text-muted">{hypotheses}</p>
             {/* Verdict */}
             <div className={`rounded-2xl p-8 text-white text-center shadow-lg ${
               result.derniere.patrimoineNetAchat > result.derniere.patrimoineNetLocation
@@ -589,10 +410,10 @@ export default function AchatVsLocation() {
                 "",
                 `Patrimoine net fin horizon — Achat: ${formatEUR(result.derniere.patrimoineNetAchat)}`,
                 `Patrimoine net fin horizon — Location+placement: ${formatEUR(result.derniere.patrimoineNetLocation)}`,
-                result.croisement ? `Point de bascule: année ${result.croisement.annee}` : `Pas de bascule sur ${horizon} ans`,
-                `Déduction intérêts LIR plafonnée: ${formatEUR(deductionInteretsMax(1, nbPersonnes))}/an an 1`,
+                result.croisement ? `Première année favorable à l’achat: ${result.croisement.annee}, résultat susceptible de s’inverser ensuite` : `Pas de bascule sur ${horizon} ans`,
+                `Déduction intérêts LIR plafonnée: ${plafondLabel}/an an 1`,
               ].join("\n")}
-              prompt="Conseille cet utilisateur particulier au Luxembourg sur le choix achat vs location. Structure : (1) le verdict chiffré sur cet horizon et le point de bascule, (2) facteurs NON chiffrés à peser (stabilité professionnelle/familiale, mobilité, amour du bien, liquidité), (3) risques spécifiques achat (remontée taux, chute prix, copropriété dégradée) vs risques location (hausse loyers, obligation de départ), (4) profils où le choix bascule (mutation probable, famille à agrandir, entrepreneur, approche retraite). Personnalisé, humain, pas que comptable."
+              prompt="Conseille cet utilisateur particulier au Luxembourg sur le choix achat vs location. Structure : (1) le verdict chiffré sur cet horizon et la première bascule, susceptible de s’inverser ensuite, (2) facteurs NON chiffrés à peser (stabilité professionnelle/familiale, mobilité, amour du bien, liquidité), (3) risques spécifiques achat (remontée taux, chute prix, copropriété dégradée) vs risques location (hausse loyers, obligation de départ), (4) profils où le choix bascule (mutation probable, famille à agrandir, entrepreneur, approche retraite). Personnalisé, humain, pas que comptable."
             />
 
             <div className="flex justify-end gap-2">
@@ -602,18 +423,19 @@ export default function AchatVsLocation() {
                     nom: `Achat vs Location — ${formatEUR(prixBien)} vs ${formatEUR(loyerMensuel)}/mois`,
                     type: "achat-location",
                     valeurPrincipale: result.derniere.patrimoineNetAchat,
-                    data: { prixBien, apport, tauxCredit, dureeCredit, loyerMensuel, horizon, fraisAcquisitionPct, chargesCoproMensuel, taxeFonciereAn, entretienAnPct, appreciationAn, indexationLoyer, rendementPlacement },
+                    data: { ...scenario },
                   }, valuationUser?.id ?? null);
                 }}
-                label="Sauvegarder"
-                successLabel="Sauvegardé !"
+                label={t("save")}
+                successLabel={t("saved")}
               />
               <PdfButton
-                label="PDF"
-                filename={`achat-vs-location-${new Date().toLocaleDateString("fr-FR")}.pdf`}
+                label={t("pdfFrench")}
+                filename={`achat-vs-location-${new Date().toISOString().slice(0, 10)}.pdf`}
                 generateBlob={() =>
                   _lazy_generateAchatLocationPdfBlob({
-                    verdict: result.derniere.patrimoineNetAchat > result.derniere.patrimoineNetLocation ? "Achat" : "Location",
+                    verdict: result.derniere.patrimoineNetAchat > result.derniere.patrimoineNetLocation ? t("achat") : t("location"),
+                    hypotheses,
                     prixAchat: prixBien,
                     loyerMensuel,
                     dureeAns: horizon,
@@ -676,7 +498,7 @@ export default function AchatVsLocation() {
                       formatEUR(Number(value)),
                       name === "achat" ? t("legendeAchat") : t("legendeLocation"),
                     ]}
-                    labelFormatter={(label) => t("tooltipAnnee", { annee: label })}
+                    labelFormatter={(label) => t("tooltipAnnee", { annee: String(label) })}
                     contentStyle={{
                       fontSize: 12,
                       borderRadius: 8,
@@ -748,8 +570,9 @@ export default function AchatVsLocation() {
                       { label: t("chargesCopro"), value: formatEUR2(chargesCoproMensuel), sub: true },
                       { label: t("impotFoncier"), value: formatEUR2(taxeFonciereAn / 12), sub: true },
                       { label: t("entretien"), value: formatEUR2(prixBien * entretienAnPct / 100 / 12), sub: true },
-                      { label: t("assuranceSRD"), value: formatEUR2(result.assuranceSRDMensuel), sub: true },
+                      { label: t("assuranceSRD"), value: formatEUR2(result?.assuranceSRDMensuel ?? 0), sub: true },
                       { label: t("totalBrutMensuel"), value: formatEUR2(coutMensuelTotal), highlight: true },
+                      { label: t("interestSubsidyMonthly"), value: `- ${formatEUR2(subventionMensuelleAn1)}`, sub: true },
                       { label: t("economieFiscaleInteretsAn1"), value: `- ${formatEUR2(economieFiscaleMensuelleAn1)}`, sub: true },
                       { label: t("coutNetMensuelAn1"), value: formatEUR2(coutMensuelNetAchat), highlight: true },
                     ]}
@@ -770,14 +593,14 @@ export default function AchatVsLocation() {
                     title={t("deductionInteretsTitle")}
                     lines={[
                       { label: t("interetsAn1"), value: formatEUR2(result.annees.length > 0 ? result.annees[0].deductionInterets : 0) },
-                      { label: t("plafondAn1"), value: formatEUR(deductionInteretsMax(1, nbPersonnes)), sub: true },
+                      { label: t("plafondAn1"), value: plafondLabel, sub: true },
                       { label: t("economieFiscaleCumulee", { horizon }), value: formatEUR(result.derniere.economieFiscaleCumul), highlight: true },
                     ]}
                   />
                   <ResultPanel
                     title={t("assuranceSRDTitle")}
                     lines={[
-                      { label: t("coutMensuel"), value: formatEUR2(result.assuranceSRDMensuel) },
+                      { label: t("coutMensuel"), value: formatEUR2(result?.assuranceSRDMensuel ?? 0) },
                       { label: t("coutAnnuel"), value: formatEUR2(result.assuranceSRDMensuel * 12), sub: true },
                       { label: t("coutTotal", { annees: Math.min(horizon, dureeCredit) }), value: formatEUR(result.assuranceSRDMensuel * 12 * Math.min(horizon, dureeCredit)), highlight: true },
                     ]}
@@ -819,30 +642,14 @@ export default function AchatVsLocation() {
 
                 <div className="rounded-lg bg-amber-50 border border-amber-200 p-3">
                   <p className="text-xs text-amber-800 leading-relaxed">
-                    <strong>{t("hypothesesTitle")}</strong> {t("hypothesesText", { appreciation: appreciationAn, rendement: rendementPlacement, plafond: formatEUR(2000 * nbPersonnes), nbPersonnes, tauxSRD: tauxAssuranceSRD })}
+                    <strong>{t("hypothesesTitle")}</strong> {hypotheses}
                   </p>
                 </div>
 
-                <MonteCarloSection
-                  baselineAppreciation={appreciationAn}
-                  baselineRendement={rendementPlacement}
-                  baselineIndexation={indexationLoyer}
-                  horizon={horizon}
-                  prixBien={prixBien}
-                  apport={apport}
-                  fraisAcquisitionPct={fraisAcquisitionPct}
-                  mensualiteCredit={result.mensualiteCredit}
-                  capitalCredit={result.montantCredit}
-                  tauxCredit={tauxCredit}
-                  dureeCredit={dureeCredit}
-                  loyerMensuel={loyerMensuel}
-                  chargesCoproMensuel={chargesCoproMensuel}
-                  taxeFonciereAn={taxeFonciereAn}
-                  entretienAnPct={entretienAnPct}
-                  assuranceSRDMensuel={result.assuranceSRDMensuel}
-                />
+                <MonteCarloSection key={JSON.stringify(scenario)} scenario={scenario} />
               </>
             )}
+            </>}
           </div>
         </div>
 

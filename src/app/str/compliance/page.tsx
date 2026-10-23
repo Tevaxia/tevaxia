@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import InputField from "@/components/InputField";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
 import { formatEUR } from "@/lib/calculations";
-import { checkSTRCompliance, STR_LICENSE_THRESHOLD_DAYS, STR_TAX_THRESHOLD_EUR } from "@/lib/str-calc";
+import { checkSTRCompliance, STR_LICENSE_THRESHOLD_DAYS } from "@/lib/str-calc";
 
 export default function StrCompliance() {
   const t = useTranslations("strCompliance");
@@ -27,14 +27,6 @@ export default function StrCompliance() {
     annualRevenueEstimated: annualRevenue,
   }), [nightsPlanned, commune, isPrimaryResidence, ownerType, annualRevenue]);
 
-  const riskColor = result.communeRegulationRisk === "high" ? "bg-rose-100 text-rose-800 border-rose-200"
-    : result.communeRegulationRisk === "medium" ? "bg-amber-100 text-amber-800 border-amber-200"
-    : "bg-emerald-100 text-emerald-800 border-emerald-200";
-
-  const riskLabel = result.communeRegulationRisk === "high" ? t("risk.high")
-    : result.communeRegulationRisk === "medium" ? t("risk.medium")
-    : t("risk.low");
-
   return (
     <div className="bg-background py-8 sm:py-12">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -52,10 +44,9 @@ export default function StrCompliance() {
                 <InputField
                   label={t("form.nights")}
                   value={nightsPlanned}
-                  onChange={(v) => setNightsPlanned(Number(v))}
+                  onChange={(v) => setNightsPlanned(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))}
                   suffix={t("form.nightsSuffix")}
                   min={0}
-                  max={365}
                   hint={t("form.nightsHint", { threshold: STR_LICENSE_THRESHOLD_DAYS })}
                 />
                 <InputField label={t("form.commune")} type="text" value={commune} onChange={(v) => setCommune(String(v))} />
@@ -73,9 +64,9 @@ export default function StrCompliance() {
                 <InputField
                   label={t("form.revenue")}
                   value={annualRevenue}
-                  onChange={(v) => setAnnualRevenue(Number(v))}
+                  onChange={(v) => setAnnualRevenue(Math.max(0, (Number.isFinite(Number(v)) ? Number(v) : 0)))}
                   suffix="€"
-                  hint={t("form.revenueHint", { threshold: formatEUR(STR_TAX_THRESHOLD_EUR) })}
+                  hint={t("form.revenueHint")}
                 />
                 <label className="flex items-center gap-2 text-sm text-slate">
                   <input
@@ -103,32 +94,21 @@ export default function StrCompliance() {
               </div>
             </div>
 
-            <div className={`rounded-xl border-2 p-5 ${riskColor}`}>
+            <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
               <h3 className="text-sm font-semibold">{t("risk.title")}</h3>
-              <p className="mt-2 text-sm">
-                {t("risk.body", { commune, level: riskLabel })}
-              </p>
-              {result.communeRegulationRisk === "high" && (
-                <p className="mt-2 text-xs">{t("risk.highNote")}</p>
-              )}
+              <p className="mt-2 text-sm">{t("risk.unverified", { commune })}</p>
             </div>
 
             <div className="rounded-xl border border-card-border bg-card p-5 shadow-sm">
               <h3 className="text-sm font-semibold text-navy">{t("tax.title")}</h3>
               <div className="mt-3 text-sm space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-muted">{t("tax.threshold")}</span>
-                  <span className="font-mono font-semibold">{formatEUR(STR_TAX_THRESHOLD_EUR)}</span>
-                </div>
-                <div className="flex justify-between">
                   <span className="text-muted">{t("tax.yourRevenue")}</span>
                   <span className="font-mono font-semibold">{formatEUR(annualRevenue)}</span>
                 </div>
                 <div className="flex justify-between border-t border-card-border pt-2">
                   <span className="font-semibold">{t("tax.required")}</span>
-                  <span className={`font-semibold ${result.requiresTaxDeclaration ? "text-rose-700" : "text-emerald-700"}`}>
-                    {result.requiresTaxDeclaration ? t("tax.yes") : t("tax.no")}
-                  </span>
+                  <span className="font-semibold text-amber-700">{t("tax.toCheck")}</span>
                 </div>
               </div>
               <p className="mt-3 text-xs text-muted">{t("tax.note")}</p>
@@ -154,7 +134,7 @@ export default function StrCompliance() {
                     <svg className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m0-7.5a8.25 8.25 0 1 0 0 16.5 8.25 8.25 0 0 0 0-16.5Z" />
                     </svg>
-                    <span>{action}</span>
+                    <span>{t(`actionItems.${action}`)}</span>
                   </li>
                 ))}
               </ul>
@@ -169,18 +149,23 @@ export default function StrCompliance() {
                 `Résidence principale: ${isPrimaryResidence ? "oui" : "non"}`,
                 `Revenu estimé: ${formatEUR(annualRevenue)}/an`,
                 ``,
-                `Licence d'hébergement requise: ${result.requiresLicense ? "OUI" : "non"}`,
-                `Déclaration IR requise: ${result.requiresTaxDeclaration ? "OUI" : "non"}`,
+                `Seuil de l’autorisation d’établissement atteint: ${result.requiresLicense ? "OUI" : "non ; autres obligations à vérifier"}`,
+                `Obligation de déclaration fiscale non déterminée : la situation fiscale complète est nécessaire`,
                 `Risque réglementaire communal: ${result.communeRegulationRisk}`,
-                `EU Regulation 2024/1028 applicable: ${result.euRegulationCompliance.registrationRequired ? "OUI (mi-2026)" : "non"}`,
+                `Règlement UE 2024/1028 applicable depuis le 20 mai 2026 : obligations conditionnelles aux procédures locales, non vérifiées ici`,
               ].join("\n")}
-              prompt="Analyse ce dossier conformité STR Luxembourg. Livre synthèse risque, démarches hiérarchisées, pièges communaux, optimisations légales, timeline. Ton clair pour un propriétaire non-juriste. Réfère art. 6 loi 17.07.2020 + art. 98 LIR + EU Reg 2024/1028."
+              prompt="Analyse ce dossier conformité STR Luxembourg. Livre synthèse risque, démarches hiérarchisées, pièges communaux, optimisations légales, timeline. Ton clair pour un propriétaire non-juriste. Ne certifie pas la conformité. Demande les informations manquantes et distingue les obligations de l’hôte et de la plateforme ; utilise uniquement des références officielles vérifiables."
             />
           </div>
         </div>
 
         <div className="mt-10 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900">
           <strong>{t("disclaimer.label")}</strong> {t("disclaimer.body")}
+          <ul className="mt-2 list-disc pl-5">
+            <li><a className="underline" href="https://guichet.public.lu/fr/entreprises/creation-developpement/autorisation-etablissement/commerce/etablissement-hebergement.html">Guichet.lu — {t("sources.license")}</a></li>
+            <li><a className="underline" href="https://impotsdirects.public.lu/fr/az/i/impot_assiet_revenu.html">ACD — {t("sources.tax")}</a></li>
+            <li><a className="underline" href="https://eur-lex.europa.eu/eli/reg/2024/1028/oj">{t("sources.eu")}</a></li>
+          </ul>
         </div>
       </div>
     </div>

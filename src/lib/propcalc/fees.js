@@ -1,3 +1,4 @@
+import { calculerFraisAcquisition } from '../calculations';
 /**
  * Acquisition Fees Calculation Engine
  * Pure calculation functions - no UI dependencies.
@@ -299,6 +300,17 @@ function calculateUKFees(params, countryData) {
  * @param {boolean} [params.ukAdditionalProperty] - Confirm higher-rate liability, independently of main-residence use
  * @param {boolean} [params.ukNonResident] - Non-resident surcharge qualification for SDLT
  * @param {number} [params.loanGuaranteeCost] - Quoted French financing guarantee cost, not a statutory rate
+ * @param {boolean} [params.luBellegenEligible]
+ * @param {number} [params.luCreditRemaining]
+ * @param {number} [params.portugueseTaxValue] - VPT; tax base is max(VPT, sale price)
+ * @param {boolean} [params.portugueseResident]
+ * @param {boolean} [params.portugueseYoungEligible] - All conditions, for every purchaser
+ * @param {boolean} [params.nlStarterEligible] - Exemption unused, whole property's conditions satisfied
+ * @param {boolean} [params.italianPrimaCasaEligible]
+ * @param {boolean} [params.italianPrezzoValore]
+ * @param {number} [params.italianCadastralIncome] - Unrevalued rendita catastale
+ * @param {boolean} [params.italianVatSale]
+ * @param {number} [params.italianVatRate]
  * @param {Object} params.countryData - Full country data JSON
  * @returns {Object} { items: [{label, amount, rate, details}], total, totalPercent }
  */
@@ -338,57 +350,25 @@ export function calculateAcquisitionFees(params) {
 /**
  * Calculate Luxembourg-specific acquisition fees.
  */
-function calculateLuxembourgFees(params, countryData) {
-  const { propertyPrice, isPrimaryResidence, loanAmount } = params;
-  const acq = countryData.acquisitionFees;
-  const items = [];
-
-  // Registration + transcription (7%)
-  const transferAmount = propertyPrice * acq.totalTransferRate;
-  items.push({
-    label: 'fees.registrationTax',
-    amount: Math.round(transferAmount * 100) / 100,
-    rate: acq.totalTransferRate * 100,
-    details: `Droits d'enregistrement ${(acq.registrationRate * 100)}% + transcription ${(acq.transcriptionRate * 100)}%`,
-  });
-
-  // Bëllegen Akt credit (RP only)
-  if (isPrimaryResidence && acq.bellegenAkt) {
-    const credit = Math.min(acq.bellegenAkt.maxCreditPerPerson, transferAmount);
-    items.push({
-      label: 'fees.bellegenAkt',
-      amount: Math.round(-credit * 100) / 100,
-      rate: 0,
-      details: `Crédit Bëllegen Akt (max ${acq.bellegenAkt.maxCreditPerPerson.toLocaleString()} EUR/pers.)`,
-    });
+function calculateLuxembourgFees(params) {
+  const { propertyPrice, isPrimaryResidence, loanAmount = 0 } = params;
+  if (params.isNew) throw new RangeError('Luxembourg VEFA needs land/construction and VAT inputs; use /frais-acquisition');
+  if (params.luBellegenEligible && (!isPrimaryResidence || !Number.isFinite(params.luCreditRemaining))) {
+    throw new RangeError('Bëllegen Akt requires confirmed personal eligibility and luCreditRemaining');
   }
-
-  // Notary
-  const notaryAmount = propertyPrice * acq.notaryRate;
-  items.push({
-    label: 'fees.notaryFees',
-    amount: Math.round(notaryAmount * 100) / 100,
-    rate: acq.notaryRate * 100,
-    details: 'Frais de notaire',
-  });
-
-  // Mortgage registration
-  if (loanAmount > 0) {
-    const mortgageAmount = loanAmount * acq.mortgageRegistration.rate;
-    items.push({
-      label: 'fees.mortgageRegistration',
-      amount: Math.round(mortgageAmount * 100) / 100,
-      rate: acq.mortgageRegistration.rate * 100,
-      details: 'Inscription hypothécaire',
-    });
-  }
-
-  const total = items.reduce((sum, item) => sum + item.amount, 0);
-  return {
-    items,
-    total: Math.round(total * 100) / 100,
-    totalPercent: propertyPrice > 0 ? Math.round((total / propertyPrice) * 10000) / 100 : 0,
-  };
+  if (!params.luBellegenEligible && params.luCreditRemaining !== undefined) throw new RangeError('luCreditRemaining requires luBellegenEligible');
+  const result = calculerFraisAcquisition({ prixBien: propertyPrice, estNeuf: false,
+    residencePrincipale: isPrimaryResidence && params.luBellegenEligible === true,
+    nbAcquereurs: 1, creditsRestants: [params.luCreditRemaining ?? 0], montantHypotheque: loanAmount });
+  const items = [
+    { label: 'fees.registrationTax', amount: Math.max(100, result.droitsTotal), rate: 7, details: "Droits d'enregistrement et transcription; minimum 100 EUR" },
+    ...(result.creditBellegenAkt > 0 ? [{ label: 'fees.bellegenAkt', amount: -result.creditBellegenAkt, rate: 0, details: 'Solde personnel confirmé; perception minimale 100 EUR' }] : []),
+    { label: 'fees.notaryFees', amount: result.emolumentsNotaire, details: 'Émoluments de vente tarifés TTC; copies et débours exclus' },
+    ...(loanAmount > 0 ? [{ label: 'fees.mortgageRegistration', amount: result.fraisHypotheque, details: 'Prêt ordinaire: émoluments TTC et droits; garantie égale au principal' }] : []),
+  ];
+  return { items, total: result.totalFrais, totalPercent: Math.round(result.totalPourcentage * 10000) / 100,
+    coverage: { status: 'partial', excludedCosts: ['copies','disbursements','agencyFees','exceptionalActs'],
+      priceBasis: 'Existing residential property; one individual buyer. No Bëllegen Akt without explicit eligibility and remaining credit. Shared purchases and VEFA: use /frais-acquisition.' } };
 }
 
 /**
@@ -571,52 +551,31 @@ function calculatePortugalFees(params, countryData) {
   const acq = countryData.acquisitionFees;
   const items = [];
 
-  // IMT calculation
-  let imtAmount = 0;
-  let imtRate = 0;
-  const youngFTB = acq.imtBands.youngFirstTimeBuyer;
-
-  if (isFirstTimeBuyer && isPrimaryResidence && buyerAge && buyerAge < youngFTB.maxAge && propertyPrice <= youngFTB.maxPrice) {
-    // Young first-time buyer exemption
-    imtAmount = 0;
-    items.push({
-      label: 'fees.registrationTax',
-      amount: 0,
-      rate: 0,
-      details: `Exemption IMT primo < ${youngFTB.maxAge} ans`,
-    });
-  } else {
-    const bands = isPrimaryResidence ? acq.imtBands.primaryResidence : acq.imtBands.investment;
-    for (const band of bands) {
-      if (band.flat) {
-        imtAmount = propertyPrice * band.rate;
-        imtRate = band.rate;
-        break;
-      }
-      const limit = band.upTo !== null ? band.upTo : Infinity;
-      if (propertyPrice <= limit) {
-        imtAmount = propertyPrice * band.rate - (band.deduction || 0);
-        imtRate = band.rate;
-        break;
-      }
-    }
-    imtAmount = Math.max(0, imtAmount);
-    items.push({
-      label: 'fees.registrationTax',
-      amount: Math.round(imtAmount * 100) / 100,
-      rate: propertyPrice > 0 ? Math.round((imtAmount / propertyPrice) * 10000) / 100 : 0,
-      details: `IMT (${(imtRate * 100).toFixed(1)}%)`,
-    });
+  if (!['mainland','azores','madeira'].includes(params.regionCode)) throw new RangeError('Portugal requires region: mainland, azores or madeira');
+  if (typeof params.portugueseResident !== 'boolean') throw new RangeError('Portugal requires portugueseResident (fiscal residence at acquisition)');
+  if (!Number.isFinite(params.portugueseTaxValue) || params.portugueseTaxValue < 0) throw new RangeError('Portugal requires portugueseTaxValue (VPT)');
+  const taxBase = Math.max(propertyPrice, params.portugueseTaxValue);
+  const islands = params.regionCode !== 'mainland';
+  const young = params.portugueseYoungEligible === true;
+  const youngData = acq.imtBands.youngFirstTimeBuyer;
+  const exemptionLimit = islands ? youngData.islandsMaxPrice : youngData.maxPrice;
+  const partialLimit = islands ? youngData.islandsPartialLimit : youngData.partialLimit;
+  if (young && (!isFirstTimeBuyer || !isPrimaryResidence || !params.portugueseResident || !Number.isFinite(buyerAge) || buyerAge < 0 || buyerAge > 35)) {
+    throw new RangeError('IMT Jovem requires age <=35, first permanent home, resident status and confirmation of all eligibility conditions');
   }
-
-  // Imposto de Selo
-  const seloAmount = propertyPrice * acq.impostoSelo;
-  items.push({
-    label: 'fees.impostoSelo',
-    amount: Math.round(seloAmount * 100) / 100,
-    rate: acq.impostoSelo * 100,
-    details: 'Imposto de Selo (0.8%)',
-  });
+  if (young && taxBase > partialLimit) throw new RangeError('IMT Jovem above the partial-exemption band is outside this simulator; obtain an AT assessment');
+  const key = islands ? (isPrimaryResidence ? 'islandsPrimaryResidence' : 'islandsInvestment') : (isPrimaryResidence ? 'primaryResidence' : 'investment');
+  const band = acq.imtBands[key].find(b => b.upTo === null || taxBase <= b.upTo);
+  let imtAmount = Math.max(0, taxBase * band.rate - band.deduction);
+  if (!params.portugueseResident) imtAmount = taxBase * .075;
+  else if (young) imtAmount = Math.max(0, (taxBase - exemptionLimit) * .08);
+  items.push({ label: 'fees.registrationTax', amount: Math.round(imtAmount * 100) / 100,
+    rate: Math.round(imtAmount / taxBase * 10000) / 100,
+    details: `IMT 2026; base max(prix,VPT) ${taxBase} EUR; ${params.regionCode}; ${!params.portugueseResident ? 'non-resident 7.5%, before any separately assessed refund' : young ? 'IMT Jovem eligibility confirmed for every purchaser' : 'ordinary residential scale'}` });
+  const seloAmount = Math.max(0, taxBase - (young ? exemptionLimit : 0)) * acq.impostoSelo;
+  items.push({ label: 'fees.impostoSelo', amount: Math.round(seloAmount * 100) / 100,
+    rate: Math.round(seloAmount / taxBase * 10000) / 100,
+    details: young ? 'Imposto do Selo 0.8% after eligible young-buyer deduction' : 'Imposto do Selo 0.8% on max(price,VPT)' });
 
   // Selo on mortgage
   if (loanAmount > 0) {
@@ -649,6 +608,7 @@ function calculatePortugalFees(params, countryData) {
   const total = items.reduce((sum, item) => sum + item.amount, 0);
   return {
     items,
+    coverage: { status: 'partial', excludedCosts: ['bankCharges','specialTransactions','mixedBuyerEligibility'], priceBasis: 'Residential full-property purchase; VPT supplied. 2026-10-23 rules; non-resident exceptions/refunds not modeled. Mortgage stamp estimate assumes a term of at least five years. Notary/lawyer estimates require quotes.' },
     total: Math.round(total * 100) / 100,
     totalPercent: propertyPrice > 0 ? Math.round((total / propertyPrice) * 10000) / 100 : 0,
   };
@@ -658,19 +618,26 @@ function calculatePortugalFees(params, countryData) {
  * Calculate Italy-specific acquisition fees.
  */
 function calculateItalyFees(params, countryData) {
-  const { propertyPrice, isNew, isPrimaryResidence } = params;
+  const { propertyPrice, isNew } = params;
   const acq = countryData.acquisitionFees;
   const items = [];
 
-  if (isNew) {
+  const primaCasa = params.italianPrimaCasaEligible === true;
+  const vatSale = params.italianVatSale === true;
+  if (isNew && typeof params.italianVatSale !== 'boolean') throw new RangeError('Italy: building age does not establish VAT liability; specify italianVatSale');
+  if (vatSale && ![.04,.10,.22].includes(params.italianVatRate)) throw new RangeError('Italy VAT sale requires an explicit italianVatRate (.04, .10 or .22) and a VAT-exclusive price');
+  if (vatSale && params.italianVatRate === .04 && !primaCasa) throw new RangeError('Italian 4% VAT requires confirmed prima casa eligibility');
+  if (params.italianPrezzoValore && vatSale) throw new RangeError('Prezzo-valore cannot apply to a VAT sale');
+  if (!params.italianPrezzoValore && params.italianCadastralIncome !== undefined) throw new RangeError('Cadastral income requires italianPrezzoValore');
+  if (vatSale) {
     // Developer: VAT-based
-    const dev = isPrimaryResidence ? acq.developer.primaCasa : acq.developer.investment;
+    const dev = { vatRate: params.italianVatRate, fixedFees: 600 };
     const vatAmount = propertyPrice * dev.vatRate;
     items.push({
       label: 'fees.vat',
       amount: Math.round(vatAmount * 100) / 100,
       rate: dev.vatRate * 100,
-      details: isPrimaryResidence ? 'IVA 4% prima casa' : 'IVA 10% investimento',
+      details: `IVA ${dev.vatRate * 100}% on VAT-exclusive price; qualification supplied by caller`,
     });
     items.push({
       label: 'fees.registrationTax',
@@ -680,15 +647,15 @@ function calculateItalyFees(params, countryData) {
     });
   } else {
     // Private sale: registration-based
-    const pvt = isPrimaryResidence ? acq.private.primaCasa : acq.private.investment;
-    const regAmount = propertyPrice * pvt.registrationRate;
+    const pvt = primaCasa ? acq.private.primaCasa : acq.private.investment;
+    if (params.italianPrezzoValore && (!Number.isFinite(params.italianCadastralIncome) || params.italianCadastralIncome <= 0)) throw new RangeError('Prezzo-valore requires a positive unrevalued italianCadastralIncome and confirmation of eligibility/request in the deed');
+    const taxBase = params.italianPrezzoValore ? params.italianCadastralIncome * 1.05 * (primaCasa ? 110 : 120) : propertyPrice;
+    const regAmount = Math.max(1000, taxBase * pvt.registrationRate);
     items.push({
       label: 'fees.registrationTax',
       amount: Math.round(regAmount * 100) / 100,
       rate: pvt.registrationRate * 100,
-      details: isPrimaryResidence
-        ? 'Imposta di registro 2% (su valore catastale)'
-        : 'Imposta di registro 9% (su valore catastale)',
+      details: `Imposta di registro ${pvt.registrationRate * 100}% on ${params.italianPrezzoValore ? 'rendita × 1.05 × statutory multiplier' : 'declared sale price (not a cadastral assessment)'}; base ${taxBase} EUR; minimum 1000 EUR`,
     });
     items.push({
       label: 'fees.fixedFees',
@@ -719,6 +686,7 @@ function calculateItalyFees(params, countryData) {
   const total = items.reduce((sum, item) => sum + item.amount, 0);
   return {
     items,
+    coverage: { status: 'partial', excludedCosts: ['specialTransactions','mortgageCosts'], priceBasis: 'Residential purchase by an individual outside a business. Prima casa and prezzo-valore need separate confirmations; otherwise ordinary price-based scenario. VAT status is independent of building age. Notary/agent amounts are quotes-to-confirm, not statutory fees.' },
     total: Math.round(total * 100) / 100,
     totalPercent: propertyPrice > 0 ? Math.round((total / propertyPrice) * 10000) / 100 : 0,
   };
@@ -728,7 +696,7 @@ function calculateItalyFees(params, countryData) {
  * Calculate Netherlands-specific acquisition fees.
  */
 function calculateNetherlandsFees(params, countryData) {
-  const { propertyPrice, isNew, isFirstTimeBuyer, isPrimaryResidence, buyerAge } = params;
+  const { propertyPrice, isNew, isPrimaryResidence, buyerAge } = params;
   const acq = countryData.acquisitionFees;
   const items = [];
 
@@ -745,9 +713,9 @@ function calculateNetherlandsFees(params, countryData) {
     let obRate;
     let obDetails;
 
-    if (isFirstTimeBuyer && buyerAge >= 18 && buyerAge < ob.firstTimeBuyer.maxAge && propertyPrice <= ob.firstTimeBuyer.maxPrice) {
+    if (isPrimaryResidence && params.nlStarterEligible === true && buyerAge >= 18 && buyerAge < ob.firstTimeBuyer.maxAge && propertyPrice <= ob.firstTimeBuyer.maxPrice) {
       obRate = ob.firstTimeBuyer.rate;
-      obDetails = `Startersvrijstelling (0% primo 18-${ob.firstTimeBuyer.maxAge}, max ${ob.firstTimeBuyer.maxPrice.toLocaleString()} EUR)`;
+      obDetails = `Startersvrijstelling (unused exemption confirmed; 0%, 18 <= age < ${ob.firstTimeBuyer.maxAge}, max ${ob.firstTimeBuyer.maxPrice.toLocaleString()} EUR)`;
     } else if (isPrimaryResidence) {
       obRate = ob.occupant.rate;
       obDetails = 'Overdrachtsbelasting eigen woning (2%)';

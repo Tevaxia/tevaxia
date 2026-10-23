@@ -138,7 +138,7 @@ export default async function RootLayout({
             <PostHogProvider>
               <Header />
               <DeferredContextBars />
-              <main className="flex-1">
+              <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
                 <FullMessagesProvider locale={locale}>{children}</FullMessagesProvider>
                 <ExpertGuidance />
               </main>

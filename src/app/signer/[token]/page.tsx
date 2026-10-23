@@ -72,6 +72,7 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
       if (!res.ok) {
         const err = await res.json();
         setError(err.error ?? t("errSignGeneric"));
+        if (err.audit_incomplete) await reload();
       } else {
         setDone("signed");
       }
@@ -93,6 +94,7 @@ export default function SignerPage(props: { params: Promise<{ token: string }> }
       if (!res.ok) {
         const err = await res.json();
         setError(err.error ?? t("errGeneric"));
+        if (err.audit_incomplete) await reload();
       } else {
         setDone("declined");
       }

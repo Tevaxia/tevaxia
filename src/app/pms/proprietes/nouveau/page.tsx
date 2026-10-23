@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/components/AuthProvider";
 import { createProperty } from "@/lib/pms/properties";

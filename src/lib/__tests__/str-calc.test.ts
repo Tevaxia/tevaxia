@@ -25,7 +25,7 @@ const BASE_INPUT: StrRentabiliteInputs = {
     subscriptionFees: 360,
   },
   userMarginalTaxRate: 0.3,
-  vacancyDaysBetween: 2,
+  vacancyDaysBetween: 1,
 };
 
 describe("calculerRentabiliteSTR", () => {
@@ -50,8 +50,8 @@ describe("calculerRentabiliteSTR", () => {
     expect(Math.abs(r.otaCommission - r.grossRevenue * 0.05)).toBeLessThanOrEqual(1);
   });
 
-  it("caps nights at 365", () => {
-    const r = calculerRentabiliteSTR({ ...BASE_INPUT, nightsPerYear: 500 });
+  it("caps nights at 365 with no gap between stays", () => {
+    const r = calculerRentabiliteSTR({ ...BASE_INPUT, nightsPerYear: 500, vacancyDaysBetween: 0 });
     expect(r.grossRevenue).toBe(130 * 365);
   });
 
@@ -91,7 +91,7 @@ describe("calculerRentabiliteSTR", () => {
 
 describe("calculerArbitrageSTR", () => {
   const base = {
-    strNet: 12_000,
+    strInputs: BASE_INPUT,
     ltMonthlyRent: 1_800,
     ltMarginalTaxRate: 0.3,
     ltDeductibleChargesAnnual: 5_000,
@@ -100,12 +100,12 @@ describe("calculerArbitrageSTR", () => {
   };
 
   it("recommends STR if net is highest", () => {
-    const r = calculerArbitrageSTR({ ...base, strNet: 30_000 });
+    const r = calculerArbitrageSTR({ ...base, strInputs: { ...BASE_INPUT, adr: 500 } });
     expect(r.recommendation).toBe("str");
   });
 
   it("recommends LT when STR net is lower than LT", () => {
-    const r = calculerArbitrageSTR({ ...base, strNet: 3_000, ltMonthlyRent: 2_500 });
+    const r = calculerArbitrageSTR({ ...base, strInputs: { ...BASE_INPUT, adr: 30 }, ltMonthlyRent: 2_500 });
     expect(["lt", "mixed"]).toContain(r.recommendation);
     expect(r.scenarioLT.netAnnual).toBeGreaterThan(r.scenarioSTR.netAnnual);
   });
@@ -141,42 +141,60 @@ describe("checkSTRCompliance", () => {
   it("above 90 nights requires license", () => {
     const r = checkSTRCompliance({ ...base, nightsPlannedPerYear: 120 });
     expect(r.requiresLicense).toBe(true);
-    expect(r.actions.some((a) => a.toLowerCase().includes("licence"))).toBe(true);
+    expect(r.actions.some((a) => a === "license")).toBe(true);
   });
 
-  it("high-regulation commune = high risk", () => {
-    const r = checkSTRCompliance({ ...base, commune: "Luxembourg" });
-    expect(r.communeRegulationRisk).toBe("high");
+  it.each(["Luxembourg", "Mamer", "Redange"])("does not invent a local risk score for %s", commune => {
+    expect(checkSTRCompliance({ ...base, commune }).communeRegulationRisk).toBe("unverified");
   });
-
-  it("medium-regulation commune = medium risk", () => {
-    const r = checkSTRCompliance({ ...base, commune: "Mamer" });
-    expect(r.communeRegulationRisk).toBe("medium");
+  it.each([0, 400, 700, 8000])("does not decide household filing obligations from %s gross receipts", annualRevenueEstimated => {
+    expect(checkSTRCompliance({ ...base, annualRevenueEstimated }).requiresTaxDeclaration).toBeNull();
   });
-
-  it("unknown commune defaults to low risk", () => {
-    const r = checkSTRCompliance({ ...base, commune: "Redange" });
-    expect(r.communeRegulationRisk).toBe("low");
+  it("uses the inclusive 90-night threshold for operator-wide totals", () => {
+    expect(checkSTRCompliance({ ...base, nightsPlannedPerYear: 90 }).requiresLicense).toBe(true);
+    expect(checkSTRCompliance({ ...base, nightsPlannedPerYear: 800 }).requiresLicense).toBe(true);
   });
-
-  it("revenue > 600 triggers tax declaration", () => {
-    const r = checkSTRCompliance({ ...base, annualRevenueEstimated: 700 });
-    expect(r.requiresTaxDeclaration).toBe(true);
-  });
-
-  it("revenue ≤ 600 skips tax declaration flag", () => {
-    const r = checkSTRCompliance({ ...base, annualRevenueEstimated: 400 });
-    expect(r.requiresTaxDeclaration).toBe(false);
-  });
-
-  it("EU 2024/1028 applies to everyone from mid-2026", () => {
+  it("makes EU obligations conditional on local registration procedures", () => {
     const r = checkSTRCompliance(base);
-    expect(r.euRegulationCompliance.registrationRequired).toBe(true);
-    expect(r.euRegulationCompliance.effectiveDate).toContain("2026");
+    expect(r.euRegulationCompliance.registrationRequired).toBeNull();
+    expect(r.euRegulationCompliance.dataTransmissionRequired).toBeNull();
+    expect(r.euRegulationCompliance.effectiveDate).toBe("2026-05-20");
   });
 
   it("societe owner triggers TVA check action", () => {
     const r = checkSTRCompliance({ ...base, ownerType: "societe" });
-    expect(r.actions.some((a) => a.toLowerCase().includes("tva"))).toBe(true);
+    expect(r.actions.some((a) => a === "vat")).toBe(true);
+  });
+});
+
+
+describe("STR audit financial/calendar invariants", () => {
+  it("pays long-term charges once in economic net and once as a tax-base deduction", () => {
+    const result = calculerArbitrageSTR({strInputs: BASE_INPUT, ltMonthlyRent: 2000,
+      ltDeductibleChargesAnnual: 6000, ltMarginalTaxRate: .3, mixedStrDays: 60, mixedLtMonths: 9});
+    expect(result.scenarioLT).toEqual({ grossAnnual: 24000, charges: 6000, tax: 5400, netAnnual: 12600 });
+  });
+  it("constrains every stay and intervening vacancy to the available calendar", () => {
+    const normal = calculerRentabiliteSTR({ ...BASE_INPUT, nightsPerYear: 219, vacancyDaysBetween: 1 });
+    const gaps = calculerRentabiliteSTR({ ...BASE_INPUT, nightsPerYear: 219, vacancyDaysBetween: 10 });
+    expect(normal.effectiveNights).toBe(219);
+    expect(gaps.effectiveNights).toBe(85); // 29 stays, 28 ten-day gaps = 365 days
+    expect(gaps.calendarDaysUsed).toBeLessThanOrEqual(365);
+    expect(gaps.calendarLimited).toBe(true);
+    expect(gaps.grossRevenue).toBeLessThan(normal.grossRevenue);
+  });
+  it.each([0, -1, NaN, Infinity])("rejects invalid average stay %s", avgStayLengthDays => {
+    expect(() => calculerRentabiliteSTR({...BASE_INPUT, variable:{ ...BASE_INPUT.variable, avgStayLengthDays }})).toThrow(RangeError);
+  });
+  it("rejects overlapping calendars", () => {
+    expect(() => calculerArbitrageSTR({strInputs: BASE_INPUT, ltMonthlyRent:2000, ltDeductibleChargesAnnual:6000,
+      ltMarginalTaxRate:.3, mixedStrDays:90, mixedLtMonths:12})).toThrow(/one year/);
+  });
+  it("recomputes mixed stays and retains annual fixed charges", () => {
+    const strInputs = { ...BASE_INPUT, adr:100, occupancyPct:100, otaChannel:'direct' as const, vacancyDaysBetween:0,
+      variable:{ cleaningPerStay:0, linenPerStay:0, consumablesPerStay:0, avgStayLengthDays:3 },
+      fixed:{ pnoInsuranceAnnual:1000, internetTvAnnual:0, utilitiesAnnual:0, furnitureAmortAnnual:0, subscriptionFees:0 }, userMarginalTaxRate:0 };
+    const r=calculerArbitrageSTR({strInputs,ltMonthlyRent:1000,ltDeductibleChargesAnnual:1000,ltMarginalTaxRate:0,mixedStrDays:90,mixedLtMonths:9});
+    expect(r.scenarioMixed).toEqual({ strNet:8000, ltNet:8000, totalNet:16000, effectiveStrNights:90 });
   });
 });

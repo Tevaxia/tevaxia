@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { supabase } from "@/lib/supabase";
 
 type Subscription = {
@@ -34,6 +35,7 @@ function buildWebcalUrl(token: string): string {
 }
 
 export default function CalendarSyncSection({ userId }: { userId: string | null }) {
+  const t = useTranslations("calendarSync"), locale = useLocale();
   const [subs, setSubs] = useState<Subscription[]>([]);
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState(false);
@@ -67,7 +69,7 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
     const token = generateToken();
     const { error } = await supabase
       .from("crm_calendar_subscriptions")
-      .insert({ user_id: userId, token, label: "Calendrier tevaxia", active: true });
+      .insert({ user_id: userId, token, label: t("defaultLabel"), active: true });
     if (error) {
       setError(error.message);
     } else {
@@ -90,7 +92,7 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
 
   async function deleteSubscription(sub: Subscription) {
     if (!supabase) return;
-    if (!confirm("Révoquer cet abonnement ? Le calendrier ne se mettra plus à jour côté Google/Outlook.")) return;
+    if (!confirm(t("revokeConfirm"))) return;
     setBusy(true);
     const { error } = await supabase
       .from("crm_calendar_subscriptions")
@@ -107,15 +109,15 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
       setCopiedId(id);
       setTimeout(() => setCopiedId(null), 2000);
     } catch {
-      // ignore
+      setError(t("copyFailed"));
     }
   }
 
   if (!userId) {
     return (
       <div className="rounded-xl border border-card-border bg-card p-6">
-        <h3 className="text-lg font-semibold text-navy">Synchroniser mon calendrier</h3>
-        <p className="mt-2 text-sm text-muted">Connectez-vous pour générer un lien d’abonnement calendrier.</p>
+        <h3 className="text-lg font-semibold text-navy">{t("sectionTitle")}</h3>
+        <p className="mt-2 text-sm text-muted">{t("signIn")}</p>
       </div>
     );
   }
@@ -129,31 +131,30 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
           </svg>
         </div>
         <div className="flex-1">
-          <h3 className="text-lg font-semibold text-navy">Synchroniser mon calendrier</h3>
+          <h3 className="text-lg font-semibold text-navy">{t("sectionTitle")}</h3>
           <p className="mt-1 text-sm text-muted leading-relaxed">
-            Générez une URL d’abonnement à coller dans Google Calendar, Outlook ou Apple Calendar pour voir vos tâches CRM et visites planifiées.
-            Lecture seule, mise à jour toutes les heures.
+            {t("sectionIntro")}
           </p>
         </div>
       </div>
 
       {error && (
-        <div className="mt-4 rounded-md border border-rose-200 bg-rose-50 p-3 text-sm text-rose-700">{error}</div>
+        <div className="mt-4 rounded-md border border-rose-200 bg-rose-50 p-3 text-sm text-rose-700" role="alert">{error}</div>
       )}
 
       <div className="mt-5">
         {loading ? (
-          <div className="text-sm text-muted">Chargement…</div>
+          <div className="text-sm text-muted">{t("loading")}</div>
         ) : subs.length === 0 ? (
           <div className="rounded-lg border border-dashed border-card-border bg-background p-5 text-center">
-            <p className="text-sm text-muted">Aucun abonnement actif.</p>
+            <p className="text-sm text-muted">{t("empty")}</p>
             <button
               type="button"
               disabled={busy}
               onClick={createSubscription}
               className="mt-3 inline-flex items-center gap-2 rounded-md bg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-navy-light disabled:opacity-50 transition-colors"
             >
-              Générer une URL d’abonnement
+              {t("create")}
             </button>
           </div>
         ) : (
@@ -167,11 +168,11 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
                     <div>
                       <div className="text-sm font-semibold text-navy">{sub.label}</div>
                       <div className="mt-0.5 text-xs text-muted">
-                        Créé le {new Date(sub.created_at).toLocaleDateString("fr-FR")} ·{" "}
+                        {t("created", { date: new Date(sub.created_at).toLocaleDateString(locale) })} ·{" "}
                         {sub.last_accessed_at
-                          ? `dernier accès ${new Date(sub.last_accessed_at).toLocaleString("fr-FR")} (${sub.access_count} appels)`
-                          : "jamais accédé"}
-                        {!sub.active && <span className="ml-2 rounded bg-rose-100 px-1.5 py-0.5 text-rose-700">révoqué</span>}
+                          ? t("lastAccess", { date: new Date(sub.last_accessed_at).toLocaleString(locale), count: sub.access_count })
+                          : t("neverAccessed")}
+                        {!sub.active && <span className="ml-2 rounded bg-rose-100 px-1.5 py-0.5 text-rose-700">{t("inactive")}</span>}
                       </div>
                     </div>
                     <div className="flex shrink-0 items-center gap-2">
@@ -181,7 +182,7 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
                         onClick={() => toggleActive(sub)}
                         className="text-xs text-muted hover:text-navy underline"
                       >
-                        {sub.active ? "Désactiver" : "Réactiver"}
+                        {t(sub.active ? "deactivate" : "reactivate")}
                       </button>
                       <button
                         type="button"
@@ -189,7 +190,7 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
                         onClick={() => deleteSubscription(sub)}
                         className="text-xs text-rose-600 hover:text-rose-700 underline"
                       >
-                        Supprimer
+                        {t("delete")}
                       </button>
                     </div>
                   </div>
@@ -203,7 +204,7 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
                           onClick={() => copy(url, `https-${sub.id}`)}
                           className="shrink-0 rounded bg-navy px-3 py-1 text-xs font-semibold text-white hover:bg-navy-light"
                         >
-                          {copiedId === `https-${sub.id}` ? "Copié" : "Copier URL"}
+                          {t(copiedId === `https-${sub.id}` ? "copied" : "copy")}
                         </button>
                       </div>
                       <div className="flex flex-wrap gap-2 text-xs">
@@ -211,7 +212,7 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
                           href={webcal}
                           className="inline-flex items-center gap-1 rounded-md border border-card-border bg-white px-3 py-1.5 font-medium text-navy hover:bg-card transition-colors"
                         >
-                          📅 Ouvrir dans Apple Calendar (webcal://)
+                          {t("openApple")}
                         </a>
                         <a
                           href={`https://www.google.com/calendar/render?cid=${encodeURIComponent(url)}`}
@@ -219,11 +220,11 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
                           rel="noopener"
                           className="inline-flex items-center gap-1 rounded-md border border-card-border bg-white px-3 py-1.5 font-medium text-navy hover:bg-card transition-colors"
                         >
-                          📅 Ajouter à Google Calendar
+                          {t("openGoogle")}
                         </a>
                       </div>
                       <p className="text-[11px] text-muted">
-                        Dans Outlook : <em>Paramètres → Calendrier → Calendriers partagés → Publier un calendrier</em> puis collez l’URL HTTPS ci-dessus.
+                        {t("stepOutlook")}
                       </p>
                     </div>
                   )}
@@ -236,7 +237,7 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
               onClick={createSubscription}
               className="text-xs text-navy hover:text-gold underline"
             >
-              + Créer un autre abonnement
+              {t("createAnother")}
             </button>
           </div>
         )}
@@ -248,24 +249,22 @@ export default function CalendarSyncSection({ userId }: { userId: string | null 
             <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
           </svg>
           <div className="flex-1 text-xs leading-relaxed">
-            <div className="font-semibold text-navy">Sync bi-directionnelle Google / Microsoft</div>
+            <div className="font-semibold text-navy">{t("oauthTitle")}</div>
             <p className="mt-1 text-muted">
-              Connexion OAuth pour synchroniser dans les deux sens (les modifications côté Google/Outlook reviennent dans tevaxia).
-              <strong className="text-amber-700"> Configuration requise :</strong> clés OAuth Google Cloud + Azure App Registration à fournir
-              dans les variables d’environnement (cf. roadmap technique).
+              {t("oauthScope")}
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
               <a
                 href="/api/oauth/google/calendar/connect"
                 className="inline-flex items-center gap-1 rounded-md border border-card-border bg-white px-3 py-1.5 text-xs font-medium text-navy hover:bg-card transition-colors"
               >
-                Connecter Google Calendar
+                {t("connectGoogle")}
               </a>
               <a
                 href="/api/oauth/microsoft/calendar/connect"
                 className="inline-flex items-center gap-1 rounded-md border border-card-border bg-white px-3 py-1.5 text-xs font-medium text-navy hover:bg-card transition-colors"
               >
-                Connecter Outlook
+                {t("connectOutlook")}
               </a>
             </div>
           </div>

@@ -70,7 +70,8 @@ export default function SEOContent({ ns, sections, faq, relatedLinks }: SEOConte
             </h2>
             <div
               className="prose prose-sm max-w-none text-muted leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: t(section.contentKey) }}
+              // These reviewed catalog entries contain HTML, not ICU rich-text messages.
+              dangerouslySetInnerHTML={{ __html: t.raw(section.contentKey) }}
             />
           </section>
         ))}

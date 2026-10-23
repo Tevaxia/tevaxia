@@ -128,12 +128,6 @@ export function SoftwareApplicationJsonLd({ name, description, url }: { name: st
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "EUR"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "1",
-        "bestRating": "5"
       }
     })}} />
   );

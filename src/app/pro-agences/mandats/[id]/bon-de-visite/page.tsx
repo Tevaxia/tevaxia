@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { useParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { pdf } from "@react-pdf/renderer";

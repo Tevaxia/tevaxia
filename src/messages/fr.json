@@ -64,7 +64,11 @@
     "hotelE2Evidence": "Dossier E‑2",
     "hotelAcquisition": "Pré-acquisition",
     "hotelCoverage": "Couverture de dette",
-    "hotelOperating": "Compte d’exploitation"
+    "hotelOperating": "Compte d’exploitation",
+    "skipToContent": "Aller au contenu",
+    "mainNavigation": "Navigation principale",
+    "menu": "Menu",
+    "language": "Langue"
   },
   "common": {
     "language": "Langue",
@@ -321,7 +325,7 @@
       },
       "str": {
         "title": "Location courte durée (STR)",
-        "description": "7 outils Airbnb / Booking / Vrbo pour hôtes LU : rentabilité nette après impôt, conformité seuil 90j + EU Reg 2024/1028, arbitrage long vs court terme, pricing dynamique.",
+        "description": "Outils de location courte durée au Luxembourg : simulations économiques, démarches à vérifier et comparaison avec la location longue durée.",
         "tag": "Airbnb / Booking"
       },
       "esg": {
@@ -331,7 +335,7 @@
       },
       "proAgences": {
         "title": "CRM Agences immobilières",
-        "description": "Pipeline mandats 7 étapes, CRM acquéreurs + nurturing, signature eIDAS, fiche bien co-brandée, export OpenImmo XML, commissions annuelles.",
+        "description": "Mandats, contacts, tâches et documents d’agence, avec parcours de signature dont la portée doit être vérifiée selon l’acte.",
         "tag": "B2B agences LU"
       }
     },
@@ -1550,7 +1554,12 @@
     "erreurSaisie": "Vérifiez les montants et les dates : construction ≤ acquisition ≤ bail, années du bail de 2015 à 2026.",
     "donneesIncompletes": "Estimation partielle : la décote ou des données du bâtiment/mobilier restent à vérifier. Ce résultat ne valide pas la conformité du loyer.",
     "estimationPartielle": "Estimation partielle à compléter",
-    "champApplication": "Ce calcul vise un logement achevé acquis à titre onéreux, soumis au bail d’habitation privé. Construction par le propriétaire, donations, locations commerciales, résidences secondaires et régimes spéciaux nécessitent une analyse distincte. Un plafond calculé ne suffit pas à autoriser une hausse : les délais et limites d’adaptation du bail restent applicables. Le mobilier est calculé uniquement pour 2025–2026."
+    "champApplication": "Ce calcul vise un logement achevé acquis à titre onéreux, soumis au bail d’habitation privé. Construction par le propriétaire, donations, locations commerciales, résidences secondaires et régimes spéciaux nécessitent une analyse distincte. Un plafond calculé ne suffit pas à autoriser une hausse : les délais et limites d’adaptation du bail restent applicables. Le mobilier est calculé uniquement pour 2025–2026.",
+    "perMonth": "€/mois",
+    "perYear": "€/an",
+    "observatoryIntro": "Comparez votre plafond légal aux loyers observés au Luxembourg par commune et typologie.",
+    "observatoryLink": "Observatoire des loyers LU",
+    "observatoryTitle": "Observer le marché"
   },
   "achatLocation": {
     "title": "Acheter ou louer au Luxembourg",
@@ -1571,21 +1580,21 @@
     "chargesCopro": "Charges de copropriété",
     "suffixEuroMois": "€/mois",
     "impotFoncier": "Impôt foncier",
-    "impotFoncierHint": "Grundsteuer — très faible au Luxembourg (100–300 €/an)",
+    "impotFoncierHint": "Renseignez le montant annuel applicable au bien.",
     "suffixEuroAn": "€/an",
     "entretienAnnuel": "Entretien annuel",
     "suffixPctPrix": "% du prix",
-    "entretienAnnuelHint": "Budget annuel d'entretien courant (1 % du prix est une estimation standard)",
+    "entretienAnnuelHint": "Budget de scénario à adapter à l'état du bien et aux travaux prévus.",
     "appreciationAnnuelle": "Appréciation annuelle",
     "appreciationAnnuelleHint": "Hausse annuelle estimée de la valeur du bien",
     "sectionAssuranceSRD": "Assurance solde restant dû",
     "tauxAssuranceSRD": "Taux assurance SRD",
     "suffixPctCapital": "% capital",
-    "tauxAssuranceSRDHint": "Obligatoire au Luxembourg. Taux entre 0,15 % et 0,40 % du capital emprunté.",
+    "tauxAssuranceSRDHint": "Hypothèse de prime périodique sur le capital initial jusqu'au terme du prêt. Vérifiez le contrat ; les primes uniques ou dégressives ne sont pas modélisées.",
     "coutMensuelLabel": "Coût mensuel :",
     "sectionDeductionInterets": "Déduction des intérêts débiteurs",
-    "deductionInteretsDescription": "Art. 98bis LIR : les intérêts hypothécaires sont déductibles du revenu imposable (plafond par personne et par tranche).",
-    "nbPersonnes": "Nombre de personnes",
+    "deductionInteretsDescription": "Règles ACD depuis 2024 : intérêts éligibles sans plafond l'année de disponibilité et la suivante, puis plafonds par personne de 4 000 €, 3 000 € et 2 000 € selon l'ancienneté. Les aides d'intérêts réduisent la charge déductible. L'économie marginale reste un scénario à confirmer.",
+    "nbPersonnes": "Personnes fiscalement éligibles (enfants compris)",
     "suffixPers": "pers.",
     "tauxMarginal": "Taux marginal d'imposition",
     "tauxMarginalHint": "Tranche marginale IR. Classes 1/1a : jusqu'à 42 %, classe 2 : barème conjoint.",
@@ -1594,16 +1603,16 @@
     "perAn": "an",
     "sectionLocationDetails": "Détails de la location",
     "indexationLoyer": "Indexation annuelle du loyer",
-    "indexationLoyerHint": "Hausse annuelle estimée du loyer (indice santé LU)",
+    "indexationLoyerHint": "Hypothèse d'évolution du loyer ; elle ne valide pas une clause d'indexation ni un droit d'augmentation.",
     "rendementPlacement": "Rendement du placement alternatif",
-    "rendementPlacementHint": "Si vous louez, l'apport est placé. Rendement annuel attendu.",
+    "rendementPlacementHint": "Rendement annuel de scénario, net des frais et de la fiscalité que vous choisissez d'intégrer. Aucun rendement garanti.",
     "verdictAchat": "Sur {horizon} ans, l'achat est plus avantageux",
     "verdictLocation": "Sur {horizon} ans, la location est plus avantageuse",
     "patrimoineAchat": "Patrimoine net (achat)",
     "capitalLocation": "Capital accumulé (location)",
-    "croisementMessage": "L'achat devient plus avantageux à partir de l'année {annee}",
+    "croisementMessage": "Première année observée favorable à l’achat : {annee}. Le résultat peut s’inverser ensuite.",
     "chartTitle": "Évolution du patrimoine net",
-    "chartDescription": "Patrimoine net achat (valeur du bien − capital restant dû) vs capital accumulé si location (placement de l'apport + différences de coûts).",
+    "chartDescription": "Achat : valeur du bien moins dette, plus épargne des différences de dépenses favorables à l'acheteur. Location : apport et frais initiaux conservés, plus économies mensuelles favorables au locataire.",
     "axisAnnee": "Année",
     "legendeAchat": "Patrimoine achat",
     "legendeLocation": "Capital location",
@@ -1639,38 +1648,52 @@
     "location": "Location +",
     "hypothesesTitle": "Hypothèses :",
     "monteCarloTitle": "Simulation Monte-Carlo (1 000 scénarios)",
-    "monteCarloSubtitle": "Teste la robustesse de la décision en variant aléatoirement appréciation immo (±2 pp), rendement placement (±3 pp) et indexation loyer (±1 pp) par loi normale.",
+    "monteCarloSubtitle": "1 000 scénarios avec écarts-types choisis de 2 points pour la valeur du bien, 3 pour le placement et 1 pour le loyer. Ces distributions sont des hypothèses, pas des probabilités de marché.",
     "monteCarloRun": "Lancer la simulation",
     "monteCarloRunning": "Simulation en cours…",
-    "monteCarloProbAchat": "Probabilité achat > location",
+    "monteCarloProbAchat": "Part des scénarios favorables à l'achat",
     "monteCarloMedianDiff": "Médiane patrimoine achat − location",
-    "monteCarloIC90": "IC 90 % différence",
+    "monteCarloIC90": "Percentiles 5–95 des scénarios",
     "monteCarloHistogramLabel": "Distribution de (patrimoine achat − patrimoine location) en fin d'horizon",
     "monteCarloHelp": "Cliquez pour lancer la simulation Monte-Carlo. Calcul local, ~2 secondes.",
-    "monteCarloNote": "Les paramètres fixes (taux crédit, durée, frais) restent identiques. Seules les variables d'incertitude (marché, placement, loyer) sont échantillonnées. Une simulation Monte-Carlo montre la robustesse de la décision face aux aléas macro-économiques.",
+    "monteCarloNote": "Même moteur mensuel et mêmes hypothèses fiscales que le tableau. Les paramètres tirés restent constants dans chaque trajectoire. Les résultats dépendent des distributions choisies et ne prédisent pas le marché.",
     "hypothesesText": "Appréciation du bien : {appreciation} %/an. Rendement placement : {rendement} %/an. Plafond déduction intérêts : {plafond}/an ({nbPersonnes} pers.). Assurance SRD : {tauxSRD} % du capital.",
     "seo": {
       "faqTitle": "Questions fréquentes sur le choix acheter ou louer",
       "relatedTitle": "Outils complémentaires",
       "dilemmeTitle": "Acheter ou louer au Luxembourg : le dilemme éternel",
-      "dilemmeContent": "<p>La question « <strong>faut-il acheter ou louer ?</strong> » est particulièrement aiguë au Luxembourg, où le prix médian d'un appartement dépasse 620 000 € en 2026. Le coût total de la propriété (TCO) inclut non seulement le remboursement du prêt mais aussi les frais d'acquisition (7-10 %), l'entretien (1-2 % du prix/an), les assurances, la taxe foncière et le coût d'opportunité du capital immobilisé.</p><p>La location, de son côté, est encadrée par le plafonnement à 5 % du capital investi (loi du 21 septembre 2006). Un loyer mensuel de 2 000 € pour un appartement de 80 m² représente un rendement locatif brut d'environ 4 % à Luxembourg-Ville.</p><p>Notre simulateur compare les deux scénarios sur un horizon personnalisable (5-30 ans) en intégrant l'ensemble des paramètres financiers et fiscaux spécifiques au Luxembourg.</p>",
+      "dilemmeContent": "<p>Comparer l'achat et la location exige des hypothèses adaptées au bien, au financement et à votre durée de séjour. Les valeurs initiales sont des exemples modifiables, pas des références de marché. La simulation porte sur le patrimoine avant une éventuelle vente.</p>",
       "tcoTitle": "Le coût total de possession vs. le coût total de location",
-      "tcoContent": "<p>Pour comparer objectivement, notre outil calcule le <strong>coût total cumulé</strong> des deux options :</p><ul><li><strong>Achat</strong> : apport, frais d'acquisition, mensualités de crédit (capital + intérêts), assurance solde restant dû, entretien annuel, taxe foncière, charges copropriété, moins la plus-value nette à la revente</li><li><strong>Location</strong> : loyers cumulés (indexés sur l'inflation), caution initiale, assurance habitation, plus le rendement de l'épargne qui aurait été investie (apport + frais d'acquisition placés)</li></ul><p>Le <strong>point de croisement</strong> correspond à la durée de détention à partir de laquelle l'achat devient moins coûteux que la location. Au Luxembourg, ce point se situe typiquement entre 7 et 15 ans, selon les hypothèses de plus-value et de taux d'intérêt.</p>",
+      "tcoContent": "<p>L'achat comprend l'apport, l'enveloppe de frais saisie, les échéances mensuelles, l'assurance de prêt et les charges renseignées. Le locataire conserve l'apport et les frais initiaux. À budget identique, chaque partie place ses économies mensuelles. Frais et fiscalité de revente, dépôt locatif et assurances habitation ne sont pas inclus.</p>",
       "levierTitle": "L'effet de levier du crédit immobilier",
-      "levierContent": "<p>L'un des arguments majeurs en faveur de l'achat est l'<strong>effet de levier</strong> du crédit hypothécaire. Avec un apport de 20 % (par exemple 120 000 € sur un bien à 600 000 €), l'acquéreur bénéficie de la plus-value sur 100 % de la valeur du bien.</p><p>Au Luxembourg, les banques financent typiquement jusqu'à 80-100 % du prix d'acquisition (LTV ratio). Les taux hypothécaires, après le pic de 2023-2024, se stabilisent autour de 3,5-4 % pour un taux fixe 20 ans en 2026.</p><p>L'effet de levier est d'autant plus puissant que la plus-value annuelle est élevée. Avec une appréciation de 3 %/an, un apport de 120 000 € génère un rendement sur capitaux propres de 15 %/an (3 % × 600 000 / 120 000).</p>",
+      "levierContent": "<p>Le crédit permet d'acquérir un bien avec un apport inférieur au prix. Il amplifie les effets d'une hausse comme d'une baisse sur les fonds propres et crée des échéances à payer. Les taux, conditions de financement et évolutions de prix doivent être justifiés pour votre projet.</p>",
       "seuilTitle": "Seuil de rentabilité et facteurs de décision",
-      "seuilContent": "<p>Le seuil de rentabilité dépend de nombreux facteurs :</p><ul><li><strong>Durée de séjour prévue</strong> : en dessous de 5-7 ans, la location est presque toujours plus avantageuse en raison des frais d'acquisition élevés (7-10 %)</li><li><strong>Taux d'intérêt</strong> : des taux bas (< 3 %) favorisent l'achat ; des taux élevés (> 5 %) favorisent la location</li><li><strong>Évolution des prix</strong> : une appréciation > 2 %/an raccourcit significativement le point de croisement</li><li><strong>Ratio loyer/prix</strong> : à Luxembourg-Ville, le ratio annuel est de ~3,5-4 %, ce qui rend l'achat compétitif à moyen terme</li><li><strong>Situation personnelle</strong> : stabilité professionnelle, projet familial, mobilité internationale</li></ul>",
+      "seuilContent": "<p>Le croisement des patrimoines dépend du prix, du loyer, de la durée, des frais et des hypothèses de rendement. Il n'existe pas de durée universelle garantissant l'avantage de l'achat. Mobilité, liquidité et capacité à supporter les aléas restent à apprécier séparément.</p>",
       "faq1q": "Combien de temps faut-il garder un bien pour que l'achat soit rentable ?",
-      "faq1a": "Au Luxembourg, le seuil de rentabilité se situe typiquement entre 7 et 15 ans, selon le taux d'intérêt, l'évolution des prix et les frais d'acquisition. Avec le Bëllegen Akt (réduction des frais à ~3 %), ce seuil peut descendre à 5-7 ans.",
+      "faq1a": "La durée dépend de votre scénario. Le point de croisement affiché compare les patrimoines simulés avant les frais et impôts d'une revente ; il ne garantit pas une rentabilité.",
       "faq2q": "Les frais d'acquisition sont-ils pris en compte dans la comparaison ?",
-      "faq2a": "Oui, notre outil intègre les droits d'enregistrement, de transcription, les émoluments notariaux et les frais hypothécaires. Ces frais, qui représentent 7-10 % du prix, constituent le principal frein à la rentabilité de l'achat à court terme.",
+      "faq2a": "Les frais sont une enveloppe en pourcentage saisie par l'utilisateur. Pour détailler droits, crédits et notaire, utilisez le calculateur des frais d'acquisition puis reportez le total adapté à votre projet.",
       "faq3q": "Quel rendement alternatif utiliser pour l'épargne ?",
-      "faq3a": "Le rendement alternatif représente ce que vous gagneriez en plaçant votre apport au lieu de l'immobiliser dans un bien. Un rendement de 4-6 % est raisonnable pour un portefeuille diversifié (actions/obligations) sur le long terme.",
+      "faq3a": "Choisissez un rendement justifié par vos placements et testez plusieurs hypothèses, y compris faibles ou négatives. Il n'existe pas de rendement garanti pour un portefeuille risqué.",
       "faq4q": "L'achat est-il toujours préférable au Luxembourg ?",
-      "faq4a": "Non, pas nécessairement. Si vous prévoyez de rester moins de 5 ans, si les taux sont élevés, ou si vous pouvez obtenir un loyer très avantageux, la location peut être plus rentable. La simulation chiffrée est indispensable.",
+      "faq4a": "Non. Les résultats dépendent des hypothèses et des contraintes personnelles. Comparez plusieurs scénarios et les coûts non couverts avant de décider.",
       "faq5q": "Comment intégrer l'avantage fiscal de la déduction des intérêts hypothécaires ?",
-      "faq5a": "Au Luxembourg, les intérêts hypothécaires sont déductibles du revenu imposable pour la résidence principale (plafond de 1 500 à 3 000 € selon la durée du prêt). Notre simulateur intègre cet avantage dans le calcul du coût net de l'achat."
-    }
+      "faq5a": "Activez la déduction après vérification de votre éligibilité. Indiquez l'année de disponibilité, les personnes fiscalement éligibles, les aides d'intérêts et un taux marginal de scénario. Le calcul applique les règles depuis 2024 à des intérêts réellement amortis ; il ne remplace pas la déclaration fiscale."
+    },
+    "simulationYear": "Première année de simulation",
+    "availabilityYear": "Année de première disponibilité du logement",
+    "availabilityHint": "Année de fixation de la valeur locative pour votre habitation personnelle ; elle peut précéder le début du prêt simulé.",
+    "deductionEligibility": "Je confirme l'éligibilité des intérêts de cette résidence principale et des personnes comptées à la déduction luxembourgeoise.",
+    "interestSubsidy": "Subventions d'intérêts annuelles",
+    "deductionDisabled": "Non appliquée",
+    "deductionUncapped": "Intérêts éligibles sans plafond",
+    "invalidScenario": "Vérifiez les paramètres : apport entre zéro et le prix, prêt positif de 50 ans maximum, dates cohérentes, personnes entières et montants valides. Aucun résultat n'est calculé pour ces entrées.",
+    "modelScope": "Scénario à partir de {annee}, logement disponible en {disponibilite}, {personnes} personnes fiscalement éligibles si confirmé. Déduction année 1 : {deduction}, économie au taux marginal saisi de {taux} %. Règles fiscales en vigueur depuis 2024 maintenues par hypothèse pour les années futures. Budget mensuel identique : la partie qui dépense moins place la différence en fin de mois. Assurance sur le capital initial jusqu'au terme du prêt ; avantages fiscaux et subventions répartis sur l'année. Frais d'achat saisis forfaitairement. Frais et impôts de revente, fiscalité des placements, dépôt locatif et assurances habitation exclus. Aucune prévision de marché ni liquidation fiscale.",
+    "save": "Sauvegarder",
+    "saved": "Sauvegardé",
+    "pdfFrench": "PDF (français)",
+    "scenarioCount": "{count} scénarios",
+    "interestSubsidyMonthly": "Subvention d’intérêts mensuelle (an 1)"
   },
   "simulateurAides": {
     "title": "Simulateur d'aides à l'acquisition",
@@ -3614,7 +3637,7 @@
       "f3": "Gestion locative : lots, paiements, quittances PDF (loi 21.09.2006), AIS, fiscal annexe 190, relances & dunning, assurance impayés",
       "f4": "Réconciliation bancaire PSD2 (Enable Banking — BCEE, BIL, Banque Raiffeisen, Post Finance)",
       "f5": "Sauvegarde cloud (500 items, 180 jours) — historique complet multi-appareils",
-      "f6": "Bail numérique avec signature électronique eIDAS simple + état des lieux",
+      "f6": "Projet de bail en français, tracés de signature facultatifs et empreinte externe du PDF + état des lieux",
       "f7": "Profil personnalisé (nom, logo, coordonnées, mention légale)",
       "f8": "Alertes marché + comparateur de scénarios + partage lien view-only",
       "f9": "2FA (TOTP) + suppression compte RGPD + consentements",
@@ -3638,7 +3661,7 @@
       "f6": "API REST B2B : estimation, batch (1 000 biens), webhook PMS, facturation Factur-X, OpenAPI 3.1",
       "f7": "DCF multi-locataires (break options, step rents, CAPEX, IRR equity) + bilan promoteur",
       "f8": "Transparence modèle : MAPE + R² publics, 29 coefficients sourcés + modèle hédonique",
-      "f9": "Stockage cloud étendu (10 000 items) + export RGPD complet + données macro LU historiques (98 communes avec démographie)",
+      "f9": "Stockage cloud étendu (10 000 items) + export JSON partiel avec périmètre documenté + données macro LU historiques (98 communes avec démographie)",
       "f10": "Support prioritaire par email — contact@tevaxia.lu"
     },
     "faq": {
@@ -3648,7 +3671,7 @@
       "q2": "Les outils sont-ils vraiment illimités sans compte ?",
       "a2": "Oui. Tous les calculateurs et simulateurs fonctionnent sans limite, sans inscription et sans publicité. Le compte débloque l'export PDF, la sauvegarde cloud et les détails avancés.",
       "q3": "Mes données sont-elles en sécurité ?",
-      "a3": "Vos données sont hébergées en Europe (Supabase, serveurs EU). Nous ne vendons ni ne partageons vos informations. Chiffrement HTTPS, RLS par utilisateur. Sans compte, rien ne quitte votre navigateur.",
+      "a3": "Les données de compte et de simulation sont hébergées sur Supabase en Europe. Les connexions utilisent HTTPS et les accès sont limités selon les autorisations du compte. Certaines fonctions travaillent localement dans le navigateur ; d’autres utilisent nos serveurs ou un prestataire, notamment les fonctions connectées que vous activez. Des données techniques peuvent aussi être transmises pour le diagnostic et, avec votre accord, la mesure des pages publiques. Les destinataires et les modalités sont décrits dans la politique de confidentialité.",
       "q4": "Puis-je utiliser tevaxia pour des rapports d'évaluation professionnels ?",
       "a4": "Organisez les pièces, les sources, les calculs, les hypothèses et les réserves dans un dossier de travail. Le professionnel vérifie les informations, détermine les diligences nécessaires et assume ses propres conclusions. L’export ou la signature technique du fichier ne certifie pas sa conformité professionnelle.",
       "q5": "Le dossier s’adapte-t-il aux différents types de biens ?",
@@ -3657,7 +3680,7 @@
   },
   "mentionsLegales": {
     "title": "Mentions légales",
-    "lastUpdate": "Dernière mise à jour : 12 octobre 2026",
+    "lastUpdate": "Dernière mise à jour : 23 octobre 2026",
     "editeur": {
       "title": "1. Éditeur du site",
       "name": "NOTARIA PRIME",
@@ -3708,12 +3731,12 @@
     },
     "droit": {
       "title": "6. Droit applicable",
-      "p1": "Le présent site est soumis au droit luxembourgeois. Tout litige relatif à l'utilisation du site sera de la compétence exclusive des tribunaux du Grand-Duché de Luxembourg."
+      "p1": "Le droit luxembourgeois s’applique sous réserve des dispositions impératives applicables, notamment celles protégeant les consommateurs dans leur pays de résidence habituelle. Les juridictions compétentes sont déterminées par les règles légales applicables. Aucun choix de droit ou de juridiction ne prive un consommateur de ses droits impératifs, notamment ceux prévus aux articles 17 à 19 du règlement (UE) n° 1215/2012. Une démarche amiable peut être proposée sans limiter le droit de saisir la juridiction compétente."
     }
   },
   "cgu": {
     "title": "Conditions Générales d'Utilisation",
-    "lastUpdate": "Dernière mise à jour : 12 octobre 2026",
+    "lastUpdate": "Dernière mise à jour : 23 octobre 2026",
     "intro": "Les présentes Conditions Générales d'Utilisation (CGU) régissent l'utilisation de la plateforme tevaxia.lu et de ses services. En accédant au site ou en créant un compte, l'utilisateur accepte sans réserve les présentes CGU. La plateforme est éditée par NOTARIA PRIME, SAS au capital de 500 €, immatriculée au RCS de Quimper sous le numéro 941 646 341.",
     "article1": {
       "title": "1. Objet",
@@ -3767,12 +3790,12 @@
     },
     "article10": {
       "title": "10. Droit applicable et juridiction",
-      "p1": "Les présentes CGU sont régies par le droit luxembourgeois. Tout litige relatif à leur interprétation ou exécution relèvera de la compétence exclusive des tribunaux du Grand-Duché de Luxembourg, après tentative préalable de résolution amiable."
+      "p1": "Le droit luxembourgeois s’applique sous réserve des dispositions impératives applicables, notamment celles protégeant les consommateurs dans leur pays de résidence habituelle. Les juridictions compétentes sont déterminées par les règles légales applicables. Aucun choix de droit ou de juridiction ne prive un consommateur de ses droits impératifs, notamment ceux prévus aux articles 17 à 19 du règlement (UE) n° 1215/2012. Une démarche amiable peut être proposée sans limiter le droit de saisir la juridiction compétente."
     }
   },
   "confidentialite": {
     "title": "Politique de confidentialité",
-    "lastUpdate": "Dernière mise à jour : 12 octobre 2026",
+    "lastUpdate": "Dernière mise à jour : 23 octobre 2026",
     "responsable": {
       "title": "1. Responsable du traitement",
       "name": "NOTARIA PRIME — Siège social : 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, France",
@@ -3790,7 +3813,7 @@
       },
       "oauth": {
         "label": "Connexion OAuth (Google, LinkedIn) :",
-        "text": "Seuls votre adresse email et votre nom sont transmis par ces services. Nous ne recevons ni votre mot de passe, ni vos contacts, ni aucune autre donnée de votre compte tiers. L'authentification est gérée par Supabase Auth via le protocole OAuth 2.0 / OpenID Connect."
+        "text": "Pour la connexion au compte, Supabase reçoit les informations d’identité autorisées par le fournisseur, notamment l’identifiant, l’adresse email et le nom. Tevaxia ne reçoit pas le mot de passe du fournisseur. Les autorisations supplémentaires demandées pour un calendrier ou Google Drive sont distinctes et décrites ci-dessous."
       },
       "simulations": {
         "label": "Données de simulation :",
@@ -3806,7 +3829,7 @@
       },
       "bancaire": {
         "label": "Données bancaires PSD2 (connexion Enable Banking) :",
-        "text": "Si vous connectez un compte bancaire via le service PSD2 Enable Banking (AIS — Account Information Service) pour le rapprochement automatique, les transactions récupérées (libellé, montant, date, référence) sont traitées en mémoire le temps du rapprochement et non stockées sur nos serveurs au-delà de la session. Le lien PSD2 a une durée maximale de 90 jours imposée par la réglementation UE 2015/2366, renouvelable par votre banque via SCA. La clé privée JWT utilisée pour signer les requêtes reste côté serveur tevaxia, jamais exposée côté navigateur."
+        "text": "Si vous connectez une banque via Enable Banking, les opérations consultées servent au rapprochement demandé. Tevaxia enregistre les identifiants de session et de comptes ainsi que la date de validité renvoyée par le prestataire. Une validité de 180 jours est demandée, sous réserve des conditions de la banque ; une nouvelle authentification peut être requise. Ce délai ne constitue pas une durée universelle de consentement ou de conservation, et ne doit pas être confondu avec la profondeur de l’historique des opérations. La clé privée utilisée pour les requêtes Enable Banking reste sur le serveur."
       },
       "ocr": {
         "label": "OCR factures & documents — traitement local :",
@@ -3819,6 +3842,12 @@
       "diagnostic": {
         "label": "Diagnostic technique des erreurs :",
         "text": "Lorsque Sentry est configuré, le site peut transmettre un rapport technique limité au type d’erreur et aux repères du code généré. Les messages variables, URL de dossiers, requêtes, en-têtes, identités de compte, contextes métier et pièces jointes sont retirés du rapport. Le traçage des performances et l’enregistrement de sessions sont désactivés. Le prestataire reçoit les informations réseau nécessaires à la connexion."
+      },
+      "integrations": {
+        "label": "Connexions optionnelles aux calendriers et à Google Drive :",
+        "calendar": "À votre demande, une connexion Google Calendar ou Microsoft Outlook peut solliciter des droits de lecture et d’écriture d’événements, ainsi qu’un accès hors ligne. Les identifiants du compte externe, l’email, les autorisations, les jetons d’accès et de renouvellement et leurs dates d’expiration sont enregistrés dans Supabase pour cette connexion. L’autorisation ne signifie pas que toutes les fonctions de synchronisation sont disponibles. Une URL d’abonnement calendrier peut aussi transmettre les tâches et visites publiées au service de calendrier choisi : toute personne disposant de cette URL peut lire son contenu.",
+        "drive": "L’export vers Google Drive transmet le fichier choisi et son nom à Google après votre action. L’autorisation drive.file porte sur les fichiers créés ou ouverts avec l’application, pas sur l’ensemble de votre Drive. Les jetons du fournisseur nécessaires à cette action sont accessibles dans la session d’authentification. Le fichier exporté reste dans votre Drive jusqu’à sa suppression selon vos réglages Google.",
+        "revoke": "Vous pouvez retirer les autorisations dans les paramètres de votre compte Google ou Microsoft. Pour faire supprimer les données de connexion conservées par Tevaxia, contactez contact@tevaxia.lu. Le retrait d’une autorisation ne supprime pas automatiquement les fichiers ou événements déjà transmis au fournisseur. Révoquez aussi les liens d’abonnement que vous ne souhaitez plus partager."
       }
     },
     "finalites": {
@@ -3836,7 +3865,7 @@
       },
       "contrat": {
         "label": "Exécution du contrat (art. 6.1.b RGPD) :",
-        "text": "création et gestion de votre compte, sauvegarde de vos simulations."
+        "text": "création et gestion de votre compte, sauvegarde de vos simulations et connexions optionnelles nécessaires aux fonctionnalités que vous demandez."
       },
       "interet": {
         "label": "Intérêt légitime (art. 6.1.f RGPD) :",
@@ -3855,7 +3884,7 @@
       "vercelLoc": "États-Unis (clauses contractuelles types)",
       "render": "Hébergement API energy-api",
       "renderLoc": "États-Unis",
-      "google": "Authentification OAuth",
+      "google": "Authentification, calendriers et export de fichiers Drive à votre demande",
       "googleLoc": "États-Unis (EU-US Data Privacy Framework)",
       "linkedin": "Authentification OAuth",
       "linkedinLoc": "États-Unis (clauses contractuelles types)",
@@ -3866,17 +3895,20 @@
       "posthog": "Mesure des pages publiques avec consentement",
       "posthogLoc": "PostHog EU",
       "sentry": "Diagnostic technique des erreurs",
-      "sentryLoc": "Selon la configuration du projet"
+      "sentryLoc": "Selon la configuration du projet",
+      "microsoftCalendar": "Connexion optionnelle au calendrier Outlook",
+      "microsoftCalendarLoc": "Microsoft — localisation liée à votre compte et aux conditions du fournisseur"
     },
     "duree": {
       "title": "6. Durée de conservation",
       "compte": "Données de compte : conservées jusqu'à la suppression du compte par l'utilisateur.",
       "simulations": "Données de simulation (évaluations sauvegardées, lots locatifs) : 180 jours à compter de la dernière modification, plafond 500 items par compte gratuit (10 000 pour un plan Pro). Purge automatique quotidienne à 03:00 UTC des lignes dépassant ces seuils. Les données locales (localStorage) restent disponibles tant que l'utilisateur ne vide pas son navigateur.",
       "liensPartages": "Liens publics de partage : 90 jours par défaut, durée paramétrable par l'utilisateur (1 à 365 jours) à la création, avec limite de vues optionnelle.",
-      "cookies": "Cookies : durée maximale de 13 mois.",
+      "cookies": "Choix de mesure d’audience : l’accord comme le refus est conservé 180 jours dans le navigateur, avec la date et la version du choix, puis redemandé. Cette durée est un choix du service, pas une règle légale universelle. Les sessions d’authentification suivent leur expiration et renouvellement ; les sauvegardes locales restent jusqu’à leur suppression par l’utilisateur ou le navigateur.",
       "metier": "Données métier B2B (copropriétaires, clients hôteliers, contacts CRM) : conservées pendant la durée du contrat de service avec le professionnel utilisateur. Les obligations de conservation légales spécifiques LU s'appliquent (comptabilité et factures 10 ans art. L.16-2 Code de commerce, PV d'AG 10 ans, données AML/KYC 5 ans).",
-      "bancaire": "Données PSD2 Enable Banking : transactions bancaires consultées en mémoire, non persistées au-delà de la session. Lien PSD2 : 90 jours maximum (renouvelable par SCA).",
-      "ocrFichiers": "OCR factures : les PDF/images uploadés ne sont jamais stockés sur nos serveurs — traitement 100% navigateur. Seules les données structurées validées par l'utilisateur sont enregistrées."
+      "bancaire": "Connexion bancaire : la date de validité est celle renvoyée par la banque ou le prestataire. Son expiration bloque l’accès, mais ne signifie pas que les métadonnées de connexion sont automatiquement effacées. Vous pouvez demander leur suppression à contact@tevaxia.lu. Les données incorporées dans vos documents de rapprochement relèvent de la conservation de ces documents.",
+      "ocrFichiers": "OCR factures : les PDF/images uploadés ne sont jamais stockés sur nos serveurs — traitement 100% navigateur. Seules les données structurées validées par l'utilisateur sont enregistrées.",
+      "integrations": "Calendriers : les informations et jetons de connexion restent enregistrés tant que l’intégration existe ; l’expiration d’un jeton ne supprime pas sa fiche. Leur suppression peut être demandée au contact ci-dessous. Les copies déjà présentes chez Google, Microsoft ou un autre calendrier, ainsi que les fichiers Drive exportés, restent soumis aux réglages de votre compte chez ce fournisseur."
     },
     "droits": {
       "title": "7. Vos droits",
@@ -3884,9 +3916,10 @@
       "acces": "Droit d'accès à vos données personnelles",
       "rectification": "Droit de rectification",
       "effacement": "Droit à l'effacement (« droit à l'oubli »)",
-      "portabilite": "Droit à la portabilité des données — un bouton « Exporter toutes mes données (JSON) » est disponible dans la section « Données & plan » de votre profil",
+      "portabilite": "Droit à la portabilité dans les conditions prévues par le RGPD. L’export JSON du profil couvre seulement les catégories indiquées dans son manifeste : il ne constitue pas une archive complète du compte et exclut notamment plusieurs modules métier, documents et journaux. Pour exercer votre droit sur des données non incluses, contactez-nous.",
       "opposition": "Droit d'opposition au traitement",
-      "exercer": "Pour exercer ces droits, contactez-nous à"
+      "exercer": "Pour exercer ces droits, contactez-nous à",
+      "limitation": "Droit à la limitation du traitement, dans les conditions prévues par le RGPD"
     },
     "cookies": {
       "title": "8. Cookies",
@@ -6034,7 +6067,7 @@
       },
       "agence": {
         "title": "Agence immobilière",
-        "desc": "Pipeline mandats OpenImmo, CRM contacts avec matching acquéreur /100, Kanban drag-drop, fiches bien PDF co-brandées, signature eIDAS."
+        "desc": "Mandats, contacts, tâches et documents d’agence, avec parcours de signature dont la portée doit être vérifiée selon l’acte."
       },
       "hotel": {
         "title": "Hôtellerie",
@@ -6068,8 +6101,8 @@
         },
         "agence": {
           "daily": "Mandats, contacts, diffusion portails, matching acquéreur",
-          "compliance": "eIDAS UE 910/2014, RGPD consentement",
-          "standards": "OpenImmo 1.2.8, eIDAS"
+          "compliance": "Parcours de signature en ligne avec éléments techniques à vérifier ; aucun niveau avancé ou qualifié n’est certifié par la plateforme.",
+          "standards": "Export OpenImmo ; exigences de signature à vérifier"
         },
         "hotel": {
           "daily": "Réservations, folios, facturation, revenue management",
@@ -6142,13 +6175,13 @@
     "agence": {
       "meta": {
         "title": "CRM agence immobilière Luxembourg — pipeline et OpenImmo",
-        "description": "Centralisez mandats, contacts, tâches dans un seul CRM pensé pour les agences LU. Matching acquéreur automatique, fiches bien PDF co-brandées, signature eIDAS."
+        "description": "Mandats, contacts, tâches et documents d’agence, avec parcours de signature dont la portée doit être vérifiée selon l’acte."
       },
       "hero": {
         "badge": "CRM immobilier pour agences LU",
         "title": "Votre pipeline mandats dans",
         "titleAccent": "un seul outil, pas quatre",
-        "subtitle": "Gestion des mandats au format OpenImmo, CRM contacts avec matching acquéreur automatique, Kanban glisser-déposer, fiches bien PDF co-brandées et signature électronique eIDAS. Conçu pour les agences immobilières luxembourgeoises qui veulent arrêter de jongler entre plusieurs outils.",
+        "subtitle": "Mandats, contacts, tâches et documents d’agence, avec parcours de signature dont la portée doit être vérifiée selon l’acte.",
         "cta": "Démarrer gratuitement",
         "ctaSecondary": "Voir comment ça marche",
         "kpis": [
@@ -6234,11 +6267,11 @@
           },
           {
             "title": "Bons de visite PDF",
-            "desc": "Avec log timeline et signature électronique. Valable juridiquement."
+            "desc": "Parcours de signature en ligne avec éléments techniques à vérifier ; aucun niveau avancé ou qualifié n’est certifié par la plateforme."
           },
           {
-            "title": "Signature eIDAS mandats",
-            "desc": "Signature électronique avancée (eIDAS), valeur juridique au Luxembourg."
+            "title": "Parcours de signature en ligne",
+            "desc": "Parcours de signature en ligne avec éléments techniques à vérifier ; aucun niveau avancé ou qualifié n’est certifié par la plateforme."
           },
           {
             "title": "Séquences nurturing",
@@ -6280,7 +6313,7 @@
           "Matching acquéreur automatique /100",
           "Pipeline Kanban drag-drop",
           "Fiches bien PDF co-brandées",
-          "Bons de visite et signature eIDAS",
+          "Parcours de signature en ligne avec éléments techniques à vérifier ; aucun niveau avancé ou qualifié n’est certifié par la plateforme.",
           "Séquences nurturing automatisées",
           "Commissions agents et performance",
           "10 modèles d'emails éditables"
@@ -6308,12 +6341,12 @@
             "a": "Oui, le module supporte les organisations multi-entités avec rôles (admin, agent, assistant). Chaque agent ne voit que les mandats et contacts qui lui sont attribués, sauf si vous activez la visibilité partagée."
           },
           {
-            "q": "La signature eIDAS est-elle valable juridiquement ?",
-            "a": "Oui, la signature électronique avancée eIDAS (règlement UE 910/2014) a valeur juridique équivalente à la signature manuscrite au Luxembourg et dans toute l'UE. Traçabilité complète du signataire, horodatage et intégrité garantie."
+            "q": "Quelle est la portée du parcours de signature ?",
+            "a": "Ce parcours ne fournit pas de signature électronique qualifiée et ne certifie pas le niveau avancé. L’article 25 eIDAS protège la recevabilité d’une signature électronique ; l’équivalence expressément prévue avec une signature manuscrite concerne la signature qualifiée. La validité d’un acte dépend aussi de son contenu, de l’identité, des pouvoirs des parties et des formalités applicables. Faites vérifier les exigences de l’acte avant signature."
           },
           {
             "q": "Les données contacts sont-elles sécurisées (RGPD) ?",
-            "a": "Données stockées sur Supabase (AWS eu-central-1 Francfort), Row Level Security par utilisateur, HTTPS en transit. Export complet de vos données en ZIP à tout moment (droit RGPD article 20). Consentement contacts traçable."
+            "a": "L’export JSON du profil est partiel et décrit ses catégories incluses et exclues. Il ne fournit pas un ZIP complet de tous les contacts, documents ou données métier. Pour exercer vos droits sur les données non incluses, contactez contact@tevaxia.lu. La politique de confidentialité précise les traitements et destinataires."
           }
         ]
       },
@@ -6497,7 +6530,7 @@
           },
           {
             "q": "Mes données sont-elles hébergées en UE ?",
-            "a": "Supabase (AWS eu-central-1, Francfort). Row Level Security par utilisateur, chiffrement HTTPS en transit. Export complet des données clients en ZIP à tout moment (RGPD art. 20)."
+            "a": "L’export JSON du profil est partiel et décrit ses catégories incluses et exclues. Il ne fournit pas un ZIP complet de tous les contacts, documents ou données métier. Pour exercer vos droits sur les données non incluses, contactez contact@tevaxia.lu. La politique de confidentialité précise les traitements et destinataires."
           }
         ]
       },
@@ -6677,7 +6710,7 @@
           },
           {
             "q": "La signature SHA-256 a-t-elle valeur probante ?",
-            "a": "La signature SHA-256 garantit l'intégrité du document (tout changement invalide le hash). Elle ne remplace pas une signature eIDAS légalement qualifiée, mais elle fournit une preuve cryptographique que le rapport n'a pas été altéré après émission. Utile en contentieux."
+            "a": "Une empreinte permet de comparer un contenu à une référence conservée. Elle ne certifie pas à elle seule l’identité, l’accord d’une personne, la date ou la validité juridique du document. Conservez le document et les éléments de vérification ; une empreinte seule n’est pas une signature qualifiée."
           },
           {
             "q": "Comment documenter les hypothèses particulières ?",
@@ -7893,7 +7926,7 @@
   "proAgences": {
     "badge": "CRM agences immobilières",
     "title": "Le CRM immobilier pensé pour le Luxembourg",
-    "description": "Pipeline de mandats Kanban, matching acquéreur automatisé, e-signatures eIDAS, diffusion 1-clic vers athome.lu et OpenImmo, frais d'acquisition LU calculés (Bëllegen Akt + TVA 3 %) et rapport co-brandé estimation+aides. Tout pour une agence immobilière qui opère au Luxembourg.",
+    "description": "Mandats, contacts, tâches et documents d’agence, avec parcours de signature dont la portée doit être vérifiée selon l’acte.",
     "ctaDemo": "Accéder au CRM",
     "ctaSeeFeatures": "Voir les fonctionnalités",
     "kpi1Value": "9",
@@ -7912,8 +7945,8 @@
     "feature2Desc": "Algorithme propriétaire à 6 critères pondérés (budget, rayon, typologie, surface, classe énergétique, projet). Score sur 100 avec breakdown par critère pour chaque match.",
     "feature3Title": "Diffusion portails 1 clic",
     "feature3Desc": "Export OpenImmo 1.2.8 (athome.lu, immotop.lu, wort.lu, immoscout24.de, idealista.it/pt) + CSV pour portails additionnels. Mise à jour incrémentale du flux à chaque changement.",
-    "feature4Title": "E-signatures eIDAS",
-    "feature4Desc": "Mandats de vente et bons de visite signés électroniquement, valeur juridique équivalente au manuscrit (règlement UE 910/2014). Horodatage, traçabilité, intégrité garantie.",
+    "feature4Title": "Parcours de signature en ligne",
+    "feature4Desc": "Ce parcours ne fournit pas de signature électronique qualifiée et ne certifie pas le niveau avancé. L’article 25 eIDAS protège la recevabilité d’une signature électronique ; l’équivalence expressément prévue avec une signature manuscrite concerne la signature qualifiée. La validité d’un acte dépend aussi de son contenu, de l’identité, des pouvoirs des parties et des formalités applicables. Faites vérifier les exigences de l’acte avant signature.",
     "feature5Title": "Suivi commissions & performance",
     "feature5Desc": "Commissions estimées vs perçues par an, graphique trimestriel, classement des négociateurs (taux de conversion, délais signature/clôture, top performers).",
     "feature6Title": "PDF co-brandé estimation + frais + aides",
@@ -8513,19 +8546,19 @@
   "bailCommercial": {
     "seo": {
       "contextTitle": "Pourquoi un régime spécifique ?",
-      "contextContent": "Le bail commercial luxembourgeois est encadré par la loi du 3 février 2018 et le Code civil. Contrairement au bail d'habitation, le loyer est librement convenu à la signature — la règle des 5 % plafonnant le loyer ne s'applique pas. En revanche, la durée minimale de 9 ans et le droit au renouvellement apportent une protection forte au locataire.",
-      "indexationTitle": "Indexation selon l'IPC STATEC",
-      "indexationContent": "Au Luxembourg, il n'existe pas d'indice spécifique au bail commercial (équivalent ILC/ILAT français). Les parties se réfèrent habituellement à l'Indice des prix à la consommation (IPC) publié par le STATEC. Les clauses limitent souvent l'indexation à 15-25 % du loyer initial pour éviter les dérives en période de forte inflation.",
-      "dureeTitle": "Durée minimale de 9 ans",
-      "dureeContent": "La loi du 3 février 2018 fixe une durée minimale de 9 ans pour le bail commercial. Le locataire peut résilier à chaque période triennale (3, 6 et 9 ans) moyennant un préavis de 6 mois. À défaut de congé 6 mois avant terme, le bail se renouvelle tacitement.",
+      "contextContent": "Le bail commercial luxembourgeois relève du Code civil et de la loi du 3 février 2018. Le loyer initial est négocié entre les parties ; le plafond résidentiel de 5 % ne s’applique pas. La durée, le renouvellement et la résiliation suivent les clauses et dispositions applicables : aucune durée minimale légale de neuf ans ne découle de ce régime.",
+      "indexationTitle": "Indexation selon la clause du bail",
+      "indexationContent": "La formule, l’indice, les dates et tout plafond doivent résulter du contrat. Pour une clause proportionnelle, le calcul est : loyer initial × indice de révision / indice de référence. Utilisez des indices comparables, de même série et de même base. Un pourcentage présenté comme usuel ne crée aucun plafond légal.",
+      "dureeTitle": "Durée convenue et résiliation",
+      "dureeContent": "Le bail peut être conclu pour une durée déterminée ou indéterminée (art. 1762-4 du Code civil). Un schéma 3–6–9 peut être négocié, mais n’est pas imposé automatiquement. Une faculté de sortie périodique dépend de la clause convenue. Le régime prévoit au moins six mois de préavis de résiliation ; vérifiez également les formalités et les règles de renouvellement.",
       "faq1q": "La règle des 5 % s'applique-t-elle au commerce ?",
       "faq1a": "Non. La règle des 5 % (plafond légal de loyer calculé sur le capital investi réévalué) est spécifique au bail d'habitation. Pour un bail commercial, le loyer initial est libre — c'est la négociation entre bailleur et locataire qui fait foi.",
       "faq2q": "Comment est indexé le loyer commercial au LU ?",
-      "faq2a": "Par application de l'Indice des prix à la consommation (IPC) publié par le STATEC, selon la formule négociée dans le bail. Formule usuelle : loyer indexé = loyer initial × (IPC année N / IPC année signature), souvent plafonnée à +15 % ou +20 % du loyer initial pour protéger le locataire en période de forte inflation.",
+      "faq2a": "La formule, l’indice, les dates et tout plafond doivent résulter du contrat. Pour une clause proportionnelle, le calcul est : loyer initial × indice de révision / indice de référence. Utilisez des indices comparables, de même série et de même base. Un pourcentage présenté comme usuel ne crée aucun plafond légal.",
       "faq3q": "Quelle est la durée minimale ?",
-      "faq3a": "9 ans (loi du 3 février 2018). Le locataire peut sortir à chaque période triennale avec un préavis de 6 mois. Le bailleur ne peut résilier qu'à l'échéance de 9 ans, et uniquement pour reprise personnelle ou travaux majeurs, sinon une indemnité d'éviction est due.",
-      "faq4q": "Qu'est-ce que le pas-de-porte ?",
-      "faq4a": "C'est une somme versée par le locataire entrant au bailleur, en contrepartie du droit d'occuper les lieux. Le pas-de-porte peut représenter plusieurs mois voire années de loyer. Il n'est pas récupérable à la sortie et il est distinct du dépôt de garantie (3-12 mois usuels).",
+      "faq3a": "Le bail peut être conclu pour une durée déterminée ou indéterminée (art. 1762-4 du Code civil). Un schéma 3–6–9 peut être négocié, mais n’est pas imposé automatiquement. Une faculté de sortie périodique dépend de la clause convenue. Le régime prévoit au moins six mois de préavis de résiliation ; vérifiez également les formalités et les règles de renouvellement.",
+      "faq4q": "Un pas-de-porte peut-il être exigé ?",
+      "faq4a": "Le supplément payé au bailleur ou à un intermédiaire en raison de la conclusion du bail, dit pas-de-porte, est interdit par l’article 1762-5. Ne le confondez pas avec des frais d’agence ou le prix d’une cession de fonds de commerce, à analyser séparément. La garantie locative du bail commercial est plafonnée à six mois de loyer.",
       "faqTitle": "Questions fréquentes",
       "relatedTitle": "Aller plus loin"
     }
@@ -8592,9 +8625,9 @@
     "pasDePt": "Pas-de-porte (droit d'entrée)",
     "depot": "Dépôt de garantie",
     "charges": "Charges annuelles (provisions)",
-    "hintPlafond": "Usuel : 15-25 %. Au-delà, le locataire peut demander la révision judiciaire (art. 1757-4 Code civil).",
-    "hintPasDePt": "Somme versée en une fois à la signature, non récupérable.",
-    "hintDepot": "Usuel : 3 à 12 mois. Restitué en fin de bail (sauf dégradations)."
+    "hintPlafond": "Uniquement si une clause le prévoit ; aucun seuil usuel ne vaut règle légale.",
+    "hintPasDePt": "Le pas-de-porte au bailleur pour la conclusion du bail est interdit.",
+    "hintDepot": "Garantie locative : maximum six mois de loyer dans ce régime (art. 1762-5). Montant calculé ici sur le loyer initial."
   },
   "syndicCoproprietes": {
     "error": "Erreur",
@@ -9035,13 +9068,13 @@
   "bailCommercialPage": {
     "backLink": "← tevaxia.lu",
     "pageTitle": "Bail commercial LU — indexation & durée",
-    "pageDescription": "Calcul de l'indexation du loyer selon l'IPC luxembourgeois (STATEC) et rappel des règles applicables au bail commercial (loi du 3 février 2018).",
+    "pageDescription": "Scénario d’indexation à partir des indices que vous saisissez et des clauses convenues. Les résultats ne vérifient pas le contrat et ne prédisent pas les indices futurs.",
     "warningImportant": "Important :",
     "warningText": "contrairement au bail d'habitation, la règle des 5 % (plafond légal de loyer) ne s'applique pas au bail commercial. Le loyer est librement convenu à la signature, puis encadré par les clauses d'indexation négociées entre les parties.",
     "sectionLoyerInitial": "Loyer initial & dates",
     "sectionClausesBail": "Clauses du bail",
     "sectionCoutsComplementaires": "Coûts complémentaires",
-    "duree9": "9 ans (durée minimale légale LU)",
+    "duree9": "9 ans (durée contractuelle)",
     "duree12": "12 ans",
     "duree15": "15 ans",
     "duree18": "18 ans",
@@ -9062,34 +9095,34 @@
     "indexPlafonneClause": "mais votre clause limite à",
     "duLoyerInitial": "du loyer initial.",
     "resultTitle": "Rappels réglementaires — bail commercial LU",
-    "regDureeMin": "Durée minimale légale",
-    "regDureeMinVal": "9 ans (loi du 03.02.2018)",
-    "regTriennale": "Période triennale",
-    "regTriennaleVal": "Résiliation possible tous les 3 ans (préavis 6 mois)",
-    "regRenouvellement": "Renouvellement automatique",
-    "regRenouvellementVal": "Sauf congé donné 6 mois avant terme",
+    "regDureeMin": "Durée",
+    "regDureeMinVal": "Déterminée ou indéterminée (art. 1762-4)",
+    "regTriennale": "Résiliation périodique",
+    "regTriennaleVal": "Selon les clauses et règles applicables ; aucun droit triennal automatique",
+    "regRenouvellement": "Renouvellement / reconduction",
+    "regRenouvellementVal": "À vérifier selon le contrat, les notifications et les règles légales",
     "regIndice": "Indice d'indexation LU",
     "regIndiceVal": "IPC STATEC (pas d'ILC/ILAT équivalent LU)",
     "regRegle5": "Règle des 5 %",
     "regRegle5Val": "Ne s'applique PAS aux baux commerciaux",
     "regForme": "Forme",
-    "regFormeVal": "Écrit obligatoire si > 9 ans (art. 1715 Code civil)",
-    "coutTotalBail": "Coût total du bail",
+    "regFormeVal": "Formaliser par écrit ; vérifier les formalités selon la durée et l’acte",
+    "coutTotalBail": "Projection à loyer constant",
     "ansLabel": "ans",
-    "loyersCumules": "Loyers cumulés (indexés)",
+    "loyersCumules": "Loyers du scénario",
     "chargesCumulees": "Charges cumulées",
     "pasDePtLabel": "Pas-de-porte",
     "depotGarantieImmob": "Dépôt de garantie (immobilisé)",
     "coutTotalOccupation": "Coût total occupation",
     "soitMoyenne": "Soit",
     "anMoyenne": "/an en moyenne",
-    "periodesTriennales": "Périodes triennales",
+    "periodesTriennales": "Années des options contractuelles",
     "finDuBail": "Fin du bail",
     "periodeTriennaleN": "Période triennale n°",
     "resiliationPossible": "(résiliation possible)",
-    "preavisTriennale": "Préavis de 6 mois par LRAR avant chaque échéance triennale.",
+    "preavisTriennale": "Années indicatives calculées uniquement selon la clause déclarée. Le régime prévoit un préavis de résiliation d’au moins six mois ; vérifiez les dates exactes, motifs, formes et règles de renouvellement applicables avec le contrat.",
     "clausesTitle": "Clauses fréquentes à vérifier :",
-    "clausesText": "pas-de-porte, dépôt de garantie (3-12 mois), charges déductibles, destination des lieux, droit au renouvellement, indemnité d'éviction en cas de non-renouvellement.",
+    "clausesText": "Vérifiez la destination des lieux, la durée, les options de sortie, la formule d’indexation, les charges, la garantie (maximum six mois), le renouvellement et les conditions d’indemnisation. Le calcul ne valide aucune de ces clauses.",
     "tableTitle": "Tableau d'indexation IPC — année par année",
     "tableSubtitle": "Évolution du loyer indexé de",
     "tableTo": "à",
@@ -9105,7 +9138,24 @@
     "thEvolVsInitial": "Évol. vs initial",
     "refBadge": "(réf.)",
     "cibleBadge": "(cible)",
-    "plafBadge": "(plaf.)"
+    "plafBadge": "(plaf.)",
+    "referenceIndexInput": "Indice de référence du contrat",
+    "targetIndexInput": "Indice à la date de révision",
+    "indexInputHelp": "100 et 100 sont des valeurs d’exemple. Saisissez les indices publiés correspondant à la clause, sur la même base et avec la même périodicité. Aucun IPC annuel manquant ou futur n’est inventé.",
+    "officialIndexSource": "Consulter les indices publiés par le STATEC",
+    "capConfirmed": "Le contrat prévoit un plafond d’indexation total",
+    "indefiniteTerm": "Bail à durée indéterminée",
+    "analysisHorizon": "Horizon du scénario",
+    "termHelp": "Aucun minimum légal de neuf ans n’est imposé par ce régime. L’outil accepte des années entières de 1 à 99 ; pour un bail indéterminé, la valeur est seulement un horizon de calcul, pas un terme du contrat.",
+    "breakConfirmed": "Une clause du contrat prévoit des facultés de résiliation périodiques",
+    "breakInterval": "Intervalle prévu par la clause",
+    "noKeyMoney": "Le pas-de-porte payé au bailleur en raison de la conclusion du bail est interdit ; il n’est pas proposé comme coût normal. Les frais d’agence et une cession de fonds de commerce doivent être distingués et vérifiés séparément.",
+    "invalidInputs": "Vérifiez les montants et indices positifs, les années entières et la garantie comprise entre 0 et 6 mois.",
+    "indexScenarioTitle": "Indexation selon les paramètres saisis",
+    "annualIndexedRent": "Loyer annuel indexé",
+    "monthlyIndexedRent": "Loyer mensuel indexé",
+    "constantScenario": "Le loyer indexé ci-dessus et les charges annuelles sont maintenus constants sur tout l’horizon. Ce n’est ni un historique ni une prévision d’inflation. La garantie immobilisée est affichée séparément et n’est pas comptée comme une dépense définitive.",
+    "noBreakInHorizon": "Aucune échéance intermédiaire sur cet horizon."
   },
   "drive": {
     "saveToDrive": "Enregistrer dans Drive",
@@ -9990,37 +10040,37 @@
     },
     "bailHabitation": {
       "title": "Bail d'habitation Luxembourg : loi 21.09.2006, droits 2026",
-      "metaDescription": "Bail habitation LU : durée indéterminée, préavis 3/6 mois, garantie max 3 mois, plafond loyer 5 % capital investi, charges récupérables RGD 16.06.2015, Commission des loyers communale.",
+      "metaDescription": "Bail résidentiel au Luxembourg : nouveau plafond de garantie de deux mois, durée, mentions écrites, adaptation du loyer et recours.",
       "subtitle": "Tout ce que bailleur et locataire doivent savoir avant de signer un bail au Luxembourg.",
       "category": "Location & bail",
       "essentiel": [
-        "Cadre légal : loi modifiée du 21 septembre 2006 sur le bail à usage d'habitation, complétée par le Code civil et le RGD du 16 juin 2015 sur les charges.",
-        "Durée par défaut : indéterminée. Préavis locataire 3 mois, préavis bailleur 6 mois et seulement pour motif légitime (besoin personnel, manquement grave, travaux).",
-        "Loyer plafonné à 5 % par an du capital investi réévalué (art. 3 loi 2006). Voir le guide dédié sur la règle des 5 %.",
-        "Garantie locative : maximum 3 mois de loyer hors charges, sur compte bloqué au nom du locataire. Intérêts pour le locataire.",
-        "Recours pré-judiciaire gratuit : Commission des loyers de la commune avant toute action en justice."
+        "Pour un nouveau contrat soumis au régime actuel, le bail doit être écrit et identifier les parties, le logement, sa référence cadastrale, les pièces louées, la durée, le loyer, les charges, le supplément mobilier éventuel et la garantie. Il mentionne le recours à la commission des loyers pour la fixation du loyer. Vérifiez les règles particulières et exclusions selon l’usage du logement.",
+        "La durée peut être déterminée ou indéterminée. La résiliation, le préavis et le renouvellement dépendent de cette durée, du contrat et des motifs légaux. Il n’existe pas de droit général du locataire à interrompre tout bail à durée déterminée à tout moment avec trois mois de préavis. Faites vérifier les règles et les notifications adaptées à votre situation.",
+        "Le plafond applicable doit être déterminé à partir du capital investi, des réévaluations et décotes pertinentes ; le supplément mobilier se justifie séparément. L’adaptation du loyer suit les conditions légales, notamment l’intervalle de deux ans et la limite de hausse de 10 %, avec les exceptions prévues. Une clause de valeur peut perdre effet après réclamation recommandée du locataire : l’IPC ne constitue pas un droit automatique à augmenter.",
+        "Pour un nouveau bail d’habitation conclu depuis le 1er août 2024, la garantie est limitée à deux mois de loyer hors charges. Un contrat antérieur peut relever de l’ancien plafond de trois mois. Plusieurs formes de garantie sont possibles ; le compte bloqué n’est pas la seule forme autorisée. Les conditions et délais légaux de restitution doivent être vérifiés selon l’état des lieux, les sommes dues et les décomptes.",
+        "Le recours dépend de l’objet du litige. La commission des loyers intervient dans son champ de compétence, notamment la fixation du loyer ; elle n’est pas un passage universel pour tout différend. Les demandes de restitution de garantie ou de résiliation peuvent relever du juge de paix. Conservez les pièces et faites vérifier les démarches, délais et conditions propres au dossier."
       ],
       "section1Title": "Cadre légal et nature du contrat",
-      "section1P1": "Le bail à usage d'habitation au Luxembourg est encadré par la loi modifiée du 21 septembre 2006, qui s'applique à toute location d'un logement servant de résidence principale (article 1). Sont exclus les locations meublées de courte durée à caractère touristique, les baux ruraux et les locations commerciales (régies par d'autres textes). Le contrat doit être écrit ; à défaut d'écrit, la loi reconnaît l'existence du bail dès qu'il y a paiement et occupation, mais avec une charge de la preuve plus lourde.",
-      "section1P2": "Le bail est par défaut conclu pour une durée indéterminée. Les baux à durée déterminée sont possibles, mais à leur terme se transforment automatiquement en bail à durée indéterminée si le locataire reste dans les lieux sans opposition du bailleur (tacite reconduction). Le contrat doit mentionner les parties, la description du logement, le loyer hors charges, le montant des charges et leurs modalités de calcul, le montant du dépôt de garantie et la date d'entrée en jouissance.",
+      "section1P1": "Pour un nouveau contrat soumis au régime actuel, le bail doit être écrit et identifier les parties, le logement, sa référence cadastrale, les pièces louées, la durée, le loyer, les charges, le supplément mobilier éventuel et la garantie. Il mentionne le recours à la commission des loyers pour la fixation du loyer. Vérifiez les règles particulières et exclusions selon l’usage du logement.",
+      "section1P2": "Pour un nouveau contrat soumis au régime actuel, le bail doit être écrit et identifier les parties, le logement, sa référence cadastrale, les pièces louées, la durée, le loyer, les charges, le supplément mobilier éventuel et la garantie. Il mentionne le recours à la commission des loyers pour la fixation du loyer. Vérifiez les règles particulières et exclusions selon l’usage du logement.",
       "callout1Title": "Forme et clauses interdites",
-      "callout1Body": "Sont nulles toute clause prévoyant une garantie supérieure à 3 mois de loyer, toute clause de solidarité illimitée d'un colocataire après son départ, toute pénalité de résiliation hors préavis légal, et toute clause exonérant le bailleur de son obligation de délivrance d'un logement décent (art. 1719 Code civil).",
+      "callout1Body": "Pour un nouveau contrat soumis au régime actuel, le bail doit être écrit et identifier les parties, le logement, sa référence cadastrale, les pièces louées, la durée, le loyer, les charges, le supplément mobilier éventuel et la garantie. Il mentionne le recours à la commission des loyers pour la fixation du loyer. Vérifiez les règles particulières et exclusions selon l’usage du logement.",
       "section2Title": "Loyer, indexation et garantie",
-      "section2P1": "Le loyer initial est libre mais ne peut excéder 5 % du capital investi réévalué (art. 3 loi 21.09.2006). Le loyer ne peut être révisé qu'une fois tous les deux ans, et seulement à la hausse correspondant à l'évolution de l'indice des prix à la consommation publié par le STATEC, ou si des travaux d'amélioration justifient une réévaluation du capital investi. La révision doit être notifiée par lettre recommandée avec un préavis d'un mois.",
-      "section2P2": "Le dépôt de garantie est limité à 3 mois de loyer hors charges (art. 5 loi 2006). Il doit être versé sur un compte bloqué au nom du locataire dans un établissement bancaire luxembourgeois ; les intérêts produits reviennent au locataire. La restitution doit intervenir dans un délai raisonnable après la fin du bail (en pratique 1 à 3 mois), déduction faite des éventuels dommages constatés à l'état des lieux de sortie. Une garantie locative de l'État est possible pour les locataires éligibles via le ministère du Logement.",
+      "section2P1": "Le plafond applicable doit être déterminé à partir du capital investi, des réévaluations et décotes pertinentes ; le supplément mobilier se justifie séparément. L’adaptation du loyer suit les conditions légales, notamment l’intervalle de deux ans et la limite de hausse de 10 %, avec les exceptions prévues. Une clause de valeur peut perdre effet après réclamation recommandée du locataire : l’IPC ne constitue pas un droit automatique à augmenter.",
+      "section2P2": "Pour un nouveau bail d’habitation conclu depuis le 1er août 2024, la garantie est limitée à deux mois de loyer hors charges. Un contrat antérieur peut relever de l’ancien plafond de trois mois. Plusieurs formes de garantie sont possibles ; le compte bloqué n’est pas la seule forme autorisée. Les conditions et délais légaux de restitution doivent être vérifiés selon l’état des lieux, les sommes dues et les décomptes.",
       "section3Title": "Obligations bailleur et locataire",
-      "section3P1": "Le bailleur doit délivrer le logement en bon état d'usage et de réparation (art. 1719 Code civil), garantir la jouissance paisible des lieux, effectuer les grosses réparations (toiture, façade, structure, mise aux normes électriques majeures) et établir les états des lieux contradictoires d'entrée et de sortie. Il ne peut récupérer auprès du locataire que les charges limitativement énumérées par le RGD du 16 juin 2015 : eau / électricité / gaz des parties communes, chauffage collectif, entretien des communs, ascenseur, taxe communale ordures, assurance immeuble.",
-      "section3P2": "Le locataire doit payer son loyer aux échéances prévues, user du logement en bon père de famille, effectuer les menues réparations locatives (joints, ampoules, petits scellements), respecter le règlement de copropriété s'il y en a un et permettre l'accès au bailleur pour visites de contrôle ou travaux. Le défaut de paiement de plus de deux mois de loyer expose à une résiliation judiciaire pour manquement grave avec expulsion possible, après mise en demeure restée infructueuse.",
+      "section3P1": "Distinguez le loyer des charges récupérables liées à l’usage, à la consommation et à l’entretien courant. Les acomptes sont régularisés sur justificatifs ; un forfait peut être convenu dans les conditions légales. Les charges de propriété et grosses réparations ne deviennent pas récupérables par leur simple inscription au contrat. Vérifiez la nature de chaque poste.",
+      "section3P2": "La durée peut être déterminée ou indéterminée. La résiliation, le préavis et le renouvellement dépendent de cette durée, du contrat et des motifs légaux. Il n’existe pas de droit général du locataire à interrompre tout bail à durée déterminée à tout moment avec trois mois de préavis. Faites vérifier les règles et les notifications adaptées à votre situation.",
       "callout2Title": "Charges interdites",
-      "callout2Body": "Le bailleur ne peut pas répercuter sur le locataire : les frais de gestion ou de syndic professionnel au-delà de la quote-part locataire, les gros travaux de remplacement (chaudière, toiture, façade), la taxe foncière, les frais d'assurance habitation autre que la responsabilité civile de l'immeuble, ni les frais d'amélioration ou de modernisation du bien.",
+      "callout2Body": "Distinguez le loyer des charges récupérables liées à l’usage, à la consommation et à l’entretien courant. Les acomptes sont régularisés sur justificatifs ; un forfait peut être convenu dans les conditions légales. Les charges de propriété et grosses réparations ne deviennent pas récupérables par leur simple inscription au contrat. Vérifiez la nature de chaque poste.",
       "section4Title": "Fin du bail et recours",
-      "section4P1": "Le locataire peut résilier à tout moment par lettre recommandée avec un préavis de 3 mois (art. 12 loi 2006). Le bailleur ne peut résilier qu'avec un préavis de 6 mois et uniquement pour trois motifs légitimes : besoin personnel d'occupation pour lui-même, son conjoint, ses ascendants ou descendants ; manquement grave du locataire à ses obligations contractuelles ; travaux de démolition ou de reconstruction rendant l'occupation impossible. La résiliation doit être motivée par écrit, sous peine de nullité.",
-      "section4P2": "En cas de litige (loyer excessif, charges contestées, dépôt de garantie non restitué, état des lieux contesté), le locataire ou le bailleur peut saisir gratuitement la Commission des loyers de la commune où se trouve le logement (art. 7 loi 2006). La Commission rend un avis non contraignant mais souvent suivi par les juges. Si l'avis n'est pas respecté, l'affaire peut être portée devant le juge de paix, voire le tribunal d'arrondissement pour les loyers élevés.",
+      "section4P1": "La durée peut être déterminée ou indéterminée. La résiliation, le préavis et le renouvellement dépendent de cette durée, du contrat et des motifs légaux. Il n’existe pas de droit général du locataire à interrompre tout bail à durée déterminée à tout moment avec trois mois de préavis. Faites vérifier les règles et les notifications adaptées à votre situation.",
+      "section4P2": "Le recours dépend de l’objet du litige. La commission des loyers intervient dans son champ de compétence, notamment la fixation du loyer ; elle n’est pas un passage universel pour tout différend. Les demandes de restitution de garantie ou de résiliation peuvent relever du juge de paix. Conservez les pièces et faites vérifier les démarches, délais et conditions propres au dossier.",
       "callout3Title": "Solidarité entre colocataires",
-      "callout3Body": "Si plusieurs locataires signent ensemble (cohabitation, colocation), une clause de solidarité fait que chacun peut être tenu pour le total du loyer impayé. À la sortie d'un colocataire, sa solidarité ne peut être maintenue au-delà d'un délai raisonnable (généralement 6 mois) sans son consentement explicite — toute clause inverse est nulle.",
+      "callout3Body": "La colocation peut relever d’un régime spécifique avec pacte et règles de départ. La solidarité, le remplacement et sa fin doivent être vérifiés selon ce régime et le contrat ; aucune durée générale de six mois n’est affirmée ici.",
       "inlineCalc": {
         "title": "Vérifiez la légalité de votre loyer",
-        "description": "Le loyer demandé respecte-t-il la règle des 5 % du capital investi réévalué ? Notre calculateur applique l'indice STATEC et la décote vétusté pour vous donner le plafond légal exact.",
+        "description": "Estimez le plafond selon les montants et justificatifs saisis. Le résultat reste à vérifier ; il ne certifie pas la légalité du loyer.",
         "cta": "Calculer le loyer maximum"
       },
       "tools": [
@@ -10048,61 +10098,40 @@
       "faq": [
         {
           "q": "Quel est le préavis pour quitter un logement au Luxembourg ?",
-          "a": "Le locataire respecte un préavis de 3 mois, notifié par lettre recommandée (art. 12 loi 21.09.2006). Le bailleur respecte un préavis de 6 mois et ne peut résilier que pour motifs légitimes (besoin personnel, manquement grave, travaux majeurs)."
+          "a": "La durée peut être déterminée ou indéterminée. La résiliation, le préavis et le renouvellement dépendent de cette durée, du contrat et des motifs légaux. Il n’existe pas de droit général du locataire à interrompre tout bail à durée déterminée à tout moment avec trois mois de préavis. Faites vérifier les règles et les notifications adaptées à votre situation."
         },
         {
           "q": "Quel est le montant maximum de la garantie locative au Luxembourg ?",
-          "a": "Le dépôt est plafonné à 3 mois de loyer hors charges (art. 5 loi 21.09.2006). Il doit être déposé sur un compte bloqué au nom du locataire et les intérêts lui reviennent. Toute clause prévoyant une garantie supérieure est nulle."
+          "a": "Pour un nouveau bail d’habitation conclu depuis le 1er août 2024, la garantie est limitée à deux mois de loyer hors charges. Un contrat antérieur peut relever de l’ancien plafond de trois mois. Plusieurs formes de garantie sont possibles ; le compte bloqué n’est pas la seule forme autorisée. Les conditions et délais légaux de restitution doivent être vérifiés selon l’état des lieux, les sommes dues et les décomptes."
         },
         {
           "q": "Le bailleur peut-il augmenter le loyer en cours de bail ?",
-          "a": "Une révision est possible une seule fois tous les deux ans, dans la limite de l'évolution de l'indice STATEC des prix à la consommation, ou si des travaux d'amélioration justifient une réévaluation du capital investi (avec rééavaluation du plafond 5 %). La hausse doit être notifiée par lettre recommandée avec un préavis d'un mois."
+          "a": "Le plafond applicable doit être déterminé à partir du capital investi, des réévaluations et décotes pertinentes ; le supplément mobilier se justifie séparément. L’adaptation du loyer suit les conditions légales, notamment l’intervalle de deux ans et la limite de hausse de 10 %, avec les exceptions prévues. Une clause de valeur peut perdre effet après réclamation recommandée du locataire : l’IPC ne constitue pas un droit automatique à augmenter."
         },
         {
           "q": "Quelles charges peuvent m'être facturées en plus du loyer ?",
-          "a": "Uniquement celles listées par le RGD du 16 juin 2015 : eau, électricité et gaz des parties communes, chauffage collectif, entretien courant des communs (nettoyage, jardinage, ascenseur), taxe communale ordures et assurance responsabilité civile de l'immeuble. Tout le reste (gros travaux, syndic, taxe foncière) est à la charge du bailleur."
+          "a": "Distinguez le loyer des charges récupérables liées à l’usage, à la consommation et à l’entretien courant. Les acomptes sont régularisés sur justificatifs ; un forfait peut être convenu dans les conditions légales. Les charges de propriété et grosses réparations ne deviennent pas récupérables par leur simple inscription au contrat. Vérifiez la nature de chaque poste."
         },
         {
           "q": "Comment contester un loyer trop élevé ?",
-          "a": "Saisissez gratuitement la Commission des loyers de votre commune. Elle vérifie le calcul du capital investi réévalué et émet un avis. Si le bailleur refuse de s'y conformer, vous pouvez porter l'affaire devant le juge de paix, qui peut imposer une réduction rétroactive du loyer."
+          "a": "Le recours dépend de l’objet du litige. La commission des loyers intervient dans son champ de compétence, notamment la fixation du loyer ; elle n’est pas un passage universel pour tout différend. Les demandes de restitution de garantie ou de résiliation peuvent relever du juge de paix. Conservez les pièces et faites vérifier les démarches, délais et conditions propres au dossier."
         },
         {
           "q": "Que faire si le bailleur ne restitue pas la garantie ?",
-          "a": "Adressez d'abord une mise en demeure par lettre recommandée. Sans réponse sous 30 jours, saisissez la Commission des loyers ou directement le juge de paix. Le juge peut ordonner la restitution majorée d'intérêts et de dommages-intérêts. Conservez l'état des lieux de sortie comme preuve."
+          "a": "Le recours dépend de l’objet du litige. La commission des loyers intervient dans son champ de compétence, notamment la fixation du loyer ; elle n’est pas un passage universel pour tout différend. Les demandes de restitution de garantie ou de résiliation peuvent relever du juge de paix. Conservez les pièces et faites vérifier les démarches, délais et conditions propres au dossier."
         }
       ],
       "sources": [
         {
-          "title": "Loi modifiée du 21 septembre 2006 sur le bail à usage d'habitation",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/loi/2006/09/21/n1/jo",
-          "year": 2006
-        },
-        {
-          "title": "Règlement grand-ducal du 16 juin 2015 — charges récupérables",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/rgd/2015/06/16/n1/jo",
-          "year": 2015
-        },
-        {
-          "title": "Bail à usage d'habitation — guide complet",
+          "title": "Conclure un contrat de bail à usage d’habitation",
           "org": "Guichet.lu",
-          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-bail/bail-usage-habitation.html"
+          "url": "https://guichet.public.lu/fr/citoyens/logement/location/contrat-litige/conclure-contrat-bail-location.html"
         },
         {
-          "title": "Commission des loyers — démarche",
-          "org": "Logement.lu — Ministère du Logement",
-          "url": "https://logement.public.lu/fr/locataire/conflit-bailleur/commission-loyers.html"
-        },
-        {
-          "title": "Garantie locative — soutien de l'État",
-          "org": "Logement.lu",
-          "url": "https://logement.public.lu/fr/locataire/aides-financieres/garantie-locative.html"
-        },
-        {
-          "title": "Code civil — obligations du bailleur (art. 1719 et suiv.)",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
+          "title": "Révision du bail à loyer et règles transitoires",
+          "org": "Ministère du Logement",
+          "url": "https://logement.public.lu/fr/actualites/2024/07/10-revisonbailaloyer.html",
+          "year": 2024
         }
       ]
     },
@@ -10714,45 +10743,45 @@
       "section4P1": "Exemples fictifs : toute la base HT est éligible, affectation conforme et avantage de 50 000 EUR intégralement disponible. Aucun terrain, honoraire ni travail exclu dans ces montants. Ce tableau ne détermine pas l’éligibilité."
     },
     "bailCommercial": {
-      "title": "Bail commercial Luxembourg : loi 03.02.2018, durée 9 ans",
-      "metaDescription": "Bail commercial LU : loi 03.02.2018, durée min 9 ans, résiliation triennale 6 mois préavis, indexation IPC STATEC, pas-de-porte libre, droit au renouvellement, indemnité d'éviction.",
-      "subtitle": "Le cadre juridique complet du bail commercial au Luxembourg : durée, résiliation, loyer, indexation et droit au renouvellement.",
+      "title": "Bail commercial au Luxembourg : durée, loyer et clauses",
+      "metaDescription": "Le régime du bail commercial résulte des articles 1762-3 et suivants du Code civil, issus notamment de la loi du 3 février 2018. Son application dépend du contrat et de l’activité réellement exercée. Les exclusions, les formalités et les clauses particulières doivent être examinées au cas par cas ; ce guide n’est pas une validation du bail.",
+      "subtitle": "Le régime du bail commercial résulte des articles 1762-3 et suivants du Code civil, issus notamment de la loi du 3 février 2018. Son application dépend du contrat et de l’activité réellement exercée. Les exclusions, les formalités et les clauses particulières doivent être examinées au cas par cas ; ce guide n’est pas une validation du bail.",
       "category": "Location & bail",
       "essentiel": [
-        "Cadre légal : loi du 3 février 2018 sur le bail commercial (entrée en vigueur 1er avril 2018), modernisation post-Code civil.",
-        "Durée minimale 9 ans (art. 2). Résiliation triennale par le locataire (3, 6, 9 ans) avec préavis 6 mois.",
-        "Loyer libre (pas de règle des 5 %), indexation IPC STATEC si clause expresse, révision triennale possible si décrochage de la valeur locative.",
-        "Pas-de-porte (droit d'entrée) licite et non réglementé : se négocie librement entre bailleur et locataire.",
-        "Droit au renouvellement à l'échéance ; refus sans motif légitime = indemnité d'éviction (perte de clientèle, déménagement, fonds de commerce)."
+        "Le régime du bail commercial résulte des articles 1762-3 et suivants du Code civil, issus notamment de la loi du 3 février 2018. Son application dépend du contrat et de l’activité réellement exercée. Les exclusions, les formalités et les clauses particulières doivent être examinées au cas par cas ; ce guide n’est pas une validation du bail.",
+        "Le contrat peut être à durée déterminée ou indéterminée (art. 1762-4 du Code civil). Il n’existe pas de minimum légal général de neuf ans. Une faculté de résiliation périodique dépend du contrat ; un schéma 3–6–9 n’est pas automatique. Vérifiez le préavis applicable, qui ne peut être inférieur à six mois dans ce régime, ainsi que les formes de notification.",
+        "Le loyer commercial initial se négocie entre les parties ; le plafond résidentiel de 5 % ne s’applique pas. Une indexation doit suivre la formule, la série d’indices, la base et les dates prévues au contrat. Le calculateur utilise les indices saisis, sans inventer d’historique ni de prévision et sans supposer un droit général de révision tous les trois ans.",
+        "Le supplément payé au bailleur ou à un intermédiaire en raison de la conclusion du bail, dit pas-de-porte, est interdit (art. 1762-5). Les frais d’agence et le prix d’une cession de fonds de commerce sont à distinguer et à examiner séparément. La garantie locative est plafonnée à six mois de loyer dans ce régime.",
+        "Le renouvellement, le refus et une éventuelle indemnité dépendent des conditions légales, des motifs invoqués, de la durée de la relation et des notifications. Il ne faut pas supposer une indemnité automatique ou un renouvellement inconditionnel. Faites vérifier le contrat et les délais avant de notifier une décision."
       ],
       "section1Title": "Cadre légal et nature du contrat",
-      "section1P1": "Le bail commercial au Luxembourg est régi depuis le 1er avril 2018 par la loi du 3 février 2018 portant sur le bail commercial. Cette loi a remplacé l'application du seul Code civil et modernisé en profondeur le cadre : durée minimale légale, droit au renouvellement, indemnité d'éviction, indexation encadrée. Elle s'applique aux baux d'immeubles destinés à une activité commerciale, artisanale ou industrielle exercée à titre professionnel.",
-      "section1P2": "Sont exclus du champ : les baux d'habitation (loi 21.09.2006), les baux ruraux (régime spécifique), les baux portant sur des biens incorporels (fonds de commerce sans local), et les locations de courte durée (< 6 mois pour activités saisonnières). Le bail doit être écrit (préférable mais non obligatoire) ; à défaut d'écrit, les preuves d'occupation et de paiement valent existence du bail mais avec charge de la preuve plus lourde en cas de litige.",
+      "section1P1": "Le régime du bail commercial résulte des articles 1762-3 et suivants du Code civil, issus notamment de la loi du 3 février 2018. Son application dépend du contrat et de l’activité réellement exercée. Les exclusions, les formalités et les clauses particulières doivent être examinées au cas par cas ; ce guide n’est pas une validation du bail.",
+      "section1P2": "Le régime du bail commercial résulte des articles 1762-3 et suivants du Code civil, issus notamment de la loi du 3 février 2018. Son application dépend du contrat et de l’activité réellement exercée. Les exclusions, les formalités et les clauses particulières doivent être examinées au cas par cas ; ce guide n’est pas une validation du bail.",
       "callout1Title": "Activité couverte = exploitation effective",
-      "callout1Body": "La loi du 3 février 2018 protège uniquement les baux où le locataire exploite effectivement une activité commerciale à l'adresse louée (registre de commerce, enseigne, clientèle). Une simple domiciliation ou un usage de bureau sans clientèle ne suffit pas à invoquer la protection du bail commercial.",
-      "section2Title": "Durée et résiliation triennale",
-      "section2P1": "La durée minimale légale est de 9 ans (art. 2). Les parties peuvent convenir d'une durée plus longue (par ex. 12, 15 ou 25 ans pour de gros investissements en agencement), mais jamais inférieure. Si le bail prévoit moins de 9 ans, la durée est automatiquement portée à 9 ans par la loi.",
-      "section2P2": "Le locataire bénéficie d'un droit de résiliation triennale : il peut mettre fin au bail à l'expiration de chaque période triennale (3, 6, 9 ans) moyennant un préavis de 6 mois notifié par acte extrajudiciaire ou lettre recommandée (art. 4). Le bailleur, lui, ne peut résilier en cours de bail que pour motifs limitativement énumérés : manquement grave du locataire, besoin personnel d'exploitation, ou travaux de démolition/reconstruction intégrale.",
+      "callout1Body": "Le régime du bail commercial résulte des articles 1762-3 et suivants du Code civil, issus notamment de la loi du 3 février 2018. Son application dépend du contrat et de l’activité réellement exercée. Les exclusions, les formalités et les clauses particulières doivent être examinées au cas par cas ; ce guide n’est pas une validation du bail.",
+      "section2Title": "Durée et possibilités de résiliation",
+      "section2P1": "Le contrat peut être à durée déterminée ou indéterminée (art. 1762-4 du Code civil). Il n’existe pas de minimum légal général de neuf ans. Une faculté de résiliation périodique dépend du contrat ; un schéma 3–6–9 n’est pas automatique. Vérifiez le préavis applicable, qui ne peut être inférieur à six mois dans ce régime, ainsi que les formes de notification.",
+      "section2P2": "Le contrat peut être à durée déterminée ou indéterminée (art. 1762-4 du Code civil). Il n’existe pas de minimum légal général de neuf ans. Une faculté de résiliation périodique dépend du contrat ; un schéma 3–6–9 n’est pas automatique. Vérifiez le préavis applicable, qui ne peut être inférieur à six mois dans ce régime, ainsi que les formes de notification.",
       "section3Title": "Loyer, indexation et pas-de-porte",
-      "section3P1": "Le loyer commercial n'est PAS plafonné par la règle des 5 % du capital investi (qui ne s'applique qu'au bail d'habitation). Il est fixé librement entre les parties selon les conditions du marché et la valeur locative du local. Pour les locaux commerciaux LU, les loyers prime LU-Ville varient typiquement de 80 à 250 €/m²/mois selon emplacement et destination.",
-      "section3P2": "L'indexation est liée à l'indice des prix à la consommation (IPC) publié par le STATEC. La clause d'indexation doit être expressément prévue dans le bail ; à défaut, le loyer reste fixe pendant toute la durée. La révision du loyer peut être demandée par chaque partie à l'expiration de chaque période triennale si le loyer ne correspond plus à la valeur locative réelle (art. 7). Le pas-de-porte (droit d'entrée) est licite au Luxembourg, en contrepartie des avantages commerciaux liés à l'emplacement, et se négocie librement.",
-      "callout2Title": "Spécificité luxembourgeoise : pas d'ILC",
-      "callout2Body": "Contrairement à la France qui dispose d'un Indice des Loyers Commerciaux (ILC) spécifique, le Luxembourg utilise l'IPC général. Cela peut décorréler le loyer commercial des conditions réelles du marché commercial. Anticipez en demandant éventuellement un cap (plafond) sur l'indexation annuelle dans la rédaction du bail.",
+      "section3P1": "Le loyer commercial initial se négocie entre les parties ; le plafond résidentiel de 5 % ne s’applique pas. Une indexation doit suivre la formule, la série d’indices, la base et les dates prévues au contrat. Le calculateur utilise les indices saisis, sans inventer d’historique ni de prévision et sans supposer un droit général de révision tous les trois ans.",
+      "section3P2": "Le supplément payé au bailleur ou à un intermédiaire en raison de la conclusion du bail, dit pas-de-porte, est interdit (art. 1762-5). Les frais d’agence et le prix d’une cession de fonds de commerce sont à distinguer et à examiner séparément. La garantie locative est plafonnée à six mois de loyer dans ce régime.",
+      "callout2Title": "Choisir la clause et les indices",
+      "callout2Body": "Le loyer commercial initial se négocie entre les parties ; le plafond résidentiel de 5 % ne s’applique pas. Une indexation doit suivre la formule, la série d’indices, la base et les dates prévues au contrat. Le calculateur utilise les indices saisis, sans inventer d’historique ni de prévision et sans supposer un droit général de révision tous les trois ans.",
       "section4Title": "Droit au renouvellement et indemnité d'éviction",
-      "section4P1": "Le locataire commercial bénéficie d'un droit au renouvellement de son bail à l'échéance (art. 5). Ce droit s'exerce en notifiant au bailleur une demande de renouvellement au moins 6 mois avant le terme. Le bailleur qui refuse le renouvellement sans motif légitime doit verser au locataire une indemnité d'éviction couvrant le préjudice : perte de clientèle, frais de déménagement et réinstallation, indemnité pour perte de fonds de commerce.",
-      "section4P2": "Le bailleur peut refuser le renouvellement sans indemnité uniquement pour motifs graves : manquement du locataire à ses obligations contractuelles ou légales, état de l'immeuble nécessitant démolition et reconstruction intégrale, ou besoin d'exploitation personnelle (le bailleur doit alors exploiter les locaux dans la même activité ou apparentée pendant au moins 2 ans). La cession du bail commercial est possible sauf clause contraire, généralement liée à la cession du fonds de commerce ; le bailleur doit en être informé.",
+      "section4P1": "Le renouvellement, le refus et une éventuelle indemnité dépendent des conditions légales, des motifs invoqués, de la durée de la relation et des notifications. Il ne faut pas supposer une indemnité automatique ou un renouvellement inconditionnel. Faites vérifier le contrat et les délais avant de notifier une décision.",
+      "section4P2": "Le renouvellement, le refus et une éventuelle indemnité dépendent des conditions légales, des motifs invoqués, de la durée de la relation et des notifications. Il ne faut pas supposer une indemnité automatique ou un renouvellement inconditionnel. Faites vérifier le contrat et les délais avant de notifier une décision.",
       "callout3Title": "Cession et sous-location",
-      "callout3Body": "La cession du bail commercial à un tiers (notamment lors de la vente du fonds de commerce) est libre sauf interdiction expresse du bail. La sous-location partielle est plus encadrée et nécessite généralement l'accord écrit du bailleur. Toute cession doit lui être notifiée. Si le bail interdit la cession, prévoyez une clause de sortie en cas de revente du fonds.",
+      "callout3Body": "La cession et la sous-location obéissent à des règles particulières, notamment lorsqu’elles accompagnent la cession du fonds de commerce. Ni une liberté générale ni une interdiction absolue ne doivent être déduites du seul libellé d’une clause. Vérifiez les conditions légales et les notifications nécessaires avant l’opération.",
       "inlineCalc": {
         "title": "Évaluez la rentabilité d'un local commercial",
-        "description": "Notre outil bail commercial intègre la fixation du loyer libre, le pas-de-porte amortissable, l'indexation IPC, l'amortissement des agencements et le calcul de la rentabilité nette pour bailleur et locataire.",
+        "description": "Scénario d’indexation avec indices saisis, durée libre, charges constantes et garantie séparée.",
         "cta": "Lancer l'analyse"
       },
       "tools": [
         {
           "href": "/bail-commercial",
           "title": "Outil bail commercial",
-          "description": "Loyer, pas-de-porte, indexation IPC, rentabilité bailleur/locataire."
+          "description": "Scénario d’indexation avec indices saisis, durée libre, charges constantes et garantie séparée."
         },
         {
           "href": "/dcf-multi",
@@ -10773,55 +10802,46 @@
       "faq": [
         {
           "q": "Quelle est la durée minimale d'un bail commercial au Luxembourg ?",
-          "a": "9 ans (art. 2 loi du 3 février 2018). Le locataire peut résilier à chaque période triennale (3, 6, 9 ans) avec un préavis de 6 mois. Le bailleur ne peut résilier qu'en cas de manquement grave, besoin personnel d'exploitation ou démolition/reconstruction."
+          "a": "Le contrat peut être à durée déterminée ou indéterminée (art. 1762-4 du Code civil). Il n’existe pas de minimum légal général de neuf ans. Une faculté de résiliation périodique dépend du contrat ; un schéma 3–6–9 n’est pas automatique. Vérifiez le préavis applicable, qui ne peut être inférieur à six mois dans ce régime, ainsi que les formes de notification."
         },
         {
           "q": "Le loyer commercial est-il plafonné au Luxembourg ?",
-          "a": "Non, contrairement au bail d'habitation (plafond 5 % du capital investi), le loyer commercial est fixé librement entre les parties. L'indexation se fait sur l'IPC STATEC si une clause expresse le prévoit dans le bail."
+          "a": "Le loyer commercial initial se négocie entre les parties ; le plafond résidentiel de 5 % ne s’applique pas. Une indexation doit suivre la formule, la série d’indices, la base et les dates prévues au contrat. Le calculateur utilise les indices saisis, sans inventer d’historique ni de prévision et sans supposer un droit général de révision tous les trois ans."
         },
         {
-          "q": "Qu'est-ce que le pas-de-porte et comment le négocier ?",
-          "a": "Le pas-de-porte (ou droit d'entrée) est un versement initial du locataire au bailleur en contrepartie des avantages commerciaux de l'emplacement. Il est licite au LU, non réglementé, et se négocie librement (typiquement 1 à 6 mois de loyer pour un emplacement courant, jusqu'à plusieurs années pour un emplacement prime). Il peut être amorti comptablement par le locataire sur la durée du bail."
+          "q": "Un pas-de-porte peut-il être exigé ?",
+          "a": "Le supplément payé au bailleur ou à un intermédiaire en raison de la conclusion du bail, dit pas-de-porte, est interdit (art. 1762-5). Les frais d’agence et le prix d’une cession de fonds de commerce sont à distinguer et à examiner séparément. La garantie locative est plafonnée à six mois de loyer dans ce régime."
         },
         {
           "q": "Comment fonctionne le droit au renouvellement ?",
-          "a": "Le locataire notifie une demande de renouvellement au moins 6 mois avant le terme du bail. Le bailleur qui refuse sans motif légitime (manquement, démolition, exploitation personnelle) doit verser une indemnité d'éviction couvrant la perte de clientèle, le déménagement et la perte de fonds de commerce. Le montant se fixe à l'amiable ou par le juge."
+          "a": "Le renouvellement, le refus et une éventuelle indemnité dépendent des conditions légales, des motifs invoqués, de la durée de la relation et des notifications. Il ne faut pas supposer une indemnité automatique ou un renouvellement inconditionnel. Faites vérifier le contrat et les délais avant de notifier une décision."
         },
         {
           "q": "Le bailleur peut-il révoquer la cession du bail à un repreneur ?",
-          "a": "Non, sauf clause contraire dans le bail. La cession du bail commercial est libre, généralement liée à la cession du fonds de commerce. Le bailleur doit être informé mais ne peut s'y opposer si les conditions du bail (loyer, usage) sont respectées par le repreneur. Prévoir une clause d'agrément si le bailleur veut un droit de regard."
+          "a": "La cession et la sous-location obéissent à des règles particulières, notamment lorsqu’elles accompagnent la cession du fonds de commerce. Ni une liberté générale ni une interdiction absolue ne doivent être déduites du seul libellé d’une clause. Vérifiez les conditions légales et les notifications nécessaires avant l’opération."
         },
         {
           "q": "Que faire en cas de manquement grave du locataire ?",
-          "a": "Le bailleur adresse une mise en demeure par lettre recommandée précisant le manquement (loyer impayé > 2 mois, sous-location interdite, changement de destination, dégradations majeures). Sans régularisation sous 30 jours, le bailleur peut saisir le juge en résiliation judiciaire avec demande d'expulsion et de paiement des arriérés et dommages."
+          "a": "Documentez les faits et les échanges. La résiliation et une éventuelle expulsion suivent les conditions et procédures applicables ; aucun seuil automatique de deux mois d’impayés ou délai universel de trente jours ne peut être déduit de ce guide. Demandez conseil avant d’engager la procédure."
         }
       ],
       "sources": [
         {
           "title": "Loi du 3 février 2018 portant sur le bail commercial",
           "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a98/jo",
+          "url": "https://legilux.public.lu/eli/etat/leg/loi/2018/02/03/a110/jo",
           "year": 2018
         },
         {
-          "title": "Bail commercial — guide pratique",
-          "org": "Guichet.lu",
-          "url": "https://guichet.public.lu/fr/entreprises/financement/contrat-bail/bail-commercial.html"
+          "title": "Réforme du bail commercial : adoption et pas-de-porte",
+          "org": "Ministère de l’Économie",
+          "url": "https://meco.gouvernement.lu/fr/actualites.gouvernement2024%2Bfr%2Bactualites%2Btoutes_actualites%2Bcommuniques%2B2018%2B01-janvier%2B17-bail.html",
+          "year": 2018
         },
         {
-          "title": "Indice des prix à la consommation (IPC)",
+          "title": "Indice des prix à la consommation et inflation",
           "org": "STATEC",
-          "url": "https://statistiques.public.lu/fr/themes/economie-finances/prix.html"
-        },
-        {
-          "title": "Code civil — articles 1709 et suivants",
-          "org": "Legilux",
-          "url": "https://legilux.public.lu/eli/etat/leg/code/code_civil/jo"
-        },
-        {
-          "title": "Chambre de Commerce — accompagnement entrepreneurs",
-          "org": "Chambre de Commerce du Luxembourg",
-          "url": "https://www.cc.lu/"
+          "url": "https://statistiques.public.lu/fr/donnees/themes/economie-finances/dossier-indice-prix-inflation.html"
         }
       ]
     },
@@ -11757,7 +11777,7 @@
       "faq1q": "La méthode hédonique est-elle publiée ?",
       "faq1a": "Les pourcentages ci-dessous sont des hypothèses de travail. Ils ne sont pas des coefficients officiels de l’Observatoire. Aucune MAPE, R², significativité ou précision sur ventes réelles n’est démontrée.",
       "faq2q": "Comment fonctionne la signature SHA-256 ?",
-      "faq2a": "À l'émission, le PDF est hashé et le hash stocké en DB (immuable via trigger). Le bloc signature dans le PDF contient le hash + URL /verify + horodatage. Le client colle l'URL sur /verify qui re-hashe et compare — si ça matche, intégrité garantie. Pas besoin de PKI coûteuse.",
+      "faq2a": "Une empreinte permet de comparer un contenu à une référence conservée. Elle ne certifie pas à elle seule l’identité, l’accord d’une personne, la date ou la validité juridique du document. Conservez le document et les éléments de vérification ; une empreinte seule n’est pas une signature qualifiée.",
       "faq3q": "Multi-négociateurs : comment mutualiser ?",
       "faq3a": "/profil/organisation permet de créer un cabinet, inviter des membres (rôles admin/member/viewer), partager les évaluations. Stats admin via OrgAgencyStats : top négociateurs, appels API, conversion. Lookup VIES intégré à la création pour préremplir depuis n° TVA.",
       "faq4q": "Puis-je exporter en DOCX pour mon gabarit cabinet ?",
@@ -11925,7 +11945,7 @@
       "parcoursStep1Title": "Créer une clé API",
       "parcoursStep1Desc": "/profil/api : créez une clé avec scope (estimation, mlv, dcf, frais), quota mensuel, IP allowlist. Rotation manuelle, révocation instantanée. Logs complets (appel, latence, erreur) visibles en temps réel.",
       "parcoursStep2Title": "Tester les endpoints",
-      "parcoursStep2Desc": "/api-docs : OpenAPI 3.1 avec Try-it-out, exemples cURL, schémas requête/réponse. Endpoints disponibles : POST /api/v1/estimation, /api/v1/mlv, /api/v1/propcalc/{yield,cashflow,mortgage,fees}, /api/v1/ai/analyze, batch /api/v1/estimation/batch.",
+      "parcoursStep2Desc": "/api-docs : documentation OpenAPI, exemples cURL et schémas de requête/réponse. PropCalc : endpoints yield, cashflow, mortgage et fees. Vérifiez dans la documentation les paramètres requis et le périmètre de chaque calcul.",
       "parcoursStep3Title": "Webhooks + production",
       "parcoursStep3Desc": "Configurez un webhook pour recevoir les événements (estimation terminée, rapport signé) avec signature HMAC-SHA256 dans X-Tevaxia-Signature. Endpoint de test : /api/v1/webhooks/test.",
       "toolsTitle": "Outils recommandés",
@@ -11947,30 +11967,30 @@
     },
     "str_operator": {
       "title": "Guide location courte durée",
-      "intro": "Airbnb, Booking, opérateur de conciergerie STR : calculateurs rentabilité LU, compliance règlement EU 2024/1028, seuil 3 mois/an LU pour licence d'hébergement, arbitrage long vs court terme.",
+      "intro": "Pour hôtes Airbnb, Booking et conciergeries : simulations de rentabilité, arbitrage long/court terme et démarches luxembourgeoises et européennes à vérifier selon votre activité.",
       "backToHub": "Tous les guides",
       "parcoursTitle": "Parcours type",
-      "parcoursIntro": "De l'analyse d'un bien STR à la conformité EU 2024/1028.",
+      "parcoursIntro": "De la simulation économique aux démarches applicables à votre activité.",
       "parcoursStep1Title": "Analyser la rentabilité",
       "parcoursStep1Desc": "/str/forecast : prévisionnel 12 mois (nuits louées × ADR × taux occupation), saisonnalité LU (hiver bas / Schueberfouer août / MICE sept-juin). Sensibilité occupation ±10 pp. Benchmarks Observatoire hôtelier LU.",
       "parcoursStep2Title": "Arbitrage long vs court terme",
       "parcoursStep2Desc": "/str : compare rendement STR (Airbnb) vs bail classique avec charges nettes (conciergerie ~20 %, cleaning fees, dépréciation meubles, vacance). Pour Luxembourg-Ville : break-even occupation souvent > 55 % pour battre un bail à 1200 €/mois.",
-      "parcoursStep3Title": "Compliance EU 2024/1028 + LU",
-      "parcoursStep3Desc": "/str/compliance : registre unique européen Airbnb/Booking (entrée vigueur mi-2026, transmission obligatoire communes). Au LU : seuil 3 mois/an au-delà duquel licence d'hébergement requise. Dossier PDF exportable pour administration fiscale.",
+      "parcoursStep3Title": "Démarches STR au Luxembourg et dans l’UE",
+      "parcoursStep3Desc": "/str/compliance aide à vérifier les démarches : seuil de 90 nuitées cumulées par exploitant, autorisation d’établissement, formation, règles communales et procédures locales d’enregistrement. Le dossier PDF est un support préparatoire interne ; il ne vaut ni dépôt ni autorisation.",
       "toolsTitle": "Outils recommandés",
       "toolsIntro": "Analyse + compliance + portefeuille.",
       "faqTitle": "Questions fréquentes",
-      "faq1q": "Le règlement EU 2024/1028 m'impose-t-il quoi ?",
-      "faq1a": "Enregistrement obligatoire dans un registre unique européen (délivrance d'un numéro d'enregistrement par l'État membre), transmission automatique des données de location aux autorités (nombre de nuits, montant), affichage visible du numéro sur Airbnb/Booking. Entrée en vigueur progressive mi-2026. /str/compliance suit la transposition LU.",
+      "faq1q": "Quelles obligations du règlement (UE) 2024/1028 dois-je vérifier ?",
+      "faq1a": "Le règlement (UE) 2024/1028 s’applique depuis le 20 mai 2026. Les obligations dépendent des procédures d’enregistrement applicables à l’unité. Il ne crée pas de registre européen unique. Les informations à fournir par l’hôte et les transmissions de données par les plateformes sont distinctes.",
       "faq2q": "Dois-je déclarer les revenus STR à l'IRL ?",
       "faq2a": "Oui, en revenus BIC (activité commerciale accessoire si < 23 k€/an TTC, professionnelle au-delà). TVA : franchise < 35 k€/an. Taxe séjour communale : due dès 1 nuit. Pour les expats non-résidents, convention fiscale LU-France/BE/DE avec disposition anti-abus. /plus-values gère la cession d'un bien STR à l'art. 102bis LIR.",
-      "faq3q": "Dépassage seuil 3 mois : que se passe-t-il ?",
-      "faq3a": "Au-delà de 90 jours cumulés/an de location courte durée d'un bien non-résidence principale à Luxembourg-Ville, licence d'hébergement commerciale requise (loi 03.11.1998 + règlement communal). Enregistrement chambre commerce, ICC + IRC + TVA 3 % hébergement + taxe séjour + AG commune. /str/compliance alerte à 80 % du seuil.",
+      "faq3q": "Que vérifier dès 90 nuitées cumulées par exploitant ?",
+      "faq3a": "Au Luxembourg, le seuil de l’activité commerciale d’hébergement est de 90 nuitées ou plus, cumulées sur toutes les unités de l’exploitant pendant l’année de référence, comptée à partir de la dernière location. Vérifiez l’autorisation d’établissement et les qualifications ou formations requises. En dessous de ce seuil, les autres obligations restent à vérifier.",
       "faq4q": "Pricing dynamique comme PriceLabs / Wheelhouse intégré ?",
       "faq4a": "Pas encore. /str/forecast fait un prévisionnel saisonnier statique. Pour le dynamic pricing temps réel avec compétition marché, solutions tierces PriceLabs (19,99 $/listing), Wheelhouse, Beyond Pricing. Notre roadmap inclut un module 'smart pricing' basé sur Observatoire STATEC + STR EMEA pour 2027.",
       "relatedTitle": "Aller plus loin",
       "ctaTitle": "Démarrez votre analyse STR",
-      "ctaDesc": "Prévisionnel 12 mois + compliance EU 2024/1028 + benchmark LU gratuits.",
+      "ctaDesc": "Simulations de rentabilité, comparaison long/court terme et liste de démarches à vérifier.",
       "ctaPrimary": "Accéder au hub STR",
       "ctaSecondary": "Voir tous les guides"
     }
@@ -13075,12 +13095,12 @@
   "strHub": {
     "meta": {
       "title": "Location courte durée Luxembourg — Airbnb, Booking, Vrbo | tevaxia.lu",
-      "description": "7 calculateurs STR pour hôtes Airbnb/Booking au Luxembourg : rentabilité nette après impôt, conformité (seuil 3 mois, licence, EU Reg 2026), arbitrage long vs court terme, pricing dynamique."
+      "description": "Outils de location courte durée au Luxembourg : simulations économiques, démarches à vérifier et comparaison avec la location longue durée."
     },
     "hero": {
       "title": "Location courte durée au Luxembourg",
       "subtitle": "7 outils gratuits pour les hôtes Airbnb, Booking, Vrbo et saisonnier au Luxembourg. Rentabilité réaliste, conformité légale 2026, arbitrage entre location longue et courte durée.",
-      "tag1": "Seuil 3 mois / an",
+      "tag1": "90 nuitées cumulées par exploitant",
       "tag2": "Fiscalité IR LU",
       "tag3": "EU Regulation 2024/1028",
       "tag4": "Airbnb / Booking / Vrbo"
@@ -13092,7 +13112,7 @@
       },
       "compliance": {
         "title": "Conformité STR Luxembourg",
-        "desc": "Checklist légale : seuil 3 mois, licence hébergement, règlements communaux, EU Regulation 2024/1028."
+        "desc": "Points à vérifier : 90 nuitées cumulées par exploitant, autorisation, formation, règles communales et procédures d’enregistrement applicables."
       },
       "arbitrage": {
         "title": "Arbitrage LT vs CT vs Mix",
@@ -13107,8 +13127,8 @@
         "desc": "ADR médian, percentiles, occupation et RevPAR par zone. 4 200 listings LU Q4 2025. Alternative locale gratuite à AirDNA."
       },
       "complianceEu": {
-        "title": "Registre EU STR 2024/1028",
-        "desc": "Enregistrement obligatoire au registre européen des locations courte durée (mi-2026). Génération du dossier + numéro d'identification."
+        "title": "Dossier préparatoire STR",
+        "desc": "Rassemblez les informations utiles avant de vérifier vos démarches. Aucun enregistrement ni numéro officiel n’est délivré par cet outil."
       },
       "forecast": {
         "title": "Prévisionnel 12 mois",
@@ -13119,15 +13139,15 @@
       "title": "Pourquoi un vertical STR dédié au Luxembourg ?",
       "rules": {
         "title": "Règles LU spécifiques",
-        "body": "Au-delà de 90 jours cumulés par an, le loueur doit obtenir une licence d'hébergement (art. 6 loi 17.07.2020). Luxembourg-Ville impose des restrictions communales supplémentaires."
+        "body": "Au Luxembourg, le seuil de l’activité commerciale d’hébergement est de 90 nuitées ou plus, cumulées sur toutes les unités de l’exploitant pendant l’année de référence, comptée à partir de la dernière location. Vérifiez l’autorisation d’établissement et les qualifications ou formations requises. En dessous de ce seuil, les autres obligations restent à vérifier."
       },
       "eu": {
         "title": "EU Regulation 2024/1028",
-        "body": "Entrée en vigueur mi-2026 : registre unique européen, transmission obligatoire des nuitées aux communes. Tous les hôtes Airbnb/Booking concernés."
+        "body": "Le règlement (UE) 2024/1028 s’applique depuis le 20 mai 2026. Les obligations dépendent des procédures d’enregistrement applicables à l’unité. Il ne crée pas de registre européen unique. Les informations à fournir par l’hôte et les transmissions de données par les plateformes sont distinctes."
       },
       "tax": {
         "title": "Fiscalité IR 2026",
-        "body": "Revenus > 600 €/an → déclaration IR obligatoire. Taux marginal jusqu'à 45,78 % (IR 42 % × contribution emploi 1,09). Charges déductibles : intérêts, PNO, ménage, OTA 15-18 %."
+        "body": "L’obligation dépend notamment du foyer, des revenus nets et du statut de l’activité. Le seuil de 600 € de certaines situations fiscales n’est pas une franchise universelle de recettes locatives."
       },
       "arbitrage": {
         "title": "Arbitrage LT vs CT",
@@ -13238,16 +13258,16 @@
   "strCompliance": {
     "back": "Location courte durée",
     "title": "Conformité STR au Luxembourg",
-    "subtitle": "Vérifiez vos obligations légales avant de lancer une location courte durée au Luxembourg. Seuil 3 mois, licence d'hébergement, règlements communaux, fiscalité IR, Règlement UE 2024/1028.",
+    "subtitle": "Repérez les démarches à vérifier : seuil d’activité, règles communales, fiscalité et procédures d’enregistrement. Cet outil ne certifie pas la conformité.",
     "form": {
       "title": "Votre projet STR",
-      "nights": "Nuitées prévues sur 12 mois",
+      "nights": "Nuitées cumulées de toutes vos unités",
       "nightsSuffix": "nuits",
-      "nightsHint": "Seuil légal : {threshold} nuits/an (au-delà, licence obligatoire)",
+      "nightsHint": "Seuil : {threshold} nuitées ou plus, toutes unités d’un exploitant cumulées sur un an à compter de la dernière location.",
       "commune": "Commune",
       "ownerType": "Type de propriétaire",
       "revenue": "Revenu STR annuel estimé",
-      "revenueHint": "Seuil déclaration IR : {threshold}/an",
+      "revenueHint": "Les recettes seules ne déterminent pas votre obligation de déclaration fiscale.",
       "primaryResidence": "Le bien est ma résidence principale (location occasionnelle pendant mes déplacements)"
     },
     "ownerTypes": {
@@ -13256,19 +13276,20 @@
       "nonResident": "Non-résident fiscal LU"
     },
     "status": {
-      "label": "Statut réglementaire",
-      "licenseRequired": "Licence d'hébergement requise",
-      "noLicense": "Aucune licence requise",
-      "exceeded": "Vous dépassez le seuil de {threshold} nuits/an de {over} nuits. Demande à déposer avant toute mise en location.",
-      "remaining": "Il vous reste {nights} nuits avant d'atteindre le seuil de licence."
+      "label": "Seuil d’activité d’hébergement",
+      "licenseRequired": "Seuil de l’autorisation atteint",
+      "noLicense": "Seuil de 90 nuitées non atteint",
+      "exceeded": "Seuil de {threshold} nuitées atteint ou dépassé de {over} nuitées. Vérifiez l’autorisation d’établissement et la formation requise.",
+      "remaining": "Le seuil serait atteint dans {nights} nuitées. Les autres obligations restent à vérifier."
     },
     "risk": {
-      "title": "Risque réglementaire communal",
+      "title": "Réglementation communale",
       "high": "élevé",
       "medium": "moyen",
       "low": "faible",
       "body": "Commune « {commune} » : risque {level}.",
-      "highNote": "Luxembourg-Ville notamment impose des restrictions strictes depuis 2024 : vérifiez le règlement communal en vigueur."
+      "highNote": "Luxembourg-Ville notamment impose des restrictions strictes depuis 2024 : vérifiez le règlement communal en vigueur.",
+      "unverified": "{commune} : règles locales non vérifiées. Contactez la commune ; aucun niveau de risque n’est déduit de son nom."
     },
     "tax": {
       "title": "Fiscalité IR Luxembourg",
@@ -13277,22 +13298,37 @@
       "required": "Déclaration obligatoire ?",
       "yes": "OUI (formulaire 100)",
       "no": "Non",
-      "note": "Taux marginal max LU : 45,78 % (IR 42 % × contribution emploi 1,09). Charges déductibles : intérêts emprunt, PNO, ménage, amortissement mobilier, commissions OTA (15-18 %)."
+      "note": "L’obligation dépend notamment du foyer, des revenus nets et du statut de l’activité. Le seuil de 600 € de certaines situations fiscales n’est pas une franchise universelle de recettes locatives.",
+      "toCheck": "À déterminer"
     },
     "eu": {
       "title": "Règlement UE 2024/1028 sur les STR",
-      "inForce": "Entrée en vigueur mi-2026.",
-      "obligations": "Obligations :",
-      "item1": "Enregistrement dans le registre unique européen des locations courte durée",
-      "item2": "Transmission des nuitées aux communes (plateformes Airbnb/Booking s'occupent du reporting)",
-      "item3": "Numéro d'identification à afficher obligatoirement sur les annonces"
+      "inForce": "Applicable depuis le 20 mai 2026.",
+      "obligations": "Les obligations dépendent des procédures d’enregistrement mises en place par les autorités compétentes.",
+      "item1": "Vérifier si une procédure locale d’enregistrement couvre votre unité.",
+      "item2": "Distinguer les informations à fournir par l’hôte des transmissions incombant à la plateforme.",
+      "item3": "Afficher le numéro d’enregistrement lorsqu’une procédure applicable le prévoit ; il n’existe pas de registre européen unique créé par ce règlement."
     },
     "actions": {
       "title": "Actions à entreprendre"
     },
     "disclaimer": {
       "label": "Avertissement :",
-      "body": "cette analyse est indicative. La réglementation STR LU évolue rapidement (refonte EU 2024/1028, règlements communaux). Validez toujours avec un avocat spécialisé ou un expert-comptable LU avant toute mise en location. Les valeurs sont celles en vigueur en avril 2026."
+      "body": "Repères vérifiés le 23 octobre 2026. Les règles communales et votre situation fiscale individuelle ne sont pas validées par ce questionnaire."
+    },
+    "actionItems": {
+      "license": "Vérifier l’autorisation d’établissement et la formation auprès des autorités compétentes.",
+      "operatorTotal": "Additionner les nuitées de toutes les unités sur la période de référence.",
+      "localRules": "Vérifier auprès de la commune l’usage autorisé, les règlements et les formalités.",
+      "tax": "Qualifier le revenu, les déductions et les obligations déclaratives avec l’ACD ou un professionnel.",
+      "registration": "Vérifier les procédures d’enregistrement et les obligations applicables à votre plateforme.",
+      "insurance": "Vérifier que l’assurance et les contrats autorisent les séjours proposés.",
+      "vat": "Qualifier la TVA et les cotisations sociales selon l’activité effective."
+    },
+    "sources": {
+      "license": "Autorisation d’établissement",
+      "tax": "Imposition par voie d’assiette",
+      "eu": "Règlement UE 2024/1028"
     }
   },
   "wizardParticulierPage": {
@@ -13441,7 +13477,7 @@
   "strRentabilite": {
     "back": "Location courte durée",
     "title": "Rentabilité STR (Airbnb / Booking / Vrbo)",
-    "subtitle": "Calculez le revenu net annuel de votre bien loué en courte durée au Luxembourg, toutes charges et impôts inclus.",
+    "subtitle": "Estimez le résultat annuel avec vos charges et un taux marginal constant. Hors remboursement du prêt, TVA, cotisations sociales et liquidation fiscale du ménage.",
     "save": "Sauvegarder",
     "saved": "Sauvegardé !",
     "sections": {
@@ -13489,7 +13525,7 @@
     },
     "result": {
       "netLabel": "Revenu net annuel après impôt",
-      "perMonth": "soit {n}/mois après tout (charges, OTA, IR)",
+      "perMonth": "soit {n}/mois selon ces hypothèses",
       "netYield": "Yield net",
       "breakdown": "Décomposition",
       "grossRevenue": "Revenu brut",
@@ -13515,25 +13551,26 @@
       "netYield": "Yield net"
     },
     "ltCompare": {
-      "title": "Vs location longue durée (règle 5% indicative)",
+      "title": "Exemple LT : rendement brut supposé de 5 % du prix, hors plafond légal",
       "strNet": "STR net/an",
       "ltNet": "LT net/an (règle 5%)",
       "delta": "Écart STR vs LT",
       "favorStr": "en faveur du STR",
       "favorLt": "en faveur du LT",
-      "warn": "Attention : au-delà de 90 jours de STR/an, licence d'hébergement obligatoire au LU. Voir",
+      "warn": "À partir de 90 nuitées cumulées pour un exploitant, l’autorisation d’établissement est à vérifier. Voir",
       "complianceLink": "l'outil conformité"
-    }
+    },
+    "calendarLimited": "Objectif de {requested} nuits ramené à {effective} nuits : les séjours et les intervalles de vacance doivent tenir dans 365 jours."
   },
   "strArbitrage": {
     "back": "Location courte durée",
     "title": "Arbitrage long terme vs court terme",
-    "subtitle": "Comparez 3 scénarios chiffrés : location longue durée (règle 5%), STR pur (Airbnb/Booking), ou mixte (STR saisonnier + LT le reste). Calcul net après impôt selon votre profil fiscal Luxembourg.",
+    "subtitle": "Comparez des scénarios économiques annuels au taux marginal saisi. Financement, TVA, cotisations sociales et fiscalité complète du ménage ne sont pas modélisés.",
     "tax": {
       "max": "Max LU (~45,78%)"
     },
     "scenarios": {
-      "lt": "Long terme (règle 5%)",
+      "lt": "Location longue durée",
       "str": "STR pur (Airbnb/Booking)",
       "mixed": "Mixte (STR + LT)"
     },
@@ -13550,24 +13587,25 @@
       "cleaning": "Ménage / séjour",
       "fixedCosts": "Charges fixes STR / an",
       "fixedCostsHint": "PNO + internet + utilities + amort mobilier",
-      "note": "Commission OTA 15% Airbnb pré-appliquée. Si > 90 nuits/an, licence hébergement obligatoire."
+      "note": "Commission Airbnb supposée : 15 %. Autorisation à vérifier dès 90 nuitées cumulées, toutes unités de l’exploitant confondues."
     },
     "lt": {
-      "title": "Scénario long terme (règle 5%)",
+      "title": "Location longue durée",
       "monthlyRent": "Loyer mensuel LT",
       "monthlyRentHint": "Plafond légal LU = 5%/12 × capital investi réévalué",
-      "deductible": "Charges déductibles / an",
-      "deductibleHint": "Intérêts emprunt + charges copro + entretien + PNO"
+      "deductible": "Charges annuelles payées et déductibles",
+      "deductibleHint": "Hors amortissement non décaissé et capital du prêt. Les charges saisies sont payées même en scénario mixte."
     },
     "mixed": {
       "title": "Scénario mixte (STR partiel + LT partiel)",
-      "strDays": "Jours STR / an",
-      "strDaysHint": "Max 90 jours pour éviter licence",
+      "strDays": "Jours disponibles pour la courte durée",
+      "strDaysHint": "Séjours et vacance compris ; ce nombre ne constitue pas un seuil d’exemption légale.",
       "ltMonths": "Mois LT / an",
-      "ltMonthsHint": "Typique : 3 mois été Airbnb + 9 mois LT",
+      "ltMonthsHint": "Le calendrier commun ne peut pas dépasser un an (mois moyen = 365/12 jours).",
       "daysSuffix": "jours",
       "monthsSuffix": "mois",
-      "note": "Mode LU classique : bail saisonnier (été/chasseurs de congrès) + bail habitation le reste."
+      "note": "Occupation et séjours sont recalculés. Chaque mode actif conserve ses charges fixes annuelles complètes : ne saisissez pas deux fois une charge commune. Vérifiez la compatibilité des contrats.",
+      "effectiveNights": "Nuitées STR réalisables : {n}."
     },
     "result": {
       "bestLabel": "Scénario le plus rentable",
@@ -13575,7 +13613,7 @@
       "comparison": "Comparaison des 3 scénarios (net après impôt)"
     },
     "detail": {
-      "lt": "Détail LT (règle 5%)",
+      "lt": "Location longue durée",
       "mixed": "Détail mixte (STR + LT)",
       "annualGross": "Loyer annuel brut",
       "taxEstimated": "IR estimé",
@@ -13587,11 +13625,11 @@
   },
   "strComplianceEu": {
     "back": "Location courte durée",
-    "title": "Registre EU STR 2024/1028",
-    "subtitle": "Préparation du dossier d'enregistrement au registre unique européen des locations de courte durée. Règlement (UE) 2024/1028 — entrée en vigueur mi-2026. Obligations : numéro d'identification obligatoire sur toutes les annonces, transmission des nuitées aux communes.",
+    "title": "Dossier préparatoire STR",
+    "subtitle": "Rassemblez les informations utiles avant de vérifier vos démarches. Aucun enregistrement ni numéro officiel n’est délivré par cet outil.",
     "regNumber": {
-      "label": "Numéro d'identification pré-rempli",
-      "note": "Format indicatif — à valider par votre commune lors du dépôt officiel. Format final imposé par le Ministère du Tourisme."
+      "label": "Dossier préparatoire interne",
+      "note": "Ce document ne constitue ni enregistrement, ni autorisation, ni preuve de conformité. Aucun numéro officiel n’est délivré."
     },
     "section1": "1. Identité propriétaire",
     "section2": "2. Le logement loué",
@@ -13609,25 +13647,32 @@
       "maxCapacity": "Capacité max",
       "primaryResidence": "Le bien est ma résidence principale",
       "platforms": "Plateformes utilisées",
-      "nightsPlanned": "Nuitées prévues sur 12 mois"
+      "nightsPlanned": "Nuitées cumulées sur toutes vos unités pendant l’année de référence",
+      "propertyType": "Type de logement"
     },
     "propertyTypes": {
       "apartment": "Appartement entier",
       "house": "Maison entière",
       "room": "Chambre privée"
     },
-    "warnLicense": "Plus de 90 jours/an = licence d'hébergement LU requise.",
+    "warnLicense": "Au Luxembourg, le seuil de l’activité commerciale d’hébergement est de 90 nuitées ou plus, cumulées sur toutes les unités de l’exploitant pendant l’année de référence, comptée à partir de la dernière location. Vérifiez l’autorisation d’établissement et les qualifications ou formations requises. En dessous de ce seuil, les autres obligations restent à vérifier.",
     "seeCompliance": "Voir /str/compliance",
     "timing": {
-      "label": "Timing Règlement UE 2024/1028 :",
-      "body": "entrée en vigueur mi-2026. Chaque État membre doit mettre en place son registre national. Pour le Luxembourg, le Ministère du Tourisme sera probablement autorité compétente (à confirmer au Mémorial A). Les plateformes (Airbnb, Booking) devront transmettre aux autorités les nuitées par bien identifié."
+      "label": "Règlement (UE) 2024/1028 :",
+      "body": "Le règlement (UE) 2024/1028 s’applique depuis le 20 mai 2026. Les obligations dépendent des procédures d’enregistrement applicables à l’unité. Il ne crée pas de registre européen unique. Les informations à fournir par l’hôte et les transmissions de données par les plateformes sont distinctes."
     },
-    "downloadPdf": "Télécharger le dossier PDF"
+    "downloadPdf": "Télécharger le dossier préparatoire PDF",
+    "reviewTitle": "Points à vérifier personnellement",
+    "reviewBody": "Vérifiez les démarches applicables auprès des autorités compétentes, ainsi que les règles communales, l’assurance et la fiscalité. Ce dossier ne dépose aucune demande et ne certifie aucune réponse.",
+    "pdfFooter": "Dossier interne préparatoire. Aucun dépôt effectué ; ni autorisation ni preuve de conformité.",
+    "yes": "Oui",
+    "no": "Non",
+    "pdfFailed": "Impossible de générer le PDF. Réessayez."
   },
   "strPortefeuille": {
     "back": "Location courte durée",
     "title": "Portefeuille STR",
-    "subtitle": "Dashboard multi-biens pour conciergerie ou investisseur courte durée (10-50 biens). Suivi ADR/occupation/revenu agrégé, statut licence LU (seuil 90j), enregistrement EU 2024/1028.",
+    "subtitle": "Suivez les données économiques de plusieurs biens et les démarches que vous avez renseignées. Le seuil d’activité se calcule sur toutes les unités de l’exploitant ; ce tableau ne certifie pas la conformité.",
     "signIn": "Connectez-vous pour gérer votre portefeuille STR.",
     "loading": "Chargement…",
     "cancel": "Annuler",
@@ -13642,7 +13687,7 @@
       "avgOccupancy": "Occupation moyenne"
     },
     "licenses": {
-      "summary": "Licences : {obtained} obtenues · {pending} en cours · {eu}/{total} enregistrées EU"
+      "summary": "Autorisations déclarées : {obtained} obtenues · {pending} en cours · {eu}/{total} enregistrements renseignés"
     },
     "types": {
       "apartment": "Appartement",
@@ -13652,7 +13697,7 @@
       "villa": "Villa"
     },
     "license": {
-      "notRequired": "Non requise (< 90j)",
+      "notRequired": "Obligation à vérifier",
       "pending": "En cours",
       "obtained": "Obtenue",
       "expired": "Expirée"
@@ -13900,7 +13945,7 @@
     "dtType": "Type",
     "dtEvaluator": "Évaluateur",
     "limitsStrong": "Limites du service :",
-    "limitsBody": "ce mécanisme offre une piste d'audit horodatée mais n'a pas la valeur d'une signature électronique qualifiée eIDAS (LuxTrust, QTSP). Pour une opposabilité juridique renforcée, utilisez un QTSP agréé. Le hash prouve uniquement que les données n'ont pas été modifiées depuis le moment de la signature enregistrée ici."
+    "limitsBody": "Une empreinte permet de comparer un contenu à une référence conservée. Elle ne certifie pas à elle seule l’identité, l’accord d’une personne, la date ou la validité juridique du document. Conservez le document et les éléments de vérification ; une empreinte seule n’est pas une signature qualifiée."
   },
   "invitation": {
     "title": "Invitation à rejoindre une agence",
@@ -13989,7 +14034,7 @@
     "agencyStep1": "Ajouter le descriptif + photos dans l'aperçu du mandat",
     "agencyStep2": "Configurer la diffusion sur athome / Immotop / Immoweb",
     "agencyStep3": "Lancer le matching automatique avec vos contacts CRM",
-    "agencyStep4": "Faire signer le mandat par votre client (eIDAS)",
+    "agencyStep4": "Parcours de signature en ligne avec éléments techniques à vérifier ; aucun niveau avancé ou qualifié n’est certifié par la plateforme.",
     "hotelStep1": "Ajouter les types de chambres + chambres physiques",
     "hotelStep2": "Définir les rate plans (BAR, non-remboursable, etc.)",
     "hotelStep3": "Configurer les channels iCal (Airbnb, Booking)",
@@ -14008,16 +14053,16 @@
     "errGeneric": "Erreur",
     "errContactSender": "Contactez l'émetteur du document pour obtenir un nouveau lien.",
     "backSite": "Retour au site tevaxia.lu",
-    "eidasKicker": "Signature électronique eIDAS",
+    "eidasKicker": "Parcours de signature en ligne",
     "docToSign": "{type} à signer",
     "expiresOn": "Expire le {date}",
     "signedTitle": "Document signé électroniquement",
-    "signedBody": "Votre signature a été enregistrée avec horodatage. L'émetteur du document a été notifié.",
+    "signedBody": "Votre accord a été enregistré dans ce parcours. Conservez une copie du document et vérifiez le statut avec son émetteur.",
     "signedOn": "Signé le {date}",
     "declinedTitle": "Refus enregistré",
-    "declinedBody": "Votre refus a été transmis à l'émetteur du document.",
+    "declinedBody": "Votre refus a été enregistré. Contactez l’émetteur si un échange complémentaire est nécessaire.",
     "hashLabel": "Hash SHA-256 du document :",
-    "hashExplain": "Toute modification du document invalide ce hash et donc la signature. Cette empreinte cryptographique garantit l'intégrité du texte que vous signez.",
+    "hashExplain": "Une empreinte permet de comparer un contenu à une référence conservée. Elle ne certifie pas à elle seule l’identité, l’accord d’une personne, la date ou la validité juridique du document. Conservez le document et les éléments de vérification ; une empreinte seule n’est pas une signature qualifiée.",
     "alreadyProcessed": "Cette demande a déjà été traitée (statut : {status}). Aucune action supplémentaire n'est possible.",
     "signing": "Signature en cours…",
     "signBtn": "✍️ Signer électroniquement",
@@ -14027,7 +14072,7 @@
     "confirmDeclineBtn": "Confirmer le refus",
     "cancelBtn": "Annuler",
     "aboutTitle": "À propos de la signature électronique",
-    "aboutBody": "Cette signature est conforme au règlement européen eIDAS (UE 910/2014), niveau « signature électronique simple », valable pour les contrats commerciaux. Elle enregistre votre adresse IP, votre navigateur et l'horodatage comme preuve. Pour les actes notariés ou compromis de vente, une signature qualifiée (LuxTrust) reste obligatoire.",
+    "aboutBody": "Ce parcours ne fournit pas de signature électronique qualifiée et ne certifie pas le niveau avancé. L’article 25 eIDAS protège la recevabilité d’une signature électronique ; l’équivalence expressément prévue avec une signature manuscrite concerne la signature qualifiée. La validité d’un acte dépend aussi de son contenu, de l’identité, des pouvoirs des parties et des formalités applicables. Faites vérifier les exigences de l’acte avant signature.",
     "platformLabel": "Plateforme tevaxia.lu",
     "linkPrivacy": "Confidentialité",
     "linkLegal": "Mentions légales"
@@ -14580,7 +14625,7 @@
     "thLegal": "Protec. juridique",
     "thVacancy": "Vacance",
     "legalStrong": "Important :",
-    "legalBody": "les primes ci-dessus sont indicatives (Q4 2025). Contactez directement l'assureur pour un devis personnalisé. Certaines offres imposent un filtrage préalable du locataire (revenus certifiés 3× loyer, CDI, caution, etc.). En LU, la caution locative légale (max 3 mois, art. 5 loi 21.09.2006) reste l'option par défaut. La prime GLI est déductible en charges réelles (art. 105 LIR)."
+    "legalBody": "Les primes affichées sont indicatives : demandez un devis et vérifiez garanties, exclusions et conditions de sélection. Pour un nouveau bail résidentiel conclu depuis le 1er août 2024, la garantie locative est limitée à deux mois de loyer hors charges ; le régime des contrats antérieurs est à vérifier. La déductibilité d’une prime dépend de votre situation fiscale."
   },
   "glReconciliation": {
     "backHub": "← Gestion locative",
@@ -14600,7 +14645,7 @@
     "statusManual": "Manuel",
     "psd2Strong": "Connexion bancaire automatique (PSD2) :",
     "psd2Body": "évitez l'import manuel via",
-    "psd2Suffix": "(API PSD2 SCA conforme, accès 180 jours). Support Spuerkeess, BGL, BIL, ING LU, Raiffeisen, Post.",
+    "psd2Suffix": "(via Enable Banking ; validité de l’accès et authentification selon la banque). Consultez la liste des banques disponibles lors de la connexion.",
     "defaultLabel": "Mouvement bancaire"
   },
   "glPortefeuille": {
@@ -14649,7 +14694,7 @@
   "glRelances": {
     "backHub": "← Gestion locative",
     "pageTitle": "Relances impayés, paliers automatiques",
-    "pageSubtitle": "3 niveaux paramétrés : rappel amiable J+15 → mise en demeure J+30 → commandement de payer J+60. PDF conforme loi 21.09.2006, à envoyer en recommandé AR (papier ou eIDAS).",
+    "pageSubtitle": "Modèles de relance selon un calendrier paramétré. Les échéances du logiciel ne remplacent pas les délais et actes de procédure applicables ; faites vérifier le courrier avant envoi.",
     "loading": "Chargement…",
     "kpiTotalUnpaid": "Total impayés",
     "kpiCount": "Nombre d'échéances",
@@ -14685,7 +14730,7 @@
     "pdfLevel2Body": "Par la présente mise en demeure, nous vous enjoignons de régler la somme de {amount} € correspondant au loyer de la période {period}, impayée depuis plus de 30 jours. À défaut de paiement dans un délai de 15 jours à compter de la réception de la présente, nous nous réservons le droit de saisir la juridiction compétente.",
     "pdfLevel3Body": "Commandement de payer, à défaut de règlement dans les 8 jours, nous saisirons la juridiction compétente pour obtenir votre condamnation au paiement de la somme de {amount} € (loyer {period}), majorée des intérêts légaux, des frais de procédure et, le cas échéant, de la résiliation du bail. Vous disposez également d'un délai pour contacter le Service social de la commune si vous rencontrez des difficultés.",
     "legalStrong": "Procédure LU :",
-    "legalBody": "après 60 jours d'impayé, vous pouvez saisir la Justice de paix pour obtenir une ordonnance conditionnelle de paiement (art. 12 loi 21.09.2006), puis engager une procédure en résiliation du bail si pas de régularisation. Le commandement de payer peut être délivré par huissier (300-500€). Pour une version eIDAS certifiée, partenariat Yousign/LuxTrust prévu."
+    "legalBody": "Un impayé nécessite un examen du bail, des sommes dues et des démarches déjà accomplies. Un modèle de courrier ou son export PDF ne vaut ni acte d’huissier ni certification juridique. Les seuils de relance de l’outil ne créent pas un droit automatique à résiliation ou expulsion. Vérifiez la procédure et les formes de notification nécessaires."
   },
   "glFiscal": {
     "backHub": "← Gestion locative",
@@ -14815,7 +14860,7 @@
   "glPsd2": {
     "backRec": "← Réconciliation",
     "pageTitle": "Connexion bancaire PSD2",
-    "pageSubtitle": "Récupération automatique de vos transactions via Enable Banking, API PSD2 conforme SCA. Accès 180 jours max (art. 10 RTS PSD2), renouvelable.",
+    "pageSubtitle": "Récupérez vos transactions via Enable Banking après autorisation bancaire. Une validité de 180 jours est demandée ; la date effective est celle renvoyée par la banque ou le prestataire. Une nouvelle authentification peut être requise.",
     "configStrong": "Intégration à activer.",
     "configBody": "Enable Banking est prêt côté code, mais les clés ne sont pas encore définies sur le serveur.",
     "configStep1": "Créer une app sur enablebanking.com/dashboard, télécharger la clé privée RSA (PEM)",
@@ -15477,7 +15522,7 @@
     "expireSoon": "expire dans {n}j",
     "btnDownload": "Télécharger",
     "legalTitle": "Conformité légale :",
-    "legalBody": "les archives sont conservées 10 ans conformément à la loi modifiée du 16 mai 1975 sur la copropriété (art. 13bis). Chaque fichier a un checksum SHA-256 pour garantir l'intégrité. Les fichiers sont chiffrés au repos (AES-256). La table est immuable côté DB (trigger 'archive_is_immutable'), aucune modification ni suppression possible avant expiration."
+    "legalBody": "Vérifiez la durée de conservation applicable à chaque catégorie de document et les paramètres effectifs de l’archivage. Une empreinte SHA-256 aide à comparer le fichier à une référence conservée, sans constituer à elle seule une preuve qualifiée d’origine ou de date. La protection contre modification et la suppression dépendent des droits et règles réellement appliqués au stockage."
   },
   "syndicOcr": {
     "loading": "Chargement…",
@@ -15838,7 +15883,7 @@
     "csvHint": "Export CSV depuis web banking LU.",
     "btnChooseCsv": "Choisir un fichier CSV",
     "psdTitle": "Connexion banque PSD2",
-    "psdHint": "Récupère les transactions en direct via l'API Enable Banking. SCA bancaire (LuxTrust / app mobile) requise. Lien 90 jours.",
+    "psdHint": "Consulte les transactions via Enable Banking après authentification bancaire. La validité de la connexion est indiquée par la banque ou le prestataire ; une nouvelle authentification peut être nécessaire.",
     "psdConnect": "Connecter une banque",
     "psdNotConfigured": "PSD2 non configuré côté serveur. Contactez l'administrateur.",
     "psdLoading": "Chargement banques…",
@@ -16667,7 +16712,7 @@
     "crumbMandates": "Mandats",
     "crumbSignatures": "Signatures",
     "pageTitle": "Signatures électroniques",
-    "pageDesc": "Workflow de signature en ligne conforme règlement UE 910/2014 (eIDAS). Niveau «&nbsp;signature électronique simple&nbsp;» — valide pour mandats commerciaux. Pour actes notariés, signature qualifiée LuxTrust requise (roadmap T5).",
+    "pageDesc": "Ce parcours ne fournit pas de signature électronique qualifiée et ne certifie pas le niveau avancé. L’article 25 eIDAS protège la recevabilité d’une signature électronique ; l’équivalence expressément prévue avec une signature manuscrite concerne la signature qualifiée. La validité d’un acte dépend aussi de son contenu, de l’identité, des pouvoirs des parties et des formalités applicables. Faites vérifier les exigences de l’acte avant signature.",
     "loading": "Chargement…",
     "loginPrompt": "Se connecter",
     "notFound": "Mandat introuvable.",
@@ -16694,12 +16739,12 @@
     "rowViewed": "Vue : {date}",
     "rowSigned": "Signée : {date}",
     "rowExpires": "Expire : {date}",
-    "rowProof": "🔒 Preuve : IP {ip} · {ua}",
+    "rowProof": "Données techniques : IP {ip} · {ua}",
     "rowDeclineReason": "Motif refus : {reason}",
     "btnCopyLink": "📋 Copier lien",
     "btnEmail": "📧 Email",
     "btnOpen": "Ouvrir",
-    "eidasNotice": "<strong>Preuve eIDAS conservée :</strong> à la signature, la plateforme enregistre l'adresse IP, le navigateur, le fuseau horaire et l'horodatage serveur, le tout rendu immuable par un trigger DB. Le document est identifié par son hash SHA-256 — toute modification ultérieure invalide la signature et déclenche une alerte.",
+    "eidasNotice": "Éléments techniques du parcours : empreinte du contenu, date serveur, adresse IP, navigateur et fuseau horaire lorsqu’ils sont disponibles. Ils ne constituent ni un certificat qualifié ni une vérification indépendante d’identité. Vérifiez leur enregistrement et conservez une copie du document ; aucune alerte automatique d’altération n’est garantie.",
     "defaultMandateTitle": "Mandat de vente",
     "mandateTitleFmt": "Mandat {type} — {address}",
     "statusDraft": "Brouillon",
@@ -16716,14 +16761,14 @@
     "docTypeRapportEstimation": "Rapport d'estimation",
     "docTypeAutre": "Autre document",
     "mailSubject": "Signature demandée : {title}",
-    "mailBody": "Bonjour {name},\n\nVous êtes invité(e) à signer électroniquement le document suivant :\n\n{title}\n\nLien de signature sécurisé (valable jusqu'au {expires}) :\n{url}\n\nLa signature électronique simple est juridiquement valable selon le règlement UE 910/2014 (eIDAS).\n\nCordialement",
+    "mailBody": "Bonjour {name},\n\nVous êtes invité(e) à consulter et à signer le document suivant :\n\n{title}\n\nLien valable jusqu’au {expires} :\n{url}\n\nCe parcours ne fournit pas de signature qualifiée. Vérifiez le document et les formalités nécessaires avant de confirmer votre accord.\n\nCordialement",
     "mandateBody": "MANDAT DE VENTE {type}\n\nEntre les soussignés :\nLe MANDANT : {client}\nreprésenté(e) par lui-même.\n\nEt :\nLe MANDATAIRE : Agence immobilière\nagissant par l'intermédiaire d'un agent immobilier diplômé et enregistré\nconformément à la loi du 28 décembre 1988 réglementant les professions\nimmobilières.\n\nIl a été convenu et arrêté ce qui suit :\n\nArticle 1 — OBJET DU MANDAT\nLe mandant confère au mandataire le mandat {mandateType} de vendre\nle bien immobilier situé :\n{address}\n{commune}\nType : {propertyType}\nSurface : {surface} m²\n\nArticle 2 — PRIX DE VENTE\nLe prix net vendeur est fixé à {price}.\n\nArticle 3 — COMMISSION\nLa commission du mandataire est fixée à {commissionPct}% du prix de vente\nTTC, à la charge de l'acquéreur, payable à la signature de l'acte authentique\ndevant notaire.\n\nArticle 4 — DURÉE\nLe présent mandat est conclu pour une durée de {duration}.\n{exclusiveClause}\n\nArticle 5 — OBLIGATIONS DU MANDATAIRE\nLe mandataire s'engage à :\n- diffuser le bien sur les supports commerciaux appropriés\n- rendre compte régulièrement au mandant\n- respecter la confidentialité des informations transmises\n- ne pas mélanger les fonds propres du mandant avec les siens\n\nArticle 6 — LOI APPLICABLE\nLe présent mandat est régi par le droit luxembourgeois. Toute contestation\nrelève exclusivement des tribunaux de Luxembourg-Ville.\n\nFait à Luxembourg, le {today}.",
     "mandateClientPlaceholder": "[Nom du mandant]",
     "mandatePropertyTypeMissing": "non précisé",
     "mandatePriceTbd": "[à définir]",
     "mandateDurationUntil": "jusqu'au {date}",
     "mandateDurationTbd": "[durée à définir]",
-    "mandateExclusiveClause": "En mandat exclusif, la durée minimale est de 3 mois conformément à la loi.",
+    "mandateExclusiveClause": "La portée et la durée de l’exclusivité doivent être convenues expressément et vérifiées avant signature.",
     "dash": "—"
   },
   "proaCrmContactDetail": {
@@ -17727,7 +17772,10 @@
     "frenchRentalInputs": "Fiscalité locative française (/yield) : taxYear vaut 2025 ou 2026 (2026 par défaut). Le défaut est reel_foncier, location nue au réel simplifié. Les régimes micro exigent frenchMicroEligible=true pour confirmer l’éligibilité et les recettes agrégées du foyer/de l’activité ; le micro-BIC dépend aussi des années antérieures. Le meublé exige frenchNonProfessional=true. micro_bic désigne la longue durée, micro_bic_tourism le tourisme classé et micro_bic_tourism_unclassified le non-classé. annualTaxReceipts permet d’indiquer les recettes fiscales agrégées, charges taxables comprises ; sinon, on retient le loyer simulé après vacance. frenchSocialRegime=solidarity_only suppose une affiliation ouvrant droit au seul prélèvement de solidarité ; standard est le défaut. Le calcul au taux marginal n’est pas une liquidation de l’impôt du foyer. Cotisations d’activité, déficits reportables et régimes spéciaux sont exclus.",
     "ukFeesInputs": "Royaume-Uni (/fees, country=uk) : region accepte ENG, NIR, SCT ou WLS ; sans région, ENG est une hypothèse explicite. ukAdditionalProperty confirme l’application des taux majorés, indépendamment de isPrimary ; ukNonResident qualifie la surcharge SDLT de non-résident en Angleterre/Irlande du Nord. Les deux valent false par défaut. isFirstTime et isPrimary doivent être vrais pour l’avantage primo-accédant, avec tous les acquéreurs éligibles ; aucun avantage spécifique au pays de Galles. Achat résidentiel simple par des particuliers uniquement, sans régimes transitoires, personnes morales, opérations liées ni loyers d’un nouveau bail. acquisitionCoverage précise le sous-total et les frais exclus. /cashflow suppose un achat supplémentaire en Angleterre, sans surcharge non-résident.",
     "italianRentalInputs": "Italie (/yield) : seule la cedolare_secca à 21 % pour un bail résidentiel ordinaire à loyer libre est calculée. italianCedolareEligible=true confirme un bailleur personne physique éligible hors activité professionnelle et une option valide pour ce régime. italianAnnualContractRent est obligatoire : loyer contractuel brut correspondant à la quote-part et à la période louée, sans déduire les charges. La vacance simulée réduit les recettes économiques mais ne modifie pas automatiquement cette base fiscale. Un résultat locatif négatif ne supprime pas cet impôt. IRPEF, courte durée, contrats à taux réduit, impayés et situations cadastrales particulières nécessitent une évaluation distincte.",
-    "portugueseRentalInputs": "Portugal (/yield) : portugueseCategoryFConfirmed=true confirme une location ordinaire de catégorie F et des dépenses payées fiscalement admissibles. portugueseRentalUse vaut housing ou other. portugueseAnnualTaxReceipts et portugueseDeductibleExpenses sont obligatoires, même à zéro : les dépenses économiques simulées ne constituent pas automatiquement des déductions fiscales. Intérêts, amortissement, mobilier, équipements, décoration et AIMI sont exclus des déductions. taxYear vaut 2025 ou 2026. Taux autonome : habitation 25 %, autre location 28 %, pour les résidents comme les non-résidents. Pour housing en 2026, portugueseModerateRentEligible doit être explicitement true ou false : true confirme toutes les conditions et les plafonds mensuels de l’article 45-C EBF / DL 97/2026 art. 2, pour appliquer 10 %. Ne pas déduire cette éligibilité du loyer annuel après vacance. Les taux plus favorables de longue durée, exonérations et régimes spéciaux nécessitent un autre calcul. progressive_resident utilise le taux marginal saisi, sans comparaison automatique ni liquidation de l’impôt du foyer."
+    "portugueseRentalInputs": "Portugal (/yield) : portugueseCategoryFConfirmed=true confirme une location ordinaire de catégorie F et des dépenses payées fiscalement admissibles. portugueseRentalUse vaut housing ou other. portugueseAnnualTaxReceipts et portugueseDeductibleExpenses sont obligatoires, même à zéro : les dépenses économiques simulées ne constituent pas automatiquement des déductions fiscales. Intérêts, amortissement, mobilier, équipements, décoration et AIMI sont exclus des déductions. taxYear vaut 2025 ou 2026. Taux autonome : habitation 25 %, autre location 28 %, pour les résidents comme les non-résidents. Pour housing en 2026, portugueseModerateRentEligible doit être explicitement true ou false : true confirme toutes les conditions et les plafonds mensuels de l’article 45-C EBF / DL 97/2026 art. 2, pour appliquer 10 %. Ne pas déduire cette éligibilité du loyer annuel après vacance. Les taux plus favorables de longue durée, exonérations et régimes spéciaux nécessitent un autre calcul. progressive_resident utilise le taux marginal saisi, sans comparaison automatique ni liquidation de l’impôt du foyer.",
+    "unsupportedRentalTax": "/yield refuse les régimes belges et néerlandais tant que les bases nécessaires ne sont pas prises en charge. /cashflow reste un scénario explicite au taux marginal constant, sans appliquer le régime cadastral ou Box 3.",
+    "auditFeesInputs": "Frais : Portugal exige region (mainland/azores/madeira), portugueseResident et portugueseTaxValue (VPT). Les taxes portent sur max(prix,VPT), barèmes 2026 ; non-résident : 7,5 % avant éventuel remboursement distinct. portugueseYoungEligible confirme toutes les conditions IMT Jovem pour tous les acquéreurs : 35 ans inclus, première habitation permanente, absence de propriété résidentielle actuelle ou sur les trois années précédentes, non-dépendant IRS. NL : nlStarterEligible confirme une exonération jamais utilisée et toutes les conditions sur le logement entier ; l’occupation personnelle reste indispensable. LU : luBellegenEligible et luCreditRemaining sont requis pour le crédit ; un acquéreur, logement existant. Italie : italianPrimaCasaEligible confirme les conditions propres ; italianPrezzoValore et italianCadastralIncome utilisent la rendita non revalorisée, sinon le prix déclaré est retenu avec un minimum de 1 000 € de droits. Une vente TVA exige italianVatSale et italianVatRate (prix HT). Copropriété aux éligibilités mixtes et opérations spéciales exclues.",
+    "widgetScope": "Le widget embarqué utilise l’API en ligne : frais pour investissement dans un logement existant sans exonération personnelle, capacité, rendement et scénario de trésorerie. Il renvoie vers le comparateur achat/location dédié. Certains régimes fiscaux demandant davantage de données restent réservés à l’API documentée ou ne sont pas pris en charge ; aucun résultat fiscal de substitution n’est affiché. Les fonctionnalités du plugin WordPress externe relèvent de sa propre version."
   },
   "statusPage": {
     "metaTitle": "État des services, tevaxia.lu",
@@ -19166,7 +19214,8 @@
     "unavailableTitle": "Aucun chiffre vérifié affiché pour ce périmètre",
     "logisticsScope": "Aucune série de loyers ou de stocks par zone n’est disponible ici avec une source et une période vérifiées. Pour un actif logistique, utilisez des comparables documentés et les données de ses baux.",
     "macroScope": "Pour comparer un taux de crédit, vérifiez sa période, le type de contrat et la population observée. Les liens ci-dessous donnent accès aux séries des organismes producteurs ; ils ne constituent pas une offre de financement.",
-    "valuation": "Évaluer avec ses propres données"
+    "valuation": "Évaluer avec ses propres données",
+    "indicesLink": "Indices immobiliers"
   },
   "constructionBudget": {
     "title": "Budget de construction documenté",
@@ -19223,7 +19272,8 @@
     "signInTitle": "Connexion pour les rapports PDF",
     "signInScope": "Connectez-vous ou créez un compte pour prévisualiser et télécharger vos rapports.",
     "signIn": "Se connecter / créer un compte",
-    "cancel": "Annuler"
+    "cancel": "Annuler",
+    "documentLanguage": "Langue du document : {language}"
   },
   "developmentAppraisal": {
     "title": "Bilan promoteur documenté",
@@ -20330,5 +20380,66 @@
     "contact": "Contacter LPVI pour être orienté vers un expert",
     "qualifications": "Comprendre les licences TEGoVA avec LPVI",
     "destination": "Liens vers le site de LPVI, en français. Contact par formulaire ou à info@lpvi.lu."
+  },
+  "numberInput": {
+    "edit": "Modifier {label} : {value}",
+    "editHint": "Cliquer pour saisir une valeur",
+    "formatHint": "Format de cette langue : {example}. Échap pour annuler.",
+    "format": "Saisissez un nombre complet dans le format indiqué.",
+    "range": "Saisissez une valeur entre {min} et {max}. La valeur précédente est conservée.",
+    "step": "Utilisez un pas de {step} à partir de {min}. Aucun arrondi automatique."
+  },
+  "calendarSync": {
+    "backProfile": "Mon profil",
+    "pageTitle": "Synchronisation calendrier",
+    "pageIntro": "Retrouvez vos tâches CRM et visites planifiées dans Google Calendar, Outlook ou Apple Calendar avec une URL d’abonnement.",
+    "connected": "Compte {provider} connecté. La connexion seule ne garantit pas la synchronisation dans les deux sens.",
+    "connectionFailed": "La connexion à {provider} a échoué. Veuillez réessayer.",
+    "howTitle": "Comment ça marche",
+    "stepCreate": "Générez une URL d’abonnement : un jeton aléatoire unique est créé.",
+    "stepCopy": "Copiez l’URL HTTPS générée.",
+    "stepGoogle": "Google Calendar : utilisez le bouton dédié ou Ajouter un calendrier → À partir de l’URL.",
+    "stepOutlook": "Outlook : Ajouter un calendrier → S’abonner à partir du Web, puis collez l’URL HTTPS.",
+    "stepApple": "Apple Calendar : utilisez le lien webcal:// ou Fichier → Nouvel abonnement à un calendrier.",
+    "eventsTitle": "Événements inclus",
+    "eventsTasks": "Tâches CRM avec échéance et statut à faire ou en cours.",
+    "eventsVisits": "Visites planifiées à venir.",
+    "eventsWindow": "Période : de 7 jours dans le passé à 180 jours dans le futur.",
+    "eventsPrivacy": "Le flux reprend vos titres et descriptions, qui peuvent contenir des données personnelles. Gardez son URL confidentielle.",
+    "securityTitle": "Sécurité",
+    "securityToken": "Le jeton aléatoire de 128 bits donne accès au flux. Ne partagez l’URL qu’avec votre application de calendrier.",
+    "securityRevoke": "Vous pouvez désactiver ou supprimer un abonnement pour arrêter les nouveaux accès. Les copies déjà importées peuvent rester dans le calendrier externe.",
+    "securityAccess": "La date du dernier accès et le nombre d’appels sont disponibles ci-dessus.",
+    "sectionTitle": "Synchroniser mon calendrier",
+    "sectionIntro": "Créez un abonnement en lecture seule pour vos tâches et visites. La fréquence de mise à jour dépend de votre application de calendrier.",
+    "signIn": "Connectez-vous pour générer un lien d’abonnement calendrier.",
+    "defaultLabel": "Calendrier Tevaxia",
+    "revokeConfirm": "Supprimer cet abonnement et arrêter les nouveaux accès ?",
+    "loading": "Chargement…",
+    "empty": "Aucun abonnement.",
+    "create": "Générer une URL d’abonnement",
+    "created": "Créé le {date}",
+    "lastAccess": "Dernier accès : {date} ({count} appels)",
+    "neverAccessed": "Jamais consulté",
+    "inactive": "Inactif",
+    "deactivate": "Désactiver",
+    "reactivate": "Réactiver",
+    "delete": "Supprimer",
+    "copied": "Copié",
+    "copy": "Copier URL",
+    "copyFailed": "Copie impossible. Sélectionnez et copiez l’URL manuellement.",
+    "openApple": "Ouvrir dans Apple Calendar",
+    "openGoogle": "Ajouter à Google Calendar",
+    "createAnother": "Créer un autre abonnement",
+    "oauthTitle": "Connexions Google / Microsoft",
+    "oauthScope": "La synchronisation dans les deux sens dépend de l’activation du service. Un abonnement ICS reste en lecture seule.",
+    "connectGoogle": "Connecter Google Calendar",
+    "connectOutlook": "Connecter Outlook"
+  },
+  "leaseDraft": {
+    "title": "Préparer un projet de bail",
+    "notice": "Formulaire et PDF en français pour un nouveau bail de résidence principale au Luxembourg, conclu depuis le 1er août 2024. Faites vérifier le projet et ses annexes avant signature.",
+    "open": "Ouvrir",
+    "close": "Fermer"
   }
 }

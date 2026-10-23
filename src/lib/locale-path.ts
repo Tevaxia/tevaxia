@@ -1,37 +1,32 @@
-// ============================================================
-// LOCALE-AWARE PATH HELPER
-// ============================================================
-// Prefixes paths with the current locale when not French (default).
-// French has no prefix (e.g., /estimation), others do (e.g., /en/estimation).
+const LOCALES = ["en", "de", "pt", "lb"] as const;
 
-const LOCALE_PREFIXES = ["en", "de", "pt", "lb"];
-
-/**
- * Detects the current locale from the browser pathname.
- * Returns "" for French (default), "/en", "/de", "/pt", "/lb" for others.
- */
-export function getLocalePrefix(): string {
-  if (typeof window === "undefined") return "";
-  const pathname = window.location.pathname;
-  for (const loc of LOCALE_PREFIXES) {
-    if (pathname === `/${loc}` || pathname.startsWith(`/${loc}/`)) {
-      return `/${loc}`;
-    }
-  }
-  return "";
+export function localeFromPath(pathname: string): string {
+  return LOCALES.find(locale => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)) ?? "fr";
 }
 
-/**
- * Prefixes a path with the current locale.
- * - localePath("/estimation") → "/en/estimation" (if on English)
- * - localePath("/estimation") → "/estimation" (if on French)
- * - localePath("/energy/impact") → "/de/energy/impact" (if on German)
- * - Already-prefixed paths are returned as-is.
- */
+/** Change only the language prefix; retain the URL's query and fragment verbatim. */
+export function switchLocalePath(path: string, locale: string): string {
+  const match = path.match(/^([^?#]*)(.*)$/);
+  const pathname = match?.[1] || "/", suffix = match?.[2] || "";
+  const current = localeFromPath(pathname);
+  const base = current === "fr" ? pathname : pathname.slice(current.length + 1) || "/";
+  return (locale === "fr" ? base : `/${locale}${base === "/" ? "" : base}`) + suffix;
+}
+
+/** Prefix site pages, leaving external URLs, assets, API/auth endpoints and explicit locales intact. */
+export function localizePath(path: string, locale: string): string {
+  if (locale === "fr" || !path.startsWith("/") || path.startsWith("//")) return path;
+  const pathname = path.split(/[?#]/, 1)[0];
+  if (localeFromPath(pathname) !== "fr" || /^\/(?:api|auth|_next)(?:\/|$)/.test(pathname) || /\.[^/]+$/.test(pathname)) return path;
+  return `/${locale}${path}`;
+}
+
+export function getLocalePrefix(): string {
+  if (typeof window === "undefined") return "";
+  const locale = localeFromPath(window.location.pathname);
+  return locale === "fr" ? "" : `/${locale}`;
+}
+
 export function localePath(path: string): string {
-  const prefix = getLocalePrefix();
-  if (!prefix) return path;
-  // Don't double-prefix
-  if (path.startsWith(prefix)) return path;
-  return `${prefix}${path}`;
+  return localizePath(path, typeof window === "undefined" ? "fr" : localeFromPath(window.location.pathname));
 }

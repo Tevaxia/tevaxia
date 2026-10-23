@@ -97,7 +97,7 @@ export async function POST(request: Request) {
     const feesResult = calculateAcquisitionFees({
       propertyPrice,
       countryCode: country.toLowerCase(),
-      regionCode: '',
+      regionCode: body.region ?? '',
       isNew: false,
       isPrimaryResidence: false,
       isFirstTimeBuyer: false,
@@ -105,6 +105,7 @@ export async function POST(request: Request) {
       buyerAge: 0,
       countryData,
       loanGuaranteeCost: body.loanGuaranteeCost,
+      portugueseResident: body.portugueseResident, portugueseTaxValue: body.portugueseTaxValue,
       ukAdditionalProperty: country.toLowerCase() === 'uk',
     }) as AcquisitionFeesResult;
 
