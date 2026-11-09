@@ -1,7 +1,14 @@
 import { getAllCommunes, slugifyCommune } from "./market-data";
 
-/** Former commune names retained as permanent aliases after the 2023 mergers. */
+/** Former commune names retained as permanent aliases after commune mergers. */
 export const COMMUNE_ALIASES: Readonly<Record<string, string>> = {
+  // 2012: Clervaux absorbed Heinerscheid and Munshausen.
+  heinerscheid: "clervaux",
+  munshausen: "clervaux",
+  // 2018: Hobscheid and Septfontaines became Habscht.
+  hobscheid: "habscht",
+  septfontaines: "habscht",
+  // 2023 mergers.
   bous: "bous-waldbredimus",
   waldbredimus: "bous-waldbredimus",
   grosbous: "groussbus-wal",

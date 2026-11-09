@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { NextRequest } from "next/server";
 import { proxy } from "@/proxy";
 import { COMMUNE_ALIASES, resolveCommuneRoute } from "../commune-routes";
+import { getAllCommunes, slugifyCommune } from "../market-data";
 
 describe("commune URLs", () => {
   it("resolves each retired name to an existing commune", () => {
@@ -9,6 +10,20 @@ describe("commune URLs", () => {
       expect(resolveCommuneRoute(former)).toBe(current);
       expect(resolveCommuneRoute(current)).toBe(current);
     }
+  });
+  it("never aliases a commune that still exists", () => {
+    const current = new Set(getAllCommunes().map(slugifyCommune));
+    for (const former of Object.keys(COMMUNE_ALIASES)) {
+      expect(current.has(former)).toBe(false);
+    }
+  });
+  it.each([
+    ["/commune/munshausen", "/commune/clervaux"],
+    ["/de/commune/septfontaines", "/de/commune/habscht"],
+  ])("redirects merged commune %s", (from, to) => {
+    const response = proxy(new NextRequest(`https://tevaxia.lu${from}`));
+    expect(response.status).toBe(301);
+    expect(response.headers.get("location")).toBe(`https://tevaxia.lu${to}`);
   });
   it.each(["", "inexistante-audit", "%ZZ", "%2Fetc"]) ("rejects unknown/malformed slug %s", slug => {
     expect(resolveCommuneRoute(slug)).toBeNull();
