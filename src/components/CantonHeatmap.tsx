@@ -14,6 +14,7 @@
  */
 
 import type { MarketDataCommune } from "@/lib/market-data";
+import { MARKET_SNAPSHOT } from "@/lib/market-snapshot";
 
 interface CantonTile {
   canton: string;
@@ -158,7 +159,7 @@ export default function CantonHeatmap({ data }: { data: MarketDataCommune[] }) {
       <div className="mt-4 flex items-center justify-between gap-3 flex-wrap">
         <div className="text-[11px] text-muted">
           Layout géographique approximatif (grille 4×4). Données :{" "}
-          <span className="font-semibold text-slate">Observatoire Habitat Q4 2025</span>
+          <span className="font-semibold text-slate">Observatoire de l’Habitat, {MARKET_SNAPSHOT.periodStart} — {MARKET_SNAPSHOT.periodEnd}</span>
         </div>
         <div className="flex items-center gap-1.5 text-[10px]">
           <span className="text-muted">{Math.round(globalMin).toLocaleString("fr-FR")} €</span>

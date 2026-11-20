@@ -206,7 +206,7 @@
       "estimateurConstruction": {
         "title": "Coût de construction",
         "description": "Construisez un budget à partir de vos devis et hypothèses identifiées. Saisissez tous les prix TTC, dans une même devise (euro). Aucun tarif, honoraire ou surcoût énergétique n’est présumé.",
-        "tag": "STATEC oct. 2025"
+        "tag": "STATEC avr. 2026"
       },
       "calculateurVrd": {
         "title": "Estimateur VRD",
@@ -320,7 +320,7 @@
       },
       "facturation": {
         "title": "Facturation électronique",
-        "description": "Préparation Factur-X conforme EN 16931 pour la réforme FR du 01/09/2026. 6 templates métier immo (bailleur, syndic, hôtel LU, bail commercial, expert), TVA FR + LU, export PDF/A-3 + XML.",
+        "description": "Préparation Factur-X conforme EN 16931 pour la réforme FR en vigueur depuis le 01/09/2026. 6 templates métier immo (bailleur, syndic, hôtel LU, bail commercial, expert), TVA FR + LU, export PDF/A-3 + XML.",
         "tag": "Factur-X · EN 16931"
       },
       "str": {
@@ -426,7 +426,7 @@
       "whyTitle": "Pourquoi la performance énergétique compte",
       "whyDesc": "La performance énergétique peut influer sur les charges et l’usage d’un bâtiment. Les économies, le coût des travaux et la valeur après rénovation doivent être étudiés à partir de documents et de comparables adaptés. Aucun pourcentage unique ne s’applique à tous les biens.",
       "seo": {
-        "faqTitle": "Questions frequentes sur la transition energetique immobiliere",
+        "faqTitle": "Questions fréquentes sur la transition énergétique immobilière",
         "relatedTitle": "Simulateurs complementaires",
         "transitionTitle": "Préparer un projet énergétique",
         "transitionContent": "<p>Rassemblez le CPE, les relevés de consommation, les caractéristiques du bâtiment et les devis. Les outils Tevaxia comparent les données saisies et vos hypothèses ; ils ne remplacent ni une étude technique ni une décision administrative.</p>",
@@ -3962,9 +3962,9 @@
   },
   "comparer": {
     "title": "Comparer des biens immobiliers",
-    "subtitle": "Estimez et comparez des biens au Luxembourg — en direct ou a partir de vos evaluations sauvegardees.",
+    "subtitle": "Estimez et comparez des biens au Luxembourg — en direct ou à partir de vos évaluations sauvegardées.",
     "tabLive": "Estimation en direct",
-    "tabSaved": "Evaluations sauvegardees",
+    "tabSaved": "Évaluations sauvegardées",
     "bienA": "Bien A",
     "bienB": "Bien B",
     "searchPlaceholder": "Commune, localite ou quartier...",
@@ -3980,7 +3980,7 @@
     "basse": "Basse",
     "haute": "Haute",
     "ajustements": "Ajustements",
-    "selectCommune": "Selectionnez une commune pour estimer",
+    "selectCommune": "Sélectionnez une commune pour estimer",
     "comparisonTitle": "Comparaison",
     "ecartPrix": "Ecart de prix",
     "ecartPrixM2": "Ecart prix/m2",
@@ -3991,13 +3991,13 @@
     "ecart": "Ecart",
     "prixBaseM2": "Prix de base /m2",
     "prixAjusteM2": "Prix ajuste /m2",
-    "noSaved": "Aucune evaluation sauvegardee.",
-    "noSavedHint": "Sauvegardez des evaluations depuis les outils (estimation, valorisation, frais...) pour les comparer ici.",
-    "selectEvaluations": "Selectionnez les evaluations a comparer",
-    "selectHint": "Choisissez 2 ou 3 evaluations pour les comparer cote a cote.",
+    "noSaved": "Aucune évaluation sauvegardée.",
+    "noSavedHint": "Sauvegardez des évaluations depuis les outils (estimation, valorisation, frais...) pour les comparer ici.",
+    "selectEvaluations": "Sélectionnez les évaluations à comparer",
+    "selectHint": "Choisissez 2 ou 3 évaluations pour les comparer côte à côte.",
     "selected": "Sélectionné",
-    "selectAtLeast2": "Selectionnez au moins 2 evaluations pour afficher la comparaison.",
-    "evaluationLabel": "Evaluation {n}",
+    "selectAtLeast2": "Sélectionnez au moins 2 évaluations pour afficher la comparaison.",
+    "evaluationLabel": "Évaluation {n}",
     "colNom": "Nom",
     "colType": "Type",
     "colCommune": "Commune",
@@ -4010,7 +4010,7 @@
     "colPrixBien": "Prix du bien",
     "colPrixAcquisition": "Prix d'acquisition",
     "colPrixCession": "Prix de cession",
-    "disclaimer": "Estimation indicative basee sur les donnees publiques de l'Observatoire de l'Habitat et les coefficients d'ajustement statistiques. Ne constitue pas une evaluation professionnelle.",
+    "disclaimer": "Estimation indicative basée sur les données publiques de l'Observatoire de l'Habitat et les coefficients d'ajustement statistiques. Ne constitue pas une évaluation professionnelle.",
     "seo": {
       "faqTitle": "Questions fréquentes sur la comparaison de biens",
       "relatedTitle": "Outils complémentaires",
@@ -4255,7 +4255,7 @@
     "matIsolation": "Isolation (laine, PU, fibre)",
     "matAluminium": "Aluminium (menuiseries, façade)",
     "matCuivre": "Cuivre (électricité, CVC)",
-    "sourcesText": "STATEC — Indice semestriel des prix de la construction (oct. 2025, base 100 = 1970, indice général 1173,24). Pondérations par corps de métier issues du panier STATEC. Fourchettes de prix : moyenne marché luxembourgeois 2026 (tack.lu, maison.lu, renov.lu).",
+    "sourcesText": "STATEC — Indice semestriel des prix de la construction (avr. 2026, base 100 = 1970, indice général 1195,69). Pondérations par corps de métier issues du panier STATEC. Fourchettes de prix : moyenne marché luxembourgeois 2026 (tack.lu, maison.lu, renov.lu).",
     "seo": {
       "faqTitle": "Questions fréquentes sur les coûts de construction",
       "relatedTitle": "Outils complémentaires",
@@ -4278,7 +4278,7 @@
     },
     "exporterBordereau": "Bordereau CSV",
     "bordereauHint": "Télécharger le bordereau par corps de métier (compatible Excel)",
-    "statecBadge": "Indice STATEC construction oct. 2025 (base 1970=100 → 1173,24) ↗",
+    "statecBadge": "Indice STATEC construction avr. 2026 (base 1970=100 → 1195,69) ↗",
     "batiprixBadge": "Batiprix 2026 vol. 2 + CTG + CSDC-CT"
   },
   "calculateurVrd": {
@@ -5556,24 +5556,24 @@
     "geoportailSourceNote": "Source : Geoportail.lu (ACT) — Plan cadastral numérisé, calque PAG. Données indicatives.",
     "geoportailLoading": "Chargement de la carte PAG...",
     "seo": {
-      "faqTitle": "Questions frequentes sur le PAG et PAP",
-      "relatedTitle": "Outils complementaires",
+      "faqTitle": "Questions fréquentes sur le PAG et le PAP",
+      "relatedTitle": "Outils complémentaires",
       "urbanismeTitle": "L'urbanisme au Luxembourg : PAG et PAP",
-      "urbanismeContent": "<p>L'amenagement du territoire luxembourgeois est regi par la <strong>loi modifiee du 19 juillet 2004</strong> concernant l'amenagement communal et le developpement urbain. Chaque commune dispose d'un <strong>Plan d'Amenagement General (PAG)</strong> qui definit l'affectation des sols sur l'ensemble de son territoire, et de <strong>Plans d'Amenagement Particulier (PAP)</strong> qui detaillent les regles pour chaque zone.</p><p>Le PAG classe le territoire communal en zones : zones d'habitation (HAB-1, HAB-2), zones mixtes (MIX), zones commerciales, zones d'activites economiques, zones vertes, zones agricoles et zones forestieres. Chaque zone est assortie de regles de constructibilite (COS, CUS, hauteur maximale, recul, densite).</p>",
-      "zonesTitle": "Zones et constructibilite : comprendre les regles",
-      "zonesContent": "<p>Les principales zones urbanisables sont :</p><ul><li><strong>HAB-1</strong> : habitation a faible densite (maisons individuelles, jumelees). COS typique : 0,3 a 0,5. Hauteur max : 2 niveaux + combles</li><li><strong>HAB-2</strong> : habitation a moyenne densite. COS : 0,5 a 0,8. Immeubles collectifs autorises</li><li><strong>MIX</strong> : zone mixte, commerce en rez-de-chaussee + logement aux etages. COS : 0,8 a 1,5</li><li><strong>BEP</strong> : batiment et equipement public</li><li><strong>ECO</strong> : zone d'activite economique</li></ul><p>Le <strong>COS (Coefficient d'Occupation du Sol)</strong> definit le rapport entre la surface batie au sol et la surface du terrain. Le <strong>CUS (Coefficient d'Utilisation du Sol)</strong> definit le rapport entre la surface de plancher totale et la surface du terrain.</p>",
-      "constructibiliteTitle": "Evaluer la constructibilite d'un terrain",
-      "constructibiliteContent": "<p>L'evaluation de la constructibilite d'un terrain passe par plusieurs etapes :</p><ul><li><strong>Verification du classement PAG</strong> : consulter le PAG en ligne sur le Geoportail (geoportail.lu) ou en mairie</li><li><strong>Analyse du PAP QE</strong> (quartier existant) : regle de la zone applicable (recul, hauteur, COS/CUS)</li><li><strong>Verification des servitudes</strong> : servitudes de passage, de vue, d'utilite publique, zones de protection (monuments, nature)</li><li><strong>Etude de faisabilite</strong> : verification des raccordements (eau, electricite, assainissement), acces voirie</li></ul>",
-      "servitudesTitle": "Servitudes et contraintes speciales",
-      "servitudesContent": "<p>Les principales servitudes pouvant affecter un bien immobilier au Luxembourg :</p><ul><li><strong>Servitudes d'urbanisme</strong> : alignement de voirie, zones de recul, secteurs proteges</li><li><strong>Servitudes environnementales</strong> : zones Natura 2000, zones de protection des eaux, zones inondables</li><li><strong>Servitudes patrimoniales</strong> : immeubles classes ou inscrits a l'inventaire supplementaire (loi du 18 juillet 1983)</li><li><strong>Servitudes privees</strong> : droits de passage, droits de vue, mitoyennete</li></ul><p>Notre outil permet de verifier rapidement le zonage PAG de toute commune et d'evaluer la constructibilite potentielle d'un terrain.</p>",
-      "faq1q": "Ou consulter le PAG de ma commune ?",
-      "faq1a": "Le PAG est consultable en ligne sur le Geoportail (geoportail.lu), en mairie ou aupres du service urbanisme de la commune. Notre outil integre les zones PAG pour une consultation rapide.",
-      "faq2q": "Quelle difference entre PAG et PAP ?",
-      "faq2a": "Le PAG definit l'affectation generale des zones (habitation, commerce, industrie) sur l'ensemble du territoire communal. Le PAP detaille les regles de construction pour chaque zone ou secteur specifique.",
+      "urbanismeContent": "<p>L'aménagement du territoire luxembourgeois est régi par la <strong>loi modifiée du 19 juillet 2004</strong> concernant l'aménagement communal et le développement urbain. Chaque commune dispose d'un <strong>Plan d'Aménagement Général (PAG)</strong> qui définit l'affectation des sols sur l'ensemble de son territoire, et de <strong>Plans d'Aménagement Particulier (PAP)</strong> qui détaillent les règles pour chaque zone.</p><p>Le PAG classe le territoire communal en zones : zones d'habitation (HAB-1, HAB-2), zones mixtes (MIX), zones commerciales, zones d'activités économiques, zones vertes, zones agricoles et zones forestières. Chaque zone est assortie de règles de constructibilité (COS, CUS, hauteur maximale, recul, densité).</p>",
+      "zonesTitle": "Zones et constructibilité : comprendre les règles",
+      "zonesContent": "<p>Les principales zones urbanisables sont :</p><ul><li><strong>HAB-1</strong> : habitation à faible densité (maisons individuelles, jumelées). COS typique : 0,3 à 0,5. Hauteur max : 2 niveaux + combles</li><li><strong>HAB-2</strong> : habitation à moyenne densité. COS : 0,5 à 0,8. Immeubles collectifs autorisés</li><li><strong>MIX</strong> : zone mixte, commerce en rez-de-chaussée + logement aux étages. COS : 0,8 à 1,5</li><li><strong>BEP</strong> : bâtiment et équipement public</li><li><strong>ECO</strong> : zone d'activité économique</li></ul><p>Le <strong>COS (Coefficient d'Occupation du Sol)</strong> définit le rapport entre la surface bâtie au sol et la surface du terrain. Le <strong>CUS (Coefficient d'Utilisation du Sol)</strong> définit le rapport entre la surface de plancher totale et la surface du terrain.</p>",
+      "constructibiliteTitle": "Évaluer la constructibilité d'un terrain",
+      "constructibiliteContent": "<p>L'évaluation de la constructibilité d'un terrain passe par plusieurs étapes :</p><ul><li><strong>Vérification du classement PAG</strong> : consulter le PAG en ligne sur le Géoportail (geoportail.lu) ou en mairie</li><li><strong>Analyse du PAP QE</strong> (quartier existant) : règle de la zone applicable (recul, hauteur, COS/CUS)</li><li><strong>Vérification des servitudes</strong> : servitudes de passage, de vue, d'utilité publique, zones de protection (monuments, nature)</li><li><strong>Étude de faisabilité</strong> : vérification des raccordements (eau, électricité, assainissement), accès voirie</li></ul>",
+      "servitudesTitle": "Servitudes et contraintes spéciales",
+      "servitudesContent": "<p>Les principales servitudes pouvant affecter un bien immobilier au Luxembourg :</p><ul><li><strong>Servitudes d'urbanisme</strong> : alignement de voirie, zones de recul, secteurs protégés</li><li><strong>Servitudes environnementales</strong> : zones Natura 2000, zones de protection des eaux, zones inondables</li><li><strong>Servitudes patrimoniales</strong> : immeubles classés comme patrimoine culturel national ou encore inscrits à l'inventaire supplémentaire, secteurs protégés d'intérêt national (loi du 25 février 2022 relative au patrimoine culturel, qui a abrogé celle du 18 juillet 1983)</li><li><strong>Servitudes privées</strong> : droits de passage, droits de vue, mitoyenneté</li></ul><p>Notre outil permet de vérifier rapidement le zonage PAG de toute commune et d'évaluer la constructibilité potentielle d'un terrain.</p>",
+      "faq1q": "Où consulter le PAG de ma commune ?",
+      "faq1a": "Le PAG est consultable en ligne sur le Géoportail (geoportail.lu), en mairie ou auprès du service urbanisme de la commune. Notre outil intègre les zones PAG pour une consultation rapide.",
+      "faq2q": "Quelle différence entre PAG et PAP ?",
+      "faq2a": "Le PAG définit l'affectation générale des zones (habitation, commerce, industrie) sur l'ensemble du territoire communal. Le PAP détaille les règles de construction pour chaque zone ou secteur spécifique.",
       "faq3q": "Comment savoir si un terrain est constructible ?",
-      "faq3a": "Verifiez le classement PAG (zone urbanisable), les regles du PAP applicable (COS, hauteur, recul), les servitudes et la disponibilite des raccordements. Un geometre ou architecte peut realiser une etude de faisabilite.",
+      "faq3a": "Vérifiez le classement PAG (zone urbanisable), les règles du PAP applicable (COS, hauteur, recul), les servitudes et la disponibilité des raccordements. Un géomètre ou un architecte peut réaliser une étude de faisabilité.",
       "faq4q": "Qu'est-ce que le COS et le CUS ?",
-      "faq4a": "Le COS (Coefficient d'Occupation du Sol) est le ratio surface batie au sol / surface terrain. Le CUS (Coefficient d'Utilisation du Sol) est le ratio surface de plancher totale / surface terrain. Ils determinent l'intensite de construction autorisee."
+      "faq4a": "Le COS (Coefficient d'Occupation du Sol) est le ratio surface bâtie au sol / surface terrain. Le CUS (Coefficient d'Utilisation du Sol) est le ratio surface de plancher totale / surface terrain. Ils déterminent l'intensité de construction autorisée."
     }
   },
   "amlKyc": {
@@ -6021,24 +6021,24 @@
     "ctaDownload": "Télécharger PropCalc →",
     "ctaGithub": "Voir sur GitHub",
     "seo": {
-      "faqTitle": "Questions frequentes sur PropCalc",
+      "faqTitle": "Questions fréquentes sur PropCalc",
       "relatedTitle": "Outils complementaires",
       "pluginTitle": "PropCalc : plugin WordPress multi-pays pour l'investissement immobilier",
-      "pluginContent": "<p><strong>PropCalc</strong> est un plugin WordPress open source developpe par Tevaxia qui permet d'integrer des calculateurs immobiliers professionnels dans tout site WordPress. Le plugin couvre plus de <strong>25 pays</strong> avec les taux de taxation, frais de notaire et regles fiscales locales pre-configurees.</p><p>Concu pour les agents immobiliers, promoteurs et portails d'annonces, PropCalc offre des simulateurs de frais d'acquisition, de rendement locatif et de credit hypothecaire, adaptes automatiquement a la legislation du pays selectionne.</p>",
+      "pluginContent": "<p><strong>PropCalc</strong> est un plugin WordPress open source développé par Tevaxia qui permet d'intégrer des calculateurs immobiliers professionnels dans tout site WordPress. Le plugin couvre plus de <strong>25 pays</strong> avec les taux de taxation, frais de notaire et règles fiscales locales préconfigurés.</p><p>Conçu pour les agents immobiliers, promoteurs et portails d'annonces, PropCalc offre des simulateurs de frais d'acquisition, de rendement locatif et de crédit hypothécaire, adaptés automatiquement à la législation du pays sélectionné.</p>",
       "modulesTitle": "Modules disponibles et fonctionnalites",
       "modulesContent": "<p>PropCalc propose plusieurs modules integres :</p><ul><li><strong>Frais d'acquisition</strong> : calcul complet des droits, taxes et frais de notaire par pays</li><li><strong>Rendement locatif</strong> : rendement brut, net et cash-on-cash avec charges locales</li><li><strong>Simulateur de credit</strong> : mensualites, cout total du credit, tableau d'amortissement</li><li><strong>Plus-values</strong> : simulation de la taxation des plus-values selon la legislation locale</li></ul><p>Chaque module est configurable (devises, taux, libelles) et entierement traduit via le systeme i18n de WordPress.</p>",
       "paysTitle": "Couverture geographique : 25+ pays supportes",
-      "paysContent": "<p>PropCalc couvre :</p><ul><li><strong>Europe</strong> : Luxembourg, France, Belgique, Allemagne, Pays-Bas, Suisse, Espagne, Portugal, Italie, Autriche, et plus</li><li><strong>Ameriques</strong> : Etats-Unis (par Etat), Canada, Mexique</li><li><strong>Asie-Pacifique</strong> : Australie, Singapore, Hong Kong</li></ul><p>Les taux et regles sont maintenus par la communaute et verifies regulierement contre les sources officielles de chaque pays.</p>",
+      "paysContent": "<p>PropCalc couvre :</p><ul><li><strong>Europe</strong> : Luxembourg, France, Belgique, Allemagne, Pays-Bas, Suisse, Espagne, Portugal, Italie, Autriche, et plus</li><li><strong>Amériques</strong> : États-Unis (par État), Canada, Mexique</li><li><strong>Asie-Pacifique</strong> : Australie, Singapour, Hong Kong</li></ul><p>Les taux et règles sont maintenus par la communauté et vérifiés régulièrement auprès des sources officielles de chaque pays.</p>",
       "integrationsTitle": "Integration WordPress et personnalisation",
       "integrationsContent": "<p>L'integration se fait via :</p><ul><li><strong>Shortcodes</strong> : [propcalc country='lu' module='acquisition'] — insertion simple dans n'importe quelle page</li><li><strong>Bloc Gutenberg</strong> : drag-and-drop avec previsualisation en temps reel</li><li><strong>Widget sidebar</strong> : calculateur compact pour les barres laterales</li><li><strong>API REST</strong> : integration headless pour les themes custom et les SPA</li></ul><p>Le plugin est heberge sur le repertoire officiel WordPress et le code source est disponible sur GitHub.</p>",
       "faq1q": "PropCalc est-il gratuit ?",
       "faq1a": "Oui, PropCalc est entierement gratuit et open source (licence GPL v2). Le code est disponible sur GitHub et le plugin est telechangeable depuis le repertoire WordPress officiel.",
       "faq2q": "Quels pays sont supportes ?",
-      "faq2a": "Plus de 25 pays sont supportes avec les taux et regles locales pre-configures, incluant le Luxembourg, la France, la Belgique, l'Allemagne et bien d'autres.",
+      "faq2a": "Plus de 25 pays sont pris en charge avec les taux et règles locales préconfigurés, dont le Luxembourg, la France, la Belgique, l'Allemagne et bien d'autres.",
       "faq3q": "Comment integrer PropCalc dans mon site ?",
       "faq3a": "Installez le plugin depuis le repertoire WordPress, configurez le pays et les modules souhaites, puis inserez les calculateurs via shortcodes, blocs Gutenberg ou widgets.",
       "faq4q": "Puis-je contribuer au developpement ?",
-      "faq4a": "Oui, le projet est open source sur GitHub. Les contributions (code, traductions, donnees pays) sont bienvenues via pull requests.",
+      "faq4a": "Oui, le projet est open source sur GitHub. Les contributions (code, traductions, données pays) sont bienvenues via pull requests.",
       "faq5q": "PropCalc fonctionne-t-il avec WooCommerce ou Jetstreambuilder ?",
       "faq5a": "Oui, PropCalc est compatible avec les principaux page builders (Elementor, Divi, WPBakery) et s'integre dans les themes WooCommerce sans conflit."
     },
@@ -7180,7 +7180,7 @@
           },
           {
             "title": "Estimateur construction STATEC",
-            "desc": "17 postes (gros œuvre, second œuvre, équipements), indice STATEC octobre 2025 : 1 173,24. Ajustement par classe énergétique."
+            "desc": "17 postes (gros œuvre, second œuvre, équipements), indice STATEC avril 2026 : 1 195,69. Ajustement par classe énergétique."
           },
           {
             "title": "Calculateur VRD (9 lots)",
@@ -7247,7 +7247,7 @@
         "items": [
           {
             "q": "Les indices STATEC sont-ils à jour ?",
-            "a": "Oui, l'indice du coût de construction est mis à jour trimestriellement (dernière valeur : octobre 2025 = 1 173,24). Les 17 postes STATEC sont couverts, ajustés par classe énergétique (AAA à C) et niveau de finition."
+            "a": "Oui, l'indice du coût de construction est mis à jour deux fois par an (dernière valeur : avril 2026 = 1 195,69). Les 17 postes STATEC sont couverts, ajustés par classe énergétique (AAA à C) et niveau de finition."
           },
           {
             "q": "La TVA 3% logement neuf est-elle bien gérée ?",
@@ -7655,7 +7655,7 @@
     "primaryCta": {
       "label": "Accès principal",
       "title": "Mes copropriétés en gestion",
-      "desc": "Crée et pilote tes copropriétés : compta, AG, appels de fonds, relances, portail copropriétaire.",
+      "desc": "Créez et pilotez vos copropriétés : compta, AG, appels de fonds, relances, portail copropriétaire.",
       "button": "Ouvrir mes copropriétés"
     },
     "toolkit": {
@@ -8022,8 +8022,8 @@
       "relatedTitle": "Aller plus loin"
     },
     "meta": {
-      "title": "Offre agences immobilières, rapports co-brandés | tevaxia.lu",
-      "description": "Pour les agences LU/BE : génération automatique de rapports d'estimation co-brandés (estimation + frais + aides) en 1 PDF. Multi-utilisateurs, logo agence, données prospect."
+      "title": "CRM immobilier au Luxembourg pour agences | Tevaxia",
+      "description": "CRM pour agences immobilières au Luxembourg : mandats, contacts, tâches, documents et rapports d'estimation co-brandés en PDF. Accès libre pendant le lancement."
     }
   },
   "hotellerieCalc": {
@@ -18188,8 +18188,8 @@
     "title": "Données et limites de l’estimation",
     "limits": "Appartement en pleine propriété uniquement. Les ajustements sont des hypothèses internes, sans validation sur un échantillon indépendant de ventes. La fourchette ±18 % (ou ±25 % avec annonces seules) est conventionnelle : aucune probabilité ni précision garantie.",
     "missing": "Aucune estimation disponible pour cette saisie : vérifiez la surface et les données publiées pour le type de vente. Un prix masqué par l’Observatoire n’est pas inventé.",
-    "sources": "Sources officielles, publication du 25 juin 2026",
-    "period": "Période : du 1er avril 2025 au 31 mars 2026 (12 mois glissants). Les prix enregistrés incluent les annexes ; l’estimateur utilise les prix affinés hors annexes, quand ils sont disponibles. Les annonces sont des prix demandés, pas des transactions.",
+    "sources": "Sources officielles, publication du 24 septembre 2026",
+    "period": "Période : du 1er juillet 2025 au 30 juin 2026 (12 mois glissants). Les prix enregistrés incluent les annexes ; l’estimateur utilise les prix affinés hors annexes, quand ils sont disponibles. Les annonces sont des prix demandés, pas des transactions.",
     "adjustments": "Ajustements de simulation",
     "assumptions": "Les pourcentages ci-dessous sont des hypothèses de travail. Ils ne sont pas des coefficients officiels de l’Observatoire. Aucune MAPE, R², significativité ou précision sur ventes réelles n’est démontrée.",
     "parameter": "Paramètre",
@@ -19003,7 +19003,7 @@
     "contact": "Demander un accès",
     "scopeTitle": "Périmètre du calcul",
     "scope": "L’API /api/v1/estimation utilise le même calcul que l’estimateur public : référence communale et ajustements internes. Elle prend en charge les appartements en pleine propriété, existants ou en VEFA lorsque les données du segment sont disponibles.",
-    "data": "Les références actuellement intégrées proviennent des publications de l’Observatoire de l’Habitat du 25 juin 2026. Les prix indisponibles ne sont pas remplacés par des ventes individuelles fictives.",
+    "data": "Les références actuellement intégrées proviennent des publications de l’Observatoire de l’Habitat du 24 septembre 2026. Les prix indisponibles ne sont pas remplacés par des ventes individuelles fictives.",
     "limits": "La fourchette est conventionnelle, sans précision statistique mesurée. Le résultat n’est ni une expertise signée, ni une valeur de marché certifiée TEGOVA, ni une décision de financement.",
     "try": "Tester le calculateur public",
     "requestTitle": "Exemple de requête",

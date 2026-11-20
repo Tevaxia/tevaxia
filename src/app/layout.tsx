@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { SEO_BRANDING } from "@/lib/seo-branding";
-import { type Locale } from "@/lib/seo";
+import { buildLocaleUrl, type Locale } from "@/lib/seo";
 import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages } from "next-intl/server";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { headers } from "next/headers";
 import { pickNamespaces } from "@/i18n/pick-namespaces";
 import FullMessagesProvider from "@/components/FullMessagesProvider";
@@ -15,7 +15,8 @@ import CookieBanner from "@/components/CookieBanner";
 import AuthProvider from "@/components/AuthProvider";
 import PostHogProvider from "@/components/PostHogProvider";
 import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
-import { OrganizationJsonLd, WebSiteJsonLd, PersonJsonLd } from "@/components/JsonLd";
+import { OrganizationJsonLd, WebSiteJsonLd, PersonJsonLd, ToolJsonLd } from "@/components/JsonLd";
+import { findCalculator } from "@/lib/nav-menu";
 import DeferredWidgets from "@/components/DeferredWidgets";
 import DeferredContextBars from "@/components/DeferredContextBars";
 import GtagLoader from "@/components/GtagLoader";
@@ -48,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const copy = SEO_BRANDING[(detectedLocale || "fr") as Locale];
   // Crawlers must be able to read noindex; robots.txt is not access control.
   const accountPath = pathWithoutLocale.replace(/^\/energy(?=\/)/, "");
-  const noindex = ["/connexion", "/profil", "/mes-evaluations"].some(path => accountPath === path || accountPath.startsWith(`${path}/`)) || pathWithoutLocale === "/energy/portfolio";
+  const noindex = ["/connexion", "/profil", "/mes-evaluations", "/recherche", "/onboarding", "/syndic/portefeuille", "/facturation/emission", "/gestion-locative/reconciliation"].some(path => accountPath === path || accountPath.startsWith(`${path}/`)) || pathWithoutLocale === "/energy/portfolio";
   return {
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
     title: {
@@ -121,6 +122,11 @@ export default async function RootLayout({
   const pathname = h.get("x-url") || "/";
   const messages = pickNamespaces(allMessages as Record<string, unknown>, pathname);
 
+  // Balisage WebApplication des calculateurs publics, dans la langue de la page.
+  const toolPath = locale === "fr" ? pathname : pathname.slice(locale.length + 1) || "/";
+  const calculator = findCalculator(toolPath);
+  const toolName = calculator ? (await getTranslations("nav"))(calculator.key) : null;
+
   return (
     <html
       lang={locale}
@@ -130,6 +136,7 @@ export default async function RootLayout({
         <OrganizationJsonLd />
         <WebSiteJsonLd />
         <PersonJsonLd />
+        {calculator && toolName && <ToolJsonLd name={toolName} url={buildLocaleUrl(calculator.href, locale)} locale={locale} />}
       </head>
       <body className="min-h-full flex flex-col">
         <ServiceWorkerRegistration />

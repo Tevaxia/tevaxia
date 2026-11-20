@@ -466,7 +466,7 @@ export default function Valorisation() {
           />
         </div>)}
 
-        <RelatedTools keys={["hedonique", "comparer", "dcfMulti", "indices", "marche", "estimation"]} />
+        <RelatedTools keys={["comparer", "dcfMulti", "indices", "marche", "estimation"]} />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-8"><p className="text-sm text-muted">{scopeText("review")}</p></div>

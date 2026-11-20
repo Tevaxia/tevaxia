@@ -206,7 +206,7 @@
       "estimateurConstruction": {
         "title": "Baukaschten",
         "description": "Stellt e Budget aus Ären Devisen a benannten Hypotheesen op. Gitt all Präisser mat TVA an Euro an. Et gëtt keen Tarif, Honorar oder Energieopschlag ugeholl.",
-        "tag": "STATEC Okt. 2025"
+        "tag": "STATEC Abr. 2026"
       },
       "calculateurVrd": {
         "title": "VRD-Schätzer",
@@ -320,7 +320,7 @@
       },
       "facturation": {
         "title": "Elektronesch Rechnungsstellung",
-        "description": "Factur-X Virbereedung konform mat EN 16931 fir d'FR-Reform vum 01.09.2026. 6 Immobilien-Schablounen (Locateur, Syndic, LU-Hotel, Gewerbemiete, Evaluateur), FR + LU TVA, PDF/A-3 + XML Export.",
+        "description": "Factur-X Virbereedung konform mat EN 16931 fir d'FR-Reform, déi zënter dem 01.09.2026 gëllt. 6 Immobilien-Schablounen (Locateur, Syndic, LU-Hotel, Gewerbemiete, Evaluateur), FR + LU TVA, PDF/A-3 + XML Export.",
         "tag": "Factur-X · EN 16931"
       },
       "str": {
@@ -2241,13 +2241,13 @@
     "remainingBalanceInsurance": "Restscholdversécherung",
     "pctCapital": "% Kapital",
     "remainingBalanceInsuranceHint": "Jäerlech Hypothees op dat initialt Kapital; mat der Offer an den Ufuerderunge vum Kreditgeber ofgläichen.",
-    "indicativeRatesTitle": "Richtzënsen LU (Q1 2025)",
+    "indicativeRatesTitle": "Richtzënsen LU (Q1 2026)",
     "fixed10y": "Fest 10 Joer",
     "fixed15y": "Fest 15 Joer",
     "fixed20y": "Fest 20 Joer",
     "fixed25y": "Fest 25 Joer",
     "variable": "Variabel (Euribor 3M +)",
-    "indicativeRatesSource": "Richtzënsen — Spuerkeess, BIL, Raiffeisen, BGL BNP Paribas. Mäerz 2025.",
+    "indicativeRatesSource": "Richtzënsen — Spuerkeess, BIL, Raiffeisen, BGL BNP Paribas. Mäerz 2026.",
     "results": "Resultater",
     "maxMonthlyPayment": "Maximal Monatsrot",
     "ofWhichInsurance": "dovunner Restscholdvers. ({pct} %)",
@@ -4255,7 +4255,7 @@
     "matIsolation": "Isolatioun (Woll, PU, Faser)",
     "matAluminium": "Aluminium (Fenster, Fassad)",
     "matCuivre": "Kuffer (Elektro, HLK)",
-    "sourcesText": "STATEC — Hallefjoerleche Baupräisindex (Okt. 2025, Basis 100 = 1970, Gesamtindex 1173,24). Gewichtungen pro Gewierk aus dem STATEC-Kuerf. Präisspannen: Moyenne vum Lëtzebuerger Marché 2026 (tack.lu, maison.lu, renov.lu).",
+    "sourcesText": "STATEC — Hallefjoerleche Baupräisindex (Abr. 2026, Basis 100 = 1970, Gesamtindex 1195,69). Gewichtungen pro Gewierk aus dem STATEC-Kuerf. Präisspannen: Moyenne vum Lëtzebuerger Marché 2026 (tack.lu, maison.lu, renov.lu).",
     "seo": {
       "faqTitle": "Heefeg Froen zu Baukäschten",
       "relatedTitle": "Ergänzend Tools",
@@ -4278,7 +4278,7 @@
     },
     "exporterBordereau": "Borderau CSV",
     "bordereauHint": "Borderau pro Gewierk eroflueden (Excel-kompatibel)",
-    "statecBadge": "STATEC Baupräisindex Okt 2025 (Basis 1970=100 → 1173,24) ↗",
+    "statecBadge": "STATEC Baupräisindex Abr 2026 (Basis 1970=100 → 1195,69) ↗",
     "batiprixBadge": "Batiprix 2026 Bd. 2 + CTG + CSDC-CT"
   },
   "calculateurVrd": {
@@ -7243,7 +7243,7 @@
           },
           {
             "title": "STATEC-Bau-Schätzer",
-            "desc": "17 Gewerker, STATEC-Index Oktober 2025: 1.173,24. Upassung no Energieklass."
+            "desc": "17 Gewerker, STATEC-Index Abrëll 2026: 1.195,69. Upassung no Energieklass."
           },
           {
             "title": "Stroossebau-Rechner (9 Lous)",
@@ -7310,7 +7310,7 @@
         "items": [
           {
             "q": "Sinn d'STATEC-Indexen aktuell?",
-            "a": "Jo, de Baukäschten-Index gëtt trimestriell aktualiséiert (aktuellste Wäert: Oktober 2025 = 1.173,24). Déi 17 STATEC-Gewerker sinn ofgedeckt."
+            "a": "Jo, de Baukäschten-Index gëtt hallefjoerlech aktualiséiert (aktuellste Wäert: Abrëll 2026 = 1.195,69). Déi 17 STATEC-Gewerker sinn ofgedeckt."
           },
           {
             "q": "Gëtt 3 % Neibau-TVA richteg behandelt?",
@@ -7900,8 +7900,8 @@
       "relatedTitle": "Méi erausfannen"
     },
     "meta": {
-      "title": "Offer fir Immobilie-Agencen, co-brandéiert Rapporten | tevaxia.lu",
-      "description": "Fir LU/BE-Agencen: automatesch Generatioun vu co-brandéierten Schätzungsrapporten (Schätzung + Frais + Hëllefen) an engem PDF. Multi-Benotzer, Agence-Logo, Prospect-Donnéeën."
+      "title": "Immobilien-CRM fir Agencen zu Lëtzebuerg | Tevaxia",
+      "description": "CRM fir Immobilien-Agencen zu Lëtzebuerg: Mandater, Kontakter, Aufgaben, Dokumenter a co-brandéiert Schätzungsrapporten als PDF. Fräien Zougang an der Startphas."
     }
   },
   "hotellerieCalc": {
@@ -18188,8 +18188,8 @@
     "title": "Donnéeën a Grenze vun der Schätzung",
     "limits": "Nëmme Wunnengen am Volleegentum. Upassunge sinn intern Hypotheesen ouni Validatioun mat onofhängege Verkafsdonnéeën. D’Spann ±18 % (±25 % nëmme mat Annoncepräisser) ass eng Konventioun ouni garantéiert Genauegkeet oder Warscheinlechkeet.",
     "missing": "Keng Schätzung fir dës Donnéeën disponibel. Kontrolléiert d’Fläch an déi publizéiert Präisser fir d’Verkafsaart. Net publizéiert Präisser ginn net erfonnt.",
-    "sources": "Offiziell Quellen, publizéiert de 25. Juni 2026",
-    "period": "Period: 1. Abrëll 2025 bis 31. Mäerz 2026 (12 Méint). Registréiert Präisser enthalen Annexe; de Rechner benotzt affinéiert Präisser ouni Annexe, wa verfügbar. Annoncepräisser si keng ofgeschlosse Verkafspräisser.",
+    "sources": "Offiziell Quellen, publizéiert de 24. September 2026",
+    "period": "Period: 1. Juli 2025 bis 30. Juni 2026 (12 Méint). Registréiert Präisser enthalen Annexe; de Rechner benotzt affinéiert Präisser ouni Annexe, wa verfügbar. Annoncepräisser si keng ofgeschlosse Verkafspräisser.",
     "adjustments": "Upassunge fir d’Simulatioun",
     "assumptions": "Dës Prozenter sinn Aarbechtshypotheesen, keng offiziell Koeffiziente vum Observatoire. MAPE, R², Signifikanz oder Genauegkeet op reelle Verkafsdonnéeë sinn net nogewisen.",
     "parameter": "Parameter",
@@ -19003,7 +19003,7 @@
     "contact": "Zougang ufroen",
     "scopeTitle": "Ëmfang vun der Berechnung",
     "scope": "D’API /api/v1/estimation benotzt d’Berechnung vum ëffentleche Rechner: Gemengereferenz an intern Upassungen. Si ënnerstëtzt Appartementer am vollen Eegentum, bestoend oder a VEFA, wann Donnéeë fir de Segment disponibel sinn.",
-    "data": "Déi integréiert Referenze stamen aus de Publikatioune vum Observatoire de l’Habitat vum 25. Juni 2026. Feelend Präisser ginn net duerch fiktiv individuell Verkeef ersat.",
+    "data": "Déi integréiert Referenze stamen aus de Publikatioune vum Observatoire de l’Habitat vum 24. September 2026. Feelend Präisser ginn net duerch fiktiv individuell Verkeef ersat.",
     "limits": "D’Spann ass konventionell, ouni gemoosse statistesch Prezisioun. D’Resultat ass weder eng ënnerschriwwen Expertise, en TEGOVA-zertifiéierte Maartwäert nach eng Finanzéierungsdecisioun.",
     "try": "Ëffentleche Rechner testen",
     "requestTitle": "Beispillufro",

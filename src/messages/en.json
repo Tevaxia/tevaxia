@@ -206,7 +206,7 @@
       "estimateurConstruction": {
         "title": "Construction cost",
         "description": "Build a budget from your quotes and identified assumptions. Enter all prices including VAT in euros. No tariff, professional fee or energy premium is assumed.",
-        "tag": "STATEC Oct. 2025"
+        "tag": "STATEC Apr. 2026"
       },
       "calculateurVrd": {
         "title": "VRD Estimator",
@@ -320,7 +320,7 @@
       },
       "facturation": {
         "title": "Electronic invoicing",
-        "description": "Factur-X preparation compliant with EN 16931 for the FR reform of 01/09/2026. 6 real estate templates (landlord, syndic, LU hotel, commercial lease, valuer), FR + LU VAT, PDF/A-3 + XML export.",
+        "description": "Factur-X preparation compliant with EN 16931 for the FR reform in force since 01/09/2026. 6 real estate templates (landlord, syndic, LU hotel, commercial lease, valuer), FR + LU VAT, PDF/A-3 + XML export.",
         "tag": "Factur-X · EN 16931"
       },
       "str": {
@@ -1142,7 +1142,7 @@
     "an": "year",
     "pctEtrangers": "% foreigners",
     "tauxEmploi": "Employment rate",
-    "sourcesDemographiques": "Sources: STATEC, data.public.lu — 2025 estimates",
+    "sourcesDemographiques": "Sources: STATEC, data.public.lu — 2026 estimates",
     "renovationTitle": "Energy renovation estimate ({classeFrom} → {classeTo})",
     "totalRenovation": "Total estimate (works + fees)",
     "renovationDisclaimer": "Indicative ranges — Luxembourg market. Eligible for Klimabonus (up to 62.5%).",
@@ -1290,20 +1290,20 @@
       "relatedTitle": "Related tools",
       "comprendreTitle": "Understanding property acquisition costs in Luxembourg",
       "comprendreContent": "<p>When purchasing property in the Grand Duchy of Luxembourg, the buyer must pay several categories of costs in addition to the purchase price. These <strong>acquisition costs</strong>, often incorrectly called 'notary fees', represent between 7% and 10% of the property price for existing properties, and can drop to 3-4% for new-build VEFA properties.</p><p>The main components are:</p><ul><li><strong>Registration duties</strong>: 6% of the purchase price (existing) or land portion (VEFA), collected by the Registration and Domains Administration (AED).</li><li><strong>Transcription duty</strong>: 1% of the price, for land registry purposes.</li><li><strong>Notary fees</strong>: calculated on a degressive scale set by the Grand-Ducal regulation of 24 September 1987.</li><li><strong>Mortgage registration fees</strong>: 0.05% of the loan amount plus notarial fees on the mortgage deed.</li></ul>",
-      "bellegenAktTitle": "The Bellegen Akt credit: tax reduction up to EUR 40,000",
-      "bellegenAktContent": "<p>The <strong>Bellegen Akt</strong> (reduced-cost deed) is a major tax advantage granted to buyers of a property intended as their <strong>primary residence</strong>. Each buyer receives a credit of <strong>EUR 20,000</strong> on duties. For a couple buying together, the credit doubles to <strong>EUR 40,000</strong>. This credit can be used only once in each person's lifetime.</p><p>Eligibility conditions:</p><ul><li>The property must serve as the buyer's primary residence</li><li>Effective occupation must occur within 2 years of the deed</li><li>The buyer must not have already used the credit</li><li>The property must be located in Luxembourg</li></ul>",
+      "bellegenAktTitle": "The Bëllegen Akt credit: tax reduction up to EUR 40,000",
+      "bellegenAktContent": "<p>The <strong>Bëllegen Akt</strong> (reduced-cost deed) is a major tax advantage granted to buyers of a property intended as their <strong>primary residence</strong>. Each buyer receives a credit of <strong>EUR 20,000</strong> on duties. For a couple buying together, the credit doubles to <strong>EUR 40,000</strong>. This credit can be used only once in each person's lifetime.</p><p>Eligibility conditions:</p><ul><li>The property must serve as the buyer's primary residence</li><li>Effective occupation must occur within 2 years of the deed</li><li>The buyer must not have already used the credit</li><li>The property must be located in Luxembourg</li></ul>",
       "vefaTvaTitle": "VEFA and VAT: the tax regime for new builds",
       "vefaTvaContent": "<p>Purchasing through <strong>VEFA (off-plan sale)</strong> benefits from a specific tax regime in Luxembourg. The construction portion is subject to <strong>VAT</strong> (not registration duties), while the land portion remains subject to 7% duties.</p><p>Applicable VAT rates:</p><ul><li><strong>3% (super-reduced rate)</strong>: for the buyer's primary residence, subject to conditions, capped at EUR 50,000 in VAT savings.</li><li><strong>17% (standard rate)</strong>: for rental investments or beyond the cap.</li></ul>",
       "exempleTitle": "Worked example: EUR 750,000 existing property purchase by a couple",
-      "exempleContent": "<p>A typical case: a couple purchases an existing apartment at <strong>EUR 750,000</strong> as their primary residence, with a mortgage of EUR 600,000:</p><ul><li>Registration duties (6%): EUR 45,000</li><li>Transcription duty (1%): EUR 7,500</li><li>Gross duties: EUR 52,500</li><li>Bellegen Akt credit (2 x EUR 20,000): -EUR 40,000</li><li><strong>Net duties: EUR 12,500</strong></li><li>Notary fees: ~EUR 6,800</li><li>Mortgage costs: ~EUR 2,500</li><li><strong>Total acquisition costs: ~EUR 21,800 (2.9% of price)</strong></li></ul>",
+      "exempleContent": "<p>A typical case: a couple purchases an existing apartment at <strong>EUR 750,000</strong> as their primary residence, with a mortgage of EUR 600,000:</p><ul><li>Registration duties (6%): EUR 45,000</li><li>Transcription duty (1%): EUR 7,500</li><li>Gross duties: EUR 52,500</li><li>Bëllegen Akt credit (2 x EUR 20,000): -EUR 40,000</li><li><strong>Net duties: EUR 12,500</strong></li><li>Notary fees: ~EUR 6,800</li><li>Mortgage costs: ~EUR 2,500</li><li><strong>Total acquisition costs: ~EUR 21,800 (2.9% of price)</strong></li></ul>",
       "faq1q": "How much are notary fees in Luxembourg?",
-      "faq1a": "Notary fees (excluding registration duties) represent about 0.8% to 1.2% of the purchase price for a EUR 750,000 property. Total acquisition costs range from 3% (new-build with Bellegen Akt) to 10% (existing without tax credit).",
-      "faq2q": "Can the Bellegen Akt be combined with reduced VAT rate?",
-      "faq2a": "Yes, in VEFA the Bellegen Akt credit applies to registration duties on the land portion, while the reduced VAT rate (3%) applies to the construction portion. Both advantages are cumulative for owner-occupiers.",
+      "faq1a": "Notary fees (excluding registration duties) represent about 0.8% to 1.2% of the purchase price for a EUR 750,000 property. Total acquisition costs range from 3% (new-build with Bëllegen Akt) to 10% (existing without tax credit).",
+      "faq2q": "Can the Bëllegen Akt be combined with reduced VAT rate?",
+      "faq2a": "Yes, in VEFA the Bëllegen Akt credit applies to registration duties on the land portion, while the reduced VAT rate (3%) applies to the construction portion. Both advantages are cumulative for owner-occupiers.",
       "faq3q": "How are registration duties calculated for VEFA?",
       "faq3a": "In VEFA, registration duties (6% + 1%) apply only to the land portion declared in the deed. The construction portion is subject to VAT (3% or 17%). The land/construction split must appear in the reservation contract and deed of sale.",
-      "faq4q": "Can the Bellegen Akt be recovered if I resell?",
-      "faq4a": "No, the Bellegen Akt credit can only be used once per person. If you resell and repurchase, you cannot benefit from it a second time, except in cases of divorce with judicial partition.",
+      "faq4q": "Can the Bëllegen Akt be recovered if I resell?",
+      "faq4a": "No, the Bëllegen Akt credit can only be used once per person. If you resell and repurchase, you cannot benefit from it a second time, except in cases of divorce with judicial partition.",
       "faq5q": "When are acquisition costs paid?",
       "faq5a": "The costs are paid when signing the authentic deed at the notary. The notary collects all duties, taxes and fees and transfers them to the relevant authorities. Payment typically occurs 2-3 months after the preliminary sale agreement."
     },
@@ -1830,23 +1830,23 @@
       "faqTitle": "Frequently asked questions about housing aid",
       "relatedTitle": "Related tools",
       "panoramaTitle": "Overview of housing aid in Luxembourg in 2026",
-      "panoramaContent": "<p>The Grand Duchy of Luxembourg offers a comprehensive range of <strong>public housing aid</strong>, primarily managed by the Ministry of Housing. These aids aim to facilitate homeownership, support energy renovation and help modest households find decent housing.</p><ul><li><strong>Acquisition premium (Bellegen Akt)</strong>: tax credit up to EUR 20,000 per buyer on registration duties</li><li><strong>Interest subsidy</strong>: partial coverage of mortgage interest based on household income</li><li><strong>Construction/renovation premium</strong>: lump-sum aid for primary residence</li><li><strong>Rent subsidy</strong>: monthly contribution for low-income tenants</li><li><strong>Klimabonus / PRIMe House</strong>: energy renovation aid</li></ul>",
-      "acquisitionTitle": "Acquisition aid: Bellegen Akt, interest subsidy and state guarantee",
-      "acquisitionContent": "<p>For first-time buyers, Luxembourg offers an attractive package:</p><ul><li><strong>Bellegen Akt</strong>: EUR 20,000 credit per person (max EUR 40,000 per couple)</li><li><strong>Interest subsidy</strong>: the state covers part of mortgage interest for 10 years</li><li><strong>State guarantee</strong>: the state guarantees up to EUR 100,000 for households with insufficient deposit</li></ul>",
+      "panoramaContent": "<p>The Grand Duchy of Luxembourg offers a comprehensive range of <strong>public housing aid</strong>, primarily managed by the Ministry of Housing. These aids aim to facilitate homeownership, support energy renovation and help modest households find decent housing.</p><ul><li><strong>Acquisition premium (Bëllegen Akt)</strong>: tax credit up to EUR 20,000 per buyer on registration duties</li><li><strong>Interest subsidy</strong>: partial coverage of mortgage interest based on household income</li><li><strong>Construction/renovation premium</strong>: lump-sum aid for primary residence</li><li><strong>Rent subsidy</strong>: monthly contribution for low-income tenants</li><li><strong>Klimabonus / PRIMe House</strong>: energy renovation aid</li></ul>",
+      "acquisitionTitle": "Acquisition aid: Bëllegen Akt, interest subsidy and state guarantee",
+      "acquisitionContent": "<p>For first-time buyers, Luxembourg offers an attractive package:</p><ul><li><strong>Bëllegen Akt</strong>: EUR 20,000 credit per person (max EUR 40,000 per couple)</li><li><strong>Interest subsidy</strong>: the state covers part of mortgage interest for 10 years</li><li><strong>State guarantee</strong>: the state guarantees up to EUR 100,000 for households with insufficient deposit</li></ul>",
       "renovationTitle": "Energy renovation aid: PRIMe House and Klimabonus",
       "renovationContent": "<p>The <strong>PRIMe House</strong> programme and <strong>Klimabonus</strong> support energy efficiency works:</p><ul><li>Thermal insulation: EUR 30-60/m²</li><li>Heating replacement: EUR 2,500-8,000 for heat pumps or biomass</li><li>Photovoltaic: EUR 200-500/kWp</li><li>Energy advice: 50-70% subsidy on approved Myenergy advisor fees</li></ul>",
       "conditionsTitle": "Income conditions and application procedures",
       "conditionsContent": "<p>Most housing aids are subject to <strong>income conditions</strong> based on household taxable income. Applications are made through the Ministry of Housing (online at guichet.lu) or via Myenergy for energy aids.</p>",
       "faq1q": "What are the main home purchase aids in Luxembourg?",
-      "faq1a": "The main aids are the Bellegen Akt (up to EUR 40,000 tax credit), interest subsidy (partial mortgage interest coverage), and state guarantee (state surety up to EUR 100,000). All require the property to be the primary residence.",
+      "faq1a": "The main aids are the Bëllegen Akt (up to EUR 40,000 tax credit), interest subsidy (partial mortgage interest coverage), and state guarantee (state surety up to EUR 100,000). All require the property to be the primary residence.",
       "faq2q": "What is the Klimabonus amount in 2026?",
       "faq2a": "The enhanced Klimabonus (since December 2024) provides premiums of EUR 30-60/m² for insulation, EUR 2,500-8,000 for renewable heating, and EUR 200-500/kWp for photovoltaics.",
       "faq3q": "How do I apply for rent subsidy?",
       "faq3a": "Apply online at guichet.lu or directly to the Ministry of Housing with your lease, salary slips, household composition and tax notice. Processing takes 2-4 months.",
       "faq4q": "Are the aids cumulative?",
-      "faq4a": "Yes, in most cases. The Bellegen Akt, interest subsidy and state guarantee are cumulative. The Klimabonus is compatible with municipal aids but not with other state aids for the same works.",
+      "faq4a": "Yes, in most cases. The Bëllegen Akt, interest subsidy and state guarantee are cumulative. The Klimabonus is compatible with municipal aids but not with other state aids for the same works.",
       "faq5q": "Are there specific aids for cross-border workers?",
-      "faq5a": "The Bellegen Akt is reserved for properties in Luxembourg. Cross-border workers residing abroad cannot access it. However, a cross-border worker becoming a resident can benefit when purchasing their primary residence in Luxembourg."
+      "faq5a": "The Bëllegen Akt is reserved for properties in Luxembourg. Cross-border workers residing abroad cannot access it. However, a cross-border worker becoming a resident can benefit when purchasing their primary residence in Luxembourg."
     },
     "lastVerif": "Rates verified on {date} (Bëllegen Akt, Klimabonus, guichet.lu premiums)",
     "aideVerifie": "Verified on {date}",
@@ -2241,7 +2241,7 @@
     "remainingBalanceInsurance": "Outstanding balance insurance",
     "pctCapital": "% of capital",
     "remainingBalanceInsuranceHint": "Annual assumption on initial principal; confirm against the quote and lender requirements.",
-    "indicativeRatesTitle": "Indicative LU rates (Q1 2025)",
+    "indicativeRatesTitle": "Indicative LU rates (Q1 2026)",
     "fixed10y": "Fixed 10 years",
     "fixed15y": "Fixed 15 years",
     "fixed20y": "Fixed 20 years",
@@ -4255,7 +4255,7 @@
     "matIsolation": "Insulation (wool, PU, fibre)",
     "matAluminium": "Aluminium (joinery, façade)",
     "matCuivre": "Copper (electrical, HVAC)",
-    "sourcesText": "STATEC — Semi-annual construction price index (Oct. 2025, base 100 = 1970, general index 1173.24). Trade weightings from the STATEC basket. Price ranges: Luxembourg market 2026 (tack.lu, maison.lu, renov.lu).",
+    "sourcesText": "STATEC — Semi-annual construction price index (Apr. 2026, base 100 = 1970, general index 1195.69). Trade weightings from the STATEC basket. Price ranges: Luxembourg market 2026 (tack.lu, maison.lu, renov.lu).",
     "seo": {
       "faqTitle": "Frequently asked questions about construction costs",
       "relatedTitle": "Related tools",
@@ -4278,7 +4278,7 @@
     },
     "exporterBordereau": "Bill of quantities CSV",
     "bordereauHint": "Download the BoQ by trade (Excel-compatible)",
-    "statecBadge": "STATEC construction index Oct 2025 (base 1970=100 → 1173.24) ↗",
+    "statecBadge": "STATEC construction index Apr 2026 (base 1970=100 → 1195.69) ↗",
     "batiprixBadge": "Batiprix 2026 vol. 2 + CTG + CSDC-CT"
   },
   "calculateurVrd": {
@@ -5882,7 +5882,7 @@
       "echeancierSeoTitle": "VEFA payment schedule: key stages",
       "echeancierSeoContent": "<p>Article 1601-11 sets a <strong>maximum payment schedule</strong>:</p><ul><li>Sale deed: max 33%</li><li>Watertight stage: cumulative max 60%</li><li>Completion: cumulative max 95%</li><li>Delivery: 5% balance (retained if defects noted)</li></ul>",
       "tvaSeoTitle": "VAT and taxation of VEFA in Luxembourg",
-      "tvaSeoContent": "<p>The VEFA tax regime offers significant advantages:</p><ul><li>Land portion: 7% registration duties with Bellegen Akt for primary residence</li><li>Construction portion: 3% VAT (super-reduced) for primary residence, capped at EUR 50,000 in savings</li><li>Beyond cap or for investment: 17% VAT</li></ul>",
+      "tvaSeoContent": "<p>The VEFA tax regime offers significant advantages:</p><ul><li>Land portion: 7% registration duties with Bëllegen Akt for primary residence</li><li>Construction portion: 3% VAT (super-reduced) for primary residence, capped at EUR 50,000 in savings</li><li>Beyond cap or for investment: 17% VAT</li></ul>",
       "intercalairesTitle": "Interim interest: an often underestimated cost",
       "intercalairesContent": "<p><strong>Interim interest</strong> is paid on funds already released during construction, before capital repayment begins. For a EUR 600,000 VEFA with EUR 500,000 loan at 3.8% over 18 months of construction, interim interest is approximately EUR 12,000-15,000.</p>",
       "faq1q": "What is VEFA in Luxembourg?",
@@ -7180,7 +7180,7 @@
           },
           {
             "title": "STATEC construction estimator",
-            "desc": "17 trades, STATEC October 2025 index: 1 173.24. Adjustment by energy class."
+            "desc": "17 trades, STATEC April 2026 index: 1 195.69. Adjustment by energy class."
           },
           {
             "title": "Road works calculator (9 lots)",
@@ -7247,7 +7247,7 @@
         "items": [
           {
             "q": "Are STATEC indices up to date?",
-            "a": "Yes, the construction cost index is updated quarterly (latest value: October 2025 = 1 173.24). The 17 STATEC trades are covered, adjusted by energy class (AAA to C) and finish level."
+            "a": "Yes, the construction cost index is updated twice a year (latest value: April 2026 = 1 195.69). The 17 STATEC trades are covered, adjusted by energy class (AAA to C) and finish level."
           },
           {
             "q": "Is 3% new-build VAT properly handled?",
@@ -8022,8 +8022,8 @@
       "relatedTitle": "Go further"
     },
     "meta": {
-      "title": "Real estate agency offer, co-branded reports | tevaxia.lu",
-      "description": "For LU/BE agencies: automatic generation of co-branded valuation reports (estimate + fees + subsidies) as 1 PDF. Multi-user, agency logo, prospect data."
+      "title": "Real estate CRM for Luxembourg agencies | Tevaxia",
+      "description": "CRM for real estate agencies in Luxembourg: mandates, contacts, tasks, documents and co-branded valuation reports in PDF. Free access during launch."
     }
   },
   "hotellerieCalc": {
@@ -18188,8 +18188,8 @@
     "title": "Estimation data and limitations",
     "limits": "Freehold apartments only. Adjustments are internal assumptions, without validation against an independent sales sample. The ±18% range (±25% for asking prices only) is a convention, with no guaranteed accuracy or probability.",
     "missing": "No estimate is available for these inputs. Check the area and published data for the sale type. Suppressed official prices are not invented.",
-    "sources": "Official sources, published 25 June 2026",
-    "period": "Period: 1 April 2025 to 31 March 2026 (rolling 12 months). Recorded prices include annexes; the estimator uses adjusted prices excluding annexes where available. Asking prices are not completed sales.",
+    "sources": "Official sources, published 24 September 2026",
+    "period": "Period: 1 July 2025 to 30 June 2026 (rolling 12 months). Recorded prices include annexes; the estimator uses adjusted prices excluding annexes where available. Asking prices are not completed sales.",
     "adjustments": "Simulation adjustments",
     "assumptions": "These percentages are working assumptions, not official Observatory coefficients. No MAPE, R², significance or accuracy on real sales has been demonstrated.",
     "parameter": "Parameter",
@@ -19003,7 +19003,7 @@
     "contact": "Request access",
     "scopeTitle": "Calculation scope",
     "scope": "The /api/v1/estimation API uses the public estimator's calculation: a municipal reference and internal adjustments. It supports freehold apartments, existing or off-plan when segment data is available.",
-    "data": "The currently integrated references come from the Housing Observatory publications of 25 June 2026. Unavailable prices are not replaced with fictional individual sales.",
+    "data": "The currently integrated references come from the Housing Observatory publications of 24 September 2026. Unavailable prices are not replaced with fictional individual sales.",
     "limits": "The range is conventional, with no measured statistical accuracy. The result is neither a signed appraisal, a TEGOVA-certified market value nor a financing decision.",
     "try": "Try the public calculator",
     "requestTitle": "Request example",

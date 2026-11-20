@@ -13,7 +13,7 @@ const HIGH_PRIORITY = [
 
 const MEDIUM_PRIORITY = [
   "/plus-values", "/achat-vs-location", "/valorisation",
-  "/hedonique", "/outils-bancaires", "/comparer", "/vefa",
+  "/outils-bancaires", "/comparer", "/vefa",
   "/bilan-promoteur", "/dcf-multi", "/indices", "/marche",
   "/syndic", "/portfolio",
   "/hotellerie", "/pro-agences", "/api-banques",
@@ -29,6 +29,22 @@ const LOW_PRIORITY = [
   "/hotellerie/compset", "/hotellerie/score-e2",
   "/docs", "/str/rentabilite", "/str/arbitrage",
   "/calculateur-loyer/observatoire", "/gestion-locative/ais",
+  "/api-docs", "/cgu",
+];
+
+// Outils publics utilisables sans compte, indexables mais jusque-là absents du
+// plan du site (audit du 20/11/2026).
+const PUBLIC_TOOLS = [
+  "/wizard-particulier", "/inspection", "/marche/forecast",
+  "/hotellerie/capex", "/hotellerie/certifications-esg",
+  "/hotellerie/due-diligence", "/hotellerie/housekeeping",
+  "/hotellerie/impayes", "/hotellerie/mice", "/hotellerie/motel",
+  "/hotellerie/observatoire-lu", "/hotellerie/pre-acquisition",
+  "/hotellerie/transactions",
+  "/str/compliance", "/str/compliance-eu", "/str/forecast",
+  "/str/observatoire", "/str/pricing",
+  "/gestion-locative/assurance-impayes", "/gestion-locative/etat-des-lieux",
+  "/pro-agences/fiche-bien", "/syndic/procuration", "/syndic/lettres-types",
 ];
 
 const ENERGY_PAGES = [
@@ -50,13 +66,9 @@ const SOLUTIONS_PAGES = [
   "/solutions/promoteur",
 ];
 
-// Portails publics end-user (copropriétaire, conseil syndical, locataire).
-// Pages d'entrée pour utilisateurs invités par lien magique + SEO mots-clés LU.
-const PORTAL_LANDINGS = [
-  "/copropriete",
-  "/conseil-syndical",
-  "/locataire",
-];
+// Les pages d'entrée des portails (/copropriete, /conseil-syndical, /locataire)
+// restent accessibles mais ne sont plus proposées aux moteurs : elles servent
+// aux personnes invitées par lien, pas à la recherche.
 
 function localeUrl(page: string, locale: string) {
   return buildLocaleUrl(page, locale);
@@ -100,11 +112,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Landings persona-spécifiques — priorité élevée (conversion pages)
   addPages(entries, SOLUTIONS_PAGES, 0.9, "weekly");
 
-  // Portails publics end-user — priorité moyenne-haute (mots-clés SEO LU)
-  addPages(entries, PORTAL_LANDINGS, 0.8, "monthly");
-
   // Pages utilitaires — priorité basse
   addPages(entries, LOW_PRIORITY, 0.6, "monthly");
+  addPages(entries, PUBLIC_TOOLS, 0.6, "monthly");
 
   // Pages energy
   const energyPaths = ENERGY_PAGES.map((p) => `/energy${p}`);
