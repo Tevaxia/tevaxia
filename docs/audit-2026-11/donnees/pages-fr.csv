@@ -1,0 +1,260 @@
+﻿url;au_sitemap;indexable;titre;long_titre;long_description;h1;mots;h2;champs;donnees_structurees;liens_entrants_contenu;mots_en;mots_de;mots_pt;mots_lb
+/;oui;oui;tevaxia.lu — Outils immobiliers au Luxembourg;45;135;L'analyse immobilière du Luxembourg, par métier;1586;5;1;Offer SoftwareApplication;108;1434;1229;1540;1267
+/achat-vs-location;oui;oui;Acheter ou louer au Luxembourg — Comparateur immobilier;55;147;Acheter ou louer au Luxembourg;703;9;5;Answer FAQPage Question;105;582;502;594;515
+/actions-prioritaires;non;non;Actions prioritaires | Tevaxia;30;159;Actions prioritaires;10;0;0;;0;;;;
+/aml-kyc;oui;oui;AML et KYC immobilier au Luxembourg | Tevaxia;45;110;AML / KYC Immobilier;1542;12;3;Answer FAQPage Question;6;1347;963;1181;867
+/aml-kyc/archives;non;non;Archivage KYC, conservation 5 ans | Tevaxia;43;118;Archives AML / KYC;12;0;0;;2;;;;
+/api-banques;oui;oui;API d’estimation immobilière pour les banques;45;192;API d’estimation immobilière pour les banques;550;5;1;;2;479;436;524;452
+/api-docs;non;oui;Documentation API — tevaxia.lu;30;115;Documentation API tevaxia.lu;518;4;0;;3;;;;
+/bail-commercial;oui;oui;Bail commercial : indexation et coûts au Luxembourg | Tevaxia;61;132;Bail commercial LU — indexation & durée;894;9;10;Answer FAQPage Question;3;720;618;768;665
+/bilan-promoteur;oui;oui;Bilan promoteur documenté | Tevaxia;35;131;Bilan promoteur documenté;310;2;22;BreadcrumbList ListItem;5;272;236;304;255
+/calculateur-loyer;oui;oui;Calculateur de loyer Luxembourg — Capital investi et plafond légal;66;174;Calculateur de loyer — Capital investi;924;12;10;BreadcrumbList FAQPage ListItem;110;763;687;850;735
+/calculateur-loyer/observatoire;oui;oui;Observatoire des loyers Luxembourg (Mietspiegel-like) | Tevaxia;63;139;Observatoire des loyers Luxembourg (Mietspiegel-like);518;0;2;;2;510;500;526;504
+/calculateur-vrd;oui;oui;Budget VRD et métrés déclarés;29;337;Budget VRD et métrés déclarés;412;3;13;BreadcrumbList ListItem;5;376;333;377;349
+/carte;oui;oui;Carte des prix immobiliers Luxembourg — Prix au m² par commune;62;153;Carte des prix immobiliers;1153;8;2;Answer FAQPage Question;108;827;775;881;795
+/cgu;non;oui;Conditions Générales d'Utilisation | Tevaxia;44;126;Conditions Générales d'Utilisation;773;10;0;;0;;;;
+/commune/beaufort;oui;oui;Immobilier Beaufort — Prix m², tendances, estimation;52;130;Immobilier à Beaufort;509;4;0;BreadcrumbList GeoCoordinates ListItem Place;8;466;413;487;439
+/commune/bech;oui;oui;Immobilier Bech — Prix m², tendances, estimation;48;126;Immobilier à Bech;509;4;0;BreadcrumbList GeoCoordinates ListItem Place;8;466;413;487;439
+/commune/beckerich;oui;oui;Immobilier Beckerich — Prix m², tendances, estimation;53;128;Immobilier à Beckerich;506;4;0;BreadcrumbList GeoCoordinates ListItem Place;10;463;410;484;436
+/commune/berdorf;oui;oui;Immobilier Berdorf — Prix m², tendances, estimation;51;129;Immobilier à Berdorf;509;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;8;463;411;485;437
+/commune/bertrange;oui;oui;Immobilier Bertrange — Prix m², tendances, estimation;53;131;Immobilier à Bertrange;530;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;7;479;428;502;454
+/commune/bettembourg;oui;oui;Immobilier Bettembourg — Prix m², tendances, estimation;55;139;Immobilier à Bettembourg;524;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;10;476;424;498;450
+/commune/bettendorf;oui;oui;Immobilier Bettendorf — Prix m², tendances, estimation;54;130;Immobilier à Bettendorf;509;4;0;BreadcrumbList ListItem Place;3;466;413;487;439
+/commune/betzdorf;oui;oui;Immobilier Betzdorf — Prix m², tendances, estimation;52;132;Immobilier à Betzdorf;512;4;0;BreadcrumbList GeoCoordinates ListItem Place;9;469;416;490;442
+/commune/bissen;oui;oui;Immobilier Bissen — Prix m², tendances, estimation;50;124;Immobilier à Bissen;522;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;11;475;423;497;449
+/commune/biwer;oui;oui;Immobilier Biwer — Prix m², tendances, estimation;49;129;Immobilier à Biwer;512;4;0;BreadcrumbList GeoCoordinates ListItem Place;9;469;416;490;442
+/commune/boulaide;oui;oui;Immobilier Boulaide — Prix m², tendances, estimation;52;125;Immobilier à Boulaide;518;4;0;BreadcrumbList GeoCoordinates ListItem Place;7;475;422;496;448
+/commune/bourscheid;oui;oui;Immobilier Bourscheid — Prix m², tendances, estimation;54;130;Immobilier à Bourscheid;509;4;0;BreadcrumbList GeoCoordinates ListItem Place;10;466;413;487;439
+/commune/bous-waldbredimus;oui;oui;Immobilier Bous-Waldbredimus — Prix m², tendances, estimation;61;135;Immobilier à Bous-Waldbredimus;513;4;0;BreadcrumbList ListItem Place;2;469;416;490;442
+/commune/clervaux;oui;oui;Immobilier Clervaux — Prix m², tendances, estimation;52;128;Immobilier à Clervaux;519;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;7;471;419;493;445
+/commune/colmar-berg;oui;oui;Immobilier Colmar-Berg — Prix m², tendances, estimation;55;129;Immobilier à Colmar-Berg;522;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;9;475;423;497;449
+/commune/consdorf;oui;oui;Immobilier Consdorf — Prix m², tendances, estimation;52;130;Immobilier à Consdorf;509;4;0;BreadcrumbList ListItem Place;8;466;413;487;439
+/commune/contern;oui;oui;Immobilier Contern — Prix m², tendances, estimation;51;129;Immobilier à Contern;523;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;6;475;423;497;449
+/commune/dalheim;oui;oui;Immobilier Dalheim — Prix m², tendances, estimation;51;125;Immobilier à Dalheim;516;4;0;BreadcrumbList GeoCoordinates ListItem Place;9;472;419;493;445
+/commune/diekirch;oui;oui;Immobilier Diekirch — Prix m², tendances, estimation;52;128;Immobilier à Diekirch;514;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;14;466;414;488;440
+/commune/differdange;oui;oui;Immobilier Differdange — Prix m², tendances, estimation;55;139;Immobilier à Differdange;525;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;7;476;424;498;450
+/commune/dippach;oui;oui;Immobilier Dippach — Prix m², tendances, estimation;51;127;Immobilier à Dippach;519;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;7;472;420;494;446
+/commune/dudelange;oui;oui;Immobilier Dudelange — Prix m², tendances, estimation;53;137;Immobilier à Dudelange;530;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;8;479;428;502;454
+/commune/echternach;oui;oui;Immobilier Echternach — Prix m², tendances, estimation;54;132;Immobilier à Echternach;511;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;8;463;411;485;437
+/commune/ell;oui;oui;Immobilier Ell — Prix m², tendances, estimation;47;122;Immobilier à Ell;506;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;10;460;408;482;434
+/commune/erpeldange-sur-sure;oui;oui;Immobilier Erpeldange-sur-Sûre — Prix m², tendances, estimation;63;139;Immobilier à Erpeldange-sur-Sûre;512;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;14;466;414;488;440
+/commune/esch-sur-alzette;oui;oui;Immobilier Esch-sur-Alzette — Prix m², tendances, estimation;60;144;Immobilier à Esch-sur-Alzette;528;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;11;476;425;499;451
+/commune/esch-sur-sure;oui;oui;Immobilier Esch-sur-Sûre — Prix m², tendances, estimation;57;130;Immobilier à Esch-sur-Sûre;519;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;7;472;420;494;446
+/commune/ettelbruck;oui;oui;Immobilier Ettelbruck — Prix m², tendances, estimation;54;130;Immobilier à Ettelbruck;512;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;12;464;412;486;438
+/commune/feulen;oui;oui;Immobilier Feulen — Prix m², tendances, estimation;50;126;Immobilier à Feulen;509;4;0;BreadcrumbList GeoCoordinates ListItem Place;8;466;413;487;439
+/commune/fischbach;oui;oui;Immobilier Fischbach — Prix m², tendances, estimation;53;127;Immobilier à Fischbach;518;4;0;BreadcrumbList ListItem Place;3;475;422;496;448
+/commune/flaxweiler;oui;oui;Immobilier Flaxweiler — Prix m², tendances, estimation;54;134;Immobilier à Flaxweiler;512;4;0;BreadcrumbList GeoCoordinates ListItem Place;9;469;416;490;442
+/commune/frisange;oui;oui;Immobilier Frisange — Prix m², tendances, estimation;52;136;Immobilier à Frisange;523;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;6;476;424;498;450
+/commune/garnich;oui;oui;Immobilier Garnich — Prix m², tendances, estimation;51;127;Immobilier à Garnich;519;4;0;BreadcrumbList GeoCoordinates ListItem Place;10;475;422;496;448
+/commune/goesdorf;oui;oui;Immobilier Goesdorf — Prix m², tendances, estimation;52;125;Immobilier à Goesdorf;519;4;0;BreadcrumbList GeoCoordinates ListItem Place;7;475;422;496;448
+/commune/grevenmacher;oui;oui;Immobilier Grevenmacher — Prix m², tendances, estimation;56;136;Immobilier à Grevenmacher;513;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;9;466;414;488;440
+/commune/groussbus-wal;oui;oui;Immobilier Groussbus-Wal — Prix m², tendances, estimation;57;132;Immobilier à Groussbus-Wal;512;4;0;BreadcrumbList ListItem Place PropertyValue;3;466;414;488;440
+/commune/habscht;oui;oui;Immobilier Habscht — Prix m², tendances, estimation;51;127;Immobilier à Habscht;519;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;10;472;420;494;446
+/commune/heffingen;oui;oui;Immobilier Heffingen — Prix m², tendances, estimation;53;127;Immobilier à Heffingen;519;4;0;BreadcrumbList ListItem Place;3;475;422;496;448
+/commune/helperknapp;oui;oui;Immobilier Helperknapp — Prix m², tendances, estimation;55;129;Immobilier à Helperknapp;523;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;9;475;423;497;449
+/commune/hesperange;oui;oui;Immobilier Hesperange — Prix m², tendances, estimation;54;132;Immobilier à Hesperange;530;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;8;479;428;502;454
+/commune/junglinster;oui;oui;Immobilier Junglinster — Prix m², tendances, estimation;55;135;Immobilier à Junglinster;518;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;5;467;416;490;442
+/commune/kaerjeng;oui;oui;Immobilier Käerjeng — Prix m², tendances, estimation;52;128;Immobilier à Käerjeng;522;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;4;473;421;495;447
+/commune/kayl;oui;oui;Immobilier Kayl — Prix m², tendances, estimation;48;132;Immobilier à Kayl;524;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;10;476;424;498;450
+/commune/kehlen;oui;oui;Immobilier Kehlen — Prix m², tendances, estimation;50;126;Immobilier à Kehlen;524;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;7;473;422;496;448
+/commune/kiischpelt;oui;oui;Immobilier Kiischpelt — Prix m², tendances, estimation;54;130;Immobilier à Kiischpelt;516;4;0;BreadcrumbList GeoCoordinates ListItem Place;11;473;420;494;446
+/commune/koerich;oui;oui;Immobilier Koerich — Prix m², tendances, estimation;51;127;Immobilier à Koerich;519;4;0;BreadcrumbList GeoCoordinates ListItem Place;10;475;422;496;448
+/commune/kopstal;oui;oui;Immobilier Kopstal — Prix m², tendances, estimation;51;127;Immobilier à Kopstal;520;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;5;473;421;495;447
+/commune/lac-de-la-haute-sure;oui;oui;Immobilier Lac de la Haute-Sûre — Prix m², tendances, estimation;64;137;Immobilier à Lac de la Haute-Sûre;530;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;7;484;432;506;458
+/commune/larochette;oui;oui;Immobilier Larochette — Prix m², tendances, estimation;54;128;Immobilier à Larochette;522;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;9;475;423;497;449
+/commune/lenningen;oui;oui;Immobilier Lenningen — Prix m², tendances, estimation;53;127;Immobilier à Lenningen;515;4;0;BreadcrumbList GeoCoordinates ListItem Place;9;472;419;493;445
+/commune/leudelange;oui;oui;Immobilier Leudelange — Prix m², tendances, estimation;54;138;Immobilier à Leudelange;523;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;6;476;424;498;450
+/commune/lintgen;oui;oui;Immobilier Lintgen — Prix m², tendances, estimation;51;125;Immobilier à Lintgen;522;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;11;475;423;497;449
+/commune/lorentzweiler;oui;oui;Immobilier Lorentzweiler — Prix m², tendances, estimation;57;131;Immobilier à Lorentzweiler;523;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;7;476;424;498;450
+/commune/luxembourg;oui;oui;Immobilier Luxembourg — Prix m², tendances, estimation;54;132;Immobilier à Luxembourg;532;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;11;479;428;502;454
+/commune/mamer;oui;oui;Immobilier Mamer — Prix m², tendances, estimation;49;125;Immobilier à Mamer;524;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;10;473;422;496;448
+/commune/manternach;oui;oui;Immobilier Manternach — Prix m², tendances, estimation;54;134;Immobilier à Manternach;512;4;0;BreadcrumbList GeoCoordinates ListItem Place;9;469;416;490;442
+/commune/mersch;oui;oui;Immobilier Mersch — Prix m², tendances, estimation;50;124;Immobilier à Mersch;527;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;9;476;425;499;451
+/commune/mertert;oui;oui;Immobilier Mertert — Prix m², tendances, estimation;51;131;Immobilier à Mertert;518;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;6;467;416;490;442
+/commune/mertzig;oui;oui;Immobilier Mertzig — Prix m², tendances, estimation;51;127;Immobilier à Mertzig;509;4;0;BreadcrumbList ListItem Place;3;466;413;487;439
+/commune/mondercange;oui;oui;Immobilier Mondercange — Prix m², tendances, estimation;55;139;Immobilier à Mondercange;524;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;10;476;424;498;450
+/commune/mondorf-les-bains;oui;oui;Immobilier Mondorf-les-Bains — Prix m², tendances, estimation;61;135;Immobilier à Mondorf-les-Bains;517;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;9;470;418;492;444
+/commune/niederanven;oui;oui;Immobilier Niederanven — Prix m², tendances, estimation;55;133;Immobilier à Niederanven;524;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;7;479;426;500;452
+/commune/nommern;oui;oui;Immobilier Nommern — Prix m², tendances, estimation;51;125;Immobilier à Nommern;521;4;0;BreadcrumbList GeoCoordinates ListItem Place;9;478;425;499;451
+/commune/parc-hosingen;oui;oui;Immobilier Parc Hosingen — Prix m², tendances, estimation;57;133;Immobilier à Parc Hosingen;518;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;7;471;419;493;445
+/commune/petange;oui;oui;Immobilier Pétange — Prix m², tendances, estimation;51;135;Immobilier à Pétange;524;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;4;476;424;498;450
+/commune/preizerdaul;oui;oui;Immobilier Preizerdaul — Prix m², tendances, estimation;55;130;Immobilier à Preizerdaul;512;4;0;BreadcrumbList ListItem Place PropertyValue;3;466;414;488;440
+/commune/putscheid;oui;oui;Immobilier Putscheid — Prix m², tendances, estimation;53;129;Immobilier à Putscheid;507;4;0;BreadcrumbList GeoCoordinates ListItem Place;5;465;412;486;438
+/commune/rambrouch;oui;oui;Immobilier Rambrouch — Prix m², tendances, estimation;53;128;Immobilier à Rambrouch;507;4;0;BreadcrumbList GeoCoordinates ListItem Place;12;463;410;484;436
+/commune/reckange-sur-mess;oui;oui;Immobilier Reckange-sur-Mess — Prix m², tendances, estimation;61;145;Immobilier à Reckange-sur-Mess;523;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;11;476;424;498;450
+/commune/redange;oui;oui;Immobilier Redange — Prix m², tendances, estimation;51;126;Immobilier à Redange;507;4;0;BreadcrumbList GeoCoordinates ListItem Place;10;463;410;484;436
+/commune/reisdorf;oui;oui;Immobilier Reisdorf — Prix m², tendances, estimation;52;128;Immobilier à Reisdorf;511;4;0;BreadcrumbList GeoCoordinates ListItem Place;7;468;415;489;441
+/commune/remich;oui;oui;Immobilier Remich — Prix m², tendances, estimation;50;124;Immobilier à Remich;516;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;9;469;417;491;443
+/commune/roeser;oui;oui;Immobilier Roeser — Prix m², tendances, estimation;50;134;Immobilier à Roeser;521;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;6;473;421;495;447
+/commune/rosport-mompach;oui;oui;Immobilier Rosport-Mompach — Prix m², tendances, estimation;59;137;Immobilier à Rosport-Mompach;509;4;0;BreadcrumbList GeoCoordinates ListItem Place;8;466;413;487;439
+/commune/rumelange;oui;oui;Immobilier Rumelange — Prix m², tendances, estimation;53;137;Immobilier à Rumelange;526;4;0;BreadcrumbList ListItem Place PropertyValue;2;478;426;500;452
+/commune/saeul;oui;oui;Immobilier Saeul — Prix m², tendances, estimation;49;124;Immobilier à Saeul;505;4;0;BreadcrumbList GeoCoordinates ListItem Place;10;463;410;484;436
+/commune/sandweiler;oui;oui;Immobilier Sandweiler — Prix m², tendances, estimation;54;132;Immobilier à Sandweiler;521;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;11;475;423;497;449
+/commune/sanem;oui;oui;Immobilier Sanem — Prix m², tendances, estimation;49;133;Immobilier à Sanem;527;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;8;476;425;499;451
+/commune/schengen;oui;oui;Immobilier Schengen — Prix m², tendances, estimation;52;126;Immobilier à Schengen;515;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;9;469;417;491;443
+/commune/schieren;oui;oui;Immobilier Schieren — Prix m², tendances, estimation;52;128;Immobilier à Schieren;512;4;0;BreadcrumbList GeoCoordinates ListItem Place;8;468;415;489;441
+/commune/schifflange;oui;oui;Immobilier Schifflange — Prix m², tendances, estimation;55;139;Immobilier à Schifflange;524;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;13;476;424;498;450
+/commune/schuttrange;oui;oui;Immobilier Schuttrange — Prix m², tendances, estimation;55;133;Immobilier à Schuttrange;522;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;5;475;423;497;449
+/commune/stadtbredimus;oui;oui;Immobilier Stadtbredimus — Prix m², tendances, estimation;57;131;Immobilier à Stadtbredimus;515;4;0;BreadcrumbList GeoCoordinates ListItem Place;9;472;419;493;445
+/commune/steinfort;oui;oui;Immobilier Steinfort — Prix m², tendances, estimation;53;129;Immobilier à Steinfort;521;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;9;473;421;495;447
+/commune/steinsel;oui;oui;Immobilier Steinsel — Prix m², tendances, estimation;52;130;Immobilier à Steinsel;527;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;7;476;425;499;451
+/commune/strassen;oui;oui;Immobilier Strassen — Prix m², tendances, estimation;52;130;Immobilier à Strassen;530;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;7;479;428;502;454
+/commune/tandel;oui;oui;Immobilier Tandel — Prix m², tendances, estimation;50;126;Immobilier à Tandel;511;4;0;BreadcrumbList GeoCoordinates ListItem Place;12;468;415;489;441
+/commune/troisvierges;oui;oui;Immobilier Troisvierges — Prix m², tendances, estimation;56;132;Immobilier à Troisvierges;516;4;0;BreadcrumbList GeoCoordinates ListItem Place;7;473;420;494;446
+/commune/useldange;oui;oui;Immobilier Useldange — Prix m², tendances, estimation;53;128;Immobilier à Useldange;506;4;0;BreadcrumbList GeoCoordinates ListItem Place;8;463;410;484;436
+/commune/vallee-de-lernz;oui;oui;Immobilier Vallée de l'Ernz — Prix m², tendances, estimation;60;136;Immobilier à Vallée de l'Ernz;519;4;0;BreadcrumbList GeoCoordinates ListItem Place;7;476;423;497;449
+/commune/vianden;oui;oui;Immobilier Vianden — Prix m², tendances, estimation;51;126;Immobilier à Vianden;506;4;0;BreadcrumbList GeoCoordinates ListItem Place;2;463;410;484;436
+/commune/vichten;oui;oui;Immobilier Vichten — Prix m², tendances, estimation;51;126;Immobilier à Vichten;506;4;0;BreadcrumbList GeoCoordinates ListItem Place;8;463;410;484;436
+/commune/waldbillig;oui;oui;Immobilier Waldbillig — Prix m², tendances, estimation;54;132;Immobilier à Waldbillig;509;4;0;BreadcrumbList GeoCoordinates ListItem Place;8;466;413;487;439
+/commune/walferdange;oui;oui;Immobilier Walferdange — Prix m², tendances, estimation;55;133;Immobilier à Walferdange;524;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;11;476;424;498;450
+/commune/weiler-la-tour;oui;oui;Immobilier Weiler-la-Tour — Prix m², tendances, estimation;58;132;Immobilier à Weiler-la-Tour;516;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;8;469;417;491;443
+/commune/weiswampach;oui;oui;Immobilier Weiswampach — Prix m², tendances, estimation;55;131;Immobilier à Weiswampach;518;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;7;471;419;493;445
+/commune/wiltz;oui;oui;Immobilier Wiltz — Prix m², tendances, estimation;49;122;Immobilier à Wiltz;521;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;12;473;421;495;447
+/commune/wincrange;oui;oui;Immobilier Wincrange — Prix m², tendances, estimation;53;129;Immobilier à Wincrange;517;4;0;BreadcrumbList GeoCoordinates ListItem Place;7;473;420;494;446
+/commune/winseler;oui;oui;Immobilier Winseler — Prix m², tendances, estimation;52;125;Immobilier à Winseler;518;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;7;472;420;494;446
+/commune/wormeldange;oui;oui;Immobilier Wormeldange — Prix m², tendances, estimation;55;135;Immobilier à Wormeldange;513;4;0;BreadcrumbList GeoCoordinates ListItem Place PropertyValue;8;466;414;488;440
+/comparer;oui;oui;Comparer deux biens immobiliers Luxembourg — Estimation cote a cote;67;143;Comparer des biens immobiliers;195;1;1;;2;177;165;188;168
+/confidentialite;oui;oui;Politique de confidentialité — RGPD;35;137;Politique de confidentialité;1928;12;0;;3;1691;1487;1827;1570
+/connexion;non;non;Connexion — tevaxia.lu;22;75;Connexion;43;0;2;;122;;;;
+/conseil-syndical;oui;oui;Espace conseil syndical Luxembourg — portail tevaxia;52;154;Pilotez votre copropriété en confiance;360;4;0;;2;321;277;341;281
+/convertisseur-surfaces;oui;oui;Convertisseur de surfaces — SCB, SCP, ILNAS 101 Luxembourg;58;145;Convertisseur de surfaces;1670;12;21;Answer BreadcrumbList FAQPage ListItem Question;2;1483;1084;1231;960
+/copropriete;oui;oui;Espace copropriétaire Luxembourg — accès portail tevaxia;56;159;Votre copropriété en toute transparence;423;4;0;;2;378;352;413;334
+/dcf-multi;oui;oui;DCF multi-locataires — flux mensuels attendus;45;208;DCF multi-locataires — flux mensuels attendus;413;2;9;;7;341;294;369;305
+/docs;oui;oui;Guides pratiques par profil | Tevaxia;37;118;Guides pratiques par profil;181;9;0;;1;174;149;161;144
+/energy;oui;oui;Tevaxia Energy — Outils et scénarios immobiliers;48;134;Performance énergétique & valeur immobilière;780;12;0;Answer FAQPage Question;3;641;591;669;617
+/energy/audit;oui;oui;Préparer une étude énergétique;30;208;Préparer une étude énergétique;74;0;6;;2;64;58;61;62
+/energy/communaute;oui;oui;Simulateur Communauté d'énergie;31;158;Partage d’électricité : bilan économique;411;5;11;;3;348;321;382;339
+/energy/connexion;non;non;Tevaxia Energy — Simulateurs Énergie Immobilier Luxembourg;58;149;Connexion;43;0;2;;0;;;;
+/energy/epbd;oui;oui;EPBD — Objectifs européens et application nationale;51;154;EPBD : repères européens pour les bâtiments;303;6;1;;3;253;233;295;247
+/energy/estimateur-cpe;oui;oui;Préparer son CPE — caractéristiques et relevés;46;148;Préparer le CPE de son logement;379;4;8;;2;340;308;355;334
+/energy/hvac;oui;oui;Chauffage : comparer besoins, devis et coûts;44;227;Chauffage : comparer besoins, devis et coûts;505;5;22;;2;448;398;450;402
+/energy/impact;oui;oui;Impact CPE sur la valeur immobilière;36;127;Impact énergétique : scénario de valeur;351;4;11;;4;277;284;324;296
+/energy/lenoz;oui;oui;LENOZ : vérifier les seuils de classement;41;191;LENOZ : vérifier les seuils de classement;223;3;5;;2;203;184;207;192
+/energy/mes-evaluations;non;non;Tevaxia Energy — Simulateurs Énergie Immobilier Luxembourg;58;149;;7;0;0;;0;;;;
+/energy/portfolio;non;non;Portfolio énergétique;21;122;;2;0;0;;3;;;;
+/energy/profil;non;non;Tevaxia Energy — Simulateurs Énergie Immobilier Luxembourg;58;149;;7;0;0;;0;;;;
+/energy/renovation;oui;oui;ROI Rénovation énergétique;26;142;Rénovation : budget et rentabilité du scénario;683;7;13;;7;621;551;618;570
+/esg;oui;oui;ESG immobilier Luxembourg;25;201;ESG immobilier Luxembourg;239;3;0;;2;197;169;214;167
+/esg/crrem-pathways;oui;oui;Comparer des trajectoires énergie et carbone;44;163;Comparer des trajectoires énergie et carbone;390;3;5;;2;304;258;339;269
+/esg/taxonomy;oui;oui;Taxonomie UE : préparer le contrôle 7.7;39;172;Taxonomie UE : préparer le contrôle 7.7;498;4;4;;2;422;385;451;396
+/estimateur-construction;oui;oui;Budget de construction documenté;32;189;Budget de construction documenté;292;2;9;BreadcrumbList ListItem;5;267;240;276;248
+/estimation;oui;oui;Estimation immobilière Luxembourg — Prix au m² par commune;58;154;Estimation immobilière;607;4;9;BreadcrumbList ListItem;121;540;505;569;521
+/facturation;oui;oui;Préparer vos documents de facturation;37;112;Préparer vos documents de facturation;177;6;0;;2;162;157;178;156
+/facturation/emission;non;oui;Préparer une facture et ses documents | Tevaxia;47;115;;11;0;0;;2;;;;
+/facturation/historique;non;non;Mes documents de facturation | Tevaxia;38;132;Historique de facturation;12;0;0;;2;;;;
+/frais-acquisition;oui;oui;Simulateur de Frais d'Acquisition | Tevaxia;43;84;Simulateur de Frais d'Acquisition;639;6;7;BreadcrumbList ListItem;114;583;499;596;543
+/gestion-locative;oui;oui;Gestion locative au Luxembourg | Tevaxia;40;153;Gestion locative au Luxembourg;590;9;0;Answer FAQPage Question;6;507;451;572;460
+/gestion-locative/ais;oui;oui;Gestion locative sociale : simulation par année | Tevaxia;57;201;Gestion locative sociale : simulation par année;319;4;7;;1;278;236;285;236
+/gestion-locative/assurance-impayes;non;oui;Assurance impayés : comparer vos devis | Tevaxia;48;70;Assurance impayés : comparer vos devis;295;6;6;;2;;;;
+/gestion-locative/etat-des-lieux;non;oui;État des lieux;14;129;État des lieux;327;2;13;;2;;;;
+/gestion-locative/fiscal;non;non;Préparation fiscale des revenus locatifs;40;211;;5;0;0;;2;;;;
+/gestion-locative/portefeuille;non;non;Mon portefeuille locatif | Tevaxia;34;66;;5;0;0;;2;;;;
+/gestion-locative/reconciliation;non;oui;Réconciliation bancaire | Tevaxia;33;169;Réconciliation bancaire;77;0;1;;3;;;;
+/gestion-locative/reconciliation/psd2;non;oui;Connexion bancaire PSD2 pour les loyers | Tevaxia;49;87;Connexion bancaire PSD2;127;0;0;;2;;;;
+/gestion-locative/relances;non;non;Relances impayés, paliers automatiques | Tevaxia;48;170;Relances locatives;9;0;0;;2;;;;
+/guide;oui;oui;Guide immobilier Luxembourg;27;143;Guide immobilier Luxembourg;434;12;0;ItemList ListItem;2;380;270;329;262
+/guide/achat-immobilier-non-resident;oui;oui;Achat immobilier Luxembourg pour non-résidents : guide 2026;59;189;Achat immobilier Luxembourg pour non-résidents : guide 2026;1342;8;0;Answer Article FAQPage Question;6;1168;1038;1312;1032
+/guide/bail-commercial-luxembourg;oui;oui;Bail commercial au Luxembourg : durée, loyer et clauses;55;342;Bail commercial au Luxembourg : durée, loyer et clauses;1504;8;0;Answer Article FAQPage Question;5;1201;1067;1236;1128
+/guide/bail-habitation-luxembourg;oui;oui;Bail d'habitation Luxembourg : loi 21.09.2006, droits 2026;58;131;Bail d'habitation Luxembourg : loi 21.09.2006, droits 2026;1658;8;0;Answer Article FAQPage Question;6;1365;1080;1350;1159
+/guide/bellegen-akt;oui;oui;Bëllegen Akt 2026 : crédit d'impôt acte notarié Luxembourg;58;83;Bëllegen Akt 2026 : crédit d'impôt acte notarié Luxembourg;1543;8;0;Answer Article FAQPage Question;9;1381;1244;1401;1302
+/guide/copropriete-luxembourg;oui;oui;Copropriété Luxembourg : loi 16.05.1975, syndic, AG, fonds 2026;63;185;Copropriété Luxembourg : loi 16.05.1975, syndic, AG, fonds 2026;1374;8;0;Answer Article FAQPage Question;7;1233;1105;1307;1094
+/guide/estimation-bien-immobilier;oui;oui;Estimation immobilière au Luxembourg : méthodes et rôle de l’expert;67;157;Estimation immobilière au Luxembourg : méthodes et rôle de l’expert;1448;9;1;Answer Article FAQPage Question;4;1249;1138;1401;1139
+/guide/frais-notaire-luxembourg;oui;oui;Frais d’acquisition au Luxembourg : droits et émoluments;56;110;Frais d’acquisition au Luxembourg : droits et émoluments;1690;8;0;Answer Article FAQPage Question;10;1451;1337;1516;1369
+/guide/ia-tevaxia;oui;oui;Comment utiliser l'IA sur tevaxia.lu : guide complet 2026;57;105;Comment utiliser l'IA sur tevaxia.lu : guide complet 2026;1473;9;1;Answer Article FAQPage Question;3;1308;1239;1428;1236
+/guide/investir-hotel-luxembourg;oui;oui;Investir dans un hôtel au Luxembourg : données, calculs et vérifications;72;149;Investir dans un hôtel au Luxembourg : données, calculs et vérifications;1188;8;0;Answer Article FAQPage Question;3;1016;901;1067;891
+/guide/klimabonus;oui;oui;Klimabonus 2026 : conditions et démarches;41;83;Klimabonus 2026 : conditions et démarches;852;8;0;Answer Article FAQPage Question;3;718;600;708;636
+/guide/plus-value-immobiliere;oui;oui;Plus-value immobilière Luxembourg : fiscalité 2026 (LIR);56;384;Plus-value immobilière — Luxembourg 2025–2026;475;5;0;;4;404;340;424;363
+/guide/regle-5-pourcent-loyer;oui;oui;Règle des 5 % du loyer Luxembourg : calcul et réforme 2026;58;223;Calculateur de loyer — Capital investi;348;5;0;;9;270;261;289;275
+/guide/tva-3-pourcent-logement;oui;oui;TVA logement 3 % Luxembourg : conditions et démarche AED 2026;61;140;TVA logement 3 % Luxembourg : conditions et démarche AED 2026;1658;8;0;Answer Article FAQPage Question;7;1458;1322;1520;1347
+/hedonique;oui;oui;Données et limites de l’estimation;34;92;Estimation immobilière;607;4;9;BreadcrumbList ListItem;4;540;505;569;521
+/hotellerie;oui;oui;Solutions hôtellerie | Tevaxia;30;162;Solutions hôtellerie;1326;9;0;Answer FAQPage Question;12;1130;971;1168;977
+/hotellerie/alerts;non;non;Seuils hôteliers enregistrés | Tevaxia;38;98;;6;0;0;;2;;;;
+/hotellerie/benchmark;non;non;Benchmark inter-hôtels | Tevaxia;32;94;Benchmark hôtelier;7;0;0;;1;;;;
+/hotellerie/capex;non;oui;Plan CAPEX et financement documenté | Tevaxia;45;93;Plan CAPEX et financement documenté;145;0;6;;1;;;;
+/hotellerie/certifications-esg;non;oui;Préparer les preuves Green Key | Tevaxia;40;114;Préparer les preuves Green Key;195;1;7;;2;;;;
+/hotellerie/compset;oui;oui;Comparatif hôtelier documenté | Tevaxia;39;238;Comparatif hôtelier documenté;218;1;11;BreadcrumbList ListItem;4;192;164;199;181
+/hotellerie/dscr;oui;oui;Couverture de dette hôtelière documentée | Tevaxia;50;123;Couverture de dette hôtelière documentée;328;1;15;BreadcrumbList ListItem;6;263;221;286;227
+/hotellerie/due-diligence;non;oui;Due diligence hôtelière : dossier documentaire | Tevaxia;56;86;Due diligence hôtelière : dossier documentaire;944;0;51;;3;;;;
+/hotellerie/exploitation;oui;oui;Compte hôtelier documenté | Tevaxia;35;102;Compte hôtelier documenté;872;2;52;BreadcrumbList ListItem;7;770;692;867;753
+/hotellerie/forecast;non;non;Projection hôtelière | Tevaxia;30;102;Forecast hôtelier;7;0;0;;2;;;;
+/hotellerie/groupe;non;non;Dashboard Groupe hôtelier | Tevaxia;35;110;Groupe hôtelier;8;0;0;;3;;;;
+/hotellerie/housekeeping;non;oui;Plan quotidien de housekeeping | Tevaxia;40;85;Plan quotidien de housekeeping;227;0;14;;1;;;;
+/hotellerie/impayes;non;oui;Intérêts de retard documentés | Tevaxia;39;76;Intérêts de retard documentés;230;1;9;;1;;;;
+/hotellerie/mice;non;oui;Budget MICE documenté | Tevaxia;31;116;Budget MICE documenté;198;0;16;;1;;;;
+/hotellerie/motel;non;oui;Motel et aparthotel : préparer votre étude | Tevaxia;52;92;Motel et aparthotel : préparer votre étude;218;4;0;;2;;;;
+/hotellerie/observatoire-lu;non;oui;Fréquentation hôtelière au Luxembourg — Eurostat | Tevaxia;58;221;Fréquentation hôtelière au Luxembourg — Eurostat;318;3;1;BreadcrumbList ListItem;3;;;;
+/hotellerie/pre-acquisition;non;oui;Pré-acquisition hôtelière documentée | Tevaxia;46;195;Pré-acquisition hôtelière documentée;393;2;18;BreadcrumbList ListItem;3;;;;
+/hotellerie/renovation;oui;oui;Rénovation hôtelière : budget et économies d’énergie | Tevaxia;62;135;Rénovation énergétique hôtelière;482;4;17;;2;436;355;426;372
+/hotellerie/score-e2;oui;oui;Dossier documentaire E‑2 — investisseur principal | Tevaxia;59;180;Dossier documentaire E‑2 — investisseur principal;558;9;20;BreadcrumbList ListItem;3;489;422;517;446
+/hotellerie/transactions;non;oui;Transactions hôtelières publiées — sélection européenne | Tevaxia;65;247;Transactions hôtelières publiées — sélection européenne;276;2;1;BreadcrumbList ListItem;1;;;;
+/hotellerie/valorisation;oui;oui;Valorisation hôtelière documentée | Tevaxia;43;131;Valorisation hôtelière documentée;200;2;10;BreadcrumbList ListItem;8;179;143;182;162
+/indices;oui;oui;Indices immobiliers et observations communales;46;252;Indices immobiliers et observations communales;1112;1;1;;4;1023;998;1038;1018
+/inspection;non;oui;Grille de visite immobilière | Tevaxia;38;143;Grille de visite immobilière;207;1;1;;2;;;;
+/locataire;oui;oui;Espace locataire Luxembourg — portail tevaxia;45;142;Votre suivi locatif partagé par le bailleur;445;4;0;;1;398;355;412;373
+/marche;oui;oui;Observations du marché immobilier | Tevaxia;43;120;Observations du marché immobilier;2166;2;1;;5;1999;1970;2021;1986
+/marche/forecast;non;oui;Scénarios de prix immobiliers | Tevaxia;39;79;Scénarios de prix immobiliers;340;1;7;;2;;;;
+/mentions-legales;oui;oui;Mentions légales et éditeur du site | Tevaxia;45;143;Mentions légales;491;6;0;;3;437;405;461;421
+/mes-evaluations;non;non;Mes évaluations — Historique sauvegardé;39;95;;5;0;0;;1;;;;
+/offline;non;non;Vous êtes hors ligne;20;135;Vous êtes hors ligne;24;0;0;;0;;;;
+/onboarding;non;oui;Configuration rapide (3 minutes) | Tevaxia;42;72;;7;0;0;;0;;;;
+/outils-bancaires;oui;oui;Outils bancaires immobilier Luxembourg — LTV, capacité d'emprunt, DSCR;70;166;Outils bancaires;387;3;3;;13;345;307;380;319
+/pag-pap;oui;oui;Analyse PAG / PAP Luxembourg — Urbanisme et constructibilité;60;145;Urbanisme — PAG / PAP;722;9;4;Answer FAQPage Question;3;390;288;333;277
+/plan-du-site;oui;oui;Plan du site — tevaxia.lu;25;122;Plan du site;468;12;0;;0;438;309;451;315
+/plus-values;oui;oui;Calculateur plus-values immobilières Luxembourg;47;188;Plus-value immobilière — Luxembourg 2025–2026;663;4;12;BreadcrumbList ListItem;4;597;504;634;535
+/pms;non;non;PMS hôtelier tevaxia;20;135;PMS hôtelier tevaxia;7;0;0;;4;;;;
+/pms/proprietes/nouveau;non;non;Nouvelle propriété PMS;22;135;PMS hôtelier tevaxia;10;0;0;;1;;;;
+/portfolio;oui;oui;Portfolio immobilier — Tableau de bord multi-actifs;51;125;Portfolio immobilier;19;0;0;;6;14;8;12;8
+/pricing;oui;oui;Fonctionnalités — tevaxia.lu;28;124;Tarifs;964;5;1;Answer FAQPage Question;10;859;737;925;766
+/pro-agences;oui;oui;Offre agences immobilières, rapports co-brandés | tevaxia.lu;60;173;Le CRM immobilier pensé pour le Luxembourg;1033;10;0;Answer FAQPage Question;3;940;822;956;750
+/pro-agences/commissions;non;non;Suivi des commissions immobilières | Tevaxia;44;115;Commissions agence;9;0;0;;1;;;;
+/pro-agences/crm;non;non;CRM agence immobilière;22;135;CRM agence immobilière;4;0;0;;4;;;;
+/pro-agences/crm/contacts;non;non;Contacts CRM;12;135;CRM agence immobilière;6;0;0;;1;;;;
+/pro-agences/crm/contacts/import;non;non;Import contacts CRM;19;135;CRM agence immobilière;9;0;0;;0;;;;
+/pro-agences/crm/tasks;non;non;Tâches CRM;10;135;CRM agence immobilière;6;0;0;;1;;;;
+/pro-agences/crm/templates;non;non;CRM agence immobilière;22;135;CRM agence immobilière;284;0;0;;0;;;;
+/pro-agences/fiche-bien;non;oui;Fiche bien, présentation complète PDF | Tevaxia;47;150;Fiche bien, présentation complète PDF;314;4;19;;2;;;;
+/pro-agences/mandats;non;non;Mandats agence;14;135;Mandats agence;5;0;0;;2;;;;
+/pro-agences/performance;non;non;Performance agents | Tevaxia;28;139;Performance agence;7;0;0;;1;;;;
+/profil;non;non;Mon profil — Paramètres de rapport;34;92;;6;0;0;;3;;;;
+/profil/api;non;non;Mon profil — Paramètres de rapport;34;92;;7;0;0;;2;;;;
+/profil/calendrier;non;non;Mon profil — Paramètres de rapport;34;92;Synchronisation calendrier;195;3;0;;0;;;;
+/profil/confidentialite;non;non;Mon profil — Paramètres de rapport;34;92;;7;0;0;;1;;;;
+/profil/liens-partages;non;non;Mon profil — Paramètres de rapport;34;92;Liens partagés — analytics;14;0;0;;1;;;;
+/profil/organisation;non;non;Mon profil — Paramètres de rapport;34;92;;7;0;0;;1;;;;
+/profil/sauvegardes;non;non;Mon profil — Paramètres de rapport;34;92;;6;0;0;;1;;;;
+/propcalc;oui;oui;PropCalc — Calculateur Immobilier Multi-Pays pour WordPress;59;172;Le calculateur immobilier multi-pays pour WordPress;1146;12;5;Answer FAQPage Question;3;853;714;860;698
+/propcalc/developers;oui;oui;PropCalc Developers — Widget et API REST;40;131;PropCalc, Écosystème Développeurs;1149;4;0;;1;995;920;1072;933
+/recherche;non;oui;Recherche globale | Tevaxia;27;120;;5;0;0;;0;;;;
+/simulateur-aides;oui;oui;Simulateur d'aides au logement Luxembourg — Bëllegen Akt, Klimabonus;68;157;Aides au logement : estimation 2026;759;6;18;;112;658;558;676;598
+/solutions;oui;oui;Solutions immobilières Luxembourg par profil — tevaxia.lu;57;174;Trouvez la solution adaptée à votre métier;1003;12;1;;1;888;759;959;802
+/solutions/agence;oui;oui;CRM agence immobilière Luxembourg — pipeline et OpenImmo;56;123;Votre pipeline mandats dans un seul outil, pas quatre;1001;7;0;;1;867;718;913;729
+/solutions/banque;oui;oui;Valorisation immobilière banques Luxembourg — CRR, LTV, DSCR;60;240;Analyse de crédit immo conforme Scénarios documentés;1177;8;1;;1;1071;855;1115;873
+/solutions/expert-evaluateur;oui;oui;Outils pour experts en évaluation immobilière — Luxembourg;58;129;Préparez votre dossier avec des hypothèses documentées;1215;8;1;;1;1006;917;1089;950
+/solutions/hotel;oui;oui;Outils pour hôteliers et investisseurs au Luxembourg | Tevaxia;62;143;Outils hôteliers et données documentées;326;5;0;;1;261;221;272;231
+/solutions/investisseur;oui;oui;Simulateur investissement immobilier Luxembourg — DCF, fiscalité;64;143;Votre rentabilité réelle, fiscalité LU comprise;971;7;0;;1;748;580;820;604
+/solutions/particulier;oui;oui;Outils immobiliers particuliers Luxembourg — estimation, aides;62;149;Acheter, louer, rénover au Luxembourg sans passer par un cabinet;1155;8;1;;1;870;768;1001;790
+/solutions/promoteur;oui;oui;Logiciel promoteur immobilier Luxembourg — bilan, VEFA, coûts;61;157;Bilan promoteur et simulation VEFA, sans ressaisir 3 fois vos coûts;1021;7;0;;1;906;618;913;640
+/solutions/syndic;oui;oui;Logiciel de syndic au Luxembourg, conforme loi 16.05.1975;57;148;Votre syndic de copropriété sans soirées sur Excel;1165;7;0;;3;1020;766;1040;806
+/status;non;oui;État des services et disponibilité | Tevaxia;44;123;Statut système tevaxia;141;0;0;;1;;;;
+/str;oui;oui;Location courte durée Luxembourg — Airbnb, Booking, Vrbo | tevaxia.lu;69;139;Location courte durée au Luxembourg;379;1;0;;9;340;311;373;300
+/str/arbitrage;oui;oui;Arbitrage long terme vs court terme | Tevaxia;45;132;Arbitrage long terme vs court terme;310;4;11;;2;282;246;303;258
+/str/compliance;non;oui;Conformité STR au Luxembourg | Tevaxia;38;89;Conformité STR au Luxembourg;351;1;5;;3;;;;
+/str/compliance-eu;non;oui;Registre EU STR 2024/1028 | Tevaxia;35;98;Dossier préparatoire STR;137;3;13;;2;;;;
+/str/forecast;non;oui;Projection mensuelle STR;24;217;Projection mensuelle STR;137;0;2;;2;;;;
+/str/observatoire;non;oui;Observatoire STR Luxembourg | Tevaxia;37;140;Observatoire STR Luxembourg;314;0;0;;2;;;;
+/str/portefeuille;non;non;Portefeuille de locations courte durée | Tevaxia;48;83;Portefeuille STR;15;0;0;;1;;;;
+/str/pricing;non;oui;Dynamic pricing STR Luxembourg | Tevaxia;40;149;Dynamic pricing STR Luxembourg;231;1;7;;3;;;;
+/str/rentabilite;oui;oui;Rentabilité STR (Airbnb / Booking / Vrbo) | Tevaxia;51;112;Rentabilité STR (Airbnb / Booking / Vrbo);340;4;16;;2;330;292;333;290
+/syndic;oui;oui;Dashboard Syndic & Copropriété;30;93;Dashboard Syndic & Copropriété;557;4;8;Answer FAQPage Question;7;508;468;530;476
+/syndic/benchmark;non;non;Comparer les indicateurs de copropriétés | Tevaxia;50;75;;15;0;0;;2;;;;
+/syndic/coproprietes;non;non;Copropriétés syndic;19;93;Copropriétés syndic;12;0;0;;2;;;;
+/syndic/lettres-types;non;oui;Bibliothèque lettres types syndic | Tevaxia;43;134;Bibliothèque lettres types syndic;277;0;0;;0;;;;
+/syndic/portefeuille;non;oui;Portefeuille syndic | Tevaxia;29;127;;7;0;0;;0;;;;
+/syndic/procuration;non;oui;Procuration AG, générateur PDF | Tevaxia;40;120;Procuration AG, générateur PDF;198;4;11;;1;;;;
+/tableau-bord;non;non;Tableau de bord personnel | Tevaxia;35;111;Tableau de bord;9;0;0;;1;;;;
+/terres-agricoles;oui;oui;Terres agricoles — calcul documenté | Tevaxia;45;100;Terres agricoles — calcul documenté;460;2;10;BreadcrumbList ListItem;3;343;304;357;324
+/transparence;oui;oui;Données et limites de l’estimation | Tevaxia;44;132;Données et limites de l’estimation;567;3;1;;2;499;474;526;487
+/valorisation;oui;oui;Valorisation immobilière — scénarios et références;50;137;Valorisation immobilière — scénarios et références;595;4;3;BreadcrumbList ListItem;114;516;469;562;496
+/vefa;oui;oui;Achat en VEFA au Luxembourg : frais et paiements | Tevaxia;58;103;Simulateur VEFA;2086;12;17;Answer FAQPage Question;6;1519;1323;1583;1337
+/verify;non;oui;Vérification d'un rapport signé | Tevaxia;41;74;Vérification d'un rapport signé;98;0;1;;1;;;;
+/wizard-particulier;non;oui;Wizard Particulier — votre projet en 4 étapes | Tevaxia;55;100;Wizard Particulier — votre projet en 4 étapes;638;8;2;Answer FAQPage Question;1;;;;

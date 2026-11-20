@@ -20,7 +20,7 @@ const TOOL_KEYS: Record<string, string> = {
   convertisseurSurfaces: "/convertisseur-surfaces",
   dcfMulti: "/dcf-multi",
   portfolio: "/portfolio",
-  hedonique: "/hedonique",
+  hedonique: "/estimation",
   facturation: "/facturation",
   strHub: "/str",
   amlKyc: "/aml-kyc",

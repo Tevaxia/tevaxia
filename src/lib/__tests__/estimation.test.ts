@@ -108,8 +108,8 @@ describe("scope and no double counting", () => {
   it("does not add new-condition or energy premiums on VEFA means", () => {
     const r = estimer({ ...BASE, estNeuf: true, etat: "adjEtatNeuf", classeEnergie: "A" })!;
     expect(r.ajustements.some(a => a.labelKey === "estAjustEtat" || a.labelKey === "estAjustEnergie")).toBe(false);
-    expect(r.prixM2Base).toBeCloseTo(10585.16645, 4);
+    expect(r.prixM2Base).toBeCloseTo(10932.32, 4);
     expect(r.estimationAnnonces).toBeNull();
   });
-  it("uses the price excluding annexes before adding the parking assumption", () => expect(estimer(BASE)!.prixM2Base).toBeCloseTo(9104.1424, 4));
+  it("uses the price excluding annexes before adding the parking assumption", () => expect(estimer(BASE)!.prixM2Base).toBeCloseTo(8919.88, 4));
 });

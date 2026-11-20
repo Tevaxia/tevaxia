@@ -855,7 +855,7 @@ function ComparerContent() {
           </div>
         )}
 
-        <RelatedTools keys={["valorisation", "hedonique", "estimation", "marche"]} />
+        <RelatedTools keys={["valorisation", "estimation", "marche"]} />
 
         {/* Disclaimer */}
         <p className="mt-8 text-xs text-muted text-center leading-relaxed max-w-2xl mx-auto">
@@ -880,7 +880,6 @@ function ComparerContent() {
       ]}
       relatedLinks={[
         { href: "/estimation", labelKey: "estimation" },
-        { href: "/hedonique", labelKey: "hedonique" },
         { href: "/carte", labelKey: "carte" },
       ]}
     />

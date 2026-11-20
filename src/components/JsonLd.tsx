@@ -158,3 +158,25 @@ export function ArticleJsonLd({ headline, datePublished, dateModified }: {
     })}} />
   );
 }
+
+/**
+ * WebApplication — un calculateur public, gratuit, utilisable dans le navigateur.
+ * Rendu par le gabarit racine pour les routes listées dans le menu principal.
+ */
+export function ToolJsonLd({ name, url, locale }: { name: string; url: string; locale: string }) {
+  return (
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": name,
+      "url": url,
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": locale,
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "provider": { "@type": "Organization", "name": "Tevaxia", "url": "https://tevaxia.lu" },
+      "areaServed": { "@type": "Country", "name": "Luxembourg" },
+    }).replace(/</g, "\\u003c") }} />
+  );
+}

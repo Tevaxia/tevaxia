@@ -33,10 +33,13 @@ export interface MarketDataCommune {
   quartiers?: QuartierData[];
 }
 
-// Import des quatre fichiers officiels CC0, publication 25 juin 2026.
+// Import des quatre fichiers officiels CC0, publication du 24 septembre 2026
+// (prix affinés : version 2 du 2 octobre 2026).
 // 12 mois glissants ; valeurs non publiées (*) conservées à null.
 // Aucun prix par quartier n'est déduit de ces moyennes communales.
-import snapshot from "./market-data-2026t1.json";
+import snapshot from "./market-data-2026t2.json";
+
+export { MARKET_SNAPSHOT } from "./market-snapshot";
 export const MARKET_SOURCES = {
   transactions: "https://data.public.lu/fr/datasets/prix-de-vente-des-appartements-par-commune/",
   horsAnnexes: "https://data.public.lu/fr/datasets/prix-de-vente-des-appartements-prix-affines-hors-annexes-par-commune/",

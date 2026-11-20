@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { MARKET_SNAPSHOT } from "@/lib/market-snapshot";
 
 // API route pour rafraîchir les données depuis data.public.lu
 // Les datasets de l'Observatoire de l'Habitat sont en format XLS
@@ -95,7 +96,7 @@ export async function GET() {
   return NextResponse.json({
     success: true,
     checkedAt: new Date().toISOString(),
-    tevaxiaDataPeriode: "2025-04-01 — 2026-03-31",
+    tevaxiaDataPeriode: `${MARKET_SNAPSHOT.periodStart} — ${MARKET_SNAPSHOT.periodEnd}`,
     datasets: results,
     note: "Les données tevaxia.lu sont mises à jour manuellement. Cette API vérifie les dernières mises à jour des sources publiques pour détecter quand un rafraîchissement est nécessaire.",
   });

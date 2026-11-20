@@ -1130,28 +1130,6 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "pmsContextBar",
     "syndicContextBar"
   ],
-  "/hedonique": [
-    "aiAnalysis",
-    "aiChat",
-    "authGate",
-    "authMfa",
-    "backup",
-    "common",
-    "cookie",
-    "crmContextBar",
-    "estimation",
-    "estimationAudit",
-    "expertGuidance",
-    "hotellerieContextBar",
-    "marketThresholds",
-    "nav",
-    "pdfActions",
-    "pmsContextBar",
-    "saveButton",
-    "shareCreation",
-    "syndicContextBar",
-    "valorisation"
-  ],
   "/hotellerie/alerts": [
     "aiChat",
     "authMfa",
