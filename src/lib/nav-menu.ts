@@ -119,3 +119,52 @@ export function findCalculator(path: string): MenuItem | undefined {
   }
   return undefined;
 }
+
+/** Page « solutions » du ou des métiers auxquels un outil s'adresse.
+ * Les préfixes les plus longs l'emportent ; au plus deux liens par outil. */
+const SOLUTION_BY_PREFIX: Array<[prefix: string, slugs: string[]]> = [
+  ["/energy/communaute", ["syndic"]],
+  ["/energy/epbd", ["banque", "investisseur"]],
+  ["/energy/lenoz", ["promoteur"]],
+  ["/energy/hvac", ["promoteur"]],
+  ["/energy", ["particulier"]],
+  ["/esg", ["banque", "investisseur"]],
+  ["/hotellerie", ["hotel"]],
+  ["/str", ["investisseur"]],
+  ["/gestion-locative", ["investisseur"]],
+  ["/syndic", ["syndic"]],
+  ["/pro-agences", ["agence"]],
+  ["/aml-kyc", ["agence", "banque"]],
+  ["/api-banques", ["banque"]],
+  ["/outils-bancaires", ["banque", "investisseur"]],
+  ["/valorisation", ["expert-evaluateur", "investisseur"]],
+  ["/transparence", ["expert-evaluateur"]],
+  ["/dcf-multi", ["investisseur"]],
+  ["/portfolio", ["investisseur"]],
+  ["/bail-commercial", ["investisseur"]],
+  ["/marche", ["investisseur"]],
+  ["/indices", ["investisseur"]],
+  ["/terres-agricoles", ["investisseur"]],
+  ["/propcalc", ["agence"]],
+  ["/bilan-promoteur", ["promoteur"]],
+  ["/estimateur-construction", ["promoteur"]],
+  ["/calculateur-vrd", ["promoteur"]],
+  ["/convertisseur-surfaces", ["promoteur"]],
+  ["/pag-pap", ["promoteur"]],
+  ["/estimation", ["particulier"]],
+  ["/carte", ["particulier"]],
+  ["/frais-acquisition", ["particulier"]],
+  ["/calculateur-loyer", ["particulier", "investisseur"]],
+  ["/simulateur-aides", ["particulier"]],
+  ["/plus-values", ["particulier", "investisseur"]],
+  ["/achat-vs-location", ["particulier"]],
+  ["/comparer", ["particulier"]],
+  ["/vefa", ["particulier", "promoteur"]],
+  ["/wizard-particulier", ["particulier"]],
+  ["/inspection", ["particulier"]],
+];
+
+export function solutionsFor(path: string): string[] {
+  const match = SOLUTION_BY_PREFIX.find(([prefix]) => path === prefix || path.startsWith(`${prefix}/`));
+  return match ? match[1] : [];
+}

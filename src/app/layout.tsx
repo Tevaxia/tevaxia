@@ -11,6 +11,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ExpertGuidance from "@/components/ExpertGuidance";
+import SolutionLinks from "@/components/SolutionLinks";
+import ToolFaq, { ToolNotes } from "@/components/ToolFaq";
 import CookieBanner from "@/components/CookieBanner";
 import AuthProvider from "@/components/AuthProvider";
 import PostHogProvider from "@/components/PostHogProvider";
@@ -147,6 +149,9 @@ export default async function RootLayout({
               <DeferredContextBars />
               <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
                 <FullMessagesProvider locale={locale}>{children}</FullMessagesProvider>
+                <ToolNotes path={toolPath} />
+                <ToolFaq path={toolPath} />
+                <SolutionLinks path={toolPath} />
                 <ExpertGuidance />
               </main>
               <Footer />

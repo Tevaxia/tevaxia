@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Real Estate Banking Tools Luxembourg — LTV, Borrowing Capacity, DSCR",
+  title: "Borrowing Capacity in Luxembourg: Simulator, LTV, DSCR",
   description:
-    "Banking tools for real estate lending in Luxembourg: loan-to-value ratio (LTV), borrowing capacity, amortisation schedules, debt service coverage ratio (DSCR).",
+    "Simulate your mortgage borrowing capacity in Luxembourg: loan-to-value (LTV), monthly payments, amortisation schedule and debt service coverage (DSCR).",
   alternates: localizedAlternates("/outils-bancaires", "en"),
 };
 

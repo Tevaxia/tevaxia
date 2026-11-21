@@ -17,7 +17,7 @@
   },
   "/bilan-promoteur": {
     "title": "Documented development appraisal | Tevaxia",
-    "description": "Enter project revenue, costs and target profit. Amounts are in euros, excluding recoverable VAT and including non-recoverable VAT."
+    "description": "Development appraisal for a project in Luxembourg: revenue, costs, target margin and residual land budget, from your documented amounts in euros."
   },
   "/calculateur-loyer/observatoire": {
     "title": "Luxembourg rent observatory (Mietspiegel-like) | Tevaxia",
@@ -40,11 +40,11 @@
     "description": "Find saved billing documents and reuse their data to prepare another download from your Tevaxia billing workspace."
   },
   "/frais-acquisition": {
-    "title": "Acquisition Fees Simulator | Tevaxia",
-    "description": "Registration duties, Bëllegen Akt, VAT, notarial fees, mortgage fees"
+    "title": "Notary Fees in Luxembourg 2026: Free Calculator",
+    "description": "Calculate purchase costs in Luxembourg: registration duties, Bëllegen Akt tax credit, VAT, notary fees and mortgage costs. Indicative estimate."
   },
   "/gestion-locative": {
-    "title": "Rental management in Luxembourg | Tevaxia",
+    "title": "Rental Management in Luxembourg: Rents, Units, Receipts",
     "description": "Track your portfolio with Luxembourg specifics: 5% rule, energy impact (Klimabonus), and alerts on rents above the legal cap."
   },
   "/gestion-locative/ais": {
@@ -72,7 +72,7 @@
     "description": "3 configured levels: friendly reminder D+15 → formal demand D+30 → payment order D+60. PDF compliant with law 21.09.2006, to be sent by registered mail (paper or eIDAS)."
   },
   "/hotellerie": {
-    "title": "Hospitality solutions | Tevaxia",
+    "title": "Hotel Tools for Luxembourg: Valuation, Debt, Operations",
     "description": "Valuation, debt coverage, operations and evidence files: work from your figures and sources with explicit assumptions."
   },
   "/hotellerie/alerts": {
@@ -124,11 +124,11 @@
     "description": "Compare a hotel renovation budget, confirmed grants and energy savings using your quotations and documented assumptions."
   },
   "/inspection": {
-    "title": "Property visit checklist | Tevaxia",
+    "title": "Property Viewing Checklist for Luxembourg | Tevaxia",
     "description": "Prepare a property visit: observations, points to check and exportable notes. Working document without professional certification."
   },
   "/marche": {
-    "title": "Property market observations | Tevaxia",
+    "title": "Property Market in Luxembourg: Data by Municipality",
     "description": "Real estate market data in Luxembourg — residential, offices, retail, logistics, land and macro indicators."
   },
   "/marche/forecast": {
@@ -192,7 +192,7 @@
     "description": "Month-by-month ADR pricing recommendation based on LU-specific seasonality (weather, events, trade shows), with weekend and last-minute rules."
   },
   "/str/rentabilite": {
-    "title": "STR yield (Airbnb / Booking / Vrbo) | Tevaxia",
+    "title": "Airbnb Profitability in Luxembourg: Simulator | Tevaxia",
     "description": "Calculate the annual net income of your short-term rental property in Luxembourg, all costs and taxes included."
   },
   "/syndic/benchmark": {
@@ -228,7 +228,7 @@
     "description": "Verify the authenticity of a valuation report signed via tevaxia.lu. Enter the SHA-256 hash printed on the report to confirm it has not been altered since the valuer's signature."
   },
   "/wizard-particulier": {
-    "title": "Individual Wizard — your project in 4 steps | Tevaxia",
-    "description": "Estimation → purchase fees → state aids → legal rent rule. All in one guided journey."
+    "title": "Your Property Project in Luxembourg in 4 Steps | Tevaxia",
+    "description": "Valuation, purchase costs, state aid and legal rent in Luxembourg: one guided four-step journey to prepare your project."
   }
 }

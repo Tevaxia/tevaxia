@@ -618,3 +618,11 @@ export function suggestComparables(communeName: string, nbMax: number = 5): {
     .slice(0, nbMax)
     .map(({ score: _s, ...rest }) => rest);
 }
+
+/** Une commune dont aucune valeur de prix ou de loyer n'est publiée (moins de
+ * 10 ventes, moins de 30 annonces) n'a pas de contenu propre à présenter aux
+ * moteurs : sa page reste consultable mais n'est ni indexée ni au sitemap. */
+export function hasPublishedPrices(commune: MarketDataCommune): boolean {
+  return [commune.prixM2Existant, commune.prixM2VEFA, commune.prixM2ExistantHorsAnnexes,
+    commune.prixM2VEFAHorsAnnexes, commune.prixM2Annonces, commune.loyerM2Annonces].some(value => value !== null);
+}

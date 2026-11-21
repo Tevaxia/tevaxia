@@ -1,4 +1,4 @@
 import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
-export const metadata: Metadata = {title:"Aquecimento: comparar necessidades, orçamentos e custos",description:"Compare dois cenários com necessidades de calor, desempenho sazonal, preços e orçamentos introduzidos. Os valores iniciais ilustram o método; não são medições do imóvel nem ofertas comerciais.",alternates:localizedAlternates("/energy/hvac","pt")};
+export const metadata: Metadata = {title:"Aquecimento no Luxemburgo: comparar necessidades e custos",description:"Compare dois cenários de aquecimento com as necessidades de calor, desempenhos sazonais, tarifas e orçamentos introduzidos. Valores iniciais ilustrativos.",alternates:localizedAlternates("/energy/hvac","pt")};
 export default function Layout({ children }: { children: React.ReactNode }) { return children; }

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Outils bancaires immobilier Luxembourg — LTV, capacité d'emprunt, DSCR",
+  title: "Capacité d'emprunt au Luxembourg : simulateur, LTV, DSCR",
   description:
-    "Outils bancaires pour le crédit immobilier au Luxembourg : ratio prêt/valeur (LTV), capacité d'emprunt, tableaux d'amortissement, ratio de couverture de dette (DSCR).",
+    "Simulez votre capacité d'emprunt immobilier au Luxembourg : ratio prêt/valeur (LTV), mensualités, tableau d'amortissement et couverture de dette (DSCR).",
   alternates: localizedAlternates("/outils-bancaires", "fr"),
 };
 

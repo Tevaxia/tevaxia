@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllCommunes, slugifyCommune } from "@/lib/market-data";
+import { getAllMarketData, hasPublishedPrices, slugifyCommune } from "@/lib/market-data";
 import { GUIDES } from "@/lib/guides";
 import { buildLocaleUrl } from "@/lib/seo";
 
@@ -125,7 +125,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   addPages(entries, ["/gestion-locative", "/str", "/facturation", "/bail-commercial", "/esg", "/esg/crrem-pathways", "/esg/taxonomy", "/transparence"], 0.8, "monthly");
 
   // Pages communes — très bon pour la longue traîne SEO
-  const communes = getAllCommunes();
+  // Seules les communes ayant au moins une valeur publiée sont proposées.
+  const communes = getAllMarketData().filter(hasPublishedPrices).map(row => row.commune);
   for (const commune of communes) {
     const slug = slugifyCommune(commune);
     const page = `/commune/${slug}`;
