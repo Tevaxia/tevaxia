@@ -34,6 +34,8 @@ const nextConfig: NextConfig = {
       { from: "/energy/cpe", to: "/energy/audit" },
       { from: "/energy/epbd-2050", to: "/energy/epbd" },
       { from: "/esg/crrem", to: "/esg/crrem-pathways" },
+      // /hedonique affichait le même outil que /estimation sous un autre titre.
+      { from: "/hedonique", to: "/estimation" },
     ];
     const redirects: Array<{ source: string; destination: string; permanent: boolean }> = [];
     for (const r of renames) {

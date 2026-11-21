@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Luxembourg Rent Calculator — Invested Capital & Legal Rent Cap",
+  title: "Maximum Rent in Luxembourg: 5% Rule Calculator",
   description:
-    "Calculate the legal rent cap in Luxembourg based on the 5% invested capital rule. STATEC revaluation coefficients, depreciation, shared tenancy. Law of 21 September 2006.",
+    "Calculate the legal rent cap in Luxembourg: 5% of revalued invested capital, depreciation, furnished lets, shared lets. Amended law of 21 September 2006.",
   alternates: localizedAlternates("/calculateur-loyer", "en"),
 };
 

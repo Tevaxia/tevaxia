@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Luxembourg Real Estate Capital Gains Tax Calculator",
+  title: "Capital Gains Tax on Property in Luxembourg 2026: Calculator",
   description:
-    "Calculate capital gains tax on real estate in Luxembourg. Speculation vs long-term disposal, STATEC revaluation coefficients, ten-year allowance, primary residence exemption.",
+    "Calculate tax on a property capital gain in Luxembourg: speculation or long-term disposal, revaluation coefficients, allowances, main residence.",
   alternates: localizedAlternates("/plus-values", "en"),
 };
 

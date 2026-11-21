@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import * as Sentry from "@sentry/nextjs";
+import { MARKET_SNAPSHOT } from "@/lib/market-snapshot";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -7,6 +9,21 @@ export const maxDuration = 60;
 const BATCH_LIMIT = 500;
 const headers = { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" };
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+/** Les prix communaux sont importés à la main. Ce contrôle compare la date du
+ * jeu importé à celle du jeu officiel sur data.public.lu et signale un retard.
+ * Il n'importe rien et n'échoue jamais : une source injoignable donne `null`. */
+async function marketDataFreshness() {
+  const imported = MARKET_SNAPSHOT.published;
+  try {
+    const res = await fetch("https://data.public.lu/api/1/datasets/prix-de-vente-des-appartements-par-commune/", { cache: "no-store", signal: AbortSignal.timeout(8000) });
+    if (!res.ok) return { imported, official: null, stale: null };
+    const body = await res.json() as { last_update?: unknown; last_modified?: unknown };
+    const raw = typeof body.last_update === "string" ? body.last_update : typeof body.last_modified === "string" ? body.last_modified : "";
+    const official = /^\d{4}-\d{2}-\d{2}/.test(raw) ? raw.slice(0, 10) : null;
+    return { imported, official, stale: official ? official > imported : null };
+  } catch { return { imported, official: null, stale: null }; }
+}
 
 /** Scheduled operational status changes. Existing UTC grace periods are
  * workflow settings, not legal deadlines. Never invoke with real credentials
@@ -74,7 +91,9 @@ async function handler(req: Request) {
       }
     }
   } catch { report.errors.push("maintenance:initialization_failed"); }
-  return NextResponse.json({ ...report, complete: report.errors.length === 0 && report.limited_steps.length === 0,
+  const market_data = await marketDataFreshness();
+  if (market_data.stale) Sentry.captureMessage("Prix communaux : une publication officielle plus récente que le jeu importé est disponible", { level: "warning", extra: market_data });
+  return NextResponse.json({ ...report, market_data, complete: report.errors.length === 0 && report.limited_steps.length === 0,
     completed_at: new Date().toISOString(), duration_ms: Date.now() - started,
   }, { status: report.errors.length ? 500 : 200, headers });
 }

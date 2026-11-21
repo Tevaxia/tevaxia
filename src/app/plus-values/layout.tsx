@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Calculateur plus-values immobilières Luxembourg",
+  title: "Plus-value immobilière au Luxembourg 2026 : calculateur",
   description:
-    "Calculez l'impôt sur les plus-values immobilières au Luxembourg. Spéculation vs cession longue durée, coefficients de réévaluation ACD, abattement décennal, exemption résidence principale.",
+    "Calculez l'impôt sur une plus-value immobilière au Luxembourg : spéculation ou cession, coefficients de réévaluation, abattements, résidence principale.",
   alternates: localizedAlternates("/plus-values", "fr"),
 };
 

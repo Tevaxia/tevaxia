@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Dokumentierte Projektkalkulation | Tevaxia",
+  title: "Bauträgerkalkulation in Luxemburg: Marge und Grundstückswert",
   description:
     "Calculate the maximum land charge using the residual method. Sale price, construction costs, fees, developer margin. Tailored to the Luxembourg market.",
   alternates: localizedAlternates("/bilan-promoteur", "de"),

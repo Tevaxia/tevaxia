@@ -26,9 +26,12 @@ it("exposes the skip link and expands the declared desktop disclosure", async ()
   expect(container.querySelector('a[href="#main-content"]')?.textContent).toBe(messages.nav.skipToContent);
   const trigger = container.querySelector<HTMLButtonElement>("#nav-trigger-particuliers")!;
   expect(trigger.getAttribute("aria-expanded")).toBe("false");
+  // The panel stays in the served HTML so its links are crawlable; it is hidden until opened.
+  const panel = container.querySelector<HTMLElement>("#nav-panel-particuliers")!;
+  expect(panel.hidden).toBe(true);
   await act(async () => { trigger.click(); });
   expect(trigger.getAttribute("aria-expanded")).toBe("true");
-  const panel = container.querySelector("#nav-panel-particuliers")!;
+  expect(panel.hidden).toBe(false);
   expect(panel.getAttribute("aria-labelledby")).toBe(trigger.id);
   expect(panel.querySelector('a[href="/en/estimation"]')).not.toBeNull();
 });
@@ -38,7 +41,7 @@ it("Escape closes the desktop menu and returns focus to its trigger", async () =
   await act(async () => { trigger.click(); });
   const link = container.querySelector<HTMLAnchorElement>("#nav-panel-particuliers a")!;
   await act(async () => { link.focus(); link.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true })); });
-  expect(container.querySelector("#nav-panel-particuliers")).toBeNull();
+  expect(container.querySelector<HTMLElement>("#nav-panel-particuliers")!.hidden).toBe(true);
   expect(trigger.getAttribute("aria-expanded")).toBe("false");
   expect(document.activeElement).toBe(trigger);
 });

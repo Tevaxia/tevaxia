@@ -17,7 +17,7 @@
   },
   "/bilan-promoteur": {
     "title": "Dokumentierte Projektkalkulation | Tevaxia",
-    "description": "Erfassen Sie Erlöse, Kosten und Zielgewinn des Projekts. Eurobeträge ohne erstattungsfähige und einschließlich nicht erstattungsfähiger Mehrwertsteuer."
+    "description": "Bauträgerkalkulation für ein Projekt in Luxemburg: Erlöse, Kosten, Zielmarge und residuales Grundstücksbudget auf Basis Ihrer belegten Eurobeträge."
   },
   "/calculateur-loyer/observatoire": {
     "title": "Luxemburger Mietspiegel-Observatorium | Tevaxia",
@@ -40,11 +40,11 @@
     "description": "Finden Sie gespeicherte Rechnungsunterlagen und verwenden Sie deren Daten für einen erneuten Download in Ihrem Tevaxia-Bereich."
   },
   "/frais-acquisition": {
-    "title": "Erwerbskostensimulator | Tevaxia",
-    "description": "Registrierungsabgaben, Bëllegen Akt, MwSt., Notargebühren, Hypothekenkosten"
+    "title": "Notarkosten in Luxemburg 2026: kostenloser Rechner",
+    "description": "Berechnen Sie die Erwerbsnebenkosten in Luxemburg: Registrierungsgebühren, Bëllegen Akt, MwSt., Notarkosten und Hypothekenkosten. Unverbindliche Schätzung."
   },
   "/gestion-locative": {
-    "title": "Mietverwaltung in Luxemburg | Tevaxia",
+    "title": "Mietverwaltung in Luxemburg: Mieten, Einheiten, Quittungen",
     "description": "Verfolgen Sie Ihr Portfolio mit Luxemburger Besonderheiten: 5-%-Regel, Energieauswirkung (Klimabonus) und Warnungen bei Mieten über der gesetzlichen Obergrenze."
   },
   "/gestion-locative/ais": {
@@ -72,7 +72,7 @@
     "description": "3 eingestellte Stufen: freundliche Mahnung T+15 → Mahnung T+30 → Zahlungsbefehl T+60. PDF-Konformität mit Gesetz 21.09.2006, per Einschreiben mit Rückschein zu versenden (Papier oder eIDAS)."
   },
   "/hotellerie": {
-    "title": "Hotellerie-Lösungen | Tevaxia",
+    "title": "Werkzeuge für die Hotellerie in Luxemburg | Tevaxia",
     "description": "Bewertung, Schuldendienstdeckung, Betrieb und Unterlagen: mit eigenen Zahlen, Quellen und ausdrücklichen Annahmen arbeiten."
   },
   "/hotellerie/alerts": {
@@ -124,11 +124,11 @@
     "description": "Vergleichen Sie Sanierungskosten eines Hotels, bestätigte Zuschüsse und Energieeinsparungen anhand Ihrer Angebote und dokumentierten Annahmen."
   },
   "/inspection": {
-    "title": "Checkliste zur Immobilienbesichtigung | Tevaxia",
+    "title": "Checkliste für die Immobilienbesichtigung in Luxemburg",
     "description": "Immobilienbesichtigung vorbereiten: Beobachtungen, Prüfpunkte und exportierbare Notizen. Arbeitsunterlage ohne fachliche Zertifizierung."
   },
   "/marche": {
-    "title": "Beobachtungen zum Immobilienmarkt | Tevaxia",
+    "title": "Immobilienmarkt in Luxemburg: Daten nach Gemeinde",
     "description": "Immobilienmarktdaten in Luxemburg — Wohnen, Büro, Einzelhandel, Logistik, Grundstücke und Makroindikatoren."
   },
   "/marche/forecast": {
@@ -192,7 +192,7 @@
     "description": "Monatliche ADR-Preisempfehlung nach LU-spezifischer Saisonalität (Wetter, Events, Messen), mit Wochenend- und Last-Minute-Regeln."
   },
   "/str/rentabilite": {
-    "title": "STR-Rendite (Airbnb / Booking / Vrbo) | Tevaxia",
+    "title": "Airbnb-Rendite in Luxemburg: Simulator | Tevaxia",
     "description": "Berechnen Sie das jährliche Nettoeinkommen Ihrer Kurzzeitvermietung in Luxemburg, alle Kosten und Steuern inkl."
   },
   "/syndic/benchmark": {
@@ -228,7 +228,7 @@
     "description": "Prüfen Sie die Authentizität eines über tevaxia.lu signierten Bewertungsberichts."
   },
   "/wizard-particulier": {
-    "title": "Privatpersonen-Wizard — Ihr Projekt in 4 Schritten | Tevaxia",
-    "description": "Schätzung → Kaufgebühren → staatliche Beihilfen → legale Mietregel. Alles in einem geführten Pfad."
+    "title": "Ihr Immobilienprojekt in Luxemburg in 4 Schritten | Tevaxia",
+    "description": "Schätzung, Erwerbskosten, staatliche Beihilfen und gesetzliche Miete in Luxemburg: ein geführter Weg in vier Schritten für Ihr Projekt."
   }
 }

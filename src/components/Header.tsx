@@ -6,96 +6,13 @@ import { useState, useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useAuth } from "./AuthProvider";
+import { MENU_GROUPS, type MenuGroup } from "@/lib/nav-menu";
 
-interface MenuItem {
-  href: string;
-  key: string;
-}
-
-interface MenuGroup {
-  key: string;
-  items: MenuItem[];
-}
-
-const MENU_GROUPS: MenuGroup[] = [
-  {
-    key: "particuliers",
-    items: [
-      { href: "/estimation", key: "estimation" },
-      { href: "/carte", key: "carte" },
-      { href: "/frais-acquisition", key: "frais" },
-      { href: "/calculateur-loyer", key: "loyer" },
-      { href: "/simulateur-aides", key: "aides" },
-      { href: "/plus-values", key: "plusValues" },
-      { href: "/achat-vs-location", key: "achatLocation" },
-      { href: "/comparer", key: "comparer" },
-      { href: "/vefa", key: "vefa" },
-      { href: "/str", key: "strHub" },
-    ],
-  },
-  {
-    key: "professionnels",
-    items: [
-      { href: "/valorisation", key: "valorisation" },
-      { href: "/hedonique", key: "hedonique" },
-      { href: "/dcf-multi", key: "dcfMulti" },
-      { href: "/outils-bancaires", key: "bancaire" },
-      { href: "/bilan-promoteur", key: "bilanPromoteur" },
-      { href: "/estimateur-construction", key: "estimateurConstruction" },
-      { href: "/calculateur-vrd", key: "calculateurVrd" },
-      { href: "/convertisseur-surfaces", key: "convertisseurSurfaces" },
-      { href: "/portfolio", key: "portfolio" },
-      { href: "/syndic", key: "syndic" },
-      { href: "/gestion-locative", key: "gestionLocative" },
-      { href: "/bail-commercial", key: "bailCommercial" },
-      { href: "/aml-kyc", key: "amlKyc" },
-      { href: "/pro-agences", key: "proAgences" },
-      { href: "/facturation", key: "facturation" },
-      { href: "/api-banques", key: "apiBanques" },
-    ],
-  },
-  {
-    key: "hotellerie",
-    items: [
-      { href: "/hotellerie", key: "hotelHub" },
-      { href: "/pms", key: "pms" },
-      { href: "/hotellerie/valorisation", key: "hotelValorisation" },
-      { href: "/hotellerie/dscr", key: "hotelDscr" },
-      { href: "/hotellerie/exploitation", key: "hotelExploitation" },
-      { href: "/hotellerie/renovation", key: "hotelRenovation" },
-      { href: "/hotellerie/compset", key: "hotelRevpar" },
-      { href: "/hotellerie/score-e2", key: "hotelE2" },
-    ],
-  },
-  {
-    key: "energy",
-    items: [
-      { href: "/energy/impact", key: "energyImpact" },
-      { href: "/energy/renovation", key: "energyRenovation" },
-      { href: "/energy/communaute", key: "energyCommunaute" },
-      { href: "/energy/hvac", key: "hvac" },
-      { href: "/energy/epbd", key: "energyEpbd" },
-      { href: "/energy/estimateur-cpe", key: "energyCpe" },
-      { href: "/energy/lenoz", key: "energyLenoz" },
-      { href: "/esg", key: "esgHub" },
-      { href: "/esg/crrem-pathways", key: "esgCrrem" },
-      { href: "/esg/taxonomy", key: "esgTaxonomy" },
-    ],
-  },
-  {
-    key: "donnees",
-    items: [
-      { href: "/marche", key: "marche" },
-      { href: "/indices", key: "indices" },
-      { href: "/pag-pap", key: "pagPap" },
-      { href: "/terres-agricoles", key: "terresAgricoles" },
-    ],
-  },
-];
-
-function DropdownMenu({ group, t, onClose }: { group: MenuGroup; t: (key: string) => string; onClose: () => void }) {
+// Le panneau reste dans le HTML servi (attribut hidden quand il est fermé) :
+// les liens du menu sont ainsi lisibles par les moteurs sur chaque page.
+function DropdownMenu({ group, t, open, onClose }: { group: MenuGroup; t: (key: string) => string; open: boolean; onClose: () => void }) {
   return (
-    <div id={`nav-panel-${group.key}`} aria-labelledby={`nav-trigger-${group.key}`} className="absolute top-full left-0 mt-1 w-56 rounded-lg border border-white/10 bg-navy-dark shadow-xl py-1 z-50">
+    <div id={`nav-panel-${group.key}`} aria-labelledby={`nav-trigger-${group.key}`} hidden={!open} className="absolute top-full left-0 mt-1 w-56 rounded-lg border border-white/10 bg-navy-dark shadow-xl py-1 z-50">
       {group.items.map(item => <LocaleLink key={item.href} href={item.href} className="block px-4 py-2 text-sm text-white/70 hover:bg-white/10 hover:text-white transition-colors" onClick={onClose}>{t(item.key)}</LocaleLink>)}
     </div>
   );
@@ -142,7 +59,7 @@ export default function Header() {
             ) : (
               <>
                 <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold text-navy-dark font-bold text-lg">T</div>
-                <span className="text-xl font-bold tracking-tight">tevaxia<span className="text-gold">.lu</span></span>
+                <span className="text-lg font-bold tracking-tight sm:text-xl">tevaxia<span className="text-gold">.lu</span></span>
               </>
             )}
           </LocaleLink>
@@ -154,19 +71,17 @@ export default function Header() {
               }}>
                 <button type="button" id={`nav-trigger-${group.key}`} aria-expanded={openDropdown === group.key} aria-controls={`nav-panel-${group.key}`}
                   onClick={() => setOpenDropdown(openDropdown === group.key ? null : group.key)}
-                  className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+                  className="flex items-center gap-1 rounded-lg px-2 py-2 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white xl:px-3"
                 >
                   {t(group.key)}
                   <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>
                 </button>
-                {openDropdown === group.key && (
-                  <DropdownMenu group={group} t={t} onClose={() => setOpenDropdown(null)} />
-                )}
+                <DropdownMenu group={group} t={t} open={openDropdown === group.key} onClose={() => setOpenDropdown(null)} />
               </div>
             ))}
-            <LocaleLink href="/pricing" className="rounded-lg bg-gold/15 border border-gold/30 px-3 py-2 text-sm font-medium text-gold hover:bg-gold/25 transition-colors">
+            <LocaleLink href="/pricing" className="rounded-lg bg-gold/15 border border-gold/30 px-2 py-2 text-sm font-medium text-gold hover:bg-gold/25 transition-colors xl:px-3">
               {t("tarifs")}
             </LocaleLink>
           </nav>
@@ -182,7 +97,7 @@ export default function Header() {
                 </LocaleLink>
               </div>
             ) : (
-              <LocaleLink href="/connexion" className="rounded-lg bg-gold/90 px-3 py-1 text-xs font-medium text-navy-dark hover:bg-gold transition-colors">
+              <LocaleLink href="/connexion" className="rounded-lg bg-gold/90 px-2 py-1 text-xs sm:px-3 font-medium text-navy-dark hover:bg-gold transition-colors">
                 {t("connexion")}
               </LocaleLink>
             )}

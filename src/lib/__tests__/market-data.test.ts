@@ -97,20 +97,20 @@ describe("suggestComparables", () => {
 });
 
 
-describe("official snapshot published 25 June 2026", () => {
+describe("official snapshot published 24 September 2026", () => {
   it("reconciles all 100 communes and the workbook totals", () => {
     const rows = getAllMarketData();
     expect(rows).toHaveLength(100);
     expect(new Set(rows.map(r => r.commune)).size).toBe(100);
-    expect(rows.reduce((s, r) => s + (r.nbTransactions ?? 0), 0)).toBe(3538);
-    expect(rows.reduce((s, r) => s + (r.nbVEFA ?? 0), 0)).toBe(569);
-    expect(rows.every(r => !r.quartiers && r.periode === "2025-04-01 — 2026-03-31")).toBe(true);
+    expect(rows.reduce((s, r) => s + (r.nbTransactions ?? 0), 0)).toBe(3089);
+    expect(rows.reduce((s, r) => s + (r.nbVEFA ?? 0), 0)).toBe(512);
+    expect(rows.every(r => !r.quartiers && r.periode === "2025-07-01 — 2026-06-30")).toBe(true);
   });
   it("preserves actual figures and official suppression", () => {
     const lux = getMarketDataCommune("Luxembourg")!;
-    expect(lux.prixM2Existant).toBeCloseTo(10250.64904, 4);
-    expect(lux.prixM2ExistantHorsAnnexes).toBeCloseTo(9104.1424, 4);
-    expect(lux.nbTransactions).toBe(666);
+    expect(lux.prixM2Existant).toBeCloseTo(10268.67895, 4);
+    expect(lux.prixM2ExistantHorsAnnexes).toBeCloseTo(8919.88, 4);
+    expect(lux.nbTransactions).toBe(613);
     expect(getMarketDataCommune("Beaufort")!.prixM2Existant).toBeNull();
     expect(getMarketDataCommune("Beaufort")!.loyerM2Annonces).toBeNull();
   });

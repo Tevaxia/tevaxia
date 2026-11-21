@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Luxembourg Housing Aid Simulator — Bellegen Akt, Klimabonus",
+  title: "Housing Aid in Luxembourg 2026: Simulator | Tevaxia",
   description:
     "Simulate all housing aids in Luxembourg: Bellegen Akt, accession bonus, interest subsidy, State guarantee, Klimabonus, municipal aids. 5 cumulative aid layers.",
   alternates: localizedAlternates("/simulateur-aides", "en"),

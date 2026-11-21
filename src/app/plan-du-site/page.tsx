@@ -43,7 +43,6 @@ const SECTIONS: Section[] = [
     titleKey: "evaluateurConstruction",
     links: [
       { href: "/valorisation", key: "valorisation" },
-      { href: "/hedonique", key: "hedonique" },
       { href: "/verify", key: "verify" },
       { href: "/estimateur-construction", key: "estimateurConstruction" },
       { href: "/calculateur-vrd", key: "calculateurVrd" },

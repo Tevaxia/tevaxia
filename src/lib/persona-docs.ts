@@ -36,7 +36,7 @@ export const PERSONA_GUIDES: PersonaGuide[] = [
     slug: "expert-evaluateur",
     tools: [
       { href: "/valorisation", key: "valorisation" },
-      { href: "/hedonique", key: "hedonique" },
+      { href: "/estimation", key: "estimation" },
       { href: "/dcf-multi", key: "dcfMulti" },
       { href: "/verify", key: "verify" },
       { href: "/indices", key: "indices" },
@@ -142,7 +142,7 @@ export const PERSONA_GUIDES: PersonaGuide[] = [
     ],
     related: [
       { href: "/verify", key: "verify" },
-      { href: "/hedonique", key: "hedonique" },
+      { href: "/estimation", key: "estimation" },
     ],
     faqCount: 4,
   },
