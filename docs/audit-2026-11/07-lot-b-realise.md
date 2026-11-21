@@ -1,6 +1,6 @@
 # Note 7 — Lot B : ce qui a été fait (21 novembre 2026)
 
-Branche `fix/audit-lot-b`, empilée sur `fix/audit-lot-a` (les deux lots touchent les mêmes fichiers de langue). Rien n'est committé ni déployé. Vérifications : types, 2 482 tests, puis 39 contrôles automatiques sur une compilation de production locale (1 342 pages) et une exploration de 912 pages.
+Branche `fix/audit-lot-b`, empilée sur `fix/audit-lot-a` (les deux lots touchent les mêmes fichiers de langue). Rien n'est déployé. Vérifications : types, 2 486 tests, puis 39 contrôles automatiques sur une compilation de production locale (1 342 pages) et une exploration de 912 pages.
 
 Le lot B n'est pas entièrement terminé : deux actions sont faites en partie, et une découverte en cours de route change l'ordre de la suite. Tout est détaillé plus bas.
 
@@ -23,21 +23,40 @@ En préparant les retraductions, j'ai lu les blocs de texte placés sous `/carte
 
 **`/carte` : corrigé.** Le texte annonçait « 102 communes » (le site en compte 100), « plus de 12 000 €/m² » dans des communes où la donnée affichée est proche de 10 000 €/m², des variations annuelles différentes de la série Eurostat de la page `/indices`, une estimation pour 2026 alors que le site dit ne pas publier de prévision, et un écart « de 5 à 15 % » entre prix annoncés et prix de vente sans source. Les six passages sont réécrits d'après les données du site, sans chiffre appelé à périmer, puis traduits en entier dans les quatre autres langues.
 
-**`/vefa` : corrigé en partie.** Le texte citait une « loi du 18 avril 2018 » qui n'encadre pas la VEFA. Le régime résulte de la loi du 28 décembre 1976 relative aux ventes d'immeubles à construire, soit les articles 1601-1 à 1601-14 du Code civil ([Legilux](https://legilux.public.lu/eli/etat/leg/loi/1976/12/28/n1/jo)), et la garantie d'achèvement relève de l'article 1601-5 ([Commissariat aux Assurances](https://www.caa.lu/uploads/documents/files/LC_16-6.pdf)). La référence est corrigée dans les cinq langues.
+**`/vefa` : corrigé après vérification sur les textes officiels.** La page citait une « loi du 18 avril 2018 » qui n'encadre pas la VEFA, et plusieurs de ses plafonds étaient faux. Sources : le Code civil consolidé, version applicable au 26 décembre 2025 ([Legilux](https://legilux.public.lu/eli/etat/leg/code/civil/20251226)), la loi du 28 décembre 1976 ([Legilux](https://legilux.public.lu/eli/etat/leg/loi/1976/12/28/n1/jo)), le règlement grand-ducal du 24 février 1977 ([Legilux](https://legilux.public.lu/eli/etat/leg/rgd/1977/02/24/n1/jo)) et [Guichet.lu](https://guichet.public.lu/fr/citoyens/fiscalite/immobilier/depenses-deductibles/declarer-residence-principale-secondaire.html) pour la déduction des intérêts.
 
-Restent sur `/vefa` trois affirmations que je n'ai pas pu confirmer et que je n'ai pas modifiées :
+| Sujet | Ce que la page affichait | Ce que disent les textes |
+|---|---|---|
+| Loi applicable | Loi du 18 avril 2018 | Loi du 28 décembre 1976, articles 1601-1 à 1601-14 du Code civil |
+| Échéancier | « Article 1601-11 » : 33 % à l'acte, 60 % hors d'eau, 95 % à l'achèvement | Article 1601-9 : terrain à l'acte (au plus 10 % du prix total, sauf justification), puis au plus 15 % du prix des constructions aux fondations, 50 % à la dalle supérieure, 95 % à l'achèvement, solde à la mise à disposition |
+| Réservation | Indemnité d'immobilisation plafonnée à 5 % (art. 1601-10) | Dépôt de garantie du contrat préliminaire limité à 2 % du prix prévisionnel (art. 1601-13) ; indemnité forfaitaire de résolution limitée à 10 % (art. 1601-11) |
+| Garantie d'achèvement | Garantie « bancaire ou d'assurance » (art. 1601-12), avec une variante « intrinsèque » sur fonds propres du promoteur | Garantie d'achèvement ou de remboursement donnée par une banque, par ouverture de crédit ou cautionnement (art. 1601-5 et règlement de 1977). La variante « intrinsèque » est une notion française ; la seule dispense vise les constructions publiques |
+| Garantie décennale | « Art. 1792-2 » | Art. 1646-1, qui renvoie aux articles 1792 et 2270 : dix ans pour les vices cachés, deux ans pour les menus ouvrages |
+| Solde de 5 % | « Retenu tant que les réserves ne sont pas levées » | Payable à la mise à disposition ; peut être consigné en cas de contestation sur la conformité (art. 1601-9) |
+| Intérêts intercalaires | Déductibles « de 1 500 à 3 000 € par an » | Intégralement déductibles tant que le logement n'est pas à disposition ; plafonds par personne après l'occupation (2 000 à 4 000 € depuis l'année d'imposition 2024, chiffres tirés de sources secondaires concordantes) |
 
-- un échéancier légal « 33 % à l'acte, 60 % hors d'eau, 95 % à l'achèvement », attribué à l'article 1601-11 ; un guide professionnel cite d'autres seuils ([Kolmio](https://kolmio.lu/fr/actualites/promotion-immobiliere-la-vente-en-etat-futur-d-achevement-ou-vefa)) ;
-- une indemnité d'immobilisation plafonnée à 5 % (article 1601-10) et une garantie décennale rattachée à un « article 1792-2 » ;
-- des intérêts déductibles « de 1 500 à 3 000 € par an ».
+Seize chaînes de la page sont réécrites dans les cinq langues, en entier cette fois, ainsi que cinq chaînes du parcours « promoteur » et la consigne donnée à l'assistant d'analyse de contrat, qui demandait de vérifier une « assurance dommages-ouvrage » et un « parfait achèvement » propres au droit français.
 
-Si l'échéancier est faux, la question touche aussi le simulateur, qui s'en sert peut-être par défaut. C'est le premier point à vérifier.
+**Le simulateur lui-même : échéancier par défaut aligné.** L'ancien échéancier par défaut (5 % à la signature, puis 15, 20, 20, 15, 15 et 10 %) restait sous les plafonds légaux, mais il était peu réaliste : la loi permet d'appeler le prix du terrain dès l'acte, soit 30 % dans l'exemple par défaut, là où le simulateur n'appelait que 5 %. Les intérêts intercalaires affichés étaient donc sous-estimés.
+
+L'échéancier par défaut se déduit désormais du prix et de la part terrain saisis : le terrain est appelé à l'acte, et le prix des constructions est réparti en 15 % aux fondations, 20 % au hors d'eau, 15 % au hors d'air, 20 % aux cloisons, 25 % aux finitions et 5 % à la livraison, soit en cumul 15 %, 50 % et 95 % aux trois étapes plafonnées par l'article 1601-9. La règle est isolée dans `src/lib/vefa-schedule.ts` et couverte par quatre tests.
+
+| Exemple par défaut (650 000 €, dont 195 000 € de terrain, prêt de 520 000 € à 3,5 %) | Avant | Après |
+|---|---|---|
+| Échéancier, en % du prix total | 5 / 15 / 20 / 20 / 15 / 15 / 10 | 30 / 10,5 / 14 / 10,5 / 14 / 17,5 / 3,5 |
+| Intérêts intercalaires affichés | 18 200 € | 23 402 € |
+
+L'échéancier suit la part terrain tant que l'utilisateur n'a pas modifié un pourcentage : avec un terrain à 10 % du prix, il devient 10 / 13,5 / 18 / 13,5 / 18 / 22,5 / 4,5. Dès qu'un pourcentage est saisi à la main, la saisie est conservée ; « Réinitialiser » revient à l'échéancier déduit. Les pourcentages acceptent une décimale. La note sous l'échéancier explique la règle et rappelle les plafonds légaux, dans les cinq langues.
+
+Deux limites. Le simulateur n'applique pas le plafond de 10 % du prix total pour le terrain payable à l'acte : la loi l'écarte lorsque la valeur du terrain est justifiée, ce que l'outil ne peut pas savoir. Il ne bloque pas non plus un échéancier saisi à la main qui dépasserait les plafonds. Le bloc « garantie » garde son fonctionnement, avec deux choix relibellés : garantie bancaire (cas général) ou vendeur public dispensé.
+
+Reste à votre appréciation : le taux de coût de la garantie proposé par défaut (0,8 % du prix) n'a pas de source ; il est maintenant présenté comme une hypothèse.
 
 Quinze autres pages utilisent encore ce type de bloc : `/achat-vs-location`, `/aml-kyc`, `/bail-commercial`, `/calculateur-loyer`, `/comparer`, `/convertisseur-surfaces`, `/energy`, `/gestion-locative`, `/hotellerie`, `/pag-pap`, `/portfolio`, `/pro-agences`, `/propcalc`, `/syndic`, `/wizard-particulier`. Je ne les ai pas relus.
 
 ## Fait en partie
 
-**7.2 Retraduction des blocs abrégés.** Seule la page `/carte` est retraduite en entier. Il reste, en chaînes dont la traduction fait moins de 60 % du français :
+**7.2 Retraduction des blocs abrégés.** Les pages `/carte` et `/vefa` sont retraduites en entier. Il reste, en chaînes dont la traduction fait moins de 60 % du français :
 
 | Langue | Chaînes | Mots français à traduire | Dont blocs sous les outils |
 |---|---|---|---|
@@ -62,11 +81,13 @@ Je me suis arrêté là volontairement : traduire en entier des textes français
 
 | Contrôle | Résultat |
 |---|---|
-| Types et tests | `tsc` propre, 2 482 tests réussis |
+| Types et tests | `tsc` propre, 2 486 tests réussis (dont 4 nouveaux sur l'échéancier VEFA) |
 | Compilation de production (copie sur `C:`) | 1 342 pages générées |
 | 39 contrôles automatiques du rendu | 39 conformes |
 | Clés de traduction brutes sur 911 pages | aucune |
 | Pages en erreur | aucune (une redirection attendue) |
+| Page VEFA après correction juridique, cinq langues | 8 contrôles conformes ; les 39 contrôles du lot rejoués, toujours conformes |
+| Échéancier VEFA par défaut, sur une nouvelle compilation | Valeurs attendues affichées dans les cinq langues ; changement de la part terrain, saisie manuelle et réinitialisation testés dans le navigateur ; les 8 et 39 contrôles rejoués, conformes |
 
 Contrôles couverts : titres dans les cinq langues, H1 et balisage des deux guides, `noindex` et sitemap des communes, liens vers les pages « solutions », blocs de questions et leur balisage, textes sous les quatre outils, corrections de `/carte` et de `/vefa`.
 
