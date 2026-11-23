@@ -11,6 +11,7 @@ Audit du site en ligne, 20 novembre 2026 (version 2, qui remplace celle du matin
 | [05-benchmark-design](audit-2026-11/05-benchmark-design.md) | Onze sites comparés et dix propositions de design |
 | [06-lot-a-realise](audit-2026-11/06-lot-a-realise.md) | Ce qui a été corrigé le 20 novembre (lot A), contrôles et mesures |
 | [07-lot-b-realise](audit-2026-11/07-lot-b-realise.md) | Lot B (21 novembre) : ce qui est fait, ce qui reste, textes non audités découverts sur `/carte` et `/vefa` |
+| [08-lot-c-realise](audit-2026-11/08-lot-c-realise.md) | Lot C (21 novembre) : pages de présentation du syndic, du PMS et de la gestion locative, formulaire de démonstration, aperçus du produit ; migration à appliquer |
 
 ## Synthèse
 
