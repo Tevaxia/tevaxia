@@ -16,15 +16,15 @@
     "description": "Simulez l’indexation du loyer commercial, le pas-de-porte et le coût du bail au Luxembourg à partir des paramètres de votre contrat."
   },
   "/bilan-promoteur": {
-    "title": "Bilan promoteur documenté | Tevaxia",
-    "description": "Recettes, coûts et marge cible saisis pour votre opération. Montants en euros, hors TVA récupérable et TVA non récupérable incluse."
+    "title": "Bilan promoteur au Luxembourg : marge et charge foncière",
+    "description": "Bilan promoteur pour une opération au Luxembourg : recettes, coûts, marge cible et budget foncier résiduel, à partir de vos montants documentés en euros."
   },
   "/calculateur-loyer/observatoire": {
-    "title": "Observatoire des loyers Luxembourg (Mietspiegel-like) | Tevaxia",
+    "title": "Observatoire des loyers au Luxembourg par commune | Tevaxia",
     "description": "Loyers médians observés par commune, zone et typologie au Q4 2025. Sources agrégées : Athome Pro, Observatoire de l'Habitat, panel tevaxia."
   },
   "/cgu": {
-    "title": "Conditions Générales d'Utilisation | Tevaxia",
+    "title": "Conditions générales d'utilisation de tevaxia.lu",
     "description": "Les présentes Conditions Générales d'Utilisation (CGU) régissent l'utilisation de la plateforme tevaxia.lu et de ses services."
   },
   "/docs": {
@@ -40,20 +40,20 @@
     "description": "Retrouvez vos documents de facturation enregistrés et réutilisez leurs données pour préparer un nouveau téléchargement dans Tevaxia."
   },
   "/frais-acquisition": {
-    "title": "Simulateur de Frais d'Acquisition | Tevaxia",
-    "description": "Droits d'enregistrement, Bëllegen Akt, TVA, émoluments notariaux, frais d'hypothèque"
+    "title": "Frais de notaire au Luxembourg 2026 : simulateur gratuit",
+    "description": "Calculez les frais d'acquisition au Luxembourg : droits d'enregistrement, Bëllegen Akt, TVA, émoluments du notaire et frais d'hypothèque. Estimation indicative."
   },
   "/gestion-locative": {
-    "title": "Gestion locative au Luxembourg | Tevaxia",
-    "description": "Suivez votre portefeuille avec les spécificités luxembourgeoises : règle des 5 %, impact énergétique (Klimabonus) et alertes sur les loyers hors plafond."
+    "title": "Logiciel de gestion locative au Luxembourg | Tevaxia",
+    "description": "Gestion locative pour bailleurs au Luxembourg : lots, plafond légal de loyer (règle des 5 %), paiements, quittances, relances et rapprochement bancaire."
   },
   "/gestion-locative/ais": {
-    "title": "Gestion locative sociale : simulation par année | Tevaxia",
-    "description": "Comparez deux hypothèses de revenu locatif net. L’exonération partielle concerne les revenus provenant d’organismes conventionnés ; elle ne s’applique pas automatiquement à toute location dite sociale."
+    "title": "Gestion locative sociale au Luxembourg : simulation",
+    "description": "Comparez deux hypothèses de revenu locatif net. L’exonération partielle vise les revenus d’organismes conventionnés et ne s’applique pas automatiquement."
   },
   "/gestion-locative/assurance-impayes": {
-    "title": "Assurance impayés : comparer vos devis | Tevaxia",
-    "description": "Saisissez les primes annuelles de devis reçus pour comparer leur coût."
+    "title": "Assurance loyers impayés au Luxembourg : comparer vos devis",
+    "description": "Saisissez les primes annuelles des devis reçus pour comparer le coût des garanties loyers impayés d’un logement loué au Luxembourg."
   },
   "/gestion-locative/portefeuille": {
     "title": "Mon portefeuille locatif | Tevaxia",
@@ -72,8 +72,8 @@
     "description": "3 niveaux paramétrés : rappel amiable J+15 → mise en demeure J+30 → commandement de payer J+60. PDF conforme loi 21.09.2006, à envoyer en recommandé AR (papier ou eIDAS)."
   },
   "/hotellerie": {
-    "title": "Solutions hôtellerie | Tevaxia",
-    "description": "Valorisation, couverture de dette, exploitation et dossiers documentaires : travaillez à partir de vos chiffres et de vos sources, avec des hypothèses explicites."
+    "title": "Outils pour l'hôtellerie au Luxembourg | Tevaxia",
+    "description": "Hôtellerie au Luxembourg : valorisation, couverture de dette, exploitation et dossiers documentaires, à partir de vos chiffres et d’hypothèses explicites."
   },
   "/hotellerie/alerts": {
     "title": "Seuils hôteliers enregistrés | Tevaxia",
@@ -84,16 +84,16 @@
     "description": "Comparez les indicateurs enregistrés pour des dates de début et de fin strictement identiques."
   },
   "/hotellerie/capex": {
-    "title": "Plan CAPEX et financement documenté | Tevaxia",
-    "description": "Planifiez vos dépenses d’investissement et leurs financements sur 1 à 30 années consécutives."
+    "title": "Plan CAPEX d'un hôtel et son financement | Tevaxia",
+    "description": "Planifiez les dépenses d’investissement d’un hôtel et leurs financements sur 1 à 30 années consécutives, à partir de vos montants documentés."
   },
   "/hotellerie/certifications-esg": {
-    "title": "Préparer les preuves Green Key | Tevaxia",
+    "title": "Green Key pour un hôtel : préparer les preuves | Tevaxia",
     "description": "Registre interne de documents, sans score ni décision d’éligibilité. Une preuve renseignée ne vaut pas conformité."
   },
   "/hotellerie/due-diligence": {
     "title": "Due diligence hôtelière : dossier documentaire | Tevaxia",
-    "description": "50 points de préparation non exhaustifs, à adapter à l’établissement et à l’opération."
+    "description": "Due diligence hôtelière : 50 points de préparation non exhaustifs, à adapter à l’établissement et à l’opération. Dossier documentaire exportable."
   },
   "/hotellerie/forecast": {
     "title": "Projection hôtelière | Tevaxia",
@@ -104,36 +104,36 @@
     "description": "Accédez aux établissements de votre groupe hôtelier et organisez leur suivi dans l’espace multi-sites Tevaxia."
   },
   "/hotellerie/housekeeping": {
-    "title": "Plan quotidien de housekeeping | Tevaxia",
-    "description": "Calculez la charge d’une journée à partir des départs et recouches réellement prévus."
+    "title": "Housekeeping hôtelier : plan quotidien de charge | Tevaxia",
+    "description": "Calculez la charge de housekeeping d’une journée d’hôtel à partir des départs et des recouches réellement prévus. Aucune donnée n’est préremplie."
   },
   "/hotellerie/impayes": {
-    "title": "Intérêts de retard documentés | Tevaxia",
-    "description": "Une facture, un principal inchangé, sans paiement partiel ni capitalisation."
+    "title": "Intérêts de retard sur facture impayée d'hôtel | Tevaxia",
+    "description": "Calculez les intérêts de retard d’une facture impayée : un principal inchangé, sans paiement partiel ni capitalisation. Montants à vérifier avant envoi."
   },
   "/hotellerie/mice": {
-    "title": "Budget MICE documenté | Tevaxia",
+    "title": "Budget MICE d'un hôtel : séminaires et événements | Tevaxia",
     "description": "Scénario sur une période de 1 à 366 jours. Renseignez vos volumes attendus, prix et coûts sur une même base fiscale."
   },
   "/hotellerie/motel": {
     "title": "Motel et aparthotel : préparer votre étude | Tevaxia",
-    "description": "Établissez les comptes d’exploitation, la valeur et le financement avec vos propres données."
+    "description": "Motel ou aparthotel : établissez les comptes d’exploitation, la valeur et le financement de votre projet avec vos propres données documentées."
   },
   "/hotellerie/renovation": {
-    "title": "Rénovation hôtelière : budget et économies d’énergie | Tevaxia",
+    "title": "Rénovation d'hôtel : budget et économies d'énergie | Tevaxia",
     "description": "Comparez le budget de rénovation d’un hôtel, les aides confirmées et les économies d’énergie selon vos devis et hypothèses documentées."
   },
   "/inspection": {
-    "title": "Grille de visite immobilière | Tevaxia",
+    "title": "Grille de visite d'un bien immobilier au Luxembourg",
     "description": "Préparez une visite immobilière : observations, points à vérifier et notes exportables. Document de travail sans certification professionnelle."
   },
   "/marche": {
-    "title": "Observations du marché immobilier | Tevaxia",
+    "title": "Marché immobilier au Luxembourg : données par commune",
     "description": "Données de marché immobilier au Luxembourg — résidentiel, bureaux, commerces, logistique, terrains et indicateurs macro."
   },
   "/marche/forecast": {
-    "title": "Scénarios de prix immobiliers | Tevaxia",
-    "description": "Calculez l’effet de vos hypothèses de variation annuelle sur un prix de départ."
+    "title": "Scénarios de prix immobiliers au Luxembourg | Tevaxia",
+    "description": "Calculez l’effet de vos hypothèses de variation annuelle sur un prix de départ. Scénarios à votre main, sans prévision de marché."
   },
   "/mentions-legales": {
     "title": "Mentions légales et éditeur du site | Tevaxia",
@@ -148,7 +148,7 @@
     "description": "Consultez le récapitulatif annuel des commissions immobilières perçues et le pipeline de votre agence dans Tevaxia."
   },
   "/pro-agences/fiche-bien": {
-    "title": "Fiche bien, présentation complète PDF | Tevaxia",
+    "title": "Fiche bien immobilier en PDF pour agences | Tevaxia",
     "description": "Fiche commerciale fondée sur vos informations. Les nombres initiaux sont des exemples à remplacer ; aucune estimation indépendante n’est calculée ici."
   },
   "/pro-agences/performance": {
@@ -160,27 +160,27 @@
     "description": "Rechercher dans toutes les entités tevaxia : mandats, contacts CRM, copropriétés, propriétés hôtelières et réservations."
   },
   "/solutions/hotel": {
-    "title": "Outils pour hôteliers et investisseurs au Luxembourg | Tevaxia",
-    "description": "Choisissez les outils adaptés à votre projet hôtelier : valorisation, DSCR, exploitation et préparation documentaire, avec vos propres données."
+    "title": "PMS hôtelier au Luxembourg : logiciel de gestion d'hôtel",
+    "description": "PMS pour hôtels, chambres d'hôtes et résidences au Luxembourg : planning des réservations, réception, tarifs saisonniers, folios et rapports d'occupation."
   },
   "/status": {
     "title": "État des services et disponibilité | Tevaxia",
     "description": "Accessibilité HTTP des points testés : site, documentation API, configuration d’authentification et portail data.public.lu."
   },
   "/str/arbitrage": {
-    "title": "Arbitrage long terme vs court terme | Tevaxia",
+    "title": "Location longue ou courte durée au Luxembourg : comparer",
     "description": "Comparez 3 scénarios chiffrés : location longue durée (règle 5%), STR pur (Airbnb/Booking), ou mixte (STR saisonnier + LT le reste)."
   },
   "/str/compliance": {
-    "title": "Conformité STR au Luxembourg | Tevaxia",
-    "description": "Vérifiez vos obligations légales avant de lancer une location courte durée au Luxembourg."
+    "title": "Location courte durée au Luxembourg : obligations légales",
+    "description": "Vérifiez vos obligations légales avant de lancer une location de courte durée au Luxembourg. Liste de points à confirmer auprès des autorités compétentes."
   },
   "/str/compliance-eu": {
-    "title": "Registre EU STR 2024/1028 | Tevaxia",
-    "description": "Préparation du dossier d'enregistrement au registre unique européen des locations de courte durée."
+    "title": "Registre européen des locations courte durée (2024/1028)",
+    "description": "Préparez le dossier d'enregistrement au registre unique européen des locations de courte durée prévu par le règlement (UE) 2024/1028."
   },
   "/str/observatoire": {
-    "title": "Observatoire STR Luxembourg | Tevaxia",
+    "title": "Observatoire Airbnb au Luxembourg : ADR et occupation",
     "description": "Données agrégées Airbnb/Booking/Vrbo par commune et zone. ADR médian, percentiles P25-P75, occupation, nuitées disponibles, listings actifs."
   },
   "/str/portefeuille": {
@@ -188,11 +188,11 @@
     "description": "Dashboard multi-biens pour conciergerie ou investisseur courte durée (10-50 biens)."
   },
   "/str/pricing": {
-    "title": "Dynamic pricing STR Luxembourg | Tevaxia",
+    "title": "Tarification Airbnb au Luxembourg : prix par saison",
     "description": "Recommandation de tarification ADR mois par mois selon la saisonnalité LU spécifique (météo, événements, salons), avec règles weekend et last-minute."
   },
   "/str/rentabilite": {
-    "title": "Rentabilité STR (Airbnb / Booking / Vrbo) | Tevaxia",
+    "title": "Rentabilité Airbnb au Luxembourg : simulateur | Tevaxia",
     "description": "Calculez le revenu net annuel de votre bien loué en courte durée au Luxembourg, toutes charges et impôts inclus."
   },
   "/syndic/benchmark": {
@@ -200,7 +200,7 @@
     "description": "Comparez les KPIs de toutes les copropriétés sous gestion de votre cabinet."
   },
   "/syndic/lettres-types": {
-    "title": "Bibliothèque lettres types syndic | Tevaxia",
+    "title": "Lettres types pour syndic de copropriété au Luxembourg",
     "description": "Préparez vos courriers de syndic à partir de modèles modifiables, personnalisez leur contenu et exportez les documents depuis Tevaxia."
   },
   "/syndic/portefeuille": {
@@ -208,7 +208,7 @@
     "description": "Vue consolidée des copropriétés gérées. Priorisation par montant d'impayés décroissant pour cibler les actions de recouvrement."
   },
   "/syndic/procuration": {
-    "title": "Procuration AG, générateur PDF | Tevaxia",
+    "title": "Procuration pour AG de copropriété au Luxembourg (PDF)",
     "description": "Générez une procuration pour représentation à une AG de copropriété conforme à la loi du 16 mai 1975 (articles 7 et 11)."
   },
   "/tableau-bord": {
@@ -216,7 +216,7 @@
     "description": "Vue consolidée de toute votre activité tevaxia.lu : évaluations, portefeuille locatif, mandats, liens partagés."
   },
   "/transparence": {
-    "title": "Données et limites de l’estimation | Tevaxia",
+    "title": "Estimation immobilière Tevaxia : données et limites",
     "description": "Comprenez les sources de prix immobiliers, les hypothèses et les limites du modèle d’estimation indicative de Tevaxia au Luxembourg."
   },
   "/vefa": {
@@ -228,7 +228,7 @@
     "description": "Vérifiez l'authenticité d'un rapport de valorisation signé via tevaxia.lu."
   },
   "/wizard-particulier": {
-    "title": "Wizard Particulier — votre projet en 4 étapes | Tevaxia",
-    "description": "Estimation → frais d'achat → aides de l'État → règle du loyer légal. Tout en un seul parcours guidé."
+    "title": "Projet immobilier au Luxembourg en 4 étapes | Tevaxia",
+    "description": "Estimation, frais d'achat, aides de l'État et loyer légal au Luxembourg : un seul parcours guidé en quatre étapes pour préparer votre projet."
   }
 }

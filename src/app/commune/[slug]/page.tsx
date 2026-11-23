@@ -4,7 +4,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { resolveCommuneRoute } from "@/lib/commune-routes";
 import { buildLocaleUrl, localizedAlternates, type Locale } from "@/lib/seo";
 import { SEO_BRANDING } from "@/lib/seo-branding";
-import { getAllCommunes, getCommuneBySlug, slugifyCommune } from "@/lib/market-data";
+import { getAllCommunes, getCommuneBySlug, slugifyCommune, hasPublishedPrices } from "@/lib/market-data";
 import { COMMUNE_COORDS } from "@/lib/communes-coords";
 import CommunePageClient from "./CommunePageClient";
 
@@ -45,6 +45,7 @@ export async function generateMetadata({
   const canonical = buildLocaleUrl(pagePath, locale);
   return {
     ...copy,
+    ...(hasPublishedPrices(commune) ? {} : { robots: { index: false, follow: true } }),
     alternates: localizedAlternates(pagePath, locale),
     openGraph: { ...copy, url: canonical, siteName: "tevaxia.lu", locale: SEO_BRANDING[locale].ogLocale, type: "website", images: ["https://tevaxia.lu/og-image.png"] },
     twitter: { ...copy, card: "summary_large_image", images: ["https://tevaxia.lu/og-image.png"] },

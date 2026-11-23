@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 import SEOContent from "@/components/SEOContent";
+import ProductPreview from "@/components/product/ProductPreview";
+import { DemoSection } from "@/components/product/ProductLanding";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("proAgences.meta");
@@ -128,6 +130,13 @@ export default async function ProAgences() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Aperçu du pipeline, avec des données fictives */}
+      <section className="border-b border-card-border bg-card py-12 text-muted">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <ProductPreview product="crm" />
         </div>
       </section>
 
@@ -266,6 +275,8 @@ export default async function ProAgences() {
           </div>
         </div>
       </section>
+
+      <DemoSection product="crm" />
 
       <SEOContent
         ns="proAgences"

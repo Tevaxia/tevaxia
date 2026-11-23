@@ -15,4 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function Guide() { return <AuditedFiscalGuide kind="rent" />; }
+export default async function Guide() {
+  const t = await getTranslations(NAMESPACE);
+  return <AuditedFiscalGuide kind="rent" title={t("title")} />;
+}

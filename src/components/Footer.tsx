@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import LocaleLink from "./LocaleLink";
 import CookieSettingsButton from "./CookieSettingsButton";
+import { FOOTER_TOOLS } from "@/lib/nav-menu";
 
 export default async function Footer() {
   const [tc, tn] = await Promise.all([
@@ -11,7 +12,7 @@ export default async function Footer() {
   return (
     <footer className="border-t border-card-border bg-navy-dark text-white/75">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="grid gap-8 break-words sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 break-words sm:grid-cols-2 lg:grid-cols-5">
           {/* Logo + tagline */}
           <div>
             <div className="flex items-center gap-2">
@@ -22,6 +23,18 @@ export default async function Footer() {
               {tc("footerTagline")}
             </p>
           </div>
+
+          {/* Outils principaux : liens présents sur chaque page */}
+          <nav aria-label={tc("tools")}>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/75 mb-3">{tc("tools")}</h3>
+            <ul className="space-y-1.5 text-sm">
+              {FOOTER_TOOLS.map(item => <li key={item.href}><LocaleLink href={item.href} className="hover:text-white transition-colors">{tn(item.key)}</LocaleLink></li>)}
+              {/* Pages de présentation des logiciels : liées depuis chaque page. */}
+              <li><LocaleLink href="/solutions/syndic" className="hover:text-white transition-colors">{tc("footerSyndicSoftware")}</LocaleLink></li>
+              <li><LocaleLink href="/solutions/hotel" className="hover:text-white transition-colors">{tc("footerPms")}</LocaleLink></li>
+              <li><LocaleLink href="/gestion-locative" className="hover:text-white transition-colors">{tc("footerRentalSoftware")}</LocaleLink></li>
+            </ul>
+          </nav>
 
           {/* Légal */}
           <div>

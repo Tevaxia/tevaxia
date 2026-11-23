@@ -33,10 +33,13 @@ export interface MarketDataCommune {
   quartiers?: QuartierData[];
 }
 
-// Import des quatre fichiers officiels CC0, publication 25 juin 2026.
+// Import des quatre fichiers officiels CC0, publication du 24 septembre 2026
+// (prix affinés : version 2 du 2 octobre 2026).
 // 12 mois glissants ; valeurs non publiées (*) conservées à null.
 // Aucun prix par quartier n'est déduit de ces moyennes communales.
-import snapshot from "./market-data-2026t1.json";
+import snapshot from "./market-data-2026t2.json";
+
+export { MARKET_SNAPSHOT } from "./market-snapshot";
 export const MARKET_SOURCES = {
   transactions: "https://data.public.lu/fr/datasets/prix-de-vente-des-appartements-par-commune/",
   horsAnnexes: "https://data.public.lu/fr/datasets/prix-de-vente-des-appartements-prix-affines-hors-annexes-par-commune/",
@@ -614,4 +617,12 @@ export function suggestComparables(communeName: string, nbMax: number = 5): {
     .sort((a, b) => b.score - a.score)
     .slice(0, nbMax)
     .map(({ score: _s, ...rest }) => rest);
+}
+
+/** Une commune dont aucune valeur de prix ou de loyer n'est publiée (moins de
+ * 10 ventes, moins de 30 annonces) n'a pas de contenu propre à présenter aux
+ * moteurs : sa page reste consultable mais n'est ni indexée ni au sitemap. */
+export function hasPublishedPrices(commune: MarketDataCommune): boolean {
+  return [commune.prixM2Existant, commune.prixM2VEFA, commune.prixM2ExistantHorsAnnexes,
+    commune.prixM2VEFAHorsAnnexes, commune.prixM2Annonces, commune.loyerM2Annonces].some(value => value !== null);
 }

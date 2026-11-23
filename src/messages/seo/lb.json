@@ -40,12 +40,12 @@
     "description": "Fannt Är gespäichert Rechnungsdokumenter a benotzt hir Donnéeën, fir en neien Download an Ärem Tevaxia-Beräich virzebereeden."
   },
   "/frais-acquisition": {
-    "title": "Erwerbskäschtesimulator | Tevaxia",
-    "description": "Registréierungsofgaben, Bëllegen Akt, TVA, Notarkäschten, Hypothéikskäschten"
+    "title": "Notärskäschten zu Lëtzebuerg 2026: gratis Rechner",
+    "description": "Rechent d'Akafskäschten zu Lëtzebuerg aus: Enregistrementsrechter, Bëllegen Akt, TVA, Notärskäschten an Hypothéikskäschten. Indikativ Schätzung."
   },
   "/gestion-locative": {
-    "title": "Locatiouns-Gestioun zu Lëtzebuerg | Tevaxia",
-    "description": "Verfollegt Är Portfolio mat de Lëtzebuerger Spezifizitéiten: Reegel 5 %, Energie-Impakt (Klimabonus) an Alerten op Mieten iwwer dem Plafong."
+    "title": "Software fir d'Locatiounsgestioun zu Lëtzebuerg | Tevaxia",
+    "description": "Locatiounsgestioun fir Proprietären zu Lëtzebuerg: Lotten, gesetzleche Loyersplafong (5-%-Regel), Bezuelungen, Quittungen, Relancen a Bankrapprochement."
   },
   "/gestion-locative/ais": {
     "title": "Sozial Locatiounsgestioun: Verglach no Joer | Tevaxia",
@@ -72,7 +72,7 @@
     "description": "3 konfiguréiert Niveauen: frëndlech Mahnung D+15 → Mise en demeure D+30 → Befeel D+60. PDF konform mam Gesetz 21.09.2006, per Einschreiwen mat Réckschein ze schécken (Pabeier oder eIDAS)."
   },
   "/hotellerie": {
-    "title": "Hotellerie-Léisungen | Tevaxia",
+    "title": "Tools fir d'Hotellerie zu Lëtzebuerg | Tevaxia",
     "description": "Bewäertung, Scholdendeckung, Betrib an Dossieren: mat Ären Zuelen, Quellen an explizitten Hypotheese schaffen."
   },
   "/hotellerie/alerts": {
@@ -124,11 +124,11 @@
     "description": "Vergläicht de Renovatiounsbudget vun engem Hotel, bestätegt Bäihëllefen an Energiespuere mat Ären Devisen an dokumentéierten Hypotheesen."
   },
   "/inspection": {
-    "title": "Checklëscht fir d’Immobiliebesichtegung | Tevaxia",
+    "title": "Checklëscht fir eng Immobiliebesichtegung zu Lëtzebuerg",
     "description": "Preparéiert eng Immobiliebesichtegung: Observatiounen, Kontrollpunkten an exportéierbar Notizen. Aarbechtsdokument ouni fachlech Zertifizéierung."
   },
   "/marche": {
-    "title": "Observatiounen um Immobiliemaart | Tevaxia",
+    "title": "Immobiliemaart zu Lëtzebuerg: Donnéeën no Gemeng",
     "description": "Immobiliënmarchédaten zu Lëtzebuerg — Wunnen, Büro, Handel, Logistik, Terrain a Makroindikatoren."
   },
   "/marche/forecast": {
@@ -160,8 +160,8 @@
     "description": "Sicht an all den tevaxia-Entitéiten: Mandater, CRM-Kontakter, Coproprietéiten, Hotelobjeten a Reservatiounen."
   },
   "/solutions/hotel": {
-    "title": "Instrumenter fir Hotellieren an Investisseuren | Tevaxia",
-    "description": "Wielt Instrumenter fir Ären Hotelprojet: Bewäertung, DSCR, Betribsanalyse an Dokumentvirbereedung op Basis vun Ären eegenen Donnéeën."
+    "title": "Hotel-PMS zu Lëtzebuerg: Software fir d'Hotelgestioun",
+    "description": "PMS fir Hotellen, Gaaschtzëmmeren a Residenzen zu Lëtzebuerg: Reservatiounsplang, Receptioun, Saisonpräisser, Folioen a Rapporten iwwer d'Beleeung."
   },
   "/status": {
     "title": "Zoustand an Disponibilitéit vun den Déngschter | Tevaxia",
@@ -192,7 +192,7 @@
     "description": "Méintlech ADR-Präisempfehlung no LU-spezifescher Saisonalitéit (Wieder, Eventer, Salonen), mat Weekend- a Last-Minute-Regelen."
   },
   "/str/rentabilite": {
-    "title": "STR-Rendement (Airbnb / Booking / Vrbo) | Tevaxia",
+    "title": "Airbnb-Rentabilitéit zu Lëtzebuerg: Simulator | Tevaxia",
     "description": "Berechent d'jäerlecht Nettoakommes vun Ärer Kuerzzäitvermietung zu Lëtzebuerg, all Käschten a Steier abegraff."
   },
   "/syndic/benchmark": {
@@ -228,7 +228,7 @@
     "description": "Iwwerpréift d'Authentizitéit vun engem Valorisatiouns-Bericht, deen iwwer tevaxia.lu ënnerschriwwe gouf."
   },
   "/wizard-particulier": {
-    "title": "Privatperson-Wizard — Äre Projet a 4 Schrëtt | Tevaxia",
+    "title": "Äre Immobilieprojet zu Lëtzebuerg a 4 Schrëtt | Tevaxia",
     "description": "Schätzung → Akafsgebühren → staatlech Hëllefen → legal Loyer-Regel. Alles an engem guidéierten Wee."
   }
 }

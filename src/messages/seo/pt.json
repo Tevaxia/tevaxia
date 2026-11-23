@@ -17,7 +17,7 @@
   },
   "/bilan-promoteur": {
     "title": "Balanço documentado do promotor | Tevaxia",
-    "description": "Introduza receitas, custos e margem pretendida do projeto. Valores em euros, sem IVA recuperável e incluindo IVA não recuperável."
+    "description": "Balanço de promotor para uma operação no Luxemburgo: receitas, custos, margem-alvo e orçamento residual do terreno, com os seus montantes documentados."
   },
   "/calculateur-loyer/observatoire": {
     "title": "Observatório de rendas do Luxemburgo (Mietspiegel-like) | Tevaxia",
@@ -40,12 +40,12 @@
     "description": "Encontre os documentos de faturação guardados e reutilize os dados para preparar uma nova transferência no seu espaço Tevaxia."
   },
   "/frais-acquisition": {
-    "title": "Simulador de Encargos de Aquisição | Tevaxia",
-    "description": "Direitos de registo, Bëllegen Akt, IVA, emolumentos notariais, encargos hipotecários"
+    "title": "Custos de notário no Luxemburgo 2026: simulador gratuito",
+    "description": "Calcule os custos de aquisição no Luxemburgo: direitos de registo, Bëllegen Akt, IVA, emolumentos notariais e encargos de hipoteca. Estimativa indicativa."
   },
   "/gestion-locative": {
-    "title": "Gestão de arrendamento no Luxemburgo | Tevaxia",
-    "description": "Acompanhe a sua carteira com as especificidades luxemburguesas: regra dos 5 %, impacto energético (Klimabonus) e alertas sobre rendas acima do teto legal."
+    "title": "Software de gestão de arrendamento no Luxemburgo | Tevaxia",
+    "description": "Gestão de arrendamento para senhorios no Luxemburgo: frações, teto legal da renda (regra dos 5 %), pagamentos, recibos, avisos e reconciliação bancária."
   },
   "/gestion-locative/ais": {
     "title": "Gestão de arrendamento social: simulação por ano | Tevaxia",
@@ -72,7 +72,7 @@
     "description": "3 níveis configurados: aviso amigável D+15 → notificação formal D+30 → injunção D+60. PDF conforme à lei 21.09.2006, a enviar por carta registada (papel ou eIDAS)."
   },
   "/hotellerie": {
-    "title": "Soluções hotelaria | Tevaxia",
+    "title": "Ferramentas para a hotelaria no Luxemburgo | Tevaxia",
     "description": "Avaliação, cobertura da dívida, operação e dossiers: trabalhe com os seus números e fontes e pressupostos explícitos."
   },
   "/hotellerie/alerts": {
@@ -124,11 +124,11 @@
     "description": "Compare o orçamento de renovação de um hotel, os apoios confirmados e a poupança energética com os seus orçamentos e pressupostos documentados."
   },
   "/inspection": {
-    "title": "Lista de verificação da visita ao imóvel | Tevaxia",
+    "title": "Lista de verificação para visitar um imóvel no Luxemburgo",
     "description": "Prepare uma visita ao imóvel: observações, pontos a verificar e notas exportáveis. Documento de trabalho sem certificação profissional."
   },
   "/marche": {
-    "title": "Observações do mercado imobiliário | Tevaxia",
+    "title": "Mercado imobiliário no Luxemburgo: dados por município",
     "description": "Dados do mercado imobiliário no Luxemburgo — residencial, escritórios, comércio, logística, terrenos e indicadores macro."
   },
   "/marche/forecast": {
@@ -160,8 +160,8 @@
     "description": "Pesquisa em todas as entidades tevaxia: mandatos, contactos CRM, condominios, propriedades hoteleiras e reservas."
   },
   "/solutions/hotel": {
-    "title": "Ferramentas para hoteleiros e investidores no Luxemburgo | Tevaxia",
-    "description": "Escolha ferramentas para o seu projeto hoteleiro: avaliação, DSCR, análise operacional e preparação documental com os seus próprios dados."
+    "title": "PMS hoteleiro no Luxemburgo: software de gestão de hotel",
+    "description": "PMS para hotéis, casas de hóspedes e residências no Luxemburgo: planeamento das reservas, receção, tarifas sazonais, fólios e relatórios de ocupação."
   },
   "/status": {
     "title": "Estado dos serviços e disponibilidade | Tevaxia",
@@ -192,7 +192,7 @@
     "description": "Recomendacao de precos ADR mes a mes segundo sazonalidade LU especifica (tempo, eventos, feiras), com regras fim-de-semana e last-minute."
   },
   "/str/rentabilite": {
-    "title": "Rentabilidade STR (Airbnb / Booking / Vrbo) | Tevaxia",
+    "title": "Rentabilidade Airbnb no Luxemburgo: simulador | Tevaxia",
     "description": "Calcule o rendimento liquido anual do seu imovel em alojamento curto no Luxemburgo, todos custos e impostos incluidos."
   },
   "/syndic/benchmark": {
@@ -228,7 +228,7 @@
     "description": "Verifique a autenticidade de um relatório de avaliação assinado via tevaxia.lu."
   },
   "/wizard-particulier": {
-    "title": "Wizard Particular — o seu projeto em 4 etapas | Tevaxia",
-    "description": "Estimacao → despesas aquisicao → ajudas do Estado → regra renda legal."
+    "title": "O seu projeto imobiliário no Luxemburgo em 4 passos",
+    "description": "Estimativa, custos de compra, apoios do Estado e renda legal no Luxemburgo: um percurso guiado em quatro passos para preparar o seu projeto."
   }
 }

@@ -10,23 +10,14 @@ import { calculerEmolumentsNotaire, calculerFraisHypotheque, formatEUR, formatPc
 import SEOContent from "@/components/SEOContent";
 import AiAnalysisCard from "@/components/AiAnalysisCard";
 import RelatedTools from "@/components/RelatedTools";
+import { VEFA_MILESTONES, defaultVefaSchedule } from "@/lib/vefa-schedule";
 
 // ── Luxembourg VEFA milestones ──────────────────────────────
-interface MilestoneDef {
-  labelKey: string;
-  defaultPct: number;       // % of purchase price (default)
-  monthsAfterStart: number;
-}
+// Étapes et répartition par défaut : voir src/lib/vefa-schedule.ts (art. 1601-9 du Code civil).
+const DEFAULT_MILESTONES = VEFA_MILESTONES;
 
-const DEFAULT_MILESTONES: MilestoneDef[] = [
-  { labelKey: "milestoneSignature",    defaultPct: 5,   monthsAfterStart: 0 },
-  { labelKey: "milestoneFondations",   defaultPct: 15,  monthsAfterStart: 4 },
-  { labelKey: "milestoneHorsEau",      defaultPct: 20,  monthsAfterStart: 10 },
-  { labelKey: "milestoneHorsAir",      defaultPct: 20,  monthsAfterStart: 14 },
-  { labelKey: "milestoneCloisons",     defaultPct: 15,  monthsAfterStart: 18 },
-  { labelKey: "milestoneFinition",     defaultPct: 15,  monthsAfterStart: 22 },
-  { labelKey: "milestoneLivraison",    defaultPct: 10,  monthsAfterStart: 26 },
-];
+/** 30 → "30", 10.5 → "10.5" : les valeurs par défaut ne sont plus toutes entières. */
+const pctLabel = (value: number) => (Number.isInteger(value) ? String(value) : value.toFixed(1));
 
 // ── TVA / duties constants ──────────────────────────────────
 const TVA_NORMAL = 0.17;
@@ -56,26 +47,29 @@ export default function VefaCalculator() {
   const [tauxHypotheque, setTauxHypotheque] = useState(3.5); // annual rate in %
   const [retardMois, setRetardMois] = useState(0); // retard chantier en mois
 
-  // GFA (Garantie Financière d'Achèvement)
+  // Garantie d'achèvement ou de remboursement (art. 1601-5 du Code civil). Valeur "extrinseque" : garantie bancaire ;
+  // "intrinseque" : vendeur public dispensé de garantie. Les identifiants datent d'une ancienne terminologie.
   const [gfaType, setGfaType] = useState<"extrinseque" | "intrinseque">("extrinseque");
   const [gfaTauxPrime, setGfaTauxPrime] = useState(0.8); // % du prix, varie 0.5-2 %
 
   // ── Customizable milestone percentages ──────────────────────
-  const [milestonePcts, setMilestonePcts] = useState<number[]>(
-    DEFAULT_MILESTONES.map((m) => m.defaultPct)
-  );
+  // Tant que l'utilisateur n'a rien modifié, l'échéancier suit le prix et la part
+  // du terrain saisis : terrain à l'acte, constructions selon l'avancement.
+  const [customPcts, setCustomPcts] = useState<number[] | null>(null);
+  const defaultPcts = useMemo(() => defaultVefaSchedule(prixTotal, partTerrain), [prixTotal, partTerrain]);
+  const milestonePcts = customPcts ?? defaultPcts;
 
   const handlePctChange = useCallback((index: number, value: string) => {
     const num = parseFloat(value);
-    setMilestonePcts((prev) => {
-      const next = [...prev];
+    setCustomPcts((prev) => {
+      const next = [...(prev ?? defaultPcts)];
       next[index] = isNaN(num) ? 0 : num;
       return next;
     });
-  }, []);
+  }, [defaultPcts]);
 
   const resetPcts = useCallback(() => {
-    setMilestonePcts(DEFAULT_MILESTONES.map((m) => m.defaultPct));
+    setCustomPcts(null);
   }, []);
 
   const totalPct = milestonePcts.reduce((s, p) => s + p, 0);
@@ -363,7 +357,7 @@ export default function VefaCalculator() {
                         onChange={(e) => handlePctChange(i, e.target.value)}
                         min={0}
                         max={100}
-                        step={1}
+                        step={0.1}
                         className="w-full rounded-lg border border-input-border bg-input-bg py-1.5 pl-3 pr-8 text-right text-sm font-mono text-foreground shadow-sm transition-colors focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
                       />
                       <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-xs text-muted">
@@ -379,7 +373,7 @@ export default function VefaCalculator() {
                       pctValid ? "text-emerald-600" : "text-red-500"
                     }`}
                   >
-                    {totalPct.toFixed(0)} %
+                    {pctLabel(Math.round(totalPct * 10) / 10)} %
                   </span>
                 </div>
                 {!pctValid && (
@@ -559,7 +553,7 @@ export default function VefaCalculator() {
                 </p>
               </div>
 
-              {/* Garantie Financière d'Achèvement (GFA) */}
+              {/* Garantie d'achèvement ou de remboursement */}
               <div className="mt-4 rounded-lg border border-indigo-200 bg-indigo-50 p-4">
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <div>
@@ -751,7 +745,7 @@ export default function VefaCalculator() {
                 `Total frais: ${formatEUR(calc.totalFrais + calc.totalIntercalaire)} (${formatPct(prixTotal > 0 ? (calc.totalFrais + calc.totalIntercalaire) / prixTotal : 0)})`,
                 `Coût total acquisition: ${formatEUR(calc.coutTotal + calc.totalIntercalaire)}`,
               ].join("\n")}
-              prompt="Analyse ce contrat VEFA (Vente en l'État Futur d'Achèvement) au Luxembourg pour l'acquéreur. Livre : (1) décodage pédagogique de la répartition des appels de fonds par tranche — est-elle équilibrée, y a-t-il des risques de sur-paiement précoce vs avancement réel ? (2) garanties obligatoires à vérifier (garantie d'achèvement extrinsèque, assurance dommages-ouvrage, décennale, parfait achèvement), (3) clauses contractuelles sensibles à négocier (délais de livraison + pénalités de retard, modifications, échelles de pénalités, révision de prix), (4) optimisation fiscale vérifiée (TVA 3% appliquée correctement, plafond 50k€, Bëllegen Akt), (5) red flags à signaler avant signature. Concret et référencé loi VEFA LU."
+              prompt="Analyse ce contrat VEFA (Vente en l'État Futur d'Achèvement) au Luxembourg pour l'acquéreur. Livre : (1) décodage pédagogique de la répartition des appels de fonds par tranche — respecte-t-elle les plafonds de l'article 1601-9 du Code civil (terrain à l'acte, puis 15 % du prix des constructions aux fondations, 50 % à la dalle supérieure, 95 % à l'achèvement, solde à la mise à disposition), y a-t-il des risques de sur-paiement précoce vs avancement réel ? (2) garanties à vérifier (garantie d'achèvement ou de remboursement donnée par une banque, art. 1601-5 et règlement grand-ducal du 24 février 1977 ; garanties décennale et biennale, art. 1646-1 ; vices apparents, art. 1642-1), (3) clauses contractuelles sensibles à négocier (délais de livraison + pénalités de retard, modifications, échelles de pénalités, révision de prix), (4) optimisation fiscale vérifiée (TVA 3% appliquée correctement, plafond 50k€, Bëllegen Akt), (5) red flags à signaler avant signature. Concret et référencé : loi du 28 décembre 1976, articles 1601-1 à 1601-14 du Code civil."
             />
 
             {/* Progress bar visualization */}
@@ -774,9 +768,9 @@ export default function VefaCalculator() {
                       key={i}
                       className={`${colors[i]} flex items-center justify-center text-xs font-semibold text-white`}
                       style={{ width: `${pct * 100}%` }}
-                      title={`${t(m.labelKey)}: ${milestonePcts[i].toFixed(0)} %`}
+                      title={`${t(m.labelKey)}: ${pctLabel(milestonePcts[i])} %`}
                     >
-                      {pct >= 0.10 ? `${milestonePcts[i].toFixed(0)}%` : ""}
+                      {pct >= 0.10 ? `${pctLabel(milestonePcts[i])}%` : ""}
                     </div>
                   );
                 })}
@@ -796,7 +790,7 @@ export default function VefaCalculator() {
                     <div key={i} className="flex items-center gap-3 text-xs">
                       <span className={`inline-block h-3 w-3 shrink-0 rounded-sm ${colors[i]}`} />
                       <span className="flex-1 text-slate">{t(m.labelKey)}</span>
-                      <span className="font-mono font-semibold text-navy">{milestonePcts[i].toFixed(0)} %</span>
+                      <span className="font-mono font-semibold text-navy">{pctLabel(milestonePcts[i])} %</span>
                     </div>
                   );
                 })}

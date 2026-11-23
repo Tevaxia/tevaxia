@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { localizedAlternates } from "@/lib/seo";
 export const metadata: Metadata = {
-  title: "Property Portfolio — Multi-Asset Dashboard",
+  title: "Property Portfolio in Luxembourg: Multi-asset Tracking",
   description: "Aggregate your real estate assets: total value, weighted yield, breakdown by type and location, performance tracking.",
   alternates: localizedAlternates("/portfolio", "en"),
 };

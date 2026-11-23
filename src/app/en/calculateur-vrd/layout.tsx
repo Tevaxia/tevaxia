@@ -1,4 +1,4 @@
 import type {Metadata} from 'next';
 import {localizedAlternates} from '@/lib/seo';
-export const metadata:Metadata={title:"Documented civil works budget and quantities",description:"Price road and utility works using documented quantities and VAT-inclusive prices. The nine suggested lots are classification aids, with no integrated Batiprix, CTG or Creos tariff. Slope, soil conditions and transport distances must be reflected in your quotes; no multiplier is added automatically.",alternates:localizedAlternates('/calculateur-vrd',"en")};
+export const metadata:Metadata={title:"Roads and Utilities Budget in Luxembourg (VRD)",description:"Price road and utility works for a project in Luxembourg from your documented quantities and VAT-inclusive prices. Nine lots, no assumed rates.",alternates:localizedAlternates('/calculateur-vrd',"en")};
 export default function Layout({children}:{children:React.ReactNode}){return children;}

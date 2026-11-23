@@ -54,6 +54,10 @@ export default async function Confidentialite() {
               {t("donnees.metier.text")}
             </p>
             <p>
+              <strong>{t("donnees.demo.label")}</strong><br />
+              {t("donnees.demo.text")}
+            </p>
+            <p>
               <strong>{t("donnees.bancaire.label")}</strong><br />
               {t("donnees.bancaire.text")}
             </p>

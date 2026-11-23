@@ -100,7 +100,6 @@ export default function OnboardingIntent() {
       links: [
         { href: "/pro-agences", label: t("agent.link1") },
         { href: "/estimation", label: t("agent.link2") },
-        { href: "/hedonique", label: t("agent.link3") },
         { href: "/carte", label: t("agent.link4") },
       ],
     },
