@@ -136,7 +136,10 @@
       "banque": "Banken",
       "expert-evaluateur": "Experten"
     },
-    "readGuide": "De ganze Guide liesen"
+    "readGuide": "De ganze Guide liesen",
+    "footerSyndicSoftware": "Syndic-Software",
+    "footerPms": "Hotel-PMS",
+    "footerRentalSoftware": "Software fir d'Locatiounsgestioun"
   },
   "home": {
     "heroTitle": "D'Immobilien-Analyse vu Lëtzebuerg,",
@@ -3489,7 +3492,7 @@
   },
   "confidentialite": {
     "title": "Dateschutzrichtlinn",
-    "lastUpdate": "Lescht Aktualiséierung: 23. Oktober 2026",
+    "lastUpdate": "Lescht Aktualiséierung: 21. November 2026",
     "responsable": {
       "title": "1. Responsabele fir d'Dateveraarbechtung",
       "name": "NOTARIA PRIME — Sëtz: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, Frankräich",
@@ -3542,6 +3545,10 @@
         "calendar": "Op Är Ufro kann eng Verbindung mat Google Calendar oder Microsoft Outlook Lies- a Schreifrechter fir Evenementer an Offline-Zougang ufroen. Extern Kontokennungen, E-Mail, Rechter, Zougangs- an Erneierungstoken an hir Oflafdate ginn dofir a Supabase gespäichert. D’Autorisatioun bedeit net, datt all Synchronisatiounsfunktioune verfügbar sinn. Eng Kalenner-Abonnements-URL kann och publizéiert Aufgaben a Visitten un Äre Kalennerdéngscht weiderginn: jiddereen, deen dës URL huet, kann hiren Inhalt liesen.",
         "drive": "Beim Export op Google Drive ginn déi gewielte Datei an hiren Numm no Ärer Aktioun un Google geschéckt. D’Recht drive.file betrëfft Dateie vun der Applikatioun, net Äre ganze Drive. Déi néideg Token vum Ubidder sinn an der Umeldungssessioun zougänglech. Exportéiert Dateie bleiwen an Ärem Drive, bis se no Äre Google-Astellunge geläscht ginn.",
         "revoke": "Dir kënnt d’Rechter an den Astellunge vun Ärem Google- oder Microsoft-Kont zeréckzéien. Fir d’Läschung vun de Verbindungsdate bei Tevaxia unzefroen, kontaktéiert contact@tevaxia.lu. De Réckzuch läscht net automatesch Dateien oder Evenementer, déi schonn un den Ubidder geschéckt goufen. Revokéiert och Abonnementslinken, déi Dir net méi deele wëllt."
+      },
+      "demo": {
+        "label": "Ufroe fir eng Demonstratioun:",
+        "text": "Wann Dir e Formulaire fir eng Demonstratioun ausfëllt, späichere mir Ären Numm, Är E-Mail-Adress an, wann Dir se ugitt, Är Firma, Är Telefonsnummer, d'Gréisst vun Ärer Aktivitéit an Äre Message. Dës Date ginn nëmme benotzt, fir op Är Ufro ze äntweren. En Hashwäert vun Ärer IP-Adress, deen all Dag erneiert gëtt, limitéiert d'Zuel vun den Envoien; en erlaabt et net, Iech z'identifizéieren. Dir kënnt d'Läsche vun Ärer Ufro iwwer contact@tevaxia.lu froen."
       }
     },
     "finalites": {
@@ -5526,191 +5533,6 @@
     "demoCashflowAssumptions": "Szenario mat konstante Viraussetzungen: Loyeren a Käschte klamme vum zweete Joer un ëm 2 %, Prêt iwwer 25 Joer mat monatleche Raten, keng automatesch steierlech Ofschreiwung. De marginale Steiersaz ass keng komplett national Steierberechnung. Déi brittesch Reduktioun vun 20 % ass op de Locatiounsgewënn limitéiert; genuch ugepasst Gesamtakommes gëtt ugeholl, ouni Virtrag vu Finanzéierungskäschten. Zukünfteg Steierännerunge ginn net virausgesot."
   },
   "solutions": {
-    "syndic": {
-      "meta": {
-        "title": "Syndic-Software Lëtzebuerg, konform Gesetz vum 16.05.1975",
-        "description": "Verwalt Är Matbesëtzer ouni Weekender un Excel: Online-Generalversammlungen, Factur-X Fongsopruff, LU Kompabilitéit, PSD2 Bankreconciliatioun. Gratis Test."
-      },
-      "hero": {
-        "badge": "Fir Lëtzebuerger Matbesëtzer gebaut",
-        "title": "Äre Syndic, ouni",
-        "titleAccent": "Weekender un Excel",
-        "subtitle": "Online-Generalversammlungen mat Ofstëmmung no Tantièmen, Factur-X Fongsopruff konform, Lëtzebuerger Matbesëtz-Kompabilitéit an automatesch Bankreconciliatioun. Gebaut fir professionell Syndicen, déi genuch hunn tëscht 4 Outillen ze jongléieren.",
-        "cta": "Gratis ufänken",
-        "ctaSecondary": "Kuckt wéi et funktionéiert",
-        "kpis": [
-          {
-            "value": "15 St",
-            "label": "pro GV gespuert"
-          },
-          {
-            "value": "100 %",
-            "label": "konform Gesetz 16.05.1975"
-          },
-          {
-            "value": "<24 St",
-            "label": "Support-Äntwertzäit"
-          }
-        ]
-      },
-      "problem": {
-        "title": "E Matbesëtz zu Lëtzebuerg 2026 ze geréieren sollt net méi esou ausgesinn",
-        "intro": "Tëscht dem Gesetz vum 16. Mee 1975, trimestriellen Fongsopruff, Rappelen, GV-Virbereedung a Kompabilitéit fëllt d'Woch vun engem Syndic sech vun alleng. Ausser déi richteg Outillen huelen d'Laascht ewech.",
-        "items": [
-          {
-            "title": "GV-Virbereedung op 3 Deeg",
-            "desc": "Aluedungen bannent 15 Deeg, Tagesuerdnung ausschaffen, Vollmuechten sammelen, Protokoll duerno tippen. De Verwaltungsopwand ësst d'Zäit, déi fir déi richteg Themen sollt benotzt ginn.",
-            "stat": "~15 Stonnen pro GV"
-          },
-          {
-            "title": "Rappelen mat der Hand",
-            "desc": "Suivéieren wien wat schëlleg ass, Fristen iwwerwaachen, legal Zënsen ausrechnen, formell Mise en demeure virbereeden. Ouni spezialiséierten Outil entwëscht eppes an d'Keess schrëmpft.",
-            "stat": "3-7 % chronesch onbezuelt"
-          },
-          {
-            "title": "Excel, Bank a Kompabilitéit jongléieren",
-            "desc": "Erakomend Bezuelungen mat Fongsopruff ofgläichen, an d'Kompabilitéit erfaassen, GV-Annexen aus 3 Quelle beienee bauen. All Schrëtt bréngt Feelerrisiko mat sech.",
-            "stat": "4 Outillen am Schnëtt"
-          }
-        ]
-      },
-      "howItWorks": {
-        "title": "Eng Plattform, dräi Schrëtt",
-        "intro": "Keng komplex Migratioun, keng Formatioun iwwer 2 Deeg. Dir importéiert Är Matbesëtzer, konfiguréiert eemol d'Verdeelungsschlësselen, an den Outil iwwerhëlt.",
-        "steps": [
-          {
-            "number": "1",
-            "title": "Är Matbesëtzer importéiert",
-            "desc": "Excel-Import, manuell Agab oder API. Eenheeten, Tantièmen, Matbesëtzer, Kontrakter, Buchhaltungshistorie. Funktionéiert mat all Syndic, dee scho strukturéiert ass."
-          },
-          {
-            "number": "2",
-            "title": "GV a Fongsopruff lafen alleng",
-            "desc": "PDF-Aluedungen pro Eenheet, elektronesch Ofstëmmung no Tantièmen gewiicht, Protokoll automatesch generéiert. Factur-X Fongsopruff konform EN 16931 un d'Matbesëtzer mat SEPA-Referenz."
-          },
-          {
-            "number": "3",
-            "title": "Kompabilitéit leeft vun alleng",
-            "desc": "All Fongsopruff, all erakomend Bezuelung, all erfaasst Ausgab fléisst an d'Buchhaltungsjournal. Déi 5 GV-Annexe ginn op Knäppchen als PDF generéiert."
-          }
-        ]
-      },
-      "features": {
-        "title": "Alles wat e Lëtzebuerger Syndic wierklech brauch",
-        "intro": "Funktiounen gebaut fir de Rechtsrahmen vum Grand-Duché: Gesetz vum 16. Mee 1975, GV-Majoritéitsreegelen, TVA-Befreiung Art. 44 §1 f, 10-Joer-Archivéierung.",
-        "items": [
-          {
-            "title": "Online-GV mat gewiichter Ofstëmmung",
-            "desc": "Elektronesch Ofstëmmung no Tantièmen gewiicht, einfach / absolut / duebel / eestëmmeg Majoritéiten automatesch behandelt."
-          },
-          {
-            "title": "Aluedungen + PDF-Protokoller",
-            "desc": "Aluedung pro Eenheet mat legaler Tagesuerdnung, Protokoll automatesch generéiert no der GV mat de Resultater."
-          },
-          {
-            "title": "Factur-X Fongsopruff",
-            "desc": "PDF/A-3 + CII D22B XML konform EN 16931, SEPA-Mandats-Referenz, Art. 261 D CGI Befreiung ugewannt."
-          },
-          {
-            "title": "Rappelen op 3 Niveauen",
-            "desc": "Frëndlech Erënnerung, formell Mise en demeure, Bezuelungsuerder. Lëtzebuerger legal Zënsen automatesch ausgerechent."
-          },
-          {
-            "title": "5 GV-Komptabilitéitsannexen",
-            "desc": "Bilanz, Journal, Budget, Käschteverdeelung, Status vun oppenen Creancen. PDF prett fir ze verdeelen."
-          },
-          {
-            "title": "PSD2 Bankreconciliatioun",
-            "desc": "Verbindung mat BCEE, BIL, Banque Raiffeisen, Post Finance iwwer Enable Banking. Automatesch Reconciliatioun."
-          },
-          {
-            "title": "Konfiguréierbar Verdeelungsschlësselen",
-            "desc": "Allgemeng Tantièmen, Exploitatioun-Tantièmen, Spezialkäschten pro Trapp/Gebai, individuell Undeeler."
-          },
-          {
-            "title": "Matbesëtzer-Portal",
-            "desc": "All Matbesëtzer huet säi Beräich: Ofstëmmung, Kontoauszuch, Aluedungen, Protokoller, Online-Bezuelung."
-          },
-          {
-            "title": "10 editéierbar Bréif-Schablounen",
-            "desc": "Rappelen, Aluedungen, formell Bekanntmaachungen, Vollmuechten. Komplett upassbar, DOCX / PDF / Google Drive Export."
-          },
-          {
-            "title": "Gratis Rechnungs-OCR",
-            "desc": "Liwwerantsrechnungen eroplueden, automatesch Extraktioun iwwer PDF.js + Tesseract.js. Keng manuell Agab."
-          },
-          {
-            "title": "SEPA Sammel-Iwwerweisungen",
-            "desc": "pain.001 XML-Generatioun fir gruppéiert Liwwerantsbezuelungen, kompatibel mat alle Lëtzebuerger Banken."
-          },
-          {
-            "title": "Käschte-Benchmark",
-            "desc": "Vergläich vun Äre Käschten pro m² mam Lëtzebuerger Duerchschnëtt no Wunnengstyp a Baujoer."
-          }
-        ]
-      },
-      "trust": {
-        "title": "Firwat LU Syndicen eis wielen",
-        "agileTitle": "Agile Entwécklung, regelméisseg Releases",
-        "agileDesc": "Nei Moduler all 2 Wochen geliwwert. Ëffentleche Backlog, Är Ufroen ginn séier a Produktioun.",
-        "customTitle": "Individuell Entwécklung verfügbar",
-        "customDesc": "Spezifescht Aluedungs-Format, ongewéinlech Tantièmen-Berechnung, Export op Är Komptabilitéit: Entwécklung an 1 bis 3 Wochen.",
-        "supportTitle": "Support ënner 24 St",
-        "supportDesc": "E-Mail un contact@tevaxia.lu. Duerchschnëttsäntwert ënner 6 Stonnen op Schaffdeeg. Keng Ticketnummeren, kee Chatbot."
-      },
-      "pricing": {
-        "title": "An Ärem tevaxia-Abonnement abegraff",
-        "subtitle": "Keng Facturatioun pro Matbesëtz, kee GV-Quota, kee Premium-Modul. Alles am Freemium fir ze testen verfügbar, am allgemengen Abonnement fir den alldeegleche Gebrauch.",
-        "features": [
-          "Onlimitéiert Matbesëtzer",
-          "Online-GV mat Ofstëmmung no Tantièmen",
-          "Factur-X Fongsopruff konform EN 16931",
-          "Lëtzebuerger Matbesëtz-Komptabilitéit",
-          "PSD2 Bankreconciliatioun (Enable Banking)",
-          "Matbesëtzer-Portal mat individuellem Zougang",
-          "5 GV PDF-Komptabilitéitsannexen",
-          "Rappelen op 3 Niveauen mat LU Zënsen",
-          "Konform Gesetz vum 16. Mee 1975"
-        ],
-        "ctaPlatform": "tevaxia-Päck kucken",
-        "ctaEmit": "Op de Syndic-Modul"
-      },
-      "faq": {
-        "title": "Dacks gestallten Froen",
-        "items": [
-          {
-            "q": "Ech wiesselen vun [engem aneren Outil] op tevaxia, wéi migréieren ech?",
-            "a": "Standard-Excel-Import (Eenheeten, Matbesëtzer, Käschten-Historie), duerno Konfiguratioun vun de Verdeelungsschlësselen. D'Iwwerhuele vun engem lafende Geschäftsjoer dauert 2 bis 4 Stonnen. Mir hëllefen Iech ouni Zousazkäschten."
-          },
-          {
-            "q": "Ass den Outil konform mam Lëtzebuerger Matbesëtzerecht?",
-            "a": "Jo, d'Gesetz vum 16. Mee 1975 ass integréiert: einfach / absolut / duebel / eestëmmeg Majoritéiten, 15-Deeg-Aluedungsfrist, Buchhaltungsflichten, 10-Joer-Archivéierung."
-          },
-          {
-            "q": "Ass eng Online-GV rechtsgëlteg?",
-            "a": "Jo, sou laang d'Matbesëtzreegelen et erlaben oder eng fréier physesch GV et genehmegt huet. D'Praxis ass zënter 2020 zu Lëtzebuerg verbreet."
-          },
-          {
-            "q": "Kënne Fongsopruff fir TVA-befreit Matbesëtzer erausgi ginn?",
-            "a": "Jo, Art. 44 §1 f vum TVA-Gesetz befreit Matbesëtz-Verwaltung. De Modul applizéiert automatesch déi richteg Befreiung."
-          },
-          {
-            "q": "Sinn d'Matbesëtzer-Donnéeë sécher?",
-            "a": "Gespäichert op Supabase (AWS eu-central-1 Frankfurt) mat Row Level Security, RGPD-konform, HTTPS-Verschlësselung."
-          },
-          {
-            "q": "Wéi laang bis ech operativ sinn?",
-            "a": "E Syndic mat 1 bis 5 Matbesëtzer ass an 1 bis 2 Stonnen operativ. Iwwer 10 Matbesëtzer, 4 bis 6 Stonne fir komplette Import."
-          }
-        ]
-      },
-      "finalCta": {
-        "title": "Prett fir Är Owender zréckzehuelen",
-        "desc": "Kont gratis erstellen, éischt Matbesëtz importéieren, Test-Fongsopruff an 15 Minutte generéieren. Null Engagement.",
-        "cta": "Gratis ufänken",
-        "ctaSecondary": "Syndic-Modul live kucken"
-      }
-    },
     "agence": {
       "meta": {
         "title": "Immobilienagence-CRM Lëtzebuerg — Pipeline an OpenImmo",
@@ -7004,8 +6826,8 @@
     }
   },
   "syndic": {
-    "title": "Software fir Syndics vu Kopropriétéiten zu Lëtzebuerg",
-    "subtitle": "Syndic-Software fir Lëtzebuerg: Chargen no Undeeler, Lotten, Generalversammlungen, Appels de fonds an energetesch Renovatioun vu Kopropriétéiten.",
+    "title": "Copropriétéitskäschten zu Lëtzebuerg: Simulator no Tantièmen",
+    "subtitle": "Simulator fir Copropriétéitskäschten: Verdeelung no Tantièmen op d'Lotten, Käschtebudget a Szenarie fir d'energetesch Renovatioun vum Gebai.",
     "primaryCta": {
       "label": "Haaptzougang",
       "title": "Meng verwalt Coproprietéiten",
@@ -7745,28 +7567,6 @@
       "faq3a": "All 5 Schichten: Staat (Bëllegen Akt, 3 %-TVA), energetesch Sanéierung (Klimabonus), privat (Spuer-Prime), kommunal a Patrimoine.",
       "faq4q": "Gëllt d'5 %-Regel wann ech selwer do wunnen?",
       "faq4a": "Nee. De gesetzleche Plafong gëllt nëmmen fir vermiete Bien. Wann Dir fir Iech selwer kaaft, iwwersprange Etapp 4.",
-      "faqTitle": "Heefeg gestallte Froen",
-      "relatedTitle": "Méi erausfannen"
-    }
-  },
-  "gestionLocative": {
-    "seo": {
-      "regle5Title": "D'5 %-Regel zu Lëtzebuerg",
-      "regle5Content": "Nee: Am Formulaire feelen ënner anerem d’Baujoer an d’Miwwelrechnungen. D’Resultat bleift partiell. Benotzt den detailléierte Loyerrechner an déi offiziell Dokumenter ier Dir eng Conclusioun zitt.",
-      "klimabonusTitle": "Renovatioun iwwerpréiwen",
-      "klimabonusContent": "D’Energieklass eleng bestëmmt kee Recht op Klimabonus. Iwwerpréift d’Gebai, d’Aarbechten, d’Datumen an déi néideg vireg Geneemegung.",
-      "rendementTitle": "Potenziell Bruttorendement",
-      "rendementContent": "De Bruttorendement deelt de Joresloyer duerch de Kafpräis. De gesetzleche Loyerplafong baséiert op dem revaloriséierten an ofgeschriwwenen investéierte Kapital. Hie begrenzt de Bruttorendement also net pauschal op 5 % vum Kafpräis.",
-      "syndicTitle": "Notzung duerch Verwalter",
-      "syndicContent": "Verfollegt Wunnengen, Loyeren a Kontrollprioritéiten. De Portfolio zertifiéiert weder d’Konformitéit vum Bail nach e Recht op Hëllefen.",
-      "faq1q": "Gi meng Vermietungsdonnéeën online geschéckt?",
-      "faq1a": "D’Wunnenge vum agelogte Kont ginn online a mat engem getrennte lokale Cache pro Kont gespäichert. Gaaschtwunnenge bleiwen lokal. Al Sécherungen ouni zougeuerdente Besëtzer ginn net automatesch importéiert.",
-      "faq2q": "Ass d’Kontroll vum Loyerplafong komplett?",
-      "faq2a": "Nee: Am Formulaire feelen ënner anerem d’Baujoer an d’Miwwelrechnungen. D’Resultat bleift partiell. Benotzt den detailléierte Loyerrechner an déi offiziell Dokumenter ier Dir eng Conclusioun zitt.",
-      "faq3q": "Wéi kann een d’Revalorisatioun kontrolléieren?",
-      "faq3a": "Kuckt déi offiziell Tabellen an Erklärungen zum investéierte Kapital. Berechnungsjoer, Investitiounsdatumen, Terrain, Aarbechten an Ofschreiwung musse getrennt ginn. De Kafpräis eleng geet net duer.",
-      "faq4q": "Ännert en meubléiert Logement d'Berechnung?",
-      "faq4a": "De Miwwelzouschlag ass getrennt vum Immobiliëloyer a brauch zougeloossen Rechnungen. D’Optioun möbléiert berechent kee pauschalen Zouschlag; gitt d’Beleeër am detailléierte Rechner un.",
       "faqTitle": "Heefeg gestallte Froen",
       "relatedTitle": "Méi erausfannen"
     }
@@ -13575,37 +13375,6 @@
     "methoItem3": "Règlement (UE) 2019/2088 SFDR + RTS 2022/1288 PAI Indicateuren",
     "methoItem4": "Direktiv EPBD IV 2024/1275 + LU-Transpositioun virgesinn 2026",
     "methoItem5": "LU-Emissiounsfaktoren: ILR 2023 (Reseau), guichet.lu (fossil Energien)"
-  },
-  "gestionLocativeHub": {
-    "heroTitle": "Locatiouns-Gestioun zu Lëtzebuerg",
-    "heroSubtitle": "Verfollegt Är Portfolio mat de Lëtzebuerger Spezifizitéiten: Reegel 5 %, Energie-Impakt (Klimabonus) an Alerten op Mieten iwwer dem Plafong.",
-    "ctaPortefeuille": "Op d'Portfolio →",
-    "ctaFiscal": "📊 Steier-Dashboard LU",
-    "ctaEtatLieux": "📱 État des lieux",
-    "ctaReconciliation": "🏦 Bank-Reconciliatioun",
-    "ctaRelances": "📬 Mahnungen",
-    "ctaGli": "🛡 GLI (Miet-Garantie)",
-    "ctaTestRule": "5-%-Reegel testen",
-    "whyTitle": "Konzipéiert fir d'Lëtzebuerger Wunnbail-Recht",
-    "whySubtitle": "Verfollegt Wunnengen, Loyeren a Kontrollprioritéiten. De Portfolio zertifiéiert weder d’Konformitéit vum Bail nach e Recht op Hëllefen.",
-    "card1Title": "Reegel 5 %",
-    "card1Desc": "Max Joersmiet = 5 % vum nei-bewerten investéierten Kapital mat Alters-Decote. All méi héich Miet ass juristesch duerch de Locatair reduzéierbar.",
-    "card2Title": "Renovatioun iwwerpréiwen",
-    "card2Desc": "D’Energieklass eleng bestëmmt kee Recht op Klimabonus. Iwwerpréift d’Gebai, d’Aarbechten, d’Datumen an déi néideg vireg Geneemegung.",
-    "card3Title": "Real Rendite",
-    "card3Desc": "STATEC-Reevaluéierungs-Koeffizient + 1 %/Joer Decote automatesch. Är Brutto-Rendite gëtt mat der maximaler legaler Rendite verglach.",
-    "forWhoTitle": "Fir wien?",
-    "forWho1Title": "Proprietäre 1 bis 10 Lots",
-    "forWho1Desc": "Multi-Immobilie zu Lëtzebuerg. Préift d'legal Konformitéit vun all Miet, verfollegt d'aggregéiert Rentabilitéit, identifizéiert d'Lots an der Prioritéit ze renovéieren.",
-    "forWho2Title": "Syndicer & Gestionnären 10-100 Lots",
-    "forWho2Desc": "Pilotage vun der Portfolio fir drëtt Persounen. Automatesch Alerten op Lots iwwer dem legale Plafong, Simulatiounen vun Reevaluéierung no Aarbechten.",
-    "mvpStrong": "MVP-Status:",
-    "mvpBody": "d'Lots gi lokal an Ärem Navigateur gespäichert. Fir eng synchroniséiert Multi-Post-Gestioun (Organisatioun, Invitatioune vu Kollaborateuren), integréiere mer Supabase an enger kommender Versioun, Är lokal Donnéeë ginn migréierbar sinn.",
-    "startTitle": "Elo ufänken",
-    "startSubtitle": "Füügt Är Lots an 2 Minutten bäi, kritt direkt de legale Plafong an d'Energie-Diagnos.",
-    "startCta": "Meng Portfolio opmaachen →",
-    "officialRent": "Offiziell Loyersreegelen",
-    "officialEnergy": "Offiziell Klimabonus-Konditiounen"
   },
   "hotelTransactions": {
     "backHub": "← Hotellerie",
@@ -19822,6 +19591,480 @@
       "p1": "De Simulator geet vum duerchschnëttleche Präis pro Nuecht, dem Occupatiounstaux an dem Reservatiounskanal aus, fir d'jäerlecht Bruttoakommes auszerechnen, an zitt duerno d'Kommissioun vun der Plattform, d'Botzen, d'Wäsch, d'Verbrauchsmaterial an d'Fixkäschten of.",
       "p2": "Duerno wennt hien de marginale Steiersaz un, deen Dir wielt, a weist d'jäerlecht an d'monatlecht Nettoakommes souwéi d'Nettorendite am Verhältnis zum Kafpräis.",
       "p3": "D'Berechnung berécksiichtegt weder de Remboursement vum Prêt nach TVA, Sozialbäiträg oder d'steierlech Veranlagung vum Stot. Déi proposéiert Spanne si Referenzen; iwwerpréift och d'Obligatiounen, déi an Ärer Gemeng fir Kuerzzäitvermietung gëllen."
+    }
+  },
+  "productPages": {
+    "common": {
+      "demoCta": "Eng Demonstratioun ufroen",
+      "pricingLink": "Präisser kucken",
+      "faqTitle": "Heefeg Froen",
+      "form": {
+        "name": "Numm",
+        "company": "Firma",
+        "email": "E-Mail-Adress",
+        "phone": "Telefon",
+        "message": "Äre Besoin a puer Wierder",
+        "optional": "fakultativ",
+        "submit": "Ufro schécken",
+        "sending": "Gëtt geschéckt…",
+        "successTitle": "Är Ufro ass gespäichert.",
+        "successText": "Mir äntweren Iech per E-Mail, fir en Termin auszemaachen.",
+        "errorInvalid": "Kontrolléiert Ären Numm an Är E-Mail-Adress a probéiert nach eng Kéier.",
+        "errorRateLimited": "Et goufen ze vill Ufroe geschéckt. Probéiert an enger Stonn nach eng Kéier.",
+        "errorUnavailable": "D'Ufro konnt net gespäichert ginn.",
+        "fallback": "Dir kënnt eis schreiwen op",
+        "privacy": "Är Kontaktdate ginn nëmme benotzt, fir op dës Ufro ze äntweren.",
+        "privacyLink": "Dateschutzerklärung"
+      }
+    },
+    "syndic": {
+      "meta": {
+        "title": "Software fir Syndics vu Copropriétéiten zu Lëtzebuerg",
+        "description": "Syndic-Software fir Lëtzebuerg: Generalversammlunge mat gewiichtetem Vott, Fondsopruffen, Comptabilitéit, Relancen a Portal fir d'Copropriétairen."
+      },
+      "hero": {
+        "eyebrow": "Syndics a Gestionnaire vu Copropriétéiten",
+        "title": "Software fir Syndics vu Copropriétéiten zu Lëtzebuerg",
+        "subtitle": "Féiert Är Copropriétéiten an engem eenzegen Tool: Lotten an Tantièmen, Generalversammlunge mat gewiichtetem Vott, Fondsopruffen, Comptabilitéit, Relance vun Onbezuelten a Portal fir d'Copropriétairen.",
+        "open": "Meng Copropriétéiten opmaachen",
+        "note": "Wärend der Lancementsphas mat engem Kont gratis."
+      },
+      "features": {
+        "title": "Wat d'Software mécht",
+        "intro": "All Funktioun hei ënnen entsprécht engem Ecran vun der Software, deen disponibel ass, soubal eng Copropriétéit ugeluecht ass.",
+        "items": [
+          {
+            "title": "Copropriétéiten, Lotten an Tantièmen",
+            "desc": "All Copropriétéit gruppéiert hir Lotten an hir Undeeler. Eng Portfolio-Usiicht sortéiert d'Gebaier nom Betrag vun den Onbezuelten a vergläicht hir Indicateuren ënnereneen."
+          },
+          {
+            "title": "Generalversammlungen",
+            "desc": "Convocatiounen, Dagesuerdnung, elektronesche Vott gewiicht no den Tantièmen a Protokoll. Véier Majoritéitsregele gi proposéiert: einfach, absolut, duebel an Eestëmmegkeet. E Videokonferenzraum kann opgemaach ginn, an e Generator bereet d'Procuratiounen als PDF vir."
+          },
+          {
+            "title": "Fondsopruffen",
+            "desc": "Opruff pro Period, verdeelt no den Tantièmen oder no Ären eegene Verdeelungsschlësselen (Heizung, Lift, Trapenhaiser), mat engem PDF pro Lot."
+          },
+          {
+            "title": "Comptabilitéit a Budget",
+            "desc": "Konteplang, duebel Buchféierung, Journal, Balance a Joresofschloss. De Budget gëtt mam Realiséierte verglach, a fënnef Comptabilitéitsannexe ginn als PDF fir d'Versammlung erstallt."
+          },
+          {
+            "title": "Relance vun Onbezuelten",
+            "desc": "Dräi Relancestufen, vum frëndleche Bréif bis zur leschter Mise en demeure, mat Verzugszënsen zum Taux, deen Dir astellt, an engem Historique vun den Envoien."
+          },
+          {
+            "title": "Bank a Fournisseuren",
+            "desc": "Import vum Kontoauszuch als CSV, fir déi kritt Bezuelungen de Fondsopruffen zouzeuerdnen, SEPA-Iwwerweisungsfichier, fir d'Fournisseuren am Lot ze bezuelen, an automatescht Liese vun de Fournisseursrechnungen."
+          },
+          {
+            "title": "Aarbechten a Fong fir Aarbechten",
+            "desc": "De Suivi vun engem Chantier, vun der Ausschreiwung bis zur Receptioun, iwwer d'Devisen an de Vott an der Versammlung, souwéi de Suivi vum Fong fir Aarbechten."
+          },
+          {
+            "title": "Portal fir Copropriétairen a Messagerie",
+            "desc": "All Copropriétaire kritt e perséinleche Link, fir seng Convocatiounen ze kucken, ofzestëmmen a säi Kontoauszuch erofzelueden. Eng Messagerie verbënnt de Syndic an d'Copropriétairen; de Conseil syndical huet säin eegene Beräich."
+          },
+          {
+            "title": "Archiv a Musterbréiwer",
+            "desc": "D'Archivéierung vu Protokoller, Rechnungen a Kontrakter, an zéng Musterbréiwer, déi ugepasst an als DOCX oder PDF exportéiert kënne ginn."
+          }
+        ]
+      },
+      "start": {
+        "title": "Wéi ufänken",
+        "steps": [
+          {
+            "title": "Kont an éischt Copropriétéit uleeën",
+            "desc": "Gitt d'Gebai an, duerno seng Lotte mat hiren Tantièmen an hire Copropriétairen."
+          },
+          {
+            "title": "Verdeelung a Budget festleeën",
+            "desc": "Setzt Är Verdeelungsschlësselen derbäi, wann net all Käschten den allgemengen Tantièmen nokommen, a stellt duerno de Budget vum Exercice op."
+          },
+          {
+            "title": "Fondsopruff oder Versammlung starten",
+            "desc": "Generéiert den Opruff vun der Period, schéckt de Copropriétairen de Link op hire Beräich a bereet d'Convocatioun vir."
+          }
+        ]
+      },
+      "limits": {
+        "title": "Wat d'Software net mécht",
+        "intro": "Besser et virum Ufank ze wëssen.",
+        "items": [
+          "D'Bank ass net direkt verbonnen: de Rapprochement geet vun engem CSV-Auszuch aus, deen Dir importéiert.",
+          "Fondsopruffe si PDF-Dokumenter, keng elektronesch Rechnungen.",
+          "Lotten a Copropriétaire gi vun Hand agedroen: et gëtt keng automatesch Iwwernam aus enger anerer Software.",
+          "D'Software wennt d'Majoritéitsregel un, déi Dir wielt; si kontrolléiert net, ob eng Decisioun Ärem Copropriétéitsreglement oder dem Gesetz vum 16. Mee 1975 entsprécht.",
+          "Bréiwer a Relance si Musteren: loosst se virun engem Envoi mat juristescher Portée nokucken."
+        ]
+      },
+      "pricing": {
+        "title": "Präis",
+        "text": "Wärend der Lancementsphas ass d'Syndic-Software mat engem Kont gratis zougänglech. De Präis, dee fir duerno ugekënnegt ass, läit bei 29 € de Mount fir d'Pro-Offer, déi se enthält."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "Fir wien ass dës Syndic-Software geduecht?",
+            "a": "Fir professionell a benevole Syndics, déi eng oder méi Copropriétéiten zu Lëtzebuerg geréieren. D'Portfolio-Usiicht ass virun allem vu méi Gebaier un nëtzlech."
+          },
+          {
+            "q": "Gëtt de Vott an der Generalversammlung gewiicht?",
+            "a": "Jo. All Stëmm zielt mat den Tantièmë vum Lot, an d'Resultat vun all Resolutioun gëtt no der gewielter Majoritéit berechent: einfach, absolut, duebel oder eestëmmeg. Kontrolléiert an Ärem Copropriétéitsreglement, ob den elektronesche Vott zougelooss ass."
+          },
+          {
+            "q": "Mussen d'Copropriétairen e Kont uleeën?",
+            "a": "Nee. De Syndic schéckt hinnen e perséinleche Link, deen hire Beräich opmécht: Convocatiounen, Vott a Kontoauszuch."
+          },
+          {
+            "q": "Wou ginn d'Date gehost?",
+            "a": "D'Kontdate gi bei Supabase an Europa gehost. Den Zougang ass op de Kont limitéiert, deen d'Copropriétéit geréiert; d'Detailer stinn an der Dateschutzerklärung."
+          },
+          {
+            "q": "Kann een ouni Engagement testen?",
+            "a": "Jo. E gratis Kont geet duer, fir eng Copropriétéit unzeleeën an all Ecran opzemaachen. Dir kënnt och mam Formulaire hei ënnen eng Demonstratioun ufroen."
+          }
+        ]
+      },
+      "links": {
+        "title": "Fräi zougänglech Tools",
+        "items": [
+          "Simulator fir Copropriétéitskäschten",
+          "Musterbréiwer fir Syndics",
+          "Procuratioun fir d'Generalversammlung"
+        ]
+      },
+      "demo": {
+        "title": "Eng Demonstratioun vun der Syndic-Software ufroen",
+        "intro": "Gitt Är Kontaktdaten un an, wann Dir wëllt, d'Zuel vun de Copropriétéiten oder Lotten, déi Dir geréiert. Mir äntweren Iech per E-Mail, fir en Termin auszemaachen.",
+        "size": "Zuel vu Copropriétéiten oder Lotten",
+        "mailSubject": "Demonstratioun vun der Syndic-Software"
+      }
+    },
+    "pms": {
+      "meta": {
+        "title": "Hotel-PMS zu Lëtzebuerg: Software fir d'Hotelgestioun",
+        "description": "PMS fir Hotellen, Gaaschtzëmmeren a Residenzen zu Lëtzebuerg: Reservatiounsplang, Receptioun, Saisonpräisser, Folioen a Rapporten iwwer d'Beleeung."
+      },
+      "hero": {
+        "eyebrow": "Hotellen, Gaaschtzëmmeren, Residenzen",
+        "title": "Hotel-PMS-Software zu Lëtzebuerg",
+        "subtitle": "Geréiert Är Zëmmeren, Reservatiounen a Receptioun an engem eenzegen Tool: Planning, Saisonpräisser, Folioen, Rechnungsdokumenter a Rapporten iwwer Beleeung, Duerchschnëttspräis a RevPAR.",
+        "open": "PMS opmaachen",
+        "note": "Wärend der Lancementsphas mat engem Kont gratis."
+      },
+      "features": {
+        "title": "Wat de PMS mécht",
+        "intro": "All Funktioun hei ënnen entsprécht engem Ecran vun der Software, deen disponibel ass, soubal en Etablissement ugeluecht ass.",
+        "items": [
+          {
+            "title": "Etablissementer an Zëmmeren",
+            "desc": "Hotel, Motel, Gaaschtzëmmeren, Residenz, Auberge oder Camping. All Zëmmer huet e Status: disponibel, beluecht, ze botzen, propper, kontrolléiert oder ausser Betrib. En Assistent proposéiert eng Startkonfiguratioun, déi Dir duerno ännere kënnt."
+          },
+          {
+            "title": "Reservatiounen a Planning",
+            "desc": "Eng Reservatioun geet vum Devis op d'Confirmatioun, duerno op d'Arrivée an den Depart; Annulatiounen an No-shows gi suivéiert. De Kalenner weist d'Beleeung Zëmmer fir Zëmmer."
+          },
+          {
+            "title": "Receptioun a Clientsfichier",
+            "desc": "Eng Dagesusiicht lëscht d'Arrivéeën, d'Departen an d'Clienten am Haus op, mat enger Versioun fir ze drécken. De Clientsfichier hält d'Kontaktdaten, déi fir d'Openthalter néideg sinn."
+          },
+          {
+            "title": "Saisonpräisser",
+            "desc": "Präisser pro Period, pro Tarifplang a pro Zëmmertyp, mat enger Ännerung a Masse, a Prozent oder als Betrag."
+          },
+          {
+            "title": "Gruppen a Kontingenter",
+            "desc": "Blockreservatioune fir eng Hochzäit oder e Seminar, mat Fräigabdatum, ausgehandeltem Präis an Zëmmerlëscht."
+          },
+          {
+            "title": "Folioen a Verkafspunkt",
+            "desc": "Leeschtunge ginn dem Folio vum Openthalt bäigesat, mam Präis ouni Steier an dem TVA-Taux, deen Dir fir all Zeil agitt."
+          },
+          {
+            "title": "Rechnungsdokumenter",
+            "desc": "Akonten a Rechnunge ginn no Typ an no Status suivéiert. Dës Statuse sinn deklarativ: si ersetze weder Är Facturatioun nach Är Comptabilitéit."
+          },
+          {
+            "title": "iCal-Kalenneren",
+            "desc": "Den Import vun den iCal-Kalennere vun de Reservatiounsplattformen an den Export vun engem Kalenner, deen nëmme gelies ka ginn."
+          },
+          {
+            "title": "Rapporten",
+            "desc": "Beleeung, Duerchschnëttspräis, RevPAR an Zëmmerëmsaz pro Dag, Leeschtung no Quell, rezent Reservatiounen no Openthaltsmount, Beleeungsprognos, Mountsjournal a CSV-Export."
+          }
+        ]
+      },
+      "start": {
+        "title": "Wéi ufänken",
+        "steps": [
+          {
+            "title": "Etablissement uleeën",
+            "desc": "Wielt den Typ vum Etablissement a loosst den Assistent Zëmmeren a Startpräisser proposéieren. Alles bleift ännerbar."
+          },
+          {
+            "title": "Präisser a Steiere kontrolléieren",
+            "desc": "Kontrolléiert Är Präisser, den TVA-Taux vun all Leeschtung an eventuell lokal Taxen, ier Dir Openthalter androt."
+          },
+          {
+            "title": "Reservatiounen androen",
+            "desc": "Setzt déi lafend Reservatiounen derbäi oder importéiert en iCal-Kalenner a suivéiert duerno d'Arrivéeën op der Receptioun."
+          }
+        ]
+      },
+      "limits": {
+        "title": "Wat de PMS net mécht",
+        "intro": "Besser et virum Ufank ze wëssen.",
+        "items": [
+          "iCal-Kalennere si kee Channel-Manager: si garantéiere weder eng direkt Aktualiséierung nach, datt et keng Iwwerbuchung gëtt.",
+          "Präisser a Bezuelunge ginn extra kontrolléiert: de PMS validéiert weder eng Rechnung nach eng Schreiwung an der Comptabilitéit.",
+          "Den TVA-Taux gëtt net aus der Kategorie vun enger Leeschtung ofgeleet: Dir gitt en Zeil fir Zeil an.",
+          "D'Tools fir d'Hotelanalys op dem Site benotzen hir eegen Daten: näischt gëtt automatesch aus dem PMS iwwerdroen.",
+          "Et gëtt keng Installatiounsdauer garantéiert: si hänkt vun der Zuel vun den Zëmmeren a Präisser of, déi anzedroe sinn."
+        ]
+      },
+      "pricing": {
+        "title": "Präis",
+        "text": "Wärend der Lancementsphas ass de PMS mat engem Kont gratis zougänglech. De Präis, dee fir duerno ugekënnegt ass, läit bei 29 € de Mount fir d'Pro-Offer, déi de PMS enthält."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "Fir wéi eng Etablissementer ass dëse PMS geduecht?",
+            "a": "Fir Hotellen, Motellen, Gaaschtzëmmeren, Residenzen, Aubergen a Campingen. D'Startastellunge si fir en Etablissement zu Lëtzebuerg geduecht."
+          },
+          {
+            "q": "Verbënnt de PMS sech mat Booking.com oder Airbnb?",
+            "a": "Nëmmen iwwer iCal-Kalenner: Dir importéiert de Kalenner vun der Plattform a gitt hir e Kalenner, deen nëmme gelies ka ginn. Dat ass keng Synchronisatioun an Echtzäit; behaalt Är Disponibilitéiten am A, fir eng Iwwerbuchung ze vermeiden."
+          },
+          {
+            "q": "Wéi eng Indicateure gi berechent?",
+            "a": "Den Taux vun der Beleeung, den Duerchschnëttspräis pro verlounten Zëmmer (ADR), den Erléis pro disponibelt Zëmmer (RevPAR) an den Zëmmerëmsaz, iwwer 7, 30, 90 oder 365 Deeg."
+          },
+          {
+            "q": "Geréiert de PMS d'TVA an der Hotellerie?",
+            "a": "E späichert den Taux, deen Dir fir all Leeschtung agitt. Den uwendbaren Taux hänkt vun der tatsächlecher Leeschtung of; kontrolléiert en an den offizielle Quellen."
+          },
+          {
+            "q": "Kann een ouni Engagement testen?",
+            "a": "Jo. E gratis Kont geet duer, fir en Etablissement unzeleeën an all Ecran opzemaachen. Dir kënnt och mam Formulaire hei ënnen eng Demonstratioun ufroen."
+          }
+        ]
+      },
+      "links": {
+        "title": "Fräi zougänglech Tools fir d'Hotelanalys",
+        "items": []
+      },
+      "demo": {
+        "title": "Eng Demonstratioun vum PMS ufroen",
+        "intro": "Gitt Är Kontaktdaten un an, wann Dir wëllt, d'Zuel vun den Zëmmere vun Ärem Etablissement. Mir äntweren Iech per E-Mail, fir en Termin auszemaachen.",
+        "size": "Zuel vun den Zëmmeren",
+        "mailSubject": "Demonstratioun vum Hotel-PMS"
+      }
+    },
+    "rental": {
+      "meta": {
+        "title": "Software fir d'Locatiounsgestioun zu Lëtzebuerg | Tevaxia",
+        "description": "Locatiounsgestioun fir Proprietären zu Lëtzebuerg: Lotten, gesetzleche Loyersplafong (5-%-Regel), Bezuelungen, Quittungen, Relancen a Bankrapprochement."
+      },
+      "hero": {
+        "eyebrow": "Proprietären a Gestionnairen",
+        "title": "Software fir d'Locatiounsgestioun zu Lëtzebuerg",
+        "subtitle": "Behaalt Är Lotten, Loyeren a Bezuelungen am A, mam gesetzleche Loyersplafong, dee fir all Objet berechent gëtt, de Quittungen, de Relancen, dem Bankrapprochement an dem Etat des lieux.",
+        "open": "Mäi Portfolio opmaachen",
+        "note": "Am gratis Kont abegraff."
+      },
+      "features": {
+        "title": "Wat d'Software mécht",
+        "intro": "All Funktioun hei ënnen entsprécht engem Ecran vun der Software, deen disponibel ass, soubal en éischte Lot bäigesat ass.",
+        "items": [
+          {
+            "title": "Portfolio vu Lotten",
+            "desc": "All Är Objeten an enger Tabell: Loyer, gesetzleche Plafong, Rendement a Punkten, déi ze kontrolléiere sinn."
+          },
+          {
+            "title": "Gesetzleche Loyersplafong",
+            "desc": "Fir all Lot gëtt de maximale Joresloyer mat 5 % vum investéierte Kapital berechent, reevaluéiert a ëm d'Vetustéit reduzéiert. Loyeren iwwer dem Plafong gi markéiert."
+          },
+          {
+            "title": "Bezuelungen a Quittungen",
+            "desc": "De Suivi vun de Loyersechéancen an d'Virbereedung vu PDF-Quittunge fir d'Bezuelungen, déi Dir als komplett kritt deklaréiert."
+          },
+          {
+            "title": "Bankrapprochement",
+            "desc": "Den Import vun engem Auszuch am Format CAMT.053 oder CSV, fir déi kritt Loyeren ze erkennen, oder eng PSD2-Bankverbindung iwwer Enable Banking no Ärer Autorisatioun."
+          },
+          {
+            "title": "Relance vun Onbezuelten",
+            "desc": "Relancemodeller, déi engem Kalenner nokommen, deen Dir astellt."
+          },
+          {
+            "title": "Colocatiounen",
+            "desc": "De Suivi vun de Bewunner vun engem selwechte Lot an d'Verdeelung vum Loyer a vun de Chargen ënnert hinnen."
+          },
+          {
+            "title": "Etat des lieux",
+            "desc": "E Constat beim Antrëtt oder beim Austrëtt fir auszefëllen, zesummen ze kontrolléieren an z'ënnerschreiwen, als PDF exportéiert."
+          },
+          {
+            "title": "Steierlech Virbereedung",
+            "desc": "En Aarbechtsblat, dat d'Recetten an d'Käschte vun Äre Locatiounen zesummestellt, fir Är Deklaratioun virzebereeden. Et berechent d'Steier net."
+          },
+          {
+            "title": "Locatairesberäich",
+            "desc": "Iwwer e perséinleche Link gesäit de Locataire d'Informatiounen iwwer d'Wunneng an d'Loyersechéancen, déi Dir deklaréiert."
+          }
+        ]
+      },
+      "start": {
+        "title": "Wéi ufänken",
+        "steps": [
+          {
+            "title": "E Lot bäisetzen",
+            "desc": "Gitt den Objet, de Loyer an dat investéiert Kapital an: Kafpräis, Aarbechten an déi entspriechend Joren."
+          },
+          {
+            "title": "De gesetzleche Plafong liesen",
+            "desc": "D'Software vergläicht de Loyer mam berechente Plafong a markéiert d'Lotten, déi ze kontrolléiere sinn."
+          },
+          {
+            "title": "D'Bezuelunge suivéieren",
+            "desc": "Drot déi kritt Loyeren an oder importéiert e Bankauszuch a bereet duerno d'Quittungen an d'Relance vir."
+          }
+        ]
+      },
+      "limits": {
+        "title": "Wat d'Software net mécht",
+        "intro": "Besser et virum Ufank ze wëssen.",
+        "items": [
+          "Si zertifizéiert weder d'Konformitéit vun engem Bail nach d'Recht op eng Hëllef: de gewisene Plafong hänkt vun de Beträg of, déi Dir agitt.",
+          "Relance si Modeller: d'Echéancë vun der Software ersetzen net déi uwendbar Delaien a Prozedurakten.",
+          "Quittunge gi fir d'Bezuelunge virbereet, déi Dir als kritt deklaréiert; d'Software kasséiert keng Loyeren.",
+          "D'Energieklass déngt als Prioritéitsindicateur: eleng bestëmmt si keng Renovatiounshëllef.",
+          "Déi steierlech Virbereedung ass en Aarbechtsblat, keng Deklaratioun a keng Steierberodung."
+        ]
+      },
+      "pricing": {
+        "title": "Präis",
+        "text": "D'Locatiounsgestioun ass am gratis Kont abegraff: Lotten, Bezuelungen, Quittungen, Relancen a Bankrapprochement. D'Offeren an hir Späicherlimitte sinn op der Präissäit beschriwwen."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "Fir wien ass dës Software fir d'Locatiounsgestioun geduecht?",
+            "a": "Fir Proprietären, déi eng oder méi Wunnengen zu Lëtzebuerg verlounen, a fir Gestionnairen, déi Lotte fir Drëtter suivéieren."
+          },
+          {
+            "q": "Wéi gëtt de gesetzleche Loyersplafong berechent?",
+            "a": "De Joresloyer däerf 5 % vum Kapital, dat an d'Wunneng investéiert gouf, net iwwerschreiden. D'Software reevaluéiert dëst Kapital nom Joer vun all Ausgab a wennt en Ofschlag fir Vetustéit un, ausgoend vun de Beträg, déi Dir agitt."
+          },
+          {
+            "q": "Muss ee säi Bankkont verbannen?",
+            "a": "Nee. Dir kënnt d'Bezuelunge vun Hand androen oder en Auszuch importéieren. D'PSD2-Bankverbindung ass fakultativ a verlaangt Är Autorisatioun bei der Bank."
+          },
+          {
+            "q": "Muss de Locataire e Kont uleeën?",
+            "a": "Nee. Dir schéckt him e perséinleche Link, dee säi Beräich opmécht."
+          },
+          {
+            "q": "Kann een ouni Engagement testen?",
+            "a": "Jo. E gratis Kont geet duer, fir e Lot bäizesetzen an all Ecran opzemaachen. Dir kënnt och mam Formulaire hei ënnen eng Demonstratioun ufroen."
+          }
+        ]
+      },
+      "links": {
+        "title": "Fräi zougänglech Tools",
+        "items": [
+          "Rechner fir de gesetzleche Loyer",
+          "Etat des lieux fir auszefëllen",
+          "Bankrapprochement per Import",
+          "Locatioun iwwer eng sozial Immobilienagence",
+          "Devise fir Loyerausfallversécherunge vergläichen"
+        ]
+      },
+      "demo": {
+        "title": "Eng Demonstratioun vun der Locatiounsgestioun ufroen",
+        "intro": "Gitt Är Kontaktdaten un an, wann Dir wëllt, d'Zuel vun de Lotten, déi Dir verlount oder geréiert. Mir äntweren Iech per E-Mail, fir en Termin auszemaachen.",
+        "size": "Zuel vun de Lotten",
+        "mailSubject": "Demonstratioun vun der Locatiounsgestioun"
+      },
+      "sources": {
+        "title": "Offiziell Quellen",
+        "rent": "Offiziell Loyersreegelen",
+        "energy": "Offiziell Klimabonus-Konditiounen"
+      }
+    },
+    "crm": {
+      "demo": {
+        "title": "Eng Demonstratioun vum CRM ufroen",
+        "intro": "Gitt Är Kontaktdaten un an, wann Dir wëllt, d'Zuel vun den Agenten an Ärer Agence. Mir äntweren Iech per E-Mail, fir en Termin auszemaachen.",
+        "size": "Zuel vun den Agenten",
+        "mailSubject": "Demonstratioun vum Immobilien-CRM"
+      }
+    }
+  },
+  "productPreview": {
+    "caption": "Illustrativ Usiicht, fiktiv Daten",
+    "syndic": {
+      "window": "Generalversammlung",
+      "building": "Résidence Les Tilleuls · 24 Lotten · 1 000 Tantièmen",
+      "resolution": "Resolutioun 3: Renovatioun vun der Fassad",
+      "majority": "Absolut Majoritéit",
+      "for": "Dofir",
+      "against": "Dogéint",
+      "abstain": "Enthalung",
+      "adopted": "Ugeholl",
+      "callsTitle": "Fondsopruffe vum 2. Trimester",
+      "lot": "Lot",
+      "shares": "Tantièmen",
+      "amount": "Betrag",
+      "status": "Status",
+      "paid": "Bezuelt",
+      "reminder": "Relance 1"
+    },
+    "pms": {
+      "window": "Reservatiounsplang",
+      "occupancy": "Beleeung",
+      "adr": "Ø-Präis (ADR)",
+      "revpar": "RevPAR",
+      "arrivals": "Arrivéeën haut",
+      "room": "Zëmmer",
+      "double": "Duebel",
+      "twin": "Twin",
+      "suite": "Suite",
+      "confirmed": "Confirméiert",
+      "checkedIn": "Client am Haus",
+      "quote": "Devis"
+    },
+    "rental": {
+      "window": "Locatiounsportfolio",
+      "lot": "Lot",
+      "rent": "Mountsloyer",
+      "cap": "Gesetzleche Plafong",
+      "payment": "Bezuelung",
+      "above": "Iwwer dem Plafong",
+      "received": "Kritt",
+      "late": "Am Retard",
+      "lot1": "Appartement, Belair · 85 m²",
+      "lot2": "Studio, Gare · 32 m²",
+      "lot3": "Haus, Strassen · 140 m²",
+      "summary": "3 Lotten · {total} de Mount · 1 Loyer ze kontrolléieren"
+    },
+    "crm": {
+      "window": "Pipeline vun de Mandater",
+      "prospect": "Prospect",
+      "signed": "Mandat ënnerschriwwen",
+      "visiting": "Visitten",
+      "agreed": "Compromis ënnerschriwwen",
+      "exclusive": "Exklusiv",
+      "simple": "Einfach",
+      "card1": "Appartement mat 3 Schlofkummeren · Kirchberg",
+      "card2": "Haus · Bartreng",
+      "card3": "Studio · Bouneweg",
+      "card4": "Appartement mat 2 Schlofkummeren · Esch-Uelzecht",
+      "card5": "Zwillingshaus · Mamer",
+      "card6": "Penthouse · Lampertsbierg"
     }
   }
 }

@@ -44,8 +44,8 @@
     "description": "Calculez les frais d'acquisition au Luxembourg : droits d'enregistrement, Bëllegen Akt, TVA, émoluments du notaire et frais d'hypothèque. Estimation indicative."
   },
   "/gestion-locative": {
-    "title": "Gestion locative au Luxembourg : loyers, lots, quittances",
-    "description": "Suivez votre portefeuille avec les spécificités luxembourgeoises : règle des 5 %, impact énergétique (Klimabonus) et alertes sur les loyers hors plafond."
+    "title": "Logiciel de gestion locative au Luxembourg | Tevaxia",
+    "description": "Gestion locative pour bailleurs au Luxembourg : lots, plafond légal de loyer (règle des 5 %), paiements, quittances, relances et rapprochement bancaire."
   },
   "/gestion-locative/ais": {
     "title": "Gestion locative sociale au Luxembourg : simulation",
@@ -160,8 +160,8 @@
     "description": "Rechercher dans toutes les entités tevaxia : mandats, contacts CRM, copropriétés, propriétés hôtelières et réservations."
   },
   "/solutions/hotel": {
-    "title": "Outils pour hôteliers et investisseurs au Luxembourg | Tevaxia",
-    "description": "Choisissez les outils adaptés à votre projet hôtelier : valorisation, DSCR, exploitation et préparation documentaire, avec vos propres données."
+    "title": "PMS hôtelier au Luxembourg : logiciel de gestion d'hôtel",
+    "description": "PMS pour hôtels, chambres d'hôtes et résidences au Luxembourg : planning des réservations, réception, tarifs saisonniers, folios et rapports d'occupation."
   },
   "/status": {
     "title": "État des services et disponibilité | Tevaxia",

@@ -44,8 +44,8 @@
     "description": "Calcule os custos de aquisição no Luxemburgo: direitos de registo, Bëllegen Akt, IVA, emolumentos notariais e encargos de hipoteca. Estimativa indicativa."
   },
   "/gestion-locative": {
-    "title": "Gestão de arrendamento no Luxemburgo: rendas, frações, recibos",
-    "description": "Acompanhe a sua carteira com as especificidades luxemburguesas: regra dos 5 %, impacto energético (Klimabonus) e alertas sobre rendas acima do teto legal."
+    "title": "Software de gestão de arrendamento no Luxemburgo | Tevaxia",
+    "description": "Gestão de arrendamento para senhorios no Luxemburgo: frações, teto legal da renda (regra dos 5 %), pagamentos, recibos, avisos e reconciliação bancária."
   },
   "/gestion-locative/ais": {
     "title": "Gestão de arrendamento social: simulação por ano | Tevaxia",
@@ -160,8 +160,8 @@
     "description": "Pesquisa em todas as entidades tevaxia: mandatos, contactos CRM, condominios, propriedades hoteleiras e reservas."
   },
   "/solutions/hotel": {
-    "title": "Ferramentas para hoteleiros e investidores no Luxemburgo | Tevaxia",
-    "description": "Escolha ferramentas para o seu projeto hoteleiro: avaliação, DSCR, análise operacional e preparação documental com os seus próprios dados."
+    "title": "PMS hoteleiro no Luxemburgo: software de gestão de hotel",
+    "description": "PMS para hotéis, casas de hóspedes e residências no Luxemburgo: planeamento das reservas, receção, tarifas sazonais, fólios e relatórios de ocupação."
   },
   "/status": {
     "title": "Estado dos serviços e disponibilidade | Tevaxia",

@@ -136,7 +136,10 @@
       "banque": "Banken",
       "expert-evaluateur": "Gutachter"
     },
-    "readGuide": "Zum vollständigen Ratgeber"
+    "readGuide": "Zum vollständigen Ratgeber",
+    "footerSyndicSoftware": "Verwaltersoftware",
+    "footerPms": "Hotel-PMS",
+    "footerRentalSoftware": "Software für die Mietverwaltung"
   },
   "home": {
     "heroTitle": "Luxemburger Immobilienanalyse,",
@@ -3489,7 +3492,7 @@
   },
   "confidentialite": {
     "title": "Datenschutzerklärung",
-    "lastUpdate": "Letzte Aktualisierung: 23. Oktober 2026",
+    "lastUpdate": "Letzte Aktualisierung: 21. November 2026",
     "responsable": {
       "title": "1. Verantwortlicher für die Datenverarbeitung",
       "name": "NOTARIA PRIME — Sitz: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, Frankreich",
@@ -3542,6 +3545,10 @@
         "calendar": "Auf Ihren Wunsch kann eine Google-Calendar- oder Microsoft-Outlook-Verbindung Lese- und Schreibrechte für Termine sowie Offline-Zugriff anfordern. Externe Kontokennungen, E-Mail, Berechtigungen, Zugriffs- und Aktualisierungstoken sowie Ablaufdaten werden dafür in Supabase gespeichert. Die Autorisierung bedeutet nicht, dass alle Synchronisationsfunktionen verfügbar sind. Eine Kalender-Abonnement-URL kann veröffentlichte Aufgaben und Besichtigungen an Ihren Kalenderdienst übermitteln; jeder mit dieser URL kann deren Inhalt lesen.",
         "drive": "Beim Export nach Google Drive werden die gewählte Datei und ihr Name nach Ihrer Aktion an Google übertragen. Die Berechtigung drive.file betrifft mit der Anwendung erstellte oder geöffnete Dateien, nicht Ihr gesamtes Drive. Die benötigten Anbietertoken sind in der Authentifizierungssitzung zugänglich. Exportierte Dateien verbleiben bis zur Löschung gemäß Ihren Google-Einstellungen in Ihrem Drive.",
         "revoke": "Berechtigungen können Sie in Ihren Google- oder Microsoft-Kontoeinstellungen widerrufen. Die Löschung der bei Tevaxia gespeicherten Verbindungsdaten können Sie unter contact@tevaxia.lu anfordern. Ein Widerruf löscht bereits übermittelte Dateien oder Termine nicht automatisch beim Anbieter. Widerrufen Sie auch nicht mehr gewünschte Abonnementlinks."
+      },
+      "demo": {
+        "label": "Anfragen für eine Vorführung:",
+        "text": "Wenn Sie ein Formular für eine Vorführung ausfüllen, speichern wir Ihren Namen, Ihre E-Mail-Adresse und, sofern Sie sie angeben, Ihr Unternehmen, Ihre Telefonnummer, die Größe Ihrer Tätigkeit und Ihre Nachricht. Diese Daten dienen ausschließlich der Beantwortung Ihrer Anfrage. Ein täglich erneuerter Hashwert Ihrer IP-Adresse begrenzt die Zahl der Sendungen; er ermöglicht keine Identifizierung. Sie können die Löschung Ihrer Anfrage unter contact@tevaxia.lu verlangen."
       }
     },
     "finalites": {
@@ -5526,191 +5533,6 @@
     "demoCashflowAssumptions": "Szenario mit konstanten Annahmen: Mieten und Kosten steigen ab dem zweiten Jahr um 2 %, Darlehen über 25 Jahre mit monatlichen Raten, keine automatische steuerliche Abschreibung. Der Grenzsteuersatz ersetzt keine vollständige nationale Steuerberechnung. Die britische Ermäßigung von 20 % ist auf den Vermietungsgewinn begrenzt; ausreichendes bereinigtes Gesamteinkommen wird angenommen, ohne Kostenvortrag. Künftige Steueränderungen werden nicht prognostiziert."
   },
   "solutions": {
-    "syndic": {
-      "meta": {
-        "title": "Hausverwaltungs-Software Luxemburg, konform Gesetz 16.05.1975",
-        "description": "Verwalten Sie Ihre Gemeinschaften ohne Excel-Wochenenden: Online-Eigentümerversammlungen, Factur-X-Mittelabrufe, LU-Buchhaltung, PSD2-Bankabgleich. Kostenlose Testversion."
-      },
-      "hero": {
-        "badge": "Für Luxemburger Eigentümergemeinschaften gebaut",
-        "title": "Ihre Hausverwaltung, ohne",
-        "titleAccent": "Wochenenden an Excel",
-        "subtitle": "Online-Eigentümerversammlungen mit tantième-gewichteter Abstimmung, Factur-X-konforme Mittelabrufe, luxemburgische Gemeinschafts-Buchhaltung und automatischer Bankabgleich. Gebaut für professionelle Hausverwalter, die es leid sind, zwischen 4 Werkzeugen zu jonglieren.",
-        "cta": "Kostenlos starten",
-        "ctaSecondary": "Funktionsweise ansehen",
-        "kpis": [
-          {
-            "value": "15 h",
-            "label": "pro EV eingespart"
-          },
-          {
-            "value": "100 %",
-            "label": "konform Gesetz 16.05.1975"
-          },
-          {
-            "value": "<24 h",
-            "label": "Support-Antwortzeit"
-          }
-        ]
-      },
-      "problem": {
-        "title": "Eine Gemeinschaft in Luxemburg 2026 zu verwalten, sollte nicht mehr so aussehen",
-        "intro": "Zwischen Gesetz vom 16. Mai 1975, vierteljährlichen Mittelabrufen, Mahnungen, EV-Vorbereitung und Buchhaltung füllt sich die Woche eines Hausverwalters von selbst. Ausser die richtigen Werkzeuge nehmen die Last ab.",
-        "items": [
-          {
-            "title": "EV-Vorbereitung in 3 Tagen",
-            "desc": "Einladungen innerhalb von 15 Tagen, Tagesordnung entwerfen, Vollmachten sammeln, Protokoll später tippen. Der Verwaltungsaufwand frisst die Zeit, die den eigentlichen Themen gelten sollte.",
-            "stat": "~15 Stunden pro EV"
-          },
-          {
-            "title": "Mahnungen von Hand",
-            "desc": "Verfolgen wer was schuldet, Fristen überwachen, gesetzliche Zinsen berechnen, formelle Mahnungen vorbereiten. Ohne Spezialwerkzeug geht etwas durch, und die Kasse schrumpft.",
-            "stat": "3-7 % chronisch unbezahlt"
-          },
-          {
-            "title": "Excel, Bank und Buchhaltung jonglieren",
-            "desc": "Eingehende Zahlungen mit Mittelabrufen abgleichen, in Buchhaltung erfassen, EV-Anlagen aus 3 Quellen zusammenstellen. Jeder Schritt birgt Fehlerrisiko.",
-            "stat": "4 Werkzeuge im Durchschnitt"
-          }
-        ]
-      },
-      "howItWorks": {
-        "title": "Eine Plattform, drei Schritte",
-        "intro": "Keine komplexe Migration, keine 2-tägige Schulung. Sie importieren Ihre Gemeinschaften, konfigurieren einmal die Verteilungsschlüssel, und das Werkzeug übernimmt.",
-        "steps": [
-          {
-            "number": "1",
-            "title": "Ihre Gemeinschaften importiert",
-            "desc": "Excel-Import, manuelle Eingabe oder API. Einheiten, Tantièmes, Miteigentümer, Verträge, Buchhaltungshistorie. Funktioniert mit jeder Hausverwaltung, die bereits strukturiert ist."
-          },
-          {
-            "number": "2",
-            "title": "EV und Mittelabrufe laufen selbst",
-            "desc": "PDF-Einladungen pro Einheit, tantième-gewichtete elektronische Abstimmung, automatisch erstelltes Protokoll. EN-16931-konforme Factur-X-Mittelabrufe an Miteigentümer mit SEPA-Referenz."
-          },
-          {
-            "number": "3",
-            "title": "Buchhaltung läuft von selbst",
-            "desc": "Jeder Mittelabruf, jede eingehende Zahlung, jede erfasste Ausgabe fliesst in das Buchhaltungsjournal. Die 5 EV-Anlagen werden auf Knopfdruck als PDF generiert."
-          }
-        ]
-      },
-      "features": {
-        "title": "Alles, was ein luxemburgischer Hausverwalter wirklich braucht",
-        "intro": "Funktionen gebaut für den Rechtsrahmen des Grossherzogtums: Gesetz vom 16. Mai 1975, EV-Mehrheitsregeln, MwSt-Befreiung Art. 44 §1 f, 10-Jahres-Archivierung.",
-        "items": [
-          {
-            "title": "Online-EV mit gewichteter Abstimmung",
-            "desc": "Elektronische Abstimmung gewichtet nach Tantièmes, einfache / absolute / doppelte / einstimmige Mehrheiten automatisch behandelt."
-          },
-          {
-            "title": "Einladungen + PDF-Protokolle",
-            "desc": "Einladung pro Einheit mit rechtlicher Tagesordnung, automatisch erstelltes Protokoll nach EV mit Ergebnissen."
-          },
-          {
-            "title": "Factur-X-Mittelabrufe",
-            "desc": "PDF/A-3 + CII D22B XML konform EN 16931, SEPA-Mandatsreferenz, Art. 261 D CGI Befreiung angewandt."
-          },
-          {
-            "title": "Mahnungen in 3 Stufen",
-            "desc": "Freundliche Erinnerung, formelle Mahnung, Zahlungsaufforderung. Luxemburgische gesetzliche Zinsen automatisch berechnet."
-          },
-          {
-            "title": "5 EV-Buchhaltungsanlagen",
-            "desc": "Bilanz, Journal, Budget, Kostenverteilung, Status offene Forderungen. Verteilbereite PDFs."
-          },
-          {
-            "title": "PSD2-Bankabgleich",
-            "desc": "Verbindung zu BCEE, BIL, Banque Raiffeisen, Post Finance über Enable Banking. Automatischer Abgleich."
-          },
-          {
-            "title": "Konfigurierbare Verteilungsschlüssel",
-            "desc": "Allgemeine Tantièmes, Betriebs-Tantièmes, Sonderkosten pro Treppenhaus/Gebäude, individuelle Anteile."
-          },
-          {
-            "title": "Miteigentümer-Portal",
-            "desc": "Jeder Miteigentümer hat seinen Bereich: Abstimmung, Kontoauszug, Einladungen, Protokolle, Online-Zahlung."
-          },
-          {
-            "title": "10 bearbeitbare Briefvorlagen",
-            "desc": "Mahnungen, Einladungen, formelle Mitteilungen, Vollmachten. Vollständig anpassbar, DOCX / PDF / Google Drive Export."
-          },
-          {
-            "title": "Kostenlose Rechnungs-OCR",
-            "desc": "Lieferantenrechnungen hochladen, automatische Extraktion via PDF.js + Tesseract.js. Keine manuelle Eingabe."
-          },
-          {
-            "title": "SEPA-Sammelüberweisungen",
-            "desc": "pain.001 XML-Generierung für gruppierte Lieferantenzahlungen, kompatibel mit allen luxemburgischen Banken."
-          },
-          {
-            "title": "Kosten-Benchmark",
-            "desc": "Vergleich Ihrer Kosten pro m² mit dem luxemburgischen Durchschnitt nach Wohnungstyp und Baujahr."
-          }
-        ]
-      },
-      "trust": {
-        "title": "Warum LU-Hausverwalter uns wählen",
-        "agileTitle": "Agile Entwicklung, regelmässige Releases",
-        "agileDesc": "Neue Module alle 2 Wochen geliefert. Öffentliches Backlog, Ihre Anfragen gehen schnell in Produktion.",
-        "customTitle": "Individualentwicklung verfügbar",
-        "customDesc": "Spezifisches Einladungsformat, ungewöhnliche Tantième-Berechnung, Export an Ihre Buchhaltung: Entwicklung in 1 bis 3 Wochen.",
-        "supportTitle": "Support unter 24 h",
-        "supportDesc": "E-Mail an contact@tevaxia.lu. Durchschnittsantwort unter 6 Stunden an Werktagen. Keine Ticketnummern, kein Chatbot."
-      },
-      "pricing": {
-        "title": "In Ihrem tevaxia-Abonnement enthalten",
-        "subtitle": "Keine Abrechnung pro Gemeinschaft, kein EV-Kontingent, kein Premium-Modul. Alles im Freemium zum Testen verfügbar, im allgemeinen Abonnement für täglichen Einsatz.",
-        "features": [
-          "Unbegrenzte Gemeinschaften",
-          "Online-EV mit tantième-gewichteter Abstimmung",
-          "Factur-X-Mittelabrufe konform EN 16931",
-          "Luxemburgische Gemeinschafts-Buchhaltung",
-          "PSD2-Bankabgleich (Enable Banking)",
-          "Miteigentümer-Portal mit Einzelzugang",
-          "5 EV-PDF-Buchhaltungsanlagen",
-          "3-stufige Mahnungen mit LU-Zinsen",
-          "Konform Gesetz 16. Mai 1975"
-        ],
-        "ctaPlatform": "tevaxia-Pakete ansehen",
-        "ctaEmit": "Zum Hausverwalter-Modul"
-      },
-      "faq": {
-        "title": "Häufig gestellte Fragen",
-        "items": [
-          {
-            "q": "Ich wechsle von [anderem Werkzeug] zu tevaxia, wie migriere ich?",
-            "a": "Standard-Excel-Import (Einheiten, Miteigentümer, Kostenhistorie), dann Verteilungsschlüssel-Konfiguration. Die Übernahme eines laufenden Geschäftsjahres dauert 2 bis 4 Stunden. Wir unterstützen Sie ohne Zusatzkosten."
-          },
-          {
-            "q": "Ist das Werkzeug konform mit luxemburgischem Miteigentumsrecht?",
-            "a": "Ja, das Gesetz vom 16. Mai 1975 ist integriert: einfache / absolute / doppelte / einstimmige Mehrheiten, 15-tägige Einladungsfrist, Buchhaltungspflichten, 10-Jahres-Archivierung."
-          },
-          {
-            "q": "Ist eine Online-EV rechtsgültig?",
-            "a": "Ja, sofern die Gemeinschaftsregeln es erlauben oder eine frühere physische EV-Beschluss es genehmigt hat. Die Praxis ist seit 2020 in Luxemburg üblich."
-          },
-          {
-            "q": "Können Mittelabrufe für MwSt-befreite Gemeinschaften ausgestellt werden?",
-            "a": "Ja, Art. 44 §1 f des MwSt-Gesetzes befreit Gemeinschaftsverwaltung. Das Modul wendet automatisch die korrekte Befreiung an."
-          },
-          {
-            "q": "Sind Miteigentümer-Daten sicher?",
-            "a": "Gespeichert auf Supabase (AWS eu-central-1 Frankfurt) mit Row Level Security, DSGVO-konform, HTTPS-Verschlüsselung."
-          },
-          {
-            "q": "Wie lange bis ich operativ bin?",
-            "a": "Ein Hausverwalter mit 1 bis 5 Gemeinschaften ist in 1 bis 2 Stunden operativ. Über 10 Gemeinschaften, 4 bis 6 Stunden für kompletten Import."
-          }
-        ]
-      },
-      "finalCta": {
-        "title": "Bereit, Ihre Abende zurückzunehmen",
-        "desc": "Konto kostenlos erstellen, erste Gemeinschaft importieren, Test-Mittelabruf in 15 Minuten generieren. Null Verpflichtung.",
-        "cta": "Kostenlos starten",
-        "ctaSecondary": "Hausverwalter-Modul live ansehen"
-      }
-    },
     "agence": {
       "meta": {
         "title": "Immobilienmakler-CRM Luxemburg — Pipeline und OpenImmo",
@@ -7004,8 +6826,8 @@
     }
   },
   "syndic": {
-    "title": "Software für Verwalter von Miteigentum in Luxemburg",
-    "subtitle": "Verwaltersoftware für Luxemburg: Nebenkosten nach Anteilen, Einheiten, Eigentümerversammlungen, Umlagen und energetische Sanierung von Miteigentum.",
+    "title": "Nebenkosten im Miteigentum in Luxemburg: Simulator nach Anteilen",
+    "subtitle": "Simulator für Nebenkosten im Miteigentum: Verteilung nach Miteigentumsanteilen auf die Einheiten, Kostenbudget und Szenarien für die energetische Sanierung des Gebäudes.",
     "primaryCta": {
       "label": "Hauptzugang",
       "title": "Meine verwalteten WEGs",
@@ -7745,28 +7567,6 @@
       "faq3a": "Alle 5 Ebenen: staatliche Erwerbsbeihilfen (Bëllegen Akt, 3 %-MwSt.-Vorteil), energetische Sanierung (Klimabonus), private Beihilfen (Wohnbauprämie), kommunale Beihilfen und Kulturerbe-Beihilfen.",
       "faq4q": "Gilt die 5 %-Regel, wenn ich selbst in der Wohnung wohne?",
       "faq4a": "Nein. Der gesetzliche Höchstpreis gilt nur für vermietete Objekte. Wenn Sie für sich selbst kaufen, können Sie Schritt 4 überspringen.",
-      "faqTitle": "Häufig gestellte Fragen",
-      "relatedTitle": "Weiterführend"
-    }
-  },
-  "gestionLocative": {
-    "seo": {
-      "regle5Title": "Die 5 %-Regel in Luxemburg",
-      "regle5Content": "Nein: Im Objektformular fehlen unter anderem Baujahr und Möbelbelege. Das Ergebnis bleibt unvollständig. Nutzen Sie vor einer Schlussfolgerung den ausführlichen Mietrechner und die offiziellen Unterlagen.",
-      "klimabonusTitle": "Sanierung prüfen",
-      "klimabonusContent": "Die Energieklasse allein bestimmt keinen Klimabonus-Anspruch. Prüfen Sie Gebäude, Maßnahmen, Termine und die erforderliche vorherige Genehmigung.",
-      "rendementTitle": "Potenzielle Bruttorendite",
-      "rendementContent": "Die Bruttorendite setzt die Jahresmiete ins Verhältnis zum Kaufpreis. Die gesetzliche Mietobergrenze beruht auf dem aufgewerteten und abgeschriebenen investierten Kapital. Sie begrenzt die Bruttorendite daher nicht pauschal auf 5 % des Kaufpreises.",
-      "syndicTitle": "Nutzung durch Verwalter",
-      "syndicContent": "Verfolgen Sie Objekte, Mieten und Prüfbedarf. Das Portfolio bestätigt weder die Rechtmäßigkeit des Mietvertrags noch einen Förderanspruch.",
-      "faq1q": "Werden meine Mietdaten online übertragen?",
-      "faq1a": "Objekte des angemeldeten Kontos werden online und in einem getrennten lokalen Kontocache gespeichert. Gastobjekte bleiben lokal. Alte Sicherungen ohne Kontozuordnung werden nicht automatisch importiert.",
-      "faq2q": "Ist die Prüfung der Mietobergrenze vollständig?",
-      "faq2a": "Nein: Im Objektformular fehlen unter anderem Baujahr und Möbelbelege. Das Ergebnis bleibt unvollständig. Nutzen Sie vor einer Schlussfolgerung den ausführlichen Mietrechner und die offiziellen Unterlagen.",
-      "faq3q": "Wie lässt sich die Aufwertung prüfen?",
-      "faq3a": "Nutzen Sie die offiziellen Tabellen und Erläuterungen zum investierten Kapital. Berechnungsjahr, Investitionsdaten, Grundstück, Arbeiten und Abschreibung sind zu unterscheiden. Der Kaufpreis allein genügt nicht.",
-      "faq4q": "Ändert Möbliertvermietung die Berechnung?",
-      "faq4a": "Der Möbelzuschlag ist von der Immobilienmiete getrennt und erfordert zulässige Rechnungen. Die Auswahl möbliert berechnet keinen pauschalen Zuschlag; geben Sie die Nachweise im ausführlichen Rechner ein.",
       "faqTitle": "Häufig gestellte Fragen",
       "relatedTitle": "Weiterführend"
     }
@@ -13575,37 +13375,6 @@
     "methoItem3": "Verordnung (EU) 2019/2088 SFDR + RTS 2022/1288 PAI Indikatoren",
     "methoItem4": "Richtlinie EPBD IV 2024/1275 + geplante LU-Umsetzung 2026",
     "methoItem5": "LU-Emissionsfaktoren: ILR 2023 (Netz), guichet.lu (fossile Energien)"
-  },
-  "gestionLocativeHub": {
-    "heroTitle": "Mietverwaltung in Luxemburg",
-    "heroSubtitle": "Verfolgen Sie Ihr Portfolio mit Luxemburger Besonderheiten: 5-%-Regel, Energieauswirkung (Klimabonus) und Warnungen bei Mieten über der gesetzlichen Obergrenze.",
-    "ctaPortefeuille": "Portfolio öffnen →",
-    "ctaFiscal": "📊 Steuer-Dashboard LU",
-    "ctaEtatLieux": "📱 Übergabeprotokoll",
-    "ctaReconciliation": "🏦 Bankabstimmung",
-    "ctaRelances": "📬 Mahnungen",
-    "ctaGli": "🛡 Mietausfallversicherung",
-    "ctaTestRule": "5-%-Regel testen",
-    "whyTitle": "Für das Luxemburger Wohnraummietrecht konzipiert",
-    "whySubtitle": "Verfolgen Sie Objekte, Mieten und Prüfbedarf. Das Portfolio bestätigt weder die Rechtmäßigkeit des Mietvertrags noch einen Förderanspruch.",
-    "card1Title": "5-%-Regel",
-    "card1Desc": "Maximale Jahresmiete = 5 % des neubewerteten eingesetzten Kapitals mit Altersabschlag. Jede höhere Miete ist vom Mieter rechtlich reduzierbar.",
-    "card2Title": "Sanierung prüfen",
-    "card2Desc": "Die Energieklasse allein bestimmt keinen Klimabonus-Anspruch. Prüfen Sie Gebäude, Maßnahmen, Termine und die erforderliche vorherige Genehmigung.",
-    "card3Title": "Reale Rendite",
-    "card3Desc": "STATEC-Neubewertungskoeffizient + 1 %/Jahr Altersabschlag automatisch. Ihre Bruttorendite wird mit der maximal erzielbaren gesetzlichen Rendite verglichen.",
-    "forWhoTitle": "Für wen?",
-    "forWho1Title": "Eigentümer von 1 bis 10 Lots",
-    "forWho1Desc": "Mehrfach-Eigentümer in Luxemburg. Prüfen Sie die Rechtskonformität jeder Miete, verfolgen Sie die aggregierte Rentabilität, identifizieren Sie vorrangig zu sanierende Lots.",
-    "forWho2Title": "Verwalter & Asset Manager 10-100 Lots",
-    "forWho2Desc": "Portfolio-Steuerung für Dritte. Automatische Warnungen bei Lots über der gesetzlichen Obergrenze, Nach-Sanierungs-Neubewertungs-Simulationen.",
-    "mvpStrong": "MVP-Status:",
-    "mvpBody": "Lots werden lokal in Ihrem Browser persistiert. Für eine synchronisierte Mehrplatz-Nutzung (Organisation, Mitarbeiter-Einladungen) integrieren wir Supabase in einer kommenden Version, Ihre lokalen Daten werden migrierbar sein.",
-    "startTitle": "Jetzt starten",
-    "startSubtitle": "Fügen Sie Ihre Lots in 2 Minuten hinzu, erhalten Sie sofort die gesetzliche Obergrenze und die Energie-Diagnose.",
-    "startCta": "Mein Portfolio öffnen →",
-    "officialRent": "Offizielle Mietregeln",
-    "officialEnergy": "Offizielle Klimabonus-Bedingungen"
   },
   "hotelTransactions": {
     "backHub": "← Hotellerie",
@@ -19822,6 +19591,480 @@
       "p1": "Der Simulator geht vom durchschnittlichen Preis pro Nacht, der Auslastung und dem Buchungskanal aus, um die jährlichen Bruttoeinnahmen zu berechnen, und zieht dann die Provision der Plattform, Reinigung, Wäsche, Verbrauchsmaterial und Fixkosten ab.",
       "p2": "Anschließend wendet er den von Ihnen gewählten Grenzsteuersatz an und zeigt das jährliche und monatliche Nettoeinkommen sowie die Nettorendite im Verhältnis zum Kaufpreis.",
       "p3": "Die Berechnung berücksichtigt weder die Tilgung des Darlehens noch MwSt., Sozialbeiträge oder die steuerliche Veranlagung des Haushalts. Die angegebenen Spannen sind Anhaltspunkte; prüfen Sie auch die Pflichten, die in Ihrer Gemeinde für Kurzzeitvermietungen gelten."
+    }
+  },
+  "productPages": {
+    "common": {
+      "demoCta": "Vorführung anfragen",
+      "pricingLink": "Preise ansehen",
+      "faqTitle": "Häufige Fragen",
+      "form": {
+        "name": "Name",
+        "company": "Unternehmen",
+        "email": "E-Mail-Adresse",
+        "phone": "Telefon",
+        "message": "Ihr Bedarf in wenigen Worten",
+        "optional": "freiwillig",
+        "submit": "Anfrage senden",
+        "sending": "Wird gesendet…",
+        "successTitle": "Ihre Anfrage ist gespeichert.",
+        "successText": "Wir antworten Ihnen per E-Mail, um einen Termin zu vereinbaren.",
+        "errorInvalid": "Prüfen Sie Ihren Namen und Ihre E-Mail-Adresse und versuchen Sie es erneut.",
+        "errorRateLimited": "Es wurden zu viele Anfragen gesendet. Versuchen Sie es in einer Stunde erneut.",
+        "errorUnavailable": "Die Anfrage konnte nicht gespeichert werden.",
+        "fallback": "Sie können uns schreiben an",
+        "privacy": "Ihre Kontaktdaten dienen ausschließlich der Beantwortung dieser Anfrage.",
+        "privacyLink": "Datenschutzerklärung"
+      }
+    },
+    "syndic": {
+      "meta": {
+        "title": "Software für Verwalter von Miteigentum in Luxemburg | Tevaxia",
+        "description": "Verwaltersoftware für Luxemburg: Eigentümerversammlungen mit gewichteter Abstimmung, Mittelabrufe, Buchhaltung, Mahnungen und Portal für Miteigentümer."
+      },
+      "hero": {
+        "eyebrow": "Verwalter von Miteigentum",
+        "title": "Software für Verwalter von Miteigentum in Luxemburg",
+        "subtitle": "Führen Sie Ihre Miteigentumsgemeinschaften in einem einzigen Werkzeug: Einheiten und Tausendstel, Eigentümerversammlungen mit gewichteter Abstimmung, Mittelabrufe, Buchhaltung, Mahnungen bei Rückständen und ein Portal für die Miteigentümer.",
+        "open": "Meine Miteigentumsgemeinschaften öffnen",
+        "note": "Während der Einführungsphase mit einem Konto kostenlos."
+      },
+      "features": {
+        "title": "Was die Software leistet",
+        "intro": "Jede der folgenden Funktionen entspricht einem Bildschirm der Software und steht zur Verfügung, sobald eine Miteigentumsgemeinschaft angelegt ist.",
+        "items": [
+          {
+            "title": "Gemeinschaften, Einheiten und Tausendstel",
+            "desc": "Jede Miteigentumsgemeinschaft fasst ihre Einheiten und deren Anteile zusammen. Eine Portfolioansicht ordnet die Gebäude nach der Höhe der Rückstände und vergleicht ihre Kennzahlen untereinander."
+          },
+          {
+            "title": "Eigentümerversammlungen",
+            "desc": "Einladungen, Tagesordnung, elektronische Abstimmung nach Miteigentumsanteilen und Protokoll. Vier Mehrheitsregeln stehen zur Wahl: einfache, absolute und doppelte Mehrheit sowie Einstimmigkeit. Ein Videokonferenzraum lässt sich öffnen, und ein Generator erstellt Vollmachten als PDF."
+          },
+          {
+            "title": "Mittelabrufe",
+            "desc": "Abrufe je Zeitraum, verteilt nach Miteigentumsanteilen oder nach Ihren eigenen Verteilungsschlüsseln (Heizung, Aufzug, Treppenhäuser), mit einem PDF je Einheit."
+          },
+          {
+            "title": "Buchhaltung und Budget",
+            "desc": "Kontenplan, doppelte Buchführung, Journal, Saldenliste und Jahresabschluss. Das Budget wird mit den Ist-Zahlen verglichen, und fünf Buchhaltungsanlagen werden als PDF für die Versammlung erstellt."
+          },
+          {
+            "title": "Mahnungen bei Rückständen",
+            "desc": "Drei Mahnstufen, vom freundlichen Schreiben bis zur letzten förmlichen Mahnung, mit Verzugszinsen zu dem von Ihnen eingestellten Satz und einem Verlauf der Sendungen."
+          },
+          {
+            "title": "Bank und Lieferanten",
+            "desc": "Import des Kontoauszugs als CSV-Datei, um eingegangene Zahlungen den Mittelabrufen zuzuordnen, eine SEPA-Überweisungsdatei für die Sammelzahlung an Lieferanten und das automatische Auslesen von Lieferantenrechnungen."
+          },
+          {
+            "title": "Arbeiten und Rücklage für Arbeiten",
+            "desc": "Die Begleitung eines Bauvorhabens von der Ausschreibung bis zur Abnahme, über Angebote und die Abstimmung in der Versammlung, sowie die Führung der Rücklage für Arbeiten."
+          },
+          {
+            "title": "Miteigentümerportal und Nachrichten",
+            "desc": "Jeder Miteigentümer erhält einen persönlichen Link, um Einladungen einzusehen, abzustimmen und seinen Kontoauszug herunterzuladen. Ein Nachrichtenbereich verbindet Verwalter und Miteigentümer; der Verwaltungsbeirat hat einen eigenen Bereich."
+          },
+          {
+            "title": "Archiv und Musterbriefe",
+            "desc": "Die Archivierung von Protokollen, Rechnungen und Verträgen sowie zehn anpassbare Musterbriefe, die sich als DOCX oder PDF exportieren lassen."
+          }
+        ]
+      },
+      "start": {
+        "title": "So beginnen Sie",
+        "steps": [
+          {
+            "title": "Konto und erste Gemeinschaft anlegen",
+            "desc": "Erfassen Sie das Gebäude, dann seine Einheiten mit ihren Tausendsteln und ihren Miteigentümern."
+          },
+          {
+            "title": "Verteilung und Budget festlegen",
+            "desc": "Ergänzen Sie Ihre Verteilungsschlüssel, wenn nicht alle Kosten den allgemeinen Anteilen folgen, und stellen Sie dann das Budget des Geschäftsjahres auf."
+          },
+          {
+            "title": "Mittelabruf oder Versammlung starten",
+            "desc": "Erzeugen Sie den Abruf des Zeitraums, senden Sie den Miteigentümern den Link zu ihrem Bereich und bereiten Sie die Einladung vor."
+          }
+        ]
+      },
+      "limits": {
+        "title": "Was die Software nicht leistet",
+        "intro": "Das sollten Sie wissen, bevor Sie beginnen.",
+        "items": [
+          "Die Bank ist nicht direkt angebunden: Der Abgleich geht von einem CSV-Kontoauszug aus, den Sie importieren.",
+          "Mittelabrufe sind PDF-Dokumente, keine elektronischen Rechnungen.",
+          "Einheiten und Miteigentümer werden von Hand erfasst: Eine automatische Übernahme aus einer anderen Software gibt es nicht.",
+          "Die Software wendet die von Ihnen gewählte Mehrheitsregel an; sie prüft nicht, ob ein Beschluss Ihrer Miteigentumsordnung oder dem Gesetz vom 16. Mai 1975 entspricht.",
+          "Briefe und Mahnungen sind Muster: Lassen Sie sie vor einem rechtlich bedeutsamen Versand prüfen."
+        ]
+      },
+      "pricing": {
+        "title": "Preis",
+        "text": "Während der Einführungsphase ist die Verwaltersoftware mit einem Konto kostenlos zugänglich. Der für später angekündigte Preis beträgt 29 € pro Monat für das Pro-Angebot, das sie umfasst."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "An wen richtet sich diese Verwaltersoftware?",
+            "a": "An berufliche und ehrenamtliche Verwalter, die eine oder mehrere Miteigentumsgemeinschaften in Luxemburg führen. Die Portfolioansicht ist vor allem ab mehreren Gebäuden nützlich."
+          },
+          {
+            "q": "Wird die Abstimmung in der Eigentümerversammlung gewichtet?",
+            "a": "Ja. Jede Stimme zählt mit den Miteigentumsanteilen der Einheit, und das Ergebnis jedes Beschlusses wird nach der gewählten Mehrheit berechnet: einfach, absolut, doppelt oder einstimmig. Prüfen Sie in Ihrer Miteigentumsordnung, ob die elektronische Abstimmung zulässig ist."
+          },
+          {
+            "q": "Müssen die Miteigentümer ein Konto anlegen?",
+            "a": "Nein. Der Verwalter sendet ihnen einen persönlichen Link, der ihren Bereich öffnet: Einladungen, Abstimmung und Kontoauszug."
+          },
+          {
+            "q": "Wo werden die Daten gespeichert?",
+            "a": "Die Kontodaten werden bei Supabase in Europa gespeichert. Der Zugriff ist auf das Konto beschränkt, das die Gemeinschaft verwaltet; Einzelheiten stehen in der Datenschutzerklärung."
+          },
+          {
+            "q": "Kann man unverbindlich testen?",
+            "a": "Ja. Ein kostenloses Konto genügt, um eine Gemeinschaft anzulegen und jeden Bildschirm zu öffnen. Sie können auch mit dem Formular unten eine Vorführung anfragen."
+          }
+        ]
+      },
+      "links": {
+        "title": "Frei zugängliche Werkzeuge",
+        "items": [
+          "Simulator für Nebenkosten im Miteigentum",
+          "Musterbriefe für Verwalter",
+          "Vollmacht für die Eigentümerversammlung"
+        ]
+      },
+      "demo": {
+        "title": "Vorführung der Verwaltersoftware anfragen",
+        "intro": "Geben Sie Ihre Kontaktdaten an und, wenn Sie möchten, die Zahl der Gemeinschaften oder Einheiten, die Sie verwalten. Wir antworten Ihnen per E-Mail, um einen Termin zu vereinbaren.",
+        "size": "Zahl der Gemeinschaften oder Einheiten",
+        "mailSubject": "Vorführung der Verwaltersoftware"
+      }
+    },
+    "pms": {
+      "meta": {
+        "title": "Hotel-PMS in Luxemburg: Software für die Hotelverwaltung",
+        "description": "PMS für Hotels, Gästehäuser und Aparthotels in Luxemburg: Reservierungsplan, Rezeption, Saisonpreise, Folios und Berichte zur Auslastung."
+      },
+      "hero": {
+        "eyebrow": "Hotels, Gästehäuser, Aparthotels",
+        "title": "Hotel-PMS-Software in Luxemburg",
+        "subtitle": "Verwalten Sie Zimmer, Reservierungen und Rezeption in einem einzigen Werkzeug: Belegungsplan, Saisonpreise, Folios, Rechnungsdokumente und Berichte zu Auslastung, Durchschnittspreis und RevPAR.",
+        "open": "PMS öffnen",
+        "note": "Während der Einführungsphase mit einem Konto kostenlos."
+      },
+      "features": {
+        "title": "Was das PMS leistet",
+        "intro": "Jede der folgenden Funktionen entspricht einem Bildschirm der Software und steht zur Verfügung, sobald ein Betrieb angelegt ist.",
+        "items": [
+          {
+            "title": "Betriebe und Zimmer",
+            "desc": "Hotel, Motel, Gästehaus, Aparthotel, Herberge oder Campingplatz. Jedes Zimmer hat einen Status: verfügbar, belegt, zu reinigen, sauber, geprüft oder außer Betrieb. Ein Assistent schlägt eine Ausgangskonfiguration vor, die Sie anschließend ändern können."
+          },
+          {
+            "title": "Reservierungen und Belegungsplan",
+            "desc": "Eine Reservierung geht vom Angebot zur Bestätigung, dann zur Anreise und zur Abreise; Stornierungen und Nichtanreisen werden nachverfolgt. Der Kalender zeigt die Belegung Zimmer für Zimmer."
+          },
+          {
+            "title": "Rezeption und Gästekartei",
+            "desc": "Eine Tagesansicht listet Anreisen, Abreisen und anwesende Gäste auf, mit einer Druckfassung. Die Gästekartei bewahrt die für die Aufenthalte nötigen Kontaktdaten auf."
+          },
+          {
+            "title": "Saisonpreise",
+            "desc": "Preise je Zeitraum, Preisplan und Zimmertyp, mit Sammeländerung in Prozent oder als Betrag."
+          },
+          {
+            "title": "Gruppen und Kontingente",
+            "desc": "Blockreservierungen für eine Hochzeit oder ein Seminar, mit Freigabedatum, ausgehandeltem Preis und Zimmerliste."
+          },
+          {
+            "title": "Folios und Verkaufsstelle",
+            "desc": "Leistungen werden dem Folio des Aufenthalts hinzugefügt, mit dem Nettopreis und dem Mehrwertsteuersatz, den Sie für jede Zeile erfassen."
+          },
+          {
+            "title": "Rechnungsdokumente",
+            "desc": "Anzahlungen und Rechnungen werden nach Art und Status nachverfolgt. Diese Status sind rein erklärend: Sie ersetzen weder Ihre Rechnungsstellung noch Ihre Buchhaltung."
+          },
+          {
+            "title": "iCal-Kalender",
+            "desc": "Der Import der iCal-Kalender der Buchungsplattformen und der Export eines schreibgeschützten Kalenders."
+          },
+          {
+            "title": "Berichte",
+            "desc": "Auslastung, Durchschnittspreis, RevPAR und Zimmerumsatz pro Tag, Leistung nach Quelle, jüngste Buchungen nach Aufenthaltsmonat, Auslastungsprognose, Monatsjournal und CSV-Export."
+          }
+        ]
+      },
+      "start": {
+        "title": "So beginnen Sie",
+        "steps": [
+          {
+            "title": "Betrieb anlegen",
+            "desc": "Wählen Sie die Art des Betriebs und lassen Sie den Assistenten Zimmer und Ausgangspreise vorschlagen. Alles bleibt änderbar."
+          },
+          {
+            "title": "Preise und Steuern prüfen",
+            "desc": "Prüfen Sie Ihre Preise, den Mehrwertsteuersatz jeder Leistung und etwaige lokale Abgaben, bevor Sie Aufenthalte erfassen."
+          },
+          {
+            "title": "Reservierungen erfassen",
+            "desc": "Fügen Sie die laufenden Reservierungen hinzu oder importieren Sie einen iCal-Kalender und verfolgen Sie dann die Anreisen an der Rezeption."
+          }
+        ]
+      },
+      "limits": {
+        "title": "Was das PMS nicht leistet",
+        "intro": "Das sollten Sie wissen, bevor Sie beginnen.",
+        "items": [
+          "iCal-Kalender sind kein Channel-Manager: Sie garantieren weder eine sofortige Aktualisierung noch das Ausbleiben von Überbuchungen.",
+          "Preise und Zahlungen werden gesondert geprüft: Das PMS bestätigt weder eine Rechnung noch eine Buchung in der Buchhaltung.",
+          "Der Mehrwertsteuersatz wird nicht aus der Kategorie einer Leistung abgeleitet: Sie erfassen ihn Zeile für Zeile.",
+          "Die Werkzeuge zur Hotelanalyse auf der Website nutzen eigene Daten: Aus dem PMS wird nichts automatisch übertragen.",
+          "Eine Einrichtungsdauer wird nicht garantiert: Sie hängt von der Zahl der zu erfassenden Zimmer und Preise ab."
+        ]
+      },
+      "pricing": {
+        "title": "Preis",
+        "text": "Während der Einführungsphase ist das PMS mit einem Konto kostenlos zugänglich. Der für später angekündigte Preis beträgt 29 € pro Monat für das Pro-Angebot, das das PMS umfasst."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "Für welche Betriebe ist dieses PMS gedacht?",
+            "a": "Für Hotels, Motels, Gästehäuser, Aparthotels, Herbergen und Campingplätze. Die Ausgangseinstellungen sind auf einen Betrieb in Luxemburg zugeschnitten."
+          },
+          {
+            "q": "Verbindet sich das PMS mit Booking.com oder Airbnb?",
+            "a": "Nur über iCal-Kalender: Sie importieren den Kalender der Plattform und stellen ihr einen schreibgeschützten Kalender bereit. Das ist keine Synchronisierung in Echtzeit; behalten Sie Ihre Verfügbarkeiten im Blick, um Überbuchungen zu vermeiden."
+          },
+          {
+            "q": "Welche Kennzahlen werden berechnet?",
+            "a": "Die Auslastung, der Durchschnittspreis je vermietetem Zimmer (ADR), der Erlös je verfügbarem Zimmer (RevPAR) und der Zimmerumsatz, über 7, 30, 90 oder 365 Tage."
+          },
+          {
+            "q": "Berücksichtigt das PMS die Mehrwertsteuer im Hotelgewerbe?",
+            "a": "Es speichert den Satz, den Sie für jede Leistung erfassen. Der anwendbare Satz hängt von der tatsächlichen Leistung ab; prüfen Sie ihn in den amtlichen Quellen."
+          },
+          {
+            "q": "Kann man unverbindlich testen?",
+            "a": "Ja. Ein kostenloses Konto genügt, um einen Betrieb anzulegen und jeden Bildschirm zu öffnen. Sie können auch mit dem Formular unten eine Vorführung anfragen."
+          }
+        ]
+      },
+      "links": {
+        "title": "Frei zugängliche Werkzeuge zur Hotelanalyse",
+        "items": []
+      },
+      "demo": {
+        "title": "Vorführung des PMS anfragen",
+        "intro": "Geben Sie Ihre Kontaktdaten an und, wenn Sie möchten, die Zahl der Zimmer Ihres Betriebs. Wir antworten Ihnen per E-Mail, um einen Termin zu vereinbaren.",
+        "size": "Zahl der Zimmer",
+        "mailSubject": "Vorführung des Hotel-PMS"
+      }
+    },
+    "rental": {
+      "meta": {
+        "title": "Software für die Mietverwaltung in Luxemburg | Tevaxia",
+        "description": "Mietverwaltung für Vermieter in Luxemburg: Einheiten, gesetzliche Mietobergrenze (5-%-Regel), Zahlungen, Mietquittungen, Mahnungen und Bankabgleich."
+      },
+      "hero": {
+        "eyebrow": "Vermieter und Verwalter",
+        "title": "Software für die Mietverwaltung in Luxemburg",
+        "subtitle": "Behalten Sie Einheiten, Mieten und Zahlungen im Blick, mit der für jedes Objekt berechneten gesetzlichen Mietobergrenze, Mietquittungen, Mahnungen, Bankabgleich und Übergabeprotokoll.",
+        "open": "Mein Portfolio öffnen",
+        "note": "Im kostenlosen Konto enthalten."
+      },
+      "features": {
+        "title": "Was die Software leistet",
+        "intro": "Jede der folgenden Funktionen entspricht einem Bildschirm der Software und steht zur Verfügung, sobald eine erste Einheit hinzugefügt ist.",
+        "items": [
+          {
+            "title": "Portfolio der Einheiten",
+            "desc": "Alle Ihre Objekte in einer Tabelle: Miete, gesetzliche Obergrenze, Rendite und zu prüfende Punkte."
+          },
+          {
+            "title": "Gesetzliche Mietobergrenze",
+            "desc": "Für jede Einheit wird die höchstzulässige Jahresmiete mit 5 % des investierten Kapitals berechnet, aufgewertet und um den Altersabschlag vermindert. Mieten über der Obergrenze werden gekennzeichnet."
+          },
+          {
+            "title": "Zahlungen und Mietquittungen",
+            "desc": "Die Verfolgung der Mietfälligkeiten und die Vorbereitung von PDF-Quittungen für die Zahlungen, die Sie als vollständig eingegangen erklären."
+          },
+          {
+            "title": "Bankabgleich",
+            "desc": "Der Import eines Kontoauszugs im Format CAMT.053 oder CSV, um eingegangene Mieten zu erkennen, oder eine PSD2-Bankverbindung über Enable Banking nach Ihrer Genehmigung."
+          },
+          {
+            "title": "Mahnungen bei Rückständen",
+            "desc": "Mahnvorlagen, die einem von Ihnen eingestellten Zeitplan folgen."
+          },
+          {
+            "title": "Wohngemeinschaften",
+            "desc": "Die Verfolgung der Bewohner einer Einheit und die Aufteilung von Miete und Nebenkosten unter ihnen."
+          },
+          {
+            "title": "Übergabeprotokoll",
+            "desc": "Ein Protokoll für Einzug oder Auszug zum Ausfüllen, gemeinsamen Prüfen und Unterschreiben, als PDF exportiert."
+          },
+          {
+            "title": "Steuerliche Vorbereitung",
+            "desc": "Ein Arbeitsblatt, das Einnahmen und Kosten Ihrer Vermietungen zusammenstellt, um Ihre Steuererklärung vorzubereiten. Es berechnet die Steuer nicht."
+          },
+          {
+            "title": "Mieterbereich",
+            "desc": "Über einen persönlichen Link sieht der Mieter die Angaben zur Wohnung und die Mietfälligkeiten, die Sie erklären."
+          }
+        ]
+      },
+      "start": {
+        "title": "So beginnen Sie",
+        "steps": [
+          {
+            "title": "Einheit hinzufügen",
+            "desc": "Erfassen Sie das Objekt, die Miete und das investierte Kapital: Kaufpreis, Arbeiten und die jeweiligen Jahre."
+          },
+          {
+            "title": "Gesetzliche Obergrenze ablesen",
+            "desc": "Die Software vergleicht die Miete mit der berechneten Obergrenze und kennzeichnet die zu prüfenden Einheiten."
+          },
+          {
+            "title": "Zahlungen verfolgen",
+            "desc": "Erfassen Sie die eingegangenen Mieten oder importieren Sie einen Kontoauszug und bereiten Sie dann Quittungen und Mahnungen vor."
+          }
+        ]
+      },
+      "limits": {
+        "title": "Was die Software nicht leistet",
+        "intro": "Das sollten Sie wissen, bevor Sie beginnen.",
+        "items": [
+          "Sie bescheinigt weder die Rechtmäßigkeit eines Mietvertrags noch den Anspruch auf eine Beihilfe: Die angezeigte Obergrenze hängt von den Beträgen ab, die Sie erfassen.",
+          "Mahnungen sind Vorlagen: Die Fälligkeiten der Software ersetzen nicht die geltenden Fristen und Verfahrensschritte.",
+          "Quittungen werden für die Zahlungen vorbereitet, die Sie als eingegangen erklären; die Software zieht keine Mieten ein.",
+          "Die Energieklasse dient als Prioritätshinweis: Für sich allein begründet sie keine Renovierungsbeihilfe.",
+          "Die steuerliche Vorbereitung ist ein Arbeitsblatt, keine Steuererklärung und keine Steuerberatung."
+        ]
+      },
+      "pricing": {
+        "title": "Preis",
+        "text": "Die Mietverwaltung ist im kostenlosen Konto enthalten: Einheiten, Zahlungen, Quittungen, Mahnungen und Bankabgleich. Die Angebote und ihre Speichergrenzen sind auf der Preisseite beschrieben."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "An wen richtet sich diese Software für die Mietverwaltung?",
+            "a": "An Eigentümer, die eine oder mehrere Wohnungen in Luxemburg vermieten, und an Verwalter, die Einheiten für Dritte betreuen."
+          },
+          {
+            "q": "Wie wird die gesetzliche Mietobergrenze berechnet?",
+            "a": "Die Jahresmiete darf 5 % des in die Wohnung investierten Kapitals nicht übersteigen. Die Software wertet dieses Kapital nach dem Jahr jeder Ausgabe auf und wendet einen Altersabschlag an, ausgehend von den Beträgen, die Sie erfassen."
+          },
+          {
+            "q": "Muss man sein Bankkonto verbinden?",
+            "a": "Nein. Sie können Zahlungen von Hand erfassen oder einen Kontoauszug importieren. Die PSD2-Bankverbindung ist freiwillig und erfordert Ihre Genehmigung bei der Bank."
+          },
+          {
+            "q": "Muss der Mieter ein Konto anlegen?",
+            "a": "Nein. Sie senden ihm einen persönlichen Link, der seinen Bereich öffnet."
+          },
+          {
+            "q": "Kann man unverbindlich testen?",
+            "a": "Ja. Ein kostenloses Konto genügt, um eine Einheit hinzuzufügen und jeden Bildschirm zu öffnen. Sie können auch mit dem Formular unten eine Vorführung anfragen."
+          }
+        ]
+      },
+      "links": {
+        "title": "Frei zugängliche Werkzeuge",
+        "items": [
+          "Rechner für die gesetzliche Miete",
+          "Übergabeprotokoll zum Ausfüllen",
+          "Bankabgleich per Import",
+          "Vermietung über eine soziale Immobilienagentur",
+          "Angebote für Mietausfallversicherungen vergleichen"
+        ]
+      },
+      "demo": {
+        "title": "Vorführung der Mietverwaltung anfragen",
+        "intro": "Geben Sie Ihre Kontaktdaten an und, wenn Sie möchten, die Zahl der Einheiten, die Sie vermieten oder verwalten. Wir antworten Ihnen per E-Mail, um einen Termin zu vereinbaren.",
+        "size": "Zahl der Einheiten",
+        "mailSubject": "Vorführung der Mietverwaltung"
+      },
+      "sources": {
+        "title": "Offizielle Quellen",
+        "rent": "Offizielle Mietregeln",
+        "energy": "Offizielle Klimabonus-Bedingungen"
+      }
+    },
+    "crm": {
+      "demo": {
+        "title": "Vorführung des CRM anfragen",
+        "intro": "Geben Sie Ihre Kontaktdaten an und, wenn Sie möchten, die Zahl der Makler Ihrer Agentur. Wir antworten Ihnen per E-Mail, um einen Termin zu vereinbaren.",
+        "size": "Zahl der Makler",
+        "mailSubject": "Vorführung des Immobilien-CRM"
+      }
+    }
+  },
+  "productPreview": {
+    "caption": "Beispielansicht, fiktive Daten",
+    "syndic": {
+      "window": "Eigentümerversammlung",
+      "building": "Résidence Les Tilleuls · 24 Einheiten · 1 000 Tausendstel",
+      "resolution": "Beschluss 3: Fassadensanierung",
+      "majority": "Absolute Mehrheit",
+      "for": "Dafür",
+      "against": "Dagegen",
+      "abstain": "Enthaltung",
+      "adopted": "Angenommen",
+      "callsTitle": "Mittelabrufe für das 2. Quartal",
+      "lot": "Einheit",
+      "shares": "Tausendstel",
+      "amount": "Betrag",
+      "status": "Status",
+      "paid": "Bezahlt",
+      "reminder": "Mahnung 1"
+    },
+    "pms": {
+      "window": "Belegungsplan",
+      "occupancy": "Auslastung",
+      "adr": "Ø-Preis (ADR)",
+      "revpar": "RevPAR",
+      "arrivals": "Anreisen heute",
+      "room": "Zimmer",
+      "double": "Doppel",
+      "twin": "Twin",
+      "suite": "Suite",
+      "confirmed": "Bestätigt",
+      "checkedIn": "Gast anwesend",
+      "quote": "Angebot"
+    },
+    "rental": {
+      "window": "Mietportfolio",
+      "lot": "Einheit",
+      "rent": "Monatsmiete",
+      "cap": "Gesetzliche Obergrenze",
+      "payment": "Zahlung",
+      "above": "Über der Obergrenze",
+      "received": "Eingegangen",
+      "late": "Im Rückstand",
+      "lot1": "Wohnung, Belair · 85 m²",
+      "lot2": "Studio, Gare · 32 m²",
+      "lot3": "Haus, Strassen · 140 m²",
+      "summary": "3 Einheiten · {total} pro Monat · 1 Miete zu prüfen"
+    },
+    "crm": {
+      "window": "Pipeline der Mandate",
+      "prospect": "Interessent",
+      "signed": "Mandat unterzeichnet",
+      "visiting": "Besichtigungen",
+      "agreed": "Vorvertrag unterzeichnet",
+      "exclusive": "Exklusiv",
+      "simple": "Einfach",
+      "card1": "Wohnung mit 3 Schlafzimmern · Kirchberg",
+      "card2": "Haus · Bertrange",
+      "card3": "Studio · Bonnevoie",
+      "card4": "Wohnung mit 2 Schlafzimmern · Esch-sur-Alzette",
+      "card5": "Doppelhaushälfte · Mamer",
+      "card6": "Penthouse · Limpertsberg"
     }
   }
 }

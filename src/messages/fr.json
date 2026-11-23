@@ -136,7 +136,10 @@
       "banque": "Banques",
       "expert-evaluateur": "Experts évaluateurs"
     },
-    "readGuide": "Lire le guide complet"
+    "readGuide": "Lire le guide complet",
+    "footerSyndicSoftware": "Logiciel de syndic",
+    "footerPms": "PMS hôtelier",
+    "footerRentalSoftware": "Logiciel de gestion locative"
   },
   "home": {
     "heroTitle": "L'analyse immobilière du Luxembourg,",
@@ -3489,7 +3492,7 @@
   },
   "confidentialite": {
     "title": "Politique de confidentialité",
-    "lastUpdate": "Dernière mise à jour : 23 octobre 2026",
+    "lastUpdate": "Dernière mise à jour : 21 novembre 2026",
     "responsable": {
       "title": "1. Responsable du traitement",
       "name": "NOTARIA PRIME — Siège social : 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, France",
@@ -3542,6 +3545,10 @@
         "calendar": "À votre demande, une connexion Google Calendar ou Microsoft Outlook peut solliciter des droits de lecture et d’écriture d’événements, ainsi qu’un accès hors ligne. Les identifiants du compte externe, l’email, les autorisations, les jetons d’accès et de renouvellement et leurs dates d’expiration sont enregistrés dans Supabase pour cette connexion. L’autorisation ne signifie pas que toutes les fonctions de synchronisation sont disponibles. Une URL d’abonnement calendrier peut aussi transmettre les tâches et visites publiées au service de calendrier choisi : toute personne disposant de cette URL peut lire son contenu.",
         "drive": "L’export vers Google Drive transmet le fichier choisi et son nom à Google après votre action. L’autorisation drive.file porte sur les fichiers créés ou ouverts avec l’application, pas sur l’ensemble de votre Drive. Les jetons du fournisseur nécessaires à cette action sont accessibles dans la session d’authentification. Le fichier exporté reste dans votre Drive jusqu’à sa suppression selon vos réglages Google.",
         "revoke": "Vous pouvez retirer les autorisations dans les paramètres de votre compte Google ou Microsoft. Pour faire supprimer les données de connexion conservées par Tevaxia, contactez contact@tevaxia.lu. Le retrait d’une autorisation ne supprime pas automatiquement les fichiers ou événements déjà transmis au fournisseur. Révoquez aussi les liens d’abonnement que vous ne souhaitez plus partager."
+      },
+      "demo": {
+        "label": "Demandes de démonstration :",
+        "text": "Lorsque vous remplissez un formulaire de demande de démonstration, nous enregistrons votre nom, votre adresse e-mail et, si vous les indiquez, votre société, votre numéro de téléphone, la taille de votre activité et votre message. Ces données servent uniquement à répondre à votre demande. Une empreinte de votre adresse IP, renouvelée chaque jour, limite le nombre d'envois ; elle ne permet pas de vous identifier. Vous pouvez demander la suppression de votre demande à contact@tevaxia.lu."
       }
     },
     "finalites": {
@@ -6938,196 +6945,11 @@
         "cta": "Démarrer gratuitement",
         "ctaSecondary": "Voir les outils bancaires"
       }
-    },
-    "syndic": {
-      "meta": {
-        "title": "Logiciel de syndic au Luxembourg, conforme loi 16.05.1975",
-        "description": "Gérez vos copropriétés sans soirées sur Excel : AG en ligne, appels de fonds Factur-X, comptabilité LU, réconciliation bancaire PSD2. Essai gratuit."
-      },
-      "hero": {
-        "badge": "Spécialisé copropriétés Luxembourg",
-        "title": "Votre syndic de copropriété sans",
-        "titleAccent": "soirées sur Excel",
-        "subtitle": "Assemblées générales en ligne avec vote pondéré, appels de fonds générés en Factur-X, comptabilité copropriété luxembourgeoise et réconciliation bancaire automatique. Pensé pour les syndics professionnels et les gestionnaires de résidences qui ne veulent plus jongler entre 4 outils.",
-        "cta": "Démarrer gratuitement",
-        "ctaSecondary": "Voir comment ça marche",
-        "kpis": [
-          {
-            "value": "15 h",
-            "label": "économisées par AG"
-          },
-          {
-            "value": "100 %",
-            "label": "conforme loi 16.05.1975"
-          },
-          {
-            "value": "<24 h",
-            "label": "délai de réponse support"
-          }
-        ]
-      },
-      "problem": {
-        "title": "Gérer une copropriété au Luxembourg, en 2026, ne devrait plus ressembler à ça",
-        "intro": "Entre la loi du 16 mai 1975, les appels de fonds trimestriels, les relances d'impayés, la préparation d'AG et la comptabilité à tenir, la semaine d'un syndic se remplit toute seule. Sauf quand on a les bons outils.",
-        "items": [
-          {
-            "title": "Préparer une AG en 3 jours",
-            "desc": "Convocations à envoyer dans les 15 jours, ordre du jour à rédiger, procurations à collecter, procès-verbal à taper après coup. La charge administrative engloutit le temps qu'il faudrait passer sur les vrais sujets.",
-            "stat": "~15 heures par AG"
-          },
-          {
-            "title": "Relancer les impayés manuellement",
-            "desc": "Tenir à jour qui doit quoi, suivre les échéances, calculer les intérêts légaux, préparer la mise en demeure. Sans outil dédié, on oublie, on laisse filer, et le fonds de trésorerie fond.",
-            "stat": "3 à 7 % d'impayés chroniques"
-          },
-          {
-            "title": "Jongler entre Excel, banque, compta",
-            "desc": "Rapprocher les virements reçus avec les appels de fonds, saisir en compta, préparer les annexes d'AG à partir de 3 sources différentes. À chaque étape, un risque d'erreur qui remonte en assemblée.",
-            "stat": "4 outils utilisés en moyenne"
-          }
-        ]
-      },
-      "howItWorks": {
-        "title": "Une seule plateforme, trois étapes",
-        "intro": "Pas de migration complexe, pas de formation de 2 jours. Vous importez vos copropriétés, vous configurez les clés de répartition une fois, et l'outil prend le relais.",
-        "steps": [
-          {
-            "number": "1",
-            "title": "Vos copropriétés importées",
-            "desc": "Import depuis Excel, saisie manuelle ou API. Lots, tantièmes, copropriétaires, contrats, historique comptable. Compatible avec tout syndic ayant déjà une structure en place."
-          },
-          {
-            "number": "2",
-            "title": "L'AG et les appels de fonds s'exécutent seuls",
-            "desc": "Convocations PDF par lot, vote électronique pondéré par tantièmes, PV généré automatiquement. Appels de fonds Factur-X conformes EN 16931 envoyés aux copropriétaires avec référence SEPA."
-          },
-          {
-            "number": "3",
-            "title": "La comptabilité se tient toute seule",
-            "desc": "Chaque appel de fonds, chaque paiement reçu, chaque dépense saisie alimente le journal comptable. Les 5 annexes d'AG se génèrent en PDF en 1 clic au moment voulu."
-          }
-        ]
-      },
-      "features": {
-        "title": "Tout ce dont un syndic luxembourgeois a besoin",
-        "intro": "Fonctionnalités conçues pour le cadre légal du Grand-Duché : loi du 16 mai 1975, règles de majorité AG, TVA exempte art. 44 §1 f, archivage 10 ans.",
-        "items": [
-          {
-            "title": "AG en ligne avec vote pondéré",
-            "desc": "Vote électronique pondéré par tantièmes, majorités simple, absolue, double et unanimité gérées automatiquement."
-          },
-          {
-            "title": "Convocations + PV PDF",
-            "desc": "Convocation par lot avec ordre du jour légal, PV généré après l'AG avec résultats de chaque résolution."
-          },
-          {
-            "title": "Appels de fonds Factur-X",
-            "desc": "PDF/A-3 + XML CII D22B conformes EN 16931, référence mandat SEPA, art. 261 D CGI appliqué."
-          },
-          {
-            "title": "Relances impayés 3 paliers",
-            "desc": "Relance amiable, mise en demeure, sommation de payer. Intérêts légaux luxembourgeois calculés automatiquement."
-          },
-          {
-            "title": "5 annexes comptables d'AG",
-            "desc": "Balance, journal, budget prévisionnel, répartition des charges, état des impayés. PDF prêts à distribuer."
-          },
-          {
-            "title": "Réconciliation bancaire PSD2",
-            "desc": "Connexion BCEE, BIL, Banque Raiffeisen, Post Finance via Enable Banking. Rapprochement automatique."
-          },
-          {
-            "title": "Clés de répartition paramétrables",
-            "desc": "Tantièmes généraux, tantièmes de fonctionnement, charges spéciales par escalier/bâtiment, quote-parts personnalisées."
-          },
-          {
-            "title": "Portail copropriétaire",
-            "desc": "Chaque copropriétaire accède à son espace : vote, relevé de compte, convocations, PV, paiement en ligne."
-          },
-          {
-            "title": "10 lettres-types éditables",
-            "desc": "Relances, convocations, mises en demeure, procurations. Personnalisables, export DOCX / PDF / Google Drive."
-          },
-          {
-            "title": "OCR factures gratuit",
-            "desc": "Upload des factures fournisseurs, extraction automatique via PDF.js + Tesseract.js. Zéro saisie manuelle."
-          },
-          {
-            "title": "SEPA virements en masse",
-            "desc": "Génération pain.001 XML pour paiements groupés aux fournisseurs, compatible avec toutes banques luxembourgeoises."
-          },
-          {
-            "title": "Benchmark charges",
-            "desc": "Comparaison de vos charges au m² avec la moyenne luxembourgeoise par type de résidence et année de construction."
-          }
-        ]
-      },
-      "trust": {
-        "title": "Pourquoi les syndics nous choisissent",
-        "agileTitle": "Développement agile, livraisons régulières",
-        "agileDesc": "Nouveaux modules livrés toutes les 2 semaines. Backlog public, vos demandes arrivent rapidement en production.",
-        "customTitle": "Sur-mesure possible",
-        "customDesc": "Un format de convocation spécifique, un calcul de tantièmes atypique, un export vers votre cabinet comptable : nous développons les adaptations en 1 à 3 semaines selon la complexité.",
-        "supportTitle": "Support en moins de 24 h",
-        "supportDesc": "Par email à contact@tevaxia.lu. Réponse moyenne sous 6 heures les jours ouvrés. Pas de ticket numéroté, pas de chatbot : un humain qui connaît le produit."
-      },
-      "pricing": {
-        "title": "Inclus dans votre abonnement tevaxia",
-        "subtitle": "Pas de facturation par copropriété gérée, pas de quota d'AG, pas de module premium. Tout est disponible dès le compte gratuit pour tester, et dans l'abonnement général pour une utilisation quotidienne.",
-        "features": [
-          "Copropriétés illimitées",
-          "Assemblées générales en ligne avec vote pondéré",
-          "Appels de fonds Factur-X conformes EN 16931",
-          "Comptabilité copropriété luxembourgeoise",
-          "Réconciliation bancaire PSD2 (Enable Banking)",
-          "Portail copropriétaire avec accès individualisé",
-          "5 annexes comptables d'AG en PDF",
-          "Relances impayés 3 paliers avec intérêts légaux LU",
-          "Conforme loi du 16 mai 1975"
-        ],
-        "ctaPlatform": "Voir les offres tevaxia",
-        "ctaEmit": "Accéder au module syndic"
-      },
-      "faq": {
-        "title": "Questions fréquentes",
-        "items": [
-          {
-            "q": "Je passe de [autre logiciel] à tevaxia, comment on migre ?",
-            "a": "Import Excel standard (lots, copropriétaires, historique de charges), puis configuration des clés de répartition. La reprise d'un exercice comptable en cours se fait en 2 à 4 heures selon la complexité. Nous vous accompagnons sans frais supplémentaires."
-          },
-          {
-            "q": "L'outil est-il conforme à la loi luxembourgeoise sur la copropriété ?",
-            "a": "Oui, la loi du 16 mai 1975 (statut de la copropriété) est intégrée : règles de majorité simple, absolue, double et unanimité, délai de convocation de 15 jours, obligations de tenue de comptabilité, archivage 10 ans. Les annexes comptables suivent le format attendu par les commissaires aux comptes."
-          },
-          {
-            "q": "Est-ce que l'AG en ligne est juridiquement valable ?",
-            "a": "Oui, à condition que le règlement de copropriété l'autorise ou qu'une résolution d'AG physique l'ait approuvé au préalable. La pratique est courante au Luxembourg depuis 2020. Le PV électronique signé reste archivable comme preuve légale."
-          },
-          {
-            "q": "Peut-on faire des appels de fonds pour une copropriété sans TVA ?",
-            "a": "Oui, l'article 44 §1 f de la loi TVA exonère la gestion de copropriété. Le module applique automatiquement la bonne exonération et génère des Factur-X exempted (catégorie E en EN 16931). Pas de risque de TVA erronée facturée aux copropriétaires."
-          },
-          {
-            "q": "Les données des copropriétaires sont-elles sécurisées ?",
-            "a": "Stockées sur Supabase (AWS eu-central-1 Francfort), avec Row Level Security par utilisateur : même les administrateurs n'ont pas accès aux données d'un syndic qui n'est pas le leur. Conforme RGPD, chiffrement HTTPS en transit. Export de toutes vos données possible à tout moment en ZIP."
-          },
-          {
-            "q": "Combien de temps avant d'être opérationnel ?",
-            "a": "Un syndic qui gère 1 à 5 copropriétés est opérationnel en 1 à 2 heures : création du compte, import de la première copro, configuration des clés de répartition, premier appel de fonds. Au-delà de 10 copropriétés, prévoir 4 à 6 heures pour un import complet."
-          }
-        ]
-      },
-      "finalCta": {
-        "title": "Prêt à reprendre vos soirées",
-        "desc": "Créez votre compte gratuitement, importez votre première copropriété et testez la génération d'un appel de fonds en 15 minutes. Zéro engagement.",
-        "cta": "Démarrer gratuitement",
-        "ctaSecondary": "Voir le module syndic en live"
-      }
     }
   },
   "syndic": {
-    "title": "Logiciel de syndic de copropriété au Luxembourg",
-    "subtitle": "Logiciel de syndic au Luxembourg : charges par tantièmes, lots, assemblées générales, appels de fonds et rénovation énergétique des copropriétés.",
+    "title": "Charges de copropriété au Luxembourg : simulateur par tantièmes",
+    "subtitle": "Simulateur de charges de copropriété : répartition par tantièmes entre les lots, budget de charges et scénarios de rénovation énergétique de l'immeuble.",
     "primaryCta": {
       "label": "Accès principal",
       "title": "Mes copropriétés en gestion",
@@ -7867,28 +7689,6 @@
       "faq3a": "Les 5 couches : aides étatiques acquisition (Bëllegen Akt, faveur fiscale TVA 3 %), rénovation énergétique (Klimabonus, Klimaprêt), aides privées (prime d'épargne logement), aides communales (variables selon la commune) et aides patrimoine (biens classés).",
       "faq4q": "La règle des 5 % s'applique-t-elle si j'habite mon logement ?",
       "faq4a": "Non. Le plafond légal ne concerne que les biens loués. Si vous achetez pour vous loger, ignorez l'étape 4. Elle ne vous servira qu'en cas de mise en location future.",
-      "faqTitle": "Questions fréquentes",
-      "relatedTitle": "Aller plus loin"
-    }
-  },
-  "gestionLocative": {
-    "seo": {
-      "regle5Title": "La règle des 5 % au Luxembourg",
-      "regle5Content": "Non : le formulaire du lot ne contient pas toutes les données, notamment l’année de construction et les justificatifs du mobilier. Son résultat reste partiel. Utilisez le calculateur de loyer détaillé et les documents officiels avant toute conclusion.",
-      "klimabonusTitle": "Rénovation à examiner",
-      "klimabonusContent": "La classe énergétique seule ne détermine pas une aide Klimabonus. Vérifiez le bâtiment, les travaux, les dates et l’accord préalable applicable.",
-      "rendementTitle": "Brut potentiel",
-      "rendementContent": "Le rendement brut rapporte le loyer annuel au prix d’acquisition. Le plafond légal du loyer repose sur une autre base : le capital investi réévalué et décoté. Il ne fixe donc pas un rendement brut maximal de 5 % du prix d’achat.",
-      "syndicTitle": "Usage par les syndics et gestionnaires",
-      "syndicContent": "Suivez les lots, les loyers et les priorités de vérification. Le portefeuille ne certifie ni la conformité du bail ni le droit à une aide.",
-      "faq1q": "Mes données locatives sont-elles envoyées en ligne ?",
-      "faq1a": "Les lots du compte connecté sont enregistrés en ligne avec une copie locale distincte par compte. Les lots invités restent locaux. Les anciennes sauvegardes sans propriétaire attribué ne sont pas importées automatiquement.",
-      "faq2q": "Le contrôle du plafond est-il complet ?",
-      "faq2a": "Non : le formulaire du lot ne contient pas toutes les données, notamment l’année de construction et les justificatifs du mobilier. Son résultat reste partiel. Utilisez le calculateur de loyer détaillé et les documents officiels avant toute conclusion.",
-      "faq3q": "Comment vérifier la réévaluation ?",
-      "faq3a": "Consultez les tables et explications officielles sur le capital investi. L’année de calcul, les dates d’investissement, le terrain, les travaux et la vétusté doivent être distingués. Le prix d’achat seul ne suffit pas.",
-      "faq4q": "Le logement meublé change-t-il le calcul ?",
-      "faq4a": "Le supplément pour les meubles est distinct du loyer immobilier et nécessite les factures admissibles. Cocher « meublé » ne calcule pas un supplément forfaitaire ; renseignez les justificatifs dans le calculateur détaillé.",
       "faqTitle": "Questions fréquentes",
       "relatedTitle": "Aller plus loin"
     }
@@ -13575,37 +13375,6 @@
     "methoItem3": "Règlement (UE) 2019/2088 SFDR + RTS 2022/1288 PAI indicators",
     "methoItem4": "Directive EPBD IV 2024/1275 + transposition LU prévue 2026",
     "methoItem5": "Facteurs d'émission LU : ILR 2023 (grid), guichet.lu (énergies fossiles)"
-  },
-  "gestionLocativeHub": {
-    "heroTitle": "Gestion locative au Luxembourg",
-    "heroSubtitle": "Suivez votre portefeuille avec les spécificités luxembourgeoises : règle des 5 %, impact énergétique (Klimabonus) et alertes sur les loyers hors plafond.",
-    "ctaPortefeuille": "Accéder au portefeuille →",
-    "ctaFiscal": "📊 Dashboard fiscal LU",
-    "ctaEtatLieux": "📱 État des lieux",
-    "ctaReconciliation": "🏦 Réconciliation bancaire",
-    "ctaRelances": "📬 Relances impayés",
-    "ctaGli": "🛡 GLI (assurance impayés)",
-    "ctaTestRule": "Tester la règle des 5 %",
-    "whyTitle": "Pensé pour le droit locatif luxembourgeois",
-    "whySubtitle": "Suivez les lots, les loyers et les priorités de vérification. Le portefeuille ne certifie ni la conformité du bail ni le droit à une aide.",
-    "card1Title": "Règle des 5 %",
-    "card1Desc": "Loyer annuel max = 5 % du capital investi réévalué avec décote de vétusté. Tout loyer supérieur est juridiquement réductible par le locataire.",
-    "card2Title": "Rénovation à examiner",
-    "card2Desc": "La classe énergétique seule ne détermine pas une aide Klimabonus. Vérifiez le bâtiment, les travaux, les dates et l’accord préalable applicable.",
-    "card3Title": "Rendement réel",
-    "card3Desc": "Coefficient de réévaluation STATEC + décote 1 %/an automatiques. Votre rendement brut est comparé au rendement maximal légal atteignable.",
-    "forWhoTitle": "Pour qui ?",
-    "forWho1Title": "Propriétaires 1 à 10 lots",
-    "forWho1Desc": "Multi-biens au Luxembourg. Vérifiez la conformité légale de chaque loyer, suivez la rentabilité agrégée, identifiez les lots à rénover en priorité.",
-    "forWho2Title": "Syndics & gestionnaires 10-100 lots",
-    "forWho2Desc": "Pilotage portefeuille pour compte de tiers. Alertes automatiques sur lots hors plafond légal, simulations de revalorisation post-travaux.",
-    "mvpStrong": "Statut MVP :",
-    "mvpBody": "les lots sont persistés localement dans votre navigateur. Pour un multi-poste synchronisé (organisation, invitations collaborateurs), nous intégrerons Supabase dans une prochaine version, vos données locales seront migrables.",
-    "startTitle": "Commencez maintenant",
-    "startSubtitle": "Ajoutez vos lots en 2 minutes, obtenez instantanément le plafond légal et le diagnostic énergétique.",
-    "startCta": "Ouvrir mon portefeuille →",
-    "officialRent": "Règles officielles du bail",
-    "officialEnergy": "Conditions officielles Klimabonus"
   },
   "hotelTransactions": {
     "backHub": "← Hôtellerie",
@@ -19822,6 +19591,480 @@
       "p1": "Le simulateur part du prix moyen par nuit, du taux d'occupation et du canal de réservation pour calculer le revenu brut annuel, puis retire la commission de la plateforme, le ménage, le linge, les consommables et les charges fixes.",
       "p2": "Il applique ensuite le taux marginal d'imposition que vous choisissez et affiche le revenu net annuel et mensuel, ainsi que le rendement net rapporté au prix d'acquisition.",
       "p3": "Le calcul ne tient pas compte du remboursement du prêt, de la TVA, des cotisations sociales ni de la liquidation fiscale du ménage. Les fourchettes proposées sont des repères ; vérifiez aussi les obligations applicables à la location de courte durée dans votre commune."
+    }
+  },
+  "productPages": {
+    "common": {
+      "demoCta": "Demander une démonstration",
+      "pricingLink": "Voir les tarifs",
+      "faqTitle": "Questions fréquentes",
+      "form": {
+        "name": "Nom",
+        "company": "Société",
+        "email": "Adresse e-mail",
+        "phone": "Téléphone",
+        "message": "Votre besoin en quelques mots",
+        "optional": "facultatif",
+        "submit": "Envoyer la demande",
+        "sending": "Envoi en cours…",
+        "successTitle": "Votre demande est enregistrée.",
+        "successText": "Nous vous répondrons par e-mail pour convenir d'un créneau.",
+        "errorInvalid": "Vérifiez votre nom et votre adresse e-mail, puis réessayez.",
+        "errorRateLimited": "Trop de demandes ont été envoyées. Réessayez dans une heure.",
+        "errorUnavailable": "La demande n'a pas pu être enregistrée.",
+        "fallback": "Vous pouvez nous écrire à",
+        "privacy": "Vos coordonnées servent uniquement à répondre à cette demande.",
+        "privacyLink": "Politique de confidentialité"
+      }
+    },
+    "syndic": {
+      "meta": {
+        "title": "Logiciel de syndic de copropriété au Luxembourg | Tevaxia",
+        "description": "Logiciel de syndic pour le Luxembourg : assemblées générales avec vote pondéré, appels de fonds, comptabilité, relances d'impayés et portail copropriétaire."
+      },
+      "hero": {
+        "eyebrow": "Syndics et gestionnaires de copropriétés",
+        "title": "Logiciel de syndic de copropriété au Luxembourg",
+        "subtitle": "Tenez vos copropriétés dans un seul outil : lots et millièmes, assemblées générales avec vote pondéré, appels de fonds, comptabilité, relances d'impayés et portail pour les copropriétaires.",
+        "open": "Ouvrir mes copropriétés",
+        "note": "Accès gratuit avec un compte pendant la phase de lancement."
+      },
+      "features": {
+        "title": "Ce que fait le logiciel",
+        "intro": "Chaque fonction ci-dessous correspond à un écran du logiciel, accessible dès la création d'une copropriété.",
+        "items": [
+          {
+            "title": "Copropriétés, lots et millièmes",
+            "desc": "Chaque copropriété regroupe ses lots et leurs quotes-parts. Une vue de portefeuille classe les immeubles par montant d'impayés et compare leurs indicateurs entre eux."
+          },
+          {
+            "title": "Assemblées générales",
+            "desc": "Convocations, ordre du jour, vote électronique pondéré par les tantièmes et procès-verbal. Quatre règles de majorité sont proposées : simple, absolue, double et unanimité. Une salle de visioconférence peut être ouverte, et un générateur prépare les procurations en PDF."
+          },
+          {
+            "title": "Appels de fonds",
+            "desc": "Des appels par période, répartis selon les tantièmes ou selon vos propres clés de répartition (chauffage, ascenseur, escaliers), avec un PDF par lot."
+          },
+          {
+            "title": "Comptabilité et budget",
+            "desc": "Plan comptable, écritures en partie double, journal, balance et clôture annuelle. Le budget prévisionnel se compare au réalisé, et cinq annexes comptables sortent en PDF pour l'assemblée."
+          },
+          {
+            "title": "Relances d'impayés",
+            "desc": "Trois paliers de relance, de la lettre amiable à la dernière mise en demeure, avec des intérêts de retard au taux que vous paramétrez et un historique des envois."
+          },
+          {
+            "title": "Banque et fournisseurs",
+            "desc": "Import du relevé bancaire en CSV pour rapprocher les paiements reçus des appels de fonds, fichier de virements SEPA pour régler les fournisseurs en lot, et lecture automatique des factures fournisseurs."
+          },
+          {
+            "title": "Travaux et fonds de travaux",
+            "desc": "Le suivi d'un chantier, de l'appel d'offres à la réception, en passant par les devis et le vote en assemblée, ainsi que le suivi du fonds de travaux."
+          },
+          {
+            "title": "Portail copropriétaire et messagerie",
+            "desc": "Chaque copropriétaire reçoit un lien personnel pour consulter ses convocations, voter et télécharger son relevé de compte. Une messagerie relie le syndic et les copropriétaires ; le conseil syndical dispose de son propre espace."
+          },
+          {
+            "title": "Archives et lettres types",
+            "desc": "L'archivage des procès-verbaux, des factures et des contrats, et dix modèles de lettres modifiables, exportables en DOCX ou en PDF."
+          }
+        ]
+      },
+      "start": {
+        "title": "Comment démarrer",
+        "steps": [
+          {
+            "title": "Créez un compte et votre première copropriété",
+            "desc": "Saisissez l'immeuble, puis ses lots avec leurs millièmes et leurs copropriétaires."
+          },
+          {
+            "title": "Réglez la répartition et le budget",
+            "desc": "Ajoutez vos clés de répartition si toutes les charges ne suivent pas les tantièmes généraux, puis établissez le budget de l'exercice."
+          },
+          {
+            "title": "Lancez un appel de fonds ou une assemblée",
+            "desc": "Générez l'appel de la période, transmettez aux copropriétaires le lien de leur espace et préparez la convocation."
+          }
+        ]
+      },
+      "limits": {
+        "title": "Ce que le logiciel ne fait pas",
+        "intro": "Mieux vaut le savoir avant de commencer.",
+        "items": [
+          "La banque n'est pas connectée en direct : le rapprochement part d'un relevé CSV que vous importez.",
+          "Les appels de fonds sont des documents PDF, pas des factures électroniques.",
+          "Les lots et les copropriétaires se saisissent à la main : il n'y a pas de reprise automatique depuis un autre logiciel.",
+          "Le logiciel applique la règle de majorité que vous choisissez ; il ne vérifie pas qu'une décision est conforme à votre règlement de copropriété ni à la loi du 16 mai 1975.",
+          "Les lettres et les relances sont des modèles : faites-les relire avant un envoi à portée juridique."
+        ]
+      },
+      "pricing": {
+        "title": "Prix",
+        "text": "Pendant la phase de lancement, le logiciel de syndic est accessible gratuitement avec un compte. Le tarif annoncé pour la suite est de 29 € par mois pour l'offre Pro, qui comprend le syndic."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "À qui s'adresse ce logiciel de syndic ?",
+            "a": "Aux syndics professionnels et aux syndics bénévoles qui gèrent une ou plusieurs copropriétés au Luxembourg. La vue de portefeuille est surtout utile à partir de plusieurs immeubles."
+          },
+          {
+            "q": "Le vote en assemblée générale est-il pondéré ?",
+            "a": "Oui. Chaque vote compte pour les tantièmes du lot, et le résultat de chaque résolution est calculé selon la majorité choisie : simple, absolue, double ou unanimité. Vérifiez dans votre règlement de copropriété que le vote électronique est admis."
+          },
+          {
+            "q": "Les copropriétaires doivent-ils créer un compte ?",
+            "a": "Non. Le syndic leur transmet un lien personnel qui ouvre leur espace : convocations, vote et relevé de compte."
+          },
+          {
+            "q": "Où sont hébergées les données ?",
+            "a": "Les données de compte sont hébergées chez Supabase, en Europe. Les accès sont limités au compte qui gère la copropriété ; le détail figure dans la politique de confidentialité."
+          },
+          {
+            "q": "Peut-on essayer sans engagement ?",
+            "a": "Oui. Un compte gratuit suffit pour créer une copropriété et ouvrir chaque écran. Vous pouvez aussi demander une démonstration avec le formulaire ci-dessous."
+          }
+        ]
+      },
+      "links": {
+        "title": "Outils en accès libre",
+        "items": [
+          "Simulateur de charges de copropriété",
+          "Lettres types de syndic",
+          "Procuration d'assemblée générale"
+        ]
+      },
+      "demo": {
+        "title": "Demander une démonstration du logiciel de syndic",
+        "intro": "Indiquez vos coordonnées et, si vous le souhaitez, le nombre de copropriétés ou de lots que vous gérez. Nous vous répondons par e-mail pour convenir d'un créneau.",
+        "size": "Nombre de copropriétés ou de lots",
+        "mailSubject": "Démonstration du logiciel de syndic"
+      }
+    },
+    "pms": {
+      "meta": {
+        "title": "PMS hôtelier au Luxembourg : logiciel de gestion d'hôtel",
+        "description": "PMS pour hôtels, chambres d'hôtes et résidences au Luxembourg : planning des réservations, réception, tarifs saisonniers, folios et rapports d'occupation."
+      },
+      "hero": {
+        "eyebrow": "Hôtels, chambres d'hôtes, résidences",
+        "title": "Logiciel PMS hôtelier au Luxembourg",
+        "subtitle": "Gérez vos chambres, vos réservations et votre réception dans un seul outil : planning, tarifs saisonniers, folios, documents de facturation et rapports d'occupation, de prix moyen et de RevPAR.",
+        "open": "Ouvrir le PMS",
+        "note": "Accès gratuit avec un compte pendant la phase de lancement."
+      },
+      "features": {
+        "title": "Ce que fait le PMS",
+        "intro": "Chaque fonction ci-dessous correspond à un écran du logiciel, accessible dès la création d'un établissement.",
+        "items": [
+          {
+            "title": "Établissements et chambres",
+            "desc": "Hôtel, motel, chambres d'hôtes, résidence, auberge ou camping. Chaque chambre porte un statut : disponible, occupée, à nettoyer, propre, inspectée ou hors service. Un assistant propose une configuration de départ, modifiable ensuite."
+          },
+          {
+            "title": "Réservations et planning",
+            "desc": "Une réservation passe du devis à la confirmation, puis à l'arrivée et au départ ; les annulations et les non-présentations sont suivies. Le calendrier montre l'occupation chambre par chambre."
+          },
+          {
+            "title": "Réception et fichier clients",
+            "desc": "Une vue du jour liste les arrivées, les départs et les clients présents, avec une version imprimable. Le fichier clients conserve les coordonnées utiles aux séjours."
+          },
+          {
+            "title": "Tarifs saisonniers",
+            "desc": "Des tarifs par période, par plan tarifaire et par type de chambre, avec une modification en masse, en pourcentage ou en montant."
+          },
+          {
+            "title": "Groupes et allotements",
+            "desc": "Des réservations en bloc pour un mariage ou un séminaire, avec date limite de libération, tarif négocié et liste des chambres."
+          },
+          {
+            "title": "Folios et point de vente",
+            "desc": "Les prestations s'ajoutent au folio du séjour, avec le prix hors taxe et le taux de TVA que vous saisissez pour chaque ligne."
+          },
+          {
+            "title": "Documents de facturation",
+            "desc": "Acomptes et factures sont suivis par type et par statut. Ces statuts sont déclaratifs : ils ne remplacent ni votre facturation ni votre comptabilité."
+          },
+          {
+            "title": "Calendriers iCal",
+            "desc": "L'import des calendriers iCal des plateformes de réservation et l'export d'un calendrier en lecture seule."
+          },
+          {
+            "title": "Rapports",
+            "desc": "Occupation, prix moyen, RevPAR et chiffre d'affaires des chambres par jour, performance par source, réservations récentes par mois de séjour, projection d'occupation, journal mensuel et export CSV."
+          }
+        ]
+      },
+      "start": {
+        "title": "Comment démarrer",
+        "steps": [
+          {
+            "title": "Créez votre établissement",
+            "desc": "Choisissez le type d'établissement et laissez l'assistant proposer des chambres et des tarifs de départ. Tout reste modifiable."
+          },
+          {
+            "title": "Vérifiez les tarifs et la fiscalité",
+            "desc": "Contrôlez vos tarifs, le taux de TVA de chaque prestation et les éventuelles taxes locales avant d'enregistrer des séjours."
+          },
+          {
+            "title": "Saisissez vos réservations",
+            "desc": "Ajoutez les réservations en cours ou importez un calendrier iCal, puis suivez les arrivées depuis la réception."
+          }
+        ]
+      },
+      "limits": {
+        "title": "Ce que le PMS ne fait pas",
+        "intro": "Mieux vaut le savoir avant de commencer.",
+        "items": [
+          "Les calendriers iCal ne sont pas un gestionnaire de canaux : ils ne garantissent ni une mise à jour immédiate ni l'absence de surréservation.",
+          "Les tarifs et les paiements se contrôlent séparément : le PMS ne valide ni une facture ni une écriture comptable.",
+          "Le taux de TVA n'est pas déduit de la catégorie d'une prestation : vous le saisissez ligne par ligne.",
+          "Les outils d'analyse hôtelière du site utilisent leurs propres données : rien n'est transféré automatiquement depuis le PMS.",
+          "Aucune durée d'installation n'est garantie : elle dépend du nombre de chambres et de tarifs à saisir."
+        ]
+      },
+      "pricing": {
+        "title": "Prix",
+        "text": "Pendant la phase de lancement, le PMS est accessible gratuitement avec un compte. Le tarif annoncé pour la suite est de 29 € par mois pour l'offre Pro, qui comprend le PMS."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "Pour quels établissements ce PMS est-il prévu ?",
+            "a": "Pour les hôtels, les motels, les chambres d'hôtes, les résidences, les auberges et les campings. Les réglages de départ sont pensés pour un établissement situé au Luxembourg."
+          },
+          {
+            "q": "Le PMS se connecte-t-il à Booking.com ou à Airbnb ?",
+            "a": "Par calendrier iCal seulement : vous importez le calendrier de la plateforme et vous lui fournissez un calendrier en lecture seule. Ce n'est pas une synchronisation en temps réel ; surveillez vos disponibilités pour éviter une surréservation."
+          },
+          {
+            "q": "Quels indicateurs sont calculés ?",
+            "a": "Le taux d'occupation, le prix moyen par chambre louée (ADR), le revenu par chambre disponible (RevPAR) et le chiffre d'affaires des chambres, sur 7, 30, 90 ou 365 jours."
+          },
+          {
+            "q": "Le PMS gère-t-il la TVA hôtelière ?",
+            "a": "Il enregistre le taux que vous saisissez pour chaque prestation. Le taux applicable dépend de la prestation réelle ; vérifiez-le dans les sources officielles."
+          },
+          {
+            "q": "Peut-on essayer sans engagement ?",
+            "a": "Oui. Un compte gratuit suffit pour créer un établissement et ouvrir chaque écran. Vous pouvez aussi demander une démonstration avec le formulaire ci-dessous."
+          }
+        ]
+      },
+      "links": {
+        "title": "Outils d'analyse hôtelière en accès libre",
+        "items": []
+      },
+      "demo": {
+        "title": "Demander une démonstration du PMS",
+        "intro": "Indiquez vos coordonnées et, si vous le souhaitez, le nombre de chambres de votre établissement. Nous vous répondons par e-mail pour convenir d'un créneau.",
+        "size": "Nombre de chambres",
+        "mailSubject": "Démonstration du PMS hôtelier"
+      }
+    },
+    "rental": {
+      "meta": {
+        "title": "Logiciel de gestion locative au Luxembourg | Tevaxia",
+        "description": "Gestion locative pour bailleurs au Luxembourg : lots, plafond légal de loyer (règle des 5 %), paiements, quittances, relances et rapprochement bancaire."
+      },
+      "hero": {
+        "eyebrow": "Bailleurs et gestionnaires",
+        "title": "Logiciel de gestion locative au Luxembourg",
+        "subtitle": "Suivez vos lots, vos loyers et vos paiements, avec le plafond légal de loyer calculé pour chaque bien, les quittances, les relances, le rapprochement bancaire et l'état des lieux.",
+        "open": "Ouvrir mon portefeuille",
+        "note": "Compris dans le compte gratuit."
+      },
+      "features": {
+        "title": "Ce que fait le logiciel",
+        "intro": "Chaque fonction ci-dessous correspond à un écran du logiciel, accessible dès l'ajout d'un premier lot.",
+        "items": [
+          {
+            "title": "Portefeuille de lots",
+            "desc": "Tous vos biens dans un tableau : loyer, plafond légal, rendement et points à vérifier."
+          },
+          {
+            "title": "Plafond légal de loyer",
+            "desc": "Pour chaque lot, le loyer annuel maximal est calculé à 5 % du capital investi, réévalué et diminué de la vétusté. Les loyers supérieurs au plafond sont signalés."
+          },
+          {
+            "title": "Paiements et quittances",
+            "desc": "Le suivi des échéances de loyer et la préparation de quittances en PDF pour les paiements que vous déclarez intégralement reçus."
+          },
+          {
+            "title": "Rapprochement bancaire",
+            "desc": "L'import d'un relevé au format CAMT.053 ou CSV pour repérer les loyers reçus, ou une connexion bancaire PSD2 par Enable Banking après votre autorisation."
+          },
+          {
+            "title": "Relances d'impayés",
+            "desc": "Des modèles de relance qui suivent un calendrier que vous paramétrez."
+          },
+          {
+            "title": "Colocations",
+            "desc": "Le suivi des occupants d'un même lot et la répartition du loyer et des charges entre eux."
+          },
+          {
+            "title": "État des lieux",
+            "desc": "Un constat d'entrée ou de sortie à remplir, à vérifier ensemble et à signer, exporté en PDF."
+          },
+          {
+            "title": "Préparation fiscale",
+            "desc": "Une feuille de travail qui rassemble les recettes et les frais de vos locations pour préparer votre déclaration. Elle ne calcule pas l'impôt."
+          },
+          {
+            "title": "Espace locataire",
+            "desc": "Le locataire consulte, par un lien personnel, les informations du logement et les échéances de loyer que vous déclarez."
+          }
+        ]
+      },
+      "start": {
+        "title": "Comment démarrer",
+        "steps": [
+          {
+            "title": "Ajoutez un lot",
+            "desc": "Saisissez le bien, le loyer et le capital investi : prix d'acquisition, travaux et années correspondantes."
+          },
+          {
+            "title": "Lisez le plafond légal",
+            "desc": "Le logiciel compare le loyer au plafond calculé et signale les lots à vérifier."
+          },
+          {
+            "title": "Suivez les paiements",
+            "desc": "Enregistrez les loyers reçus ou importez un relevé bancaire, puis préparez les quittances et les relances."
+          }
+        ]
+      },
+      "limits": {
+        "title": "Ce que le logiciel ne fait pas",
+        "intro": "Mieux vaut le savoir avant de commencer.",
+        "items": [
+          "Il ne certifie ni la conformité d'un bail ni le droit à une aide : le plafond affiché dépend des montants que vous saisissez.",
+          "Les relances sont des modèles : les échéances du logiciel ne remplacent pas les délais et les actes de procédure applicables.",
+          "Les quittances se préparent pour les paiements que vous déclarez reçus ; le logiciel n'encaisse pas les loyers.",
+          "La classe énergétique sert d'indicateur de priorité : elle ne détermine pas à elle seule une aide à la rénovation.",
+          "La préparation fiscale est une feuille de travail, pas une déclaration ni un conseil fiscal."
+        ]
+      },
+      "pricing": {
+        "title": "Prix",
+        "text": "La gestion locative est comprise dans le compte gratuit : lots, paiements, quittances, relances et rapprochement bancaire. Les offres et leurs limites de stockage sont détaillées sur la page des tarifs."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "À qui s'adresse ce logiciel de gestion locative ?",
+            "a": "Aux propriétaires qui louent un ou plusieurs logements au Luxembourg et aux gestionnaires qui suivent des lots pour le compte de tiers."
+          },
+          {
+            "q": "Comment le plafond légal de loyer est-il calculé ?",
+            "a": "Le loyer annuel ne peut pas dépasser 5 % du capital investi dans le logement. Le logiciel réévalue ce capital selon l'année de chaque dépense et applique une décote de vétusté, à partir des montants que vous saisissez."
+          },
+          {
+            "q": "Faut-il connecter son compte bancaire ?",
+            "a": "Non. Vous pouvez enregistrer les paiements à la main ou importer un relevé. La connexion bancaire PSD2 est facultative et demande votre autorisation auprès de la banque."
+          },
+          {
+            "q": "Le locataire doit-il créer un compte ?",
+            "a": "Non. Vous lui transmettez un lien personnel qui ouvre son espace."
+          },
+          {
+            "q": "Peut-on essayer sans engagement ?",
+            "a": "Oui. Un compte gratuit suffit pour ajouter un lot et ouvrir chaque écran. Vous pouvez aussi demander une démonstration avec le formulaire ci-dessous."
+          }
+        ]
+      },
+      "links": {
+        "title": "Outils en accès libre",
+        "items": [
+          "Calculateur de loyer légal",
+          "État des lieux à remplir",
+          "Rapprochement bancaire par import",
+          "Location par une agence immobilière sociale",
+          "Comparer des devis d'assurance loyers impayés"
+        ]
+      },
+      "demo": {
+        "title": "Demander une démonstration de la gestion locative",
+        "intro": "Indiquez vos coordonnées et, si vous le souhaitez, le nombre de lots que vous louez ou gérez. Nous vous répondons par e-mail pour convenir d'un créneau.",
+        "size": "Nombre de lots",
+        "mailSubject": "Démonstration de la gestion locative"
+      },
+      "sources": {
+        "title": "Sources officielles",
+        "rent": "Règles officielles du bail",
+        "energy": "Conditions officielles Klimabonus"
+      }
+    },
+    "crm": {
+      "demo": {
+        "title": "Demander une démonstration du CRM",
+        "intro": "Indiquez vos coordonnées et, si vous le souhaitez, le nombre d'agents de votre agence. Nous vous répondons par e-mail pour convenir d'un créneau.",
+        "size": "Nombre d'agents",
+        "mailSubject": "Démonstration du CRM immobilier"
+      }
+    }
+  },
+  "productPreview": {
+    "caption": "Aperçu illustratif, données fictives",
+    "syndic": {
+      "window": "Assemblée générale",
+      "building": "Résidence Les Tilleuls · 24 lots · 1 000 millièmes",
+      "resolution": "Résolution 3 : ravalement de la façade",
+      "majority": "Majorité absolue",
+      "for": "Pour",
+      "against": "Contre",
+      "abstain": "Abstention",
+      "adopted": "Adoptée",
+      "callsTitle": "Appels de fonds du 2ᵉ trimestre",
+      "lot": "Lot",
+      "shares": "Millièmes",
+      "amount": "Montant",
+      "status": "Statut",
+      "paid": "Payé",
+      "reminder": "Relance 1"
+    },
+    "pms": {
+      "window": "Planning des réservations",
+      "occupancy": "Occupation",
+      "adr": "Prix moyen (ADR)",
+      "revpar": "RevPAR",
+      "arrivals": "Arrivées du jour",
+      "room": "Chambre",
+      "double": "Double",
+      "twin": "Twin",
+      "suite": "Suite",
+      "confirmed": "Confirmée",
+      "checkedIn": "Client présent",
+      "quote": "Devis"
+    },
+    "rental": {
+      "window": "Portefeuille locatif",
+      "lot": "Lot",
+      "rent": "Loyer mensuel",
+      "cap": "Plafond légal",
+      "payment": "Paiement",
+      "above": "Au-dessus du plafond",
+      "received": "Reçu",
+      "late": "En retard",
+      "lot1": "Appartement, Belair · 85 m²",
+      "lot2": "Studio, Gare · 32 m²",
+      "lot3": "Maison, Strassen · 140 m²",
+      "summary": "3 lots · {total} par mois · 1 loyer à vérifier"
+    },
+    "crm": {
+      "window": "Pipeline des mandats",
+      "prospect": "Prospect",
+      "signed": "Mandat signé",
+      "visiting": "En visite",
+      "agreed": "Sous compromis",
+      "exclusive": "Exclusif",
+      "simple": "Simple",
+      "card1": "Appartement 3 chambres · Kirchberg",
+      "card2": "Maison · Bertrange",
+      "card3": "Studio · Bonnevoie",
+      "card4": "Appartement 2 chambres · Esch-sur-Alzette",
+      "card5": "Maison jumelée · Mamer",
+      "card6": "Penthouse · Limpertsberg"
     }
   }
 }

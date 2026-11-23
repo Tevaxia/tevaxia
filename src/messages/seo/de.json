@@ -44,8 +44,8 @@
     "description": "Berechnen Sie die Erwerbsnebenkosten in Luxemburg: Registrierungsgebühren, Bëllegen Akt, MwSt., Notarkosten und Hypothekenkosten. Unverbindliche Schätzung."
   },
   "/gestion-locative": {
-    "title": "Mietverwaltung in Luxemburg: Mieten, Einheiten, Quittungen",
-    "description": "Verfolgen Sie Ihr Portfolio mit Luxemburger Besonderheiten: 5-%-Regel, Energieauswirkung (Klimabonus) und Warnungen bei Mieten über der gesetzlichen Obergrenze."
+    "title": "Software für die Mietverwaltung in Luxemburg | Tevaxia",
+    "description": "Mietverwaltung für Vermieter in Luxemburg: Einheiten, gesetzliche Mietobergrenze (5-%-Regel), Zahlungen, Mietquittungen, Mahnungen und Bankabgleich."
   },
   "/gestion-locative/ais": {
     "title": "Soziale Mietverwaltung: jahresbezogener Vergleich | Tevaxia",
@@ -160,8 +160,8 @@
     "description": "Suche über alle tevaxia-Entitäten: Mandate, CRM-Kontakte, WEGs, Hotelobjekte und Reservierungen."
   },
   "/solutions/hotel": {
-    "title": "Werkzeuge für Hoteliers und Anleger in Luxemburg | Tevaxia",
-    "description": "Wählen Sie Werkzeuge für Ihr Hotelprojekt: Bewertung, DSCR, Betriebsanalyse und Unterlagenvorbereitung auf Basis Ihrer eigenen Daten."
+    "title": "Hotel-PMS in Luxemburg: Software für die Hotelverwaltung",
+    "description": "PMS für Hotels, Gästehäuser und Aparthotels in Luxemburg: Reservierungsplan, Rezeption, Saisonpreise, Folios und Berichte zur Auslastung."
   },
   "/status": {
     "title": "Dienststatus und Verfügbarkeit | Tevaxia",

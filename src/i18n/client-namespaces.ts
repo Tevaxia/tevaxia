@@ -62,8 +62,6 @@ export const CLIENT_NAMESPACES = [
   "expertGuidance",
   "facturation",
   "fraisAcquisition",
-  "gestionLocative",
-  "gestionLocativeHub",
   "glColoc",
   "glEdl",
   "glLotEdit",

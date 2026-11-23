@@ -884,8 +884,6 @@ export const ROUTE_NAMESPACES: Record<string, readonly string[]> = {
     "cookie",
     "crmContextBar",
     "expertGuidance",
-    "gestionLocative",
-    "gestionLocativeHub",
     "hotellerieContextBar",
     "nav",
     "pmsContextBar",

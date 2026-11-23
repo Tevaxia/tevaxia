@@ -44,8 +44,8 @@
     "description": "Calculate purchase costs in Luxembourg: registration duties, Bëllegen Akt tax credit, VAT, notary fees and mortgage costs. Indicative estimate."
   },
   "/gestion-locative": {
-    "title": "Rental Management in Luxembourg: Rents, Units, Receipts",
-    "description": "Track your portfolio with Luxembourg specifics: 5% rule, energy impact (Klimabonus), and alerts on rents above the legal cap."
+    "title": "Rental management software in Luxembourg | Tevaxia",
+    "description": "Rental management for landlords in Luxembourg: units, legal rent cap (5% rule), payments, rent receipts, reminders and bank reconciliation."
   },
   "/gestion-locative/ais": {
     "title": "Social rental management: dated scenario | Tevaxia",
@@ -160,8 +160,8 @@
     "description": "Search across all tevaxia entities: mandates, CRM contacts, condos, hotel properties and reservations."
   },
   "/solutions/hotel": {
-    "title": "Tools for hotel operators and investors in Luxembourg | Tevaxia",
-    "description": "Choose tools for your hotel project: valuation, DSCR, operating analysis and document preparation, using your own figures and evidence."
+    "title": "Hotel PMS in Luxembourg: hotel management software",
+    "description": "PMS for hotels, guest houses and aparthotels in Luxembourg: reservation calendar, front desk, seasonal rates, folios and occupancy reports."
   },
   "/status": {
     "title": "Service status and availability | Tevaxia",

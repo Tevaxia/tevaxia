@@ -136,7 +136,10 @@
       "banque": "Bancos",
       "expert-evaluateur": "Peritos avaliadores"
     },
-    "readGuide": "Ler o guia completo"
+    "readGuide": "Ler o guia completo",
+    "footerSyndicSoftware": "Software de condomínios",
+    "footerPms": "PMS hoteleiro",
+    "footerRentalSoftware": "Software de gestão de arrendamento"
   },
   "home": {
     "heroTitle": "Análise imobiliária do Luxemburgo,",
@@ -3489,7 +3492,7 @@
   },
   "confidentialite": {
     "title": "Política de privacidade",
-    "lastUpdate": "Última atualização: 23 de outubro de 2026",
+    "lastUpdate": "Última atualização: 21 de novembro de 2026",
     "responsable": {
       "title": "1. Responsável pelo tratamento",
       "name": "NOTARIA PRIME — Sede social: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, França",
@@ -3542,6 +3545,10 @@
         "calendar": "A seu pedido, uma ligação ao Google Calendar ou Microsoft Outlook pode solicitar permissões de leitura e escrita de eventos e acesso offline. Os identificadores da conta externa, email, permissões, tokens de acesso e renovação e datas de validade são guardados no Supabase para esta ligação. A autorização não significa que todas as funções de sincronização estejam disponíveis. Um URL de subscrição de calendário também pode transmitir tarefas e visitas publicadas ao serviço escolhido: qualquer pessoa com esse URL pode ler o seu conteúdo.",
         "drive": "A exportação para o Google Drive transmite o ficheiro escolhido e o seu nome à Google após a sua ação. A permissão drive.file abrange ficheiros criados ou abertos com a aplicação, não todo o seu Drive. Os tokens necessários do fornecedor estão acessíveis na sessão de autenticação. O ficheiro exportado permanece no seu Drive até ser eliminado segundo as suas definições Google.",
         "revoke": "Pode retirar as permissões nas definições da sua conta Google ou Microsoft. Para solicitar a eliminação dos dados de ligação conservados pela Tevaxia, contacte contact@tevaxia.lu. Retirar uma permissão não elimina automaticamente ficheiros ou eventos já enviados ao fornecedor. Revogue também os links de subscrição que já não pretende partilhar."
+      },
+      "demo": {
+        "label": "Pedidos de demonstração:",
+        "text": "Quando preenche um formulário de pedido de demonstração, registamos o seu nome, o seu endereço de e-mail e, se os indicar, a sua empresa, o seu número de telefone, a dimensão da sua atividade e a sua mensagem. Estes dados servem apenas para responder ao seu pedido. Uma impressão digital do seu endereço IP, renovada todos os dias, limita o número de envios; não permite identificá-lo. Pode pedir a eliminação do seu pedido através de contact@tevaxia.lu."
       }
     },
     "finalites": {
@@ -5526,191 +5533,6 @@
     "demoCashflowAssumptions": "Cenário com pressupostos constantes: rendas e despesas aumentam 2% a partir do segundo ano, empréstimo de 25 anos com prestações mensais e sem depreciação fiscal automática. A taxa marginal não constitui um cálculo completo do imposto nacional. No Reino Unido, a redução de 20% é limitada ao lucro imobiliário; pressupõe-se rendimento global ajustado suficiente, sem reporte de custos financeiros. Não se projetam alterações fiscais futuras."
   },
   "solutions": {
-    "syndic": {
-      "meta": {
-        "title": "Software de administração de condomínios Luxemburgo, conforme lei 16.05.1975",
-        "description": "Administre os seus condomínios sem fins de semana no Excel: assembleias gerais em linha, chamadas de fundos Factur-X, contabilidade LU, reconciliação bancária PSD2. Teste gratuito."
-      },
-      "hero": {
-        "badge": "Concebido para condomínios luxemburgueses",
-        "title": "A sua administração de condomínios, sem",
-        "titleAccent": "fins de semana no Excel",
-        "subtitle": "Assembleias gerais em linha com voto ponderado por permilagens, chamadas de fundos em conformidade Factur-X, contabilidade de condomínio luxemburguesa e reconciliação bancária automática. Concebido para administradores de condomínio profissionais cansados de gerir quatro ferramentas em paralelo.",
-        "cta": "Começar gratuitamente",
-        "ctaSecondary": "Ver como funciona",
-        "kpis": [
-          {
-            "value": "15 h",
-            "label": "poupadas por AG"
-          },
-          {
-            "value": "100 %",
-            "label": "conforme lei 16.05.1975"
-          },
-          {
-            "value": "<24 h",
-            "label": "tempo de resposta do suporte"
-          }
-        ]
-      },
-      "problem": {
-        "title": "Administrar um condomínio no Luxemburgo em 2026 não devia continuar a ter este aspeto",
-        "intro": "Entre a lei de 16 de maio de 1975, as chamadas de fundos trimestrais, as cobranças, a preparação das AG e a contabilidade, a semana de um administrador enche-se sozinha. A menos que as ferramentas certas aliviem a carga.",
-        "items": [
-          {
-            "title": "Preparação de AG em 3 dias",
-            "desc": "Convocatórias com 15 dias, ordem do dia a redigir, procurações a recolher, ata a escrever mais tarde. O trabalho administrativo absorve o tempo que devia ser dedicado aos temas de fundo.",
-            "stat": "~15 horas por AG"
-          },
-          {
-            "title": "Cobranças feitas à mão",
-            "desc": "Seguir quem deve o quê, controlar prazos, calcular juros legais, preparar cartas registadas. Sem ferramenta dedicada, algo escapa sempre, e a tesouraria sofre.",
-            "stat": "3-7 % cronicamente por cobrar"
-          },
-          {
-            "title": "Excel, banco e contabilidade em paralelo",
-            "desc": "Reconciliar recebimentos com as chamadas de fundos, lançar em contabilidade, montar os anexos da AG a partir de três origens. Cada etapa é uma oportunidade de erro.",
-            "stat": "4 ferramentas em média"
-          }
-        ]
-      },
-      "howItWorks": {
-        "title": "Uma plataforma, três passos",
-        "intro": "Sem migração complexa, sem formação de dois dias. Importa os seus condomínios, configura uma vez as chaves de repartição, e a ferramenta assume o resto.",
-        "steps": [
-          {
-            "number": "1",
-            "title": "Os seus condomínios importados",
-            "desc": "Importação Excel, introdução manual ou API. Lotes, permilagens, condóminos, contratos, histórico contabilístico. Funciona com qualquer administrador já estruturado."
-          },
-          {
-            "number": "2",
-            "title": "AG e chamadas de fundos funcionam sozinhas",
-            "desc": "Convocatórias PDF por lote, voto eletrónico ponderado por permilagens, ata gerada automaticamente. Chamadas de fundos Factur-X conformes EN 16931 enviadas aos condóminos com referência SEPA."
-          },
-          {
-            "number": "3",
-            "title": "Contabilidade que se escreve sozinha",
-            "desc": "Cada chamada de fundos, cada recebimento, cada despesa lançada flui para o diário contabilístico. Os 5 anexos da AG são gerados em PDF com um clique."
-          }
-        ]
-      },
-      "features": {
-        "title": "Tudo o que um administrador de condomínios luxemburguês precisa mesmo",
-        "intro": "Funcionalidades concebidas para o enquadramento legal do Grão-Ducado: lei de 16 de maio de 1975, regras de maioria em AG, isenção de IVA art. 44 §1 f, arquivo de 10 anos.",
-        "items": [
-          {
-            "title": "AG em linha com voto ponderado",
-            "desc": "Voto eletrónico ponderado por permilagens, maiorias simples / absoluta / dupla / unanimidade tratadas automaticamente."
-          },
-          {
-            "title": "Convocatórias + ata em PDF",
-            "desc": "Convocatória por lote com ordem do dia legal, ata gerada automaticamente após a AG com os resultados dos votos."
-          },
-          {
-            "title": "Chamadas de fundos Factur-X",
-            "desc": "PDF/A-3 + XML CII D22B conforme EN 16931, referência de mandato SEPA, isenção art. 261 D CGI aplicada."
-          },
-          {
-            "title": "Cobranças em 3 níveis",
-            "desc": "Lembrete amigável, carta registada, intimação de pagamento. Juros legais luxemburgueses calculados automaticamente."
-          },
-          {
-            "title": "5 anexos contabilísticos da AG",
-            "desc": "Balanço, diário, orçamento, repartição de despesas, estado de dívidas. PDFs prontos a distribuir."
-          },
-          {
-            "title": "Reconciliação bancária PSD2",
-            "desc": "Ligação à BCEE, BIL, Banque Raiffeisen, Post Finance via Enable Banking. Reconciliação automática."
-          },
-          {
-            "title": "Chaves de repartição configuráveis",
-            "desc": "Permilagens gerais, permilagens de exploração, despesas especiais por escada/edifício, quotas individualizadas."
-          },
-          {
-            "title": "Portal do condómino",
-            "desc": "Cada condómino tem a sua área: voto, extrato de conta, convocatórias, atas, pagamento em linha."
-          },
-          {
-            "title": "10 modelos de cartas editáveis",
-            "desc": "Cobranças, convocatórias, notificações formais, procurações. Totalmente personalizáveis, exportação DOCX / PDF / Google Drive."
-          },
-          {
-            "title": "OCR de faturas gratuito",
-            "desc": "Carrega as faturas de fornecedores, extração automática via PDF.js + Tesseract.js. Zero introdução manual."
-          },
-          {
-            "title": "Transferências SEPA em lote",
-            "desc": "Geração de XML pain.001 para pagamentos agrupados a fornecedores, compatível com todos os bancos luxemburgueses."
-          },
-          {
-            "title": "Benchmark de despesas",
-            "desc": "Comparação das suas despesas por m² com a média luxemburguesa por tipo de fração e ano de construção."
-          }
-        ]
-      },
-      "trust": {
-        "title": "Porque é que os administradores de condomínio LU nos escolhem",
-        "agileTitle": "Desenvolvimento ágil, releases regulares",
-        "agileDesc": "Novos módulos entregues a cada 2 semanas. Backlog público, os seus pedidos passam rapidamente a produção.",
-        "customTitle": "Desenvolvimento à medida disponível",
-        "customDesc": "Formato de convocatória específico, cálculo de permilagem invulgar, exportação para a sua contabilidade: desenvolvimento em 1 a 3 semanas.",
-        "supportTitle": "Suporte em menos de 24 h",
-        "supportDesc": "E-mail para contact@tevaxia.lu. Resposta média em menos de 6 horas nos dias úteis. Sem números de ticket, sem chatbot."
-      },
-      "pricing": {
-        "title": "Incluído na sua subscrição tevaxia",
-        "subtitle": "Sem faturação por condomínio, sem quota de AG, sem módulo premium. Tudo disponível em freemium para testar, na subscrição geral para utilização diária.",
-        "features": [
-          "Condomínios ilimitados",
-          "AG em linha com voto ponderado por permilagens",
-          "Chamadas de fundos Factur-X conformes EN 16931",
-          "Contabilidade de condomínio luxemburguesa",
-          "Reconciliação bancária PSD2 (Enable Banking)",
-          "Portal do condómino com acesso individual",
-          "5 anexos contabilísticos PDF da AG",
-          "Cobranças 3 níveis com juros LU",
-          "Conforme lei de 16 de maio de 1975"
-        ],
-        "ctaPlatform": "Ver planos tevaxia",
-        "ctaEmit": "Ir para o módulo de administração"
-      },
-      "faq": {
-        "title": "Perguntas frequentes",
-        "items": [
-          {
-            "q": "Estou a mudar de [outra ferramenta] para a tevaxia, como migrar?",
-            "a": "Importação Excel padrão (lotes, condóminos, histórico de despesas), depois configuração das chaves de repartição. A retoma de um exercício a decorrer demora 2 a 4 horas. Acompanhamos sem custos adicionais."
-          },
-          {
-            "q": "A ferramenta está conforme ao direito luxemburguês do condomínio?",
-            "a": "Sim, a lei de 16 de maio de 1975 está integrada: maiorias simples / absoluta / dupla / unanimidade, prazo de convocatória de 15 dias, obrigações contabilísticas, arquivo de 10 anos."
-          },
-          {
-            "q": "Uma AG em linha tem valor legal?",
-            "a": "Sim, desde que o regulamento do condomínio o permita ou que uma deliberação anterior de AG física o tenha autorizado. A prática generalizou-se no Luxemburgo desde 2020."
-          },
-          {
-            "q": "As chamadas de fundos podem ser emitidas para condomínios isentos de IVA?",
-            "a": "Sim, o art. 44 §1 f da lei do IVA isenta a administração de condomínios. O módulo aplica automaticamente a isenção correta."
-          },
-          {
-            "q": "Os dados dos condóminos estão seguros?",
-            "a": "Armazenados no Supabase (AWS eu-central-1 Frankfurt) com Row Level Security, conforme RGPD, encriptação HTTPS."
-          },
-          {
-            "q": "Quanto tempo até estar operacional?",
-            "a": "Um administrador com 1 a 5 condomínios fica operacional em 1 a 2 horas. Acima de 10 condomínios, 4 a 6 horas para importação completa."
-          }
-        ]
-      },
-      "finalCta": {
-        "title": "Pronto para recuperar os seus serões",
-        "desc": "Criar uma conta gratuita, importar o primeiro condomínio, gerar uma chamada de fundos de teste em 15 minutos. Zero compromisso.",
-        "cta": "Começar gratuitamente",
-        "ctaSecondary": "Ver o módulo de administração em direto"
-      }
-    },
     "agence": {
       "meta": {
         "title": "CRM agência imobiliária Luxemburgo — pipeline e OpenImmo",
@@ -7004,8 +6826,8 @@
     }
   },
   "syndic": {
-    "title": "Software de administração de condomínios no Luxemburgo",
-    "subtitle": "Software de administração de condomínios no Luxemburgo: encargos por permilagem, frações, assembleias gerais, chamadas de fundos e renovação energética.",
+    "title": "Encargos de condomínio no Luxemburgo: simulador por permilagem",
+    "subtitle": "Simulador de encargos de condomínio: repartição por permilagem entre as frações, orçamento de encargos e cenários de renovação energética do edifício.",
     "primaryCta": {
       "label": "Acesso principal",
       "title": "Os meus condomínios geridos",
@@ -7745,28 +7567,6 @@
       "faq3a": "As 5 camadas: apoios estatais de aquisição (Bëllegen Akt, IVA 3 %), renovação energética (Klimabonus), privados, comunais e património.",
       "faq4q": "A regra dos 5 % aplica-se se eu viver no imóvel?",
       "faq4a": "Não. O teto legal aplica-se apenas a imóveis arrendados. Se compra para habitação própria, pode saltar a etapa 4.",
-      "faqTitle": "Perguntas frequentes",
-      "relatedTitle": "Saber mais"
-    }
-  },
-  "gestionLocative": {
-    "seo": {
-      "regle5Title": "A regra dos 5 % no Luxemburgo",
-      "regle5Content": "Não: o formulário não inclui todos os dados, nomeadamente o ano de construção e as faturas do mobiliário. O resultado é parcial. Utilize o calculador detalhado de renda e os documentos oficiais antes de tirar conclusões.",
-      "klimabonusTitle": "Analisar a renovação",
-      "klimabonusContent": "A classe energética, por si só, não determina o direito ao Klimabonus. Verifique o edifício, as obras, as datas e a aprovação prévia aplicável.",
-      "rendementTitle": "Rendimento bruto potencial",
-      "rendementContent": "O rendimento bruto divide a renda anual pelo preço de aquisição. O limite legal da renda usa outra base: o capital investido reavaliado e depreciado. Não estabelece, portanto, um rendimento bruto máximo de 5 % do preço de compra.",
-      "syndicTitle": "Utilização por gestores",
-      "syndicContent": "Acompanhe imóveis, rendas e prioridades de verificação. A carteira não certifica a conformidade do arrendamento nem o direito a apoios.",
-      "faq1q": "Os meus dados de arrendamento são enviados online?",
-      "faq1a": "Os imóveis da conta ligada são guardados online com uma cópia local separada por conta. Os imóveis de convidados ficam locais. As cópias antigas sem titular identificado não são importadas automaticamente.",
-      "faq2q": "A verificação do limite da renda está completa?",
-      "faq2a": "Não: o formulário não inclui todos os dados, nomeadamente o ano de construção e as faturas do mobiliário. O resultado é parcial. Utilize o calculador detalhado de renda e os documentos oficiais antes de tirar conclusões.",
-      "faq3q": "Como verificar a reavaliação?",
-      "faq3a": "Consulte as tabelas e explicações oficiais sobre o capital investido. Distinga o ano de cálculo, as datas de investimento, o terreno, as obras e a depreciação. O preço de compra não basta.",
-      "faq4q": "O arrendamento mobilado altera o cálculo?",
-      "faq4a": "O suplemento de mobiliário é distinto da renda do imóvel e exige faturas admissíveis. Selecionar mobilado não calcula um suplemento fixo; introduza os comprovativos no calculador detalhado.",
       "faqTitle": "Perguntas frequentes",
       "relatedTitle": "Saber mais"
     }
@@ -13575,37 +13375,6 @@
     "methoItem3": "Regulamento (UE) 2019/2088 SFDR + RTS 2022/1288 PAI indicators",
     "methoItem4": "Diretiva EPBD IV 2024/1275 + transposição LU prevista 2026",
     "methoItem5": "Fatores de emissão LU: ILR 2023 (rede), guichet.lu (energias fósseis)"
-  },
-  "gestionLocativeHub": {
-    "heroTitle": "Gestão de arrendamento no Luxemburgo",
-    "heroSubtitle": "Acompanhe a sua carteira com as especificidades luxemburguesas: regra dos 5 %, impacto energético (Klimabonus) e alertas sobre rendas acima do teto legal.",
-    "ctaPortefeuille": "Aceder à carteira →",
-    "ctaFiscal": "📊 Painel fiscal LU",
-    "ctaEtatLieux": "📱 Vistoria",
-    "ctaReconciliation": "🏦 Reconciliação bancária",
-    "ctaRelances": "📬 Avisos de atraso",
-    "ctaGli": "🛡 Seguro de rendas",
-    "ctaTestRule": "Testar a regra dos 5 %",
-    "whyTitle": "Concebido para o direito de arrendamento luxemburguês",
-    "whySubtitle": "Acompanhe imóveis, rendas e prioridades de verificação. A carteira não certifica a conformidade do arrendamento nem o direito a apoios.",
-    "card1Title": "Regra dos 5 %",
-    "card1Desc": "Renda anual máxima = 5 % do capital investido reavaliado com desconto por vetustez. Qualquer renda superior é juridicamente redutível pelo inquilino.",
-    "card2Title": "Analisar a renovação",
-    "card2Desc": "A classe energética, por si só, não determina o direito ao Klimabonus. Verifique o edifício, as obras, as datas e a aprovação prévia aplicável.",
-    "card3Title": "Rendimento real",
-    "card3Desc": "Coeficiente de reavaliação STATEC + desconto 1 %/ano automáticos. A sua rentabilidade bruta é comparada com a rentabilidade máxima legal atingível.",
-    "forWhoTitle": "Para quem?",
-    "forWho1Title": "Proprietários 1 a 10 lotes",
-    "forWho1Desc": "Multi-imóvel no Luxemburgo. Verifique a conformidade legal de cada renda, acompanhe a rentabilidade agregada, identifique os lotes a renovar em prioridade.",
-    "forWho2Title": "Administradores & gestores 10-100 lotes",
-    "forWho2Desc": "Pilotagem da carteira por conta de terceiros. Alertas automáticos sobre lotes acima do teto legal, simulações de revalorização pós-obras.",
-    "mvpStrong": "Estado MVP:",
-    "mvpBody": "os lotes são persistidos localmente no seu navegador. Para um multi-posto sincronizado (organização, convites a colaboradores), integraremos Supabase numa próxima versão, os seus dados locais serão migráveis.",
-    "startTitle": "Começar já",
-    "startSubtitle": "Adicione os seus lotes em 2 minutos, obtenha instantaneamente o teto legal e o diagnóstico energético.",
-    "startCta": "Abrir a minha carteira →",
-    "officialRent": "Regras oficiais do arrendamento",
-    "officialEnergy": "Condições oficiais Klimabonus"
   },
   "hotelTransactions": {
     "backHub": "← Hotelaria",
@@ -19822,6 +19591,480 @@
       "p1": "O simulador parte do preço médio por noite, da taxa de ocupação e do canal de reserva para calcular a receita bruta anual, e retira depois a comissão da plataforma, a limpeza, a roupa, os consumíveis e os encargos fixos.",
       "p2": "Aplica em seguida a taxa marginal de imposto que escolher e apresenta o rendimento líquido anual e mensal, bem como a rentabilidade líquida em relação ao preço de aquisição.",
       "p3": "O cálculo não tem em conta o reembolso do empréstimo, o IVA, as contribuições sociais nem a liquidação fiscal do agregado. Os intervalos propostos são referências; verifique também as obrigações aplicáveis ao arrendamento de curta duração no seu município."
+    }
+  },
+  "productPages": {
+    "common": {
+      "demoCta": "Pedir uma demonstração",
+      "pricingLink": "Ver os preços",
+      "faqTitle": "Perguntas frequentes",
+      "form": {
+        "name": "Nome",
+        "company": "Empresa",
+        "email": "Endereço de e-mail",
+        "phone": "Telefone",
+        "message": "A sua necessidade em poucas palavras",
+        "optional": "facultativo",
+        "submit": "Enviar o pedido",
+        "sending": "A enviar…",
+        "successTitle": "O seu pedido ficou registado.",
+        "successText": "Responderemos por e-mail para combinar um horário.",
+        "errorInvalid": "Verifique o nome e o endereço de e-mail e tente novamente.",
+        "errorRateLimited": "Foram enviados demasiados pedidos. Tente novamente dentro de uma hora.",
+        "errorUnavailable": "Não foi possível registar o pedido.",
+        "fallback": "Pode escrever-nos para",
+        "privacy": "Os seus dados de contacto servem apenas para responder a este pedido.",
+        "privacyLink": "Política de privacidade"
+      }
+    },
+    "syndic": {
+      "meta": {
+        "title": "Software de administração de condomínios no Luxemburgo",
+        "description": "Software de administração de condomínios para o Luxemburgo: assembleias com voto ponderado, chamadas de fundos, contabilidade, cobranças e portal do condómino."
+      },
+      "hero": {
+        "eyebrow": "Administradores de condomínio",
+        "title": "Software de administração de condomínios no Luxemburgo",
+        "subtitle": "Gira os seus condomínios numa única ferramenta: frações e permilagens, assembleias gerais com voto ponderado, chamadas de fundos, contabilidade, avisos de cobrança e portal para os condóminos.",
+        "open": "Abrir os meus condomínios",
+        "note": "Acesso gratuito com uma conta durante a fase de lançamento."
+      },
+      "features": {
+        "title": "O que o software faz",
+        "intro": "Cada função abaixo corresponde a um ecrã do software, disponível logo que um condomínio é criado.",
+        "items": [
+          {
+            "title": "Condomínios, frações e permilagens",
+            "desc": "Cada condomínio reúne as suas frações e as respetivas quotas-partes. Uma vista de carteira ordena os edifícios pelo montante em dívida e compara os seus indicadores entre si."
+          },
+          {
+            "title": "Assembleias gerais",
+            "desc": "Convocatórias, ordem de trabalhos, voto eletrónico ponderado pela permilagem e ata. São propostas quatro regras de maioria: simples, absoluta, dupla e unanimidade. Pode abrir-se uma sala de videoconferência, e um gerador prepara as procurações em PDF."
+          },
+          {
+            "title": "Chamadas de fundos",
+            "desc": "Chamadas por período, repartidas pela permilagem ou pelas suas próprias chaves de repartição (aquecimento, elevador, escadas), com um PDF por fração."
+          },
+          {
+            "title": "Contabilidade e orçamento",
+            "desc": "Plano de contas, lançamentos em partidas dobradas, diário, balancete e fecho anual. O orçamento compara-se com o realizado, e cinco anexos contabilísticos saem em PDF para a assembleia."
+          },
+          {
+            "title": "Avisos de cobrança",
+            "desc": "Três níveis de aviso, da carta amigável à última interpelação, com juros de mora à taxa que definir e um histórico dos envios."
+          },
+          {
+            "title": "Banco e fornecedores",
+            "desc": "Importação do extrato bancário em CSV para associar os pagamentos recebidos às chamadas de fundos, ficheiro de transferências SEPA para pagar os fornecedores em lote e leitura automática das faturas de fornecedores."
+          },
+          {
+            "title": "Obras e fundo de obras",
+            "desc": "O acompanhamento de uma obra, do concurso à receção, passando pelos orçamentos e pela votação em assembleia, bem como o acompanhamento do fundo de obras."
+          },
+          {
+            "title": "Portal do condómino e mensagens",
+            "desc": "Cada condómino recebe uma ligação pessoal para consultar as convocatórias, votar e descarregar o seu extrato de conta. Um serviço de mensagens liga o administrador aos condóminos; o conselho de condóminos tem o seu próprio espaço."
+          },
+          {
+            "title": "Arquivo e cartas-modelo",
+            "desc": "O arquivo das atas, das faturas e dos contratos, e dez modelos de carta editáveis, exportáveis em DOCX ou em PDF."
+          }
+        ]
+      },
+      "start": {
+        "title": "Como começar",
+        "steps": [
+          {
+            "title": "Crie uma conta e o seu primeiro condomínio",
+            "desc": "Introduza o edifício e, depois, as frações com as suas permilagens e os seus condóminos."
+          },
+          {
+            "title": "Defina a repartição e o orçamento",
+            "desc": "Acrescente as suas chaves de repartição se nem todos os encargos seguirem a permilagem geral e, depois, elabore o orçamento do exercício."
+          },
+          {
+            "title": "Lance uma chamada de fundos ou uma assembleia",
+            "desc": "Gere a chamada do período, envie aos condóminos a ligação para o seu espaço e prepare a convocatória."
+          }
+        ]
+      },
+      "limits": {
+        "title": "O que o software não faz",
+        "intro": "Convém sabê-lo antes de começar.",
+        "items": [
+          "O banco não está ligado em direto: a reconciliação parte de um extrato CSV que importa.",
+          "As chamadas de fundos são documentos PDF, não faturas eletrónicas.",
+          "As frações e os condóminos são introduzidos à mão: não há migração automática a partir de outro software.",
+          "O software aplica a regra de maioria que escolher; não verifica se uma decisão está conforme com o regulamento do condomínio nem com a lei de 16 de maio de 1975.",
+          "As cartas e os avisos são modelos: mande revê-los antes de um envio com alcance jurídico."
+        ]
+      },
+      "pricing": {
+        "title": "Preço",
+        "text": "Durante a fase de lançamento, o software de administração de condomínios é acessível gratuitamente com uma conta. O preço anunciado para depois é de 29 € por mês para a oferta Pro, que o inclui."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "A quem se destina este software de administração de condomínios?",
+            "a": "Aos administradores profissionais e aos administradores voluntários que gerem um ou vários condomínios no Luxemburgo. A vista de carteira é útil sobretudo a partir de vários edifícios."
+          },
+          {
+            "q": "O voto em assembleia geral é ponderado?",
+            "a": "Sim. Cada voto conta pela permilagem da fração, e o resultado de cada deliberação é calculado segundo a maioria escolhida: simples, absoluta, dupla ou unanimidade. Verifique no regulamento do condomínio se o voto eletrónico é admitido."
+          },
+          {
+            "q": "Os condóminos têm de criar uma conta?",
+            "a": "Não. O administrador envia-lhes uma ligação pessoal que abre o seu espaço: convocatórias, voto e extrato de conta."
+          },
+          {
+            "q": "Onde ficam alojados os dados?",
+            "a": "Os dados da conta ficam alojados na Supabase, na Europa. O acesso é limitado à conta que gere o condomínio; os pormenores constam da política de privacidade."
+          },
+          {
+            "q": "Pode experimentar-se sem compromisso?",
+            "a": "Sim. Uma conta gratuita basta para criar um condomínio e abrir cada ecrã. Também pode pedir uma demonstração com o formulário abaixo."
+          }
+        ]
+      },
+      "links": {
+        "title": "Ferramentas de acesso livre",
+        "items": [
+          "Simulador de encargos de condomínio",
+          "Cartas-modelo para administradores",
+          "Procuração para a assembleia geral"
+        ]
+      },
+      "demo": {
+        "title": "Pedir uma demonstração do software de condomínios",
+        "intro": "Indique os seus dados de contacto e, se quiser, o número de condomínios ou de frações que gere. Responderemos por e-mail para combinar um horário.",
+        "size": "Número de condomínios ou de frações",
+        "mailSubject": "Demonstração do software de condomínios"
+      }
+    },
+    "pms": {
+      "meta": {
+        "title": "PMS hoteleiro no Luxemburgo: software de gestão de hotel",
+        "description": "PMS para hotéis, casas de hóspedes e residências no Luxemburgo: planeamento das reservas, receção, tarifas sazonais, fólios e relatórios de ocupação."
+      },
+      "hero": {
+        "eyebrow": "Hotéis, casas de hóspedes, residências",
+        "title": "Software PMS hoteleiro no Luxemburgo",
+        "subtitle": "Gira os quartos, as reservas e a receção numa única ferramenta: planeamento, tarifas sazonais, fólios, documentos de faturação e relatórios de ocupação, de preço médio e de RevPAR.",
+        "open": "Abrir o PMS",
+        "note": "Acesso gratuito com uma conta durante a fase de lançamento."
+      },
+      "features": {
+        "title": "O que o PMS faz",
+        "intro": "Cada função abaixo corresponde a um ecrã do software, disponível logo que um estabelecimento é criado.",
+        "items": [
+          {
+            "title": "Estabelecimentos e quartos",
+            "desc": "Hotel, motel, casa de hóspedes, residência, pousada ou parque de campismo. Cada quarto tem um estado: disponível, ocupado, por limpar, limpo, inspecionado ou fora de serviço. Um assistente propõe uma configuração inicial, que pode alterar depois."
+          },
+          {
+            "title": "Reservas e planeamento",
+            "desc": "Uma reserva passa do orçamento à confirmação e, depois, à chegada e à partida; os cancelamentos e as não comparências são acompanhados. O calendário mostra a ocupação quarto a quarto."
+          },
+          {
+            "title": "Receção e ficheiro de clientes",
+            "desc": "Uma vista do dia lista as chegadas, as partidas e os clientes presentes, com uma versão para imprimir. O ficheiro de clientes guarda os contactos úteis às estadias."
+          },
+          {
+            "title": "Tarifas sazonais",
+            "desc": "Tarifas por período, por plano tarifário e por tipo de quarto, com alteração em massa, em percentagem ou em montante."
+          },
+          {
+            "title": "Grupos e contingentes",
+            "desc": "Reservas em bloco para um casamento ou um seminário, com data-limite de libertação, tarifa negociada e lista de quartos."
+          },
+          {
+            "title": "Fólios e ponto de venda",
+            "desc": "Os serviços são acrescentados ao fólio da estadia, com o preço sem imposto e a taxa de IVA que introduzir em cada linha."
+          },
+          {
+            "title": "Documentos de faturação",
+            "desc": "Os adiantamentos e as faturas são acompanhados por tipo e por estado. Estes estados são declarativos: não substituem a sua faturação nem a sua contabilidade."
+          },
+          {
+            "title": "Calendários iCal",
+            "desc": "A importação dos calendários iCal das plataformas de reserva e a exportação de um calendário só de leitura."
+          },
+          {
+            "title": "Relatórios",
+            "desc": "Ocupação, preço médio, RevPAR e receita de quartos por dia, desempenho por origem, reservas recentes por mês de estadia, projeção de ocupação, diário mensal e exportação CSV."
+          }
+        ]
+      },
+      "start": {
+        "title": "Como começar",
+        "steps": [
+          {
+            "title": "Crie o seu estabelecimento",
+            "desc": "Escolha o tipo de estabelecimento e deixe o assistente propor quartos e tarifas iniciais. Tudo pode ser alterado."
+          },
+          {
+            "title": "Verifique as tarifas e a fiscalidade",
+            "desc": "Confira as suas tarifas, a taxa de IVA de cada serviço e as eventuais taxas locais antes de registar estadias."
+          },
+          {
+            "title": "Introduza as suas reservas",
+            "desc": "Acrescente as reservas em curso ou importe um calendário iCal e, depois, acompanhe as chegadas a partir da receção."
+          }
+        ]
+      },
+      "limits": {
+        "title": "O que o PMS não faz",
+        "intro": "Convém sabê-lo antes de começar.",
+        "items": [
+          "Os calendários iCal não são um gestor de canais: não garantem uma atualização imediata nem a ausência de sobrerreserva.",
+          "As tarifas e os pagamentos conferem-se à parte: o PMS não valida uma fatura nem um lançamento contabilístico.",
+          "A taxa de IVA não é deduzida da categoria de um serviço: é introduzida linha a linha.",
+          "As ferramentas de análise hoteleira do sítio utilizam os seus próprios dados: nada é transferido automaticamente a partir do PMS.",
+          "Não é garantida nenhuma duração de instalação: depende do número de quartos e de tarifas a introduzir."
+        ]
+      },
+      "pricing": {
+        "title": "Preço",
+        "text": "Durante a fase de lançamento, o PMS é acessível gratuitamente com uma conta. O preço anunciado para depois é de 29 € por mês para a oferta Pro, que inclui o PMS."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "Para que estabelecimentos está previsto este PMS?",
+            "a": "Para hotéis, motéis, casas de hóspedes, residências, pousadas e parques de campismo. As definições iniciais foram pensadas para um estabelecimento situado no Luxemburgo."
+          },
+          {
+            "q": "O PMS liga-se à Booking.com ou à Airbnb?",
+            "a": "Apenas por calendário iCal: importa o calendário da plataforma e fornece-lhe um calendário só de leitura. Não é uma sincronização em tempo real; vigie as disponibilidades para evitar uma sobrerreserva."
+          },
+          {
+            "q": "Que indicadores são calculados?",
+            "a": "A taxa de ocupação, o preço médio por quarto vendido (ADR), a receita por quarto disponível (RevPAR) e a receita de quartos, em 7, 30, 90 ou 365 dias."
+          },
+          {
+            "q": "O PMS trata do IVA da hotelaria?",
+            "a": "Regista a taxa que introduzir para cada serviço. A taxa aplicável depende do serviço real; verifique-a nas fontes oficiais."
+          },
+          {
+            "q": "Pode experimentar-se sem compromisso?",
+            "a": "Sim. Uma conta gratuita basta para criar um estabelecimento e abrir cada ecrã. Também pode pedir uma demonstração com o formulário abaixo."
+          }
+        ]
+      },
+      "links": {
+        "title": "Ferramentas de análise hoteleira de acesso livre",
+        "items": []
+      },
+      "demo": {
+        "title": "Pedir uma demonstração do PMS",
+        "intro": "Indique os seus dados de contacto e, se quiser, o número de quartos do seu estabelecimento. Responderemos por e-mail para combinar um horário.",
+        "size": "Número de quartos",
+        "mailSubject": "Demonstração do PMS hoteleiro"
+      }
+    },
+    "rental": {
+      "meta": {
+        "title": "Software de gestão de arrendamento no Luxemburgo | Tevaxia",
+        "description": "Gestão de arrendamento para senhorios no Luxemburgo: frações, teto legal da renda (regra dos 5 %), pagamentos, recibos, avisos e reconciliação bancária."
+      },
+      "hero": {
+        "eyebrow": "Senhorios e gestores",
+        "title": "Software de gestão de arrendamento no Luxemburgo",
+        "subtitle": "Acompanhe as suas frações, rendas e pagamentos, com o teto legal da renda calculado para cada imóvel, os recibos, os avisos de cobrança, a reconciliação bancária e a vistoria.",
+        "open": "Abrir a minha carteira",
+        "note": "Incluído na conta gratuita."
+      },
+      "features": {
+        "title": "O que o software faz",
+        "intro": "Cada função abaixo corresponde a um ecrã do software, disponível logo que acrescenta uma primeira fração.",
+        "items": [
+          {
+            "title": "Carteira de frações",
+            "desc": "Todos os seus imóveis numa tabela: renda, teto legal, rendimento e pontos a verificar."
+          },
+          {
+            "title": "Teto legal da renda",
+            "desc": "Para cada fração, a renda anual máxima é calculada em 5 % do capital investido, reavaliado e diminuído da vetustez. As rendas acima do teto são assinaladas."
+          },
+          {
+            "title": "Pagamentos e recibos",
+            "desc": "O acompanhamento dos vencimentos da renda e a preparação de recibos em PDF para os pagamentos que declarar integralmente recebidos."
+          },
+          {
+            "title": "Reconciliação bancária",
+            "desc": "A importação de um extrato em formato CAMT.053 ou CSV para identificar as rendas recebidas, ou uma ligação bancária PSD2 através da Enable Banking, após a sua autorização."
+          },
+          {
+            "title": "Avisos de cobrança",
+            "desc": "Modelos de aviso que seguem um calendário definido por si."
+          },
+          {
+            "title": "Arrendamentos partilhados",
+            "desc": "O acompanhamento dos ocupantes de uma mesma fração e a repartição da renda e dos encargos entre eles."
+          },
+          {
+            "title": "Vistoria",
+            "desc": "Um auto de entrada ou de saída para preencher, verificar em conjunto e assinar, exportado em PDF."
+          },
+          {
+            "title": "Preparação fiscal",
+            "desc": "Uma folha de trabalho que reúne as receitas e as despesas dos seus arrendamentos para preparar a declaração. Não calcula o imposto."
+          },
+          {
+            "title": "Espaço do inquilino",
+            "desc": "Através de uma ligação pessoal, o inquilino consulta as informações da habitação e os vencimentos da renda que declarar."
+          }
+        ]
+      },
+      "start": {
+        "title": "Como começar",
+        "steps": [
+          {
+            "title": "Acrescente uma fração",
+            "desc": "Introduza o imóvel, a renda e o capital investido: preço de aquisição, obras e anos correspondentes."
+          },
+          {
+            "title": "Leia o teto legal",
+            "desc": "O software compara a renda com o teto calculado e assinala as frações a verificar."
+          },
+          {
+            "title": "Acompanhe os pagamentos",
+            "desc": "Registe as rendas recebidas ou importe um extrato bancário e, depois, prepare os recibos e os avisos."
+          }
+        ]
+      },
+      "limits": {
+        "title": "O que o software não faz",
+        "intro": "Convém sabê-lo antes de começar.",
+        "items": [
+          "Não certifica a conformidade de um contrato de arrendamento nem o direito a um apoio: o teto apresentado depende dos montantes que introduzir.",
+          "Os avisos são modelos: os prazos do software não substituem os prazos e os atos processuais aplicáveis.",
+          "Os recibos são preparados para os pagamentos que declarar recebidos; o software não cobra as rendas.",
+          "A classe energética serve de indicador de prioridade: por si só, não determina um apoio à renovação.",
+          "A preparação fiscal é uma folha de trabalho, não uma declaração nem aconselhamento fiscal."
+        ]
+      },
+      "pricing": {
+        "title": "Preço",
+        "text": "A gestão de arrendamento está incluída na conta gratuita: frações, pagamentos, recibos, avisos e reconciliação bancária. As ofertas e os respetivos limites de armazenamento estão descritos na página dos preços."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "A quem se destina este software de gestão de arrendamento?",
+            "a": "Aos proprietários que arrendam uma ou várias habitações no Luxemburgo e aos gestores que acompanham frações por conta de terceiros."
+          },
+          {
+            "q": "Como é calculado o teto legal da renda?",
+            "a": "A renda anual não pode exceder 5 % do capital investido na habitação. O software reavalia esse capital segundo o ano de cada despesa e aplica uma dedução por vetustez, a partir dos montantes que introduzir."
+          },
+          {
+            "q": "É preciso ligar a conta bancária?",
+            "a": "Não. Pode registar os pagamentos à mão ou importar um extrato. A ligação bancária PSD2 é facultativa e exige a sua autorização junto do banco."
+          },
+          {
+            "q": "O inquilino tem de criar uma conta?",
+            "a": "Não. Envia-lhe uma ligação pessoal que abre o seu espaço."
+          },
+          {
+            "q": "Pode experimentar-se sem compromisso?",
+            "a": "Sim. Uma conta gratuita basta para acrescentar uma fração e abrir cada ecrã. Também pode pedir uma demonstração com o formulário abaixo."
+          }
+        ]
+      },
+      "links": {
+        "title": "Ferramentas de acesso livre",
+        "items": [
+          "Calculadora da renda legal",
+          "Vistoria para preencher",
+          "Reconciliação bancária por importação",
+          "Arrendamento através de uma agência imobiliária social",
+          "Comparar orçamentos de seguro de rendas não pagas"
+        ]
+      },
+      "demo": {
+        "title": "Pedir uma demonstração da gestão de arrendamento",
+        "intro": "Indique os seus dados de contacto e, se quiser, o número de frações que arrenda ou gere. Responderemos por e-mail para combinar um horário.",
+        "size": "Número de frações",
+        "mailSubject": "Demonstração da gestão de arrendamento"
+      },
+      "sources": {
+        "title": "Fontes oficiais",
+        "rent": "Regras oficiais do arrendamento",
+        "energy": "Condições oficiais Klimabonus"
+      }
+    },
+    "crm": {
+      "demo": {
+        "title": "Pedir uma demonstração do CRM",
+        "intro": "Indique os seus dados de contacto e, se quiser, o número de agentes da sua agência. Responderemos por e-mail para combinar um horário.",
+        "size": "Número de agentes",
+        "mailSubject": "Demonstração do CRM imobiliário"
+      }
+    }
+  },
+  "productPreview": {
+    "caption": "Pré-visualização ilustrativa, dados fictícios",
+    "syndic": {
+      "window": "Assembleia geral",
+      "building": "Résidence Les Tilleuls · 24 frações · permilagem de 1 000",
+      "resolution": "Deliberação 3: renovação da fachada",
+      "majority": "Maioria absoluta",
+      "for": "A favor",
+      "against": "Contra",
+      "abstain": "Abstenção",
+      "adopted": "Aprovada",
+      "callsTitle": "Chamadas de fundos do 2.º trimestre",
+      "lot": "Fração",
+      "shares": "Permilagem",
+      "amount": "Montante",
+      "status": "Estado",
+      "paid": "Pago",
+      "reminder": "Aviso 1"
+    },
+    "pms": {
+      "window": "Planeamento das reservas",
+      "occupancy": "Ocupação",
+      "adr": "Preço médio (ADR)",
+      "revpar": "RevPAR",
+      "arrivals": "Chegadas do dia",
+      "room": "Quarto",
+      "double": "Duplo",
+      "twin": "Twin",
+      "suite": "Suíte",
+      "confirmed": "Confirmada",
+      "checkedIn": "Cliente presente",
+      "quote": "Orçamento"
+    },
+    "rental": {
+      "window": "Carteira de arrendamento",
+      "lot": "Fração",
+      "rent": "Renda mensal",
+      "cap": "Teto legal",
+      "payment": "Pagamento",
+      "above": "Acima do teto",
+      "received": "Recebido",
+      "late": "Em atraso",
+      "lot1": "Apartamento, Belair · 85 m²",
+      "lot2": "Estúdio, Gare · 32 m²",
+      "lot3": "Moradia, Strassen · 140 m²",
+      "summary": "3 frações · {total} por mês · 1 renda a verificar"
+    },
+    "crm": {
+      "window": "Pipeline dos mandatos",
+      "prospect": "Potencial cliente",
+      "signed": "Mandato assinado",
+      "visiting": "Em visitas",
+      "agreed": "Contrato-promessa assinado",
+      "exclusive": "Exclusivo",
+      "simple": "Simples",
+      "card1": "Apartamento T3 · Kirchberg",
+      "card2": "Moradia · Bertrange",
+      "card3": "Estúdio · Bonnevoie",
+      "card4": "Apartamento T2 · Esch-sur-Alzette",
+      "card5": "Moradia geminada · Mamer",
+      "card6": "Penthouse · Limpertsberg"
     }
   }
 }

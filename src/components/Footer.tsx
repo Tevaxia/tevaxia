@@ -29,6 +29,10 @@ export default async function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white/75 mb-3">{tc("tools")}</h3>
             <ul className="space-y-1.5 text-sm">
               {FOOTER_TOOLS.map(item => <li key={item.href}><LocaleLink href={item.href} className="hover:text-white transition-colors">{tn(item.key)}</LocaleLink></li>)}
+              {/* Pages de présentation des logiciels : liées depuis chaque page. */}
+              <li><LocaleLink href="/solutions/syndic" className="hover:text-white transition-colors">{tc("footerSyndicSoftware")}</LocaleLink></li>
+              <li><LocaleLink href="/solutions/hotel" className="hover:text-white transition-colors">{tc("footerPms")}</LocaleLink></li>
+              <li><LocaleLink href="/gestion-locative" className="hover:text-white transition-colors">{tc("footerRentalSoftware")}</LocaleLink></li>
             </ul>
           </nav>
 

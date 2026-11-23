@@ -136,7 +136,10 @@
       "banque": "Banks",
       "expert-evaluateur": "Valuers"
     },
-    "readGuide": "Read the full guide"
+    "readGuide": "Read the full guide",
+    "footerSyndicSoftware": "Co-ownership software",
+    "footerPms": "Hotel PMS",
+    "footerRentalSoftware": "Rental management software"
   },
   "home": {
     "heroTitle": "Luxembourg real estate analysis,",
@@ -3489,7 +3492,7 @@
   },
   "confidentialite": {
     "title": "Privacy Policy",
-    "lastUpdate": "Last updated: 23 October 2026",
+    "lastUpdate": "Last updated: 21 November 2026",
     "responsable": {
       "title": "1. Data Controller",
       "name": "NOTARIA PRIME — Registered office: 1 impasse de Ménez Bijigou, 29120 Pont-l’Abbé, France",
@@ -3542,6 +3545,10 @@
         "calendar": "At your request, a Google Calendar or Microsoft Outlook connection may request event read/write permissions and offline access. The external account identifiers, email, permissions, access and refresh tokens and expiry dates are stored in Supabase for this connection. Authorisation does not mean that all synchronisation features are available. A calendar subscription URL can also share published tasks and viewings with your chosen calendar service: anyone holding this URL can read its contents.",
         "drive": "Exporting to Google Drive sends the selected file and its name to Google after your action. The drive.file permission covers files created or opened with the application, not your entire Drive. Provider tokens needed for this action are accessible in the authentication session. Exported files remain in your Drive until deleted under your Google settings.",
         "revoke": "You can withdraw permissions in your Google or Microsoft account settings. To request deletion of connection data held by Tevaxia, contact contact@tevaxia.lu. Withdrawing permission does not automatically delete files or events already sent to the provider. Also revoke subscription links you no longer want to share."
+      },
+      "demo": {
+        "label": "Demo requests:",
+        "text": "When you fill in a demo request form, we record your name, your email address and, if you provide them, your company, your phone number, the size of your business and your message. This data is used only to answer your request. A fingerprint of your IP address, renewed every day, limits the number of submissions; it does not identify you. You can ask for your request to be deleted at contact@tevaxia.lu."
       }
     },
     "finalites": {
@@ -6938,196 +6945,11 @@
         "cta": "Start for free",
         "ctaSecondary": "See banking tools"
       }
-    },
-    "syndic": {
-      "meta": {
-        "title": "Co-ownership management software Luxembourg, 16.05.1975 law compliant",
-        "description": "Run your co-ownerships without Excel weekends: online AGMs, Factur-X fund calls, LU accounting, PSD2 bank reconciliation. Free trial."
-      },
-      "hero": {
-        "badge": "Built for Luxembourg co-ownerships",
-        "title": "Your co-ownership management, without",
-        "titleAccent": "weekends on Excel",
-        "subtitle": "Online AGMs with tantième-weighted voting, fund calls generated in Factur-X, Luxembourg co-ownership accounting and automatic bank reconciliation. Built for professional property managers who are tired of juggling 4 different tools.",
-        "cta": "Start for free",
-        "ctaSecondary": "See how it works",
-        "kpis": [
-          {
-            "value": "15 h",
-            "label": "saved per AGM"
-          },
-          {
-            "value": "100%",
-            "label": "16.05.1975 law compliant"
-          },
-          {
-            "value": "<24 h",
-            "label": "support response time"
-          }
-        ]
-      },
-      "problem": {
-        "title": "Managing a co-ownership in 2026 shouldn't still look like this",
-        "intro": "Between the 16 May 1975 law, quarterly fund calls, unpaid reminders, AGM prep and bookkeeping, a property manager's week fills up on its own. Unless the right tools take the load off.",
-        "items": [
-          {
-            "title": "Preparing an AGM in 3 days",
-            "desc": "Convocations due within 15 days, agenda to draft, proxies to collect, minutes to type after the fact. Admin load eats up the time that should go to the actual issues.",
-            "stat": "~15 hours per AGM"
-          },
-          {
-            "title": "Chasing unpaid charges by hand",
-            "desc": "Tracking who owes what, monitoring deadlines, computing legal interest, preparing formal notices. Without a dedicated tool, things slip, get forgotten, and the treasury shrinks.",
-            "stat": "3–7% chronic unpaid rate"
-          },
-          {
-            "title": "Juggling Excel, bank, accounting",
-            "desc": "Reconciling incoming transfers with fund calls, entering them in accounting, building AGM annexes from 3 different sources. Every step carries error risk that eventually surfaces in the assembly.",
-            "stat": "4 tools used on average"
-          }
-        ]
-      },
-      "howItWorks": {
-        "title": "One platform, three steps",
-        "intro": "No complex migration, no 2-day training. Import your co-ownerships, set allocation keys once, and the tool takes over.",
-        "steps": [
-          {
-            "number": "1",
-            "title": "Your co-ownerships imported",
-            "desc": "Excel import, manual entry or API. Units, tantièmes, co-owners, contracts, accounting history. Works with any syndic that already has a structure in place."
-          },
-          {
-            "number": "2",
-            "title": "AGMs and fund calls run themselves",
-            "desc": "Per-unit PDF convocations, tantième-weighted electronic voting, auto-generated minutes. Factur-X fund calls compliant with EN 16931 sent to co-owners with SEPA reference."
-          },
-          {
-            "number": "3",
-            "title": "Bookkeeping takes care of itself",
-            "desc": "Every fund call, every incoming payment, every entered expense feeds the accounting journal. The 5 AGM annexes are generated in PDF in one click when needed."
-          }
-        ]
-      },
-      "features": {
-        "title": "Everything a Luxembourg property manager actually needs",
-        "intro": "Features built for the Grand Duchy's legal framework: 16 May 1975 law, AGM majority rules, VAT exemption art. 44 §1 f, 10-year archiving.",
-        "items": [
-          {
-            "title": "Online AGMs with weighted voting",
-            "desc": "Electronic voting weighted by tantièmes, simple / absolute / double / unanimity majorities handled automatically."
-          },
-          {
-            "title": "Convocations + PDF minutes",
-            "desc": "Per-unit convocation with legal agenda, auto-generated minutes after the AGM with each resolution's results."
-          },
-          {
-            "title": "Factur-X fund calls",
-            "desc": "PDF/A-3 + CII D22B XML compliant with EN 16931, SEPA mandate reference, art. 261 D CGI exemption applied."
-          },
-          {
-            "title": "3-tier unpaid reminders",
-            "desc": "Friendly reminder, formal notice, demand for payment. Luxembourg legal interest rates computed automatically."
-          },
-          {
-            "title": "5 AGM accounting annexes",
-            "desc": "Balance, journal, budget forecast, charge allocation, unpaid status. PDFs ready to distribute."
-          },
-          {
-            "title": "PSD2 bank reconciliation",
-            "desc": "Connection to BCEE, BIL, Banque Raiffeisen, Post Finance via Enable Banking. Automatic reconciliation."
-          },
-          {
-            "title": "Configurable allocation keys",
-            "desc": "General tantièmes, operating tantièmes, special charges per staircase/building, custom shares."
-          },
-          {
-            "title": "Co-owner portal",
-            "desc": "Each co-owner accesses their own space: voting, statement, convocations, minutes, online payment."
-          },
-          {
-            "title": "10 editable letter templates",
-            "desc": "Reminders, convocations, formal notices, proxies. Fully customisable, DOCX / PDF / Google Drive export."
-          },
-          {
-            "title": "Free invoice OCR",
-            "desc": "Upload supplier invoices, automatic extraction via PDF.js + Tesseract.js. Zero manual data entry."
-          },
-          {
-            "title": "Bulk SEPA transfers",
-            "desc": "pain.001 XML generation for grouped supplier payments, compatible with all Luxembourg banks."
-          },
-          {
-            "title": "Charges benchmark",
-            "desc": "Compare your per-m² charges with the Luxembourg average by residence type and construction year."
-          }
-        ]
-      },
-      "trust": {
-        "title": "Why property managers choose us",
-        "agileTitle": "Agile development, regular releases",
-        "agileDesc": "New modules shipped every two weeks. Public backlog, your requests go to production fast.",
-        "customTitle": "Custom development available",
-        "customDesc": "A specific convocation format, an unusual tantième calculation, an export to your accounting firm: we build the adaptation in 1 to 3 weeks depending on complexity.",
-        "supportTitle": "Support in under 24 h",
-        "supportDesc": "Via email at contact@tevaxia.lu. Average response under 6 hours on business days. No ticket numbers, no chatbot: a human who knows the product."
-      },
-      "pricing": {
-        "title": "Included in your tevaxia subscription",
-        "subtitle": "No per-co-ownership billing, no AGM quota, no premium module. Everything available on the free tier to test, and in the general subscription for daily use.",
-        "features": [
-          "Unlimited co-ownerships",
-          "Online AGMs with tantième-weighted voting",
-          "Factur-X fund calls compliant with EN 16931",
-          "Luxembourg co-ownership accounting",
-          "PSD2 bank reconciliation (Enable Banking)",
-          "Co-owner portal with individual access",
-          "5 AGM PDF accounting annexes",
-          "3-tier unpaid reminders with LU legal interest rates",
-          "16 May 1975 law compliant"
-        ],
-        "ctaPlatform": "See tevaxia plans",
-        "ctaEmit": "Go to syndic module"
-      },
-      "faq": {
-        "title": "Frequently asked questions",
-        "items": [
-          {
-            "q": "I'm moving from [another tool] to tevaxia, how does migration work?",
-            "a": "Standard Excel import (units, co-owners, charge history), then allocation key configuration. Picking up an ongoing accounting year takes 2 to 4 hours depending on complexity. We help you through this at no extra cost."
-          },
-          {
-            "q": "Is the tool compliant with Luxembourg co-ownership law?",
-            "a": "Yes, the 16 May 1975 law (co-ownership status) is built in: simple / absolute / double / unanimity majority rules, 15-day convocation deadline, accounting obligations, 10-year archiving. Accounting annexes follow the format expected by auditors."
-          },
-          {
-            "q": "Is an online AGM legally valid?",
-            "a": "Yes, provided the co-ownership rules allow it or a prior physical AGM resolution has approved it. The practice has been common in Luxembourg since 2020. The signed electronic minutes are archivable as legal evidence."
-          },
-          {
-            "q": "Can fund calls be issued for VAT-exempt co-ownerships?",
-            "a": "Yes, art. 44 §1 f of the VAT law exempts co-ownership management. The module automatically applies the correct exemption and generates exempted Factur-X (category E in EN 16931). No risk of wrongly charged VAT."
-          },
-          {
-            "q": "Is co-owner data secure?",
-            "a": "Stored on Supabase (AWS eu-central-1 Frankfurt) with Row Level Security per user: even administrators cannot access data from a syndic that is not theirs. GDPR-compliant, HTTPS encryption in transit. Full data export to ZIP available at any time."
-          },
-          {
-            "q": "How long before I'm operational?",
-            "a": "A syndic managing 1 to 5 co-ownerships is operational in 1 to 2 hours: account creation, first co-ownership import, allocation key setup, first fund call. Beyond 10 co-ownerships, allow 4 to 6 hours for a full import."
-          }
-        ]
-      },
-      "finalCta": {
-        "title": "Ready to take your evenings back",
-        "desc": "Create your free account, import your first co-ownership and generate a test fund call in 15 minutes. Zero commitment.",
-        "cta": "Start for free",
-        "ctaSecondary": "See the syndic module live"
-      }
     }
   },
   "syndic": {
-    "title": "Co-ownership Management Software in Luxembourg",
-    "subtitle": "Co-ownership management software for Luxembourg: service charges by shares, lots, general meetings, calls for funds and energy renovation.",
+    "title": "Co-ownership charges in Luxembourg: simulator by shares",
+    "subtitle": "Co-ownership charges simulator: allocation by shares between units, charges budget and energy renovation scenarios for the building.",
     "primaryCta": {
       "label": "Main access",
       "title": "My managed condominiums",
@@ -7867,28 +7689,6 @@
       "faq3a": "All 5 layers: state acquisition aids (Bëllegen Akt, 3% VAT relief), energy renovation (Klimabonus, Klimaprêt), private aids (housing savings premium), communal aids (variable by municipality) and heritage aids (listed properties).",
       "faq4q": "Does the 5% rule apply if I live in the property myself?",
       "faq4a": "No. The legal cap applies only to rented properties. If you buy for yourself, skip step 4 — it is only relevant if you plan to rent the property later.",
-      "faqTitle": "Frequently asked questions",
-      "relatedTitle": "Go further"
-    }
-  },
-  "gestionLocative": {
-    "seo": {
-      "regle5Title": "The 5% rule in Luxembourg",
-      "regle5Content": "No: the lot form lacks some inputs, including construction year and furniture invoices. Its result is partial. Use the detailed rent calculator and official documents before drawing a conclusion.",
-      "klimabonusTitle": "Renovation to review",
-      "klimabonusContent": "The energy class alone does not determine Klimabonus entitlement. Check the building, works, dates and applicable prior approval.",
-      "rendementTitle": "Potential gross yield",
-      "rendementContent": "Gross yield divides annual rent by the purchase price. The legal rent ceiling uses a different basis: revalued and depreciated invested capital. It therefore does not set a maximum gross yield of 5% of the purchase price.",
-      "syndicTitle": "Use by property managers",
-      "syndicContent": "Track lots, rents and items requiring review. The portfolio does not certify lease compliance or entitlement to aid.",
-      "faq1q": "Is my rental data sent online?",
-      "faq1a": "Lots for the signed-in account are stored online with a separate local cache per account. Guest lots stay local. Older backups without an assigned owner are not imported automatically.",
-      "faq2q": "Is the rent ceiling check complete?",
-      "faq2a": "No: the lot form lacks some inputs, including construction year and furniture invoices. Its result is partial. Use the detailed rent calculator and official documents before drawing a conclusion.",
-      "faq3q": "How can I verify revaluation?",
-      "faq3a": "Consult the official invested-capital tables and guidance. Calculation year, investment dates, land, works and depreciation must be distinguished. Purchase price alone is insufficient.",
-      "faq4q": "Does furnished rental change the calculation?",
-      "faq4a": "The furniture supplement is separate from property rent and requires eligible invoices. Selecting furnished does not calculate a flat supplement; enter the supporting details in the detailed calculator.",
       "faqTitle": "Frequently asked questions",
       "relatedTitle": "Go further"
     }
@@ -13575,37 +13375,6 @@
     "methoItem3": "Regulation (EU) 2019/2088 SFDR + RTS 2022/1288 PAI indicators",
     "methoItem4": "Directive EPBD IV 2024/1275 + LU transposition planned 2026",
     "methoItem5": "LU emission factors: ILR 2023 (grid), guichet.lu (fossil fuels)"
-  },
-  "gestionLocativeHub": {
-    "heroTitle": "Rental management in Luxembourg",
-    "heroSubtitle": "Track your portfolio with Luxembourg specifics: 5% rule, energy impact (Klimabonus), and alerts on rents above the legal cap.",
-    "ctaPortefeuille": "Access the portfolio →",
-    "ctaFiscal": "📊 LU tax dashboard",
-    "ctaEtatLieux": "📱 Inventory of fixtures",
-    "ctaReconciliation": "🏦 Bank reconciliation",
-    "ctaRelances": "📬 Overdue reminders",
-    "ctaGli": "🛡 Unpaid-rent insurance",
-    "ctaTestRule": "Test the 5% rule",
-    "whyTitle": "Built for Luxembourg residential lease law",
-    "whySubtitle": "Track lots, rents and items requiring review. The portfolio does not certify lease compliance or entitlement to aid.",
-    "card1Title": "5% rule",
-    "card1Desc": "Max annual rent = 5% of revalued invested capital with age discount. Any higher rent is legally reducible by the tenant.",
-    "card2Title": "Renovation to review",
-    "card2Desc": "The energy class alone does not determine Klimabonus entitlement. Check the building, works, dates and applicable prior approval.",
-    "card3Title": "Real yield",
-    "card3Desc": "STATEC revaluation coefficient + 1%/year age discount applied automatically. Your gross yield is compared to the max achievable legal yield.",
-    "forWhoTitle": "For whom?",
-    "forWho1Title": "Owners of 1 to 10 lots",
-    "forWho1Desc": "Multi-property owners in Luxembourg. Check legal compliance of each rent, track aggregated profitability, identify lots to renovate in priority.",
-    "forWho2Title": "Syndics & managers 10-100 lots",
-    "forWho2Desc": "Portfolio steering on behalf of third parties. Automatic alerts on lots above legal cap, post-renovation revaluation simulations.",
-    "mvpStrong": "MVP status:",
-    "mvpBody": "lots are persisted locally in your browser. For synchronised multi-seat (organisation, collaborator invitations), we'll integrate Supabase in an upcoming version, your local data will be migratable.",
-    "startTitle": "Start now",
-    "startSubtitle": "Add your lots in 2 minutes, get the legal cap and energy diagnostic instantly.",
-    "startCta": "Open my portfolio →",
-    "officialRent": "Official rental rules",
-    "officialEnergy": "Official Klimabonus conditions"
   },
   "hotelTransactions": {
     "backHub": "← Hotel suite",
@@ -19822,6 +19591,480 @@
       "p1": "The simulator starts from the average nightly rate, the occupancy rate and the booking channel to calculate annual gross income, then deducts the platform commission, cleaning, linen, consumables and fixed charges.",
       "p2": "It then applies the marginal tax rate you select and shows the annual and monthly net income, as well as the net yield relative to the purchase price.",
       "p3": "The calculation does not take into account loan repayment, VAT, social contributions or the household's final tax assessment. The ranges shown are reference points; also check the obligations that apply to short-term rentals in your municipality."
+    }
+  },
+  "productPages": {
+    "common": {
+      "demoCta": "Request a demo",
+      "pricingLink": "See pricing",
+      "faqTitle": "Frequently asked questions",
+      "form": {
+        "name": "Name",
+        "company": "Company",
+        "email": "Email address",
+        "phone": "Phone",
+        "message": "Your need in a few words",
+        "optional": "optional",
+        "submit": "Send the request",
+        "sending": "Sending…",
+        "successTitle": "Your request has been recorded.",
+        "successText": "We will reply by email to agree on a time.",
+        "errorInvalid": "Check your name and email address, then try again.",
+        "errorRateLimited": "Too many requests have been sent. Try again in an hour.",
+        "errorUnavailable": "The request could not be recorded.",
+        "fallback": "You can write to us at",
+        "privacy": "Your contact details are used only to answer this request.",
+        "privacyLink": "Privacy policy"
+      }
+    },
+    "syndic": {
+      "meta": {
+        "title": "Co-ownership management software in Luxembourg | Tevaxia",
+        "description": "Software for co-ownership managers in Luxembourg: general meetings with weighted voting, funds calls, accounting, arrears reminders and a co-owner portal."
+      },
+      "hero": {
+        "eyebrow": "Property managers and co-ownership managers",
+        "title": "Co-ownership management software in Luxembourg",
+        "subtitle": "Run your co-ownerships in a single tool: units and shares, general meetings with weighted voting, funds calls, accounting, arrears reminders and a portal for co-owners.",
+        "open": "Open my co-ownerships",
+        "note": "Free with an account during the launch phase."
+      },
+      "features": {
+        "title": "What the software does",
+        "intro": "Each function below corresponds to a screen of the software, available as soon as a co-ownership is created.",
+        "items": [
+          {
+            "title": "Co-ownerships, units and shares",
+            "desc": "Each co-ownership groups its units and their shares. A portfolio view ranks the buildings by amount of arrears and compares their indicators with one another."
+          },
+          {
+            "title": "General meetings",
+            "desc": "Notices, agenda, electronic voting weighted by shares, and minutes. Four majority rules are available: simple, absolute, double and unanimity. A video-conference room can be opened, and a generator prepares proxies as PDF files."
+          },
+          {
+            "title": "Funds calls",
+            "desc": "Calls per period, allocated by shares or by your own allocation keys (heating, lift, staircases), with one PDF per unit."
+          },
+          {
+            "title": "Accounting and budget",
+            "desc": "Chart of accounts, double-entry bookkeeping, journal, trial balance and year-end closing. The budget is compared with actual figures, and five accounting schedules are produced as PDF files for the meeting."
+          },
+          {
+            "title": "Arrears reminders",
+            "desc": "Three reminder levels, from the friendly letter to the final formal notice, with late-payment interest at the rate you set and a history of what was sent."
+          },
+          {
+            "title": "Bank and suppliers",
+            "desc": "Import of the bank statement as a CSV file to match payments received with funds calls, a SEPA transfer file to pay suppliers in one batch, and automatic reading of supplier invoices."
+          },
+          {
+            "title": "Works and works fund",
+            "desc": "Follow-up of a project from the call for tenders to completion, through quotes and the vote at the meeting, plus follow-up of the works fund."
+          },
+          {
+            "title": "Co-owner portal and messaging",
+            "desc": "Each co-owner receives a personal link to read notices, vote and download a statement of account. Messaging connects the manager and the co-owners; the co-ownership board has its own space."
+          },
+          {
+            "title": "Archives and letter templates",
+            "desc": "Archiving of minutes, invoices and contracts, and ten editable letter templates that can be exported as DOCX or PDF."
+          }
+        ]
+      },
+      "start": {
+        "title": "How to get started",
+        "steps": [
+          {
+            "title": "Create an account and your first co-ownership",
+            "desc": "Enter the building, then its units with their shares and their co-owners."
+          },
+          {
+            "title": "Set the allocation and the budget",
+            "desc": "Add your allocation keys if not all charges follow the general shares, then draw up the budget for the financial year."
+          },
+          {
+            "title": "Issue a funds call or convene a meeting",
+            "desc": "Generate the call for the period, send co-owners the link to their space and prepare the notice."
+          }
+        ]
+      },
+      "limits": {
+        "title": "What the software does not do",
+        "intro": "Better to know before you start.",
+        "items": [
+          "The bank is not connected live: reconciliation starts from a CSV statement that you import.",
+          "Funds calls are PDF documents, not electronic invoices.",
+          "Units and co-owners are entered by hand: there is no automatic migration from another software.",
+          "The software applies the majority rule you choose; it does not check that a decision complies with your co-ownership regulations or with the Law of 16 May 1975.",
+          "Letters and reminders are templates: have them reviewed before sending anything with legal effect."
+        ]
+      },
+      "pricing": {
+        "title": "Price",
+        "text": "During the launch phase, the co-ownership software is free with an account. The price announced for later is €29 per month for the Pro plan, which includes it."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "Who is this co-ownership software for?",
+            "a": "Professional and volunteer co-ownership managers who run one or more co-ownerships in Luxembourg. The portfolio view is most useful from several buildings upwards."
+          },
+          {
+            "q": "Is voting at the general meeting weighted?",
+            "a": "Yes. Each vote counts for the shares of the unit, and the result of each resolution is calculated according to the chosen majority: simple, absolute, double or unanimity. Check in your co-ownership regulations that electronic voting is allowed."
+          },
+          {
+            "q": "Do co-owners have to create an account?",
+            "a": "No. The manager sends them a personal link that opens their space: notices, voting and statement of account."
+          },
+          {
+            "q": "Where is the data hosted?",
+            "a": "Account data is hosted by Supabase, in Europe. Access is limited to the account that manages the co-ownership; details are given in the privacy policy."
+          },
+          {
+            "q": "Can I try it without commitment?",
+            "a": "Yes. A free account is enough to create a co-ownership and open every screen. You can also request a demo with the form below."
+          }
+        ]
+      },
+      "links": {
+        "title": "Free tools",
+        "items": [
+          "Co-ownership charges simulator",
+          "Letter templates for managers",
+          "General meeting proxy"
+        ]
+      },
+      "demo": {
+        "title": "Request a demo of the co-ownership software",
+        "intro": "Give us your contact details and, if you wish, the number of co-ownerships or units you manage. We will reply by email to agree on a time.",
+        "size": "Number of co-ownerships or units",
+        "mailSubject": "Demo of the co-ownership software"
+      }
+    },
+    "pms": {
+      "meta": {
+        "title": "Hotel PMS in Luxembourg: hotel management software",
+        "description": "PMS for hotels, guest houses and aparthotels in Luxembourg: reservation calendar, front desk, seasonal rates, folios and occupancy reports."
+      },
+      "hero": {
+        "eyebrow": "Hotels, guest houses, aparthotels",
+        "title": "Hotel PMS software in Luxembourg",
+        "subtitle": "Manage your rooms, reservations and front desk in a single tool: calendar, seasonal rates, folios, billing documents and reports on occupancy, average rate and RevPAR.",
+        "open": "Open the PMS",
+        "note": "Free with an account during the launch phase."
+      },
+      "features": {
+        "title": "What the PMS does",
+        "intro": "Each function below corresponds to a screen of the software, available as soon as a property is created.",
+        "items": [
+          {
+            "title": "Properties and rooms",
+            "desc": "Hotel, motel, guest house, aparthotel, inn or campsite. Each room has a status: available, occupied, to be cleaned, clean, inspected or out of order. A wizard suggests a starting configuration that you can change afterwards."
+          },
+          {
+            "title": "Reservations and calendar",
+            "desc": "A reservation moves from quote to confirmation, then to arrival and departure; cancellations and no-shows are tracked. The calendar shows occupancy room by room."
+          },
+          {
+            "title": "Front desk and guest file",
+            "desc": "A daily view lists arrivals, departures and in-house guests, with a printable version. The guest file keeps the contact details needed for stays."
+          },
+          {
+            "title": "Seasonal rates",
+            "desc": "Rates by period, by rate plan and by room type, with bulk editing by percentage or by amount."
+          },
+          {
+            "title": "Groups and allotments",
+            "desc": "Block reservations for a wedding or a seminar, with release date, negotiated rate and rooming list."
+          },
+          {
+            "title": "Folios and point of sale",
+            "desc": "Services are added to the folio of the stay, with the price excluding tax and the VAT rate you enter for each line."
+          },
+          {
+            "title": "Billing documents",
+            "desc": "Deposits and invoices are tracked by type and by status. These statuses are declarative: they replace neither your invoicing nor your accounting."
+          },
+          {
+            "title": "iCal calendars",
+            "desc": "Import of the iCal calendars of booking platforms and export of a read-only calendar."
+          },
+          {
+            "title": "Reports",
+            "desc": "Occupancy, average rate, RevPAR and room revenue per day, performance by source, recent bookings by month of stay, occupancy projection, monthly journal and CSV export."
+          }
+        ]
+      },
+      "start": {
+        "title": "How to get started",
+        "steps": [
+          {
+            "title": "Create your property",
+            "desc": "Choose the type of property and let the wizard suggest starting rooms and rates. Everything can be changed."
+          },
+          {
+            "title": "Check rates and taxes",
+            "desc": "Check your rates, the VAT rate of each service and any local taxes before recording stays."
+          },
+          {
+            "title": "Enter your reservations",
+            "desc": "Add current reservations or import an iCal calendar, then follow arrivals from the front desk."
+          }
+        ]
+      },
+      "limits": {
+        "title": "What the PMS does not do",
+        "intro": "Better to know before you start.",
+        "items": [
+          "iCal calendars are not a channel manager: they guarantee neither an immediate update nor the absence of overbooking.",
+          "Rates and payments are checked separately: the PMS validates neither an invoice nor an accounting entry.",
+          "The VAT rate is not derived from the category of a service: you enter it line by line.",
+          "The hotel analysis tools of the site use their own data: nothing is transferred automatically from the PMS.",
+          "No set-up time is guaranteed: it depends on the number of rooms and rates to enter."
+        ]
+      },
+      "pricing": {
+        "title": "Price",
+        "text": "During the launch phase, the PMS is free with an account. The price announced for later is €29 per month for the Pro plan, which includes the PMS."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "Which properties is this PMS designed for?",
+            "a": "Hotels, motels, guest houses, aparthotels, inns and campsites. The starting settings are designed for a property located in Luxembourg."
+          },
+          {
+            "q": "Does the PMS connect to Booking.com or Airbnb?",
+            "a": "Through iCal calendars only: you import the calendar of the platform and give it a read-only calendar. This is not real-time synchronisation; watch your availability to avoid overbooking."
+          },
+          {
+            "q": "Which indicators are calculated?",
+            "a": "Occupancy rate, average daily rate (ADR), revenue per available room (RevPAR) and room revenue, over 7, 30, 90 or 365 days."
+          },
+          {
+            "q": "Does the PMS handle hotel VAT?",
+            "a": "It records the rate you enter for each service. The applicable rate depends on the actual service; check it in official sources."
+          },
+          {
+            "q": "Can I try it without commitment?",
+            "a": "Yes. A free account is enough to create a property and open every screen. You can also request a demo with the form below."
+          }
+        ]
+      },
+      "links": {
+        "title": "Free hotel analysis tools",
+        "items": []
+      },
+      "demo": {
+        "title": "Request a demo of the PMS",
+        "intro": "Give us your contact details and, if you wish, the number of rooms of your property. We will reply by email to agree on a time.",
+        "size": "Number of rooms",
+        "mailSubject": "Demo of the hotel PMS"
+      }
+    },
+    "rental": {
+      "meta": {
+        "title": "Rental management software in Luxembourg | Tevaxia",
+        "description": "Rental management for landlords in Luxembourg: units, legal rent cap (5% rule), payments, rent receipts, reminders and bank reconciliation."
+      },
+      "hero": {
+        "eyebrow": "Landlords and property managers",
+        "title": "Rental management software in Luxembourg",
+        "subtitle": "Keep track of your units, rents and payments, with the legal rent cap calculated for each property, rent receipts, reminders, bank reconciliation and the inventory report.",
+        "open": "Open my portfolio",
+        "note": "Included in the free account."
+      },
+      "features": {
+        "title": "What the software does",
+        "intro": "Each function below corresponds to a screen of the software, available as soon as a first unit is added.",
+        "items": [
+          {
+            "title": "Portfolio of units",
+            "desc": "All your properties in one table: rent, legal cap, yield and points to check."
+          },
+          {
+            "title": "Legal rent cap",
+            "desc": "For each unit, the maximum annual rent is calculated at 5% of the invested capital, revalued and reduced for age. Rents above the cap are flagged."
+          },
+          {
+            "title": "Payments and rent receipts",
+            "desc": "Tracking of rent due dates and preparation of PDF receipts for the payments you declare as received in full."
+          },
+          {
+            "title": "Bank reconciliation",
+            "desc": "Import of a statement in CAMT.053 or CSV format to spot rents received, or a PSD2 bank connection through Enable Banking after your authorisation."
+          },
+          {
+            "title": "Arrears reminders",
+            "desc": "Reminder templates that follow a schedule you set."
+          },
+          {
+            "title": "Shared tenancies",
+            "desc": "Tracking of the occupants of a single unit and the split of rent and charges between them."
+          },
+          {
+            "title": "Inventory report",
+            "desc": "A move-in or move-out report to fill in, check together and sign, exported as a PDF file."
+          },
+          {
+            "title": "Tax preparation",
+            "desc": "A worksheet that gathers the income and expenses of your rentals to prepare your tax return. It does not calculate the tax."
+          },
+          {
+            "title": "Tenant space",
+            "desc": "Through a personal link, the tenant sees the information about the dwelling and the rent due dates that you declare."
+          }
+        ]
+      },
+      "start": {
+        "title": "How to get started",
+        "steps": [
+          {
+            "title": "Add a unit",
+            "desc": "Enter the property, the rent and the invested capital: purchase price, works and the corresponding years."
+          },
+          {
+            "title": "Read the legal cap",
+            "desc": "The software compares the rent with the calculated cap and flags the units to check."
+          },
+          {
+            "title": "Track payments",
+            "desc": "Record the rents received or import a bank statement, then prepare receipts and reminders."
+          }
+        ]
+      },
+      "limits": {
+        "title": "What the software does not do",
+        "intro": "Better to know before you start.",
+        "items": [
+          "It certifies neither the compliance of a lease nor entitlement to a subsidy: the cap shown depends on the amounts you enter.",
+          "Reminders are templates: the due dates in the software do not replace the applicable time limits and procedural steps.",
+          "Receipts are prepared for the payments you declare as received; the software does not collect rents.",
+          "The energy class is used as a priority indicator: on its own it does not determine a renovation subsidy.",
+          "Tax preparation is a worksheet, not a tax return and not tax advice."
+        ]
+      },
+      "pricing": {
+        "title": "Price",
+        "text": "Rental management is included in the free account: units, payments, receipts, reminders and bank reconciliation. The plans and their storage limits are detailed on the pricing page."
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "Who is this rental management software for?",
+            "a": "Owners who rent out one or more dwellings in Luxembourg, and managers who follow units on behalf of others."
+          },
+          {
+            "q": "How is the legal rent cap calculated?",
+            "a": "The annual rent may not exceed 5% of the capital invested in the dwelling. The software revalues this capital according to the year of each expense and applies a reduction for age, based on the amounts you enter."
+          },
+          {
+            "q": "Do I have to connect my bank account?",
+            "a": "No. You can record payments by hand or import a statement. The PSD2 bank connection is optional and requires your authorisation with the bank."
+          },
+          {
+            "q": "Does the tenant have to create an account?",
+            "a": "No. You send the tenant a personal link that opens their space."
+          },
+          {
+            "q": "Can I try it without commitment?",
+            "a": "Yes. A free account is enough to add a unit and open every screen. You can also request a demo with the form below."
+          }
+        ]
+      },
+      "links": {
+        "title": "Free tools",
+        "items": [
+          "Legal rent calculator",
+          "Inventory report to fill in",
+          "Bank reconciliation by import",
+          "Renting through a social rental agency",
+          "Compare unpaid-rent insurance quotes"
+        ]
+      },
+      "demo": {
+        "title": "Request a demo of rental management",
+        "intro": "Give us your contact details and, if you wish, the number of units you rent out or manage. We will reply by email to agree on a time.",
+        "size": "Number of units",
+        "mailSubject": "Demo of rental management"
+      },
+      "sources": {
+        "title": "Official sources",
+        "rent": "Official rental rules",
+        "energy": "Official Klimabonus conditions"
+      }
+    },
+    "crm": {
+      "demo": {
+        "title": "Request a demo of the CRM",
+        "intro": "Give us your contact details and, if you wish, the number of agents in your agency. We will reply by email to agree on a time.",
+        "size": "Number of agents",
+        "mailSubject": "Demo of the real-estate CRM"
+      }
+    }
+  },
+  "productPreview": {
+    "caption": "Illustrative preview, fictitious data",
+    "syndic": {
+      "window": "General meeting",
+      "building": "Résidence Les Tilleuls · 24 units · 1,000 shares",
+      "resolution": "Resolution 3: façade renovation",
+      "majority": "Absolute majority",
+      "for": "For",
+      "against": "Against",
+      "abstain": "Abstention",
+      "adopted": "Adopted",
+      "callsTitle": "Funds calls for the 2nd quarter",
+      "lot": "Unit",
+      "shares": "Shares",
+      "amount": "Amount",
+      "status": "Status",
+      "paid": "Paid",
+      "reminder": "Reminder 1"
+    },
+    "pms": {
+      "window": "Reservation calendar",
+      "occupancy": "Occupancy",
+      "adr": "Average rate (ADR)",
+      "revpar": "RevPAR",
+      "arrivals": "Arrivals today",
+      "room": "Room",
+      "double": "Double",
+      "twin": "Twin",
+      "suite": "Suite",
+      "confirmed": "Confirmed",
+      "checkedIn": "In house",
+      "quote": "Quote"
+    },
+    "rental": {
+      "window": "Rental portfolio",
+      "lot": "Unit",
+      "rent": "Monthly rent",
+      "cap": "Legal cap",
+      "payment": "Payment",
+      "above": "Above the cap",
+      "received": "Received",
+      "late": "Late",
+      "lot1": "Apartment, Belair · 85 m²",
+      "lot2": "Studio, Gare · 32 m²",
+      "lot3": "House, Strassen · 140 m²",
+      "summary": "3 units · {total} per month · 1 rent to check"
+    },
+    "crm": {
+      "window": "Mandate pipeline",
+      "prospect": "Prospect",
+      "signed": "Mandate signed",
+      "visiting": "Viewings",
+      "agreed": "Under agreement",
+      "exclusive": "Exclusive",
+      "simple": "Non-exclusive",
+      "card1": "3-bedroom apartment · Kirchberg",
+      "card2": "House · Bertrange",
+      "card3": "Studio · Bonnevoie",
+      "card4": "2-bedroom apartment · Esch-sur-Alzette",
+      "card5": "Semi-detached house · Mamer",
+      "card6": "Penthouse · Limpertsberg"
     }
   }
 }

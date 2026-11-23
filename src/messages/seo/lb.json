@@ -44,8 +44,8 @@
     "description": "Rechent d'Akafskäschten zu Lëtzebuerg aus: Enregistrementsrechter, Bëllegen Akt, TVA, Notärskäschten an Hypothéikskäschten. Indikativ Schätzung."
   },
   "/gestion-locative": {
-    "title": "Locatiounsgestioun zu Lëtzebuerg: Loyeren, Lotten, Quittungen",
-    "description": "Verfollegt Är Portfolio mat de Lëtzebuerger Spezifizitéiten: Reegel 5 %, Energie-Impakt (Klimabonus) an Alerten op Mieten iwwer dem Plafong."
+    "title": "Software fir d'Locatiounsgestioun zu Lëtzebuerg | Tevaxia",
+    "description": "Locatiounsgestioun fir Proprietären zu Lëtzebuerg: Lotten, gesetzleche Loyersplafong (5-%-Regel), Bezuelungen, Quittungen, Relancen a Bankrapprochement."
   },
   "/gestion-locative/ais": {
     "title": "Sozial Locatiounsgestioun: Verglach no Joer | Tevaxia",
@@ -160,8 +160,8 @@
     "description": "Sicht an all den tevaxia-Entitéiten: Mandater, CRM-Kontakter, Coproprietéiten, Hotelobjeten a Reservatiounen."
   },
   "/solutions/hotel": {
-    "title": "Instrumenter fir Hotellieren an Investisseuren | Tevaxia",
-    "description": "Wielt Instrumenter fir Ären Hotelprojet: Bewäertung, DSCR, Betribsanalyse an Dokumentvirbereedung op Basis vun Ären eegenen Donnéeën."
+    "title": "Hotel-PMS zu Lëtzebuerg: Software fir d'Hotelgestioun",
+    "description": "PMS fir Hotellen, Gaaschtzëmmeren a Residenzen zu Lëtzebuerg: Reservatiounsplang, Receptioun, Saisonpräisser, Folioen a Rapporten iwwer d'Beleeung."
   },
   "/status": {
     "title": "Zoustand an Disponibilitéit vun den Déngschter | Tevaxia",
